@@ -1,0 +1,32 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\dpbfields-vm-1xlcmexd",
+  "image_before_sha256": "905111f6cf1aa25912c42b7feb368e4918d09aec9e7386528e646793352553e4",
+  "image_after_sha256": "af9c8064ff0e94a5c23e4abefef1f35e2a82dfa452cc30562dcf94e67e234cce",
+  "guest_source_sha256": "e87557ebc6c99af1b1db314ea69bf9a99d97bb4a3b81454d1a5c865c72c19178",
+  "guest_probe_sha256": "25209b92eae3c9f1e40e2f1259b3d3fea43a9df2f33d386aa7ca1475646d51bb",
+  "headless_probe_sha256": "b5b718d3f27e09242ae859b48756d80b83ba1d56843f7234962e7b3f17aa7aaa",
+  "log_sha256": "b3a2208e8db2d77021b77154bd9a5ba7e02972488669790be39601dccb9d5315",
+  "system_files": {
+    "IO.SYS": "dd0915ed366b3f640284df4be30ed35f413dfd5b6966c1f25eee9598a5bf53e0",
+    "MSDOS.SYS": "4e41ca4e5893d4cf293f81ad01adbdbd12f7039534f59148214a9cca309529a2",
+    "COMMAND.COM": "74ad25067e7d9f5c3a0ac2f2967347defb0ffef9e6ed60b60e6499f0b1a8cc89"
+  },
+  "checked_dpb_fields": {
+    "drive": 0,
+    "unit": 0,
+    "sector_size": 512,
+    "cluster_mask": 0,
+    "cluster_shift": 0,
+    "first_fat": 1,
+    "fat_count": 2,
+    "root_entries": 224,
+    "first_data_sector": 33,
+    "max_cluster": 2848,
+    "fat_size": 9,
+    "root_sector": 19,
+    "media": 240
+  },
+  "results": "DPBFIELDS-PASS; PROBE-PASS",
+  "passed": true,
+  "scope": "Guest comparisons for one 1.44 MB FAT12 geometry on existing binaries, using headless SoftPC core. Not fresh-source build, supplied product, original image, or all DPB fields and geometries."
+}

@@ -1,0 +1,30 @@
+{
+  "build": "m4-t5-openclose-build.json",
+  "snapshots": {
+    "m4-t5-openclose-build.json": {
+      "inputs": 115,
+      "mismatches": []
+    },
+    "m2-t3-command-exact-verification.json": {
+      "inputs": 113,
+      "mismatches": []
+    }
+  },
+  "changed_production_inputs": [
+    "dos/dev.asm"
+  ],
+  "candidate_proof": "m4-t5-dev-openclose-verification.json",
+  "linked_proof": "m4-t5-openclose-linked-verification.json",
+  "init_proof": "m4-t5-openclose-segreinit-regression.json",
+  "unique_target_bytes": 6331,
+  "named_calls": 120,
+  "new_slice_bytes": 129,
+  "new_slice_calls": 5,
+  "source_diff": "--- accepted dev.asm\n+++ restored dev.asm\n@@ -26,6 +26,7 @@\n \tinclude dosseg.inc\n \tINCLUDE DOSSYM.INC\n \tINCLUDE DEVSYM.INC\n+\tinclude dpb.inc\n \tinclude sf.inc\n \tinclude dossvc.inc\n \t.cref\n@@ -447,11 +448,19 @@\n \tXOR\tAH,AH\t\t\t; Unit\n \tTESTB\tES:[DI].SF_FLAGS,devid_device\n \tLES\tDI,ES:[DI.sf_devptr]\t; Get DPB or device\n-\tJZ\tOPCLS_DONE\n+\tJNZ\tGot_Dev_Addr\n \n \t; We are about to call device open/close on a block driver.  If no \n \t; sharing then just short circuit to done.\n \n+;;;;;\tinvoke\tCheckShare\n+\n+\t\t\t\t\t; SS override\n+\tCMP\tfshare,1\t\t;AN010; /NC or no SHARE\n+\tJBE\topCLs_Done\t\t;AN010; yes\n+\tMOV\tAH,ES:[DI.dpb_UNIT]\t; (ah) = unit\n+\tMOV\tCL,ES:[DI.dpb_drive]\t; (cl) = drive\n+\tLES\tDI,ES:[DI.dpb_driver_addr]  ; Get device\n GOT_DEV_ADDR:\t\t\t\t; ES:DI -> device\n \tTESTB\tES:[DI.SDEVATT],DEVOPCL\n \tJZ\tOPCLS_DONE\t\t; Device can't\n",
+  "failed_attempt": {
+    "stage": "build/kernel-clean-87dytrgo",
+    "phase": "native dev.asm assembly",
+    "cause": "NT module omitted dpb.inc; restored include before clean rebuild"
+  },
+  "limits": "Static target-layout and linked-call evidence only; CHARHARD and read/write host paths still need restoration. Physical SFT migration and full target/runtime acceptance remain open."
+}

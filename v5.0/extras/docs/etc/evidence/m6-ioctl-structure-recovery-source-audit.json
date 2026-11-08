@@ -1,0 +1,15 @@
+{
+  "changes": {
+    "inc/ioctl.inc": {
+      "before": "5afdc64aa6d91c4c503c9d27fe4982517f3a762b94413ee8a882a49f3736ff2f",
+      "after": "92d84b7bf1fcd1f6cf6d2fbfc0e73a52d3efe80eb26a022e175c81a49d0cc49f"
+    },
+    "inc/versiona.inc": {
+      "before": "df1d5b2a37fbd511701d993d7362a6cb11c3ab077bda674a69948bf71bbb958c",
+      "after": "bae6036c30263ffd0a4ac74beee3075c919d3f13f45c076af32043af68b65212"
+    }
+  },
+  "original_ioctl_block": ";A_DEVICEPARAMETERS  STRUC\r\n;DP_SPECIALFUNCTIONS\tDB\t?\r\n;DP_DEVICETYPE\t\tDB\t?\r\n;DP_DEVICEATTRIBUTES\tDW\t?\r\n;DP_CYLINDERS\t\tDW\t?\r\n;DP_MEDIATYPE\t\tDB\t?\r\n;DP_BPB\t\t\tDB\tSIZE A_BPB DUP (?)\r\n;DP_TRACKTABLEENTRIES\tDW\t?\r\n;DP_SECTORTABLE\t\tDB MAX_SECTORS_IN_TRACK * SIZE A_SECTORTABLE DUP (?)\r\n;A_DEVICEPARAMETERS  ENDS\r\n\r\n;A_TRACKREADWRITEPACKET STRUC\r\n;TRWP_SPECIALFUNCTIONS\tDB\t?\r\n;TRWP_HEAD\t\tDW\t?\r\n;TRWP_CYLINDER\t\tDW\t?\r\n;TRWP_FIRSTSECTOR\tDW\t?\r\n;TRWP_SECTORSTOREADWRITE DW\t?\r\n;TRWP_TRANSFERADDRESS\tDD\t?\r\n;A_TRACKREADWRITEPACKET ENDS",
+  "removed_nt_line": "minor_version_NT    equ     50\t    ;Minor DOS VersionN for int 21h/3306\r\n",
+  "scope": "Restore structure definitions matching BIOS and DOS 6; remove unreferenced NT-specific version constant."
+}

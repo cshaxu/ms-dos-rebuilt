@@ -1,0 +1,41 @@
+{
+  "index": 3,
+  "file": "dos/msdos.skl",
+  "sha256": "a5605f538cce0c44d6eee650a50cc82b991e4f5743d804e9abe17e12c6e27a9a",
+  "decision": "matches DOS 6 and OpenNT byte for byte; retain",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\msdos.skl",
+      "sha256": "a5605f538cce0c44d6eee650a50cc82b991e4f5743d804e9abe17e12c6e27a9a"
+    },
+    {
+      "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\dos\\msdos.skl",
+      "sha256": "a5605f538cce0c44d6eee650a50cc82b991e4f5743d804e9abe17e12c6e27a9a"
+    }
+  ],
+  "generated_classes": [
+    {
+      "file": "msdos.cl1",
+      "sha256": "12b8032cd71b9026b0aa7f3cddd98b896d5a84c091f9bb1597d4033262238153"
+    },
+    {
+      "file": "msdos.cl2",
+      "sha256": "eb2759bc8c8db4a665b6383ec98b53afc98c67a41e9b8aab309109504909711b"
+    },
+    {
+      "file": "msdos.cl3",
+      "sha256": "e6312a30fa572b0ada935d76c8c306856e6d4eeb561c2f67f9deead57d97f475"
+    },
+    {
+      "file": "msdos.cl4",
+      "sha256": "6bb4f994e388db32d50000eec3064e09d6940f20fd408eb26605a03f05e625a9"
+    }
+  ],
+  "target_wina20_message_offset": 2480,
+  "checks": [
+    "Staged skeleton matches current source; four generated class files match kernel build report.",
+    "WINA20.386 message occurs in retained MSDOS.SYS, and its source path is referenced by dos/divmes.inc and dos/mscode.asm."
+  ],
+  "limitations": "Presence of a target string and a matching generated class do not independently prove the original template text or all generated-message use.",
+  "change": "No source change."
+}

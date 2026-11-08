@@ -1,0 +1,131 @@
+{
+  "prefix_bytes": 5216,
+  "equal_bytes": 5195,
+  "different_bytes": [
+    550,
+    553,
+    557,
+    561,
+    666,
+    684,
+    690,
+    691,
+    747,
+    3206,
+    3601,
+    3602,
+    3675,
+    3676,
+    3787,
+    3788,
+    4088,
+    4100,
+    4101,
+    4146,
+    4147
+  ],
+  "resident_symbols": {
+    "msgbuffer": 1129,
+    "safepathbuffer": 1129,
+    "int2fhandler": 1209,
+    "resmsgend": 1213,
+    "ressize": 1215,
+    "rstack": 1342,
+    "oldds": 1342,
+    "loadhiflg": 1344,
+    "conproc": 5472
+  },
+  "unresolved_operands": [
+    {
+      "offset": 550,
+      "description": "TrnSize",
+      "candidate": 7918,
+      "target": 7886
+    },
+    {
+      "offset": 553,
+      "description": "OldEnv",
+      "candidate": 7906,
+      "target": 7874
+    },
+    {
+      "offset": 557,
+      "description": "EnvSiz",
+      "candidate": 7902,
+      "target": 7870
+    },
+    {
+      "offset": 561,
+      "description": "UsedEnv",
+      "candidate": 7908,
+      "target": 7876
+    },
+    {
+      "offset": 666,
+      "description": "Chuckenv",
+      "candidate": 7868,
+      "target": 7836
+    },
+    {
+      "offset": 684,
+      "description": "TranStart",
+      "candidate": 9008,
+      "target": 8992
+    },
+    {
+      "offset": 690,
+      "description": "TranSpaceEnd",
+      "candidate": 39358,
+      "target": 39109
+    },
+    {
+      "offset": 747,
+      "description": "initialization error jump",
+      "candidate": 6692,
+      "target": 6671
+    },
+    {
+      "offset": 3206,
+      "description": "initialization jump",
+      "candidate": 3802,
+      "target": 3789
+    },
+    {
+      "offset": 3601,
+      "description": "rounded transient size",
+      "candidate": 39373,
+      "target": 39124
+    },
+    {
+      "offset": 3675,
+      "description": "TranSpaceEnd",
+      "candidate": 39358,
+      "target": 39109
+    },
+    {
+      "offset": 3787,
+      "description": "transient variable destination",
+      "candidate": 36462,
+      "target": 36213
+    },
+    {
+      "offset": 4088,
+      "description": "TranStart",
+      "candidate": 9008,
+      "target": 8992
+    },
+    {
+      "offset": 4100,
+      "description": "transient reload length",
+      "candidate": 39102,
+      "target": 38853
+    },
+    {
+      "offset": 4146,
+      "description": "transient checksum length",
+      "candidate": 34822,
+      "target": 34754
+    }
+  ],
+  "limitation": "Exact prefix comparison with explicit remaining words; their final values and guest execution remain unverified."
+}

@@ -1,0 +1,606 @@
+{
+  "module": "alloc-full",
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\physical-sft-probe-gaif7wrl",
+  "candidate_proof_sha256": "5c1f29006e52607cf6cef57830e28b2f529d0f2ed8b1fd0ad2b70f3eea5379c6",
+  "link_report_sha256": "1bbdfe1c5717a66605a3aef82166c9d11164f5e85d841c1f70d29448a8b796da",
+  "linked_start": 36902,
+  "public_anchors": [
+    {
+      "symbol": "arena_free_process",
+      "object_offset": 0,
+      "linked_offset": 36902
+    },
+    {
+      "symbol": "$dealloc",
+      "object_offset": 497,
+      "linked_offset": 37399
+    },
+    {
+      "symbol": "coalesce",
+      "object_offset": 74,
+      "linked_offset": 36976
+    },
+    {
+      "symbol": "$setblock",
+      "object_offset": 461,
+      "linked_offset": 37363
+    },
+    {
+      "symbol": "check_signature",
+      "object_offset": 58,
+      "linked_offset": 36960
+    },
+    {
+      "symbol": "$allocoper",
+      "object_offset": 551,
+      "linked_offset": 37453
+    },
+    {
+      "symbol": "arena_next",
+      "object_offset": 51,
+      "linked_offset": 36953
+    },
+    {
+      "symbol": "$alloc",
+      "object_offset": 108,
+      "linked_offset": 37010
+    },
+    {
+      "symbol": "getlastarena",
+      "object_offset": 692,
+      "linked_offset": 37594
+    }
+  ],
+  "bytes": 757,
+  "named_fixups": [
+    {
+      "offset": 2,
+      "symbol": "arena_head",
+      "relative": false,
+      "target_symbol": 36,
+      "linked_symbol": 36
+    },
+    {
+      "offset": 8,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 41410,
+      "linked_symbol": 36902
+    },
+    {
+      "offset": 30,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 41410,
+      "linked_symbol": 36902
+    },
+    {
+      "offset": 36,
+      "symbol": "umb_head",
+      "relative": false,
+      "target_symbol": 140,
+      "linked_symbol": 140
+    },
+    {
+      "offset": 80,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 41410,
+      "linked_symbol": 36902
+    },
+    {
+      "offset": 109,
+      "symbol": "EcritMem",
+      "relative": true,
+      "target_symbol": 20774,
+      "linked_symbol": 19744
+    },
+    {
+      "offset": 113,
+      "symbol": "arena_head",
+      "relative": false,
+      "target_symbol": 36,
+      "linked_symbol": 36
+    },
+    {
+      "offset": 117,
+      "symbol": "start_arena",
+      "relative": false,
+      "target_symbol": 142,
+      "linked_symbol": 142
+    },
+    {
+      "offset": 122,
+      "symbol": "AllocMethod",
+      "relative": false,
+      "target_symbol": 770,
+      "linked_symbol": 770
+    },
+    {
+      "offset": 130,
+      "symbol": "umbflag",
+      "relative": false,
+      "target_symbol": 137,
+      "linked_symbol": 137
+    },
+    {
+      "offset": 137,
+      "symbol": "umb_head",
+      "relative": false,
+      "target_symbol": 140,
+      "linked_symbol": 140
+    },
+    {
+      "offset": 141,
+      "symbol": "start_arena",
+      "relative": false,
+      "target_symbol": 142,
+      "linked_symbol": 142
+    },
+    {
+      "offset": 149,
+      "symbol": "FirstArena",
+      "relative": false,
+      "target_symbol": 832,
+      "linked_symbol": 832
+    },
+    {
+      "offset": 153,
+      "symbol": "BestArena",
+      "relative": false,
+      "target_symbol": 834,
+      "linked_symbol": 834
+    },
+    {
+      "offset": 157,
+      "symbol": "LastArena",
+      "relative": false,
+      "target_symbol": 836,
+      "linked_symbol": 836
+    },
+    {
+      "offset": 162,
+      "symbol": "start_arena",
+      "relative": false,
+      "target_symbol": 142,
+      "linked_symbol": 142
+    },
+    {
+      "offset": 165,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 41410,
+      "linked_symbol": 36902
+    },
+    {
+      "offset": 180,
+      "symbol": "umbflag",
+      "relative": false,
+      "target_symbol": 137,
+      "linked_symbol": 137
+    },
+    {
+      "offset": 188,
+      "symbol": "AllocMethod",
+      "relative": false,
+      "target_symbol": 770,
+      "linked_symbol": 770
+    },
+    {
+      "offset": 195,
+      "symbol": "start_arena",
+      "relative": false,
+      "target_symbol": 142,
+      "linked_symbol": 142
+    },
+    {
+      "offset": 200,
+      "symbol": "arena_head",
+      "relative": false,
+      "target_symbol": 36,
+      "linked_symbol": 36
+    },
+    {
+      "offset": 209,
+      "symbol": "umb_head",
+      "relative": false,
+      "target_symbol": 140,
+      "linked_symbol": 140
+    },
+    {
+      "offset": 219,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 41410,
+      "linked_symbol": 36902
+    },
+    {
+      "offset": 225,
+      "symbol": "LcritMem",
+      "relative": true,
+      "target_symbol": 20806,
+      "linked_symbol": 19776
+    },
+    {
+      "offset": 230,
+      "symbol": "SYS_RET_ERR",
+      "relative": true,
+      "target_symbol": 17389,
+      "linked_symbol": 17389
+    },
+    {
+      "offset": 235,
+      "symbol": "FirstArena",
+      "relative": false,
+      "target_symbol": 832,
+      "linked_symbol": 832
+    },
+    {
+      "offset": 241,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 41410,
+      "linked_symbol": 36902
+    },
+    {
+      "offset": 245,
+      "symbol": "arena_head",
+      "relative": false,
+      "target_symbol": 36,
+      "linked_symbol": 36
+    },
+    {
+      "offset": 250,
+      "symbol": "start_arena",
+      "relative": false,
+      "target_symbol": 142,
+      "linked_symbol": 142
+    },
+    {
+      "offset": 257,
+      "symbol": "AllocMethod",
+      "relative": false,
+      "target_symbol": 770,
+      "linked_symbol": 770
+    },
+    {
+      "offset": 264,
+      "symbol": "start_arena",
+      "relative": false,
+      "target_symbol": 142,
+      "linked_symbol": 142
+    },
+    {
+      "offset": 269,
+      "symbol": "get_user_stack",
+      "relative": true,
+      "target_symbol": 17013,
+      "linked_symbol": 17013
+    },
+    {
+      "offset": 276,
+      "symbol": "LcritMem",
+      "relative": true,
+      "target_symbol": 20806,
+      "linked_symbol": 19776
+    },
+    {
+      "offset": 283,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 41410,
+      "linked_symbol": 36902
+    },
+    {
+      "offset": 306,
+      "symbol": "FirstArena",
+      "relative": false,
+      "target_symbol": 832,
+      "linked_symbol": 832
+    },
+    {
+      "offset": 314,
+      "symbol": "FirstArena",
+      "relative": false,
+      "target_symbol": 832,
+      "linked_symbol": 832
+    },
+    {
+      "offset": 319,
+      "symbol": "BestArena",
+      "relative": false,
+      "target_symbol": 834,
+      "linked_symbol": 834
+    },
+    {
+      "offset": 328,
+      "symbol": "BestArena",
+      "relative": false,
+      "target_symbol": 834,
+      "linked_symbol": 834
+    },
+    {
+      "offset": 341,
+      "symbol": "BestArena",
+      "relative": false,
+      "target_symbol": 834,
+      "linked_symbol": 834
+    },
+    {
+      "offset": 346,
+      "symbol": "LastArena",
+      "relative": false,
+      "target_symbol": 836,
+      "linked_symbol": 836
+    },
+    {
+      "offset": 349,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 41410,
+      "linked_symbol": 36902
+    },
+    {
+      "offset": 354,
+      "symbol": "LastArena",
+      "relative": false,
+      "target_symbol": 836,
+      "linked_symbol": 836
+    },
+    {
+      "offset": 380,
+      "symbol": "AllocMethod",
+      "relative": false,
+      "target_symbol": 770,
+      "linked_symbol": 770
+    },
+    {
+      "offset": 394,
+      "symbol": "FirstArena",
+      "relative": false,
+      "target_symbol": 832,
+      "linked_symbol": 832
+    },
+    {
+      "offset": 401,
+      "symbol": "BestArena",
+      "relative": false,
+      "target_symbol": 834,
+      "linked_symbol": 834
+    },
+    {
+      "offset": 446,
+      "symbol": "CurrentPDB",
+      "relative": false,
+      "target_symbol": 816,
+      "linked_symbol": 816
+    },
+    {
+      "offset": 456,
+      "symbol": "LcritMem",
+      "relative": true,
+      "target_symbol": 20806,
+      "linked_symbol": 19776
+    },
+    {
+      "offset": 459,
+      "symbol": "SYS_RET_OK",
+      "relative": true,
+      "target_symbol": 17380,
+      "linked_symbol": 17380
+    },
+    {
+      "offset": 462,
+      "symbol": "EcritMem",
+      "relative": true,
+      "target_symbol": 20774,
+      "linked_symbol": 19744
+    },
+    {
+      "offset": 471,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 41410,
+      "linked_symbol": 36902
+    },
+    {
+      "offset": 476,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 41410,
+      "linked_symbol": 36902
+    },
+    {
+      "offset": 481,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 41410,
+      "linked_symbol": 36902
+    },
+    {
+      "offset": 495,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 41410,
+      "linked_symbol": 36902
+    },
+    {
+      "offset": 498,
+      "symbol": "EcritMem",
+      "relative": true,
+      "target_symbol": 20774,
+      "linked_symbol": 19744
+    },
+    {
+      "offset": 503,
+      "symbol": "DOS_FLAG",
+      "relative": false,
+      "target_symbol": 134,
+      "linked_symbol": 134
+    },
+    {
+      "offset": 511,
+      "symbol": "A20OFF_COUNT",
+      "relative": false,
+      "target_symbol": 133,
+      "linked_symbol": 133
+    },
+    {
+      "offset": 519,
+      "symbol": "A20OFF_COUNT",
+      "relative": false,
+      "target_symbol": 133,
+      "linked_symbol": 133
+    },
+    {
+      "offset": 529,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 41410,
+      "linked_symbol": 36902
+    },
+    {
+      "offset": 539,
+      "symbol": "LcritMem",
+      "relative": true,
+      "target_symbol": 20806,
+      "linked_symbol": 19776
+    },
+    {
+      "offset": 544,
+      "symbol": "LcritMem",
+      "relative": true,
+      "target_symbol": 20806,
+      "linked_symbol": 19776
+    },
+    {
+      "offset": 549,
+      "symbol": "SYS_RET_ERR",
+      "relative": true,
+      "target_symbol": 17389,
+      "linked_symbol": 17389
+    },
+    {
+      "offset": 570,
+      "symbol": "EXTERR_LOCUS",
+      "relative": false,
+      "target_symbol": 803,
+      "linked_symbol": 803
+    },
+    {
+      "offset": 580,
+      "symbol": "EXTERR_LOCUS",
+      "relative": false,
+      "target_symbol": 803,
+      "linked_symbol": 803
+    },
+    {
+      "offset": 589,
+      "symbol": "AllocMethod",
+      "relative": false,
+      "target_symbol": 770,
+      "linked_symbol": 770
+    },
+    {
+      "offset": 609,
+      "symbol": "AllocMethod",
+      "relative": false,
+      "target_symbol": 770,
+      "linked_symbol": 770
+    },
+    {
+      "offset": 615,
+      "symbol": "umbflag",
+      "relative": false,
+      "target_symbol": 137,
+      "linked_symbol": 137
+    },
+    {
+      "offset": 624,
+      "symbol": "umb_head",
+      "relative": false,
+      "target_symbol": 140,
+      "linked_symbol": 140
+    },
+    {
+      "offset": 643,
+      "symbol": "umbflag",
+      "relative": false,
+      "target_symbol": 137,
+      "linked_symbol": 137
+    },
+    {
+      "offset": 649,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 41410,
+      "linked_symbol": 36902
+    },
+    {
+      "offset": 661,
+      "symbol": "umbflag",
+      "relative": false,
+      "target_symbol": 137,
+      "linked_symbol": 137
+    },
+    {
+      "offset": 669,
+      "symbol": "umbflag",
+      "relative": false,
+      "target_symbol": 137,
+      "linked_symbol": 137
+    },
+    {
+      "offset": 675,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 41410,
+      "linked_symbol": 36902
+    },
+    {
+      "offset": 687,
+      "symbol": "umbflag",
+      "relative": false,
+      "target_symbol": 137,
+      "linked_symbol": 137
+    },
+    {
+      "offset": 695,
+      "symbol": "arena_head",
+      "relative": false,
+      "target_symbol": 36,
+      "linked_symbol": 36
+    },
+    {
+      "offset": 710,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 41410,
+      "linked_symbol": 36902
+    },
+    {
+      "offset": 717,
+      "symbol": "umbflag",
+      "relative": false,
+      "target_symbol": 137,
+      "linked_symbol": 137
+    },
+    {
+      "offset": 735,
+      "symbol": "umbflag",
+      "relative": false,
+      "target_symbol": 137,
+      "linked_symbol": 137
+    },
+    {
+      "offset": 743,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 41410,
+      "linked_symbol": 36902
+    }
+  ],
+  "remaining_differences": [],
+  "correspondence": true,
+  "scope": "Complete linked MZ module, only candidate OMF named relocations adjusted; physical data placement can differ. Not runtime or whole-kernel identity."
+}

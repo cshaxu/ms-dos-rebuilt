@@ -1,0 +1,147 @@
+{
+  "proof": "m4-t5-mknode-verification.json",
+  "bytes": 941,
+  "scope": "Complete comparative mknode module with physical SFT header, target-layout proof only",
+  "origin": "No mknode.asm exists at primary OpenNT doskrnl/dos path; bounded comparative DOS 6 recovery",
+  "source_changes": "Restore EcritDisk/LcritDisk at original critSFT macro sites 4BFEh/4C11h; target calls 1356h/1376h",
+  "dependencies": [
+    {
+      "symbol": "GETEOF",
+      "linked": true,
+      "target_site": 19029,
+      "target_destination": 20629
+    },
+    {
+      "symbol": "ALLOCATE",
+      "linked": false,
+      "target_site": 19037,
+      "target_destination": 20407
+    },
+    {
+      "symbol": "SETDIRSRCH",
+      "linked": true,
+      "target_site": 19050,
+      "target_destination": 16396
+    },
+    {
+      "symbol": "ISEOF",
+      "linked": true,
+      "target_site": 19068,
+      "target_destination": 22222
+    },
+    {
+      "symbol": "FASTOPEN_UPDATE",
+      "linked": false,
+      "target_site": 19093,
+      "target_destination": 10218
+    },
+    {
+      "symbol": "FIGREC",
+      "linked": true,
+      "target_site": 19103,
+      "target_destination": 20363
+    },
+    {
+      "symbol": "GETBUFFR",
+      "linked": true,
+      "target_site": 19122,
+      "target_destination": 23307
+    },
+    {
+      "symbol": "INC_DIRTY_COUNT",
+      "linked": true,
+      "target_site": 19164,
+      "target_destination": 23830
+    },
+    {
+      "symbol": "GETPATHNOSET",
+      "linked": true,
+      "target_site": 19241,
+      "target_destination": 16503
+    },
+    {
+      "symbol": "MATCHATTRIBUTES",
+      "linked": true,
+      "target_site": 19330,
+      "target_destination": 17200
+    },
+    {
+      "symbol": "SHAREENTER",
+      "linked": false,
+      "target_site": 19353,
+      "target_destination": 30088
+    },
+    {
+      "symbol": "FLUSHBUF",
+      "linked": true,
+      "target_site": 19442,
+      "target_destination": 23562
+    },
+    {
+      "symbol": "ECRITDISK",
+      "linked": true,
+      "target_site": 19454,
+      "target_destination": 4950
+    },
+    {
+      "symbol": "SHAREEND",
+      "linked": false,
+      "target_site": 19464,
+      "target_destination": 30083
+    },
+    {
+      "symbol": "LCRITDISK",
+      "linked": true,
+      "target_site": 19473,
+      "target_destination": 4982
+    },
+    {
+      "symbol": "GETENT",
+      "linked": true,
+      "target_site": 19516,
+      "target_destination": 16349
+    },
+    {
+      "symbol": "DATE16",
+      "linked": true,
+      "target_site": 19576,
+      "target_destination": 2801
+    },
+    {
+      "symbol": "DEV_OPEN_SFT",
+      "linked": true,
+      "target_site": 19649,
+      "target_destination": 18270
+    },
+    {
+      "symbol": "RELEASE",
+      "linked": true,
+      "target_site": 19876,
+      "target_destination": 20585
+    },
+    {
+      "symbol": "SET_BUF_AS_DIR",
+      "linked": true,
+      "target_site": 19901,
+      "target_destination": 14378
+    },
+    {
+      "symbol": "DEV_CLOSE_SFT",
+      "linked": true,
+      "target_site": 19935,
+      "target_destination": 18278
+    }
+  ],
+  "snapshot_checks": {
+    "m4-t5-release-build.json": {
+      "inputs": 114,
+      "mismatches": []
+    },
+    "m2-t3-command-exact-verification.json": {
+      "inputs": 113,
+      "mismatches": []
+    }
+  },
+  "sft_issue": "NT sf_entry removes sf_firclus and directory/cluster/name/UID/MFT fields and adds sf_NTHandle; physical time/date/size/position offsets therefore differ too. Do not mix physical creation code with NT SFT layout. Full comparative sf.inc is confined to comparison stage.",
+  "next": "Recover ALLOCATE and FastOpen_Update; restore ShareEnter/ShareEnd bodies and plan coherent physical SFT transition before linking mknode/dircall."
+}

@@ -1,0 +1,30 @@
+{
+  "files_changed": {
+    "bios/sysconf.asm": {
+      "before": "fe05addce44e7875e7cc6178ce75798bf5d0fe8f24948535aca2c5ad75018675",
+      "after": "ea5584a2c3cb7442f81651ee778e0514207c71ba5bad3f82aa7ad77600a94dc8"
+    },
+    "bios/inc/mult.inc": {
+      "before": "c8e67ef05870600106bca0e6eb02229541a47162aba0a674aabf4fa2fbbeb665",
+      "after": "96c9bad6dfeeb1816a8befbd1414bd54fb1c054d7bc3d3d25079673100796b67"
+    }
+  },
+  "removed_fragments": [
+    {
+      "source": "bios/sysconf.asm",
+      "label": "PrepareMark",
+      "text": ";\r\n;----------------------------------------------------------------------------\r\n;\r\n; procedure : PrepareMark\r\n;\r\n;\tInput : AX==Address of MCB (not addr of free space), BX==Size\r\n;\tOutput : None; MCB marked appropriately and DevUMB* set as needed.\r\n;\r\n;----------------------------------------------------------------------------\r\n;\r\n"
+    },
+    {
+      "source": "bios/sysconf.asm",
+      "label": "RetFromUM",
+      "text": ";\r\n;----------------------------------------------------------------------------\r\n;\r\n; procedure : RetFromUM\r\n;\r\n;\tInput : None\r\n;\tOutput : ConvLoad set if didn't previously call HideUMBs\r\n;\t\t ConvLoad clear if did.\r\n;\r\n;\tPrepares memory for more devices after returning from loading one\r\n;\tusing the Dos 6 options (/L:... etc).\r\n;\r\n;----------------------------------------------------------------------------\r\n;\r\n"
+    },
+    {
+      "source": "bios/inc/mult.inc",
+      "label": "Chicago ODI",
+      "text": ";      51h      ODI real mode support driver (for Chicago)\r\n;\r\n"
+    }
+  ],
+  "scope": "Two orphan routine headers and a Chicago-specific multiplex comment. POWER declarations remain for the separately assembled optional module."
+}

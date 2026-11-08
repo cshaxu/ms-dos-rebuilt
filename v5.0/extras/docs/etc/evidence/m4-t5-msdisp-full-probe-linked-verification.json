@@ -1,0 +1,619 @@
+{
+  "module": "msdisp-full",
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\physical-sft-probe-gaif7wrl",
+  "candidate_proof_sha256": "1e4e157eab0abe52b355377d0670bbef90b4afda989416f936d4bc8c09a8b5c6",
+  "link_report_sha256": "1bbdfe1c5717a66605a3aef82166c9d11164f5e85d841c1f70d29448a8b796da",
+  "linked_start": 16453,
+  "public_anchors": [
+    {
+      "symbol": "redisp",
+      "object_offset": 286,
+      "linked_offset": 16739
+    },
+    {
+      "symbol": "command",
+      "object_offset": 166,
+      "linked_offset": 16619
+    },
+    {
+      "symbol": "restore_user_world",
+      "object_offset": 506,
+      "linked_offset": 16959
+    },
+    {
+      "symbol": "leavedos",
+      "object_offset": 434,
+      "linked_offset": 16887
+    },
+    {
+      "symbol": "$set_ctrl_c_trapping",
+      "object_offset": 0,
+      "linked_offset": 16453
+    },
+    {
+      "symbol": "get_user_stack",
+      "object_offset": 560,
+      "linked_offset": 17013
+    },
+    {
+      "symbol": "save_user_world",
+      "object_offset": 529,
+      "linked_offset": 16982
+    },
+    {
+      "symbol": "$get_current_pdb",
+      "object_offset": 99,
+      "linked_offset": 16552
+    },
+    {
+      "symbol": "$set_current_pdb",
+      "object_offset": 87,
+      "linked_offset": 16540
+    },
+    {
+      "symbol": "quit",
+      "object_offset": 122,
+      "linked_offset": 16575
+    },
+    {
+      "symbol": "call_entry",
+      "object_offset": 129,
+      "linked_offset": 16582
+    },
+    {
+      "symbol": "$set_printer_flag",
+      "object_offset": 111,
+      "linked_offset": 16564
+    },
+    {
+      "symbol": "irett",
+      "object_offset": 128,
+      "linked_offset": 16581
+    },
+    {
+      "symbol": "system_call",
+      "object_offset": 122,
+      "linked_offset": 16575
+    }
+  ],
+  "bytes": 570,
+  "named_fixups": [
+    {
+      "offset": 11,
+      "symbol": "DosDseg",
+      "relative": false,
+      "target_symbol": 15831,
+      "linked_symbol": 15831
+    },
+    {
+      "offset": 16,
+      "symbol": "CntCFlag",
+      "relative": false,
+      "target_symbol": 823,
+      "linked_symbol": 823
+    },
+    {
+      "offset": 55,
+      "symbol": "BootDrive",
+      "relative": false,
+      "target_symbol": 105,
+      "linked_symbol": 105
+    },
+    {
+      "offset": 73,
+      "symbol": "DosHasHMA",
+      "relative": false,
+      "target_symbol": 4625,
+      "linked_symbol": 4625
+    },
+    {
+      "offset": 91,
+      "symbol": "DosDseg",
+      "relative": false,
+      "target_symbol": 15831,
+      "linked_symbol": 15831
+    },
+    {
+      "offset": 95,
+      "symbol": "CurrentPDB",
+      "relative": false,
+      "target_symbol": 816,
+      "linked_symbol": 816
+    },
+    {
+      "offset": 103,
+      "symbol": "DosDseg",
+      "relative": false,
+      "target_symbol": 15831,
+      "linked_symbol": 15831
+    },
+    {
+      "offset": 107,
+      "symbol": "CurrentPDB",
+      "relative": false,
+      "target_symbol": 816,
+      "linked_symbol": 816
+    },
+    {
+      "offset": 115,
+      "symbol": "DosDseg",
+      "relative": false,
+      "target_symbol": 15831,
+      "linked_symbol": 15831
+    },
+    {
+      "offset": 118,
+      "symbol": "Printer_Flag",
+      "relative": false,
+      "target_symbol": 2720,
+      "linked_symbol": 2720
+    },
+    {
+      "offset": 133,
+      "symbol": "DosDseg",
+      "relative": false,
+      "target_symbol": 15831,
+      "linked_symbol": 15831
+    },
+    {
+      "offset": 137,
+      "symbol": "SaveDS",
+      "relative": false,
+      "target_symbol": 1516,
+      "linked_symbol": 1516
+    },
+    {
+      "offset": 143,
+      "symbol": "User_SP",
+      "relative": false,
+      "target_symbol": 1412,
+      "linked_symbol": 1412
+    },
+    {
+      "offset": 150,
+      "symbol": "User_SP",
+      "relative": false,
+      "target_symbol": 1412,
+      "linked_symbol": 1412
+    },
+    {
+      "offset": 154,
+      "symbol": "SaveDS",
+      "relative": false,
+      "target_symbol": 1516,
+      "linked_symbol": 1516
+    },
+    {
+      "offset": 159,
+      "symbol": "maxcall",
+      "relative": false,
+      "target_symbol": 36,
+      "linked_symbol": 36,
+      "kind": "byte_constant"
+    },
+    {
+      "offset": 169,
+      "symbol": "maxcom",
+      "relative": false,
+      "target_symbol": 108,
+      "linked_symbol": 108,
+      "kind": "byte_constant"
+    },
+    {
+      "offset": 215,
+      "symbol": "DosDseg",
+      "relative": false,
+      "target_symbol": 15831,
+      "linked_symbol": 15831
+    },
+    {
+      "offset": 218,
+      "symbol": "SaveDS",
+      "relative": false,
+      "target_symbol": 1516,
+      "linked_symbol": 1516
+    },
+    {
+      "offset": 222,
+      "symbol": "SaveBX",
+      "relative": false,
+      "target_symbol": 1514,
+      "linked_symbol": 1514
+    },
+    {
+      "offset": 225,
+      "symbol": "User_SP",
+      "relative": false,
+      "target_symbol": 1412,
+      "linked_symbol": 1412
+    },
+    {
+      "offset": 228,
+      "symbol": "Nsp",
+      "relative": false,
+      "target_symbol": 1522,
+      "linked_symbol": 1522
+    },
+    {
+      "offset": 231,
+      "symbol": "User_SS",
+      "relative": false,
+      "target_symbol": 1414,
+      "linked_symbol": 1414
+    },
+    {
+      "offset": 234,
+      "symbol": "Nss",
+      "relative": false,
+      "target_symbol": 1520,
+      "linked_symbol": 1520
+    },
+    {
+      "offset": 239,
+      "symbol": "fSharing",
+      "relative": false,
+      "target_symbol": 1394,
+      "linked_symbol": 1394
+    },
+    {
+      "offset": 243,
+      "symbol": "IsWin386",
+      "relative": false,
+      "target_symbol": 4144,
+      "linked_symbol": 4144
+    },
+    {
+      "offset": 249,
+      "symbol": "User_ID",
+      "relative": false,
+      "target_symbol": 830,
+      "linked_symbol": 830
+    },
+    {
+      "offset": 253,
+      "symbol": "InDos",
+      "relative": false,
+      "target_symbol": 801,
+      "linked_symbol": 801
+    },
+    {
+      "offset": 257,
+      "symbol": "User_SP",
+      "relative": false,
+      "target_symbol": 1412,
+      "linked_symbol": 1412
+    },
+    {
+      "offset": 261,
+      "symbol": "User_SS",
+      "relative": false,
+      "target_symbol": 1414,
+      "linked_symbol": 1414
+    },
+    {
+      "offset": 264,
+      "symbol": "CurrentPDB",
+      "relative": false,
+      "target_symbol": 816,
+      "linked_symbol": 816
+    },
+    {
+      "offset": 267,
+      "symbol": "Proc_ID",
+      "relative": false,
+      "target_symbol": 828,
+      "linked_symbol": 828
+    },
+    {
+      "offset": 284,
+      "symbol": "DosDseg",
+      "relative": false,
+      "target_symbol": 15831,
+      "linked_symbol": 15831
+    },
+    {
+      "offset": 287,
+      "symbol": "AuxStack",
+      "relative": false,
+      "target_symbol": 1952,
+      "linked_symbol": 1952
+    },
+    {
+      "offset": 299,
+      "symbol": "ExtOpen_On",
+      "relative": false,
+      "target_symbol": 1526,
+      "linked_symbol": 1526
+    },
+    {
+      "offset": 304,
+      "symbol": "Dos34_Flag",
+      "relative": false,
+      "target_symbol": 1553,
+      "linked_symbol": 1553
+    },
+    {
+      "offset": 310,
+      "symbol": "ConSwap",
+      "relative": false,
+      "target_symbol": 855,
+      "linked_symbol": 855
+    },
+    {
+      "offset": 314,
+      "symbol": "NoSetDir",
+      "relative": false,
+      "target_symbol": 844,
+      "linked_symbol": 844
+    },
+    {
+      "offset": 318,
+      "symbol": "FailErr",
+      "relative": false,
+      "target_symbol": 842,
+      "linked_symbol": 842
+    },
+    {
+      "offset": 323,
+      "symbol": "IdleInt",
+      "relative": false,
+      "target_symbol": 856,
+      "linked_symbol": 856
+    },
+    {
+      "offset": 348,
+      "symbol": "ErrorMode",
+      "relative": false,
+      "target_symbol": 800,
+      "linked_symbol": 800
+    },
+    {
+      "offset": 354,
+      "symbol": "IoStack",
+      "relative": false,
+      "target_symbol": 2720,
+      "linked_symbol": 2720
+    },
+    {
+      "offset": 360,
+      "symbol": "User_In_AX",
+      "relative": false,
+      "target_symbol": 826,
+      "linked_symbol": 826
+    },
+    {
+      "offset": 365,
+      "symbol": "Exterr_Locus",
+      "relative": false,
+      "target_symbol": 803,
+      "linked_symbol": 803
+    },
+    {
+      "offset": 371,
+      "symbol": "ErrorMode",
+      "relative": false,
+      "target_symbol": 800,
+      "linked_symbol": 800
+    },
+    {
+      "offset": 377,
+      "symbol": "WpErr",
+      "relative": false,
+      "target_symbol": 802,
+      "linked_symbol": 802
+    },
+    {
+      "offset": 389,
+      "symbol": "IdleInt",
+      "relative": false,
+      "target_symbol": 856,
+      "linked_symbol": 856
+    },
+    {
+      "offset": 393,
+      "symbol": "DskStack",
+      "relative": false,
+      "target_symbol": 2336,
+      "linked_symbol": 2336
+    },
+    {
+      "offset": 398,
+      "symbol": "CntCFlag",
+      "relative": false,
+      "target_symbol": 823,
+      "linked_symbol": 823
+    },
+    {
+      "offset": 405,
+      "symbol": "DskStatChk",
+      "relative": true,
+      "target_symbol": 36900,
+      "linked_symbol": 34020
+    },
+    {
+      "offset": 411,
+      "symbol": "Dispatch",
+      "relative": false,
+      "target_symbol": 16014,
+      "linked_symbol": 16014
+    },
+    {
+      "offset": 416,
+      "symbol": "SaveBX",
+      "relative": false,
+      "target_symbol": 1514,
+      "linked_symbol": 1514
+    },
+    {
+      "offset": 421,
+      "symbol": "SaveDS",
+      "relative": false,
+      "target_symbol": 1516,
+      "linked_symbol": 1516
+    },
+    {
+      "offset": 426,
+      "symbol": "SaveBX",
+      "relative": false,
+      "target_symbol": 1514,
+      "linked_symbol": 1514
+    },
+    {
+      "offset": 431,
+      "symbol": "DOS_FLAG",
+      "relative": false,
+      "target_symbol": 134,
+      "linked_symbol": 134
+    },
+    {
+      "offset": 438,
+      "symbol": "DosDseg",
+      "relative": false,
+      "target_symbol": 15831,
+      "linked_symbol": 15831
+    },
+    {
+      "offset": 442,
+      "symbol": "A20OFF_COUNT",
+      "relative": false,
+      "target_symbol": 133,
+      "linked_symbol": 133
+    },
+    {
+      "offset": 449,
+      "symbol": "InDos",
+      "relative": false,
+      "target_symbol": 801,
+      "linked_symbol": 801
+    },
+    {
+      "offset": 453,
+      "symbol": "User_SS",
+      "relative": false,
+      "target_symbol": 1414,
+      "linked_symbol": 1414
+    },
+    {
+      "offset": 457,
+      "symbol": "User_SP",
+      "relative": false,
+      "target_symbol": 1412,
+      "linked_symbol": 1412
+    },
+    {
+      "offset": 465,
+      "symbol": "Nsp",
+      "relative": false,
+      "target_symbol": 1522,
+      "linked_symbol": 1522
+    },
+    {
+      "offset": 468,
+      "symbol": "User_SP",
+      "relative": false,
+      "target_symbol": 1412,
+      "linked_symbol": 1412
+    },
+    {
+      "offset": 471,
+      "symbol": "Nss",
+      "relative": false,
+      "target_symbol": 1520,
+      "linked_symbol": 1520
+    },
+    {
+      "offset": 474,
+      "symbol": "User_SS",
+      "relative": false,
+      "target_symbol": 1414,
+      "linked_symbol": 1414
+    },
+    {
+      "offset": 488,
+      "symbol": "A20OFF_PSP",
+      "relative": false,
+      "target_symbol": 99,
+      "linked_symbol": 99
+    },
+    {
+      "offset": 492,
+      "symbol": "CurrentPDB",
+      "relative": false,
+      "target_symbol": 816,
+      "linked_symbol": 816
+    },
+    {
+      "offset": 498,
+      "symbol": "A20OFF_COUNT",
+      "relative": false,
+      "target_symbol": 133,
+      "linked_symbol": 133
+    },
+    {
+      "offset": 502,
+      "symbol": "disa20_iret",
+      "relative": false,
+      "target_symbol": 4397,
+      "linked_symbol": 4397
+    },
+    {
+      "offset": 509,
+      "symbol": "DosDseg",
+      "relative": false,
+      "target_symbol": 15831,
+      "linked_symbol": 15831
+    },
+    {
+      "offset": 514,
+      "symbol": "Restore_Tmp",
+      "relative": false,
+      "target_symbol": 1518,
+      "linked_symbol": 1518
+    },
+    {
+      "offset": 527,
+      "symbol": "Restore_Tmp",
+      "relative": false,
+      "target_symbol": 1518,
+      "linked_symbol": 1518
+    },
+    {
+      "offset": 532,
+      "symbol": "DosDseg",
+      "relative": false,
+      "target_symbol": 15831,
+      "linked_symbol": 15831
+    },
+    {
+      "offset": 537,
+      "symbol": "Restore_Tmp",
+      "relative": false,
+      "target_symbol": 1518,
+      "linked_symbol": 1518
+    },
+    {
+      "offset": 550,
+      "symbol": "Restore_Tmp",
+      "relative": false,
+      "target_symbol": 1518,
+      "linked_symbol": 1518
+    },
+    {
+      "offset": 563,
+      "symbol": "DosDseg",
+      "relative": false,
+      "target_symbol": 15831,
+      "linked_symbol": 15831
+    },
+    {
+      "offset": 567,
+      "symbol": "User_SP",
+      "relative": false,
+      "target_symbol": 1412,
+      "linked_symbol": 1412
+    }
+  ],
+  "remaining_differences": [],
+  "correspondence": true,
+  "scope": "Complete linked MZ module, only candidate OMF named relocations adjusted; physical data placement can differ. Not runtime or whole-kernel identity."
+}

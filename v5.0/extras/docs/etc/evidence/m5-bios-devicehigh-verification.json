@@ -1,0 +1,664 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\bios-comparison-1ojld0jg",
+  "candidate_sha256": "09df7ec418edb1728662b1fe911a62c1a7bd3e19ad20b82548f022dd654750ad",
+  "target_bios_sha256": "09df7ec418edb1728662b1fe911a62c1a7bd3e19ad20b82548f022dd654750ad",
+  "map_sha256": "927cd424cfd8523b91657a84978766381ffe67d6dba3a7bf2b6cde9836bd1d01",
+  "listing_sha256": "b7ba6cdfabf0d1fd9068c22e84f45862eece3bf3075e768e78ca8f4771b2c543",
+  "entry": {
+    "candidate_offset": 25474,
+    "target_offset": 25474,
+    "length": 79,
+    "fixups": [
+      {
+        "offset": 8,
+        "symbol": "badparm_off",
+        "addend": 0,
+        "candidate": 5725,
+        "target": 5725
+      },
+      {
+        "offset": 13,
+        "symbol": "badparm_seg",
+        "addend": 0,
+        "candidate": 5727,
+        "target": 5727
+      },
+      {
+        "offset": 49,
+        "symbol": "DevSavedDelim",
+        "addend": 0,
+        "candidate": 8541,
+        "target": 8541
+      },
+      {
+        "offset": 60,
+        "symbol": "DeviceHi",
+        "addend": 0,
+        "candidate": 8520,
+        "target": 8520
+      },
+      {
+        "offset": 66,
+        "symbol": "DevUMB",
+        "addend": 0,
+        "candidate": 8505,
+        "target": 8505
+      },
+      {
+        "offset": 74,
+        "symbol": "DeviceHi",
+        "addend": 0,
+        "candidate": 8520,
+        "target": 8520
+      },
+      {
+        "offset": 16,
+        "symbol": "ParseSize",
+        "candidate_destination": 27946,
+        "target_destination": 27946
+      },
+      {
+        "offset": 21,
+        "symbol": "badparm_p",
+        "candidate_destination": 27128,
+        "target_destination": 27128
+      },
+      {
+        "offset": 40,
+        "symbol": "delim",
+        "candidate_destination": 29728,
+        "target_destination": 29728
+      }
+    ],
+    "normalized_equal": true
+  },
+  "size_parser": {
+    "candidate_offset": 27946,
+    "target_offset": 27946,
+    "length": 63,
+    "fixups": [
+      {
+        "offset": 3,
+        "symbol": "DevSizeOption",
+        "addend": 0,
+        "candidate": 8521,
+        "target": 8521
+      },
+      {
+        "offset": 10,
+        "symbol": "DevCmdLine",
+        "addend": 0,
+        "candidate": 8537,
+        "target": 8537
+      },
+      {
+        "offset": 15,
+        "symbol": "DevCmdLine",
+        "addend": 2,
+        "candidate": 8539,
+        "target": 8539
+      },
+      {
+        "offset": 54,
+        "symbol": "DevSizeOption",
+        "addend": 0,
+        "candidate": 8521,
+        "target": 8521
+      },
+      {
+        "offset": 18,
+        "symbol": "SkipDelim",
+        "candidate_destination": 28009,
+        "target_destination": 28009
+      },
+      {
+        "offset": 40,
+        "symbol": "delim",
+        "candidate_destination": 29728,
+        "target_destination": 29728
+      },
+      {
+        "offset": 48,
+        "symbol": "GetHexNum",
+        "candidate_destination": 28021,
+        "target_destination": 28021
+      },
+      {
+        "offset": 57,
+        "symbol": "SkipDelim",
+        "candidate_destination": 28009,
+        "target_destination": 28009
+      }
+    ],
+    "normalized_equal": true
+  },
+  "load_prelude": {
+    "candidate_offset": 25553,
+    "target_offset": 25553,
+    "length": 111,
+    "fixups": [
+      {
+        "offset": 11,
+        "symbol": "DeviceHi",
+        "addend": 0,
+        "candidate": 8520,
+        "target": 8520
+      },
+      {
+        "offset": 17,
+        "symbol": "DevSizeOption",
+        "addend": 0,
+        "candidate": 8521,
+        "target": 8521
+      },
+      {
+        "offset": 24,
+        "symbol": "DevSavedDelim",
+        "addend": 0,
+        "candidate": 8541,
+        "target": 8541
+      },
+      {
+        "offset": 44,
+        "symbol": "DevCmdLine",
+        "addend": 0,
+        "candidate": 8537,
+        "target": 8537
+      },
+      {
+        "offset": 49,
+        "symbol": "DevCmdLine",
+        "addend": 2,
+        "candidate": 8539,
+        "target": 8539
+      },
+      {
+        "offset": 64,
+        "symbol": "DevLoadAddr",
+        "addend": 0,
+        "candidate": 8493,
+        "target": 8493
+      },
+      {
+        "offset": 69,
+        "symbol": "DevSize",
+        "addend": 0,
+        "candidate": 8491,
+        "target": 8491
+      },
+      {
+        "offset": 76,
+        "symbol": "DevLoadEnd",
+        "addend": 0,
+        "candidate": 8495,
+        "target": 8495
+      },
+      {
+        "offset": 6,
+        "symbol": "tryq",
+        "candidate_destination": 26163,
+        "target_destination": 26163
+      },
+      {
+        "offset": 52,
+        "symbol": "round",
+        "candidate_destination": 29795,
+        "target_destination": 29795
+      },
+      {
+        "offset": 55,
+        "symbol": "SizeDevice",
+        "candidate_destination": 27698,
+        "target_destination": 27698
+      },
+      {
+        "offset": 60,
+        "symbol": "InitDevLoad",
+        "candidate_destination": 27439,
+        "target_destination": 27439
+      },
+      {
+        "offset": 81,
+        "symbol": "mem_err",
+        "candidate_destination": 29861,
+        "target_destination": 29861
+      },
+      {
+        "offset": 90,
+        "symbol": "badop",
+        "candidate_destination": 27116,
+        "target_destination": 27116
+      },
+      {
+        "offset": 93,
+        "symbol": "badload",
+        "candidate_destination": 30469,
+        "target_destination": 30469
+      },
+      {
+        "offset": 103,
+        "symbol": "ExecDev",
+        "candidate_destination": 27777,
+        "target_destination": 27777
+      }
+    ],
+    "normalized_equal": true
+  },
+  "driver_init": {
+    "candidate_offset": 25664,
+    "target_offset": 25664,
+    "length": 135,
+    "fixups": [
+      {
+        "offset": 14,
+        "symbol": "DevEntry",
+        "addend": 0,
+        "candidate": 8497,
+        "target": 8497
+      },
+      {
+        "offset": 66,
+        "symbol": "DevLoadEnd",
+        "addend": 0,
+        "candidate": 8495,
+        "target": 8495
+      },
+      {
+        "offset": 94,
+        "symbol": "DevBrkAddr",
+        "addend": 0,
+        "candidate": 8501,
+        "target": 8501
+      },
+      {
+        "offset": 102,
+        "symbol": "DevBrkAddr",
+        "addend": 2,
+        "candidate": 8503,
+        "target": 8503
+      },
+      {
+        "offset": 107,
+        "symbol": "DevUMB",
+        "addend": 0,
+        "candidate": 8505,
+        "target": 8505
+      },
+      {
+        "offset": 3,
+        "symbol": "RemoveNull",
+        "candidate_destination": 27806,
+        "target_destination": 27806
+      },
+      {
+        "offset": 43,
+        "symbol": "LieInt12Mem",
+        "candidate_destination": 27312,
+        "target_destination": 27312
+      },
+      {
+        "offset": 46,
+        "symbol": "UpdatePDB",
+        "candidate_destination": 27421,
+        "target_destination": 27421
+      },
+      {
+        "offset": 77,
+        "symbol": "calldev",
+        "candidate_destination": 29872,
+        "target_destination": 29872
+      },
+      {
+        "offset": 83,
+        "symbol": "calldev",
+        "candidate_destination": 29872,
+        "target_destination": 29872
+      },
+      {
+        "offset": 86,
+        "symbol": "TrueInt12Mem",
+        "candidate_destination": 27367,
+        "target_destination": 27367
+      },
+      {
+        "offset": 113,
+        "symbol": "AllocUMB",
+        "candidate_destination": 28122,
+        "target_destination": 28122
+      },
+      {
+        "offset": 124,
+        "symbol": "TryToMovDOSHi",
+        "candidate_destination": 18682,
+        "target_destination": 18682
+      }
+    ],
+    "normalized_equal": true
+  },
+  "device_link_and_dpb": {
+    "candidate_offset": 25799,
+    "target_offset": 25799,
+    "length": 364,
+    "fixups": [
+      {
+        "offset": 3,
+        "symbol": "badblock",
+        "addend": 0,
+        "candidate": 15464,
+        "target": 15464
+      },
+      {
+        "offset": 35,
+        "symbol": "DevBrkAddr",
+        "addend": 2,
+        "candidate": 8503,
+        "target": 8503
+      },
+      {
+        "offset": 40,
+        "symbol": "DevLoadEnd",
+        "addend": 0,
+        "candidate": 8495,
+        "target": 8495
+      },
+      {
+        "offset": 52,
+        "symbol": "DevEntry",
+        "addend": 0,
+        "candidate": 8497,
+        "target": 8497
+      },
+      {
+        "offset": 190,
+        "symbol": "DevBrkAddr",
+        "addend": 0,
+        "candidate": 8501,
+        "target": 8501
+      },
+      {
+        "offset": 198,
+        "symbol": "DevBrkAddr",
+        "addend": 2,
+        "candidate": 8503,
+        "target": 8503
+      },
+      {
+        "offset": 207,
+        "symbol": "DevBrkAddr",
+        "addend": 0,
+        "candidate": 8501,
+        "target": 8501
+      },
+      {
+        "offset": 212,
+        "symbol": "DevBrkAddr",
+        "addend": 0,
+        "candidate": 8501,
+        "target": 8501
+      },
+      {
+        "offset": 263,
+        "symbol": "DevEntry",
+        "addend": 0,
+        "candidate": 8497,
+        "target": 8497
+      },
+      {
+        "offset": 301,
+        "symbol": "DevEntry",
+        "addend": 0,
+        "candidate": 8497,
+        "target": 8497
+      },
+      {
+        "offset": 315,
+        "symbol": "DevEntry",
+        "addend": 0,
+        "candidate": 8497,
+        "target": 8497
+      },
+      {
+        "offset": 353,
+        "symbol": "badsiz_pre",
+        "addend": 0,
+        "candidate": 15242,
+        "target": 15242
+      },
+      {
+        "offset": 356,
+        "symbol": "crlfm",
+        "addend": 0,
+        "candidate": 15208,
+        "target": 15208
+      },
+      {
+        "offset": 6,
+        "symbol": "print",
+        "candidate_destination": 30511,
+        "target_destination": 30511
+      },
+      {
+        "offset": 21,
+        "symbol": "error_line",
+        "candidate_destination": 27210,
+        "target_destination": 27210
+      },
+      {
+        "offset": 76,
+        "symbol": "DevSetBreak",
+        "candidate_destination": 27859,
+        "target_destination": 27859
+      },
+      {
+        "offset": 148,
+        "symbol": "DevSetBreak",
+        "candidate_destination": 27859,
+        "target_destination": 27859
+      },
+      {
+        "offset": 216,
+        "symbol": "RoundBreakAddr",
+        "candidate_destination": 27825,
+        "target_destination": 27825
+      },
+      {
+        "offset": 283,
+        "symbol": "tempcds",
+        "candidate_destination": 19461,
+        "target_destination": 19461
+      },
+      {
+        "offset": 333,
+        "symbol": "DevBreak",
+        "candidate_destination": 27896,
+        "target_destination": 27896
+      },
+      {
+        "offset": 345,
+        "symbol": "DevBreak",
+        "candidate_destination": 27896,
+        "target_destination": 27896
+      },
+      {
+        "offset": 359,
+        "symbol": "prnerr",
+        "candidate_destination": 30475,
+        "target_destination": 30475
+      }
+    ],
+    "normalized_equal": true
+  },
+  "umb_allocation_and_mark": {
+    "candidate_offset": 27439,
+    "target_offset": 27439,
+    "length": 259,
+    "fixups": [
+      {
+        "offset": 3,
+        "symbol": "DeviceHi",
+        "addend": 0,
+        "candidate": 8520,
+        "target": 8520
+      },
+      {
+        "offset": 23,
+        "symbol": "DevUMBFree",
+        "addend": 0,
+        "candidate": 8510,
+        "target": 8510
+      },
+      {
+        "offset": 28,
+        "symbol": "DevUMBAddr",
+        "addend": 0,
+        "candidate": 8506,
+        "target": 8506
+      },
+      {
+        "offset": 33,
+        "symbol": "DevUMBSize",
+        "addend": 0,
+        "candidate": 8508,
+        "target": 8508
+      },
+      {
+        "offset": 40,
+        "symbol": "DeviceHi",
+        "addend": 0,
+        "candidate": 8520,
+        "target": 8520
+      },
+      {
+        "offset": 57,
+        "symbol": "DevLoadAddr",
+        "addend": 0,
+        "candidate": 8493,
+        "target": 8493
+      },
+      {
+        "offset": 62,
+        "symbol": "DevLoadEnd",
+        "addend": 0,
+        "candidate": 8495,
+        "target": 8495
+      },
+      {
+        "offset": 67,
+        "symbol": "DevEntry",
+        "addend": 0,
+        "candidate": 8497,
+        "target": 8497
+      },
+      {
+        "offset": 73,
+        "symbol": "DevEntry",
+        "addend": 2,
+        "candidate": 8499,
+        "target": 8499
+      },
+      {
+        "offset": 78,
+        "symbol": "DevUMBSize",
+        "addend": 0,
+        "candidate": 8508,
+        "target": 8508
+      },
+      {
+        "offset": 83,
+        "symbol": "DevUMBAddr",
+        "addend": 0,
+        "candidate": 8506,
+        "target": 8506
+      },
+      {
+        "offset": 88,
+        "symbol": "DevUMBFree",
+        "addend": 0,
+        "candidate": 8510,
+        "target": 8510
+      },
+      {
+        "offset": 100,
+        "symbol": "DevSize",
+        "addend": 0,
+        "candidate": 8491,
+        "target": 8491
+      },
+      {
+        "offset": 119,
+        "symbol": "DevSize",
+        "addend": 0,
+        "candidate": 8491,
+        "target": 8491
+      },
+      {
+        "offset": 152,
+        "symbol": "DevUMBSize",
+        "addend": 0,
+        "candidate": 8508,
+        "target": 8508
+      },
+      {
+        "offset": 156,
+        "symbol": "DevUMBAddr",
+        "addend": 0,
+        "candidate": 8506,
+        "target": 8506
+      },
+      {
+        "offset": 160,
+        "symbol": "DevUMBFree",
+        "addend": 0,
+        "candidate": 8510,
+        "target": 8510
+      },
+      {
+        "offset": 168,
+        "symbol": "DevUMBSize",
+        "addend": 0,
+        "candidate": 8508,
+        "target": 8508
+      },
+      {
+        "offset": 172,
+        "symbol": "DevUMBAddr",
+        "addend": 0,
+        "candidate": 8506,
+        "target": 8506
+      },
+      {
+        "offset": 176,
+        "symbol": "DevUMBFree",
+        "addend": 0,
+        "candidate": 8510,
+        "target": 8510
+      },
+      {
+        "offset": 9,
+        "symbol": "SpaceInUMB?",
+        "candidate_destination": 27515,
+        "target_destination": 27515
+      },
+      {
+        "offset": 14,
+        "symbol": "ShrinkUMB",
+        "candidate_destination": 28617,
+        "target_destination": 28617
+      },
+      {
+        "offset": 17,
+        "symbol": "GetUMBForDev",
+        "candidate_destination": 27542,
+        "target_destination": 27542
+      },
+      {
+        "offset": 53,
+        "symbol": "DevSetMark",
+        "candidate_destination": 27619,
+        "target_destination": 27619
+      }
+    ],
+    "normalized_equal": true
+  },
+  "scope": "Linked DEVICEHIGH entry, ParseSize, DEVICE load prelude, driver init, device linking, DPB construction and UMB allocation; named address normalization is comparison-only. No complete driver loading or runtime claim."
+}

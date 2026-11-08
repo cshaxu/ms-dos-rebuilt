@@ -1,0 +1,847 @@
+{
+  "module": "macro2-full",
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\physical-sft-probe-gaif7wrl",
+  "candidate_proof_sha256": "466eae576b9cc8a6050c1f5644f073d2f0ac4ab501de3340ef0f63e222789af6",
+  "link_report_sha256": "1bbdfe1c5717a66605a3aef82166c9d11164f5e85d841c1f70d29448a8b796da",
+  "linked_start": 39931,
+  "public_anchors": [
+    {
+      "symbol": "pathsepgotch",
+      "object_offset": 575,
+      "linked_offset": 40506
+    },
+    {
+      "symbol": "transpathset",
+      "object_offset": 102,
+      "linked_offset": 40033
+    },
+    {
+      "symbol": "pathsep",
+      "object_offset": 573,
+      "linked_offset": 40504
+    },
+    {
+      "symbol": "copycomponent",
+      "object_offset": 602,
+      "linked_offset": 40533
+    },
+    {
+      "symbol": "textfromdrive",
+      "object_offset": 939,
+      "linked_offset": 40870
+    },
+    {
+      "symbol": "drivefromtext",
+      "object_offset": 916,
+      "linked_offset": 40847
+    },
+    {
+      "symbol": "skipback",
+      "object_offset": 583,
+      "linked_offset": 40514
+    },
+    {
+      "symbol": "macro001e",
+      "object_offset": 0,
+      "linked_offset": 39931
+    },
+    {
+      "symbol": "transfcb",
+      "object_offset": 0,
+      "linked_offset": 39931
+    },
+    {
+      "symbol": "macro001s",
+      "object_offset": 0,
+      "linked_offset": 39931
+    },
+    {
+      "symbol": "pathpref",
+      "object_offset": 947,
+      "linked_offset": 40878
+    },
+    {
+      "symbol": "textfromdrive1",
+      "object_offset": 941,
+      "linked_offset": 40872
+    },
+    {
+      "symbol": "transpathnoset",
+      "object_offset": 110,
+      "linked_offset": 40041
+    },
+    {
+      "symbol": "transpath",
+      "object_offset": 98,
+      "linked_offset": 40029
+    },
+    {
+      "symbol": "$nametrans",
+      "object_offset": 879,
+      "linked_offset": 40810
+    },
+    {
+      "symbol": "scanpathchar",
+      "object_offset": 972,
+      "linked_offset": 40903
+    },
+    {
+      "symbol": "canonicalize",
+      "object_offset": 472,
+      "linked_offset": 40403
+    },
+    {
+      "symbol": "splice",
+      "object_offset": 744,
+      "linked_offset": 40675
+    }
+  ],
+  "bytes": 982,
+  "named_fixups": [
+    {
+      "offset": 16,
+      "symbol": "ExtFCB",
+      "relative": false,
+      "target_symbol": 1388,
+      "linked_symbol": 1388
+    },
+    {
+      "offset": 22,
+      "symbol": "Sattrib",
+      "relative": false,
+      "target_symbol": 1389,
+      "linked_symbol": 1389
+    },
+    {
+      "offset": 26,
+      "symbol": "GetExtended",
+      "relative": true,
+      "target_symbol": 23292,
+      "linked_symbol": 23292
+    },
+    {
+      "offset": 35,
+      "symbol": "Sattrib",
+      "relative": false,
+      "target_symbol": 1389,
+      "linked_symbol": 1389
+    },
+    {
+      "offset": 40,
+      "symbol": "ExtFCB",
+      "relative": false,
+      "target_symbol": 1388,
+      "linked_symbol": 1388
+    },
+    {
+      "offset": 45,
+      "symbol": "GetThisDrv",
+      "relative": true,
+      "target_symbol": 43612,
+      "linked_symbol": 39808
+    },
+    {
+      "offset": 50,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 43735,
+      "linked_symbol": 39931
+    },
+    {
+      "offset": 58,
+      "symbol": "GetCharType",
+      "relative": true,
+      "target_symbol": 36846,
+      "linked_symbol": 32338
+    },
+    {
+      "offset": 70,
+      "symbol": "PackName",
+      "relative": true,
+      "target_symbol": 24412,
+      "linked_symbol": 24412
+    },
+    {
+      "offset": 86,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 43735,
+      "linked_symbol": 39931
+    },
+    {
+      "offset": 106,
+      "symbol": "NoSetDir",
+      "relative": false,
+      "target_symbol": 844,
+      "linked_symbol": 844
+    },
+    {
+      "offset": 112,
+      "symbol": "fSplice",
+      "relative": false,
+      "target_symbol": 1393,
+      "linked_symbol": 1393
+    },
+    {
+      "offset": 117,
+      "symbol": "cMeta",
+      "relative": false,
+      "target_symbol": 1402,
+      "linked_symbol": 1402
+    },
+    {
+      "offset": 123,
+      "symbol": "WFP_Start",
+      "relative": false,
+      "target_symbol": 1458,
+      "linked_symbol": 1458
+    },
+    {
+      "offset": 128,
+      "symbol": "Curr_Dir_End",
+      "relative": false,
+      "target_symbol": 1462,
+      "linked_symbol": 1462
+    },
+    {
+      "offset": 141,
+      "symbol": "fSharing",
+      "relative": false,
+      "target_symbol": 1394,
+      "linked_symbol": 1394
+    },
+    {
+      "offset": 147,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 43735,
+      "linked_symbol": 39931
+    },
+    {
+      "offset": 150,
+      "symbol": "GetThisDrv",
+      "relative": true,
+      "target_symbol": 43612,
+      "linked_symbol": 39808
+    },
+    {
+      "offset": 155,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 43735,
+      "linked_symbol": 39931
+    },
+    {
+      "offset": 161,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 43735,
+      "linked_symbol": 39931
+    },
+    {
+      "offset": 169,
+      "symbol": "WFP_Start",
+      "relative": false,
+      "target_symbol": 1458,
+      "linked_symbol": 1458
+    },
+    {
+      "offset": 173,
+      "symbol": "fSplice",
+      "relative": false,
+      "target_symbol": 1393,
+      "linked_symbol": 1393
+    },
+    {
+      "offset": 179,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 43735,
+      "linked_symbol": 39931
+    },
+    {
+      "offset": 185,
+      "symbol": "ThisCDS",
+      "relative": false,
+      "target_symbol": 1442,
+      "linked_symbol": 1442
+    },
+    {
+      "offset": 188,
+      "symbol": "EcritDisk",
+      "relative": true,
+      "target_symbol": 20774,
+      "linked_symbol": 19744
+    },
+    {
+      "offset": 191,
+      "symbol": "FatRead_CDS",
+      "relative": true,
+      "target_symbol": 38505,
+      "linked_symbol": 32839
+    },
+    {
+      "offset": 194,
+      "symbol": "LcritDisk",
+      "relative": true,
+      "target_symbol": 20806,
+      "linked_symbol": 19776
+    },
+    {
+      "offset": 202,
+      "symbol": "ThisCDS",
+      "relative": false,
+      "target_symbol": 1442,
+      "linked_symbol": 1442
+    },
+    {
+      "offset": 214,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 43735,
+      "linked_symbol": 39931
+    },
+    {
+      "offset": 220,
+      "symbol": "PathChrCmp",
+      "relative": true,
+      "target_symbol": 36875,
+      "linked_symbol": 32367
+    },
+    {
+      "offset": 225,
+      "symbol": "PathChrCmp",
+      "relative": true,
+      "target_symbol": 36875,
+      "linked_symbol": 32367
+    },
+    {
+      "offset": 237,
+      "symbol": "UCase",
+      "relative": true,
+      "target_symbol": 36790,
+      "linked_symbol": 32282
+    },
+    {
+      "offset": 244,
+      "symbol": "PathChrCmp",
+      "relative": true,
+      "target_symbol": 36875,
+      "linked_symbol": 32367
+    },
+    {
+      "offset": 252,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 43735,
+      "linked_symbol": 39931
+    },
+    {
+      "offset": 273,
+      "symbol": "CheckThisDevice",
+      "relative": true,
+      "target_symbol": 33369,
+      "linked_symbol": 30506
+    },
+    {
+      "offset": 282,
+      "symbol": "fSharing",
+      "relative": false,
+      "target_symbol": 1394,
+      "linked_symbol": 1394
+    },
+    {
+      "offset": 286,
+      "symbol": "GetThisDrv",
+      "relative": true,
+      "target_symbol": 43612,
+      "linked_symbol": 39808
+    },
+    {
+      "offset": 291,
+      "symbol": "fSharing",
+      "relative": false,
+      "target_symbol": 1394,
+      "linked_symbol": 1394
+    },
+    {
+      "offset": 295,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 43735,
+      "linked_symbol": 39931
+    },
+    {
+      "offset": 301,
+      "symbol": "StrCpy",
+      "relative": true,
+      "target_symbol": 20453,
+      "linked_symbol": 20581
+    },
+    {
+      "offset": 308,
+      "symbol": "GetVisDrv",
+      "relative": true,
+      "target_symbol": 43583,
+      "linked_symbol": 39779
+    },
+    {
+      "offset": 319,
+      "symbol": "ValidateCDS",
+      "relative": true,
+      "target_symbol": 33179,
+      "linked_symbol": 30316
+    },
+    {
+      "offset": 334,
+      "symbol": "ThisCDS",
+      "relative": false,
+      "target_symbol": 1442,
+      "linked_symbol": 1442
+    },
+    {
+      "offset": 346,
+      "symbol": "FStrCpy",
+      "relative": true,
+      "target_symbol": 20468,
+      "linked_symbol": 20596
+    },
+    {
+      "offset": 362,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 43735,
+      "linked_symbol": 39931
+    },
+    {
+      "offset": 374,
+      "symbol": "PathChrCmp",
+      "relative": true,
+      "target_symbol": 36875,
+      "linked_symbol": 32367
+    },
+    {
+      "offset": 387,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 43735,
+      "linked_symbol": 39931
+    },
+    {
+      "offset": 395,
+      "symbol": "WFP_Start",
+      "relative": false,
+      "target_symbol": 1458,
+      "linked_symbol": 1458
+    },
+    {
+      "offset": 399,
+      "symbol": "ThisCDS",
+      "relative": false,
+      "target_symbol": 1442,
+      "linked_symbol": 1442
+    },
+    {
+      "offset": 402,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 43735,
+      "linked_symbol": 39931
+    },
+    {
+      "offset": 410,
+      "symbol": "PathChrCmp",
+      "relative": true,
+      "target_symbol": 36875,
+      "linked_symbol": 32367
+    },
+    {
+      "offset": 424,
+      "symbol": "Curr_Dir_End",
+      "relative": false,
+      "target_symbol": 1462,
+      "linked_symbol": 1462
+    },
+    {
+      "offset": 430,
+      "symbol": "WFP_Start",
+      "relative": false,
+      "target_symbol": 1458,
+      "linked_symbol": 1458
+    },
+    {
+      "offset": 436,
+      "symbol": "fSplice",
+      "relative": false,
+      "target_symbol": 1393,
+      "linked_symbol": 1393
+    },
+    {
+      "offset": 442,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 43735,
+      "linked_symbol": 39931
+    },
+    {
+      "offset": 448,
+      "symbol": "ThisCDS",
+      "relative": false,
+      "target_symbol": 1442,
+      "linked_symbol": 1442
+    },
+    {
+      "offset": 461,
+      "symbol": "EcritDisk",
+      "relative": true,
+      "target_symbol": 20774,
+      "linked_symbol": 19744
+    },
+    {
+      "offset": 464,
+      "symbol": "FatRead_CDS",
+      "relative": true,
+      "target_symbol": 38505,
+      "linked_symbol": 32839
+    },
+    {
+      "offset": 467,
+      "symbol": "LcritDisk",
+      "relative": true,
+      "target_symbol": 20806,
+      "linked_symbol": 19776
+    },
+    {
+      "offset": 474,
+      "symbol": "PathChrCmp",
+      "relative": true,
+      "target_symbol": 36875,
+      "linked_symbol": 32367
+    },
+    {
+      "offset": 508,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 43735,
+      "linked_symbol": 39931
+    },
+    {
+      "offset": 519,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 43735,
+      "linked_symbol": 39931
+    },
+    {
+      "offset": 538,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 43735,
+      "linked_symbol": 39931
+    },
+    {
+      "offset": 549,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 43735,
+      "linked_symbol": 39931
+    },
+    {
+      "offset": 555,
+      "symbol": "PathChrCmp",
+      "relative": true,
+      "target_symbol": 36875,
+      "linked_symbol": 32367
+    },
+    {
+      "offset": 566,
+      "symbol": "PathChrCmp",
+      "relative": true,
+      "target_symbol": 36875,
+      "linked_symbol": 32367
+    },
+    {
+      "offset": 580,
+      "symbol": "PathChrCmp",
+      "relative": true,
+      "target_symbol": 36875,
+      "linked_symbol": 32367
+    },
+    {
+      "offset": 592,
+      "symbol": "PathChrCmp",
+      "relative": true,
+      "target_symbol": 36875,
+      "linked_symbol": 32367
+    },
+    {
+      "offset": 621,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 43735,
+      "linked_symbol": 39931
+    },
+    {
+      "offset": 632,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 43735,
+      "linked_symbol": 39931
+    },
+    {
+      "offset": 648,
+      "symbol": "NameTrans",
+      "relative": true,
+      "target_symbol": 36681,
+      "linked_symbol": 32173
+    },
+    {
+      "offset": 658,
+      "symbol": "fSharing",
+      "relative": false,
+      "target_symbol": 1394,
+      "linked_symbol": 1394
+    },
+    {
+      "offset": 669,
+      "symbol": "cMeta",
+      "relative": false,
+      "target_symbol": 1402,
+      "linked_symbol": 1402
+    },
+    {
+      "offset": 685,
+      "symbol": "NAME1",
+      "relative": false,
+      "target_symbol": 1355,
+      "linked_symbol": 1355
+    },
+    {
+      "offset": 692,
+      "symbol": "PackName",
+      "relative": true,
+      "target_symbol": 24412,
+      "linked_symbol": 24412
+    },
+    {
+      "offset": 696,
+      "symbol": "StrLen",
+      "relative": true,
+      "target_symbol": 20477,
+      "linked_symbol": 20605
+    },
+    {
+      "offset": 713,
+      "symbol": "FStrCpy",
+      "relative": true,
+      "target_symbol": 20468,
+      "linked_symbol": 20596
+    },
+    {
+      "offset": 720,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 43735,
+      "linked_symbol": 39931
+    },
+    {
+      "offset": 739,
+      "symbol": "StrLen",
+      "relative": true,
+      "target_symbol": 20477,
+      "linked_symbol": 20605
+    },
+    {
+      "offset": 747,
+      "symbol": "Splices",
+      "relative": false,
+      "target_symbol": 90,
+      "linked_symbol": 90
+    },
+    {
+      "offset": 755,
+      "symbol": "ThisCDS",
+      "relative": false,
+      "target_symbol": 1442,
+      "linked_symbol": 1442
+    },
+    {
+      "offset": 760,
+      "symbol": "ThisCDS",
+      "relative": false,
+      "target_symbol": 1442,
+      "linked_symbol": 1442
+    },
+    {
+      "offset": 769,
+      "symbol": "GetCDSFromDrv",
+      "relative": true,
+      "target_symbol": 43699,
+      "linked_symbol": 39895
+    },
+    {
+      "offset": 784,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 43735,
+      "linked_symbol": 39931
+    },
+    {
+      "offset": 800,
+      "symbol": "NoSetDir",
+      "relative": false,
+      "target_symbol": 844,
+      "linked_symbol": 844
+    },
+    {
+      "offset": 811,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 43735,
+      "linked_symbol": 39931
+    },
+    {
+      "offset": 815,
+      "symbol": "Curr_Dir_End",
+      "relative": false,
+      "target_symbol": 1462,
+      "linked_symbol": 1462
+    },
+    {
+      "offset": 827,
+      "symbol": "Curr_Dir_End",
+      "relative": false,
+      "target_symbol": 1462,
+      "linked_symbol": 1462
+    },
+    {
+      "offset": 838,
+      "symbol": "FStrCpy",
+      "relative": true,
+      "target_symbol": 20468,
+      "linked_symbol": 20596
+    },
+    {
+      "offset": 851,
+      "symbol": "ThisCDS",
+      "relative": false,
+      "target_symbol": 1442,
+      "linked_symbol": 1442
+    },
+    {
+      "offset": 856,
+      "symbol": "ThisCDS",
+      "relative": false,
+      "target_symbol": 1442,
+      "linked_symbol": 1442
+    },
+    {
+      "offset": 863,
+      "symbol": "ThisCDS",
+      "relative": false,
+      "target_symbol": 1442,
+      "linked_symbol": 1442
+    },
+    {
+      "offset": 871,
+      "symbol": "ThisDPB",
+      "relative": false,
+      "target_symbol": 1418,
+      "linked_symbol": 1418
+    },
+    {
+      "offset": 876,
+      "symbol": "ThisDPB",
+      "relative": false,
+      "target_symbol": 1418,
+      "linked_symbol": 1418
+    },
+    {
+      "offset": 887,
+      "symbol": "SetAttrib",
+      "relative": true,
+      "target_symbol": 45329,
+      "linked_symbol": 41525
+    },
+    {
+      "offset": 890,
+      "symbol": "OpenBuf",
+      "relative": false,
+      "target_symbol": 958,
+      "linked_symbol": 958
+    },
+    {
+      "offset": 893,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 43735,
+      "linked_symbol": 39931
+    },
+    {
+      "offset": 903,
+      "symbol": "SYS_Ret_Err",
+      "relative": true,
+      "target_symbol": 17389,
+      "linked_symbol": 17389
+    },
+    {
+      "offset": 906,
+      "symbol": "OpenBuf",
+      "relative": false,
+      "target_symbol": 958,
+      "linked_symbol": 958
+    },
+    {
+      "offset": 911,
+      "symbol": "FStrCpy",
+      "relative": true,
+      "target_symbol": 20468,
+      "linked_symbol": 20596
+    },
+    {
+      "offset": 914,
+      "symbol": "SYS_Ret_OK",
+      "relative": true,
+      "target_symbol": 17380,
+      "linked_symbol": 17380
+    },
+    {
+      "offset": 948,
+      "symbol": "DStrLen",
+      "relative": true,
+      "target_symbol": 20491,
+      "linked_symbol": 20619
+    },
+    {
+      "offset": 960,
+      "symbol": "PathChrCmp",
+      "relative": true,
+      "target_symbol": 36875,
+      "linked_symbol": 32367
+    },
+    {
+      "offset": 968,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 43735,
+      "linked_symbol": 39931
+    },
+    {
+      "offset": 974,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 43735,
+      "linked_symbol": 39931
+    },
+    {
+      "offset": 979,
+      "symbol": "PathChrCmp",
+      "relative": true,
+      "target_symbol": 36875,
+      "linked_symbol": 32367
+    }
+  ],
+  "remaining_differences": [],
+  "correspondence": true,
+  "scope": "Complete linked MZ module, only candidate OMF named relocations adjusted; physical data placement can differ. Not runtime or whole-kernel identity."
+}

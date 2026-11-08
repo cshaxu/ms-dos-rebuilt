@@ -1,0 +1,155 @@
+{
+  "index": 21,
+  "file": "bios/inc/mult.inc",
+  "before_sha256": "96c9bad6dfeeb1816a8befbd1414bd54fb1c054d7bc3d3d25079673100796b67",
+  "after_sha256": "3b7326d1ccbc9434054689a8cfd623cb7dbbe3d00db5ed82f7ebedf1a1b778b3",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\inc\\mult.inc",
+      "sha256": "73037418e659c1eab2d3e67fc7e29eebed8fc6f1fe5790848ee22f9870ef89a6"
+    },
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\INC\\MULT.INC",
+      "sha256": "851c0c79e02dc14f51d4d70e0420293d3a8087726d12394d9faca5073df59966"
+    },
+    {
+      "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\mult.inc",
+      "sha256": "517bc33792cc568eb350308b931ad87b75b1d42255341950fe394df9302c48fb"
+    }
+  ],
+  "decision": "retain_round2",
+  "reason": "DOS 6 adds multMAGIC, DoubleSpace and Chicago content; OpenNT omits MultPWR_BRDCST and MultPWR_API, referenced by existing optional POWER sources; DOS 4 has different critical-section definitions and lacks later DOS 5 multiplex declarations. No complete reference is a safe exact replacement.",
+  "removed_comment_lines": [
+    ";      56h      Sewell Development",
+    ";               INTERLNK",
+    "    ;  10   smartdrv 4.0",
+    "    ;  12   MRCI     api"
+  ],
+  "dating_evidence": [
+    {
+      "url": "https://learn.microsoft.com/en-us/shows/history/history-of-microsoft-1992",
+      "observation": "Microsoft describes Interlink as new in 1992, after the DOS 5.00 release."
+    },
+    {
+      "url": "https://www.slivka.com/BenCV/",
+      "observation": "Microsoft DOS developer dates MRCI design to the 1992\u20131993 MS-DOS 6 development period."
+    }
+  ],
+  "smartdrv_note": "The version-specific 4.0 reference is removed as a later-version lead; the generic Smartdrv channel reference is retained because the date and meaning of that reservation are not established by this check.",
+  "previous_automatic_evidence": {
+    "index": 21,
+    "file": "bios/inc/mult.inc",
+    "sha256": "96c9bad6dfeeb1816a8befbd1414bd54fb1c054d7bc3d3d25079673100796b67",
+    "round": 2,
+    "code_lines": 12,
+    "passages": [
+      {
+        "source_line_start": 8,
+        "source_line_end": 8,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\inc\\mult.inc",
+        "reference_sha256": "73037418e659c1eab2d3e67fc7e29eebed8fc6f1fe5790848ee22f9870ef89a6",
+        "reference_line_start": 8,
+        "reference_line_end": 8
+      },
+      {
+        "source_line_start": 96,
+        "source_line_end": 96,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\inc\\mult.inc",
+        "reference_sha256": "73037418e659c1eab2d3e67fc7e29eebed8fc6f1fe5790848ee22f9870ef89a6",
+        "reference_line_start": 99,
+        "reference_line_end": 99
+      },
+      {
+        "source_line_start": 111,
+        "source_line_end": 112,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\inc\\mult.inc",
+        "reference_sha256": "73037418e659c1eab2d3e67fc7e29eebed8fc6f1fe5790848ee22f9870ef89a6",
+        "reference_line_start": 114,
+        "reference_line_end": 115
+      },
+      {
+        "source_line_start": 161,
+        "source_line_end": 161,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\inc\\mult.inc",
+        "reference_sha256": "73037418e659c1eab2d3e67fc7e29eebed8fc6f1fe5790848ee22f9870ef89a6",
+        "reference_line_start": 164,
+        "reference_line_end": 164
+      },
+      {
+        "source_line_start": 210,
+        "source_line_end": 210,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\inc\\mult.inc",
+        "reference_sha256": "73037418e659c1eab2d3e67fc7e29eebed8fc6f1fe5790848ee22f9870ef89a6",
+        "reference_line_start": 213,
+        "reference_line_end": 213
+      },
+      {
+        "source_line_start": 218,
+        "source_line_end": 218,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\inc\\mult.inc",
+        "reference_sha256": "73037418e659c1eab2d3e67fc7e29eebed8fc6f1fe5790848ee22f9870ef89a6",
+        "reference_line_start": 221,
+        "reference_line_end": 221
+      },
+      {
+        "source_line_start": 223,
+        "source_line_end": 223,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\inc\\mult.inc",
+        "reference_sha256": "73037418e659c1eab2d3e67fc7e29eebed8fc6f1fe5790848ee22f9870ef89a6",
+        "reference_line_start": 226,
+        "reference_line_end": 226
+      },
+      {
+        "source_line_start": 224,
+        "source_line_end": 224,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\inc\\mult.inc",
+        "reference_sha256": "73037418e659c1eab2d3e67fc7e29eebed8fc6f1fe5790848ee22f9870ef89a6",
+        "reference_line_start": 228,
+        "reference_line_end": 228
+      },
+      {
+        "source_line_start": 248,
+        "source_line_end": 248,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\inc\\mult.inc",
+        "reference_sha256": "73037418e659c1eab2d3e67fc7e29eebed8fc6f1fe5790848ee22f9870ef89a6",
+        "reference_line_start": 254,
+        "reference_line_end": 254
+      },
+      {
+        "source_line_start": 254,
+        "source_line_end": 254,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\inc\\mult.inc",
+        "reference_sha256": "73037418e659c1eab2d3e67fc7e29eebed8fc6f1fe5790848ee22f9870ef89a6",
+        "reference_line_start": 260,
+        "reference_line_end": 260
+      },
+      {
+        "source_line_start": 256,
+        "source_line_end": 256,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\inc\\mult.inc",
+        "reference_sha256": "73037418e659c1eab2d3e67fc7e29eebed8fc6f1fe5790848ee22f9870ef89a6",
+        "reference_line_start": 262,
+        "reference_line_end": 262
+      }
+    ]
+  },
+  "verification": {
+    "build_stage": "build/integrated-source-ter5ziru",
+    "targets_equal": true,
+    "code_lines_unchanged": 12,
+    "nt_bop_lexical_hits": 0,
+    "integrated_build_script_sha256": "c031990cc752204400146624be4f429da3b5e65665de1281ebc3364faba0b0f1"
+  },
+  "limitations": "Historical original DOS 5 include content is not established; optional POWER is not runtime validated."
+}

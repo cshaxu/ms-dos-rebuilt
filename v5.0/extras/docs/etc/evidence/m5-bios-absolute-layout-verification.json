@@ -1,0 +1,74 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\bios-comparison-1ojld0jg",
+  "candidate_sha256": "09df7ec418edb1728662b1fe911a62c1a7bd3e19ad20b82548f022dd654750ad",
+  "target_bios_sha256": "09df7ec418edb1728662b1fe911a62c1a7bd3e19ad20b82548f022dd654750ad",
+  "map_sha256": "927cd424cfd8523b91657a84978766381ffe67d6dba3a7bf2b6cde9836bd1d01",
+  "listing_sha256": "b7ba6cdfabf0d1fd9068c22e84f45862eece3bf3075e768e78ca8f4771b2c543",
+  "intervals": [
+    {
+      "name": "sysinit_base_through_checksum_error",
+      "start": 20780,
+      "end": 20832,
+      "length": 52,
+      "raw_equal": true,
+      "sha256": "7283833a684e2790dace96105e291506b07a3aacd232b6087611ea0a7008f79b"
+    },
+    {
+      "name": "switches_and_dos_parameter_tables",
+      "start": 24706,
+      "end": 24878,
+      "length": 172,
+      "raw_equal": true,
+      "sha256": "aeafb418b341dfe25760ccd41d1c304fcdc8114534cc26b59006508da374d14f"
+    },
+    {
+      "name": "comment_and_rem_dispatch",
+      "start": 26886,
+      "end": 26909,
+      "length": 23,
+      "raw_equal": true,
+      "sha256": "fd02e0ecd61d2154053fdd4efd9b0aef810e0e67d8b27ed2dc02545f3972e858"
+    },
+    {
+      "name": "unknown_and_null_dispatch",
+      "start": 27047,
+      "end": 27065,
+      "length": 18,
+      "raw_equal": true,
+      "sha256": "9e0a7b226a0839b7b27fc31a15bd0c6a0744340660f81d2277ed3e6c7ebec94b"
+    },
+    {
+      "name": "sysinit_parser_wrapper",
+      "start": 27065,
+      "end": 27104,
+      "length": 39,
+      "raw_equal": true,
+      "sha256": "2754a4552ad930d415c2eba6750146016601dbd0deb163f3954269408c4ca1ea"
+    },
+    {
+      "name": "umb_device_load_and_size_parser",
+      "start": 27439,
+      "end": 28009,
+      "length": 570,
+      "raw_equal": true,
+      "sha256": "d347a07439d853e5f44d857ed812ac787129d422d5a7abaefac8e0f0d21ed342"
+    },
+    {
+      "name": "organizer_before_table_pointer",
+      "start": 29188,
+      "end": 29245,
+      "length": 57,
+      "raw_equal": true,
+      "sha256": "e9b790b021278a45af31d1b25a1bc0003cbae25bcd0edf755f003dfa94cceb8c"
+    },
+    {
+      "name": "organizer_after_table_pointer",
+      "start": 29248,
+      "end": 29728,
+      "length": 480,
+      "raw_equal": true,
+      "sha256": "42092a0c7b10ae61f0c6c641a5757bd88e6c06be980d8db9c52c3b72861a63c2"
+    }
+  ],
+  "scope": "Two actual linked intervals, compared at absolute target positions without fixups; no complete BIOS or runtime claim."
+}

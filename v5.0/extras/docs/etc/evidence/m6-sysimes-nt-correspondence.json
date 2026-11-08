@@ -1,0 +1,25 @@
+{
+  "nt_sha256": "c78fd2ddb0e2fc5683d3054ca426976a1dffd72e2adfbbf19a7eea345dc3cf8a",
+  "candidate_sha256": "c78fd2ddb0e2fc5683d3054ca426976a1dffd72e2adfbbf19a7eea345dc3cf8a",
+  "configured_sha256": "45bce5d4641d4c4e1fd6c502ee1d498de66b311a6becbefd0967fe85e8b957ab",
+  "object_sha256": "cc98fc95efc0d30b5d17a71152061ad006ad473fa1089fc6a738c56ee069c235",
+  "active_statements": [
+    "page ,160",
+    "include version.inc",
+    "include biosseg.inc",
+    "sysinitseg segment",
+    "public badopm,crlfm,badsiz_pre,badld_pre,badcom,badcountry",
+    "public badmem,badblock,badstack",
+    "public insufmemory,badcountrycom",
+    "public badorder,errorcmd",
+    "public badparm",
+    "public toomanydrivesmsg",
+    "include msbio.cl3",
+    "sysinitseg ends",
+    "end"
+  ],
+  "message_source_sha256": "cc199f0c5f8fa1ac91c81cb9d204d8bebc1af42aec280dc9b15dbccdabc2fb01",
+  "message_length": 472,
+  "message_io_offset": 32954,
+  "scope": "Current source equals NTIO; literal single-config statements match the retained build source. The retained object and target message interval are checked. No fresh assembly or complete object equivalence claim."
+}

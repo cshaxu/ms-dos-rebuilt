@@ -1,0 +1,8 @@
+{
+  "source": "dos/msinit.asm",
+  "reference": "v6.0/dos/msinit.asm device initialization",
+  "before_sha256": "c9d1dbc24e5d1b055a1887fa5bd7435ba6c6eb317b48720dd271757de4f0119d",
+  "after_sha256": "2cd47c54c4e613936bb7799f3ad2be5925e8a77692f4a72b743969b91fa50872",
+  "changes": "Clarify that PUSH DS saves the device-list segment and PUSH DI saves the BIOS communication block offset; format DPBHead setup and restore matching DOS 6 explanatory comments.",
+  "scope": "Comments and whitespace only, instructions unchanged."
+}

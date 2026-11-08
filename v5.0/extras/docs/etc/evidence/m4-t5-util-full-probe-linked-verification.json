@@ -1,0 +1,124 @@
+{
+  "module": "util-full",
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\physical-sft-probe-gaif7wrl",
+  "candidate_proof_sha256": "6c27b38e635ee326e19528a981c06c236b5b7382212dd9194528edd1646b91b3",
+  "link_report_sha256": "1bbdfe1c5717a66605a3aef82166c9d11164f5e85d841c1f70d29448a8b796da",
+  "linked_start": 38705,
+  "public_anchors": [
+    {
+      "symbol": "jfnfree",
+      "object_offset": 98,
+      "linked_offset": 38803
+    },
+    {
+      "symbol": "sfnfree",
+      "object_offset": 117,
+      "linked_offset": 38822
+    },
+    {
+      "symbol": "pjfnfromhandle",
+      "object_offset": 0,
+      "linked_offset": 38705
+    },
+    {
+      "symbol": "sffromsfn",
+      "object_offset": 55,
+      "linked_offset": 38760
+    },
+    {
+      "symbol": "sffromhandle",
+      "object_offset": 29,
+      "linked_offset": 38734
+    }
+  ],
+  "bytes": 190,
+  "named_fixups": [
+    {
+      "offset": 3,
+      "symbol": "DosDseg",
+      "relative": false,
+      "target_symbol": 15831,
+      "linked_symbol": 15831
+    },
+    {
+      "offset": 8,
+      "symbol": "CurrentPDB",
+      "relative": false,
+      "target_symbol": 816,
+      "linked_symbol": 816
+    },
+    {
+      "offset": 30,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 42509,
+      "linked_symbol": 38705
+    },
+    {
+      "offset": 51,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 42509,
+      "linked_symbol": 38705
+    },
+    {
+      "offset": 58,
+      "symbol": "DosDseg",
+      "relative": false,
+      "target_symbol": 15831,
+      "linked_symbol": 15831
+    },
+    {
+      "offset": 63,
+      "symbol": "SFT_Addr",
+      "relative": false,
+      "target_symbol": 42,
+      "linked_symbol": 42
+    },
+    {
+      "offset": 101,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 42509,
+      "linked_symbol": 38705
+    },
+    {
+      "offset": 122,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 42509,
+      "linked_symbol": 38705
+    },
+    {
+      "offset": 144,
+      "symbol": "USER_ID",
+      "relative": false,
+      "target_symbol": 830,
+      "linked_symbol": 830
+    },
+    {
+      "offset": 154,
+      "symbol": "PROC_ID",
+      "relative": false,
+      "target_symbol": 828,
+      "linked_symbol": 828
+    },
+    {
+      "offset": 169,
+      "symbol": "USER_ID",
+      "relative": false,
+      "target_symbol": 830,
+      "linked_symbol": 830
+    },
+    {
+      "offset": 177,
+      "symbol": "PROC_ID",
+      "relative": false,
+      "target_symbol": 828,
+      "linked_symbol": 828
+    }
+  ],
+  "remaining_differences": [],
+  "correspondence": true,
+  "scope": "Complete linked MZ module, only candidate OMF named relocations adjusted; physical data placement can differ. Not runtime or whole-kernel identity."
+}

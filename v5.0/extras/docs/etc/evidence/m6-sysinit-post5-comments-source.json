@@ -1,0 +1,20 @@
+{
+  "source": "bios/sysinit1.asm",
+  "before_sha256": "e927b0b0574b75479c7a7448ac04e99f45abc0d93a46708964137b75fe526540",
+  "after_sha256": "f265c5256d484824ef432687d910bb44ee846db3a81f7dce146cb5771f90f531",
+  "changes": [
+    {
+      "before": "        push    es                      ; BUGBUG 3-30-92 JeffPar: no reason to save ES",
+      "after": "\tpush\tes\t\t\t; save ES"
+    },
+    {
+      "before": "        pop     es                      ; BUGBUG 3-30-92 JeffPar: no reason to save ES",
+      "after": "\tpop\tes\t\t\t; restore ES"
+    },
+    {
+      "before": ";\tBUGBUG - we don't update confbot - won't someone else use it?\r\n;\tchuckst -- answer: no.  Confbot is used to access the CDSs,\r\n;\t25 jul 92  which are stored BELOW it.  Alloclim is the\r\n;\t\t   variable which has the top of free memory for\r\n;\t\t   device driver loads, etc.\r\n",
+      "after": ";\tThe CDSs are stored below confbot.  Alloclim is the top of\r\n;\tfree memory for device driver loads.\r\n"
+    }
+  ],
+  "scope": "Replace post-1991 revision annotations with comments describing existing instructions; original comments preserved here."
+}

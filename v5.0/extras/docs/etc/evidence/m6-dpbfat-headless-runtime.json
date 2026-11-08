@@ -1,0 +1,26 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\dpbfat-vm-kbyl0lsv",
+  "headless_probe_sha256": "b5b718d3f27e09242ae859b48756d80b83ba1d56843f7234962e7b3f17aa7aaa",
+  "guest_probe_sha256": "5899357fe40b0d7375581982b37894a3a7fe832b65781ea7f91975bc43e8a10d",
+  "guest_source_sha256": "f749fc043c53ee428f75beb6f5709a58aa7e1cfffb95eee9bd75fefecff098f7",
+  "log_sha256": "b3a2208e8db2d77021b77154bd9a5ba7e02972488669790be39601dccb9d5315",
+  "image_before_sha256": "f6324970c2cfe63015302ab2446efd2e6605747001b4e63b26c4701c2942ce68",
+  "image_after_sha256": "3b262fb921a1ae1dfa4a87fc0876cf32d011a1b047e546eb3d7838837fc98730",
+  "results": "BEGIN-DPB-FAT\r\nDPB-PASS\r\nFAT-PASS\r\nPROBE-PASS\r\n",
+  "fat_file_bytes": 2048,
+  "fat_file_sha256": "10fc3c51a152e90e5b90319b601d92ccf37290ef53c35ff92507687d8a911a08",
+  "fat_chain": [
+    453,
+    454,
+    455,
+    456
+  ],
+  "fat_copies_equal": true,
+  "system_files": {
+    "IO.SYS": "dd0915ed366b3f640284df4be30ed35f413dfd5b6966c1f25eee9598a5bf53e0",
+    "MSDOS.SYS": "4e41ca4e5893d4cf293f81ad01adbdbd12f7039534f59148214a9cca309529a2",
+    "COMMAND.COM": "74ad25067e7d9f5c3a0ac2f2967347defb0ffef9e6ed60b60e6499f0b1a8cc89"
+  },
+  "passed": true,
+  "scope": "Headless SoftPC core on disposable media with existing source-built candidates. DOS Get-DPB AH=32h and 2048-byte file write/read passed. Not supplied product, fresh build, original-image or full FAT verification."
+}

@@ -1,0 +1,302 @@
+{
+  "tool": "C:\\Users\\neko\\AppData\\Local\\Microsoft\\WinGet\\Packages\\BrechtSanders.WinLibs.POSIX.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\mingw64\\bin\\objdump.EXE",
+  "roots": [
+    {
+      "root": "masm",
+      "files": [
+        {
+          "path": "O:\\repos.hobby\\ntvdm64\\tools\\opennt\\tools16\\masm.exe",
+          "sha256": "e54afaa9565e046cd862c29a015d685de43311acccf796469030e162ced6d00d",
+          "imports": [
+            {
+              "name": "KERNEL32.dll",
+              "adjacent": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "root": "dosbox",
+      "files": [
+        {
+          "path": "C:\\Program Files (x86)\\DOSBox-0.74-3\\DOSBox.exe",
+          "sha256": "dcfd46fa521f5ce89dce3bf026056f3a1d15533f80321ee887403e30d7949f5e",
+          "imports": [
+            {
+              "name": "ADVAPI32.DLL",
+              "adjacent": null
+            },
+            {
+              "name": "KERNEL32.dll",
+              "adjacent": null
+            },
+            {
+              "name": "msvcrt.dll",
+              "adjacent": null
+            },
+            {
+              "name": "OPENGL32.DLL",
+              "adjacent": null
+            },
+            {
+              "name": "SDL.dll",
+              "adjacent": "C:\\Program Files (x86)\\DOSBox-0.74-3\\SDL.dll"
+            },
+            {
+              "name": "SDL_net.dll",
+              "adjacent": "C:\\Program Files (x86)\\DOSBox-0.74-3\\SDL_net.dll"
+            },
+            {
+              "name": "SHELL32.DLL",
+              "adjacent": null
+            },
+            {
+              "name": "USER32.dll",
+              "adjacent": null
+            },
+            {
+              "name": "WINMM.DLL",
+              "adjacent": null
+            },
+            {
+              "name": "WS2_32.DLL",
+              "adjacent": null
+            }
+          ]
+        },
+        {
+          "path": "C:\\Program Files (x86)\\DOSBox-0.74-3\\SDL.dll",
+          "sha256": "69037ebc43755296c0cc292d57d560028d7f2265f7b86ca84e714835c19bbd58",
+          "imports": [
+            {
+              "name": "ADVAPI32.DLL",
+              "adjacent": null
+            },
+            {
+              "name": "GDI32.dll",
+              "adjacent": null
+            },
+            {
+              "name": "KERNEL32.dll",
+              "adjacent": null
+            },
+            {
+              "name": "msvcrt.dll",
+              "adjacent": null
+            },
+            {
+              "name": "USER32.dll",
+              "adjacent": null
+            },
+            {
+              "name": "WINMM.DLL",
+              "adjacent": null
+            }
+          ]
+        },
+        {
+          "path": "C:\\Program Files (x86)\\DOSBox-0.74-3\\SDL_net.dll",
+          "sha256": "2f39dc04acbecf47efa45034891602b6ea7bf6fd2f27b5c0a5ca8d7fb155c929",
+          "imports": [
+            {
+              "name": "KERNEL32.dll",
+              "adjacent": null
+            },
+            {
+              "name": "msvcrt.dll",
+              "adjacent": null
+            },
+            {
+              "name": "SDL.dll",
+              "adjacent": "C:\\Program Files (x86)\\DOSBox-0.74-3\\SDL.dll"
+            },
+            {
+              "name": "WSOCK32.DLL",
+              "adjacent": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "root": "runner",
+      "files": [
+        {
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\isolated-tool-runner.exe",
+          "sha256": "ae195ddf68aedff2fab5130e1368cb5c585e5264b84d142d4f79dc9f973f85b9",
+          "imports": [
+            {
+              "name": "KERNEL32.dll",
+              "adjacent": null
+            },
+            {
+              "name": "msvcrt.dll",
+              "adjacent": null
+            },
+            {
+              "name": "USER32.dll",
+              "adjacent": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "root": "python",
+      "files": [
+        {
+          "path": "C:\\Program Files\\Python313\\python.exe",
+          "sha256": "03573716a7fcbd8b7fed8fe0163bbfbd3a852546920d6a666123f307c8dac7d9",
+          "imports": [
+            {
+              "name": "api-ms-win-crt-heap-l1-1-0.dll",
+              "adjacent": null
+            },
+            {
+              "name": "api-ms-win-crt-locale-l1-1-0.dll",
+              "adjacent": null
+            },
+            {
+              "name": "api-ms-win-crt-math-l1-1-0.dll",
+              "adjacent": null
+            },
+            {
+              "name": "api-ms-win-crt-runtime-l1-1-0.dll",
+              "adjacent": null
+            },
+            {
+              "name": "api-ms-win-crt-stdio-l1-1-0.dll",
+              "adjacent": null
+            },
+            {
+              "name": "KERNEL32.dll",
+              "adjacent": null
+            },
+            {
+              "name": "python313.dll",
+              "adjacent": "C:\\Program Files\\Python313\\python313.dll"
+            },
+            {
+              "name": "VCRUNTIME140.dll",
+              "adjacent": "C:\\Program Files\\Python313\\vcruntime140.dll"
+            }
+          ]
+        },
+        {
+          "path": "C:\\Program Files\\Python313\\python313.dll",
+          "sha256": "78b1dd211c0e66a0603df48da2c9b67a915ab3258701b9285d3faa255ed8dc25",
+          "imports": [
+            {
+              "name": "ADVAPI32.dll",
+              "adjacent": null
+            },
+            {
+              "name": "api-ms-win-core-path-l1-1-0.dll",
+              "adjacent": null
+            },
+            {
+              "name": "api-ms-win-crt-conio-l1-1-0.dll",
+              "adjacent": null
+            },
+            {
+              "name": "api-ms-win-crt-convert-l1-1-0.dll",
+              "adjacent": null
+            },
+            {
+              "name": "api-ms-win-crt-environment-l1-1-0.dll",
+              "adjacent": null
+            },
+            {
+              "name": "api-ms-win-crt-filesystem-l1-1-0.dll",
+              "adjacent": null
+            },
+            {
+              "name": "api-ms-win-crt-heap-l1-1-0.dll",
+              "adjacent": null
+            },
+            {
+              "name": "api-ms-win-crt-locale-l1-1-0.dll",
+              "adjacent": null
+            },
+            {
+              "name": "api-ms-win-crt-math-l1-1-0.dll",
+              "adjacent": null
+            },
+            {
+              "name": "api-ms-win-crt-process-l1-1-0.dll",
+              "adjacent": null
+            },
+            {
+              "name": "api-ms-win-crt-runtime-l1-1-0.dll",
+              "adjacent": null
+            },
+            {
+              "name": "api-ms-win-crt-stdio-l1-1-0.dll",
+              "adjacent": null
+            },
+            {
+              "name": "api-ms-win-crt-string-l1-1-0.dll",
+              "adjacent": null
+            },
+            {
+              "name": "api-ms-win-crt-time-l1-1-0.dll",
+              "adjacent": null
+            },
+            {
+              "name": "bcrypt.dll",
+              "adjacent": null
+            },
+            {
+              "name": "KERNEL32.dll",
+              "adjacent": null
+            },
+            {
+              "name": "VCRUNTIME140.dll",
+              "adjacent": "C:\\Program Files\\Python313\\vcruntime140.dll"
+            },
+            {
+              "name": "VERSION.dll",
+              "adjacent": null
+            },
+            {
+              "name": "WS2_32.dll",
+              "adjacent": null
+            }
+          ]
+        },
+        {
+          "path": "C:\\Program Files\\Python313\\vcruntime140.dll",
+          "sha256": "36585912e5eaf83ba9fea0631534f690ccdc2d7ba91537166fe53e56c221e153",
+          "imports": [
+            {
+              "name": "api-ms-win-crt-convert-l1-1-0.dll",
+              "adjacent": null
+            },
+            {
+              "name": "api-ms-win-crt-heap-l1-1-0.dll",
+              "adjacent": null
+            },
+            {
+              "name": "api-ms-win-crt-runtime-l1-1-0.dll",
+              "adjacent": null
+            },
+            {
+              "name": "api-ms-win-crt-stdio-l1-1-0.dll",
+              "adjacent": null
+            },
+            {
+              "name": "api-ms-win-crt-string-l1-1-0.dll",
+              "adjacent": null
+            },
+            {
+              "name": "KERNEL32.dll",
+              "adjacent": null
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "scope": "Static PE import tables and recursive adjacent DLLs observed now. No DLL was loaded, and imports resolved elsewhere, delay/dynamic loads, Python modules, OS dependencies and historical DLL hashes are not established."
+}

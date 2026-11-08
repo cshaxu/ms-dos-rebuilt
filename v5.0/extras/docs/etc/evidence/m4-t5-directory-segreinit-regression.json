@@ -1,0 +1,183 @@
+{
+  "build_report": "m4-t5-directory-build.json",
+  "bytes": 137,
+  "candidate_start": 24429,
+  "target_start": 31975,
+  "raw_exact": false,
+  "named_operands": [
+    {
+      "site": 31979,
+      "name": "header DOSDATA segment",
+      "kind": "code-data",
+      "target": 15831,
+      "candidate": 8791
+    },
+    {
+      "site": 31992,
+      "name": "num_entry",
+      "kind": "code-data",
+      "target": 47798,
+      "candidate": 33212
+    },
+    {
+      "site": 32107,
+      "name": "num_entry",
+      "kind": "code-data",
+      "target": 47798,
+      "candidate": 33212
+    },
+    {
+      "site": 32008,
+      "name": "DOSINTTABLE",
+      "kind": "named absolute symbol",
+      "target": 4194,
+      "candidate": 4160
+    },
+    {
+      "site": 32036,
+      "name": "DosHasHMA",
+      "kind": "named absolute symbol",
+      "target": 4625,
+      "candidate": 4569
+    },
+    {
+      "site": 32041,
+      "name": "fixexepatch",
+      "kind": "named absolute symbol",
+      "target": 4626,
+      "candidate": 4570
+    },
+    {
+      "site": 32043,
+      "name": "exepatch",
+      "kind": "named absolute symbol",
+      "target": 46384,
+      "candidate": 31829
+    },
+    {
+      "site": 32047,
+      "name": "ChkCopyProt",
+      "kind": "named absolute symbol",
+      "target": 97,
+      "candidate": 97
+    },
+    {
+      "site": 32049,
+      "name": "IsCopyProt",
+      "kind": "named absolute symbol",
+      "target": 46900,
+      "candidate": 32345
+    },
+    {
+      "site": 32093,
+      "name": "RationalPatchPtr",
+      "kind": "named absolute symbol",
+      "target": 4628,
+      "candidate": 4572
+    },
+    {
+      "site": 32095,
+      "name": "RationalPatch",
+      "kind": "named absolute symbol",
+      "target": 46701,
+      "candidate": 32146
+    },
+    {
+      "site": 31982,
+      "name": "patch_misc_segments",
+      "kind": "near call",
+      "target": 195,
+      "candidate": 195
+    },
+    {
+      "site": 32000,
+      "name": "patch_vec_segments",
+      "kind": "near call",
+      "target": 110,
+      "candidate": 110
+    },
+    {
+      "site": 32003,
+      "name": "patch_offset",
+      "kind": "near call",
+      "target": 255,
+      "candidate": 255
+    },
+    {
+      "site": 32027,
+      "name": "check_XMM",
+      "kind": "near call",
+      "target": 65439,
+      "candidate": 65439
+    },
+    {
+      "site": 32032,
+      "name": "patch_in_nops",
+      "kind": "near call",
+      "target": 366,
+      "candidate": 366
+    },
+    {
+      "site": 32102,
+      "name": "patch_vec_segments",
+      "kind": "near call",
+      "target": 8,
+      "candidate": 8
+    }
+  ],
+  "remaining_difference_offsets": [],
+  "correspondence": true,
+  "scope": "Full procedure with enumerated symbol operands. DOSDATA offsets still differ; no whole-layout or runtime claim.",
+  "patch_misc_segments": {
+    "bytes": 81,
+    "candidate_start": 24633,
+    "target_start": 32179,
+    "raw_exact": true,
+    "named_operands": [
+      {
+        "site": 32187,
+        "name": "jshare",
+        "kind": "named data symbol",
+        "target": 144,
+        "candidate": 144
+      },
+      {
+        "site": 32191,
+        "name": "temp_dosloc",
+        "kind": "named data symbol",
+        "target": 2730,
+        "candidate": 2730
+      },
+      {
+        "site": 32213,
+        "name": "country_cdpg",
+        "kind": "named data symbol",
+        "target": 4650,
+        "candidate": 4650
+      },
+      {
+        "site": 32235,
+        "name": "fastopentable",
+        "kind": "named data symbol",
+        "target": 3376,
+        "candidate": 3376
+      },
+      {
+        "site": 32239,
+        "name": "temp_dosloc",
+        "kind": "named data symbol",
+        "target": 2730,
+        "candidate": 2730
+      },
+      {
+        "site": 32246,
+        "name": "temp_dosloc",
+        "kind": "named data symbol",
+        "target": 2730,
+        "candidate": 2730
+      }
+    ],
+    "remaining_difference_offsets": [],
+    "correspondence": true
+  }
+}

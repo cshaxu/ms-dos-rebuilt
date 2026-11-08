@@ -1,0 +1,7 @@
+# M1 T2 build foundation audit
+
+T2 S1 is closed at the reference-build foundation, not DOS 5 reconstruction. The actual work now includes local COMMAND source/includes/messages, provenance records, the readable ForOff experiment, and executable build/comparison tools. `python tools/build_command.py` created an empty unique stage, generated messages, assembled all 34 link-list modules, linked and ran RELOC. Evidence: [clean build](../etc/evidence/m1-t2-clean-build.json). Result is 50384 bytes with SHA-256 908a77ac617c2d741f0aa1b73f73973dcf29adc91f092e5bcb02173c8c732c43, matching the previous reference build but not the DOS 5 target.
+
+Coverage universe: 34 COMMAND link-list objects, message-generation inputs and tools, and final reference COM. All objects compiled; tools are hashed and final conversion passed. Other DOS components are outside this task. ForOff encoding and TFOR annotated-word comparison are bounded supporting evidence, not completed modules. No target boot was attempted. Native LINK16 startup failure is bypassed by the tested historical DOS LINK 5.10 path; no claim that native LINK16 was fixed. Publication rights and missing DOS6 message resources remain recorded debt.
+
+Actual changes and results were reviewed against the objective. Reproducible reference build is established, with external historical tools explicitly required. This justifies transition to target reconstruction. Existing build/t2-command and clean-build products are temporarily retained as T3 symbol/map comparison inputs; they are disposable, not source authority.

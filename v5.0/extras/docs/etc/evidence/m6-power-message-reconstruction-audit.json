@@ -1,0 +1,29 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\integrated-source-5axo8rlo",
+  "previous_stage": "tiktv1eh",
+  "source": {
+    "source": "messages/usa-ms-dos.msg",
+    "before_sha256": "c20f76c518d8248f5a9fe47259e80c9ce95f15fff6b86bad1a4d03f65161b037",
+    "after_sha256": "bc921cff95bf0a43cb45d0394eb1eba11498edc2213ca60cd8098c5bdc31dfc0",
+    "basis": "Commented INIT_MSG in bios/power.asm",
+    "classification": "Inferred reconstruction; original DOS 5 POWER message not independently established. POWER remains disabled in target build.",
+    "inserted_bytes": 123,
+    "section_count": 17
+  },
+  "message_sha256": "c8684099859fbb3829b2ab62a3e09bd396afa626928fdc4795dde0bf4b1afacb",
+  "message_level": "0420",
+  "index_sha256": "53ffb2a91fe2554bbdaaca95861962900f0a8f0e66d7908caf9418bbf3a65436",
+  "index_stage": "build/power-message-index-8kd6uw_x",
+  "generated_class9_sha256": "9df129634ce0b164ff2a4ee6d7014d5efaf9451e2af31a91f2787a4f4dc66c76",
+  "object_counts": {
+    "bios": 15,
+    "kernel": 55,
+    "command": 34
+  },
+  "files": {
+    "IO.SYS": "dd0915ed366b3f640284df4be30ed35f413dfd5b6966c1f25eee9598a5bf53e0",
+    "MSDOS.SYS": "4e41ca4e5893d4cf293f81ad01adbdbd12f7039534f59148214a9cca309529a2",
+    "COMMAND.COM": "74ad25067e7d9f5c3a0ac2f2967347defb0ffef9e6ed60b60e6499f0b1a8cc89"
+  },
+  "scope": "Message inferred from historical POWER source comment; generated class 9 corrected, optional POWER remains disabled and untested. All 105 objects and three outputs unchanged."
+}

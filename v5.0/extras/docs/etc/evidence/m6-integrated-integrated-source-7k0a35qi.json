@@ -1,0 +1,150 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\integrated-source-7k0a35qi",
+  "files": [
+    {
+      "name": "IO.SYS",
+      "bytes": 33430,
+      "sha256": "dd0915ed366b3f640284df4be30ed35f413dfd5b6966c1f25eee9598a5bf53e0",
+      "byte_equal": true
+    },
+    {
+      "name": "MSDOS.SYS",
+      "bytes": 37394,
+      "sha256": "4e41ca4e5893d4cf293f81ad01adbdbd12f7039534f59148214a9cca309529a2",
+      "byte_equal": true
+    },
+    {
+      "name": "COMMAND.COM",
+      "bytes": 47845,
+      "sha256": "74ad25067e7d9f5c3a0ac2f2967347defb0ffef9e6ed60b60e6499f0b1a8cc89",
+      "byte_equal": true
+    }
+  ],
+  "baseline": "O:\\DOS",
+  "prerequisites": [
+    {
+      "name": "masm",
+      "path": "O:\\repos.hobby\\ntvdm64\\tools\\opennt\\tools16\\masm.exe",
+      "status": "match",
+      "bytes": 208656,
+      "sha256": "e54afaa9565e046cd862c29a015d685de43311acccf796469030e162ced6d00d",
+      "expected_sha256": "e54afaa9565e046cd862c29a015d685de43311acccf796469030e162ced6d00d"
+    },
+    {
+      "name": "nosrvbld",
+      "path": "O:\\repos.hobby\\ntvdm64\\tools\\opennt\\tools16\\nosrvbld.exe",
+      "status": "match",
+      "bytes": 16299,
+      "sha256": "e49e569b7e0775bdd731bcf18cea1d85c29dabc1aa9a7285de51249387711665",
+      "expected_sha256": "e49e569b7e0775bdd731bcf18cea1d85c29dabc1aa9a7285de51249387711665"
+    },
+    {
+      "name": "buildidx",
+      "path": "O:\\repos.hobby\\ntvdm64\\tools\\opennt\\tools16\\buildidx.exe",
+      "status": "match",
+      "bytes": 16541,
+      "sha256": "6a301eaee8ea8516e541da2a61a22f1db7d09b15c278a88a8d73083aac0f4d91",
+      "expected_sha256": "6a301eaee8ea8516e541da2a61a22f1db7d09b15c278a88a8d73083aac0f4d91"
+    },
+    {
+      "name": "buildmsg",
+      "path": "O:\\repos.hobby\\ntvdm64\\tools\\opennt\\tools16\\buildmsg.exe",
+      "status": "match",
+      "bytes": 48828,
+      "sha256": "0d8ea59396a769e440549322a2ec9d1ab70423147e702ef1b1f42606cadd50cd",
+      "expected_sha256": "0d8ea59396a769e440549322a2ec9d1ab70423147e702ef1b1f42606cadd50cd"
+    },
+    {
+      "name": "stripz",
+      "path": "O:\\repos.hobby\\ntvdm64\\tools\\opennt\\tools16\\stripz.exe",
+      "status": "match",
+      "bytes": 7931,
+      "sha256": "6d424555368e2f61d201dd249532672a12164c35afb507a3e3556595511ea689",
+      "expected_sha256": "6d424555368e2f61d201dd249532672a12164c35afb507a3e3556595511ea689"
+    },
+    {
+      "name": "link",
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\c6ers\\tools6\\bin\\link.exe",
+      "status": "match",
+      "bytes": 142015,
+      "sha256": "163d8b86c18b93ccae9b2380d850cd42a9a5e1fd89a163b16170979afbbabb07",
+      "expected_sha256": "163d8b86c18b93ccae9b2380d850cd42a9a5e1fd89a163b16170979afbbabb07"
+    },
+    {
+      "name": "reloc",
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\c6ers\\tools6\\bin\\reloc.exe",
+      "status": "match",
+      "bytes": 15635,
+      "sha256": "300b58668d46c3281ef2c017409aa9300499155d6593a8a9552781d2d96cc2b3",
+      "expected_sha256": "300b58668d46c3281ef2c017409aa9300499155d6593a8a9552781d2d96cc2b3"
+    },
+    {
+      "name": "dosbox",
+      "path": "C:\\Program Files (x86)\\DOSBox-0.74-3\\DOSBox.exe",
+      "status": "match",
+      "bytes": 3745792,
+      "sha256": "dcfd46fa521f5ce89dce3bf026056f3a1d15533f80321ee887403e30d7949f5e",
+      "expected_sha256": "dcfd46fa521f5ce89dce3bf026056f3a1d15533f80321ee887403e30d7949f5e"
+    },
+    {
+      "name": "runner",
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\isolated-tool-runner.exe",
+      "status": "match",
+      "bytes": 97426,
+      "sha256": "ae195ddf68aedff2fab5130e1368cb5c585e5264b84d142d4f79dc9f973f85b9",
+      "expected_sha256": "ae195ddf68aedff2fab5130e1368cb5c585e5264b84d142d4f79dc9f973f85b9"
+    },
+    {
+      "name": "io.sys",
+      "path": "O:\\DOS\\IO.SYS",
+      "status": "match",
+      "bytes": 33430,
+      "sha256": "dd0915ed366b3f640284df4be30ed35f413dfd5b6966c1f25eee9598a5bf53e0",
+      "expected_sha256": "dd0915ed366b3f640284df4be30ed35f413dfd5b6966c1f25eee9598a5bf53e0"
+    },
+    {
+      "name": "msdos.sys",
+      "path": "O:\\DOS\\MSDOS.SYS",
+      "status": "match",
+      "bytes": 37394,
+      "sha256": "4e41ca4e5893d4cf293f81ad01adbdbd12f7039534f59148214a9cca309529a2",
+      "expected_sha256": "4e41ca4e5893d4cf293f81ad01adbdbd12f7039534f59148214a9cca309529a2"
+    },
+    {
+      "name": "command.com",
+      "path": "O:\\DOS\\COMMAND.COM",
+      "status": "match",
+      "bytes": 47845,
+      "sha256": "74ad25067e7d9f5c3a0ac2f2967347defb0ffef9e6ed60b60e6499f0b1a8cc89",
+      "expected_sha256": "74ad25067e7d9f5c3a0ac2f2967347defb0ffef9e6ed60b60e6499f0b1a8cc89"
+    }
+  ],
+  "dosbox_adjacent_dll_observations": [
+    {
+      "name": "SDL.dll",
+      "path": "C:\\Program Files (x86)\\DOSBox-0.74-3\\SDL.dll",
+      "status": "present",
+      "bytes": 448231,
+      "sha256": "69037ebc43755296c0cc292d57d560028d7f2265f7b86ca84e714835c19bbd58"
+    },
+    {
+      "name": "SDL_net.dll",
+      "path": "C:\\Program Files (x86)\\DOSBox-0.74-3\\SDL_net.dll",
+      "status": "present",
+      "bytes": 13312,
+      "sha256": "2f39dc04acbecf47efa45034891602b6ea7bf6fd2f27b5c0a5ca8d7fb155c929"
+    }
+  ],
+  "segment_sizes": {
+    "BIODATASIZ": 2304,
+    "BIOCODESIZ": 6752,
+    "DOSDATASIZ": 4962
+  },
+  "component_stages": {
+    "msload": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\msload-candidate-g31plqnv",
+    "bios": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\bios-comparison-0n6hus5k",
+    "kernel": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\reconstructed-kernel-5gn20tmz",
+    "command": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\command-clean-8tl6ix_1"
+  },
+  "scope": "Fresh source build versus hash-pinned retained system files; source provenance remains separate."
+}

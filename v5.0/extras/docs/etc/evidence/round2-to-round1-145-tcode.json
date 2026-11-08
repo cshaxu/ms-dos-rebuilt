@@ -1,0 +1,34 @@
+{
+  "index": 145,
+  "file": "cmd/command/tcode.asm",
+  "reviewed_sha256": "b24b4d65ad74b53db44ec67aa4be8da4d313d2c466e19bd589341c6eec26c5da",
+  "decision": "retain_round2",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\tcode.asm",
+      "sha256": "c3365e7a9cecaa60fe7469f7b14c2a1c7153f22865b9542ad7e3e33bc5571f6c"
+    },
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\CMD\\COMMAND\\TCODE.ASM",
+      "sha256": "be25e15882400f04dbdcf4e33ed8aff24b67bafc649a0a583b478b733bb89f99"
+    },
+    {
+      "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tcode.asm",
+      "sha256": "223938eef6bc48314805cb3c35ebbd11cd6da10316ed09952c8f06cf9ca11377"
+    }
+  ],
+  "reason": [
+    "DOS 6 replaces MOV SI,-1 with a SEMIPERMCOM value for later /K behavior and changes ROM conditional selection; the target uses the former instruction.",
+    "OpenNT includes command/VDM host services and state; DOS 4 has different implementation and module structure."
+  ],
+  "target_evidence": {
+    "path": "O:\\DOS\\COMMAND.COM",
+    "sha256": "74ad25067e7d9f5c3a0ac2f2967347defb0ffef9e6ed60b60e6499f0b1a8cc89",
+    "file_offset": 9386,
+    "bytes_hex": "beffff",
+    "prior_review": "docs/etc/evidence/file-review-145-tcode.json"
+  },
+  "change": "No source change.",
+  "verification": "Latest integrated-source-w89ln5jt matches all three targets; current lexical screen has no hits.",
+  "limitations": "Selected instruction and complete binary identity do not establish historical source or all optional behavior."
+}

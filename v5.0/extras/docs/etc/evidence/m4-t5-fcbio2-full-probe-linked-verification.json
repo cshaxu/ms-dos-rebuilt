@@ -1,0 +1,438 @@
+{
+  "module": "fcbio2-full",
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\physical-sft-probe-gaif7wrl",
+  "candidate_proof_sha256": "0fb5dce54f71ed0ad3b3cbcb6c22458481343a1e8ccb4abf7034c7c108641537",
+  "link_report_sha256": "1bbdfe1c5717a66605a3aef82166c9d11164f5e85d841c1f70d29448a8b796da",
+  "linked_start": 23233,
+  "public_anchors": [
+    {
+      "symbol": "$fcb_seq_read",
+      "object_offset": 758,
+      "linked_offset": 23991
+    },
+    {
+      "symbol": "fcbio001e",
+      "object_offset": 86,
+      "linked_offset": 23319
+    },
+    {
+      "symbol": "fcbio001s",
+      "object_offset": 86,
+      "linked_offset": 23319
+    },
+    {
+      "symbol": "$fcb_seq_write",
+      "object_offset": 763,
+      "linked_offset": 23996
+    },
+    {
+      "symbol": "$fcb_open",
+      "object_offset": 503,
+      "linked_offset": 23736
+    },
+    {
+      "symbol": "getextent",
+      "object_offset": 14,
+      "linked_offset": 23247
+    },
+    {
+      "symbol": "setextent",
+      "object_offset": 33,
+      "linked_offset": 23266
+    },
+    {
+      "symbol": "$fcb_random_read",
+      "object_offset": 768,
+      "linked_offset": 24001
+    },
+    {
+      "symbol": "$fcb_random_read_block",
+      "object_offset": 753,
+      "linked_offset": 23986
+    },
+    {
+      "symbol": "getrecsize",
+      "object_offset": 72,
+      "linked_offset": 23305
+    },
+    {
+      "symbol": "$fcb_create",
+      "object_offset": 732,
+      "linked_offset": 23965
+    },
+    {
+      "symbol": "fcbio",
+      "object_offset": 86,
+      "linked_offset": 23319
+    },
+    {
+      "symbol": "getextended",
+      "object_offset": 59,
+      "linked_offset": 23292
+    },
+    {
+      "symbol": "$fcb_random_write",
+      "object_offset": 773,
+      "linked_offset": 24006
+    },
+    {
+      "symbol": "$fcb_random_write_block",
+      "object_offset": 748,
+      "linked_offset": 23981
+    },
+    {
+      "symbol": "getrr",
+      "object_offset": 0,
+      "linked_offset": 23233
+    }
+  ],
+  "bytes": 778,
+  "named_fixups": [
+    {
+      "offset": 100,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 23233,
+      "linked_symbol": 23233
+    },
+    {
+      "offset": 115,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 23233,
+      "linked_symbol": 23233
+    },
+    {
+      "offset": 118,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 23233,
+      "linked_symbol": 23233
+    },
+    {
+      "offset": 130,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 23233,
+      "linked_symbol": 23233
+    },
+    {
+      "offset": 139,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 23233,
+      "linked_symbol": 23233
+    },
+    {
+      "offset": 172,
+      "symbol": "DMAAdd",
+      "relative": false,
+      "target_symbol": 812,
+      "linked_symbol": 812
+    },
+    {
+      "offset": 185,
+      "symbol": "DMAAdd",
+      "relative": false,
+      "target_symbol": 812,
+      "linked_symbol": 812
+    },
+    {
+      "offset": 223,
+      "symbol": "SFTFromFCB",
+      "relative": true,
+      "target_symbol": 23146,
+      "linked_symbol": 23146
+    },
+    {
+      "offset": 228,
+      "symbol": "FCB_Ret_Err",
+      "relative": true,
+      "target_symbol": 17411,
+      "linked_symbol": 17411
+    },
+    {
+      "offset": 240,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 23233,
+      "linked_symbol": 23233
+    },
+    {
+      "offset": 275,
+      "symbol": "DOS_Read",
+      "relative": false,
+      "target_symbol": 29161,
+      "linked_symbol": 27108
+    },
+    {
+      "offset": 284,
+      "symbol": "DOS_Write",
+      "relative": false,
+      "target_symbol": 29720,
+      "linked_symbol": 27667
+    },
+    {
+      "offset": 301,
+      "symbol": "DISK_FULL",
+      "relative": false,
+      "target_symbol": 1547,
+      "linked_symbol": 1547
+    },
+    {
+      "offset": 309,
+      "symbol": "DISK_FULL",
+      "relative": false,
+      "target_symbol": 1547,
+      "linked_symbol": 1547
+    },
+    {
+      "offset": 320,
+      "symbol": "SaveFCBInfo",
+      "relative": true,
+      "target_symbol": 22303,
+      "linked_symbol": 22303
+    },
+    {
+      "offset": 415,
+      "symbol": "DMAAdd",
+      "relative": false,
+      "target_symbol": 812,
+      "linked_symbol": 812
+    },
+    {
+      "offset": 441,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 23233,
+      "linked_symbol": 23233
+    },
+    {
+      "offset": 472,
+      "symbol": "Date16",
+      "relative": true,
+      "target_symbol": 18625,
+      "linked_symbol": 18625
+    },
+    {
+      "offset": 491,
+      "symbol": "Get_User_Stack",
+      "relative": true,
+      "target_symbol": 17013,
+      "linked_symbol": 17013
+    },
+    {
+      "offset": 507,
+      "symbol": "DOS_Open",
+      "relative": false,
+      "target_symbol": 27212,
+      "linked_symbol": 26600
+    },
+    {
+      "offset": 514,
+      "symbol": "OpenBuf",
+      "relative": false,
+      "target_symbol": 958,
+      "linked_symbol": 958
+    },
+    {
+      "offset": 517,
+      "symbol": "TransFCB",
+      "relative": true,
+      "target_symbol": 43735,
+      "linked_symbol": 39931
+    },
+    {
+      "offset": 526,
+      "symbol": "FCB_Ret_Err",
+      "relative": true,
+      "target_symbol": 17411,
+      "linked_symbol": 17411
+    },
+    {
+      "offset": 529,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 23233,
+      "linked_symbol": 23233
+    },
+    {
+      "offset": 535,
+      "symbol": "LRUFCB",
+      "relative": true,
+      "target_symbol": 22513,
+      "linked_symbol": 22513
+    },
+    {
+      "offset": 561,
+      "symbol": "ThisSFT",
+      "relative": false,
+      "target_symbol": 1438,
+      "linked_symbol": 1438
+    },
+    {
+      "offset": 569,
+      "symbol": "BlastSFT",
+      "relative": true,
+      "target_symbol": 23002,
+      "linked_symbol": 23002
+    },
+    {
+      "offset": 584,
+      "symbol": "FCBHardErr",
+      "relative": true,
+      "target_symbol": 23200,
+      "linked_symbol": 23200
+    },
+    {
+      "offset": 590,
+      "symbol": "IsSFTNet",
+      "relative": true,
+      "target_symbol": 20602,
+      "linked_symbol": 20730
+    },
+    {
+      "offset": 595,
+      "symbol": "CheckShare",
+      "relative": true,
+      "target_symbol": 45851,
+      "linked_symbol": 42047
+    },
+    {
+      "offset": 602,
+      "symbol": "LocalSFT",
+      "relative": false,
+      "target_symbol": 4189,
+      "linked_symbol": 4189
+    },
+    {
+      "offset": 607,
+      "symbol": "LocalSFT",
+      "relative": false,
+      "target_symbol": 4189,
+      "linked_symbol": 4189
+    },
+    {
+      "offset": 613,
+      "symbol": "SaveFCBInfo",
+      "relative": true,
+      "target_symbol": 22303,
+      "linked_symbol": 22303
+    },
+    {
+      "offset": 625,
+      "symbol": "GetThisDrv",
+      "relative": true,
+      "target_symbol": 43612,
+      "linked_symbol": 39808
+    },
+    {
+      "offset": 672,
+      "symbol": "sftFCB",
+      "relative": false,
+      "target_symbol": 64,
+      "linked_symbol": 64
+    },
+    {
+      "offset": 685,
+      "symbol": "CheckFCB",
+      "relative": true,
+      "target_symbol": 23024,
+      "linked_symbol": 23024
+    },
+    {
+      "offset": 707,
+      "symbol": "FCBLRU",
+      "relative": false,
+      "target_symbol": 16,
+      "linked_symbol": 16
+    },
+    {
+      "offset": 717,
+      "symbol": "ThisSFT",
+      "relative": false,
+      "target_symbol": 1438,
+      "linked_symbol": 1438
+    },
+    {
+      "offset": 723,
+      "symbol": "ShareEnd",
+      "relative": true,
+      "target_symbol": 45907,
+      "linked_symbol": 45387
+    },
+    {
+      "offset": 728,
+      "symbol": "BlastSFT",
+      "relative": true,
+      "target_symbol": 23002,
+      "linked_symbol": 23002
+    },
+    {
+      "offset": 733,
+      "symbol": "DOS_Create",
+      "relative": false,
+      "target_symbol": 26912,
+      "linked_symbol": 45426
+    },
+    {
+      "offset": 738,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 23233,
+      "linked_symbol": 23233
+    },
+    {
+      "offset": 746,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 23233,
+      "linked_symbol": 23233
+    },
+    {
+      "offset": 751,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 23233,
+      "linked_symbol": 23233
+    },
+    {
+      "offset": 756,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 23233,
+      "linked_symbol": 23233
+    },
+    {
+      "offset": 761,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 23233,
+      "linked_symbol": 23233
+    },
+    {
+      "offset": 766,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 23233,
+      "linked_symbol": 23233
+    },
+    {
+      "offset": 771,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 23233,
+      "linked_symbol": 23233
+    },
+    {
+      "offset": 776,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 23233,
+      "linked_symbol": 23233
+    }
+  ],
+  "remaining_differences": [],
+  "correspondence": true,
+  "scope": "Complete linked MZ module, only candidate OMF named relocations adjusted; physical data placement can differ. Not runtime or whole-kernel identity."
+}

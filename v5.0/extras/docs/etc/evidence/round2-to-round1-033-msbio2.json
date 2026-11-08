@@ -1,0 +1,29 @@
+{
+  "index": 33,
+  "file": "bios/msbio2.asm",
+  "reviewed_sha256": "59e0c7b3b58497df33cf48829da38ca77bc4307fd27d1ce963089b310b655ef2",
+  "decision": "retain_round2",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\msbio2.asm",
+      "sha256": "8defab0e0d512284119cb44a933664315d3c5745ced1e826eb5e5ca7edf5fd32"
+    },
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\BIOS\\MSBIO2.ASM",
+      "sha256": "0f3f7763c4ed8899d5e6d2bd512c6cd3c88670d0e00d6419b4a9acec61ea40ab"
+    }
+  ],
+  "dos6_difference": "DOS 6 adds a BPB sectors-per-track comparison and possible EOT update immediately before install_bds returns. It is executable behavior and cannot be restored solely to force full-file identity.",
+  "dos4_difference": "DOS 4 MSBIO2 has substantially different module layout and code. No same-name OpenNT file was found.",
+  "target_evidence": {
+    "target": "O:\\DOS\\IO.SYS",
+    "sha256": "dd0915ed366b3f640284df4be30ed35f413dfd5b6966c1f25eee9598a5bf53e0",
+    "offset": 17045,
+    "bytes_hex": "26c705ffff1fc3",
+    "listing": "build/bios-comparison-ebwtfx1g/msbio2.lst:702",
+    "interpretation": "Target contains the linked ending set-next-null; pop DS; RET, without the DOS 6 EOT instructions at this point. The signature occurs once in the retained target."
+  },
+  "change": "No source change.",
+  "verification": "Latest integrated-source-ter5ziru build matches all three retained targets; file-review lexical gate passed.",
+  "limitations": "Matching target output and listing do not establish original DOS 5 source provenance."
+}

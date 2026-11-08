@@ -1,0 +1,85 @@
+{
+  "index": 57,
+  "file": "dos/create.asm",
+  "reviewed_sha256": "bfb5640cd1b63391bd24997ed229d182f2fb07299082c31d0f14643b117c449e",
+  "status": "reviewed",
+  "role": "Create file or volume label, coordinate SFT and media checks.",
+  "references": {
+    "opennt": {
+      "status": "missing"
+    },
+    "dos6": {
+      "status": "different",
+      "sha256": "4a76a4fb11682cd81daca1dd2af9afe79fcf21db428a3e19d32af51ea902e9bb",
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\create.asm"
+    },
+    "dos4": {
+      "status": "different",
+      "sha256": "0417865e4f0e8550de69d24f110c859a20e5d929757fca115747c30a5b23d6dd",
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\create.asm"
+    }
+  },
+  "review": {
+    "code_lines": 212,
+    "reference_passage_covered": 209,
+    "uncovered_lines": [
+      250,
+      251,
+      252
+    ],
+    "disposition_of_unmatched": "The three statements appear in DOS 6 and DOS 4; macro case/spacing differences and duplicate alignment prevented automatic coverage. The corrected Set_EXT_mode comment matches the actual procedure name.",
+    "nt_bop_screen": "No lexical indicators found in full file, including comments and conditional branches."
+  },
+  "verification": {
+    "stage": "build\\integrated-source-m1_2507r",
+    "built_source_identical": true,
+    "object_sha256": "a20c8ce2ce56d03c6238dce5dd0a16ebd357f5b4f7409f68ecbcf3ec4841e020",
+    "target_call_checks": [
+      {
+        "name": "enter_create",
+        "module_offset": 121,
+        "file_offset": 11209,
+        "instruction_hex": "e88ae7",
+        "destination": 20774
+      },
+      {
+        "name": "make_node",
+        "module_offset": 124,
+        "file_offset": 11212,
+        "instruction_hex": "e84b1f",
+        "destination": 35050
+      },
+      {
+        "name": "enter_media_check",
+        "module_offset": 181,
+        "file_offset": 11269,
+        "instruction_hex": "e84ee7",
+        "destination": 20774
+      },
+      {
+        "name": "fat_read_cds",
+        "module_offset": 184,
+        "file_offset": 11272,
+        "instruction_hex": "e88e2c",
+        "destination": 38505
+      },
+      {
+        "name": "leave_media_check",
+        "module_offset": 187,
+        "file_offset": 11275,
+        "instruction_hex": "e868e7",
+        "destination": 20806
+      },
+      {
+        "name": "leave_create",
+        "module_offset": 201,
+        "file_offset": 11289,
+        "instruction_hex": "e85ae7",
+        "destination": 20806
+      }
+    ],
+    "all_three_targets_byte_equal": true,
+    "limits": "Six linked call targets and whole output identity checked; runtime branch/locking behavior, optional configurations and exact DOS 5 original source remain unverified."
+  },
+  "disposition": "Retained unchanged; no unsupported NT/BOP code found."
+}

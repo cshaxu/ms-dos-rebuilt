@@ -1,0 +1,42 @@
+{
+  "changes": {
+    "dos/dir2.asm": {
+      "before": "eba94f66305df69e54c48340a969a75e66226a76a67a35d1ee50c8b635ff1523",
+      "after": "1774b97832ce3257f4d67ebbcff92850c6736228a1c6c087bb683c08e8f571ca",
+      "removed_lines": [
+        "\tI_need\tCURDRV, BYTE",
+        "Public DIR2001S,DIR2001E",
+        "DIR2001S:",
+        "DIR2001E:"
+      ],
+      "opennt_reference": {
+        "status": "different",
+        "sha256": "99c0448c781c6e521524aed7b0d565cc41f3201111163fce2d983a6207e59821",
+        "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\dos\\dir2.asm"
+      },
+      "dos6_reference": {
+        "status": "different",
+        "sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm"
+      }
+    },
+    "dos/msinit.asm": {
+      "before": "bd83645a85726153cba1632f3095ab575955608bad802fb303b18a5b92fba1af",
+      "after": "83782a7b23723ed8cacfb6ad1006eeaef70ef282e49e70be339e29ff79204411",
+      "removed_lines": [
+        "        extrn   EXTERR_LOCUS:byte"
+      ],
+      "opennt_reference": {
+        "status": "different",
+        "sha256": "5b0f2e3e9fe9c083b8cf03e4307e9a90bddacddad22176062c59a314b8c46620",
+        "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\dos\\msinit.asm"
+      },
+      "dos6_reference": {
+        "status": "different",
+        "sha256": "67a662e3c6c186fd2fe0604624557077dcd7f8be65f85e3be01f26f250a0c2a0",
+        "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\msinit.asm"
+      }
+    }
+  },
+  "scope": "Removed module-local declarations used only in removed OpenNT service paths and unreferenced public debug-range labels absent from DOS 6. Full target build and object comparison required; other configurations remain unverified."
+}

@@ -1,0 +1,45 @@
+{
+  "opennt_source_sha256": "8a8c5bc7c96613392c4176817b7533e1f6533e5b514d25016f1b33394e3fb50a",
+  "candidate_source_sha256": "1c6d2aaa8f16c8349bc7d38c9fcf52307fd2791a928e7c7dc9a773cda85aaae7",
+  "retained_object_sha256": "afc86f7c4a0f81dde2bb019a7f55c6d6ba2131556bdabc539608c4b7413eb051",
+  "bios_sha256": "09df7ec418edb1728662b1fe911a62c1a7bd3e19ad20b82548f022dd654750ad",
+  "seams": [
+    {
+      "name": "printer_host_bop",
+      "opennt_lines": [
+        648,
+        681
+      ],
+      "candidate_lines": []
+    },
+    {
+      "name": "host_video_fast_path",
+      "opennt_lines": [
+        381
+      ],
+      "candidate_lines": []
+    },
+    {
+      "name": "physical_keyboard_wait",
+      "opennt_lines": [],
+      "candidate_lines": [
+        332
+      ]
+    },
+    {
+      "name": "clock_read_procedure",
+      "opennt_lines": [],
+      "candidate_lines": [
+        1166
+      ]
+    },
+    {
+      "name": "clock_write_procedure",
+      "opennt_lines": [],
+      "candidate_lines": [
+        1096
+      ]
+    }
+  ],
+  "scope": "Selected lexical source differences plus identity of retained MSCHAR object and full BIOS target comparison; not a complete host-seam inventory, per-instruction mapping, or runtime validation."
+}

@@ -1,0 +1,247 @@
+{
+  "index": 98,
+  "file": "dos/msinit.asm",
+  "reviewed_sha256": "1ccde2d1d29d5353ad57edc8273c5951b9f660ac814480ec171608df3ae3e026",
+  "status": "reviewed",
+  "role": "DOS initialization, device and DPB initialization, vector setup and segment relocation.",
+  "references": {
+    "opennt": {
+      "status": "different",
+      "sha256": "5b0f2e3e9fe9c083b8cf03e4307e9a90bddacddad22176062c59a314b8c46620",
+      "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\dos\\msinit.asm"
+    },
+    "dos6": {
+      "status": "different",
+      "sha256": "67a662e3c6c186fd2fe0604624557077dcd7f8be65f85e3be01f26f250a0c2a0",
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\msinit.asm"
+    },
+    "dos4": {
+      "status": "different",
+      "sha256": "c6bf13b2cd5751fbbb7f70a7af84b01024752f7b5f546451ca284560ea152f81",
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\msinit.asm"
+    }
+  },
+  "review": {
+    "code_lines": 727,
+    "reference_passage_covered": 709,
+    "uncovered": [
+      {
+        "line": 74,
+        "code": "mov\tr, cs:[DosDseg]",
+        "exact_reference_occurrences": {
+          "dos6": [
+            89
+          ]
+        },
+        "disposition": "Isolated line matches a reference; surrounding version-specific sequence differs."
+      },
+      {
+        "line": 105,
+        "code": "extrn\tbuffhead:dword",
+        "exact_reference_occurrences": {
+          "dos6": [
+            103
+          ]
+        },
+        "disposition": "Isolated line matches a reference; surrounding version-specific sequence differs."
+      },
+      {
+        "line": 143,
+        "code": "extrn\tChkCopyProt:word",
+        "exact_reference_occurrences": {
+          "dos6": [
+            163
+          ]
+        },
+        "disposition": "Isolated line matches a reference; surrounding version-specific sequence differs."
+      },
+      {
+        "line": 311,
+        "code": "mov\tax, cs",
+        "exact_reference_occurrences": {
+          "dos6": [
+            320,
+            406
+          ]
+        },
+        "disposition": "Isolated line matches a reference; surrounding version-specific sequence differs."
+      },
+      {
+        "line": 362,
+        "code": "mov     word ptr ds:[addr_int_ibm],ax",
+        "exact_reference_occurrences": {
+          "opennt": [
+            448
+          ]
+        },
+        "disposition": "Isolated line matches a reference; surrounding version-specific sequence differs."
+      },
+      {
+        "line": 363,
+        "code": "mov\tax,cs",
+        "exact_reference_occurrences": {
+          "dos6": [
+            473
+          ]
+        },
+        "disposition": "Isolated line matches a reference; surrounding version-specific sequence differs."
+      },
+      {
+        "line": 364,
+        "code": "mov     word ptr ds:[addr_int_ibm+2],ax",
+        "exact_reference_occurrences": {
+          "opennt": [
+            450
+          ]
+        },
+        "disposition": "Isolated line matches a reference; surrounding version-specific sequence differs."
+      },
+      {
+        "line": 590,
+        "code": "mov\tcx,9",
+        "exact_reference_occurrences": {
+          "dos6": [
+            750
+          ]
+        },
+        "disposition": "Isolated line matches a reference; surrounding version-specific sequence differs."
+      },
+      {
+        "line": 597,
+        "code": "add\tdi,4",
+        "exact_reference_occurrences": {
+          "dos6": [
+            764,
+            1218,
+            1393
+          ]
+        },
+        "disposition": "Isolated line matches a reference; surrounding version-specific sequence differs."
+      },
+      {
+        "line": 794,
+        "code": "invoke\tdeviocall2",
+        "exact_reference_occurrences": {
+          "dos6": [
+            232,
+            966
+          ]
+        },
+        "disposition": "Isolated line matches a reference; surrounding version-specific sequence differs."
+      },
+      {
+        "line": 894,
+        "code": "no_patch:",
+        "exact_reference_occurrences": {
+          "opennt": [
+            915
+          ]
+        },
+        "disposition": "Isolated line matches a reference; surrounding version-specific sequence differs."
+      },
+      {
+        "line": 939,
+        "code": "get_cpu_type",
+        "exact_reference_occurrences": {
+          "opennt": [
+            960
+          ],
+          "dos6": [
+            1164
+          ]
+        },
+        "disposition": "Isolated line matches a reference; surrounding version-specific sequence differs."
+      },
+      {
+        "line": 1332,
+        "code": "doscode\tends",
+        "exact_reference_occurrences": {
+          "dos6": [
+            1539
+          ]
+        },
+        "disposition": "Isolated line matches a reference; surrounding version-specific sequence differs."
+      },
+      {
+        "line": 1335,
+        "code": "DPUBLIC <ParaRound, cXMM_no_driver, cXMMexit, char_init_loop, charinit>",
+        "exact_reference_occurrences": {
+          "opennt": [
+            1370
+          ],
+          "dos6": [
+            1548
+          ]
+        },
+        "disposition": "Isolated line matches a reference; surrounding version-specific sequence differs."
+      },
+      {
+        "line": 1336,
+        "code": "DPUBLIC <check_XMM, continit, dosinttabloop>",
+        "exact_reference_occurrences": {},
+        "disposition": "Partial DEBUG export list: omitted undefined labels in reconstructed configuration."
+      },
+      {
+        "line": 1337,
+        "code": "DPUBLIC <initiret, iset1, iset2, jumptabloop>",
+        "exact_reference_occurrences": {},
+        "disposition": "Partial DEBUG export list: omitted undefined labels in reconstructed configuration."
+      },
+      {
+        "line": 1341,
+        "code": "DPUBLIC <sr_done>",
+        "exact_reference_occurrences": {},
+        "disposition": "Partial DEBUG export list: omitted undefined labels in reconstructed configuration."
+      },
+      {
+        "line": 1343,
+        "code": "end",
+        "exact_reference_occurrences": {
+          "opennt": [
+            1378
+          ],
+          "dos6": [
+            1556
+          ]
+        },
+        "disposition": "Isolated line matches a reference; surrounding version-specific sequence differs."
+      }
+    ],
+    "format_changes": [
+      "docs/etc/evidence/file-review-098-msinit-format-source.json",
+      "docs/etc/evidence/file-review-098-msinit-dpb-format-source.json"
+    ],
+    "nt_bop_screen": "No lexical indicators found in full file.",
+    "debug_difference": "The shortened DPUBLIC lists remove labels undefined in reconstructed sources; see docs/etc/evidence/m6-debug-kernel-source-audit.json. Optional ROMDOS and DOS 6 features are not claimed restored."
+  },
+  "verification": {
+    "stage": "build\\integrated-source-03ox03fq",
+    "built_source_identical": true,
+    "object_sha256": "312328b23df9e56a5dc42988dc8685a1766256fd3302e0eb12ab4c19f1e7d720",
+    "target_instruction_checks": [
+      {
+        "name": "dpb_head_offset",
+        "module_offset": 287,
+        "file_offset": 31417,
+        "instruction_hex": "36892e2600"
+      },
+      {
+        "name": "dpb_head_segment",
+        "module_offset": 292,
+        "file_offset": 31422,
+        "instruction_hex": "368c062800"
+      },
+      {
+        "name": "device_call",
+        "module_offset": 795,
+        "file_offset": 31925,
+        "instruction_hex": "e82acb"
+      }
+    ],
+    "all_three_targets_byte_equal": true,
+    "all_104_object_hashes_unchanged_from": "integrated-source-edz4fx2u",
+    "debug_report": "docs/etc/evidence/file-review-098-msinit-debug.json",
+    "limits": "DEBUG assembly/link and selected target instructions checked; no DEBUG runtime, ROMDOS or exact historical-source claim."
+  },
+  "disposition": "69 whitespace-only lines and two equivalent DPB operand lines aligned with DOS 6; remaining differences are isolated reference statements or DEBUG export reconstruction."
+}

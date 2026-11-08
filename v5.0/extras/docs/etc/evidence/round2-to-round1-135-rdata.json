@@ -1,0 +1,32 @@
+{
+  "index": 135,
+  "file": "cmd/command/rdata.asm",
+  "reviewed_sha256": "9b1184ab2ade67dfb7ba846fb8766e36e1e9aac0e5ede95f126211fd899b40d9",
+  "decision": "retain_round2",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\rdata.asm",
+      "sha256": "3101420207a251880f4eacc22d56beb819a0987ea2698e87e3bea3d27fe6e685"
+    },
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dev\\smartdrv\\rdata.asm",
+      "sha256": "ed6267fc12f607564ed33cbafb0131fa0f08c9fd83595d346d095dc0eec1e28c"
+    },
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\CMD\\COMMAND\\RDATA.ASM",
+      "sha256": "9af1d227663b0d7b23eecf98e523a3f09d6963fc30d1f05e06c03c19c074d9f8"
+    },
+    {
+      "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\rdata.asm",
+      "sha256": "350cb74da4d43313cf7ce0f9bdb957cefa5759ef32f439f8a83102f0162ed441"
+    }
+  ],
+  "reason": [
+    "DOS 6 removes LoadHiFlg in a change dated 1992, changes environment ownership and adds /K and ROM data; these alter linked COMMAND data and behavior.",
+    "OpenNT adds SCS host state, cmdsvc and expanded batch handling; DOS 4 differs substantially.",
+    "DOS 6 SmartDrive RDATA is a different component."
+  ],
+  "change": "No source change.",
+  "verification": "Latest integrated-source-p36t4oy1 matches the three retained targets; current lexical scan has no hits.",
+  "limitations": "Default target build does not prove optional variants or historical original source."
+}

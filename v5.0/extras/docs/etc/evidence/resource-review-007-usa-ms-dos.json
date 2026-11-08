@@ -1,0 +1,19 @@
+{
+  "index": 7,
+  "file": "messages/usa-ms-dos.msg",
+  "sha256": "c8684099859fbb3829b2ab62a3e09bd396afa626928fdc4795dde0bf4b1afacb",
+  "reference": {
+    "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\messages\\usa-ms.msg",
+    "sha256": "c20f76c518d8248f5a9fe47259e80c9ce95f15fff6b86bad1a4d03f65161b037"
+  },
+  "decision": "retain target build source; preserve documented optional POWER inference",
+  "comparison": "After excluding the inferred two-line POWER entry and changed index/count header lines, every remaining line is identical to OpenNT usa-ms.msg.",
+  "checks": [
+    "Latest BIOS and kernel build reports record this source hash.",
+    "All three resulting files match retained targets."
+  ],
+  "prior_power_evidence": "docs/etc/evidence/m6-power-message-reconstruction-audit.json",
+  "limitations": "Most entries in this broad shared resource are not used by this target build. The optional POWER entry was inferred from a source comment and its original wording is unverified.",
+  "change": "No source change.",
+  "build_stage": "build\\integrated-source-o1gc1cvu"
+}

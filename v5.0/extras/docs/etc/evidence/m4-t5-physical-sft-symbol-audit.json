@@ -1,0 +1,34 @@
+{
+  "probe": "m4-t5-physical-sft-probe.json",
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\physical-sft-probe-w4i4ug52",
+  "duplicate_publics": {
+    "CHECK_VIRT_OPEN": [
+      "msctrlc",
+      "mknode"
+    ]
+  },
+  "unprovided_external_declarations": {
+    "DOS_DELETE": [
+      "fcbio",
+      "file"
+    ],
+    "DOS_RENAME": [
+      "fcbio",
+      "file"
+    ],
+    "GET_FILE_INFO": [
+      "fcbio",
+      "file"
+    ],
+    "OFFSETMAGICPATCH": [
+      "rom"
+    ],
+    "SET_EXT_MODE": [
+      "file"
+    ],
+    "SET_FILE_ATTRIBUTE": [
+      "file"
+    ]
+  },
+  "scope": "Native OMF declarations, not linker fixup reachability or executable acceptance. Some external declarations may be unused."
+}

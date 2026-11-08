@@ -1,0 +1,72 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\integrated-source-ubztdfh5",
+  "target_sha256": "4e41ca4e5893d4cf293f81ad01adbdbd12f7039534f59148214a9cca309529a2",
+  "origin": 15824,
+  "edges": [
+    {
+      "caller": "$GET_DPB",
+      "callee": "GETTHISDRV",
+      "condition": "normal drive lookup",
+      "site": 19818,
+      "target_file_offset": 3994,
+      "instruction_hex": "e8ef5c",
+      "destination": 43612
+    },
+    {
+      "caller": "$GET_DPB",
+      "callee": "FATREAD_CDS",
+      "condition": "valid local drive",
+      "site": 19837,
+      "target_file_offset": 4013,
+      "instruction_hex": "e8e948",
+      "destination": 38505
+    },
+    {
+      "caller": "FATREAD_CDS",
+      "callee": "GOTDPB",
+      "condition": "CDS DPB pointer",
+      "site": 38518,
+      "target_file_offset": 22694,
+      "instruction_hex": "e862ad",
+      "destination": 17371
+    },
+    {
+      "caller": "FATREAD_CDS",
+      "callee": "FAT_GOT_DPB",
+      "condition": "media check",
+      "site": 38521,
+      "target_file_offset": 22697,
+      "instruction_hex": "e86500",
+      "destination": 38625
+    },
+    {
+      "caller": "FAT_GOT_DPB",
+      "callee": "UNPACK",
+      "condition": "changed media, non-device FAT",
+      "site": 38885,
+      "target_file_offset": 23061,
+      "instruction_hex": "e8cdfc",
+      "destination": 38069
+    },
+    {
+      "caller": "UNPACK",
+      "callee": "MAPCLUSTER",
+      "condition": "nonzero cluster",
+      "site": 38086,
+      "target_file_offset": 22262,
+      "instruction_hex": "e8dc00",
+      "destination": 38309
+    },
+    {
+      "caller": "MAPCLUSTER",
+      "callee": "GETBUFFRB",
+      "condition": "FAT-sector buffer",
+      "site": 38387,
+      "target_file_offset": 22563,
+      "instruction_hex": "e8e702",
+      "destination": 39133
+    }
+  ],
+  "scope": "Selected static near-call edges only. Conditions come from source; this does not establish branch reachability, register behavior or runtime correctness.",
+  "audit_script_sha256": "c497d8d7f2fa1fe7cad6eb75cb0a17b5e25c57a8f69d8302e153d2e0060eb252"
+}

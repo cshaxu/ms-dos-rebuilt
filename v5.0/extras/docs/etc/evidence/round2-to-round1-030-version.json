@@ -1,0 +1,52 @@
+{
+  "index": 30,
+  "file": "bios/inc/version.inc",
+  "reviewed_sha256": "7ab6100c70e613a41ec32d80519d73784cadaad14c1bff44e0aaa8cfb6214142",
+  "decision": "retain_round2",
+  "reference_files": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\INC\\VERSION.INC",
+      "sha256": "6bc448933c140d93d3cd66364bf0759683689d1565dc1e53686fd8b1855eba06",
+      "lexical_hits": 0
+    },
+    {
+      "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\version.inc",
+      "sha256": "387730c471bbfde2d45b08d8df86bebd430fe5abb9a8ee12688f6aa141f6f7d6",
+      "lexical_hits": 0
+    },
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\45\\qb5\\hdcw\\cw\\version.inc",
+      "sha256": "cf0a02418ca6de858ab809c2263710c1f71de2e7595ac6653f15572b3ffacabb",
+      "lexical_hits": 0
+    },
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\45\\qb5\\qbas\\version.inc",
+      "sha256": "cc8de0ec1d96a8ed947f691227a6c8745cd190e395340d61534f7295807a6d1c",
+      "lexical_hits": 0
+    },
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\45\\runtime\\crt\\version.inc",
+      "sha256": "ef926e6d9590598560afce5f7c700e3bbd82d8059686bf3b9c904293ad66e686",
+      "lexical_hits": 0
+    },
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dev\\smartdrv\\version.inc",
+      "sha256": "af78c874a530567e3007448abb45fc0e81b2eac337ef2f6495ddeae8ded27657",
+      "lexical_hits": 0
+    },
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\inc\\version.inc",
+      "sha256": "b9ce9a6d7b82c2203ac9c5643d8b255c2d3cf7363defa1220ea8c15f3f1cdb61",
+      "lexical_hits": 5
+    }
+  ],
+  "reason": [
+    "DOS 6 shared include adds DoubleSpace hooks and a 1992 COPYCDS history, incompatible with the DOS 5 source target.",
+    "OpenNT include lacks CONFIGPROC and the current ROMDOS-to-ROMEXEC conditional; CONFIGPROC controls CONFIG.SYS processing in bios/sysinit2.asm.",
+    "DOS 4 version has substantially different configuration and DBCS definitions; other DOS 6 same-name files belong to unrelated products and differ substantially."
+  ],
+  "code_coverage": "96 source code lines remain covered by existing round-2 evidence.",
+  "change": "No source change.",
+  "verification": "NT/BOP lexical scan returned no findings; last integrated build integrated-source-ter5ziru matches the three retained targets.",
+  "limitations": "The true DOS 5 source is not available; this decision does not prove optional ROM configurations."
+}

@@ -1,0 +1,138 @@
+{
+  "verification": "m4-t5-dircall-verification.json",
+  "scope": "Complete dircall module candidate, 521 bytes at target layout; not production integrated",
+  "dependencies": [
+    {
+      "symbol": "TESTNET",
+      "linked": true,
+      "comparative_module": null,
+      "target_site": 12790,
+      "target_destination": 4753
+    },
+    {
+      "symbol": "LCRITDISK",
+      "linked": true,
+      "comparative_module": null,
+      "target_site": 12805,
+      "target_destination": 4982
+    },
+    {
+      "symbol": "SET_MKND_ERR",
+      "linked": false,
+      "comparative_module": "create.asm",
+      "target_site": 12812,
+      "target_destination": 11225
+    },
+    {
+      "symbol": "ECRITDISK",
+      "linked": true,
+      "comparative_module": null,
+      "target_site": 12815,
+      "target_destination": 4950
+    },
+    {
+      "symbol": "MAKENODE",
+      "linked": false,
+      "comparative_module": "mknode.asm",
+      "target_site": 12836,
+      "target_destination": 19226
+    },
+    {
+      "symbol": "NEWDIR",
+      "linked": false,
+      "comparative_module": "mknode.asm",
+      "target_site": 12874,
+      "target_destination": 19021
+    },
+    {
+      "symbol": "GETENT",
+      "linked": true,
+      "comparative_module": null,
+      "target_site": 12879,
+      "target_destination": 16349
+    },
+    {
+      "symbol": "INC_DIRTY_COUNT",
+      "linked": true,
+      "comparative_module": null,
+      "target_site": 12895,
+      "target_destination": 23830
+    },
+    {
+      "symbol": "SETDOTENT",
+      "linked": false,
+      "comparative_module": "mknode.asm",
+      "target_site": 12913,
+      "target_destination": 19190
+    },
+    {
+      "symbol": "GETBUFFR",
+      "linked": true,
+      "comparative_module": null,
+      "target_site": 12939,
+      "target_destination": 23307
+    },
+    {
+      "symbol": "FLUSHBUF",
+      "linked": true,
+      "comparative_module": null,
+      "target_site": 12988,
+      "target_destination": 23562
+    },
+    {
+      "symbol": "GETPATH",
+      "linked": true,
+      "comparative_module": null,
+      "target_site": 13089,
+      "target_destination": 16497
+    },
+    {
+      "symbol": "STARTSRCH",
+      "linked": true,
+      "comparative_module": null,
+      "target_site": 13198,
+      "target_destination": 17180
+    },
+    {
+      "symbol": "GETENTRY",
+      "linked": true,
+      "comparative_module": null,
+      "target_site": 13201,
+      "target_destination": 16346
+    },
+    {
+      "symbol": "SRCH",
+      "linked": true,
+      "comparative_module": null,
+      "target_site": 13245,
+      "target_destination": 16087
+    },
+    {
+      "symbol": "RELEASE",
+      "linked": false,
+      "comparative_module": "rom.asm",
+      "target_site": 13265,
+      "target_destination": 20585
+    },
+    {
+      "symbol": "FASTOPEN_DELETE",
+      "linked": false,
+      "comparative_module": "delete.asm",
+      "target_site": 13304,
+      "target_destination": 10171
+    }
+  ],
+  "comparison_header": "Full DOS 6 sf.inc copied only into owned comparison stage; shared/production SFT definitions unchanged",
+  "snapshot_checks": {
+    "m4-t5-chdir-build.json": {
+      "inputs": 114,
+      "mismatches": []
+    },
+    "m2-t3-command-exact-verification.json": {
+      "inputs": 113,
+      "mismatches": []
+    }
+  },
+  "layout_proof": "Original procedure ordering naturally restores NOTDIRPATH E9 91 FE at 336Dh; no padding or copied target bytes",
+  "next": "Recover six missing external symbols and audit physical SFT fields before full module integration"
+}

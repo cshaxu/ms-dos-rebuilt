@@ -1,0 +1,47 @@
+{
+  "index": 65,
+  "file": "dos/disk.asm",
+  "reviewed_sha256": "3d94a6ff09848754e0caf3aa52aff6ab69a17d8e440d2d972d12674e8030033f",
+  "status": "reviewed",
+  "role": "DOS read/write and character/device I/O.",
+  "references": {
+    "opennt": {
+      "status": "different",
+      "sha256": "e312fd70517e5101302215cbf37074b5f50eb20efe5303a79f7c9f17376e1845",
+      "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\dos\\disk.asm"
+    },
+    "dos6": {
+      "status": "different",
+      "sha256": "d4a7a2cbda59cc693754529806c4e6b7fcbde376a42e647eacefecef87cd9cca",
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\disk.asm"
+    },
+    "dos4": {
+      "status": "different",
+      "sha256": "992f2ada2d806e9f2d3f751ff42ee72b4ce2193564da01f9b95478ea353fa207",
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\disk.asm"
+    }
+  },
+  "review": {
+    "code_lines": 677,
+    "reference_passage_covered": 676,
+    "uncovered_lines": [
+      244
+    ],
+    "disposition_of_unmatched": "DLJZ at line 244 replaces DOS 6 JZ: existing macro emits target short JZ in release and expands to a long conditional transfer in DEBUG, where direct short branch is out of range. This is a configuration-dependent instruction difference, not formatting.",
+    "style": "No same-line whitespace-only candidates found against DOS 6; corrected CHECK_READ_LOCK procedure comment names the actual routine.",
+    "nt_bop_screen": "No lexical indicators in full file."
+  },
+  "verification": {
+    "stage": "build\\integrated-source-u2mbtijk",
+    "built_source_identical": true,
+    "object_sha256": "d37a26cea2b59a9ce931a89728e7bf15df40cd67483c68662fecec046d6bc762",
+    "release_target_offset": 13430,
+    "release_instruction_hex": "7461",
+    "destination": 29353,
+    "debug_listing": "build/kernel-debug-3082j9z4/disk.lst",
+    "debug_evidence": "docs/etc/evidence/m6-debug-kernel-3qm3v2jp.json",
+    "all_three_targets_byte_equal": true,
+    "limits": "Static target and DEBUG assembly checks; no runtime or exact historical DOS 5 source claim."
+  },
+  "disposition": "Retained DLJZ for DEBUG and exact release bytes; no formatting change warranted."
+}

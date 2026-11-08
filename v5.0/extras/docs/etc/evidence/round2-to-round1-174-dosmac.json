@@ -1,0 +1,28 @@
+{
+  "index": 174,
+  "file": "inc/dosmac.INC",
+  "reviewed_sha256": "85641885b319c2165beb28d359b7f8028501f3c4ee37a3602341941372323deb",
+  "decision": "retain_round2",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\inc\\dosmac.inc",
+      "sha256": "30acfd9ff4cfa69f2719bc61a4416c3c37fc4cb3ae2b5cdaed64096dfbc67675"
+    },
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\INC\\DOSMAC.INC",
+      "sha256": "8737a7da23e187d00cffafc24adf7c7fe43f245aa08cdc91b9d4564329a4e1bf"
+    },
+    {
+      "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\dosmac.inc",
+      "sha256": "6c6abe9a647d14c57f97c0bd3afafcdee6624f636fff273f2d996a7b21a693c2"
+    }
+  ],
+  "reason": [
+    "DOS 6 adds a ROMDOS-specific GETDSEG expansion using BioDataSeg and DosDataSg; adopting it changes a shared macro under an optional configuration whose DOS 5 behavior is not established.",
+    "OpenNT disables critical-section invocations and adds HRDSVC host-service macro.",
+    "DOS 4 macro definitions differ substantially."
+  ],
+  "change": "No source change.",
+  "verification": "Latest integrated-source-19x67y0z matches three retained targets; current lexical scan has no hits.",
+  "limitations": "The default build does not exercise ROMDOS, and this audit does not establish its historical behavior."
+}

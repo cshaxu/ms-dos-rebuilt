@@ -1,0 +1,19 @@
+{
+  "index": 9,
+  "file": "messages/usa-ibm.msg",
+  "sha256": "78d9a1de64be56f5bab7a4833354b58317917e8bf6e2a265718e9b47c0db03f2",
+  "decision": "retain OpenNT identical reference",
+  "reference": {
+    "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\messages\\usa-ibm.msg",
+    "sha256": "78d9a1de64be56f5bab7a4833354b58317917e8bf6e2a265718e9b47c0db03f2"
+  },
+  "boot_record_sha256": "903864779b6ba26d8d136e5efece0b29c921ef5fcae822e0d2c8d1a6e9ae62d7",
+  "checks": [
+    "Current resource equals the OpenNT same-name reference byte for byte.",
+    "MSLOAD and BIOS reports and staged input files match this source.",
+    "The existing build-input audit verifies the BOOT append and BUILDIDX transformation as well as three target files."
+  ],
+  "build_input_audit": "docs/etc/evidence/resource-review-004-build-inputs.json",
+  "limitations": "Only the BOOT record is extracted by this selected build; byte-identical reference does not establish provenance or suitability of all other messages.",
+  "change": "No source change."
+}

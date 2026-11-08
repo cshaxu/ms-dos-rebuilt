@@ -1,0 +1,10 @@
+{
+  "file": "cmd/command/uinit.asm",
+  "before_sha256": "fb08dc811eb2f0d1be49cad8f6ee4b8d50cb38e083e345b8e2d1cb76c0a99eca",
+  "after_sha256": "820127a394f8bc2bc73a94852378c9e88ae8dc125fc8daa1d16bb4002f9cf18c",
+  "reference": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\uinit.asm",
+  "reference_sha256": "71fe34ddc30f096c3d2bfd7fda28e2ac269fb45e81900400302305b2c9631dfd",
+  "before": "\t\tDB\t7\t\t\t ; number of switches",
+  "after": "                DB      7                        ;AN000; 7 switches",
+  "scope": "Align switch-count formatting to DOS 6 while retaining target value 7, differing from DOS 6 value 8."
+}

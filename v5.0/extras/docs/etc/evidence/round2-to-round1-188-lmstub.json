@@ -1,0 +1,24 @@
+{
+  "index": 188,
+  "file": "inc/lmstub.asm",
+  "reviewed_sha256": "9226d59fa3d835ce5f47bb74cb7412de2dba830a20a7141e44b4b80020fe80f5",
+  "decision": "retain_round2",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\inc\\lmstub.asm",
+      "sha256": "a0783d6f103220cbc6eff5ae371fbc9316e53b1e99ff74e4afc418496d4012f8"
+    },
+    {
+      "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\lmstub.asm",
+      "sha256": "fde4eaf4e16d3461f80fc62b53b62a5d7912c4f008f6f490546be5b8337f5f1a"
+    }
+  ],
+  "reason": [
+    "DOS 6 adds ROMDOS i20To28Count and ROMEXEC RomExclRegPtr definitions and removes the .ERR layout guard; wholesale replacement changes optional configuration and assembly-time checking without DOS 5 evidence.",
+    "OpenNT changes interrupt and A20 handling and includes SVC host calls and NT VDM data.",
+    "No same-name DOS 4 reference found in the reference tree."
+  ],
+  "change": "No source change.",
+  "verification": "Current NT/BOP lexical scan has no hits; the latest integrated-source-t61pmujw build matches all three pinned targets.",
+  "limitations": "The default build does not establish behavior for the optional ROMDOS or ROMEXEC configurations; lexical scan is not a complete semantic audit."
+}

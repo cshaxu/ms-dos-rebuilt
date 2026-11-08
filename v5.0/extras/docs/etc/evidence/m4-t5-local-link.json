@@ -1,0 +1,73 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\kernel-link-fz0vqobh",
+  "launcher_exit": 0,
+  "launcher_log": "private-desktop=DOS5Build_4028_737808484 owned-pid=22900\r\nchild-exit=0 timeout=0\r\n",
+  "launcher_sha256": "ae195ddf68aedff2fab5130e1368cb5c585e5264b84d142d4f79dc9f973f85b9",
+  "dosbox_sha256": "dcfd46fa521f5ce89dce3bf026056f3a1d15533f80321ee887403e30d7949f5e",
+  "files": {
+    "result.txt": {
+      "bytes": 6,
+      "sha256": "d938fa189912f8776c3deb31a6bec42f403f57b9c8e3ed936bdb076caf6bd61c",
+      "text": "PASS\n"
+    },
+    "msg.log": {
+      "bytes": 270,
+      "sha256": "328a84518293b326427fc2f828d839b851846954852ae8b7c37b955d4752a742",
+      "text": ";  Creating .CT? files for msdos.skl using usa-ms.msg file of messages. \n;  SKL, MSG and IDX files have been opened for reading.\n;  Writing to msdos.cl1\n;  Writing to msdos.cl2\n;  Writing to msdos.cl3\n;  Writing to msdos.cl4\n;  Message files for msdos completed.\n"
+    },
+    "link.log": {
+      "bytes": 2103,
+      "sha256": "1213d27055b83247720bfe4097698545aeda53e79889ebae0d356a5cc97d7c8b",
+      "text": "\nMicrosoft (R) Segmented-Executable Linker  Version 5.10    \nCopyright (C) Microsoft Corp 1984-1990.  All rights reserved.\n\nObject Modules [.OBJ]: /MAP  origin.obj           +\nObject Modules [.OBJ]:  msdata.obj           +\nObject Modules [.OBJ]:  mstable.obj          +\nObject Modules [.OBJ]:  msdisp.obj           +\nObject Modules [.OBJ]:  mscode.obj           +\nObject Modules [.OBJ]:  msdosme.obj          +\nObject Modules [.OBJ]:  time.obj             +\nObject Modules [.OBJ]:  getset.obj           +\nObject Modules [.OBJ]:  parse.obj            +\nObject Modules [.OBJ]:  misc.obj             +\nObject Modules [.OBJ]:  misc2.obj            +\nObject Modules [.OBJ]:  cpmio.obj            +\nObject Modules [.OBJ]:  cpmio2.obj           +\nObject Modules [.OBJ]:  fcbio.obj            +\nObject Modules [.OBJ]:  fcbio2.obj           +\nObject Modules [.OBJ]:  search.obj           +\nObject Modules [.OBJ]:  path.obj             +\nObject Modules [.OBJ]:  ioctl.obj            +\nObject Modules [.OBJ]:  dup.obj              +\nObject Modules [.OBJ]:  open.obj             +\nObject Modules [.OBJ]:  abort.obj            +\nObject Modules [.OBJ]:  disk.obj             +\nObject Modules [.OBJ]:  dir2.obj             +\nObject Modules [.OBJ]:  dev.obj              +\nObject Modules [.OBJ]:  fcb.obj              +\nObject Modules [.OBJ]:  msctrlc.obj          +\nObject Modules [.OBJ]:  msproc.obj           +\nObject Modules [.OBJ]:  alloc.obj            +\nObject Modules [.OBJ]:  srvcall.obj          +\nObject Modules [.OBJ]:  segcheck.obj\t      +\nObject Modules [.OBJ]:  util.obj             +\nObject Modules [.OBJ]:  handle.obj           +\nObject Modules [.OBJ]:  macro.obj            +\nObject Modules [.OBJ]:  macro2.obj           +\nObject Modules [.OBJ]:  file.obj             +\nObject Modules [.OBJ]:   lock.obj\t       +\nObject Modules [.OBJ]:  exepatch.obj\t      +\nObject Modules [.OBJ]:  msinit.obj\nRun File [origin.exe]: NTDOS.EXE\nList File [C:NTDOS.map]: NTDOS.MAP;\nLINK : warning L4021: no stack segment\nLINK : warning L4038: program has no starting address\n"
+    },
+    "reloc.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "text": ""
+    },
+    "stripz.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "text": ""
+    },
+    "ntdos.exe": {
+      "bytes": 37154,
+      "sha256": "60be9202718bfc1a28ec0390cd94f988c4015f9ce95b6384dc323aed2c557a42"
+    },
+    "ntdos.bin": {
+      "bytes": 36642,
+      "sha256": "25218fe6ba1a1c420448c2f2e0346481736a588553747276f950079e4a2df92c"
+    },
+    "ntdos.sys": {
+      "bytes": 27858,
+      "sha256": "957662320654ad5251c3a8b228a5dadec28aa65dddbcba38c3658a6e7f93bc84"
+    },
+    "ntdos.map": {
+      "bytes": 43001,
+      "sha256": "9f2f1b9935dc621779c3803bec312ba1556e4274d2a9cd681091c56a943bd13c"
+    },
+    "msdos.cl1": {
+      "bytes": 90,
+      "sha256": "12b8032cd71b9026b0aa7f3cddd98b896d5a84c091f9bb1597d4033262238153"
+    },
+    "msdos.cl2": {
+      "bytes": 100,
+      "sha256": "eb2759bc8c8db4a665b6383ec98b53afc98c67a41e9b8aab309109504909711b"
+    },
+    "msdos.cl3": {
+      "bytes": 212,
+      "sha256": "e6312a30fa572b0ada935d76c8c306856e6d4eeb561c2f67f9deead57d97f475"
+    },
+    "msdos.cl4": {
+      "bytes": 186,
+      "sha256": "6bb4f994e388db32d50000eec3064e09d6940f20fd408eb26605a03f05e625a9"
+    }
+  },
+  "generated_messages_equal_reference": {
+    "msdos.cl1": true,
+    "msdos.cl2": true,
+    "msdos.cl3": true,
+    "msdos.cl4": true
+  },
+  "scope": "NTDOS reference pipeline, not restored standalone MSDOS.SYS."
+}

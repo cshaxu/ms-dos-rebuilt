@@ -1,0 +1,33 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\integrated-source-n1dujjuk",
+  "previous_stage": "xrublkr3",
+  "removed": {
+    "archive": "research/bios/syspre.asm",
+    "source_sha256": "72d583fdc16cabd295272dd8f98948521bcf81a921d5bf8e11d9dacea2ecf5fb",
+    "old_link_sha256": "0f6159cd77ca1f8d62040c44192a42c2ccddf376ee63ad17e97bcf3c8031df9f",
+    "new_link_sha256": "8bacc4046950d548d2c5092f135c6bd079ddbc09ad9a1ca491ad0b3d0a3dc978",
+    "scope": "Remove 1992 DBLSPACE-only module from target link; preserve original source for DOS 6 comparison."
+  },
+  "old_object_sha256": "b9133c4f1e4d8ad411ea14ab40edb87eee073d587d1d3923330e0969d767af49",
+  "old_object_emitted_records": {
+    "ledata": 0,
+    "lidata": 0,
+    "conflicting_overwrites": 0
+  },
+  "script_hashes": {
+    "tools/build_bios_comparison.py": "b4194577490b622877471763e2bb8ebf49b5a418b5c400029c1781cf7c010622",
+    "tools/audit_linked_module_references.py": "1904869dfbd6d014327c62817140910229d21ec0e87d4c23471aab9c18a76c4b",
+    "tools/audit_fresh_host_externals.py": "c19cd1806ee65576668825a5af4c5575d2818c29334f642fd7d6b396b3b2864c"
+  },
+  "object_counts": {
+    "bios": 14,
+    "kernel": 55,
+    "command": 34
+  },
+  "files": {
+    "IO.SYS": "dd0915ed366b3f640284df4be30ed35f413dfd5b6966c1f25eee9598a5bf53e0",
+    "MSDOS.SYS": "4e41ca4e5893d4cf293f81ad01adbdbd12f7039534f59148214a9cca309529a2",
+    "COMMAND.COM": "74ad25067e7d9f5c3a0ac2f2967347defb0ffef9e6ed60b60e6499f0b1a8cc89"
+  },
+  "scope": "The later DBLSPACE module emitted no data in the target build; remaining 104 objects and all three system files match."
+}

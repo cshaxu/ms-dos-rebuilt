@@ -1,0 +1,42 @@
+{
+  "resource": "bios/msbio.skl",
+  "sha256": "b2526a57dfdcc401f0d191481e678b4e2dc030a82338fe23cdf06909c594b5fd",
+  "references": [
+    {
+      "reference": "dos6",
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\msbio.skl",
+      "sha256": "6a0b44c877ad3e7edc3c3e324bcbf3afa50d44f08abc7809dff80ec4deea35d0",
+      "byte_identical": false
+    },
+    {
+      "reference": "dos4",
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\BIOS\\MSBIO.SKL",
+      "sha256": "2750c6416c26d2c6ee2bbdff1df71cbd65624c798d90800bdd23ccf620b601ae",
+      "byte_identical": false
+    },
+    {
+      "reference": "opennt",
+      "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\bios\\msbio.skl",
+      "sha256": "2a2fb4d31b19be6e57c45c1677e6c490d3138c7bb235757bd321102787f2b421",
+      "byte_identical": false
+    }
+  ],
+  "decision": "retain current reconstruction",
+  "observations": [
+    "DOS 6 template adds startup menu and DoubleSpace entries not appropriate to the target; current class 3 text and formatting differ in multiple definitions.",
+    "OpenNT template lacks several BIOS classes and current target-specific message wording.",
+    "The previously recorded 15-message class 3 target region remains equal in the latest complete IO.SYS build.",
+    "The optional POWER message is inferred from a source comment, as recorded separately; it is disabled in the target build."
+  ],
+  "target_region": {
+    "offset": 31508,
+    "length": 472,
+    "sha256": "97c7324c309fdeb87d548b53f1306844bf27eb44500da1954989054e8088a3b9",
+    "equal_retained_target": true
+  },
+  "build_stage": "build\\integrated-source-t61pmujw",
+  "prior_message_evidence": "docs/etc/evidence/m5-bios-message-source-verification.json",
+  "power_evidence": "docs/etc/evidence/m6-power-message-reconstruction-audit.json",
+  "limitations": "Target region equality supports output bytes, not exact historical template text. The previous 15-message analysis predates the current template hash; this audit only rechecks its stated binary region, not a fresh individual mapping. Optional POWER wording remains unverified.",
+  "change": "No source change."
+}

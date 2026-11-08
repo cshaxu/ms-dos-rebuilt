@@ -1,0 +1,58 @@
+{
+  "index": 6,
+  "file": "cmd/command/command.lnk",
+  "sha256": "516b5e9b4c836b9820cb0869d7fd56062812d9607c81382ba39a93fe814fce23",
+  "decision": "retain OpenNT identical reference and DOS 6 formatting without cratio",
+  "reference_opennt": {
+    "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\command.lnk",
+    "sha256": "516b5e9b4c836b9820cb0869d7fd56062812d9607c81382ba39a93fe814fce23"
+  },
+  "reference_dos6": {
+    "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\command.lnk",
+    "sha256": "043586cd7a15e3e2c753369194c49c60c18548a4fba65f4fdb3d1478a28c5d11"
+  },
+  "linked_modules": [
+    "command1",
+    "command2",
+    "rucode",
+    "stub",
+    "rdata",
+    "init",
+    "iparse",
+    "uinit",
+    "tcode",
+    "tbatch",
+    "tbatch2",
+    "tfor",
+    "dir",
+    "tcmd1b",
+    "tcmd2a",
+    "tcmd2b",
+    "tenv",
+    "tenv2",
+    "tmisc1",
+    "tmisc2",
+    "tpipe",
+    "parse2",
+    "path1",
+    "path2",
+    "tucode",
+    "copy",
+    "copypr1",
+    "copypr2",
+    "cparse",
+    "tparse",
+    "tprintf",
+    "loadhi",
+    "tdata",
+    "tspc"
+  ],
+  "checks": [
+    "DOS 6 reference becomes byte-identical when the cratio.obj token and its following whitespace are removed.",
+    "All 34 modules and their order match the fresh command build report; staged link file equals source.",
+    "Complete COMMAND.COM is byte-identical to the retained target."
+  ],
+  "build_stage": "build\\integrated-source-o1gc1cvu",
+  "limitations": "Matching output and reference list do not prove exact original link response or all optional configurations.",
+  "change": "No source change."
+}

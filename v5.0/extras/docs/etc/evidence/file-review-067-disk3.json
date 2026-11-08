@@ -1,0 +1,68 @@
+{
+  "index": 67,
+  "file": "dos/disk3.asm",
+  "reviewed_sha256": "0793350781fb07928f0a276c53bdf63dac25e2ef51a6e2051af430f79ddb8e41",
+  "status": "reviewed",
+  "role": "Disk write/cluster transfer and access-error handling.",
+  "references": {
+    "opennt": {
+      "status": "missing"
+    },
+    "dos6": {
+      "status": "different",
+      "sha256": "9576ede44a7a1ff86d46cd8ed02749d783a48ff2d39b703a26d007139f821fdd",
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\disk3.asm"
+    },
+    "dos4": {
+      "status": "different",
+      "sha256": "e67d369b433c308f7a41df91a453a6be50559da9421811421182c380147923d4",
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\disk3.asm"
+    }
+  },
+  "review": {
+    "code_lines": 458,
+    "reference_passage_covered": 456,
+    "uncovered_lines": [
+      310,
+      340
+    ],
+    "dispositions": {
+      "310": "DLJC expands to target short JC in release and long conditional transfer in DEBUG; DOS 6 source uses JC.",
+      "340": "DWRITE invocation matches DOS 4; DOS 6 inlines a later compressed-volume disk-full path."
+    },
+    "style": "No whole-line whitespace-only differences found against DOS 6; changes are instruction/control-flow differences.",
+    "nt_bop_screen": "No lexical indicators in file."
+  },
+  "verification": {
+    "stage": "build\\integrated-source-u2mbtijk",
+    "built_source_identical": true,
+    "object_sha256": "f3cc2dc047e21331324d7fe845b47f744353936e3e8bc58124a5f00edcba1726",
+    "target_call_and_branch_checks": [
+      {
+        "name": "conditional_error",
+        "module_offset": 330,
+        "file_offset": 15584,
+        "instruction_hex": "7276",
+        "destination": 31528
+      },
+      {
+        "name": "dwrite_call",
+        "module_offset": 370,
+        "file_offset": 15624,
+        "instruction_hex": "e8bafb",
+        "destination": 30357
+      },
+      {
+        "name": "error_transfer",
+        "module_offset": 450,
+        "file_offset": 15704,
+        "instruction_hex": "e9effc",
+        "destination": 30746
+      }
+    ],
+    "debug_listing": "build/kernel-debug-3082j9z4/disk3.lst",
+    "all_three_targets_byte_equal": true,
+    "limits": "Static byte and DEBUG-assembly checks; runtime reachability and original DOS 5 source text unverified."
+  },
+  "disposition": "Retained target-specific instructions and DEBUG-compatible macro; no unsupported format-only difference identified."
+}

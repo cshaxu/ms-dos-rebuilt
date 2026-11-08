@@ -1,0 +1,24 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\integrated-source-gmjcinx5",
+  "previous_stage": "bum5ce2e",
+  "change": {
+    "source": "dos/buf.asm",
+    "reference": "v6.0/dos/buf.asm getb17",
+    "before_sha256": "2412f61c2b38d4b8f8248c94e9342f66930e170e9865d33c2216d22930d68abc",
+    "after_sha256": "c6efe316978116040b42da25704ce212c6d1c675dbee9059603e1bf6ded6bf96",
+    "old_text": "getb17:\r\n        pushf\r\n        cmp     BuffInHMA,0\r\n        jz      not_in_hma\r\n        popf\r\n        mov     cx,es:[bp].DPB_SECTOR_SIZE\r\n        shr     cx,1\r\n        mov     si,bx\r\n\tpop     di\r\n\tpop\tes\r\n\tcld\r\n\trep\tmovsw\r\n\tpush\tes\r\n\tpop\tds\r\n        jmp     short buffer_copy_done\r\nnot_in_hma:\r\n        popf\r\nbuffer_copy_done:\r\n",
+    "new_text": "getb17:\r\n\tpushf\t\t\t\t; save flags from disk read\r\n\tcmp\tBuffInHMA, 0\t\t; did we read into scratch buff ?\r\n\tjz\tnot_in_hma\t\t; no\r\n\tpopf\t\t\t\t; restore flags from disk read\r\n\tmov\tcx, es:[bp].DPB_SECTOR_SIZE\r\n\tshr\tcx, 1\t\t\t; convert byte count to word count\r\n\tmov\tsi, bx\r\n\tpop\tdi\r\n\tpop\tes\r\n\tcld\r\n\trep\tmovsw\t\t\t; move the contents of scratch buff\r\n\tpush\tes\r\n\tpop\tds\r\n\tjmp\tshort buffer_copy_done\r\nnot_in_hma:\r\n\tpopf\t\t\t\t; restore flags from disk read\r\nbuffer_copy_done:\r\n",
+    "scope": "Formatting and explanatory comments only; instruction order preserved. SHR modifies CF after POPF on the HMA path, unlike the referenced DOS 6 sequence."
+  },
+  "object_counts": {
+    "bios": 15,
+    "kernel": 55,
+    "command": 34
+  },
+  "files": {
+    "IO.SYS": "dd0915ed366b3f640284df4be30ed35f413dfd5b6966c1f25eee9598a5bf53e0",
+    "MSDOS.SYS": "4e41ca4e5893d4cf293f81ad01adbdbd12f7039534f59148214a9cca309529a2",
+    "COMMAND.COM": "74ad25067e7d9f5c3a0ac2f2967347defb0ffef9e6ed60b60e6499f0b1a8cc89"
+  },
+  "scope": "Formatting and comments only; all object hashes and outputs unchanged."
+}

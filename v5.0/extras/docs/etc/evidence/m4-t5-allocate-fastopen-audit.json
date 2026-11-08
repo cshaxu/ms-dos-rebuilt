@@ -1,0 +1,17 @@
+{
+  "build": "m4-t5-fastopen-build.json",
+  "snapshots": {
+    "m4-t5-fastopen-build.json": {
+      "inputs": 115,
+      "mismatches": []
+    },
+    "m2-t3-command-exact-verification.json": {
+      "inputs": 113,
+      "mismatches": []
+    }
+  },
+  "allocate_candidate": "m4-t5-allocate-verification.json",
+  "fastopen_candidate": "m4-t5-fastopen-verification.json",
+  "linked_proof": "m4-t5-fastopen-linked-verification.json",
+  "limits": "ALLOCATE still comparison-only because it writes physical SFT fields; delete.asm currently contains original FastOpen tail only, not full DOS delete implementation. Far-call targets require runtime validation."
+}

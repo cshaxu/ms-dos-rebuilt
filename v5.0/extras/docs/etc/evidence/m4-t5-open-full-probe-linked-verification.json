@@ -1,0 +1,306 @@
+{
+  "module": "open-full",
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\physical-sft-probe-gaif7wrl",
+  "candidate_proof_sha256": "2934175a687c650146454e31a9570e131071945effaeb73124f84ee145dbce20",
+  "link_report_sha256": "1bbdfe1c5717a66605a3aef82166c9d11164f5e85d841c1f70d29448a8b796da",
+  "linked_start": 26600,
+  "public_anchors": [
+    {
+      "symbol": "set_sft_mode",
+      "object_offset": 243,
+      "linked_offset": 26843
+    },
+    {
+      "symbol": "do_share_check",
+      "object_offset": 296,
+      "linked_offset": 26896
+    },
+    {
+      "symbol": "dos_open",
+      "object_offset": 0,
+      "linked_offset": 26600
+    },
+    {
+      "symbol": "check_access_ax",
+      "object_offset": 328,
+      "linked_offset": 26928
+    },
+    {
+      "symbol": "share_error",
+      "object_offset": 266,
+      "linked_offset": 26866
+    }
+  ],
+  "bytes": 373,
+  "named_fixups": [
+    {
+      "offset": 2,
+      "symbol": "NoSetDir",
+      "relative": false,
+      "target_symbol": 844,
+      "linked_symbol": 844
+    },
+    {
+      "offset": 6,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 27212,
+      "linked_symbol": 26600
+    },
+    {
+      "offset": 12,
+      "symbol": "THISSFT",
+      "relative": false,
+      "target_symbol": 1438,
+      "linked_symbol": 1438
+    },
+    {
+      "offset": 23,
+      "symbol": "THISCDS",
+      "relative": false,
+      "target_symbol": 1442,
+      "linked_symbol": 1442
+    },
+    {
+      "offset": 33,
+      "symbol": "EXTOPEN_ON",
+      "relative": false,
+      "target_symbol": 1526,
+      "linked_symbol": 1526
+    },
+    {
+      "offset": 39,
+      "symbol": "SAVE_BX",
+      "relative": false,
+      "target_symbol": 1537,
+      "linked_symbol": 1537
+    },
+    {
+      "offset": 50,
+      "symbol": "EXTOPEN_ON",
+      "relative": false,
+      "target_symbol": 1526,
+      "linked_symbol": 1526
+    },
+    {
+      "offset": 56,
+      "symbol": "DOS_FLAG",
+      "relative": false,
+      "target_symbol": 134,
+      "linked_symbol": 134
+    },
+    {
+      "offset": 63,
+      "symbol": "DOS34_FLAG",
+      "relative": false,
+      "target_symbol": 1553,
+      "linked_symbol": 1553
+    },
+    {
+      "offset": 89,
+      "symbol": "EXTOPEN_ON",
+      "relative": false,
+      "target_symbol": 1526,
+      "linked_symbol": 1526
+    },
+    {
+      "offset": 97,
+      "symbol": "EcritDisk",
+      "relative": true,
+      "target_symbol": 20774,
+      "linked_symbol": 19744
+    },
+    {
+      "offset": 101,
+      "symbol": "FastOpenFlg",
+      "relative": false,
+      "target_symbol": 3386,
+      "linked_symbol": 3386
+    },
+    {
+      "offset": 105,
+      "symbol": "GetPath",
+      "relative": true,
+      "target_symbol": 32321,
+      "linked_symbol": 29458
+    },
+    {
+      "offset": 121,
+      "symbol": "FastOpenFlg",
+      "relative": false,
+      "target_symbol": 3386,
+      "linked_symbol": 3386
+    },
+    {
+      "offset": 126,
+      "symbol": "LcritDisk",
+      "relative": true,
+      "target_symbol": 20806,
+      "linked_symbol": 19776
+    },
+    {
+      "offset": 129,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 27212,
+      "linked_symbol": 26600
+    },
+    {
+      "offset": 149,
+      "symbol": "CURBUF",
+      "relative": false,
+      "target_symbol": 1506,
+      "linked_symbol": 1506
+    },
+    {
+      "offset": 167,
+      "symbol": "THISSFT",
+      "relative": false,
+      "target_symbol": 1438,
+      "linked_symbol": 1438
+    },
+    {
+      "offset": 211,
+      "symbol": "DOOPEN",
+      "relative": true,
+      "target_symbol": 35497,
+      "linked_symbol": 45074
+    },
+    {
+      "offset": 216,
+      "symbol": "FastOpenFlg",
+      "relative": false,
+      "target_symbol": 3386,
+      "linked_symbol": 3386
+    },
+    {
+      "offset": 220,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 27212,
+      "linked_symbol": 26600
+    },
+    {
+      "offset": 225,
+      "symbol": "LcritDisk",
+      "relative": true,
+      "target_symbol": 20806,
+      "linked_symbol": 19776
+    },
+    {
+      "offset": 234,
+      "symbol": "THISSFT",
+      "relative": false,
+      "target_symbol": 1438,
+      "linked_symbol": 1438
+    },
+    {
+      "offset": 238,
+      "symbol": "JShare",
+      "relative": false,
+      "target_symbol": 144,
+      "linked_symbol": 144
+    },
+    {
+      "offset": 241,
+      "symbol": "LcritDisk",
+      "relative": true,
+      "target_symbol": 20806,
+      "linked_symbol": 19776
+    },
+    {
+      "offset": 245,
+      "symbol": "THISSFT",
+      "relative": false,
+      "target_symbol": 1438,
+      "linked_symbol": 1438
+    },
+    {
+      "offset": 248,
+      "symbol": "DEV_OPEN_SFT",
+      "relative": true,
+      "target_symbol": 34094,
+      "linked_symbol": 31231
+    },
+    {
+      "offset": 259,
+      "symbol": "CurrentPDB",
+      "relative": false,
+      "target_symbol": 816,
+      "linked_symbol": 816
+    },
+    {
+      "offset": 287,
+      "symbol": "SHARE_VIOLATION",
+      "relative": true,
+      "target_symbol": 45869,
+      "linked_symbol": 45349
+    },
+    {
+      "offset": 297,
+      "symbol": "EcritDisk",
+      "relative": true,
+      "target_symbol": 20774,
+      "linked_symbol": 19744
+    },
+    {
+      "offset": 301,
+      "symbol": "RetryCount",
+      "relative": false,
+      "target_symbol": 26,
+      "linked_symbol": 26
+    },
+    {
+      "offset": 305,
+      "symbol": "SHARE_CHECK",
+      "relative": true,
+      "target_symbol": 45864,
+      "linked_symbol": 45344
+    },
+    {
+      "offset": 311,
+      "symbol": "Idle",
+      "relative": true,
+      "target_symbol": 20508,
+      "linked_symbol": 20636
+    },
+    {
+      "offset": 317,
+      "symbol": "THISSFT",
+      "relative": false,
+      "target_symbol": 1438,
+      "linked_symbol": 1438
+    },
+    {
+      "offset": 320,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 27212,
+      "linked_symbol": 26600
+    },
+    {
+      "offset": 325,
+      "symbol": "LcritDisk",
+      "relative": true,
+      "target_symbol": 20806,
+      "linked_symbol": 19776
+    },
+    {
+      "offset": 329,
+      "symbol": "Open_Access",
+      "relative": false,
+      "target_symbol": 1390,
+      "linked_symbol": 1390
+    },
+    {
+      "offset": 339,
+      "symbol": "fSharing",
+      "relative": false,
+      "target_symbol": 1394,
+      "linked_symbol": 1394
+    }
+  ],
+  "remaining_differences": [],
+  "correspondence": true,
+  "scope": "Complete linked MZ module, only candidate OMF named relocations adjusted; physical data placement can differ. Not runtime or whole-kernel identity."
+}

@@ -1,0 +1,79 @@
+{
+  "module": "dev-openclose",
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\physical-sft-probe-gaif7wrl",
+  "candidate_proof_sha256": "01c7fb9971ac8e91638de8b0d1dc19ed35af32b803487819b0470140ac1fa639",
+  "link_report_sha256": "1bbdfe1c5717a66605a3aef82166c9d11164f5e85d841c1f70d29448a8b796da",
+  "linked_start": 31231,
+  "public_anchors": [
+    {
+      "symbol": "dev_open_sft",
+      "object_offset": 0,
+      "linked_offset": 31231
+    },
+    {
+      "symbol": "dev_close_sft",
+      "object_offset": 8,
+      "linked_offset": 31239
+    },
+    {
+      "symbol": "do_opcls",
+      "object_offset": 14,
+      "linked_offset": 31245
+    }
+  ],
+  "bytes": 129,
+  "named_fixups": [
+    {
+      "offset": 2,
+      "symbol": "save_user_world",
+      "relative": true,
+      "target_symbol": 16982,
+      "linked_symbol": 16982
+    },
+    {
+      "offset": 10,
+      "symbol": "save_user_world",
+      "relative": true,
+      "target_symbol": 16982,
+      "linked_symbol": 16982
+    },
+    {
+      "offset": 37,
+      "symbol": "fshare",
+      "relative": false,
+      "target_symbol": 771,
+      "linked_symbol": 771
+    },
+    {
+      "offset": 67,
+      "symbol": "DevCall",
+      "relative": false,
+      "target_symbol": 858,
+      "linked_symbol": 858
+    },
+    {
+      "offset": 89,
+      "symbol": "DEVIOCALL2",
+      "relative": true,
+      "target_symbol": 34226,
+      "linked_symbol": 31363
+    },
+    {
+      "offset": 114,
+      "symbol": "CHARHARD",
+      "relative": true,
+      "target_symbol": 37449,
+      "linked_symbol": 34569
+    },
+    {
+      "offset": 125,
+      "symbol": "restore_user_world",
+      "relative": true,
+      "target_symbol": 16959,
+      "linked_symbol": 16959
+    }
+  ],
+  "remaining_differences": [],
+  "correspondence": true,
+  "scope": "Bounded composite DEV slice, only candidate OMF named relocations adjusted; physical data placement can differ. Not runtime or whole-kernel identity."
+}

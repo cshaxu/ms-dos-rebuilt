@@ -1,0 +1,298 @@
+{
+  "file": "cmd/command/init.asm",
+  "before_sha256": "6aed5eacd2093e0e097d03690add363e23da9a0f81a734e01ed51bd673ec1c07",
+  "after_sha256": "1625b0458b1715a5340cb73f2e79334892b1f24e18f17e0acf5ba6e300653657",
+  "reference": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\init.asm",
+  "reference_sha256": "787796985fce83b27799eea24d3d48f94e82bfaad4bddb1ebbc3ce713372bc83",
+  "changes": [
+    {
+      "line": 130,
+      "reference_line": 130,
+      "before": "\textrn\tPermCom\t:byte",
+      "after": "        extrn   PermCom         :byte"
+    },
+    {
+      "line": 350,
+      "reference_line": 371,
+      "before": "\tmov\tax,APPENDINSTALL\t\t\t; see if append installed",
+      "after": "        mov     ax,APPENDINSTALL                ; see if append installed"
+    },
+    {
+      "line": 358,
+      "reference_line": 379,
+      "before": "\tmov\tax,APPENDGETSTATE\t\t\t; Get the state of Append",
+      "after": "        mov     ax,APPENDGETSTATE               ; Get the state of Append"
+    },
+    {
+      "line": 360,
+      "reference_line": 381,
+      "before": "\tmov\tAppend_State,bx \t\t\t; save append state",
+      "after": "        mov     Append_State,bx                 ; save append state"
+    },
+    {
+      "line": 362,
+      "reference_line": 383,
+      "before": "\tmov\tax,APPENDSETSTATE\t\t\t; Set the state of Append",
+      "after": "        mov     ax,APPENDSETSTATE               ; Set the state of Append"
+    },
+    {
+      "line": 522,
+      "reference_line": 542,
+      "before": "\tmov\tal,byte ptr ds:Fcb\t \t\t; al = default drive number for command",
+      "after": "        mov     al,byte ptr ds:Fcb              ; al = default drive number for command"
+    },
+    {
+      "line": 546,
+      "reference_line": 576,
+      "before": "        mov     word ptr AutoBat,ax                     ; used to reference autoexec.bat",
+      "after": "        mov     word ptr AutoBat,ax             ; used to reference autoexec.bat"
+    },
+    {
+      "line": 547,
+      "reference_line": 577,
+      "before": "        mov     word ptr KautoBat,ax                    ; used to reference kautoexe.bat 3/3/kk",
+      "after": "        mov     word ptr KautoBat,ax            ; used to reference kautoexe.bat 3/3/kk"
+    },
+    {
+      "line": 571,
+      "reference_line": 601,
+      "before": "\tmov\tbyte ptr [di],0dh\t\t\t; insert a carriage return",
+      "after": "        mov     byte ptr [di],0dh               ; insert a carriage return"
+    },
+    {
+      "line": 573,
+      "reference_line": 603,
+      "before": "\tmov\tNum_positionals,cx\t\t\t; initialize positionals",
+      "after": "        mov     Num_positionals,cx              ; initialize positionals"
+    },
+    {
+      "line": 580,
+      "reference_line": 610,
+      "before": "\tmov\tcx,Num_positionals\t\t\t; Get number of positionals",
+      "after": "        mov     cx,Num_positionals              ; Get number of positionals"
+    },
+    {
+      "line": 582,
+      "reference_line": 612,
+      "before": "\tmov\tOld_parse_ptr,si\t\t\t; save position before calling parser",
+      "after": "        mov     Old_parse_ptr,si                ; save position before calling parser"
+    },
+    {
+      "line": 584,
+      "reference_line": 614,
+      "before": "\tmov\tNum_positionals,cx\t\t\t; Save number of positionals",
+      "after": "        mov     Num_positionals,cx              ; Save number of positionals"
+    },
+    {
+      "line": 598,
+      "reference_line": 629,
+      "before": "\tjnz\tparse_line_error_disp\t\t\t; No - just issue message",
+      "after": "        jnz     parse_line_error_disp           ; No - just issue message"
+    },
+    {
+      "line": 600,
+      "reference_line": 631,
+      "before": "\tmov\tsi,Old_parse_ptr\t\t\t; Get starting pointer in SI",
+      "after": "        mov     si,Old_parse_ptr                ; Get starting pointer in SI"
+    },
+    {
+      "line": 604,
+      "reference_line": 635,
+      "before": "\tjz\tparse_line_error_disp\t\t\t; Yes - just display message",
+      "after": "        jz      parse_line_error_disp           ; Yes - just display message"
+    },
+    {
+      "line": 612,
+      "reference_line": 643,
+      "before": "\tjnz\tparse_line_error_disp\t\t\t; No - just issue message",
+      "after": "        jnz     parse_line_error_disp           ; No - just issue message"
+    },
+    {
+      "line": 634,
+      "reference_line": 671,
+      "before": "\tjmp\tshort Parse_command_line\t\t; continue parsing",
+      "after": "        jmp     short Parse_command_line        ; continue parsing"
+    },
+    {
+      "line": 665,
+      "reference_line": 701,
+      "before": "\tmov\tax,Moreargs_ptr \t\t\t; set up too many arguments",
+      "after": "        mov     ax,Moreargs_ptr                 ; set up too many arguments"
+    },
+    {
+      "line": 666,
+      "reference_line": 702,
+      "before": "\tjmp\tparse_line_error\t\t\t; go issue error message",
+      "after": "        jmp     parse_line_error                ; go issue error message"
+    },
+    {
+      "line": 670,
+      "reference_line": 706,
+      "before": "\tjmp\tParse_command_line\t\t\t;",
+      "after": "        jmp     Parse_command_line              ;"
+    },
+    {
+      "line": 679,
+      "reference_line": 715,
+      "before": "\tmov\tax,moreargs_ptr \t\t\t; set up too many arguments",
+      "after": "        mov     ax,moreargs_ptr                 ; set up too many arguments"
+    },
+    {
+      "line": 680,
+      "reference_line": 716,
+      "before": "\tjmp\tparse_line_error\t\t\t; go issue error message",
+      "after": "        jmp     parse_line_error                ; go issue error message"
+    },
+    {
+      "line": 692,
+      "reference_line": 728,
+      "before": "\tmov\tbyte ptr PrdAttm,0\t\t\t; if not set explicit, set to prompt",
+      "after": "        mov     byte ptr PrdAttm,0              ; if not set explicit, set to prompt"
+    },
+    {
+      "line": 695,
+      "reference_line": 731,
+      "before": "\tjmp\tparse_command_line\t\t\t; keep parsing",
+      "after": "        jmp     parse_command_line              ; keep parsing"
+    },
+    {
+      "line": 706,
+      "reference_line": 739,
+      "before": "\tmov\tax,Moreargs_ptr \t\t\t; set up too many arguments",
+      "after": "        mov     ax,Moreargs_ptr                 ; set up too many arguments"
+    },
+    {
+      "line": 707,
+      "reference_line": 740,
+      "before": "\tjmp\tparse_line_error\t\t\t; go issue error message",
+      "after": "        jmp     parse_line_error                ; go issue error message"
+    },
+    {
+      "line": 711,
+      "reference_line": 744,
+      "before": "\tmov\tbyte ptr PrdAttm,1\t\t\t; user explicitly says no date time",
+      "after": "        mov     byte ptr PrdAttm,1              ; user explicitly says no date time"
+    },
+    {
+      "line": 712,
+      "reference_line": 745,
+      "before": "\tjmp\tParse_command_line\t\t\t; continue parsing",
+      "after": "        jmp     Parse_command_line              ; continue parsing"
+    },
+    {
+      "line": 720,
+      "reference_line": 758,
+      "before": "\tmov\tbyte ptr PrdAttm,1\t\t\t; no date or time either, explicit",
+      "after": "        mov     byte ptr PrdAttm,1              ; no date or time either, explicit"
+    },
+    {
+      "line": 732,
+      "reference_line": 770,
+      "before": "\tmov\tax,Moreargs_ptr \t\t\t; set up too many arguments",
+      "after": "        mov     ax,Moreargs_ptr                 ; set up too many arguments"
+    },
+    {
+      "line": 733,
+      "reference_line": 771,
+      "before": "\tjmp\tParse_line_error\t\t\t; go issue error message",
+      "after": "        jmp     Parse_line_error                ; go issue error message"
+    },
+    {
+      "line": 738,
+      "reference_line": 776,
+      "before": "\tmov\tbx,word ptr [di]\t\t\t; into bx",
+      "after": "        mov     bx,word ptr [di]                ; into bx"
+    },
+    {
+      "line": 745,
+      "reference_line": 783,
+      "before": "\tjmp\tParse_command_line\t\t\t; continue parsing command line",
+      "after": "        jmp     Parse_command_line              ; continue parsing command line"
+    },
+    {
+      "line": 748,
+      "reference_line": 786,
+      "before": "\tcmp\tExt_msg,SET_EXTENDED_MSG\t\t; has /MSG switch been set?",
+      "after": "        cmp     Ext_msg,SET_EXTENDED_MSG        ; has /MSG switch been set?"
+    },
+    {
+      "line": 750,
+      "reference_line": 788,
+      "before": "\tmov\tax,Moreargs_ptr \t\t\t; set up too many arguments",
+      "after": "        mov     ax,Moreargs_ptr                 ; set up too many arguments"
+    },
+    {
+      "line": 751,
+      "reference_line": 789,
+      "before": "\tjmp\tParse_line_error\t\t\t; go issue error message",
+      "after": "        jmp     Parse_line_error                ; go issue error message"
+    },
+    {
+      "line": 753,
+      "reference_line": 791,
+      "before": "\tmov\tExt_msg,SET_EXTENDED_MSG\t\t; set /MSG switch",
+      "after": "        mov     Ext_msg,SET_EXTENDED_MSG        ; set /MSG switch"
+    },
+    {
+      "line": 754,
+      "reference_line": 792,
+      "before": "\tjmp\tParse_command_line\t\t\t; keep parsing",
+      "after": "        jmp     Parse_command_line              ; keep parsing"
+    },
+    {
+      "line": 769,
+      "reference_line": 807,
+      "before": "\tmov\tax,(OPEN shl 8) or 2\t\t\t; Read and write",
+      "after": "        mov     ax,(OPEN shl 8) or 2            ; Read and write"
+    },
+    {
+      "line": 821,
+      "reference_line": 859,
+      "before": "\tjmp\tParse_command_line\t\t\t; continue parsing",
+      "after": "        jmp     Parse_command_line              ; continue parsing"
+    },
+    {
+      "line": 828,
+      "reference_line": 866,
+      "before": "\tcall\tCrLf",
+      "after": "        call    CrLf"
+    },
+    {
+      "line": 872,
+      "reference_line": 888,
+      "before": "\tcmp\tal,END_OF_LINE_OUT\t\t\t; are we at end of line?",
+      "after": "        cmp     al,END_OF_LINE_OUT              ; are we at end of line?"
+    },
+    {
+      "line": 877,
+      "reference_line": 893,
+      "before": "\tmov\tbyte ptr [si],al\t\t\t; put a space at end of line",
+      "after": "        mov     byte ptr [si],al                ; put a space at end of line"
+    },
+    {
+      "line": 1218,
+      "reference_line": 1214,
+      "before": "\tassume\tds:ResGroup",
+      "after": "        assume  ds:ResGroup"
+    },
+    {
+      "line": 2111,
+      "reference_line": 2125,
+      "before": "\tpush\tds",
+      "after": "        push    ds"
+    },
+    {
+      "line": 2164,
+      "reference_line": 2373,
+      "before": "\tpop\tds",
+      "after": "        pop     ds"
+    },
+    {
+      "line": 2165,
+      "reference_line": 2374,
+      "before": "\tassume\tds:nothing",
+      "after": "        assume  ds:nothing"
+    }
+  ],
+  "scope": "48 whole-line whitespace-only alignments; literal strings unchanged; target-specific instructions retained."
+}

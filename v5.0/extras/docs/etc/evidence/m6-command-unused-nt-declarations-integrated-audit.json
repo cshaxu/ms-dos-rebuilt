@@ -1,0 +1,53 @@
+{
+  "previous_stage": "build\\integrated-source-yg_ur1m0",
+  "stage": "build\\integrated-source-_xw404l3",
+  "source_audit": "m6-command-unused-nt-declarations-source-audit.json",
+  "command_source_changes": {
+    "cmd/command/rdata.asm": {
+      "before": "b5dcbc88307159dc7c84bfd0218826b6e1de1e447d23f0ad4d8c8acdfdc1ff62",
+      "after": "9b1184ab2ade67dfb7ba846fb8766e36e1e9aac0e5ede95f126211fd899b40d9"
+    },
+    "cmd/command/tcode.asm": {
+      "before": "c7601dbe1b33135811676407c465f69bd8611e9e9990ca867551ce6cc4f47513",
+      "after": "d2e4ea49a73dc53c91626bfaf05f0cc3684f2cbc70bb6529f10012b10ea88e3b"
+    }
+  },
+  "object_changes": {
+    "msload": {},
+    "bios": {},
+    "kernel": {},
+    "command": {
+      "tcode": {
+        "before": "76db0f4f74d67be65d4f45a5eff6ebeb08b43b6771747bf95d5de9f277037c60",
+        "after": "1d45a1bda6014dbb7b58dd54bf575673bea591b6589e541d703eb5bd09116994"
+      }
+    }
+  },
+  "object_counts": {
+    "msload": 1,
+    "bios": 14,
+    "kernel": 55,
+    "command": 34
+  },
+  "files": [
+    {
+      "name": "IO.SYS",
+      "bytes": 33430,
+      "sha256": "dd0915ed366b3f640284df4be30ed35f413dfd5b6966c1f25eee9598a5bf53e0",
+      "byte_equal": true
+    },
+    {
+      "name": "MSDOS.SYS",
+      "bytes": 37394,
+      "sha256": "4e41ca4e5893d4cf293f81ad01adbdbd12f7039534f59148214a9cca309529a2",
+      "byte_equal": true
+    },
+    {
+      "name": "COMMAND.COM",
+      "bytes": 47845,
+      "sha256": "74ad25067e7d9f5c3a0ac2f2967347defb0ffef9e6ed60b60e6499f0b1a8cc89",
+      "byte_equal": true
+    }
+  ],
+  "scope": "Unused module-local declarations and orphan comments were removed using DOS 4/6 and OpenNT comparisons. Exact output applies to the built target configuration; other configurations and exact historical DOS 5 text are not established."
+}

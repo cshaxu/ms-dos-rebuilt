@@ -1,0 +1,170 @@
+{
+  "source": "dos/msinit.asm",
+  "before_sha256": "2ad92206ceec9ec9b54cb8e9f0225031f7649e18958c6eba7072591adc15e517",
+  "after_sha256": "866888016fe1550a803412b412ff2c6b372716d05cb28ad3837c678fa24e20a2",
+  "reference": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\msinit.asm",
+  "reference_sha256": "67a662e3c6c186fd2fe0604624557077dcd7f8be65f85e3be01f26f250a0c2a0",
+  "changes": [
+    {
+      "line": 284,
+      "before": "        ;",
+      "after": "\t;"
+    },
+    {
+      "line": 286,
+      "before": "        ;",
+      "after": "\t;"
+    },
+    {
+      "line": 332,
+      "before": "                                        ; M019",
+      "after": "\t\t\t\t; M019"
+    },
+    {
+      "line": 393,
+      "before": "        stosw",
+      "after": "\tstosw"
+    },
+    {
+      "line": 404,
+      "before": "        stosw",
+      "after": "\tstosw"
+    },
+    {
+      "line": 408,
+      "before": "        stosw",
+      "after": "\tstosw"
+    },
+    {
+      "line": 594,
+      "before": "        stosw",
+      "after": "\tstosw"
+    },
+    {
+      "line": 601,
+      "before": "                                        ;   sets offsets for ints 2ah-2fh",
+      "after": "\t\t\t\t\t;   sets offsets for ints 2ah-2fh"
+    },
+    {
+      "line": 603,
+      "before": "        stosw",
+      "after": "\tstosw"
+    },
+    {
+      "line": 614,
+      "before": "                                        ;   sets offsets for ints 32h-3fh",
+      "after": "\t\t\t\t\t;   sets offsets for ints 32h-3fh"
+    },
+    {
+      "line": 616,
+      "before": "        stosw",
+      "after": "\tstosw"
+    },
+    {
+      "line": 675,
+      "before": "        stosw",
+      "after": "\tstosw"
+    },
+    {
+      "line": 704,
+      "before": "        endif",
+      "after": "\tendif"
+    },
+    {
+      "line": 711,
+      "before": "        fmt TypSysCall,LevLog,<\"Start Boot - CS=$x\\n\">,<CS>",
+      "after": "\tfmt TypSysCall,LevLog,<\"Start Boot - CS=$x\\n\">,<CS>"
+    },
+    {
+      "line": 799,
+      "before": "        ret",
+      "after": "\tret"
+    },
+    {
+      "line": 852,
+      "before": "        ret",
+      "after": "\tret"
+    },
+    {
+      "line": 916,
+      "before": "        stosw",
+      "after": "\tstosw"
+    },
+    {
+      "line": 1000,
+      "before": "        stosw",
+      "after": "\tstosw"
+    },
+    {
+      "line": 1024,
+      "before": "        stosw",
+      "after": "\tstosw"
+    },
+    {
+      "line": 1037,
+      "before": "        stosw",
+      "after": "\tstosw"
+    },
+    {
+      "line": 1052,
+      "before": "        ret",
+      "after": "\tret"
+    },
+    {
+      "line": 1128,
+      "before": "                                        ; Q: has fastopen patched in it's",
+      "after": "\t\t\t\t\t; Q: has fastopen patched in it's"
+    },
+    {
+      "line": 1141,
+      "before": "        ret",
+      "after": "\tret"
+    },
+    {
+      "line": 1175,
+      "before": "        stosw",
+      "after": "\tstosw"
+    },
+    {
+      "line": 1188,
+      "before": "        stosw",
+      "after": "\tstosw"
+    },
+    {
+      "line": 1196,
+      "before": "                                ;   sets offsets for ints 2ah-2fh",
+      "after": "\t\t\t\t;   sets offsets for ints 2ah-2fh"
+    },
+    {
+      "line": 1198,
+      "before": "        stosw",
+      "after": "\tstosw"
+    },
+    {
+      "line": 1209,
+      "before": "                                ;   sets offsets for ints 32h-3fh",
+      "after": "\t\t\t\t;   sets offsets for ints 32h-3fh"
+    },
+    {
+      "line": 1211,
+      "before": "        stosw",
+      "after": "\tstosw"
+    },
+    {
+      "line": 1233,
+      "before": "        ret",
+      "after": "\tret"
+    },
+    {
+      "line": 1273,
+      "before": "        stosw",
+      "after": "\tstosw"
+    },
+    {
+      "line": 1278,
+      "before": "        ret",
+      "after": "\tret"
+    }
+  ],
+  "scope": "Leading whitespace only on identical non-empty lines; alignment uses DOS 6 reference and does not assert exact original DOS 5 text."
+}

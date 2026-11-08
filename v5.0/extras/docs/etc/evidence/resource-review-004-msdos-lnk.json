@@ -1,0 +1,18 @@
+{
+  "index": 4,
+  "file": "dos/msdos.lnk",
+  "before_sha256": "e3a4941a3d2bbd8ba05e64a366792d7d465135002fb0ad8064e25d53605c2185",
+  "after_sha256": "6ad62cbe84c4345f0e2ec3efd039b6b385dc64a48623eeee0347405c3c93a770",
+  "decision": "retain 55 DOS 5 target units; align formatting to DOS 6",
+  "reference": {
+    "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\msdos.lnk",
+    "sha256": "7fc32dd2e361db355e3c591b1619fac0f68232afe4012948c9359b73d2294c0c"
+  },
+  "change": "Adopted DOS 6 line formatting and EOF, excluding DOSPRINT and ROMFIND; 55 module names and link order unchanged.",
+  "verification": {
+    "stage": "build\\integrated-source-o1gc1cvu",
+    "all_three_targets_equal": true,
+    "kernel_object_count": 55
+  },
+  "limitations": "Identical target output does not prove the exact historical DOS 5 link response or optional configurations."
+}

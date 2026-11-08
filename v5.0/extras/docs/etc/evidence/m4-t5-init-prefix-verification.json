@@ -1,0 +1,95 @@
+{
+  "candidate_entry_file_offset": 20908,
+  "target_entry_file_offset": 31145,
+  "prefix_bytes": 88,
+  "prefix_candidate_hex": "fafc52561e578cc3b8c178050f0025f0ff8bf08cc88ed82e8e06ee73268e06030033ffb9e215f3a45f1f5e5a061e071f893e1e10891e20102e8c1e57222e8c1e474f2e8c1e4b4f2e8c1e4f4f89164803892686058c168805",
+  "prefix_target_hex": "fafc52561e578cc3b877bc050f0025f0ff8bf08cc88ed82e8e066bb7268e06030033ffb96213f3a45f1f5e5a061e071f893e4010891e42102e8c1ed73d2e8c1e1a902e8c1e1e902e8c1e229089164603892684058c168605",
+  "native_entry_8_bytes_equal": true,
+  "unexplained_differences": [],
+  "layout_operands": [
+    {
+      "offset": 9,
+      "meaning": "memstrt",
+      "candidate": 30913,
+      "target": 48247
+    },
+    {
+      "offset": 26,
+      "meaning": "InitBioDataSeg",
+      "candidate": 29678,
+      "target": 46955
+    },
+    {
+      "offset": 36,
+      "meaning": "MSDAT001e/data length",
+      "candidate": 5602,
+      "target": 4962
+    },
+    {
+      "offset": 50,
+      "meaning": "BiosDataPtr",
+      "candidate": 4126,
+      "target": 4160
+    },
+    {
+      "offset": 54,
+      "meaning": "BiosDataPtr+2",
+      "candidate": 4128,
+      "target": 4162
+    },
+    {
+      "offset": 59,
+      "meaning": "dosdseg",
+      "candidate": 8791,
+      "target": 15831
+    },
+    {
+      "offset": 64,
+      "meaning": "LowInt23Addr+2",
+      "candidate": 20295,
+      "target": 36890
+    },
+    {
+      "offset": 69,
+      "meaning": "LowInt24Addr+2",
+      "candidate": 20299,
+      "target": 36894
+    },
+    {
+      "offset": 74,
+      "meaning": "LowInt28Addr+2",
+      "candidate": 20303,
+      "target": 36898
+    },
+    {
+      "offset": 78,
+      "meaning": "memory size storage",
+      "candidate": 840,
+      "target": 838
+    },
+    {
+      "offset": 82,
+      "meaning": "saved SP",
+      "candidate": 1414,
+      "target": 1412
+    },
+    {
+      "offset": 86,
+      "meaning": "saved SS",
+      "candidate": 1416,
+      "target": 1414
+    }
+  ],
+  "exact_prefix": false,
+  "structure_matches_except_explicit_layout_words": true,
+  "scope": "Initial 88-byte DOSINIT instruction structure only; 24 operand bytes excluded. No whole-function, whole-kernel or runtime equivalence claim.",
+  "target_layout_inferred_from_init": {
+    "origin": 15824,
+    "code_end_offset": 48247,
+    "data_file_offset": 32432,
+    "data_bytes": 4962,
+    "accounted_file_bytes": 37394,
+    "matches_target_length": true,
+    "basis": "DOSINIT mov ax,memstrt; paragraph round; mov cx,data length; rep movsb, corroborated by exact file length."
+  }
+}

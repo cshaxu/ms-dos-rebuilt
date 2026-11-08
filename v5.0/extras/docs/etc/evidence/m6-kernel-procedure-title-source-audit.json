@@ -1,0 +1,47 @@
+{
+  "changes": {
+    "dos/create.asm": {
+      "before": "e5c238b47925a1a19f6235b3e404da50bee4ec75c40ca07d96be1b29adb09abd",
+      "after": "bfb5640cd1b63391bd24997ed229d182f2fb07299082c31d0f14643b117c449e",
+      "old_title": "Sest_EXT_mode",
+      "new_title": "Set_EXT_mode"
+    },
+    "dos/open.asm": {
+      "before": "ec819887cd3e79ee1e4cc9b010fc8c4f0918699f277477a95196134e0d6cdc94",
+      "after": "ce1a64fc65561ce6d5ca7d5f655a798af3a77b1aa573cf4b3985ce1156640d12",
+      "old_title": "Check_Access",
+      "new_title": "Check_Access_AX"
+    },
+    "dos/disk.asm": {
+      "before": "d4a7a2cbda59cc693754529806c4e6b7fcbde376a42e647eacefecef87cd9cca",
+      "after": "4752eef26b56602bf151fbf4fd62b10e8e69f8b28ee4276b77b2eb2cad9f4af7",
+      "old_title": "CHECK_READ_LOC",
+      "new_title": "CHECK_READ_LOCK"
+    },
+    "dos/disk2.asm": {
+      "before": "0876bb2c21d9232c3de57ee681c39b028003c09eeb58db36f6f2d9bda4527cb8",
+      "after": "9b7c0483a2960e70ee4adb82f795179a2fff4f62fd9036c0406ca31f3c25036b",
+      "old_title": "DskWrtBufScan",
+      "new_title": "DskRdBufScan"
+    },
+    "dos/dir2.asm": {
+      "before": "6bb0889747d03e03321ff5913b01880136879233e922dd69f3abccb62a8c4912",
+      "after": "eba94f66305df69e54c48340a969a75e66226a76a67a35d1ee50c8b635ff1523",
+      "old_title": "STARTDRCH",
+      "new_title": "STARTSRCH"
+    },
+    "dos/msctrlc.asm": {
+      "before": "251d8ede15d74e063a9f5a065366b9db06b3c6890f2a0d7a8ee553489d403143",
+      "after": "f2a11cf2709ec0d56b41d8e32df0d2d3026b0f64d506432fb652566f85af6581",
+      "old_title": "CNTHAND",
+      "new_title": "CNTCHAND"
+    },
+    "dos/dev.asm": {
+      "before": "de752b9f88294133a6a03cc4eb9d25d9e23da17109cfd5f3315d5536ae661765",
+      "after": "3c81ca91e31fda78273f7bcca93614afdefd74a9bd63f225db58a4ccd059f6ac",
+      "old_title": "SC_FLAG",
+      "new_title": "VIRREAD"
+    }
+  },
+  "scope": "Correct inaccurate procedure names in comments using the following actual entry points; historical spellings are retained here."
+}

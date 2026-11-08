@@ -1,0 +1,53 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\bios-comparison-1ojld0jg",
+  "binary_sha256": "09df7ec418edb1728662b1fe911a62c1a7bd3e19ad20b82548f022dd654750ad",
+  "target_sha256": "09df7ec418edb1728662b1fe911a62c1a7bd3e19ad20b82548f022dd654750ad",
+  "map_sha256": "927cd424cfd8523b91657a84978766381ffe67d6dba3a7bf2b6cde9836bd1d01",
+  "listing_sha256": "701c7e907bbd6df90ccaaacde275845bb83ba90070c8323cc4d2ac2b0eb8ae0f",
+  "candidate_routine_offset": 19310,
+  "target_routine_offset": 19310,
+  "displacement": 0,
+  "routine_bytes": 42,
+  "symbols": {
+    "ClrVDISKHeader": 2974,
+    "ClrdVDISKHead": 2942,
+    "src_desc": 2910,
+    "bmove": 2894,
+    "FTryToMovDOSHi": 2692
+  },
+  "fixups": [
+    {
+      "routine_offset": 14,
+      "symbol": "ClrdVDISKHead",
+      "addend": 0,
+      "candidate_value": 2942,
+      "target_value": 2942
+    },
+    {
+      "routine_offset": 21,
+      "symbol": "src_desc",
+      "addend": 2,
+      "candidate_value": 2912,
+      "target_value": 2912
+    },
+    {
+      "routine_offset": 26,
+      "symbol": "src_desc",
+      "addend": 4,
+      "candidate_value": 2914,
+      "target_value": 2914
+    },
+    {
+      "routine_offset": 34,
+      "symbol": "bmove",
+      "addend": 0,
+      "candidate_value": 2894,
+      "target_value": 2894
+    }
+  ],
+  "normalized_routine_equal": true,
+  "bios_pointer_offset": 2297,
+  "pointer_candidate": 2692,
+  "pointer_target": 2692,
+  "scope": "Comparison-only displacement normalization for four named words and one BIOS pointer; no output patching or runtime proof."
+}

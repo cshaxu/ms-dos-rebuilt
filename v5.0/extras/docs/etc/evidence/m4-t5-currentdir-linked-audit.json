@@ -1,0 +1,30 @@
+{
+  "build": "m4-t5-currentdir-linked-build.json",
+  "unique_target_bytes": 5818,
+  "summed_slice_bytes": 5839,
+  "verified_calls": 94,
+  "verified_branches": 3,
+  "layout_variations": [
+    {
+      "symbol": "NOTDIRPATH",
+      "target_site": 13165,
+      "target_bytes": 3,
+      "candidate_site": 8651,
+      "candidate_bytes": 2,
+      "raw_exact": false,
+      "verified_destination": "NODEACCERRJ",
+      "reason": "Bounded dircall module; restore full shared-tail placement later"
+    }
+  ],
+  "snapshots": {
+    "m4-t5-currentdir-linked-build.json": {
+      "inputs": 114,
+      "mismatches": []
+    },
+    "m2-t3-command-exact-verification.json": {
+      "inputs": 113,
+      "mismatches": []
+    }
+  },
+  "remaining": "Full dircall layout/error branches and CheckThisDevice NT seam; later SFT/INT24/whole-kernel/runtime work."
+}

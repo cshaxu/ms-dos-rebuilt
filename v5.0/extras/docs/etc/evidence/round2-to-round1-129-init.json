@@ -1,0 +1,29 @@
+{
+  "index": 129,
+  "file": "cmd/command/init.asm",
+  "reviewed_sha256": "069375d1604cf26ca0bfae8b2111957f7d07e32e0066d7fcc6ffa6818abcde79",
+  "decision": "retain_round2",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\init.asm",
+      "sha256": "787796985fce83b27799eea24d3d48f94e82bfaad4bddb1ebbc3ce713372bc83"
+    },
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\CMD\\COMMAND\\INIT.ASM",
+      "sha256": "73e87576714a151c7ca8596a2cfe03fb9bacbfd013d7f83f48c3bd31e33cbd0d"
+    },
+    {
+      "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\init.asm",
+      "sha256": "3d69d0c82789ba5eb359794096ab215afe4f705cba35ca211948e93923e8fd16"
+    }
+  ],
+  "reason": [
+    "DOS 6 substantially changes environment ownership, startup, ROMDOS and command-switch handling; it expects a different ENVDATA structure.",
+    "OpenNT adds cmdsvc/dossvc interfaces and VDM exit and state handling.",
+    "DOS 4 has substantially different initialization and module structure."
+  ],
+  "prior_evidence": "docs/etc/evidence/file-review-129-init.json records previous formatting, NT macro cleanup and target instruction checks.",
+  "change": "No source change.",
+  "verification": "Latest integrated-source-dcbur83p matches the three retained targets; current lexical screen has no hits.",
+  "limitations": "Source matching and selected-target build do not prove optional configurations or original DOS 5 source."
+}

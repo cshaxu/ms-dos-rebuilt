@@ -1,0 +1,17 @@
+{
+  "file": "dos/buf.asm",
+  "before_sha256": "c6efe316978116040b42da25704ce212c6d1c675dbee9059603e1bf6ded6bf96",
+  "after_sha256": "d109d0ff67a8a65fd25d9fd40b2ad1805afae78fe82131ed854bd66ed29ff9de",
+  "changes": [
+    {
+      "before": "\tshr\tcx, 1\t\t\t; convert byte count to word count\r\n",
+      "after": "\tshr\tcx, 1\t\t\t; byte count to words, CY = low bit\r\n"
+    },
+    {
+      "before": "buffer_copy_done:\r\n\tRESTORE <es, dx, di, si>\r\n\tJC\tgetbx\r\n",
+      "after": "buffer_copy_done:\r\n\tRESTORE <es, dx, di, si>\r\n\tJC\tgetbx\t\t\t; CY from read or shift above\r\n"
+    }
+  ],
+  "basis": "The HMA path restores read flags before SHR CX,1, which sets CF to the sector-size low bit. The non-HMA path restores read flags immediately before the common carry test. Neither path is runtime-validated here. DOS 6 restores the read flags after the shift. The instruction sequence remains identical to the retained DOS 5 target.",
+  "scope": "Comments only; no runtime or original-source claim."
+}

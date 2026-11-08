@@ -1,0 +1,27 @@
+{
+  "index": 4,
+  "file": "bios/config.inc",
+  "source_sha256": "339ee489afc02151758deedcd870e896373cb1da0f66423924c4ea9806d2a036",
+  "reference": {
+    "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\config.inc",
+    "sha256": "c5df5eae47f4cff75bbf315cfa01b8d5f356c10ffccfe792da301ecf23969efa",
+    "same_name_candidates": 1
+  },
+  "decision": "retain_round2",
+  "reason": "The DOS 6 reference adds nine CONFIG directives or parser indicators, including menu and multi-configuration features; copying them would reintroduce later-version definitions. The owner requires removal of post-DOS-5 content.",
+  "reference_only_lines": [
+    "CONFIG_BEGIN        =   '['",
+    "CONFIG_INCLUDE      =   'J'",
+    "CONFIG_INSTALLHIGH  =   'W'",
+    "CONFIG_MENUCOLOR    =   'R'",
+    "CONFIG_MENUDEFAULT  =   'A'",
+    "CONFIG_MENUITEM     =   'E'",
+    "CONFIG_NUMLOCK      =   'N'",
+    "CONFIG_SET          =   'V'",
+    "CONFIG_SUBMENU      =   'O'"
+  ],
+  "reference_usage": "v6.0/bios/sysinit2.asm contains references to these menu and parser indicators.",
+  "nt_bop_screen": "No lexical findings in current source (verified by file_review_status.py).",
+  "change": "No source changes; existing round-2 qualification remains valid.",
+  "limits": "Textual and contextual comparison; exact historical DOS 5 CONFIG.INC is not established."
+}

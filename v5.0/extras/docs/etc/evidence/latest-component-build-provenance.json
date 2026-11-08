@@ -1,0 +1,45 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\integrated-source-t61pmujw",
+  "components": {
+    "msload": {
+      "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\msload-candidate-qpuwxqd3",
+      "output": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\msload-candidate-qpuwxqd3\\msload.com",
+      "output_sha256": "4da72d39959057342b5340b83cca46e2f405c05b322425df5162eb294f19668e",
+      "assembled_units": 1,
+      "report_sha256": "f315c4a3efe352b441e499d28c0b4fa01a62843c261169c78c46e28d5f155eb7"
+    },
+    "bios": {
+      "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\bios-comparison-54jx1ylc",
+      "output": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\bios-comparison-54jx1ylc\\msbio.bin",
+      "output_sha256": "09df7ec418edb1728662b1fe911a62c1a7bd3e19ad20b82548f022dd654750ad",
+      "assembled_units": 14,
+      "report_sha256": "4bc7286b85722c370db3b1e2611f92a3d270d5a4c8308183841bb22b4c9757a7"
+    },
+    "kernel": {
+      "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\reconstructed-kernel-xd6lhdis",
+      "output": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\reconstructed-kernel-xd6lhdis\\MSDOS.SYS",
+      "output_sha256": "4e41ca4e5893d4cf293f81ad01adbdbd12f7039534f59148214a9cca309529a2",
+      "assembled_units": 55,
+      "report_sha256": "0556a83acd375638d095beaa9e8224596d3c73b76d70e784f1e7baac95c31ee6"
+    },
+    "command": {
+      "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\command-clean-4rrx0ld4",
+      "output": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\command-clean-4rrx0ld4\\COMMAND.COM",
+      "output_sha256": "74ad25067e7d9f5c3a0ac2f2967347defb0ffef9e6ed60b60e6499f0b1a8cc89",
+      "assembled_units": 34,
+      "report_sha256": "a2effe35da61480519f0d4f724c55e048a926d0479a557763cf9b18e893481b5"
+    }
+  },
+  "script_sha256": {
+    "tools/build_integrated_source.py": "9647628e25d2a2498b5185dfdc89a498274fa730dc0f828f6f8360d5603003d6",
+    "tools/build_msload_candidate.py": "f54773c38aeb3bb152a1c3a98ffaacaaf88b0b63f500c9d5ec789386e7571dee",
+    "tools/build_bios_comparison.py": "4f0c580fba19ec3e3cfc7a30e3a79ff62bf41a247cd44cb390522cae9f961941",
+    "tools/build_reconstructed_kernel.py": "689ee217ba6cc77735cfa7be9306689488eced6f7b197d966eb0a8af3f6ff7fb",
+    "tools/build_command.py": "93529000b0b18f1172e380be6d4193616ed647b45934a8e1c0b19324d62ff17d"
+  },
+  "inspection": "Reviewed the integrated recipe and selected local-source component branches: MASM produces objects, historical link/reloc and kernel stripz produce component outputs, and target files are read for comparison after component generation. The final recipe concatenates loader and BIOS and compares complete outputs.",
+  "limits": [
+    "This is a static review of the cited scripts and retained build outputs, not an execution trace proving all process reads.",
+    "It does not establish transitive operating-system/tool dependencies, original Microsoft authorship, or all optional build configurations."
+  ]
+}

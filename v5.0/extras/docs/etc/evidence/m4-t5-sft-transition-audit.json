@@ -1,0 +1,613 @@
+{
+  "build": "m4-t5-fastopen-build.json",
+  "nt": {
+    "size": 33,
+    "fields": {
+      "sf_ref_count": 0,
+      "sf_mode": 2,
+      "sf_attr": 4,
+      "sf_flags": 5,
+      "sf_devptr": 7,
+      "sf_time": 11,
+      "sf_date": 13,
+      "sf_size": 15,
+      "sf_position": 19,
+      "sf_chain": 23,
+      "sf_pid": 27,
+      "sf_nthandle": 29
+    },
+    "listing": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\kernel-clean-f6n13x5r\\file.lst",
+    "listing_sha256": "9635a7078e9be7dc14644b1e15b474336712365b7c8b3bdbb5512380c385c8f7"
+  },
+  "physical": {
+    "size": 59,
+    "fields": {
+      "sf_ref_count": 0,
+      "sf_mode": 2,
+      "sf_attr": 4,
+      "sf_flags": 5,
+      "sf_devptr": 7,
+      "sf_firclus": 11,
+      "sf_time": 13,
+      "sf_date": 15,
+      "sf_size": 17,
+      "sf_position": 21,
+      "sf_cluspos": 25,
+      "sf_dirsec": 27,
+      "sf_dirpos": 31,
+      "sf_name": 32,
+      "sf_chain": 43,
+      "sf_uid": 47,
+      "sf_pid": 49,
+      "sf_mft": 51,
+      "sf_lstclus": 53,
+      "sf_ifs_hdr": 55
+    },
+    "listing": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\mknode-recovery-64m5zyuz\\buf.lst",
+    "listing_sha256": "d4f45deb45b1fb1f575cf059a17b4349f440e4f523e26f29220ec6d734ed9c2f"
+  },
+  "field_changes": [
+    {
+      "field": "sf_chain",
+      "nt": 23,
+      "physical": 43
+    },
+    {
+      "field": "sf_cluspos",
+      "nt": null,
+      "physical": 25
+    },
+    {
+      "field": "sf_date",
+      "nt": 13,
+      "physical": 15
+    },
+    {
+      "field": "sf_dirpos",
+      "nt": null,
+      "physical": 31
+    },
+    {
+      "field": "sf_dirsec",
+      "nt": null,
+      "physical": 27
+    },
+    {
+      "field": "sf_firclus",
+      "nt": null,
+      "physical": 11
+    },
+    {
+      "field": "sf_ifs_hdr",
+      "nt": null,
+      "physical": 55
+    },
+    {
+      "field": "sf_lstclus",
+      "nt": null,
+      "physical": 53
+    },
+    {
+      "field": "sf_mft",
+      "nt": null,
+      "physical": 51
+    },
+    {
+      "field": "sf_name",
+      "nt": null,
+      "physical": 32
+    },
+    {
+      "field": "sf_nthandle",
+      "nt": 29,
+      "physical": null
+    },
+    {
+      "field": "sf_pid",
+      "nt": 27,
+      "physical": 49
+    },
+    {
+      "field": "sf_position",
+      "nt": 19,
+      "physical": 21
+    },
+    {
+      "field": "sf_size",
+      "nt": 15,
+      "physical": 17
+    },
+    {
+      "field": "sf_time",
+      "nt": 11,
+      "physical": 13
+    },
+    {
+      "field": "sf_uid",
+      "nt": null,
+      "physical": 47
+    }
+  ],
+  "nt_lexical_uses": [
+    {
+      "file": "dos/abort.asm",
+      "line": 142,
+      "names": [
+        "sf_NTHandle"
+      ],
+      "code": "mov\tbp,word ptr es:[di].sf_NTHandle"
+    },
+    {
+      "file": "dos/abort.asm",
+      "line": 143,
+      "names": [
+        "sf_NTHandle"
+      ],
+      "code": "mov\tax,word ptr es:[di].sf_NTHandle+2"
+    },
+    {
+      "file": "dos/dev.asm",
+      "line": 348,
+      "names": [
+        "sf_NTHandle"
+      ],
+      "code": "mov\tbp,word ptr es:[si].sf_NTHandle"
+    },
+    {
+      "file": "dos/dev.asm",
+      "line": 349,
+      "names": [
+        "sf_NTHandle"
+      ],
+      "code": "mov\tax,word ptr es:[si].sf_NTHandle+2"
+    },
+    {
+      "file": "dos/dev.asm",
+      "line": 362,
+      "names": [
+        "sf_nt_pipe_in"
+      ],
+      "code": "test\tES:[DI.SF_FLAGS], sf_nt_pipe_in"
+    },
+    {
+      "file": "dos/dev.asm",
+      "line": 382,
+      "names": [
+        "sf_nt_pipe_in"
+      ],
+      "code": "and\tWORD PTR ES:[DI.SF_FLAGS], NOT(sf_nt_pipe_in)"
+    },
+    {
+      "file": "dos/fcbio.asm",
+      "line": 293,
+      "names": [
+        "sf_NTHandle"
+      ],
+      "code": "mov\tsi,word ptr es:[di].sf_NTHandle"
+    },
+    {
+      "file": "dos/fcbio.asm",
+      "line": 294,
+      "names": [
+        "sf_NTHandle"
+      ],
+      "code": "mov\tax,word ptr es:[di].sf_NTHandle+2"
+    },
+    {
+      "file": "dos/fcbio.asm",
+      "line": 295,
+      "names": [
+        "sf_NTHandle"
+      ],
+      "code": "mov\tword ptr es:[di].sf_NTHandle,0"
+    },
+    {
+      "file": "dos/fcbio.asm",
+      "line": 296,
+      "names": [
+        "sf_NTHandle"
+      ],
+      "code": "mov\tword ptr es:[di].sf_NTHandle+2,0"
+    },
+    {
+      "file": "dos/fcbio.asm",
+      "line": 1209,
+      "names": [
+        "sf_NTHandle"
+      ],
+      "code": "mov\tsi,word ptr es:[di].sf_NTHandle"
+    },
+    {
+      "file": "dos/fcbio.asm",
+      "line": 1210,
+      "names": [
+        "sf_NTHandle"
+      ],
+      "code": "mov\tax,word ptr es:[di].sf_NTHandle+2"
+    },
+    {
+      "file": "dos/fcbio.asm",
+      "line": 1549,
+      "names": [
+        "sf_NTHandle"
+      ],
+      "code": "cmp\tword ptr es:[di].sf_NTHandle, AX"
+    },
+    {
+      "file": "dos/fcbio.asm",
+      "line": 1553,
+      "names": [
+        "sf_NTHandle"
+      ],
+      "code": "cmp\tword ptr es:[di].sf_NTHandle+2, AX"
+    },
+    {
+      "file": "dos/fcbio2.asm",
+      "line": 343,
+      "names": [
+        "sf_NTHandle"
+      ],
+      "code": "mov\tbp,word ptr es:[di].sf_NTHandle"
+    },
+    {
+      "file": "dos/fcbio2.asm",
+      "line": 344,
+      "names": [
+        "sf_NTHandle"
+      ],
+      "code": "mov\tax,word ptr es:[di].sf_NTHandle+2"
+    },
+    {
+      "file": "dos/fcbio2.asm",
+      "line": 556,
+      "names": [
+        "sf_NTHandle"
+      ],
+      "code": "mov\tword ptr es:[di].sf_NTHandle,bp"
+    },
+    {
+      "file": "dos/fcbio2.asm",
+      "line": 557,
+      "names": [
+        "sf_NTHandle"
+      ],
+      "code": "mov\tword ptr es:[di].sf_NTHandle+2,ax"
+    },
+    {
+      "file": "dos/fcbio2.asm",
+      "line": 691,
+      "names": [
+        "sf_NTHandle"
+      ],
+      "code": "mov\tsi,word ptr es:[di].sf_NTHandle"
+    },
+    {
+      "file": "dos/fcbio2.asm",
+      "line": 692,
+      "names": [
+        "sf_NTHandle"
+      ],
+      "code": "mov\tax,word ptr es:[di].sf_NTHandle+2"
+    },
+    {
+      "file": "dos/file.asm",
+      "line": 218,
+      "names": [
+        "sf_NTHandle"
+      ],
+      "code": "mov\tword ptr [si].sf_NTHandle,di"
+    },
+    {
+      "file": "dos/file.asm",
+      "line": 219,
+      "names": [
+        "sf_NTHandle"
+      ],
+      "code": "mov     word ptr [si].sf_NTHandle+2,ax"
+    },
+    {
+      "file": "dos/file.asm",
+      "line": 245,
+      "names": [
+        "sf_nt_seek"
+      ],
+      "code": "and     [SI].sf_flags, not (devid_device OR sf_nt_seek)"
+    },
+    {
+      "file": "dos/handle.asm",
+      "line": 130,
+      "names": [
+        "sf_nt_seek"
+      ],
+      "code": "test    es:[di.sf_flags],sf_nt_seek"
+    },
+    {
+      "file": "dos/handle.asm",
+      "line": 138,
+      "names": [
+        "sf_NTHandle"
+      ],
+      "code": "mov     bp,word ptr es:[di.sf_NTHandle]"
+    },
+    {
+      "file": "dos/handle.asm",
+      "line": 139,
+      "names": [
+        "sf_NTHandle"
+      ],
+      "code": "mov     ax,word ptr es:[di.sf_NTHandle+2]"
+    },
+    {
+      "file": "dos/handle.asm",
+      "line": 220,
+      "names": [
+        "sf_NTHandle"
+      ],
+      "code": "MOV\tBP, WORD PTR ES:[DI.sf_NTHandle]"
+    },
+    {
+      "file": "dos/handle.asm",
+      "line": 221,
+      "names": [
+        "sf_NTHandle"
+      ],
+      "code": "MOV\tAX, WORD PTR ES:[DI.sf_NTHandle + 2]"
+    },
+    {
+      "file": "dos/handle.asm",
+      "line": 455,
+      "names": [
+        "sf_NTHandle"
+      ],
+      "code": "mov     bp,word ptr es:[di.sf_NTHandle]"
+    },
+    {
+      "file": "dos/handle.asm",
+      "line": 456,
+      "names": [
+        "sf_NTHandle"
+      ],
+      "code": "mov     ax,word ptr es:[di.sf_NTHandle+2]"
+    },
+    {
+      "file": "dos/handle.asm",
+      "line": 461,
+      "names": [
+        "sf_nt_seek"
+      ],
+      "code": "test    es:[di.sf_flags],sf_nt_seek"
+    },
+    {
+      "file": "dos/handle.asm",
+      "line": 465,
+      "names": [
+        "sf_nt_seek"
+      ],
+      "code": "test    es:[di.sf_flags],sf_nt_seek"
+    },
+    {
+      "file": "dos/handle.asm",
+      "line": 475,
+      "names": [
+        "sf_nt_pipe_in"
+      ],
+      "code": "test\tes:[di.sf_flags], sf_nt_pipe_in"
+    },
+    {
+      "file": "dos/handle.asm",
+      "line": 485,
+      "names": [
+        "sf_nt_seek"
+      ],
+      "code": "test    es:[di.sf_flags],sf_nt_seek"
+    },
+    {
+      "file": "dos/handle.asm",
+      "line": 489,
+      "names": [
+        "sf_nt_seek"
+      ],
+      "code": "test    es:[di.sf_flags],sf_nt_seek"
+    },
+    {
+      "file": "dos/handle.asm",
+      "line": 512,
+      "names": [
+        "sf_nt_seek"
+      ],
+      "code": "and     word ptr es:[di.sf_flags],NOT sf_nt_seek"
+    },
+    {
+      "file": "dos/handle.asm",
+      "line": 539,
+      "names": [
+        "sf_NTHandle"
+      ],
+      "code": "mov\tbp,word ptr es:[di.sf_NTHandle]"
+    },
+    {
+      "file": "dos/handle.asm",
+      "line": 540,
+      "names": [
+        "sf_NTHandle"
+      ],
+      "code": "mov     ax,word ptr es:[di.sf_NTHandle+2]"
+    },
+    {
+      "file": "dos/handle.asm",
+      "line": 545,
+      "names": [
+        "sf_nt_pipe_in"
+      ],
+      "code": "and\tword ptr es:[di.sf_flags], NOT(sf_nt_pipe_in)"
+    },
+    {
+      "file": "dos/handle.asm",
+      "line": 549,
+      "names": [
+        "sf_NTHandle"
+      ],
+      "code": "mov\tbp,word ptr es:[di.sf_NTHandle]"
+    },
+    {
+      "file": "dos/handle.asm",
+      "line": 550,
+      "names": [
+        "sf_NTHandle"
+      ],
+      "code": "mov     ax,word ptr es:[di.sf_NTHandle+2]"
+    },
+    {
+      "file": "dos/handle.asm",
+      "line": 659,
+      "names": [
+        "sf_nt_pipe_in"
+      ],
+      "code": "test\tes:[di.sf_flags], sf_nt_pipe_in"
+    },
+    {
+      "file": "dos/handle.asm",
+      "line": 695,
+      "names": [
+        "sf_NTHandle"
+      ],
+      "code": "mov     bp,word ptr es:[di.sf_NTHandle]"
+    },
+    {
+      "file": "dos/handle.asm",
+      "line": 696,
+      "names": [
+        "sf_NTHandle"
+      ],
+      "code": "mov     ax,word ptr es:[di.sf_NTHandle+2]"
+    },
+    {
+      "file": "dos/handle.asm",
+      "line": 711,
+      "names": [
+        "sf_nt_seek"
+      ],
+      "code": "and     word ptr es:[di.sf_flags], NOT sf_nt_seek"
+    },
+    {
+      "file": "dos/handle.asm",
+      "line": 715,
+      "names": [
+        "sf_nt_seek"
+      ],
+      "code": "or      word ptr es:[di.sf_flags],sf_nt_seek"
+    },
+    {
+      "file": "dos/handle.asm",
+      "line": 722,
+      "names": [
+        "sf_NTHandle"
+      ],
+      "code": "mov     bp,word ptr es:[di.sf_NTHandle]"
+    },
+    {
+      "file": "dos/handle.asm",
+      "line": 723,
+      "names": [
+        "sf_NTHandle"
+      ],
+      "code": "mov     ax,word ptr es:[di.sf_NTHandle+2]"
+    },
+    {
+      "file": "dos/handle.asm",
+      "line": 766,
+      "names": [
+        "sf_NTHandle"
+      ],
+      "code": "mov     bp,word ptr es:[di.sf_NTHandle]"
+    },
+    {
+      "file": "dos/handle.asm",
+      "line": 767,
+      "names": [
+        "sf_NTHandle"
+      ],
+      "code": "mov     ax,word ptr es:[di.sf_NTHandle+2]"
+    },
+    {
+      "file": "dos/handle.asm",
+      "line": 772,
+      "names": [
+        "sf_nt_pipe_in"
+      ],
+      "code": "and\tword ptr es:[di.sf_flags], NOT(sf_nt_pipe_in)"
+    },
+    {
+      "file": "dos/handle.asm",
+      "line": 837,
+      "names": [
+        "sf_NTHandle"
+      ],
+      "code": "mov     bp, word ptr es:[di.sf_NTHandle]"
+    },
+    {
+      "file": "dos/handle.asm",
+      "line": 839,
+      "names": [
+        "sf_NTHandle"
+      ],
+      "code": "mov     ax, word ptr es:[di.sf_NTHandle+2]"
+    },
+    {
+      "file": "dos/lock.asm",
+      "line": 107,
+      "names": [
+        "sf_NTHandle"
+      ],
+      "code": "mov\tbp,word ptr es:[di.sf_NTHandle]"
+    },
+    {
+      "file": "dos/lock.asm",
+      "line": 108,
+      "names": [
+        "sf_NTHandle"
+      ],
+      "code": "mov\tbx,word ptr es:[di.sf_NTHandle+2]"
+    },
+    {
+      "file": "inc/sf.inc",
+      "line": 64,
+      "names": [
+        "sf_NTHandle"
+      ],
+      "code": "sf_NTHandle\tDD\t?"
+    },
+    {
+      "file": "inc/sf.inc",
+      "line": 88,
+      "names": [
+        "sf_scs_console"
+      ],
+      "code": "sf_scs_console          EQU     0000010000000000B"
+    },
+    {
+      "file": "inc/sf.inc",
+      "line": 89,
+      "names": [
+        "sf_nt_seek"
+      ],
+      "code": "sf_nt_seek\t\tEQU\t0000001000000000B"
+    },
+    {
+      "file": "inc/sf.inc",
+      "line": 90,
+      "names": [
+        "sf_nt_pipe_in"
+      ],
+      "code": "sf_nt_pipe_in\t\tEQU\t0000000100000000B"
+    }
+  ],
+  "scope": "Frozen accepted build input set; lexical references may be inactive. Native listing proves structure offsets, not runtime correctness.",
+  "default_table_padding": {
+    "entries": 5,
+    "nt_padding": 130,
+    "physical_padding": 0,
+    "source": "inc/kernel/const2.asm FILLSPACE preserves default SFT allocation area while entry stride changes"
+  },
+  "next": "Replace NT handle users/host paths coherently; use kernel-only physical sf.inc; reassemble and verify data offsets and code operands. Do not add NTHandle to physical structure or use dummy aliases."
+}

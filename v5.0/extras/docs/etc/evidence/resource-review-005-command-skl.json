@@ -1,0 +1,42 @@
+{
+  "index": 5,
+  "file": "cmd/command/command.skl",
+  "sha256": "fa90a401bb0dd9db028b53087eefb6cf1ecea89a0e03f466021f7c46213572ee",
+  "decision": "retain OpenNT identical reference",
+  "reference": {
+    "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\command.skl",
+    "sha256": "fa90a401bb0dd9db028b53087eefb6cf1ecea89a0e03f466021f7c46213572ee"
+  },
+  "dos6_differences": "DOS 6 includes additional LOADHIGH, DIR help and compression-ratio messages absent from current file.",
+  "generated_classes": [
+    {
+      "file": "COMMAND.CL1",
+      "sha256": "9162c031d609799abcfbb8b2c0808aad8a8e52e2f8402cf543b692482d050f9d"
+    },
+    {
+      "file": "COMMAND.CL2",
+      "sha256": "4d7debffaff48325ed12f0657e2bc1201e9a110bc0d51d7a50275c8eb2c148c7"
+    },
+    {
+      "file": "COMMAND.CL3",
+      "sha256": "df7ca28570386425254fc078ae37f5469ccf566fcebd63f50221da5c118bc92a"
+    },
+    {
+      "file": "COMMAND.CL4",
+      "sha256": "ea9453cf4538ed99dec5be95a80283b1ba7a4f870e3ce9a56d48299300805e2d"
+    },
+    {
+      "file": "COMMAND.CLF",
+      "sha256": "7618ea9164efe83ec134bc415b9dd0879920b3036624d41ec454012546937d03"
+    }
+  ],
+  "build_stage": "build\\integrated-source-o1gc1cvu",
+  "checks": [
+    "Staged template equals source snapshot.",
+    "All five generated classes match the current build report.",
+    "Full COMMAND.COM matches retained target.",
+    "NT/BOP lexical scan found no hits."
+  ],
+  "limitations": "Textual identity and lexical scan do not by themselves prove historical origin or absence of every post-DOS-5 semantic detail.",
+  "change": "No source change."
+}

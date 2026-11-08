@@ -1,0 +1,8 @@
+{
+  "source": "dos/msinit.asm",
+  "reference": "v6.0/dos/msinit.asm entry and data relocation",
+  "before_sha256": "b26868bb852651ed6f51a714a145ede51481622f819af0ec0db8041e6763eb31",
+  "after_sha256": "c9d1dbc24e5d1b055a1887fa5bd7435ba6c6eb317b48720dd271757de4f0119d",
+  "removed_port_note": "; BUGBUG sudeepb 06-Mar-1991: Rather than using cs:[memstrt] below as\n; the source address use [memstrt>>4]:0. Allows bigger data segment.",
+  "scope": "Whitespace and relocation of NT-port suggestion to evidence; instructions unchanged."
+}

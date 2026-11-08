@@ -1,0 +1,414 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\integrated-source-z7rpjine",
+  "target_sha256": "4e41ca4e5893d4cf293f81ad01adbdbd12f7039534f59148214a9cca309529a2",
+  "origin": 15824,
+  "dtab_file_offset": 410,
+  "table_file_offset": 412,
+  "references": {
+    "current": {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\dos\\mstable.asm",
+      "sha256": "57030bd35b2f3a0b46bbaac7785778497676937d1de27a6ab0e065a87d67f96f"
+    },
+    "dos4": {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\MS_TABLE.ASM",
+      "sha256": "89bc93a893209840ee8bd85030085bea2698e1fed15bd94ee34f50fe019f474a"
+    },
+    "dos6": {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\mstable.asm",
+      "sha256": "a21d8332e3ae890095231455fe281a02e7d3330b4d7f3422164bdd382b5b6949"
+    },
+    "opennt": {
+      "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\dos\\mstable.asm",
+      "sha256": "58aeaa1cb208ea1a661f13df7124e964e8030cb52ba5a20ca295c2bb39c59a65"
+    }
+  },
+  "entries": [
+    {
+      "index": 0,
+      "current": "DOSInstall",
+      "target_address": 18177,
+      "dos4": "DOSInstall",
+      "dos6": "DOSInstall",
+      "opennt": "DOSInstall"
+    },
+    {
+      "index": 1,
+      "current": "DOS_CLOSE",
+      "target_address": 28186,
+      "dos4": "DOS_CLOSE",
+      "dos6": "DOS_CLOSE",
+      "opennt": "NO_OP"
+    },
+    {
+      "index": 2,
+      "current": "RECSET",
+      "target_address": 19633,
+      "dos4": "RECSET",
+      "dos6": "RECSET",
+      "opennt": "RECSET"
+    },
+    {
+      "index": 3,
+      "current": "DOSGetGroup",
+      "target_address": 18171,
+      "dos4": "DOSGetGroup",
+      "dos6": "DOSGetGroup",
+      "opennt": "DOSGetGroup"
+    },
+    {
+      "index": 4,
+      "current": "PATHCHRCMP",
+      "target_address": 36875,
+      "dos4": "PATHCHRCMP",
+      "dos6": "PATHCHRCMP",
+      "opennt": "PATHCHRCMP"
+    },
+    {
+      "index": 5,
+      "current": "OUTT",
+      "target_address": 21719,
+      "dos4": "OUTT",
+      "dos6": "OUTT",
+      "opennt": "OUTT"
+    },
+    {
+      "index": 6,
+      "current": "NET_I24_ENTRY",
+      "target_address": 37607,
+      "dos4": "NET_I24_ENTRY",
+      "dos6": "NET_I24_ENTRY",
+      "opennt": "NET_I24_ENTRY"
+    },
+    {
+      "index": 7,
+      "current": "PLACEBUF",
+      "target_address": 39055,
+      "dos4": "PLACEBUF",
+      "dos6": "PLACEBUF",
+      "opennt": "NO_OP"
+    },
+    {
+      "index": 8,
+      "current": "FREE_SFT",
+      "target_address": 28443,
+      "dos4": "FREE_SFT",
+      "dos6": "FREE_SFT",
+      "opennt": "FREE_SFT"
+    },
+    {
+      "index": 9,
+      "current": "BUFWRITE",
+      "target_address": 39493,
+      "dos4": "BUFWRITE",
+      "dos6": "BUFWRITE",
+      "opennt": "NO_OP"
+    },
+    {
+      "index": 10,
+      "current": "SHARE_VIOLATION",
+      "target_address": 45869,
+      "dos4": "SHARE_VIOLATION",
+      "dos6": "SHARE_VIOLATION",
+      "opennt": "NO_OP"
+    },
+    {
+      "index": 11,
+      "current": "SHARE_ERROR",
+      "target_address": 27478,
+      "dos4": "SHARE_ERROR",
+      "dos6": "SHARE_ERROR",
+      "opennt": "SHARE_ERROR"
+    },
+    {
+      "index": 12,
+      "current": "SET_SFT_MODE",
+      "target_address": 27455,
+      "dos4": "SET_SFT_MODE",
+      "dos6": "SET_SFT_MODE",
+      "opennt": "SET_SFT_MODE"
+    },
+    {
+      "index": 13,
+      "current": "DATE16",
+      "target_address": 18625,
+      "dos4": "DATE16",
+      "dos6": "DATE16",
+      "opennt": "NO_OP"
+    },
+    {
+      "index": 14,
+      "current": "idle",
+      "target_address": 20508,
+      "dos4": "idle",
+      "dos6": "idle",
+      "opennt": "idle"
+    },
+    {
+      "index": 15,
+      "current": "SCANPLACE",
+      "target_address": 39048,
+      "dos4": "SCANPLACE",
+      "dos6": "SCANPLACE",
+      "opennt": "NO_OP"
+    },
+    {
+      "index": 16,
+      "current": "idle",
+      "target_address": 20508,
+      "dos4": "idle",
+      "dos6": "idle",
+      "opennt": "idle"
+    },
+    {
+      "index": 17,
+      "current": "StrCpy",
+      "target_address": 20453,
+      "dos4": "StrCpy",
+      "dos6": "StrCpy",
+      "opennt": "StrCpy"
+    },
+    {
+      "index": 18,
+      "current": "StrLen",
+      "target_address": 20477,
+      "dos4": "StrLen",
+      "dos6": "StrLen",
+      "opennt": "StrLen"
+    },
+    {
+      "index": 19,
+      "current": "Ucase",
+      "target_address": 36790,
+      "dos4": "Ucase",
+      "dos6": "Ucase",
+      "opennt": "Ucase"
+    },
+    {
+      "index": 20,
+      "current": "POINTCOMP",
+      "target_address": 39116,
+      "dos4": "POINTCOMP",
+      "dos6": "POINTCOMP",
+      "opennt": "NO_OP"
+    },
+    {
+      "index": 21,
+      "current": "CHECKFLUSH",
+      "target_address": 39452,
+      "dos4": "CHECKFLUSH",
+      "dos6": "CHECKFLUSH",
+      "opennt": "NO_OP"
+    },
+    {
+      "index": 22,
+      "current": "SFFromSFN",
+      "target_address": 42564,
+      "dos4": "SFFromSFN",
+      "dos6": "SFFromSFN",
+      "opennt": "SFFromSFN"
+    },
+    {
+      "index": 23,
+      "current": "GetCDSFromDrv",
+      "target_address": 43699,
+      "dos4": "GetCDSFromDrv",
+      "dos6": "GetCDSFromDrv",
+      "opennt": "GetCDSFromDrv"
+    },
+    {
+      "index": 24,
+      "current": "Get_User_Stack",
+      "target_address": 17013,
+      "dos4": "Get_User_Stack",
+      "dos6": "Get_User_Stack",
+      "opennt": "Get_User_Stack"
+    },
+    {
+      "index": 25,
+      "current": "GetThisDrv",
+      "target_address": 43612,
+      "dos4": "GetThisDrv",
+      "dos6": "GetThisDrv",
+      "opennt": "GetThisDrv"
+    },
+    {
+      "index": 26,
+      "current": "DriveFromText",
+      "target_address": 44651,
+      "dos4": "DriveFromText",
+      "dos6": "DriveFromText",
+      "opennt": "DriveFromText"
+    },
+    {
+      "index": 27,
+      "current": "SETYEAR",
+      "target_address": 18795,
+      "dos4": "SETYEAR",
+      "dos6": "SETYEAR",
+      "opennt": "NO_OP"
+    },
+    {
+      "index": 28,
+      "current": "DSUM",
+      "target_address": 18949,
+      "dos4": "DSUM",
+      "dos6": "DSUM",
+      "opennt": "NO_OP"
+    },
+    {
+      "index": 29,
+      "current": "DSLIDE",
+      "target_address": 18783,
+      "dos4": "DSLIDE",
+      "dos6": "DSLIDE",
+      "opennt": "NO_OP"
+    },
+    {
+      "index": 30,
+      "current": "StrCmp",
+      "target_address": 20419,
+      "dos4": "StrCmp",
+      "dos6": "StrCmp",
+      "opennt": "StrCmp"
+    },
+    {
+      "index": 31,
+      "current": "InitCDS",
+      "target_address": 43421,
+      "dos4": "InitCDS",
+      "dos6": "InitCDS",
+      "opennt": "InitCDS"
+    },
+    {
+      "index": 32,
+      "current": "pJFNFromHandle",
+      "target_address": 42509,
+      "dos4": "pJFNFromHandle",
+      "dos6": "pJFNFromHandle",
+      "opennt": "pJFNFromHandle"
+    },
+    {
+      "index": 33,
+      "current": "$NameTrans",
+      "target_address": 44614,
+      "dos4": "$NameTrans",
+      "dos6": "$NameTrans",
+      "opennt": "$NameTrans"
+    },
+    {
+      "index": 34,
+      "current": "CAL_LK",
+      "target_address": 17447,
+      "dos4": "CAL_LK",
+      "dos6": "CAL_LK",
+      "opennt": "CAL_LK"
+    },
+    {
+      "index": 35,
+      "current": "DEVNAME",
+      "target_address": 33037,
+      "dos4": "DEVNAME",
+      "dos6": "DEVNAME",
+      "opennt": "DEVNAME"
+    },
+    {
+      "index": 36,
+      "current": "Idle",
+      "target_address": 20508,
+      "dos4": "Idle",
+      "dos6": "Idle",
+      "opennt": "Idle"
+    },
+    {
+      "index": 37,
+      "current": "DStrLen",
+      "target_address": 20491,
+      "dos4": "DStrLen",
+      "dos6": "DStrLen",
+      "opennt": "DStrLen"
+    },
+    {
+      "index": 38,
+      "current": "NLS_OPEN",
+      "target_address": 20672,
+      "dos4": "NLS_OPEN",
+      "dos6": "NLS_OPEN",
+      "opennt": "NLS_OPEN"
+    },
+    {
+      "index": 39,
+      "current": "$CLOSE",
+      "target_address": 42699,
+      "dos4": "$CLOSE",
+      "dos6": "$CLOSE",
+      "opennt": "$CLOSE"
+    },
+    {
+      "index": 40,
+      "current": "NLS_LSEEK",
+      "target_address": 20678,
+      "dos4": "NLS_LSEEK",
+      "dos6": "NLS_LSEEK",
+      "opennt": "NLS_LSEEK"
+    },
+    {
+      "index": 41,
+      "current": "$READ",
+      "target_address": 42970,
+      "dos4": "$READ",
+      "dos6": "$READ",
+      "opennt": "$READ"
+    },
+    {
+      "index": 42,
+      "current": "FastInit",
+      "target_address": 20608,
+      "dos4": "FastInit",
+      "dos6": "FastInit",
+      "opennt": "FastInit"
+    },
+    {
+      "index": 43,
+      "current": "NLS_IOCTL",
+      "target_address": 20739,
+      "dos4": "NLS_IOCTL",
+      "dos6": "NLS_IOCTL",
+      "opennt": "NLS_IOCTL"
+    },
+    {
+      "index": 44,
+      "current": "GetDevList",
+      "target_address": 20722,
+      "dos4": "GetDevList",
+      "dos6": "GetDevList",
+      "opennt": "GetDevList"
+    },
+    {
+      "index": 45,
+      "current": "NLS_GETEXT",
+      "target_address": 20768,
+      "dos4": "NLS_GETEXT",
+      "dos6": "NLS_GETEXT",
+      "opennt": "NLS_GETEXT"
+    },
+    {
+      "index": 46,
+      "current": "MSG_RETRIEVAL",
+      "target_address": 20773,
+      "dos4": "MSG_RETRIEVAL",
+      "dos6": "MSG_RETRIEVAL",
+      "opennt": "MSG_RETRIEVAL"
+    },
+    {
+      "index": 47,
+      "current": "NO_OP",
+      "target_address": 17408,
+      "dos4": "Fake_Version",
+      "dos6": "NO_OP",
+      "opennt": "NO_OP"
+    }
+  ],
+  "scope": "48 target table addresses checked against the linked map. Source-table name comparison is not proof of original source text or runtime behavior.",
+  "reference_ledger_script_sha256": "7978aa455025dc7344960e9c0af03a09dd5f37db507eb90b2da25e1318dc3f46",
+  "dispatch_audit_script_sha256": "523c7555aca041fe073d1d609ab2ebb8ea9984251050efc5f27252b6910ce304"
+}

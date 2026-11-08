@@ -1,0 +1,778 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\disk2-full-recovery-0uifj4e8",
+  "source": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\dos\\disk2.full.recovery.asm",
+  "source_sha256": "0876bb2c21d9232c3de57ee681c39b028003c09eeb58db36f6f2d9bda4527cb8",
+  "tool_sha256": "e54afaa9565e046cd862c29a015d685de43311acccf796469030e162ced6d00d",
+  "comparative_reference": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\disk2.asm",
+  "comparative_reference_sha256": "0876bb2c21d9232c3de57ee681c39b028003c09eeb58db36f6f2d9bda4527cb8",
+  "local_header_inventory": {
+    "dos\\divmes.inc": "4635ff455355c3c152d361972b7a599c14d25e33eae754f7eb983c75a8319f11",
+    "dos\\dosmes.inc": "5278bfe57c6598113b6bd89a7fa69bc36423e375302266cde4f8b02c0a593608",
+    "dos\\reference.make.inc": "e9d2e142803b748ce09ad7c6f91ac062c1a2f02493fdc7350e63b63db7836a4f",
+    "dos\\scnam.inc": "9309eba70b5aba0bb7ccb8278496300072c1872396d384422ee4346e48a1c44e",
+    "inc\\arena.inc": "f9038d0e38e15cd636ec229abb33c3831f7cfd8b0b53c0c96a01b05ed42c5fbd",
+    "inc\\bdsize.inc": "eaf5420a062d06b200ec7e80192c5c1c7cc8957363f863891b1afaf988d6041d",
+    "inc\\bpb.inc": "43452ad264b7242d892634f19bfcd036f8a2f1c926745466b27039e8c5f960a8",
+    "inc\\buffer.INC": "0e6f472f08df268434a3a2bdc34bc807dd856d86eb0d02fee58886245cb0b8a9",
+    "inc\\bugtyp.inc": "e61e02f48c5257d3ed0be51e22be6618955225aad2db1ef54e9a16e8331d5a20",
+    "inc\\COPYRIGH.INC": "5f5ba93635d6200394f545d20d91532da8ff30d1eacda0d786d79d61cd488ae7",
+    "inc\\cpmfcb.inc": "9cc5117113485abede5c9b73ed26a291984e8b894ff239477ad228bc63319b5c",
+    "inc\\cputype.inc": "34144664bdb7ce50e672b428689eb174eafbd4455acd7e5e8a80406a4452d439",
+    "inc\\devsym.inc": "bbfcd2923aa6c6278ed53d21980305ae97bdf78c0cf2950e2e1ac5317a9a7dff",
+    "inc\\dirent.INC": "d3199a48b1815444e04cf3e0e05b2a21168038f5c9440b267cca67820e474dfe",
+    "inc\\doscntry.inc": "cbc519145c8c29f229844fde16fae2ebf06b6266e01897e29b0539bd555b8a97",
+    "inc\\dosmac.INC": "6c6abe9a647d14c57f97c0bd3afafcdee6624f636fff273f2d996a7b21a693c2",
+    "inc\\dosseg.inc": "b485ff060b5086a1884591163ae088f2ea0f379c22ea7ed96801ae371880749a",
+    "inc\\dossym.inc": "e17a46ea59396490cec2dcbaf1e8e48beae2a92f7a52a519c43f14a1e2303a36",
+    "inc\\dpb.inc": "78a9717b8fe123d31651d6351adeb6789501ef273ce2476316f5d4ec7c450ec0",
+    "inc\\error.INC": "4e44f0694a7db2a15df780a3e6bb916f5f5722aca9f3df8daf4f148f0321cd8f",
+    "inc\\exe.inc": "cb88f289660af5f35a39fe6d0bd50835aeecd19a448227798f56ea85b89ba37a",
+    "inc\\fastopen.inc": "bfe2cde39a806bb6cab4665250c832a3643d3be198b4d14a9c8ba5ae2342f57d",
+    "inc\\fastxxxx.inc": "4c1d828fc57d051876859c18af8686db931215a513ea1fb760d1650d1ee3e2fb",
+    "inc\\filemode.inc": "1ed4f86e30874fd29bbf1db7d8d7bf541b3e29f9b52e3eb9cf62b007f6c88a05",
+    "inc\\find.inc": "7380ee0229ef50d6a2afaa0dcece6ab2a333217df09234037cc4a329686d47eb",
+    "inc\\int2a.inc": "a425a0ed47e3ee9264f1008d3646d17f1241be01659aa5ffca8f718ca5372161",
+    "inc\\intnat.inc": "e38d3c8a8b82f4d2b622a9bf276b087d2bb6e4e7fe33658354b06b33466ec970",
+    "inc\\ioctl.inc": "5afdc64aa6d91c4c503c9d27fe4982517f3a762b94413ee8a882a49f3736ff2f",
+    "inc\\lock.inc": "2889df10fd8228bda5c88b1ded3e0b0404335935a980cbbcd86c6417cb25d169",
+    "inc\\mi.inc": "e9c3475c654c335705ed3609ab9041a8e78b3092aad65261d7d58d74f84c0650",
+    "inc\\msbdata.inc": "71fc814eb557ddac186990c67ea55a73a5f02318a7455a072fb690f1ef4ce7be",
+    "inc\\msgdcl.inc": "19d6d486f224ddea638b566c043d949e7fba79c011f1fea254989c274feff924",
+    "inc\\mult.inc": "517bc33792cc568eb350308b931ad87b75b1d42255341950fe394df9302c48fb",
+    "inc\\origin.inc": "ef20115ebe9c9592eb87e9b21a0ebe036592ca6cf44e389d67093a80db3d008d",
+    "inc\\pdb.inc": "d247016c2a40694f8285fc33d193fd87dca9df96d50450258da170eb16e32746",
+    "inc\\psdata.inc": "bbdc48017d30a9b4b14289b0ea5003cf89b06cbbf2dc7930e30aab09983997ab",
+    "inc\\rombios.inc": "7d9d0098545cff9fdb3eef264552887d23d6ea3f175728ef5fd6f0514561ec42",
+    "inc\\sf.inc": "a7598805cfaad479960f0891903aaab458c975d8f14f6e1acfe25b44f06a2093",
+    "inc\\syscall.inc": "23cf7f5e2e180337a0c2219ae013494e2a106103655c0d00fa8631ce9de2e79d",
+    "inc\\SYSMSG.INC": "d41dc5fb8e50940cbcf356e5ba73f34adb777d1e4053f77a0c1cf9682aa862bd",
+    "inc\\sysvar.inc": "851f7781c4d1c3e0d21e3fb0e2a53af3d809d6eb93fb35584d2ea351f0be00b8",
+    "inc\\vector.inc": "c7fdd8e4468d28c8abed6c7d6e6e5e292d5dc21251821b29212eb1c61536fb12",
+    "inc\\version.inc": "387730c471bbfde2d45b08d8df86bebd430fe5abb9a8ee12688f6aa141f6f7d6",
+    "inc\\VERSIONA.INC": "df1d5b2a37fbd511701d993d7362a6cb11c3ab077bda674a69948bf71bbb958c",
+    "inc\\win386.inc": "6d76db4ccfe544931bd6daad6fca29c3f92a68ebda1a32e1470ad2d53e5f7238",
+    "inc\\wpatch.inc": "a5218655835870f97838b703b98c4e2578301aaac7a761c29ea751c41004beb3",
+    "inc\\xmm.inc": "a426a10a662ef94ec973d045cea21e3c5a3687bfc79b7b3c02d811a35215738e",
+    "inc\\kernel\\cputype.inc": "e9bf8b0a5ee0e10936d5403cddadacc898ce1f8b6807ab955b2d0639e5b50cb0",
+    "inc\\kernel\\curdir.inc": "bc780ae1b35d018b2ec60f7c49465e4a52b1f1356832d4d178a6f0f5f228cda4",
+    "inc\\ntvdm\\bop.inc": "a3705f225c47e53dc4e106c7362366477f2f06c33cb9bf52515ca1299556f669",
+    "inc\\ntvdm\\cmdsvc.inc": "7643746ceec383536ca3ea2cfc4400ac94c8c7a34bd266b09258cfcb337441c6",
+    "inc\\ntvdm\\curdir.inc": "8490c9aa0702bc17b6f73483837159934aa8c8f353df5402b71812ea87d63762",
+    "inc\\ntvdm\\DBGSVC.INC": "296a6387cfe02445e6c8d43f9f68e1fd4dfbd9d654de3ba6460dee54f6dfc171",
+    "inc\\ntvdm\\dossvc.inc": "07c4676c9a44418c5a0175acc7a09c251bde892b0a838381edeee26e49c9faf3",
+    "inc\\ntvdm\\DOSWOW.INC": "d6bd8a52bff2980dacab518da8f2330da5bb978e6c07d1846662078da49444fb",
+    "inc\\ntvdm\\vint.inc": "2ba06b3eea9a8ec96236d96ff7d996274b3feb5ac456524d6a9e8bd6a44541c7"
+  },
+  "comparison_headers": {
+    "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\inc\\sf.inc": "98f38dad3562b516b4232ceb309a16f6b3ec8f4a899f99a7e433380f466df98d"
+  },
+  "object_sha256": "8160c0bb2f6b3ebb39607718e65c1124d6cad43f9b32c90aa4185fea9f094e92",
+  "map_sha256": "9de1d07545a51baeef4736abbfe72b8cba97d2ead3e78ba39ba015b147f95210",
+  "command": [
+    "O:\\repos.hobby\\ntvdm64\\tools\\opennt\\tools16\\masm.exe",
+    "-Mx",
+    "-t",
+    "-W1",
+    "-I.",
+    "-I..\\..\\dos",
+    "-I..\\..\\inc\\kernel",
+    "-I..\\..\\inc",
+    "-I..\\..\\inc\\ntvdm",
+    "buf.asm,buf.obj,buf.lst;"
+  ],
+  "exit": 0,
+  "target_start": 14517,
+  "target_end": 15254,
+  "bytes": 737,
+  "candidate_sha256": "1d9b337e127410d7b96fda214e6fca133bfbaa23450fc246a37d79b79b602a4d",
+  "target_slice_sha256": "1d9b337e127410d7b96fda214e6fca133bfbaa23450fc246a37d79b79b602a4d",
+  "relocations": [
+    {
+      "offset": 12,
+      "symbol": "SETREAD",
+      "displacement": 0,
+      "relative": true,
+      "value": 3995
+    },
+    {
+      "offset": 17,
+      "symbol": "DOSCODE",
+      "displacement": 41,
+      "relative": true,
+      "value": 22
+    },
+    {
+      "offset": 24,
+      "symbol": "ReadOp",
+      "displacement": 0,
+      "relative": false,
+      "value": 1397
+    },
+    {
+      "offset": 28,
+      "symbol": "DOSCODE",
+      "displacement": 88,
+      "relative": true,
+      "value": 58
+    },
+    {
+      "offset": 53,
+      "symbol": "SETWRITE",
+      "displacement": 0,
+      "relative": true,
+      "value": 4005
+    },
+    {
+      "offset": 64,
+      "symbol": "DEVIOCALL2",
+      "displacement": 0,
+      "relative": true,
+      "value": 3819
+    },
+    {
+      "offset": 73,
+      "symbol": "CALLSCNT",
+      "displacement": 0,
+      "relative": false,
+      "value": 876
+    },
+    {
+      "offset": 82,
+      "symbol": "DEVCALL",
+      "displacement": 3,
+      "relative": false,
+      "value": 861
+    },
+    {
+      "offset": 95,
+      "symbol": "CALLVIDRW",
+      "displacement": 0,
+      "relative": false,
+      "value": 880
+    },
+    {
+      "offset": 99,
+      "symbol": "EXTERRPT",
+      "displacement": 0,
+      "relative": false,
+      "value": 808
+    },
+    {
+      "offset": 103,
+      "symbol": "CALLVIDRW",
+      "displacement": 2,
+      "relative": false,
+      "value": 882
+    },
+    {
+      "offset": 107,
+      "symbol": "EXTERRPT",
+      "displacement": 2,
+      "relative": false,
+      "value": 810
+    },
+    {
+      "offset": 111,
+      "symbol": "HARDERR",
+      "displacement": 0,
+      "relative": true,
+      "value": 7044
+    },
+    {
+      "offset": 121,
+      "symbol": "ThisDPB",
+      "displacement": 2,
+      "relative": false,
+      "value": 1420
+    },
+    {
+      "offset": 127,
+      "symbol": "ThisDPB",
+      "displacement": 0,
+      "relative": false,
+      "value": 1418
+    },
+    {
+      "offset": 131,
+      "symbol": "DMAADD",
+      "displacement": 0,
+      "relative": false,
+      "value": 812
+    },
+    {
+      "offset": 135,
+      "symbol": "NEXTADD",
+      "displacement": 0,
+      "relative": false,
+      "value": 1464
+    },
+    {
+      "offset": 139,
+      "symbol": "Trans",
+      "displacement": 0,
+      "relative": false,
+      "value": 1396
+    },
+    {
+      "offset": 152,
+      "symbol": "BytPos",
+      "displacement": 2,
+      "relative": false,
+      "value": 1488
+    },
+    {
+      "offset": 155,
+      "symbol": "BytPos",
+      "displacement": 0,
+      "relative": false,
+      "value": 1486
+    },
+    {
+      "offset": 168,
+      "symbol": "ThisDPB",
+      "displacement": 0,
+      "relative": false,
+      "value": 1418
+    },
+    {
+      "offset": 176,
+      "symbol": "ThisDrv",
+      "displacement": 0,
+      "relative": false,
+      "value": 1398
+    },
+    {
+      "offset": 184,
+      "symbol": "DIV32",
+      "displacement": 0,
+      "relative": true,
+      "value": 1307
+    },
+    {
+      "offset": 188,
+      "symbol": "BytSecPos",
+      "displacement": 0,
+      "relative": false,
+      "value": 1484
+    },
+    {
+      "offset": 191,
+      "symbol": "SecPos",
+      "displacement": 0,
+      "relative": false,
+      "value": 1476
+    },
+    {
+      "offset": 195,
+      "symbol": "SecPos",
+      "displacement": 2,
+      "relative": false,
+      "value": 1478
+    },
+    {
+      "offset": 207,
+      "symbol": "SecClusPos",
+      "displacement": 0,
+      "relative": false,
+      "value": 1395
+    },
+    {
+      "offset": 210,
+      "symbol": "SHR32",
+      "displacement": 0,
+      "relative": true,
+      "value": 1320
+    },
+    {
+      "offset": 222,
+      "symbol": "ClusNum",
+      "displacement": 0,
+      "relative": false,
+      "value": 1468
+    },
+    {
+      "offset": 229,
+      "symbol": "DMAADD",
+      "displacement": 0,
+      "relative": false,
+      "value": 812
+    },
+    {
+      "offset": 234,
+      "symbol": "DMAADD",
+      "displacement": 0,
+      "relative": false,
+      "value": 812
+    },
+    {
+      "offset": 253,
+      "symbol": "BytSecPos",
+      "displacement": 0,
+      "relative": false,
+      "value": 1484
+    },
+    {
+      "offset": 276,
+      "symbol": "BytCnt1",
+      "displacement": 0,
+      "relative": false,
+      "value": 1490
+    },
+    {
+      "offset": 287,
+      "symbol": "SecCnt",
+      "displacement": 0,
+      "relative": false,
+      "value": 1494
+    },
+    {
+      "offset": 291,
+      "symbol": "BytCnt2",
+      "displacement": 0,
+      "relative": false,
+      "value": 1492
+    },
+    {
+      "offset": 296,
+      "symbol": "ReadOp",
+      "displacement": 0,
+      "relative": false,
+      "value": 1397
+    },
+    {
+      "offset": 321,
+      "symbol": "LOCK_VIOLATION",
+      "displacement": 0,
+      "relative": true,
+      "value": 15149
+    },
+    {
+      "offset": 334,
+      "symbol": "ReadOp",
+      "displacement": 0,
+      "relative": false,
+      "value": 1397
+    },
+    {
+      "offset": 349,
+      "symbol": "BytPos",
+      "displacement": 0,
+      "relative": false,
+      "value": 1486
+    },
+    {
+      "offset": 353,
+      "symbol": "BytPos",
+      "displacement": 2,
+      "relative": false,
+      "value": 1488
+    },
+    {
+      "offset": 370,
+      "symbol": "CHECK_READ_LOCK",
+      "displacement": 0,
+      "relative": true,
+      "value": 65140
+    },
+    {
+      "offset": 377,
+      "symbol": "ThisDPB",
+      "displacement": 0,
+      "relative": false,
+      "value": 1418
+    },
+    {
+      "offset": 380,
+      "symbol": "DOSCODE",
+      "displacement": 252,
+      "relative": true,
+      "value": 65406
+    },
+    {
+      "offset": 384,
+      "symbol": "ClusNum",
+      "displacement": 0,
+      "relative": false,
+      "value": 1468
+    },
+    {
+      "offset": 387,
+      "symbol": "FNDCLUS",
+      "displacement": 0,
+      "relative": true,
+      "value": 5037
+    },
+    {
+      "offset": 398,
+      "symbol": "WRTERR22",
+      "displacement": 0,
+      "relative": true,
+      "value": 549
+    },
+    {
+      "offset": 401,
+      "symbol": "DOSCODE",
+      "displacement": 553,
+      "relative": true,
+      "value": 150
+    },
+    {
+      "offset": 416,
+      "symbol": "LastPos",
+      "displacement": 0,
+      "relative": false,
+      "value": 1466
+    },
+    {
+      "offset": 420,
+      "symbol": "ClusNum",
+      "displacement": 0,
+      "relative": false,
+      "value": 1468
+    },
+    {
+      "offset": 424,
+      "symbol": "BytCnt1",
+      "displacement": 0,
+      "relative": false,
+      "value": 1490
+    },
+    {
+      "offset": 430,
+      "symbol": "BUFRD",
+      "displacement": 0,
+      "relative": true,
+      "value": 5112
+    },
+    {
+      "offset": 436,
+      "symbol": "SecCnt",
+      "displacement": 0,
+      "relative": false,
+      "value": 1494
+    },
+    {
+      "offset": 442,
+      "symbol": "NEXTSEC",
+      "displacement": 0,
+      "relative": true,
+      "value": 5257
+    },
+    {
+      "offset": 448,
+      "symbol": "Trans",
+      "displacement": 0,
+      "relative": false,
+      "value": 1396
+    },
+    {
+      "offset": 453,
+      "symbol": "SecClusPos",
+      "displacement": 0,
+      "relative": false,
+      "value": 1395
+    },
+    {
+      "offset": 457,
+      "symbol": "SecCnt",
+      "displacement": 0,
+      "relative": false,
+      "value": 1494
+    },
+    {
+      "offset": 461,
+      "symbol": "ClusNum",
+      "displacement": 0,
+      "relative": false,
+      "value": 1468
+    },
+    {
+      "offset": 464,
+      "symbol": "OPTIMIZE",
+      "displacement": 0,
+      "relative": true,
+      "value": 5284
+    },
+    {
+      "offset": 473,
+      "symbol": "ALLOWED",
+      "displacement": 0,
+      "relative": false,
+      "value": 843
+    },
+    {
+      "offset": 478,
+      "symbol": "DMAADD",
+      "displacement": 2,
+      "relative": false,
+      "value": 814
+    },
+    {
+      "offset": 483,
+      "symbol": "SET_RQ_SC_PARMS",
+      "displacement": 0,
+      "relative": true,
+      "value": 8809
+    },
+    {
+      "offset": 486,
+      "symbol": "DREAD",
+      "displacement": 0,
+      "relative": true,
+      "value": 64966
+    },
+    {
+      "offset": 493,
+      "symbol": "TEMP_VAR",
+      "displacement": 0,
+      "relative": false,
+      "value": 1548
+    },
+    {
+      "offset": 500,
+      "symbol": "TEMP_VAR2",
+      "displacement": 0,
+      "relative": false,
+      "value": 1550
+    },
+    {
+      "offset": 503,
+      "symbol": "DOSCODE",
+      "displacement": 599,
+      "relative": true,
+      "value": 94
+    },
+    {
+      "offset": 512,
+      "symbol": "IsEOF",
+      "displacement": 0,
+      "relative": true,
+      "value": 7191
+    },
+    {
+      "offset": 520,
+      "symbol": "LastPos",
+      "displacement": 0,
+      "relative": false,
+      "value": 1466
+    },
+    {
+      "offset": 525,
+      "symbol": "BytCnt2",
+      "displacement": 0,
+      "relative": false,
+      "value": 1492
+    },
+    {
+      "offset": 532,
+      "symbol": "BytCnt1",
+      "displacement": 0,
+      "relative": false,
+      "value": 1490
+    },
+    {
+      "offset": 535,
+      "symbol": "NEXTSEC",
+      "displacement": 0,
+      "relative": true,
+      "value": 5164
+    },
+    {
+      "offset": 541,
+      "symbol": "BytSecPos",
+      "displacement": 0,
+      "relative": false,
+      "value": 1484
+    },
+    {
+      "offset": 546,
+      "symbol": "BUFRD",
+      "displacement": 0,
+      "relative": true,
+      "value": 4996
+    },
+    {
+      "offset": 551,
+      "symbol": "DOSCODE",
+      "displacement": 405,
+      "relative": true,
+      "value": 65388
+    },
+    {
+      "offset": 555,
+      "symbol": "THISSFT",
+      "displacement": 0,
+      "relative": false,
+      "value": 1438
+    },
+    {
+      "offset": 559,
+      "symbol": "NEXTADD",
+      "displacement": 0,
+      "relative": false,
+      "value": 1464
+    },
+    {
+      "offset": 563,
+      "symbol": "DMAADD",
+      "displacement": 0,
+      "relative": false,
+      "value": 812
+    },
+    {
+      "offset": 573,
+      "symbol": "ClusNum",
+      "displacement": 0,
+      "relative": false,
+      "value": 1468
+    },
+    {
+      "offset": 580,
+      "symbol": "LastPos",
+      "displacement": 0,
+      "relative": false,
+      "value": 1466
+    },
+    {
+      "offset": 602,
+      "symbol": "DirtyBufferCount",
+      "displacement": 0,
+      "relative": false,
+      "value": 113
+    },
+    {
+      "offset": 610,
+      "symbol": "HIGH_SECTOR",
+      "displacement": 0,
+      "relative": false,
+      "value": 1543
+    },
+    {
+      "offset": 620,
+      "symbol": "GetCurHead",
+      "displacement": 0,
+      "relative": true,
+      "value": 8067
+    },
+    {
+      "offset": 627,
+      "symbol": "FIRST_BUFF_ADDR",
+      "displacement": 0,
+      "relative": false,
+      "value": 3771
+    },
+    {
+      "offset": 661,
+      "symbol": "FIRST_BUFF_ADDR",
+      "displacement": 0,
+      "relative": false,
+      "value": 3771
+    },
+    {
+      "offset": 699,
+      "symbol": "TEMP_VAR",
+      "displacement": 0,
+      "relative": false,
+      "value": 1548
+    },
+    {
+      "offset": 706,
+      "symbol": "TEMP_VAR2",
+      "displacement": 0,
+      "relative": false,
+      "value": 1550
+    },
+    {
+      "offset": 725,
+      "symbol": "ScanPlace",
+      "displacement": 0,
+      "relative": true,
+      "value": 7980
+    },
+    {
+      "offset": 730,
+      "symbol": "FIRST_BUFF_ADDR",
+      "displacement": 0,
+      "relative": false,
+      "value": 3771
+    }
+  ],
+  "external_code_target_attributions": {
+    "SETREAD": [
+      14528,
+      18526
+    ],
+    "SETWRITE": [
+      14569,
+      18577
+    ],
+    "DEVIOCALL2": [
+      14580,
+      18402
+    ],
+    "HARDERR": [
+      14627,
+      21674
+    ],
+    "DIV32": [
+      14700,
+      16010
+    ],
+    "SHR32": [
+      14726,
+      16049
+    ],
+    "LOCK_VIOLATION": [
+      14837,
+      29989
+    ],
+    "CHECK_READ_LOCK": [
+      14886,
+      14493
+    ],
+    "FNDCLUS": [
+      14903,
+      19943
+    ],
+    "WRTERR22": [
+      14914,
+      15466
+    ],
+    "BUFRD": [
+      14946,
+      20061
+    ],
+    "NEXTSEC": [
+      14958,
+      20218
+    ],
+    "OPTIMIZE": [
+      14980,
+      20267
+    ],
+    "SET_RQ_SC_PARMS": [
+      14999,
+      23811
+    ],
+    "DREAD": [
+      15002,
+      14435
+    ],
+    "ISEOF": [
+      15028,
+      22222
+    ],
+    "GETCURHEAD": [
+      15136,
+      23206
+    ],
+    "SCANPLACE": [
+      15241,
+      23224
+    ]
+  },
+  "differences": [],
+  "exact": true,
+  "data_layout_differences": [],
+  "scope": "Bounded source object at target layout with explicit symbol relocations; external callees are addresses only. No integrated-kernel or runtime claim."
+}

@@ -1,0 +1,47 @@
+{
+  "index": 161,
+  "file": "inc/bdsize.inc",
+  "reviewed_sha256": "a912b387e75d0ff5057fc4f0102b9fea0a1b0c98298fc04aa1afda95f4f189e5",
+  "status": "reviewed",
+  "role": "GETSIZE-style build-specific equates for DOSCODE origin calculation.",
+  "references": {
+    "dos6": {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\inc\\bdsize.inc",
+      "sha256": "d78f9b7e372f14f69158414ce43856d033431829ea356e71fc47221f090db4c2",
+      "values": [
+        "BIODATASIZ EQU 00910H",
+        "BIOCODESIZ EQU 01A70H",
+        "DOSDATASIZ EQU 01370H"
+      ]
+    },
+    "opennt": {
+      "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\bdsize.inc",
+      "sha256": "eaf5420a062d06b200ec7e80192c5c1c7cc8957363f863891b1afaf988d6041d",
+      "values": [
+        "BIODATASIZ EQU 00300H",
+        "BIOCODESIZ EQU 00450H",
+        "DOSDATASIZ EQU 01436H"
+      ]
+    }
+  },
+  "review": {
+    "format": "Three lines use the same names, uppercase EQU and hexadecimal format as DOS 6 and OpenNT; values intentionally differ by build. DOS 4 has no same-name reference.",
+    "nt_bop_screen": "No lexical indicators.",
+    "generator_reference": "v6.0/c6ers/tools6/bin/getsize.c"
+  },
+  "verification": {
+    "stage": "build\\integrated-source-fu7ucnox",
+    "built_source_snapshot_matches": true,
+    "segment_sizes": {
+      "BIODATASIZ": 2304,
+      "BIOCODESIZ": 6752,
+      "DOSDATASIZ": 4962
+    },
+    "bytstart": 15810,
+    "parastart": 15824,
+    "origin_listing_matches": true,
+    "all_three_targets_byte_equal": true,
+    "limits": "Sizes derived from current reconstructed link maps, not independent proof of original DOS 5 source or automatic regeneration."
+  },
+  "disposition": "Retained target-specific values and historical GETSIZE format; no source changes needed."
+}

@@ -1,0 +1,51 @@
+{
+  "previous_stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\integrated-source-c492_cis",
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\integrated-source-ca8orzet",
+  "change": {
+    "source": "dos/mstable.asm",
+    "before_sha256": "4dbf8ec609c2c53d2e88a9dfc7400c1246d8e16288540a19bead82557353ac80",
+    "after_sha256": "57030bd35b2f3a0b46bbaac7785778497676937d1de27a6ab0e065a87d67f96f",
+    "removed_nt_comment": "; BUGBUG sudeepb 15-Mar-1991 All the NO_OP below are to be scrutinized",
+    "description": "Remove OpenNT porting comment about placeholder entries and align error and dispatch declarations to DOS 6 formatting. No instruction or data changes.",
+    "retained_no_op": [
+      "Short_addr  NO_OP\t\t;   M006: 47  no longer supported"
+    ],
+    "references": [
+      {
+        "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\dos\\mstable.asm",
+        "sha256": "58aeaa1cb208ea1a661f13df7124e964e8030cb52ba5a20ca295c2bb39c59a65"
+      },
+      {
+        "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\mstable.asm",
+        "sha256": "a21d8332e3ae890095231455fe281a02e7d3330b4d7f3422164bdd382b5b6949"
+      }
+    ]
+  },
+  "unchanged_objects": {
+    "bios": 14,
+    "kernel": 55,
+    "command": 34,
+    "msload": 1
+  },
+  "outputs": [
+    {
+      "name": "IO.SYS",
+      "bytes": 33430,
+      "sha256": "dd0915ed366b3f640284df4be30ed35f413dfd5b6966c1f25eee9598a5bf53e0",
+      "byte_equal": true
+    },
+    {
+      "name": "MSDOS.SYS",
+      "bytes": 37394,
+      "sha256": "4e41ca4e5893d4cf293f81ad01adbdbd12f7039534f59148214a9cca309529a2",
+      "byte_equal": true
+    },
+    {
+      "name": "COMMAND.COM",
+      "bytes": 47845,
+      "sha256": "74ad25067e7d9f5c3a0ac2f2967347defb0ffef9e6ed60b60e6499f0b1a8cc89",
+      "byte_equal": true
+    }
+  ],
+  "limitations": "This checks the localized NT comment and formatting, not the whole module or the provenance of every dispatch entry."
+}

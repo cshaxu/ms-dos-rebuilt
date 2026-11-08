@@ -1,0 +1,48 @@
+{
+  "dosbox_exit": 0,
+  "files": [
+    {
+      "name": "linkdone.txt",
+      "bytes": 6,
+      "sha256": "d938fa189912f8776c3deb31a6bec42f403f57b9c8e3ed936bdb076caf6bd61c",
+      "text": "PASS\r\n"
+    },
+    {
+      "name": "doslink.log",
+      "bytes": 830,
+      "sha256": "026a01c6d948fecf96923631ede5f738c15ac64f98431741b2046a9a82bad581",
+      "text": "\r\nMicrosoft (R) Segmented-Executable Linker  Version 5.10    \r\nCopyright (C) Microsoft Corp 1984-1990.  All rights reserved.\r\n\r\nObject Modules [.OBJ]: /map +\r\nObject Modules [.OBJ]: command1.obj command2.obj rucode.obj stub.obj rdata.obj +\r\nObject Modules [.OBJ]: init.obj iparse.obj uinit.obj +\r\nObject Modules [.OBJ]: tcode.obj tbatch.obj tbatch2.obj tfor.obj +\r\nObject Modules [.OBJ]: dir.obj tcmd1b.obj tcmd2a.obj tcmd2b.obj +\r\nObject Modules [.OBJ]: tenv.obj tenv2.obj tmisc1.obj tmisc2.obj +\r\nObject Modules [.OBJ]: tpipe.obj parse2.obj path1.obj path2.obj +\r\nObject Modules [.OBJ]: tucode.obj copy.obj copypr1.obj copypr2.obj +\r\nObject Modules [.OBJ]: cparse.obj tparse.obj tprintf.obj loadhi.obj+\r\nObject Modules [.OBJ]: tdata.obj tspc.obj\r\nRun File [command1.exe]: command.exc,,;\r\nLINK : warning L4021: no stack segment\r\n"
+    },
+    {
+      "name": "reloc.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "text": ""
+    },
+    {
+      "name": "command.com",
+      "bytes": 50384,
+      "sha256": "908a77ac617c2d741f0aa1b73f73973dcf29adc91f092e5bcb02173c8c732c43"
+    },
+    {
+      "name": "command.exc",
+      "bytes": 51152,
+      "sha256": "fe494ca49f1fb64a461bd86881b1fc7de143cb0ff533ed933fa2aa1345961c77"
+    },
+    {
+      "name": "command.map",
+      "bytes": 48119,
+      "sha256": "96e58907b48012db89b860865a976537a8cce1ad9eab8edf46c438002ec0d2d5"
+    },
+    {
+      "name": "link.exe",
+      "bytes": 142015,
+      "sha256": "163d8b86c18b93ccae9b2380d850cd42a9a5e1fd89a163b16170979afbbabb07"
+    },
+    {
+      "name": "reloc.exe",
+      "bytes": 15635,
+      "sha256": "300b58668d46c3281ef2c017409aa9300499155d6593a8a9552781d2d96cc2b3"
+    }
+  ]
+}

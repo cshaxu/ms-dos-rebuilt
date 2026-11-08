@@ -1,0 +1,195 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\integrated-source-edz4fx2u",
+  "audit_tool_sha256": "e3d170731542d55a2e5cf28bbde3848edc0400743a80446ef6f909e6fb7b36c4",
+  "target_sha256": "4e41ca4e5893d4cf293f81ad01adbdbd12f7039534f59148214a9cca309529a2",
+  "origin": 15824,
+  "edges": [
+    {
+      "caller": "$GET_DPB",
+      "callee": "GETTHISDRV",
+      "condition": "normal drive lookup",
+      "site": 19818,
+      "target_file_offset": 3994,
+      "instruction_hex": "e8ef5c",
+      "destination": 43612
+    },
+    {
+      "caller": "$GET_DPB",
+      "callee": "EcritDisk",
+      "condition": "enter disk critical section",
+      "site": 19834,
+      "target_file_offset": 4010,
+      "instruction_hex": "e8a903",
+      "destination": 20774
+    },
+    {
+      "caller": "$GET_DPB",
+      "callee": "FATREAD_CDS",
+      "condition": "valid local drive",
+      "site": 19837,
+      "target_file_offset": 4013,
+      "instruction_hex": "e8e948",
+      "destination": 38505
+    },
+    {
+      "caller": "$GET_DPB",
+      "callee": "LcritDisk",
+      "condition": "leave disk critical section",
+      "site": 19840,
+      "target_file_offset": 4016,
+      "instruction_hex": "e8c303",
+      "destination": 20806
+    },
+    {
+      "caller": "$GET_DPB",
+      "callee": "get_user_stack",
+      "condition": "successful media check",
+      "site": 19845,
+      "target_file_offset": 4021,
+      "instruction_hex": "e8edf4",
+      "destination": 17013
+    },
+    {
+      "caller": "FATREAD_CDS",
+      "callee": "GOTDPB",
+      "condition": "CDS DPB pointer",
+      "site": 38518,
+      "target_file_offset": 22694,
+      "instruction_hex": "e862ad",
+      "destination": 17371
+    },
+    {
+      "caller": "FATREAD_CDS",
+      "callee": "FAT_GOT_DPB",
+      "condition": "media check",
+      "site": 38521,
+      "target_file_offset": 22697,
+      "instruction_hex": "e86500",
+      "destination": 38625
+    },
+    {
+      "caller": "FATERR",
+      "callee": "FATAL1",
+      "condition": "device media-check error",
+      "site": 38612,
+      "target_file_offset": 22788,
+      "instruction_hex": "e8f5fb",
+      "destination": 37580
+    },
+    {
+      "caller": "FAT_GOT_DPB",
+      "callee": "DEVIOCALL2",
+      "condition": "issue media-check request",
+      "site": 38664,
+      "target_file_offset": 22840,
+      "instruction_hex": "e8a7ee",
+      "destination": 34226
+    },
+    {
+      "caller": "DISK_CHNG_ERR",
+      "callee": "HARDERR",
+      "condition": "wrong disk and volume ID supported",
+      "site": 38759,
+      "target_file_offset": 22935,
+      "instruction_hex": "e810fb",
+      "destination": 37498
+    },
+    {
+      "caller": "CHKBUFFDIRT",
+      "callee": "GetCurHead",
+      "condition": "media state unknown and dirty buffers exist",
+      "site": 38779,
+      "target_file_offset": 22955,
+      "instruction_hex": "e8f800",
+      "destination": 39030
+    },
+    {
+      "caller": "NEWDSK",
+      "callee": "GetCurHead",
+      "condition": "media change requires invalidation",
+      "site": 38816,
+      "target_file_offset": 22992,
+      "instruction_hex": "e8d300",
+      "destination": 39030
+    },
+    {
+      "caller": "NEWDSK",
+      "callee": "ScanPlace",
+      "condition": "invalidate a matching clean buffer",
+      "site": 38835,
+      "target_file_offset": 23011,
+      "instruction_hex": "e8d200",
+      "destination": 39048
+    },
+    {
+      "caller": "FAT_GOT_DPB",
+      "callee": "UNPACK",
+      "condition": "changed media, non-device FAT",
+      "site": 38885,
+      "target_file_offset": 23061,
+      "instruction_hex": "e8cdfc",
+      "destination": 38069
+    },
+    {
+      "caller": "UNPACK",
+      "callee": "MAPCLUSTER",
+      "condition": "nonzero cluster",
+      "site": 38086,
+      "target_file_offset": 22262,
+      "instruction_hex": "e8dc00",
+      "destination": 38309
+    },
+    {
+      "caller": "MAPCLUSTER",
+      "callee": "GETBUFFRB",
+      "condition": "FAT-sector buffer",
+      "site": 38387,
+      "target_file_offset": 22563,
+      "instruction_hex": "e8e702",
+      "destination": 39133
+    }
+  ],
+  "branches": [
+    {
+      "module": "misc",
+      "condition": "invalid drive",
+      "mnemonic": "JC",
+      "label": "ISNODRV",
+      "site": 19821,
+      "target_file_offset": 3997,
+      "instruction_hex": "7222",
+      "destination": 19857
+    },
+    {
+      "module": "misc",
+      "condition": "network CDS",
+      "mnemonic": "JNZ",
+      "label": "ISNODRV",
+      "site": 19832,
+      "target_file_offset": 4008,
+      "instruction_hex": "7517",
+      "destination": 19857
+    },
+    {
+      "module": "misc",
+      "condition": "media-check error",
+      "mnemonic": "JC",
+      "label": "ISNODRV",
+      "site": 19843,
+      "target_file_offset": 4019,
+      "instruction_hex": "720c",
+      "destination": 19857
+    },
+    {
+      "module": "fat",
+      "condition": "media not changed",
+      "mnemonic": "JNZ",
+      "label": "NO_CHANGE",
+      "site": 38528,
+      "target_file_offset": 22704,
+      "instruction_hex": "7538",
+      "destination": 38586
+    }
+  ],
+  "scope": "Selected static near-call and conditional-branch instructions only. Conditions come from source; this does not establish reachability, complete register behavior or runtime correctness."
+}

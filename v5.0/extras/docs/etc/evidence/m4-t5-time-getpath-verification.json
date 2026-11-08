@@ -1,0 +1,632 @@
+{
+  "build_report": "m4-t5-time-getpath-build.json",
+  "slices": [
+    {
+      "name": "getcurhead",
+      "bytes": 644,
+      "candidate_start": 14780,
+      "target_start": 23206,
+      "raw_exact": false,
+      "relocation_correspondence": true,
+      "remaining_difference_offsets": [],
+      "verified_calls": [
+        {
+          "site": 15015,
+          "callee": "fatsecrd",
+          "destination": 10379
+        },
+        {
+          "site": 15022,
+          "callee": "dread",
+          "destination": 10423
+        },
+        {
+          "site": 15360,
+          "callee": "dwrite",
+          "destination": 10466
+        }
+      ],
+      "verified_code_data_references": []
+    },
+    {
+      "name": "fatsecrd",
+      "bytes": 72,
+      "candidate_start": 10378,
+      "target_start": 14390,
+      "raw_exact": false,
+      "relocation_correspondence": true,
+      "remaining_difference_offsets": [],
+      "verified_calls": [
+        {
+          "site": 10409,
+          "callee": "dskread",
+          "destination": 10450
+        },
+        {
+          "site": 10423,
+          "callee": "dskread",
+          "destination": 10450
+        },
+        {
+          "site": 10434,
+          "callee": "harderrrw",
+          "destination": 10538
+        }
+      ],
+      "verified_code_data_references": []
+    },
+    {
+      "name": "dskread",
+      "bytes": 114,
+      "candidate_start": 10450,
+      "target_start": 14517,
+      "raw_exact": false,
+      "relocation_correspondence": true,
+      "remaining_difference_offsets": [],
+      "verified_calls": [
+        {
+          "site": 10461,
+          "callee": "setread",
+          "destination": 12903
+        },
+        {
+          "site": 10502,
+          "callee": "setwrite",
+          "destination": 12954
+        },
+        {
+          "site": 10513,
+          "callee": "deviocall2",
+          "destination": 12779
+        },
+        {
+          "site": 10560,
+          "callee": "harderr",
+          "destination": 16084
+        }
+      ],
+      "verified_code_data_references": []
+    },
+    {
+      "name": "deviocall",
+      "bytes": 603,
+      "candidate_start": 12776,
+      "target_start": 18399,
+      "raw_exact": false,
+      "relocation_correspondence": true,
+      "remaining_difference_offsets": [],
+      "verified_calls": [
+        {
+          "site": 12779,
+          "callee": "ecritdevice",
+          "destination": 3801
+        },
+        {
+          "site": 12899,
+          "callee": "lcritdevice",
+          "destination": 3833
+        }
+      ],
+      "verified_code_data_references": []
+    },
+    {
+      "name": "ecritdisk",
+      "bytes": 128,
+      "candidate_start": 3737,
+      "target_start": 4950,
+      "raw_exact": true,
+      "relocation_correspondence": true,
+      "remaining_difference_offsets": [],
+      "verified_calls": [],
+      "verified_code_data_references": []
+    },
+    {
+      "name": "iseof",
+      "bytes": 984,
+      "candidate_start": 13796,
+      "target_start": 22222,
+      "raw_exact": false,
+      "relocation_correspondence": true,
+      "remaining_difference_offsets": [],
+      "verified_calls": [
+        {
+          "site": 13892,
+          "callee": "fatal",
+          "destination": 16162
+        },
+        {
+          "site": 13967,
+          "callee": "inc_dirty_count",
+          "destination": 15404
+        },
+        {
+          "site": 14019,
+          "callee": "getbuffrb",
+          "destination": 14883
+        },
+        {
+          "site": 14035,
+          "callee": "inc_dirty_count",
+          "destination": 15404
+        },
+        {
+          "site": 14137,
+          "callee": "getbuffrb",
+          "destination": 14883
+        },
+        {
+          "site": 14191,
+          "callee": "getbuffrb",
+          "destination": 14883
+        },
+        {
+          "site": 14248,
+          "callee": "gotdpb",
+          "destination": 1449
+        },
+        {
+          "site": 14268,
+          "callee": "gotdpb",
+          "destination": 1449
+        },
+        {
+          "site": 14362,
+          "callee": "fatal1",
+          "destination": 16166
+        },
+        {
+          "site": 14414,
+          "callee": "deviocall2",
+          "destination": 12779
+        },
+        {
+          "site": 14509,
+          "callee": "harderr",
+          "destination": 16084
+        },
+        {
+          "site": 14529,
+          "callee": "getcurhead",
+          "destination": 14780
+        },
+        {
+          "site": 14566,
+          "callee": "getcurhead",
+          "destination": 14780
+        },
+        {
+          "site": 14585,
+          "callee": "scanplace",
+          "destination": 14798
+        },
+        {
+          "site": 14655,
+          "callee": "getcurhead",
+          "destination": 14780
+        },
+        {
+          "site": 14658,
+          "callee": "bufwrite",
+          "destination": 15243
+        },
+        {
+          "site": 14722,
+          "callee": "deviocall2",
+          "destination": 12779
+        },
+        {
+          "site": 14750,
+          "callee": "$setdpb",
+          "destination": 4009
+        }
+      ],
+      "verified_code_data_references": []
+    },
+    {
+      "name": "$get_default_dpb",
+      "bytes": 48,
+      "candidate_start": 3940,
+      "target_start": 3988,
+      "raw_exact": false,
+      "relocation_correspondence": true,
+      "remaining_difference_offsets": [],
+      "verified_calls": [
+        {
+          "site": 3946,
+          "callee": "getthisdrv",
+          "destination": 21584
+        },
+        {
+          "site": 3962,
+          "callee": "ecritdisk",
+          "destination": 3737
+        },
+        {
+          "site": 3965,
+          "callee": "fatread_cds",
+          "destination": 14255
+        },
+        {
+          "site": 3968,
+          "callee": "lcritdisk",
+          "destination": 3769
+        },
+        {
+          "site": 3973,
+          "callee": "get_user_stack",
+          "destination": 1256
+        }
+      ],
+      "verified_code_data_references": []
+    },
+    {
+      "name": "search",
+      "bytes": 433,
+      "candidate_start": 10564,
+      "target_start": 16064,
+      "raw_exact": false,
+      "relocation_correspondence": true,
+      "remaining_difference_offsets": [],
+      "verified_calls": [
+        {
+          "site": 10564,
+          "callee": "startsrch",
+          "destination": 11680
+        },
+        {
+          "site": 10716,
+          "callee": "matchattributes",
+          "destination": 11700
+        },
+        {
+          "site": 10787,
+          "callee": "iseof",
+          "destination": 13796
+        },
+        {
+          "site": 10839,
+          "callee": "firstcluster",
+          "destination": 10354
+        },
+        {
+          "site": 10876,
+          "callee": "dirread",
+          "destination": 10265
+        },
+        {
+          "site": 10921,
+          "callee": "unpack",
+          "destination": 13819
+        },
+        {
+          "site": 10940,
+          "callee": "figrec",
+          "destination": 19927
+        }
+      ],
+      "verified_code_data_references": []
+    },
+    {
+      "name": "dirread",
+      "bytes": 115,
+      "candidate_start": 10264,
+      "target_start": 14276,
+      "raw_exact": false,
+      "relocation_correspondence": true,
+      "remaining_difference_offsets": [],
+      "verified_calls": [
+        {
+          "site": 10329,
+          "callee": "unpack",
+          "destination": 13819
+        },
+        {
+          "site": 10336,
+          "callee": "iseof",
+          "destination": 13796
+        },
+        {
+          "site": 10351,
+          "callee": "figrec",
+          "destination": 19927
+        },
+        {
+          "site": 10361,
+          "callee": "getbuffr",
+          "destination": 14881
+        }
+      ],
+      "verified_code_data_references": []
+    },
+    {
+      "name": "figrec",
+      "bytes": 44,
+      "candidate_start": 19927,
+      "target_start": 20363,
+      "raw_exact": true,
+      "relocation_correspondence": true,
+      "remaining_difference_offsets": [],
+      "verified_calls": [],
+      "verified_code_data_references": []
+    },
+    {
+      "name": "startsrch",
+      "bytes": 20,
+      "candidate_start": 11680,
+      "target_start": 17180,
+      "raw_exact": true,
+      "relocation_correspondence": true,
+      "remaining_difference_offsets": [],
+      "verified_calls": [],
+      "verified_code_data_references": []
+    },
+    {
+      "name": "$get_date",
+      "bytes": 483,
+      "candidate_start": 2461,
+      "target_start": 2652,
+      "raw_exact": false,
+      "relocation_correspondence": true,
+      "remaining_difference_offsets": [],
+      "verified_calls": [
+        {
+          "site": 2473,
+          "callee": "get_user_stack",
+          "destination": 1256
+        },
+        {
+          "site": 2527,
+          "callee": "get_user_stack",
+          "destination": 1256
+        },
+        {
+          "site": 2576,
+          "callee": "setread",
+          "destination": 12903
+        },
+        {
+          "site": 2584,
+          "callee": "deviocall2",
+          "destination": 12779
+        },
+        {
+          "site": 2589,
+          "callee": "setwrite",
+          "destination": 12954
+        },
+        {
+          "site": 2604,
+          "callee": "deviocall2",
+          "destination": 12779
+        },
+        {
+          "site": 2670,
+          "callee": "setread",
+          "destination": 12903
+        },
+        {
+          "site": 2678,
+          "callee": "deviocall2",
+          "destination": 12779
+        },
+        {
+          "site": 2884,
+          "callee": "setread",
+          "destination": 12903
+        },
+        {
+          "site": 2892,
+          "callee": "deviocall2",
+          "destination": 12779
+        },
+        {
+          "site": 2897,
+          "callee": "setwrite",
+          "destination": 12954
+        },
+        {
+          "site": 2909,
+          "callee": "deviocall2",
+          "destination": 12779
+        }
+      ],
+      "verified_code_data_references": [
+        {
+          "site": 2613,
+          "symbol": "DosDseg",
+          "value": 8791
+        },
+        {
+          "site": 2783,
+          "symbol": "DosDseg",
+          "value": 8791
+        }
+      ]
+    },
+    {
+      "name": "getpath",
+      "bytes": 858,
+      "candidate_start": 10997,
+      "target_start": 16497,
+      "raw_exact": false,
+      "relocation_correspondence": true,
+      "remaining_difference_offsets": [],
+      "verified_calls": [
+        {
+          "site": 11200,
+          "callee": "setdirsrch",
+          "destination": 10896
+        },
+        {
+          "site": 11223,
+          "callee": "getlet",
+          "destination": 13697
+        },
+        {
+          "site": 11230,
+          "callee": "pathchrcmp",
+          "destination": 13783
+        },
+        {
+          "site": 11259,
+          "callee": "setrootsrch",
+          "destination": 10960
+        },
+        {
+          "site": 11438,
+          "callee": "lookuppath",
+          "destination": 11953
+        },
+        {
+          "site": 11443,
+          "callee": "findentry",
+          "destination": 10564
+        },
+        {
+          "site": 11532,
+          "callee": "setdirsrch",
+          "destination": 10896
+        },
+        {
+          "site": 11560,
+          "callee": "setdirsrch",
+          "destination": 10896
+        },
+        {
+          "site": 11577,
+          "callee": "getbuffr",
+          "destination": 14881
+        },
+        {
+          "site": 11591,
+          "callee": "set_buf_as_dir",
+          "destination": 10366
+        },
+        {
+          "site": 11603,
+          "callee": "insertpath",
+          "destination": 12117
+        },
+        {
+          "site": 11615,
+          "callee": "pathchrcmp",
+          "destination": 13783
+        },
+        {
+          "site": 11659,
+          "callee": "insertpath",
+          "destination": 12117
+        },
+        {
+          "site": 11827,
+          "callee": "date16",
+          "destination": 2610
+        }
+      ],
+      "verified_code_data_references": []
+    },
+    {
+      "name": "lookuppath",
+      "bytes": 296,
+      "candidate_start": 11953,
+      "target_start": 17614,
+      "raw_exact": false,
+      "relocation_correspondence": true,
+      "remaining_difference_offsets": [],
+      "verified_calls": [
+        {
+          "site": 12030,
+          "callee": "matchattributes",
+          "destination": 11700
+        }
+      ],
+      "verified_code_data_references": []
+    },
+    {
+      "name": "find_dpb",
+      "bytes": 98,
+      "candidate_start": 21402,
+      "target_start": 27576,
+      "raw_exact": true,
+      "relocation_correspondence": true,
+      "remaining_difference_offsets": [],
+      "verified_calls": [],
+      "verified_code_data_references": []
+    },
+    {
+      "name": "getthisdrv",
+      "bytes": 123,
+      "candidate_start": 21584,
+      "target_start": 27788,
+      "raw_exact": false,
+      "relocation_correspondence": true,
+      "remaining_difference_offsets": [],
+      "verified_calls": [
+        {
+          "site": 21627,
+          "callee": "initcds",
+          "destination": 21423
+        }
+      ],
+      "verified_code_data_references": []
+    },
+    {
+      "name": "perdrv",
+      "bytes": 146,
+      "candidate_start": 25110,
+      "target_start": 31427,
+      "raw_exact": false,
+      "relocation_correspondence": true,
+      "remaining_difference_offsets": [],
+      "verified_calls": [
+        {
+          "site": 25117,
+          "callee": "charinit",
+          "destination": 25562
+        },
+        {
+          "site": 25171,
+          "callee": "$setdpb",
+          "destination": 4009
+        }
+      ],
+      "verified_code_data_references": []
+    },
+    {
+      "name": "charinit",
+      "bytes": 40,
+      "candidate_start": 25562,
+      "target_start": 31892,
+      "raw_exact": false,
+      "relocation_correspondence": true,
+      "remaining_difference_offsets": [],
+      "verified_calls": [
+        {
+          "site": 25595,
+          "callee": "deviocall2",
+          "destination": 12779
+        }
+      ],
+      "verified_code_data_references": []
+    },
+    {
+      "name": "$setdpb_and_word3",
+      "bytes": 202,
+      "candidate_start": 4007,
+      "target_start": 4087,
+      "raw_exact": false,
+      "relocation_correspondence": true,
+      "remaining_difference_offsets": [],
+      "verified_calls": [],
+      "verified_code_data_references": [
+        {
+          "symbol": "word3",
+          "operand": 4183,
+          "value": 12791
+        }
+      ]
+    }
+  ],
+  "all_correspond": true,
+  "scope": "Integrated code slices and explicitly named call edges. External-call displacements differ from target layout. No whole-file identity or runtime claim."
+}

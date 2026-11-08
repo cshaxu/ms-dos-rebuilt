@@ -1,0 +1,51 @@
+{
+  "files": {
+    "bios/sysconf.asm": {
+      "before": "d245646f85f76a4f0b17c7be73afa4215ab028ecf7a705cb704dbb7fe766c8dc",
+      "after": "2ad763a39b3597fccf3eabf2334e19ec2206a66820fd7d99c06147441ca44c0d",
+      "removed_blocks": 4
+    },
+    "bios/sysinit1.asm": {
+      "before": "a9f9797e2c302812841da0fcdeb75ed4cf965b97ec452b09137f77d10e18562e",
+      "after": "4f830adec25ed50068707b691ad8b0b623aceb9e6d3e9e32a4564b1a2e3825e4",
+      "removed_blocks": 8
+    },
+    "bios/inc/version.inc": {
+      "before": "b9ce9a6d7b82c2203ac9c5643d8b255c2d3cf7363defa1220ea8c15f3f1cdb61",
+      "after": "c97f4ae5cf0527c7a3251ed6376794f1236bff7b288cef8fa8b9a333f3a0f669",
+      "removed_blocks": 1
+    }
+  },
+  "archived_headers": {
+    "bios/inc/magicdrv.inc": {
+      "archive": "research/bios/inc/magicdrv.inc",
+      "sha256": "3df074a18ae69121c0f691a0880c4b94d245bc3e25839a30a987cd343e336e0a"
+    },
+    "bios/inc/ds_vers.inc": {
+      "archive": "research/bios/inc/ds_vers.inc",
+      "sha256": "136355293ccd3beabb91785cf85ee7f23e376906480c97586d86fe0329250dae"
+    }
+  },
+  "removed_fragments": {
+    "bios/sysconf.asm": [
+      "\tifdef\tdblspace_hooks\r\n\textrn\tMagicBackdoor:dword\r\n\tendif\r\n",
+      "\tifdef\tdblspace_hooks\r\nMagicHomeFlag\tdb\t0\t; set non-zero when MagicDrv is final placed\r\n\tendif\r\n",
+      "\tinclude\tmagicdrv.inc\t\t; get MagicDrv equates\r\n",
+      ";\tthe syspre module needs hooks back into us, for routines and\r\n;\tvariables.  Here they are made public.\r\n\r\n\tpublic\tDevBrkAddr,DevCmdLine,DevSizeOption\r\n\tpublic\tExecDev,InitDevLoad,DevSetBreak\r\n\tpublic\tDevLoadAddr,DevBreak,DevSize\r\n\tpublic\tRoundBreakAddr\r\n\tpublic\tDeviceHi,SizeDevice,DevLoadEnd\r\n"
+    ],
+    "bios/sysinit1.asm": [
+      "\tifdef\tdblspace_hooks\r\n\textrn\tMagicPreload:near\r\n\textrn\tMagicPostload:near\r\n\textrn\tMagicSetCdss:near\r\n\tendif\r\n",
+      "\tifdef\tdblspace_hooks\r\n\tpublic\tNullBackdoor\r\n\tpublic\tMagicBackdoor\r\n\tendif\r\n",
+      "\tifdef\tdblspace_hooks\r\nMagicBackdoor\tdd\t0\r\n\r\nNullBackdoor\tproc\tfar\r\n\r\n\tret\t\t\t\t; prevent hang with bogus backdoor\r\n\r\nNullBackdoor\tendp\r\n\tendif\r\n",
+      "\tifdef\tdblspace_hooks\r\n\tmov\tcs:word ptr MagicBackdoor,offset NullBackdoor\r\n\tmov\tcs:word ptr MagicBackdoor+2,cs\r\n\r\n\tcall\tAllocFreeMem\t\t; get the largest free block from DOS\r\n\tcall\tMagicPreload\t\t; **** PRE-LOAD MAGICDRV!!! ****\r\n\tor\tax,ax\t\t\t; error?\r\n\tjnz\tPreloadFailed\r\n\r\n\tmov\tes,cs:[area]\r\n\tmov\tbx,cs:[memhi]\r\n\tsub\tbx,cs:[area]\t\t; get desired block size in paras\r\n\tmov\tah,setblock\r\n\tint\t21h\r\n\tmov\tax,es\r\n\tdec\tax\r\n\tmov\tes,ax\t\t\t; point to arena\r\n\tmov\tes:[arena_owner],8\t;set impossible owner\r\n\tmov\tword ptr es:[arena_name], 'DS'\t; System Data\r\n\r\n;\tBUGBUG -- 3 Aug 92 -- chuckst -- Device drivers like PROTMAN$ (part\r\n;\t\t\t\t\t of Microsoft's networking products)\r\n;\t\t\t\t\t assume that their arena is the first\r\n;\t\t\t\t\t one.  Therefore, we must remove\r\n;\t\t\t\t\t MagicDrv from the arena list.  The\r\n;\t\t\t\t\t problem with this is that MagicDrv's\r\n;\t\t\t\t\t stub will not show up in a MEM\r\n;\t\t\t\t\t listing.\r\n\r\n\tmov\tax,es\t\t\t; get Magicdrv arena\r\n\tadd\tax,es:word ptr [3]\t; get MCB length\r\n\tinc\tax\t\t\t; get addr of next MCB\r\n\tles\tsi,dosinfo\t\t; get to arena header\r\n\tmov\tes:word ptr [si-2],ax\t; store that\r\n\r\n\tjmp\tshort PreloadCommon\r\n\r\nPreloadFailed:\r\n\tmov\tah,Dealloc\t\t; free the block if no load\r\n\tmov\tes,cs:[area]\r\n\tint\t21h\r\n\r\nPreloadCommon:\r\n\tendif\r\n",
+      "\tifdef\tdblspace_hooks\r\n\tmov\tbx,0\t\t\t; magic backdoor to place int hooks\r\n\tcall\tcs:MagicBackdoor\r\n\tendif\r\n",
+      "\tifdef\tdblspace_hooks\r\n\tcall\tMagicPostload\t\t; make sure Magicdrv is final placed\r\n\tendif\r\n",
+      "\tifdef\tdblspace_hooks\r\n\tcall\tMagicSetCdss\t\t; disable CDSs of reserved drives\r\n\tendif\r\n",
+      ";\tBUGBUG -- 5 Aug 92 -- chuckst -- Allocating space for DOS\r\n;\t\t  using DOS itself causes an arena to be generated.\r\n;\t\t  Unfortunately, certain programs (like PROTMAN$)\r\n;\t\t  assume that the device drivers are loaded into\r\n;\t\t  the first arena.  For this reason, MagicDrv's\r\n;\t\t  main device driver header arena is manually\r\n;\t\t  truncated from the arena chain, and the space\r\n;\t\t  for DOS is allocated using the following\r\n;\t\t  simple code, which also assumes that the\r\n;\t\t  first arena is the free one where DOS's low\r\n;\t\t  stub will go.\r\n;\r\n"
+    ],
+    "bios/inc/version.inc": [
+      "; This flag should be defined to include the DblSpace hooks in the\r\n; build of IO.SYS.  It should be undefined for OEMs who choose not\r\n; to purchase DblSpace.\r\n\r\nIFNDEF OEMBASE\r\nIFNDEF DBLSPACE_HOOKS\r\ndblspace_hooks equ TRUE\r\nENDIF\r\nENDIF\r\n"
+    ]
+  },
+  "scope": "Remove only DBLSPACE branches disabled by target OEMBASE and syspre-only exports; original source fragments preserved. DOS allocation code remains."
+}

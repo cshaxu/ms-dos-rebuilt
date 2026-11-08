@@ -1,0 +1,54 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\integrated-source-orzdvz8v",
+  "previous_stage": "n1dujjuk",
+  "source_evidence": "m6-bios-dblspace-hooks-source.json",
+  "files_changed": {
+    "bios/sysconf.asm": {
+      "before": "d245646f85f76a4f0b17c7be73afa4215ab028ecf7a705cb704dbb7fe766c8dc",
+      "after": "2ad763a39b3597fccf3eabf2334e19ec2206a66820fd7d99c06147441ca44c0d",
+      "removed_blocks": 4
+    },
+    "bios/sysinit1.asm": {
+      "before": "a9f9797e2c302812841da0fcdeb75ed4cf965b97ec452b09137f77d10e18562e",
+      "after": "4f830adec25ed50068707b691ad8b0b623aceb9e6d3e9e32a4564b1a2e3825e4",
+      "removed_blocks": 8
+    },
+    "bios/inc/version.inc": {
+      "before": "b9ce9a6d7b82c2203ac9c5643d8b255c2d3cf7363defa1220ea8c15f3f1cdb61",
+      "after": "c97f4ae5cf0527c7a3251ed6376794f1236bff7b288cef8fa8b9a333f3a0f669",
+      "removed_blocks": 1
+    }
+  },
+  "archived_headers": {
+    "bios/inc/magicdrv.inc": {
+      "archive": "research/bios/inc/magicdrv.inc",
+      "sha256": "3df074a18ae69121c0f691a0880c4b94d245bc3e25839a30a987cd343e336e0a"
+    },
+    "bios/inc/ds_vers.inc": {
+      "archive": "research/bios/inc/ds_vers.inc",
+      "sha256": "136355293ccd3beabb91785cf85ee7f23e376906480c97586d86fe0329250dae"
+    }
+  },
+  "changed_objects": [
+    {
+      "name": "sysconf",
+      "old_sha256": "c644b2e1e1e3edf82b840643366ad4e2bd00530e517de298f242520e8fcb2b41",
+      "new_sha256": "48fbe00a90f79e418e312a83de08c73429304ffd6b97480972be20baa9bd9954",
+      "emitted_equal": true,
+      "changed_omf_record_types": [
+        "0x90 PUBDEF"
+      ]
+    }
+  ],
+  "object_counts": {
+    "bios": 14,
+    "kernel": 55,
+    "command": 34
+  },
+  "files": {
+    "IO.SYS": "dd0915ed366b3f640284df4be30ed35f413dfd5b6966c1f25eee9598a5bf53e0",
+    "MSDOS.SYS": "4e41ca4e5893d4cf293f81ad01adbdbd12f7039534f59148214a9cca309529a2",
+    "COMMAND.COM": "74ad25067e7d9f5c3a0ac2f2967347defb0ffef9e6ed60b60e6499f0b1a8cc89"
+  },
+  "scope": "Remove disabled 1992 DBLSPACE hooks; only SYSConf OMF symbol records change, emitted bytes and all linked files remain identical."
+}

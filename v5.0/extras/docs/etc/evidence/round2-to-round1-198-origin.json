@@ -1,0 +1,24 @@
+{
+  "index": 198,
+  "file": "inc/origin.inc",
+  "reviewed_sha256": "3393e0f2333596067a157d25c0fec12d331524066961a271ce09b389971d44c9",
+  "decision": "retain_round2",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\inc\\origin.inc",
+      "sha256": "5e0e96fdffccfb760dc650c056aca15a48a5927eb15f7a7d7bf9b5c30b7dbf96"
+    },
+    {
+      "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\origin.inc",
+      "sha256": "ef20115ebe9c9592eb87e9b21a0ebe036592ca6cf44e389d67093a80db3d008d"
+    }
+  ],
+  "reason": [
+    "DOS 6 adds a ROMDOS conditional assigning zero to BYTSTART and PARASTART; its optional configuration is not established for this DOS 5 target.",
+    "OpenNT subtracts 40h from PARASTART, changing the kernel origin calculation.",
+    "No same-name DOS 4 reference found in the reference tree."
+  ],
+  "change": "No source change.",
+  "verification": "Current NT/BOP lexical scan has no hits; latest integrated-source-t61pmujw build matches all three pinned targets.",
+  "limitations": "Default target build does not validate ROMDOS; reference correspondence does not prove all historical source text."
+}

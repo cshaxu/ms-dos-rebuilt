@@ -1,0 +1,44 @@
+{
+  "previous_stage": "build\\integrated-source-0du4hovg",
+  "stage": "build\\integrated-source-9y047lqr",
+  "source_audit": "m6-loadhi-parameter-comments-source-audit.json",
+  "command_source_changes": {
+    "cmd/command/loadhi.asm": {
+      "before": "8e1f504aeccc73c3692bceafc42ea0a23859992607c6beab9af51e6d2eabec92",
+      "after": "ce1b19ba147ed5e37d6aca33d5aab641fbbe7646efef76ff950d5eba25ee9435"
+    }
+  },
+  "object_counts": {
+    "msload": 1,
+    "bios": 14,
+    "kernel": 55,
+    "command": 34
+  },
+  "object_changes": {
+    "msload": {},
+    "bios": {},
+    "kernel": {},
+    "command": {}
+  },
+  "files": [
+    {
+      "name": "IO.SYS",
+      "bytes": 33430,
+      "sha256": "dd0915ed366b3f640284df4be30ed35f413dfd5b6966c1f25eee9598a5bf53e0",
+      "byte_equal": true
+    },
+    {
+      "name": "MSDOS.SYS",
+      "bytes": 37394,
+      "sha256": "4e41ca4e5893d4cf293f81ad01adbdbd12f7039534f59148214a9cca309529a2",
+      "byte_equal": true
+    },
+    {
+      "name": "COMMAND.COM",
+      "bytes": 47845,
+      "sha256": "74ad25067e7d9f5c3a0ac2f2967347defb0ffef9e6ed60b60e6499f0b1a8cc89",
+      "byte_equal": true
+    }
+  ],
+  "scope": "Comments corrected from the implementation; no claim about original DOS 5 wording or other configurations."
+}

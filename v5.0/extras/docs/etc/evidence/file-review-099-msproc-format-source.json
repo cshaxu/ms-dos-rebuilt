@@ -1,0 +1,22 @@
+{
+  "file": "dos/msproc.asm",
+  "before_sha256": "639a7c530b6ff599f0717353c50e2ec1335304a561476083135854229752ca47",
+  "after_sha256": "4e653019c06502f3e7d13fab50f02de08f7ae1d78f2f51b962697e8ac6998202",
+  "reference": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\msproc.asm",
+  "reference_sha256": "4aa312105af8582066ac6fe55f47755f6192ac7f9f21a9f2658ab68050a65a98",
+  "changes": [
+    {
+      "before": "\tLeaveCrit   critMem\r\n\tsave\t<AX,BP>",
+      "after": "\tLeaveCrit   CritMem\r\n\tsave\t<AX,BP>"
+    },
+    {
+      "before": "\tEnterCrit   critMem\r\n\tcall\t    ChangeOwners",
+      "after": "\tEnterCrit   CritMEM\r\n\tcall\t    ChangeOwners"
+    },
+    {
+      "before": "\tLeaveCrit   critMem\r\n\tpop\t    BX",
+      "after": "\tLeaveCrit   CritMEM\r\n\tpop\t    BX"
+    }
+  ],
+  "scope": "Three critical-section macro argument capitalizations aligned exactly with DOS 6; DEBUG branch and target-specific memory threshold preserved."
+}

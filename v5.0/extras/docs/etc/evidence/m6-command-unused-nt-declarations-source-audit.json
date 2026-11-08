@@ -1,0 +1,44 @@
+{
+  "changes": {
+    "cmd/command/tcode.asm": {
+      "before": "c7601dbe1b33135811676407c465f69bd8611e9e9990ca867551ce6cc4f47513",
+      "after": "d2e4ea49a73dc53c91626bfaf05f0cc3684f2cbc70bb6529f10012b10ea88e3b",
+      "removed_lines": [
+        "\tinclude mult.inc",
+        "\tEXTRN   crit_msg_off:word       ;AC000;",
+        "\tEXTRN   crit_msg_seg:word       ;AC000;",
+        "\tEXTRN   OldTerm:DWORD",
+        "\tEXTRN   PARENT:WORD",
+        "\textrn   RetCode:word",
+        "\textrn   Io_Save:word",
+        "\textrn   RES_TPA:WORD            ; YST",
+        "\textrn\tLTPA:WORD\t\t; YST",
+        "\tEXTRN   comspec:byte",
+        "\tEXTRN   EXECPATH:BYTE",
+        "\tEXTRN   TRAN_TPA:WORD",
+        "\textrn   transpaceend:byte       ; (YST)",
+        "\tEXTRN   GETENVSIZ:near",
+        "GET_COMMAND_STATE\tequ\t5500h\t; check for existing COMMAND",
+        "NLSFUNC_installed       equ    0ffh",
+        "KEYB16_installed        equ    0ffh         ; (YST)",
+        "CHECK_KEYB16            equ    0AD80h       ; (YST)",
+        "set_global_cp           equ    2",
+        "get_global_cp           equ    1",
+        "; (YST)",
+        "TAIL segment public para",
+        "extrn TranStart:word",
+        "TAIL ENDS",
+        "; End of (YST)"
+      ]
+    },
+    "cmd/command/rdata.asm": {
+      "before": "b5dcbc88307159dc7c84bfd0218826b6e1de1e447d23f0ad4d8c8acdfdc1ff62",
+      "after": "9b1184ab2ade67dfb7ba846fb8766e36e1e9aac0e5ede95f126211fd899b40d9",
+      "removed_lines": [
+        "                                        ; when at command.com prompt. if 1 means",
+        "                                        ; allow only dos binaries."
+      ]
+    }
+  },
+  "scope": "Remove unreferenced declarations and constants left by deleted OpenNT code and an orphan comment; full compilation and output verification required."
+}

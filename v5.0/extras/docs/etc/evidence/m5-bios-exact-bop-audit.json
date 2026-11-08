@@ -1,0 +1,86 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\bios-comparison-1ojld0jg",
+  "bios_sha256": "09df7ec418edb1728662b1fe911a62c1a7bd3e19ad20b82548f022dd654750ad",
+  "objects": [
+    {
+      "module": "msbio1",
+      "sha256": "3729368811d18a8154392cb3253a2daa96d5c4ee7298567064ddd3d9a14784ab"
+    },
+    {
+      "module": "mschar",
+      "sha256": "afc86f7c4a0f81dde2bb019a7f55c6d6ba2131556bdabc539608c4b7413eb051"
+    },
+    {
+      "module": "msdisk",
+      "sha256": "83699866d4997c2bd56193d3c8183717fd64b7b62e4d1a00467e34ee9b483f84"
+    },
+    {
+      "module": "msdioctl",
+      "sha256": "70b6579ad1f7fb9b493787fde59ba4f620984b057c1846b150f8c84876806180"
+    },
+    {
+      "module": "msint13",
+      "sha256": "05eee01fc17b43d2c7dc7a9808b06ea436ae12166deb1ec613284c8421521849"
+    },
+    {
+      "module": "msbio2",
+      "sha256": "9a28d51412185f9fa84b07c0699040fd2de5dfb572a38c0f439d1839f788114e"
+    },
+    {
+      "module": "msinit",
+      "sha256": "22aa80bed0f075233fd97217540fe1d2723b5ce37ae6a6af4599653ff9598dae"
+    },
+    {
+      "module": "sysinit1",
+      "sha256": "f4620cedf0759138d5c80861b9089eea7bd2913a46e52beadaaaebb2aca6742d"
+    },
+    {
+      "module": "sysconf",
+      "sha256": "c644b2e1e1e3edf82b840643366ad4e2bd00530e517de298f242520e8fcb2b41"
+    },
+    {
+      "module": "syspre",
+      "sha256": "b9133c4f1e4d8ad411ea14ab40edb87eee073d587d1d3923330e0969d767af49"
+    },
+    {
+      "module": "sysinit2",
+      "sha256": "a118e90f85c6f9fa3b5d811400fcce1dd5ae05dc6b7ebafb35f76be4aec8ed62"
+    },
+    {
+      "module": "sysimes",
+      "sha256": "cc98fc95efc0d30b5d17a71152061ad006ad473fa1089fc6a738c56ee069c235"
+    },
+    {
+      "module": "power",
+      "sha256": "8f343f1a7e161196f0aaefe817b15aa03670fba9e3920d1a71d6a82d9a7e55b6"
+    },
+    {
+      "module": "ptime",
+      "sha256": "81c2131534d607d8393a5a14edce15728de9971d6e355059a6a66d94ce01dab3"
+    },
+    {
+      "module": "msend",
+      "sha256": "20d3d0cf8806053ba2368adc34305e134dfa9afb3a6e6eceb076da0d9ed25044"
+    }
+  ],
+  "record_counts": {
+    "ledata": 87,
+    "lidata": 88,
+    "emitted_bytes": 31216
+  },
+  "hits": [],
+  "hit_count": 0,
+  "msload": {
+    "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\msload-candidate-rannuk2h",
+    "object_sha256": "47487917af41e2ad50fad41b73849a33e93ca28f5cd8ba8b220b78f5026ba9d0",
+    "record_counts": {
+      "ledata": 3,
+      "lidata": 1,
+      "conflicting_overwrites": 0
+    },
+    "emitted_bytes": 1446,
+    "hits": [],
+    "hit_count": 0
+  },
+  "scope": "C4 C4 byte patterns in emitted LEDATA and expanded LIDATA of 15 hash-checked exact-build BIOS objects. Not a complete audit of other host interfaces, fixup effects or runtime behavior. MSLOAD object hash is independently recorded by this audit, not the original build report."
+}

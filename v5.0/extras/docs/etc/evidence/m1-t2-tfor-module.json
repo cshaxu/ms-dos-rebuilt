@@ -1,0 +1,592 @@
+{
+  "reference_start": 14529,
+  "target_start": 12255,
+  "length": 718,
+  "different_bytes": 72,
+  "masked_bytes": 166,
+  "unexplained_byte_offsets": [],
+  "operands": [
+    {
+      "module_offset": 5,
+      "kind": "R",
+      "source": "call\tForOff",
+      "reference_word": 672,
+      "target_word": 672
+    },
+    {
+      "module_offset": 10,
+      "kind": "E",
+      "source": "mov\tds,ResSeg",
+      "reference_word": 38386,
+      "target_word": 36215
+    },
+    {
+      "module_offset": 14,
+      "kind": "E",
+      "source": "CMP\t[SINGLECOM],0FF00H",
+      "reference_word": 689,
+      "target_word": 684
+    },
+    {
+      "module_offset": 22,
+      "kind": "E",
+      "source": "CMP\tNEST,0\t\t\t\t;G See if we have nested batch files",
+      "reference_word": 698,
+      "target_word": 693
+    },
+    {
+      "module_offset": 29,
+      "kind": "E",
+      "source": "MOV\t[SINGLECOM],-1\t\t\t; Cause a terminate",
+      "reference_word": 689,
+      "target_word": 684
+    },
+    {
+      "module_offset": 37,
+      "kind": "E",
+      "source": "test\t[ECHOFLAG],1\t\t\t;G  Is echo on?",
+      "reference_word": 682,
+      "target_word": 678
+    },
+    {
+      "module_offset": 44,
+      "kind": "E",
+      "source": "TEST\t[BATCH], -1\t\t\t;G  print CRLF if in batch",
+      "reference_word": 598,
+      "target_word": 594
+    },
+    {
+      "module_offset": 51,
+      "kind": "E",
+      "source": "CALL    CRLF2",
+      "reference_word": 6350,
+      "target_word": 6339
+    },
+    {
+      "module_offset": 54,
+      "kind": "E",
+      "source": "JMP\tTCOMMAND",
+      "reference_word": 60315,
+      "target_word": 62221
+    },
+    {
+      "module_offset": 59,
+      "kind": "E",
+      "source": "mov\tAX, [ForPtr]",
+      "reference_word": 696,
+      "target_word": 691
+    },
+    {
+      "module_offset": 75,
+      "kind": "R",
+      "source": "cmp\tf.for_expand, 0 \t\t; non-zero for_expand equals FALSE",
+      "reference_word": 1349,
+      "target_word": 1349
+    },
+    {
+      "module_offset": 82,
+      "kind": "R",
+      "source": "inc\tf.for_minarg",
+      "reference_word": 1351,
+      "target_word": 1351
+    },
+    {
+      "module_offset": 86,
+      "kind": "R",
+      "source": "mov\tBX, f.for_minarg\t\t; current item in <list> to examine",
+      "reference_word": 1351,
+      "target_word": 1351
+    },
+    {
+      "module_offset": 90,
+      "kind": "R",
+      "source": "cmp\tBX, f.for_maxarg",
+      "reference_word": 1353,
+      "target_word": 1353
+    },
+    {
+      "module_offset": 98,
+      "kind": "E",
+      "source": "CALL    argv_calc",
+      "reference_word": 9415,
+      "target_word": 9378
+    },
+    {
+      "module_offset": 135,
+      "kind": "R",
+      "source": "cmp\tf.for_expand, 0 \t\t; are we still expanding a name?",
+      "reference_word": 1349,
+      "target_word": 1349
+    },
+    {
+      "module_offset": 176,
+      "kind": "R",
+      "source": "mov\tf.FOR_EXPAND, AX\t\t; record success of findfirst/next",
+      "reference_word": 1349,
+      "target_word": 1349
+    },
+    {
+      "module_offset": 191,
+      "kind": "R",
+      "source": "cmp\tf.FOR_EXPAND, 0 \t\t; if we're not expanding, we can",
+      "reference_word": 1349,
+      "target_word": 1349
+    },
+    {
+      "module_offset": 217,
+      "kind": "E",
+      "source": "mov\tDI, OFFSET TRANGROUP:COMBUF+2",
+      "reference_word": 37792,
+      "target_word": 35800
+    },
+    {
+      "module_offset": 221,
+      "kind": "R",
+      "source": "mov\tbl, f.FOR_COM_START\t\t; argindex",
+      "reference_word": 1348,
+      "target_word": 1348
+    },
+    {
+      "module_offset": 225,
+      "kind": "R",
+      "source": "mov\tDH, f.FOR_VAR\t\t\t; %<for-var> is replaced by [forbuf]",
+      "reference_word": 1611,
+      "target_word": 1611
+    },
+    {
+      "module_offset": 233,
+      "kind": "E",
+      "source": "CALL    argv_calc",
+      "reference_word": 9280,
+      "target_word": 9243
+    },
+    {
+      "module_offset": 277,
+      "kind": "E",
+      "source": "mov\t[COMBUF+1], CL",
+      "reference_word": 37791,
+      "target_word": 35799
+    },
+    {
+      "module_offset": 282,
+      "kind": "E",
+      "source": "mov\tDS, [RESSEG]",
+      "reference_word": 38386,
+      "target_word": 36215
+    },
+    {
+      "module_offset": 286,
+      "kind": "E",
+      "source": "test\t[ECHOFLAG],1\t\t\t; shall we echo this <command>, dearie?",
+      "reference_word": 682,
+      "target_word": 678
+    },
+    {
+      "module_offset": 293,
+      "kind": "E",
+      "source": "cmp\tnullflag,nullcommand\t\t;G was there a command last time?",
+      "reference_word": 704,
+      "target_word": 699
+    },
+    {
+      "module_offset": 299,
+      "kind": "E",
+      "source": "CALL    CRLF2",
+      "reference_word": 6102,
+      "target_word": 6091
+    },
+    {
+      "module_offset": 303,
+      "kind": "E",
+      "source": "mov\tnullflag,0\t\t\t;G reset no command flag",
+      "reference_word": 704,
+      "target_word": 699
+    },
+    {
+      "module_offset": 310,
+      "kind": "E",
+      "source": "CALL    PRINT_PROMPT",
+      "reference_word": 3912,
+      "target_word": 3898
+    },
+    {
+      "module_offset": 320,
+      "kind": "E",
+      "source": "mov\tstring_ptr_2,OFFSET TRANGROUP:COMBUF+2",
+      "reference_word": 38880,
+      "target_word": 36709
+    },
+    {
+      "module_offset": 322,
+      "kind": "E",
+      "source": "mov\tstring_ptr_2,OFFSET TRANGROUP:COMBUF+2",
+      "reference_word": 37792,
+      "target_word": 35800
+    },
+    {
+      "module_offset": 325,
+      "kind": "E",
+      "source": "mov\tdx,offset trangroup:string_buf_ptr",
+      "reference_word": 35707,
+      "target_word": 33754
+    },
+    {
+      "module_offset": 328,
+      "kind": "E",
+      "source": "CALL    std_printf",
+      "reference_word": 16692,
+      "target_word": 16649
+    },
+    {
+      "module_offset": 336,
+      "kind": "E",
+      "source": "jmp\tDoCom",
+      "reference_word": 61514,
+      "target_word": 62404
+    },
+    {
+      "module_offset": 340,
+      "kind": "E",
+      "source": "mov\tnullflag,0\t\t\t;G reset no command flag",
+      "reference_word": 704,
+      "target_word": 699
+    },
+    {
+      "module_offset": 346,
+      "kind": "E",
+      "source": "jmp\tdocom1",
+      "reference_word": 61504,
+      "target_word": 62397
+    },
+    {
+      "module_offset": 349,
+      "kind": "R",
+      "source": "call\tForOff",
+      "reference_word": 328,
+      "target_word": 328
+    },
+    {
+      "module_offset": 352,
+      "kind": "R",
+      "source": "jmp\tfornesterr",
+      "reference_word": 299,
+      "target_word": 299
+    },
+    {
+      "module_offset": 355,
+      "kind": "E",
+      "source": "jmp\tforerror",
+      "reference_word": 64357,
+      "target_word": 64357
+    },
+    {
+      "module_offset": 359,
+      "kind": "E",
+      "source": "mov\tES, [RESSEG]",
+      "reference_word": 38386,
+      "target_word": 36215
+    },
+    {
+      "module_offset": 364,
+      "kind": "E",
+      "source": "cmp\tForFlag,0\t\t\t; is another one already running?",
+      "reference_word": 695,
+      "target_word": 690
+    },
+    {
+      "module_offset": 372,
+      "kind": "E",
+      "source": "cmp\t[PIPEFILES],0\t\t\t; Only turn off if present.",
+      "reference_word": 817,
+      "target_word": 799
+    },
+    {
+      "module_offset": 378,
+      "kind": "E",
+      "source": "CALL    PipeDel",
+      "reference_word": 7919,
+      "target_word": 7882
+    },
+    {
+      "module_offset": 383,
+      "kind": "R",
+      "source": "call\tnextarg \t\t\t; move to next argv[n]",
+      "reference_word": 246,
+      "target_word": 246
+    },
+    {
+      "module_offset": 399,
+      "kind": "R",
+      "source": "call\tnextarg \t\t\t; let's make sure the next arg is 'in'",
+      "reference_word": 230,
+      "target_word": 230
+    },
+    {
+      "module_offset": 417,
+      "kind": "R",
+      "source": "call\tnextarg \t\t\t; lparen delimits beginning of <list>",
+      "reference_word": 212,
+      "target_word": 212
+    },
+    {
+      "module_offset": 436,
+      "kind": "R",
+      "source": "jmp\tforterm",
+      "reference_word": 65098,
+      "target_word": 65098
+    },
+    {
+      "module_offset": 447,
+      "kind": "R",
+      "source": "call\tnextarg \t\t\t; what have we in our <list>?",
+      "reference_word": 182,
+      "target_word": 182
+    },
+    {
+      "module_offset": 457,
+      "kind": "R",
+      "source": "jmp\tforterm",
+      "reference_word": 65077,
+      "target_word": 65077
+    },
+    {
+      "module_offset": 460,
+      "kind": "E",
+      "source": "jmp\tforerror",
+      "reference_word": 64252,
+      "target_word": 64252
+    },
+    {
+      "module_offset": 477,
+      "kind": "R",
+      "source": "call\tnextarg \t\t\t; No, get next arg <list>",
+      "reference_word": 152,
+      "target_word": 152
+    },
+    {
+      "module_offset": 495,
+      "kind": "R",
+      "source": "call\tnextarg \t\t\t; now we had BETTER find a 'do'...",
+      "reference_word": 134,
+      "target_word": 134
+    },
+    {
+      "module_offset": 513,
+      "kind": "R",
+      "source": "call\tnextarg \t\t\t; on to the beginning of <command>",
+      "reference_word": 116,
+      "target_word": 116
+    },
+    {
+      "module_offset": 525,
+      "kind": "E",
+      "source": "CALL    FREE_TPA",
+      "reference_word": 63290,
+      "target_word": 63290
+    },
+    {
+      "module_offset": 528,
+      "kind": "R",
+      "source": "call\tForOff",
+      "reference_word": 149,
+      "target_word": 149
+    },
+    {
+      "module_offset": 534,
+      "kind": "E",
+      "source": "CALL    Save_Args",
+      "reference_word": 9817,
+      "target_word": 9774
+    },
+    {
+      "module_offset": 539,
+      "kind": "E",
+      "source": "mov\t[ForPtr], AX",
+      "reference_word": 696,
+      "target_word": 691
+    },
+    {
+      "module_offset": 542,
+      "kind": "E",
+      "source": "CALL    ALLOC_TPA",
+      "reference_word": 63289,
+      "target_word": 63289
+    },
+    {
+      "module_offset": 558,
+      "kind": "E",
+      "source": "push\t[ForPtr]",
+      "reference_word": 696,
+      "target_word": 691
+    },
+    {
+      "module_offset": 566,
+      "kind": "R",
+      "source": "mov\tf.for_minarg, CX",
+      "reference_word": 1351,
+      "target_word": 1351
+    },
+    {
+      "module_offset": 571,
+      "kind": "R",
+      "source": "mov\tf.for_maxarg, DI",
+      "reference_word": 1353,
+      "target_word": 1353
+    },
+    {
+      "module_offset": 576,
+      "kind": "R",
+      "source": "mov\tf.for_com_start, DL",
+      "reference_word": 1348,
+      "target_word": 1348
+    },
+    {
+      "module_offset": 581,
+      "kind": "R",
+      "source": "mov\tf.for_expand, -1\t\t; non-zero means FALSE",
+      "reference_word": 1349,
+      "target_word": 1349
+    },
+    {
+      "module_offset": 590,
+      "kind": "R",
+      "source": "mov\tf.for_var, AH",
+      "reference_word": 1611,
+      "target_word": 1611
+    },
+    {
+      "module_offset": 596,
+      "kind": "E",
+      "source": "inc\t[FORFLAG]",
+      "reference_word": 695,
+      "target_word": 690
+    },
+    {
+      "module_offset": 601,
+      "kind": "E",
+      "source": "cmp\t[SINGLECOM], -1",
+      "reference_word": 689,
+      "target_word": 684
+    },
+    {
+      "module_offset": 609,
+      "kind": "E",
+      "source": "mov\t[SINGLECOM], 0FF00H",
+      "reference_word": 689,
+      "target_word": 684
+    },
+    {
+      "module_offset": 616,
+      "kind": "E",
+      "source": "mov\tmsg_disp_class,ext_msg_class\t;AN000; set up extended error msg class",
+      "reference_word": 35250,
+      "target_word": 33297
+    },
+    {
+      "module_offset": 620,
+      "kind": "E",
+      "source": "mov\tdx,offset TranGroup:Extend_Buf_ptr     ;AC000; get extended message pointer",
+      "reference_word": 35252,
+      "target_word": 33299
+    },
+    {
+      "module_offset": 624,
+      "kind": "E",
+      "source": "mov\tExtend_Buf_ptr,error_not_enough_memory ;AN000; get message number in control block",
+      "reference_word": 35252,
+      "target_word": 33299
+    },
+    {
+      "module_offset": 629,
+      "kind": "E",
+      "source": "jmp\tcerror",
+      "reference_word": 6714,
+      "target_word": 6677
+    },
+    {
+      "module_offset": 634,
+      "kind": "E",
+      "source": "cmp\tDX, arg.argvcnt \t\t; make sure we don't run off end",
+      "reference_word": 40000,
+      "target_word": 37829
+    },
+    {
+      "module_offset": 641,
+      "kind": "E",
+      "source": "mov\tAX, OFFSET TRANGROUP:arg.argv",
+      "reference_word": 39296,
+      "target_word": 37125
+    },
+    {
+      "module_offset": 644,
+      "kind": "E",
+      "source": "CALL    argv_calc",
+      "reference_word": 8869,
+      "target_word": 8832
+    },
+    {
+      "module_offset": 656,
+      "kind": "E",
+      "source": "MOV\tDS,[RESSEG]",
+      "reference_word": 38386,
+      "target_word": 36215
+    },
+    {
+      "module_offset": 659,
+      "kind": "E",
+      "source": "MOV\tDX,OFFSET TRANGROUP:FORNESTMES_ptr",
+      "reference_word": 35602,
+      "target_word": 33649
+    },
+    {
+      "module_offset": 663,
+      "kind": "E",
+      "source": "CMP\t[SINGLECOM],0FF00H",
+      "reference_word": 689,
+      "target_word": 684
+    },
+    {
+      "module_offset": 671,
+      "kind": "E",
+      "source": "MOV\t[SINGLECOM],-1\t\t\t; Cause termination",
+      "reference_word": 689,
+      "target_word": 684
+    },
+    {
+      "module_offset": 677,
+      "kind": "E",
+      "source": "JMP\tCERROR",
+      "reference_word": 6666,
+      "target_word": 6629
+    },
+    {
+      "module_offset": 684,
+      "kind": "E",
+      "source": "mov\tes,ResSeg",
+      "reference_word": 38386,
+      "target_word": 36215
+    },
+    {
+      "module_offset": 688,
+      "kind": "E",
+      "source": "mov\tAX,ForPtr",
+      "reference_word": 696,
+      "target_word": 691
+    },
+    {
+      "module_offset": 705,
+      "kind": "E",
+      "source": "mov\tForPtr,0",
+      "reference_word": 696,
+      "target_word": 691
+    },
+    {
+      "module_offset": 712,
+      "kind": "E",
+      "source": "mov\tForFlag,0",
+      "reference_word": 695,
+      "target_word": 690
+    }
+  ],
+  "limitation": "MASM annotations include internal references and structure offsets; this is layout evidence, not a full relocation/link proof or behavior test."
+}

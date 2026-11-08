@@ -1,0 +1,106 @@
+{
+  "primary_source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\dos\\dir2.asm",
+  "primary_source_sha256": "99c0448c781c6e521524aed7b0d565cc41f3201111163fce2d983a6207e59821",
+  "candidate_modules": [
+    {
+      "module": "getpath",
+      "bytes": 858,
+      "source_sha256": "705cd86568b31c06adfd6a609e76c220cb3cfb033757bedb610205024d51644d",
+      "report": "m4-t5-getpath-verification.json",
+      "dependencies": [
+        {
+          "symbol": "SETDIRSRCH",
+          "linked_symbol_exists": false,
+          "target_call_site": 16700,
+          "target_destination": 16396
+        },
+        {
+          "symbol": "GETLET",
+          "linked_symbol_exists": true,
+          "target_call_site": 16723,
+          "target_destination": 20965
+        },
+        {
+          "symbol": "PATHCHRCMP",
+          "linked_symbol_exists": true,
+          "target_call_site": 16730,
+          "target_destination": 21051
+        },
+        {
+          "symbol": "SETROOTSRCH",
+          "linked_symbol_exists": false,
+          "target_call_site": 16759,
+          "target_destination": 16460
+        },
+        {
+          "symbol": "LOOKUPPATH",
+          "linked_symbol_exists": false,
+          "target_call_site": 16938,
+          "target_destination": 17614
+        },
+        {
+          "symbol": "FINDENTRY",
+          "linked_symbol_exists": false,
+          "target_call_site": 16943,
+          "target_destination": 16064
+        },
+        {
+          "symbol": "GETBUFFR",
+          "linked_symbol_exists": true,
+          "target_call_site": 17077,
+          "target_destination": 23307
+        },
+        {
+          "symbol": "SET_BUF_AS_DIR",
+          "linked_symbol_exists": false,
+          "target_call_site": 17091,
+          "target_destination": 14378
+        },
+        {
+          "symbol": "INSERTPATH",
+          "linked_symbol_exists": false,
+          "target_call_site": 17103,
+          "target_destination": 17778
+        },
+        {
+          "symbol": "DATE16",
+          "linked_symbol_exists": false,
+          "target_call_site": 17327,
+          "target_destination": 2801
+        }
+      ]
+    },
+    {
+      "module": "fastpath",
+      "bytes": 296,
+      "source_sha256": "306e54169b32215a4b059548dd262dffbc68dbdb691dcb5ef09a2eba69873471",
+      "report": "m4-t5-fastpath-verification.json",
+      "dependencies": [
+        {
+          "symbol": "MATCHATTRIBUTES",
+          "linked_symbol_exists": true,
+          "target_call_site": 17691,
+          "target_destination": 17200
+        }
+      ]
+    }
+  ],
+  "snapshot_checks": {
+    "m4-t5-patchmisc-build.json": {
+      "count": 111,
+      "mismatches": []
+    },
+    "m2-t3-command-exact-verification.json": {
+      "count": 113,
+      "mismatches": []
+    }
+  },
+  "changes": [
+    "Enable retained GETPATH and ROOTPATH/FINDPATH blocks",
+    "Restore DATE16 call omitted by NT",
+    "Expose LookupPath/InsertPath as external only for bounded comparison",
+    "Enable retained FastOpen body and include dpb.inc"
+  ],
+  "next": "Recover comparative dir.asm SEARCH/FindEntry/GETENTRY/SETDIRSRCH/SETROOTSRCH with target proof; recover disk SET_BUF_AS_DIR and transitive disk helpers before integration.",
+  "limits": "Linked-symbol presence does not prove implementation or runtime correctness. Target-layout external addresses are not integrated dependencies. dir2.physical.recovery.asm is exploratory and still contains NT stub/host code; it is not a production replacement."
+}

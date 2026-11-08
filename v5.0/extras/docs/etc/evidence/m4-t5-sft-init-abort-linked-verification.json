@@ -1,0 +1,28 @@
+{
+  "target_source": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\target-kernel-inspect.bin",
+  "link_report": "m4-t5-physical-sft-link-probe.json",
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\physical-sft-probe-gaif7wrl",
+  "sft_init": {
+    "target_start": 31328,
+    "linked_code_offset": 47152,
+    "bytes": 51,
+    "raw_exact": true
+  },
+  "abort": {
+    "target_start": 12253,
+    "linked_code_offset": 26973,
+    "bytes": 109,
+    "relocation_correspondence": true,
+    "named_calls": [
+      {
+        "symbol": "$close",
+        "linked_offset": 38895
+      },
+      {
+        "symbol": "sffromsfn",
+        "linked_offset": 38760
+      }
+    ]
+  },
+  "scope": "Actual linked MZ load-image slices only; not runtime, complete startup, physical data layout, or whole-kernel acceptance."
+}

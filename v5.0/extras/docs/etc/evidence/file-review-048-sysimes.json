@@ -1,0 +1,132 @@
+{
+  "index": 48,
+  "file": "bios/sysimes.asm",
+  "reviewed_sha256": "8d88bc79822b6650e0046c32a8c1463b5305910263d1e6d486ea24568530aafc",
+  "status": "reviewed",
+  "role": "Declare initialization message symbols and include the generated BIOS class 3 message source.",
+  "references": {
+    "opennt": {
+      "status": "different",
+      "sha256": "c78fd2ddb0e2fc5683d3054ca426976a1dffd72e2adfbbf19a7eea345dc3cf8a",
+      "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\bios\\sysimes.asm"
+    },
+    "dos6": {
+      "status": "different",
+      "sha256": "f81889db61617ea4610405cac043074344e111c5b24132ff4d497fcf13468059",
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\sysimes.asm"
+    },
+    "dos4": {
+      "status": "different",
+      "sha256": "05a5f444b2575a5c5bbb18e72f38932295c70db0f3413b3ab9976d1a9c1c6412",
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\BIOS\\sysimes.asm"
+    }
+  },
+  "review": {
+    "active_statement_count": 13,
+    "opennt_active_statements_equal_after_whitespace_normalization": true,
+    "differences": "NT-only porting history comment removed; whitespace and EOF differ. DOS 6 has later multi-configuration message declarations absent from current configuration.",
+    "host_only_services": "No BOP or NT host service statements in file.",
+    "prior_evidence": "docs/etc/evidence/m5-bios-message-source-verification.json"
+  },
+  "verification": {
+    "stage": "build\\integrated-source-3qm3v2jp",
+    "built_source_identical": true,
+    "object_sha256": "cc98fc95efc0d30b5d17a71152061ad006ad473fa1089fc6a738c56ee069c235",
+    "generated_include_sha256": "279d5cf516a39248f910a17e02647f37737b2c4607a6cd119dc7236affed78e2",
+    "message_entries": [
+      {
+        "label": "BADOPM",
+        "target_file_offset": 32954,
+        "length": 36,
+        "sha256": "904aafc3e4f0f2c103b0ed528e1882152c6c52b7112323048e515b0c8e5a77d8"
+      },
+      {
+        "label": "CRLFM",
+        "target_file_offset": 32990,
+        "length": 3,
+        "sha256": "a2ed38b0fa8e73391aca24935486b71b90021e30271dc0fc462878423af7050b"
+      },
+      {
+        "label": "BadParm",
+        "target_file_offset": 32993,
+        "length": 31,
+        "sha256": "79b8d7c1705661a48ec7b14dc3004c228c69c48cdf8529c69dd7037850cfcf1b"
+      },
+      {
+        "label": "BADSIZ_PRE",
+        "target_file_offset": 33024,
+        "length": 33,
+        "sha256": "b0d58b18a969a513c8c9032195c70f5c27e0c4e212f09c872806a64f6b982be3"
+      },
+      {
+        "label": "BADLD_PRE",
+        "target_file_offset": 33057,
+        "length": 18,
+        "sha256": "750426295b76d631aa768367e5562c0064f23c8655087af4e57585b713e08155"
+      },
+      {
+        "label": "BADCOM",
+        "target_file_offset": 33075,
+        "length": 20,
+        "sha256": "35312a2657ac41964621034331adddc833655a639e3c9726acf8fb946102d544"
+      },
+      {
+        "label": "BADCOUNTRY",
+        "target_file_offset": 33095,
+        "length": 38,
+        "sha256": "458b1fd82762f605dcd2d7a5ff93255bed4f0a610c9dacf4f378974d12ff45e3"
+      },
+      {
+        "label": "BADCOUNTRYCOM",
+        "target_file_offset": 33133,
+        "length": 29,
+        "sha256": "19e94750d87a48fd439d8c119bc34432ba2f2fb93ff381838d1f5580341a7645"
+      },
+      {
+        "label": "INSUFMEMORY",
+        "target_file_offset": 33162,
+        "length": 45,
+        "sha256": "653cf75b7562babc9dbe44cc4ee984b2bfd06d0fe4720704b2dbce3b462ce834"
+      },
+      {
+        "label": "BADMEM",
+        "target_file_offset": 33207,
+        "length": 39,
+        "sha256": "c42ae55d1f613b82687d344b00ea22c19eb8c4457a80e4d393436a1a01f816e6"
+      },
+      {
+        "label": "BADBLOCK",
+        "target_file_offset": 33246,
+        "length": 27,
+        "sha256": "5ecc6bb38f45db136de3697fb3cc89bc80f536b1a0f76b1f6b26ae37df59c222"
+      },
+      {
+        "label": "BADSTACK",
+        "target_file_offset": 33273,
+        "length": 29,
+        "sha256": "ce6035aa6efae6995fb07b34108d566612b6554ae99ec7a029095319797740a9"
+      },
+      {
+        "label": "BADORDER",
+        "target_file_offset": 33302,
+        "length": 38,
+        "sha256": "e2d6a55ff07e9c1ee23d8a2858fc52575f60ee1268691742c502082ee78850d1"
+      },
+      {
+        "label": "ERRORCMD",
+        "target_file_offset": 33340,
+        "length": 26,
+        "sha256": "d23c545420671dc971fae0772d5d70313e0596012c9c0c2e497c33401c2b10b7"
+      },
+      {
+        "label": "toomanydrivesmsg",
+        "target_file_offset": 33366,
+        "length": 60,
+        "sha256": "4077eb02077c84f569b8bb3cd92ab6ebdc015f35cd49fec0f235a8264632d749"
+      }
+    ],
+    "all_three_targets_byte_equal": true,
+    "limits": "Matches 15 messages against retained target and previously recorded reference message hashes; optional DOS 6 multi-config is not validated and exact DOS 5 source is not established."
+  },
+  "disposition": "Retained unchanged; initialization message module reviewed."
+}

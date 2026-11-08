@@ -1,0 +1,67 @@
+{
+  "moved": [
+    {
+      "original": "inc/ntvdm/bop.inc",
+      "archive": "research/inc/ntvdm/bop.inc",
+      "sha256": "a3705f225c47e53dc4e106c7362366477f2f06c33cb9bf52515ca1299556f669"
+    },
+    {
+      "original": "inc/ntvdm/cmdsvc.inc",
+      "archive": "research/inc/ntvdm/cmdsvc.inc",
+      "sha256": "7643746ceec383536ca3ea2cfc4400ac94c8c7a34bd266b09258cfcb337441c6"
+    },
+    {
+      "original": "inc/ntvdm/curdir.inc",
+      "archive": "research/inc/ntvdm/curdir.inc",
+      "sha256": "8490c9aa0702bc17b6f73483837159934aa8c8f353df5402b71812ea87d63762"
+    },
+    {
+      "original": "inc/ntvdm/DBGSVC.INC",
+      "archive": "research/inc/ntvdm/DBGSVC.INC",
+      "sha256": "296a6387cfe02445e6c8d43f9f68e1fd4dfbd9d654de3ba6460dee54f6dfc171"
+    },
+    {
+      "original": "inc/ntvdm/dossvc.inc",
+      "archive": "research/inc/ntvdm/dossvc.inc",
+      "sha256": "07c4676c9a44418c5a0175acc7a09c251bde892b0a838381edeee26e49c9faf3"
+    },
+    {
+      "original": "inc/ntvdm/DOSWOW.INC",
+      "archive": "research/inc/ntvdm/DOSWOW.INC",
+      "sha256": "d6bd8a52bff2980dacab518da8f2330da5bb978e6c07d1846662078da49444fb"
+    },
+    {
+      "original": "inc/ntvdm/vint.inc",
+      "archive": "research/inc/ntvdm/vint.inc",
+      "sha256": "2ba06b3eea9a8ec96236d96ff7d996274b3feb5ac456524d6a9e8bd6a44541c7"
+    },
+    {
+      "original": "inc/kernel/const2.asm",
+      "archive": "research/inc/kernel/const2.asm",
+      "sha256": "3c783864d6de588efc061dc862c5f1d994351000445346bf4900a6d99e8695d5"
+    },
+    {
+      "original": "inc/kernel/cputype.inc",
+      "archive": "research/inc/kernel/cputype.inc",
+      "sha256": "e9bf8b0a5ee0e10936d5403cddadacc898ce1f8b6807ab955b2d0639e5b50cb0"
+    },
+    {
+      "original": "inc/kernel/curdir.inc",
+      "archive": "research/inc/kernel/curdir.inc",
+      "sha256": "bc780ae1b35d018b2ec60f7c49465e4a52b1f1356832d4d178a6f0f5f228cda4"
+    }
+  ],
+  "script_hashes": {
+    "tools/assemble_command_reference.py": "87ae2c3e6194f976e1bb30badab88ff3a7282e644b6c13ccad1fb3d52798576e",
+    "tools/assemble_kernel_reference.py": "14261f845ec4b110b1f40f6af6a79f0f0a69870f4e61fb6fd54577706b68652c",
+    "tools/probe_buf_dependencies.py": "7ad4d0dcd1bbd450e28f47dd9cc9c309d4e55323f54736052df725b9090f1aff",
+    "tools/probe_disk_dependencies.py": "b2526be91cea81978140ab3f3ad8d6d56089af3bea1175e516b3daa9d1ff82eb",
+    "tools/probe_fat_dependencies.py": "223dbf60200003a403ebcda455dc7471a7cc9abd00dd0d413d9327ee70f6925e",
+    "tools/probe_storage_group.py": "ac6e04fd8af27fa7602c6d366d9c7a9bc83a73393f2bcc29ffdb2b68958e5786",
+    "tools/verify_command_listing_includes.py": "972f0e1106cb8d24dbda1e84e670a271e7d8cdf0c96adfe9a9ba658ab15a7510",
+    "tools/verify_exec_header.py": "1e61daa88e5ad12028d38d77c513ab12b5c35f38e53def148dd02805f0c4a152",
+    "tools/verify_storage_candidate.py": "97deed9e6a2d22050ae539f64ce5894b74b001cb9a10a820edd22a9c0a3c6f55",
+    "tools/build_kernel.py": "46429d277f828526260733eb7218d24333a54f845e3cdb44089c9ce15db17c15"
+  },
+  "note": "Inactive NT research includes preserved byte-for-byte; historical staged layouts remain unchanged. Historical experiments are not the integrated build."
+}

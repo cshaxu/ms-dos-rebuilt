@@ -1,0 +1,424 @@
+{
+  "file": "dos/msinit.asm",
+  "before_sha256": "83782a7b23723ed8cacfb6ad1006eeaef70ef282e49e70be339e29ff79204411",
+  "after_sha256": "4a1903bb097c7116edd3c2f81772d815a9b6c5ea5aff442e6872c9d516865345",
+  "reference": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\msinit.asm",
+  "reference_sha256": "67a662e3c6c186fd2fe0604624557077dcd7f8be65f85e3be01f26f250a0c2a0",
+  "changes": [
+    {
+      "line": 52,
+      "reference_line": 59,
+      "before": "\tinclude win386.inc                      ;Win386 constants",
+      "after": "\tinclude win386.inc\t;Win386 constants"
+    },
+    {
+      "line": 114,
+      "reference_line": 131,
+      "before": "\textrn\tmsct001s:byte           ; start of dosdata segment",
+      "after": "\textrn\tmsct001s:byte\t\t; start of dosdata segment\t"
+    },
+    {
+      "line": 330,
+      "reference_line": 438,
+      "before": "\tmov\tcx, 7                   ; There are 7 entries in the instance table",
+      "after": "\tmov\tcx, 7\t\t; There are 7 entries in the instance table"
+    },
+    {
+      "line": 536,
+      "reference_line": 688,
+      "before": "                                        ; set seg inpacketto dosdata",
+      "after": "\t\t\t\t\t; set seg inpacketto dosdata\t\t\t\t\t"
+    },
+    {
+      "line": 550,
+      "reference_line": 702,
+      "before": "\tmov\tax, [temp_dosloc]       ; ax = segment to patch in",
+      "after": "\tmov\tax, [temp_dosloc]\t; ax = segment to patch in "
+    },
+    {
+      "line": 555,
+      "reference_line": 707,
+      "before": "\tcall\tpatch_misc_segments     ; patch in segments for sharer and",
+      "after": "\tcall\tpatch_misc_segments\t; patch in segments for sharer and "
+    },
+    {
+      "line": 572,
+      "reference_line": 724,
+      "before": "assume  ds:nothing,es:nothing",
+      "after": "assume\tds:nothing,es:nothing"
+    },
+    {
+      "line": 574,
+      "reference_line": 726,
+      "before": "        ; set the segment of int 24 vector that was",
+      "after": "\t; set the segment of int 24 vector that was "
+    },
+    {
+      "line": 597,
+      "reference_line": 764,
+      "before": "\tadd\tdi,4                    ; skip vector 29h",
+      "after": "\tadd\tdi,4\t\t\t; skip vector 29h"
+    },
+    {
+      "line": 599,
+      "reference_line": 767,
+      "before": "\tmov\tcx,6                    ; set 6 offsets (skip 2 between each)",
+      "after": "\tmov\tcx,6\t\t\t; set 6 offsets (skip 2 between each)"
+    },
+    {
+      "line": 609,
+      "reference_line": 777,
+      "before": "\tadd\tdi,8                    ; skip vector 30h & 31h",
+      "after": "\tadd\tdi,8\t\t\t; skip vector 30h & 31h "
+    },
+    {
+      "line": 612,
+      "reference_line": 780,
+      "before": "\tmov\tcx,14                   ; set 14 offsets (skip 2 between each)",
+      "after": "\tmov\tcx,14\t\t\t; set 14 offsets (skip 2 between each)"
+    },
+    {
+      "line": 628,
+      "reference_line": 796,
+      "before": "        ; set up entry point call at vectors 30-31h. Note the segment of the",
+      "after": "\t; set up entry point call at vectors 30-31h. Note the segment of the "
+    },
+    {
+      "line": 714,
+      "reference_line": 885,
+      "before": "        ; Fill in the segment addresses of sysinitvar and country_cdpg",
+      "after": "\t; Fill in the segment addresses of sysinitvar and country_cdpg "
+    },
+    {
+      "line": 759,
+      "reference_line": 930,
+      "before": "                                        ; pass the address os seg_reinit",
+      "after": "\t\t\t\t\t; pass the address os seg_reinit "
+    },
+    {
+      "line": 873,
+      "reference_line": 1048,
+      "before": ";                       patch segment of vectors with segment in ES",
+      "after": ";\t\t\tpatch segment of vectors with segment in ES\t"
+    },
+    {
+      "line": 888,
+      "reference_line": 1064,
+      "before": "\tcall\tpatch_misc_segments     ; patch in segments for sharer and",
+      "after": "\tcall\tpatch_misc_segments\t; patch in segments for sharer and "
+    },
+    {
+      "line": 896,
+      "reference_line": 1070,
+      "before": "\tcmp\tnum_entry, 0            ; Q: is it the first call to this",
+      "after": "\tcmp\tnum_entry, 0\t\t; Q: is it the first call to this "
+    },
+    {
+      "line": 897,
+      "reference_line": 1071,
+      "before": "\tjne\tsecond_entry            ; N: just patch the stub with",
+      "after": "\tjne\tsecond_entry\t\t; N: just patch the stub with "
+    },
+    {
+      "line": 899,
+      "reference_line": 1073,
+      "before": "                                        ; Y: patch the vectors with stub",
+      "after": "\t\t\t\t\t; Y: patch the vectors with stub "
+    },
+    {
+      "line": 902,
+      "reference_line": 1076,
+      "before": "\tcall\tpatch_offset            ; patch the offsets of vectors",
+      "after": "\tcall\tpatch_offset\t\t; patch the offsets of vectors "
+    },
+    {
+      "line": 916,
+      "reference_line": 1090,
+      "before": "        loop    dosinttabloop",
+      "after": "\tloop\tdosinttabloop\t"
+    },
+    {
+      "line": 926,
+      "reference_line": 1106,
+      "before": "\tmov\t[DosHasHMA], 1          ; set flag telling DOS control of HMA",
+      "after": "\tmov\t[DosHasHMA], 1\t\t; set flag telling DOS control of HMA "
+    },
+    {
+      "line": 928,
+      "reference_line": 1108,
+      "before": "                                        ; set pointer to the routine that",
+      "after": "\t\t\t\t\t; set pointer to the routine that "
+    },
+    {
+      "line": 932,
+      "reference_line": 1112,
+      "before": "                                        ; M068: set pointer to the routine",
+      "after": "\t\t\t\t\t; M068: set pointer to the routine "
+    },
+    {
+      "line": 954,
+      "reference_line": 1134,
+      "before": "                                        ; NOTE we don't have to patch the",
+      "after": "\t\t\t\t\t; NOTE we don't have to patch the "
+    },
+    {
+      "line": 962,
+      "reference_line": 1142,
+      "before": "        ret",
+      "after": "\tret\t\t"
+    },
+    {
+      "line": 989,
+      "reference_line": 1191,
+      "before": "assume  es:nothing",
+      "after": "assume\tes:nothing"
+    },
+    {
+      "line": 1008,
+      "reference_line": 1210,
+      "before": "                                        ; set vectors 25-28 and 2a-3f",
+      "after": "\t\t\t\t\t; set vectors 25-28 and 2a-3f "
+    },
+    {
+      "line": 1012,
+      "reference_line": 1214,
+      "before": "        stosw",
+      "after": "\tstosw\t\t\t\t"
+    },
+    {
+      "line": 1030,
+      "reference_line": 1232,
+      "before": "\tadd\tdi,8                    ; skip vector 30h & 31h",
+      "after": "\tadd\tdi,8\t\t\t; skip vector 30h & 31h "
+    },
+    {
+      "line": 1093,
+      "reference_line": 1295,
+      "before": "                                        ;  N:",
+      "after": "\t\t\t\t\t;  N: "
+    },
+    {
+      "line": 1095,
+      "reference_line": 1297,
+      "before": "\tjne\tno_share_patch          ;  Y: don't patch in sharer table",
+      "after": "\tjne\tno_share_patch\t\t;  Y: don't patch in sharer table"
+    },
+    {
+      "line": 1103,
+      "reference_line": 1305,
+      "before": "                                        ; BUGBUG patching the country info",
+      "after": "\t\t\t\t\t; BUGBUG patching the country info "
+    },
+    {
+      "line": 1124,
+      "reference_line": 1326,
+      "before": "\tcmp\t[temp_dosloc], -1       ; Q: first time",
+      "after": "\tcmp\t[temp_dosloc], -1\t; Q: first time "
+    },
+    {
+      "line": 1130,
+      "reference_line": 1332,
+      "before": "\tjne\tno_fast_patch           ; Y: don't patch in doscode seg",
+      "after": "\tjne\tno_fast_patch\t\t; Y: don't patch in doscode seg"
+    },
+    {
+      "line": 1162,
+      "reference_line": 1364,
+      "before": "assume  ds:nothing,es:nothing",
+      "after": "assume\tds:nothing,es:nothing"
+    },
+    {
+      "line": 1191,
+      "reference_line": 1393,
+      "before": "\tadd\tdi,4            ; skip vector 29h",
+      "after": "\tadd\tdi,4\t\t; skip vector 29h"
+    },
+    {
+      "line": 1194,
+      "reference_line": 1396,
+      "before": "\tmov\tcx,6            ; set 6 offsets (skip 2 between each)",
+      "after": "\tmov\tcx,6\t\t; set 6 offsets (skip 2 between each)"
+    },
+    {
+      "line": 1204,
+      "reference_line": 1406,
+      "before": "\tadd\tdi,8            ; skip vector 30h & 31h",
+      "after": "\tadd\tdi,8\t\t; skip vector 30h & 31h "
+    },
+    {
+      "line": 1207,
+      "reference_line": 1409,
+      "before": "\tmov\tcx,14           ; set 14 offsets (skip 2 between each)",
+      "after": "\tmov\tcx,14\t\t; set 14 offsets (skip 2 between each)"
+    },
+    {
+      "line": 1245,
+      "reference_line": 1447,
+      "before": ";               This routine patches in 2 nops at the offsets specifed in",
+      "after": ";\t\tThis routine patches in 2 nops at the offsets specifed in "
+    },
+    {
+      "line": 1246,
+      "reference_line": 1448,
+      "before": ";       patch_table. This basically enables the low mem stub to start",
+      "after": ";\tpatch_table. This basically enables the low mem stub to start "
+    },
+    {
+      "line": 1288,
+      "reference_line": 1490,
+      "before": ";M060;  ;db     \"SPECIAL ENTRIES TABLE\",0     ;an007  tiltle",
+      "after": ";M060;\t;db\t\"SPECIAL ENTRIES TABLE\",0     ;an007  tiltle"
+    },
+    {
+      "line": 1294,
+      "reference_line": 1496,
+      "before": ";M060;  db      10,\"WIN200.BIN\"         ,3,40   ; windows 2.x",
+      "after": ";M060;\tdb\t10,\"WIN200.BIN\" \t,3,40  \t; windows 2.x "
+    },
+    {
+      "line": 1295,
+      "reference_line": 1497,
+      "before": ";M060;  db      10,\"WIN100.BIN\"         ,3,40   ; win 1.x",
+      "after": ";M060;\tdb\t10,\"WIN100.BIN\" \t,3,40\t; win 1.x "
+    },
+    {
+      "line": 1296,
+      "reference_line": 1498,
+      "before": ";M060;  db      11,\"WINWORD.EXE\"        ,4,10   ; winword 1.0",
+      "after": ";M060;\tdb\t11,\"WINWORD.EXE\"\t,4,10\t; winword 1.0\t"
+    },
+    {
+      "line": 1297,
+      "reference_line": 1499,
+      "before": ";M060;  db      9, \"EXCEL.EXE\"          ,4,10   ; excel 2.x",
+      "after": ";M060;\tdb\t9, \"EXCEL.EXE\"\t\t,4,10\t; excel 2.x"
+    },
+    {
+      "line": 1298,
+      "reference_line": 1500,
+      "before": ";M060;  db      11,\"HITACHI.SYS\"        ,4,00   ; CDROMS",
+      "after": ";M060;\tdb\t11,\"HITACHI.SYS\"\t,4,00\t; CDROMS"
+    },
+    {
+      "line": 1299,
+      "reference_line": 1501,
+      "before": ";M060;  db      10,\"MSCDEX.EXE\"         ,4,00   ; CDROMS",
+      "after": ";M060;\tdb\t10,\"MSCDEX.EXE\"\t\t,4,00\t; CDROMS"
+    },
+    {
+      "line": 1300,
+      "reference_line": 1502,
+      "before": ";M060;  db      10,\"REDIR4.EXE\"         ,4,00   ; Banyan networks",
+      "after": ";M060;\tdb\t10,\"REDIR4.EXE\"\t\t,4,00\t; Banyan networks"
+    },
+    {
+      "line": 1301,
+      "reference_line": 1503,
+      "before": ";M060;  db      7, \"NET.EXE\"            ,4,00   ; 3+ Open",
+      "after": ";M060;\tdb\t7, \"NET.EXE\"\t\t,4,00\t; 3+ Open"
+    },
+    {
+      "line": 1302,
+      "reference_line": 1504,
+      "before": ";M060;  db      7, \"NET.COM\"            ,3,30   ; IBM PCLP",
+      "after": ";M060;\tdb\t7, \"NET.COM\"\t\t,3,30\t; IBM PCLP"
+    },
+    {
+      "line": 1303,
+      "reference_line": 1505,
+      "before": ";M060;  db      12,\"NETWKSTA.EXE\"       ,4,00   ; 3+ Open",
+      "after": ";M060;\tdb\t12,\"NETWKSTA.EXE\"\t,4,00\t; 3+ Open"
+    },
+    {
+      "line": 1304,
+      "reference_line": 1506,
+      "before": ";M060;  db      12,\"DXMA0MOD.SYS\"       ,3,30   ; Token ring",
+      "after": ";M060;\tdb\t12,\"DXMA0MOD.SYS\"\t,3,30\t; Token ring"
+    },
+    {
+      "line": 1305,
+      "reference_line": 1507,
+      "before": ";M060;  db      7, \"BAN.EXE\"            ,4,00   ; Banyan",
+      "after": ";M060;\tdb\t7, \"BAN.EXE\"\t\t,4,00\t; Banyan"
+    },
+    {
+      "line": 1306,
+      "reference_line": 1508,
+      "before": ";M060;  db      7, \"BAN.COM\"            ,4,00   ; Banyan",
+      "after": ";M060;\tdb\t7, \"BAN.COM\"\t\t,4,00\t; Banyan"
+    },
+    {
+      "line": 1307,
+      "reference_line": 1509,
+      "before": ";M060;  db      11,\"MSREDIR.EXE\"        ,4,00   ; LanMan",
+      "after": ";M060;\tdb      11,\"MSREDIR.EXE\"        ,4,00   ; LanMan"
+    },
+    {
+      "line": 1308,
+      "reference_line": 1510,
+      "before": ";M060;  db      9, \"METRO.EXE\"          ,3,31   ; Lotus Metro",
+      "after": ";M060;\tdb      9, \"METRO.EXE\"          ,3,31   ; Lotus Metro"
+    },
+    {
+      "line": 1309,
+      "reference_line": 1511,
+      "before": ";M060;  db      12,\"IBMCACHE.SYS\"       ,3,40   ; IBM CHACHE Program",
+      "after": ";M060;\tdb      12,\"IBMCACHE.SYS\"       ,3,40   ; IBM CHACHE Program"
+    },
+    {
+      "line": 1310,
+      "reference_line": 1512,
+      "before": ";M060;  db      11,\"REDIR40.EXE\"        ,4,00   ; IBM PCLP 1.3/4 redirector",
+      "after": ";M060;\tdb      11,\"REDIR40.EXE\"        ,4,00   ; IBM PCLP 1.3/4 redirector"
+    },
+    {
+      "line": 1311,
+      "reference_line": 1513,
+      "before": ";M060;  db      6, \"DD.EXE\"             ,4,01   ; Laplink III software",
+      "after": ";M060;\tdb\t6, \"DD.EXE\"\t\t,4,01\t; Laplink III software"
+    },
+    {
+      "line": 1312,
+      "reference_line": 1514,
+      "before": ";M060;  db      6, \"DD.BIN\"             ,4,01   ; Laplink III software",
+      "after": ";M060;\tdb\t6, \"DD.BIN\"\t\t,4,01\t; Laplink III software"
+    },
+    {
+      "line": 1313,
+      "reference_line": 1515,
+      "before": ";M060;  db      7, \"LL3.EXE\"            ,4,01   ; Laplink III software",
+      "after": ";M060;\tdb\t7, \"LL3.EXE\"\t\t,4,01   ; Laplink III software"
+    },
+    {
+      "line": 1314,
+      "reference_line": 1516,
+      "before": ";M060;  db      9, \"REDIR.EXE\"          ,4,00   ; DOS 4 redir",
+      "after": ";M060;\tdb      9, \"REDIR.EXE\"          ,4,00   ; DOS 4 redir"
+    },
+    {
+      "line": 1315,
+      "reference_line": 1517,
+      "before": ";M060;  db      9, \"SYQ55.SYS\"          ,4,00   ; Removable SCSII drive from Syquest",
+      "after": ";M060;\tdb      9, \"SYQ55.SYS\"          ,4,00   ; Removable SCSII drive from Syquest"
+    },
+    {
+      "line": 1316,
+      "reference_line": 1518,
+      "before": ";M060;  db      12,\"SSTDRIVE.SYS\"       ,4,00   ; Columbia SCSI driver",
+      "after": ";M060;\tdb      12,\"SSTDRIVE.SYS\"       ,4,00   ; Columbia SCSI driver"
+    },
+    {
+      "line": 1317,
+      "reference_line": 1519,
+      "before": ";M060;  db      8, \"ZDRV.SYS\"           ,4,01   ; Unisys CD-ROM B#4734",
+      "after": ";M060;\tdb      8, \"ZDRV.SYS\"           ,4,01   ; Unisys CD-ROM B#4734"
+    },
+    {
+      "line": 1318,
+      "reference_line": 1520,
+      "before": ";M060;  db      8, \"ZFMT.SYS\"           ,4,01   ; Unisys CD-ROM B#4734",
+      "after": ";M060;\tdb      8, \"ZFMT.SYS\"           ,4,01   ; Unisys CD-ROM B#4734"
+    }
+  ],
+  "scope": "69 whole-line whitespace-only alignments; literal strings retained exactly; instruction tokens and target-specific initialization code unchanged."
+}

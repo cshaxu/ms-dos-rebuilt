@@ -1,0 +1,7 @@
+# M0 T1 completion audit
+
+Owner request: establish target image and reference-source baselines. Admitted S1 delivered read-only FAT12 inspector, repeatable scoped reference manifest, and [baseline evidence](../etc/evidence/m0-t1-s1-baseline.md). Review inspected the actual tool and evidence files and rechecked target hashes and Markdown links. The reference manifest was generated twice with identical SHA-256; target extraction and three failure cases passed. No code for DOS, build, deployment or boot was claimed.
+
+Coverage: the three named target files and both FAT copies are the frozen target universe. All three have complete non-overlapping in-image chains, length and hash; other files and filesystem-wide cross-links were not audited. The frozen reference universe is the 16 directories listed in the manifest generator, with 845 individually hashed files. Other dependencies, exact historical version/OEM, original image tail, and source redistribution rights remain unknown; they are explicitly transferred below, not represented as solved. The current image can be inspected and the scoped reference manifest reproduced using documented commands.
+
+S1 meets its bounded criteria; T1 closes at this scoped baseline, not at full build-dependency or whole-project completion. No full DOS regression is applicable: no DOS implementation changed. No defect repair or similar-issue sweep applies. Subsequent build-dependency analysis is a separate queued candidate. Project completion remains governed by the goal.

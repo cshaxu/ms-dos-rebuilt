@@ -1,0 +1,118 @@
+{
+  "index": 49,
+  "file": "bios/sysinit1.asm",
+  "reviewed_sha256": "f265c5256d484824ef432687d910bb44ee846db3a81f7dce146cb5771f90f531",
+  "status": "reviewed",
+  "role": "BIOS initialization, kernel loading, buffer setup, CDS construction and initial command execution.",
+  "references": {
+    "opennt": {
+      "status": "different",
+      "sha256": "0a0126881dfb6a487d8702bc90c248b57a4079ac1c13452861c5b4f4d5e4b37a",
+      "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\bios\\sysinit1.asm"
+    },
+    "dos6": {
+      "status": "different",
+      "sha256": "123240778f2b05b7a942cf741228583e5e9ac73576d7df25839158d2b55d51f4",
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\sysinit1.asm"
+    },
+    "dos4": {
+      "status": "different",
+      "sha256": "175f73e761ae3207e7b50e207c1a5402ff693b002913d679783c5a04d6fc32ce",
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\BIOS\\sysinit1.asm"
+    }
+  },
+  "review": {
+    "code_lines": 2794,
+    "reference_passage_covered": 2780,
+    "uncovered_lines": [
+      212,
+      221,
+      222,
+      806,
+      1295,
+      1296,
+      1552,
+      1815,
+      1840,
+      1841,
+      1842,
+      2791,
+      3570,
+      3690
+    ],
+    "dispositions": {
+      "212,221,222": "Declarations match DOS 6 or OpenNT, isolated by adjacent differences.",
+      "806": "Alias for drivenumber; exported for sysconf, also present in DOS 6.",
+      "1295,1296": "Low-memory buffer setup recovered from NT-commented code; target uses AX instead of DOS 6 CX.",
+      "1552,1815": "Instructions occur in DOS 6; isolated by adjacent structural differences.",
+      "1840,1841,1842": "Command-failure loop and exported cmdhalt used by sysinit2; target EB FE.",
+      "2791": "DPB link traversal; equivalent addressing appears in DOS 6 with formatting difference.",
+      "3570": "EXEC environment pointer setup uses AX; source and target checked, historical value not independently proven.",
+      "3690": "Fatal memory allocation loop retains stall name, target EB FE; replaces NT host exit."
+    },
+    "nt_service_scan": "No active HRDSVC, SVC_*, BOP, NTVDM, SOFTPC or NTDOS tokens found by lexical scan.",
+    "prior_evidence": [
+      "docs/etc/evidence/m6-bios-copycds-cleanup-source.json",
+      "docs/etc/evidence/m6-bios-single-config-style-audit.json"
+    ]
+  },
+  "verification": {
+    "stage": "build\\integrated-source-3qm3v2jp",
+    "built_source_identical": true,
+    "object_sha256": "f4620cedf0759138d5c80861b9089eea7bd2913a46e52beadaaaebb2aca6742d",
+    "target_instruction_checks": [
+      {
+        "name": "buffer_queue",
+        "segment_offset": 1743,
+        "target_file_offset": 19525,
+        "bytes": "26894502"
+      },
+      {
+        "name": "buffer_segment",
+        "segment_offset": 1747,
+        "target_file_offset": 19529,
+        "bytes": "8ec0"
+      },
+      {
+        "name": "endfile_call",
+        "segment_offset": 1930,
+        "target_file_offset": 19712,
+        "bytes": "e84005"
+      },
+      {
+        "name": "command_name_pop",
+        "segment_offset": 2173,
+        "target_file_offset": 19955,
+        "bytes": "5a"
+      },
+      {
+        "name": "command_halt",
+        "segment_offset": 2201,
+        "target_file_offset": 19983,
+        "bytes": "ebfe"
+      },
+      {
+        "name": "next_dpb",
+        "segment_offset": 3249,
+        "target_file_offset": 21031,
+        "bytes": "c57419"
+      },
+      {
+        "name": "install_environment",
+        "segment_offset": 4367,
+        "target_file_offset": 22149,
+        "bytes": "2ea3be03"
+      },
+      {
+        "name": "stall",
+        "segment_offset": 4489,
+        "target_file_offset": 22271,
+        "bytes": "ebfe"
+      }
+    ],
+    "endfile_call_destination": 3277,
+    "all_three_targets_byte_equal": true,
+    "limits": "Selected instructions and linked output checked statically; runtime reachability, optional configurations and historical DOS 5 source text not established."
+  },
+  "disposition": "Retained unchanged; ordered file review complete."
+}

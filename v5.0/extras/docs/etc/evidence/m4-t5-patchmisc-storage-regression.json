@@ -1,0 +1,338 @@
+{
+  "build_report": "m4-t5-patchmisc-build.json",
+  "slices": [
+    {
+      "name": "getcurhead",
+      "bytes": 644,
+      "candidate_start": 12997,
+      "target_start": 23206,
+      "raw_exact": false,
+      "relocation_correspondence": true,
+      "remaining_difference_offsets": [],
+      "verified_calls": [
+        {
+          "site": 13232,
+          "callee": "fatsecrd",
+          "destination": 9983
+        },
+        {
+          "site": 13239,
+          "callee": "dread",
+          "destination": 10027
+        },
+        {
+          "site": 13577,
+          "callee": "dwrite",
+          "destination": 10070
+        }
+      ]
+    },
+    {
+      "name": "fatsecrd",
+      "bytes": 72,
+      "candidate_start": 9982,
+      "target_start": 14390,
+      "raw_exact": false,
+      "relocation_correspondence": true,
+      "remaining_difference_offsets": [],
+      "verified_calls": [
+        {
+          "site": 10013,
+          "callee": "dskread",
+          "destination": 10054
+        },
+        {
+          "site": 10027,
+          "callee": "dskread",
+          "destination": 10054
+        },
+        {
+          "site": 10038,
+          "callee": "harderrrw",
+          "destination": 10142
+        }
+      ]
+    },
+    {
+      "name": "dskread",
+      "bytes": 114,
+      "candidate_start": 10054,
+      "target_start": 14517,
+      "raw_exact": false,
+      "relocation_correspondence": true,
+      "remaining_difference_offsets": [],
+      "verified_calls": [
+        {
+          "site": 10065,
+          "callee": "setread",
+          "destination": 11120
+        },
+        {
+          "site": 10106,
+          "callee": "setwrite",
+          "destination": 11171
+        },
+        {
+          "site": 10117,
+          "callee": "deviocall2",
+          "destination": 10996
+        },
+        {
+          "site": 10164,
+          "callee": "harderr",
+          "destination": 14301
+        }
+      ]
+    },
+    {
+      "name": "deviocall",
+      "bytes": 603,
+      "candidate_start": 10993,
+      "target_start": 18399,
+      "raw_exact": false,
+      "relocation_correspondence": true,
+      "remaining_difference_offsets": [],
+      "verified_calls": [
+        {
+          "site": 10996,
+          "callee": "ecritdevice",
+          "destination": 3519
+        },
+        {
+          "site": 11116,
+          "callee": "lcritdevice",
+          "destination": 3551
+        }
+      ]
+    },
+    {
+      "name": "ecritdisk",
+      "bytes": 128,
+      "candidate_start": 3455,
+      "target_start": 4950,
+      "raw_exact": true,
+      "relocation_correspondence": true,
+      "remaining_difference_offsets": [],
+      "verified_calls": []
+    },
+    {
+      "name": "iseof",
+      "bytes": 984,
+      "candidate_start": 12013,
+      "target_start": 22222,
+      "raw_exact": false,
+      "relocation_correspondence": true,
+      "remaining_difference_offsets": [],
+      "verified_calls": [
+        {
+          "site": 12109,
+          "callee": "fatal",
+          "destination": 14379
+        },
+        {
+          "site": 12184,
+          "callee": "inc_dirty_count",
+          "destination": 13621
+        },
+        {
+          "site": 12236,
+          "callee": "getbuffrb",
+          "destination": 13100
+        },
+        {
+          "site": 12252,
+          "callee": "inc_dirty_count",
+          "destination": 13621
+        },
+        {
+          "site": 12354,
+          "callee": "getbuffrb",
+          "destination": 13100
+        },
+        {
+          "site": 12408,
+          "callee": "getbuffrb",
+          "destination": 13100
+        },
+        {
+          "site": 12465,
+          "callee": "gotdpb",
+          "destination": 1449
+        },
+        {
+          "site": 12485,
+          "callee": "gotdpb",
+          "destination": 1449
+        },
+        {
+          "site": 12579,
+          "callee": "fatal1",
+          "destination": 14383
+        },
+        {
+          "site": 12631,
+          "callee": "deviocall2",
+          "destination": 10996
+        },
+        {
+          "site": 12726,
+          "callee": "harderr",
+          "destination": 14301
+        },
+        {
+          "site": 12746,
+          "callee": "getcurhead",
+          "destination": 12997
+        },
+        {
+          "site": 12783,
+          "callee": "getcurhead",
+          "destination": 12997
+        },
+        {
+          "site": 12802,
+          "callee": "scanplace",
+          "destination": 13015
+        },
+        {
+          "site": 12872,
+          "callee": "getcurhead",
+          "destination": 12997
+        },
+        {
+          "site": 12875,
+          "callee": "bufwrite",
+          "destination": 13460
+        },
+        {
+          "site": 12939,
+          "callee": "deviocall2",
+          "destination": 10996
+        },
+        {
+          "site": 12967,
+          "callee": "$setdpb",
+          "destination": 3727
+        }
+      ]
+    },
+    {
+      "name": "$get_default_dpb",
+      "bytes": 48,
+      "candidate_start": 3658,
+      "target_start": 3988,
+      "raw_exact": false,
+      "relocation_correspondence": true,
+      "remaining_difference_offsets": [],
+      "verified_calls": [
+        {
+          "site": 3664,
+          "callee": "getthisdrv",
+          "destination": 19757
+        },
+        {
+          "site": 3680,
+          "callee": "ecritdisk",
+          "destination": 3455
+        },
+        {
+          "site": 3683,
+          "callee": "fatread_cds",
+          "destination": 12472
+        },
+        {
+          "site": 3686,
+          "callee": "lcritdisk",
+          "destination": 3487
+        },
+        {
+          "site": 3691,
+          "callee": "get_user_stack",
+          "destination": 1256
+        }
+      ]
+    },
+    {
+      "name": "find_dpb",
+      "bytes": 98,
+      "candidate_start": 19575,
+      "target_start": 27576,
+      "raw_exact": true,
+      "relocation_correspondence": true,
+      "remaining_difference_offsets": [],
+      "verified_calls": []
+    },
+    {
+      "name": "getthisdrv",
+      "bytes": 123,
+      "candidate_start": 19757,
+      "target_start": 27788,
+      "raw_exact": false,
+      "relocation_correspondence": true,
+      "remaining_difference_offsets": [],
+      "verified_calls": [
+        {
+          "site": 19800,
+          "callee": "initcds",
+          "destination": 19596
+        }
+      ]
+    },
+    {
+      "name": "perdrv",
+      "bytes": 146,
+      "candidate_start": 23283,
+      "target_start": 31427,
+      "raw_exact": false,
+      "relocation_correspondence": true,
+      "remaining_difference_offsets": [],
+      "verified_calls": [
+        {
+          "site": 23290,
+          "callee": "charinit",
+          "destination": 23735
+        },
+        {
+          "site": 23344,
+          "callee": "$setdpb",
+          "destination": 3727
+        }
+      ]
+    },
+    {
+      "name": "charinit",
+      "bytes": 40,
+      "candidate_start": 23735,
+      "target_start": 31892,
+      "raw_exact": false,
+      "relocation_correspondence": true,
+      "remaining_difference_offsets": [],
+      "verified_calls": [
+        {
+          "site": 23768,
+          "callee": "deviocall2",
+          "destination": 10996
+        }
+      ]
+    },
+    {
+      "name": "$setdpb_and_word3",
+      "bytes": 202,
+      "candidate_start": 3725,
+      "target_start": 4087,
+      "raw_exact": false,
+      "relocation_correspondence": true,
+      "remaining_difference_offsets": [],
+      "verified_calls": [],
+      "verified_code_data_references": [
+        {
+          "symbol": "word3",
+          "operand": 3901,
+          "value": 12509
+        }
+      ]
+    }
+  ],
+  "all_correspond": true,
+  "scope": "Integrated code slices and explicitly named call edges. External-call displacements differ from target layout. No whole-file identity or runtime claim."
+}

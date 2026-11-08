@@ -1,0 +1,35 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\integrated-source-jsd769_p",
+  "previous_stage": "v0u7rg93",
+  "change": {
+    "source": "bios/sysinit1.asm",
+    "before_sha256": "e927b0b0574b75479c7a7448ac04e99f45abc0d93a46708964137b75fe526540",
+    "after_sha256": "f265c5256d484824ef432687d910bb44ee846db3a81f7dce146cb5771f90f531",
+    "changes": [
+      {
+        "before": "        push    es                      ; BUGBUG 3-30-92 JeffPar: no reason to save ES",
+        "after": "\tpush\tes\t\t\t; save ES"
+      },
+      {
+        "before": "        pop     es                      ; BUGBUG 3-30-92 JeffPar: no reason to save ES",
+        "after": "\tpop\tes\t\t\t; restore ES"
+      },
+      {
+        "before": ";\tBUGBUG - we don't update confbot - won't someone else use it?\r\n;\tchuckst -- answer: no.  Confbot is used to access the CDSs,\r\n;\t25 jul 92  which are stored BELOW it.  Alloclim is the\r\n;\t\t   variable which has the top of free memory for\r\n;\t\t   device driver loads, etc.\r\n",
+        "after": ";\tThe CDSs are stored below confbot.  Alloclim is the top of\r\n;\tfree memory for device driver loads.\r\n"
+      }
+    ],
+    "scope": "Replace post-1991 revision annotations with comments describing existing instructions; original comments preserved here."
+  },
+  "object_counts": {
+    "bios": 14,
+    "kernel": 55,
+    "command": 34
+  },
+  "files": {
+    "IO.SYS": "dd0915ed366b3f640284df4be30ed35f413dfd5b6966c1f25eee9598a5bf53e0",
+    "MSDOS.SYS": "4e41ca4e5893d4cf293f81ad01adbdbd12f7039534f59148214a9cca309529a2",
+    "COMMAND.COM": "74ad25067e7d9f5c3a0ac2f2967347defb0ffef9e6ed60b60e6499f0b1a8cc89"
+  },
+  "scope": "Three post-1991 annotations replaced by descriptions of current code; all 104 objects and outputs unchanged."
+}

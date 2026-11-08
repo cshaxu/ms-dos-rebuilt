@@ -1,0 +1,34 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\command-vm-og8akppn",
+  "checks": {
+    "markers": true,
+    "completed": true,
+    "copy": true,
+    "delete": true,
+    "original_unchanged": true,
+    "system_files_unchanged": true,
+    "supplied_product": true,
+    "owned_start": true,
+    "running_window": true,
+    "isolated_desktop": true,
+    "cleanup_recorded": true,
+    "input_desktop_unchanged": true
+  },
+  "passed": true,
+  "product_sha256": "9f1212f8b26a5e98bb06b5fec601a6ff7cf6c499f16991dd68d62fb81ab75c3e",
+  "config_sha256": "a93d85535b25b03a80e445c08286782e8bd14a4e92072edbcd0d255fafd6b8b0",
+  "probe_log_sha256": "46e2f0564f295f48e200b1a218736a2cb153fd240cd03c163bb58b5a73fd600e",
+  "tested_probe_sha256": "8b4d69b1cf5544cdae72a6791343e56caca4ac3b5b1b8f955554124bfe8864ff",
+  "guest_files": {
+    "RESULTS.TXT": "BEGIN-DOS5-SMOKE\r\n\r\nMS-DOS Version 5.00\r\n\r\nENV-PASS\r\nPATH=A:\\\r\nFOR-ONE\r\nFOR-TWO\r\nFOR-THREE\r\nFILE-CONTENT\r\nFILE-PASS\r\nCHILD-PASS\r\nSMOKE-PASS\r\n",
+    "DONE.TXT": "FINISHED\r\n",
+    "COPY.TXT": "FILE-CONTENT\r\n",
+    "INPUT.TXT": null
+  },
+  "limitations": [
+    "Product termination was forced after the bounded test, not a graceful shutdown.",
+    "Only COMMAND is source-built; IO.SYS and MSDOS.SYS are target fixtures.",
+    "Missing original media tail is zero-padded only in disposable test media.",
+    "Desktop checks establish the probe boundary; no screenshots or Computer Use were used."
+  ]
+}

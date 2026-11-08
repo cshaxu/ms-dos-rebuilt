@@ -1,0 +1,147 @@
+{
+  "module": "lock-full",
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\physical-sft-probe-gaif7wrl",
+  "candidate_proof_sha256": "92a52046ce6bd51652ef9fbe7b1c2c4b66e539336002471a6351e7ec32779416",
+  "link_report_sha256": "1bbdfe1c5717a66605a3aef82166c9d11164f5e85d841c1f70d29448a8b796da",
+  "linked_start": 41882,
+  "public_anchors": [
+    {
+      "symbol": "lock_violation",
+      "object_offset": 127,
+      "linked_offset": 42009
+    },
+    {
+      "symbol": "$lockoper",
+      "object_offset": 0,
+      "linked_offset": 41882
+    },
+    {
+      "symbol": "checkshare",
+      "object_offset": 165,
+      "linked_offset": 42047
+    },
+    {
+      "symbol": "lock_check",
+      "object_offset": 105,
+      "linked_offset": 41987
+    }
+  ],
+  "bytes": 178,
+  "named_fixups": [
+    {
+      "offset": 6,
+      "symbol": "SFFromHandle",
+      "relative": true,
+      "target_symbol": 42538,
+      "linked_symbol": 38734
+    },
+    {
+      "offset": 14,
+      "symbol": "SYS_RET_ERR",
+      "relative": true,
+      "target_symbol": 17389,
+      "linked_symbol": 17389
+    },
+    {
+      "offset": 19,
+      "symbol": "EXTERR_LOCUS",
+      "relative": false,
+      "target_symbol": 803,
+      "linked_symbol": 803
+    },
+    {
+      "offset": 29,
+      "symbol": "Lock_Buffer",
+      "relative": false,
+      "target_symbol": 937,
+      "linked_symbol": 937
+    },
+    {
+      "offset": 73,
+      "symbol": "JShare",
+      "relative": false,
+      "target_symbol": 144,
+      "linked_symbol": 144
+    },
+    {
+      "offset": 80,
+      "symbol": "Temp_Var",
+      "relative": false,
+      "target_symbol": 1548,
+      "linked_symbol": 1548
+    },
+    {
+      "offset": 83,
+      "symbol": "SYS_Ret_OK",
+      "relative": true,
+      "target_symbol": 17380,
+      "linked_symbol": 17380
+    },
+    {
+      "offset": 101,
+      "symbol": "JShare",
+      "relative": false,
+      "target_symbol": 144,
+      "linked_symbol": 144
+    },
+    {
+      "offset": 107,
+      "symbol": "RetryCount",
+      "relative": false,
+      "target_symbol": 26,
+      "linked_symbol": 26
+    },
+    {
+      "offset": 113,
+      "symbol": "JShare",
+      "relative": false,
+      "target_symbol": 144,
+      "linked_symbol": 144
+    },
+    {
+      "offset": 120,
+      "symbol": "Idle",
+      "relative": true,
+      "target_symbol": 20508,
+      "linked_symbol": 20636
+    },
+    {
+      "offset": 136,
+      "symbol": "ALLOWED",
+      "relative": false,
+      "target_symbol": 843,
+      "linked_symbol": 843
+    },
+    {
+      "offset": 141,
+      "symbol": "THISDPB",
+      "relative": false,
+      "target_symbol": 1418,
+      "linked_symbol": 1418
+    },
+    {
+      "offset": 153,
+      "symbol": "HARDERR",
+      "relative": true,
+      "target_symbol": 37498,
+      "linked_symbol": 34618
+    },
+    {
+      "offset": 169,
+      "symbol": "DosDseg",
+      "relative": false,
+      "target_symbol": 15831,
+      "linked_symbol": 15831
+    },
+    {
+      "offset": 173,
+      "symbol": "fShare",
+      "relative": false,
+      "target_symbol": 771,
+      "linked_symbol": 771
+    }
+  ],
+  "remaining_differences": [],
+  "correspondence": true,
+  "scope": "Complete linked MZ module, only candidate OMF named relocations adjusted; physical data placement can differ. Not runtime or whole-kernel identity."
+}

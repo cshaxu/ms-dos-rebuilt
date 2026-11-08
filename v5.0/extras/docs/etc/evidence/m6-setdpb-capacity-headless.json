@@ -1,0 +1,32 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\setdpb-vm-qp268qxh",
+  "image_before_sha256": "3d3d23446d1ca5c30dffee7e6b56a208e74ebbafde2a6e45c588057f668dc0d4",
+  "image_after_sha256": "4254dfc928eceabbca2c87d2cb42024b58589f103655b3f9b9a6447134650aa6",
+  "guest_source_sha256": "0918c3376a5cd2e5907f1bc6823ee1d92258f78b9894eecd6f7e83b4eaaf258a",
+  "guest_probe_sha256": "8e3386a48e76f3300486a3b49310da28feb9e27144fa675ba5d194bd0f1202ec",
+  "headless_probe_sha256": "b5b718d3f27e09242ae859b48756d80b83ba1d56843f7234962e7b3f17aa7aaa",
+  "log_sha256": "b3a2208e8db2d77021b77154bd9a5ba7e02972488669790be39601dccb9d5315",
+  "system_files": {
+    "IO.SYS": "dd0915ed366b3f640284df4be30ed35f413dfd5b6966c1f25eee9598a5bf53e0",
+    "MSDOS.SYS": "4e41ca4e5893d4cf293f81ad01adbdbd12f7039534f59148214a9cca309529a2",
+    "COMMAND.COM": "74ad25067e7d9f5c3a0ac2f2967347defb0ffef9e6ed60b60e6499f0b1a8cc89"
+  },
+  "fresh_build_stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\source-workspace-review-20261107\\build\\integrated-source-o_cqtv71",
+  "checked_cases": {
+    "normal": {
+      "first_data_sector": 33,
+      "max_cluster": 2848,
+      "fat_sectors": 9,
+      "root_sector": 19
+    },
+    "short_fat": {
+      "first_data_sector": 17,
+      "max_cluster": 340,
+      "fat_sectors": 1,
+      "root_sector": 3
+    }
+  },
+  "results": "SETDPB-PASS; PROBE-PASS",
+  "passed": true,
+  "scope": "INT 21h/AH=53h on two private BPB/DPB buffers using binaries equal to the fresh build. Not a test of writing real DPBs, other geometries, supplied product, or original media."
+}

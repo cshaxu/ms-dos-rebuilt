@@ -1,0 +1,54 @@
+{
+  "candidates": [
+    {
+      "module": "finfo-full",
+      "proof": "m4-t5-finfo-full-verification.json",
+      "sha256": "5a9e2a629f251c40d5819880afbc308f21cef44db6d46cde5995b9acd4d022c4",
+      "bytes": 260,
+      "range": [
+        10806,
+        11066
+      ]
+    },
+    {
+      "module": "delete-full",
+      "proof": "m4-t5-delete-full-verification.json",
+      "sha256": "91f53c2aeee328c1ddad4263844fe2bdcfaf7c33b82bbbd2f8046be97eeb1eb9",
+      "bytes": 480,
+      "range": [
+        9753,
+        10233
+      ]
+    },
+    {
+      "module": "rename-full",
+      "proof": "m4-t5-rename-full-verification.json",
+      "sha256": "13a3aabc097f76edb3322abbf3a7b9f87eedcb81ff8f7ec898448081b5d7e24a",
+      "bytes": 573,
+      "range": [
+        10233,
+        10806
+      ]
+    }
+  ],
+  "storage_graph": "m4-t5-storage-closure-audit.json",
+  "missing_named_code_providers": [
+    "DOS_SEARCH_FIRST",
+    "RENAME_NEXT",
+    "SET_MEDIA_ID"
+  ],
+  "probe": "m4-t5-physical-sft-probe.json",
+  "probe_stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\physical-sft-probe-aa1_pxwn",
+  "assembled_modules": 53,
+  "snapshots": {
+    "m4-t5-lock-build.json": {
+      "inputs": 115,
+      "mismatches": []
+    },
+    "m2-t3-command-exact-verification.json": {
+      "inputs": 113,
+      "mismatches": []
+    }
+  },
+  "scope": "Complete pathname candidate target-layout proofs and native-only integration probe; no link or runtime acceptance. Prior OMF symbol audit remains about its explicitly recorded earlier stage."
+}

@@ -1,0 +1,23 @@
+{
+  "changes": {
+    "dos/dev.asm": {
+      "before": "3c81ca91e31fda78273f7bcca93614afdefd74a9bd63f225db58a4ccd059f6ac",
+      "after": "a86e76f3ff315c8667bc6962ff0c55b4f8e9dfe1fc42394a71f3efa272ebb6e7",
+      "dos6_reference": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dev.asm",
+      "dos6_sha256": "1fdd4f63b181b3575c649caf13ddc29b0d79c6ddc45a60957971a22a678f21a1",
+      "dos4_reference": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\dev.asm",
+      "dos4_sha256": "59d2201c48a595d4839aaadb1c520448c69c24b77f7ac393e96e9ff72e674f79",
+      "restored_comment": ";\tRevision history:\r\n;\r\n;\t\tA000  version 4.00     Jan. 1988\r\n;\t\tA010  disable change line for SHARE /NC\r\n"
+    },
+    "dos/fcb.asm": {
+      "before": "fae6668f118b7d041ab55eacbd54e94cb42e14e8208e54936f2c4825abcef347",
+      "after": "8d766ace3aab383ea288195b0419bb1d7f05e15f910605203e35000d9f293db2",
+      "dos6_reference": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\fcb.asm",
+      "dos6_sha256": "dd7c6d6b85d08585be900b91f329821a81c6ee9b5f1cb71268382af4fb39a01c",
+      "dos4_reference": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\fcb.asm",
+      "dos4_sha256": "f69cc55f2197e51f43ac8f75b011dad180cfe70c9315004af31ea22a59b32e89",
+      "restored_comment": ";\tRevision history:\r\n;\r\n;\t\tA000  version 4.00  Jan. 1988\r\n;\t\r\n;\tM048 - access FILE_UCASE_TAB using DS rather than SS.\r\n"
+    }
+  },
+  "scope": "Restore the DOS 6 revision-history blocks. The 1988 entries are independently present in DOS 4; FCB M048 is also reflected by the retained M048 code and comments. No assertion that these exact blocks existed in DOS 5."
+}

@@ -1,0 +1,14 @@
+{
+  "source": "dos/diskread.asm",
+  "archive": "research/dos/diskread.final-slice.asm",
+  "sha256": "b2cea6b572086db200a8fc06681722693db61b9dddc02c96ff309dd7fa7274d8",
+  "procedures_identical_except_leading_blank": {
+    "DirRead": true,
+    "FATSecRd": true
+  },
+  "link_scripts": [
+    "dos/msdos.lnk",
+    "dos/msdos-debug.lnk"
+  ],
+  "scope": "Unlinked bounded recovery slice retired from production source tree and preserved as research. Full DISK module retains both procedures."
+}

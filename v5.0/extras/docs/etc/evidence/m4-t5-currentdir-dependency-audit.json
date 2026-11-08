@@ -1,0 +1,32 @@
+{
+  "status": "candidate verified; production integration deferred until physical GetPath closure",
+  "target_validatecds": [
+    17355,
+    17545
+  ],
+  "candidate_verification": "m4-t5-validatecds-verification.json",
+  "primary_source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\dos\\dir2.asm",
+  "primary_source_sha256": "99c0448c781c6e521524aed7b0d565cc41f3201111163fce2d983a6207e59821",
+  "candidates": {
+    "dos/validatecds.recovery.asm": "2f296a7cae71aba0c9b481b4b7e27e30b611957b8aabed74d82f5431273618ed",
+    "dos/path.currentdir.recovery.asm": "6ff346b0411341c6e58888ab0c1d0ee375408e0e8b4c22f848481321bd6c752a",
+    "dos/dircall.recovery.asm": "af560d2e84e8b7792738e8710d00927086b30cfc1886333b59e19e24535b3257"
+  },
+  "failed_integration_stages": {
+    "kernel-clean-9k_96utk": "DOS_ChDir unresolved",
+    "kernel-clean-jbjp190a": "FAST_YES missing; fixed in candidate with fastxxxx.inc",
+    "kernel-clean-57rkk79z": "GetPath unresolved; retained source excluded by ifdef 0"
+  },
+  "production_snapshots": {
+    "m4-t5-patchmisc-build.json": {
+      "inputs": 111,
+      "mismatches": []
+    },
+    "m2-t3-command-exact-verification.json": {
+      "inputs": 113,
+      "mismatches": []
+    }
+  },
+  "next": "Recover GETPATH and its physical directory-search dependency closure; no dummy implementations.",
+  "limits": "Only ValidateCDS has full target-layout proof. Other candidates are unaccepted experiments. DOS_CHDIR error tail is temporarily adjacent, not target layout. No successful integrated build or runtime proof from these attempts."
+}

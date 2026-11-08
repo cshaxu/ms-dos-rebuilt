@@ -1,0 +1,26 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\fragtruncate-vm-59j9uzbe",
+  "image_before_sha256": "76379c16e2407f0fb5ae9b4523471f14898bafb1ba82bc7299240bb15754adc6",
+  "image_after_sha256": "505048fa103827097aa512ae619e08224ad095e815ec5fd5acabeca968f417bf",
+  "guest_source_sha256": "d76cf40c40335de764ab08755b9f484acb1eae2409a8c9ece5ec057cd98c978c",
+  "guest_probe_sha256": "e99c8a79d0c7c6628dc13756417239abf09a4f5e49f3cc36474d6e4305edb745",
+  "headless_probe_sha256": "b5b718d3f27e09242ae859b48756d80b83ba1d56843f7234962e7b3f17aa7aaa",
+  "log_sha256": "b3a2208e8db2d77021b77154bd9a5ba7e02972488669790be39601dccb9d5315",
+  "fat_chain": [
+    453,
+    600
+  ],
+  "freed_clusters": [
+    455,
+    700
+  ],
+  "fat_copies_equal": true,
+  "system_files": {
+    "IO.SYS": "dd0915ed366b3f640284df4be30ed35f413dfd5b6966c1f25eee9598a5bf53e0",
+    "MSDOS.SYS": "4e41ca4e5893d4cf293f81ad01adbdbd12f7039534f59148214a9cca309529a2",
+    "COMMAND.COM": "74ad25067e7d9f5c3a0ac2f2967347defb0ffef9e6ed60b60e6499f0b1a8cc89"
+  },
+  "results": "FRAGTRUNCATE-PASS; PROBE-PASS",
+  "passed": true,
+  "scope": "Existing source-built binaries on one disposable FAT12 floppy, using headless SoftPC core; one fragmented-file truncation and two freed clusters. Not supplied product, fresh build, original image, or comprehensive FAT verification."
+}

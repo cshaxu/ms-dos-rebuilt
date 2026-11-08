@@ -1,0 +1,8 @@
+{
+  "file": "cmd/command/init.asm",
+  "before_sha256": "1625b0458b1715a5340cb73f2e79334892b1f24e18f17e0acf5ba6e300653657",
+  "after_sha256": "069375d1604cf26ca0bfae8b2111957f7d07e32e0066d7fcc6ffa6818abcde79",
+  "removed": "st_invalid macro\r\n        mov     ax,0ffffh\r\n\tpush\tax\r\n\tpush\tax\r\nendm\r\n\r\nst_valid macro\r\n\tpush\tbx\r\n        push    cx\r\nendm\r\n\r\nCleanForStd macro\r\n        add     sp,12\r\nendm\r\n\r\n",
+  "basis": "These macros are unreferenced in the current file, used by the removed OpenNT CheckZSwitch path, and absent from DOS 4/6 references.",
+  "scope": "Removes unused NT-derived macros; default build and target comparison required."
+}

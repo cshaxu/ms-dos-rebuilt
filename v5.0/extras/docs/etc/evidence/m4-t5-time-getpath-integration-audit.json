@@ -1,0 +1,27 @@
+{
+  "build": "m4-t5-time-getpath-build.json",
+  "unique_target_bytes": 5430,
+  "summed_slice_bytes": 5451,
+  "external_calls": 77,
+  "snapshot_checks": {
+    "m4-t5-time-getpath-build.json": {
+      "inputs": 113,
+      "mismatches": []
+    },
+    "m2-t3-command-exact-verification.json": {
+      "inputs": 113,
+      "mismatches": []
+    }
+  },
+  "source_provenance": {
+    "dos/time.asm": "Complete comparative DOS 6 time.asm, identical source and 483-byte target-layout proof; replaces NT date services and tick conversion",
+    "dos/dir2.asm": "Retained OpenNT physical blocks enabled; dpb.inc and DATE16 call restored; other host code remains"
+  },
+  "remaining": [
+    "CurrentValidate host call",
+    "ValidateCDS early CLC/RET",
+    "DOS_CHDIR and shared error paths not production linked",
+    "CheckThisDevice NT host seam",
+    "Full kernel layout/INT24/SFT recovery and runtime acceptance"
+  ]
+}

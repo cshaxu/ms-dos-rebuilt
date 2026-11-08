@@ -1,0 +1,2730 @@
+{
+  "inventory": "m6-linked-module-reference-ledger-z7rpjine.json",
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\integrated-source-z7rpjine",
+  "summary": {
+    "opennt": {
+      "byte_identical": 25,
+      "line_endings_or_eof_only": 0,
+      "content_review_required": 57,
+      "missing": 22
+    },
+    "dos6": {
+      "byte_identical": 47,
+      "line_endings_or_eof_only": 5,
+      "content_review_required": 52,
+      "missing": 0
+    },
+    "dos4": {
+      "byte_identical": 0,
+      "line_endings_or_eof_only": 0,
+      "content_review_required": 91,
+      "missing": 13
+    }
+  },
+  "modules": [
+    {
+      "group": "msload",
+      "module": "msload",
+      "source": "bios/msload.asm",
+      "source_sha256": "29acc768be4c4bec6bcf4152a1330ecf6aee4ae3edfa544e88256e674d8658d5",
+      "object_sha256": "47487917af41e2ad50fad41b73849a33e93ca28f5cd8ba8b220b78f5026ba9d0",
+      "references": {
+        "opennt": {
+          "class": "missing"
+        },
+        "dos6": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 79,
+          "source_lines": 1092,
+          "reference_lines": 1000
+        }
+      }
+    },
+    {
+      "group": "bios",
+      "module": "msbio1",
+      "source": "bios/msbio1.asm",
+      "source_sha256": "788082936b0f9eeb6149fee894781e55768904701040f7d5e65bc6a65e76b79c",
+      "object_sha256": "3729368811d18a8154392cb3253a2daa96d5c4ee7298567064ddd3d9a14784ab",
+      "references": {
+        "opennt": {
+          "class": "content_review_required",
+          "changed_hunks": 47,
+          "source_lines": 809,
+          "reference_lines": 41
+        },
+        "dos6": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 55,
+          "source_lines": 1666,
+          "reference_lines": 588
+        }
+      }
+    },
+    {
+      "group": "bios",
+      "module": "mschar",
+      "source": "bios/mschar.asm",
+      "source_sha256": "1c6d2aaa8f16c8349bc7d38c9fcf52307fd2791a928e7c7dc9a773cda85aaae7",
+      "object_sha256": "afc86f7c4a0f81dde2bb019a7f55c6d6ba2131556bdabc539608c4b7413eb051",
+      "references": {
+        "opennt": {
+          "class": "content_review_required",
+          "changed_hunks": 19,
+          "source_lines": 387,
+          "reference_lines": 138
+        },
+        "dos6": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos4": {
+          "class": "missing"
+        }
+      }
+    },
+    {
+      "group": "bios",
+      "module": "msdisk",
+      "source": "bios/msdisk.asm",
+      "source_sha256": "0c166896c215dddd08f7440f462d07a9191c2ff06283139dd15081f09a234038",
+      "object_sha256": "83699866d4997c2bd56193d3c8183717fd64b7b62e4d1a00467e34ee9b483f84",
+      "references": {
+        "opennt": {
+          "class": "missing"
+        },
+        "dos6": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 122,
+          "source_lines": 1777,
+          "reference_lines": 2305
+        }
+      }
+    },
+    {
+      "group": "bios",
+      "module": "msdioctl",
+      "source": "bios/msdioctl.asm",
+      "source_sha256": "3a3b6b72573f02a1d582d08cee53af5b7eaa031beb0ed70939563d2d0f80e606",
+      "object_sha256": "70b6579ad1f7fb9b493787fde59ba4f620984b057c1846b150f8c84876806180",
+      "references": {
+        "opennt": {
+          "class": "missing"
+        },
+        "dos6": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos4": {
+          "class": "missing"
+        }
+      }
+    },
+    {
+      "group": "bios",
+      "module": "msint13",
+      "source": "bios/msint13.asm",
+      "source_sha256": "4c7241c46f47c45bd728f40f6b3eb2f9b8784197b3cf1e752be3961c5a17aeec",
+      "object_sha256": "05eee01fc17b43d2c7dc7a9808b06ea436ae12166deb1ec613284c8421521849",
+      "references": {
+        "opennt": {
+          "class": "content_review_required",
+          "changed_hunks": 23,
+          "source_lines": 1063,
+          "reference_lines": 41
+        },
+        "dos6": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos4": {
+          "class": "missing"
+        }
+      }
+    },
+    {
+      "group": "bios",
+      "module": "msbio2",
+      "source": "bios/msbio2.asm",
+      "source_sha256": "59e0c7b3b58497df33cf48829da38ca77bc4307fd27d1ce963089b310b655ef2",
+      "object_sha256": "9a28d51412185f9fa84b07c0699040fd2de5dfb572a38c0f439d1839f788114e",
+      "references": {
+        "opennt": {
+          "class": "missing"
+        },
+        "dos6": {
+          "class": "content_review_required",
+          "changed_hunks": 1,
+          "source_lines": 0,
+          "reference_lines": 8
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 70,
+          "source_lines": 1402,
+          "reference_lines": 497
+        }
+      }
+    },
+    {
+      "group": "bios",
+      "module": "msinit",
+      "source": "bios/msinit.asm",
+      "source_sha256": "1db3f560402bef4b3ddbe8f3129589e212bbb83c94cf5a545141d4f09834d778",
+      "object_sha256": "22aa80bed0f075233fd97217540fe1d2723b5ce37ae6a6af4599653ff9598dae",
+      "references": {
+        "opennt": {
+          "class": "content_review_required",
+          "changed_hunks": 43,
+          "source_lines": 3762,
+          "reference_lines": 38
+        },
+        "dos6": {
+          "class": "content_review_required",
+          "changed_hunks": 3,
+          "source_lines": 0,
+          "reference_lines": 45
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 242,
+          "source_lines": 3717,
+          "reference_lines": 2524
+        }
+      }
+    },
+    {
+      "group": "bios",
+      "module": "sysinit1",
+      "source": "bios/sysinit1.asm",
+      "source_sha256": "f265c5256d484824ef432687d910bb44ee846db3a81f7dce146cb5771f90f531",
+      "object_sha256": "f4620cedf0759138d5c80861b9089eea7bd2913a46e52beadaaaebb2aca6742d",
+      "references": {
+        "opennt": {
+          "class": "content_review_required",
+          "changed_hunks": 230,
+          "source_lines": 1377,
+          "reference_lines": 571
+        },
+        "dos6": {
+          "class": "content_review_required",
+          "changed_hunks": 58,
+          "source_lines": 75,
+          "reference_lines": 483
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 178,
+          "source_lines": 4595,
+          "reference_lines": 2449
+        }
+      }
+    },
+    {
+      "group": "bios",
+      "module": "sysconf",
+      "source": "bios/sysconf.asm",
+      "source_sha256": "ea5584a2c3cb7442f81651ee778e0514207c71ba5bad3f82aa7ad77600a94dc8",
+      "object_sha256": "48fbe00a90f79e418e312a83de08c73429304ffd6b97480972be20baa9bd9954",
+      "references": {
+        "opennt": {
+          "class": "content_review_required",
+          "changed_hunks": 143,
+          "source_lines": 427,
+          "reference_lines": 400
+        },
+        "dos6": {
+          "class": "content_review_required",
+          "changed_hunks": 93,
+          "source_lines": 99,
+          "reference_lines": 651
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 226,
+          "source_lines": 3742,
+          "reference_lines": 3134
+        }
+      }
+    },
+    {
+      "group": "bios",
+      "module": "sysinit2",
+      "source": "bios/sysinit2.asm",
+      "source_sha256": "94e1a645b724ea4afb80d141f41966651101dbf04a82fc43e587a4f6c9f91e75",
+      "object_sha256": "a118e90f85c6f9fa3b5d811400fcce1dd5ae05dc6b7ebafb35f76be4aec8ed62",
+      "references": {
+        "opennt": {
+          "class": "content_review_required",
+          "changed_hunks": 78,
+          "source_lines": 461,
+          "reference_lines": 96
+        },
+        "dos6": {
+          "class": "content_review_required",
+          "changed_hunks": 39,
+          "source_lines": 30,
+          "reference_lines": 2340
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 202,
+          "source_lines": 1616,
+          "reference_lines": 1267
+        }
+      }
+    },
+    {
+      "group": "bios",
+      "module": "sysimes",
+      "source": "bios/sysimes.asm",
+      "source_sha256": "8d88bc79822b6650e0046c32a8c1463b5305910263d1e6d486ea24568530aafc",
+      "object_sha256": "cc98fc95efc0d30b5d17a71152061ad006ad473fa1089fc6a738c56ee069c235",
+      "references": {
+        "opennt": {
+          "class": "content_review_required",
+          "changed_hunks": 2,
+          "source_lines": 1,
+          "reference_lines": 8
+        },
+        "dos6": {
+          "class": "content_review_required",
+          "changed_hunks": 4,
+          "source_lines": 1,
+          "reference_lines": 14
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 6,
+          "source_lines": 13,
+          "reference_lines": 33
+        }
+      }
+    },
+    {
+      "group": "bios",
+      "module": "power",
+      "source": "bios/power.asm",
+      "source_sha256": "d3090363616ba41069834f7796b7f719c8c40ee82c1ec48ecfb5ee3aa373f95d",
+      "object_sha256": "8f343f1a7e161196f0aaefe817b15aa03670fba9e3920d1a71d6a82d9a7e55b6",
+      "references": {
+        "opennt": {
+          "class": "missing"
+        },
+        "dos6": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos4": {
+          "class": "missing"
+        }
+      }
+    },
+    {
+      "group": "bios",
+      "module": "ptime",
+      "source": "bios/ptime.asm",
+      "source_sha256": "dc40f17b2330fd64ce85d9b4d2a35c8f0d716790762a99f3ed64089652e255ee",
+      "object_sha256": "81c2131534d607d8393a5a14edce15728de9971d6e355059a6a66d94ce01dab3",
+      "references": {
+        "opennt": {
+          "class": "missing"
+        },
+        "dos6": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos4": {
+          "class": "missing"
+        }
+      }
+    },
+    {
+      "group": "bios",
+      "module": "msend",
+      "source": "bios/msend.asm",
+      "source_sha256": "bae3ad30776f8ee34d07a95af38fa913dd35493987aa8e7e958e6ba54d00f25a",
+      "object_sha256": "20d3d0cf8806053ba2368adc34305e134dfa9afb3a6e6eceb076da0d9ed25044",
+      "references": {
+        "opennt": {
+          "class": "content_review_required",
+          "changed_hunks": 5,
+          "source_lines": 6,
+          "reference_lines": 26
+        },
+        "dos6": {
+          "class": "content_review_required",
+          "changed_hunks": 1,
+          "source_lines": 0,
+          "reference_lines": 5
+        },
+        "dos4": {
+          "class": "missing"
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "module": "origin",
+      "source": "dos/origin.asm",
+      "source_sha256": "862c02abb7bf5c8913c4572606d06efa56002d57df573f7b91b6d23e0522802e",
+      "object_sha256": "acc99477e0e1e426c3a5f0e2c36e309e3e7d5cd0651295276b1be35a94ac4919",
+      "references": {
+        "opennt": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos6": {
+          "class": "content_review_required",
+          "changed_hunks": 3,
+          "source_lines": 2,
+          "reference_lines": 13
+        },
+        "dos4": {
+          "class": "missing"
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "module": "msdata",
+      "source": "dos/msdata.asm",
+      "source_sha256": "ff14900aba8467e9f841621eca4e63792c9ff190c63b142a1a384286024489cd",
+      "object_sha256": "e27185fffcb7006de26d9d6e462cebc1e17b87b9c9d4c268b33de2e344a35402",
+      "references": {
+        "opennt": {
+          "class": "content_review_required",
+          "changed_hunks": 3,
+          "source_lines": 2,
+          "reference_lines": 4
+        },
+        "dos6": {
+          "class": "content_review_required",
+          "changed_hunks": 4,
+          "source_lines": 9,
+          "reference_lines": 19
+        },
+        "dos4": {
+          "class": "missing"
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "module": "mstable",
+      "source": "dos/mstable.asm",
+      "source_sha256": "57030bd35b2f3a0b46bbaac7785778497676937d1de27a6ab0e065a87d67f96f",
+      "object_sha256": "aee96a45e60c56a5ff96b4b6271b81c106bbde6c02b95ab9eb985a4277beb225",
+      "references": {
+        "opennt": {
+          "class": "content_review_required",
+          "changed_hunks": 10,
+          "source_lines": 15,
+          "reference_lines": 17
+        },
+        "dos6": {
+          "class": "content_review_required",
+          "changed_hunks": 1,
+          "source_lines": 0,
+          "reference_lines": 1
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 24,
+          "source_lines": 85,
+          "reference_lines": 332
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "module": "msdisp",
+      "source": "dos/msdisp.asm",
+      "source_sha256": "441cfe675ac62e37a2967631e0b6a0a63b5cf979af8c48e3d671ce7d9bfd215d",
+      "object_sha256": "96eaf12fd385d5f78cb0373e316c4c35a72067986b67e4a5f9091664680b9c5d",
+      "references": {
+        "opennt": {
+          "class": "content_review_required",
+          "changed_hunks": 34,
+          "source_lines": 60,
+          "reference_lines": 97
+        },
+        "dos6": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 7,
+          "source_lines": 877,
+          "reference_lines": 10
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "module": "mscode",
+      "source": "dos/mscode.asm",
+      "source_sha256": "dc4d766c2238e9d9045e9ea6917593c0d2d1c2bb7fb634b49df405d19a898ff3",
+      "object_sha256": "aa6d030aa904f59d213190c93931e273bd2ac1caee0c082b2f20c4193e6e9de0",
+      "references": {
+        "opennt": {
+          "class": "content_review_required",
+          "changed_hunks": 54,
+          "source_lines": 186,
+          "reference_lines": 95
+        },
+        "dos6": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 4,
+          "source_lines": 1513,
+          "reference_lines": 10
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "module": "msdosme",
+      "source": "dos/msdosme.asm",
+      "source_sha256": "f54fedd4c705cf1e9a8f037685e4099398e047300ddbcd50591ac5480298508e",
+      "object_sha256": "96c04a44b86e902547e992d72ed0bdd5ad814deb8a06c01e86fd62e6fe9ecd4b",
+      "references": {
+        "opennt": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos6": {
+          "class": "content_review_required",
+          "changed_hunks": 1,
+          "source_lines": 0,
+          "reference_lines": 5
+        },
+        "dos4": {
+          "class": "missing"
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "module": "time",
+      "source": "dos/time.asm",
+      "source_sha256": "7ea358d51ad44c3bc09e06c81cc468c9d9ff646abac04c619b377606f38cb336",
+      "object_sha256": "773bc435dfe4bddc86b0b6e4bfab1ffc6855e0568b6000e27766c98a62d10f5f",
+      "references": {
+        "opennt": {
+          "class": "content_review_required",
+          "changed_hunks": 22,
+          "source_lines": 385,
+          "reference_lines": 198
+        },
+        "dos6": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 57,
+          "source_lines": 205,
+          "reference_lines": 104
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "module": "getset",
+      "source": "dos/getset.asm",
+      "source_sha256": "b26b12fcd432ca80055e4aec8f222942ab05625b7b9621f232ae8f20464783d7",
+      "object_sha256": "e353a52372ed6fa90b32ae2895e45527391397ccfcb012f2bd3413e80610a64e",
+      "references": {
+        "opennt": {
+          "class": "content_review_required",
+          "changed_hunks": 23,
+          "source_lines": 88,
+          "reference_lines": 51
+        },
+        "dos6": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 128,
+          "source_lines": 634,
+          "reference_lines": 409
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "module": "parse",
+      "source": "dos/parse.asm",
+      "source_sha256": "9027269459eff80277d3c4ad8b965c229c893dcaed50938da649ed46bc21ec0f",
+      "object_sha256": "30da54fce071d12f2342525099942c0e4b6a1fd9ce5aacef6616225b34d11002",
+      "references": {
+        "opennt": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos6": {
+          "class": "content_review_required",
+          "changed_hunks": 1,
+          "source_lines": 0,
+          "reference_lines": 6
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 7,
+          "source_lines": 17,
+          "reference_lines": 404
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "module": "misc",
+      "source": "dos/misc.asm",
+      "source_sha256": "daf6ac0b49d18ea69dbf5a27ddf1dbe2b1961690bd616af9f985fc6e364e8123",
+      "object_sha256": "7c537087caaa1e0fe223ab72df523bf97eaa8bf387a398c0df8a2629e1fbd0e5",
+      "references": {
+        "opennt": {
+          "class": "content_review_required",
+          "changed_hunks": 32,
+          "source_lines": 69,
+          "reference_lines": 253
+        },
+        "dos6": {
+          "class": "content_review_required",
+          "changed_hunks": 4,
+          "source_lines": 2,
+          "reference_lines": 15
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 77,
+          "source_lines": 395,
+          "reference_lines": 186
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "module": "misc2",
+      "source": "dos/misc2.asm",
+      "source_sha256": "ffef367d852cb5cced423c9a5c4d03c4107958f13861c434aa4c81e6afeb7e66",
+      "object_sha256": "cf1c7922c612ff6f7f779336527c4727fecdad3728e7b07690a95971eea4d4aa",
+      "references": {
+        "opennt": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos6": {
+          "class": "content_review_required",
+          "changed_hunks": 1,
+          "source_lines": 0,
+          "reference_lines": 6
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 97,
+          "source_lines": 282,
+          "reference_lines": 221
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "module": "crit",
+      "source": "dos/crit.asm",
+      "source_sha256": "3dda9be243c089ea0de5bd089158182d141ad9052d097d815d1065eef0e32752",
+      "object_sha256": "827f1f3197ec9f1540c7aa222fea3bb02b5d2eb6a15ef8b5516895e7d96b51f6",
+      "references": {
+        "opennt": {
+          "class": "content_review_required",
+          "changed_hunks": 11,
+          "source_lines": 98,
+          "reference_lines": 83
+        },
+        "dos6": {
+          "class": "line_endings_or_eof_only",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 20,
+          "source_lines": 119,
+          "reference_lines": 40
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "module": "cpmio",
+      "source": "dos/cpmio.asm",
+      "source_sha256": "451b22d70c1cc590390c4f997a26ab9c7d5facbc132905684acfc59c6baaa24f",
+      "object_sha256": "90c02e64c484cca08a703dfb47f25143ad41372a2205adbbc2daab7ac6696dc4",
+      "references": {
+        "opennt": {
+          "class": "content_review_required",
+          "changed_hunks": 8,
+          "source_lines": 60,
+          "reference_lines": 34
+        },
+        "dos6": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 73,
+          "source_lines": 658,
+          "reference_lines": 151
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "module": "cpmio2",
+      "source": "dos/cpmio2.asm",
+      "source_sha256": "d2a5a4ef5121bb9a8928c83d54499e3e239d182939a062b5a0f02fa7d234265f",
+      "object_sha256": "c2c9191ebae46ba7f8dcbfac0f70b61fbe72f42163a8cff5f81dc9927fad0203",
+      "references": {
+        "opennt": {
+          "class": "content_review_required",
+          "changed_hunks": 2,
+          "source_lines": 7,
+          "reference_lines": 1
+        },
+        "dos6": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 35,
+          "source_lines": 164,
+          "reference_lines": 108
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "module": "fcbio",
+      "source": "dos/fcbio.asm",
+      "source_sha256": "826fb2b0c8bfb9d2da36c8722270d68bd62a0c205699941f0a66471ee0720608",
+      "object_sha256": "3886de1eee5888c8afb62d9dfa6cd710f84632d7fb5732d19eb5fe9d89f0da9a",
+      "references": {
+        "opennt": {
+          "class": "content_review_required",
+          "changed_hunks": 69,
+          "source_lines": 251,
+          "reference_lines": 230
+        },
+        "dos6": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 159,
+          "source_lines": 854,
+          "reference_lines": 351
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "module": "fcbio2",
+      "source": "dos/fcbio2.asm",
+      "source_sha256": "2faabcea11b9476c1e6108db7eef581c9e1c46793313b2c358343dca31912293",
+      "object_sha256": "c8924312396ebcc3dfcf361642b4937a04cbc4eba194288d65fdd156881844e5",
+      "references": {
+        "opennt": {
+          "class": "content_review_required",
+          "changed_hunks": 49,
+          "source_lines": 74,
+          "reference_lines": 178
+        },
+        "dos6": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 97,
+          "source_lines": 180,
+          "reference_lines": 161
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "module": "search",
+      "source": "dos/search.asm",
+      "source_sha256": "13196cd660edcafb10477fab1a6d807649e7be86f6f4a9c6e436161f0e60d82c",
+      "object_sha256": "c3c8288358a1ff80b872dcbec89456cf63b6ccda6bc2af0edf85a57222b8c554",
+      "references": {
+        "opennt": {
+          "class": "content_review_required",
+          "changed_hunks": 39,
+          "source_lines": 131,
+          "reference_lines": 51
+        },
+        "dos6": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 58,
+          "source_lines": 193,
+          "reference_lines": 107
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "module": "path",
+      "source": "dos/path.asm",
+      "source_sha256": "f93d8c15498c8751c0de278267f8d80bf328559f34bb70494a1a303ef3cef5f2",
+      "object_sha256": "176ee72d1ad15f6fe2407c3250cbca138f576a81357306093164ddfcc12078bc",
+      "references": {
+        "opennt": {
+          "class": "content_review_required",
+          "changed_hunks": 29,
+          "source_lines": 138,
+          "reference_lines": 120
+        },
+        "dos6": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 50,
+          "source_lines": 151,
+          "reference_lines": 65
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "module": "ioctl",
+      "source": "dos/ioctl.asm",
+      "source_sha256": "5d2e75742cba4d8f45f5c05ff731b1ee32de092cd01b8aa01442b6ab10d8e5b8",
+      "object_sha256": "e5605ae485d26eb90aceceb0b1d8942191a5fd08ce23d630fc5b4d4d5bb33c3f",
+      "references": {
+        "opennt": {
+          "class": "content_review_required",
+          "changed_hunks": 33,
+          "source_lines": 186,
+          "reference_lines": 115
+        },
+        "dos6": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 91,
+          "source_lines": 338,
+          "reference_lines": 228
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "module": "delete",
+      "source": "dos/delete.asm",
+      "source_sha256": "5fe514092accffa110a13a4f05dd2104664cfad87479f21bb57ea411d1cf1d77",
+      "object_sha256": "b4a84b86facdc1565daab053fe8a242fd799873d0d7b7c41825848aa2a4ecefa",
+      "references": {
+        "opennt": {
+          "class": "missing"
+        },
+        "dos6": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 62,
+          "source_lines": 169,
+          "reference_lines": 406
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "module": "rename",
+      "source": "dos/rename.asm",
+      "source_sha256": "e6b1bc6274952b29234230fb72dff9e2cb601558d75af5a298079df93b101dbd",
+      "object_sha256": "3df124f97e4b37840766a3e216340eabe4847dab3d186604cc2d4916e7a84b62",
+      "references": {
+        "opennt": {
+          "class": "missing"
+        },
+        "dos6": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 41,
+          "source_lines": 202,
+          "reference_lines": 86
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "module": "finfo",
+      "source": "dos/finfo.asm",
+      "source_sha256": "58ba5d206fe7c20eea409db6ac39ebcf2e59db19b5fc691f942b3ca90ec02c39",
+      "object_sha256": "499d212d84da013dd86be771e36bc5b072659150754cdf108e1aef28438d60d3",
+      "references": {
+        "opennt": {
+          "class": "missing"
+        },
+        "dos6": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 22,
+          "source_lines": 79,
+          "reference_lines": 49
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "module": "dup",
+      "source": "dos/dup.asm",
+      "source_sha256": "84fc63a07997b1f2e5107af784eaa26bb827189cd92c177231af1d8643719823",
+      "object_sha256": "5358fd318f85a3b52e03aa9fb263fcf44a9472fbc7efbba576872aa221b81b02",
+      "references": {
+        "opennt": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos6": {
+          "class": "content_review_required",
+          "changed_hunks": 1,
+          "source_lines": 0,
+          "reference_lines": 6
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 11,
+          "source_lines": 35,
+          "reference_lines": 29
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "module": "create",
+      "source": "dos/create.asm",
+      "source_sha256": "bfb5640cd1b63391bd24997ed229d182f2fb07299082c31d0f14643b117c449e",
+      "object_sha256": "a20c8ce2ce56d03c6238dce5dd0a16ebd357f5b4f7409f68ecbcf3ec4841e020",
+      "references": {
+        "opennt": {
+          "class": "missing"
+        },
+        "dos6": {
+          "class": "content_review_required",
+          "changed_hunks": 3,
+          "source_lines": 3,
+          "reference_lines": 3
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 47,
+          "source_lines": 157,
+          "reference_lines": 104
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "module": "open",
+      "source": "dos/open.asm",
+      "source_sha256": "ce1a64fc65561ce6d5ca7d5f655a798af3a77b1aa573cf4b3985ce1156640d12",
+      "object_sha256": "1b1fd9eea4332ea1f7dfcadafce4565730c6fab2ee417edf5ecaecd93738fcd6",
+      "references": {
+        "opennt": {
+          "class": "content_review_required",
+          "changed_hunks": 17,
+          "source_lines": 196,
+          "reference_lines": 69
+        },
+        "dos6": {
+          "class": "content_review_required",
+          "changed_hunks": 1,
+          "source_lines": 1,
+          "reference_lines": 1
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 52,
+          "source_lines": 162,
+          "reference_lines": 224
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "module": "dinfo",
+      "source": "dos/dinfo.asm",
+      "source_sha256": "3bc73774ddcecfc61214336f65449da0331edfd9513c5752100fcfd6fd481c51",
+      "object_sha256": "36dd133cd6c0998ddde627d42cb921f441d5520ace199ac35dc2251e4d7b9c32",
+      "references": {
+        "opennt": {
+          "class": "missing"
+        },
+        "dos6": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 13,
+          "source_lines": 39,
+          "reference_lines": 30
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "module": "isearch",
+      "source": "dos/isearch.asm",
+      "source_sha256": "ec0bb3be4beec3c99e8931d737222a09f1c5f728009ea4efd27a09d2936cc039",
+      "object_sha256": "90c54fa6450195074c2b761f2148982a16e75cfeecd4d0bec910f02b7d72af26",
+      "references": {
+        "opennt": {
+          "class": "missing"
+        },
+        "dos6": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 27,
+          "source_lines": 92,
+          "reference_lines": 46
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "module": "abort",
+      "source": "dos/abort.asm",
+      "source_sha256": "13462864fcadc38f3fd0a910aab6abac0a68257d6fdb9e0ed77258fa9254c995",
+      "object_sha256": "928769617ce25b72727c12b59f55a3e6ce80f509a2402c3f9e267a4b2057664a",
+      "references": {
+        "opennt": {
+          "class": "content_review_required",
+          "changed_hunks": 12,
+          "source_lines": 31,
+          "reference_lines": 18
+        },
+        "dos6": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 17,
+          "source_lines": 48,
+          "reference_lines": 21
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "module": "close",
+      "source": "dos/close.asm",
+      "source_sha256": "333aae343db2c3d6c4ba52adc3d90c49c0b7b2e259de65f446e633731b76f62e",
+      "object_sha256": "6c336d843c809d0739637565920c1e68169904744b254df78abaf41dadd87013",
+      "references": {
+        "opennt": {
+          "class": "missing"
+        },
+        "dos6": {
+          "class": "content_review_required",
+          "changed_hunks": 1,
+          "source_lines": 1,
+          "reference_lines": 1
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 49,
+          "source_lines": 115,
+          "reference_lines": 97
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "module": "dircall",
+      "source": "dos/dircall.asm",
+      "source_sha256": "769049ce7d690ab8be44205a66cf4d8c900048ef7ec230655599e2b8a5e47a19",
+      "object_sha256": "e3244dca3a58374b3a642d9f28b5beb3b58dbfda992aec5a02f7128318ed8f81",
+      "references": {
+        "opennt": {
+          "class": "missing"
+        },
+        "dos6": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 28,
+          "source_lines": 76,
+          "reference_lines": 41
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "module": "disk",
+      "source": "dos/disk.asm",
+      "source_sha256": "4752eef26b56602bf151fbf4fd62b10e8e69f8b28ee4276b77b2eb2cad9f4af7",
+      "object_sha256": "d37a26cea2b59a9ce931a89728e7bf15df40cd67483c68662fecec046d6bc762",
+      "references": {
+        "opennt": {
+          "class": "content_review_required",
+          "changed_hunks": 73,
+          "source_lines": 510,
+          "reference_lines": 248
+        },
+        "dos6": {
+          "class": "content_review_required",
+          "changed_hunks": 1,
+          "source_lines": 1,
+          "reference_lines": 1
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 148,
+          "source_lines": 489,
+          "reference_lines": 422
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "module": "disk2",
+      "source": "dos/disk2.asm",
+      "source_sha256": "9b7c0483a2960e70ee4adb82f795179a2fff4f62fd9036c0406ca31f3c25036b",
+      "object_sha256": "0350f17462dbd38c5619893d7abd6da875bdb8868f40df43633863107e88fefb",
+      "references": {
+        "opennt": {
+          "class": "missing"
+        },
+        "dos6": {
+          "class": "content_review_required",
+          "changed_hunks": 1,
+          "source_lines": 1,
+          "reference_lines": 1
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 93,
+          "source_lines": 365,
+          "reference_lines": 315
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "module": "disk3",
+      "source": "dos/disk3.asm",
+      "source_sha256": "e1efd25c46535530b31872ff3874bb57e50374786328e5816d42e4484b236fa5",
+      "object_sha256": "f3cc2dc047e21331324d7fe845b47f744353936e3e8bc58124a5f00edcba1726",
+      "references": {
+        "opennt": {
+          "class": "missing"
+        },
+        "dos6": {
+          "class": "content_review_required",
+          "changed_hunks": 3,
+          "source_lines": 4,
+          "reference_lines": 35
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 96,
+          "source_lines": 598,
+          "reference_lines": 525
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "module": "dir",
+      "source": "dos/dir.asm",
+      "source_sha256": "03ef140acfbe6288adb7d6571a839d8089daa7d6d00e531abaae6735419dc63b",
+      "object_sha256": "fdceeb4edc038626338f854d9dc9141839d95330d6fc8071b5daf4c10d90d9bf",
+      "references": {
+        "opennt": {
+          "class": "missing"
+        },
+        "dos6": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 49,
+          "source_lines": 110,
+          "reference_lines": 72
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "module": "dir2",
+      "source": "dos/dir2.asm",
+      "source_sha256": "eba94f66305df69e54c48340a969a75e66226a76a67a35d1ee50c8b635ff1523",
+      "object_sha256": "fb1fc712ef0f986c9cff08e413e63f0529872fabd7ff5eb89a5d94d2792a4040",
+      "references": {
+        "opennt": {
+          "class": "content_review_required",
+          "changed_hunks": 30,
+          "source_lines": 48,
+          "reference_lines": 80
+        },
+        "dos6": {
+          "class": "content_review_required",
+          "changed_hunks": 6,
+          "source_lines": 2,
+          "reference_lines": 71
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 148,
+          "source_lines": 298,
+          "reference_lines": 217
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "module": "dev",
+      "source": "dos/dev.asm",
+      "source_sha256": "3c81ca91e31fda78273f7bcca93614afdefd74a9bd63f225db58a4ccd059f6ac",
+      "object_sha256": "eaf0759a8cb692df2bc2a3ce0465d570449c9477c03324532f539f8c89abd618",
+      "references": {
+        "opennt": {
+          "class": "content_review_required",
+          "changed_hunks": 24,
+          "source_lines": 433,
+          "reference_lines": 98
+        },
+        "dos6": {
+          "class": "content_review_required",
+          "changed_hunks": 6,
+          "source_lines": 2,
+          "reference_lines": 14
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 88,
+          "source_lines": 298,
+          "reference_lines": 172
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "module": "mknode",
+      "source": "dos/mknode.asm",
+      "source_sha256": "acecfec7ded8526bac4daf25bb0fa03cbb76daae43efeebcf30cadbc1c66c828",
+      "object_sha256": "a109d46edd6d8fa47ade4970f8761a3ff7ed5431e455d91e22c4b1b267a7727e",
+      "references": {
+        "opennt": {
+          "class": "missing"
+        },
+        "dos6": {
+          "class": "content_review_required",
+          "changed_hunks": 2,
+          "source_lines": 2,
+          "reference_lines": 2
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 101,
+          "source_lines": 215,
+          "reference_lines": 179
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "module": "rom",
+      "source": "dos/rom.asm",
+      "source_sha256": "1ded439ece28528f37782a8f9b53726ca765662a4000970fee46d5ce06084061",
+      "object_sha256": "d401ccdcfeaee4bbbd2f6a674cffbb6b9fc81cc34fc94a4e4c3eea49b4f4bea6",
+      "references": {
+        "opennt": {
+          "class": "missing"
+        },
+        "dos6": {
+          "class": "content_review_required",
+          "changed_hunks": 8,
+          "source_lines": 5,
+          "reference_lines": 48
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 100,
+          "source_lines": 263,
+          "reference_lines": 318
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "module": "fcb",
+      "source": "dos/fcb.asm",
+      "source_sha256": "fae6668f118b7d041ab55eacbd54e94cb42e14e8208e54936f2c4825abcef347",
+      "object_sha256": "53d695eb3ba05d02663572be33d1c34382122459eb0df67e378f15cfae525be8",
+      "references": {
+        "opennt": {
+          "class": "content_review_required",
+          "changed_hunks": 1,
+          "source_lines": 0,
+          "reference_lines": 3
+        },
+        "dos6": {
+          "class": "content_review_required",
+          "changed_hunks": 2,
+          "source_lines": 0,
+          "reference_lines": 12
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 54,
+          "source_lines": 370,
+          "reference_lines": 165
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "module": "msctrlc",
+      "source": "dos/msctrlc.asm",
+      "source_sha256": "f2a11cf2709ec0d56b41d8e32df0d2d3026b0f64d506432fb652566f85af6581",
+      "object_sha256": "d31848e4a45fa4ea623ce64bb56e0c5fee07fe4da927dbae5cd08c6793743235",
+      "references": {
+        "opennt": {
+          "class": "content_review_required",
+          "changed_hunks": 43,
+          "source_lines": 136,
+          "reference_lines": 143
+        },
+        "dos6": {
+          "class": "content_review_required",
+          "changed_hunks": 1,
+          "source_lines": 1,
+          "reference_lines": 1
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 5,
+          "source_lines": 1193,
+          "reference_lines": 10
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "module": "fat",
+      "source": "dos/fat.asm",
+      "source_sha256": "69b434ab7d945e6de0fbfe9e6a657de2d622a54f92661d4117721a5be15f385f",
+      "object_sha256": "2f2f50581dd06cf6e239cc0bb7d1580eadf9fdc43117b4ef126ff7f507dfe6f0",
+      "references": {
+        "opennt": {
+          "class": "missing"
+        },
+        "dos6": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 92,
+          "source_lines": 259,
+          "reference_lines": 199
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "module": "buf",
+      "source": "dos/buf.asm",
+      "source_sha256": "c6efe316978116040b42da25704ce212c6d1c675dbee9059603e1bf6ded6bf96",
+      "object_sha256": "bd1de69b1a29ea8d808786f680bcd1c2f0c4a24a88e251378d82306ea4d172a7",
+      "references": {
+        "opennt": {
+          "class": "missing"
+        },
+        "dos6": {
+          "class": "content_review_required",
+          "changed_hunks": 1,
+          "source_lines": 18,
+          "reference_lines": 17
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 102,
+          "source_lines": 478,
+          "reference_lines": 769
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "module": "msproc",
+      "source": "dos/msproc.asm",
+      "source_sha256": "8ca404d7a2e8bc0c3a23dbae4590cb132f4be447a0f3ae72b4996ee8ad17eaf8",
+      "object_sha256": "6d290e9b064c0afcf41d65e92af6778c7cf3a3dcf8a027565caeeead96228431",
+      "references": {
+        "opennt": {
+          "class": "content_review_required",
+          "changed_hunks": 77,
+          "source_lines": 337,
+          "reference_lines": 445
+        },
+        "dos6": {
+          "class": "content_review_required",
+          "changed_hunks": 10,
+          "source_lines": 4,
+          "reference_lines": 112
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 5,
+          "source_lines": 1857,
+          "reference_lines": 7
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "module": "alloc",
+      "source": "dos/alloc.asm",
+      "source_sha256": "98c929ded7a515871ecf464ec96bbfda483b3ea4295c739ce1afcbd78ffdb450",
+      "object_sha256": "63f6bbff68a61d5885921e8b190f369831a7c3bb9fcd4e062a627adf46af0ff7",
+      "references": {
+        "opennt": {
+          "class": "content_review_required",
+          "changed_hunks": 2,
+          "source_lines": 36,
+          "reference_lines": 2
+        },
+        "dos6": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 62,
+          "source_lines": 531,
+          "reference_lines": 131
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "module": "srvcall",
+      "source": "dos/srvcall.asm",
+      "source_sha256": "e8129faecfc5802adc85398c17f7e101dcfbd45d06f45905bf8b7b1901a2a5e6",
+      "object_sha256": "6904154d2f256bb2d938f4d0488787097fb6827153044a7025c0ea7d8a90dd42",
+      "references": {
+        "opennt": {
+          "class": "content_review_required",
+          "changed_hunks": 9,
+          "source_lines": 88,
+          "reference_lines": 12
+        },
+        "dos6": {
+          "class": "content_review_required",
+          "changed_hunks": 2,
+          "source_lines": 2,
+          "reference_lines": 2
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 39,
+          "source_lines": 109,
+          "reference_lines": 78
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "module": "segcheck",
+      "source": "dos/segcheck.asm",
+      "source_sha256": "6d42468cad2d40f90a3ceba950d173ffcf87e20ae0b5660cb8de0deb9689d4ef",
+      "object_sha256": "6287bf2a481c4f96bd015519e49d7ccef252f58e4bd535837ab4de6d311aba37",
+      "references": {
+        "opennt": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos6": {
+          "class": "content_review_required",
+          "changed_hunks": 5,
+          "source_lines": 4,
+          "reference_lines": 8
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 52,
+          "source_lines": 172,
+          "reference_lines": 151
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "module": "util",
+      "source": "dos/util.asm",
+      "source_sha256": "664389bd28b8c9455b32c2021d6a04ee2400931326d355f9604eff5ced23ab1e",
+      "object_sha256": "df0b8657376236fc3825b81cdb4105da402d345182099de0561f7602a353b982",
+      "references": {
+        "opennt": {
+          "class": "content_review_required",
+          "changed_hunks": 5,
+          "source_lines": 14,
+          "reference_lines": 3
+        },
+        "dos6": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 38,
+          "source_lines": 219,
+          "reference_lines": 156
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "module": "handle",
+      "source": "dos/handle.asm",
+      "source_sha256": "8485406a7f7b4bd83b9439fae235cdbffd8433f7f9c5deaa85b7472bcd5e033b",
+      "object_sha256": "7e8567ba7836352ebdf582f303b428e5cc76f61a4bcd3664c6d706df60110628",
+      "references": {
+        "opennt": {
+          "class": "content_review_required",
+          "changed_hunks": 124,
+          "source_lines": 472,
+          "reference_lines": 737
+        },
+        "dos6": {
+          "class": "content_review_required",
+          "changed_hunks": 2,
+          "source_lines": 2,
+          "reference_lines": 2
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 107,
+          "source_lines": 280,
+          "reference_lines": 472
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "module": "macro",
+      "source": "dos/macro.asm",
+      "source_sha256": "86b39aee4b10eb6bec74ad5427047c348fb8270a3d6a3dc5818d6c8222a8a788",
+      "object_sha256": "2f03d7144c937d893c1b9c526f46b32002ad42cf6758753fe5176a5e52990e2a",
+      "references": {
+        "opennt": {
+          "class": "content_review_required",
+          "changed_hunks": 45,
+          "source_lines": 341,
+          "reference_lines": 340
+        },
+        "dos6": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 43,
+          "source_lines": 159,
+          "reference_lines": 171
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "module": "macro2",
+      "source": "dos/macro2.asm",
+      "source_sha256": "118eddf562852d8416834010f1eef1e2c331a6e155b32970fcf8bcee52853ec1",
+      "object_sha256": "a2209a6682a87eaa0c107d08f36367236dc45712411b0fadf6ab4b5d6b5318a0",
+      "references": {
+        "opennt": {
+          "class": "content_review_required",
+          "changed_hunks": 154,
+          "source_lines": 850,
+          "reference_lines": 744
+        },
+        "dos6": {
+          "class": "content_review_required",
+          "changed_hunks": 2,
+          "source_lines": 1,
+          "reference_lines": 24
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 160,
+          "source_lines": 830,
+          "reference_lines": 833
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "module": "file",
+      "source": "dos/file.asm",
+      "source_sha256": "ef3898315387b57622cbc19443a3d839f5f4575f9a7de8d2a3c46830981099ac",
+      "object_sha256": "146e050712d30c95725ee5bb4195f08dd2bac504bbbdd7e024b8858d59af848f",
+      "references": {
+        "opennt": {
+          "class": "content_review_required",
+          "changed_hunks": 61,
+          "source_lines": 220,
+          "reference_lines": 175
+        },
+        "dos6": {
+          "class": "content_review_required",
+          "changed_hunks": 2,
+          "source_lines": 2,
+          "reference_lines": 2
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 128,
+          "source_lines": 335,
+          "reference_lines": 294
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "module": "lock",
+      "source": "dos/lock.asm",
+      "source_sha256": "99dc1dbc2c37e6b2461d1c7921da39d54e81736e3424d2c95c5912a6351f0891",
+      "object_sha256": "6c0d400b962e453ff17a78a531f5222378c157c245fb89883bd4cc10c01ec5fd",
+      "references": {
+        "opennt": {
+          "class": "content_review_required",
+          "changed_hunks": 11,
+          "source_lines": 49,
+          "reference_lines": 14
+        },
+        "dos6": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 31,
+          "source_lines": 88,
+          "reference_lines": 209
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "module": "share",
+      "source": "dos/share.asm",
+      "source_sha256": "0eb75b8acef5c5dd2bd86d0c7b26ae885ba72d18c2e5bc2d2b01476ef46f1aa7",
+      "object_sha256": "16e36bf4758e222a18f83b656172e1165e74fb107175af51dc7ca52c31f8c08f",
+      "references": {
+        "opennt": {
+          "class": "missing"
+        },
+        "dos6": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 18,
+          "source_lines": 37,
+          "reference_lines": 25
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "module": "exepatch",
+      "source": "dos/exepatch.asm",
+      "source_sha256": "17ede81998c879d8977c3aa685736c01b15d859fad1465cd228c55072ece5d59",
+      "object_sha256": "025d56ed63d7d551398ef65c636d0a4cc5caab635b6f44fee6ef9abccfd428d3",
+      "references": {
+        "opennt": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos6": {
+          "class": "content_review_required",
+          "changed_hunks": 7,
+          "source_lines": 67,
+          "reference_lines": 740
+        },
+        "dos4": {
+          "class": "missing"
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "module": "msinit",
+      "source": "dos/msinit.asm",
+      "source_sha256": "2ad92206ceec9ec9b54cb8e9f0225031f7649e18958c6eba7072591adc15e517",
+      "object_sha256": "c4ba9edaef0f7683eb797b8d565bc74ceabfe0a882c098e6274dcea02f3ca55c",
+      "references": {
+        "opennt": {
+          "class": "content_review_required",
+          "changed_hunks": 269,
+          "source_lines": 760,
+          "reference_lines": 794
+        },
+        "dos6": {
+          "class": "content_review_required",
+          "changed_hunks": 150,
+          "source_lines": 162,
+          "reference_lines": 374
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 13,
+          "source_lines": 1329,
+          "reference_lines": 652
+        }
+      }
+    },
+    {
+      "group": "command",
+      "module": "command1",
+      "source": "cmd/command/command1.asm",
+      "source_sha256": "7c6cc9b7f9ecdf4c047dff14654a94c99caff51178f70451f211f3bf997ea5eb",
+      "object_sha256": "0f876299b3653e9a2d993ba6ccefe91216a80fc4a65732afa90582808d1408b0",
+      "references": {
+        "opennt": {
+          "class": "content_review_required",
+          "changed_hunks": 3,
+          "source_lines": 2,
+          "reference_lines": 15
+        },
+        "dos6": {
+          "class": "content_review_required",
+          "changed_hunks": 1,
+          "source_lines": 2,
+          "reference_lines": 0
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 42,
+          "source_lines": 378,
+          "reference_lines": 285
+        }
+      }
+    },
+    {
+      "group": "command",
+      "module": "command2",
+      "source": "cmd/command/command2.asm",
+      "source_sha256": "3f0c58a4385a171de50d408ee1f5bf6f6bb08bc65851a6539ed88d9b8233b1e4",
+      "object_sha256": "c642bce8d2eca76daa649cf3c84a4dd92a01f56a35e394b5ecd72945a49cd957",
+      "references": {
+        "opennt": {
+          "class": "content_review_required",
+          "changed_hunks": 8,
+          "source_lines": 4,
+          "reference_lines": 21
+        },
+        "dos6": {
+          "class": "content_review_required",
+          "changed_hunks": 6,
+          "source_lines": 7,
+          "reference_lines": 76
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 61,
+          "source_lines": 921,
+          "reference_lines": 556
+        }
+      }
+    },
+    {
+      "group": "command",
+      "module": "rucode",
+      "source": "cmd/command/rucode.asm",
+      "source_sha256": "db78b274658e577ef876562cc721f66013fd05dab50e44533971aebd8dc4c3f4",
+      "object_sha256": "f55d4b5b5561093c323e47343f9c7b95ced474ecdd82fc7c9af8fcfa61c042f9",
+      "references": {
+        "opennt": {
+          "class": "content_review_required",
+          "changed_hunks": 3,
+          "source_lines": 4,
+          "reference_lines": 5
+        },
+        "dos6": {
+          "class": "content_review_required",
+          "changed_hunks": 7,
+          "source_lines": 4,
+          "reference_lines": 52
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 94,
+          "source_lines": 1066,
+          "reference_lines": 577
+        }
+      }
+    },
+    {
+      "group": "command",
+      "module": "stub",
+      "source": "cmd/command/stub.asm",
+      "source_sha256": "06bef972296b25751563239325c008e4cce3de3d482fb658a19514d4c2b58147",
+      "object_sha256": "31a3f2777e3ae946b88d87342c96ceebb2e83e58e54f62e4486eac0e2de7f95a",
+      "references": {
+        "opennt": {
+          "class": "content_review_required",
+          "changed_hunks": 6,
+          "source_lines": 2,
+          "reference_lines": 6
+        },
+        "dos6": {
+          "class": "content_review_required",
+          "changed_hunks": 7,
+          "source_lines": 19,
+          "reference_lines": 23
+        },
+        "dos4": {
+          "class": "missing"
+        }
+      }
+    },
+    {
+      "group": "command",
+      "module": "rdata",
+      "source": "cmd/command/rdata.asm",
+      "source_sha256": "b5dcbc88307159dc7c84bfd0218826b6e1de1e447d23f0ad4d8c8acdfdc1ff62",
+      "object_sha256": "3bc10056922c71757fb8e63451e4a811a3d87d2eea624c26ebd82fa21382a4b9",
+      "references": {
+        "opennt": {
+          "class": "content_review_required",
+          "changed_hunks": 15,
+          "source_lines": 6,
+          "reference_lines": 58
+        },
+        "dos6": {
+          "class": "content_review_required",
+          "changed_hunks": 18,
+          "source_lines": 19,
+          "reference_lines": 57
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 57,
+          "source_lines": 661,
+          "reference_lines": 528
+        }
+      }
+    },
+    {
+      "group": "command",
+      "module": "init",
+      "source": "cmd/command/init.asm",
+      "source_sha256": "6aed5eacd2093e0e097d03690add363e23da9a0f81a734e01ed51bd673ec1c07",
+      "object_sha256": "6e4c3986c66411a91667522b6cad9225a0e87d47ed2768a40e61bce3a3bc960e",
+      "references": {
+        "opennt": {
+          "class": "content_review_required",
+          "changed_hunks": 42,
+          "source_lines": 38,
+          "reference_lines": 260
+        },
+        "dos6": {
+          "class": "content_review_required",
+          "changed_hunks": 151,
+          "source_lines": 355,
+          "reference_lines": 565
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 229,
+          "source_lines": 1900,
+          "reference_lines": 1275
+        }
+      }
+    },
+    {
+      "group": "command",
+      "module": "iparse",
+      "source": "cmd/command/iparse.asm",
+      "source_sha256": "212d981c0338012fe96849a7ea569bea2172d267beeb57415d702d603e7d2e7e",
+      "object_sha256": "2429abca5f5af5f8b9e035693bb98dafc37e232f94b5f75e2a1d41cbeaad64d6",
+      "references": {
+        "opennt": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos6": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 1,
+          "source_lines": 6,
+          "reference_lines": 1
+        }
+      }
+    },
+    {
+      "group": "command",
+      "module": "uinit",
+      "source": "cmd/command/uinit.asm",
+      "source_sha256": "fb08dc811eb2f0d1be49cad8f6ee4b8d50cb38e083e345b8e2d1cb76c0a99eca",
+      "object_sha256": "6eb27c770d01217495063679ca397efc916750b77b19498fc83af74461fb8f6b",
+      "references": {
+        "opennt": {
+          "class": "content_review_required",
+          "changed_hunks": 7,
+          "source_lines": 5,
+          "reference_lines": 15
+        },
+        "dos6": {
+          "class": "content_review_required",
+          "changed_hunks": 12,
+          "source_lines": 6,
+          "reference_lines": 43
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 27,
+          "source_lines": 97,
+          "reference_lines": 26
+        }
+      }
+    },
+    {
+      "group": "command",
+      "module": "tcode",
+      "source": "cmd/command/tcode.asm",
+      "source_sha256": "c7601dbe1b33135811676407c465f69bd8611e9e9990ca867551ce6cc4f47513",
+      "object_sha256": "76db0f4f74d67be65d4f45a5eff6ebeb08b43b6771747bf95d5de9f277037c60",
+      "references": {
+        "opennt": {
+          "class": "content_review_required",
+          "changed_hunks": 83,
+          "source_lines": 396,
+          "reference_lines": 1439
+        },
+        "dos6": {
+          "class": "content_review_required",
+          "changed_hunks": 34,
+          "source_lines": 61,
+          "reference_lines": 27
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 44,
+          "source_lines": 111,
+          "reference_lines": 37
+        }
+      }
+    },
+    {
+      "group": "command",
+      "module": "tbatch",
+      "source": "cmd/command/tbatch.asm",
+      "source_sha256": "5222e3c6e530e5daf381934c1e4ed7cc959640d3363e7de21cce5bc817f3d1ed",
+      "object_sha256": "4c29b282227f6f744116d38c51dfd7c4f647bdef710251de263fd1a51e38a457",
+      "references": {
+        "opennt": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos6": {
+          "class": "content_review_required",
+          "changed_hunks": 1,
+          "source_lines": 1,
+          "reference_lines": 0
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 40,
+          "source_lines": 119,
+          "reference_lines": 67
+        }
+      }
+    },
+    {
+      "group": "command",
+      "module": "tbatch2",
+      "source": "cmd/command/tbatch2.asm",
+      "source_sha256": "a347cc53c8db8d9e54e2783e510fe52d2d816f108ccb7005f47c5acc97e661e6",
+      "object_sha256": "cf068e7688ff6d5cc70c72cd55837a5d0aaf0c296ab640e3cf1e3f5368cd87f5",
+      "references": {
+        "opennt": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos6": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 28,
+          "source_lines": 228,
+          "reference_lines": 19
+        }
+      }
+    },
+    {
+      "group": "command",
+      "module": "tfor",
+      "source": "cmd/command/tfor.asm",
+      "source_sha256": "93cd89114a467bce48900d36c81897f5f739a091280c17a6560d7b953dd519ae",
+      "object_sha256": "d811316ede1d0083d21c1c43bb36af0f394faa6c5febd1a20db169126354efe5",
+      "references": {
+        "opennt": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos6": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 16,
+          "source_lines": 34,
+          "reference_lines": 20
+        }
+      }
+    },
+    {
+      "group": "command",
+      "module": "dir",
+      "source": "cmd/command/dir.asm",
+      "source_sha256": "00923f40298347ac15f2eec25fd958b7b2babdd630ae2530df086f03d8dc0e9e",
+      "object_sha256": "7e0ca315ee0d8dcbcdcd4a31f89a82a9d1e8f3a44874da09ae13fff0136f4fc3",
+      "references": {
+        "opennt": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos6": {
+          "class": "content_review_required",
+          "changed_hunks": 54,
+          "source_lines": 24,
+          "reference_lines": 319
+        },
+        "dos4": {
+          "class": "missing"
+        }
+      }
+    },
+    {
+      "group": "command",
+      "module": "tcmd1b",
+      "source": "cmd/command/tcmd1b.asm",
+      "source_sha256": "f0b51ade51915b16a91f2147e9cf8013ad0f60af4a6031eba96e8593a6077800",
+      "object_sha256": "cde2dd7f5a0b4329a8e84bf0cbc31903dd723669b99a677cc243a532aa999233",
+      "references": {
+        "opennt": {
+          "class": "content_review_required",
+          "changed_hunks": 5,
+          "source_lines": 5,
+          "reference_lines": 11
+        },
+        "dos6": {
+          "class": "line_endings_or_eof_only",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 32,
+          "source_lines": 167,
+          "reference_lines": 122
+        }
+      }
+    },
+    {
+      "group": "command",
+      "module": "tcmd2a",
+      "source": "cmd/command/tcmd2a.asm",
+      "source_sha256": "d72fb16ed0bad994826ff5d12499925c2c3a19a123ef6c2d57c34d210fb5ee57",
+      "object_sha256": "a2a46333b5f1c1cad3f88ff57519de6da3a9484c7ae68e1943d77dd1fdac3084",
+      "references": {
+        "opennt": {
+          "class": "content_review_required",
+          "changed_hunks": 2,
+          "source_lines": 8,
+          "reference_lines": 8
+        },
+        "dos6": {
+          "class": "line_endings_or_eof_only",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 33,
+          "source_lines": 188,
+          "reference_lines": 48
+        }
+      }
+    },
+    {
+      "group": "command",
+      "module": "tcmd2b",
+      "source": "cmd/command/tcmd2b.asm",
+      "source_sha256": "ca8021cd94837a1d9937094d63c6c475373f82aaccace695be9fc0a6c8b36e37",
+      "object_sha256": "f437685d68992eb90133e1277a8396c93ddd7f45425688a822b148db77e6898e",
+      "references": {
+        "opennt": {
+          "class": "content_review_required",
+          "changed_hunks": 2,
+          "source_lines": 1,
+          "reference_lines": 7
+        },
+        "dos6": {
+          "class": "line_endings_or_eof_only",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 32,
+          "source_lines": 69,
+          "reference_lines": 35
+        }
+      }
+    },
+    {
+      "group": "command",
+      "module": "tenv",
+      "source": "cmd/command/tenv.asm",
+      "source_sha256": "1df4836e38f0aa5e6ef2c972f433cd73256685fd6ea9ceebf8b7db60e8a1226c",
+      "object_sha256": "58ee9382d88d88a095cf9b5ce127ed0b3122c0f4bdd594b36d81c81251fd2005",
+      "references": {
+        "opennt": {
+          "class": "content_review_required",
+          "changed_hunks": 1,
+          "source_lines": 1,
+          "reference_lines": 1
+        },
+        "dos6": {
+          "class": "content_review_required",
+          "changed_hunks": 1,
+          "source_lines": 1,
+          "reference_lines": 0
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 16,
+          "source_lines": 47,
+          "reference_lines": 14
+        }
+      }
+    },
+    {
+      "group": "command",
+      "module": "tenv2",
+      "source": "cmd/command/tenv2.asm",
+      "source_sha256": "46a0c1a731bb73e4afe4d17c40f48b96f78817a18483f210fe59c2994fd0affd",
+      "object_sha256": "a34c4a115987c0ceb0d13b2b3b7616068c1894ba62dffa98ab0e02ae277af1a0",
+      "references": {
+        "opennt": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos6": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 28,
+          "source_lines": 128,
+          "reference_lines": 80
+        }
+      }
+    },
+    {
+      "group": "command",
+      "module": "tmisc1",
+      "source": "cmd/command/tmisc1.asm",
+      "source_sha256": "14b15d90d67642f9f23d483b5c04e9f62ef839dfd6f077cd65225e5c70db18c8",
+      "object_sha256": "afdcf4a2fe323a99e66830fd4336ba307d03cd4e9759b015a55a1777f5fa199e",
+      "references": {
+        "opennt": {
+          "class": "content_review_required",
+          "changed_hunks": 6,
+          "source_lines": 4,
+          "reference_lines": 48
+        },
+        "dos6": {
+          "class": "content_review_required",
+          "changed_hunks": 17,
+          "source_lines": 16,
+          "reference_lines": 71
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 41,
+          "source_lines": 215,
+          "reference_lines": 37
+        }
+      }
+    },
+    {
+      "group": "command",
+      "module": "tmisc2",
+      "source": "cmd/command/tmisc2.asm",
+      "source_sha256": "3c99901c307699d4bd13d5543e9e2325f2be488fb864804ca7d32cb0a3dd1f20",
+      "object_sha256": "2277b02be4251eb6fedb43844486fc4c88e52a20f7b87a58dcebc094b3b29e2c",
+      "references": {
+        "opennt": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos6": {
+          "class": "content_review_required",
+          "changed_hunks": 2,
+          "source_lines": 2,
+          "reference_lines": 2
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 25,
+          "source_lines": 86,
+          "reference_lines": 62
+        }
+      }
+    },
+    {
+      "group": "command",
+      "module": "tpipe",
+      "source": "cmd/command/tpipe.asm",
+      "source_sha256": "8212af6332ff32ff97a743371f24e9a7c0119bd3809a870c339ce287e7005310",
+      "object_sha256": "e38cfe4a71e750bf19c3b569510756d5e517646f53e9237a4c1d1fc876014d38",
+      "references": {
+        "opennt": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos6": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 31,
+          "source_lines": 212,
+          "reference_lines": 39
+        }
+      }
+    },
+    {
+      "group": "command",
+      "module": "parse2",
+      "source": "cmd/command/parse2.asm",
+      "source_sha256": "d885de9709a598f2e1b635986a7cedf6d2ae00321155cf4e465d360b114da283",
+      "object_sha256": "342bb94ae849997cb40a76430153606997e5f1b7d5421d472dcb3d96a0bee3bd",
+      "references": {
+        "opennt": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos6": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 1,
+          "source_lines": 6,
+          "reference_lines": 1
+        }
+      }
+    },
+    {
+      "group": "command",
+      "module": "path1",
+      "source": "cmd/command/path1.asm",
+      "source_sha256": "15a56b1ff45378c64e64482d5c88997f10c6eb07f08e5739d1ec60a44de819d5",
+      "object_sha256": "8db1f86a72c2cc0e7d3809e9dd0f04e43edfcf28c081885f6bc18dfe6c785e1c",
+      "references": {
+        "opennt": {
+          "class": "content_review_required",
+          "changed_hunks": 3,
+          "source_lines": 2,
+          "reference_lines": 4
+        },
+        "dos6": {
+          "class": "line_endings_or_eof_only",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 7,
+          "source_lines": 21,
+          "reference_lines": 5
+        }
+      }
+    },
+    {
+      "group": "command",
+      "module": "path2",
+      "source": "cmd/command/path2.asm",
+      "source_sha256": "c230a86460f0677b0b51a1657428161f1c3f05d1857c6573cfc4132457c398d3",
+      "object_sha256": "de8566e2f89c5e24b65f9dd9a0a8e31129c53c3494a15a8b117a149a6c9e1c0f",
+      "references": {
+        "opennt": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos6": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 8,
+          "source_lines": 20,
+          "reference_lines": 7
+        }
+      }
+    },
+    {
+      "group": "command",
+      "module": "tucode",
+      "source": "cmd/command/tucode.asm",
+      "source_sha256": "33a7ef94560d9b04bb431842426cd83e79c654ffef6b8faff414eded486b7628",
+      "object_sha256": "7aa1b26b91941b9d2b1d1ff452dc8fdd2f3b4cc1826bdf6b7eaadb133ede1092",
+      "references": {
+        "opennt": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos6": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 14,
+          "source_lines": 87,
+          "reference_lines": 18
+        }
+      }
+    },
+    {
+      "group": "command",
+      "module": "copy",
+      "source": "cmd/command/copy.asm",
+      "source_sha256": "10de61fd6fb514a2dbf7c133d0aa600346a519faba9a2f3b7a3615f281500817",
+      "object_sha256": "9e40ac34906b22311814d00947e4fed9707474b3df0ccaf21ebba1d6acabe274",
+      "references": {
+        "opennt": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos6": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 67,
+          "source_lines": 989,
+          "reference_lines": 897
+        }
+      }
+    },
+    {
+      "group": "command",
+      "module": "copypr1",
+      "source": "cmd/command/copypr1.asm",
+      "source_sha256": "af82e6aa29923b6d8b3be87d83fb7ff4ce790d256451fe75f8628f8ac00bceab",
+      "object_sha256": "605c462fe7907d654d2c9f58c5782e78d45983b6406da663135371aad62fbf4f",
+      "references": {
+        "opennt": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos6": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 40,
+          "source_lines": 301,
+          "reference_lines": 232
+        }
+      }
+    },
+    {
+      "group": "command",
+      "module": "copypr2",
+      "source": "cmd/command/copypr2.asm",
+      "source_sha256": "8519fdc7f922e5dfbf1a0c4c33d578e1f72c0517572f4ece6546e14b160e15ee",
+      "object_sha256": "bd9c1db657eb626651f8aff943574bc73b6a3b46e2548b4d321f3d77b7e19374",
+      "references": {
+        "opennt": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos6": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 44,
+          "source_lines": 279,
+          "reference_lines": 142
+        }
+      }
+    },
+    {
+      "group": "command",
+      "module": "cparse",
+      "source": "cmd/command/cparse.asm",
+      "source_sha256": "1a355a2d1194d98b26bf448b1e85a522ea5a0e8ded4071aa11f0d69c2895d5a0",
+      "object_sha256": "b0eb612fb5ec39565bed1a20f47c2e08943ff7ca080c364d07ec8e8c040a0fe0",
+      "references": {
+        "opennt": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos6": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 8,
+          "source_lines": 13,
+          "reference_lines": 8
+        }
+      }
+    },
+    {
+      "group": "command",
+      "module": "tparse",
+      "source": "cmd/command/tparse.asm",
+      "source_sha256": "6b5e17ff0428e5b9d7d87ec076ef92c2b8f6dbb8e0f09a9e325af0c2e55ba51d",
+      "object_sha256": "8c8cf19ee3be9b66dae9f37d807c1db5c004016f41ac45c49c6a24be1427381e",
+      "references": {
+        "opennt": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos6": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 3,
+          "source_lines": 8,
+          "reference_lines": 2
+        }
+      }
+    },
+    {
+      "group": "command",
+      "module": "tprintf",
+      "source": "cmd/command/tprintf.asm",
+      "source_sha256": "8d26916986436081d862eac4d9988b47f846da6180c69d80a1a9d730ff46829e",
+      "object_sha256": "45c950d7efd87c12eeefeb2e41b2f17e2f72f62c5def01e0ea76f6a5063f732f",
+      "references": {
+        "opennt": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos6": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 4,
+          "source_lines": 16,
+          "reference_lines": 6
+        }
+      }
+    },
+    {
+      "group": "command",
+      "module": "loadhi",
+      "source": "cmd/command/loadhi.asm",
+      "source_sha256": "8e1f504aeccc73c3692bceafc42ea0a23859992607c6beab9af51e6d2eabec92",
+      "object_sha256": "f4279b8a390901aae7445faf5266b8c0057249ed8489eb9ea27002682cf8b94b",
+      "references": {
+        "opennt": {
+          "class": "byte_identical",
+          "changed_hunks": 0,
+          "source_lines": 0,
+          "reference_lines": 0
+        },
+        "dos6": {
+          "class": "content_review_required",
+          "changed_hunks": 58,
+          "source_lines": 249,
+          "reference_lines": 152
+        },
+        "dos4": {
+          "class": "missing"
+        }
+      }
+    },
+    {
+      "group": "command",
+      "module": "tdata",
+      "source": "cmd/command/tdata.asm",
+      "source_sha256": "3d86f011c3b5ef73de73b92cac875c4d6847900a114b9b0eea9bcba519e7e293",
+      "object_sha256": "f12cca67581af00bd8939a4559a51616c8828a17235904363f189c513ee101c4",
+      "references": {
+        "opennt": {
+          "class": "content_review_required",
+          "changed_hunks": 1,
+          "source_lines": 0,
+          "reference_lines": 18
+        },
+        "dos6": {
+          "class": "content_review_required",
+          "changed_hunks": 16,
+          "source_lines": 21,
+          "reference_lines": 64
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 70,
+          "source_lines": 325,
+          "reference_lines": 46
+        }
+      }
+    },
+    {
+      "group": "command",
+      "module": "tspc",
+      "source": "cmd/command/tspc.asm",
+      "source_sha256": "516b7fadf962ccd0a6d5cb4e32e63dd0a9c9f8b9450e06f1f87ee4800f563b8f",
+      "object_sha256": "23bb975e3eb93c6cfadfc20e89650042c2af1bcaac52a4d50a3107909e3f3b0d",
+      "references": {
+        "opennt": {
+          "class": "content_review_required",
+          "changed_hunks": 5,
+          "source_lines": 3,
+          "reference_lines": 49
+        },
+        "dos6": {
+          "class": "content_review_required",
+          "changed_hunks": 10,
+          "source_lines": 4,
+          "reference_lines": 61
+        },
+        "dos4": {
+          "class": "content_review_required",
+          "changed_hunks": 29,
+          "source_lines": 81,
+          "reference_lines": 48
+        }
+      }
+    }
+  ],
+  "scope": "Line-oriented triage only. Content differences include comments, formatting and executable changes. Equality or similarity does not establish original DOS 5 authorship, semantics or style completion."
+}

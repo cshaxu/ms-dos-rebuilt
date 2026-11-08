@@ -1,0 +1,8 @@
+{
+  "file": "bios/sysinit2.asm",
+  "before_sha256": "94e1a645b724ea4afb80d141f41966651101dbf04a82fc43e587a4f6c9f91e75",
+  "after_sha256": "3ba14c2707669215f32f6af6f7a11117728997a057171917a9552269263618d0",
+  "before": "        cmp     cmd_indicator, CONFIG_DEVICE\r\n\tje\torg_file\r\n",
+  "after": "        cmp     cmd_indicator, CONFIG_DEVICE\r\n        je      org_file\r\n",
+  "scope": "Owner-requested exact DOS 6 spacing for corresponding instruction; behavior unchanged."
+}

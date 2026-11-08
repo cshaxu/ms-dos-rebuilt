@@ -1,0 +1,28 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\integrated-source-ec4ewo_6",
+  "previous_stage": "yv1452rt",
+  "baseline": "O:\\DOS",
+  "script_hashes": {
+    "tools/target_files.py": "8398bd43dfea8edc9d7747050f4864ba1a0dbd7bcf532037c03f144db21722ab",
+    "tools/target_kernel.py": "ac11d2e889345ac643b14cfde0638315eaf73c009b8d101776f1e1589b5f7567",
+    "tools/build_msload_candidate.py": "9a76ae405e7491c745031ad1dae54ae7e7885a0fe329e427c2985ee30a5aa72b",
+    "tools/build_bios_comparison.py": "ce4271909718715164111aa46b96e1eba83c31646d99a14afe4885ebb40d93e4",
+    "tools/build_integrated_source.py": "72da6a3ef92029a6fe5a942274549c718d39461a093dd66126fee38d66937ba8",
+    "tools/preflight_source_build.py": "78aa948cff3a7d92b784bb601129ff5fcbe1a749a06d8ded3dbab6396a2bf4fa"
+  },
+  "object_counts": {
+    "bios": 15,
+    "kernel": 55,
+    "command": 34
+  },
+  "files": {
+    "IO.SYS": "dd0915ed366b3f640284df4be30ed35f413dfd5b6966c1f25eee9598a5bf53e0",
+    "MSDOS.SYS": "4e41ca4e5893d4cf293f81ad01adbdbd12f7039534f59148214a9cca309529a2",
+    "COMMAND.COM": "74ad25067e7d9f5c3a0ac2f2967347defb0ffef9e6ed60b60e6499f0b1a8cc89"
+  },
+  "negative_checks": [
+    "mismatched baseline rejected",
+    "missing baseline rejected"
+  ],
+  "scope": "Baseline uses the owner-retained O:/DOS files; no target media mount or output patching. All 104 objects unchanged."
+}

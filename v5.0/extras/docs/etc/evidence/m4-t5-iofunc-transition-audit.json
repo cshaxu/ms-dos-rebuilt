@@ -1,0 +1,88 @@
+{
+  "build": "m4-t5-openclose-build.json",
+  "candidate": "m4-t5-dev-iofunc-verification.json",
+  "range": [
+    17910,
+    18270
+  ],
+  "bytes": 360,
+  "candidate_adaptation": "DOS 6 IOFUNC and tables; local CALL DEVIOCALL becomes invoke only for standalone candidate assembly. Full physical sf.inc confined to comparison stage.",
+  "entries": {
+    "DOS_READ": {
+      "present_in_map": true,
+      "offset": 18427
+    },
+    "DOS_WRITE": {
+      "present_in_map": true,
+      "offset": 18768
+    },
+    "DISKREAD": {
+      "present_in_map": false,
+      "offset": null
+    },
+    "DISKWRITE": {
+      "present_in_map": false,
+      "offset": null
+    },
+    "SETUP": {
+      "present_in_map": false,
+      "offset": null
+    },
+    "DOS_COMMIT": {
+      "present_in_map": false,
+      "offset": null
+    }
+  },
+  "nt_function6_caller": {
+    "module": "disk.asm",
+    "listing_sha256": "7c10e948c3bdaadc92f76f59d0590384ec074f58351c432ff012813a667f6d82",
+    "local_offset": 772,
+    "bytes": "B4 06",
+    "following_listing": [
+      "\t\t\t; 6 = o",
+      "\t\t\t\tutput string",
+      "\t\t\t      \\\t\tinvoke\tIOFunc\t\t\t; print",
+      "\t\t\t\t the string in ES:DI; CX = count",
+      " 0306  E8 0000 E              \\\t\tCALL    IOFunc ",
+      " 0309  36: 80 0E 0000 E 3F    \\\t        or      CharCo,SCHK_COUNT-1     ; force"
+    ]
+  },
+  "prerequisites": [
+    {
+      "unit": "dev.asm IOFUNC",
+      "state": "target-layout exact candidate",
+      "requires": "physical sf_position offset 15h (NT 13h); tables only commands 0..5"
+    },
+    {
+      "unit": "disk.asm cooked output",
+      "state": "NT command 6 actively assembled",
+      "requires": "restore character output loop before removing IOFUNC command 6"
+    },
+    {
+      "unit": "disk.asm DOS_READ/DOS_WRITE",
+      "state": "names present but physical file paths removed",
+      "requires": "restore access checks, SETUP, network/device/file dispatch, critical sections and DOS_COMMIT"
+    },
+    {
+      "unit": "disk2.asm",
+      "state": "DSKREAD/DSKWRITE sector wrappers only",
+      "requires": "restore DISKREAD and SETUP in disk2.asm, DISKWRITE in disk3.asm; sector wrappers are different entry points"
+    },
+    {
+      "unit": "kernel sf.inc and SFT users",
+      "state": "NT layout still production",
+      "requires": "coherent 59-byte physical entry transition with all NT-handle users"
+    }
+  ],
+  "snapshots": {
+    "m4-t5-openclose-build.json": {
+      "inputs": 115,
+      "mismatches": []
+    },
+    "m2-t3-command-exact-verification.json": {
+      "inputs": 113,
+      "mismatches": []
+    }
+  },
+  "scope": "Static source, native listing and link-map dependency evidence; not runtime or full-kernel acceptance."
+}

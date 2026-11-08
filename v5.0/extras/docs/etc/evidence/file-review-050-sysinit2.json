@@ -1,0 +1,119 @@
+{
+  "index": 50,
+  "file": "bios/sysinit2.asm",
+  "reviewed_sha256": "94e1a645b724ea4afb80d141f41966651101dbf04a82fc43e587a4f6c9f91e75",
+  "status": "reviewed",
+  "role": "BIOS CONFIG.SYS parsing, device parameters, initialization services and initial COMMAND path.",
+  "references": {
+    "opennt": {
+      "status": "different",
+      "sha256": "3b05b35c6c555adb68301dab7df1e3cc886ca160068366326e3d1c88643a37e8",
+      "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\bios\\sysinit2.asm"
+    },
+    "dos6": {
+      "status": "different",
+      "sha256": "ecfad8372e614c00c9944624e0b63a483b4f8b905ac88e082f7ef6823af2b98f",
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\sysinit2.asm"
+    },
+    "dos4": {
+      "status": "different",
+      "sha256": "649ca305d201ab1779853712cfe78688b720f5b3e83fd25b25db613c0a237020",
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\BIOS\\sysinit2.asm"
+    }
+  },
+  "review": {
+    "code_lines": 1307,
+    "reference_passage_covered": 1292,
+    "uncovered_lines": [
+      85,
+      88,
+      89,
+      90,
+      136,
+      137,
+      138,
+      635,
+      656,
+      657,
+      1094,
+      1813,
+      1831,
+      1839,
+      1848
+    ],
+    "dispositions": {
+      "85,88,89,90": "External/public declarations follow current split across SYSINIT1/SYSINIT2; symbol addresses checked in link map.",
+      "136,137,138": "DRIVPARM ec35 flag handling differs in addressing or spacing from DOS 6; linked target instructions checked.",
+      "635,656,657": "CONFIG parsing statements have matching isolated reference statements and target bytes.",
+      "1094": "Error path jumps to SYSINIT1 cmdhalt rather than an NT host exit; linked target displacement checked.",
+      "1813,1839": "Existing ROMEXEC and stacksw conditionals; equivalent constructs exist in reference source.",
+      "1831,1848": "Command table entries use literal indicator bytes; equivalent entries appear in OpenNT or DOS 6 and target bytes checked."
+    },
+    "nt_bop_screen": "No indicators in full-file lexical scan, including comments and conditional code; absence of indirect or unlisted host dependencies is not proved."
+  },
+  "verification": {
+    "stage": "build\\integrated-source-3qm3v2jp",
+    "built_source_identical": true,
+    "object_sha256": "a118e90f85c6f9fa3b5d811400fcce1dd5ae05dc6b7ebafb35f76be4aec8ed62",
+    "target_instruction_and_data_checks": [
+      {
+        "name": "ec35_test",
+        "module_offset": 29,
+        "target_file_offset": 30183,
+        "bytes": "f706a73a0400"
+      },
+      {
+        "name": "ec35_jump",
+        "module_offset": 35,
+        "target_file_offset": 30189,
+        "bytes": "7411"
+      },
+      {
+        "name": "drive",
+        "module_offset": 37,
+        "target_file_offset": 30191,
+        "bytes": "8a0ea63a"
+      },
+      {
+        "name": "command_indicator",
+        "module_offset": 601,
+        "target_file_offset": 30755,
+        "bytes": "2ea2d003"
+      },
+      {
+        "name": "device_cmp",
+        "module_offset": 641,
+        "target_file_offset": 30795,
+        "bytes": "2e803ed00344"
+      },
+      {
+        "name": "device_jump",
+        "module_offset": 647,
+        "target_file_offset": 30801,
+        "bytes": "7424"
+      },
+      {
+        "name": "cmdhalt_jump",
+        "module_offset": 1161,
+        "target_file_offset": 31315,
+        "bytes": "e9b9d3"
+      },
+      {
+        "name": "break_table",
+        "module_offset": 2210,
+        "target_file_offset": 32364,
+        "bytes": "05425245414b43"
+      },
+      {
+        "name": "dos_table",
+        "module_offset": 2340,
+        "target_file_offset": 32494,
+        "bytes": "03444f5348"
+      }
+    ],
+    "cmdhalt_destination": 2201,
+    "all_three_targets_byte_equal": true,
+    "limits": "Nine selected target instructions/data and one linked branch checked; optional configurations and exact original DOS 5 source remain unverified."
+  },
+  "disposition": "Retained unchanged; unmatched lines are target-supported reconstruction or isolated reference correspondences."
+}

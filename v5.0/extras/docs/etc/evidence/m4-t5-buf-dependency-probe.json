@@ -1,0 +1,43 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\buf-probe-fymziufl",
+  "source": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\buf.asm",
+  "source_sha256": "b162899aabcec71289e34b82326457544fd0e794fd20ee97a2f063ce1542ba21",
+  "tool_sha256": "e54afaa9565e046cd862c29a015d685de43311acccf796469030e162ced6d00d",
+  "command": [
+    "O:\\repos.hobby\\ntvdm64\\tools\\opennt\\tools16\\masm.exe",
+    "-Mx",
+    "-t",
+    "-W1",
+    "-I.",
+    "-I..\\..\\dos",
+    "-I..\\..\\inc",
+    "-I..\\..\\inc\\ntvdm",
+    "buf.asm,buf.obj,buf.lst;"
+  ],
+  "exit": 0,
+  "diagnostics": "",
+  "scope": "Comparison-source assembly probe, not imported production source or target identity.",
+  "object_sha256": "674106c12dcab33f45e021234c53086e74b2d535c3b09293242e9a445127c374",
+  "object_externals": [
+    "CurBuf",
+    "SC_CACHE_PTR",
+    "PreRead",
+    "FAILERR",
+    "ALLOWED",
+    "SC_CACHE_COUNT",
+    "SC_DRIVE",
+    "BuffInHMA",
+    "SC_SECTOR_SIZE",
+    "LoMemBuff",
+    "FIRST_BUFF_ADDR",
+    "DOS34_FLAG",
+    "LastBuffer",
+    "DirtyBufferCount",
+    "BufferQueue",
+    "HIGH_SECTOR",
+    "WPErr",
+    "FATSECRD",
+    "DREAD",
+    "DWRITE"
+  ]
+}

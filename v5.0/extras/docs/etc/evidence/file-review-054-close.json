@@ -1,0 +1,77 @@
+{
+  "index": 54,
+  "file": "dos/close.asm",
+  "reviewed_sha256": "333aae343db2c3d6c4ba52adc3d90c49c0b7b2e259de65f446e633731b76f62e",
+  "status": "reviewed",
+  "role": "DOS internal SFT close, commit and directory entry updates.",
+  "references": {
+    "opennt": {
+      "status": "missing"
+    },
+    "dos6": {
+      "status": "different",
+      "sha256": "b9bcb41f70577e9bf407eabfbca3f974cc0c428b93a7574b54be27581821b46b",
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\close.asm"
+    },
+    "dos4": {
+      "status": "different",
+      "sha256": "3911b0dcc5ecee662e1a05e500ee1f7b4aa50179a374cfe92ffd8bbe9885c6a5",
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\close.asm"
+    }
+  },
+  "review": {
+    "code_lines": 241,
+    "reference_passage_covered": 240,
+    "uncovered_lines": [
+      402
+    ],
+    "disposition_of_unmatched": "Line 402 is the same LeaveCrit CritDisk macro as DOS 6 and DOS 4; only case and whitespace differ. DOS 6 has the same double EnterCrit and CloseEntry sequence.",
+    "nt_bop_screen": "No lexical indicators found in full file, including conditional code and comments.",
+    "critical_section_note": "CloseEntry shares the DOS_CLOSE path containing a LeaveCrit; DOS_COMMIT performs an additional LeaveCrit after DEV_OPEN_SFT. Static source and call targets checked; runtime locking semantics not independently tested."
+  },
+  "verification": {
+    "stage": "build\\integrated-source-m1_2507r",
+    "built_source_identical": true,
+    "object_sha256": "6c336d843c809d0739637565920c1e68169904744b254df78abaf41dadd87013",
+    "target_call_checks": [
+      {
+        "name": "enter_1",
+        "module_offset": 370,
+        "file_offset": 12732,
+        "instruction_hex": "e897e1",
+        "destination": 20774
+      },
+      {
+        "name": "enter_2",
+        "module_offset": 373,
+        "file_offset": 12735,
+        "instruction_hex": "e894e1",
+        "destination": 20774
+      },
+      {
+        "name": "close_entry",
+        "module_offset": 382,
+        "file_offset": 12744,
+        "instruction_hex": "e8a5fe",
+        "destination": 28224
+      },
+      {
+        "name": "open_device",
+        "module_offset": 386,
+        "file_offset": 12748,
+        "instruction_hex": "e88f15",
+        "destination": 34094
+      },
+      {
+        "name": "leave",
+        "module_offset": 390,
+        "file_offset": 12752,
+        "instruction_hex": "e8a3e1",
+        "destination": 20806
+      }
+    ],
+    "all_three_targets_byte_equal": true,
+    "limits": "Five linked call targets checked; not a runtime locking proof or exact original DOS 5 source."
+  },
+  "disposition": "Retained unchanged; no unsupported NT/BOP code found."
+}

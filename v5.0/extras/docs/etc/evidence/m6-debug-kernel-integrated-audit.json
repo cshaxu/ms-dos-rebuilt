@@ -1,0 +1,44 @@
+{
+  "previous_stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\integrated-source-wkje_tyj",
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\integrated-source-ze2xg22l",
+  "source_audit": "m6-debug-kernel-source-audit.json",
+  "debug_reports": [
+    "m6-debug-kernel-fresh-build.json",
+    "m6-debug-kernel-fresh-build-v2.json"
+  ],
+  "debug_script_sha256": "0956373d116d7666686fbe1acbd920f8b488aaf6a12ecc8e17492eb7bc74fa30",
+  "debug_objects": 56,
+  "debug_exe_sha256": "b2fedc455c70181be37ed1277ca0f8ea74e53ed7a6329aa9d5ec0ea1608a189a",
+  "debug_symbols": {
+    "PFMT": "0000:BC00",
+    "DPBCheck": "0000:BAEE",
+    "SFTCheck": "0000:BB3F",
+    "BUFCheck": "0000:BBAD"
+  },
+  "debug_source_from_dos6": {
+    "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dosprint.asm",
+    "sha256": "96412d605a3e19ccfaa9a4fdd57a8949eca7fce3950cf81bc4e3c6bf491b05ba"
+  },
+  "unchanged_default_objects": 104,
+  "outputs": [
+    {
+      "name": "IO.SYS",
+      "bytes": 33430,
+      "sha256": "dd0915ed366b3f640284df4be30ed35f413dfd5b6966c1f25eee9598a5bf53e0",
+      "byte_equal": true
+    },
+    {
+      "name": "MSDOS.SYS",
+      "bytes": 37394,
+      "sha256": "4e41ca4e5893d4cf293f81ad01adbdbd12f7039534f59148214a9cca309529a2",
+      "byte_equal": true
+    },
+    {
+      "name": "COMMAND.COM",
+      "bytes": 47845,
+      "sha256": "74ad25067e7d9f5c3a0ac2f2967347defb0ffef9e6ed60b60e6499f0b1a8cc89",
+      "byte_equal": true
+    }
+  ],
+  "limitations": "DEBUG-specific jumps and export cleanup are reconstructed adaptations; DOSPRINT is DOS 6 reference source. DEBUG kernel was assembled and linked twice but not booted or compared with an original DEBUG binary."
+}

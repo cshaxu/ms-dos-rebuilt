@@ -1,0 +1,28 @@
+{
+  "index": 116,
+  "file": "cmd/command/comequ.asm",
+  "reviewed_sha256": "4d745d0276478a66678c0eef32255649c1a1bd14387f50071c6db711972a3dd2",
+  "decision": "retain_round2",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\comequ.asm",
+      "sha256": "603e4aaa70fa25ac486f4dc5ab3f462ad1c87eae4d6966b8577b710fe8abeecf"
+    },
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\CMD\\COMMAND\\COMEQU.ASM",
+      "sha256": "5a67a71dc4154706fea0d2c291e8c08e2ec516177e61d5ba2fee8c86e6ac3552"
+    },
+    {
+      "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comequ.asm",
+      "sha256": "eb45570d3e73748917e56e2c0445476dccf57ed5cc5ed1c7513822ba4d1af0f3"
+    }
+  ],
+  "reason": [
+    "DOS 6 adds 1993 beta-warning constants and FAT buffer definitions, plus additional COMMAND state constants.",
+    "OpenNT adds EXECPATHLEN explicitly expanded for NTVDM.",
+    "DOS 4 lacks multiple current DOS 5-era structures and definitions."
+  ],
+  "change": "No source change.",
+  "verification": "Latest integrated-source-vkbnk0_8 matches all three retained targets; current lexical screen has no hits.",
+  "limitations": "The absence of lexical hits is not proof of complete historical provenance or all conditional configurations."
+}

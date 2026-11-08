@@ -1,0 +1,60 @@
+{
+  "index": 145,
+  "file": "cmd/command/tcode.asm",
+  "reviewed_sha256": "b24b4d65ad74b53db44ec67aa4be8da4d313d2c466e19bd589341c6eec26c5da",
+  "status": "auto_qualified",
+  "role": "COMMAND transient command reading, parsing and dispatch.",
+  "references": {
+    "opennt": {
+      "status": "different",
+      "sha256": "223938eef6bc48314805cb3c35ebbd11cd6da10316ed09952c8f06cf9ca11377",
+      "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tcode.asm"
+    },
+    "dos6": {
+      "status": "different",
+      "sha256": "c3365e7a9cecaa60fe7469f7b14c2a1c7153f22865b9542ad7e3e33bc5571f6c",
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\tcode.asm"
+    },
+    "dos4": {
+      "status": "different",
+      "sha256": "be25e15882400f04dbdcf4e33ed8aff24b67bafc649a0a583b478b733bb89f99",
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\CMD\\COMMAND\\tcode.asm"
+    }
+  },
+  "review": {
+    "code_lines": 421,
+    "format_change": "docs/etc/evidence/file-review-145-tcode-format-source.json",
+    "nt_bop_screen": "No lexical indicators.",
+    "dos5_sentinel": "MOV SI,-1 matches DOS 4/OpenNT and target; DOS 6 uses SEMIPERMCOM."
+  },
+  "verification": {
+    "stage": "build\\integrated-source-w8u1eo8f",
+    "unchanged_objects": 104,
+    "target_instruction": {
+      "file_offset": 9386,
+      "bytes": "beffff"
+    },
+    "files": [
+      {
+        "name": "IO.SYS",
+        "bytes": 33430,
+        "sha256": "dd0915ed366b3f640284df4be30ed35f413dfd5b6966c1f25eee9598a5bf53e0",
+        "byte_equal": true
+      },
+      {
+        "name": "MSDOS.SYS",
+        "bytes": 37394,
+        "sha256": "4e41ca4e5893d4cf293f81ad01adbdbd12f7039534f59148214a9cca309529a2",
+        "byte_equal": true
+      },
+      {
+        "name": "COMMAND.COM",
+        "bytes": 47845,
+        "sha256": "74ad25067e7d9f5c3a0ac2f2967347defb0ffef9e6ed60b60e6499f0b1a8cc89",
+        "byte_equal": true
+      }
+    ],
+    "limits": "Source references and exact target build do not prove original DOS 5 source or all optional configurations."
+  },
+  "disposition": "One DOS 4 style alignment; all current code lines covered by reference passages."
+}

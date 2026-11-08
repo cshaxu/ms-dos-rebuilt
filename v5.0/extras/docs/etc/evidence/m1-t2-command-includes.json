@@ -1,0 +1,1560 @@
+{
+  "scope": "COMMAND lexical include graph; all branches; no macro expansion",
+  "files_scanned": 80,
+  "edges": [
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\uinit.asm",
+      "line": 21,
+      "include": "comsw.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comsw.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\uinit.asm",
+      "line": 22,
+      "include": "comseg.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comseg.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\uinit.asm",
+      "line": 23,
+      "include": "ifequ.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\ifequ.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\uinit.asm",
+      "line": 114,
+      "include": "resmsg.equ",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\resmsg.equ"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\uinit.asm",
+      "line": 320,
+      "include": "comimsg.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\messages\\comimsg.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comsw.asm",
+      "line": 9,
+      "include": "version.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\version.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tucode.asm",
+      "line": 14,
+      "include": "dossym.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\dossym.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tucode.asm",
+      "line": 15,
+      "include": "syscall.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\syscall.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tucode.asm",
+      "line": 16,
+      "include": "comsw.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comsw.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tucode.asm",
+      "line": 17,
+      "include": "comseg.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comseg.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tucode.asm",
+      "line": 18,
+      "include": "comequ.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comequ.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comequ.asm",
+      "line": 11,
+      "include": "curdir.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\inc\\curdir.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\dossym.inc",
+      "line": 31,
+      "include": "dbcs.sw",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\dbcs.sw"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\dossym.inc",
+      "line": 32,
+      "include": "dosmac.INC",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\dosmac.INC"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\dossym.inc",
+      "line": 33,
+      "include": "VERSIONA.INC",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\VERSIONA.INC"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\dossym.inc",
+      "line": 34,
+      "include": "VERSION.INC",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\VERSION.INC"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\dossym.inc",
+      "line": 50,
+      "include": "buffer.INC",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\buffer.INC"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\dossym.inc",
+      "line": 94,
+      "include": "dirent.INC",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\dirent.INC"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\dossym.inc",
+      "line": 133,
+      "include": "error.INC",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\error.INC"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tspc.asm",
+      "line": 28,
+      "include": "comsw.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comsw.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tspc.asm",
+      "line": 29,
+      "include": "dossym.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\dossym.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tspc.asm",
+      "line": 30,
+      "include": "find.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\find.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tspc.asm",
+      "line": 31,
+      "include": "intnat.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\intnat.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tspc.asm",
+      "line": 32,
+      "include": "comequ.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comequ.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tspc.asm",
+      "line": 33,
+      "include": "comseg.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comseg.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tranmsg.asm",
+      "line": 6,
+      "include": "version.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\version.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tprintf.asm",
+      "line": 49,
+      "include": "comsw.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comsw.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tprintf.asm",
+      "line": 50,
+      "include": "DOSSYM.INC",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\DOSSYM.INC"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tprintf.asm",
+      "line": 51,
+      "include": "comseg.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comseg.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tprintf.asm",
+      "line": 52,
+      "include": "comequ.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comequ.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tprintf.asm",
+      "line": 53,
+      "include": "SYSMSG.INC",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\SYSMSG.INC"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tprintf.asm",
+      "line": 371,
+      "include": "msgdcl.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\msgdcl.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\SYSMSG.INC",
+      "line": 50,
+      "include": "VERSIONA.INC",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\VERSIONA.INC"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\SYSMSG.INC",
+      "line": 387,
+      "include": "&utilname.CTL",
+      "resolved": null
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\SYSMSG.INC",
+      "line": 389,
+      "include": "MSGSERV.ASM",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\MSGSERV.ASM"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\SYSMSG.INC",
+      "line": 434,
+      "include": "MSGSERV.ASM",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\MSGSERV.ASM"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\SYSMSG.INC",
+      "line": 465,
+      "include": "&ext",
+      "resolved": null
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\MSGSERV.ASM",
+      "line": 222,
+      "include": "COPYRIGH.INC",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\COPYRIGH.INC"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tpipe.asm",
+      "line": 21,
+      "include": "comsw.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comsw.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tpipe.asm",
+      "line": 22,
+      "include": "dossym.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\dossym.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tpipe.asm",
+      "line": 23,
+      "include": "syscall.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\syscall.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tpipe.asm",
+      "line": 24,
+      "include": "pdb.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\pdb.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tpipe.asm",
+      "line": 25,
+      "include": "comseg.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comseg.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tpipe.asm",
+      "line": 26,
+      "include": "comequ.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comequ.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tparse.asm",
+      "line": 13,
+      "include": "comsw.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comsw.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tparse.asm",
+      "line": 14,
+      "include": "comseg.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comseg.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tparse.asm",
+      "line": 30,
+      "include": "psdata.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\psdata.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tparse.asm",
+      "line": 58,
+      "include": "parse.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\parse.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\parse.asm",
+      "line": 41,
+      "include": "psdata.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\psdata.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\psdata.inc",
+      "line": 8,
+      "include": "version.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\version.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tmisc2.asm",
+      "line": 16,
+      "include": "comsw.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comsw.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tmisc2.asm",
+      "line": 17,
+      "include": "dossym.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\dossym.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tmisc2.asm",
+      "line": 18,
+      "include": "syscall.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\syscall.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tmisc2.asm",
+      "line": 19,
+      "include": "pdb.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\pdb.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tmisc2.asm",
+      "line": 20,
+      "include": "bpb.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\bpb.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tmisc2.asm",
+      "line": 21,
+      "include": "sf.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\sf.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tmisc2.asm",
+      "line": 22,
+      "include": "comseg.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comseg.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tmisc2.asm",
+      "line": 23,
+      "include": "comequ.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comequ.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tmisc2.asm",
+      "line": 24,
+      "include": "ioctl.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\ioctl.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tmisc1.asm",
+      "line": 26,
+      "include": "comsw.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comsw.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tmisc1.asm",
+      "line": 27,
+      "include": "dossym.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\dossym.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tmisc1.asm",
+      "line": 28,
+      "include": "syscall.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\syscall.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tmisc1.asm",
+      "line": 29,
+      "include": "comseg.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comseg.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tmisc1.asm",
+      "line": 30,
+      "include": "comequ.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comequ.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tfor.asm",
+      "line": 16,
+      "include": "comsw.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comsw.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tfor.asm",
+      "line": 17,
+      "include": "dossym.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\dossym.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tfor.asm",
+      "line": 18,
+      "include": "syscall.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\syscall.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tfor.asm",
+      "line": 19,
+      "include": "find.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\find.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tfor.asm",
+      "line": 20,
+      "include": "devsym.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\devsym.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tfor.asm",
+      "line": 21,
+      "include": "comseg.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comseg.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tfor.asm",
+      "line": 22,
+      "include": "comequ.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comequ.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tfor.asm",
+      "line": 153,
+      "include": "fordata.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\fordata.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tenv2.asm",
+      "line": 15,
+      "include": "comsw.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comsw.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tenv2.asm",
+      "line": 16,
+      "include": "dossym.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\dossym.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tenv2.asm",
+      "line": 17,
+      "include": "syscall.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\syscall.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tenv2.asm",
+      "line": 18,
+      "include": "find.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\find.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tenv2.asm",
+      "line": 19,
+      "include": "comseg.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comseg.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tenv2.asm",
+      "line": 20,
+      "include": "comequ.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comequ.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tenv.asm",
+      "line": 22,
+      "include": "comsw.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comsw.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tenv.asm",
+      "line": 26,
+      "include": "dossym.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\dossym.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tenv.asm",
+      "line": 27,
+      "include": "syscall.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\syscall.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tenv.asm",
+      "line": 28,
+      "include": "arena.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\arena.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tenv.asm",
+      "line": 29,
+      "include": "comseg.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comseg.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tenv.asm",
+      "line": 30,
+      "include": "comequ.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comequ.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tenv.asm",
+      "line": 31,
+      "include": "doscntry.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\doscntry.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tenv.asm",
+      "line": 32,
+      "include": "resmsg.equ",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\resmsg.equ"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tdata.asm",
+      "line": 71,
+      "include": "comsw.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comsw.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tdata.asm",
+      "line": 72,
+      "include": "comseg.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comseg.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tdata.asm",
+      "line": 73,
+      "include": "dirent.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\dirent.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tdata.asm",
+      "line": 86,
+      "include": "ERROR.INC",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\ERROR.INC"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tdata.asm",
+      "line": 87,
+      "include": "ifequ.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\ifequ.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tdata.asm",
+      "line": 88,
+      "include": "comequ.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comequ.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tdata.asm",
+      "line": 318,
+      "include": "tranmsg.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tranmsg.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tdata.asm",
+      "line": 1053,
+      "include": "SYSMSG.INC",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\SYSMSG.INC"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tdata.asm",
+      "line": 1064,
+      "include": "msgdcl.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\msgdcl.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tcode.asm",
+      "line": 22,
+      "include": "comsw.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comsw.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tcode.asm",
+      "line": 23,
+      "include": "dossym.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\dossym.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tcode.asm",
+      "line": 24,
+      "include": "syscall.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\syscall.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tcode.asm",
+      "line": 25,
+      "include": "comseg.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comseg.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tcode.asm",
+      "line": 26,
+      "include": "comequ.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comequ.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tcode.asm",
+      "line": 27,
+      "include": "cmdsvc.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\inc\\cmdsvc.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tcode.asm",
+      "line": 28,
+      "include": "mult.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\mult.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tcode.asm",
+      "line": 29,
+      "include": "vint.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\inc\\vint.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tcode.asm",
+      "line": 1090,
+      "include": "vector.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\vector.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tcode.asm",
+      "line": 1091,
+      "include": "pdb.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\pdb.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tcode.asm",
+      "line": 1092,
+      "include": "arena.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\arena.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tcode.asm",
+      "line": 1093,
+      "include": "mshalo.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\mshalo.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\inc\\cmdsvc.inc",
+      "line": 1,
+      "include": "bop.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\inc\\bop.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tcmd2b.asm",
+      "line": 13,
+      "include": "comsw.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comsw.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tcmd2b.asm",
+      "line": 14,
+      "include": "dossym.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\dossym.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tcmd2b.asm",
+      "line": 15,
+      "include": "syscall.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\syscall.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tcmd2b.asm",
+      "line": 16,
+      "include": "pdb.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\pdb.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tcmd2b.asm",
+      "line": 17,
+      "include": "mult.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\mult.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tcmd2b.asm",
+      "line": 18,
+      "include": "comseg.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comseg.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tcmd2b.asm",
+      "line": 19,
+      "include": "comequ.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comequ.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tcmd2b.asm",
+      "line": 20,
+      "include": "cmdsvc.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\inc\\cmdsvc.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tcmd2a.asm",
+      "line": 21,
+      "include": "comsw.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comsw.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tcmd2a.asm",
+      "line": 25,
+      "include": "dossym.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\dossym.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tcmd2a.asm",
+      "line": 26,
+      "include": "bpb.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\bpb.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tcmd2a.asm",
+      "line": 27,
+      "include": "syscall.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\syscall.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tcmd2a.asm",
+      "line": 28,
+      "include": "filemode.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\filemode.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tcmd2a.asm",
+      "line": 29,
+      "include": "sf.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\sf.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tcmd2a.asm",
+      "line": 30,
+      "include": "comequ.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comequ.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tcmd2a.asm",
+      "line": 31,
+      "include": "comseg.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comseg.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tcmd2a.asm",
+      "line": 32,
+      "include": "ioctl.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\ioctl.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tcmd2a.asm",
+      "line": 33,
+      "include": "rombios.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\rombios.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tcmd1b.asm",
+      "line": 15,
+      "include": "dossym.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\dossym.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tcmd1b.asm",
+      "line": 16,
+      "include": "bpb.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\bpb.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tcmd1b.asm",
+      "line": 17,
+      "include": "syscall.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\syscall.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tcmd1b.asm",
+      "line": 18,
+      "include": "filemode.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\filemode.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tcmd1b.asm",
+      "line": 19,
+      "include": "sf.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\sf.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tcmd1b.asm",
+      "line": 20,
+      "include": "comseg.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comseg.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tcmd1b.asm",
+      "line": 21,
+      "include": "comsw.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comsw.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tcmd1b.asm",
+      "line": 22,
+      "include": "comequ.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comequ.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tcmd1b.asm",
+      "line": 23,
+      "include": "ioctl.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\ioctl.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tcmd1a.asm",
+      "line": 26,
+      "include": "comsw.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comsw.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tcmd1a.asm",
+      "line": 29,
+      "include": "DOSSYM.INC",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\DOSSYM.INC"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tcmd1a.asm",
+      "line": 30,
+      "include": "comseg.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comseg.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tcmd1a.asm",
+      "line": 31,
+      "include": "comequ.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comequ.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tcmd1a.asm",
+      "line": 32,
+      "include": "ioctl.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\ioctl.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tbatch2.asm",
+      "line": 30,
+      "include": "comsw.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comsw.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tbatch2.asm",
+      "line": 31,
+      "include": "dossym.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\dossym.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tbatch2.asm",
+      "line": 32,
+      "include": "syscall.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\syscall.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tbatch2.asm",
+      "line": 33,
+      "include": "comseg.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comseg.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tbatch2.asm",
+      "line": 34,
+      "include": "comequ.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comequ.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tbatch.asm",
+      "line": 28,
+      "include": "comsw.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comsw.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tbatch.asm",
+      "line": 29,
+      "include": "dossym.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\dossym.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tbatch.asm",
+      "line": 30,
+      "include": "syscall.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\syscall.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tbatch.asm",
+      "line": 31,
+      "include": "comseg.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comseg.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tbatch.asm",
+      "line": 32,
+      "include": "comequ.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comequ.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tbatch.asm",
+      "line": 33,
+      "include": "doscntry.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\doscntry.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tbatch.asm",
+      "line": 34,
+      "include": "version.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\version.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\stub.asm",
+      "line": 61,
+      "include": "comseg.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comseg.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\stub.asm",
+      "line": 62,
+      "include": "xmm.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\xmm.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\rucode.asm",
+      "line": 22,
+      "include": "dossym.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\dossym.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\rucode.asm",
+      "line": 23,
+      "include": "syscall.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\syscall.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\rucode.asm",
+      "line": 24,
+      "include": "filemode.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\filemode.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\rucode.asm",
+      "line": 25,
+      "include": "pdb.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\pdb.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\rucode.asm",
+      "line": 26,
+      "include": "mult.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\mult.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\rucode.asm",
+      "line": 27,
+      "include": "doscntry.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\doscntry.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\rucode.asm",
+      "line": 28,
+      "include": "devsym.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\devsym.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\rucode.asm",
+      "line": 29,
+      "include": "comsw.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comsw.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\rucode.asm",
+      "line": 30,
+      "include": "comseg.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comseg.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\rucode.asm",
+      "line": 31,
+      "include": "comequ.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comequ.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\rucode.asm",
+      "line": 32,
+      "include": "resmsg.equ",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\resmsg.equ"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\rucode.asm",
+      "line": 33,
+      "include": "arena.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\arena.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\rdata.asm",
+      "line": 30,
+      "include": "dossym.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\dossym.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\rdata.asm",
+      "line": 31,
+      "include": "pdb.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\pdb.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\rdata.asm",
+      "line": 32,
+      "include": "syscall.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\syscall.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\rdata.asm",
+      "line": 33,
+      "include": "comsw.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comsw.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\rdata.asm",
+      "line": 34,
+      "include": "comseg.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comseg.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\rdata.asm",
+      "line": 35,
+      "include": "resmsg.equ",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\resmsg.equ"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\rdata.asm",
+      "line": 36,
+      "include": "comequ.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comequ.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\rdata.asm",
+      "line": 37,
+      "include": "cmdsvc.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\inc\\cmdsvc.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\rdata.asm",
+      "line": 793,
+      "include": "comrmsg.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\messages\\comrmsg.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\path2.asm",
+      "line": 12,
+      "include": "dossym.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\dossym.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\path2.asm",
+      "line": 13,
+      "include": "syscall.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\syscall.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\path2.asm",
+      "line": 14,
+      "include": "find.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\find.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\path2.asm",
+      "line": 15,
+      "include": "comsw.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comsw.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\path2.asm",
+      "line": 16,
+      "include": "comseg.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comseg.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\path2.asm",
+      "line": 17,
+      "include": "comequ.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comequ.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\path1.asm",
+      "line": 12,
+      "include": "dossym.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\dossym.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\path1.asm",
+      "line": 13,
+      "include": "syscall.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\syscall.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\path1.asm",
+      "line": 14,
+      "include": "comsw.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comsw.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\path1.asm",
+      "line": 15,
+      "include": "comseg.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comseg.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\path1.asm",
+      "line": 16,
+      "include": "comequ.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comequ.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\parse2.asm",
+      "line": 12,
+      "include": "DOSSYM.INC",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\DOSSYM.INC"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\parse2.asm",
+      "line": 13,
+      "include": "DEVSYM.INC",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\DEVSYM.INC"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\parse2.asm",
+      "line": 14,
+      "include": "comsw.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comsw.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\parse2.asm",
+      "line": 15,
+      "include": "comseg.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comseg.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\parse2.asm",
+      "line": 16,
+      "include": "comequ.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comequ.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\loadhi.asm",
+      "line": 51,
+      "include": "comseg.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comseg.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\loadhi.asm",
+      "line": 52,
+      "include": "comequ.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comequ.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\loadhi.asm",
+      "line": 53,
+      "include": "dossym.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\dossym.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\loadhi.asm",
+      "line": 54,
+      "include": "syscall.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\syscall.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\loadhi.asm",
+      "line": 55,
+      "include": "arena.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\arena.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\iparse.asm",
+      "line": 13,
+      "include": "comseg.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comseg.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\init.asm",
+      "line": 49,
+      "include": "comsw.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comsw.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\init.asm",
+      "line": 50,
+      "include": "dossym.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\dossym.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\init.asm",
+      "line": 51,
+      "include": "pdb.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\pdb.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\init.asm",
+      "line": 52,
+      "include": "mult.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\mult.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\init.asm",
+      "line": 53,
+      "include": "syscall.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\syscall.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\init.asm",
+      "line": 54,
+      "include": "doscntry.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\doscntry.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\init.asm",
+      "line": 55,
+      "include": "comseg.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comseg.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\init.asm",
+      "line": 56,
+      "include": "comequ.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comequ.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\init.asm",
+      "line": 57,
+      "include": "resmsg.equ",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\resmsg.equ"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\init.asm",
+      "line": 59,
+      "include": "envdata.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\envdata.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\init.asm",
+      "line": 60,
+      "include": "xmm.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\xmm.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\init.asm",
+      "line": 61,
+      "include": "cmdsvc.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\inc\\cmdsvc.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\init.asm",
+      "line": 62,
+      "include": "dossvc.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\inc\\dossvc.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\inc\\dossvc.inc",
+      "line": 9,
+      "include": "bop.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\inc\\bop.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\dir.asm",
+      "line": 159,
+      "include": "comsw.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comsw.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\dir.asm",
+      "line": 160,
+      "include": "dossym.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\dossym.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\dir.asm",
+      "line": 161,
+      "include": "syscall.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\syscall.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\dir.asm",
+      "line": 162,
+      "include": "doscntry.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\doscntry.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\dir.asm",
+      "line": 163,
+      "include": "bpb.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\bpb.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\dir.asm",
+      "line": 164,
+      "include": "filemode.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\filemode.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\dir.asm",
+      "line": 165,
+      "include": "find.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\find.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\dir.asm",
+      "line": 166,
+      "include": "comseg.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comseg.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\dir.asm",
+      "line": 167,
+      "include": "comequ.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comequ.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\dir.asm",
+      "line": 168,
+      "include": "ioctl.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\ioctl.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\dir.asm",
+      "line": 169,
+      "include": "rombios.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\rombios.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\cparse.asm",
+      "line": 9,
+      "include": "comsw.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comsw.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\cparse.asm",
+      "line": 13,
+      "include": "DOSSYM.INC",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\DOSSYM.INC"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\cparse.asm",
+      "line": 14,
+      "include": "DEVSYM.INC",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\DEVSYM.INC"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\cparse.asm",
+      "line": 15,
+      "include": "comseg.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comseg.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\cparse.asm",
+      "line": 16,
+      "include": "comequ.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comequ.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\copypr2.asm",
+      "line": 24,
+      "include": "comsw.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comsw.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\copypr2.asm",
+      "line": 25,
+      "include": "dossym.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\dossym.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\copypr2.asm",
+      "line": 26,
+      "include": "syscall.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\syscall.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\copypr2.asm",
+      "line": 27,
+      "include": "sf.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\sf.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\copypr2.asm",
+      "line": 28,
+      "include": "comseg.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comseg.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\copypr2.asm",
+      "line": 29,
+      "include": "comequ.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comequ.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\copypr1.asm",
+      "line": 11,
+      "include": "comsw.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comsw.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\copypr1.asm",
+      "line": 12,
+      "include": "dossym.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\dossym.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\copypr1.asm",
+      "line": 13,
+      "include": "syscall.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\syscall.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\copypr1.asm",
+      "line": 14,
+      "include": "sf.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\sf.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\copypr1.asm",
+      "line": 15,
+      "include": "comseg.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comseg.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\copypr1.asm",
+      "line": 16,
+      "include": "comequ.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comequ.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\copy.asm",
+      "line": 58,
+      "include": "comsw.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comsw.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\copy.asm",
+      "line": 59,
+      "include": "dossym.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\dossym.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\copy.asm",
+      "line": 60,
+      "include": "syscall.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\syscall.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\copy.asm",
+      "line": 61,
+      "include": "sf.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\sf.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\copy.asm",
+      "line": 62,
+      "include": "comseg.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comseg.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\copy.asm",
+      "line": 63,
+      "include": "comequ.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comequ.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\command2.asm",
+      "line": 26,
+      "include": "dossym.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\dossym.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\command2.asm",
+      "line": 27,
+      "include": "pdb.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\pdb.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\command2.asm",
+      "line": 28,
+      "include": "syscall.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\syscall.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\command2.asm",
+      "line": 29,
+      "include": "comsw.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comsw.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\command2.asm",
+      "line": 30,
+      "include": "comequ.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comequ.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\command2.asm",
+      "line": 31,
+      "include": "resmsg.equ",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\resmsg.equ"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\command2.asm",
+      "line": 33,
+      "include": "comseg.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comseg.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\command1.asm",
+      "line": 357,
+      "include": "dossym.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\dossym.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\command1.asm",
+      "line": 358,
+      "include": "syscall.inc",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\syscall.inc"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\command1.asm",
+      "line": 359,
+      "include": "comsw.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comsw.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\command1.asm",
+      "line": 360,
+      "include": "comequ.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comequ.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\command1.asm",
+      "line": 361,
+      "include": "resmsg.equ",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\resmsg.equ"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\command1.asm",
+      "line": 363,
+      "include": "comseg.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\comseg.asm"
+    },
+    {
+      "source": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\command1.asm",
+      "line": 401,
+      "include": "envdata.asm",
+      "resolved": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\envdata.asm"
+    }
+  ]
+}

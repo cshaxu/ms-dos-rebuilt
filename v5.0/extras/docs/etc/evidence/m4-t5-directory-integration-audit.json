@@ -1,0 +1,24 @@
+{
+  "build_report": "m4-t5-directory-build.json",
+  "slice_bytes_sum": 3814,
+  "unique_target_bytes": 3813,
+  "verified_external_calls": 50,
+  "snapshots": {
+    "m4-t5-directory-build.json": {
+      "inputs": 113,
+      "mismatches": []
+    },
+    "m2-t3-command-exact-verification.json": {
+      "inputs": 113,
+      "mismatches": []
+    }
+  },
+  "provenance": {
+    "dos/dir.asm": "DOS 6 dir.asm unchanged, complete 433-byte target-layout proof",
+    "dos/rom.asm": "Bounded FIGREC from DOS 6 rom.asm; full module remains to restore",
+    "dos/diskread.asm": "DirRead from DOS 6 disk.asm prepended to previous bounded FATSecRd/DREAD; shared returns retained",
+    "dos/dir2.asm": "Retained OpenNT StartSrch moved outside disabled conditional; rest of GetPath remains candidate"
+  },
+  "integration_failure": "kernel-clean-1gnnd6qx: STARTSRCH excluded by original ifdef 0; corrected without stub",
+  "remaining": "DATE16, production GetPath/FastOpen/ValidateCDS/DOS_CHDIR and complete physical path chain, error handling, full layout and runtime"
+}

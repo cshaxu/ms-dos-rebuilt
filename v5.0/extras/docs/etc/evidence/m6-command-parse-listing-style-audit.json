@@ -1,0 +1,83 @@
+{
+  "previous_stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\integrated-source-ca8orzet",
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\integrated-source-2tgrct2k",
+  "changes": [
+    {
+      "source": "cmd/command/tparse.asm",
+      "before_sha256": "1e2cb97d51766a98a8216e9502034f83a95ef262245e6ce417d5a5fd6752d1aa",
+      "after_sha256": "6b5e17ff0428e5b9d7d87ec076ef92c2b8f6dbb8e0f09a9e325af0c2e55ba51d",
+      "references": [
+        {
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tparse.asm",
+          "sha256": "6b5e17ff0428e5b9d7d87ec076ef92c2b8f6dbb8e0f09a9e325af0c2e55ba51d"
+        },
+        {
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\tparse.asm",
+          "sha256": "6b5e17ff0428e5b9d7d87ec076ef92c2b8f6dbb8e0f09a9e325af0c2e55ba51d"
+        },
+        {
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\CMD\\COMMAND\\tparse.asm",
+          "sha256": "578633792735c404dcccd22419fa2e225f42689ed6d4d164be18427e565a2af0"
+        }
+      ]
+    },
+    {
+      "source": "cmd/command/tcmd2a.asm",
+      "before_sha256": "fead3d66c022faa5dc5660f2353b1d19be8d834f0a74c830d606cf6316058d25",
+      "after_sha256": "d72fb16ed0bad994826ff5d12499925c2c3a19a123ef6c2d57c34d210fb5ee57",
+      "references": [
+        {
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tcmd2a.asm",
+          "sha256": "e93964b8a359112199aaca42bade5548812bd683afeb03c5391d79d8f80f4c83"
+        },
+        {
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\tcmd2a.asm",
+          "sha256": "1e1b18ba34ff9fefe6e6c0535f574ff037dd7095189639464c641a45d886af9d"
+        },
+        {
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\CMD\\COMMAND\\tcmd2a.asm",
+          "sha256": "69ba0be44d1b4b1f43e7a0b1543236194e4f87e06713ba47713bf9563761b0ad"
+        }
+      ]
+    }
+  ],
+  "description": "Restore .xlist at the parser include as in DOS 4, DOS 6 and OpenNT, and align ASSUME declaration to DOS 6. .xlist controls listing generation only.",
+  "parser_listing_before_after": [
+    {
+      "bytes": 182000,
+      "sha256": "2038eef97e4392cb3c278c181a7c707b56583b7a8cdee9eb3393d58a6e961cac"
+    },
+    {
+      "bytes": 27769,
+      "sha256": "6a0631dfedff565b603076a94a989f88740a1244ae18a4dc024bb21f5ca5213f"
+    }
+  ],
+  "listing_coverage_note": "The fresh TPARSE listing suppresses expanded PARSE.ASM text, so listing-only scans of that include are incomplete. Compare object hashes and scan object code or use a separate listing-enabled probe for coverage.",
+  "unchanged_objects": {
+    "bios": 14,
+    "kernel": 55,
+    "command": 34,
+    "msload": 1
+  },
+  "outputs": [
+    {
+      "name": "IO.SYS",
+      "bytes": 33430,
+      "sha256": "dd0915ed366b3f640284df4be30ed35f413dfd5b6966c1f25eee9598a5bf53e0",
+      "byte_equal": true
+    },
+    {
+      "name": "MSDOS.SYS",
+      "bytes": 37394,
+      "sha256": "4e41ca4e5893d4cf293f81ad01adbdbd12f7039534f59148214a9cca309529a2",
+      "byte_equal": true
+    },
+    {
+      "name": "COMMAND.COM",
+      "bytes": 47845,
+      "sha256": "74ad25067e7d9f5c3a0ac2f2967347defb0ffef9e6ed60b60e6499f0b1a8cc89",
+      "byte_equal": true
+    }
+  ],
+  "limitations": "Localized style review only; DOS 5 historical spelling is inferred from references, not independently verified."
+}

@@ -1,0 +1,1054 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\exec-header-o_9pl3i7",
+  "source": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\dos\\msproc.full.recovery.asm",
+  "source_sha256": "64630f2ce5cfa49df1b277e39dbb5c774e15d7b55dd9f07b3e807c3ac6e0dc82",
+  "reference_sha256": "4aa312105af8582066ac6fe55f47755f6192ac7f9f21a9f2658ab68050a65a98",
+  "object_sha256": "1155769791026a10be68b1997c22f896b6e39e26cbc8d9ea953a9bfcff3c22fb",
+  "bindings_sha256": "ec46064d8b917ae3221d84dc2297a5518564aac14daca7e70db26bb37c8b1f6d",
+  "header_proof_sha256": "2eeb71c439e9b6fdb93fc3ca352e965ec1169a8c3847a9e54bf5f198ef787f15",
+  "target_range": [
+    23850,
+    25586
+  ],
+  "bytes": 1736,
+  "fixups": [
+    {
+      "offset": 5,
+      "symbol": "exit_code",
+      "relative": false,
+      "value": 820
+    },
+    {
+      "offset": 8,
+      "symbol": "sys_ret_ok",
+      "relative": true,
+      "value": 43232
+    },
+    {
+      "offset": 13,
+      "symbol": "a20off_count",
+      "relative": false,
+      "value": 133
+    },
+    {
+      "offset": 22,
+      "symbol": "leavedos",
+      "relative": false,
+      "value": 16887
+    },
+    {
+      "offset": 38,
+      "symbol": "exterr_locus",
+      "relative": false,
+      "value": 803
+    },
+    {
+      "offset": 47,
+      "symbol": "sys_ret_err",
+      "relative": true,
+      "value": 43202
+    },
+    {
+      "offset": 50,
+      "symbol": "execready",
+      "relative": true,
+      "value": 6220
+    },
+    {
+      "offset": 53,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "value": 1039
+    },
+    {
+      "offset": 89,
+      "symbol": "dstrlen",
+      "relative": true,
+      "value": 46262
+    },
+    {
+      "offset": 96,
+      "symbol": "allocmethod",
+      "relative": false,
+      "value": 770
+    },
+    {
+      "offset": 100,
+      "symbol": "allocmsave",
+      "relative": false,
+      "value": 132
+    },
+    {
+      "offset": 108,
+      "symbol": "dos_flag",
+      "relative": false,
+      "value": 134
+    },
+    {
+      "offset": 112,
+      "symbol": "$open",
+      "relative": true,
+      "value": 4929
+    },
+    {
+      "offset": 118,
+      "symbol": "dos_flag",
+      "relative": false,
+      "value": 134
+    },
+    {
+      "offset": 133,
+      "symbol": "$ioctl",
+      "relative": true,
+      "value": 50605
+    },
+    {
+      "offset": 145,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "value": 204
+    },
+    {
+      "offset": 150,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "value": 199
+    },
+    {
+      "offset": 180,
+      "symbol": "currentpdb",
+      "relative": false,
+      "value": 816
+    },
+    {
+      "offset": 221,
+      "symbol": "$alloc",
+      "relative": true,
+      "value": 1621
+    },
+    {
+      "offset": 255,
+      "symbol": "exec_header_len",
+      "relative": false,
+      "value": 26
+    },
+    {
+      "offset": 258,
+      "symbol": "exec_signature",
+      "relative": false,
+      "value": 4040
+    },
+    {
+      "offset": 263,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "value": 1164
+    },
+    {
+      "offset": 274,
+      "symbol": "exec_header_len",
+      "relative": false,
+      "value": 26
+    },
+    {
+      "offset": 280,
+      "symbol": "exec_max_bss",
+      "relative": false,
+      "value": 4052
+    },
+    {
+      "offset": 291,
+      "symbol": "exec_signature",
+      "relative": false,
+      "value": 4040
+    },
+    {
+      "offset": 304,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "value": 497
+    },
+    {
+      "offset": 307,
+      "symbol": "exec_pages",
+      "relative": false,
+      "value": 4044
+    },
+    {
+      "offset": 315,
+      "symbol": "exec_par_dir",
+      "relative": false,
+      "value": 4048
+    },
+    {
+      "offset": 343,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "value": 227
+    },
+    {
+      "offset": 355,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "value": 1087
+    },
+    {
+      "offset": 358,
+      "symbol": "lcritmem",
+      "relative": true,
+      "value": 46308
+    },
+    {
+      "offset": 363,
+      "symbol": "$close",
+      "relative": true,
+      "value": 2660
+    },
+    {
+      "offset": 368,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "value": 65209
+    },
+    {
+      "offset": 372,
+      "symbol": "allocmethod",
+      "relative": false,
+      "value": 770
+    },
+    {
+      "offset": 377,
+      "symbol": "allocmsave",
+      "relative": false,
+      "value": 132
+    },
+    {
+      "offset": 382,
+      "symbol": "allocmethod",
+      "relative": false,
+      "value": 770
+    },
+    {
+      "offset": 395,
+      "symbol": "save_ax",
+      "relative": false,
+      "value": 138
+    },
+    {
+      "offset": 405,
+      "symbol": "exec_ss",
+      "relative": false,
+      "value": 4054
+    },
+    {
+      "offset": 412,
+      "symbol": "exec_sp",
+      "relative": false,
+      "value": 4056
+    },
+    {
+      "offset": 430,
+      "symbol": "allocmethod",
+      "relative": false,
+      "value": 770
+    },
+    {
+      "offset": 437,
+      "symbol": "allocmethod",
+      "relative": false,
+      "value": 770
+    },
+    {
+      "offset": 441,
+      "symbol": "save_ax",
+      "relative": false,
+      "value": 138
+    },
+    {
+      "offset": 448,
+      "symbol": "$alloc",
+      "relative": true,
+      "value": 1394
+    },
+    {
+      "offset": 452,
+      "symbol": "save_ax",
+      "relative": false,
+      "value": 138
+    },
+    {
+      "offset": 474,
+      "symbol": "exec_min_bss",
+      "relative": false,
+      "value": 4050
+    },
+    {
+      "offset": 484,
+      "symbol": "exec_min_bss",
+      "relative": false,
+      "value": 4050
+    },
+    {
+      "offset": 488,
+      "symbol": "exec_max_bss",
+      "relative": false,
+      "value": 4052
+    },
+    {
+      "offset": 505,
+      "symbol": "$alloc",
+      "relative": true,
+      "value": 1337
+    },
+    {
+      "offset": 511,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "value": 65393
+    },
+    {
+      "offset": 515,
+      "symbol": "allocmsave",
+      "relative": false,
+      "value": 132
+    },
+    {
+      "offset": 519,
+      "symbol": "allocmethod",
+      "relative": false,
+      "value": 770
+    },
+    {
+      "offset": 543,
+      "symbol": "exec_sp",
+      "relative": false,
+      "value": 4056
+    },
+    {
+      "offset": 580,
+      "symbol": "exec_par_dir",
+      "relative": false,
+      "value": 4048
+    },
+    {
+      "offset": 601,
+      "symbol": "$lseek",
+      "relative": true,
+      "value": 2800
+    },
+    {
+      "offset": 607,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "value": 65278
+    },
+    {
+      "offset": 639,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "value": 788
+    },
+    {
+      "offset": 672,
+      "symbol": "exec_ss",
+      "relative": false,
+      "value": 4054
+    },
+    {
+      "offset": 677,
+      "symbol": "exec_init_ss",
+      "relative": false,
+      "value": 4034
+    },
+    {
+      "offset": 680,
+      "symbol": "exec_sp",
+      "relative": false,
+      "value": 4056
+    },
+    {
+      "offset": 683,
+      "symbol": "exec_init_sp",
+      "relative": false,
+      "value": 4032
+    },
+    {
+      "offset": 687,
+      "symbol": "exec_ip",
+      "relative": false,
+      "value": 4060
+    },
+    {
+      "offset": 690,
+      "symbol": "exec_init_ip",
+      "relative": false,
+      "value": 4036
+    },
+    {
+      "offset": 697,
+      "symbol": "exec_init_cs",
+      "relative": false,
+      "value": 4038
+    },
+    {
+      "offset": 703,
+      "symbol": "exec_rle_table",
+      "relative": false,
+      "value": 4064
+    },
+    {
+      "offset": 712,
+      "symbol": "$lseek",
+      "relative": true,
+      "value": 2689
+    },
+    {
+      "offset": 718,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "value": 65165
+    },
+    {
+      "offset": 722,
+      "symbol": "exec_rle_count",
+      "relative": false,
+      "value": 4046
+    },
+    {
+      "offset": 726,
+      "symbol": "openbuf",
+      "relative": false,
+      "value": 958
+    },
+    {
+      "offset": 733,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "value": 694
+    },
+    {
+      "offset": 743,
+      "symbol": "openbuf",
+      "relative": false,
+      "value": 958
+    },
+    {
+      "offset": 782,
+      "symbol": "exec_init_cs",
+      "relative": false,
+      "value": 4038
+    },
+    {
+      "offset": 787,
+      "symbol": "exec_init_ip",
+      "relative": false,
+      "value": 4036
+    },
+    {
+      "offset": 792,
+      "symbol": "fixexepatch",
+      "relative": false,
+      "value": 4626
+    },
+    {
+      "offset": 798,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "value": 222
+    },
+    {
+      "offset": 801,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "value": 65078
+    },
+    {
+      "offset": 823,
+      "symbol": "allocmethod",
+      "relative": false,
+      "value": 770
+    },
+    {
+      "offset": 828,
+      "symbol": "allocmsave",
+      "relative": false,
+      "value": 132
+    },
+    {
+      "offset": 833,
+      "symbol": "allocmethod",
+      "relative": false,
+      "value": 770
+    },
+    {
+      "offset": 850,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "value": 634
+    },
+    {
+      "offset": 857,
+      "symbol": "allocmethod",
+      "relative": false,
+      "value": 770
+    },
+    {
+      "offset": 865,
+      "symbol": "allocmethod",
+      "relative": false,
+      "value": 770
+    },
+    {
+      "offset": 872,
+      "symbol": "$alloc",
+      "relative": true,
+      "value": 970
+    },
+    {
+      "offset": 883,
+      "symbol": "$alloc",
+      "relative": true,
+      "value": 959
+    },
+    {
+      "offset": 931,
+      "symbol": "$lseek",
+      "relative": true,
+      "value": 2470
+    },
+    {
+      "offset": 941,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "value": 486
+    },
+    {
+      "offset": 947,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "value": 64936
+    },
+    {
+      "offset": 954,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "value": 65401
+    },
+    {
+      "offset": 959,
+      "symbol": "allocmsave",
+      "relative": false,
+      "value": 132
+    },
+    {
+      "offset": 964,
+      "symbol": "allocmethod",
+      "relative": false,
+      "value": 770
+    },
+    {
+      "offset": 980,
+      "symbol": "exec_init_cs",
+      "relative": false,
+      "value": 4038
+    },
+    {
+      "offset": 985,
+      "symbol": "exec_init_ip",
+      "relative": false,
+      "value": 4036
+    },
+    {
+      "offset": 1005,
+      "symbol": "exec_init_sp",
+      "relative": false,
+      "value": 4032
+    },
+    {
+      "offset": 1009,
+      "symbol": "exec_init_ss",
+      "relative": false,
+      "value": 4034
+    },
+    {
+      "offset": 1020,
+      "symbol": "chkcopyprot",
+      "relative": false,
+      "value": 97
+    },
+    {
+      "offset": 1026,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "value": 416
+    },
+    {
+      "offset": 1030,
+      "symbol": "$close",
+      "relative": true,
+      "value": 1993
+    },
+    {
+      "offset": 1034,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "value": 419
+    },
+    {
+      "offset": 1043,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "value": 455
+    },
+    {
+      "offset": 1046,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "value": 475
+    },
+    {
+      "offset": 1051,
+      "symbol": "driverload",
+      "relative": false,
+      "value": 4159
+    },
+    {
+      "offset": 1061,
+      "symbol": "biosdataptr",
+      "relative": false,
+      "value": 4160
+    },
+    {
+      "offset": 1072,
+      "symbol": "currentpdb",
+      "relative": false,
+      "value": 816
+    },
+    {
+      "offset": 1077,
+      "symbol": "special_version",
+      "relative": false,
+      "value": 3773
+    },
+    {
+      "offset": 1089,
+      "symbol": "driverload",
+      "relative": false,
+      "value": 4159
+    },
+    {
+      "offset": 1098,
+      "symbol": "sys_ret_ok",
+      "relative": true,
+      "value": 42142
+    },
+    {
+      "offset": 1132,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "value": 366
+    },
+    {
+      "offset": 1160,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "value": 361
+    },
+    {
+      "offset": 1169,
+      "symbol": "$dup_pdb",
+      "relative": true,
+      "value": 44804
+    },
+    {
+      "offset": 1183,
+      "symbol": "special_version",
+      "relative": false,
+      "value": 3773
+    },
+    {
+      "offset": 1246,
+      "symbol": "getvisdrv",
+      "relative": true,
+      "value": 2661
+    },
+    {
+      "offset": 1257,
+      "symbol": "getvisdrv",
+      "relative": true,
+      "value": 2650
+    },
+    {
+      "offset": 1264,
+      "symbol": "get_user_stack",
+      "relative": true,
+      "value": 41609
+    },
+    {
+      "offset": 1303,
+      "symbol": "dmaadd",
+      "relative": false,
+      "value": 812
+    },
+    {
+      "offset": 1310,
+      "symbol": "currentpdb",
+      "relative": false,
+      "value": 816
+    },
+    {
+      "offset": 1315,
+      "symbol": "dmaadd",
+      "relative": false,
+      "value": 814
+    },
+    {
+      "offset": 1326,
+      "symbol": "exec_init_sp",
+      "relative": false,
+      "value": 4032
+    },
+    {
+      "offset": 1346,
+      "symbol": "exec_init_ip",
+      "relative": false,
+      "value": 4036
+    },
+    {
+      "offset": 1360,
+      "symbol": "sys_ret_ok",
+      "relative": true,
+      "value": 41880
+    },
+    {
+      "offset": 1365,
+      "symbol": "exec_init_ip",
+      "relative": false,
+      "value": 4036
+    },
+    {
+      "offset": 1370,
+      "symbol": "exec_init_sp",
+      "relative": false,
+      "value": 4032
+    },
+    {
+      "offset": 1377,
+      "symbol": "doshashma",
+      "relative": false,
+      "value": 4625
+    },
+    {
+      "offset": 1386,
+      "symbol": "dosdseg",
+      "relative": false,
+      "value": 15831
+    },
+    {
+      "offset": 1390,
+      "symbol": "dos_flag",
+      "relative": false,
+      "value": 134
+    },
+    {
+      "offset": 1395,
+      "symbol": "a20off_psp",
+      "relative": false,
+      "value": 99
+    },
+    {
+      "offset": 1402,
+      "symbol": "disa20_xfer",
+      "relative": false,
+      "value": 4373
+    },
+    {
+      "offset": 1412,
+      "symbol": "indos",
+      "relative": false,
+      "value": 801
+    },
+    {
+      "offset": 1430,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "value": 12
+    },
+    {
+      "offset": 1437,
+      "symbol": "$read",
+      "relative": true,
+      "value": 1857
+    },
+    {
+      "offset": 1441,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "value": 12
+    },
+    {
+      "offset": 1448,
+      "symbol": "ecritmem",
+      "relative": true,
+      "value": 45186
+    },
+    {
+      "offset": 1451,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "value": 16
+    },
+    {
+      "offset": 1459,
+      "symbol": "currentpdb",
+      "relative": false,
+      "value": 816
+    },
+    {
+      "offset": 1462,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "value": 5
+    },
+    {
+      "offset": 1465,
+      "symbol": "lcritmem",
+      "relative": true,
+      "value": 45201
+    },
+    {
+      "offset": 1475,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "value": 9
+    },
+    {
+      "offset": 1481,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "value": 3
+    },
+    {
+      "offset": 1527,
+      "symbol": "special_version",
+      "relative": false,
+      "value": 3773
+    },
+    {
+      "offset": 1534,
+      "symbol": "uu_ifs_dos_call",
+      "relative": false,
+      "value": 93
+    },
+    {
+      "offset": 1552,
+      "symbol": "temp_var2",
+      "relative": false,
+      "value": 1550
+    },
+    {
+      "offset": 1564,
+      "symbol": "ucase",
+      "relative": true,
+      "value": 61086
+    },
+    {
+      "offset": 1577,
+      "symbol": "special_version",
+      "relative": false,
+      "value": 3773
+    },
+    {
+      "offset": 1589,
+      "symbol": "temp_var2",
+      "relative": false,
+      "value": 1550
+    },
+    {
+      "offset": 1605,
+      "symbol": "exit_type",
+      "relative": false,
+      "value": 1404
+    },
+    {
+      "offset": 1611,
+      "symbol": "currentpdb",
+      "relative": false,
+      "value": 816
+    },
+    {
+      "offset": 1626,
+      "symbol": "$setblock",
+      "relative": true,
+      "value": 569
+    },
+    {
+      "offset": 1655,
+      "symbol": "command",
+      "relative": true,
+      "value": 40824
+    },
+    {
+      "offset": 1662,
+      "symbol": "didctrlc",
+      "relative": false,
+      "value": 845
+    },
+    {
+      "offset": 1669,
+      "symbol": "exit_type",
+      "relative": false,
+      "value": 1404
+    },
+    {
+      "offset": 1677,
+      "symbol": "exit_type",
+      "relative": false,
+      "value": 1404
+    },
+    {
+      "offset": 1681,
+      "symbol": "get_user_stack",
+      "relative": true,
+      "value": 41192
+    },
+    {
+      "offset": 1686,
+      "symbol": "currentpdb",
+      "relative": false,
+      "value": 816
+    },
+    {
+      "offset": 1698,
+      "symbol": "exit_type",
+      "relative": false,
+      "value": 1404
+    },
+    {
+      "offset": 1704,
+      "symbol": "exit_type",
+      "relative": false,
+      "value": 1404
+    },
+    {
+      "offset": 1708,
+      "symbol": "exit_code",
+      "relative": false,
+      "value": 820
+    },
+    {
+      "offset": 1711,
+      "symbol": "get_user_stack",
+      "relative": true,
+      "value": 41162
+    },
+    {
+      "offset": 1733,
+      "symbol": "reset_environment",
+      "relative": true,
+      "value": 61974
+    }
+  ],
+  "data_layout_differences": [
+    {
+      "symbol": "exec_signature",
+      "production": 5203,
+      "target": 4040
+    },
+    {
+      "symbol": "exec_max_bss",
+      "production": 5215,
+      "target": 4052
+    },
+    {
+      "symbol": "exec_pages",
+      "production": 5207,
+      "target": 4044
+    },
+    {
+      "symbol": "exec_par_dir",
+      "production": 5211,
+      "target": 4048
+    },
+    {
+      "symbol": "exec_ss",
+      "production": 5217,
+      "target": 4054
+    },
+    {
+      "symbol": "exec_sp",
+      "production": 5219,
+      "target": 4056
+    },
+    {
+      "symbol": "exec_min_bss",
+      "production": 5213,
+      "target": 4050
+    },
+    {
+      "symbol": "exec_init_ss",
+      "production": 5197,
+      "target": 4034
+    },
+    {
+      "symbol": "exec_init_sp",
+      "production": 5195,
+      "target": 4032
+    },
+    {
+      "symbol": "exec_ip",
+      "production": 5223,
+      "target": 4060
+    },
+    {
+      "symbol": "exec_init_ip",
+      "production": 5199,
+      "target": 4036
+    },
+    {
+      "symbol": "exec_init_cs",
+      "production": 5201,
+      "target": 4038
+    },
+    {
+      "symbol": "exec_rle_table",
+      "production": 5227,
+      "target": 4064
+    },
+    {
+      "symbol": "exec_rle_count",
+      "production": 5209,
+      "target": 4046
+    },
+    {
+      "symbol": "fixexepatch",
+      "production": 4570,
+      "target": 4626
+    },
+    {
+      "symbol": "driverload",
+      "production": 4125,
+      "target": 4159
+    },
+    {
+      "symbol": "biosdataptr",
+      "production": 4126,
+      "target": 4160
+    },
+    {
+      "symbol": "doshashma",
+      "production": 4569,
+      "target": 4625
+    },
+    {
+      "symbol": "disa20_xfer",
+      "production": 4341,
+      "target": 4373
+    }
+  ],
+  "differences": [],
+  "exact": true,
+  "candidate_sha256": "3b48202189cbc7607db39b487f7edfc4ea611f99a9a185bff4039c6ef596af78",
+  "target_slice_sha256": "3b48202189cbc7607db39b487f7edfc4ea611f99a9a185bff4039c6ef596af78",
+  "scope": "Whole native MSPROC object at pinned target symbol placements. Some symbol attributions inferred from target operands; actual production data placement and linked/runtime behavior are not verified."
+}

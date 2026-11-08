@@ -1,0 +1,29 @@
+# T3 command entry reconstruction
+
+Direct target evidence: TCOMMAND at file offset 0x2324 (inferred from two-sided TFOR branch linkage) has CLI at 0x234f and STI at 0x2355, with no NT EXECPATH_SIZE reset after initialization of COMBUF. The corresponding OpenNT tcode.asm expands FCLI/FSTI into NTVDM state manipulation. DOS 6 tcode.asm also uses CLI/STI and lacks that NT reset at this location. Only these three source sites were changed; other EXECPATH_SIZE references remain pending.
+
+Clean build command: `python tools/build_command.py --report m2-t3-command-entry-build.json`. All stages succeeded. Candidate is 50309 bytes, a reduction of 75 bytes from the reference, SHA-256 57eab24910455de829d98b4182dd6108e9c622ce2cab00c5c63c223f44db5b9b. Size reduction alone is not acceptance. The first 80 bytes of the candidate TCOMMAND entry (MAP-derived file offset 0x2494) align with the target at 0x2324 after masking only MASM-annotated word operands; no remaining unmasked differences. Evidence: m2-t3-command-entry-check.json. Full target still differs (47845 bytes); no SoftPC boot or behavioral equivalence claim.
+
+Source provenance: initial unchanged tcode.asm is pinned by the T2 import manifest; the readable source edits explain the reconstruction sites. No target bytes are inserted into the output. T2 reference records remain frozen; T3 builds use separate report names and fresh stages. Current scratch stage is recorded by the build JSON and owned by T3 for further map analysis.
+
+## Prompt and line-ending calls restored
+
+Target calls at file offsets 0x23FD and 0x2437 resolve to CRLF2=0x48D7 and PRINT_PROMPT=0x4051, agreeing with independently repeated TFOR constraints. Target DOCOM=0x24F5 calls CRLF2 then falls through to DOCOM1=0x24F8. OpenNT comments out all three INVOKE statements; DOS 6 retains them. Restored only those three statements in local tcode.asm.
+
+Clean build report m2-t3-prompt-build.json: 50318 bytes, SHA-256 d929c8bb6a4d51f30aa82a79a0deb7b1b30d534fd1cdace817dc317532505857. The 9-byte increase is expected from three near calls; minimizing size is not the acceptance criterion. `python tools/verify_command_entry.py docs/etc/evidence/m2-t3-prompt-build.json` verifies 304 entry bytes with no differences outside annotated address words; separately resolves both input-loop calls against the candidate MAP and verifies DOCOM's call in candidate and target. Evidence m2-t3-prompt-verification.json. This supports the restored control flow, but does not prove final addresses, whole COMMAND identity or runtime behavior.
+
+## REGCOM replacement boundary identified
+
+Target REGCOM starts at 0x24C6 and GotCom at 0x24E4; DOCOM follows at 0x24F5. Direct bytes verify DOS server calls followed by DOSKey AX=4810h/INT 2Fh and buffered DOS input fallback AH=0Ah/INT 21h. Target buffer operands identify UCOMBUF=0x8B53 and COMBUF=0x8BD6 within the transient group. DOS6 tcode.asm has this same readable control flow. The OpenNT replacement spans REGCOM through GotCom and contains the DRE_RET target of the separately located DoReEnter handler. Therefore the safe source reconstruction boundary also includes reconciliation of DoReEnter and its shared reent_exit cleanup. No deletion or speculative redirection is made yet. Exact boundary constraints are in m2-t3-regcom-boundary.json.
+
+## REGCOM restored and host-only subgraph removed
+
+Replaced REGCOM-through-GotCom host dispatch with the DOS6-corroborated DOSKey/INT21 input path. Removed the tail beginning at std_invalid/DoReEnter through the NT-only prompt/TSR helpers; source-wide label reference scanning found no cross-module dependencies on this subgraph (same-name local labels in other modules are distinct). reent_exit is only reached by removed host helpers, so it is not the DOS $EXIT implementation. Successful full assembly/link corroborates symbol closure. Import provenance preserves original source identity.
+
+Explicit SHORT encodings were restored at SINGLELOOP's DOCOM1 jump and JDOCOM1's DoCom1 jump. The first candidate linked but failed the expanded comparison at the latter near jump; this was corrected, not treated as successful verification. Final m2-t3-regcom-build.json records the rebuilt candidate. `python tools/verify_command_entry.py docs/etc/evidence/m2-t3-regcom-build.json --length 0x1d4 --output m2-t3-regcom-verification.json` verifies all 468 bytes from TCOMMAND through DOCOM modulo annotated address words, with zero remaining unmasked differences. This remains static reconstruction evidence, not a successful boot or full-file match.
+
+## Parsing and empty-command recovery
+
+The expanded comparison first diverged at entry-relative offset 531 (target 0x2537): OpenNT tests the leading UNC double-backslash and branches to IsUncName, while target begins directly with the drive-colon test. DOS6 corroborates omission of that special branch. Removed only the comparison, branch and now-unused label. At target nullcom=0x25FC, bytes begin 8E 1E 77 8D, with no NT path-length reset or CS override. Removed the EXECPATH_SIZE reset and explicit CS override at that source site; other segment assumptions remain unchanged.
+
+Clean build m2-t3-parser-build.json: 48478 bytes, SHA-256 02c2361e086b22a30752dadab566fade849a7b29af147d8c23dde775b611ef39. `python tools/verify_command_entry.py docs/etc/evidence/m2-t3-parser-build.json --length 0x2f7 --output m2-t3-parser-verification.json` verifies all 759 bytes from target TCOMMAND=0x2324 through the jump preceding ROM-scan code at 0x261B, with zero unmasked differences. This extends the verified instruction-layout region through input, parser and empty-command handling. Address operands remain unresolved, and this is not runtime or whole-file verification. The earlier m2-t3-parse-probe.json is a retained failed comparison explaining the next edit, not a passing result.

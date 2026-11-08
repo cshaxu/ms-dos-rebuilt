@@ -1,0 +1,57 @@
+{
+  "previous_stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\integrated-source-ubztdfh5",
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\integrated-source-wkje_tyj",
+  "source_audit": "m6-segcheck-debug-source-audit.json",
+  "dos6_reference": {
+    "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\segcheck.asm",
+    "sha256": "b5bbcf41397409b980277292477b75cca01212ba20909767273ffb9a34956da7"
+  },
+  "debug_assembly": {
+    "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\segcheck-debug-zd3b604t",
+    "tool_sha256": "e54afaa9565e046cd862c29a015d685de43311acccf796469030e162ced6d00d",
+    "flags": [
+      "-Mx",
+      "-t",
+      "-W1",
+      "-DDEBUG=1"
+    ],
+    "object_sha256": "3a77da3bece3ec2671fc4731bbbe2aedcac9ea9069cc39e87ba582d49164e148",
+    "listing_sha256": "4a1a9d95f2979208f9c1b23c6f6fa9a0bc65f41c3a03405b03cd0559c724854e",
+    "procedures": {
+      "DPBCheck": {
+        "offset": 135,
+        "bytes": 81
+      },
+      "SFTCheck": {
+        "offset": 216,
+        "bytes": 110
+      },
+      "BUFCheck": {
+        "offset": 326,
+        "bytes": 83
+      }
+    }
+  },
+  "unchanged_objects": 104,
+  "outputs": [
+    {
+      "name": "IO.SYS",
+      "bytes": 33430,
+      "sha256": "dd0915ed366b3f640284df4be30ed35f413dfd5b6966c1f25eee9598a5bf53e0",
+      "byte_equal": true
+    },
+    {
+      "name": "MSDOS.SYS",
+      "bytes": 37394,
+      "sha256": "4e41ca4e5893d4cf293f81ad01adbdbd12f7039534f59148214a9cca309529a2",
+      "byte_equal": true
+    },
+    {
+      "name": "COMMAND.COM",
+      "bytes": 47845,
+      "sha256": "74ad25067e7d9f5c3a0ac2f2967347defb0ffef9e6ed60b60e6499f0b1a8cc89",
+      "byte_equal": true
+    }
+  ],
+  "limitations": "DEBUG module assembly only; no full DEBUG kernel link or runtime validation. DOS 5 original debug text and configuration not independently proven."
+}

@@ -1,0 +1,40 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\integrated-source-0pv8qok8",
+  "previous_stage": "orzdvz8v",
+  "source_evidence": "m6-bios-copycds-cleanup-source.json",
+  "files_changed": {
+    "bios/sysconf.asm": {
+      "before": "2ad763a39b3597fccf3eabf2334e19ec2206a66820fd7d99c06147441ca44c0d",
+      "after": "fe05addce44e7875e7cc6178ce75798bf5d0fe8f24948535aca2c5ad75018675",
+      "blocks": 3,
+      "default_paths_kept": 0
+    },
+    "bios/sysinit1.asm": {
+      "before": "4f830adec25ed50068707b691ad8b0b623aceb9e6d3e9e32a4564b1a2e3825e4",
+      "after": "e927b0b0574b75479c7a7448ac04e99f45abc0d93a46708964137b75fe526540",
+      "blocks": 8,
+      "default_paths_kept": 1
+    },
+    "bios/inc/version.inc": {
+      "before": "c97f4ae5cf0527c7a3251ed6376794f1236bff7b288cef8fa8b9a333f3a0f669",
+      "after": "7ab6100c70e613a41ec32d80519d73784cadaad14c1bff44e0aaa8cfb6214142",
+      "blocks": 1
+    },
+    "bios/inc/mult.inc": {
+      "before": "73037418e659c1eab2d3e67fc7e29eebed8fc6f1fe5790848ee22f9870ef89a6",
+      "after": "c8e67ef05870600106bca0e6eb02229541a47162aba0a674aabf4fa2fbbeb665",
+      "blocks": 4
+    }
+  },
+  "object_counts": {
+    "bios": 14,
+    "kernel": 55,
+    "command": 34
+  },
+  "files": {
+    "IO.SYS": "dd0915ed366b3f640284df4be30ed35f413dfd5b6966c1f25eee9598a5bf53e0",
+    "MSDOS.SYS": "4e41ca4e5893d4cf293f81ad01adbdbd12f7039534f59148214a9cca309529a2",
+    "COMMAND.COM": "74ad25067e7d9f5c3a0ac2f2967347defb0ffef9e6ed60b60e6499f0b1a8cc89"
+  },
+  "scope": "Removed disabled COPYCDS and DBLSPACE markers; the selected default path, all 104 object hashes, generated messages and three outputs are unchanged."
+}

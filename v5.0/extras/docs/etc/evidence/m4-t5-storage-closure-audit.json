@@ -1,0 +1,6511 @@
+{
+  "build": "m4-t5-lock-build.json",
+  "candidates": [
+    {
+      "module": "macro2-full",
+      "proof": "m4-t5-macro2-full-verification.json",
+      "proof_sha256": "466eae576b9cc8a6050c1f5644f073d2f0ac4ab501de3340ef0f63e222789af6",
+      "bytes": 982,
+      "exports": {
+        "PATHSEPGOTCH": 575,
+        "TRANSPATHSET": 102,
+        "PATHSEP": 573,
+        "COPYCOMPONENT": 602,
+        "TEXTFROMDRIVE": 939,
+        "DRIVEFROMTEXT": 916,
+        "SKIPBACK": 583,
+        "MACRO001E": 0,
+        "TRANSFCB": 0,
+        "MACRO001S": 0,
+        "PATHPREF": 947,
+        "TEXTFROMDRIVE1": 941,
+        "TRANSPATHNOSET": 110,
+        "TRANSPATH": 98,
+        "$NAMETRANS": 879,
+        "SCANPATHCHAR": 972,
+        "CANONICALIZE": 472,
+        "SPLICE": 744
+      },
+      "imports": {
+        "GETEXTENDED": [
+          27936,
+          7468
+        ],
+        "GETTHISDRV": [
+          27955,
+          27788
+        ],
+        "GETCHARTYPE": [
+          27968,
+          21022
+        ],
+        "PACKNAME": [
+          27980,
+          8588
+        ],
+        "ECRITDISK": [
+          28098,
+          4950
+        ],
+        "FATREAD_CDS": [
+          28101,
+          22681
+        ],
+        "LCRITDISK": [
+          28104,
+          4982
+        ],
+        "PATHCHRCMP": [
+          28130,
+          21051
+        ],
+        "UCASE": [
+          28147,
+          20966
+        ],
+        "CHECKTHISDEVICE": [
+          28183,
+          17545
+        ],
+        "STRCPY": [
+          28211,
+          4629
+        ],
+        "GETVISDRV": [
+          28218,
+          27759
+        ],
+        "VALIDATECDS": [
+          28229,
+          17355
+        ],
+        "FSTRCPY": [
+          28256,
+          4644
+        ],
+        "NAMETRANS": [
+          28558,
+          20857
+        ],
+        "STRLEN": [
+          28606,
+          4653
+        ],
+        "GETCDSFROMDRV": [
+          28679,
+          27875
+        ],
+        "SETATTRIB": [
+          28797,
+          29505
+        ],
+        "SYS_RET_ERR": [
+          28813,
+          1565
+        ],
+        "SYS_RET_OK": [
+          28824,
+          1556
+        ],
+        "DSTRLEN": [
+          28858,
+          4667
+        ]
+      }
+    },
+    {
+      "module": "util-full",
+      "proof": "m4-t5-util-full-verification.json",
+      "proof_sha256": "6c27b38e635ee326e19528a981c06c236b5b7382212dd9194528edd1646b91b3",
+      "bytes": 190,
+      "exports": {
+        "JFNFREE": 98,
+        "SFNFREE": 117,
+        "PJFNFROMHANDLE": 0,
+        "SFFROMSFN": 55,
+        "SFFROMHANDLE": 29
+      },
+      "imports": {}
+    },
+    {
+      "module": "srvcall-full",
+      "proof": "m4-t5-srvcall-full-verification.json",
+      "proof_sha256": "e7c4e37ab16e74d1052a78851ce3ec0cb74ca676302c593a9b9023df7c23ccb9",
+      "bytes": 342,
+      "exports": {
+        "SRVC001E": 27,
+        "SRVC001S": 0,
+        "$SERVERCALL": 27
+      },
+      "imports": {
+        "TABLEDISPATCH": [
+          26415,
+          4710
+        ],
+        "SYS_RET_ERR": [
+          26426,
+          1565
+        ],
+        "ECRITDISK": [
+          26434,
+          4950
+        ],
+        "SFFROMSFN": [
+          26438,
+          26740
+        ],
+        "DOS_COMMIT": [
+          26471,
+          12706
+        ],
+        "LCRITDISK": [
+          26478,
+          4982
+        ],
+        "SYS_RET_OK": [
+          26482,
+          1556
+        ],
+        "GET_USER_STACK": [
+          26517,
+          1189
+        ],
+        "XCHGP": [
+          26542,
+          4677
+        ],
+        "REDISP": [
+          26596,
+          915
+        ]
+      }
+    },
+    {
+      "module": "alloc-full",
+      "proof": "m4-t5-alloc-full-verification.json",
+      "proof_sha256": "5c1f29006e52607cf6cef57830e28b2f529d0f2ed8b1fd0ad2b70f3eea5379c6",
+      "bytes": 757,
+      "exports": {
+        "ARENA_FREE_PROCESS": 0,
+        "$DEALLOC": 497,
+        "COALESCE": 74,
+        "$SETBLOCK": 461,
+        "CHECK_SIGNATURE": 58,
+        "$ALLOCOPER": 551,
+        "ARENA_NEXT": 51,
+        "$ALLOC": 108,
+        "GETLASTARENA": 692
+      },
+      "imports": {
+        "ECRITMEM": [
+          25694,
+          4950
+        ],
+        "LCRITMEM": [
+          25810,
+          4982
+        ],
+        "SYS_RET_ERR": [
+          25815,
+          1565
+        ],
+        "GET_USER_STACK": [
+          25854,
+          1189
+        ],
+        "SYS_RET_OK": [
+          26044,
+          1556
+        ]
+      }
+    },
+    {
+      "module": "macro-full",
+      "proof": "m4-t5-macro-full-verification.json",
+      "proof_sha256": "8e213521df1b53ab4d3a12993b2100b2fe7dacccb081ee56393f6a2b25024cb3",
+      "bytes": 396,
+      "exports": {
+        "INITCDS": 82,
+        "GETCDSFROMDRV": 360,
+        "FIND_DPB": 61,
+        "$USEROPER": 159,
+        "GETVISDRV": 244,
+        "GETTHISDRV": 273,
+        "$ASSIGNOPER": 0
+      },
+      "imports": {
+        "SYS_RET_OK": [
+          27570,
+          1556
+        ],
+        "SYS_RET_ERR": [
+          27573,
+          1565
+        ],
+        "GET_USER_STACK": [
+          27705,
+          1189
+        ]
+      }
+    },
+    {
+      "module": "cpmio-full",
+      "proof": "m4-t5-cpmio-full-verification.json",
+      "proof_sha256": "59ab93c33306dc63a8f6e4d9d44b20277251828fe12da0991d2bbaedec7b439e",
+      "bytes": 806,
+      "exports": {
+        "KILNEW": 313,
+        "TWOESC": 451,
+        "RAWOUT": 685,
+        "RAWOUT2": 728,
+        "SKIPONE": 499,
+        "COPYONE": 469,
+        "COPYLIN": 458,
+        "EXITINS": 587,
+        "SKIPSTR": 509,
+        "COPYSTR": 464,
+        "SAVE_RESTORE_PACKET": 767,
+        "ENTERINS": 587,
+        "$RAW_CON_INPUT": 657,
+        "CRLF": 600,
+        "$STD_CON_STRING_INPUT": 102,
+        "GETCH": 161,
+        "$STD_CON_INPUT_NO_ECHO": 0,
+        "$RAW_CON_IO": 610,
+        "$STD_CON_STRING_OUTPUT": 90,
+        "CTRLZ": 595,
+        "BACKSP": 332,
+        "REEDIT": 567
+      },
+      "imports": {
+        "STATCHK": [
+          5080,
+          21259
+        ],
+        "IOFUNC": [
+          5095,
+          17928
+        ],
+        "READTIME": [
+          5123,
+          2843
+        ],
+        "OUTT": [
+          5175,
+          5895
+        ],
+        "ESCCHAR": [
+          5246,
+          2584
+        ],
+        "CANCHAR": [
+          5277,
+          2583
+        ],
+        "BUFOUT": [
+          5291,
+          6046
+        ],
+        "OEMFUNCTIONKEY": [
+          5320,
+          2627
+        ],
+        "TAB": [
+          5404,
+          6011
+        ],
+        "GET_IO_SFT": [
+          5704,
+          14239
+        ],
+        "SPOOLINT": [
+          5716,
+          21213
+        ],
+        "DSKSTATCHK": [
+          5824,
+          21076
+        ]
+      }
+    },
+    {
+      "module": "msdisp-full",
+      "proof": "m4-t5-msdisp-full-verification.json",
+      "proof_sha256": "1e4e157eab0abe52b355377d0670bbef90b4afda989416f936d4bc8c09a8b5c6",
+      "bytes": 570,
+      "exports": {
+        "REDISP": 286,
+        "COMMAND": 166,
+        "RESTORE_USER_WORLD": 506,
+        "LEAVEDOS": 434,
+        "$SET_CTRL_C_TRAPPING": 0,
+        "GET_USER_STACK": 560,
+        "SAVE_USER_WORLD": 529,
+        "$GET_CURRENT_PDB": 99,
+        "$SET_CURRENT_PDB": 87,
+        "QUIT": 122,
+        "CALL_ENTRY": 129,
+        "$SET_PRINTER_FLAG": 111,
+        "IRETT": 128,
+        "SYSTEM_CALL": 122
+      },
+      "imports": {
+        "DSKSTATCHK": [
+          1033,
+          21076
+        ],
+        "DISPATCH": [
+          1037,
+          190
+        ]
+      }
+    },
+    {
+      "module": "cpmio2-full",
+      "proof": "m4-t5-cpmio2-full-verification.json",
+      "proof_sha256": "f5c610daf9198f43bcc3d57ea30c20fdc9ab891b6c6455e8b6ef04f6289862a7",
+      "bytes": 301,
+      "exports": {
+        "OUTCHA": 19,
+        "BUFOUT": 162,
+        "$STD_PRINTER_OUTPUT": 226,
+        "$STD_CON_INPUT": 0,
+        "$STD_AUX_INPUT": 191,
+        "$STD_CON_INPUT_FLUSH": 256,
+        "TAB": 127,
+        "$STD_CON_OUTPUT": 9,
+        "$STD_AUX_OUTPUT": 220,
+        "$STD_CON_INPUT_STATUS": 246,
+        "OUTT": 11
+      },
+      "imports": {
+        "$STD_CON_INPUT_NO_ECHO": [
+          5884,
+          5078
+        ],
+        "STATCHK": [
+          5924,
+          21259
+        ],
+        "RAWOUT": [
+          5928,
+          5763
+        ],
+        "GET_IO_SFT": [
+          5947,
+          14239
+        ],
+        "SPOOLINT": [
+          6088,
+          21213
+        ],
+        "IOFUNC": [
+          6093,
+          17928
+        ],
+        "RAWOUT2": [
+          6123,
+          5806
+        ],
+        "REDISP": [
+          6182,
+          915
+        ]
+      }
+    },
+    {
+      "module": "msctrlc-full",
+      "proof": "m4-t5-msctrlc-full-verification.json",
+      "proof_sha256": "461c333a56fac899575527fb1569557b712d4b8ce0e498137061901fbc415648",
+      "bytes": 1158,
+      "exports": {
+        "OUTMES": 504,
+        "HARDERR": 610,
+        "STATCHK": 195,
+        "NET_I24_ENTRY": 719,
+        "CHARHARD": 561,
+        "CNTCHAND": 336,
+        "SPOOLINT": 149,
+        "DSKSTATCHK": 12,
+        "SET_I24_EXTENDED_ERROR": 1119,
+        "FATAL": 688,
+        "DIVOV": 483,
+        "FATAL1": 692,
+        "LOWINT23ADDR": 0,
+        "LOWINT24ADDR": 4,
+        "LOWINT28ADDR": 8,
+        "RESET_ENVIRONMENT": 959
+      },
+      "imports": {
+        "DEVIOCALL2": [
+          21123,
+          18402
+        ],
+        "GET_IO_SFT": [
+          21265,
+          14239
+        ],
+        "IOFUNC": [
+          21273,
+          17928
+        ],
+        "DEV_CLOSE_SFT": [
+          21357,
+          18278
+        ],
+        "DEV_OPEN_SFT": [
+          21362,
+          18270
+        ],
+        "BUFOUT": [
+          21410,
+          6046
+        ],
+        "CRLF": [
+          21413,
+          5678
+        ],
+        "SWAPBACK": [
+          21425,
+          13311
+        ],
+        "RESTORE_USER_WORLD": [
+          21437,
+          1135
+        ],
+        "COMMAND": [
+          21516,
+          795
+        ],
+        "DIVMES": [
+          21547,
+          2459
+        ],
+        "DIVMESLEN": [
+          21550,
+          2478
+        ],
+        "EXIT_INNER": [
+          22020,
+          25530
+        ],
+        "$GET_INTERRUPT_VECTOR": [
+          22041,
+          3757
+        ],
+        "ARENA_FREE_PROCESS": [
+          22074,
+          25586
+        ],
+        "DOS_ABORT": [
+          22077,
+          12253
+        ],
+        "ECRITDISK": [
+          22089,
+          4950
+        ],
+        "FLUSHBUF": [
+          22092,
+          23562
+        ],
+        "LCRITDISK": [
+          22095,
+          4982
+        ],
+        "CHECK_VIRT_OPEN": [
+          22098,
+          19915
+        ],
+        "CAL_LK": [
+          22217,
+          1623
+        ]
+      }
+    },
+    {
+      "module": "mscode-full",
+      "proof": "m4-t5-mscode-full-verification.json",
+      "proof_sha256": "f3cf0cfd0681457f3b937276c0640d6961657c9f958213b5b0b1cd894f1b1a1f",
+      "bytes": 1260,
+      "exports": {
+        "CAL_LK": 424,
+        "MSC001S": 0,
+        "RW32_CONVERT": 1157,
+        "SYS_RET_ERR": 366,
+        "BADCALL": 555,
+        "LEAVE2F": 574,
+        "ETAB_LK": 479,
+        "ABSDWRT": 224,
+        "INT2F_ETCETERA": 1148,
+        "FASTXXX_PURGE": 1228,
+        "ABSSETUP": 12,
+        "ERRORMAP": 400,
+        "DOSINSTALL": 1154,
+        "FCB_RET_OK": 385,
+        "INT2F": 561,
+        "GETBP": 293,
+        "SYS_RETURN": 357,
+        "SYS_RET_OK": 357,
+        "DOSGETGROUP": 1148,
+        "FCB_RET_ERR": 388,
+        "NO_OP": 385,
+        "FROM_GETSET": 374,
+        "ABSDRD": 89,
+        "SETBAD": 538,
+        "OKCALL": 559,
+        "MSC001E": 12,
+        "GOTDPB": 348
+      },
+      "imports": {
+        "I21_MAP_E_TAB": [
+          1687,
+          11
+        ],
+        "NOVXDERRMSG": [
+          1978,
+          2480
+        ],
+        "FOO": [
+          2323,
+          408
+        ],
+        "DTAB": [
+          2328,
+          410
+        ],
+        "SET_RQ_SC_PARMS": [
+          1248,
+          23811
+        ],
+        "SAVE_USER_WORLD": [
+          1323,
+          1158
+        ],
+        "ECRITDISK": [
+          1332,
+          4950
+        ],
+        "LCRITDISK": [
+          1341,
+          4982
+        ],
+        "DSKREAD": [
+          1344,
+          14517
+        ],
+        "DSKRDBUFSCAN": [
+          1361,
+          15116
+        ],
+        "RESTORE_USER_WORLD": [
+          1394,
+          1135
+        ],
+        "DSKWRTBUFPURGE": [
+          1483,
+          15876
+        ],
+        "DSKWRITE": [
+          1487,
+          14558
+        ],
+        "GETTHISDRV": [
+          1497,
+          27788
+        ],
+        "GET_USER_STACK": [
+          1556,
+          1189
+        ],
+        "TABLEDISPATCH": [
+          2341,
+          4710
+        ],
+        "FAST_DISPATCH": [
+          2452,
+          10226
+        ]
+      }
+    },
+    {
+      "module": "misc-full",
+      "proof": "m4-t5-misc-full-verification.json",
+      "proof_sha256": "36d69a3c663144a0dd3efa9ecc168f6f1292f3c24e402c0d1e67f9ff777a13f6",
+      "bytes": 675,
+      "exports": {
+        "SETMEM": 523,
+        "$GET_IN_VARS": 56,
+        "$SLEAZEFUNCDL": 2,
+        "$SETDPB": 169,
+        "$GET_DPB": 70,
+        "$DUP_PDB": 369,
+        "$CREATE_PROCESS_DATA_BLOCK": 386,
+        "$GET_INDOS_FLAG": 44,
+        "$GET_DEFAULT_DPB": 68,
+        "$SLEAZEFUNC": 0,
+        "$DISK_RESET": 116,
+        "$GSETMEDIAID": 650
+      },
+      "imports": {
+        "SFFROMHANDLE": [
+          4364,
+          26714
+        ],
+        "DOS_DUP": [
+          4398,
+          11066
+        ],
+        "PJFNFROMHANDLE": [
+          4401,
+          26685
+        ],
+        "$IOCTL": [
+          4586,
+          9054
+        ],
+        "SYS_RET_ERR": [
+          4592,
+          1565
+        ],
+        "GETTHISDRV": [
+          3926,
+          27788
+        ],
+        "DISK_INFO": [
+          3931,
+          11761
+        ],
+        "GET_USER_STACK": [
+          3945,
+          1189
+        ],
+        "FCB_RET_ERR": [
+          3961,
+          1587
+        ],
+        "ECRITDISK": [
+          4010,
+          4950
+        ],
+        "FATREAD_CDS": [
+          4013,
+          22681
+        ],
+        "LCRITDISK": [
+          4016,
+          4982
+        ],
+        "FLUSHBUF": [
+          4048,
+          23562
+        ]
+      }
+    },
+    {
+      "module": "dinfo-full",
+      "proof": "m4-t5-dinfo-full-verification.json",
+      "proof_sha256": "d702b7dac4c57d34e06ea93ff94a390b307f918677914dac5e229461bf6dcade",
+      "bytes": 97,
+      "exports": {
+        "DISK_INFO": 0
+      },
+      "imports": {
+        "TESTNET": [
+          11761,
+          4753
+        ],
+        "ECRITDISK": [
+          11777,
+          4950
+        ],
+        "FATREAD_CDS": [
+          11780,
+          22681
+        ],
+        "UNPACK": [
+          11788,
+          22245
+        ],
+        "LCRITDISK": [
+          11850,
+          4982
+        ]
+      }
+    },
+    {
+      "module": "getset-full",
+      "proof": "m4-t5-getset-full-verification.json",
+      "proof_sha256": "d447c4522c6a6daea524fef9ccc5c7e0738ca6e82a96e6997bd7442b67ed83c0",
+      "bytes": 774,
+      "exports": {
+        "RECSET": 674,
+        "$GET_VERSION": 0,
+        "$SET_DEFAULT_DRIVE": 604,
+        "$GET_DMA": 568,
+        "$INTERNATIONAL": 49,
+        "$SET_DMA": 588,
+        "$GET_DRIVE_FREESPACE": 527,
+        "$ECS_CALL": 750,
+        "$GET_VERIFY_ON_WRITE": 37,
+        "$SET_VERIFY_ON_WRITE": 42,
+        "GET_GLOBAL_CDPG": 740,
+        "$CHAR_OPER": 685,
+        "$GET_INTERRUPT_VECTOR": 622,
+        "$SET_INTERRUPT_VECTOR": 638,
+        "$GETSETCDPG": 442,
+        "$GETEXTENDEDERROR": 705,
+        "$GET_DEFAULT_DRIVE": 599,
+        "$GETEXTCNTRY": 188
+      },
+      "imports": {
+        "GET_USER_STACK": [
+          3160,
+          1189
+        ],
+        "SYS_RET_OK": [
+          3301,
+          1556
+        ],
+        "SYS_RET_ERR": [
+          3316,
+          1565
+        ],
+        "GETLET3": [
+          3345,
+          21003
+        ],
+        "FROM_GETSET": [
+          3653,
+          1573
+        ],
+        "GETTHISDRV": [
+          3666,
+          27788
+        ],
+        "DISK_INFO": [
+          3671,
+          11761
+        ],
+        "FCB_RET_ERR": [
+          3695,
+          1587
+        ],
+        "GETVISDRV": [
+          3743,
+          27759
+        ],
+        "NLS_YES": [
+          3362,
+          2579
+        ],
+        "NLS_YES2": [
+          3369,
+          2581
+        ],
+        "NLS_NO": [
+          3376,
+          2580
+        ],
+        "NLS_NO2": [
+          3383,
+          2582
+        ]
+      }
+    },
+    {
+      "module": "ioctl-full",
+      "proof": "m4-t5-ioctl-full-verification.json",
+      "proof_sha256": "7e642cbc1b0742e92c8b18bef2b1fafabce2de8ca12c93493cf9de8e2b01abbd",
+      "bytes": 735,
+      "exports": {
+        "$IOCTL": 36
+      },
+      "imports": {
+        "GETTHISDRV": [
+          9412,
+          27788
+        ],
+        "SFFROMHANDLE": [
+          9080,
+          26714
+        ],
+        "SYS_RET_ERR": [
+          9087,
+          1565
+        ],
+        "SYS_RET_OK": [
+          9122,
+          1556
+        ],
+        "GET_USER_STACK": [
+          9151,
+          1189
+        ],
+        "GET_IO_SFT": [
+          9194,
+          14239
+        ],
+        "IOFUNC": [
+          9202,
+          17928
+        ],
+        "DEVIOCALL2": [
+          9391,
+          18402
+        ],
+        "SET_I24_EXTENDED_ERROR": [
+          9601,
+          22183
+        ]
+      }
+    },
+    {
+      "module": "path-full",
+      "proof": "m4-t5-path-full-verification.json",
+      "proof_sha256": "528447ffa541048db34c27f5995646f594ff1b6667451ebae104ba71c8b4f889",
+      "bytes": 366,
+      "exports": {
+        "CHECK_PATHLEN": 350,
+        "CHECK_PATHLEN2": 355,
+        "$CHDIR": 181,
+        "$MKDIR": 305,
+        "$RMDIR": 121,
+        "$CURRENT_DIR": 0
+      },
+      "imports": {
+        "DOS_RMDIR": [
+          8827,
+          13115
+        ],
+        "DOS_MKDIR": [
+          8957,
+          12790
+        ],
+        "ECRITDISK": [
+          8652,
+          4950
+        ],
+        "GETVISDRV": [
+          8657,
+          27759
+        ],
+        "LCRITDISK": [
+          8662,
+          4982
+        ],
+        "SYS_RET_ERR": [
+          8675,
+          1565
+        ],
+        "VALIDATECDS": [
+          8711,
+          17355
+        ],
+        "SYS_RET_OK": [
+          8770,
+          1556
+        ],
+        "TRANSPATHNOSET": [
+          8781,
+          28021
+        ],
+        "GETCDSFROMDRV": [
+          8805,
+          27875
+        ],
+        "STRCMP": [
+          8810,
+          4595
+        ],
+        "TRANSPATH": [
+          8838,
+          28009
+        ],
+        "DOS_CHDIR": [
+          8863,
+          13046
+        ],
+        "GET_USER_STACK": [
+          8883,
+          1189
+        ],
+        "FSTRCPY": [
+          8949,
+          4644
+        ],
+        "DSTRLEN": [
+          9010,
+          4667
+        ]
+      }
+    },
+    {
+      "module": "search-full",
+      "proof": "m4-t5-search-full-verification.json",
+      "proof_sha256": "2c4f982963e44c612edd35fa6a9f57011abd4e5a29022ac16edd325a4669cc85",
+      "bytes": 465,
+      "exports": {
+        "PACKNAME": 401,
+        "GET_FAST_SEARCH": 454,
+        "$FIND_NEXT": 351,
+        "$DIR_SEARCH_NEXT": 148,
+        "$FIND_FIRST": 263,
+        "$DIR_SEARCH_FIRST": 0
+      },
+      "imports": {
+        "TRANSFCB": [
+          8214,
+          27911
+        ],
+        "FCB_RET_ERR": [
+          8220,
+          1587
+        ],
+        "FCB_RET_OK": [
+          8332,
+          1584
+        ],
+        "DOS_SEARCH_NEXT": [
+          8413,
+          12099
+        ],
+        "TRANSPATHSET": [
+          8460,
+          28013
+        ],
+        "SYS_RET_ERR": [
+          8467,
+          1565
+        ],
+        "SYS_RET_OK": [
+          8535,
+          1556
+        ],
+        "DOS_SEARCH_FIRST": [
+          8648,
+          11858
+        ]
+      }
+    },
+    {
+      "module": "disk-full",
+      "proof": "m4-t5-disk-full-verification.json",
+      "proof_sha256": "7b7ac0cd95d8562470041fa5bac9535a29ac3f06fb5ed5ec06109035a9ea6d41",
+      "bytes": 1206,
+      "exports": {
+        "FIRSTCLUSTER": 1055,
+        "DIRREAD": 966,
+        "SWAPCON": 6,
+        "FATSECRD": 1080,
+        "SWAPBACK": 0,
+        "DOS_READ": 26,
+        "SET_BUF_AS_DIR": 1067,
+        "CHECK_READ_LOCK": 1182,
+        "DOS_WRITE": 585,
+        "CHECK_WRITE_LOCK": 1151,
+        "DREAD": 1124,
+        "GET_IO_SFT": 928
+      },
+      "imports": {
+        "SET_ACC_ERR": [
+          13351,
+          14924
+        ],
+        "SETUP": [
+          13354,
+          14631
+        ],
+        "ISSFTNET": [
+          13359,
+          4778
+        ],
+        "ECRITDISK": [
+          13384,
+          4950
+        ],
+        "DISKREAD": [
+          13387,
+          14856
+        ],
+        "LCRITDISK": [
+          13390,
+          4982
+        ],
+        "SETREAD": [
+          13459,
+          18526
+        ],
+        "DEVIOCALL": [
+          13468,
+          18399
+        ],
+        "CHARHARD": [
+          13484,
+          21625
+        ],
+        "SET_ACC_ERR_DS": [
+          13516,
+          14922
+        ],
+        "DSKSTATCHK": [
+          13555,
+          21076
+        ],
+        "DEVIOCALL2": [
+          13558,
+          18402
+        ],
+        "OUTT": [
+          13804,
+          5895
+        ],
+        "SETSFT": [
+          13835,
+          15070
+        ],
+        "$STD_CON_STRING_INPUT": [
+          13869,
+          5180
+        ],
+        "DISKWRITE": [
+          13956,
+          15254
+        ],
+        "DOS_COMMIT": [
+          13973,
+          12706
+        ],
+        "SETWRITE": [
+          13983,
+          18577
+        ],
+        "ADDREC": [
+          14051,
+          15103
+        ],
+        "SFFROMHANDLE": [
+          14251,
+          26714
+        ],
+        "UNPACK": [
+          14341,
+          22245
+        ],
+        "ISEOF": [
+          14348,
+          22222
+        ],
+        "FIGREC": [
+          14363,
+          20363
+        ],
+        "GETBUFFR": [
+          14373,
+          23307
+        ],
+        "DSKREAD": [
+          14421,
+          14517
+        ],
+        "HARDERRRW": [
+          14446,
+          14605
+        ],
+        "LOCK_CHECK": [
+          14481,
+          29967
+        ],
+        "WRITE_LOCK_VIOLATION": [
+          14487,
+          14849
+        ],
+        "READ_LOCK_VIOLATION": [
+          14511,
+          14811
+        ]
+      }
+    },
+    {
+      "module": "disk2-full",
+      "proof": "m4-t5-disk2-full-verification.json",
+      "proof_sha256": "27c9af106ab66ae8aba7e046a3d3399e1b4f9be700144e2d105ffc130ccb302d",
+      "bytes": 737,
+      "exports": {
+        "DWRITE": 16,
+        "SETSFT": 553,
+        "DSKREAD": 0,
+        "SETCLUS": 557,
+        "READ_LOCK_VIOLATION": 294,
+        "DISKREAD": 339,
+        "DSKWRITE": 41,
+        "SET_ACC_ERR_DS": 405,
+        "BREAKDOWN": 252,
+        "WRITE_LOCK_VIOLATION": 332,
+        "HARDERRRW": 88,
+        "SETUP": 114,
+        "SET_ACC_ERR": 407,
+        "ADDREC": 586,
+        "DSKRDBUFSCAN": 599
+      },
+      "imports": {
+        "SETREAD": [
+          14528,
+          18526
+        ],
+        "SETWRITE": [
+          14569,
+          18577
+        ],
+        "DEVIOCALL2": [
+          14580,
+          18402
+        ],
+        "HARDERR": [
+          14627,
+          21674
+        ],
+        "DIV32": [
+          14700,
+          16010
+        ],
+        "SHR32": [
+          14726,
+          16049
+        ],
+        "LOCK_VIOLATION": [
+          14837,
+          29989
+        ],
+        "CHECK_READ_LOCK": [
+          14886,
+          14493
+        ],
+        "FNDCLUS": [
+          14903,
+          19943
+        ],
+        "WRTERR22": [
+          14914,
+          15466
+        ],
+        "BUFRD": [
+          14946,
+          20061
+        ],
+        "NEXTSEC": [
+          14958,
+          20218
+        ],
+        "OPTIMIZE": [
+          14980,
+          20267
+        ],
+        "SET_RQ_SC_PARMS": [
+          14999,
+          23811
+        ],
+        "DREAD": [
+          15002,
+          14435
+        ],
+        "ISEOF": [
+          15028,
+          22222
+        ],
+        "GETCURHEAD": [
+          15136,
+          23206
+        ],
+        "SCANPLACE": [
+          15241,
+          23224
+        ]
+      }
+    },
+    {
+      "module": "disk3-full",
+      "proof": "m4-t5-disk3-full-verification.json",
+      "proof_sha256": "d6daffcb6e570faed9435b45ca68c3dcc14f90833da12af9b0ee4fbc155e2f4e",
+      "bytes": 810,
+      "exports": {
+        "WRTERR": 210,
+        "WRTERR22": 212,
+        "DSKWRTBUFPURGE": 622,
+        "DISKWRITE": 0,
+        "DIV32": 756,
+        "SHR32": 795
+      },
+      "imports": {
+        "CHECK_WRITE_LOCK": [
+          15254,
+          14462
+        ],
+        "BREAKDOWN": [
+          15287,
+          14769
+        ],
+        "SKPCLP": [
+          15454,
+          19975
+        ],
+        "ALLOCATE": [
+          15459,
+          20407
+        ],
+        "FNDCLUS": [
+          15500,
+          19943
+        ],
+        "BUFWRT": [
+          15560,
+          20120
+        ],
+        "NEXTSEC": [
+          15581,
+          20218
+        ],
+        "OPTIMIZE": [
+          15603,
+          20267
+        ],
+        "DWRITE": [
+          15624,
+          14533
+        ],
+        "SETCLUS": [
+          15701,
+          15074
+        ],
+        "SET_ACC_ERR_DS": [
+          15704,
+          14922
+        ],
+        "ADDREC": [
+          15778,
+          15103
+        ],
+        "RELBLKS": [
+          15813,
+          20587
+        ],
+        "FASTOPEN_UPDATE": [
+          15861,
+          10218
+        ],
+        "RELEASE": [
+          15869,
+          20585
+        ],
+        "GETCURHEAD": [
+          15951,
+          23206
+        ],
+        "DEC_DIRTY_COUNT": [
+          15985,
+          23836
+        ],
+        "SCANPLACE": [
+          15993,
+          23224
+        ]
+      }
+    },
+    {
+      "module": "rom-full",
+      "proof": "m4-t5-rom-full-verification.json",
+      "proof_sha256": "77314e7e58f19b4a4e4f95e0dd225960a348826e1bcb30e07163a278e56695b2",
+      "bytes": 704,
+      "exports": {
+        "SKPCLP": 32,
+        "BUFWRT": 177,
+        "RELEASE": 642,
+        "RELBLKS": 644,
+        "FNDCLUS": 0,
+        "NEXTSEC": 275,
+        "ALLOCATE": 464,
+        "OPTIMIZE": 324,
+        "RESTFATBYT": 626,
+        "BUFRD": 118,
+        "FIGREC": 420,
+        "BUFSEC": 58,
+        "GETEOF": 686
+      },
+      "imports": {
+        "UNPACK": [
+          19975,
+          22245
+        ],
+        "ISEOF": [
+          19982,
+          22222
+        ],
+        "GETBUFFR": [
+          20017,
+          23307
+        ],
+        "PLACEBUF": [
+          20102,
+          23231
+        ],
+        "INC_DIRTY_COUNT": [
+          20191,
+          23830
+        ],
+        "PACK": [
+          20464,
+          22329
+        ]
+      }
+    },
+    {
+      "module": "mknode",
+      "proof": "m4-t5-mknode-verification.json",
+      "proof_sha256": "6f9ed8780302c5f20a78f8246d243edb118040014a00610e7530c744c2ca701e",
+      "bytes": 941,
+      "exports": {
+        "DOOPEN": 671,
+        "NEWDIR": 19,
+        "FREEENT": 834,
+        "MAKENODE": 224,
+        "BUILDDIR": 0,
+        "NEWENTRY": 495,
+        "SETDOTENT": 188,
+        "CHECK_VIRT_OPEN": 913,
+        "RENAME_MAKE": 262
+      },
+      "imports": {
+        "GETEOF": [
+          19029,
+          20629
+        ],
+        "ALLOCATE": [
+          19037,
+          20407
+        ],
+        "SETDIRSRCH": [
+          19050,
+          16396
+        ],
+        "ISEOF": [
+          19068,
+          22222
+        ],
+        "FASTOPEN_UPDATE": [
+          19093,
+          10218
+        ],
+        "FIGREC": [
+          19103,
+          20363
+        ],
+        "GETBUFFR": [
+          19122,
+          23307
+        ],
+        "INC_DIRTY_COUNT": [
+          19164,
+          23830
+        ],
+        "GETPATHNOSET": [
+          19241,
+          16503
+        ],
+        "MATCHATTRIBUTES": [
+          19330,
+          17200
+        ],
+        "SHAREENTER": [
+          19353,
+          30088
+        ],
+        "FLUSHBUF": [
+          19442,
+          23562
+        ],
+        "ECRITDISK": [
+          19454,
+          4950
+        ],
+        "SHAREEND": [
+          19464,
+          30083
+        ],
+        "LCRITDISK": [
+          19473,
+          4982
+        ],
+        "GETENT": [
+          19516,
+          16349
+        ],
+        "DATE16": [
+          19576,
+          2801
+        ],
+        "DEV_OPEN_SFT": [
+          19649,
+          18270
+        ],
+        "RELEASE": [
+          19876,
+          20585
+        ],
+        "SET_BUF_AS_DIR": [
+          19901,
+          14378
+        ],
+        "DEV_CLOSE_SFT": [
+          19935,
+          18278
+        ]
+      }
+    },
+    {
+      "module": "dircall",
+      "proof": "m4-t5-dircall-verification.json",
+      "proof_sha256": "4b36d76423e03560551bcb37f649db741b0d72a49b6905ce8efafe7b5c5c98f7",
+      "bytes": 521,
+      "exports": {
+        "DOS_CHDIR": 256,
+        "DOS_MKDIR": 0,
+        "DOS_RMDIR": 325
+      },
+      "imports": {
+        "TESTNET": [
+          12790,
+          4753
+        ],
+        "LCRITDISK": [
+          12805,
+          4982
+        ],
+        "SET_MKND_ERR": [
+          12812,
+          11225
+        ],
+        "ECRITDISK": [
+          12815,
+          4950
+        ],
+        "MAKENODE": [
+          12836,
+          19226
+        ],
+        "NEWDIR": [
+          12874,
+          19021
+        ],
+        "GETENT": [
+          12879,
+          16349
+        ],
+        "INC_DIRTY_COUNT": [
+          12895,
+          23830
+        ],
+        "SETDOTENT": [
+          12913,
+          19190
+        ],
+        "GETBUFFR": [
+          12939,
+          23307
+        ],
+        "FLUSHBUF": [
+          12988,
+          23562
+        ],
+        "GETPATH": [
+          13089,
+          16497
+        ],
+        "STARTSRCH": [
+          13198,
+          17180
+        ],
+        "GETENTRY": [
+          13201,
+          16346
+        ],
+        "SRCH": [
+          13245,
+          16087
+        ],
+        "RELEASE": [
+          13265,
+          20585
+        ],
+        "FASTOPEN_DELETE": [
+          13304,
+          10171
+        ]
+      }
+    },
+    {
+      "module": "share",
+      "proof": "m4-t5-share-verification.json",
+      "proof_sha256": "d49633153558fdf474439a5958fa7020af2d4aa8172c30a9edba171c77083d1a",
+      "bytes": 82,
+      "exports": {
+        "SHAREEND": 43,
+        "SHARE_VIOLATION": 5,
+        "SHAREENTER": 48,
+        "SHARE_CHECK": 0
+      },
+      "imports": {
+        "HARDERR": [
+          30071,
+          21674
+        ],
+        "IDLE": [
+          30110,
+          4684
+        ]
+      }
+    },
+    {
+      "module": "create-full",
+      "proof": "m4-t5-create-full-verification.json",
+      "proof_sha256": "40686f69a45a433bee8aa517ecaeaa11dc141132785dfe7bf8200ad87397fd07",
+      "bytes": 300,
+      "exports": {
+        "SET_MEDIA_ID": 212,
+        "SET_MKND_ERR": 137,
+        "SET_EXT_MODE": 280,
+        "CREAT001E": 152,
+        "CREAT001S": 144,
+        "DOS_CREATE_NEW": 207,
+        "DOS_CREATE": 0
+      },
+      "imports": {
+        "ECRITDISK": [
+          11209,
+          4950
+        ],
+        "MAKENODE": [
+          11212,
+          19226
+        ],
+        "LCRITDISK": [
+          11222,
+          4982
+        ],
+        "FASTOPEN_DELETE": [
+          11240,
+          10171
+        ],
+        "FATREAD_CDS": [
+          11272,
+          22681
+        ],
+        "SET_SFT_MODE": [
+          11292,
+          11631
+        ],
+        "$IOCTL": [
+          11319,
+          9054
+        ]
+      }
+    },
+    {
+      "module": "dev-iofunc",
+      "proof": "m4-t5-dev-iofunc-verification.json",
+      "proof_sha256": "059c4590f32992f2620c89d233e1a2192209759ba2a07478e41559d754195597",
+      "bytes": 360,
+      "exports": {
+        "DEV001S": 0,
+        "IOFUNC": 18,
+        "DEV001E": 18
+      },
+      "imports": {
+        "SAVE_USER_WORLD": [
+          17970,
+          1158
+        ],
+        "RESTORE_USER_WORLD": [
+          18065,
+          1135
+        ],
+        "DEVIOCALL": [
+          18029,
+          18399
+        ],
+        "CHARHARD": [
+          18095,
+          21625
+        ],
+        "DOS_WRITE": [
+          18158,
+          13896
+        ],
+        "DOS_READ": [
+          18174,
+          13337
+        ]
+      }
+    },
+    {
+      "module": "dev-openclose",
+      "proof": "m4-t5-dev-openclose-verification.json",
+      "proof_sha256": "01c7fb9971ac8e91638de8b0d1dc19ed35af32b803487819b0470140ac1fa639",
+      "bytes": 129,
+      "exports": {
+        "DEV_OPEN_SFT": 0,
+        "DEV_CLOSE_SFT": 8,
+        "DO_OPCLS": 14
+      },
+      "imports": {
+        "SAVE_USER_WORLD": [
+          18271,
+          1158
+        ],
+        "RESTORE_USER_WORLD": [
+          18394,
+          1135
+        ],
+        "DEVIOCALL2": [
+          18358,
+          18402
+        ],
+        "CHARHARD": [
+          18383,
+          21625
+        ]
+      }
+    },
+    {
+      "module": "dev-io",
+      "proof": "m4-t5-dev-io-verification.json",
+      "proof_sha256": "5e2162a52a7291abe629bbb479fc574a2602cc94fda33c9a5654454b7f3cf263",
+      "bytes": 603,
+      "exports": {
+        "SC2BUF2": 548,
+        "SETREAD": 127,
+        "VIRREAD": 443,
+        "INVALIDATE_SC": 425,
+        "SETWRITE": 178,
+        "MOVWORDS": 586,
+        "DEVIOCALL": 0,
+        "DEVIOCALL2": 3,
+        "IN_SC": 381,
+        "RW_SC": 190,
+        "SC2BUF": 531
+      },
+      "imports": {
+        "ECRITDEVICE": [
+          18402,
+          5014
+        ],
+        "LCRITDEVICE": [
+          18522,
+          5046
+        ]
+      }
+    },
+    {
+      "module": "delete-full",
+      "proof": "m4-t5-delete-full-verification.json",
+      "proof_sha256": "91f53c2aeee328c1ddad4263844fe2bdcfaf7c33b82bbbd2f8046be97eeb1eb9",
+      "bytes": 480,
+      "exports": {
+        "REN_DEL_CHECK": 308,
+        "FAST_DISPATCH": 473,
+        "FASTOPEN_DELETE": 418,
+        "FASTOPEN_RENAME": 439,
+        "FASTOPEN_UPDATE": 465,
+        "DOS_DELETE": 0
+      },
+      "imports": {
+        "TESTNET": [
+          9753,
+          4753
+        ],
+        "ECRITDISK": [
+          9769,
+          4950
+        ],
+        "GETPATHNOSET": [
+          9852,
+          16503
+        ],
+        "LCRITDISK": [
+          9867,
+          4982
+        ],
+        "INC_DIRTY_COUNT": [
+          9939,
+          23830
+        ],
+        "RELEASE": [
+          9967,
+          20585
+        ],
+        "GETENTRY": [
+          9979,
+          16346
+        ],
+        "NEXTENT": [
+          9984,
+          16145
+        ],
+        "FLUSHBUF": [
+          9997,
+          23562
+        ],
+        "SET_MEDIA_ID": [
+          10035,
+          11300
+        ],
+        "FATREAD_CDS": [
+          10038,
+          22681
+        ],
+        "STRLEN": [
+          10085,
+          4653
+        ],
+        "SKIPBACK": [
+          10091,
+          28494
+        ],
+        "PACKNAME": [
+          10100,
+          8588
+        ],
+        "DOOPEN": [
+          10125,
+          19673
+        ],
+        "SHAREENTER": [
+          10143,
+          30088
+        ],
+        "SHAREEND": [
+          10157,
+          30083
+        ]
+      }
+    },
+    {
+      "module": "lock-full",
+      "proof": "m4-t5-lock-full-verification.json",
+      "proof_sha256": "92a52046ce6bd51652ef9fbe7b1c2c4b66e539336002471a6351e7ec32779416",
+      "bytes": 178,
+      "exports": {
+        "LOCK_VIOLATION": 127,
+        "$LOCKOPER": 0,
+        "CHECKSHARE": 165,
+        "LOCK_CHECK": 105
+      },
+      "imports": {
+        "SFFROMHANDLE": [
+          29867,
+          26714
+        ],
+        "SYS_RET_ERR": [
+          29875,
+          1565
+        ],
+        "SYS_RET_OK": [
+          29944,
+          1556
+        ],
+        "IDLE": [
+          29981,
+          4684
+        ],
+        "HARDERR": [
+          30014,
+          21674
+        ]
+      }
+    },
+    {
+      "module": "close-full",
+      "proof": "m4-t5-close-full-verification.json",
+      "proof_sha256": "f58eb90d6b30101d1fd53f81fba01f829df212937b97563bbf9f79d160b8b5fb",
+      "bytes": 428,
+      "exports": {
+        "FREE_SFT": 257,
+        "DOS_CLOSE": 0,
+        "DIRFROMSFT": 270,
+        "DOS_COMMIT": 344,
+        "SETSFTTIMES": 394
+      },
+      "imports": {
+        "ECRITDISK": [
+          12382,
+          4950
+        ],
+        "SHAREEND": [
+          12395,
+          30083
+        ],
+        "XCHGP": [
+          12425,
+          4677
+        ],
+        "METACOMPARE": [
+          12428,
+          16239
+        ],
+        "INC_DIRTY_COUNT": [
+          12532,
+          23830
+        ],
+        "FASTOPEN_UPDATE": [
+          12587,
+          10218
+        ],
+        "FLUSHBUF": [
+          12591,
+          23562
+        ],
+        "DEV_CLOSE_SFT": [
+          12602,
+          18278
+        ],
+        "LCRITDISK": [
+          12614,
+          4982
+        ],
+        "FATREAD_SFT": [
+          12656,
+          22663
+        ],
+        "GETBUFFR": [
+          12673,
+          23307
+        ],
+        "DEV_OPEN_SFT": [
+          12748,
+          18270
+        ],
+        "DATE16": [
+          12770,
+          2801
+        ]
+      }
+    },
+    {
+      "module": "finfo-full",
+      "proof": "m4-t5-finfo-full-verification.json",
+      "proof_sha256": "5a9e2a629f251c40d5819880afbc308f21cef44db6d46cde5995b9acd4d022c4",
+      "bytes": 260,
+      "exports": {
+        "SET_FILE_ATTRIBUTE": 97,
+        "GET_FILE_INFO": 0,
+        "GET_FAST_PATH": 242
+      },
+      "imports": {
+        "TESTNET": [
+          10806,
+          4753
+        ],
+        "ECRITDISK": [
+          10817,
+          4950
+        ],
+        "LCRITDISK": [
+          10840,
+          4982
+        ],
+        "GETPATH": [
+          10950,
+          16497
+        ],
+        "REN_DEL_CHECK": [
+          10976,
+          10061
+        ],
+        "INC_DIRTY_COUNT": [
+          11012,
+          23830
+        ],
+        "FASTOPEN_UPDATE": [
+          11031,
+          10218
+        ],
+        "FLUSHBUF": [
+          11036,
+          23562
+        ]
+      }
+    },
+    {
+      "module": "rename-full",
+      "proof": "m4-t5-rename-full-verification.json",
+      "proof_sha256": "13a3aabc097f76edb3322abbf3a7b9f87eedcb81ff8f7ec898448081b5d7e24a",
+      "bytes": 573,
+      "exports": {
+        "DOS_RENAME": 0,
+        "NEW_RENAME": 561
+      },
+      "imports": {
+        "TESTNET": [
+          10233,
+          4753
+        ],
+        "ECRITDISK": [
+          10296,
+          4950
+        ],
+        "DOS_SEARCH_FIRST": [
+          10299,
+          11858
+        ],
+        "LCRITDISK": [
+          10321,
+          4982
+        ],
+        "CHECK_PATHLEN2": [
+          10346,
+          9007
+        ],
+        "REN_DEL_CHECK": [
+          10364,
+          10061
+        ],
+        "FASTOPEN_DELETE": [
+          10392,
+          10171
+        ],
+        "GETPATHNOSET": [
+          10421,
+          16503
+        ],
+        "FLUSHBUF": [
+          10439,
+          23562
+        ],
+        "DEVNAME": [
+          10527,
+          17213
+        ],
+        "SETDIRSRCH": [
+          10540,
+          16396
+        ],
+        "FINDENTRY": [
+          10545,
+          16064
+        ],
+        "RENAME_MAKE": [
+          10594,
+          19264
+        ],
+        "SHAREEND": [
+          10607,
+          30083
+        ],
+        "INC_DIRTY_COUNT": [
+          10622,
+          23830
+        ],
+        "FASTOPEN_RENAME": [
+          10711,
+          10192
+        ],
+        "RENAME_NEXT": [
+          10729,
+          12175
+        ],
+        "STARTSRCH": [
+          10784,
+          17180
+        ],
+        "GETENT": [
+          10790,
+          16349
+        ]
+      }
+    },
+    {
+      "module": "open-full",
+      "proof": "m4-t5-open-full-verification.json",
+      "proof_sha256": "2934175a687c650146454e31a9570e131071945effaeb73124f84ee145dbce20",
+      "bytes": 373,
+      "exports": {
+        "SET_SFT_MODE": 243,
+        "DO_SHARE_CHECK": 296,
+        "DOS_OPEN": 0,
+        "CHECK_ACCESS_AX": 328,
+        "SHARE_ERROR": 266
+      },
+      "imports": {
+        "ECRITDISK": [
+          11484,
+          4950
+        ],
+        "GETPATH": [
+          11492,
+          16497
+        ],
+        "LCRITDISK": [
+          11513,
+          4982
+        ],
+        "DOOPEN": [
+          11598,
+          19673
+        ],
+        "DEV_OPEN_SFT": [
+          11635,
+          18270
+        ],
+        "SHARE_VIOLATION": [
+          11674,
+          30045
+        ],
+        "SHARE_CHECK": [
+          11692,
+          30040
+        ],
+        "IDLE": [
+          11698,
+          4684
+        ]
+      }
+    },
+    {
+      "module": "isearch-full",
+      "proof": "m4-t5-isearch-full-verification.json",
+      "proof_sha256": "a2d166440521e1635824e64bf51072f4091c9ee3d54a5eac983470ceb2a1b629",
+      "bytes": 395,
+      "exports": {
+        "CHECK_QUESTION": 377,
+        "DOS_SEARCH_NEXT": 241,
+        "DOS_SEARCH_FIRST": 0,
+        "RENAME_NEXT": 317
+      },
+      "imports": {
+        "ECRITDISK": [
+          11887,
+          4950
+        ],
+        "GETPATH": [
+          11918,
+          16497
+        ],
+        "LCRITDISK": [
+          11939,
+          4982
+        ],
+        "INITCDS": [
+          12136,
+          27597
+        ],
+        "GOTDPB": [
+          12149,
+          1547
+        ],
+        "SETDIRSRCH": [
+          12208,
+          16396
+        ],
+        "STARTSRCH": [
+          12216,
+          17180
+        ],
+        "GETENT": [
+          12220,
+          16349
+        ],
+        "NEXTENT": [
+          12225,
+          16145
+        ]
+      }
+    },
+    {
+      "module": "abort-full",
+      "proof": "m4-t5-abort-full-verification.json",
+      "proof_sha256": "b845706aaf1e02615f5889a18525924046b93124e114f62dc99bbf9bee58849b",
+      "bytes": 109,
+      "exports": {
+        "DOS_ABORT": 0
+      },
+      "imports": {
+        "$CLOSE": [
+          12267,
+          26875
+        ],
+        "SFFROMSFN": [
+          12321,
+          26740
+        ]
+      }
+    },
+    {
+      "module": "handle-full",
+      "proof": "m4-t5-handle-full-verification.json",
+      "proof_sha256": "3c2677c16f38244249b8c19a4a9f4e72e1173b1520d9b15cf76bcdc8fb414d7f",
+      "bytes": 640,
+      "exports": {
+        "$COMMIT": 51,
+        "$EXTHANDLE": 77,
+        "$DUP": 560,
+        "CHECKOWNER": 606,
+        "$DUP2": 592,
+        "$READ": 271,
+        "$FILE_TIMES": 482,
+        "$LSEEK": 378,
+        "$CLOSE": 0,
+        "$WRITE": 373,
+        "ALIGN_BUFFER": 345
+      },
+      "imports": {
+        "PJFNFROMHANDLE": [
+          26906,
+          26685
+        ],
+        "DOS_CLOSE": [
+          26913,
+          12362
+        ],
+        "SYS_RET_OK": [
+          26920,
+          1556
+        ],
+        "SYS_RET_ERR": [
+          26923,
+          1565
+        ],
+        "DOS_COMMIT": [
+          26941,
+          12706
+        ],
+        "$ALLOC": [
+          27031,
+          25694
+        ],
+        "$DEALLOC": [
+          27101,
+          26083
+        ],
+        "DOS_READ": [
+          18174,
+          13337
+        ],
+        "DOS_WRITE": [
+          18158,
+          13896
+        ],
+        "GET_USER_STACK": [
+          27299,
+          1189
+        ],
+        "ECRITDISK": [
+          27391,
+          4950
+        ],
+        "LCRITDISK": [
+          27420,
+          4982
+        ],
+        "JFNFREE": [
+          27437,
+          26783
+        ],
+        "DOS_DUP_DIRECT": [
+          27452,
+          11076
+        ],
+        "SFFROMHANDLE": [
+          27481,
+          26714
+        ]
+      }
+    },
+    {
+      "module": "file-full",
+      "proof": "m4-t5-file-full-verification.json",
+      "proof_sha256": "7f63ef595db27caca4dc10c68daa142a56693c725adfe8a5bd0cf9f26df4dee7",
+      "bytes": 969,
+      "exports": {
+        "$RENAME": 335,
+        "$UNLINK": 297,
+        "FILE001E": 474,
+        "FILE001S": 474,
+        "$CREATENEWFILE": 450,
+        "$EXTENDED_OPEN": 628,
+        "$CREATETEMPFILE": 474,
+        "SETATTRIB": 612,
+        "BINTOASCII": 457,
+        "$OPEN": 0,
+        "$OPEN2": 2,
+        "$CHMOD": 228,
+        "$CREAT": 215
+      },
+      "imports": {
+        "DOS_OPEN": [
+          28900,
+          11388
+        ],
+        "DOS_CREATE": [
+          29109,
+          11088
+        ],
+        "DOS_CREATE_NEW": [
+          29344,
+          11295
+        ],
+        "ECRITDISK": [
+          28904,
+          4950
+        ],
+        "SFNFREE": [
+          28907,
+          26802
+        ],
+        "LCRITDISK": [
+          28910,
+          4982
+        ],
+        "JFNFREE": [
+          28930,
+          26783
+        ],
+        "TRANSPATH": [
+          28967,
+          28009
+        ],
+        "SET_EXT_MODE": [
+          29020,
+          11368
+        ],
+        "SYS_RET_OK": [
+          29060,
+          1556
+        ],
+        "FROM_GETSET": [
+          29102,
+          1573
+        ],
+        "SYS_RET_ERR": [
+          29105,
+          1565
+        ],
+        "TRANSPATHSET": [
+          29128,
+          28013
+        ],
+        "GET_FILE_INFO": [
+          29164,
+          10806
+        ],
+        "GET_USER_STACK": [
+          29169,
+          1189
+        ],
+        "SET_FILE_ATTRIBUTE": [
+          29179,
+          10903
+        ],
+        "DOS_DELETE": [
+          29217,
+          9753
+        ],
+        "GETCDSFROMDRV": [
+          29298,
+          27875
+        ],
+        "STRCMP": [
+          29303,
+          4595
+        ],
+        "DOS_RENAME": [
+          29336,
+          10233
+        ],
+        "PATHCHRCMP": [
+          29420,
+          21051
+        ],
+        "READTIME": [
+          29434,
+          2843
+        ],
+        "$CLOSE": [
+          29845,
+          26875
+        ]
+      }
+    },
+    {
+      "module": "fcbio-full",
+      "proof": "m4-t5-fcbio-full-verification.json",
+      "proof_sha256": "118368e644d75e89aa7120d9ffb14c92d168a7559c6d7e7e805e26cab84d44f5",
+      "bytes": 1224,
+      "exports": {
+        "REGENCOPYNAME": 742,
+        "CHECKFCB": 1015,
+        "FCBREGEN": 750,
+        "$GET_FCB_FILE_LENGTH": 44,
+        "BLASTSFT": 993,
+        "RESETLRU": 468,
+        "$FCB_CLOSE": 123,
+        "FCBHARDERR": 1191,
+        "SFTFROMFCB": 1137,
+        "$FCB_DELETE": 24,
+        "$FCB_RENAME": 236,
+        "SAVEFCBINFO": 294,
+        "$GET_FCB_POSITION": 0,
+        "LRUFCB": 504
+      },
+      "imports": {
+        "GETEXTENDED": [
+          6185,
+          7468
+        ],
+        "GETEXTENT": [
+          6188,
+          7423
+        ],
+        "FCB_RET_OK": [
+          6206,
+          1584
+        ],
+        "FCB_RET_ERR": [
+          6226,
+          1587
+        ],
+        "TRANSFCB": [
+          6212,
+          27911
+        ],
+        "DOS_DELETE": [
+          6219,
+          9753
+        ],
+        "GET_FILE_INFO": [
+          6248,
+          10806
+        ],
+        "CHECKSHARE": [
+          6334,
+          30027
+        ],
+        "DOS_CLOSE": [
+          6383,
+          12362
+        ],
+        "DOS_RENAME": [
+          6469,
+          10233
+        ],
+        "ISSFTNET": [
+          6484,
+          4778
+        ],
+        "SAVE_USER_WORLD": [
+          6690,
+          1158
+        ],
+        "RESTORE_USER_WORLD": [
+          6907,
+          1135
+        ],
+        "UCASE": [
+          6928,
+          20966
+        ],
+        "DEVNAME": [
+          7048,
+          17213
+        ],
+        "FIND_DPB": [
+          7091,
+          27576
+        ],
+        "HARDERR": [
+          7404,
+          21674
+        ]
+      }
+    },
+    {
+      "module": "fcbio2-full",
+      "proof": "m4-t5-fcbio2-full-verification.json",
+      "proof_sha256": "0fb5dce54f71ed0ad3b3cbcb6c22458481343a1e8ccb4abf7034c7c108641537",
+      "bytes": 778,
+      "exports": {
+        "$FCB_SEQ_READ": 758,
+        "FCBIO001E": 86,
+        "FCBIO001S": 86,
+        "$FCB_SEQ_WRITE": 763,
+        "$FCB_OPEN": 503,
+        "GETEXTENT": 14,
+        "SETEXTENT": 33,
+        "$FCB_RANDOM_READ": 768,
+        "$FCB_RANDOM_READ_BLOCK": 753,
+        "GETRECSIZE": 72,
+        "$FCB_CREATE": 732,
+        "FCBIO": 86,
+        "GETEXTENDED": 59,
+        "$FCB_RANDOM_WRITE": 773,
+        "$FCB_RANDOM_WRITE_BLOCK": 748,
+        "GETRR": 0
+      },
+      "imports": {
+        "DOS_OPEN": [
+          28900,
+          11388
+        ],
+        "DOS_CREATE": [
+          29109,
+          11088
+        ],
+        "DOS_READ": [
+          18174,
+          13337
+        ],
+        "DOS_WRITE": [
+          18158,
+          13896
+        ],
+        "SFTFROMFCB": [
+          7631,
+          7322
+        ],
+        "FCB_RET_ERR": [
+          7636,
+          1587
+        ],
+        "SAVEFCBINFO": [
+          7728,
+          6479
+        ],
+        "DATE16": [
+          7880,
+          2801
+        ],
+        "GET_USER_STACK": [
+          7899,
+          1189
+        ],
+        "TRANSFCB": [
+          7925,
+          27911
+        ],
+        "LRUFCB": [
+          7943,
+          6689
+        ],
+        "BLASTSFT": [
+          7977,
+          7178
+        ],
+        "FCBHARDERR": [
+          7992,
+          7376
+        ],
+        "ISSFTNET": [
+          7998,
+          4778
+        ],
+        "CHECKSHARE": [
+          8003,
+          30027
+        ],
+        "GETTHISDRV": [
+          8033,
+          27788
+        ],
+        "CHECKFCB": [
+          8093,
+          7200
+        ],
+        "SHAREEND": [
+          8131,
+          30083
+        ]
+      }
+    }
+  ],
+  "edges": [
+    {
+      "caller": "macro2-full",
+      "symbol": "GETEXTENDED",
+      "target": 7468,
+      "candidate_provider": {
+        "module": "fcbio2-full",
+        "target_offset": 7468
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "macro2-full",
+      "symbol": "GETTHISDRV",
+      "target": 27788,
+      "candidate_provider": {
+        "module": "macro-full",
+        "target_offset": 27788
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "macro2-full",
+      "symbol": "GETCHARTYPE",
+      "target": 21022,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "macro2-full",
+      "symbol": "PACKNAME",
+      "target": 8588,
+      "candidate_provider": {
+        "module": "search-full",
+        "target_offset": 8588
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "macro2-full",
+      "symbol": "ECRITDISK",
+      "target": 4950,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "macro2-full",
+      "symbol": "FATREAD_CDS",
+      "target": 22681,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "macro2-full",
+      "symbol": "LCRITDISK",
+      "target": 4982,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "macro2-full",
+      "symbol": "PATHCHRCMP",
+      "target": 21051,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "macro2-full",
+      "symbol": "UCASE",
+      "target": 20966,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "macro2-full",
+      "symbol": "CHECKTHISDEVICE",
+      "target": 17545,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "macro2-full",
+      "symbol": "STRCPY",
+      "target": 4629,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "macro2-full",
+      "symbol": "GETVISDRV",
+      "target": 27759,
+      "candidate_provider": {
+        "module": "macro-full",
+        "target_offset": 27759
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "macro2-full",
+      "symbol": "VALIDATECDS",
+      "target": 17355,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "macro2-full",
+      "symbol": "FSTRCPY",
+      "target": 4644,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "macro2-full",
+      "symbol": "NAMETRANS",
+      "target": 20857,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "macro2-full",
+      "symbol": "STRLEN",
+      "target": 4653,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "macro2-full",
+      "symbol": "GETCDSFROMDRV",
+      "target": 27875,
+      "candidate_provider": {
+        "module": "macro-full",
+        "target_offset": 27875
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "macro2-full",
+      "symbol": "SETATTRIB",
+      "target": 29505,
+      "candidate_provider": {
+        "module": "file-full",
+        "target_offset": 29505
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "macro2-full",
+      "symbol": "SYS_RET_ERR",
+      "target": 1565,
+      "candidate_provider": {
+        "module": "mscode-full",
+        "target_offset": 1565
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "macro2-full",
+      "symbol": "SYS_RET_OK",
+      "target": 1556,
+      "candidate_provider": {
+        "module": "mscode-full",
+        "target_offset": 1556
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "macro2-full",
+      "symbol": "DSTRLEN",
+      "target": 4667,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "srvcall-full",
+      "symbol": "TABLEDISPATCH",
+      "target": 4710,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "srvcall-full",
+      "symbol": "SYS_RET_ERR",
+      "target": 1565,
+      "candidate_provider": {
+        "module": "mscode-full",
+        "target_offset": 1565
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "srvcall-full",
+      "symbol": "ECRITDISK",
+      "target": 4950,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "srvcall-full",
+      "symbol": "SFFROMSFN",
+      "target": 26740,
+      "candidate_provider": {
+        "module": "util-full",
+        "target_offset": 26740
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "srvcall-full",
+      "symbol": "DOS_COMMIT",
+      "target": 12706,
+      "candidate_provider": {
+        "module": "close-full",
+        "target_offset": 12706
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "srvcall-full",
+      "symbol": "LCRITDISK",
+      "target": 4982,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "srvcall-full",
+      "symbol": "SYS_RET_OK",
+      "target": 1556,
+      "candidate_provider": {
+        "module": "mscode-full",
+        "target_offset": 1556
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "srvcall-full",
+      "symbol": "GET_USER_STACK",
+      "target": 1189,
+      "candidate_provider": {
+        "module": "msdisp-full",
+        "target_offset": 1189
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "srvcall-full",
+      "symbol": "XCHGP",
+      "target": 4677,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "srvcall-full",
+      "symbol": "REDISP",
+      "target": 915,
+      "candidate_provider": {
+        "module": "msdisp-full",
+        "target_offset": 915
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "alloc-full",
+      "symbol": "ECRITMEM",
+      "target": 4950,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "alloc-full",
+      "symbol": "LCRITMEM",
+      "target": 4982,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "alloc-full",
+      "symbol": "SYS_RET_ERR",
+      "target": 1565,
+      "candidate_provider": {
+        "module": "mscode-full",
+        "target_offset": 1565
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "alloc-full",
+      "symbol": "GET_USER_STACK",
+      "target": 1189,
+      "candidate_provider": {
+        "module": "msdisp-full",
+        "target_offset": 1189
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "alloc-full",
+      "symbol": "SYS_RET_OK",
+      "target": 1556,
+      "candidate_provider": {
+        "module": "mscode-full",
+        "target_offset": 1556
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "macro-full",
+      "symbol": "SYS_RET_OK",
+      "target": 1556,
+      "candidate_provider": {
+        "module": "mscode-full",
+        "target_offset": 1556
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "macro-full",
+      "symbol": "SYS_RET_ERR",
+      "target": 1565,
+      "candidate_provider": {
+        "module": "mscode-full",
+        "target_offset": 1565
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "macro-full",
+      "symbol": "GET_USER_STACK",
+      "target": 1189,
+      "candidate_provider": {
+        "module": "msdisp-full",
+        "target_offset": 1189
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "cpmio-full",
+      "symbol": "STATCHK",
+      "target": 21259,
+      "candidate_provider": {
+        "module": "msctrlc-full",
+        "target_offset": 21259
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "cpmio-full",
+      "symbol": "IOFUNC",
+      "target": 17928,
+      "candidate_provider": {
+        "module": "dev-iofunc",
+        "target_offset": 17928
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "cpmio-full",
+      "symbol": "READTIME",
+      "target": 2843,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "cpmio-full",
+      "symbol": "OUTT",
+      "target": 5895,
+      "candidate_provider": {
+        "module": "cpmio2-full",
+        "target_offset": 5895
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "cpmio-full",
+      "symbol": "ESCCHAR",
+      "target": 2584,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "cpmio-full",
+      "symbol": "CANCHAR",
+      "target": 2583,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "cpmio-full",
+      "symbol": "BUFOUT",
+      "target": 6046,
+      "candidate_provider": {
+        "module": "cpmio2-full",
+        "target_offset": 6046
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "cpmio-full",
+      "symbol": "OEMFUNCTIONKEY",
+      "target": 2627,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "cpmio-full",
+      "symbol": "TAB",
+      "target": 6011,
+      "candidate_provider": {
+        "module": "cpmio2-full",
+        "target_offset": 6011
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "cpmio-full",
+      "symbol": "GET_IO_SFT",
+      "target": 14239,
+      "candidate_provider": {
+        "module": "disk-full",
+        "target_offset": 14239
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "cpmio-full",
+      "symbol": "SPOOLINT",
+      "target": 21213,
+      "candidate_provider": {
+        "module": "msctrlc-full",
+        "target_offset": 21213
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "cpmio-full",
+      "symbol": "DSKSTATCHK",
+      "target": 21076,
+      "candidate_provider": {
+        "module": "msctrlc-full",
+        "target_offset": 21076
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "msdisp-full",
+      "symbol": "DSKSTATCHK",
+      "target": 21076,
+      "candidate_provider": {
+        "module": "msctrlc-full",
+        "target_offset": 21076
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "msdisp-full",
+      "symbol": "DISPATCH",
+      "target": 190,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "cpmio2-full",
+      "symbol": "$STD_CON_INPUT_NO_ECHO",
+      "target": 5078,
+      "candidate_provider": {
+        "module": "cpmio-full",
+        "target_offset": 5078
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "cpmio2-full",
+      "symbol": "STATCHK",
+      "target": 21259,
+      "candidate_provider": {
+        "module": "msctrlc-full",
+        "target_offset": 21259
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "cpmio2-full",
+      "symbol": "RAWOUT",
+      "target": 5763,
+      "candidate_provider": {
+        "module": "cpmio-full",
+        "target_offset": 5763
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "cpmio2-full",
+      "symbol": "GET_IO_SFT",
+      "target": 14239,
+      "candidate_provider": {
+        "module": "disk-full",
+        "target_offset": 14239
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "cpmio2-full",
+      "symbol": "SPOOLINT",
+      "target": 21213,
+      "candidate_provider": {
+        "module": "msctrlc-full",
+        "target_offset": 21213
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "cpmio2-full",
+      "symbol": "IOFUNC",
+      "target": 17928,
+      "candidate_provider": {
+        "module": "dev-iofunc",
+        "target_offset": 17928
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "cpmio2-full",
+      "symbol": "RAWOUT2",
+      "target": 5806,
+      "candidate_provider": {
+        "module": "cpmio-full",
+        "target_offset": 5806
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "cpmio2-full",
+      "symbol": "REDISP",
+      "target": 915,
+      "candidate_provider": {
+        "module": "msdisp-full",
+        "target_offset": 915
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "msctrlc-full",
+      "symbol": "DEVIOCALL2",
+      "target": 18402,
+      "candidate_provider": {
+        "module": "dev-io",
+        "target_offset": 18402
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "msctrlc-full",
+      "symbol": "GET_IO_SFT",
+      "target": 14239,
+      "candidate_provider": {
+        "module": "disk-full",
+        "target_offset": 14239
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "msctrlc-full",
+      "symbol": "IOFUNC",
+      "target": 17928,
+      "candidate_provider": {
+        "module": "dev-iofunc",
+        "target_offset": 17928
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "msctrlc-full",
+      "symbol": "DEV_CLOSE_SFT",
+      "target": 18278,
+      "candidate_provider": {
+        "module": "dev-openclose",
+        "target_offset": 18278
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "msctrlc-full",
+      "symbol": "DEV_OPEN_SFT",
+      "target": 18270,
+      "candidate_provider": {
+        "module": "dev-openclose",
+        "target_offset": 18270
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "msctrlc-full",
+      "symbol": "BUFOUT",
+      "target": 6046,
+      "candidate_provider": {
+        "module": "cpmio2-full",
+        "target_offset": 6046
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "msctrlc-full",
+      "symbol": "CRLF",
+      "target": 5678,
+      "candidate_provider": {
+        "module": "cpmio-full",
+        "target_offset": 5678
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "msctrlc-full",
+      "symbol": "SWAPBACK",
+      "target": 13311,
+      "candidate_provider": {
+        "module": "disk-full",
+        "target_offset": 13311
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "msctrlc-full",
+      "symbol": "RESTORE_USER_WORLD",
+      "target": 1135,
+      "candidate_provider": {
+        "module": "msdisp-full",
+        "target_offset": 1135
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "msctrlc-full",
+      "symbol": "COMMAND",
+      "target": 795,
+      "candidate_provider": {
+        "module": "msdisp-full",
+        "target_offset": 795
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "msctrlc-full",
+      "symbol": "DIVMES",
+      "target": 2459,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "msctrlc-full",
+      "symbol": "DIVMESLEN",
+      "target": 2478,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "msctrlc-full",
+      "symbol": "EXIT_INNER",
+      "target": 25530,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "msctrlc-full",
+      "symbol": "$GET_INTERRUPT_VECTOR",
+      "target": 3757,
+      "candidate_provider": {
+        "module": "getset-full",
+        "target_offset": 3757
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "msctrlc-full",
+      "symbol": "ARENA_FREE_PROCESS",
+      "target": 25586,
+      "candidate_provider": {
+        "module": "alloc-full",
+        "target_offset": 25586
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "msctrlc-full",
+      "symbol": "DOS_ABORT",
+      "target": 12253,
+      "candidate_provider": {
+        "module": "abort-full",
+        "target_offset": 12253
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "msctrlc-full",
+      "symbol": "ECRITDISK",
+      "target": 4950,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "msctrlc-full",
+      "symbol": "FLUSHBUF",
+      "target": 23562,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "msctrlc-full",
+      "symbol": "LCRITDISK",
+      "target": 4982,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "msctrlc-full",
+      "symbol": "CHECK_VIRT_OPEN",
+      "target": 19915,
+      "candidate_provider": {
+        "module": "mknode",
+        "target_offset": 19915
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "msctrlc-full",
+      "symbol": "CAL_LK",
+      "target": 1623,
+      "candidate_provider": {
+        "module": "mscode-full",
+        "target_offset": 1623
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "mscode-full",
+      "symbol": "I21_MAP_E_TAB",
+      "target": 11,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "mscode-full",
+      "symbol": "NOVXDERRMSG",
+      "target": 2480,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "mscode-full",
+      "symbol": "FOO",
+      "target": 408,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "mscode-full",
+      "symbol": "DTAB",
+      "target": 410,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "mscode-full",
+      "symbol": "SET_RQ_SC_PARMS",
+      "target": 23811,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "mscode-full",
+      "symbol": "SAVE_USER_WORLD",
+      "target": 1158,
+      "candidate_provider": {
+        "module": "msdisp-full",
+        "target_offset": 1158
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "mscode-full",
+      "symbol": "ECRITDISK",
+      "target": 4950,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "mscode-full",
+      "symbol": "LCRITDISK",
+      "target": 4982,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "mscode-full",
+      "symbol": "DSKREAD",
+      "target": 14517,
+      "candidate_provider": {
+        "module": "disk2-full",
+        "target_offset": 14517
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "mscode-full",
+      "symbol": "DSKRDBUFSCAN",
+      "target": 15116,
+      "candidate_provider": {
+        "module": "disk2-full",
+        "target_offset": 15116
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "mscode-full",
+      "symbol": "RESTORE_USER_WORLD",
+      "target": 1135,
+      "candidate_provider": {
+        "module": "msdisp-full",
+        "target_offset": 1135
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "mscode-full",
+      "symbol": "DSKWRTBUFPURGE",
+      "target": 15876,
+      "candidate_provider": {
+        "module": "disk3-full",
+        "target_offset": 15876
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "mscode-full",
+      "symbol": "DSKWRITE",
+      "target": 14558,
+      "candidate_provider": {
+        "module": "disk2-full",
+        "target_offset": 14558
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "mscode-full",
+      "symbol": "GETTHISDRV",
+      "target": 27788,
+      "candidate_provider": {
+        "module": "macro-full",
+        "target_offset": 27788
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "mscode-full",
+      "symbol": "GET_USER_STACK",
+      "target": 1189,
+      "candidate_provider": {
+        "module": "msdisp-full",
+        "target_offset": 1189
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "mscode-full",
+      "symbol": "TABLEDISPATCH",
+      "target": 4710,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "mscode-full",
+      "symbol": "FAST_DISPATCH",
+      "target": 10226,
+      "candidate_provider": {
+        "module": "delete-full",
+        "target_offset": 10226
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "misc-full",
+      "symbol": "SFFROMHANDLE",
+      "target": 26714,
+      "candidate_provider": {
+        "module": "util-full",
+        "target_offset": 26714
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "misc-full",
+      "symbol": "DOS_DUP",
+      "target": 11066,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "misc-full",
+      "symbol": "PJFNFROMHANDLE",
+      "target": 26685,
+      "candidate_provider": {
+        "module": "util-full",
+        "target_offset": 26685
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "misc-full",
+      "symbol": "$IOCTL",
+      "target": 9054,
+      "candidate_provider": {
+        "module": "ioctl-full",
+        "target_offset": 9054
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "misc-full",
+      "symbol": "SYS_RET_ERR",
+      "target": 1565,
+      "candidate_provider": {
+        "module": "mscode-full",
+        "target_offset": 1565
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "misc-full",
+      "symbol": "GETTHISDRV",
+      "target": 27788,
+      "candidate_provider": {
+        "module": "macro-full",
+        "target_offset": 27788
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "misc-full",
+      "symbol": "DISK_INFO",
+      "target": 11761,
+      "candidate_provider": {
+        "module": "dinfo-full",
+        "target_offset": 11761
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "misc-full",
+      "symbol": "GET_USER_STACK",
+      "target": 1189,
+      "candidate_provider": {
+        "module": "msdisp-full",
+        "target_offset": 1189
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "misc-full",
+      "symbol": "FCB_RET_ERR",
+      "target": 1587,
+      "candidate_provider": {
+        "module": "mscode-full",
+        "target_offset": 1587
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "misc-full",
+      "symbol": "ECRITDISK",
+      "target": 4950,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "misc-full",
+      "symbol": "FATREAD_CDS",
+      "target": 22681,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "misc-full",
+      "symbol": "LCRITDISK",
+      "target": 4982,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "misc-full",
+      "symbol": "FLUSHBUF",
+      "target": 23562,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "dinfo-full",
+      "symbol": "TESTNET",
+      "target": 4753,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "dinfo-full",
+      "symbol": "ECRITDISK",
+      "target": 4950,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "dinfo-full",
+      "symbol": "FATREAD_CDS",
+      "target": 22681,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "dinfo-full",
+      "symbol": "UNPACK",
+      "target": 22245,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "dinfo-full",
+      "symbol": "LCRITDISK",
+      "target": 4982,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "getset-full",
+      "symbol": "GET_USER_STACK",
+      "target": 1189,
+      "candidate_provider": {
+        "module": "msdisp-full",
+        "target_offset": 1189
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "getset-full",
+      "symbol": "SYS_RET_OK",
+      "target": 1556,
+      "candidate_provider": {
+        "module": "mscode-full",
+        "target_offset": 1556
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "getset-full",
+      "symbol": "SYS_RET_ERR",
+      "target": 1565,
+      "candidate_provider": {
+        "module": "mscode-full",
+        "target_offset": 1565
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "getset-full",
+      "symbol": "GETLET3",
+      "target": 21003,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "getset-full",
+      "symbol": "FROM_GETSET",
+      "target": 1573,
+      "candidate_provider": {
+        "module": "mscode-full",
+        "target_offset": 1573
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "getset-full",
+      "symbol": "GETTHISDRV",
+      "target": 27788,
+      "candidate_provider": {
+        "module": "macro-full",
+        "target_offset": 27788
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "getset-full",
+      "symbol": "DISK_INFO",
+      "target": 11761,
+      "candidate_provider": {
+        "module": "dinfo-full",
+        "target_offset": 11761
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "getset-full",
+      "symbol": "FCB_RET_ERR",
+      "target": 1587,
+      "candidate_provider": {
+        "module": "mscode-full",
+        "target_offset": 1587
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "getset-full",
+      "symbol": "GETVISDRV",
+      "target": 27759,
+      "candidate_provider": {
+        "module": "macro-full",
+        "target_offset": 27759
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "getset-full",
+      "symbol": "NLS_YES",
+      "target": 2579,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "getset-full",
+      "symbol": "NLS_YES2",
+      "target": 2581,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "getset-full",
+      "symbol": "NLS_NO",
+      "target": 2580,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "getset-full",
+      "symbol": "NLS_NO2",
+      "target": 2582,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "ioctl-full",
+      "symbol": "GETTHISDRV",
+      "target": 27788,
+      "candidate_provider": {
+        "module": "macro-full",
+        "target_offset": 27788
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "ioctl-full",
+      "symbol": "SFFROMHANDLE",
+      "target": 26714,
+      "candidate_provider": {
+        "module": "util-full",
+        "target_offset": 26714
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "ioctl-full",
+      "symbol": "SYS_RET_ERR",
+      "target": 1565,
+      "candidate_provider": {
+        "module": "mscode-full",
+        "target_offset": 1565
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "ioctl-full",
+      "symbol": "SYS_RET_OK",
+      "target": 1556,
+      "candidate_provider": {
+        "module": "mscode-full",
+        "target_offset": 1556
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "ioctl-full",
+      "symbol": "GET_USER_STACK",
+      "target": 1189,
+      "candidate_provider": {
+        "module": "msdisp-full",
+        "target_offset": 1189
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "ioctl-full",
+      "symbol": "GET_IO_SFT",
+      "target": 14239,
+      "candidate_provider": {
+        "module": "disk-full",
+        "target_offset": 14239
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "ioctl-full",
+      "symbol": "IOFUNC",
+      "target": 17928,
+      "candidate_provider": {
+        "module": "dev-iofunc",
+        "target_offset": 17928
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "ioctl-full",
+      "symbol": "DEVIOCALL2",
+      "target": 18402,
+      "candidate_provider": {
+        "module": "dev-io",
+        "target_offset": 18402
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "ioctl-full",
+      "symbol": "SET_I24_EXTENDED_ERROR",
+      "target": 22183,
+      "candidate_provider": {
+        "module": "msctrlc-full",
+        "target_offset": 22183
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "path-full",
+      "symbol": "DOS_RMDIR",
+      "target": 13115,
+      "candidate_provider": {
+        "module": "dircall",
+        "target_offset": 13115
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "path-full",
+      "symbol": "DOS_MKDIR",
+      "target": 12790,
+      "candidate_provider": {
+        "module": "dircall",
+        "target_offset": 12790
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "path-full",
+      "symbol": "ECRITDISK",
+      "target": 4950,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "path-full",
+      "symbol": "GETVISDRV",
+      "target": 27759,
+      "candidate_provider": {
+        "module": "macro-full",
+        "target_offset": 27759
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "path-full",
+      "symbol": "LCRITDISK",
+      "target": 4982,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "path-full",
+      "symbol": "SYS_RET_ERR",
+      "target": 1565,
+      "candidate_provider": {
+        "module": "mscode-full",
+        "target_offset": 1565
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "path-full",
+      "symbol": "VALIDATECDS",
+      "target": 17355,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "path-full",
+      "symbol": "SYS_RET_OK",
+      "target": 1556,
+      "candidate_provider": {
+        "module": "mscode-full",
+        "target_offset": 1556
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "path-full",
+      "symbol": "TRANSPATHNOSET",
+      "target": 28021,
+      "candidate_provider": {
+        "module": "macro2-full",
+        "target_offset": 28021
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "path-full",
+      "symbol": "GETCDSFROMDRV",
+      "target": 27875,
+      "candidate_provider": {
+        "module": "macro-full",
+        "target_offset": 27875
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "path-full",
+      "symbol": "STRCMP",
+      "target": 4595,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "path-full",
+      "symbol": "TRANSPATH",
+      "target": 28009,
+      "candidate_provider": {
+        "module": "macro2-full",
+        "target_offset": 28009
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "path-full",
+      "symbol": "DOS_CHDIR",
+      "target": 13046,
+      "candidate_provider": {
+        "module": "dircall",
+        "target_offset": 13046
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "path-full",
+      "symbol": "GET_USER_STACK",
+      "target": 1189,
+      "candidate_provider": {
+        "module": "msdisp-full",
+        "target_offset": 1189
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "path-full",
+      "symbol": "FSTRCPY",
+      "target": 4644,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "path-full",
+      "symbol": "DSTRLEN",
+      "target": 4667,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "search-full",
+      "symbol": "TRANSFCB",
+      "target": 27911,
+      "candidate_provider": {
+        "module": "macro2-full",
+        "target_offset": 27911
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "search-full",
+      "symbol": "FCB_RET_ERR",
+      "target": 1587,
+      "candidate_provider": {
+        "module": "mscode-full",
+        "target_offset": 1587
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "search-full",
+      "symbol": "FCB_RET_OK",
+      "target": 1584,
+      "candidate_provider": {
+        "module": "mscode-full",
+        "target_offset": 1584
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "search-full",
+      "symbol": "DOS_SEARCH_NEXT",
+      "target": 12099,
+      "candidate_provider": {
+        "module": "isearch-full",
+        "target_offset": 12099
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "search-full",
+      "symbol": "TRANSPATHSET",
+      "target": 28013,
+      "candidate_provider": {
+        "module": "macro2-full",
+        "target_offset": 28013
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "search-full",
+      "symbol": "SYS_RET_ERR",
+      "target": 1565,
+      "candidate_provider": {
+        "module": "mscode-full",
+        "target_offset": 1565
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "search-full",
+      "symbol": "SYS_RET_OK",
+      "target": 1556,
+      "candidate_provider": {
+        "module": "mscode-full",
+        "target_offset": 1556
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "search-full",
+      "symbol": "DOS_SEARCH_FIRST",
+      "target": 11858,
+      "candidate_provider": {
+        "module": "isearch-full",
+        "target_offset": 11858
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "disk-full",
+      "symbol": "SET_ACC_ERR",
+      "target": 14924,
+      "candidate_provider": {
+        "module": "disk2-full",
+        "target_offset": 14924
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "disk-full",
+      "symbol": "SETUP",
+      "target": 14631,
+      "candidate_provider": {
+        "module": "disk2-full",
+        "target_offset": 14631
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "disk-full",
+      "symbol": "ISSFTNET",
+      "target": 4778,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "disk-full",
+      "symbol": "ECRITDISK",
+      "target": 4950,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "disk-full",
+      "symbol": "DISKREAD",
+      "target": 14856,
+      "candidate_provider": {
+        "module": "disk2-full",
+        "target_offset": 14856
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "disk-full",
+      "symbol": "LCRITDISK",
+      "target": 4982,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "disk-full",
+      "symbol": "SETREAD",
+      "target": 18526,
+      "candidate_provider": {
+        "module": "dev-io",
+        "target_offset": 18526
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "disk-full",
+      "symbol": "DEVIOCALL",
+      "target": 18399,
+      "candidate_provider": {
+        "module": "dev-io",
+        "target_offset": 18399
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "disk-full",
+      "symbol": "CHARHARD",
+      "target": 21625,
+      "candidate_provider": {
+        "module": "msctrlc-full",
+        "target_offset": 21625
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "disk-full",
+      "symbol": "SET_ACC_ERR_DS",
+      "target": 14922,
+      "candidate_provider": {
+        "module": "disk2-full",
+        "target_offset": 14922
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "disk-full",
+      "symbol": "DSKSTATCHK",
+      "target": 21076,
+      "candidate_provider": {
+        "module": "msctrlc-full",
+        "target_offset": 21076
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "disk-full",
+      "symbol": "DEVIOCALL2",
+      "target": 18402,
+      "candidate_provider": {
+        "module": "dev-io",
+        "target_offset": 18402
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "disk-full",
+      "symbol": "OUTT",
+      "target": 5895,
+      "candidate_provider": {
+        "module": "cpmio2-full",
+        "target_offset": 5895
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "disk-full",
+      "symbol": "SETSFT",
+      "target": 15070,
+      "candidate_provider": {
+        "module": "disk2-full",
+        "target_offset": 15070
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "disk-full",
+      "symbol": "$STD_CON_STRING_INPUT",
+      "target": 5180,
+      "candidate_provider": {
+        "module": "cpmio-full",
+        "target_offset": 5180
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "disk-full",
+      "symbol": "DISKWRITE",
+      "target": 15254,
+      "candidate_provider": {
+        "module": "disk3-full",
+        "target_offset": 15254
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "disk-full",
+      "symbol": "DOS_COMMIT",
+      "target": 12706,
+      "candidate_provider": {
+        "module": "close-full",
+        "target_offset": 12706
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "disk-full",
+      "symbol": "SETWRITE",
+      "target": 18577,
+      "candidate_provider": {
+        "module": "dev-io",
+        "target_offset": 18577
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "disk-full",
+      "symbol": "ADDREC",
+      "target": 15103,
+      "candidate_provider": {
+        "module": "disk2-full",
+        "target_offset": 15103
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "disk-full",
+      "symbol": "SFFROMHANDLE",
+      "target": 26714,
+      "candidate_provider": {
+        "module": "util-full",
+        "target_offset": 26714
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "disk-full",
+      "symbol": "UNPACK",
+      "target": 22245,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "disk-full",
+      "symbol": "ISEOF",
+      "target": 22222,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "disk-full",
+      "symbol": "FIGREC",
+      "target": 20363,
+      "candidate_provider": {
+        "module": "rom-full",
+        "target_offset": 20363
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "disk-full",
+      "symbol": "GETBUFFR",
+      "target": 23307,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "disk-full",
+      "symbol": "DSKREAD",
+      "target": 14517,
+      "candidate_provider": {
+        "module": "disk2-full",
+        "target_offset": 14517
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "disk-full",
+      "symbol": "HARDERRRW",
+      "target": 14605,
+      "candidate_provider": {
+        "module": "disk2-full",
+        "target_offset": 14605
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "disk-full",
+      "symbol": "LOCK_CHECK",
+      "target": 29967,
+      "candidate_provider": {
+        "module": "lock-full",
+        "target_offset": 29967
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "disk-full",
+      "symbol": "WRITE_LOCK_VIOLATION",
+      "target": 14849,
+      "candidate_provider": {
+        "module": "disk2-full",
+        "target_offset": 14849
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "disk-full",
+      "symbol": "READ_LOCK_VIOLATION",
+      "target": 14811,
+      "candidate_provider": {
+        "module": "disk2-full",
+        "target_offset": 14811
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "disk2-full",
+      "symbol": "SETREAD",
+      "target": 18526,
+      "candidate_provider": {
+        "module": "dev-io",
+        "target_offset": 18526
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "disk2-full",
+      "symbol": "SETWRITE",
+      "target": 18577,
+      "candidate_provider": {
+        "module": "dev-io",
+        "target_offset": 18577
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "disk2-full",
+      "symbol": "DEVIOCALL2",
+      "target": 18402,
+      "candidate_provider": {
+        "module": "dev-io",
+        "target_offset": 18402
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "disk2-full",
+      "symbol": "HARDERR",
+      "target": 21674,
+      "candidate_provider": {
+        "module": "msctrlc-full",
+        "target_offset": 21674
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "disk2-full",
+      "symbol": "DIV32",
+      "target": 16010,
+      "candidate_provider": {
+        "module": "disk3-full",
+        "target_offset": 16010
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "disk2-full",
+      "symbol": "SHR32",
+      "target": 16049,
+      "candidate_provider": {
+        "module": "disk3-full",
+        "target_offset": 16049
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "disk2-full",
+      "symbol": "LOCK_VIOLATION",
+      "target": 29989,
+      "candidate_provider": {
+        "module": "lock-full",
+        "target_offset": 29989
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "disk2-full",
+      "symbol": "CHECK_READ_LOCK",
+      "target": 14493,
+      "candidate_provider": {
+        "module": "disk-full",
+        "target_offset": 14493
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "disk2-full",
+      "symbol": "FNDCLUS",
+      "target": 19943,
+      "candidate_provider": {
+        "module": "rom-full",
+        "target_offset": 19943
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "disk2-full",
+      "symbol": "WRTERR22",
+      "target": 15466,
+      "candidate_provider": {
+        "module": "disk3-full",
+        "target_offset": 15466
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "disk2-full",
+      "symbol": "BUFRD",
+      "target": 20061,
+      "candidate_provider": {
+        "module": "rom-full",
+        "target_offset": 20061
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "disk2-full",
+      "symbol": "NEXTSEC",
+      "target": 20218,
+      "candidate_provider": {
+        "module": "rom-full",
+        "target_offset": 20218
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "disk2-full",
+      "symbol": "OPTIMIZE",
+      "target": 20267,
+      "candidate_provider": {
+        "module": "rom-full",
+        "target_offset": 20267
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "disk2-full",
+      "symbol": "SET_RQ_SC_PARMS",
+      "target": 23811,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "disk2-full",
+      "symbol": "DREAD",
+      "target": 14435,
+      "candidate_provider": {
+        "module": "disk-full",
+        "target_offset": 14435
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "disk2-full",
+      "symbol": "ISEOF",
+      "target": 22222,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "disk2-full",
+      "symbol": "GETCURHEAD",
+      "target": 23206,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "disk2-full",
+      "symbol": "SCANPLACE",
+      "target": 23224,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "disk3-full",
+      "symbol": "CHECK_WRITE_LOCK",
+      "target": 14462,
+      "candidate_provider": {
+        "module": "disk-full",
+        "target_offset": 14462
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "disk3-full",
+      "symbol": "BREAKDOWN",
+      "target": 14769,
+      "candidate_provider": {
+        "module": "disk2-full",
+        "target_offset": 14769
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "disk3-full",
+      "symbol": "SKPCLP",
+      "target": 19975,
+      "candidate_provider": {
+        "module": "rom-full",
+        "target_offset": 19975
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "disk3-full",
+      "symbol": "ALLOCATE",
+      "target": 20407,
+      "candidate_provider": {
+        "module": "rom-full",
+        "target_offset": 20407
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "disk3-full",
+      "symbol": "FNDCLUS",
+      "target": 19943,
+      "candidate_provider": {
+        "module": "rom-full",
+        "target_offset": 19943
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "disk3-full",
+      "symbol": "BUFWRT",
+      "target": 20120,
+      "candidate_provider": {
+        "module": "rom-full",
+        "target_offset": 20120
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "disk3-full",
+      "symbol": "NEXTSEC",
+      "target": 20218,
+      "candidate_provider": {
+        "module": "rom-full",
+        "target_offset": 20218
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "disk3-full",
+      "symbol": "OPTIMIZE",
+      "target": 20267,
+      "candidate_provider": {
+        "module": "rom-full",
+        "target_offset": 20267
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "disk3-full",
+      "symbol": "DWRITE",
+      "target": 14533,
+      "candidate_provider": {
+        "module": "disk2-full",
+        "target_offset": 14533
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "disk3-full",
+      "symbol": "SETCLUS",
+      "target": 15074,
+      "candidate_provider": {
+        "module": "disk2-full",
+        "target_offset": 15074
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "disk3-full",
+      "symbol": "SET_ACC_ERR_DS",
+      "target": 14922,
+      "candidate_provider": {
+        "module": "disk2-full",
+        "target_offset": 14922
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "disk3-full",
+      "symbol": "ADDREC",
+      "target": 15103,
+      "candidate_provider": {
+        "module": "disk2-full",
+        "target_offset": 15103
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "disk3-full",
+      "symbol": "RELBLKS",
+      "target": 20587,
+      "candidate_provider": {
+        "module": "rom-full",
+        "target_offset": 20587
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "disk3-full",
+      "symbol": "FASTOPEN_UPDATE",
+      "target": 10218,
+      "candidate_provider": {
+        "module": "delete-full",
+        "target_offset": 10218
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "disk3-full",
+      "symbol": "RELEASE",
+      "target": 20585,
+      "candidate_provider": {
+        "module": "rom-full",
+        "target_offset": 20585
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "disk3-full",
+      "symbol": "GETCURHEAD",
+      "target": 23206,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "disk3-full",
+      "symbol": "DEC_DIRTY_COUNT",
+      "target": 23836,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "disk3-full",
+      "symbol": "SCANPLACE",
+      "target": 23224,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "rom-full",
+      "symbol": "UNPACK",
+      "target": 22245,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "rom-full",
+      "symbol": "ISEOF",
+      "target": 22222,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "rom-full",
+      "symbol": "GETBUFFR",
+      "target": 23307,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "rom-full",
+      "symbol": "PLACEBUF",
+      "target": 23231,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "rom-full",
+      "symbol": "INC_DIRTY_COUNT",
+      "target": 23830,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "rom-full",
+      "symbol": "PACK",
+      "target": 22329,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "mknode",
+      "symbol": "GETEOF",
+      "target": 20629,
+      "candidate_provider": {
+        "module": "rom-full",
+        "target_offset": 20629
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "mknode",
+      "symbol": "ALLOCATE",
+      "target": 20407,
+      "candidate_provider": {
+        "module": "rom-full",
+        "target_offset": 20407
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "mknode",
+      "symbol": "SETDIRSRCH",
+      "target": 16396,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "mknode",
+      "symbol": "ISEOF",
+      "target": 22222,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "mknode",
+      "symbol": "FASTOPEN_UPDATE",
+      "target": 10218,
+      "candidate_provider": {
+        "module": "delete-full",
+        "target_offset": 10218
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "mknode",
+      "symbol": "FIGREC",
+      "target": 20363,
+      "candidate_provider": {
+        "module": "rom-full",
+        "target_offset": 20363
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "mknode",
+      "symbol": "GETBUFFR",
+      "target": 23307,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "mknode",
+      "symbol": "INC_DIRTY_COUNT",
+      "target": 23830,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "mknode",
+      "symbol": "GETPATHNOSET",
+      "target": 16503,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "mknode",
+      "symbol": "MATCHATTRIBUTES",
+      "target": 17200,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "mknode",
+      "symbol": "SHAREENTER",
+      "target": 30088,
+      "candidate_provider": {
+        "module": "share",
+        "target_offset": 30088
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "mknode",
+      "symbol": "FLUSHBUF",
+      "target": 23562,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "mknode",
+      "symbol": "ECRITDISK",
+      "target": 4950,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "mknode",
+      "symbol": "SHAREEND",
+      "target": 30083,
+      "candidate_provider": {
+        "module": "share",
+        "target_offset": 30083
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "mknode",
+      "symbol": "LCRITDISK",
+      "target": 4982,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "mknode",
+      "symbol": "GETENT",
+      "target": 16349,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "mknode",
+      "symbol": "DATE16",
+      "target": 2801,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "mknode",
+      "symbol": "DEV_OPEN_SFT",
+      "target": 18270,
+      "candidate_provider": {
+        "module": "dev-openclose",
+        "target_offset": 18270
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "mknode",
+      "symbol": "RELEASE",
+      "target": 20585,
+      "candidate_provider": {
+        "module": "rom-full",
+        "target_offset": 20585
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "mknode",
+      "symbol": "SET_BUF_AS_DIR",
+      "target": 14378,
+      "candidate_provider": {
+        "module": "disk-full",
+        "target_offset": 14378
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "mknode",
+      "symbol": "DEV_CLOSE_SFT",
+      "target": 18278,
+      "candidate_provider": {
+        "module": "dev-openclose",
+        "target_offset": 18278
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "dircall",
+      "symbol": "TESTNET",
+      "target": 4753,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "dircall",
+      "symbol": "LCRITDISK",
+      "target": 4982,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "dircall",
+      "symbol": "SET_MKND_ERR",
+      "target": 11225,
+      "candidate_provider": {
+        "module": "create-full",
+        "target_offset": 11225
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "dircall",
+      "symbol": "ECRITDISK",
+      "target": 4950,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "dircall",
+      "symbol": "MAKENODE",
+      "target": 19226,
+      "candidate_provider": {
+        "module": "mknode",
+        "target_offset": 19226
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "dircall",
+      "symbol": "NEWDIR",
+      "target": 19021,
+      "candidate_provider": {
+        "module": "mknode",
+        "target_offset": 19021
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "dircall",
+      "symbol": "GETENT",
+      "target": 16349,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "dircall",
+      "symbol": "INC_DIRTY_COUNT",
+      "target": 23830,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "dircall",
+      "symbol": "SETDOTENT",
+      "target": 19190,
+      "candidate_provider": {
+        "module": "mknode",
+        "target_offset": 19190
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "dircall",
+      "symbol": "GETBUFFR",
+      "target": 23307,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "dircall",
+      "symbol": "FLUSHBUF",
+      "target": 23562,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "dircall",
+      "symbol": "GETPATH",
+      "target": 16497,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "dircall",
+      "symbol": "STARTSRCH",
+      "target": 17180,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "dircall",
+      "symbol": "GETENTRY",
+      "target": 16346,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "dircall",
+      "symbol": "SRCH",
+      "target": 16087,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "dircall",
+      "symbol": "RELEASE",
+      "target": 20585,
+      "candidate_provider": {
+        "module": "rom-full",
+        "target_offset": 20585
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "dircall",
+      "symbol": "FASTOPEN_DELETE",
+      "target": 10171,
+      "candidate_provider": {
+        "module": "delete-full",
+        "target_offset": 10171
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "share",
+      "symbol": "HARDERR",
+      "target": 21674,
+      "candidate_provider": {
+        "module": "msctrlc-full",
+        "target_offset": 21674
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "share",
+      "symbol": "IDLE",
+      "target": 4684,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "create-full",
+      "symbol": "ECRITDISK",
+      "target": 4950,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "create-full",
+      "symbol": "MAKENODE",
+      "target": 19226,
+      "candidate_provider": {
+        "module": "mknode",
+        "target_offset": 19226
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "create-full",
+      "symbol": "LCRITDISK",
+      "target": 4982,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "create-full",
+      "symbol": "FASTOPEN_DELETE",
+      "target": 10171,
+      "candidate_provider": {
+        "module": "delete-full",
+        "target_offset": 10171
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "create-full",
+      "symbol": "FATREAD_CDS",
+      "target": 22681,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "create-full",
+      "symbol": "SET_SFT_MODE",
+      "target": 11631,
+      "candidate_provider": {
+        "module": "open-full",
+        "target_offset": 11631
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "create-full",
+      "symbol": "$IOCTL",
+      "target": 9054,
+      "candidate_provider": {
+        "module": "ioctl-full",
+        "target_offset": 9054
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "dev-iofunc",
+      "symbol": "SAVE_USER_WORLD",
+      "target": 1158,
+      "candidate_provider": {
+        "module": "msdisp-full",
+        "target_offset": 1158
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "dev-iofunc",
+      "symbol": "RESTORE_USER_WORLD",
+      "target": 1135,
+      "candidate_provider": {
+        "module": "msdisp-full",
+        "target_offset": 1135
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "dev-iofunc",
+      "symbol": "DEVIOCALL",
+      "target": 18399,
+      "candidate_provider": {
+        "module": "dev-io",
+        "target_offset": 18399
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "dev-iofunc",
+      "symbol": "CHARHARD",
+      "target": 21625,
+      "candidate_provider": {
+        "module": "msctrlc-full",
+        "target_offset": 21625
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "dev-iofunc",
+      "symbol": "DOS_WRITE",
+      "target": 13896,
+      "candidate_provider": {
+        "module": "disk-full",
+        "target_offset": 13896
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "dev-iofunc",
+      "symbol": "DOS_READ",
+      "target": 13337,
+      "candidate_provider": {
+        "module": "disk-full",
+        "target_offset": 13337
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "dev-openclose",
+      "symbol": "SAVE_USER_WORLD",
+      "target": 1158,
+      "candidate_provider": {
+        "module": "msdisp-full",
+        "target_offset": 1158
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "dev-openclose",
+      "symbol": "RESTORE_USER_WORLD",
+      "target": 1135,
+      "candidate_provider": {
+        "module": "msdisp-full",
+        "target_offset": 1135
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "dev-openclose",
+      "symbol": "DEVIOCALL2",
+      "target": 18402,
+      "candidate_provider": {
+        "module": "dev-io",
+        "target_offset": 18402
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "dev-openclose",
+      "symbol": "CHARHARD",
+      "target": 21625,
+      "candidate_provider": {
+        "module": "msctrlc-full",
+        "target_offset": 21625
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "dev-io",
+      "symbol": "ECRITDEVICE",
+      "target": 5014,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "dev-io",
+      "symbol": "LCRITDEVICE",
+      "target": 5046,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "delete-full",
+      "symbol": "TESTNET",
+      "target": 4753,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "delete-full",
+      "symbol": "ECRITDISK",
+      "target": 4950,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "delete-full",
+      "symbol": "GETPATHNOSET",
+      "target": 16503,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "delete-full",
+      "symbol": "LCRITDISK",
+      "target": 4982,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "delete-full",
+      "symbol": "INC_DIRTY_COUNT",
+      "target": 23830,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "delete-full",
+      "symbol": "RELEASE",
+      "target": 20585,
+      "candidate_provider": {
+        "module": "rom-full",
+        "target_offset": 20585
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "delete-full",
+      "symbol": "GETENTRY",
+      "target": 16346,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "delete-full",
+      "symbol": "NEXTENT",
+      "target": 16145,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "delete-full",
+      "symbol": "FLUSHBUF",
+      "target": 23562,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "delete-full",
+      "symbol": "SET_MEDIA_ID",
+      "target": 11300,
+      "candidate_provider": {
+        "module": "create-full",
+        "target_offset": 11300
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "delete-full",
+      "symbol": "FATREAD_CDS",
+      "target": 22681,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "delete-full",
+      "symbol": "STRLEN",
+      "target": 4653,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "delete-full",
+      "symbol": "SKIPBACK",
+      "target": 28494,
+      "candidate_provider": {
+        "module": "macro2-full",
+        "target_offset": 28494
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "delete-full",
+      "symbol": "PACKNAME",
+      "target": 8588,
+      "candidate_provider": {
+        "module": "search-full",
+        "target_offset": 8588
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "delete-full",
+      "symbol": "DOOPEN",
+      "target": 19673,
+      "candidate_provider": {
+        "module": "mknode",
+        "target_offset": 19673
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "delete-full",
+      "symbol": "SHAREENTER",
+      "target": 30088,
+      "candidate_provider": {
+        "module": "share",
+        "target_offset": 30088
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "delete-full",
+      "symbol": "SHAREEND",
+      "target": 30083,
+      "candidate_provider": {
+        "module": "share",
+        "target_offset": 30083
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "lock-full",
+      "symbol": "SFFROMHANDLE",
+      "target": 26714,
+      "candidate_provider": {
+        "module": "util-full",
+        "target_offset": 26714
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "lock-full",
+      "symbol": "SYS_RET_ERR",
+      "target": 1565,
+      "candidate_provider": {
+        "module": "mscode-full",
+        "target_offset": 1565
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "lock-full",
+      "symbol": "SYS_RET_OK",
+      "target": 1556,
+      "candidate_provider": {
+        "module": "mscode-full",
+        "target_offset": 1556
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "lock-full",
+      "symbol": "IDLE",
+      "target": 4684,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "lock-full",
+      "symbol": "HARDERR",
+      "target": 21674,
+      "candidate_provider": {
+        "module": "msctrlc-full",
+        "target_offset": 21674
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "close-full",
+      "symbol": "ECRITDISK",
+      "target": 4950,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "close-full",
+      "symbol": "SHAREEND",
+      "target": 30083,
+      "candidate_provider": {
+        "module": "share",
+        "target_offset": 30083
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "close-full",
+      "symbol": "XCHGP",
+      "target": 4677,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "close-full",
+      "symbol": "METACOMPARE",
+      "target": 16239,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "close-full",
+      "symbol": "INC_DIRTY_COUNT",
+      "target": 23830,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "close-full",
+      "symbol": "FASTOPEN_UPDATE",
+      "target": 10218,
+      "candidate_provider": {
+        "module": "delete-full",
+        "target_offset": 10218
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "close-full",
+      "symbol": "FLUSHBUF",
+      "target": 23562,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "close-full",
+      "symbol": "DEV_CLOSE_SFT",
+      "target": 18278,
+      "candidate_provider": {
+        "module": "dev-openclose",
+        "target_offset": 18278
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "close-full",
+      "symbol": "LCRITDISK",
+      "target": 4982,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "close-full",
+      "symbol": "FATREAD_SFT",
+      "target": 22663,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "close-full",
+      "symbol": "GETBUFFR",
+      "target": 23307,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "close-full",
+      "symbol": "DEV_OPEN_SFT",
+      "target": 18270,
+      "candidate_provider": {
+        "module": "dev-openclose",
+        "target_offset": 18270
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "close-full",
+      "symbol": "DATE16",
+      "target": 2801,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "finfo-full",
+      "symbol": "TESTNET",
+      "target": 4753,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "finfo-full",
+      "symbol": "ECRITDISK",
+      "target": 4950,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "finfo-full",
+      "symbol": "LCRITDISK",
+      "target": 4982,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "finfo-full",
+      "symbol": "GETPATH",
+      "target": 16497,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "finfo-full",
+      "symbol": "REN_DEL_CHECK",
+      "target": 10061,
+      "candidate_provider": {
+        "module": "delete-full",
+        "target_offset": 10061
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "finfo-full",
+      "symbol": "INC_DIRTY_COUNT",
+      "target": 23830,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "finfo-full",
+      "symbol": "FASTOPEN_UPDATE",
+      "target": 10218,
+      "candidate_provider": {
+        "module": "delete-full",
+        "target_offset": 10218
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "finfo-full",
+      "symbol": "FLUSHBUF",
+      "target": 23562,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "rename-full",
+      "symbol": "TESTNET",
+      "target": 4753,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "rename-full",
+      "symbol": "ECRITDISK",
+      "target": 4950,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "rename-full",
+      "symbol": "DOS_SEARCH_FIRST",
+      "target": 11858,
+      "candidate_provider": {
+        "module": "isearch-full",
+        "target_offset": 11858
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "rename-full",
+      "symbol": "LCRITDISK",
+      "target": 4982,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "rename-full",
+      "symbol": "CHECK_PATHLEN2",
+      "target": 9007,
+      "candidate_provider": {
+        "module": "path-full",
+        "target_offset": 9007
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "rename-full",
+      "symbol": "REN_DEL_CHECK",
+      "target": 10061,
+      "candidate_provider": {
+        "module": "delete-full",
+        "target_offset": 10061
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "rename-full",
+      "symbol": "FASTOPEN_DELETE",
+      "target": 10171,
+      "candidate_provider": {
+        "module": "delete-full",
+        "target_offset": 10171
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "rename-full",
+      "symbol": "GETPATHNOSET",
+      "target": 16503,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "rename-full",
+      "symbol": "FLUSHBUF",
+      "target": 23562,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "rename-full",
+      "symbol": "DEVNAME",
+      "target": 17213,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "rename-full",
+      "symbol": "SETDIRSRCH",
+      "target": 16396,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "rename-full",
+      "symbol": "FINDENTRY",
+      "target": 16064,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "rename-full",
+      "symbol": "RENAME_MAKE",
+      "target": 19264,
+      "candidate_provider": {
+        "module": "mknode",
+        "target_offset": 19264
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "rename-full",
+      "symbol": "SHAREEND",
+      "target": 30083,
+      "candidate_provider": {
+        "module": "share",
+        "target_offset": 30083
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "rename-full",
+      "symbol": "INC_DIRTY_COUNT",
+      "target": 23830,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "rename-full",
+      "symbol": "FASTOPEN_RENAME",
+      "target": 10192,
+      "candidate_provider": {
+        "module": "delete-full",
+        "target_offset": 10192
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "rename-full",
+      "symbol": "RENAME_NEXT",
+      "target": 12175,
+      "candidate_provider": {
+        "module": "isearch-full",
+        "target_offset": 12175
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "rename-full",
+      "symbol": "STARTSRCH",
+      "target": 17180,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "rename-full",
+      "symbol": "GETENT",
+      "target": 16349,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "open-full",
+      "symbol": "ECRITDISK",
+      "target": 4950,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "open-full",
+      "symbol": "GETPATH",
+      "target": 16497,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "open-full",
+      "symbol": "LCRITDISK",
+      "target": 4982,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "open-full",
+      "symbol": "DOOPEN",
+      "target": 19673,
+      "candidate_provider": {
+        "module": "mknode",
+        "target_offset": 19673
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "open-full",
+      "symbol": "DEV_OPEN_SFT",
+      "target": 18270,
+      "candidate_provider": {
+        "module": "dev-openclose",
+        "target_offset": 18270
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "open-full",
+      "symbol": "SHARE_VIOLATION",
+      "target": 30045,
+      "candidate_provider": {
+        "module": "share",
+        "target_offset": 30045
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "open-full",
+      "symbol": "SHARE_CHECK",
+      "target": 30040,
+      "candidate_provider": {
+        "module": "share",
+        "target_offset": 30040
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "open-full",
+      "symbol": "IDLE",
+      "target": 4684,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "isearch-full",
+      "symbol": "ECRITDISK",
+      "target": 4950,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "isearch-full",
+      "symbol": "GETPATH",
+      "target": 16497,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "isearch-full",
+      "symbol": "LCRITDISK",
+      "target": 4982,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "isearch-full",
+      "symbol": "INITCDS",
+      "target": 27597,
+      "candidate_provider": {
+        "module": "macro-full",
+        "target_offset": 27597
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "isearch-full",
+      "symbol": "GOTDPB",
+      "target": 1547,
+      "candidate_provider": {
+        "module": "mscode-full",
+        "target_offset": 1547
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "isearch-full",
+      "symbol": "SETDIRSRCH",
+      "target": 16396,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "isearch-full",
+      "symbol": "STARTSRCH",
+      "target": 17180,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "isearch-full",
+      "symbol": "GETENT",
+      "target": 16349,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "isearch-full",
+      "symbol": "NEXTENT",
+      "target": 16145,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "abort-full",
+      "symbol": "$CLOSE",
+      "target": 26875,
+      "candidate_provider": {
+        "module": "handle-full",
+        "target_offset": 26875
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "abort-full",
+      "symbol": "SFFROMSFN",
+      "target": 26740,
+      "candidate_provider": {
+        "module": "util-full",
+        "target_offset": 26740
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "handle-full",
+      "symbol": "PJFNFROMHANDLE",
+      "target": 26685,
+      "candidate_provider": {
+        "module": "util-full",
+        "target_offset": 26685
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "handle-full",
+      "symbol": "DOS_CLOSE",
+      "target": 12362,
+      "candidate_provider": {
+        "module": "close-full",
+        "target_offset": 12362
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "handle-full",
+      "symbol": "SYS_RET_OK",
+      "target": 1556,
+      "candidate_provider": {
+        "module": "mscode-full",
+        "target_offset": 1556
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "handle-full",
+      "symbol": "SYS_RET_ERR",
+      "target": 1565,
+      "candidate_provider": {
+        "module": "mscode-full",
+        "target_offset": 1565
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "handle-full",
+      "symbol": "DOS_COMMIT",
+      "target": 12706,
+      "candidate_provider": {
+        "module": "close-full",
+        "target_offset": 12706
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "handle-full",
+      "symbol": "$ALLOC",
+      "target": 25694,
+      "candidate_provider": {
+        "module": "alloc-full",
+        "target_offset": 25694
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "handle-full",
+      "symbol": "$DEALLOC",
+      "target": 26083,
+      "candidate_provider": {
+        "module": "alloc-full",
+        "target_offset": 26083
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "handle-full",
+      "symbol": "DOS_READ",
+      "target": 13337,
+      "candidate_provider": {
+        "module": "disk-full",
+        "target_offset": 13337
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "handle-full",
+      "symbol": "DOS_WRITE",
+      "target": 13896,
+      "candidate_provider": {
+        "module": "disk-full",
+        "target_offset": 13896
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "handle-full",
+      "symbol": "GET_USER_STACK",
+      "target": 1189,
+      "candidate_provider": {
+        "module": "msdisp-full",
+        "target_offset": 1189
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "handle-full",
+      "symbol": "ECRITDISK",
+      "target": 4950,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "handle-full",
+      "symbol": "LCRITDISK",
+      "target": 4982,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "handle-full",
+      "symbol": "JFNFREE",
+      "target": 26783,
+      "candidate_provider": {
+        "module": "util-full",
+        "target_offset": 26783
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "handle-full",
+      "symbol": "DOS_DUP_DIRECT",
+      "target": 11076,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "handle-full",
+      "symbol": "SFFROMHANDLE",
+      "target": 26714,
+      "candidate_provider": {
+        "module": "util-full",
+        "target_offset": 26714
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "file-full",
+      "symbol": "DOS_OPEN",
+      "target": 11388,
+      "candidate_provider": {
+        "module": "open-full",
+        "target_offset": 11388
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "file-full",
+      "symbol": "DOS_CREATE",
+      "target": 11088,
+      "candidate_provider": {
+        "module": "create-full",
+        "target_offset": 11088
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "file-full",
+      "symbol": "DOS_CREATE_NEW",
+      "target": 11295,
+      "candidate_provider": {
+        "module": "create-full",
+        "target_offset": 11295
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "file-full",
+      "symbol": "ECRITDISK",
+      "target": 4950,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "file-full",
+      "symbol": "SFNFREE",
+      "target": 26802,
+      "candidate_provider": {
+        "module": "util-full",
+        "target_offset": 26802
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "file-full",
+      "symbol": "LCRITDISK",
+      "target": 4982,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "file-full",
+      "symbol": "JFNFREE",
+      "target": 26783,
+      "candidate_provider": {
+        "module": "util-full",
+        "target_offset": 26783
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "file-full",
+      "symbol": "TRANSPATH",
+      "target": 28009,
+      "candidate_provider": {
+        "module": "macro2-full",
+        "target_offset": 28009
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "file-full",
+      "symbol": "SET_EXT_MODE",
+      "target": 11368,
+      "candidate_provider": {
+        "module": "create-full",
+        "target_offset": 11368
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "file-full",
+      "symbol": "SYS_RET_OK",
+      "target": 1556,
+      "candidate_provider": {
+        "module": "mscode-full",
+        "target_offset": 1556
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "file-full",
+      "symbol": "FROM_GETSET",
+      "target": 1573,
+      "candidate_provider": {
+        "module": "mscode-full",
+        "target_offset": 1573
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "file-full",
+      "symbol": "SYS_RET_ERR",
+      "target": 1565,
+      "candidate_provider": {
+        "module": "mscode-full",
+        "target_offset": 1565
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "file-full",
+      "symbol": "TRANSPATHSET",
+      "target": 28013,
+      "candidate_provider": {
+        "module": "macro2-full",
+        "target_offset": 28013
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "file-full",
+      "symbol": "GET_FILE_INFO",
+      "target": 10806,
+      "candidate_provider": {
+        "module": "finfo-full",
+        "target_offset": 10806
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "file-full",
+      "symbol": "GET_USER_STACK",
+      "target": 1189,
+      "candidate_provider": {
+        "module": "msdisp-full",
+        "target_offset": 1189
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "file-full",
+      "symbol": "SET_FILE_ATTRIBUTE",
+      "target": 10903,
+      "candidate_provider": {
+        "module": "finfo-full",
+        "target_offset": 10903
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "file-full",
+      "symbol": "DOS_DELETE",
+      "target": 9753,
+      "candidate_provider": {
+        "module": "delete-full",
+        "target_offset": 9753
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "file-full",
+      "symbol": "GETCDSFROMDRV",
+      "target": 27875,
+      "candidate_provider": {
+        "module": "macro-full",
+        "target_offset": 27875
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "file-full",
+      "symbol": "STRCMP",
+      "target": 4595,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "file-full",
+      "symbol": "DOS_RENAME",
+      "target": 10233,
+      "candidate_provider": {
+        "module": "rename-full",
+        "target_offset": 10233
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "file-full",
+      "symbol": "PATHCHRCMP",
+      "target": 21051,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "file-full",
+      "symbol": "READTIME",
+      "target": 2843,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "file-full",
+      "symbol": "$CLOSE",
+      "target": 26875,
+      "candidate_provider": {
+        "module": "handle-full",
+        "target_offset": 26875
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "fcbio-full",
+      "symbol": "GETEXTENDED",
+      "target": 7468,
+      "candidate_provider": {
+        "module": "fcbio2-full",
+        "target_offset": 7468
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "fcbio-full",
+      "symbol": "GETEXTENT",
+      "target": 7423,
+      "candidate_provider": {
+        "module": "fcbio2-full",
+        "target_offset": 7423
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "fcbio-full",
+      "symbol": "FCB_RET_OK",
+      "target": 1584,
+      "candidate_provider": {
+        "module": "mscode-full",
+        "target_offset": 1584
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "fcbio-full",
+      "symbol": "FCB_RET_ERR",
+      "target": 1587,
+      "candidate_provider": {
+        "module": "mscode-full",
+        "target_offset": 1587
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "fcbio-full",
+      "symbol": "TRANSFCB",
+      "target": 27911,
+      "candidate_provider": {
+        "module": "macro2-full",
+        "target_offset": 27911
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "fcbio-full",
+      "symbol": "DOS_DELETE",
+      "target": 9753,
+      "candidate_provider": {
+        "module": "delete-full",
+        "target_offset": 9753
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "fcbio-full",
+      "symbol": "GET_FILE_INFO",
+      "target": 10806,
+      "candidate_provider": {
+        "module": "finfo-full",
+        "target_offset": 10806
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "fcbio-full",
+      "symbol": "CHECKSHARE",
+      "target": 30027,
+      "candidate_provider": {
+        "module": "lock-full",
+        "target_offset": 30027
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "fcbio-full",
+      "symbol": "DOS_CLOSE",
+      "target": 12362,
+      "candidate_provider": {
+        "module": "close-full",
+        "target_offset": 12362
+      },
+      "present_in_accepted_map": false
+    },
+    {
+      "caller": "fcbio-full",
+      "symbol": "DOS_RENAME",
+      "target": 10233,
+      "candidate_provider": {
+        "module": "rename-full",
+        "target_offset": 10233
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "fcbio-full",
+      "symbol": "ISSFTNET",
+      "target": 4778,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "fcbio-full",
+      "symbol": "SAVE_USER_WORLD",
+      "target": 1158,
+      "candidate_provider": {
+        "module": "msdisp-full",
+        "target_offset": 1158
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "fcbio-full",
+      "symbol": "RESTORE_USER_WORLD",
+      "target": 1135,
+      "candidate_provider": {
+        "module": "msdisp-full",
+        "target_offset": 1135
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "fcbio-full",
+      "symbol": "UCASE",
+      "target": 20966,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "fcbio-full",
+      "symbol": "DEVNAME",
+      "target": 17213,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "fcbio-full",
+      "symbol": "FIND_DPB",
+      "target": 27576,
+      "candidate_provider": {
+        "module": "macro-full",
+        "target_offset": 27576
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "fcbio-full",
+      "symbol": "HARDERR",
+      "target": 21674,
+      "candidate_provider": {
+        "module": "msctrlc-full",
+        "target_offset": 21674
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "fcbio2-full",
+      "symbol": "DOS_OPEN",
+      "target": 11388,
+      "candidate_provider": {
+        "module": "open-full",
+        "target_offset": 11388
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "fcbio2-full",
+      "symbol": "DOS_CREATE",
+      "target": 11088,
+      "candidate_provider": {
+        "module": "create-full",
+        "target_offset": 11088
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "fcbio2-full",
+      "symbol": "DOS_READ",
+      "target": 13337,
+      "candidate_provider": {
+        "module": "disk-full",
+        "target_offset": 13337
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "fcbio2-full",
+      "symbol": "DOS_WRITE",
+      "target": 13896,
+      "candidate_provider": {
+        "module": "disk-full",
+        "target_offset": 13896
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "fcbio2-full",
+      "symbol": "SFTFROMFCB",
+      "target": 7322,
+      "candidate_provider": {
+        "module": "fcbio-full",
+        "target_offset": 7322
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "fcbio2-full",
+      "symbol": "FCB_RET_ERR",
+      "target": 1587,
+      "candidate_provider": {
+        "module": "mscode-full",
+        "target_offset": 1587
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "fcbio2-full",
+      "symbol": "SAVEFCBINFO",
+      "target": 6479,
+      "candidate_provider": {
+        "module": "fcbio-full",
+        "target_offset": 6479
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "fcbio2-full",
+      "symbol": "DATE16",
+      "target": 2801,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "fcbio2-full",
+      "symbol": "GET_USER_STACK",
+      "target": 1189,
+      "candidate_provider": {
+        "module": "msdisp-full",
+        "target_offset": 1189
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "fcbio2-full",
+      "symbol": "TRANSFCB",
+      "target": 27911,
+      "candidate_provider": {
+        "module": "macro2-full",
+        "target_offset": 27911
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "fcbio2-full",
+      "symbol": "LRUFCB",
+      "target": 6689,
+      "candidate_provider": {
+        "module": "fcbio-full",
+        "target_offset": 6689
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "fcbio2-full",
+      "symbol": "BLASTSFT",
+      "target": 7178,
+      "candidate_provider": {
+        "module": "fcbio-full",
+        "target_offset": 7178
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "fcbio2-full",
+      "symbol": "FCBHARDERR",
+      "target": 7376,
+      "candidate_provider": {
+        "module": "fcbio-full",
+        "target_offset": 7376
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "fcbio2-full",
+      "symbol": "ISSFTNET",
+      "target": 4778,
+      "candidate_provider": null,
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "fcbio2-full",
+      "symbol": "CHECKSHARE",
+      "target": 30027,
+      "candidate_provider": {
+        "module": "lock-full",
+        "target_offset": 30027
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "fcbio2-full",
+      "symbol": "GETTHISDRV",
+      "target": 27788,
+      "candidate_provider": {
+        "module": "macro-full",
+        "target_offset": 27788
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "fcbio2-full",
+      "symbol": "CHECKFCB",
+      "target": 7200,
+      "candidate_provider": {
+        "module": "fcbio-full",
+        "target_offset": 7200
+      },
+      "present_in_accepted_map": true
+    },
+    {
+      "caller": "fcbio2-full",
+      "symbol": "SHAREEND",
+      "target": 30083,
+      "candidate_provider": {
+        "module": "share",
+        "target_offset": 30083
+      },
+      "present_in_accepted_map": false
+    }
+  ],
+  "missing_named_code_providers": [],
+  "snapshots": {
+    "m4-t5-lock-build.json": {
+      "inputs": 115,
+      "mismatches": []
+    },
+    "m2-t3-command-exact-verification.json": {
+      "inputs": 113,
+      "mismatches": []
+    }
+  },
+  "scope": "Frozen candidate code-name graph with native OMF public offsets checked against decoded target call addresses. Existing linked symbol presence is not callee correctness. Does not cover data ABI, indirect calls, all transitive runtime dependencies, or production integration."
+}

@@ -1,0 +1,376 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\physical-sft-probe-_di49yv4",
+  "link_report_sha256": "ade0c39669a72c3590fb8ffdac9377217b2ed1d1d806cd226f5ed277daacfddd",
+  "universe": [
+    "origin",
+    "msdata",
+    "mstable",
+    "msdisp",
+    "mscode",
+    "msdosme",
+    "time",
+    "getset",
+    "parse",
+    "crit",
+    "misc",
+    "misc2",
+    "cpmio",
+    "cpmio2",
+    "fcbio",
+    "fcbio2",
+    "search",
+    "delete",
+    "path",
+    "dircall",
+    "ioctl",
+    "dup",
+    "open",
+    "abort",
+    "disk",
+    "disk2",
+    "dir",
+    "dir2",
+    "dev",
+    "fcb",
+    "fat",
+    "buf",
+    "msctrlc",
+    "msproc",
+    "alloc",
+    "srvcall",
+    "segcheck",
+    "rom",
+    "util",
+    "handle",
+    "macro",
+    "macro2",
+    "file",
+    "lock",
+    "exepatch",
+    "disk3",
+    "close",
+    "mknode",
+    "share",
+    "create",
+    "finfo",
+    "rename",
+    "isearch",
+    "msinit"
+  ],
+  "sites": [
+    {
+      "module": "msdisp",
+      "object_offset": 245,
+      "linked_offset": 9652,
+      "opcode": "c4c450",
+      "service": 55,
+      "listing_line": 445,
+      "listing_context": [
+        " 00F2  1F                     \\\t\tpop\tds",
+        " 00F3  74 C9                  \\\t\tje\tDOSDispCall0",
+        "\t\t\t      \\\t        SVC     SVC_DEMDOSDISPCALL",
+        " 00F5  C4 C4 50               \\\t    db  0C4h, 0C4h, BOP_DOS ",
+        " 00F8  37                     \\\t    db  SVC_DEMDOSDISPCALL "
+      ]
+    },
+    {
+      "module": "msdisp",
+      "object_offset": 550,
+      "linked_offset": 9957,
+      "opcode": "c4c450",
+      "service": 56,
+      "listing_line": 701,
+      "listing_context": [
+        " 0223  1F                     \\\t\tpop\tds",
+        " 0224  74 04                  \\\t\tje\tno_dbg_msg",
+        "\t\t\t      \\\t\tSVC\tSVC_DEMDOSDISPRET",
+        " 0226  C4 C4 50               \\\t    db  0C4h, 0C4h, BOP_DOS ",
+        " 0229  38                     \\\t    db  SVC_DEMDOSDISPRET "
+      ]
+    },
+    {
+      "module": "mscode",
+      "object_offset": 55,
+      "linked_offset": 10105,
+      "opcode": "c4c450",
+      "service": 41,
+      "listing_line": 425,
+      "listing_context": [
+        "\t\t\t      \\\t;;;;;;\tinvoke\tDSKREAD",
+        "\t\t\t\t",
+        "\t\t\t      \\\t\tSVC\tSVC_DEMABSDRD",
+        " 0037  C4 C4 50               \\\t    db  0C4h, 0C4h, BOP_DOS ",
+        " 003A  29                     \\\t    db  SVC_DEMABSDRD "
+      ]
+    },
+    {
+      "module": "mscode",
+      "object_offset": 177,
+      "linked_offset": 10227,
+      "opcode": "c4c450",
+      "service": 42,
+      "listing_line": 686,
+      "listing_context": [
+        "\t\t\t\t",
+        "\t\t\t      \\\t;;;;;\tinvoke\tDSKWRITE",
+        "\t\t\t      \\\t\tSVC\tSVC_DEMABSDWRT",
+        " 00B1  C4 C4 50               \\\t    db  0C4h, 0C4h, BOP_DOS ",
+        " 00B4  2A                     \\\t    db  SVC_DEMABSDWRT "
+      ]
+    },
+    {
+      "module": "getset",
+      "object_offset": 536,
+      "linked_offset": 12264,
+      "opcode": "c4c450",
+      "service": 14,
+      "listing_line": 1045,
+      "listing_context": [
+        " 0216                         \\\tSET_AX_RET:",
+        " 0216  72 1C                  \\\t\tJC\tBADFDRV",
+        "\t\t\t      \\\t\tHRDSVC\tSVC_DEMGETDRIVEFREESPACE",
+        " 0218  C4 C4 50               \\\t    db  0C4h, 0C4h, BOP_DOS ",
+        " 021B  0E                     \\\t    db  SVC_DEMGETDRIVEFREESPACE "
+      ]
+    },
+    {
+      "module": "misc",
+      "object_offset": 11,
+      "linked_offset": 12660,
+      "opcode": "c4c450",
+      "service": 14,
+      "listing_line": 192,
+      "listing_context": [
+        "\t\t\t\te error\t\t\t\t;AC000;",
+        " 0009  72 25                  \\\t\tJC\tBADSLDRIVE",
+        "\t\t\t      \\\t\tHRDSVC\tSVC_DEMGETDRIVEFREESPACE",
+        " 000B  C4 C4 50               \\\t    db  0C4h, 0C4h, BOP_DOS ",
+        " 000E  0E                     \\\t    db  SVC_DEMGETDRIVEFREESPACE "
+      ]
+    },
+    {
+      "module": "misc",
+      "object_offset": 131,
+      "linked_offset": 12780,
+      "opcode": "c4c450",
+      "service": 35,
+      "listing_line": 478,
+      "listing_context": [
+        " 0081  74 09                  \\\t\tje\tres_ret",
+        "\t\t\t\t",
+        "\t\t\t      \\\t\tHRDSVC\tSVC_DEMDISKRESET",
+        " 0083  C4 C4 50               \\\t    db  0C4h, 0C4h, BOP_DOS ",
+        " 0086  23                     \\\t    db  SVC_DEMDISKRESET "
+      ]
+    },
+    {
+      "module": "misc",
+      "object_offset": 641,
+      "linked_offset": 13290,
+      "opcode": "c4c450",
+      "service": 16,
+      "listing_line": 1200,
+      "listing_context": [
+        " 027F  FE CB                  \\\t\tdec\tbl\t\t      ; bl = dr",
+        "\t\t\t\tive (0=a;1=b ..etc)",
+        "\t\t\t      \\\t\tHRDSVC\tSVC_DEMGSETMEDIAID",
+        " 0281  C4 C4 50               \\\t    db  0C4h, 0C4h, BOP_DOS ",
+        " 0284  10                     \\\t    db  SVC_DEMGSETMEDIAID "
+      ]
+    },
+    {
+      "module": "cpmio",
+      "object_offset": 17,
+      "linked_offset": 13672,
+      "opcode": "c4c45a",
+      "service": null,
+      "listing_line": 170,
+      "listing_context": [
+        " 000F  33 C0                  \\\t        xor     ax,ax                   ; with ",
+        "\t\t\t\tAX = 0 for WaitIfIdle",
+        "\t\t\t      \\\t        bop     NT_WAIT_BOP",
+        " 0011  C4 C4 5A               \\\t    db 0c4h,0c4h,NT_WAIT_BOP ",
+        "\t\t\t\t"
+      ]
+    },
+    {
+      "module": "search",
+      "object_offset": 53,
+      "linked_offset": 16772,
+      "opcode": "c4c450",
+      "service": 10,
+      "listing_line": 150,
+      "listing_context": [
+        " 0032  BF 0000 E              \\\t\tmov\tdi, OFFSET DOSDATA:OpenBuf",
+        "\t\t\t\t\t; Full path",
+        "\t\t\t      \\\t\tHRDSVC\tSVC_DEMFINDFIRSTFCB",
+        " 0035  C4 C4 50               \\\t    db  0C4h, 0C4h, BOP_DOS ",
+        " 0038  0A                     \\\t    db  SVC_DEMFINDFIRSTFCB "
+      ]
+    },
+    {
+      "module": "search",
+      "object_offset": 213,
+      "linked_offset": 16932,
+      "opcode": "c4c450",
+      "service": 12,
+      "listing_line": 326,
+      "listing_context": [
+        "\t\t\t\t\t; Return all the info here",
+        "\t\t\t      \\\t\tHRDSVC\tSVC_DEMFINDNEXTFCB\t; Find ",
+        "\t\t\t\tnext match",
+        " 00D5  C4 C4 50               \\\t    db  0C4h, 0C4h, BOP_DOS ",
+        " 00D8  0C                     \\\t    db  SVC_DEMFINDNEXTFCB "
+      ]
+    },
+    {
+      "module": "search",
+      "object_offset": 276,
+      "linked_offset": 16995,
+      "opcode": "c4c450",
+      "service": 9,
+      "listing_line": 419,
+      "listing_context": [
+        "SEARCH - Directory scan system calls                        Page     1-8",
+        "GetExtendedError CLASSes ACTIONs LOCUSs                     ",
+        "",
+        " 0114  C4 C4 50               \\\t    db  0C4h, 0C4h, BOP_DOS ",
+        " 0117  09                     \\\t    db  SVC_DEMFINDFIRST "
+      ]
+    },
+    {
+      "module": "search",
+      "object_offset": 294,
+      "linked_offset": 17013,
+      "opcode": "c4c450",
+      "service": 11,
+      "listing_line": 465,
+      "listing_context": [
+        "\t\t\t      \\\t\tASSUME\tCS:DOSCODE,SS:DOSDATA",
+        "\t\t\t\t",
+        "\t\t\t      \\\t\tHRDSVC\tSVC_DEMFINDNEXT",
+        " 0126  C4 C4 50               \\\t    db  0C4h, 0C4h, BOP_DOS ",
+        " 0129  0B                     \\\t    db  SVC_DEMFINDNEXT "
+      ]
+    },
+    {
+      "module": "path",
+      "object_offset": 290,
+      "linked_offset": 17853,
+      "opcode": "c4c450",
+      "service": 4,
+      "listing_line": 544,
+      "listing_context": [
+        " 011E  33 DB                  \\\t\txor\tbx,bx",
+        " 0120  33 F6                  \\\t\txor\tsi,si",
+        "\t\t\t      \\\t\tHRDSVC\tSVC_DEMCREATEDIR",
+        " 0122  C4 C4 50               \\\t    db  0C4h, 0C4h, BOP_DOS ",
+        " 0125  04                     \\\t    db  SVC_DEMCREATEDIR "
+      ]
+    },
+    {
+      "module": "path",
+      "object_offset": 350,
+      "linked_offset": 17913,
+      "opcode": "c4c450",
+      "service": 6,
+      "listing_line": 663,
+      "listing_context": [
+        " 0159  36: 8B 16 0000 E       \\\t\tmov\tdx,wfp_start\t\t; ds:dx",
+        "\t\t\t\t is the path",
+        "\t\t\t      \\\t        HRDSVC  SVC_DEMDELETEDIR",
+        " 015E  C4 C4 50               \\\t    db  0C4h, 0C4h, BOP_DOS ",
+        " 0161  06                     \\\t    db  SVC_DEMDELETEDIR "
+      ]
+    },
+    {
+      "module": "ioctl",
+      "object_offset": 219,
+      "linked_offset": 18688,
+      "opcode": "c4c450",
+      "service": 33,
+      "listing_line": 549,
+      "listing_context": [
+        " 00D9                         \\\ticm_drvok:",
+        " 00D9  FE CB                  \\\t\tdec\tbl",
+        "\t\t\t      \\\t\tHRDSVC\tSVC_DEMIOCTL\t      ; bl is zero based drive,",
+        " 00DB  C4 C4 50               \\\t    db  0C4h, 0C4h, BOP_DOS ",
+        " 00DE  21                     \\\t    db  SVC_DEMIOCTL "
+      ]
+    },
+    {
+      "module": "ioctl",
+      "object_offset": 423,
+      "linked_offset": 18892,
+      "opcode": "c4c450",
+      "service": 33,
+      "listing_line": 724,
+      "listing_context": [
+        " 01A3  8A 1E 0000 E           \\\t\tmov\tbl, CurDrv",
+        " 01A7                         \\\tdisk_ioctl_bop:",
+        "\t\t\t      \\\t\tHRDSVC\tSVC_DEMIOCTL",
+        " 01A7  C4 C4 50               \\\t    db  0C4h, 0C4h, BOP_DOS ",
+        " 01AA  21                     \\\t    db  SVC_DEMIOCTL "
+      ]
+    },
+    {
+      "module": "msctrlc",
+      "object_offset": 653,
+      "linked_offset": 27118,
+      "opcode": "c4c450",
+      "service": 51,
+      "listing_line": 1047,
+      "listing_context": [
+        " 028C                         \\\tthr_retry:",
+        " 028C  58                     \\\t\tpop\tax",
+        "\t\t\t      \\\t\tSVC\tSVC_DEMRETRY",
+        " 028D  C4 C4 50               \\\t    db  0C4h, 0C4h, BOP_DOS ",
+        " 0290  33                     \\\t    db  SVC_DEMRETRY "
+      ]
+    },
+    {
+      "module": "msctrlc",
+      "object_offset": 1048,
+      "linked_offset": 27513,
+      "opcode": "c4c450",
+      "service": 60,
+      "listing_line": 1613,
+      "listing_context": [
+        "\t\t\t\tfor this PDB",
+        "\t\t\t      \\\t\tSVC\tSVC_PDBTERMINATE\t; BX is",
+        "\t\t\t\t the PDB",
+        " 0418  C4 C4 50               \\\t    db  0C4h, 0C4h, BOP_DOS ",
+        " 041B  3C                     \\\t    db  SVC_PDBTERMINATE "
+      ]
+    },
+    {
+      "module": "macro",
+      "object_offset": 175,
+      "linked_offset": 32228,
+      "opcode": "c4c450",
+      "service": 65,
+      "listing_line": 427,
+      "listing_context": [
+        " 00AF                         \\\tUserGet:",
+        "\t\t\t      \\\t        SVC     SVC_DEMGETCOMPUTERNAME  ; DS:DX",
+        "\t\t\t\t is the user buffer",
+        " 00AF  C4 C4 50               \\\t    db  0C4h, 0C4h, BOP_DOS ",
+        " 00B2  41                     \\\t    db  SVC_DEMGETCOMPUTERNAME "
+      ]
+    }
+  ],
+  "count": 20,
+  "modules_with_sites": [
+    "cpmio",
+    "getset",
+    "ioctl",
+    "macro",
+    "misc",
+    "mscode",
+    "msctrlc",
+    "msdisp",
+    "path",
+    "search"
+  ],
+  "scope": "C4 C4 BOP encodings in all linked input LEDATA, confirmed by emitted listings and actual linked bytes. Does not inventory other host dependencies, indirect calls or runtime reachability."
+}

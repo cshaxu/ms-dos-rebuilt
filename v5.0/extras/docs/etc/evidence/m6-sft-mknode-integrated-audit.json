@@ -1,0 +1,61 @@
+{
+  "previous_stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\integrated-source-l7crcwdj",
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\integrated-source-isk4k52y",
+  "source_audit": "m6-sft-mknode-source-audit.json",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\MKNODE.ASM",
+      "sha256": "0611bc05262a44799b8e8e750de9d7818886bfeab5a14df822baa72fac254f5e"
+    },
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\mknode.asm",
+      "sha256": "e3c479c9179857e03b6c360931201a1db68af23234dd92408e84c11a50854158"
+    },
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\handle.asm",
+      "sha256": "f42fa91329b674864a5421b40be415b348a18f0793221b9c07d526b12924e90f"
+    }
+  ],
+  "mknode_object": {
+    "before": "a109d46edd6d8fa47ade4970f8761a3ff7ed5431e455d91e22c4b1b267a7727e",
+    "after": "ed22297721c512b04a4762cccf7f22441621989609832a0e4e000b98bb5312fe",
+    "removed_extdefs": [
+      "EcritDisk",
+      "LcritDisk"
+    ],
+    "added_extdefs": [
+      "EcritSFT",
+      "LcritSFT"
+    ],
+    "normalized_extdef_lists_equal": true
+  },
+  "handle_identical_to_dos6": true,
+  "linked_aliases": {
+    "EcritDisk": "0000:5126",
+    "EcritSFT": "0000:5126",
+    "LcritDisk": "0000:5146",
+    "LcritSFT": "0000:5146"
+  },
+  "other_unchanged_objects": 103,
+  "outputs": [
+    {
+      "name": "IO.SYS",
+      "bytes": 33430,
+      "sha256": "dd0915ed366b3f640284df4be30ed35f413dfd5b6966c1f25eee9598a5bf53e0",
+      "byte_equal": true
+    },
+    {
+      "name": "MSDOS.SYS",
+      "bytes": 37394,
+      "sha256": "4e41ca4e5893d4cf293f81ad01adbdbd12f7039534f59148214a9cca309529a2",
+      "byte_equal": true
+    },
+    {
+      "name": "COMMAND.COM",
+      "bytes": 47845,
+      "sha256": "74ad25067e7d9f5c3a0ac2f2967347defb0ffef9e6ed60b60e6499f0b1a8cc89",
+      "byte_equal": true
+    }
+  ],
+  "scope": "Target files byte-equal; OMF EXTDEF lists were compared after alias normalization. Other object-record differences not fully classified."
+}

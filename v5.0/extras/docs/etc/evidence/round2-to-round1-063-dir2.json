@@ -1,0 +1,1572 @@
+{
+  "index": 63,
+  "file": "dos/dir2.asm",
+  "before_sha256": "1774b97832ce3257f4d67ebbcff92850c6736228a1c6c087bb683c08e8f571ca",
+  "after_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+  "decision": "converted_round1",
+  "reference": {
+    "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+    "sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+    "byte_identical": true
+  },
+  "changes": [
+    "Restored DOS 6 header, formatting and historical STARTDRCH comment spelling; actual procedure is STARTSRCH.",
+    "Restored DIR2001S/DIR2001E public labels around local declarations.",
+    "Restored DOS 6 IF FALSE disabled CheckThisDevice implementation; active implementation remains the same."
+  ],
+  "excluded_reference": "OpenNT version contains dossvc.inc and NT-specific disabled/replaced path logic.",
+  "previous_automatic_evidence": {
+    "index": 63,
+    "file": "dos/dir2.asm",
+    "sha256": "1774b97832ce3257f4d67ebbcff92850c6736228a1c6c087bb683c08e8f571ca",
+    "round": 2,
+    "code_lines": 802,
+    "passages": [
+      {
+        "source_line_start": 1,
+        "source_line_end": 2,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1,
+        "reference_line_end": 2
+      },
+      {
+        "source_line_start": 26,
+        "source_line_end": 36,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 32,
+        "reference_line_end": 42
+      },
+      {
+        "source_line_start": 39,
+        "source_line_end": 66,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 45,
+        "reference_line_end": 72
+      },
+      {
+        "source_line_start": 69,
+        "source_line_end": 70,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 76,
+        "reference_line_end": 77
+      },
+      {
+        "source_line_start": 72,
+        "source_line_end": 72,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 79,
+        "reference_line_end": 79
+      },
+      {
+        "source_line_start": 136,
+        "source_line_end": 137,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 143,
+        "reference_line_end": 144
+      },
+      {
+        "source_line_start": 139,
+        "source_line_end": 139,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 146,
+        "reference_line_end": 146
+      },
+      {
+        "source_line_start": 143,
+        "source_line_end": 145,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 150,
+        "reference_line_end": 152
+      },
+      {
+        "source_line_start": 150,
+        "source_line_end": 152,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 157,
+        "reference_line_end": 159
+      },
+      {
+        "source_line_start": 156,
+        "source_line_end": 163,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 163,
+        "reference_line_end": 170
+      },
+      {
+        "source_line_start": 179,
+        "source_line_end": 179,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 186,
+        "reference_line_end": 186
+      },
+      {
+        "source_line_start": 182,
+        "source_line_end": 182,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 189,
+        "reference_line_end": 189
+      },
+      {
+        "source_line_start": 184,
+        "source_line_end": 192,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 191,
+        "reference_line_end": 199
+      },
+      {
+        "source_line_start": 204,
+        "source_line_end": 207,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 211,
+        "reference_line_end": 214
+      },
+      {
+        "source_line_start": 212,
+        "source_line_end": 216,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 219,
+        "reference_line_end": 223
+      },
+      {
+        "source_line_start": 218,
+        "source_line_end": 218,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 225,
+        "reference_line_end": 225
+      },
+      {
+        "source_line_start": 220,
+        "source_line_end": 221,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 227,
+        "reference_line_end": 228
+      },
+      {
+        "source_line_start": 226,
+        "source_line_end": 233,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 233,
+        "reference_line_end": 240
+      },
+      {
+        "source_line_start": 235,
+        "source_line_end": 238,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 242,
+        "reference_line_end": 245
+      },
+      {
+        "source_line_start": 246,
+        "source_line_end": 248,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 253,
+        "reference_line_end": 255
+      },
+      {
+        "source_line_start": 251,
+        "source_line_end": 259,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 258,
+        "reference_line_end": 266
+      },
+      {
+        "source_line_start": 261,
+        "source_line_end": 262,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 268,
+        "reference_line_end": 269
+      },
+      {
+        "source_line_start": 265,
+        "source_line_end": 286,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 272,
+        "reference_line_end": 293
+      },
+      {
+        "source_line_start": 293,
+        "source_line_end": 297,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 300,
+        "reference_line_end": 304
+      },
+      {
+        "source_line_start": 302,
+        "source_line_end": 306,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 309,
+        "reference_line_end": 313
+      },
+      {
+        "source_line_start": 308,
+        "source_line_end": 311,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 315,
+        "reference_line_end": 318
+      },
+      {
+        "source_line_start": 313,
+        "source_line_end": 313,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 320,
+        "reference_line_end": 320
+      },
+      {
+        "source_line_start": 324,
+        "source_line_end": 324,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 331,
+        "reference_line_end": 331
+      },
+      {
+        "source_line_start": 326,
+        "source_line_end": 328,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 333,
+        "reference_line_end": 335
+      },
+      {
+        "source_line_start": 331,
+        "source_line_end": 331,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 338,
+        "reference_line_end": 338
+      },
+      {
+        "source_line_start": 335,
+        "source_line_end": 360,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 342,
+        "reference_line_end": 367
+      },
+      {
+        "source_line_start": 362,
+        "source_line_end": 370,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 369,
+        "reference_line_end": 377
+      },
+      {
+        "source_line_start": 372,
+        "source_line_end": 372,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 379,
+        "reference_line_end": 379
+      },
+      {
+        "source_line_start": 389,
+        "source_line_end": 390,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 396,
+        "reference_line_end": 397
+      },
+      {
+        "source_line_start": 392,
+        "source_line_end": 394,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 399,
+        "reference_line_end": 401
+      },
+      {
+        "source_line_start": 397,
+        "source_line_end": 399,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 404,
+        "reference_line_end": 406
+      },
+      {
+        "source_line_start": 401,
+        "source_line_end": 401,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 408,
+        "reference_line_end": 408
+      },
+      {
+        "source_line_start": 460,
+        "source_line_end": 462,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 467,
+        "reference_line_end": 469
+      },
+      {
+        "source_line_start": 464,
+        "source_line_end": 475,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 471,
+        "reference_line_end": 482
+      },
+      {
+        "source_line_start": 487,
+        "source_line_end": 488,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 494,
+        "reference_line_end": 495
+      },
+      {
+        "source_line_start": 491,
+        "source_line_end": 498,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 498,
+        "reference_line_end": 505
+      },
+      {
+        "source_line_start": 501,
+        "source_line_end": 503,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 508,
+        "reference_line_end": 510
+      },
+      {
+        "source_line_start": 505,
+        "source_line_end": 514,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 512,
+        "reference_line_end": 521
+      },
+      {
+        "source_line_start": 516,
+        "source_line_end": 550,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 523,
+        "reference_line_end": 557
+      },
+      {
+        "source_line_start": 553,
+        "source_line_end": 575,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 560,
+        "reference_line_end": 582
+      },
+      {
+        "source_line_start": 578,
+        "source_line_end": 588,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 585,
+        "reference_line_end": 595
+      },
+      {
+        "source_line_start": 593,
+        "source_line_end": 595,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 600,
+        "reference_line_end": 602
+      },
+      {
+        "source_line_start": 600,
+        "source_line_end": 600,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 607,
+        "reference_line_end": 607
+      },
+      {
+        "source_line_start": 603,
+        "source_line_end": 610,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 610,
+        "reference_line_end": 617
+      },
+      {
+        "source_line_start": 612,
+        "source_line_end": 614,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 619,
+        "reference_line_end": 621
+      },
+      {
+        "source_line_start": 616,
+        "source_line_end": 617,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 623,
+        "reference_line_end": 624
+      },
+      {
+        "source_line_start": 619,
+        "source_line_end": 622,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 626,
+        "reference_line_end": 629
+      },
+      {
+        "source_line_start": 625,
+        "source_line_end": 627,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 632,
+        "reference_line_end": 634
+      },
+      {
+        "source_line_start": 630,
+        "source_line_end": 631,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 637,
+        "reference_line_end": 638
+      },
+      {
+        "source_line_start": 634,
+        "source_line_end": 640,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 641,
+        "reference_line_end": 647
+      },
+      {
+        "source_line_start": 642,
+        "source_line_end": 647,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 649,
+        "reference_line_end": 654
+      },
+      {
+        "source_line_start": 651,
+        "source_line_end": 651,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 658,
+        "reference_line_end": 658
+      },
+      {
+        "source_line_start": 654,
+        "source_line_end": 657,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 661,
+        "reference_line_end": 664
+      },
+      {
+        "source_line_start": 660,
+        "source_line_end": 675,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 667,
+        "reference_line_end": 682
+      },
+      {
+        "source_line_start": 677,
+        "source_line_end": 678,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 684,
+        "reference_line_end": 685
+      },
+      {
+        "source_line_start": 682,
+        "source_line_end": 682,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 689,
+        "reference_line_end": 689
+      },
+      {
+        "source_line_start": 685,
+        "source_line_end": 694,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 692,
+        "reference_line_end": 701
+      },
+      {
+        "source_line_start": 696,
+        "source_line_end": 698,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 703,
+        "reference_line_end": 705
+      },
+      {
+        "source_line_start": 701,
+        "source_line_end": 709,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 708,
+        "reference_line_end": 716
+      },
+      {
+        "source_line_start": 712,
+        "source_line_end": 713,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 719,
+        "reference_line_end": 720
+      },
+      {
+        "source_line_start": 715,
+        "source_line_end": 729,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 722,
+        "reference_line_end": 736
+      },
+      {
+        "source_line_start": 731,
+        "source_line_end": 735,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 738,
+        "reference_line_end": 742
+      },
+      {
+        "source_line_start": 738,
+        "source_line_end": 738,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 745,
+        "reference_line_end": 745
+      },
+      {
+        "source_line_start": 740,
+        "source_line_end": 741,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 747,
+        "reference_line_end": 748
+      },
+      {
+        "source_line_start": 746,
+        "source_line_end": 753,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 753,
+        "reference_line_end": 760
+      },
+      {
+        "source_line_start": 755,
+        "source_line_end": 759,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 762,
+        "reference_line_end": 766
+      },
+      {
+        "source_line_start": 761,
+        "source_line_end": 762,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 768,
+        "reference_line_end": 769
+      },
+      {
+        "source_line_start": 765,
+        "source_line_end": 765,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 772,
+        "reference_line_end": 772
+      },
+      {
+        "source_line_start": 768,
+        "source_line_end": 772,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 775,
+        "reference_line_end": 779
+      },
+      {
+        "source_line_start": 774,
+        "source_line_end": 774,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 781,
+        "reference_line_end": 781
+      },
+      {
+        "source_line_start": 778,
+        "source_line_end": 782,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 785,
+        "reference_line_end": 789
+      },
+      {
+        "source_line_start": 784,
+        "source_line_end": 784,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 791,
+        "reference_line_end": 791
+      },
+      {
+        "source_line_start": 787,
+        "source_line_end": 787,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 794,
+        "reference_line_end": 794
+      },
+      {
+        "source_line_start": 790,
+        "source_line_end": 792,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 797,
+        "reference_line_end": 799
+      },
+      {
+        "source_line_start": 794,
+        "source_line_end": 804,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 801,
+        "reference_line_end": 811
+      },
+      {
+        "source_line_start": 806,
+        "source_line_end": 806,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 813,
+        "reference_line_end": 813
+      },
+      {
+        "source_line_start": 821,
+        "source_line_end": 822,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 828,
+        "reference_line_end": 829
+      },
+      {
+        "source_line_start": 824,
+        "source_line_end": 833,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 831,
+        "reference_line_end": 840
+      },
+      {
+        "source_line_start": 835,
+        "source_line_end": 835,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 842,
+        "reference_line_end": 842
+      },
+      {
+        "source_line_start": 846,
+        "source_line_end": 847,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 853,
+        "reference_line_end": 854
+      },
+      {
+        "source_line_start": 850,
+        "source_line_end": 853,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 857,
+        "reference_line_end": 860
+      },
+      {
+        "source_line_start": 859,
+        "source_line_end": 861,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 866,
+        "reference_line_end": 868
+      },
+      {
+        "source_line_start": 863,
+        "source_line_end": 863,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 870,
+        "reference_line_end": 870
+      },
+      {
+        "source_line_start": 884,
+        "source_line_end": 885,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 891,
+        "reference_line_end": 892
+      },
+      {
+        "source_line_start": 887,
+        "source_line_end": 890,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 894,
+        "reference_line_end": 897
+      },
+      {
+        "source_line_start": 893,
+        "source_line_end": 897,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 900,
+        "reference_line_end": 904
+      },
+      {
+        "source_line_start": 899,
+        "source_line_end": 900,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 906,
+        "reference_line_end": 907
+      },
+      {
+        "source_line_start": 903,
+        "source_line_end": 909,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 910,
+        "reference_line_end": 916
+      },
+      {
+        "source_line_start": 912,
+        "source_line_end": 923,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 919,
+        "reference_line_end": 930
+      },
+      {
+        "source_line_start": 926,
+        "source_line_end": 926,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 933,
+        "reference_line_end": 933
+      },
+      {
+        "source_line_start": 928,
+        "source_line_end": 933,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 935,
+        "reference_line_end": 940
+      },
+      {
+        "source_line_start": 935,
+        "source_line_end": 936,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 942,
+        "reference_line_end": 943
+      },
+      {
+        "source_line_start": 939,
+        "source_line_end": 945,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 946,
+        "reference_line_end": 952
+      },
+      {
+        "source_line_start": 947,
+        "source_line_end": 947,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 954,
+        "reference_line_end": 954
+      },
+      {
+        "source_line_start": 967,
+        "source_line_end": 968,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 974,
+        "reference_line_end": 975
+      },
+      {
+        "source_line_start": 970,
+        "source_line_end": 970,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 977,
+        "reference_line_end": 977
+      },
+      {
+        "source_line_start": 973,
+        "source_line_end": 973,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 980,
+        "reference_line_end": 980
+      },
+      {
+        "source_line_start": 977,
+        "source_line_end": 979,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 984,
+        "reference_line_end": 986
+      },
+      {
+        "source_line_start": 983,
+        "source_line_end": 985,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 990,
+        "reference_line_end": 992
+      },
+      {
+        "source_line_start": 989,
+        "source_line_end": 990,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 996,
+        "reference_line_end": 997
+      },
+      {
+        "source_line_start": 993,
+        "source_line_end": 994,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1000,
+        "reference_line_end": 1001
+      },
+      {
+        "source_line_start": 998,
+        "source_line_end": 999,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1005,
+        "reference_line_end": 1006
+      },
+      {
+        "source_line_start": 1003,
+        "source_line_end": 1005,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1010,
+        "reference_line_end": 1012
+      },
+      {
+        "source_line_start": 1009,
+        "source_line_end": 1010,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1016,
+        "reference_line_end": 1017
+      },
+      {
+        "source_line_start": 1014,
+        "source_line_end": 1015,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1021,
+        "reference_line_end": 1022
+      },
+      {
+        "source_line_start": 1018,
+        "source_line_end": 1021,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1025,
+        "reference_line_end": 1028
+      },
+      {
+        "source_line_start": 1023,
+        "source_line_end": 1023,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1030,
+        "reference_line_end": 1030
+      },
+      {
+        "source_line_start": 1040,
+        "source_line_end": 1041,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1047,
+        "reference_line_end": 1048
+      },
+      {
+        "source_line_start": 1042,
+        "source_line_end": 1043,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1052,
+        "reference_line_end": 1053
+      },
+      {
+        "source_line_start": 1044,
+        "source_line_end": 1045,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1055,
+        "reference_line_end": 1056
+      },
+      {
+        "source_line_start": 1048,
+        "source_line_end": 1057,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1059,
+        "reference_line_end": 1068
+      },
+      {
+        "source_line_start": 1060,
+        "source_line_end": 1062,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1071,
+        "reference_line_end": 1073
+      },
+      {
+        "source_line_start": 1065,
+        "source_line_end": 1067,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1076,
+        "reference_line_end": 1078
+      },
+      {
+        "source_line_start": 1070,
+        "source_line_end": 1080,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1081,
+        "reference_line_end": 1091
+      },
+      {
+        "source_line_start": 1083,
+        "source_line_end": 1083,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1094,
+        "reference_line_end": 1094
+      },
+      {
+        "source_line_start": 1086,
+        "source_line_end": 1089,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1097,
+        "reference_line_end": 1100
+      },
+      {
+        "source_line_start": 1092,
+        "source_line_end": 1094,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1103,
+        "reference_line_end": 1105
+      },
+      {
+        "source_line_start": 1097,
+        "source_line_end": 1104,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1108,
+        "reference_line_end": 1115
+      },
+      {
+        "source_line_start": 1107,
+        "source_line_end": 1119,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1118,
+        "reference_line_end": 1130
+      },
+      {
+        "source_line_start": 1121,
+        "source_line_end": 1126,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1132,
+        "reference_line_end": 1137
+      },
+      {
+        "source_line_start": 1128,
+        "source_line_end": 1131,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1139,
+        "reference_line_end": 1142
+      },
+      {
+        "source_line_start": 1133,
+        "source_line_end": 1133,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1144,
+        "reference_line_end": 1144
+      },
+      {
+        "source_line_start": 1154,
+        "source_line_end": 1157,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1225,
+        "reference_line_end": 1228
+      },
+      {
+        "source_line_start": 1161,
+        "source_line_end": 1164,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1232,
+        "reference_line_end": 1235
+      },
+      {
+        "source_line_start": 1168,
+        "source_line_end": 1178,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1239,
+        "reference_line_end": 1249
+      },
+      {
+        "source_line_start": 1183,
+        "source_line_end": 1188,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1254,
+        "reference_line_end": 1259
+      },
+      {
+        "source_line_start": 1191,
+        "source_line_end": 1191,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1262,
+        "reference_line_end": 1262
+      },
+      {
+        "source_line_start": 1200,
+        "source_line_end": 1201,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1271,
+        "reference_line_end": 1272
+      },
+      {
+        "source_line_start": 1205,
+        "source_line_end": 1208,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1276,
+        "reference_line_end": 1279
+      },
+      {
+        "source_line_start": 1214,
+        "source_line_end": 1224,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1285,
+        "reference_line_end": 1295
+      },
+      {
+        "source_line_start": 1225,
+        "source_line_end": 1225,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1298,
+        "reference_line_end": 1298
+      },
+      {
+        "source_line_start": 1227,
+        "source_line_end": 1227,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1300,
+        "reference_line_end": 1300
+      },
+      {
+        "source_line_start": 1244,
+        "source_line_end": 1244,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1317,
+        "reference_line_end": 1317
+      },
+      {
+        "source_line_start": 1249,
+        "source_line_end": 1253,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1322,
+        "reference_line_end": 1326
+      },
+      {
+        "source_line_start": 1256,
+        "source_line_end": 1257,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1329,
+        "reference_line_end": 1330
+      },
+      {
+        "source_line_start": 1259,
+        "source_line_end": 1259,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1332,
+        "reference_line_end": 1332
+      },
+      {
+        "source_line_start": 1262,
+        "source_line_end": 1267,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1335,
+        "reference_line_end": 1340
+      },
+      {
+        "source_line_start": 1270,
+        "source_line_end": 1271,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1343,
+        "reference_line_end": 1344
+      },
+      {
+        "source_line_start": 1273,
+        "source_line_end": 1273,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1346,
+        "reference_line_end": 1346
+      },
+      {
+        "source_line_start": 1276,
+        "source_line_end": 1277,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1349,
+        "reference_line_end": 1350
+      },
+      {
+        "source_line_start": 1279,
+        "source_line_end": 1281,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1352,
+        "reference_line_end": 1354
+      },
+      {
+        "source_line_start": 1284,
+        "source_line_end": 1288,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1357,
+        "reference_line_end": 1361
+      },
+      {
+        "source_line_start": 1290,
+        "source_line_end": 1292,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1363,
+        "reference_line_end": 1365
+      },
+      {
+        "source_line_start": 1295,
+        "source_line_end": 1297,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1368,
+        "reference_line_end": 1370
+      },
+      {
+        "source_line_start": 1300,
+        "source_line_end": 1304,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1373,
+        "reference_line_end": 1377
+      },
+      {
+        "source_line_start": 1306,
+        "source_line_end": 1306,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1379,
+        "reference_line_end": 1379
+      },
+      {
+        "source_line_start": 1309,
+        "source_line_end": 1311,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1382,
+        "reference_line_end": 1384
+      },
+      {
+        "source_line_start": 1316,
+        "source_line_end": 1316,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1389,
+        "reference_line_end": 1389
+      },
+      {
+        "source_line_start": 1318,
+        "source_line_end": 1320,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1391,
+        "reference_line_end": 1393
+      },
+      {
+        "source_line_start": 1325,
+        "source_line_end": 1325,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1398,
+        "reference_line_end": 1398
+      },
+      {
+        "source_line_start": 1327,
+        "source_line_end": 1334,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1400,
+        "reference_line_end": 1407
+      },
+      {
+        "source_line_start": 1336,
+        "source_line_end": 1338,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1409,
+        "reference_line_end": 1411
+      },
+      {
+        "source_line_start": 1340,
+        "source_line_end": 1340,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1413,
+        "reference_line_end": 1413
+      },
+      {
+        "source_line_start": 1350,
+        "source_line_end": 1350,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1423,
+        "reference_line_end": 1423
+      },
+      {
+        "source_line_start": 1352,
+        "source_line_end": 1352,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1425,
+        "reference_line_end": 1425
+      },
+      {
+        "source_line_start": 1355,
+        "source_line_end": 1369,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1428,
+        "reference_line_end": 1442
+      },
+      {
+        "source_line_start": 1372,
+        "source_line_end": 1377,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1445,
+        "reference_line_end": 1450
+      },
+      {
+        "source_line_start": 1380,
+        "source_line_end": 1387,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1453,
+        "reference_line_end": 1460
+      },
+      {
+        "source_line_start": 1389,
+        "source_line_end": 1392,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1462,
+        "reference_line_end": 1465
+      },
+      {
+        "source_line_start": 1394,
+        "source_line_end": 1395,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1467,
+        "reference_line_end": 1468
+      },
+      {
+        "source_line_start": 1397,
+        "source_line_end": 1398,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1470,
+        "reference_line_end": 1471
+      },
+      {
+        "source_line_start": 1400,
+        "source_line_end": 1404,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1473,
+        "reference_line_end": 1477
+      },
+      {
+        "source_line_start": 1406,
+        "source_line_end": 1407,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1479,
+        "reference_line_end": 1480
+      },
+      {
+        "source_line_start": 1409,
+        "source_line_end": 1411,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1482,
+        "reference_line_end": 1484
+      },
+      {
+        "source_line_start": 1413,
+        "source_line_end": 1427,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1486,
+        "reference_line_end": 1500
+      },
+      {
+        "source_line_start": 1429,
+        "source_line_end": 1430,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+        "reference_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "reference_line_start": 1502,
+        "reference_line_end": 1503
+      }
+    ]
+  },
+  "verification": {
+    "stage": "build/integrated-source-ghfz0jh4",
+    "targets_equal": true,
+    "nt_bop_lexical_hits": 0
+  },
+  "limitations": "The inactive historical block is retained to match DOS 6 and is not proof of DOS 5 original source; lexical screening does not establish complete absence of host dependencies."
+}

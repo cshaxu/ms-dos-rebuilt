@@ -1,0 +1,10 @@
+{
+  "file": "dos/macro2.asm",
+  "before_sha256": "118eddf562852d8416834010f1eef1e2c331a6e155b32970fcf8bcee52853ec1",
+  "after_sha256": "6f21d03309ffe72aaba95d9885546d7b76c16d0e2778ae0a2e176b05f61eed15",
+  "reference": "v4.0/src/DOS/macro2.asm",
+  "reference_sha256": "f3752b30dbed059a4538eac14d77242c33ff59864f16b8f5957572027e80f003",
+  "before": "\tinvoke  CheckThisDevice         ; snoop for device",
+  "after": "\tInvoke\tCheckThisDevice \t; snoop for device",
+  "scope": "Align equivalent direct call exactly with DOS 4/OpenNT formatting; preserve target-required direct call rather than later DOS 6 CD-ROM workaround."
+}

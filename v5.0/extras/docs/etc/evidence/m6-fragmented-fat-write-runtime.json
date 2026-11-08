@@ -1,0 +1,24 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\fragwrite-vm-se0sh_vu",
+  "image_before_sha256": "18ee599457131a59e5304446790c90691baf3ff548985cd74872e6395fc8d9d1",
+  "image_after_sha256": "a81f769fa4cea780c5f966dd6a8e8ef421e41b894bc6a5f127d692dd703c0eef",
+  "guest_source_sha256": "ef809a64d64a69bc78c1485967d5a20b48849f87e632355b5f69da7019871776",
+  "guest_probe_sha256": "ea62fb1c3e95e0eb136c52f711d198e16d033e1a07d04326e8634fb4a2d05d29",
+  "headless_probe_sha256": "b5b718d3f27e09242ae859b48756d80b83ba1d56843f7234962e7b3f17aa7aaa",
+  "log_sha256": "b3a2208e8db2d77021b77154bd9a5ba7e02972488669790be39601dccb9d5315",
+  "fat_chain": [
+    453,
+    600,
+    455,
+    700
+  ],
+  "fat_copies_equal": true,
+  "system_files": {
+    "IO.SYS": "dd0915ed366b3f640284df4be30ed35f413dfd5b6966c1f25eee9598a5bf53e0",
+    "MSDOS.SYS": "4e41ca4e5893d4cf293f81ad01adbdbd12f7039534f59148214a9cca309529a2",
+    "COMMAND.COM": "74ad25067e7d9f5c3a0ac2f2967347defb0ffef9e6ed60b60e6499f0b1a8cc89"
+  },
+  "results": "FRAGWRITE-PASS; PROBE-PASS",
+  "passed": true,
+  "scope": "Existing source-built binaries on one disposable FAT12 floppy, using headless SoftPC core; one cross-cluster write followed by close and reopen. Not supplied product, fresh build, original image, or comprehensive FAT verification."
+}

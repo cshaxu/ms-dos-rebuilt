@@ -1,0 +1,699 @@
+{
+  "module": "disk2-full",
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\physical-sft-probe-gaif7wrl",
+  "candidate_proof_sha256": "27c9af106ab66ae8aba7e046a3d3399e1b4f9be700144e2d105ffc130ccb302d",
+  "link_report_sha256": "1bbdfe1c5717a66605a3aef82166c9d11164f5e85d841c1f70d29448a8b796da",
+  "linked_start": 28288,
+  "public_anchors": [
+    {
+      "symbol": "dwrite",
+      "object_offset": 16,
+      "linked_offset": 28304
+    },
+    {
+      "symbol": "setsft",
+      "object_offset": 553,
+      "linked_offset": 28841
+    },
+    {
+      "symbol": "dskread",
+      "object_offset": 0,
+      "linked_offset": 28288
+    },
+    {
+      "symbol": "setclus",
+      "object_offset": 557,
+      "linked_offset": 28845
+    },
+    {
+      "symbol": "read_lock_violation",
+      "object_offset": 294,
+      "linked_offset": 28582
+    },
+    {
+      "symbol": "diskread",
+      "object_offset": 339,
+      "linked_offset": 28627
+    },
+    {
+      "symbol": "dskwrite",
+      "object_offset": 41,
+      "linked_offset": 28329
+    },
+    {
+      "symbol": "set_acc_err_ds",
+      "object_offset": 405,
+      "linked_offset": 28693
+    },
+    {
+      "symbol": "breakdown",
+      "object_offset": 252,
+      "linked_offset": 28540
+    },
+    {
+      "symbol": "write_lock_violation",
+      "object_offset": 332,
+      "linked_offset": 28620
+    },
+    {
+      "symbol": "harderrrw",
+      "object_offset": 88,
+      "linked_offset": 28376
+    },
+    {
+      "symbol": "setup",
+      "object_offset": 114,
+      "linked_offset": 28402
+    },
+    {
+      "symbol": "set_acc_err",
+      "object_offset": 407,
+      "linked_offset": 28695
+    },
+    {
+      "symbol": "addrec",
+      "object_offset": 586,
+      "linked_offset": 28874
+    },
+    {
+      "symbol": "dskrdbufscan",
+      "object_offset": 599,
+      "linked_offset": 28887
+    }
+  ],
+  "bytes": 737,
+  "named_fixups": [
+    {
+      "offset": 12,
+      "symbol": "SETREAD",
+      "relative": true,
+      "target_symbol": 34350,
+      "linked_symbol": 31487
+    },
+    {
+      "offset": 17,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 30341,
+      "linked_symbol": 28288
+    },
+    {
+      "offset": 24,
+      "symbol": "ReadOp",
+      "relative": false,
+      "target_symbol": 1397,
+      "linked_symbol": 1397
+    },
+    {
+      "offset": 28,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 30341,
+      "linked_symbol": 28288
+    },
+    {
+      "offset": 53,
+      "symbol": "SETWRITE",
+      "relative": true,
+      "target_symbol": 34401,
+      "linked_symbol": 31538
+    },
+    {
+      "offset": 64,
+      "symbol": "DEVIOCALL2",
+      "relative": true,
+      "target_symbol": 34226,
+      "linked_symbol": 31363
+    },
+    {
+      "offset": 73,
+      "symbol": "CALLSCNT",
+      "relative": false,
+      "target_symbol": 876,
+      "linked_symbol": 876
+    },
+    {
+      "offset": 82,
+      "symbol": "DEVCALL",
+      "relative": false,
+      "target_symbol": 858,
+      "linked_symbol": 858
+    },
+    {
+      "offset": 95,
+      "symbol": "CALLVIDRW",
+      "relative": false,
+      "target_symbol": 880,
+      "linked_symbol": 880
+    },
+    {
+      "offset": 99,
+      "symbol": "EXTERRPT",
+      "relative": false,
+      "target_symbol": 808,
+      "linked_symbol": 808
+    },
+    {
+      "offset": 103,
+      "symbol": "CALLVIDRW",
+      "relative": false,
+      "target_symbol": 880,
+      "linked_symbol": 880
+    },
+    {
+      "offset": 107,
+      "symbol": "EXTERRPT",
+      "relative": false,
+      "target_symbol": 808,
+      "linked_symbol": 808
+    },
+    {
+      "offset": 111,
+      "symbol": "HARDERR",
+      "relative": true,
+      "target_symbol": 37498,
+      "linked_symbol": 34618
+    },
+    {
+      "offset": 121,
+      "symbol": "ThisDPB",
+      "relative": false,
+      "target_symbol": 1418,
+      "linked_symbol": 1418
+    },
+    {
+      "offset": 127,
+      "symbol": "ThisDPB",
+      "relative": false,
+      "target_symbol": 1418,
+      "linked_symbol": 1418
+    },
+    {
+      "offset": 131,
+      "symbol": "DMAADD",
+      "relative": false,
+      "target_symbol": 812,
+      "linked_symbol": 812
+    },
+    {
+      "offset": 135,
+      "symbol": "NEXTADD",
+      "relative": false,
+      "target_symbol": 1464,
+      "linked_symbol": 1464
+    },
+    {
+      "offset": 139,
+      "symbol": "Trans",
+      "relative": false,
+      "target_symbol": 1396,
+      "linked_symbol": 1396
+    },
+    {
+      "offset": 152,
+      "symbol": "BytPos",
+      "relative": false,
+      "target_symbol": 1486,
+      "linked_symbol": 1486
+    },
+    {
+      "offset": 155,
+      "symbol": "BytPos",
+      "relative": false,
+      "target_symbol": 1486,
+      "linked_symbol": 1486
+    },
+    {
+      "offset": 168,
+      "symbol": "ThisDPB",
+      "relative": false,
+      "target_symbol": 1418,
+      "linked_symbol": 1418
+    },
+    {
+      "offset": 176,
+      "symbol": "ThisDrv",
+      "relative": false,
+      "target_symbol": 1398,
+      "linked_symbol": 1398
+    },
+    {
+      "offset": 184,
+      "symbol": "DIV32",
+      "relative": true,
+      "target_symbol": 31834,
+      "linked_symbol": 43921
+    },
+    {
+      "offset": 188,
+      "symbol": "BytSecPos",
+      "relative": false,
+      "target_symbol": 1484,
+      "linked_symbol": 1484
+    },
+    {
+      "offset": 191,
+      "symbol": "SecPos",
+      "relative": false,
+      "target_symbol": 1476,
+      "linked_symbol": 1476
+    },
+    {
+      "offset": 195,
+      "symbol": "SecPos",
+      "relative": false,
+      "target_symbol": 1476,
+      "linked_symbol": 1476
+    },
+    {
+      "offset": 207,
+      "symbol": "SecClusPos",
+      "relative": false,
+      "target_symbol": 1395,
+      "linked_symbol": 1395
+    },
+    {
+      "offset": 210,
+      "symbol": "SHR32",
+      "relative": true,
+      "target_symbol": 31873,
+      "linked_symbol": 43960
+    },
+    {
+      "offset": 222,
+      "symbol": "ClusNum",
+      "relative": false,
+      "target_symbol": 1468,
+      "linked_symbol": 1468
+    },
+    {
+      "offset": 229,
+      "symbol": "DMAADD",
+      "relative": false,
+      "target_symbol": 812,
+      "linked_symbol": 812
+    },
+    {
+      "offset": 234,
+      "symbol": "DMAADD",
+      "relative": false,
+      "target_symbol": 812,
+      "linked_symbol": 812
+    },
+    {
+      "offset": 253,
+      "symbol": "BytSecPos",
+      "relative": false,
+      "target_symbol": 1484,
+      "linked_symbol": 1484
+    },
+    {
+      "offset": 276,
+      "symbol": "BytCnt1",
+      "relative": false,
+      "target_symbol": 1490,
+      "linked_symbol": 1490
+    },
+    {
+      "offset": 287,
+      "symbol": "SecCnt",
+      "relative": false,
+      "target_symbol": 1494,
+      "linked_symbol": 1494
+    },
+    {
+      "offset": 291,
+      "symbol": "BytCnt2",
+      "relative": false,
+      "target_symbol": 1492,
+      "linked_symbol": 1492
+    },
+    {
+      "offset": 296,
+      "symbol": "ReadOp",
+      "relative": false,
+      "target_symbol": 1397,
+      "linked_symbol": 1397
+    },
+    {
+      "offset": 321,
+      "symbol": "LOCK_VIOLATION",
+      "relative": true,
+      "target_symbol": 45813,
+      "linked_symbol": 42009
+    },
+    {
+      "offset": 334,
+      "symbol": "ReadOp",
+      "relative": false,
+      "target_symbol": 1397,
+      "linked_symbol": 1397
+    },
+    {
+      "offset": 349,
+      "symbol": "BytPos",
+      "relative": false,
+      "target_symbol": 1486,
+      "linked_symbol": 1486
+    },
+    {
+      "offset": 353,
+      "symbol": "BytPos",
+      "relative": false,
+      "target_symbol": 1486,
+      "linked_symbol": 1486
+    },
+    {
+      "offset": 370,
+      "symbol": "CHECK_READ_LOCK",
+      "relative": true,
+      "target_symbol": 30317,
+      "linked_symbol": 28264
+    },
+    {
+      "offset": 377,
+      "symbol": "ThisDPB",
+      "relative": false,
+      "target_symbol": 1418,
+      "linked_symbol": 1418
+    },
+    {
+      "offset": 380,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 30341,
+      "linked_symbol": 28288
+    },
+    {
+      "offset": 384,
+      "symbol": "ClusNum",
+      "relative": false,
+      "target_symbol": 1468,
+      "linked_symbol": 1468
+    },
+    {
+      "offset": 387,
+      "symbol": "FNDCLUS",
+      "relative": true,
+      "target_symbol": 35767,
+      "linked_symbol": 38001
+    },
+    {
+      "offset": 398,
+      "symbol": "WRTERR22",
+      "relative": true,
+      "target_symbol": 31290,
+      "linked_symbol": 43377
+    },
+    {
+      "offset": 401,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 30341,
+      "linked_symbol": 28288
+    },
+    {
+      "offset": 416,
+      "symbol": "LastPos",
+      "relative": false,
+      "target_symbol": 1466,
+      "linked_symbol": 1466
+    },
+    {
+      "offset": 420,
+      "symbol": "ClusNum",
+      "relative": false,
+      "target_symbol": 1468,
+      "linked_symbol": 1468
+    },
+    {
+      "offset": 424,
+      "symbol": "BytCnt1",
+      "relative": false,
+      "target_symbol": 1490,
+      "linked_symbol": 1490
+    },
+    {
+      "offset": 430,
+      "symbol": "BUFRD",
+      "relative": true,
+      "target_symbol": 35885,
+      "linked_symbol": 38119
+    },
+    {
+      "offset": 436,
+      "symbol": "SecCnt",
+      "relative": false,
+      "target_symbol": 1494,
+      "linked_symbol": 1494
+    },
+    {
+      "offset": 442,
+      "symbol": "NEXTSEC",
+      "relative": true,
+      "target_symbol": 36042,
+      "linked_symbol": 38276
+    },
+    {
+      "offset": 448,
+      "symbol": "Trans",
+      "relative": false,
+      "target_symbol": 1396,
+      "linked_symbol": 1396
+    },
+    {
+      "offset": 453,
+      "symbol": "SecClusPos",
+      "relative": false,
+      "target_symbol": 1395,
+      "linked_symbol": 1395
+    },
+    {
+      "offset": 457,
+      "symbol": "SecCnt",
+      "relative": false,
+      "target_symbol": 1494,
+      "linked_symbol": 1494
+    },
+    {
+      "offset": 461,
+      "symbol": "ClusNum",
+      "relative": false,
+      "target_symbol": 1468,
+      "linked_symbol": 1468
+    },
+    {
+      "offset": 464,
+      "symbol": "OPTIMIZE",
+      "relative": true,
+      "target_symbol": 36091,
+      "linked_symbol": 38325
+    },
+    {
+      "offset": 473,
+      "symbol": "ALLOWED",
+      "relative": false,
+      "target_symbol": 843,
+      "linked_symbol": 843
+    },
+    {
+      "offset": 478,
+      "symbol": "DMAADD",
+      "relative": false,
+      "target_symbol": 812,
+      "linked_symbol": 812
+    },
+    {
+      "offset": 483,
+      "symbol": "SET_RQ_SC_PARMS",
+      "relative": true,
+      "target_symbol": 39635,
+      "linked_symbol": 33969
+    },
+    {
+      "offset": 486,
+      "symbol": "DREAD",
+      "relative": true,
+      "target_symbol": 30259,
+      "linked_symbol": 28206
+    },
+    {
+      "offset": 493,
+      "symbol": "TEMP_VAR",
+      "relative": false,
+      "target_symbol": 1548,
+      "linked_symbol": 1548
+    },
+    {
+      "offset": 500,
+      "symbol": "TEMP_VAR2",
+      "relative": false,
+      "target_symbol": 1550,
+      "linked_symbol": 1550
+    },
+    {
+      "offset": 503,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 30341,
+      "linked_symbol": 28288
+    },
+    {
+      "offset": 512,
+      "symbol": "IsEOF",
+      "relative": true,
+      "target_symbol": 38046,
+      "linked_symbol": 32380
+    },
+    {
+      "offset": 520,
+      "symbol": "LastPos",
+      "relative": false,
+      "target_symbol": 1466,
+      "linked_symbol": 1466
+    },
+    {
+      "offset": 525,
+      "symbol": "BytCnt2",
+      "relative": false,
+      "target_symbol": 1492,
+      "linked_symbol": 1492
+    },
+    {
+      "offset": 532,
+      "symbol": "BytCnt1",
+      "relative": false,
+      "target_symbol": 1490,
+      "linked_symbol": 1490
+    },
+    {
+      "offset": 535,
+      "symbol": "NEXTSEC",
+      "relative": true,
+      "target_symbol": 36042,
+      "linked_symbol": 38276
+    },
+    {
+      "offset": 541,
+      "symbol": "BytSecPos",
+      "relative": false,
+      "target_symbol": 1484,
+      "linked_symbol": 1484
+    },
+    {
+      "offset": 546,
+      "symbol": "BUFRD",
+      "relative": true,
+      "target_symbol": 35885,
+      "linked_symbol": 38119
+    },
+    {
+      "offset": 551,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 30341,
+      "linked_symbol": 28288
+    },
+    {
+      "offset": 555,
+      "symbol": "THISSFT",
+      "relative": false,
+      "target_symbol": 1438,
+      "linked_symbol": 1438
+    },
+    {
+      "offset": 559,
+      "symbol": "NEXTADD",
+      "relative": false,
+      "target_symbol": 1464,
+      "linked_symbol": 1464
+    },
+    {
+      "offset": 563,
+      "symbol": "DMAADD",
+      "relative": false,
+      "target_symbol": 812,
+      "linked_symbol": 812
+    },
+    {
+      "offset": 573,
+      "symbol": "ClusNum",
+      "relative": false,
+      "target_symbol": 1468,
+      "linked_symbol": 1468
+    },
+    {
+      "offset": 580,
+      "symbol": "LastPos",
+      "relative": false,
+      "target_symbol": 1466,
+      "linked_symbol": 1466
+    },
+    {
+      "offset": 602,
+      "symbol": "DirtyBufferCount",
+      "relative": false,
+      "target_symbol": 113,
+      "linked_symbol": 113
+    },
+    {
+      "offset": 610,
+      "symbol": "HIGH_SECTOR",
+      "relative": false,
+      "target_symbol": 1543,
+      "linked_symbol": 1543
+    },
+    {
+      "offset": 620,
+      "symbol": "GetCurHead",
+      "relative": true,
+      "target_symbol": 39030,
+      "linked_symbol": 33364
+    },
+    {
+      "offset": 627,
+      "symbol": "FIRST_BUFF_ADDR",
+      "relative": false,
+      "target_symbol": 3771,
+      "linked_symbol": 3771
+    },
+    {
+      "offset": 661,
+      "symbol": "FIRST_BUFF_ADDR",
+      "relative": false,
+      "target_symbol": 3771,
+      "linked_symbol": 3771
+    },
+    {
+      "offset": 699,
+      "symbol": "TEMP_VAR",
+      "relative": false,
+      "target_symbol": 1548,
+      "linked_symbol": 1548
+    },
+    {
+      "offset": 706,
+      "symbol": "TEMP_VAR2",
+      "relative": false,
+      "target_symbol": 1550,
+      "linked_symbol": 1550
+    },
+    {
+      "offset": 725,
+      "symbol": "ScanPlace",
+      "relative": true,
+      "target_symbol": 39048,
+      "linked_symbol": 33382
+    },
+    {
+      "offset": 730,
+      "symbol": "FIRST_BUFF_ADDR",
+      "relative": false,
+      "target_symbol": 3771,
+      "linked_symbol": 3771
+    }
+  ],
+  "remaining_differences": [],
+  "correspondence": true,
+  "scope": "Complete linked MZ module, only candidate OMF named relocations adjusted; physical data placement can differ. Not runtime or whole-kernel identity."
+}

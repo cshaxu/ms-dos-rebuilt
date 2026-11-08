@@ -1,0 +1,39 @@
+{
+  "index": 101,
+  "file": "dos/mstable.asm",
+  "reviewed_sha256": "57030bd35b2f3a0b46bbaac7785778497676937d1de27a6ab0e065a87d67f96f",
+  "decision": "retain_round2",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\mstable.asm",
+      "sha256": "a21d8332e3ae890095231455fe281a02e7d3330b4d7f3422164bdd382b5b6949"
+    },
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\inc\\mstable.asm",
+      "sha256": "050306a1539c363ab87c9964b4b45f8fb530b3493bcac85707476145d82b734b"
+    },
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\INC\\MSTABLE.ASM",
+      "sha256": "8548fc822cd1d4a10f82d3c527ebf74b29ef7358ce4cb952d4033a1cc2053b2f"
+    },
+    {
+      "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\dos\\mstable.asm",
+      "sha256": "58aeaa1cb208ea1a661f13df7124e964e8030cb52ba5a20ca295c2bb39c59a65"
+    },
+    {
+      "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\mstable.asm",
+      "sha256": "dcb97a65eec51268628473257eb830c5d65c7381110e346158b544211669289d"
+    }
+  ],
+  "reason": [
+    "DOS 6 adds interrupt 21h function 6F ROM_EXCLUDE under ROMEXEC. Its implementation exists in DOS 6 romfind.asm, not in the current DOS source tree; restoring only the table slot would introduce an unresolved optional-configuration dependency and an unproven DOS 5 interface.",
+    "OpenNT DOS table uses NO_OP stubs for multiple functions and includes NT-specific commentary; other same-name include files are wrappers rather than the complete table."
+  ],
+  "dos6_rom_implementation": {
+    "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\romfind.asm",
+    "sha256": "f334bb028ed5ab0ae924865ce21be8b98c43ea2ab59d8624ff5bb51b99d4fb51"
+  },
+  "change": "No source change.",
+  "verification": "Latest integrated-source-nc6nm5xl matches all three retained targets; current lexical scan has no hits.",
+  "limitations": "Default build has ROMEXEC disabled; DOS 5 ROM-specific interface history and optional ROM builds remain unverified."
+}

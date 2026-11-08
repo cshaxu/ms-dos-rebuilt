@@ -1,0 +1,28 @@
+{
+  "target_source": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\target-kernel-inspect.bin",
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\physical-sft-probe-gaif7wrl",
+  "source_sha256": "9226d59fa3d835ce5f47bb74cb7412de2dba830a20a7141e44b4b80020fe80f5",
+  "nt_reference_sha256": "fde4eaf4e16d3461f80fc62b53b62a5d7912c4f008f6f490546be5b8337f5f1a",
+  "dos6_reference_sha256": "a0783d6f103220cbc6eff5ae371fbc9316e53b1e99ff74e4afc418496d4012f8",
+  "link_report_sha256": "1bbdfe1c5717a66605a3aef82166c9d11164f5e85d841c1f70d29448a8b796da",
+  "range": [
+    4234,
+    4650
+  ],
+  "raw_bytes": 416,
+  "anchors": {
+    "ldivov": 4234,
+    "lirett": 4314,
+    "disa20_xfer": 4373,
+    "disa20_iret": 4397,
+    "oldinstancejunk": 4583,
+    "doshashma": 4625,
+    "fixexepatch": 4626,
+    "mark3": 4650
+  },
+  "candidate_sha256": "33aa6736df6ee098c28e2d2c269bd3089d4a08e401b9f8bd81bab122f487ea3b",
+  "target_sha256": "33aa6736df6ee098c28e2d2c269bd3089d4a08e401b9f8bd81bab122f487ea3b",
+  "differences": [],
+  "raw_exact": true,
+  "scope": "Actual linked low-memory interrupt/A20 stubs, Windows 2.x instance table, HMA flag, patch slots and reserve through Mark3. No relocation masking. DOSINTTABLE code pointers before this range and NT tail after it are excluded; no runtime acceptance."
+}

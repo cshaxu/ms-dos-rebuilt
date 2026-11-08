@@ -1,0 +1,376 @@
+{
+  "module": "misc-full",
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\physical-sft-probe-gaif7wrl",
+  "candidate_proof_sha256": "36d69a3c663144a0dd3efa9ecc168f6f1292f3c24e402c0d1e67f9ff777a13f6",
+  "link_report_sha256": "1bbdfe1c5717a66605a3aef82166c9d11164f5e85d841c1f70d29448a8b796da",
+  "linked_start": 19872,
+  "public_anchors": [
+    {
+      "symbol": "setmem",
+      "object_offset": 523,
+      "linked_offset": 20395
+    },
+    {
+      "symbol": "$get_in_vars",
+      "object_offset": 56,
+      "linked_offset": 19928
+    },
+    {
+      "symbol": "$sleazefuncdl",
+      "object_offset": 2,
+      "linked_offset": 19874
+    },
+    {
+      "symbol": "$setdpb",
+      "object_offset": 169,
+      "linked_offset": 20041
+    },
+    {
+      "symbol": "$get_dpb",
+      "object_offset": 70,
+      "linked_offset": 19942
+    },
+    {
+      "symbol": "$dup_pdb",
+      "object_offset": 369,
+      "linked_offset": 20241
+    },
+    {
+      "symbol": "$create_process_data_block",
+      "object_offset": 386,
+      "linked_offset": 20258
+    },
+    {
+      "symbol": "$get_indos_flag",
+      "object_offset": 44,
+      "linked_offset": 19916
+    },
+    {
+      "symbol": "$get_default_dpb",
+      "object_offset": 68,
+      "linked_offset": 19940
+    },
+    {
+      "symbol": "$sleazefunc",
+      "object_offset": 0,
+      "linked_offset": 19872
+    },
+    {
+      "symbol": "$disk_reset",
+      "object_offset": 116,
+      "linked_offset": 19988
+    },
+    {
+      "symbol": "$gsetmediaid",
+      "object_offset": 650,
+      "linked_offset": 20522
+    }
+  ],
+  "bytes": 675,
+  "named_fixups": [
+    {
+      "offset": 7,
+      "symbol": "GETTHISDRV",
+      "relative": true,
+      "target_symbol": 43612,
+      "linked_symbol": 39808
+    },
+    {
+      "offset": 12,
+      "symbol": "DISK_INFO",
+      "relative": true,
+      "target_symbol": 27585,
+      "linked_symbol": 43068
+    },
+    {
+      "offset": 18,
+      "symbol": "FATBYTE",
+      "relative": false,
+      "target_symbol": 1432,
+      "linked_symbol": 1432
+    },
+    {
+      "offset": 21,
+      "symbol": "FATBYTE",
+      "relative": false,
+      "target_symbol": 1432,
+      "linked_symbol": 1432
+    },
+    {
+      "offset": 26,
+      "symbol": "get_user_stack",
+      "relative": true,
+      "target_symbol": 17013,
+      "linked_symbol": 17013
+    },
+    {
+      "offset": 42,
+      "symbol": "FCB_Ret_ERR",
+      "relative": true,
+      "target_symbol": 17411,
+      "linked_symbol": 17411
+    },
+    {
+      "offset": 45,
+      "symbol": "get_user_stack",
+      "relative": true,
+      "target_symbol": 17013,
+      "linked_symbol": 17013
+    },
+    {
+      "offset": 50,
+      "symbol": "INDOS",
+      "relative": false,
+      "target_symbol": 801,
+      "linked_symbol": 801
+    },
+    {
+      "offset": 57,
+      "symbol": "get_user_stack",
+      "relative": true,
+      "target_symbol": 17013,
+      "linked_symbol": 17013
+    },
+    {
+      "offset": 62,
+      "symbol": "SYSINITVAR",
+      "relative": false,
+      "target_symbol": 38,
+      "linked_symbol": 38
+    },
+    {
+      "offset": 75,
+      "symbol": "GETTHISDRV",
+      "relative": true,
+      "target_symbol": 43612,
+      "linked_symbol": 39808
+    },
+    {
+      "offset": 81,
+      "symbol": "THISCDS",
+      "relative": false,
+      "target_symbol": 1442,
+      "linked_symbol": 1442
+    },
+    {
+      "offset": 91,
+      "symbol": "EcritDisk",
+      "relative": true,
+      "target_symbol": 20774,
+      "linked_symbol": 19744
+    },
+    {
+      "offset": 94,
+      "symbol": "FATRead_CDS",
+      "relative": true,
+      "target_symbol": 38505,
+      "linked_symbol": 32839
+    },
+    {
+      "offset": 97,
+      "symbol": "LcritDisk",
+      "relative": true,
+      "target_symbol": 20806,
+      "linked_symbol": 19776
+    },
+    {
+      "offset": 102,
+      "symbol": "get_user_stack",
+      "relative": true,
+      "target_symbol": 17013,
+      "linked_symbol": 17013
+    },
+    {
+      "offset": 121,
+      "symbol": "EcritDisk",
+      "relative": true,
+      "target_symbol": 20774,
+      "linked_symbol": 19744
+    },
+    {
+      "offset": 125,
+      "symbol": "DOS34_FLAG",
+      "relative": false,
+      "target_symbol": 1553,
+      "linked_symbol": 1553
+    },
+    {
+      "offset": 129,
+      "symbol": "FLUSHBUF",
+      "relative": true,
+      "target_symbol": 39386,
+      "linked_symbol": 33720
+    },
+    {
+      "offset": 133,
+      "symbol": "DOS34_FLAG",
+      "relative": false,
+      "target_symbol": 1553,
+      "linked_symbol": 1553
+    },
+    {
+      "offset": 138,
+      "symbol": "SC_STATUS",
+      "relative": false,
+      "target_symbol": 3509,
+      "linked_symbol": 3509
+    },
+    {
+      "offset": 147,
+      "symbol": "LASTBUFFER",
+      "relative": false,
+      "target_symbol": 30,
+      "linked_symbol": 30
+    },
+    {
+      "offset": 151,
+      "symbol": "LASTBUFFER",
+      "relative": false,
+      "target_symbol": 30,
+      "linked_symbol": 30
+    },
+    {
+      "offset": 154,
+      "symbol": "LcritDisk",
+      "relative": true,
+      "target_symbol": 20806,
+      "linked_symbol": 19776
+    },
+    {
+      "offset": 343,
+      "symbol": "DOSCODE",
+      "relative": false,
+      "target_symbol": 19744,
+      "linked_symbol": 19872
+    },
+    {
+      "offset": 372,
+      "symbol": "DosDseg",
+      "relative": false,
+      "target_symbol": 15831,
+      "linked_symbol": 15831
+    },
+    {
+      "offset": 376,
+      "symbol": "CreatePDB",
+      "relative": false,
+      "target_symbol": 936,
+      "linked_symbol": 936
+    },
+    {
+      "offset": 381,
+      "symbol": "CurrentPDB",
+      "relative": false,
+      "target_symbol": 816,
+      "linked_symbol": 816
+    },
+    {
+      "offset": 387,
+      "symbol": "get_user_stack",
+      "relative": true,
+      "target_symbol": 17013,
+      "linked_symbol": 17013
+    },
+    {
+      "offset": 424,
+      "symbol": "DosDseg",
+      "relative": false,
+      "target_symbol": 15831,
+      "linked_symbol": 15831
+    },
+    {
+      "offset": 428,
+      "symbol": "CreatePDB",
+      "relative": false,
+      "target_symbol": 936,
+      "linked_symbol": 936
+    },
+    {
+      "offset": 436,
+      "symbol": "DosDseg",
+      "relative": false,
+      "target_symbol": 15831,
+      "linked_symbol": 15831
+    },
+    {
+      "offset": 445,
+      "symbol": "SFFromHandle",
+      "relative": true,
+      "target_symbol": 42538,
+      "linked_symbol": 38734
+    },
+    {
+      "offset": 472,
+      "symbol": "THISSFT",
+      "relative": false,
+      "target_symbol": 1438,
+      "linked_symbol": 1438
+    },
+    {
+      "offset": 476,
+      "symbol": "THISSFT",
+      "relative": false,
+      "target_symbol": 1438,
+      "linked_symbol": 1438
+    },
+    {
+      "offset": 479,
+      "symbol": "DOS_DUP",
+      "relative": true,
+      "target_symbol": 26890,
+      "linked_symbol": 26578
+    },
+    {
+      "offset": 482,
+      "symbol": "pJFNFromHandle",
+      "relative": true,
+      "target_symbol": 42509,
+      "linked_symbol": 38705
+    },
+    {
+      "offset": 497,
+      "symbol": "CurrentPDB",
+      "relative": false,
+      "target_symbol": 816,
+      "linked_symbol": 816
+    },
+    {
+      "offset": 506,
+      "symbol": "CurrentPDB",
+      "relative": false,
+      "target_symbol": 816,
+      "linked_symbol": 816
+    },
+    {
+      "offset": 514,
+      "symbol": "DosDseg",
+      "relative": false,
+      "target_symbol": 15831,
+      "linked_symbol": 15831
+    },
+    {
+      "offset": 518,
+      "symbol": "CreatePDB",
+      "relative": false,
+      "target_symbol": 936,
+      "linked_symbol": 936
+    },
+    {
+      "offset": 667,
+      "symbol": "$IOCTL",
+      "relative": true,
+      "target_symbol": 24878,
+      "linked_symbol": 25879
+    },
+    {
+      "offset": 673,
+      "symbol": "SYS_RET_ERR",
+      "relative": true,
+      "target_symbol": 17389,
+      "linked_symbol": 17389
+    }
+  ],
+  "remaining_differences": [],
+  "correspondence": true,
+  "scope": "Complete linked MZ module, only candidate OMF named relocations adjusted; physical data placement can differ. Not runtime or whole-kernel identity."
+}

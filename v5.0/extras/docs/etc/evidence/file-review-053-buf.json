@@ -1,0 +1,47 @@
+{
+  "index": 53,
+  "file": "dos/buf.asm",
+  "reviewed_sha256": "d109d0ff67a8a65fd25d9fd40b2ad1805afae78fe82131ed854bd66ed29ff9de",
+  "status": "reviewed",
+  "role": "Buffer lookup, sector I/O, HMA scratch buffer copy and buffer maintenance.",
+  "references": {
+    "opennt": {
+      "status": "missing"
+    },
+    "dos6": {
+      "status": "different",
+      "sha256": "b162899aabcec71289e34b82326457544fd0e794fd20ee97a2f063ce1542ba21",
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\buf.asm"
+    },
+    "dos4": {
+      "status": "different",
+      "sha256": "a556986bdd62dd602e6f5e100ad4458986470eb58e9c46aa5683762fa3594b0d",
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\buf.asm"
+    }
+  },
+  "review": {
+    "code_lines": 340,
+    "reference_passage_covered": 337,
+    "uncovered_lines": [
+      362,
+      372,
+      375
+    ],
+    "dispositions": {
+      "362": "POPF occurs in DOS 6 and DOS 4; target order differs from DOS 6.",
+      "372,375": "Local jump and label preserve target-specific flag-handling and stack layout; target bytes checked."
+    },
+    "nt_bop_screen": "No lexical indicators in full file, including comments and conditional code.",
+    "change": "file-review-053-buf-source-change.json",
+    "hma_carry_analysis": "Non-HMA: POPF restores read carry immediately before register pops and JC. HMA: POPF restores read carry, then SHR CX,1 replaces CF with the low bit of DPB_SECTOR_SIZE; subsequent MOV, POP, CLD, MOVSW and JMP preserve CF before JC. DOS 6 restores saved read flags after SHR. Thus the target-matching source has different carry behavior on this branch. Reachability and runtime effects are not established."
+  },
+  "verification": {
+    "stage": "build\\integrated-source-m1_2507r",
+    "target_file_offset": 23453,
+    "target_instruction_bytes": "9c36803e79000074129d268b4e02d1e98bf35f07fcf3a5061feb019d075a5f5e7248",
+    "objects_unchanged": 104,
+    "all_three_targets_byte_equal": true,
+    "limits": "Static machine-code and control-flow review only; no runtime branch or historical source identity claim."
+  },
+  "disposition": "Comments corrected to describe flags; instructions retained to preserve exact target bytes."
+}

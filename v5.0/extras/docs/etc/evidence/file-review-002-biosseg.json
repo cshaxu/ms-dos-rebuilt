@@ -1,0 +1,52 @@
+{
+  "index": 2,
+  "file": "bios/biosseg.inc",
+  "reviewed_sha256": "d81bdc2ca6e1638c581e21afb6d4aaa59e5ba65fc02bb15df2d9c22208e5d335",
+  "status": "reviewed",
+  "role": "BIOS data group and ordered segment declarations; ROMDOS selects alternate order.",
+  "consumers": [
+    "bios/msbio1.asm",
+    "bios/msbio2.asm",
+    "bios/mschar.asm",
+    "bios/msdioctl.asm",
+    "bios/msdisk.asm",
+    "bios/msinit.asm",
+    "bios/msint13.asm",
+    "bios/power.asm",
+    "bios/ptime.asm",
+    "bios/sysconf.asm",
+    "bios/sysimes.asm",
+    "bios/sysinit1.asm",
+    "bios/sysinit2.asm"
+  ],
+  "references": {
+    "dos6": {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\biosseg.inc",
+      "sha256": "d81bdc2ca6e1638c581e21afb6d4aaa59e5ba65fc02bb15df2d9c22208e5d335",
+      "byte_identical": true
+    },
+    "opennt": {
+      "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\bios\\biosseg.inc",
+      "sha256": "c124dcc40fd138cae400f993f5730337ee7e23fb50a20e097b09382694f6fc91",
+      "differences": "OpenNT adds SoftPC keyboard, mouse, and EMM segments and a sysinit group; current follows DOS 6 segment structure and retains ROMDOS conditional."
+    },
+    "dos4": "No BIOSSEG.INC or BIOSSEG.ASM found by name in v4.0 tree."
+  },
+  "content_review": "Inspected full source, names, segment classes, alignment and group. No NT BOP, SoftPC service or host-only segment remains. No source edit warranted.",
+  "verification": {
+    "stage": "build\\integrated-source-3qm3v2jp",
+    "stage_input_sha256": "d81bdc2ca6e1638c581e21afb6d4aaa59e5ba65fc02bb15df2d9c22208e5d335",
+    "non_romdos_map_segments": [
+      "00000H 008FFH 00900H BIOS_DATA              BIOS_DATA",
+      "00900H 0256BH 01C6CH BIOS_DATA_INIT         BIOS_DATA_INIT",
+      "02570H 02570H 00000H FILLER                 FILLER",
+      "02570H 03FCFH 01A60H BIOS_CODE              BIOS_CODE",
+      "03FD0H 03FD0H 00000H FILLER2                FILLER2",
+      "03FD0H 07CEFH 03D20H SYSINITSEG             SYSTEM_INIT"
+    ],
+    "all_three_targets_byte_equal": true,
+    "source_identity_audit": "tools/audit_style_cleanup.py passed",
+    "limits": "ROMDOS alternate configuration is present but not compiled or validated by this target build. Reference identity does not establish exact DOS 5 source text."
+  },
+  "disposition": "Retained unchanged; ordered file review complete."
+}

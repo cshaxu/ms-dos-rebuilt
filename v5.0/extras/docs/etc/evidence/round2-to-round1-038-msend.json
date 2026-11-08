@@ -1,0 +1,83 @@
+{
+  "index": 38,
+  "file": "bios/msend.asm",
+  "before_sha256": "bae3ad30776f8ee34d07a95af38fa913dd35493987aa8e7e958e6ba54d00f25a",
+  "after_sha256": "ceb3f2072658c8dc153e2274c42b75d8578426ebe84078779209ba62bce00e34",
+  "decision": "converted_round1",
+  "reference": {
+    "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\msend.asm",
+    "sha256": "ceb3f2072658c8dc153e2274c42b75d8578426ebe84078779209ba62bce00e34",
+    "byte_identical": true
+  },
+  "change": "Added DOS 6 Microsoft copyright comment and removed CRLF following the DOS EOF marker; no code changes.",
+  "excluded_reference": "OpenNT version includes NT DOSEm port history and SoftPC-specific keyboard, mouse and EMM segments.",
+  "previous_automatic_evidence": {
+    "index": 38,
+    "file": "bios/msend.asm",
+    "sha256": "bae3ad30776f8ee34d07a95af38fa913dd35493987aa8e7e958e6ba54d00f25a",
+    "round": 2,
+    "code_lines": 19,
+    "passages": [
+      {
+        "source_line_start": 1,
+        "source_line_end": 1,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\msend.asm",
+        "reference_sha256": "ceb3f2072658c8dc153e2274c42b75d8578426ebe84078779209ba62bce00e34",
+        "reference_line_start": 6,
+        "reference_line_end": 6
+      },
+      {
+        "source_line_start": 10,
+        "source_line_end": 14,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\msend.asm",
+        "reference_sha256": "ceb3f2072658c8dc153e2274c42b75d8578426ebe84078779209ba62bce00e34",
+        "reference_line_start": 15,
+        "reference_line_end": 19
+      },
+      {
+        "source_line_start": 16,
+        "source_line_end": 20,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\msend.asm",
+        "reference_sha256": "ceb3f2072658c8dc153e2274c42b75d8578426ebe84078779209ba62bce00e34",
+        "reference_line_start": 21,
+        "reference_line_end": 25
+      },
+      {
+        "source_line_start": 22,
+        "source_line_end": 26,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\msend.asm",
+        "reference_sha256": "ceb3f2072658c8dc153e2274c42b75d8578426ebe84078779209ba62bce00e34",
+        "reference_line_start": 27,
+        "reference_line_end": 31
+      },
+      {
+        "source_line_start": 28,
+        "source_line_end": 29,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\msend.asm",
+        "reference_sha256": "ceb3f2072658c8dc153e2274c42b75d8578426ebe84078779209ba62bce00e34",
+        "reference_line_start": 33,
+        "reference_line_end": 34
+      },
+      {
+        "source_line_start": 31,
+        "source_line_end": 31,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\msend.asm",
+        "reference_sha256": "ceb3f2072658c8dc153e2274c42b75d8578426ebe84078779209ba62bce00e34",
+        "reference_line_start": 36,
+        "reference_line_end": 36
+      }
+    ]
+  },
+  "verification": {
+    "stage": "build/integrated-source-y4jsf_6e",
+    "targets_equal": true,
+    "nt_bop_lexical_hits": 0
+  },
+  "limitations": "Byte identity with DOS 6 does not prove historical DOS 5 source identity."
+}

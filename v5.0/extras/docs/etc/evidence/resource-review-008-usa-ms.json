@@ -1,0 +1,19 @@
+{
+  "index": 8,
+  "file": "messages/usa-ms.msg",
+  "sha256": "95ceffb90e39d116bd1ec5bfe8ce1536797c619342ca8ce61743025364660006",
+  "reference": {
+    "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\messages\\usa-ms.msg",
+    "sha256": "c20f76c518d8248f5a9fe47259e80c9ce95f15fff6b86bad1a4d03f65161b037"
+  },
+  "decision": "retain DOS 5 version message",
+  "difference": "The only byte difference is removal of the OpenNT .500 suffix from message 1040.",
+  "checks": [
+    "COMMAND build source snapshot records current source hash.",
+    "BUILDIDX working message matches the recorded working-message hash.",
+    "Resulting COMMAND.COM equals retained target and contains the version-message text."
+  ],
+  "build_stage": "build\\integrated-source-o1gc1cvu",
+  "limitations": "Full output equality does not establish which bytes of this broad source are used in every optional configuration.",
+  "change": "No source change."
+}

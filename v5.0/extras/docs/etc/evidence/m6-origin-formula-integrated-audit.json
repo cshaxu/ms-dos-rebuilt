@@ -1,0 +1,48 @@
+{
+  "previous_stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\integrated-source-wmrq7msr",
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\integrated-source-w2epwjzh",
+  "source_audit": "m6-origin-formula-source-audit.json",
+  "reference_getsize": {
+    "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\c6ers\\tools6\\bin\\getsize.c",
+    "sha256": "c23dc5c340f3ba0691cd7fde31d4e635a0241f6277cbaf2ef214ba3986cebf2f"
+  },
+  "maps": {
+    "bios_sha256": "b38c610e66aa7d5af837bdd2b27f8b5de69ae3fbad822f9c730215c12540d1d3",
+    "kernel_sha256": "922727b4124a40b326fe9f0848d8cf057aa82d923e352ec4e199b8b8f0c4ad1c"
+  },
+  "origin_listing_sha256": "df35daf2ab1cf2e3f9d4d2ee10d47f8b38173f94fc9ed8f73b29c4ff7abede2d",
+  "segment_sizes": {
+    "BIODATASIZ": 2304,
+    "BIOCODESIZ": 6752,
+    "DOSDATASIZ": 4962
+  },
+  "parastart_hex": "3DD0",
+  "integrated_script_sha256": "1051737e42487fd90f84720127cd0c05f26ee415bb817ceb313aa9b9c61a3fe2",
+  "unchanged_objects": {
+    "bios": 14,
+    "kernel": 55,
+    "command": 34,
+    "msload": 1
+  },
+  "outputs": [
+    {
+      "name": "IO.SYS",
+      "bytes": 33430,
+      "sha256": "dd0915ed366b3f640284df4be30ed35f413dfd5b6966c1f25eee9598a5bf53e0",
+      "byte_equal": true
+    },
+    {
+      "name": "MSDOS.SYS",
+      "bytes": 37394,
+      "sha256": "4e41ca4e5893d4cf293f81ad01adbdbd12f7039534f59148214a9cca309529a2",
+      "byte_equal": true
+    },
+    {
+      "name": "COMMAND.COM",
+      "bytes": 47845,
+      "sha256": "74ad25067e7d9f5c3a0ac2f2967347defb0ffef9e6ed60b60e6499f0b1a8cc89",
+      "byte_equal": true
+    }
+  ],
+  "limitations": "Segment sizes are derived from the current reconstructed maps, not independent proof of original DOS 5 build files. The build checks consistency but does not automatically regenerate bdsize.inc."
+}

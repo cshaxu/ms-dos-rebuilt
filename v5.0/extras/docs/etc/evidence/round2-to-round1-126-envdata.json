@@ -1,0 +1,93 @@
+{
+  "index": 126,
+  "file": "cmd/command/envdata.asm",
+  "before_sha256": "9a22d3abb662b563348a1e010cc52d75295d1c1d250a1ff20669205e73f9f1ea",
+  "after_sha256": "ce90734a4f5eee8f3bb4531945a4ce914f2021c998ee76a41a5220c2861cd70b",
+  "decision": "retain_round2",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\envdata.asm",
+      "sha256": "79fe75fb0ce61dad7f9956b594e2bf8a7480f8559ec96a1ab598bbfe38afc805"
+    },
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\CMD\\COMMAND\\ENVDATA.ASM",
+      "sha256": "6bb9306d7d9140dd637b94c5fabec51171c10ad5e0098afeff1d91fa6e34ee1a"
+    },
+    {
+      "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\envdata.asm",
+      "sha256": "b55150344ebf7726fb563eace884f2550c65b8618b52e47ef9132a78e3e0cb23"
+    }
+  ],
+  "reason": "DOS 6 changes the initial environment, path and prompt and removes ENVIRONSIZ definitions used by current INIT; DOS 4 uses another segment structure; OpenNT differs in a stale include comment.",
+  "change": "Corrected file header to say included by init.asm; wording follows DOS 6. Source code lines unchanged.",
+  "previous_automatic_evidence": {
+    "index": 126,
+    "file": "cmd/command/envdata.asm",
+    "sha256": "9a22d3abb662b563348a1e010cc52d75295d1c1d250a1ff20669205e73f9f1ea",
+    "round": 2,
+    "code_lines": 9,
+    "passages": [
+      {
+        "source_line_start": 11,
+        "source_line_end": 11,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\envdata.asm",
+        "reference_sha256": "79fe75fb0ce61dad7f9956b594e2bf8a7480f8559ec96a1ab598bbfe38afc805",
+        "reference_line_start": 11,
+        "reference_line_end": 11
+      },
+      {
+        "source_line_start": 13,
+        "source_line_end": 13,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\envdata.asm",
+        "reference_sha256": "79fe75fb0ce61dad7f9956b594e2bf8a7480f8559ec96a1ab598bbfe38afc805",
+        "reference_line_start": 13,
+        "reference_line_end": 13
+      },
+      {
+        "source_line_start": 14,
+        "source_line_end": 16,
+        "reference": "opennt",
+        "reference_path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\envdata.asm",
+        "reference_sha256": "b55150344ebf7726fb563eace884f2550c65b8618b52e47ef9132a78e3e0cb23",
+        "reference_line_start": 14,
+        "reference_line_end": 16
+      },
+      {
+        "source_line_start": 17,
+        "source_line_end": 17,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\envdata.asm",
+        "reference_sha256": "79fe75fb0ce61dad7f9956b594e2bf8a7480f8559ec96a1ab598bbfe38afc805",
+        "reference_line_start": 21,
+        "reference_line_end": 21
+      },
+      {
+        "source_line_start": 19,
+        "source_line_end": 19,
+        "reference": "dos6",
+        "reference_path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\envdata.asm",
+        "reference_sha256": "79fe75fb0ce61dad7f9956b594e2bf8a7480f8559ec96a1ab598bbfe38afc805",
+        "reference_line_start": 23,
+        "reference_line_end": 23
+      },
+      {
+        "source_line_start": 21,
+        "source_line_end": 22,
+        "reference": "opennt",
+        "reference_path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\envdata.asm",
+        "reference_sha256": "b55150344ebf7726fb563eace884f2550c65b8618b52e47ef9132a78e3e0cb23",
+        "reference_line_start": 21,
+        "reference_line_end": 22
+      }
+    ]
+  },
+  "verification": {
+    "stage": "build/integrated-source-dcbur83p",
+    "targets_equal": true,
+    "nt_bop_lexical_hits": 0,
+    "covered_code_lines": 9
+  },
+  "limitations": "Target build verifies selected configuration, not historical original source."
+}

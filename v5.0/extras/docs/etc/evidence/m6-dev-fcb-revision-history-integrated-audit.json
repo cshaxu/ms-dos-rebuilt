@@ -1,0 +1,48 @@
+{
+  "previous_stage": "build\\integrated-source-_xw404l3",
+  "stage": "build\\integrated-source-vtgj6004",
+  "source_audit": "m6-dev-fcb-revision-history-source-audit.json",
+  "kernel_source_changes": {
+    "dos\\dev.asm": {
+      "before": "3c81ca91e31fda78273f7bcca93614afdefd74a9bd63f225db58a4ccd059f6ac",
+      "after": "a86e76f3ff315c8667bc6962ff0c55b4f8e9dfe1fc42394a71f3efa272ebb6e7"
+    },
+    "dos\\fcb.asm": {
+      "before": "fae6668f118b7d041ab55eacbd54e94cb42e14e8208e54936f2c4825abcef347",
+      "after": "8d766ace3aab383ea288195b0419bb1d7f05e15f910605203e35000d9f293db2"
+    }
+  },
+  "object_counts": {
+    "msload": 1,
+    "bios": 14,
+    "kernel": 55,
+    "command": 34
+  },
+  "object_changes": {
+    "msload": {},
+    "bios": {},
+    "kernel": {},
+    "command": {}
+  },
+  "files": [
+    {
+      "name": "IO.SYS",
+      "bytes": 33430,
+      "sha256": "dd0915ed366b3f640284df4be30ed35f413dfd5b6966c1f25eee9598a5bf53e0",
+      "byte_equal": true
+    },
+    {
+      "name": "MSDOS.SYS",
+      "bytes": 37394,
+      "sha256": "4e41ca4e5893d4cf293f81ad01adbdbd12f7039534f59148214a9cca309529a2",
+      "byte_equal": true
+    },
+    {
+      "name": "COMMAND.COM",
+      "bytes": 47845,
+      "sha256": "74ad25067e7d9f5c3a0ac2f2967347defb0ffef9e6ed60b60e6499f0b1a8cc89",
+      "byte_equal": true
+    }
+  ],
+  "scope": "Comments restored from comparative source; original DOS 5 text and other configurations not established."
+}

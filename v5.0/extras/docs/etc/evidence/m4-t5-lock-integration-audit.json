@@ -1,0 +1,16 @@
+{
+  "build": "m4-t5-lock-build.json",
+  "previous_build": "m4-t5-openclose-build.json",
+  "changed_production_inputs": [
+    "dos/lock.asm"
+  ],
+  "linked_proof": "m4-t5-lock-linked-verification.json",
+  "init_proof": "m4-t5-lock-segreinit-regression.json",
+  "graph": "m4-t5-storage-closure-audit.json",
+  "unique_target_slice_bytes": 6509,
+  "named_calls": 123,
+  "new_module_bytes": 178,
+  "style_and_provenance": "Complete comparative Microsoft lock module preserves original procedure/register comments; source hash equals pinned DOS 6 comparative lock.asm. It replaces NT-specific handle service and restores disabled local lock helpers.",
+  "reviewed_diff": "--- accepted NT-derived lock.asm\n+++ restored lock.asm\n@@ -15,7 +15,6 @@\n ;\n ;\tRevision history:\n ;\t  A000\t version 4.00\tJan. 1988\n-;\t  SudeepB  07-Aug-1992 Ported for NT\n \n \t.xlist\n \t.xcref\n@@ -25,8 +24,8 @@\n \tINCLUDE DEVSYM.INC\n \tinclude lock.inc\n \tinclude mult.inc\n+\tinclude dpb.inc\n \tinclude sf.inc\n-\tinclude dossvc.inc\n \t.cref\n \t.list\n \n@@ -103,24 +102,62 @@\n \tMOV\tEXTERR_LOCUS,errLoc_Unk        ; Extended Error Locus;smr;SS Override\n \terror\terror_invalid_function\n \n+; Align_buffer call has been deleted, since it corrupts the DTA  (6/5/88) P5013\n+; Dead code deleted, MD, 23 Mar 90\n+\n lock_do:\n-\tmov\tbp,word ptr es:[di.sf_NTHandle]\n-\tmov\tbx,word ptr es:[di.sf_NTHandle+2]\n-\tpop\tdi\n-\n-\tHRDSVC\tSVC_DEMLOCKOPER \t       ; BX:BP = NT handle\n-\t\t\t\t\t       ; cx:dx = offset\n-\t\t\t\t\t       ; si:di = length\n-\t\t\t\t\t       ; al    = lock/unlock\n+\tMOV\tBX,AX\t\t\t\t; save AX\n+\tMOV\tBP, OFFSET DOSDATA:Lock_Buffer\t; get DOS LOCK buffer\n+\tMOV\tWORD PTR [BP.Lock_position],DX\t; set low offset\n+\tMOV\tWORD PTR [BP.Lock_position+2],CX; set high offset\n+\tPOP\tCX\t\t\t\t; get low length\n+\tMOV\tWORD PTR [BP.Lock_length],CX\t; set low length\n+\tMOV\tWORD PTR [BP.Lock_length+2],SI\t; set high length\n+\tMOV\tCX,1\t\t\t\t; one range\n+\n+;;\tPUSH\tCS\t\t\t\t;\n+;;\tPOP\tDS\t\t\t\t; DS:DX points to\n+\n+\tContext\t<ds>\n+\n+\tMOV\tDX,BP\t\t\t\t;   Lock_Buffer\n+\tTEST\tAL,Unlock_all\t\t\t; function 1\n+\tJNZ\tDOS_Unlock\t\t\t; yes\n+\tJMP\tshort DOS_Lock\t\t\t; function 0\n+\n+DOS_Unlock:\n+\tTESTB\tES:[DI].SF_FLAGS,sf_isnet\n+\tJZ\tLOCAL_UNLOCK\n+\n+\tCallInstall Net_Xlock,multNet,10\n+\tJMP\tSHORT ValChk\n+LOCAL_UNLOCK:\n+if installed\n+\tCall\tJShare + 7 * 4\t\t\t\t\t;smr;SS Override\n+else\n+\tCall\tclr_block\t\t\t\t\t;PBUGBUG\n+endif\n+ValChk:\n \tJNC\tLock_OK\n+lockerror:\n \ttransfer SYS_RET_ERR\n Lock_OK:\n-\tMOV\tAX,[Temp_VAR]\t\t       ;AN000;;MS. AX= number of bytes;smr;SS Override\n+\tMOV\tAX,[Temp_VAR]\t\t\t ;AN000;;MS. AX= number of bytes;smr;SS Override\n \ttransfer SYS_Ret_OK\n+DOS_Lock:\n+\tTESTB\tES:[DI].SF_FLAGS,sf_isnet\n+\tJZ\tLOCAL_LOCK\n+\tCallInstall NET_XLock,multNet,10\n+\tJMP\tValChk\n+LOCAL_LOCK:\n+if installed\n+\tCall\tJShare + 6 * 4\t\t\t\t\t;smr;SS Override\n+else\n+\tCall\tSet_Block\t\t\t\t\t;PBUGBUG\n+endif\n+\tJMP\tValChk\n \n EndProc $LockOper\n-\n-if 0\n \n ; Inputs:\n ;\tOutputs of SETUP\n@@ -210,9 +247,7 @@\n \n ENDIF\n \n-endif\n-\n DOSCODE\tENDS\n \tEND\n \u001a\n-\u001a\n+\u001a",
+  "limits": "No executed lock/SHARE runtime proof. close.full.recovery.asm remains comparison-only until physical SFT integration. Whole-file identity remains incomplete."
+}

@@ -1,0 +1,1063 @@
+{
+  "package": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\source-package-candidate-xqfa18hd",
+  "literal_names": 52,
+  "different": [],
+  "unresolved": [
+    "msdos.cl2",
+    "msdos.cl3"
+  ],
+  "dynamic_operands": [
+    {
+      "operand": "&utilname.CTL",
+      "location": "inc/SYSMSG.INC:387"
+    },
+    {
+      "operand": "&ext",
+      "location": "inc/SYSMSG.INC:465"
+    }
+  ],
+  "records": [
+    {
+      "name": "arena.inc",
+      "occurrences": 4,
+      "workspace": {
+        "path": "inc/arena.inc",
+        "sha256": "f9038d0e38e15cd636ec229abb33c3831f7cfd8b0b53c0c96a01b05ed42c5fbd"
+      },
+      "package": {
+        "path": "inc/arena.inc",
+        "sha256": "f9038d0e38e15cd636ec229abb33c3831f7cfd8b0b53c0c96a01b05ed42c5fbd"
+      },
+      "equal": true,
+      "locations": [
+        "cmd/command/loadhi.asm:55",
+        "cmd/command/rucode.asm:33",
+        "cmd/command/tcode.asm:622",
+        "cmd/command/tenv.asm:28"
+      ]
+    },
+    {
+      "name": "bdsize.inc",
+      "occurrences": 2,
+      "workspace": {
+        "path": "inc/bdsize.inc",
+        "sha256": "eaf5420a062d06b200ec7e80192c5c1c7cc8957363f863891b1afaf988d6041d"
+      },
+      "package": {
+        "path": "inc/bdsize.inc",
+        "sha256": "eaf5420a062d06b200ec7e80192c5c1c7cc8957363f863891b1afaf988d6041d"
+      },
+      "equal": true,
+      "locations": [
+        "inc/origin.inc:69",
+        "inc/origin.target.recovery.inc:69"
+      ]
+    },
+    {
+      "name": "bop.inc",
+      "occurrences": 3,
+      "workspace": {
+        "path": "inc/ntvdm/bop.inc",
+        "sha256": "a3705f225c47e53dc4e106c7362366477f2f06c33cb9bf52515ca1299556f669"
+      },
+      "package": {
+        "path": "inc/ntvdm/bop.inc",
+        "sha256": "a3705f225c47e53dc4e106c7362366477f2f06c33cb9bf52515ca1299556f669"
+      },
+      "equal": true,
+      "locations": [
+        "inc/ntvdm/cmdsvc.inc:1",
+        "inc/ntvdm/DBGSVC.INC:1",
+        "inc/ntvdm/dossvc.inc:9"
+      ]
+    },
+    {
+      "name": "bpb.inc",
+      "occurrences": 4,
+      "workspace": {
+        "path": "inc/bpb.inc",
+        "sha256": "43452ad264b7242d892634f19bfcd036f8a2f1c926745466b27039e8c5f960a8"
+      },
+      "package": {
+        "path": "inc/bpb.inc",
+        "sha256": "43452ad264b7242d892634f19bfcd036f8a2f1c926745466b27039e8c5f960a8"
+      },
+      "equal": true,
+      "locations": [
+        "cmd/command/dir.asm:163",
+        "cmd/command/tcmd1b.asm:16",
+        "cmd/command/tcmd2a.asm:26",
+        "cmd/command/tmisc2.asm:20"
+      ]
+    },
+    {
+      "name": "buffer.inc",
+      "occurrences": 1,
+      "workspace": {
+        "path": "inc/buffer.inc",
+        "sha256": "0e6f472f08df268434a3a2bdc34bc807dd856d86eb0d02fee58886245cb0b8a9"
+      },
+      "package": {
+        "path": "inc/buffer.inc",
+        "sha256": "0e6f472f08df268434a3a2bdc34bc807dd856d86eb0d02fee58886245cb0b8a9"
+      },
+      "equal": true,
+      "locations": [
+        "inc/dossym.inc:50"
+      ]
+    },
+    {
+      "name": "cmdsvc.inc",
+      "occurrences": 4,
+      "workspace": {
+        "path": "inc/ntvdm/cmdsvc.inc",
+        "sha256": "7643746ceec383536ca3ea2cfc4400ac94c8c7a34bd266b09258cfcb337441c6"
+      },
+      "package": {
+        "path": "inc/ntvdm/cmdsvc.inc",
+        "sha256": "7643746ceec383536ca3ea2cfc4400ac94c8c7a34bd266b09258cfcb337441c6"
+      },
+      "equal": true,
+      "locations": [
+        "cmd/command/init.asm:61",
+        "cmd/command/rdata.asm:37",
+        "cmd/command/tcmd2b.asm:20",
+        "cmd/command/tcode.asm:27"
+      ]
+    },
+    {
+      "name": "comequ.asm",
+      "occurrences": 31,
+      "workspace": {
+        "path": "cmd/command/comequ.asm",
+        "sha256": "4d745d0276478a66678c0eef32255649c1a1bd14387f50071c6db711972a3dd2"
+      },
+      "package": {
+        "path": "cmd/command/comequ.asm",
+        "sha256": "4d745d0276478a66678c0eef32255649c1a1bd14387f50071c6db711972a3dd2"
+      },
+      "equal": true,
+      "locations": [
+        "cmd/command/command1.asm:360",
+        "cmd/command/command2.asm:30",
+        "cmd/command/copy.asm:63",
+        "cmd/command/copypr1.asm:16",
+        "cmd/command/copypr2.asm:29",
+        "cmd/command/cparse.asm:16",
+        "cmd/command/dir.asm:167",
+        "cmd/command/init.asm:56",
+        "cmd/command/loadhi.asm:52",
+        "cmd/command/parse2.asm:16",
+        "cmd/command/path1.asm:16",
+        "cmd/command/path2.asm:17",
+        "cmd/command/rdata.asm:36",
+        "cmd/command/rucode.asm:31",
+        "cmd/command/tbatch.asm:32",
+        "cmd/command/tbatch2.asm:34",
+        "cmd/command/tcmd1a.asm:31",
+        "cmd/command/tcmd1b.asm:22",
+        "cmd/command/tcmd2a.asm:30",
+        "cmd/command/tcmd2b.asm:19",
+        "cmd/command/tcode.asm:26",
+        "cmd/command/tdata.asm:88",
+        "cmd/command/tenv.asm:30",
+        "cmd/command/tenv2.asm:20",
+        "cmd/command/tfor.asm:22",
+        "cmd/command/tmisc1.asm:30",
+        "cmd/command/tmisc2.asm:23",
+        "cmd/command/tpipe.asm:26",
+        "cmd/command/tprintf.asm:52",
+        "cmd/command/tspc.asm:32",
+        "cmd/command/tucode.asm:18"
+      ]
+    },
+    {
+      "name": "comimsg.inc",
+      "occurrences": 1,
+      "workspace": {
+        "path": "messages/comimsg.inc",
+        "sha256": "84e82d3db774b3a102cc4b901a7b035d05c1848591c00c145ed08ba4eb4b65d1"
+      },
+      "package": {
+        "path": "messages/comimsg.inc",
+        "sha256": "84e82d3db774b3a102cc4b901a7b035d05c1848591c00c145ed08ba4eb4b65d1"
+      },
+      "equal": true,
+      "locations": [
+        "cmd/command/uinit.asm:310"
+      ]
+    },
+    {
+      "name": "comrmsg.inc",
+      "occurrences": 1,
+      "workspace": {
+        "path": "messages/comrmsg.inc",
+        "sha256": "711e8b6e73fcc7c2cb62c47eca75730bc8779a824cc5b9039bfc4692322435e2"
+      },
+      "package": {
+        "path": "messages/comrmsg.inc",
+        "sha256": "711e8b6e73fcc7c2cb62c47eca75730bc8779a824cc5b9039bfc4692322435e2"
+      },
+      "equal": true,
+      "locations": [
+        "cmd/command/rdata.asm:742"
+      ]
+    },
+    {
+      "name": "comseg.asm",
+      "occurrences": 35,
+      "workspace": {
+        "path": "cmd/command/comseg.asm",
+        "sha256": "14ede618cfbcba077bb368574af6a1fc56bb07535980d95d8ba146c9bce9e4e3"
+      },
+      "package": {
+        "path": "cmd/command/comseg.asm",
+        "sha256": "14ede618cfbcba077bb368574af6a1fc56bb07535980d95d8ba146c9bce9e4e3"
+      },
+      "equal": true,
+      "locations": [
+        "cmd/command/command1.asm:363",
+        "cmd/command/command2.asm:33",
+        "cmd/command/copy.asm:62",
+        "cmd/command/copypr1.asm:15",
+        "cmd/command/copypr2.asm:28",
+        "cmd/command/cparse.asm:15",
+        "cmd/command/dir.asm:166",
+        "cmd/command/init.asm:55",
+        "cmd/command/iparse.asm:13",
+        "cmd/command/loadhi.asm:51",
+        "cmd/command/parse2.asm:15",
+        "cmd/command/path1.asm:15",
+        "cmd/command/path2.asm:16",
+        "cmd/command/rdata.asm:34",
+        "cmd/command/rucode.asm:30",
+        "cmd/command/stub.asm:61",
+        "cmd/command/tbatch.asm:31",
+        "cmd/command/tbatch2.asm:33",
+        "cmd/command/tcmd1a.asm:30",
+        "cmd/command/tcmd1b.asm:20",
+        "cmd/command/tcmd2a.asm:31",
+        "cmd/command/tcmd2b.asm:18",
+        "cmd/command/tcode.asm:25",
+        "cmd/command/tdata.asm:72",
+        "cmd/command/tenv.asm:29",
+        "cmd/command/tenv2.asm:19",
+        "cmd/command/tfor.asm:21",
+        "cmd/command/tmisc1.asm:29",
+        "cmd/command/tmisc2.asm:22",
+        "cmd/command/tparse.asm:14",
+        "cmd/command/tpipe.asm:25",
+        "cmd/command/tprintf.asm:51",
+        "cmd/command/tspc.asm:33",
+        "cmd/command/tucode.asm:17",
+        "cmd/command/uinit.asm:22"
+      ]
+    },
+    {
+      "name": "comsw.asm",
+      "occurrences": 32,
+      "workspace": {
+        "path": "cmd/command/comsw.asm",
+        "sha256": "43f3757904bb55dac57a79abef63bc90f1479761d1f64af402bbf0830204bf1a"
+      },
+      "package": {
+        "path": "cmd/command/comsw.asm",
+        "sha256": "43f3757904bb55dac57a79abef63bc90f1479761d1f64af402bbf0830204bf1a"
+      },
+      "equal": true,
+      "locations": [
+        "cmd/command/command1.asm:359",
+        "cmd/command/command2.asm:29",
+        "cmd/command/copy.asm:58",
+        "cmd/command/copypr1.asm:11",
+        "cmd/command/copypr2.asm:24",
+        "cmd/command/cparse.asm:9",
+        "cmd/command/dir.asm:159",
+        "cmd/command/init.asm:49",
+        "cmd/command/parse2.asm:14",
+        "cmd/command/path1.asm:14",
+        "cmd/command/path2.asm:15",
+        "cmd/command/rdata.asm:33",
+        "cmd/command/rucode.asm:29",
+        "cmd/command/tbatch.asm:28",
+        "cmd/command/tbatch2.asm:30",
+        "cmd/command/tcmd1a.asm:26",
+        "cmd/command/tcmd1b.asm:21",
+        "cmd/command/tcmd2a.asm:21",
+        "cmd/command/tcmd2b.asm:13",
+        "cmd/command/tcode.asm:22",
+        "cmd/command/tdata.asm:71",
+        "cmd/command/tenv.asm:22",
+        "cmd/command/tenv2.asm:15",
+        "cmd/command/tfor.asm:16",
+        "cmd/command/tmisc1.asm:26",
+        "cmd/command/tmisc2.asm:16",
+        "cmd/command/tparse.asm:13",
+        "cmd/command/tpipe.asm:21",
+        "cmd/command/tprintf.asm:49",
+        "cmd/command/tspc.asm:28",
+        "cmd/command/tucode.asm:16",
+        "cmd/command/uinit.asm:21"
+      ]
+    },
+    {
+      "name": "copyrigh.inc",
+      "occurrences": 1,
+      "workspace": {
+        "path": "inc/copyrigh.inc",
+        "sha256": "5f5ba93635d6200394f545d20d91532da8ff30d1eacda0d786d79d61cd488ae7"
+      },
+      "package": {
+        "path": "inc/copyrigh.inc",
+        "sha256": "5f5ba93635d6200394f545d20d91532da8ff30d1eacda0d786d79d61cd488ae7"
+      },
+      "equal": true,
+      "locations": [
+        "inc/MSGSERV.ASM:222"
+      ]
+    },
+    {
+      "name": "curdir.inc",
+      "occurrences": 1,
+      "workspace": {
+        "path": "inc/ntvdm/curdir.inc",
+        "sha256": "8490c9aa0702bc17b6f73483837159934aa8c8f353df5402b71812ea87d63762"
+      },
+      "package": {
+        "path": "inc/ntvdm/curdir.inc",
+        "sha256": "8490c9aa0702bc17b6f73483837159934aa8c8f353df5402b71812ea87d63762"
+      },
+      "equal": true,
+      "locations": [
+        "cmd/command/comequ.asm:11"
+      ]
+    },
+    {
+      "name": "dbcs.sw",
+      "occurrences": 1,
+      "workspace": {
+        "path": "inc/dbcs.sw",
+        "sha256": "7b86c933d33473fe03aa995258a113d53419545970d472afea1a1b6f2c9cbc43"
+      },
+      "package": {
+        "path": "inc/dbcs.sw",
+        "sha256": "7b86c933d33473fe03aa995258a113d53419545970d472afea1a1b6f2c9cbc43"
+      },
+      "equal": true,
+      "locations": [
+        "inc/dossym.inc:31"
+      ]
+    },
+    {
+      "name": "devsym.inc",
+      "occurrences": 4,
+      "workspace": {
+        "path": "inc/devsym.inc",
+        "sha256": "bbfcd2923aa6c6278ed53d21980305ae97bdf78c0cf2950e2e1ac5317a9a7dff"
+      },
+      "package": {
+        "path": "inc/devsym.inc",
+        "sha256": "bbfcd2923aa6c6278ed53d21980305ae97bdf78c0cf2950e2e1ac5317a9a7dff"
+      },
+      "equal": true,
+      "locations": [
+        "cmd/command/cparse.asm:14",
+        "cmd/command/parse2.asm:13",
+        "cmd/command/rucode.asm:28",
+        "cmd/command/tfor.asm:20"
+      ]
+    },
+    {
+      "name": "dirent.inc",
+      "occurrences": 2,
+      "workspace": {
+        "path": "inc/dirent.inc",
+        "sha256": "d3199a48b1815444e04cf3e0e05b2a21168038f5c9440b267cca67820e474dfe"
+      },
+      "package": {
+        "path": "inc/dirent.inc",
+        "sha256": "d3199a48b1815444e04cf3e0e05b2a21168038f5c9440b267cca67820e474dfe"
+      },
+      "equal": true,
+      "locations": [
+        "cmd/command/tdata.asm:73",
+        "inc/dossym.inc:94"
+      ]
+    },
+    {
+      "name": "doscntry.inc",
+      "occurrences": 5,
+      "workspace": {
+        "path": "inc/doscntry.inc",
+        "sha256": "cbc519145c8c29f229844fde16fae2ebf06b6266e01897e29b0539bd555b8a97"
+      },
+      "package": {
+        "path": "inc/doscntry.inc",
+        "sha256": "cbc519145c8c29f229844fde16fae2ebf06b6266e01897e29b0539bd555b8a97"
+      },
+      "equal": true,
+      "locations": [
+        "cmd/command/dir.asm:162",
+        "cmd/command/init.asm:54",
+        "cmd/command/rucode.asm:27",
+        "cmd/command/tbatch.asm:33",
+        "cmd/command/tenv.asm:31"
+      ]
+    },
+    {
+      "name": "dosmac.inc",
+      "occurrences": 1,
+      "workspace": {
+        "path": "inc/dosmac.inc",
+        "sha256": "6c6abe9a647d14c57f97c0bd3afafcdee6624f636fff273f2d996a7b21a693c2"
+      },
+      "package": {
+        "path": "inc/dosmac.inc",
+        "sha256": "6c6abe9a647d14c57f97c0bd3afafcdee6624f636fff273f2d996a7b21a693c2"
+      },
+      "equal": true,
+      "locations": [
+        "inc/dossym.inc:32"
+      ]
+    },
+    {
+      "name": "dosseg.inc",
+      "occurrences": 1,
+      "workspace": {
+        "path": "inc/dosseg.inc",
+        "sha256": "b485ff060b5086a1884591163ae088f2ea0f379c22ea7ed96801ae371880749a"
+      },
+      "package": {
+        "path": "inc/dosseg.inc",
+        "sha256": "b485ff060b5086a1884591163ae088f2ea0f379c22ea7ed96801ae371880749a"
+      },
+      "equal": true,
+      "locations": [
+        "inc/mshead.asm:23"
+      ]
+    },
+    {
+      "name": "dossvc.inc",
+      "occurrences": 3,
+      "workspace": {
+        "path": "inc/ntvdm/dossvc.inc",
+        "sha256": "07c4676c9a44418c5a0175acc7a09c251bde892b0a838381edeee26e49c9faf3"
+      },
+      "package": {
+        "path": "inc/ntvdm/dossvc.inc",
+        "sha256": "07c4676c9a44418c5a0175acc7a09c251bde892b0a838381edeee26e49c9faf3"
+      },
+      "equal": true,
+      "locations": [
+        "cmd/command/init.asm:62",
+        "inc/const2.asm:16",
+        "inc/kernel/const2.asm:17"
+      ]
+    },
+    {
+      "name": "dossym.inc",
+      "occurrences": 30,
+      "workspace": {
+        "path": "inc/dossym.inc",
+        "sha256": "e17a46ea59396490cec2dcbaf1e8e48beae2a92f7a52a519c43f14a1e2303a36"
+      },
+      "package": {
+        "path": "inc/dossym.inc",
+        "sha256": "e17a46ea59396490cec2dcbaf1e8e48beae2a92f7a52a519c43f14a1e2303a36"
+      },
+      "equal": true,
+      "locations": [
+        "cmd/command/command1.asm:357",
+        "cmd/command/command2.asm:26",
+        "cmd/command/copy.asm:59",
+        "cmd/command/copypr1.asm:12",
+        "cmd/command/copypr2.asm:25",
+        "cmd/command/cparse.asm:13",
+        "cmd/command/dir.asm:160",
+        "cmd/command/init.asm:50",
+        "cmd/command/loadhi.asm:53",
+        "cmd/command/parse2.asm:12",
+        "cmd/command/path1.asm:12",
+        "cmd/command/path2.asm:12",
+        "cmd/command/rdata.asm:30",
+        "cmd/command/rucode.asm:22",
+        "cmd/command/tbatch.asm:29",
+        "cmd/command/tbatch2.asm:31",
+        "cmd/command/tcmd1a.asm:29",
+        "cmd/command/tcmd1b.asm:15",
+        "cmd/command/tcmd2a.asm:25",
+        "cmd/command/tcmd2b.asm:14",
+        "cmd/command/tcode.asm:23",
+        "cmd/command/tenv.asm:26",
+        "cmd/command/tenv2.asm:16",
+        "cmd/command/tfor.asm:17",
+        "cmd/command/tmisc1.asm:27",
+        "cmd/command/tmisc2.asm:17",
+        "cmd/command/tpipe.asm:22",
+        "cmd/command/tprintf.asm:50",
+        "cmd/command/tspc.asm:29",
+        "cmd/command/tucode.asm:14"
+      ]
+    },
+    {
+      "name": "doswow.inc",
+      "occurrences": 2,
+      "workspace": {
+        "path": "inc/ntvdm/doswow.inc",
+        "sha256": "d6bd8a52bff2980dacab518da8f2330da5bb978e6c07d1846662078da49444fb"
+      },
+      "package": {
+        "path": "inc/ntvdm/doswow.inc",
+        "sha256": "d6bd8a52bff2980dacab518da8f2330da5bb978e6c07d1846662078da49444fb"
+      },
+      "equal": true,
+      "locations": [
+        "inc/lmstub.asm:925",
+        "inc/lmstub.physical.recovery.asm:910"
+      ]
+    },
+    {
+      "name": "dpb.inc",
+      "occurrences": 2,
+      "workspace": {
+        "path": "inc/dpb.inc",
+        "sha256": "78a9717b8fe123d31651d6351adeb6789501ef273ce2476316f5d4ec7c450ec0"
+      },
+      "package": {
+        "path": "inc/dpb.inc",
+        "sha256": "78a9717b8fe123d31651d6351adeb6789501ef273ce2476316f5d4ec7c450ec0"
+      },
+      "equal": true,
+      "locations": [
+        "inc/lmstub.asm:873",
+        "inc/lmstub.physical.recovery.asm:858"
+      ]
+    },
+    {
+      "name": "envdata.asm",
+      "occurrences": 2,
+      "workspace": {
+        "path": "cmd/command/envdata.asm",
+        "sha256": "b55150344ebf7726fb563eace884f2550c65b8618b52e47ef9132a78e3e0cb23"
+      },
+      "package": {
+        "path": "cmd/command/envdata.asm",
+        "sha256": "b55150344ebf7726fb563eace884f2550c65b8618b52e47ef9132a78e3e0cb23"
+      },
+      "equal": true,
+      "locations": [
+        "cmd/command/command1.asm:399",
+        "cmd/command/init.asm:59"
+      ]
+    },
+    {
+      "name": "error.inc",
+      "occurrences": 2,
+      "workspace": {
+        "path": "inc/error.inc",
+        "sha256": "4e44f0694a7db2a15df780a3e6bb916f5f5722aca9f3df8daf4f148f0321cd8f"
+      },
+      "package": {
+        "path": "inc/error.inc",
+        "sha256": "4e44f0694a7db2a15df780a3e6bb916f5f5722aca9f3df8daf4f148f0321cd8f"
+      },
+      "equal": true,
+      "locations": [
+        "cmd/command/tdata.asm:86",
+        "inc/dossym.inc:133"
+      ]
+    },
+    {
+      "name": "filemode.inc",
+      "occurrences": 4,
+      "workspace": {
+        "path": "inc/filemode.inc",
+        "sha256": "1ed4f86e30874fd29bbf1db7d8d7bf541b3e29f9b52e3eb9cf62b007f6c88a05"
+      },
+      "package": {
+        "path": "inc/filemode.inc",
+        "sha256": "1ed4f86e30874fd29bbf1db7d8d7bf541b3e29f9b52e3eb9cf62b007f6c88a05"
+      },
+      "equal": true,
+      "locations": [
+        "cmd/command/dir.asm:164",
+        "cmd/command/rucode.asm:24",
+        "cmd/command/tcmd1b.asm:18",
+        "cmd/command/tcmd2a.asm:28"
+      ]
+    },
+    {
+      "name": "find.inc",
+      "occurrences": 5,
+      "workspace": {
+        "path": "inc/find.inc",
+        "sha256": "7380ee0229ef50d6a2afaa0dcece6ab2a333217df09234037cc4a329686d47eb"
+      },
+      "package": {
+        "path": "inc/find.inc",
+        "sha256": "7380ee0229ef50d6a2afaa0dcece6ab2a333217df09234037cc4a329686d47eb"
+      },
+      "equal": true,
+      "locations": [
+        "cmd/command/dir.asm:165",
+        "cmd/command/path2.asm:14",
+        "cmd/command/tenv2.asm:18",
+        "cmd/command/tfor.asm:19",
+        "cmd/command/tspc.asm:30"
+      ]
+    },
+    {
+      "name": "fordata.asm",
+      "occurrences": 1,
+      "workspace": {
+        "path": "cmd/command/fordata.asm",
+        "sha256": "90544898349730457c124055dcd13c536866360f50a63fd3242c6af823f88d0b"
+      },
+      "package": {
+        "path": "cmd/command/fordata.asm",
+        "sha256": "90544898349730457c124055dcd13c536866360f50a63fd3242c6af823f88d0b"
+      },
+      "equal": true,
+      "locations": [
+        "cmd/command/tfor.asm:153"
+      ]
+    },
+    {
+      "name": "ifequ.asm",
+      "occurrences": 2,
+      "workspace": {
+        "path": "cmd/command/ifequ.asm",
+        "sha256": "658d692385d05f90d21f5212a4e3f4dd95717eefa9c6a2bd44ca2e97a4cda3be"
+      },
+      "package": {
+        "path": "cmd/command/ifequ.asm",
+        "sha256": "658d692385d05f90d21f5212a4e3f4dd95717eefa9c6a2bd44ca2e97a4cda3be"
+      },
+      "equal": true,
+      "locations": [
+        "cmd/command/tdata.asm:87",
+        "cmd/command/uinit.asm:23"
+      ]
+    },
+    {
+      "name": "intnat.inc",
+      "occurrences": 1,
+      "workspace": {
+        "path": "inc/intnat.inc",
+        "sha256": "e38d3c8a8b82f4d2b622a9bf276b087d2bb6e4e7fe33658354b06b33466ec970"
+      },
+      "package": {
+        "path": "inc/intnat.inc",
+        "sha256": "e38d3c8a8b82f4d2b622a9bf276b087d2bb6e4e7fe33658354b06b33466ec970"
+      },
+      "equal": true,
+      "locations": [
+        "cmd/command/tspc.asm:31"
+      ]
+    },
+    {
+      "name": "ioctl.inc",
+      "occurrences": 5,
+      "workspace": {
+        "path": "inc/ioctl.inc",
+        "sha256": "5afdc64aa6d91c4c503c9d27fe4982517f3a762b94413ee8a882a49f3736ff2f"
+      },
+      "package": {
+        "path": "inc/ioctl.inc",
+        "sha256": "5afdc64aa6d91c4c503c9d27fe4982517f3a762b94413ee8a882a49f3736ff2f"
+      },
+      "equal": true,
+      "locations": [
+        "cmd/command/dir.asm:168",
+        "cmd/command/tcmd1a.asm:32",
+        "cmd/command/tcmd1b.asm:23",
+        "cmd/command/tcmd2a.asm:32",
+        "cmd/command/tmisc2.asm:24"
+      ]
+    },
+    {
+      "name": "msdos.cl2",
+      "occurrences": 3,
+      "workspace": null,
+      "package": null,
+      "equal": true,
+      "locations": [
+        "inc/lmstub.asm:831",
+        "inc/lmstub.physical.recovery.asm:816",
+        "inc/lmstub.tail.recovery.asm:816"
+      ]
+    },
+    {
+      "name": "msdos.cl3",
+      "occurrences": 1,
+      "workspace": null,
+      "package": null,
+      "equal": true,
+      "locations": [
+        "inc/yesno.asm:3"
+      ]
+    },
+    {
+      "name": "msgdcl.inc",
+      "occurrences": 2,
+      "workspace": {
+        "path": "inc/msgdcl.inc",
+        "sha256": "19d6d486f224ddea638b566c043d949e7fba79c011f1fea254989c274feff924"
+      },
+      "package": {
+        "path": "inc/msgdcl.inc",
+        "sha256": "19d6d486f224ddea638b566c043d949e7fba79c011f1fea254989c274feff924"
+      },
+      "equal": true,
+      "locations": [
+        "cmd/command/tdata.asm:1046",
+        "cmd/command/tprintf.asm:371"
+      ]
+    },
+    {
+      "name": "msgserv.asm",
+      "occurrences": 2,
+      "workspace": {
+        "path": "inc/msgserv.asm",
+        "sha256": "74d421e387a667a1ab23fb155c5fdf0d33981b77fd2d7d9ecf31f28fe63090eb"
+      },
+      "package": {
+        "path": "inc/msgserv.asm",
+        "sha256": "74d421e387a667a1ab23fb155c5fdf0d33981b77fd2d7d9ecf31f28fe63090eb"
+      },
+      "equal": true,
+      "locations": [
+        "inc/SYSMSG.INC:389",
+        "inc/SYSMSG.INC:434"
+      ]
+    },
+    {
+      "name": "mshalo.asm",
+      "occurrences": 1,
+      "workspace": {
+        "path": "inc/mshalo.asm",
+        "sha256": "5b19283a47ce00d0786d416c06ffa502d5f7a6ce73eab5cc301cc6b345debcf1"
+      },
+      "package": {
+        "path": "inc/mshalo.asm",
+        "sha256": "5b19283a47ce00d0786d416c06ffa502d5f7a6ce73eab5cc301cc6b345debcf1"
+      },
+      "equal": true,
+      "locations": [
+        "cmd/command/tcode.asm:623"
+      ]
+    },
+    {
+      "name": "mult.inc",
+      "occurrences": 4,
+      "workspace": {
+        "path": "inc/mult.inc",
+        "sha256": "517bc33792cc568eb350308b931ad87b75b1d42255341950fe394df9302c48fb"
+      },
+      "package": {
+        "path": "inc/mult.inc",
+        "sha256": "517bc33792cc568eb350308b931ad87b75b1d42255341950fe394df9302c48fb"
+      },
+      "equal": true,
+      "locations": [
+        "cmd/command/init.asm:52",
+        "cmd/command/rucode.asm:26",
+        "cmd/command/tcmd2b.asm:17",
+        "cmd/command/tcode.asm:28"
+      ]
+    },
+    {
+      "name": "origin.inc",
+      "occurrences": 1,
+      "workspace": {
+        "path": "inc/origin.inc",
+        "sha256": "ef20115ebe9c9592eb87e9b21a0ebe036592ca6cf44e389d67093a80db3d008d"
+      },
+      "package": {
+        "path": "inc/origin.inc",
+        "sha256": "ef20115ebe9c9592eb87e9b21a0ebe036592ca6cf44e389d67093a80db3d008d"
+      },
+      "equal": true,
+      "locations": [
+        "inc/mshead.asm:11"
+      ]
+    },
+    {
+      "name": "parse.asm",
+      "occurrences": 1,
+      "workspace": {
+        "path": "inc/parse.asm",
+        "sha256": "6924dc79c6eab811d5c0c08992adf2f2726b36078a466b8dd2b6e3e7fd07d656"
+      },
+      "package": {
+        "path": "inc/parse.asm",
+        "sha256": "6924dc79c6eab811d5c0c08992adf2f2726b36078a466b8dd2b6e3e7fd07d656"
+      },
+      "equal": true,
+      "locations": [
+        "cmd/command/tparse.asm:59"
+      ]
+    },
+    {
+      "name": "pdb.inc",
+      "occurrences": 8,
+      "workspace": {
+        "path": "inc/pdb.inc",
+        "sha256": "d247016c2a40694f8285fc33d193fd87dca9df96d50450258da170eb16e32746"
+      },
+      "package": {
+        "path": "inc/pdb.inc",
+        "sha256": "d247016c2a40694f8285fc33d193fd87dca9df96d50450258da170eb16e32746"
+      },
+      "equal": true,
+      "locations": [
+        "cmd/command/command2.asm:27",
+        "cmd/command/init.asm:51",
+        "cmd/command/rdata.asm:31",
+        "cmd/command/rucode.asm:25",
+        "cmd/command/tcmd2b.asm:16",
+        "cmd/command/tcode.asm:621",
+        "cmd/command/tmisc2.asm:19",
+        "cmd/command/tpipe.asm:24"
+      ]
+    },
+    {
+      "name": "psdata.inc",
+      "occurrences": 2,
+      "workspace": {
+        "path": "inc/psdata.inc",
+        "sha256": "bbdc48017d30a9b4b14289b0ea5003cf89b06cbbf2dc7930e30aab09983997ab"
+      },
+      "package": {
+        "path": "inc/psdata.inc",
+        "sha256": "bbdc48017d30a9b4b14289b0ea5003cf89b06cbbf2dc7930e30aab09983997ab"
+      },
+      "equal": true,
+      "locations": [
+        "cmd/command/tparse.asm:30",
+        "inc/parse.asm:41"
+      ]
+    },
+    {
+      "name": "resmsg.equ",
+      "occurrences": 7,
+      "workspace": {
+        "path": "cmd/command/resmsg.equ",
+        "sha256": "e9944d068ccdc0d10b6fea4a387aa3a127388082ef05d07a146741eb2babb49a"
+      },
+      "package": {
+        "path": "cmd/command/resmsg.equ",
+        "sha256": "e9944d068ccdc0d10b6fea4a387aa3a127388082ef05d07a146741eb2babb49a"
+      },
+      "equal": true,
+      "locations": [
+        "cmd/command/command1.asm:361",
+        "cmd/command/command2.asm:31",
+        "cmd/command/init.asm:57",
+        "cmd/command/rdata.asm:35",
+        "cmd/command/rucode.asm:32",
+        "cmd/command/tenv.asm:32",
+        "cmd/command/uinit.asm:114"
+      ]
+    },
+    {
+      "name": "rombios.inc",
+      "occurrences": 2,
+      "workspace": {
+        "path": "inc/rombios.inc",
+        "sha256": "7d9d0098545cff9fdb3eef264552887d23d6ea3f175728ef5fd6f0514561ec42"
+      },
+      "package": {
+        "path": "inc/rombios.inc",
+        "sha256": "7d9d0098545cff9fdb3eef264552887d23d6ea3f175728ef5fd6f0514561ec42"
+      },
+      "equal": true,
+      "locations": [
+        "cmd/command/dir.asm:169",
+        "cmd/command/tcmd2a.asm:33"
+      ]
+    },
+    {
+      "name": "sf.inc",
+      "occurrences": 6,
+      "workspace": {
+        "path": "inc/sf.inc",
+        "sha256": "a7598805cfaad479960f0891903aaab458c975d8f14f6e1acfe25b44f06a2093"
+      },
+      "package": {
+        "path": "inc/sf.inc",
+        "sha256": "a7598805cfaad479960f0891903aaab458c975d8f14f6e1acfe25b44f06a2093"
+      },
+      "equal": true,
+      "locations": [
+        "cmd/command/copy.asm:61",
+        "cmd/command/copypr1.asm:14",
+        "cmd/command/copypr2.asm:27",
+        "cmd/command/tcmd1b.asm:19",
+        "cmd/command/tcmd2a.asm:29",
+        "cmd/command/tmisc2.asm:21"
+      ]
+    },
+    {
+      "name": "syscall.inc",
+      "occurrences": 25,
+      "workspace": {
+        "path": "inc/syscall.inc",
+        "sha256": "23cf7f5e2e180337a0c2219ae013494e2a106103655c0d00fa8631ce9de2e79d"
+      },
+      "package": {
+        "path": "inc/syscall.inc",
+        "sha256": "23cf7f5e2e180337a0c2219ae013494e2a106103655c0d00fa8631ce9de2e79d"
+      },
+      "equal": true,
+      "locations": [
+        "cmd/command/command1.asm:358",
+        "cmd/command/command2.asm:28",
+        "cmd/command/copy.asm:60",
+        "cmd/command/copypr1.asm:13",
+        "cmd/command/copypr2.asm:26",
+        "cmd/command/dir.asm:161",
+        "cmd/command/init.asm:53",
+        "cmd/command/loadhi.asm:54",
+        "cmd/command/path1.asm:13",
+        "cmd/command/path2.asm:13",
+        "cmd/command/rdata.asm:32",
+        "cmd/command/rucode.asm:23",
+        "cmd/command/tbatch.asm:30",
+        "cmd/command/tbatch2.asm:32",
+        "cmd/command/tcmd1b.asm:17",
+        "cmd/command/tcmd2a.asm:27",
+        "cmd/command/tcmd2b.asm:15",
+        "cmd/command/tcode.asm:24",
+        "cmd/command/tenv.asm:27",
+        "cmd/command/tenv2.asm:17",
+        "cmd/command/tfor.asm:18",
+        "cmd/command/tmisc1.asm:28",
+        "cmd/command/tmisc2.asm:18",
+        "cmd/command/tpipe.asm:23",
+        "cmd/command/tucode.asm:15"
+      ]
+    },
+    {
+      "name": "sysmsg.inc",
+      "occurrences": 2,
+      "workspace": {
+        "path": "inc/sysmsg.inc",
+        "sha256": "d41dc5fb8e50940cbcf356e5ba73f34adb777d1e4053f77a0c1cf9682aa862bd"
+      },
+      "package": {
+        "path": "inc/sysmsg.inc",
+        "sha256": "d41dc5fb8e50940cbcf356e5ba73f34adb777d1e4053f77a0c1cf9682aa862bd"
+      },
+      "equal": true,
+      "locations": [
+        "cmd/command/tdata.asm:1035",
+        "cmd/command/tprintf.asm:53"
+      ]
+    },
+    {
+      "name": "tranmsg.asm",
+      "occurrences": 1,
+      "workspace": {
+        "path": "cmd/command/tranmsg.asm",
+        "sha256": "7184f2643ebe77d2aae6d015165dab85b29ed6e15e0db3173a07372eead9d9b1"
+      },
+      "package": {
+        "path": "cmd/command/tranmsg.asm",
+        "sha256": "7184f2643ebe77d2aae6d015165dab85b29ed6e15e0db3173a07372eead9d9b1"
+      },
+      "equal": true,
+      "locations": [
+        "cmd/command/tdata.asm:318"
+      ]
+    },
+    {
+      "name": "vector.inc",
+      "occurrences": 1,
+      "workspace": {
+        "path": "inc/vector.inc",
+        "sha256": "c7fdd8e4468d28c8abed6c7d6e6e5e292d5dc21251821b29212eb1c61536fb12"
+      },
+      "package": {
+        "path": "inc/vector.inc",
+        "sha256": "c7fdd8e4468d28c8abed6c7d6e6e5e292d5dc21251821b29212eb1c61536fb12"
+      },
+      "equal": true,
+      "locations": [
+        "cmd/command/tcode.asm:620"
+      ]
+    },
+    {
+      "name": "version.inc",
+      "occurrences": 5,
+      "workspace": {
+        "path": "inc/version.inc",
+        "sha256": "387730c471bbfde2d45b08d8df86bebd430fe5abb9a8ee12688f6aa141f6f7d6"
+      },
+      "package": {
+        "path": "inc/version.inc",
+        "sha256": "387730c471bbfde2d45b08d8df86bebd430fe5abb9a8ee12688f6aa141f6f7d6"
+      },
+      "equal": true,
+      "locations": [
+        "cmd/command/comsw.asm:9",
+        "cmd/command/tbatch.asm:34",
+        "cmd/command/tranmsg.asm:6",
+        "inc/dossym.inc:34",
+        "inc/psdata.inc:8"
+      ]
+    },
+    {
+      "name": "versiona.inc",
+      "occurrences": 2,
+      "workspace": {
+        "path": "inc/versiona.inc",
+        "sha256": "df1d5b2a37fbd511701d993d7362a6cb11c3ab077bda674a69948bf71bbb958c"
+      },
+      "package": {
+        "path": "inc/versiona.inc",
+        "sha256": "df1d5b2a37fbd511701d993d7362a6cb11c3ab077bda674a69948bf71bbb958c"
+      },
+      "equal": true,
+      "locations": [
+        "inc/dossym.inc:33",
+        "inc/SYSMSG.INC:50"
+      ]
+    },
+    {
+      "name": "vint.inc",
+      "occurrences": 2,
+      "workspace": {
+        "path": "inc/ntvdm/vint.inc",
+        "sha256": "2ba06b3eea9a8ec96236d96ff7d996274b3feb5ac456524d6a9e8bd6a44541c7"
+      },
+      "package": {
+        "path": "inc/ntvdm/vint.inc",
+        "sha256": "2ba06b3eea9a8ec96236d96ff7d996274b3feb5ac456524d6a9e8bd6a44541c7"
+      },
+      "equal": true,
+      "locations": [
+        "cmd/command/tcode.asm:29",
+        "inc/cputype.inc:14"
+      ]
+    },
+    {
+      "name": "xmm.inc",
+      "occurrences": 2,
+      "workspace": {
+        "path": "inc/xmm.inc",
+        "sha256": "a426a10a662ef94ec973d045cea21e3c5a3687bfc79b7b3c02d811a35215738e"
+      },
+      "package": {
+        "path": "inc/xmm.inc",
+        "sha256": "a426a10a662ef94ec973d045cea21e3c5a3687bfc79b7b3c02d811a35215738e"
+      },
+      "equal": true,
+      "locations": [
+        "cmd/command/init.asm:60",
+        "cmd/command/stub.asm:62"
+      ]
+    }
+  ],
+  "scope": "Lexical literal lookup through the four explicit include directories only; does not model MASM conditionals, macro expansion, generated files, current working-directory precedence, or actual assembly."
+}

@@ -1,0 +1,29 @@
+{
+  "nt_sha256": "40d639bb0f09814e537a742081b85557d49c2fc1219f0ff6618d823623f88f0a",
+  "source_sha256": "61721096d179971f77982ec836b7cbbc4ab5d2d15b050167712c16b6c3149e29",
+  "retained_source_sha256": "ceb3f2072658c8dc153e2274c42b75d8578426ebe84078779209ba62bce00e34",
+  "retained_object_sha256": "20d3d0cf8806053ba2368adc34305e134dfa9afb3a6e6eceb076da0d9ed25044",
+  "active_statements": [
+    "page ,160",
+    "Bios_Data segment para public 'Bios_Data'",
+    "assume cs:Bios_Data",
+    "public BData_end",
+    "BData_end:",
+    "Bios_Data ends",
+    "Bios_Code segment para public 'Bios_Code'",
+    "assume cs:Bios_Code",
+    "public BCode_end",
+    "BCode_end:",
+    "Bios_Code ends",
+    "sysinitseg segment para public 'system_init'",
+    "assume cs:sysinitseg",
+    "public SI_end",
+    "SI_end:",
+    "sysinitseg ends",
+    "dos_load_seg segment para public 'dos_load_seg'",
+    "dos_load_seg ends",
+    "end"
+  ],
+  "transformation": "Remove NT SoftPC keyboard, mouse, and EMM segments; place SI_end at the end of sysinitseg.",
+  "scope": "NT-derived source and literal active statements compared to retained physical-build source. Historical object and BIOS checked; no fresh assembly or object equivalence claim."
+}

@@ -1,0 +1,19 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\fat-probe-480mr_2z",
+  "source": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\fat.asm",
+  "source_sha256": "69b434ab7d945e6de0fbfe9e6a657de2d622a54f92661d4117721a5be15f385f",
+  "tool_sha256": "e54afaa9565e046cd862c29a015d685de43311acccf796469030e162ced6d00d",
+  "command": [
+    "O:\\repos.hobby\\ntvdm64\\tools\\opennt\\tools16\\masm.exe",
+    "-Mx",
+    "-t",
+    "-W1",
+    "-I..\\..\\dos",
+    "-I..\\..\\inc",
+    "-I..\\..\\inc\\ntvdm",
+    "fat.asm,fat.obj,fat.lst;"
+  ],
+  "exit": 7,
+  "diagnostics": "fat.asm(477): error A2009: Symbol not defined: CURDIR_DEVPTR\r\nfat.asm(497): error A2009: Symbol not defined: CURDIR_DEVPTR\r\nfat.asm(510): error A2009: Symbol not defined: CURDIR_DEVPTR\r\nfat.asm(513): error A2009: Symbol not defined: CURDIR_DEVPTR\r\nfat.asm(515): error A2009: Symbol not defined: CURDIR_ID\r\nfat.asm(517): error A2009: Symbol not defined: CURDIR_ID\r\n      0 Warning Errors\r\n      6 Severe  Errors\r\n",
+  "scope": "Comparison-source assembly probe, not imported production source or target identity."
+}

@@ -1,0 +1,112 @@
+{
+  "module": "share",
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\physical-sft-probe-gaif7wrl",
+  "candidate_proof_sha256": "d49633153558fdf474439a5958fa7020af2d4aa8172c30a9edba171c77083d1a",
+  "link_report_sha256": "1bbdfe1c5717a66605a3aef82166c9d11164f5e85d841c1f70d29448a8b796da",
+  "linked_start": 45344,
+  "public_anchors": [
+    {
+      "symbol": "shareend",
+      "object_offset": 43,
+      "linked_offset": 45387
+    },
+    {
+      "symbol": "share_violation",
+      "object_offset": 5,
+      "linked_offset": 45349
+    },
+    {
+      "symbol": "shareenter",
+      "object_offset": 48,
+      "linked_offset": 45392
+    },
+    {
+      "symbol": "share_check",
+      "object_offset": 0,
+      "linked_offset": 45344
+    }
+  ],
+  "bytes": 82,
+  "named_fixups": [
+    {
+      "offset": 2,
+      "symbol": "JShare",
+      "relative": false,
+      "target_symbol": 144,
+      "linked_symbol": 144
+    },
+    {
+      "offset": 10,
+      "symbol": "ReadOp",
+      "relative": false,
+      "target_symbol": 1397,
+      "linked_symbol": 1397
+    },
+    {
+      "offset": 15,
+      "symbol": "ALLOWED",
+      "relative": false,
+      "target_symbol": 843,
+      "linked_symbol": 843
+    },
+    {
+      "offset": 20,
+      "symbol": "THISDPB",
+      "relative": false,
+      "target_symbol": 1418,
+      "linked_symbol": 1418
+    },
+    {
+      "offset": 32,
+      "symbol": "HARDERR",
+      "relative": true,
+      "target_symbol": 37498,
+      "linked_symbol": 34618
+    },
+    {
+      "offset": 45,
+      "symbol": "JShare",
+      "relative": false,
+      "target_symbol": 144,
+      "linked_symbol": 144
+    },
+    {
+      "offset": 51,
+      "symbol": "RetryCount",
+      "relative": false,
+      "target_symbol": 26,
+      "linked_symbol": 26
+    },
+    {
+      "offset": 55,
+      "symbol": "ThisSFT",
+      "relative": false,
+      "target_symbol": 1438,
+      "linked_symbol": 1438
+    },
+    {
+      "offset": 65,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 45864,
+      "linked_symbol": 45344
+    },
+    {
+      "offset": 71,
+      "symbol": "Idle",
+      "relative": true,
+      "target_symbol": 20508,
+      "linked_symbol": 20636
+    },
+    {
+      "offset": 76,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 45864,
+      "linked_symbol": 45344
+    }
+  ],
+  "remaining_differences": [],
+  "correspondence": true,
+  "scope": "Complete linked MZ module, only candidate OMF named relocations adjusted; physical data placement can differ. Not runtime or whole-kernel identity."
+}

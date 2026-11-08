@@ -1,0 +1,34 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\integrated-vm-cuuahh9e",
+  "probe_sha256": "b5b718d3f27e09242ae859b48756d80b83ba1d56843f7234962e7b3f17aa7aaa",
+  "probe_log_sha256": "b3a2208e8db2d77021b77154bd9a5ba7e02972488669790be39601dccb9d5315",
+  "test_image_before_sha256": "7d41571be240636b8ad0b2f751816ed6eca3be8b7f7c92681e94b0f9181c5f87",
+  "test_image_after_sha256": "c211a13d1fe259884f4143d20451c56a4496efd9ce72b3415cb49c1b004c1d00",
+  "system_files": {
+    "IO.SYS": "dd0915ed366b3f640284df4be30ed35f413dfd5b6966c1f25eee9598a5bf53e0",
+    "MSDOS.SYS": "4e41ca4e5893d4cf293f81ad01adbdbd12f7039534f59148214a9cca309529a2",
+    "COMMAND.COM": "74ad25067e7d9f5c3a0ac2f2967347defb0ffef9e6ed60b60e6499f0b1a8cc89"
+  },
+  "markers": [
+    "BEGIN-DOS5-SMOKE",
+    "MS-DOS Version 5.00",
+    "ENV-PASS",
+    "PATH=A:\\",
+    "FOR-ONE",
+    "FOR-TWO",
+    "FOR-THREE",
+    "FILE-CONTENT",
+    "FILE-PASS",
+    "CHILD-PASS",
+    "SMOKE-PASS"
+  ],
+  "guest_files": {
+    "RESULTS.TXT": "BEGIN-DOS5-SMOKE\r\n\r\nMS-DOS Version 5.00\r\n\r\nENV-PASS\r\nPATH=A:\\\r\nFOR-ONE\r\nFOR-TWO\r\nFOR-THREE\r\nFILE-CONTENT\r\nFILE-PASS\r\nCHILD-PASS\r\nSMOKE-PASS\r\n",
+    "DONE.TXT": "FINISHED\r\n",
+    "COPY.TXT": "FILE-CONTENT\r\n",
+    "INPUT.TXT": null
+  },
+  "passed": true,
+  "candidate_report": "build\\source-workspace-review-20261107\\docs\\etc\\evidence\\m6-integrated-integrated-source-o_cqtv71.json",
+  "scope": "Bounded headless SoftPC core probe using the named three-file candidate on disposable media. This is not the O:\\DOS product executable or original-image revalidation."
+}

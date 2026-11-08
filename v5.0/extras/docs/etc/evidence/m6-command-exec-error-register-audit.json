@@ -1,0 +1,60 @@
+{
+  "previous_stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\integrated-source-g9jd3rk3",
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\integrated-source-besftgsc",
+  "change": {
+    "source": "cmd/command/stub.asm",
+    "before_sha256": "cfcf27305eff55bc1960356b3b0fa138135c6ec59cb26c9ea0921328bbea49d3",
+    "after_sha256": "06bef972296b25751563239325c008e4cce3de3d482fb658a19514d4c2b58147",
+    "old_comment": ";; save execution status(carry flag)\n;; and the error code(AL)",
+    "new_comment": ";; save execution status(carry flag)\n;; AL is used for the UMB state"
+  },
+  "static_analysis": {
+    "source_chain": [
+      "stub.asm Issue_Exec_Call loads AL from LoadHiFlg after INT 21h",
+      "stub.asm Exec_Trap calls CheckA20 and dispatches via Exec_Entry",
+      "uinit.asm ResJmpTable provides Exec_Ret as corresponding entry",
+      "command1.asm Exec_Ret branches on carry to Exec_Err, which compares AL to DOS error values"
+    ],
+    "target_anchors": [
+      {
+        "file_offset": 218,
+        "bytes_hex": "cd21fa0e17bc3e05fb0e1f9c2ea04005a8807407"
+      },
+      {
+        "file_offset": 3136,
+        "bytes_hex": "bbbe063c02741bbb84063c08"
+      },
+      {
+        "file_offset": 3177,
+        "bytes_hex": "72d5"
+      }
+    ],
+    "qualification": "On the no-loadhigh branch AL retains the LoadHiFlg value rather than the EXEC result; the loadhigh branch also calls an indirect routine. Static inference only; reachability and observed error messages have not been tested. Exact baseline behavior is intentionally preserved."
+  },
+  "unchanged_objects": {
+    "bios": 14,
+    "kernel": 55,
+    "command": 34,
+    "msload": 1
+  },
+  "outputs": [
+    {
+      "name": "IO.SYS",
+      "bytes": 33430,
+      "sha256": "dd0915ed366b3f640284df4be30ed35f413dfd5b6966c1f25eee9598a5bf53e0",
+      "byte_equal": true
+    },
+    {
+      "name": "MSDOS.SYS",
+      "bytes": 37394,
+      "sha256": "4e41ca4e5893d4cf293f81ad01adbdbd12f7039534f59148214a9cca309529a2",
+      "byte_equal": true
+    },
+    {
+      "name": "COMMAND.COM",
+      "bytes": 47845,
+      "sha256": "74ad25067e7d9f5c3a0ac2f2967347defb0ffef9e6ed60b60e6499f0b1a8cc89",
+      "byte_equal": true
+    }
+  ]
+}

@@ -1,0 +1,632 @@
+{
+  "symbols": {
+    "vheVDM": [
+      {
+        "file": "dos/msctrlc.asm",
+        "line": 99,
+        "text": "I_need\tvheVDM,BYTE"
+      },
+      {
+        "file": "dos/msctrlc.asm",
+        "line": 644,
+        "text": "cmp     DOSDATA:[vheVDM.vhe_fbInt24], 0"
+      },
+      {
+        "file": "dos/msctrlc.asm",
+        "line": 650,
+        "text": "mov     al, DOSDATA:[vheVDM.vhe_HrdErrCode]"
+      },
+      {
+        "file": "dos/msctrlc.asm",
+        "line": 697,
+        "text": "mov     al, DOSDATA:[vheVDM.vhe_bDriveNum]"
+      },
+      {
+        "file": "dos/msinit.asm",
+        "line": 91,
+        "text": "extrn   vheVDM:byte"
+      },
+      {
+        "file": "inc/lmstub.asm",
+        "line": 833,
+        "text": "PUBLIC  vheVDM"
+      },
+      {
+        "file": "inc/lmstub.asm",
+        "line": 834,
+        "text": "vheVDM\tdb  (size vhe_s) dup (0)"
+      }
+    ],
+    "SCS_COMSPEC": [
+      {
+        "file": "dos/msinit.asm",
+        "line": 92,
+        "text": "extrn   SCS_COMSPEC:byte"
+      },
+      {
+        "file": "inc/lmstub.asm",
+        "line": 836,
+        "text": "PUBLIC  SCS_COMSPEC"
+      },
+      {
+        "file": "inc/lmstub.asm",
+        "line": 837,
+        "text": "SCS_COMSPEC\tdb\t64 dup (?)"
+      },
+      {
+        "file": "inc/lmstub.asm",
+        "line": 842,
+        "text": ".errnz SCS_CMDTAIL-SCS_COMSPEC-64"
+      }
+    ],
+    "SCS_CMDTAIL": [
+      {
+        "file": "inc/lmstub.asm",
+        "line": 839,
+        "text": "PUBLIC  SCS_CMDTAIL"
+      },
+      {
+        "file": "inc/lmstub.asm",
+        "line": 840,
+        "text": "SCS_CMDTAIL\tdb\t128 dup (?)"
+      },
+      {
+        "file": "inc/lmstub.asm",
+        "line": 842,
+        "text": ".errnz SCS_CMDTAIL-SCS_COMSPEC-64"
+      },
+      {
+        "file": "inc/lmstub.asm",
+        "line": 848,
+        "text": ".errnz SCS_PBLOCK-SCS_CMDTAIL-128"
+      }
+    ],
+    "SCS_PBLOCK": [
+      {
+        "file": "inc/lmstub.asm",
+        "line": 845,
+        "text": "PUBLIC  SCS_PBLOCK"
+      },
+      {
+        "file": "inc/lmstub.asm",
+        "line": 846,
+        "text": "SCS_PBLOCK\tdb\t14 dup (?)"
+      },
+      {
+        "file": "inc/lmstub.asm",
+        "line": 848,
+        "text": ".errnz SCS_PBLOCK-SCS_CMDTAIL-128"
+      },
+      {
+        "file": "inc/lmstub.asm",
+        "line": 854,
+        "text": ".errnz SCS_ToSync-SCS_PBLOCK-14"
+      }
+    ],
+    "SCS_ToSync": [
+      {
+        "file": "dos/macro.asm",
+        "line": 34,
+        "text": "I_need\tSCS_ToSync,BYTE"
+      },
+      {
+        "file": "dos/macro.asm",
+        "line": 343,
+        "text": "cmp\t[SCS_ToSync],0"
+      },
+      {
+        "file": "dos/macro.asm",
+        "line": 356,
+        "text": "mov     [SCS_ToSync],0"
+      },
+      {
+        "file": "inc/lmstub.asm",
+        "line": 851,
+        "text": "PUBLIC  SCS_ToSync"
+      },
+      {
+        "file": "inc/lmstub.asm",
+        "line": 852,
+        "text": "SCS_ToSync db\t0"
+      },
+      {
+        "file": "inc/lmstub.asm",
+        "line": 854,
+        "text": ".errnz SCS_ToSync-SCS_PBLOCK-14"
+      },
+      {
+        "file": "inc/lmstub.asm",
+        "line": 933,
+        "text": "OFFSET DOSDATA:SCS_ToSync, OFFSET DOSDATA:sfTabl>"
+      }
+    ],
+    "SCS_TSR": [
+      {
+        "file": "dos/misc.asm",
+        "line": 62,
+        "text": "EXTRN\tSCS_TSR \t:BYTE"
+      },
+      {
+        "file": "dos/misc.asm",
+        "line": 442,
+        "text": "cmp\tbyte ptr ss:[SCS_TSR],0"
+      },
+      {
+        "file": "dos/misc.asm",
+        "line": 443,
+        "text": "mov\tbyte ptr [SCS_TSR],0"
+      },
+      {
+        "file": "dos/msproc.asm",
+        "line": 130,
+        "text": "extrn\tSCS_TSR \t:byte"
+      },
+      {
+        "file": "dos/msproc.asm",
+        "line": 1627,
+        "text": "mov\tBYTE PTR SCS_TSR,1"
+      },
+      {
+        "file": "inc/lmstub.asm",
+        "line": 857,
+        "text": "PUBLIC SCS_TSR"
+      },
+      {
+        "file": "inc/lmstub.asm",
+        "line": 858,
+        "text": "SCS_TSR    db\t0"
+      }
+    ],
+    "SCS_Is_Dos_Binary": [
+      {
+        "file": "dos/msinit.asm",
+        "line": 88,
+        "text": "extrn\tSCS_Is_Dos_Binary:byte"
+      },
+      {
+        "file": "dos/msproc.asm",
+        "line": 131,
+        "text": "extrn\tSCS_Is_Dos_Binary:byte"
+      },
+      {
+        "file": "dos/msproc.asm",
+        "line": 387,
+        "text": "xchg\tal, SS:[SCS_Is_Dos_Binary]"
+      },
+      {
+        "file": "inc/lmstub.asm",
+        "line": 860,
+        "text": "PUBLIC  SCS_Is_Dos_Binary"
+      },
+      {
+        "file": "inc/lmstub.asm",
+        "line": 861,
+        "text": "SCS_Is_Dos_Binary db\t    0"
+      }
+    ],
+    "SCS_CMDPROMPT": [
+      {
+        "file": "dos/misc.asm",
+        "line": 63,
+        "text": "EXTRN   SCS_CMDPROMPT   :BYTE"
+      },
+      {
+        "file": "dos/misc.asm",
+        "line": 424,
+        "text": "mov     byte ptr ss:[scs_cmdprompt],1"
+      },
+      {
+        "file": "dos/misc.asm",
+        "line": 429,
+        "text": "mov     al, byte ptr ss:[scs_cmdprompt]"
+      },
+      {
+        "file": "dos/msproc.asm",
+        "line": 132,
+        "text": "EXTRN   SCS_CMDPROMPT   :byte"
+      },
+      {
+        "file": "dos/msproc.asm",
+        "line": 401,
+        "text": "cmp     byte ptr ss:[SCS_CMDPROMPT],1"
+      },
+      {
+        "file": "inc/lmstub.asm",
+        "line": 863,
+        "text": "PUBLIC  SCS_CMDPROMPT"
+      },
+      {
+        "file": "inc/lmstub.asm",
+        "line": 864,
+        "text": "SCS_CMDPROMPT  db           0"
+      }
+    ],
+    "SCS_DOSONLY": [
+      {
+        "file": "dos/misc.asm",
+        "line": 64,
+        "text": "EXTRN   SCS_DOSONLY     :BYTE"
+      },
+      {
+        "file": "dos/misc.asm",
+        "line": 435,
+        "text": "mov     byte ptr ss:[scs_dosonly],1"
+      },
+      {
+        "file": "dos/misc.asm",
+        "line": 438,
+        "text": "mov     al, byte ptr ss:[scs_dosonly]"
+      },
+      {
+        "file": "dos/msproc.asm",
+        "line": 133,
+        "text": "EXTRN   SCS_DOSONLY     :byte"
+      },
+      {
+        "file": "dos/msproc.asm",
+        "line": 403,
+        "text": "cmp     byte ptr ss:[SCS_DOSONLY],0"
+      },
+      {
+        "file": "inc/lmstub.asm",
+        "line": 866,
+        "text": "PUBLIC  SCS_DOSONLY"
+      },
+      {
+        "file": "inc/lmstub.asm",
+        "line": 867,
+        "text": "SCS_DOSONLY  db           0"
+      }
+    ],
+    "SCS_FDACCESS": [
+      {
+        "file": "dos/misc.asm",
+        "line": 66,
+        "text": "EXTRN\tSCS_FDACCESS\t:WORD"
+      },
+      {
+        "file": "dos/misc.asm",
+        "line": 306,
+        "text": "cmp\tword ptr ss:[SCS_FDACCESS],0"
+      },
+      {
+        "file": "dos/msinit.asm",
+        "line": 89,
+        "text": "extrn\tSCS_FDACCESS:word"
+      },
+      {
+        "file": "inc/lmstub.asm",
+        "line": 869,
+        "text": "PUBLIC  SCS_FDACCESS"
+      },
+      {
+        "file": "inc/lmstub.asm",
+        "line": 871,
+        "text": "SCS_FDACCESS\tdw\t    0"
+      }
+    ],
+    "FAKE_NTDPB": [
+      {
+        "file": "dos/misc.asm",
+        "line": 65,
+        "text": "EXTRN\tFAKE_NTDPB\t:BYTE"
+      },
+      {
+        "file": "dos/misc.asm",
+        "line": 267,
+        "text": "mov\tdi, offset DOSDATA:FAKE_NTDPB"
+      },
+      {
+        "file": "inc/lmstub.asm",
+        "line": 875,
+        "text": "PUBLIC FAKE_NTDPB"
+      },
+      {
+        "file": "inc/lmstub.asm",
+        "line": 876,
+        "text": "FAKE_NTDPB db (size DPB) dup (0)"
+      }
+    ],
+    "NetCDS": [
+      {
+        "file": "dos/macro.asm",
+        "line": 40,
+        "text": "I_need\tNetCDS,curdirLen"
+      },
+      {
+        "file": "dos/macro.asm",
+        "line": 357,
+        "text": "mov     si,OFFSET DOSDATA:NetCDS"
+      },
+      {
+        "file": "dos/macro.asm",
+        "line": 369,
+        "text": "mov\tsi,OFFSET DOSDATA:NetCDS"
+      },
+      {
+        "file": "inc/lmstub.asm",
+        "line": 879,
+        "text": "I_am\tNetCDS,curdirLen"
+      },
+      {
+        "file": "inc/lmstub.asm",
+        "line": 930,
+        "text": "OFFSET DOSDATA:NetCDS,                              \\"
+      }
+    ],
+    "SCS_ISDEBUG": [
+      {
+        "file": "dos/msdisp.asm",
+        "line": 95,
+        "text": "EXTRN\tSCS_ISDEBUG\t:byte"
+      },
+      {
+        "file": "dos/msdisp.asm",
+        "line": 430,
+        "text": "test    [SCS_ISDEBUG],ISDBG_SHOWSVC"
+      },
+      {
+        "file": "dos/msdisp.asm",
+        "line": 667,
+        "text": "test    [SCS_ISDEBUG],ISDBG_SHOWSVC"
+      },
+      {
+        "file": "dos/msinit.asm",
+        "line": 155,
+        "text": "extrn   SCS_ISDEBUG:byte"
+      },
+      {
+        "file": "dos/msinit.asm",
+        "line": 831,
+        "text": "test    [SCS_ISDEBUG],ISDBG_DEBUGGEE"
+      },
+      {
+        "file": "dos/msproc.asm",
+        "line": 135,
+        "text": "EXTRN\tSCS_ISDEBUG\t:byte"
+      },
+      {
+        "file": "dos/msproc.asm",
+        "line": 736,
+        "text": "test\tss:[SCS_ISDEBUG],ISDBG_DEBUGGEE"
+      },
+      {
+        "file": "dos/msproc.asm",
+        "line": 1047,
+        "text": "test\tss:[SCS_ISDEBUG],ISDBG_DEBUGGEE"
+      },
+      {
+        "file": "dos/msproc.asm",
+        "line": 1106,
+        "text": "test\tss:[SCS_ISDEBUG],ISDBG_DEBUGGEE"
+      },
+      {
+        "file": "dos/msproc.asm",
+        "line": 1732,
+        "text": "test\tss:[SCS_ISDEBUG],ISDBG_DEBUGGEE"
+      },
+      {
+        "file": "inc/lmstub.asm",
+        "line": 921,
+        "text": "PUBLIC SCS_ISDEBUG"
+      },
+      {
+        "file": "inc/lmstub.asm",
+        "line": 922,
+        "text": "SCS_ISDEBUG db\t0"
+      }
+    ],
+    "DosWowDataStart": [
+      {
+        "file": "dos/msinit.asm",
+        "line": 90,
+        "text": "extrn   DosWowDataStart:dword"
+      },
+      {
+        "file": "dos/msinit.asm",
+        "line": 1092,
+        "text": "mov     si,offset dosdata:DosWowDataStart"
+      },
+      {
+        "file": "inc/lmstub.asm",
+        "line": 927,
+        "text": "PUBLIC DosWowDataStart"
+      },
+      {
+        "file": "inc/lmstub.asm",
+        "line": 928,
+        "text": "DosWowDataStart     Label word"
+      }
+    ],
+    "DOCLI": [
+      {
+        "file": "dos/cpmio2.asm",
+        "line": 399,
+        "text": "invoke      DOCLI"
+      },
+      {
+        "file": "dos/getset.asm",
+        "line": 851,
+        "text": "invoke  DOCLI"
+      },
+      {
+        "file": "dos/mscode.asm",
+        "line": 183,
+        "text": "invoke  DOCLI"
+      },
+      {
+        "file": "dos/mscode.asm",
+        "line": 302,
+        "text": "invoke  DOCLI"
+      },
+      {
+        "file": "dos/mscode.asm",
+        "line": 348,
+        "text": "invoke  DOCLI"
+      },
+      {
+        "file": "dos/msctrlc.asm",
+        "line": 404,
+        "text": "call    DOCLI"
+      },
+      {
+        "file": "dos/msctrlc.asm",
+        "line": 453,
+        "text": "call    DOCLI"
+      },
+      {
+        "file": "dos/msctrlc.asm",
+        "line": 779,
+        "text": "call    DOCLI"
+      },
+      {
+        "file": "dos/msctrlc.asm",
+        "line": 1014,
+        "text": "call    DOCLI"
+      },
+      {
+        "file": "dos/msctrlc.asm",
+        "line": 1073,
+        "text": "Procedure DOCLI,near"
+      },
+      {
+        "file": "dos/msctrlc.asm",
+        "line": 1076,
+        "text": "EndProc DOCLI"
+      },
+      {
+        "file": "dos/msdisp.asm",
+        "line": 343,
+        "text": "invoke  DOCLI"
+      },
+      {
+        "file": "dos/msdisp.asm",
+        "line": 377,
+        "text": "invoke  DOCLI"
+      },
+      {
+        "file": "dos/msdisp.asm",
+        "line": 629,
+        "text": "invoke  DOCLI"
+      },
+      {
+        "file": "dos/msproc.asm",
+        "line": 1374,
+        "text": "invoke  DOCLI"
+      },
+      {
+        "file": "inc/lmstub.asm",
+        "line": 396,
+        "text": "call    DOCLI"
+      },
+      {
+        "file": "inc/lmstub.asm",
+        "line": 935,
+        "text": "DOCLI:"
+      }
+    ],
+    "DOSTI": [
+      {
+        "file": "dos/file.asm",
+        "line": 304,
+        "text": "invoke  DOSTI"
+      },
+      {
+        "file": "dos/getset.asm",
+        "line": 854,
+        "text": "invoke  DOSTI"
+      },
+      {
+        "file": "dos/mscode.asm",
+        "line": 322,
+        "text": "invoke DOSTI"
+      },
+      {
+        "file": "dos/mscode.asm",
+        "line": 757,
+        "text": "invoke  DOSTI"
+      },
+      {
+        "file": "dos/msctrlc.asm",
+        "line": 811,
+        "text": "call    DOSTI"
+      },
+      {
+        "file": "dos/msctrlc.asm",
+        "line": 1078,
+        "text": "Procedure DOSTI,near"
+      },
+      {
+        "file": "dos/msctrlc.asm",
+        "line": 1081,
+        "text": "EndProc DOSTI"
+      },
+      {
+        "file": "dos/msdisp.asm",
+        "line": 496,
+        "text": "invoke  DOSTI"
+      },
+      {
+        "file": "inc/lmstub.asm",
+        "line": 620,
+        "text": "call    DOSTI"
+      },
+      {
+        "file": "inc/lmstub.asm",
+        "line": 939,
+        "text": "DOSTI:"
+      }
+    ],
+    "DOIRET": [
+      {
+        "file": "dos/msctrlc.asm",
+        "line": 1070,
+        "text": "jmp     DOIRET"
+      },
+      {
+        "file": "dos/msctrlc.asm",
+        "line": 1083,
+        "text": "public DOIRET"
+      },
+      {
+        "file": "dos/msctrlc.asm",
+        "line": 1084,
+        "text": "DOIRET:"
+      },
+      {
+        "file": "dos/msdisp.asm",
+        "line": 674,
+        "text": "transfer  DOIRET"
+      },
+      {
+        "file": "inc/lmstub.asm",
+        "line": 291,
+        "text": "lirett: jmp  DOIRET"
+      },
+      {
+        "file": "inc/lmstub.asm",
+        "line": 457,
+        "text": "jmp     DOIRET"
+      },
+      {
+        "file": "inc/lmstub.asm",
+        "line": 943,
+        "text": "DOIRET:"
+      }
+    ]
+  },
+  "source_hashes": {
+    "dos/cpmio2.asm": "be1c1ac94665ee5a222ec215a8cb7bfa2cf9c5383168128b0ddb90eac072a1a0",
+    "dos/file.asm": "09f6f2e06f14754cfe069335906d26676ab5538c7c569a33b2d62e052fcd633e",
+    "dos/getset.asm": "ec72b7bd0fd4e84d0f592e67896123db98f0fb2a12171356b71388bc0970ac35",
+    "dos/macro.asm": "f539e62f8b1317b1d97b7c664bbf0262dc16f3591614209818f44d092c06e5f0",
+    "dos/misc.asm": "68ea572d52887bb36267648922ecbf63aa7b9a533b3f9f626f26882ad4550b70",
+    "dos/mscode.asm": "59f4903be6456362ede5c53fa49a31805946f5411e0a6960b0a89257a5c7d569",
+    "dos/msctrlc.asm": "8d1b22b12a10eade8b6cf83276be13ac9e13971f3f83eeac3961ad8b3aa9120c",
+    "dos/msdisp.asm": "2ce748a58c20c8619fc9be08b8ce91f039d17e41e4343963124042264dd14985",
+    "dos/msinit.asm": "e9af20f356bff55db43621beefcc4f3d54c5872750aeaa10e02093c46bbe3e1c",
+    "dos/msproc.asm": "8ef142f6940ebd00bb88a2f9fbfe73ff29842d630e96282101390e19c752c492",
+    "inc/lmstub.asm": "fde4eaf4e16d3461f80fc62b53b62a5d7912c4f008f6f490546be5b8337f5f1a"
+  },
+  "scope": "Lexical occurrences in local assembly/includes, including declarations and conditional branches; not proven active call graph."
+}

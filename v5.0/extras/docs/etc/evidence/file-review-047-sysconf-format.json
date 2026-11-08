@@ -1,0 +1,114 @@
+{
+  "index": 47,
+  "file": "bios/sysconf.asm",
+  "reviewed_sha256": "97652ce73b0834a0d6cb9b9c56ad4879982f5a653c4d4491a85feaffc1a51b55",
+  "status": "reviewed",
+  "role": "CONFIG.SYS initialization and parsing; BIOS SYSINITSEG module.",
+  "references": {
+    "opennt": {
+      "status": "different",
+      "sha256": "60bba5ffc49c7c995a33819ce6bc1d3111a4a693b7972d81bb3b146f600bcd7e",
+      "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\bios\\sysconf.asm"
+    },
+    "dos6": {
+      "status": "different",
+      "sha256": "fe9281ab21ef9cc973ec8e0191beedc88c3777875958fcee7f4ddee13f87fc6d",
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\sysconf.asm"
+    },
+    "dos4": {
+      "status": "different",
+      "sha256": "d423781848ee58ab803193ed483b3f4bf9f0d0af6dd446775bcfa5f18c6bdf8e",
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\BIOS\\sysconf.asm"
+    }
+  },
+  "review": {
+    "code_lines": 2262,
+    "automatically_covered_contiguous_code_lines": 2253,
+    "individually_reviewed_lines": [
+      {
+        "source_line": 788,
+        "module_offset": 3079,
+        "target_file_offset": 26581,
+        "target_bytes": "7439",
+        "disposition": "Skip second configuration pass; target branch goes to multi_pass_coff."
+      },
+      {
+        "source_line": 791,
+        "module_offset": 3088,
+        "target_file_offset": 26590,
+        "target_bytes": "80fc48",
+        "disposition": "DOS=HI command code comparison; OpenNT uses equivalent comparison with different spacing."
+      },
+      {
+        "source_line": 792,
+        "module_offset": 3091,
+        "target_file_offset": 26593,
+        "target_bytes": "742d",
+        "disposition": "Skip DOS=HI on regular pass; branch target multi_pass_coff."
+      },
+      {
+        "source_line": 1236,
+        "module_offset": 3646,
+        "target_file_offset": 27148,
+        "target_bytes": "eb5f",
+        "disposition": "Short jump to badnumblock; DOS 6 contains the same destination with a different encoding."
+      },
+      {
+        "source_line": 1438,
+        "module_offset": 3999,
+        "target_file_offset": 27501,
+        "target_bytes": "775c",
+        "disposition": "Short conditional jump to bad_bpb_size_sector; DOS 6 uses a different branch layout."
+      },
+      {
+        "source_line": 1807,
+        "module_offset": 4518,
+        "target_file_offset": 28020,
+        "target_bytes": "7203",
+        "disposition": "Error return from diddleback; matching instruction exists in DOS 6."
+      },
+      {
+        "source_line": 2085,
+        "module_offset": 4830,
+        "target_file_offset": 28332,
+        "target_bytes": "80fc59",
+        "disposition": "CONFIG_COMMENT comparison matches DOS 6."
+      },
+      {
+        "source_line": 2098,
+        "module_offset": 4848,
+        "target_file_offset": 28350,
+        "target_bytes": "80fc30",
+        "disposition": "CONFIG_REM comparison matches DOS 6."
+      },
+      {
+        "source_line": 2099,
+        "module_offset": 4851,
+        "target_file_offset": 28353,
+        "target_bytes": "74ee",
+        "disposition": "REM dispatch to donothing matches OpenNT and DOS 6."
+      }
+    ],
+    "nt_service_scan": "No active HRDSVC, SVC_*, BOP, NTVDM, SOFTPC or NTDOS tokens found by source scan.",
+    "single_config_history": "docs/etc/evidence/m6-bios-single-config-style-audit.json",
+    "style": "Unmatched statements use existing historical assembly syntax and surrounding procedure/parameter conventions; no evidence supports changing them."
+  },
+  "verification": {
+    "stage": "build\\integrated-source-3qm3v2jp",
+    "built_source_identical": true,
+    "sysconf_object_sha256": "48fbe00a90f79e418e312a83de08c73429304ffd6b97480972be20baa9bd9954",
+    "doconf_segment": 1021,
+    "module_segment_offset": 5720,
+    "loader_bytes": 1446,
+    "all_three_targets_byte_equal": true,
+    "limits": "Nine selected instructions checked directly in retained IO.SYS; whole-file target identity is from integrated build, not proof of runtime reachability, optional configurations or exact DOS 5 source."
+  },
+  "disposition": "Retained unchanged; mismatches are target-supported control flow, alternate encoding, formatting or isolated reference matches.",
+  "supersedes": "docs/etc/evidence/file-review-047-sysconf.json",
+  "format_alignment": {
+    "source_evidence": "docs/etc/evidence/file-review-047-dos6-format-source.json",
+    "stage": "build\\integrated-source-eg7abn9b",
+    "unchanged_objects": 104,
+    "all_three_targets_byte_equal": true
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "index": 209,
+  "file": "inc/VERSIONA.INC",
+  "reviewed_sha256": "bae6036c30263ffd0a4ac74beee3075c919d3f13f45c076af32043af68b65212",
+  "decision": "retain_round2",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\inc\\versiona.inc",
+      "sha256": "b3d882010c35ec2fa4d8fc5faa124c866a4ed08b9559b6ffac1eaf713177dc83"
+    },
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\INC\\VERSIONA.INC",
+      "sha256": "dfffc0aba6602edd64c85a2d99722fbdef8c47cb9ea260e9db5aa384b9c2c087"
+    },
+    {
+      "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\versiona.inc",
+      "sha256": "df1d5b2a37fbd511701d993d7362a6cb11c3ab077bda674a69948bf71bbb958c"
+    }
+  ],
+  "reason": [
+    "DOS 6 defines major_version as 6; DOS 4 defines it as 4 and lacks DOS 5 revision and memory flags.",
+    "OpenNT adds minor_version_NT for the NT-specific version response.",
+    "The target DOS 5 version constants and existing comments are retained."
+  ],
+  "change": "No source change.",
+  "verification": "Current NT/BOP lexical scan has no hits; latest integrated-source-t61pmujw build matches all three pinned targets.",
+  "limitations": "Reference correspondence and default binary identity do not prove the precise original DOS 5 source text."
+}

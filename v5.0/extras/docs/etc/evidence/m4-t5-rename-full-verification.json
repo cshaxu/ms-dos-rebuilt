@@ -1,0 +1,824 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\rename-full-recovery-u2zugry7",
+  "source": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\dos\\rename.full.recovery.asm",
+  "source_sha256": "7889e1a6cd04d1c889935892ef2e2f4d57b58afa62ab4a054dc3fc7c7b71154f",
+  "tool_sha256": "e54afaa9565e046cd862c29a015d685de43311acccf796469030e162ced6d00d",
+  "comparative_reference": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\rename.asm",
+  "comparative_reference_sha256": "e6b1bc6274952b29234230fb72dff9e2cb601558d75af5a298079df93b101dbd",
+  "local_header_inventory": {
+    "dos\\divmes.inc": "4635ff455355c3c152d361972b7a599c14d25e33eae754f7eb983c75a8319f11",
+    "dos\\dosmes.inc": "5278bfe57c6598113b6bd89a7fa69bc36423e375302266cde4f8b02c0a593608",
+    "dos\\reference.make.inc": "e9d2e142803b748ce09ad7c6f91ac062c1a2f02493fdc7350e63b63db7836a4f",
+    "dos\\scnam.inc": "9309eba70b5aba0bb7ccb8278496300072c1872396d384422ee4346e48a1c44e",
+    "inc\\arena.inc": "f9038d0e38e15cd636ec229abb33c3831f7cfd8b0b53c0c96a01b05ed42c5fbd",
+    "inc\\bdsize.inc": "eaf5420a062d06b200ec7e80192c5c1c7cc8957363f863891b1afaf988d6041d",
+    "inc\\bpb.inc": "43452ad264b7242d892634f19bfcd036f8a2f1c926745466b27039e8c5f960a8",
+    "inc\\buffer.INC": "0e6f472f08df268434a3a2bdc34bc807dd856d86eb0d02fee58886245cb0b8a9",
+    "inc\\bugtyp.inc": "e61e02f48c5257d3ed0be51e22be6618955225aad2db1ef54e9a16e8331d5a20",
+    "inc\\COPYRIGH.INC": "5f5ba93635d6200394f545d20d91532da8ff30d1eacda0d786d79d61cd488ae7",
+    "inc\\cpmfcb.inc": "9cc5117113485abede5c9b73ed26a291984e8b894ff239477ad228bc63319b5c",
+    "inc\\cputype.inc": "34144664bdb7ce50e672b428689eb174eafbd4455acd7e5e8a80406a4452d439",
+    "inc\\devsym.inc": "bbfcd2923aa6c6278ed53d21980305ae97bdf78c0cf2950e2e1ac5317a9a7dff",
+    "inc\\dirent.INC": "d3199a48b1815444e04cf3e0e05b2a21168038f5c9440b267cca67820e474dfe",
+    "inc\\doscntry.inc": "cbc519145c8c29f229844fde16fae2ebf06b6266e01897e29b0539bd555b8a97",
+    "inc\\dosmac.INC": "6c6abe9a647d14c57f97c0bd3afafcdee6624f636fff273f2d996a7b21a693c2",
+    "inc\\dosseg.inc": "b485ff060b5086a1884591163ae088f2ea0f379c22ea7ed96801ae371880749a",
+    "inc\\dossym.inc": "e17a46ea59396490cec2dcbaf1e8e48beae2a92f7a52a519c43f14a1e2303a36",
+    "inc\\dpb.inc": "78a9717b8fe123d31651d6351adeb6789501ef273ce2476316f5d4ec7c450ec0",
+    "inc\\error.INC": "4e44f0694a7db2a15df780a3e6bb916f5f5722aca9f3df8daf4f148f0321cd8f",
+    "inc\\exe.inc": "cb88f289660af5f35a39fe6d0bd50835aeecd19a448227798f56ea85b89ba37a",
+    "inc\\fastopen.inc": "bfe2cde39a806bb6cab4665250c832a3643d3be198b4d14a9c8ba5ae2342f57d",
+    "inc\\fastxxxx.inc": "4c1d828fc57d051876859c18af8686db931215a513ea1fb760d1650d1ee3e2fb",
+    "inc\\filemode.inc": "1ed4f86e30874fd29bbf1db7d8d7bf541b3e29f9b52e3eb9cf62b007f6c88a05",
+    "inc\\find.inc": "7380ee0229ef50d6a2afaa0dcece6ab2a333217df09234037cc4a329686d47eb",
+    "inc\\int2a.inc": "a425a0ed47e3ee9264f1008d3646d17f1241be01659aa5ffca8f718ca5372161",
+    "inc\\intnat.inc": "e38d3c8a8b82f4d2b622a9bf276b087d2bb6e4e7fe33658354b06b33466ec970",
+    "inc\\ioctl.inc": "5afdc64aa6d91c4c503c9d27fe4982517f3a762b94413ee8a882a49f3736ff2f",
+    "inc\\lock.inc": "2889df10fd8228bda5c88b1ded3e0b0404335935a980cbbcd86c6417cb25d169",
+    "inc\\mi.inc": "e9c3475c654c335705ed3609ab9041a8e78b3092aad65261d7d58d74f84c0650",
+    "inc\\msbdata.inc": "71fc814eb557ddac186990c67ea55a73a5f02318a7455a072fb690f1ef4ce7be",
+    "inc\\msgdcl.inc": "19d6d486f224ddea638b566c043d949e7fba79c011f1fea254989c274feff924",
+    "inc\\mult.inc": "517bc33792cc568eb350308b931ad87b75b1d42255341950fe394df9302c48fb",
+    "inc\\origin.inc": "ef20115ebe9c9592eb87e9b21a0ebe036592ca6cf44e389d67093a80db3d008d",
+    "inc\\pdb.inc": "d247016c2a40694f8285fc33d193fd87dca9df96d50450258da170eb16e32746",
+    "inc\\psdata.inc": "bbdc48017d30a9b4b14289b0ea5003cf89b06cbbf2dc7930e30aab09983997ab",
+    "inc\\rombios.inc": "7d9d0098545cff9fdb3eef264552887d23d6ea3f175728ef5fd6f0514561ec42",
+    "inc\\sf.inc": "a7598805cfaad479960f0891903aaab458c975d8f14f6e1acfe25b44f06a2093",
+    "inc\\syscall.inc": "23cf7f5e2e180337a0c2219ae013494e2a106103655c0d00fa8631ce9de2e79d",
+    "inc\\SYSMSG.INC": "d41dc5fb8e50940cbcf356e5ba73f34adb777d1e4053f77a0c1cf9682aa862bd",
+    "inc\\sysvar.inc": "851f7781c4d1c3e0d21e3fb0e2a53af3d809d6eb93fb35584d2ea351f0be00b8",
+    "inc\\vector.inc": "c7fdd8e4468d28c8abed6c7d6e6e5e292d5dc21251821b29212eb1c61536fb12",
+    "inc\\version.inc": "387730c471bbfde2d45b08d8df86bebd430fe5abb9a8ee12688f6aa141f6f7d6",
+    "inc\\VERSIONA.INC": "df1d5b2a37fbd511701d993d7362a6cb11c3ab077bda674a69948bf71bbb958c",
+    "inc\\win386.inc": "6d76db4ccfe544931bd6daad6fca29c3f92a68ebda1a32e1470ad2d53e5f7238",
+    "inc\\wpatch.inc": "a5218655835870f97838b703b98c4e2578301aaac7a761c29ea751c41004beb3",
+    "inc\\xmm.inc": "a426a10a662ef94ec973d045cea21e3c5a3687bfc79b7b3c02d811a35215738e",
+    "inc\\kernel\\cputype.inc": "e9bf8b0a5ee0e10936d5403cddadacc898ce1f8b6807ab955b2d0639e5b50cb0",
+    "inc\\kernel\\curdir.inc": "bc780ae1b35d018b2ec60f7c49465e4a52b1f1356832d4d178a6f0f5f228cda4",
+    "inc\\ntvdm\\bop.inc": "a3705f225c47e53dc4e106c7362366477f2f06c33cb9bf52515ca1299556f669",
+    "inc\\ntvdm\\cmdsvc.inc": "7643746ceec383536ca3ea2cfc4400ac94c8c7a34bd266b09258cfcb337441c6",
+    "inc\\ntvdm\\curdir.inc": "8490c9aa0702bc17b6f73483837159934aa8c8f353df5402b71812ea87d63762",
+    "inc\\ntvdm\\DBGSVC.INC": "296a6387cfe02445e6c8d43f9f68e1fd4dfbd9d654de3ba6460dee54f6dfc171",
+    "inc\\ntvdm\\dossvc.inc": "07c4676c9a44418c5a0175acc7a09c251bde892b0a838381edeee26e49c9faf3",
+    "inc\\ntvdm\\DOSWOW.INC": "d6bd8a52bff2980dacab518da8f2330da5bb978e6c07d1846662078da49444fb",
+    "inc\\ntvdm\\vint.inc": "2ba06b3eea9a8ec96236d96ff7d996274b3feb5ac456524d6a9e8bd6a44541c7"
+  },
+  "comparison_headers": {
+    "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\inc\\sf.inc": "98f38dad3562b516b4232ceb309a16f6b3ec8f4a899f99a7e433380f466df98d"
+  },
+  "object_sha256": "5b489d68645175833db7fb7d53e44b701b11f8b0240aae7b2fd266e29cf3f1e4",
+  "map_sha256": "9de1d07545a51baeef4736abbfe72b8cba97d2ead3e78ba39ba015b147f95210",
+  "command": [
+    "O:\\repos.hobby\\ntvdm64\\tools\\opennt\\tools16\\masm.exe",
+    "-Mx",
+    "-t",
+    "-W1",
+    "-I.",
+    "-I..\\..\\dos",
+    "-I..\\..\\inc\\kernel",
+    "-I..\\..\\inc",
+    "-I..\\..\\inc\\ntvdm",
+    "buf.asm,buf.obj,buf.lst;"
+  ],
+  "exit": 0,
+  "target_start": 10233,
+  "target_end": 10806,
+  "bytes": 573,
+  "candidate_sha256": "c80b66910841a359a8cb40ca43bb8f0aff08a9f01d54ff1af029ac4661739714",
+  "target_slice_sha256": "c80b66910841a359a8cb40ca43bb8f0aff08a9f01d54ff1af029ac4661739714",
+  "relocations": [
+    {
+      "offset": 1,
+      "symbol": "TestNet",
+      "displacement": 0,
+      "relative": true,
+      "value": 60053
+    },
+    {
+      "offset": 13,
+      "symbol": "EXTERR_LOCUS",
+      "displacement": 0,
+      "relative": false,
+      "value": 803
+    },
+    {
+      "offset": 18,
+      "symbol": "WFP_START",
+      "displacement": 0,
+      "relative": false,
+      "value": 1458
+    },
+    {
+      "offset": 22,
+      "symbol": "REN_WFP",
+      "displacement": 0,
+      "relative": false,
+      "value": 1460
+    },
+    {
+      "offset": 42,
+      "symbol": "DMAADD",
+      "displacement": 2,
+      "relative": false,
+      "value": 814
+    },
+    {
+      "offset": 46,
+      "symbol": "DMAADD",
+      "displacement": 0,
+      "relative": false,
+      "value": 812
+    },
+    {
+      "offset": 50,
+      "symbol": "DMAADD",
+      "displacement": 2,
+      "relative": false,
+      "value": 814
+    },
+    {
+      "offset": 54,
+      "symbol": "DMAADD",
+      "displacement": 0,
+      "relative": false,
+      "value": 812
+    },
+    {
+      "offset": 56,
+      "symbol": "RENAMEDMA",
+      "displacement": 0,
+      "relative": false,
+      "value": 1568
+    },
+    {
+      "offset": 60,
+      "symbol": "FOUND_DEV",
+      "displacement": 0,
+      "relative": false,
+      "value": 1392
+    },
+    {
+      "offset": 64,
+      "symbol": "EcritDisk",
+      "displacement": 0,
+      "relative": true,
+      "value": 60187
+    },
+    {
+      "offset": 67,
+      "symbol": "DOS_SEARCH_FIRST",
+      "displacement": 0,
+      "relative": true,
+      "value": 1556
+    },
+    {
+      "offset": 82,
+      "symbol": "DMAADD",
+      "displacement": 0,
+      "relative": false,
+      "value": 812
+    },
+    {
+      "offset": 86,
+      "symbol": "DMAADD",
+      "displacement": 2,
+      "relative": false,
+      "value": 814
+    },
+    {
+      "offset": 89,
+      "symbol": "LcritDisk",
+      "displacement": 0,
+      "relative": true,
+      "value": 60194
+    },
+    {
+      "offset": 98,
+      "symbol": "DMAADD",
+      "displacement": 0,
+      "relative": false,
+      "value": 812
+    },
+    {
+      "offset": 111,
+      "symbol": "REN_WFP",
+      "displacement": 0,
+      "relative": false,
+      "value": 1460
+    },
+    {
+      "offset": 114,
+      "symbol": "Check_Pathlen2",
+      "displacement": 0,
+      "relative": true,
+      "value": 64194
+    },
+    {
+      "offset": 121,
+      "symbol": "FOUND_DEV",
+      "displacement": 0,
+      "relative": false,
+      "value": 1392
+    },
+    {
+      "offset": 132,
+      "symbol": "REN_DEL_Check",
+      "displacement": 0,
+      "relative": true,
+      "value": 65230
+    },
+    {
+      "offset": 144,
+      "symbol": "DMAADD",
+      "displacement": 0,
+      "relative": false,
+      "value": 812
+    },
+    {
+      "offset": 160,
+      "symbol": "FastOpen_Delete",
+      "displacement": 0,
+      "relative": true,
+      "value": 65312
+    },
+    {
+      "offset": 163,
+      "symbol": "WFP_START",
+      "displacement": 0,
+      "relative": false,
+      "value": 1458
+    },
+    {
+      "offset": 167,
+      "symbol": "REN_WFP",
+      "displacement": 0,
+      "relative": false,
+      "value": 1460
+    },
+    {
+      "offset": 171,
+      "symbol": "WFP_START",
+      "displacement": 0,
+      "relative": false,
+      "value": 1458
+    },
+    {
+      "offset": 174,
+      "symbol": "REN_WFP",
+      "displacement": 0,
+      "relative": false,
+      "value": 1460
+    },
+    {
+      "offset": 178,
+      "symbol": "CURR_DIR_END",
+      "displacement": 0,
+      "relative": false,
+      "value": 1462
+    },
+    {
+      "offset": 184,
+      "symbol": "CREATING",
+      "displacement": 0,
+      "relative": false,
+      "value": 1406
+    },
+    {
+      "offset": 189,
+      "symbol": "GetPathNoSet",
+      "displacement": 0,
+      "relative": true,
+      "value": 6079
+    },
+    {
+      "offset": 204,
+      "symbol": "THISDRV",
+      "displacement": 0,
+      "relative": false,
+      "value": 1398
+    },
+    {
+      "offset": 207,
+      "symbol": "FLUSHBUF",
+      "displacement": 0,
+      "relative": true,
+      "value": 13120
+    },
+    {
+      "offset": 212,
+      "symbol": "FAILERR",
+      "displacement": 0,
+      "relative": false,
+      "value": 842
+    },
+    {
+      "offset": 219,
+      "symbol": "DOSCODE",
+      "displacement": 80,
+      "relative": true,
+      "value": 65395
+    },
+    {
+      "offset": 226,
+      "symbol": "DOSCODE",
+      "displacement": 79,
+      "relative": true,
+      "value": 65387
+    },
+    {
+      "offset": 232,
+      "symbol": "FAILERR",
+      "displacement": 0,
+      "relative": false,
+      "value": 842
+    },
+    {
+      "offset": 246,
+      "symbol": "DOSCODE",
+      "displacement": 80,
+      "relative": true,
+      "value": 65368
+    },
+    {
+      "offset": 251,
+      "symbol": "NAME2",
+      "displacement": 0,
+      "relative": false,
+      "value": 1367
+    },
+    {
+      "offset": 254,
+      "symbol": "NAME1",
+      "displacement": 0,
+      "relative": false,
+      "value": 1355
+    },
+    {
+      "offset": 262,
+      "symbol": "DIRSTART",
+      "displacement": 0,
+      "relative": false,
+      "value": 1474
+    },
+    {
+      "offset": 265,
+      "symbol": "DESTSTART",
+      "displacement": 0,
+      "relative": false,
+      "value": 1380
+    },
+    {
+      "offset": 270,
+      "symbol": "RENAMEDMA",
+      "displacement": 21,
+      "relative": false,
+      "value": 1589
+    },
+    {
+      "offset": 273,
+      "symbol": "NAME1",
+      "displacement": 0,
+      "relative": false,
+      "value": 1355
+    },
+    {
+      "offset": 276,
+      "symbol": "NAME2",
+      "displacement": 0,
+      "relative": false,
+      "value": 1367
+    },
+    {
+      "offset": 282,
+      "symbol": "DOSCODE",
+      "displacement": 561,
+      "relative": true,
+      "value": 277
+    },
+    {
+      "offset": 286,
+      "symbol": "ATTRIB",
+      "displacement": 0,
+      "relative": false,
+      "value": 1387
+    },
+    {
+      "offset": 291,
+      "symbol": "CREATING",
+      "displacement": 0,
+      "relative": false,
+      "value": 1406
+    },
+    {
+      "offset": 295,
+      "symbol": "DEVNAME",
+      "displacement": 0,
+      "relative": true,
+      "value": 6683
+    },
+    {
+      "offset": 301,
+      "symbol": "DESTSTART",
+      "displacement": 0,
+      "relative": false,
+      "value": 1380
+    },
+    {
+      "offset": 305,
+      "symbol": "THISDPB",
+      "displacement": 0,
+      "relative": false,
+      "value": 1418
+    },
+    {
+      "offset": 308,
+      "symbol": "SetDirSrch",
+      "displacement": 0,
+      "relative": true,
+      "value": 5853
+    },
+    {
+      "offset": 313,
+      "symbol": "FINDENTRY",
+      "displacement": 0,
+      "relative": true,
+      "value": 5516
+    },
+    {
+      "offset": 319,
+      "symbol": "FAILERR",
+      "displacement": 0,
+      "relative": false,
+      "value": 842
+    },
+    {
+      "offset": 325,
+      "symbol": "DESTSTART",
+      "displacement": 0,
+      "relative": false,
+      "value": 1380
+    },
+    {
+      "offset": 329,
+      "symbol": "RENAMEDMA",
+      "displacement": 15,
+      "relative": false,
+      "value": 1583
+    },
+    {
+      "offset": 334,
+      "symbol": "RENAMEDMA",
+      "displacement": 32,
+      "relative": false,
+      "value": 1600
+    },
+    {
+      "offset": 341,
+      "symbol": "ATTRIB",
+      "displacement": 0,
+      "relative": false,
+      "value": 1387
+    },
+    {
+      "offset": 345,
+      "symbol": "THISSFT",
+      "displacement": 2,
+      "relative": false,
+      "value": 1440
+    },
+    {
+      "offset": 348,
+      "symbol": "AUXSTACK",
+      "displacement": 65477,
+      "relative": false,
+      "value": 1893
+    },
+    {
+      "offset": 352,
+      "symbol": "THISSFT",
+      "displacement": 0,
+      "relative": false,
+      "value": 1438
+    },
+    {
+      "offset": 362,
+      "symbol": "RENAME_MAKE",
+      "displacement": 0,
+      "relative": true,
+      "value": 8667
+    },
+    {
+      "offset": 367,
+      "symbol": "DOSCODE",
+      "displacement": 197,
+      "relative": true,
+      "value": 65364
+    },
+    {
+      "offset": 372,
+      "symbol": "THISSFT",
+      "displacement": 0,
+      "relative": false,
+      "value": 1438
+    },
+    {
+      "offset": 375,
+      "symbol": "ShareEnd",
+      "displacement": 0,
+      "relative": true,
+      "value": 19473
+    },
+    {
+      "offset": 380,
+      "symbol": "CURBUF",
+      "displacement": 0,
+      "relative": false,
+      "value": 1506
+    },
+    {
+      "offset": 390,
+      "symbol": "INC_DIRTY_COUNT",
+      "displacement": 0,
+      "relative": true,
+      "value": 13205
+    },
+    {
+      "offset": 403,
+      "symbol": "RENAMEDMA",
+      "displacement": 32,
+      "relative": false,
+      "value": 1600
+    },
+    {
+      "offset": 411,
+      "symbol": "DOSCODE",
+      "displacement": 538,
+      "relative": true,
+      "value": 125
+    },
+    {
+      "offset": 419,
+      "symbol": "CURBUF",
+      "displacement": 2,
+      "relative": false,
+      "value": 1508
+    },
+    {
+      "offset": 427,
+      "symbol": "DOSCODE",
+      "displacement": 538,
+      "relative": true,
+      "value": 109
+    },
+    {
+      "offset": 435,
+      "symbol": "CURBUF",
+      "displacement": 2,
+      "relative": false,
+      "value": 1508
+    },
+    {
+      "offset": 438,
+      "symbol": "NAME1",
+      "displacement": 0,
+      "relative": false,
+      "value": 1355
+    },
+    {
+      "offset": 447,
+      "symbol": "CURBUF",
+      "displacement": 0,
+      "relative": false,
+      "value": 1506
+    },
+    {
+      "offset": 457,
+      "symbol": "INC_DIRTY_COUNT",
+      "displacement": 0,
+      "relative": true,
+      "value": 13138
+    },
+    {
+      "offset": 467,
+      "symbol": "DMAADD",
+      "displacement": 0,
+      "relative": false,
+      "value": 812
+    },
+    {
+      "offset": 479,
+      "symbol": "FASTOPEN_RENAME",
+      "displacement": 0,
+      "relative": true,
+      "value": 65014
+    },
+    {
+      "offset": 486,
+      "symbol": "RENAMEDMA",
+      "displacement": 1,
+      "relative": false,
+      "value": 1569
+    },
+    {
+      "offset": 489,
+      "symbol": "EcritDisk",
+      "displacement": 0,
+      "relative": true,
+      "value": 59762
+    },
+    {
+      "offset": 493,
+      "symbol": "CREATING",
+      "displacement": 0,
+      "relative": false,
+      "value": 1406
+    },
+    {
+      "offset": 497,
+      "symbol": "RENAME_NEXT",
+      "displacement": 0,
+      "relative": true,
+      "value": 1443
+    },
+    {
+      "offset": 505,
+      "symbol": "REN_DEL_Check",
+      "displacement": 0,
+      "relative": true,
+      "value": 64857
+    },
+    {
+      "offset": 513,
+      "symbol": "DOSCODE",
+      "displacement": 201,
+      "relative": true,
+      "value": 65222
+    },
+    {
+      "offset": 516,
+      "symbol": "RENAMEDMA",
+      "displacement": 32,
+      "relative": false,
+      "value": 1600
+    },
+    {
+      "offset": 523,
+      "symbol": "FastOpen_Delete",
+      "displacement": 0,
+      "relative": true,
+      "value": 64949
+    },
+    {
+      "offset": 526,
+      "symbol": "DOSCODE",
+      "displacement": 267,
+      "relative": true,
+      "value": 65275
+    },
+    {
+      "offset": 529,
+      "symbol": "FASTOPEN_RENAME",
+      "displacement": 0,
+      "relative": true,
+      "value": 64964
+    },
+    {
+      "offset": 532,
+      "symbol": "DOSCODE",
+      "displacement": 267,
+      "relative": true,
+      "value": 65269
+    },
+    {
+      "offset": 536,
+      "symbol": "DOSCODE",
+      "displacement": 201,
+      "relative": true,
+      "value": 65199
+    },
+    {
+      "offset": 540,
+      "symbol": "RENAMEDMA",
+      "displacement": 15,
+      "relative": false,
+      "value": 1583
+    },
+    {
+      "offset": 544,
+      "symbol": "THISDPB",
+      "displacement": 0,
+      "relative": false,
+      "value": 1418
+    },
+    {
+      "offset": 547,
+      "symbol": "SetDirSrch",
+      "displacement": 0,
+      "relative": true,
+      "value": 5614
+    },
+    {
+      "offset": 552,
+      "symbol": "StartSrch",
+      "displacement": 0,
+      "relative": true,
+      "value": 6393
+    },
+    {
+      "offset": 555,
+      "symbol": "RENAMEDMA",
+      "displacement": 13,
+      "relative": false,
+      "value": 1581
+    },
+    {
+      "offset": 558,
+      "symbol": "GetEnt",
+      "displacement": 0,
+      "relative": true,
+      "value": 5556
+    }
+  ],
+  "external_code_target_attributions": {
+    "TESTNET": [
+      10233,
+      4753
+    ],
+    "ECRITDISK": [
+      10296,
+      4950
+    ],
+    "DOS_SEARCH_FIRST": [
+      10299,
+      11858
+    ],
+    "LCRITDISK": [
+      10321,
+      4982
+    ],
+    "CHECK_PATHLEN2": [
+      10346,
+      9007
+    ],
+    "REN_DEL_CHECK": [
+      10364,
+      10061
+    ],
+    "FASTOPEN_DELETE": [
+      10392,
+      10171
+    ],
+    "GETPATHNOSET": [
+      10421,
+      16503
+    ],
+    "FLUSHBUF": [
+      10439,
+      23562
+    ],
+    "DEVNAME": [
+      10527,
+      17213
+    ],
+    "SETDIRSRCH": [
+      10540,
+      16396
+    ],
+    "FINDENTRY": [
+      10545,
+      16064
+    ],
+    "RENAME_MAKE": [
+      10594,
+      19264
+    ],
+    "SHAREEND": [
+      10607,
+      30083
+    ],
+    "INC_DIRTY_COUNT": [
+      10622,
+      23830
+    ],
+    "FASTOPEN_RENAME": [
+      10711,
+      10192
+    ],
+    "RENAME_NEXT": [
+      10729,
+      12175
+    ],
+    "STARTSRCH": [
+      10784,
+      17180
+    ],
+    "GETENT": [
+      10790,
+      16349
+    ]
+  },
+  "differences": [],
+  "exact": true,
+  "data_layout_differences": [],
+  "scope": "Bounded source object at target layout with explicit symbol relocations; external callees are addresses only. No integrated-kernel or runtime claim."
+}

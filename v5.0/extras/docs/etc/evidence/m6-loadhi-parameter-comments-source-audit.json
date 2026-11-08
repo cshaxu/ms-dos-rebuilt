@@ -1,0 +1,21 @@
+{
+  "source": "cmd/command/loadhi.asm",
+  "before_sha256": "8e1f504aeccc73c3692bceafc42ea0a23859992607c6beab9af51e6d2eabec92",
+  "after_sha256": "ce1b19ba147ed5e37d6aca33d5aab641fbbe7646efef76ff950d5eba25ee9435",
+  "changes": [
+    {
+      "before": ";***\tLh_On -- Activate allocation of UMBs\r\n;\r\n;\tENTRY\tNone\r\n;\r\n;\tEXIT\tNone\r\n;\r\n;\tUSED\t\r\n",
+      "after": ";***\tLh_On -- Activate allocation of UMBs\r\n;\r\n;\tENTRY\tNone\r\n;\r\n;\tEXIT\tNone\r\n;\r\n;\tUSED\tax, bx\r\n"
+    },
+    {
+      "before": ";\tENTRY\tds:bx points at parse result block\r\n;\r\n;\tEXIT\tCY set -- filename has wildcards\r\n;\t\t\t   Setup for error message\r\n;\r\n;\tUSED\tax\r\n",
+      "after": ";\tENTRY\tds:bx points at parse result block\r\n;\t\tes = TRANGROUP\r\n;\r\n;\tEXIT\tCY clear -- filename copied to ExecPath\r\n;\t\tCY set -- filename has wildcards, dx points to error message\r\n;\r\n;\tUSED\tax, dx on error\r\n"
+    },
+    {
+      "before": ";\tENTRY\tds:si = points just beyond prog name on command line\r\n;\r\n;\tEXIT\tNone\r\n;\r\n;\tUSED\r\n;\r\n;\tEFFECTS\t\t\r\n;\t\tThe rest of the command line following the pgm name is \r\n;\tmoved to the top of the command line buffer (at TRANGROUP:80h)\r\n;\tand a new command line length is put in\r\n",
+      "after": ";\tENTRY\tds:si = points just beyond prog name on command line\r\n;\t\tes = TRANGROUP\r\n;\r\n;\tEXIT\tNone\r\n;\r\n;\tUSED\tax, cx, si, di\r\n;\r\n;\tEFFECTS\t\t\r\n;\t\tThe rest of the command line following the pgm name is \r\n;\tmoved to the command line buffer (at TRANGROUP:81h)\r\n;\tand a new command line length is put at TRANGROUP:80h\r\n"
+    }
+  ],
+  "evidence": "Lh_On writes AX/BX; LhCopyFilename uses ES for STOSB and sets DX on wildcard error; SetupCmdLine stores data at ES:81h, length at ES:80h and changes AL, CL, SI and DI. DOS 6 independently describes 81h. These comments are corrections, not a claim of verbatim DOS 5 source.",
+  "scope": "Comments only; no code changes."
+}

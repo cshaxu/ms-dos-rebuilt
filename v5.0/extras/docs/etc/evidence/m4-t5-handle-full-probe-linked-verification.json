@@ -1,0 +1,406 @@
+{
+  "module": "handle-full",
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\physical-sft-probe-gaif7wrl",
+  "candidate_proof_sha256": "3c2677c16f38244249b8c19a4a9f4e72e1173b1520d9b15cf76bcdc8fb414d7f",
+  "link_report_sha256": "1bbdfe1c5717a66605a3aef82166c9d11164f5e85d841c1f70d29448a8b796da",
+  "linked_start": 38895,
+  "public_anchors": [
+    {
+      "symbol": "$commit",
+      "object_offset": 51,
+      "linked_offset": 38946
+    },
+    {
+      "symbol": "$exthandle",
+      "object_offset": 77,
+      "linked_offset": 38972
+    },
+    {
+      "symbol": "$dup",
+      "object_offset": 560,
+      "linked_offset": 39455
+    },
+    {
+      "symbol": "checkowner",
+      "object_offset": 606,
+      "linked_offset": 39501
+    },
+    {
+      "symbol": "$dup2",
+      "object_offset": 592,
+      "linked_offset": 39487
+    },
+    {
+      "symbol": "$read",
+      "object_offset": 271,
+      "linked_offset": 39166
+    },
+    {
+      "symbol": "$file_times",
+      "object_offset": 482,
+      "linked_offset": 39377
+    },
+    {
+      "symbol": "$lseek",
+      "object_offset": 378,
+      "linked_offset": 39273
+    },
+    {
+      "symbol": "$close",
+      "object_offset": 0,
+      "linked_offset": 38895
+    },
+    {
+      "symbol": "$write",
+      "object_offset": 373,
+      "linked_offset": 39268
+    },
+    {
+      "symbol": "align_buffer",
+      "object_offset": 345,
+      "linked_offset": 39240
+    }
+  ],
+  "bytes": 640,
+  "named_fixups": [
+    {
+      "offset": 1,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 42699,
+      "linked_symbol": 38895
+    },
+    {
+      "offset": 9,
+      "symbol": "ThisSFT",
+      "relative": false,
+      "target_symbol": 1438,
+      "linked_symbol": 1438
+    },
+    {
+      "offset": 13,
+      "symbol": "ThisSFT",
+      "relative": false,
+      "target_symbol": 1438,
+      "linked_symbol": 1438
+    },
+    {
+      "offset": 32,
+      "symbol": "pJfnFromHandle",
+      "relative": true,
+      "target_symbol": 42509,
+      "linked_symbol": 38705
+    },
+    {
+      "offset": 39,
+      "symbol": "DOS_Close",
+      "relative": true,
+      "target_symbol": 28186,
+      "linked_symbol": 43975
+    },
+    {
+      "offset": 46,
+      "symbol": "Sys_Ret_OK",
+      "relative": true,
+      "target_symbol": 17380,
+      "linked_symbol": 17380
+    },
+    {
+      "offset": 49,
+      "symbol": "Sys_Ret_Err",
+      "relative": true,
+      "target_symbol": 17389,
+      "linked_symbol": 17389
+    },
+    {
+      "offset": 52,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 42699,
+      "linked_symbol": 38895
+    },
+    {
+      "offset": 60,
+      "symbol": "ThisSFT",
+      "relative": false,
+      "target_symbol": 1438,
+      "linked_symbol": 1438
+    },
+    {
+      "offset": 64,
+      "symbol": "ThisSFT",
+      "relative": false,
+      "target_symbol": 1438,
+      "linked_symbol": 1438
+    },
+    {
+      "offset": 67,
+      "symbol": "DOS_COMMIT",
+      "relative": true,
+      "target_symbol": 28530,
+      "linked_symbol": 44319
+    },
+    {
+      "offset": 90,
+      "symbol": "CurrentPDB",
+      "relative": false,
+      "target_symbol": 816,
+      "linked_symbol": 816
+    },
+    {
+      "offset": 157,
+      "symbol": "$ALLOC",
+      "relative": true,
+      "target_symbol": 41518,
+      "linked_symbol": 37010
+    },
+    {
+      "offset": 169,
+      "symbol": "CurrentPDB",
+      "relative": false,
+      "target_symbol": 816,
+      "linked_symbol": 816
+    },
+    {
+      "offset": 210,
+      "symbol": "CurrentPDB",
+      "relative": false,
+      "target_symbol": 816,
+      "linked_symbol": 816
+    },
+    {
+      "offset": 227,
+      "symbol": "$DEALLOC",
+      "relative": true,
+      "target_symbol": 41907,
+      "linked_symbol": 37399
+    },
+    {
+      "offset": 272,
+      "symbol": "DOS_Read",
+      "relative": false,
+      "target_symbol": 29161,
+      "linked_symbol": 27108
+    },
+    {
+      "offset": 275,
+      "symbol": "pJfnFromHandle",
+      "relative": true,
+      "target_symbol": 42509,
+      "linked_symbol": 38705
+    },
+    {
+      "offset": 283,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 42699,
+      "linked_symbol": 38895
+    },
+    {
+      "offset": 292,
+      "symbol": "ThisSFT",
+      "relative": false,
+      "target_symbol": 1438,
+      "linked_symbol": 1438
+    },
+    {
+      "offset": 297,
+      "symbol": "ThisSFT",
+      "relative": false,
+      "target_symbol": 1438,
+      "linked_symbol": 1438
+    },
+    {
+      "offset": 309,
+      "symbol": "EXTOPEN_ON",
+      "relative": false,
+      "target_symbol": 1526,
+      "linked_symbol": 1526
+    },
+    {
+      "offset": 315,
+      "symbol": "DMAAdd",
+      "relative": false,
+      "target_symbol": 812,
+      "linked_symbol": 812
+    },
+    {
+      "offset": 320,
+      "symbol": "DMAAdd",
+      "relative": false,
+      "target_symbol": 812,
+      "linked_symbol": 812
+    },
+    {
+      "offset": 323,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 42699,
+      "linked_symbol": 38895
+    },
+    {
+      "offset": 331,
+      "symbol": "DMAAdd",
+      "relative": false,
+      "target_symbol": 812,
+      "linked_symbol": 812
+    },
+    {
+      "offset": 335,
+      "symbol": "DMAAdd",
+      "relative": false,
+      "target_symbol": 812,
+      "linked_symbol": 812
+    },
+    {
+      "offset": 365,
+      "symbol": "DMAAdd",
+      "relative": false,
+      "target_symbol": 812,
+      "linked_symbol": 812
+    },
+    {
+      "offset": 370,
+      "symbol": "DMAAdd",
+      "relative": false,
+      "target_symbol": 812,
+      "linked_symbol": 812
+    },
+    {
+      "offset": 374,
+      "symbol": "DOS_Write",
+      "relative": false,
+      "target_symbol": 29720,
+      "linked_symbol": 27667
+    },
+    {
+      "offset": 379,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 42699,
+      "linked_symbol": 38895
+    },
+    {
+      "offset": 392,
+      "symbol": "EXTERR_LOCUS",
+      "relative": false,
+      "target_symbol": 803,
+      "linked_symbol": 803
+    },
+    {
+      "offset": 425,
+      "symbol": "Get_user_stack",
+      "relative": true,
+      "target_symbol": 17013,
+      "linked_symbol": 17013
+    },
+    {
+      "offset": 487,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 42699,
+      "linked_symbol": 38895
+    },
+    {
+      "offset": 506,
+      "symbol": "Get_user_stack",
+      "relative": true,
+      "target_symbol": 17013,
+      "linked_symbol": 17013
+    },
+    {
+      "offset": 517,
+      "symbol": "EcritDisk",
+      "relative": true,
+      "target_symbol": 20774,
+      "linked_symbol": 19744
+    },
+    {
+      "offset": 532,
+      "symbol": "JShare",
+      "relative": false,
+      "target_symbol": 144,
+      "linked_symbol": 144
+    },
+    {
+      "offset": 546,
+      "symbol": "LcritDisk",
+      "relative": true,
+      "target_symbol": 20806,
+      "linked_symbol": 19776
+    },
+    {
+      "offset": 553,
+      "symbol": "EXTERR_LOCUS",
+      "relative": false,
+      "target_symbol": 803,
+      "linked_symbol": 803
+    },
+    {
+      "offset": 563,
+      "symbol": "JFNFree",
+      "relative": true,
+      "target_symbol": 42607,
+      "linked_symbol": 38803
+    },
+    {
+      "offset": 573,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 42699,
+      "linked_symbol": 38895
+    },
+    {
+      "offset": 578,
+      "symbol": "DOS_Dup_Direct",
+      "relative": true,
+      "target_symbol": 26900,
+      "linked_symbol": 26588
+    },
+    {
+      "offset": 581,
+      "symbol": "pJfnFromHandle",
+      "relative": true,
+      "target_symbol": 42509,
+      "linked_symbol": 38705
+    },
+    {
+      "offset": 597,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 42699,
+      "linked_symbol": 38895
+    },
+    {
+      "offset": 602,
+      "symbol": "pJfnFromHandle",
+      "relative": true,
+      "target_symbol": 42509,
+      "linked_symbol": 38705
+    },
+    {
+      "offset": 607,
+      "symbol": "SFFromHandle",
+      "relative": true,
+      "target_symbol": 42538,
+      "linked_symbol": 38734
+    },
+    {
+      "offset": 615,
+      "symbol": "IsWin386",
+      "relative": false,
+      "target_symbol": 4144,
+      "linked_symbol": 4144
+    },
+    {
+      "offset": 626,
+      "symbol": "User_ID",
+      "relative": false,
+      "target_symbol": 830,
+      "linked_symbol": 830
+    }
+  ],
+  "remaining_differences": [],
+  "correspondence": true,
+  "scope": "Complete linked MZ module, only candidate OMF named relocations adjusted; physical data placement can differ. Not runtime or whole-kernel identity."
+}

@@ -1,0 +1,62 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\bios-comparison-1ojld0jg",
+  "candidate_sha256": "09df7ec418edb1728662b1fe911a62c1a7bd3e19ad20b82548f022dd654750ad",
+  "target_bios_sha256": "09df7ec418edb1728662b1fe911a62c1a7bd3e19ad20b82548f022dd654750ad",
+  "map_sha256": "927cd424cfd8523b91657a84978766381ffe67d6dba3a7bf2b6cde9836bd1d01",
+  "listing_sha256": "b7ba6cdfabf0d1fd9068c22e84f45862eece3bf3075e768e78ca8f4771b2c543",
+  "candidate_offset": 25026,
+  "target_offset": 25026,
+  "length": 170,
+  "fixups": [
+    {
+      "offset": 33,
+      "symbol": "getchr",
+      "candidate_destination": 27172,
+      "target_destination": 27172
+    },
+    {
+      "offset": 38,
+      "symbol": "organize",
+      "candidate_destination": 29188,
+      "target_destination": 29188
+    },
+    {
+      "offset": 41,
+      "symbol": "getchr",
+      "candidate_destination": 27172,
+      "target_destination": 27172
+    },
+    {
+      "offset": 66,
+      "symbol": "getchr",
+      "candidate_destination": 27172,
+      "target_destination": 27172
+    },
+    {
+      "offset": 78,
+      "symbol": "badop",
+      "candidate_destination": 27116,
+      "target_destination": 27116
+    },
+    {
+      "offset": 83,
+      "symbol": "newline",
+      "candidate_destination": 29755,
+      "target_destination": 29755
+    },
+    {
+      "offset": 88,
+      "symbol": "getchr",
+      "candidate_destination": 27172,
+      "target_destination": 27172
+    },
+    {
+      "offset": 141,
+      "symbol": "do_install_exec",
+      "candidate_destination": 20639,
+      "target_destination": 20639
+    }
+  ],
+  "normalized_equal": true,
+  "scope": "Linked multi_pass through INSTALL dispatch; eight named comparison-only branch fixups. No runtime or whole BIOS identity claim."
+}

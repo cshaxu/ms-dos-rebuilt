@@ -1,0 +1,55 @@
+{
+  "index": 41,
+  "file": "bios/msinit.asm",
+  "reviewed_sha256": "1db3f560402bef4b3ddbe8f3129589e212bbb83c94cf5a545141d4f09834d778",
+  "decision": "retain_round2",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\msinit.asm",
+      "sha256": "6a82485be5fdc5084957000a7b7800a600ae40a06c8d4d8ac6f34cea672167e6",
+      "scope": "bios"
+    },
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\msinit.asm",
+      "sha256": "67a662e3c6c186fd2fe0604624557077dcd7f8be65f85e3be01f26f250a0c2a0",
+      "scope": "kernel"
+    },
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\BIOS\\MSINIT.ASM",
+      "sha256": "af14e65b3a7f15a32c0f384341bc91ac3bce7719048bd6e15443e5bbf075778f",
+      "scope": "bios"
+    },
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\MSINIT.ASM",
+      "sha256": "c6bf13b2cd5751fbbb7f70a7af84b01024752f7b5f546451ca284560ea152f81",
+      "scope": "kernel"
+    },
+    {
+      "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\bios\\msinit.asm",
+      "sha256": "7acb1d97311d41310530188c80c6850250b997980e214af2dcb8b8200300dc9e",
+      "scope": "kernel"
+    },
+    {
+      "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\dos\\msinit.asm",
+      "sha256": "5b0f2e3e9fe9c083b8cf03e4307e9a90bddacddad22176062c59a314b8c46620",
+      "scope": "kernel"
+    }
+  ],
+  "reason": [
+    "DOS 6 BIOS adds executable startup message display and COMPAQ mode-2 disk-controller initialization absent from the reconstructed file; current source code coverage does not justify adding them.",
+    "OpenNT BIOS has NT DOSEm modifications and includes dossvc.inc and vint.inc; it is not suitable as a complete DOS 5 file.",
+    "DOS 4 BIOS has substantially different source/module structure. Same-name DOS kernel files are a different component."
+  ],
+  "build_evidence": {
+    "stage": "build/integrated-source-y4jsf_6e",
+    "bios_listing": "build/bios-comparison-ydbxh16a/msinit.lst",
+    "locations": [
+      "lines 5135-5138: vector save proceeds without DOS 6 startup-message code",
+      "lines 5621-5627: disk initialization proceeds without DOS 6 mode-2 block"
+    ],
+    "targets_equal": true
+  },
+  "code_coverage": "2205 current code lines are covered by existing DOS 6 matching passages.",
+  "change": "No source change.",
+  "limits": "Target build evidence covers default configuration, not optional configurations; original DOS 5 source is not established."
+}

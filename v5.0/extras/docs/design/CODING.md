@@ -1,0 +1,3 @@
+# Source layout
+
+Root `bios/`, `dos/`, `cmd/command/`, `inc/`, and `messages/` follow the corresponding DOS 6 layout as closely as evidence permits. `build/` contains reproducible build configuration or disposable output with clearly documented ownership; `tests/` and `tools/` contain repeatable verification. `docs/etc/` indexes compact evidence and manifests. Do not copy whole reference trees without inventory, provenance, licensing assessment, or a relevant admitted task. Identify departures from DOS 6 layout and rationale. Preserve relevant original syntax, conditionals and linker order until evidence supports changes.

@@ -1,0 +1,23 @@
+{
+  "index": 107,
+  "file": "dos/rom.asm",
+  "reviewed_sha256": "1ded439ece28528f37782a8f9b53726ca765662a4000970fee46d5ce06084061",
+  "decision": "retain_round2",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\rom.asm",
+      "sha256": "870a70fa594015cf46864fee33e861cfa5d4367631c832d16b509718c4cc294c"
+    },
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\ROM.ASM",
+      "sha256": "8ed3019c3d76d3732b617459f8e733fe3764af03e592a603755d4f1d6b5db11d"
+    }
+  ],
+  "reason": [
+    "DOS 6 adds a 1992 MAGICDRV compression patch in ALLOCATE and changes RELEASE to flush buffers; both modify FAT allocation or release behavior.",
+    "DOS 4 uses a substantially different module structure; no same-name OpenNT file was found."
+  ],
+  "change": "No source change.",
+  "verification": "Latest integrated-source-4hzlmm31 matches all three targets; current lexical scan has no hits.",
+  "limitations": "Default target build does not prove every runtime FAT path or historical original source."
+}

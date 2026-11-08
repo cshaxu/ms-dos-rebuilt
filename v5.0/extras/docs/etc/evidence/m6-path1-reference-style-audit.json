@@ -1,0 +1,51 @@
+{
+  "previous_stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\integrated-source-rpohq8tv",
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\integrated-source-c492_cis",
+  "change": {
+    "source": "cmd/command/path1.asm",
+    "before_sha256": "ed7e39859018000276e4118d2928a80ff5808888776bd5768c3e414fd6839e97",
+    "after_sha256": "15a56b1ff45378c64e64482d5c88997f10c6eb07f08e5739d1ec60a44de819d5",
+    "description": "Restore blank line and tab-aligned mov ah instruction formatting present in DOS 4 and DOS 6; remove OpenNT-derived spacing left behind when its UNC branch was removed. No instruction change.",
+    "references": [
+      {
+        "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\CMD\\COMMAND\\path1.asm",
+        "sha256": "628270502cee8a3ff0e682d0d720efbb7d882d544b81d9fbc68e8b545677644d"
+      },
+      {
+        "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\path1.asm",
+        "sha256": "eb2126371c40ddd0e13fd28da8f0dd3cc652d5c1b69d52ab1481641ffea04826"
+      },
+      {
+        "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\path1.asm",
+        "sha256": "a6846cdf08eb4fa77b0e2a0184938e6cc3ac3d781b5c8c0465398ed9c59fa48b"
+      }
+    ]
+  },
+  "unchanged_objects": {
+    "bios": 14,
+    "kernel": 55,
+    "command": 34,
+    "msload": 1
+  },
+  "outputs": [
+    {
+      "name": "IO.SYS",
+      "bytes": 33430,
+      "sha256": "dd0915ed366b3f640284df4be30ed35f413dfd5b6966c1f25eee9598a5bf53e0",
+      "byte_equal": true
+    },
+    {
+      "name": "MSDOS.SYS",
+      "bytes": 37394,
+      "sha256": "4e41ca4e5893d4cf293f81ad01adbdbd12f7039534f59148214a9cca309529a2",
+      "byte_equal": true
+    },
+    {
+      "name": "COMMAND.COM",
+      "bytes": 47845,
+      "sha256": "74ad25067e7d9f5c3a0ac2f2967347defb0ffef9e6ed60b60e6499f0b1a8cc89",
+      "byte_equal": true
+    }
+  ],
+  "limitations": "Style comparison is localized; it does not establish original DOS 5 source text or complete review of the module."
+}

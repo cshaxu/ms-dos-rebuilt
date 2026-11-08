@@ -1,0 +1,53 @@
+{
+  "resource": "bios/msbio.lnk",
+  "sha256": "8bacc4046950d548d2c5092f135c6bd079ddbc09ad9a1ca491ad0b3d0a3dc978",
+  "decision": "retain current reconstruction",
+  "references": [
+    {
+      "reference": "dos6",
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\msbio.lnk",
+      "sha256": "0f6159cd77ca1f8d62040c44192a42c2ccddf376ee63ad17e97bcf3c8031df9f",
+      "byte_identical": false
+    },
+    {
+      "reference": "dos4",
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\BIOS\\MSBIO.LNK",
+      "sha256": "773d4cc7e5408ffa6ef8a8d73cb5bc9b3bb3e962813c72863a3d553823a36db3",
+      "byte_identical": false
+    },
+    {
+      "reference": "opennt",
+      "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\bios\\msbio.lnk",
+      "sha256": "9a163dead32e6f7bed5bd283b0b8d68fa28a4dc21c54c5a98e69dda4c0bd9b58",
+      "byte_identical": false
+    }
+  ],
+  "linked_modules": [
+    "msbio1",
+    "mschar",
+    "msdisk",
+    "msdioctl",
+    "msint13",
+    "msbio2",
+    "msinit",
+    "sysinit1",
+    "sysconf",
+    "sysinit2",
+    "sysimes",
+    "power",
+    "ptime",
+    "msend"
+  ],
+  "checks": [
+    "Current file equals the staged link response file.",
+    "Its 14 ordered names match the latest BIOS assembly report.",
+    "The integrated result matches retained IO.SYS byte for byte."
+  ],
+  "observations": [
+    "The DOS 6 list adds SYSPRE; project history records it emitted no data in the target configuration and is preserved under research/bios.",
+    "The DOS 4 and OpenNT lists use different module layouts; OpenNT contains host-specific modules."
+  ],
+  "limitations": "Matching output proves this selected build result, not the exact historical DOS 5 link-list text or all configurations.",
+  "change": "No source change.",
+  "build_stage": "build/integrated-source-t61pmujw"
+}

@@ -1,0 +1,46 @@
+{
+  "index": 137,
+  "file": "cmd/command/rucode.asm",
+  "reviewed_sha256": "db78b274658e577ef876562cc721f66013fd05dab50e44533971aebd8dc4c3f4",
+  "status": "auto_qualified",
+  "role": "COMMAND resident utilities, INT 2Fh handler and message retrieval.",
+  "references": {
+    "opennt": {
+      "status": "different",
+      "sha256": "245d7f359483d57345876b5a62f2f671a4ab271d4b1a3f8c0a44c0335052ee9f",
+      "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\rucode.asm"
+    },
+    "dos6": {
+      "status": "different",
+      "sha256": "fc7b22775027fe13379317ffe2586ef6d058afa9c3c87d51f94c88e2c66cbec9",
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\rucode.asm"
+    },
+    "dos4": {
+      "status": "different",
+      "sha256": "3843bc9458a3aa0cdb32d29a0c2cdda393e7cb75606719db06c593013da4dcdb",
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\CMD\\COMMAND\\rucode.asm"
+    }
+  },
+  "review": {
+    "code_lines": 669,
+    "individually_reviewed_lines": [
+      102,
+      954
+    ],
+    "shared_constant": "GET_COMMAND_STATE=5500h matches DOS 6 comequ.asm; local placement avoids modifying another qualified file.",
+    "nt_bop_screen": "No lexical indicators found.",
+    "format": "No whole-line whitespace-only matches against DOS 6 required alignment; target build omits ROMDOS-only branches."
+  },
+  "verification": {
+    "stage": "build\\integrated-source-supw6_vo",
+    "built_source_identical": true,
+    "object_sha256": "f55d4b5b5561093c323e47343f9c7b95ced474ecdd82fc7c9af8fcfa61c042f9",
+    "target_instruction": {
+      "file_offset": 4990,
+      "bytes": "3d0055741c"
+    },
+    "all_three_targets_byte_equal": true,
+    "limits": "Reference matches and selected target instruction are static; ROMDOS and exact original DOS 5 source not established."
+  },
+  "disposition": "Retained unchanged; all code lines have reference coverage."
+}

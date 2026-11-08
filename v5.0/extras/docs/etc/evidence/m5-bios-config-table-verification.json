@@ -1,0 +1,78 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\bios-comparison-1ojld0jg",
+  "candidate_sha256": "09df7ec418edb1728662b1fe911a62c1a7bd3e19ad20b82548f022dd654750ad",
+  "target_bios_sha256": "09df7ec418edb1728662b1fe911a62c1a7bd3e19ad20b82548f022dd654750ad",
+  "map_sha256": "927cd424cfd8523b91657a84978766381ffe67d6dba3a7bf2b6cde9836bd1d01",
+  "listing_sha256": "eeb3689a6deab15b2116d4fb0eb5f1a8daa7068323d5f7c3d072bd474faccfce",
+  "command_table": {
+    "candidate_offset": 30909,
+    "target_offset": 30909,
+    "length": 145,
+    "displaced_raw_equal": true
+  },
+  "drive_parameters": {
+    "candidate_offset": 28709,
+    "target_offset": 28709,
+    "length": 87,
+    "fixups": [
+      {
+        "offset": 11,
+        "symbol": "drive",
+        "addend": 0,
+        "candidate": 15014,
+        "target": 15014
+      },
+      {
+        "offset": 16,
+        "symbol": "deviceparameters",
+        "addend": 0,
+        "candidate": 14718,
+        "target": 14718
+      },
+      {
+        "offset": 30,
+        "symbol": "switches",
+        "addend": 0,
+        "candidate": 15015,
+        "target": 15015
+      },
+      {
+        "offset": 38,
+        "symbol": "drive",
+        "addend": 0,
+        "candidate": 15014,
+        "target": 15014
+      },
+      {
+        "offset": 64,
+        "symbol": "deviceparameters",
+        "addend": 4,
+        "candidate": 14722,
+        "target": 14722
+      },
+      {
+        "offset": 70,
+        "symbol": "deviceparameters",
+        "addend": 1,
+        "candidate": 14719,
+        "target": 14719
+      },
+      {
+        "offset": 75,
+        "symbol": "deviceparameters",
+        "addend": 2,
+        "candidate": 14720,
+        "target": 14720
+      },
+      {
+        "offset": 81,
+        "symbol": "switches",
+        "addend": 0,
+        "candidate": 15015,
+        "target": 15015
+      }
+    ],
+    "normalized_equal": true
+  },
+  "scope": "Linked command table and DRIVPARM helpers; named address normalization is comparison-only. No runtime or complete IO.SYS claim."
+}

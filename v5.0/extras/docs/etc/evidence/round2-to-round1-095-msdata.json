@@ -1,0 +1,32 @@
+{
+  "index": 95,
+  "file": "dos/msdata.asm",
+  "reviewed_sha256": "ff14900aba8467e9f841621eca4e63792c9ff190c63b142a1a384286024489cd",
+  "decision": "retain_round2",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\msdata.asm",
+      "sha256": "8cfd6b65393186faa1f6ac8015bea073b6594c98c706a004a696cc413d590da7"
+    },
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\INC\\MSDATA.ASM",
+      "sha256": "11c5c7d96c1aa5a8f8cce29114994412c543167d9d1fb408aea6048a8b234990"
+    },
+    {
+      "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\dos\\msdata.asm",
+      "sha256": "4c9849974de6ba9a9fac5529c6d7c1832e3f88b53adcef04dfc67490ff4f7757"
+    }
+  ],
+  "dos6_added_dependency": {
+    "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\mpatch.asm",
+    "sha256": "8af243919b9d2044c6ccc4341233065ccf3a441e6bae8881f9d1065e1cd74d40",
+    "evidence": "DOS 6 includes mpatch.asm, whose own history says created 8-7-92 and added Rational386PatchPtr 2-1-93; it defines later Magicdrv patch data."
+  },
+  "reason": [
+    "DOS 6 adds a 1992/1993 patch-data module, which is not appropriate to restore in DOS 5.00.",
+    "OpenNT adds vint.inc and bop.inc host interfaces; DOS 4 uses different include structure."
+  ],
+  "change": "No source change.",
+  "verification": "Latest integrated-source-nc6nm5xl matches three targets and checks SYSINITVAR layout; lexical scan has no hits.",
+  "limitations": "Original DOS 5 source and optional builds remain unverified."
+}

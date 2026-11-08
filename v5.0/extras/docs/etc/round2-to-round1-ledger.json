@@ -1,0 +1,341 @@
+{
+  "method": "Frozen round-2 entries reviewed in original file order. Convert to round 1 only when entire same-name reference is appropriate for DOS 5, NT/BOP-free, and target binary identity is preserved.",
+  "files": [
+    {
+      "index": 4,
+      "path": "bios/config.inc",
+      "status": "retained_round2",
+      "evidence": "docs/etc/evidence/round2-to-round1-004-config.json",
+      "reviewed_sha256": "339ee489afc02151758deedcd870e896373cb1da0f66423924c4ea9806d2a036"
+    },
+    {
+      "index": 21,
+      "path": "bios/inc/mult.inc",
+      "status": "retained_round2",
+      "reviewed_sha256": "3b7326d1ccbc9434054689a8cfd623cb7dbbe3d00db5ed82f7ebedf1a1b778b3",
+      "evidence": "docs/etc/evidence/round2-to-round1-021-mult.json"
+    },
+    {
+      "index": 30,
+      "path": "bios/inc/version.inc",
+      "status": "retained_round2",
+      "reviewed_sha256": "7ab6100c70e613a41ec32d80519d73784cadaad14c1bff44e0aaa8cfb6214142",
+      "evidence": "docs/etc/evidence/round2-to-round1-030-version.json"
+    },
+    {
+      "index": 33,
+      "path": "bios/msbio2.asm",
+      "status": "retained_round2",
+      "reviewed_sha256": "59e0c7b3b58497df33cf48829da38ca77bc4307fd27d1ce963089b310b655ef2",
+      "evidence": "docs/etc/evidence/round2-to-round1-033-msbio2.json"
+    },
+    {
+      "index": 38,
+      "path": "bios/msend.asm",
+      "status": "converted_round1",
+      "reviewed_sha256": "ceb3f2072658c8dc153e2274c42b75d8578426ebe84078779209ba62bce00e34",
+      "evidence": "docs/etc/evidence/round2-to-round1-038-msend.json"
+    },
+    {
+      "index": 41,
+      "path": "bios/msinit.asm",
+      "status": "retained_round2",
+      "reviewed_sha256": "1db3f560402bef4b3ddbe8f3129589e212bbb83c94cf5a545141d4f09834d778",
+      "evidence": "docs/etc/evidence/round2-to-round1-041-msinit.json"
+    },
+    {
+      "index": 57,
+      "path": "dos/create.asm",
+      "status": "converted_round1",
+      "reviewed_sha256": "4a76a4fb11682cd81daca1dd2af9afe79fcf21db428a3e19d32af51ea902e9bb",
+      "evidence": "docs/etc/evidence/round2-to-round1-057-create.json"
+    },
+    {
+      "index": 58,
+      "path": "dos/crit.asm",
+      "status": "converted_round1",
+      "reviewed_sha256": "8f95042897a5d39cc514fa965f79e7f3538a213703ed98fb45d0d4cb7a9e3af1",
+      "evidence": "docs/etc/evidence/round2-to-round1-058-crit.json"
+    },
+    {
+      "index": 60,
+      "path": "dos/dev.asm",
+      "status": "converted_round1",
+      "reviewed_sha256": "1fdd4f63b181b3575c649caf13ddc29b0d79c6ddc45a60957971a22a678f21a1",
+      "evidence": "docs/etc/evidence/round2-to-round1-060-dev.json"
+    },
+    {
+      "index": 63,
+      "path": "dos/dir2.asm",
+      "status": "converted_round1",
+      "reviewed_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+      "evidence": "docs/etc/evidence/round2-to-round1-063-dir2.json"
+    },
+    {
+      "index": 66,
+      "path": "dos/disk2.asm",
+      "status": "converted_round1",
+      "reviewed_sha256": "0876bb2c21d9232c3de57ee681c39b028003c09eeb58db36f6f2d9bda4527cb8",
+      "evidence": "docs/etc/evidence/round2-to-round1-066-disk2.json"
+    },
+    {
+      "index": 72,
+      "path": "dos/dostab.asm",
+      "status": "converted_round1",
+      "reviewed_sha256": "6b9c684c2096e5e1c1b2c8e94a3a41d9fba7fe85289f8d0ce6e03ac2dd9f397d",
+      "evidence": "docs/etc/evidence/round2-to-round1-072-dostab.json"
+    },
+    {
+      "index": 76,
+      "path": "dos/fcb.asm",
+      "status": "converted_round1",
+      "reviewed_sha256": "dd7c6d6b85d08585be900b91f329821a81c6ee9b5f1cb71268382af4fb39a01c",
+      "evidence": "docs/etc/evidence/round2-to-round1-076-fcb.json"
+    },
+    {
+      "index": 88,
+      "path": "dos/macro2.asm",
+      "status": "retained_round2",
+      "reviewed_sha256": "6f21d03309ffe72aaba95d9885546d7b76c16d0e2778ae0a2e176b05f61eed15",
+      "evidence": "docs/etc/evidence/round2-to-round1-088-macro2.json"
+    },
+    {
+      "index": 89,
+      "path": "dos/misc.asm",
+      "status": "retained_round2",
+      "reviewed_sha256": "63ab9bfcf646de260286d81c1c48cebfb780d1e4e87e43229a06eeabcd6e7438",
+      "evidence": "docs/etc/evidence/round2-to-round1-089-misc.json"
+    },
+    {
+      "index": 93,
+      "path": "dos/msconst.asm",
+      "status": "converted_round1",
+      "reviewed_sha256": "5e32f377e8f336bd307e318a010c9a77d787f79fa8fe16a33f2376ff0828f359",
+      "evidence": "docs/etc/evidence/round2-to-round1-093-msconst.json"
+    },
+    {
+      "index": 94,
+      "path": "dos/msctrlc.asm",
+      "status": "converted_round1",
+      "reviewed_sha256": "251d8ede15d74e063a9f5a065366b9db06b3c6890f2a0d7a8ee553489d403143",
+      "evidence": "docs/etc/evidence/round2-to-round1-094-msctrlc.json"
+    },
+    {
+      "index": 95,
+      "path": "dos/msdata.asm",
+      "status": "retained_round2",
+      "reviewed_sha256": "ff14900aba8467e9f841621eca4e63792c9ff190c63b142a1a384286024489cd",
+      "evidence": "docs/etc/evidence/round2-to-round1-095-msdata.json"
+    },
+    {
+      "index": 101,
+      "path": "dos/mstable.asm",
+      "status": "retained_round2",
+      "reviewed_sha256": "57030bd35b2f3a0b46bbaac7785778497676937d1de27a6ab0e065a87d67f96f",
+      "evidence": "docs/etc/evidence/round2-to-round1-101-mstable.json"
+    },
+    {
+      "index": 102,
+      "path": "dos/open.asm",
+      "status": "converted_round1",
+      "reviewed_sha256": "ec819887cd3e79ee1e4cc9b010fc8c4f0918699f277477a95196134e0d6cdc94",
+      "evidence": "docs/etc/evidence/round2-to-round1-102-open.json"
+    },
+    {
+      "index": 107,
+      "path": "dos/rom.asm",
+      "status": "retained_round2",
+      "reviewed_sha256": "1ded439ece28528f37782a8f9b53726ca765662a4000970fee46d5ce06084061",
+      "evidence": "docs/etc/evidence/round2-to-round1-107-rom.json"
+    },
+    {
+      "index": 110,
+      "path": "dos/segcheck.asm",
+      "status": "converted_round1",
+      "reviewed_sha256": "b5bbcf41397409b980277292477b75cca01212ba20909767273ffb9a34956da7",
+      "evidence": "docs/etc/evidence/round2-to-round1-110-segcheck.json"
+    },
+    {
+      "index": 116,
+      "path": "cmd/command/comequ.asm",
+      "status": "retained_round2",
+      "reviewed_sha256": "4d745d0276478a66678c0eef32255649c1a1bd14387f50071c6db711972a3dd2",
+      "evidence": "docs/etc/evidence/round2-to-round1-116-comequ.json"
+    },
+    {
+      "index": 117,
+      "path": "cmd/command/command1.asm",
+      "status": "converted_round1",
+      "reviewed_sha256": "f06136213c6bb00c156eee0876a4ae821166567027f18c22c71196a1ffa1e40d",
+      "evidence": "docs/etc/evidence/round2-to-round1-117-command1.json"
+    },
+    {
+      "index": 118,
+      "path": "cmd/command/command2.asm",
+      "status": "retained_round2",
+      "reviewed_sha256": "3f0c58a4385a171de50d408ee1f5bf6f6bb08bc65851a6539ed88d9b8233b1e4",
+      "evidence": "docs/etc/evidence/round2-to-round1-118-command2.json"
+    },
+    {
+      "index": 126,
+      "path": "cmd/command/envdata.asm",
+      "status": "retained_round2",
+      "reviewed_sha256": "ce90734a4f5eee8f3bb4531945a4ce914f2021c998ee76a41a5220c2861cd70b",
+      "evidence": "docs/etc/evidence/round2-to-round1-126-envdata.json"
+    },
+    {
+      "index": 129,
+      "path": "cmd/command/init.asm",
+      "status": "retained_round2",
+      "reviewed_sha256": "069375d1604cf26ca0bfae8b2111957f7d07e32e0066d7fcc6ffa6818abcde79",
+      "evidence": "docs/etc/evidence/round2-to-round1-129-init.json"
+    },
+    {
+      "index": 131,
+      "path": "cmd/command/loadhi.asm",
+      "status": "retained_round2",
+      "reviewed_sha256": "ce1b19ba147ed5e37d6aca33d5aab641fbbe7646efef76ff950d5eba25ee9435",
+      "evidence": "docs/etc/evidence/round2-to-round1-131-loadhi.json"
+    },
+    {
+      "index": 133,
+      "path": "cmd/command/path1.asm",
+      "status": "converted_round1",
+      "reviewed_sha256": "eb2126371c40ddd0e13fd28da8f0dd3cc652d5c1b69d52ab1481641ffea04826",
+      "evidence": "docs/etc/evidence/round2-to-round1-133-path1.json"
+    },
+    {
+      "index": 135,
+      "path": "cmd/command/rdata.asm",
+      "status": "retained_round2",
+      "reviewed_sha256": "9b1184ab2ade67dfb7ba846fb8766e36e1e9aac0e5ede95f126211fd899b40d9",
+      "evidence": "docs/etc/evidence/round2-to-round1-135-rdata.json"
+    },
+    {
+      "index": 137,
+      "path": "cmd/command/rucode.asm",
+      "status": "retained_round2",
+      "reviewed_sha256": "db78b274658e577ef876562cc721f66013fd05dab50e44533971aebd8dc4c3f4",
+      "evidence": "docs/etc/evidence/round2-to-round1-137-rucode.json"
+    },
+    {
+      "index": 138,
+      "path": "cmd/command/stub.asm",
+      "status": "retained_round2",
+      "reviewed_sha256": "06bef972296b25751563239325c008e4cce3de3d482fb658a19514d4c2b58147",
+      "evidence": "docs/etc/evidence/round2-to-round1-138-stub.json"
+    },
+    {
+      "index": 142,
+      "path": "cmd/command/tcmd1b.asm",
+      "status": "converted_round1",
+      "reviewed_sha256": "052c9e921800c18fd1055bbe2cecd4a2a06999204781f31349636fcafb98da75",
+      "evidence": "docs/etc/evidence/round2-to-round1-142-tcmd1b.json"
+    },
+    {
+      "index": 143,
+      "path": "cmd/command/tcmd2a.asm",
+      "status": "converted_round1",
+      "reviewed_sha256": "1e1b18ba34ff9fefe6e6c0535f574ff037dd7095189639464c641a45d886af9d",
+      "evidence": "docs/etc/evidence/round2-to-round1-143-tcmd2a.json"
+    },
+    {
+      "index": 144,
+      "path": "cmd/command/tcmd2b.asm",
+      "status": "converted_round1",
+      "reviewed_sha256": "516e4020c448f98a5e8186994b174740995e1b325774fee94d8ea3882f8636c4",
+      "evidence": "docs/etc/evidence/round2-to-round1-144-tcmd2b.json"
+    },
+    {
+      "index": 145,
+      "path": "cmd/command/tcode.asm",
+      "status": "retained_round2",
+      "reviewed_sha256": "b24b4d65ad74b53db44ec67aa4be8da4d313d2c466e19bd589341c6eec26c5da",
+      "evidence": "docs/etc/evidence/round2-to-round1-145-tcode.json"
+    },
+    {
+      "index": 146,
+      "path": "cmd/command/tdata.asm",
+      "status": "retained_round2",
+      "reviewed_sha256": "3d86f011c3b5ef73de73b92cac875c4d6847900a114b9b0eea9bcba519e7e293",
+      "evidence": "docs/etc/evidence/round2-to-round1-146-tdata.json"
+    },
+    {
+      "index": 147,
+      "path": "cmd/command/tenv.asm",
+      "status": "converted_round1",
+      "reviewed_sha256": "d0bc63bd712fb3ba820eae4ced701f9a2883375df709e802c12c7156d6dd4293",
+      "evidence": "docs/etc/evidence/round2-to-round1-147-tenv.json"
+    },
+    {
+      "index": 150,
+      "path": "cmd/command/tmisc1.asm",
+      "status": "retained_round2",
+      "reviewed_sha256": "14b15d90d67642f9f23d483b5c04e9f62ef839dfd6f077cd65225e5c70db18c8",
+      "evidence": "docs/etc/evidence/round2-to-round1-150-tmisc1.json"
+    },
+    {
+      "index": 155,
+      "path": "cmd/command/tranmsg.asm",
+      "status": "retained_round2",
+      "reviewed_sha256": "6a35335d6a59f3503133f0e1df7920a3cb8f08845692af67f29bee75bea4c508",
+      "evidence": "docs/etc/evidence/round2-to-round1-155-tranmsg.json"
+    },
+    {
+      "index": 156,
+      "path": "cmd/command/tspc.asm",
+      "status": "retained_round2",
+      "reviewed_sha256": "516b7fadf962ccd0a6d5cb4e32e63dd0a9c9f8b9450e06f1f87ee4800f563b8f",
+      "evidence": "docs/etc/evidence/round2-to-round1-156-tspc.json"
+    },
+    {
+      "index": 165,
+      "path": "inc/const2.asm",
+      "status": "converted_round1",
+      "reviewed_sha256": "d6fd5b7d1c74ab28e361b4854cc431e321abe93e79e2682964681c6b63957100",
+      "evidence": "docs/etc/evidence/round2-to-round1-165-const2.json"
+    },
+    {
+      "index": 174,
+      "path": "inc/dosmac.INC",
+      "status": "retained_round2",
+      "reviewed_sha256": "85641885b319c2165beb28d359b7f8028501f3c4ee37a3602341941372323deb",
+      "evidence": "docs/etc/evidence/round2-to-round1-174-dosmac.json"
+    },
+    {
+      "index": 187,
+      "path": "inc/ioctl.inc",
+      "status": "converted_round1",
+      "reviewed_sha256": "3578ed8c51c3856a05bb9dabac438feb9e4bf3ddacd98befa0d90b96e244464c",
+      "evidence": "docs/etc/evidence/round2-to-round1-187-ioctl.json"
+    },
+    {
+      "index": 188,
+      "path": "inc/lmstub.asm",
+      "status": "retained_round2",
+      "reviewed_sha256": "9226d59fa3d835ce5f47bb74cb7412de2dba830a20a7141e44b4b80020fe80f5",
+      "evidence": "docs/etc/evidence/round2-to-round1-188-lmstub.json"
+    },
+    {
+      "index": 196,
+      "path": "inc/mshead.asm",
+      "status": "retained_round2",
+      "reviewed_sha256": "6d8f6206d82dbd2eabc6a2f8ad1ab9a9535acff0ba95232a0cbca3dff3a4f29d",
+      "evidence": "docs/etc/evidence/round2-to-round1-196-mshead.json"
+    },
+    {
+      "index": 198,
+      "path": "inc/origin.inc",
+      "status": "retained_round2",
+      "reviewed_sha256": "3393e0f2333596067a157d25c0fec12d331524066961a271ce09b389971d44c9",
+      "evidence": "docs/etc/evidence/round2-to-round1-198-origin.json"
+    },
+    {
+      "index": 209,
+      "path": "inc/VERSIONA.INC",
+      "status": "retained_round2",
+      "reviewed_sha256": "bae6036c30263ffd0a4ac74beee3075c919d3f13f45c076af32043af68b65212",
+      "evidence": "docs/etc/evidence/round2-to-round1-209-versiona.json"
+    }
+  ]
+}

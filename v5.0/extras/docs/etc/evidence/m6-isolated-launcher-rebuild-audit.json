@@ -1,0 +1,29 @@
+{
+  "source": {
+    "path": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\tools\\isolated_tool_runner.c",
+    "sha256": "c28ccb33d1df915fbc726b62b8b80f2a2e0a1d8850724e9670b0fbacc051053b"
+  },
+  "compiler": {
+    "version": "gcc (MinGW-W64 x86_64-msvcrt-posix-seh, built by Brecht Sanders, r3) 16.1.0",
+    "target": "x86_64-w64-mingw32"
+  },
+  "command": [
+    "gcc",
+    "tools/isolated_tool_runner.c",
+    "-o",
+    "D:/temp/dos5-runner-repro-check.exe",
+    "-luser32"
+  ],
+  "existing_launcher": {
+    "bytes": 97426,
+    "sha256": "ae195ddf68aedff2fab5130e1368cb5c585e5264b84d142d4f79dc9f973f85b9",
+    "coff_timestamp": 1794007563
+  },
+  "new_launcher": {
+    "bytes": 97902,
+    "sha256": "b697904c7edec00c7f80bf55d9fc0a2a8d9d6580c0e5ab7e50449ab2126962b9",
+    "coff_timestamp": 1794095145
+  },
+  "scope": "Compile and static hash/PE header comparison only. The newly compiled executable was not run and is not approved as a substitute for the pinned launcher. Exact original compiler and flags remain unknown.",
+  "followup": "m6-isolated-launcher-reproducible-audit.json"
+}

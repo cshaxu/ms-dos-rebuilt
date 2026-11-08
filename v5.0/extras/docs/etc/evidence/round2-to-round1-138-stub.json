@@ -1,0 +1,30 @@
+{
+  "index": 138,
+  "file": "cmd/command/stub.asm",
+  "reviewed_sha256": "06bef972296b25751563239325c008e4cce3de3d482fb658a19514d4c2b58147",
+  "decision": "retain_round2",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\stub.asm",
+      "sha256": "577878c59d37691882a662e3ff6a07f3063e04406a121439271383885843184a"
+    },
+    {
+      "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\stub.asm",
+      "sha256": "650b4c89fe06e647f461bd2f5b634c2cf5e850b772bde6ab902c96fbf862c7f4"
+    }
+  ],
+  "reason": [
+    "DOS 6 changes stub signature, INT 2F entry and UMB restoration to later highload routines.",
+    "OpenNT adds AX preservation around A20 and EXEC paths, changing target instruction sequences. No DOS 4 same-name stub found."
+  ],
+  "target_evidence": {
+    "path": "O:\\DOS\\COMMAND.COM",
+    "sha256": "74ad25067e7d9f5c3a0ac2f2967347defb0ffef9e6ed60b60e6499f0b1a8cc89",
+    "file_offset": 218,
+    "bytes_hex": "cd21fa0e17bc3e05fb0e1f9c2ea04005a8807407",
+    "prior_audit": "docs/etc/evidence/m6-command-exec-error-register-audit.json"
+  },
+  "change": "No source change.",
+  "verification": "Latest integrated-source-p36t4oy1 matches all three targets; current lexical scan has no hits.",
+  "limitations": "EXEC error AL behavior and optional configurations have not been runtime validated; matching target does not prove original source."
+}

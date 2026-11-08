@@ -1,0 +1,85 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\bios-comparison-1ojld0jg",
+  "candidate_sha256": "09df7ec418edb1728662b1fe911a62c1a7bd3e19ad20b82548f022dd654750ad",
+  "target_bios_sha256": "09df7ec418edb1728662b1fe911a62c1a7bd3e19ad20b82548f022dd654750ad",
+  "map_sha256": "927cd424cfd8523b91657a84978766381ffe67d6dba3a7bf2b6cde9836bd1d01",
+  "listing_sha256": "b7ba6cdfabf0d1fd9068c22e84f45862eece3bf3075e768e78ca8f4771b2c543",
+  "candidate_offset": 24706,
+  "target_offset": 24706,
+  "length": 54,
+  "module_base": 5720,
+  "symbols": {
+    "swit_parms": 2650,
+    "swit_parmsx": 2655,
+    "swit_k_ctrl": 2665,
+    "swit_t_ctrl": 2677,
+    "swit_w_ctrl": 2689,
+    "result_val": 2361,
+    "noval": 2360,
+    "dos_parms": 2704
+  },
+  "fixups": [
+    {
+      "table_offset": 0,
+      "symbol": "swit_parmsx",
+      "candidate": 8375,
+      "target": 8375
+    },
+    {
+      "table_offset": 8,
+      "symbol": "swit_k_ctrl",
+      "candidate": 8385,
+      "target": 8385
+    },
+    {
+      "table_offset": 10,
+      "symbol": "swit_t_ctrl",
+      "candidate": 8397,
+      "target": 8397
+    },
+    {
+      "table_offset": 12,
+      "symbol": "swit_w_ctrl",
+      "candidate": 8409,
+      "target": 8409
+    },
+    {
+      "table_offset": 19,
+      "symbol": "result_val",
+      "candidate": 8081,
+      "target": 8081
+    },
+    {
+      "table_offset": 21,
+      "symbol": "noval",
+      "candidate": 8080,
+      "target": 8080
+    },
+    {
+      "table_offset": 31,
+      "symbol": "result_val",
+      "candidate": 8081,
+      "target": 8081
+    },
+    {
+      "table_offset": 33,
+      "symbol": "noval",
+      "candidate": 8080,
+      "target": 8080
+    },
+    {
+      "table_offset": 43,
+      "symbol": "result_val",
+      "candidate": 8081,
+      "target": 8081
+    },
+    {
+      "table_offset": 45,
+      "symbol": "noval",
+      "candidate": 8080,
+      "target": 8080
+    }
+  ],
+  "normalized_equal": true,
+  "scope": "Non-multi SWITCHES parameter table; ten named comparison-only relocations. No runtime or full BIOS identity claim."
+}

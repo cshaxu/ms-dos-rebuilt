@@ -1,0 +1,38 @@
+{
+  "build": "m4-t5-chdir-build.json",
+  "unique_target_slice_bytes": 6077,
+  "verified_calls": 110,
+  "snapshots": {
+    "m4-t5-chdir-build.json": {
+      "inputs": 114,
+      "mismatches": []
+    },
+    "m2-t3-command-exact-verification.json": {
+      "inputs": 113,
+      "mismatches": []
+    }
+  },
+  "layout_variations": [
+    {
+      "symbol": "NOTDIRPATH",
+      "target_site": 13165,
+      "target_bytes": 3,
+      "candidate_site": 8664,
+      "candidate_bytes": 2,
+      "raw_exact": false,
+      "verified_destination": "NODEACCERRJ",
+      "reason": "Bounded dircall module; restore full shared-tail placement later"
+    },
+    {
+      "symbol": "$CHDIR return routing",
+      "target_site": 8954,
+      "target_bytes": 3,
+      "candidate_site": 8444,
+      "candidate_bytes": 2,
+      "raw_exact": false,
+      "verified_destination": "SYS_RET_OK; error branch chain terminates at SYS_RET_ERR",
+      "reason": "Shared transfer macros differ until full original path.asm ordering is restored"
+    }
+  ],
+  "remaining": "MKDIR/RMDIR host calls, original path/dircall module layout, broader kernel and runtime"
+}

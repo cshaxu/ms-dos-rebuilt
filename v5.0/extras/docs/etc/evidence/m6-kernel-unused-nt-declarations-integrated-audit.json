@@ -1,0 +1,57 @@
+{
+  "stage": "build\\integrated-source-3qm3v2jp",
+  "previous_stage": "build\\integrated-source-bpcgk0yb",
+  "source_audit": "m6-kernel-unused-nt-declarations-source-audit.json",
+  "kernel_source_changes": {
+    "dos\\dir2.asm": {
+      "before": "eba94f66305df69e54c48340a969a75e66226a76a67a35d1ee50c8b635ff1523",
+      "after": "1774b97832ce3257f4d67ebbcff92850c6736228a1c6c087bb683c08e8f571ca"
+    },
+    "dos\\msinit.asm": {
+      "before": "bd83645a85726153cba1632f3095ab575955608bad802fb303b18a5b92fba1af",
+      "after": "83782a7b23723ed8cacfb6ad1006eeaef70ef282e49e70be339e29ff79204411"
+    }
+  },
+  "object_counts": {
+    "msload": 1,
+    "bios": 14,
+    "kernel": 55,
+    "command": 34
+  },
+  "object_changes": {
+    "msload": {},
+    "bios": {},
+    "kernel": {
+      "dir2": {
+        "before": "fb1fc712ef0f986c9cff08e413e63f0529872fabd7ff5eb89a5d94d2792a4040",
+        "after": "8527751518ebdc5a795c7fb7ecf17c92cc50478c9ec0d17f038b9c4418d23718"
+      },
+      "msinit": {
+        "before": "c4ba9edaef0f7683eb797b8d565bc74ceabfe0a882c098e6274dcea02f3ca55c",
+        "after": "312328b23df9e56a5dc42988dc8685a1766256fd3302e0eb12ab4c19f1e7d720"
+      }
+    },
+    "command": {}
+  },
+  "files": [
+    {
+      "name": "IO.SYS",
+      "bytes": 33430,
+      "sha256": "dd0915ed366b3f640284df4be30ed35f413dfd5b6966c1f25eee9598a5bf53e0",
+      "byte_equal": true
+    },
+    {
+      "name": "MSDOS.SYS",
+      "bytes": 37394,
+      "sha256": "4e41ca4e5893d4cf293f81ad01adbdbd12f7039534f59148214a9cca309529a2",
+      "byte_equal": true
+    },
+    {
+      "name": "COMMAND.COM",
+      "bytes": 47845,
+      "sha256": "74ad25067e7d9f5c3a0ac2f2967347defb0ffef9e6ed60b60e6499f0b1a8cc89",
+      "byte_equal": true
+    }
+  ],
+  "scope": "Removed unused NT-derived declarations and labels; target identity covers this build configuration, not all conditional configurations."
+}

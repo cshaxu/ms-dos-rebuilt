@@ -1,0 +1,28 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\integrated-source-54w8syco",
+  "previous_stage": "1rkdarxi",
+  "source": {
+    "source": "bios/msbio.skl",
+    "before_sha256": "6a0b44c877ad3e7edc3c3e324bcbf3afa50d44f08abc7809dff80ec4deea35d0",
+    "after_sha256": "b2526a57dfdcc401f0d191481e678b4e2dc030a82338fe23cdf06909c594b5fd",
+    "class3_source": "bios/msbio.cl3",
+    "class3_source_sha256": "cc199f0c5f8fa1ac91c81cb9d204d8bebc1af42aec280dc9b15dbccdabc2fb01",
+    "definition_count": 15,
+    "scope": "Class 3 defaults synchronized to recovered DOS 5 messages; DOS 6 multi-config and DBLSPACE entries removed. Other skeleton classes byte-identical."
+  },
+  "script": "tools/build_bios_comparison.py",
+  "script_sha256": "e619aa54a2eac2787f0a1f9746c64a6f31d19cd8a4049a6c11306a1cb6eddfe4",
+  "generated_cl3_sha256": "279d5cf516a39248f910a17e02647f37737b2c4607a6cd119dc7236affed78e2",
+  "generated_cl3_bytes": 1339,
+  "object_counts": {
+    "bios": 15,
+    "kernel": 55,
+    "command": 34
+  },
+  "files": {
+    "IO.SYS": "dd0915ed366b3f640284df4be30ed35f413dfd5b6966c1f25eee9598a5bf53e0",
+    "MSDOS.SYS": "4e41ca4e5893d4cf293f81ad01adbdbd12f7039534f59148214a9cca309529a2",
+    "COMMAND.COM": "74ad25067e7d9f5c3a0ac2f2967347defb0ffef9e6ed60b60e6499f0b1a8cc89"
+  },
+  "scope": "NOSRVBLD now generates class 3 from the reconstructed DOS 5 skeleton. Generated source formatting differs from the prior draft; 104 object hashes and all outputs remain identical."
+}

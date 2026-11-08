@@ -1,0 +1,346 @@
+{
+  "target": {
+    "length": 33430,
+    "sha256": "dd0915ed366b3f640284df4be30ed35f413dfd5b6966c1f25eee9598a5bf53e0",
+    "fixture": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\target-io-inspect.bin",
+    "fixture_images": [
+      "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\command-vm-5e3s_yo_\\boot.img",
+      "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\command-vm-h0vnbc95\\boot.img"
+    ]
+  },
+  "reference_ntio": {
+    "length": 33792,
+    "sha256": "cfc8be16576bb6acd16bb8fc9b2d9a080f544bbfdd2d2d2df07ed908b3ab4937"
+  },
+  "link_modules": {
+    "opennt": [
+      "msbio1",
+      "mschar",
+      "msint13",
+      "spckbd",
+      "spcmse_4",
+      "spcemm",
+      "msinit",
+      "sysinit1",
+      "sysconf",
+      "sysinit2",
+      "sysimes",
+      "msend"
+    ],
+    "dos6": [
+      "msbio1",
+      "mschar",
+      "msdisk",
+      "msdioctl",
+      "msint13",
+      "msbio2",
+      "msinit",
+      "sysinit1",
+      "sysconf",
+      "syspre",
+      "sysinit2",
+      "sysimes",
+      "power",
+      "ptime",
+      "msend"
+    ],
+    "dos4": [
+      "msbio1",
+      "msCON",
+      "msAUX",
+      "msLPT",
+      "msCLOCK",
+      "msDISK",
+      "msBIO2",
+      "mshard",
+      "msinit",
+      "sysinit1",
+      "sysconf",
+      "sysinit2",
+      "sysimes"
+    ]
+  },
+  "common_byte_anchors": [
+    {
+      "target_offset": 32954,
+      "ntio_offset": 16250,
+      "length": 476,
+      "zero_bytes": 5,
+      "distinct_byte_values": 50
+    },
+    {
+      "target_offset": 32149,
+      "ntio_offset": 15848,
+      "length": 350,
+      "zero_bytes": 172,
+      "distinct_byte_values": 39
+    },
+    {
+      "target_offset": 4,
+      "ntio_offset": 29557,
+      "length": 271,
+      "zero_bytes": 269,
+      "distinct_byte_values": 2
+    },
+    {
+      "target_offset": 29678,
+      "ntio_offset": 13591,
+      "length": 190,
+      "zero_bytes": 38,
+      "distinct_byte_values": 52
+    },
+    {
+      "target_offset": 23502,
+      "ntio_offset": 7608,
+      "length": 178,
+      "zero_bytes": 165,
+      "distinct_byte_values": 14
+    },
+    {
+      "target_offset": 31970,
+      "ntio_offset": 15611,
+      "length": 168,
+      "zero_bytes": 5,
+      "distinct_byte_values": 64
+    },
+    {
+      "target_offset": 31698,
+      "ntio_offset": 15331,
+      "length": 153,
+      "zero_bytes": 4,
+      "distinct_byte_values": 76
+    },
+    {
+      "target_offset": 18455,
+      "ntio_offset": 3330,
+      "length": 150,
+      "zero_bytes": 137,
+      "distinct_byte_values": 10
+    },
+    {
+      "target_offset": 31563,
+      "ntio_offset": 15196,
+      "length": 133,
+      "zero_bytes": 9,
+      "distinct_byte_values": 59
+    },
+    {
+      "target_offset": 32503,
+      "ntio_offset": 3339,
+      "length": 131,
+      "zero_bytes": 130,
+      "distinct_byte_values": 2
+    },
+    {
+      "target_offset": 18623,
+      "ntio_offset": 3496,
+      "length": 119,
+      "zero_bytes": 98,
+      "distinct_byte_values": 2
+    },
+    {
+      "target_offset": 2929,
+      "ntio_offset": 29715,
+      "length": 113,
+      "zero_bytes": 111,
+      "distinct_byte_values": 2
+    },
+    {
+      "target_offset": 22561,
+      "ntio_offset": 6658,
+      "length": 107,
+      "zero_bytes": 15,
+      "distinct_byte_values": 42
+    },
+    {
+      "target_offset": 29490,
+      "ntio_offset": 13403,
+      "length": 98,
+      "zero_bytes": 8,
+      "distinct_byte_values": 49
+    },
+    {
+      "target_offset": 20004,
+      "ntio_offset": 4971,
+      "length": 95,
+      "zero_bytes": 1,
+      "distinct_byte_values": 42
+    },
+    {
+      "target_offset": 29088,
+      "ntio_offset": 13001,
+      "length": 95,
+      "zero_bytes": 5,
+      "distinct_byte_values": 58
+    },
+    {
+      "target_offset": 24563,
+      "ntio_offset": 8669,
+      "length": 94,
+      "zero_bytes": 4,
+      "distinct_byte_values": 46
+    },
+    {
+      "target_offset": 24734,
+      "ntio_offset": 8840,
+      "length": 93,
+      "zero_bytes": 9,
+      "distinct_byte_values": 52
+    },
+    {
+      "target_offset": 24989,
+      "ntio_offset": 9095,
+      "length": 93,
+      "zero_bytes": 1,
+      "distinct_byte_values": 50
+    },
+    {
+      "target_offset": 30816,
+      "ntio_offset": 14449,
+      "length": 86,
+      "zero_bytes": 5,
+      "distinct_byte_values": 40
+    },
+    {
+      "target_offset": 31480,
+      "ntio_offset": 15113,
+      "length": 81,
+      "zero_bytes": 3,
+      "distinct_byte_values": 55
+    },
+    {
+      "target_offset": 26253,
+      "ntio_offset": 10359,
+      "length": 80,
+      "zero_bytes": 49,
+      "distinct_byte_values": 24
+    },
+    {
+      "target_offset": 29870,
+      "ntio_offset": 13783,
+      "length": 77,
+      "zero_bytes": 10,
+      "distinct_byte_values": 39
+    },
+    {
+      "target_offset": 25402,
+      "ntio_offset": 9508,
+      "length": 76,
+      "zero_bytes": 3,
+      "distinct_byte_values": 54
+    },
+    {
+      "target_offset": 24874,
+      "ntio_offset": 8980,
+      "length": 73,
+      "zero_bytes": 0,
+      "distinct_byte_values": 36
+    },
+    {
+      "target_offset": 25509,
+      "ntio_offset": 9615,
+      "length": 73,
+      "zero_bytes": 2,
+      "distinct_byte_values": 41
+    },
+    {
+      "target_offset": 3045,
+      "ntio_offset": 274,
+      "length": 72,
+      "zero_bytes": 2,
+      "distinct_byte_values": 16
+    },
+    {
+      "target_offset": 30938,
+      "ntio_offset": 14571,
+      "length": 72,
+      "zero_bytes": 9,
+      "distinct_byte_values": 39
+    },
+    {
+      "target_offset": 29948,
+      "ntio_offset": 13861,
+      "length": 65,
+      "zero_bytes": 12,
+      "distinct_byte_values": 32
+    },
+    {
+      "target_offset": 18334,
+      "ntio_offset": 3210,
+      "length": 64,
+      "zero_bytes": 1,
+      "distinct_byte_values": 38
+    },
+    {
+      "target_offset": 25590,
+      "ntio_offset": 9696,
+      "length": 64,
+      "zero_bytes": 1,
+      "distinct_byte_values": 41
+    },
+    {
+      "target_offset": 30694,
+      "ntio_offset": 14327,
+      "length": 63,
+      "zero_bytes": 1,
+      "distinct_byte_values": 45
+    },
+    {
+      "target_offset": 3666,
+      "ntio_offset": 787,
+      "length": 61,
+      "zero_bytes": 28,
+      "distinct_byte_values": 26
+    },
+    {
+      "target_offset": 18224,
+      "ntio_offset": 3116,
+      "length": 59,
+      "zero_bytes": 9,
+      "distinct_byte_values": 32
+    },
+    {
+      "target_offset": 24333,
+      "ntio_offset": 8439,
+      "length": 59,
+      "zero_bytes": 2,
+      "distinct_byte_values": 32
+    },
+    {
+      "target_offset": 11030,
+      "ntio_offset": 1168,
+      "length": 56,
+      "zero_bytes": 50,
+      "distinct_byte_values": 7
+    },
+    {
+      "target_offset": 20316,
+      "ntio_offset": 5283,
+      "length": 56,
+      "zero_bytes": 10,
+      "distinct_byte_values": 31
+    },
+    {
+      "target_offset": 23419,
+      "ntio_offset": 7526,
+      "length": 55,
+      "zero_bytes": 1,
+      "distinct_byte_values": 33
+    },
+    {
+      "target_offset": 25163,
+      "ntio_offset": 9269,
+      "length": 55,
+      "zero_bytes": 5,
+      "distinct_byte_values": 25
+    },
+    {
+      "target_offset": 25220,
+      "ntio_offset": 9326,
+      "length": 55,
+      "zero_bytes": 8,
+      "distinct_byte_values": 28
+    }
+  ],
+  "scope": "Hash-pinned fixture and raw byte correspondence leads only; no source or runtime equivalence established."
+}

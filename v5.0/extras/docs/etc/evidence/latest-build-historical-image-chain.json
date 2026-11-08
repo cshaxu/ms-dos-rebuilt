@@ -1,0 +1,33 @@
+{
+  "historical_target_record": "docs/history/M2-T3-progress.md",
+  "historical_inspection_method": "docs/etc/evidence/m0-t1-s1-baseline.md",
+  "historical_original_image_sha256": "168bd67f0d0feaca7f47c0677e64aab51666460c116dd8bbaf8343e83364948c",
+  "current_original_image_available": false,
+  "image_access_error": "[WinError -2144272384] This drive is locked by BitLocker Drive Encryption. You must unlock this drive from Control Panel: 'E:\\\\core\\\\collection\\\\systems\\\\x86_16_dos\\\\msdos_5xx\\\\msdos500_boot.img'",
+  "stage": "build\\integrated-source-t61pmujw",
+  "files": [
+    {
+      "name": "IO.SYS",
+      "bytes": 33430,
+      "sha256": "dd0915ed366b3f640284df4be30ed35f413dfd5b6966c1f25eee9598a5bf53e0",
+      "matches_retained_bytes": true,
+      "matches_historical_image_extraction_hash": true
+    },
+    {
+      "name": "MSDOS.SYS",
+      "bytes": 37394,
+      "sha256": "4e41ca4e5893d4cf293f81ad01adbdbd12f7039534f59148214a9cca309529a2",
+      "matches_retained_bytes": true,
+      "matches_historical_image_extraction_hash": true
+    },
+    {
+      "name": "COMMAND.COM",
+      "bytes": 47845,
+      "sha256": "74ad25067e7d9f5c3a0ac2f2967347defb0ffef9e6ed60b60e6499f0b1a8cc89",
+      "matches_retained_bytes": true,
+      "matches_historical_image_extraction_hash": true
+    }
+  ],
+  "scope": "Fresh read of current build and retained files; direct byte comparisons plus comparison to the historically recorded original-image extraction hashes. Original image was not accessed or mounted; historical extraction is not independently repeated.",
+  "limitations": "The original supplied image was truncated; its unavailable tail and media provenance remain unverified. Hash correspondence does not establish original source provenance."
+}

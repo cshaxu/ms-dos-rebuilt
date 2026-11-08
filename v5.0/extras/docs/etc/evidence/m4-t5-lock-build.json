@@ -1,0 +1,341 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\kernel-clean-tfybht4c",
+  "source_snapshot": {
+    "dos/abort.asm": "d24922a1d75bd941716e171179f016c1bb0ec412528046ea0c4bfb6c68abb53c",
+    "dos/alloc.asm": "9b84454f4b4f5371c8b8de1525d378b5108b9514bab9215761cbce28ba7aa249",
+    "dos/cpmio.asm": "ed409d5deee8a5b1764f8187cf4161c5d594b9630ee5032e8f97748b9c45e116",
+    "dos/cpmio2.asm": "be1c1ac94665ee5a222ec215a8cb7bfa2cf9c5383168128b0ddb90eac072a1a0",
+    "dos/dev.asm": "76f6a68c173ed888311d4613e6c225f8e77050b377a7edd22d5245bfa7982710",
+    "dos/dir2.asm": "016d4abd1de8b26dd168406ac794114905d60f84ba3a883fa1ff98a34a28a9d8",
+    "dos/disk.asm": "e312fd70517e5101302215cbf37074b5f50eb20efe5303a79f7c9f17376e1845",
+    "dos/divmes.inc": "4635ff455355c3c152d361972b7a599c14d25e33eae754f7eb983c75a8319f11",
+    "dos/dosmes.inc": "5278bfe57c6598113b6bd89a7fa69bc36423e375302266cde4f8b02c0a593608",
+    "dos/dostab.asm": "b87ffb0c02bb7941bbcf07363b22601f090de5f26e52fe4282336710dc774bb0",
+    "dos/dup.asm": "84fc63a07997b1f2e5107af784eaa26bb827189cd92c177231af1d8643719823",
+    "dos/exepatch.asm": "17ede81998c879d8977c3aa685736c01b15d859fad1465cd228c55072ece5d59",
+    "dos/fcb.asm": "5cec98077ce05b711aafc52f1ad2c1bb72c4845df272c4dc627355e9684d549c",
+    "dos/fcbio.asm": "363de101bffcbad8cb4ff2b0396ea29ac3e6d307019ae21d66f899df075d435e",
+    "dos/fcbio2.asm": "696f568e39cda84e01075dddb49df84ffaf9f111b56150d01da4fed206b19b5d",
+    "dos/file.asm": "09f6f2e06f14754cfe069335906d26676ab5538c7c569a33b2d62e052fcd633e",
+    "dos/getset.asm": "ec72b7bd0fd4e84d0f592e67896123db98f0fb2a12171356b71388bc0970ac35",
+    "dos/handle.asm": "c323c9d038460bc6a206d4cef1ff2fdc47151fc3e7ea8eda2db4224170771321",
+    "dos/ioctl.asm": "8dc2168299012c24a663035ca655ac14169dbee494858cbdc895e60df7b8d8fa",
+    "dos/kstrin.asm": "87e53bbdf5c3b218ec0ecd8cb7384165cbdc094390642a230afb2146aa46ecfc",
+    "dos/lock.asm": "99dc1dbc2c37e6b2461d1c7921da39d54e81736e3424d2c95c5912a6351f0891",
+    "dos/macro.asm": "8171c08e2cc7d4934c6c1020bcc9d6636fe1f3c3a98171fe7c98818b1a285a77",
+    "dos/macro2.asm": "6e1eff5b139672c6d9a61785c44f1da74a3743278386ac8a9e9751b39f36e4ca",
+    "dos/makefile": "4bfc3320f1f519fd3ec2e851ffa28e7f633e3594d6e17f4fe3e5f7183da57d3e",
+    "dos/misc.asm": "331adaf6dd7ab94d1b0e4557ca6ea2c557748b8f9be933d64d14dc0baf9a1207",
+    "dos/misc2.asm": "ffef367d852cb5cced423c9a5c4d03c4107958f13861c434aa4c81e6afeb7e66",
+    "dos/mscode.asm": "cda003e99f7407b6fe4a0b54c73f1134d892a020de69974be292d7d4937174de",
+    "dos/msconst.asm": "d860c36feeecec956e0c0297c8cf16b2be40a4835cde768ad575a884aed04aa4",
+    "dos/msctrlc.asm": "67a0a7b9dc9dac5daabab22d2eb6027d4b0ab02f515498edf9c9b3734e0749f5",
+    "dos/msdata.asm": "4c9849974de6ba9a9fac5529c6d7c1832e3f88b53adcef04dfc67490ff4f7757",
+    "dos/msdisp.asm": "2ce748a58c20c8619fc9be08b8ce91f039d17e41e4343963124042264dd14985",
+    "dos/msdos.lnk": "0cb9849df846c1b24566005618788b3ed0693e98d1f023a6654ff142f546ae76",
+    "dos/msdos.skl": "a5605f538cce0c44d6eee650a50cc82b991e4f5743d804e9abe17e12c6e27a9a",
+    "dos/msdosme.asm": "f54fedd4c705cf1e9a8f037685e4099398e047300ddbcd50591ac5480298508e",
+    "dos/msinit.asm": "b44876f3332630cd89ea308cc44ad91af3fa2d3169de68a40fd53f0e7c4fa93e",
+    "dos/msproc.asm": "8ef142f6940ebd00bb88a2f9fbfe73ff29842d630e96282101390e19c752c492",
+    "dos/mssw.asm": "d243f21c8ff51e4368c87b97e4ad336b0b00747ae123c29e1ec079f9a066f17d",
+    "dos/mstable.asm": "58aeaa1cb208ea1a661f13df7124e964e8030cb52ba5a20ca295c2bb39c59a65",
+    "dos/open.asm": "afef241b942235a59ce22f2ab5fd50cb1690c7cb244119b22204ee57521dd81c",
+    "dos/origin.asm": "862c02abb7bf5c8913c4572606d06efa56002d57df573f7b91b6d23e0522802e",
+    "dos/parse.asm": "9027269459eff80277d3c4ad8b965c229c893dcaed50938da649ed46bc21ec0f",
+    "dos/path.asm": "b28a836e2b0e856869bf99a18c31be07d550e4f06b26c0eab979c2f0651b4431",
+    "dos/scnam.inc": "9309eba70b5aba0bb7ccb8278496300072c1872396d384422ee4346e48a1c44e",
+    "dos/search.asm": "9f97747f4be83e5c0240b48c83ed2e350d46cfd8432c9176fc5ae76365e51ff3",
+    "dos/segcheck.asm": "6d42468cad2d40f90a3ceba950d173ffcf87e20ae0b5660cb8de0deb9689d4ef",
+    "dos/srvcall.asm": "94476e5e9a7538ed1956b2ab6bb4751295fa9e045dc114756599f1bd16e61fa6",
+    "dos/time.asm": "7ea358d51ad44c3bc09e06c81cc468c9d9ff646abac04c619b377606f38cb336",
+    "dos/util.asm": "8e9636bad8d717e7e9daa6ec3a9e36eb6563969dfae2bf9bab47d232bdfe4889",
+    "inc/arena.inc": "f9038d0e38e15cd636ec229abb33c3831f7cfd8b0b53c0c96a01b05ed42c5fbd",
+    "inc/bdsize.inc": "eaf5420a062d06b200ec7e80192c5c1c7cc8957363f863891b1afaf988d6041d",
+    "inc/bpb.inc": "43452ad264b7242d892634f19bfcd036f8a2f1c926745466b27039e8c5f960a8",
+    "inc/buffer.inc": "0e6f472f08df268434a3a2bdc34bc807dd856d86eb0d02fee58886245cb0b8a9",
+    "inc/bugtyp.inc": "e61e02f48c5257d3ed0be51e22be6618955225aad2db1ef54e9a16e8331d5a20",
+    "inc/const2.asm": "8ed55b06e06b02b35a2de90a41af6fb58868ef0f4da0f5d8527afa88ca9d0297",
+    "inc/copyrigh.inc": "5f5ba93635d6200394f545d20d91532da8ff30d1eacda0d786d79d61cd488ae7",
+    "inc/cpmfcb.inc": "9cc5117113485abede5c9b73ed26a291984e8b894ff239477ad228bc63319b5c",
+    "inc/cputype.inc": "34144664bdb7ce50e672b428689eb174eafbd4455acd7e5e8a80406a4452d439",
+    "inc/dbcs.sw": "7b86c933d33473fe03aa995258a113d53419545970d472afea1a1b6f2c9cbc43",
+    "inc/devsym.inc": "bbfcd2923aa6c6278ed53d21980305ae97bdf78c0cf2950e2e1ac5317a9a7dff",
+    "inc/dirent.inc": "d3199a48b1815444e04cf3e0e05b2a21168038f5c9440b267cca67820e474dfe",
+    "inc/doscntry.inc": "cbc519145c8c29f229844fde16fae2ebf06b6266e01897e29b0539bd555b8a97",
+    "inc/dosmac.inc": "6c6abe9a647d14c57f97c0bd3afafcdee6624f636fff273f2d996a7b21a693c2",
+    "inc/dosseg.inc": "b485ff060b5086a1884591163ae088f2ea0f379c22ea7ed96801ae371880749a",
+    "inc/dossym.inc": "e17a46ea59396490cec2dcbaf1e8e48beae2a92f7a52a519c43f14a1e2303a36",
+    "inc/dpb.inc": "78a9717b8fe123d31651d6351adeb6789501ef273ce2476316f5d4ec7c450ec0",
+    "inc/dpl.asm": "8600b594e7f48696756b41b2f6f025ebb2109782d5ebcb7587c3e17bd52d504c",
+    "inc/error.inc": "4e44f0694a7db2a15df780a3e6bb916f5f5722aca9f3df8daf4f148f0321cd8f",
+    "inc/exe.inc": "cb88f289660af5f35a39fe6d0bd50835aeecd19a448227798f56ea85b89ba37a",
+    "inc/fastopen.inc": "bfe2cde39a806bb6cab4665250c832a3643d3be198b4d14a9c8ba5ae2342f57d",
+    "inc/fastxxxx.inc": "4c1d828fc57d051876859c18af8686db931215a513ea1fb760d1650d1ee3e2fb",
+    "inc/filemode.inc": "1ed4f86e30874fd29bbf1db7d8d7bf541b3e29f9b52e3eb9cf62b007f6c88a05",
+    "inc/find.inc": "7380ee0229ef50d6a2afaa0dcece6ab2a333217df09234037cc4a329686d47eb",
+    "inc/int2a.inc": "a425a0ed47e3ee9264f1008d3646d17f1241be01659aa5ffca8f718ca5372161",
+    "inc/ioctl.inc": "5afdc64aa6d91c4c503c9d27fe4982517f3a762b94413ee8a882a49f3736ff2f",
+    "inc/lmstub.asm": "fde4eaf4e16d3461f80fc62b53b62a5d7912c4f008f6f490546be5b8337f5f1a",
+    "inc/lock.inc": "2889df10fd8228bda5c88b1ded3e0b0404335935a980cbbcd86c6417cb25d169",
+    "inc/mi.inc": "e9c3475c654c335705ed3609ab9041a8e78b3092aad65261d7d58d74f84c0650",
+    "inc/ms_data.asm": "fb4b567ef051d6a2d68ed97df8f2dc0a233733fe29af7ebee9b442b6dd54c7dd",
+    "inc/msbdata.inc": "71fc814eb557ddac186990c67ea55a73a5f02318a7455a072fb690f1ef4ce7be",
+    "inc/mshead.asm": "080ccf82e02da9eb2f1502053cf15c74e19dc1335ddd055cd49bbfa792c5e537",
+    "inc/mult.inc": "517bc33792cc568eb350308b931ad87b75b1d42255341950fe394df9302c48fb",
+    "inc/origin.inc": "ef20115ebe9c9592eb87e9b21a0ebe036592ca6cf44e389d67093a80db3d008d",
+    "inc/pdb.inc": "d247016c2a40694f8285fc33d193fd87dca9df96d50450258da170eb16e32746",
+    "inc/sf.inc": "a7598805cfaad479960f0891903aaab458c975d8f14f6e1acfe25b44f06a2093",
+    "inc/syscall.inc": "23cf7f5e2e180337a0c2219ae013494e2a106103655c0d00fa8631ce9de2e79d",
+    "inc/sysvar.inc": "851f7781c4d1c3e0d21e3fb0e2a53af3d809d6eb93fb35584d2ea351f0be00b8",
+    "inc/vector.inc": "c7fdd8e4468d28c8abed6c7d6e6e5e292d5dc21251821b29212eb1c61536fb12",
+    "inc/version.inc": "387730c471bbfde2d45b08d8df86bebd430fe5abb9a8ee12688f6aa141f6f7d6",
+    "inc/versiona.inc": "df1d5b2a37fbd511701d993d7362a6cb11c3ab077bda674a69948bf71bbb958c",
+    "inc/win386.inc": "6d76db4ccfe544931bd6daad6fca29c3f92a68ebda1a32e1470ad2d53e5f7238",
+    "inc/wpatch.inc": "a5218655835870f97838b703b98c4e2578301aaac7a761c29ea751c41004beb3",
+    "inc/xmm.inc": "a426a10a662ef94ec973d045cea21e3c5a3687bfc79b7b3c02d811a35215738e",
+    "inc/yesno.asm": "bb96edc0c2f79ee23deaeb5397847c62d51b8fe12ec6cbc33f5c828efbcce487",
+    "dos/reference.make.inc": "e9d2e142803b748ce09ad7c6f91ac062c1a2f02493fdc7350e63b63db7836a4f",
+    "dos/messages/usa-ms.idx": "ff460e0cfae6001312acd98556f449144e455dc57b5d54c807c2ea1306a8e1c8",
+    "dos/messages/usa-ms.msg": "c20f76c518d8248f5a9fe47259e80c9ce95f15fff6b86bad1a4d03f65161b037",
+    "inc/ntvdm/BOP.INC": "a3705f225c47e53dc4e106c7362366477f2f06c33cb9bf52515ca1299556f669",
+    "inc/ntvdm/CMDSVC.INC": "7643746ceec383536ca3ea2cfc4400ac94c8c7a34bd266b09258cfcb337441c6",
+    "inc/ntvdm/CURDIR.INC": "8490c9aa0702bc17b6f73483837159934aa8c8f353df5402b71812ea87d63762",
+    "inc/ntvdm/DBGSVC.INC": "296a6387cfe02445e6c8d43f9f68e1fd4dfbd9d654de3ba6460dee54f6dfc171",
+    "inc/ntvdm/DOSSVC.INC": "07c4676c9a44418c5a0175acc7a09c251bde892b0a838381edeee26e49c9faf3",
+    "inc/ntvdm/DOSWOW.INC": "d6bd8a52bff2980dacab518da8f2330da5bb978e6c07d1846662078da49444fb",
+    "inc/ntvdm/VINT.INC": "2ba06b3eea9a8ec96236d96ff7d996274b3feb5ac456524d6a9e8bd6a44541c7",
+    "dos/crit.asm": "3dda9be243c089ea0de5bd089158182d141ad9052d097d815d1065eef0e32752",
+    "dos/delete.asm": "5e3ae4cf061648eaff17980f818a111d574395162e9b2569737abee402a3a09f",
+    "dos/dircall.asm": "d9090847a263e532b1bea5351e15b224bcd7a0a05d215b42e9473873a23fd255",
+    "dos/diskread.asm": "b2de221d11545ecd779bea1dee6e08852310cf74da3abbb55851e3c96692b087",
+    "dos/disk2.asm": "d4fe5e4d8ea22c8d28150357578404da743f92738e452237f3f5067e28b0ca6d",
+    "dos/dir.asm": "03ef140acfbe6288adb7d6571a839d8089daa7d6d00e531abaae6735419dc63b",
+    "dos/fat.asm": "69b434ab7d945e6de0fbfe9e6a657de2d622a54f92661d4117721a5be15f385f",
+    "dos/buf.asm": "ebbf6862955a27122d01971f0c44041b9b074aa1a2fe13490fb087828fa7fd22",
+    "dos/rom.asm": "60423f55b7622ad298be647e185c14037279375412e1b9077455fe86efa2001e",
+    "inc/kernel/const2.asm": "3c783864d6de588efc061dc862c5f1d994351000445346bf4900a6d99e8695d5",
+    "inc/kernel/cputype.inc": "e9bf8b0a5ee0e10936d5403cddadacc898ce1f8b6807ab955b2d0639e5b50cb0",
+    "inc/kernel/curdir.inc": "bc780ae1b35d018b2ec60f7c49465e4a52b1f1356832d4d178a6f0f5f228cda4"
+  },
+  "tool_hashes": {
+    "masm.exe": "e54afaa9565e046cd862c29a015d685de43311acccf796469030e162ced6d00d",
+    "nosrvbld.exe": "e49e569b7e0775bdd731bcf18cea1d85c29dabc1aa9a7285de51249387711665",
+    "link.exe": "163d8b86c18b93ccae9b2380d850cd42a9a5e1fd89a163b16170979afbbabb07",
+    "reloc.exe": "300b58668d46c3281ef2c017409aa9300499155d6593a8a9552781d2d96cc2b3",
+    "stripz.exe": "6d424555368e2f61d201dd249532672a12164c35afb507a3e3556595511ea689"
+  },
+  "launcher_sha256": "ae195ddf68aedff2fab5130e1368cb5c585e5264b84d142d4f79dc9f973f85b9",
+  "dosbox_sha256": "dcfd46fa521f5ce89dce3bf026056f3a1d15533f80321ee887403e30d7949f5e",
+  "phases": [
+    {
+      "phase": "messages",
+      "host_exit": 0,
+      "host_log_sha256": "3707653ece2d62af01c648283edf9beeca464babf9619d67f262fe5461e75a65"
+    },
+    {
+      "phase": "linkdos",
+      "host_exit": 0,
+      "host_log_sha256": "5e8cdf998c04f3b33f2e3b14332520068093234b09e345f5ed95dd4b866f3888"
+    }
+  ],
+  "generated_messages": {
+    "msdos.cl1": "12b8032cd71b9026b0aa7f3cddd98b896d5a84c091f9bb1597d4033262238153",
+    "msdos.cl2": "eb2759bc8c8db4a665b6383ec98b53afc98c67a41e9b8aab309109504909711b",
+    "msdos.cl3": "e6312a30fa572b0ada935d76c8c306856e6d4eeb561c2f67f9deead57d97f475",
+    "msdos.cl4": "6bb4f994e388db32d50000eec3064e09d6940f20fd408eb26605a03f05e625a9"
+  },
+  "objects": [
+    {
+      "module": "origin",
+      "sha256": "f1e2c7c02d42661d0438bbc338409a9f2d9b7fb60fd01c1b86e5e6b9ce3653ce"
+    },
+    {
+      "module": "msdata",
+      "sha256": "3694869f6708477ed43566a0ac2e7d86ee7b94548e2e13e0828c9ce3a8851558"
+    },
+    {
+      "module": "mstable",
+      "sha256": "fc21fcf9538eae969cd820fe66f58ec3e223fc695b370a95f039ac11aa268e74"
+    },
+    {
+      "module": "msdisp",
+      "sha256": "18f501c328e44d5c9595be52662b3efa97e6b75e7a075510281edca72ad9a880"
+    },
+    {
+      "module": "mscode",
+      "sha256": "cd58632935a2a740f6c7f2cc87f14d122e66a44c0ecf3cf3546b12521950d9dc"
+    },
+    {
+      "module": "msdosme",
+      "sha256": "96c04a44b86e902547e992d72ed0bdd5ad814deb8a06c01e86fd62e6fe9ecd4b"
+    },
+    {
+      "module": "time",
+      "sha256": "773bc435dfe4bddc86b0b6e4bfab1ffc6855e0568b6000e27766c98a62d10f5f"
+    },
+    {
+      "module": "getset",
+      "sha256": "f2fc30fd46cf44a583cedafbf1381549895c84eefbab9326200d8070acc780fc"
+    },
+    {
+      "module": "parse",
+      "sha256": "30da54fce071d12f2342525099942c0e4b6a1fd9ce5aacef6616225b34d11002"
+    },
+    {
+      "module": "crit",
+      "sha256": "827f1f3197ec9f1540c7aa222fea3bb02b5d2eb6a15ef8b5516895e7d96b51f6"
+    },
+    {
+      "module": "misc",
+      "sha256": "d0518de4fa07259c3f3a1b6a5f0b34447ce7cf8c47ae595d6b94f77d7176ede9"
+    },
+    {
+      "module": "misc2",
+      "sha256": "cf1c7922c612ff6f7f779336527c4727fecdad3728e7b07690a95971eea4d4aa"
+    },
+    {
+      "module": "cpmio",
+      "sha256": "a89b2176d782734cc54b223cc3eb4b0e6bd1169b43f148934afe5c621f3184d0"
+    },
+    {
+      "module": "cpmio2",
+      "sha256": "b4e023dfa545138c0297f10fc6b1baf93cb58f13e478897e879f1ca2b66d3eb0"
+    },
+    {
+      "module": "fcbio",
+      "sha256": "a0d5d426dd7d41e335be916ba3c9f37d3416feb96d533d86ef57d91fd46857b8"
+    },
+    {
+      "module": "fcbio2",
+      "sha256": "9b2905bfaac1b14c71048b7d5308a623ff7db38356a46cd840d6a7d64e265100"
+    },
+    {
+      "module": "search",
+      "sha256": "0a6f27dd3862f947796d05c62348c70807784ca69a8b55deb47a83b50f6f796e"
+    },
+    {
+      "module": "delete",
+      "sha256": "a6bf88d34a670c8cfaa7f72f5e351bf04e148e32fb4b7ffe41ba7cdd280d6fb1"
+    },
+    {
+      "module": "path",
+      "sha256": "8091fd030600b9a71198cce2c0a4576320dec87c182f3b415e8c32c577580537"
+    },
+    {
+      "module": "dircall",
+      "sha256": "21bc7e4367a57e0308891f8e6b321576e462a3c978d478f5f5ea95bc5a0b8dd5"
+    },
+    {
+      "module": "ioctl",
+      "sha256": "ff4fc463601b3b95094fe5a12813022ec6e99313b45c73e5091817b2c48fd46b"
+    },
+    {
+      "module": "dup",
+      "sha256": "5358fd318f85a3b52e03aa9fb263fcf44a9472fbc7efbba576872aa221b81b02"
+    },
+    {
+      "module": "open",
+      "sha256": "acbb32f8869af8d81b78dc45f515e3477985793fce5d79d8c13bf1a4967c131d"
+    },
+    {
+      "module": "abort",
+      "sha256": "ccadf2c33163bc574dfa9cbc8e2cd834e74fdf9486fe708e17dcbfacbf5de599"
+    },
+    {
+      "module": "disk",
+      "sha256": "a00cb9ce1aa0618050c592c0eaf33643b9830ed3495bf3e78975f88fc00768d0"
+    },
+    {
+      "module": "diskread",
+      "sha256": "ff35f9d63e82b5ddcc985bd18ed5218f2104e59f5615987129d5f2ff50b65471"
+    },
+    {
+      "module": "disk2",
+      "sha256": "b7ce99f82f291bb7548e07ef4d8760fcd0849015f19f137df167f2a6ab27751c"
+    },
+    {
+      "module": "dir",
+      "sha256": "fdceeb4edc038626338f854d9dc9141839d95330d6fc8071b5daf4c10d90d9bf"
+    },
+    {
+      "module": "dir2",
+      "sha256": "fb1fc712ef0f986c9cff08e413e63f0529872fabd7ff5eb89a5d94d2792a4040"
+    },
+    {
+      "module": "dev",
+      "sha256": "6f72ae627a5571e5206795456be150492472ffcc0c08497390574a8d1acc7f1e"
+    },
+    {
+      "module": "fcb",
+      "sha256": "53d695eb3ba05d02663572be33d1c34382122459eb0df67e378f15cfae525be8"
+    },
+    {
+      "module": "fat",
+      "sha256": "2f2f50581dd06cf6e239cc0bb7d1580eadf9fdc43117b4ef126ff7f507dfe6f0"
+    },
+    {
+      "module": "buf",
+      "sha256": "bd1de69b1a29ea8d808786f680bcd1c2f0c4a24a88e251378d82306ea4d172a7"
+    },
+    {
+      "module": "msctrlc",
+      "sha256": "301eccae8d082ae29e6ad4f6ddf63bebc5d7b0f090c273d1aa84e88be6676caf"
+    },
+    {
+      "module": "msproc",
+      "sha256": "0439e0ae9bf7169fa62f26b70a1082c6435290ed31ae59e27f1a79f8f95cdc20"
+    },
+    {
+      "module": "alloc",
+      "sha256": "339bf9277c6074d778431fa3f500fabf5a014153224b218fe64188e28fe4f7f9"
+    },
+    {
+      "module": "srvcall",
+      "sha256": "4ffd175446bd93ff1c65d26a8026f5fd3b0b3633ec6632ec25197e7904230471"
+    },
+    {
+      "module": "segcheck",
+      "sha256": "6287bf2a481c4f96bd015519e49d7ccef252f58e4bd535837ab4de6d311aba37"
+    },
+    {
+      "module": "rom",
+      "sha256": "f17e983e836073ae2e3e35dc6c782ba1a8d2f4a1b6e6b3057c5a7abe356b9304"
+    },
+    {
+      "module": "util",
+      "sha256": "3334e81aa005494c2e250b364811ebf6ca65061cedf74ee0a682bfe813aeabcb"
+    },
+    {
+      "module": "handle",
+      "sha256": "4f451912b0ab3a0735e626597202094cf85216179c8b3915464b70380a60ebda"
+    },
+    {
+      "module": "macro",
+      "sha256": "021e602137691cbe9c623870267b93cbf16ffd286980c826628b667f6bbf90e3"
+    },
+    {
+      "module": "macro2",
+      "sha256": "e9f50e8e8162c2b94d7dd33fe8252b343cbb7ba0354240955c1d20b3efaefbbb"
+    },
+    {
+      "module": "file",
+      "sha256": "296e7be233e18c042605cd17f675ee3383ec2c0a3ae2447f64b1a2709bf06a4f"
+    },
+    {
+      "module": "lock",
+      "sha256": "6c0d400b962e453ff17a78a531f5222378c157c245fb89883bd4cc10c01ec5fd"
+    },
+    {
+      "module": "exepatch",
+      "sha256": "025d56ed63d7d551398ef65c636d0a4cc5caab635b6f44fee6ef9abccfd428d3"
+    },
+    {
+      "module": "msinit",
+      "sha256": "119aba7cbc031e89dfa5deb7b14c202dbc8d11674beb09414aa66dbd74e7f863"
+    }
+  ],
+  "output_bytes": 32258,
+  "output_sha256": "51cf4390b9212bf198bf2430a4d7004644303b7b0ed08a81e51a6aa8e0deab01",
+  "map_sha256": "5d832168f6cc114615b20f83e3f12ecaf06f0c533808bae65bab7a303d1f8b0a",
+  "scope": "Clean local OpenNT-derived kernel baseline; not target MSDOS.SYS recovery."
+}

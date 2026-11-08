@@ -1,0 +1,121 @@
+{
+  "build_report": "m4-t5-storage-linked-build.json",
+  "slices": [
+    {
+      "name": "getcurhead",
+      "bytes": 644,
+      "candidate_start": 12339,
+      "target_start": 23206,
+      "raw_exact": false,
+      "relocation_correspondence": true,
+      "remaining_difference_offsets": [],
+      "verified_calls": [
+        {
+          "site": 12574,
+          "callee": "fatsecrd",
+          "destination": 10309
+        },
+        {
+          "site": 12581,
+          "callee": "dread",
+          "destination": 10353
+        },
+        {
+          "site": 12919,
+          "callee": "dwrite",
+          "destination": 10396
+        }
+      ]
+    },
+    {
+      "name": "fatsecrd",
+      "bytes": 72,
+      "candidate_start": 10308,
+      "target_start": 14390,
+      "raw_exact": false,
+      "relocation_correspondence": true,
+      "remaining_difference_offsets": [],
+      "verified_calls": [
+        {
+          "site": 10339,
+          "callee": "dskread",
+          "destination": 10380
+        },
+        {
+          "site": 10353,
+          "callee": "dskread",
+          "destination": 10380
+        },
+        {
+          "site": 10364,
+          "callee": "harderrrw",
+          "destination": 10468
+        }
+      ]
+    },
+    {
+      "name": "dskread",
+      "bytes": 114,
+      "candidate_start": 10380,
+      "target_start": 14517,
+      "raw_exact": false,
+      "relocation_correspondence": true,
+      "remaining_difference_offsets": [],
+      "verified_calls": [
+        {
+          "site": 10391,
+          "callee": "setread",
+          "destination": 11446
+        },
+        {
+          "site": 10432,
+          "callee": "setwrite",
+          "destination": 11497
+        },
+        {
+          "site": 10443,
+          "callee": "deviocall2",
+          "destination": 11322
+        },
+        {
+          "site": 10490,
+          "callee": "harderr",
+          "destination": 13643
+        }
+      ]
+    },
+    {
+      "name": "deviocall",
+      "bytes": 603,
+      "candidate_start": 11319,
+      "target_start": 18399,
+      "raw_exact": false,
+      "relocation_correspondence": true,
+      "remaining_difference_offsets": [],
+      "verified_calls": [
+        {
+          "site": 11322,
+          "callee": "ecritdevice",
+          "destination": 3519
+        },
+        {
+          "site": 11442,
+          "callee": "lcritdevice",
+          "destination": 3551
+        }
+      ]
+    },
+    {
+      "name": "ecritdisk",
+      "bytes": 128,
+      "candidate_start": 3455,
+      "target_start": 4950,
+      "raw_exact": true,
+      "relocation_correspondence": true,
+      "remaining_difference_offsets": [],
+      "verified_calls": []
+    }
+  ],
+  "all_correspond": true,
+  "scope": "Integrated code slices and 12 named call edges. External-call displacements differ from target layout. No whole-file identity or runtime claim."
+}

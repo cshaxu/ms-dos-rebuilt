@@ -1,0 +1,76 @@
+{
+  "module": "dinfo-full",
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\physical-sft-probe-gaif7wrl",
+  "candidate_proof_sha256": "d702b7dac4c57d34e06ea93ff94a390b307f918677914dac5e229461bf6dcade",
+  "link_report_sha256": "1bbdfe1c5717a66605a3aef82166c9d11164f5e85d841c1f70d29448a8b796da",
+  "linked_start": 43068,
+  "public_anchors": [
+    {
+      "symbol": "disk_info",
+      "object_offset": 0,
+      "linked_offset": 43068
+    }
+  ],
+  "bytes": 97,
+  "named_fixups": [
+    {
+      "offset": 1,
+      "symbol": "TestNet",
+      "relative": true,
+      "target_symbol": 20577,
+      "linked_symbol": 20705
+    },
+    {
+      "offset": 13,
+      "symbol": "EXTERR_LOCUS",
+      "relative": false,
+      "target_symbol": 803,
+      "linked_symbol": 803
+    },
+    {
+      "offset": 17,
+      "symbol": "EcritDisk",
+      "relative": true,
+      "target_symbol": 20774,
+      "linked_symbol": 19744
+    },
+    {
+      "offset": 20,
+      "symbol": "FATREAD_CDS",
+      "relative": true,
+      "target_symbol": 38505,
+      "linked_symbol": 32839
+    },
+    {
+      "offset": 28,
+      "symbol": "UNPACK",
+      "relative": true,
+      "target_symbol": 38069,
+      "linked_symbol": 32403
+    },
+    {
+      "offset": 34,
+      "symbol": "CURBUF",
+      "relative": false,
+      "target_symbol": 1506,
+      "linked_symbol": 1506
+    },
+    {
+      "offset": 62,
+      "symbol": "UNPACK",
+      "relative": true,
+      "target_symbol": 38069,
+      "linked_symbol": 32403
+    },
+    {
+      "offset": 90,
+      "symbol": "LcritDisk",
+      "relative": true,
+      "target_symbol": 20806,
+      "linked_symbol": 19776
+    }
+  ],
+  "remaining_differences": [],
+  "correspondence": true,
+  "scope": "Complete linked MZ module, only candidate OMF named relocations adjusted; physical data placement can differ. Not runtime or whole-kernel identity."
+}

@@ -1,0 +1,17 @@
+{
+  "stage": "build\\integrated-source-t61pmujw",
+  "assembly": {
+    "IO.SYS": "msload.com concatenated with msbio.bin",
+    "MSDOS.SYS": "kernel component output copied unchanged",
+    "COMMAND.COM": "command component output copied unchanged"
+  },
+  "verified_stage_input_entries": 364,
+  "target_count": 3,
+  "source": "tools/build_integrated_source.py",
+  "input_audit": "docs/etc/evidence/round2-to-round1-187-build-inputs.json",
+  "limitations": [
+    "Recorded inputs are checked against staged snapshots; this does not prove a complete transitive OS or tool dependency closure.",
+    "The component-level build scripts and provenance still require independent assessment; this audit verifies final assembly only.",
+    "Original target media is currently unavailable and was not re-read."
+  ]
+}

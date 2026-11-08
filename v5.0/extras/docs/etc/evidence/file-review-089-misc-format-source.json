@@ -1,0 +1,10 @@
+{
+  "file": "dos/misc.asm",
+  "before_sha256": "daf6ac0b49d18ea69dbf5a27ddf1dbe2b1961690bd616af9f985fc6e364e8123",
+  "after_sha256": "63ab9bfcf646de260286d81c1c48cebfb780d1e4e87e43229a06eeabcd6e7438",
+  "reference": "v6.0/dos/misc.asm",
+  "reference_sha256": "43d8d906b97b40370705b3ae1ca004a545bb622cd9a36f3855d762d793e0758f",
+  "before": "\tEnterCrit   critDisk\r\n\tinvoke\tFATRead_CDS\t\t; Force Media Check and return DPB\r\n\tLeaveCrit   critDisk",
+  "after": "\tEnterCrit CritDisk\r\n\tinvoke\tFATRead_CDS\t\t; Force Media Check and return DPB\r\n\tLeaveCrit CritDisk",
+  "scope": "Align Get-DPB critical-section macro spelling and whitespace exactly with DOS 6; retain target-specific earlier FAT geometry behavior."
+}

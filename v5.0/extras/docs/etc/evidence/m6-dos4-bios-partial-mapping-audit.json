@@ -1,0 +1,83 @@
+{
+  "inventory": "m6-linked-module-reference-ledger-yg_ur1m0.json",
+  "inventory_sha256": "32ff44f5a6a5058cff948b87bdeeee6b670cf703b3be3baf125b6b16bf8d6991",
+  "tool_sha256": "67d0e35d60fb544a16d31802e296de97b3add109994c68ac9cfa55c437f805ce",
+  "partial_mappings": [
+    {
+      "source": "bios/mschar.asm",
+      "references": [
+        {
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\BIOS\\MSCON.ASM",
+          "sha256": "6bdc149900208b393da7ff88321381cefe7380bf200ac4b8518ae6a2a12d39ac",
+          "matched_routine_names": [
+            "con_read",
+            "con_writ",
+            "con_rdnd"
+          ],
+          "scope": "partial DOS 4 BIOS correspondence; $ and _ normalized"
+        },
+        {
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\BIOS\\MSAUX.ASM",
+          "sha256": "6b2c0081ae8a4abbcce8095cf579a720bef09abec2685e4f6a89c40d3209b0c0",
+          "matched_routine_names": [
+            "aux_read",
+            "aux_writ",
+            "aux_rdnd"
+          ],
+          "scope": "partial DOS 4 BIOS correspondence; $ and _ normalized"
+        },
+        {
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\BIOS\\MSLPT.ASM",
+          "sha256": "518b0ce56e32e9ad8aa101604efacc72ad4b3b688004f2c3916f4b9e9961e45c",
+          "matched_routine_names": [
+            "prn_writ",
+            "prn_genioctl",
+            "prn_stat"
+          ],
+          "scope": "partial DOS 4 BIOS correspondence; $ and _ normalized"
+        },
+        {
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\BIOS\\MSCLOCK.ASM",
+          "sha256": "d368aebd143c22b390a0ba2243b437d477b37c352d7f5cb7acc6c95105038a8f",
+          "matched_routine_names": [
+            "tim_read",
+            "tim_writ",
+            "time_to_ticks"
+          ],
+          "scope": "partial DOS 4 BIOS correspondence; $ and _ normalized"
+        }
+      ]
+    },
+    {
+      "source": "bios/msdioctl.asm",
+      "references": [
+        {
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\BIOS\\MSIOCTL.INC",
+          "sha256": "e03b5450f4a869765f5bddcd1687e0d5e15e31e1918304e7c1ee12f5467c9b88",
+          "matched_routine_names": [
+            "getdeviceparameters",
+            "setdeviceparameters",
+            "formattrack"
+          ],
+          "scope": "partial DOS 4 BIOS correspondence; $ and _ normalized"
+        }
+      ]
+    },
+    {
+      "source": "bios/msint13.asm",
+      "references": [
+        {
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\BIOS\\MSDISK.ASM",
+          "sha256": "4b5e66e2ee72febd6d0f218b598588330935dfe4c5abf1aaf1cbc3ff7d895da4",
+          "matched_routine_names": [
+            "doblock",
+            "doblockcontinue",
+            "doint"
+          ],
+          "scope": "partial DOS 4 BIOS correspondence; $ and _ normalized"
+        }
+      ]
+    }
+  ],
+  "scope": "Matched procedure/label names after DOS 4 $ to _ normalization; partial correspondence only, not proof of complete module equivalence, exact original source, or code behavior."
+}

@@ -1,0 +1,28 @@
+{
+  "index": 155,
+  "file": "cmd/command/tranmsg.asm",
+  "reviewed_sha256": "6a35335d6a59f3503133f0e1df7920a3cb8f08845692af67f29bee75bea4c508",
+  "decision": "retain_round2",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\tranmsg.asm",
+      "sha256": "852e422b2c35100004d4211aac44860e8489a727aae9b8bf75574a322ee48fe6"
+    },
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\CMD\\COMMAND\\TRANMSG.ASM",
+      "sha256": "c1394652fc327d9784772c60c3fbad1a6eeafa0a7e4dbf7dde26bb786aa82f32"
+    },
+    {
+      "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tranmsg.asm",
+      "sha256": "8496a6825b370e89a3c1827b03b11697832941e35a7f65cce6352f126f72c5a2"
+    }
+  ],
+  "reason": [
+    "DOS 6 adds LOADHIGH parser and DoubleSpace compression messages, changing message tables.",
+    "OpenNT changes the major-version message substitution maximum width from 1 to 2.",
+    "DOS 4 differs in DBCS and message layout."
+  ],
+  "change": "No source change.",
+  "verification": "Latest integrated-source-ye1qp0mo matches the three retained targets; current lexical scan has no hits.",
+  "limitations": "Selected target build does not prove all locale configurations or original DOS 5 source."
+}

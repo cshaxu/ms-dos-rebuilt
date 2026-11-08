@@ -1,0 +1,2623 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\integrated-source-3qm3v2jp",
+  "summary": {
+    "opennt": {
+      "identical": 23,
+      "different": 59,
+      "missing": 22
+    },
+    "dos6": {
+      "identical": 51,
+      "different": 53,
+      "missing": 0
+    },
+    "dos4": {
+      "identical": 0,
+      "different": 93,
+      "missing": 11
+    }
+  },
+  "modules": [
+    {
+      "group": "msload",
+      "module": "msload",
+      "source": "bios/msload.asm",
+      "source_sha256": "29acc768be4c4bec6bcf4152a1330ecf6aee4ae3edfa544e88256e674d8658d5",
+      "object_sha256": "47487917af41e2ad50fad41b73849a33e93ca28f5cd8ba8b220b78f5026ba9d0",
+      "references": {
+        "opennt": {
+          "status": "missing"
+        },
+        "dos6": {
+          "status": "identical",
+          "sha256": "29acc768be4c4bec6bcf4152a1330ecf6aee4ae3edfa544e88256e674d8658d5",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\msload.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "479d17149b9a4c3b252fbaf40eda2cd1d13f925e17df680ff5c9350b38eb004d",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\BIOS\\msload.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "bios",
+      "module": "msbio1",
+      "source": "bios/msbio1.asm",
+      "source_sha256": "788082936b0f9eeb6149fee894781e55768904701040f7d5e65bc6a65e76b79c",
+      "object_sha256": "3729368811d18a8154392cb3253a2daa96d5c4ee7298567064ddd3d9a14784ab",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "d72a4c94d40210ec1e814a972f23965e50139f65e6f4df43a6e20649dd973a3f",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\bios\\msbio1.asm"
+        },
+        "dos6": {
+          "status": "identical",
+          "sha256": "788082936b0f9eeb6149fee894781e55768904701040f7d5e65bc6a65e76b79c",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\msbio1.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "a63f4aa91bc13d8d5853cabd212ec6dbe8204831e1e145bf6fc0bb18de614cd0",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\BIOS\\msbio1.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "bios",
+      "module": "mschar",
+      "source": "bios/mschar.asm",
+      "source_sha256": "1c6d2aaa8f16c8349bc7d38c9fcf52307fd2791a928e7c7dc9a773cda85aaae7",
+      "object_sha256": "afc86f7c4a0f81dde2bb019a7f55c6d6ba2131556bdabc539608c4b7413eb051",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "8a8c5bc7c96613392c4176817b7533e1f6533e5b514d25016f1b33394e3fb50a",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\bios\\mschar.asm"
+        },
+        "dos6": {
+          "status": "identical",
+          "sha256": "1c6d2aaa8f16c8349bc7d38c9fcf52307fd2791a928e7c7dc9a773cda85aaae7",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\mschar.asm"
+        },
+        "dos4": {
+          "status": "missing"
+        }
+      },
+      "partial_dos4_references": [
+        {
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\BIOS\\MSCON.ASM",
+          "sha256": "6bdc149900208b393da7ff88321381cefe7380bf200ac4b8518ae6a2a12d39ac",
+          "matched_routine_names": [
+            "con_read",
+            "con_writ",
+            "con_rdnd"
+          ],
+          "scope": "partial DOS 4 BIOS correspondence; $ and _ normalized"
+        },
+        {
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\BIOS\\MSAUX.ASM",
+          "sha256": "6b2c0081ae8a4abbcce8095cf579a720bef09abec2685e4f6a89c40d3209b0c0",
+          "matched_routine_names": [
+            "aux_read",
+            "aux_writ",
+            "aux_rdnd"
+          ],
+          "scope": "partial DOS 4 BIOS correspondence; $ and _ normalized"
+        },
+        {
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\BIOS\\MSLPT.ASM",
+          "sha256": "518b0ce56e32e9ad8aa101604efacc72ad4b3b688004f2c3916f4b9e9961e45c",
+          "matched_routine_names": [
+            "prn_writ",
+            "prn_genioctl",
+            "prn_stat"
+          ],
+          "scope": "partial DOS 4 BIOS correspondence; $ and _ normalized"
+        },
+        {
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\BIOS\\MSCLOCK.ASM",
+          "sha256": "d368aebd143c22b390a0ba2243b437d477b37c352d7f5cb7acc6c95105038a8f",
+          "matched_routine_names": [
+            "tim_read",
+            "tim_writ",
+            "time_to_ticks"
+          ],
+          "scope": "partial DOS 4 BIOS correspondence; $ and _ normalized"
+        }
+      ]
+    },
+    {
+      "group": "bios",
+      "module": "msdisk",
+      "source": "bios/msdisk.asm",
+      "source_sha256": "0c166896c215dddd08f7440f462d07a9191c2ff06283139dd15081f09a234038",
+      "object_sha256": "83699866d4997c2bd56193d3c8183717fd64b7b62e4d1a00467e34ee9b483f84",
+      "references": {
+        "opennt": {
+          "status": "missing"
+        },
+        "dos6": {
+          "status": "identical",
+          "sha256": "0c166896c215dddd08f7440f462d07a9191c2ff06283139dd15081f09a234038",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\msdisk.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "4b5e66e2ee72febd6d0f218b598588330935dfe4c5abf1aaf1cbc3ff7d895da4",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\BIOS\\msdisk.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "bios",
+      "module": "msdioctl",
+      "source": "bios/msdioctl.asm",
+      "source_sha256": "3a3b6b72573f02a1d582d08cee53af5b7eaa031beb0ed70939563d2d0f80e606",
+      "object_sha256": "70b6579ad1f7fb9b493787fde59ba4f620984b057c1846b150f8c84876806180",
+      "references": {
+        "opennt": {
+          "status": "missing"
+        },
+        "dos6": {
+          "status": "identical",
+          "sha256": "3a3b6b72573f02a1d582d08cee53af5b7eaa031beb0ed70939563d2d0f80e606",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\msdioctl.asm"
+        },
+        "dos4": {
+          "status": "missing"
+        }
+      },
+      "partial_dos4_references": [
+        {
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\BIOS\\MSIOCTL.INC",
+          "sha256": "e03b5450f4a869765f5bddcd1687e0d5e15e31e1918304e7c1ee12f5467c9b88",
+          "matched_routine_names": [
+            "getdeviceparameters",
+            "setdeviceparameters",
+            "formattrack"
+          ],
+          "scope": "partial DOS 4 BIOS correspondence; $ and _ normalized"
+        }
+      ]
+    },
+    {
+      "group": "bios",
+      "module": "msint13",
+      "source": "bios/msint13.asm",
+      "source_sha256": "4c7241c46f47c45bd728f40f6b3eb2f9b8784197b3cf1e752be3961c5a17aeec",
+      "object_sha256": "05eee01fc17b43d2c7dc7a9808b06ea436ae12166deb1ec613284c8421521849",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "0eded1f8dfadb5b6229bdf69d9a5b155567a335bda95c8b4f7397e92961663df",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\bios\\msint13.asm"
+        },
+        "dos6": {
+          "status": "identical",
+          "sha256": "4c7241c46f47c45bd728f40f6b3eb2f9b8784197b3cf1e752be3961c5a17aeec",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\msint13.asm"
+        },
+        "dos4": {
+          "status": "missing"
+        }
+      },
+      "partial_dos4_references": [
+        {
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\BIOS\\MSDISK.ASM",
+          "sha256": "4b5e66e2ee72febd6d0f218b598588330935dfe4c5abf1aaf1cbc3ff7d895da4",
+          "matched_routine_names": [
+            "doblock",
+            "doblockcontinue",
+            "doint"
+          ],
+          "scope": "partial DOS 4 BIOS correspondence; $ and _ normalized"
+        }
+      ]
+    },
+    {
+      "group": "bios",
+      "module": "msbio2",
+      "source": "bios/msbio2.asm",
+      "source_sha256": "59e0c7b3b58497df33cf48829da38ca77bc4307fd27d1ce963089b310b655ef2",
+      "object_sha256": "9a28d51412185f9fa84b07c0699040fd2de5dfb572a38c0f439d1839f788114e",
+      "references": {
+        "opennt": {
+          "status": "missing"
+        },
+        "dos6": {
+          "status": "different",
+          "sha256": "8defab0e0d512284119cb44a933664315d3c5745ced1e826eb5e5ca7edf5fd32",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\msbio2.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "0f3f7763c4ed8899d5e6d2bd512c6cd3c88670d0e00d6419b4a9acec61ea40ab",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\BIOS\\msbio2.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "bios",
+      "module": "msinit",
+      "source": "bios/msinit.asm",
+      "source_sha256": "1db3f560402bef4b3ddbe8f3129589e212bbb83c94cf5a545141d4f09834d778",
+      "object_sha256": "22aa80bed0f075233fd97217540fe1d2723b5ce37ae6a6af4599653ff9598dae",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "7acb1d97311d41310530188c80c6850250b997980e214af2dcb8b8200300dc9e",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\bios\\msinit.asm"
+        },
+        "dos6": {
+          "status": "different",
+          "sha256": "6a82485be5fdc5084957000a7b7800a600ae40a06c8d4d8ac6f34cea672167e6",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\msinit.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "af14e65b3a7f15a32c0f384341bc91ac3bce7719048bd6e15443e5bbf075778f",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\BIOS\\msinit.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "bios",
+      "module": "sysinit1",
+      "source": "bios/sysinit1.asm",
+      "source_sha256": "f265c5256d484824ef432687d910bb44ee846db3a81f7dce146cb5771f90f531",
+      "object_sha256": "f4620cedf0759138d5c80861b9089eea7bd2913a46e52beadaaaebb2aca6742d",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "0a0126881dfb6a487d8702bc90c248b57a4079ac1c13452861c5b4f4d5e4b37a",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\bios\\sysinit1.asm"
+        },
+        "dos6": {
+          "status": "different",
+          "sha256": "123240778f2b05b7a942cf741228583e5e9ac73576d7df25839158d2b55d51f4",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\sysinit1.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "175f73e761ae3207e7b50e207c1a5402ff693b002913d679783c5a04d6fc32ce",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\BIOS\\sysinit1.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "bios",
+      "module": "sysconf",
+      "source": "bios/sysconf.asm",
+      "source_sha256": "ea5584a2c3cb7442f81651ee778e0514207c71ba5bad3f82aa7ad77600a94dc8",
+      "object_sha256": "48fbe00a90f79e418e312a83de08c73429304ffd6b97480972be20baa9bd9954",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "60bba5ffc49c7c995a33819ce6bc1d3111a4a693b7972d81bb3b146f600bcd7e",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\bios\\sysconf.asm"
+        },
+        "dos6": {
+          "status": "different",
+          "sha256": "fe9281ab21ef9cc973ec8e0191beedc88c3777875958fcee7f4ddee13f87fc6d",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\sysconf.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "d423781848ee58ab803193ed483b3f4bf9f0d0af6dd446775bcfa5f18c6bdf8e",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\BIOS\\sysconf.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "bios",
+      "module": "sysinit2",
+      "source": "bios/sysinit2.asm",
+      "source_sha256": "94e1a645b724ea4afb80d141f41966651101dbf04a82fc43e587a4f6c9f91e75",
+      "object_sha256": "a118e90f85c6f9fa3b5d811400fcce1dd5ae05dc6b7ebafb35f76be4aec8ed62",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "3b05b35c6c555adb68301dab7df1e3cc886ca160068366326e3d1c88643a37e8",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\bios\\sysinit2.asm"
+        },
+        "dos6": {
+          "status": "different",
+          "sha256": "ecfad8372e614c00c9944624e0b63a483b4f8b905ac88e082f7ef6823af2b98f",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\sysinit2.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "649ca305d201ab1779853712cfe78688b720f5b3e83fd25b25db613c0a237020",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\BIOS\\sysinit2.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "bios",
+      "module": "sysimes",
+      "source": "bios/sysimes.asm",
+      "source_sha256": "8d88bc79822b6650e0046c32a8c1463b5305910263d1e6d486ea24568530aafc",
+      "object_sha256": "cc98fc95efc0d30b5d17a71152061ad006ad473fa1089fc6a738c56ee069c235",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "c78fd2ddb0e2fc5683d3054ca426976a1dffd72e2adfbbf19a7eea345dc3cf8a",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\bios\\sysimes.asm"
+        },
+        "dos6": {
+          "status": "different",
+          "sha256": "f81889db61617ea4610405cac043074344e111c5b24132ff4d497fcf13468059",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\sysimes.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "05a5f444b2575a5c5bbb18e72f38932295c70db0f3413b3ab9976d1a9c1c6412",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\BIOS\\sysimes.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "bios",
+      "module": "power",
+      "source": "bios/power.asm",
+      "source_sha256": "d3090363616ba41069834f7796b7f719c8c40ee82c1ec48ecfb5ee3aa373f95d",
+      "object_sha256": "8f343f1a7e161196f0aaefe817b15aa03670fba9e3920d1a71d6a82d9a7e55b6",
+      "references": {
+        "opennt": {
+          "status": "missing"
+        },
+        "dos6": {
+          "status": "identical",
+          "sha256": "d3090363616ba41069834f7796b7f719c8c40ee82c1ec48ecfb5ee3aa373f95d",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\power.asm"
+        },
+        "dos4": {
+          "status": "missing"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "bios",
+      "module": "ptime",
+      "source": "bios/ptime.asm",
+      "source_sha256": "dc40f17b2330fd64ce85d9b4d2a35c8f0d716790762a99f3ed64089652e255ee",
+      "object_sha256": "81c2131534d607d8393a5a14edce15728de9971d6e355059a6a66d94ce01dab3",
+      "references": {
+        "opennt": {
+          "status": "missing"
+        },
+        "dos6": {
+          "status": "identical",
+          "sha256": "dc40f17b2330fd64ce85d9b4d2a35c8f0d716790762a99f3ed64089652e255ee",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\ptime.asm"
+        },
+        "dos4": {
+          "status": "missing"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "bios",
+      "module": "msend",
+      "source": "bios/msend.asm",
+      "source_sha256": "bae3ad30776f8ee34d07a95af38fa913dd35493987aa8e7e958e6ba54d00f25a",
+      "object_sha256": "20d3d0cf8806053ba2368adc34305e134dfa9afb3a6e6eceb076da0d9ed25044",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "40d639bb0f09814e537a742081b85557d49c2fc1219f0ff6618d823623f88f0a",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\bios\\msend.asm"
+        },
+        "dos6": {
+          "status": "different",
+          "sha256": "ceb3f2072658c8dc153e2274c42b75d8578426ebe84078779209ba62bce00e34",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\msend.asm"
+        },
+        "dos4": {
+          "status": "missing"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "kernel",
+      "module": "origin",
+      "source": "dos/origin.asm",
+      "source_sha256": "862c02abb7bf5c8913c4572606d06efa56002d57df573f7b91b6d23e0522802e",
+      "object_sha256": "acc99477e0e1e426c3a5f0e2c36e309e3e7d5cd0651295276b1be35a94ac4919",
+      "references": {
+        "opennt": {
+          "status": "identical",
+          "sha256": "862c02abb7bf5c8913c4572606d06efa56002d57df573f7b91b6d23e0522802e",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\dos\\origin.asm"
+        },
+        "dos6": {
+          "status": "different",
+          "sha256": "9e02ec81b78bd3249c55cb46fa7aa3693e64bdd4ef57bc2ef7566f754d4b03b6",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\origin.asm"
+        },
+        "dos4": {
+          "status": "missing"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "kernel",
+      "module": "msdata",
+      "source": "dos/msdata.asm",
+      "source_sha256": "ff14900aba8467e9f841621eca4e63792c9ff190c63b142a1a384286024489cd",
+      "object_sha256": "e27185fffcb7006de26d9d6e462cebc1e17b87b9c9d4c268b33de2e344a35402",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "4c9849974de6ba9a9fac5529c6d7c1832e3f88b53adcef04dfc67490ff4f7757",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\dos\\msdata.asm"
+        },
+        "dos6": {
+          "status": "different",
+          "sha256": "8cfd6b65393186faa1f6ac8015bea073b6594c98c706a004a696cc413d590da7",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\msdata.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "11c5c7d96c1aa5a8f8cce29114994412c543167d9d1fb408aea6048a8b234990",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\..\\INC\\MSDATA.ASM",
+          "mapping": "historical path mapping"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "kernel",
+      "module": "mstable",
+      "source": "dos/mstable.asm",
+      "source_sha256": "57030bd35b2f3a0b46bbaac7785778497676937d1de27a6ab0e065a87d67f96f",
+      "object_sha256": "aee96a45e60c56a5ff96b4b6271b81c106bbde6c02b95ab9eb985a4277beb225",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "58aeaa1cb208ea1a661f13df7124e964e8030cb52ba5a20ca295c2bb39c59a65",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\dos\\mstable.asm"
+        },
+        "dos6": {
+          "status": "different",
+          "sha256": "a21d8332e3ae890095231455fe281a02e7d3330b4d7f3422164bdd382b5b6949",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\mstable.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "89bc93a893209840ee8bd85030085bea2698e1fed15bd94ee34f50fe019f474a",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\MS_TABLE.ASM",
+          "mapping": "historical path mapping"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "kernel",
+      "module": "msdisp",
+      "source": "dos/msdisp.asm",
+      "source_sha256": "441cfe675ac62e37a2967631e0b6a0a63b5cf979af8c48e3d671ce7d9bfd215d",
+      "object_sha256": "96eaf12fd385d5f78cb0373e316c4c35a72067986b67e4a5f9091664680b9c5d",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "2ce748a58c20c8619fc9be08b8ce91f039d17e41e4343963124042264dd14985",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\dos\\msdisp.asm"
+        },
+        "dos6": {
+          "status": "identical",
+          "sha256": "441cfe675ac62e37a2967631e0b6a0a63b5cf979af8c48e3d671ce7d9bfd215d",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\msdisp.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "591dcdcb4ceb85343f0f41177ab55dd408b39d49fd7c3f6d6a9a9ce995bf5e70",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\msdisp.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "kernel",
+      "module": "mscode",
+      "source": "dos/mscode.asm",
+      "source_sha256": "dc4d766c2238e9d9045e9ea6917593c0d2d1c2bb7fb634b49df405d19a898ff3",
+      "object_sha256": "aa6d030aa904f59d213190c93931e273bd2ac1caee0c082b2f20c4193e6e9de0",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "59f4903be6456362ede5c53fa49a31805946f5411e0a6960b0a89257a5c7d569",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\dos\\mscode.asm"
+        },
+        "dos6": {
+          "status": "identical",
+          "sha256": "dc4d766c2238e9d9045e9ea6917593c0d2d1c2bb7fb634b49df405d19a898ff3",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\mscode.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "58a69ef1409577ecf145106034f049722678bb5787e881cf87500f21173525fc",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\mscode.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "kernel",
+      "module": "msdosme",
+      "source": "dos/msdosme.asm",
+      "source_sha256": "f54fedd4c705cf1e9a8f037685e4099398e047300ddbcd50591ac5480298508e",
+      "object_sha256": "96c04a44b86e902547e992d72ed0bdd5ad814deb8a06c01e86fd62e6fe9ecd4b",
+      "references": {
+        "opennt": {
+          "status": "identical",
+          "sha256": "f54fedd4c705cf1e9a8f037685e4099398e047300ddbcd50591ac5480298508e",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\dos\\msdosme.asm"
+        },
+        "dos6": {
+          "status": "different",
+          "sha256": "9a1c7e0320fb80626151eab55fc628aa377768490bb1e415b65dbaae3393f099",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\msdosme.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "876f41c281f5982840d8a9d9a385b457a1aabfed1c0c829598fbb58b2a6cdb7b",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\..\\INC\\MSDOSME.ASM",
+          "mapping": "historical path mapping"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "kernel",
+      "module": "time",
+      "source": "dos/time.asm",
+      "source_sha256": "7ea358d51ad44c3bc09e06c81cc468c9d9ff646abac04c619b377606f38cb336",
+      "object_sha256": "773bc435dfe4bddc86b0b6e4bfab1ffc6855e0568b6000e27766c98a62d10f5f",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "a29a6048533387d66b0adf6a2eb77f8f1cdf2fe3caa8a967e5590de86b86ea4d",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\dos\\time.asm"
+        },
+        "dos6": {
+          "status": "identical",
+          "sha256": "7ea358d51ad44c3bc09e06c81cc468c9d9ff646abac04c619b377606f38cb336",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\time.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "5546016640f532fb11a2da418f26a2ea16566a2bc418cdb34bf1a0ec5e61d12f",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\time.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "kernel",
+      "module": "getset",
+      "source": "dos/getset.asm",
+      "source_sha256": "b26b12fcd432ca80055e4aec8f222942ab05625b7b9621f232ae8f20464783d7",
+      "object_sha256": "e353a52372ed6fa90b32ae2895e45527391397ccfcb012f2bd3413e80610a64e",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "ec72b7bd0fd4e84d0f592e67896123db98f0fb2a12171356b71388bc0970ac35",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\dos\\getset.asm"
+        },
+        "dos6": {
+          "status": "identical",
+          "sha256": "b26b12fcd432ca80055e4aec8f222942ab05625b7b9621f232ae8f20464783d7",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\getset.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "546b66255fe2947ae64560759b8d78da37cc06870453b41b418777ceeb534505",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\getset.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "kernel",
+      "module": "parse",
+      "source": "dos/parse.asm",
+      "source_sha256": "9027269459eff80277d3c4ad8b965c229c893dcaed50938da649ed46bc21ec0f",
+      "object_sha256": "30da54fce071d12f2342525099942c0e4b6a1fd9ce5aacef6616225b34d11002",
+      "references": {
+        "opennt": {
+          "status": "identical",
+          "sha256": "9027269459eff80277d3c4ad8b965c229c893dcaed50938da649ed46bc21ec0f",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\dos\\parse.asm"
+        },
+        "dos6": {
+          "status": "different",
+          "sha256": "0d8ff2285e63f56c2f5c0064199a9b54cafed39d1a064ed2d0739c5b2efabba1",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\parse.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "5c904b39cedfa95a4323a1e2feef535bb955e1d59764060a6140232ea7982aec",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\parse.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "kernel",
+      "module": "misc",
+      "source": "dos/misc.asm",
+      "source_sha256": "daf6ac0b49d18ea69dbf5a27ddf1dbe2b1961690bd616af9f985fc6e364e8123",
+      "object_sha256": "7c537087caaa1e0fe223ab72df523bf97eaa8bf387a398c0df8a2629e1fbd0e5",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "68ea572d52887bb36267648922ecbf63aa7b9a533b3f9f626f26882ad4550b70",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\dos\\misc.asm"
+        },
+        "dos6": {
+          "status": "different",
+          "sha256": "43d8d906b97b40370705b3ae1ca004a545bb622cd9a36f3855d762d793e0758f",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\misc.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "eae483b13a04e23c04db0a329e6915fb242b5e64b7064114116a004141b32503",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\misc.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "kernel",
+      "module": "misc2",
+      "source": "dos/misc2.asm",
+      "source_sha256": "ffef367d852cb5cced423c9a5c4d03c4107958f13861c434aa4c81e6afeb7e66",
+      "object_sha256": "cf1c7922c612ff6f7f779336527c4727fecdad3728e7b07690a95971eea4d4aa",
+      "references": {
+        "opennt": {
+          "status": "identical",
+          "sha256": "ffef367d852cb5cced423c9a5c4d03c4107958f13861c434aa4c81e6afeb7e66",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\dos\\misc2.asm"
+        },
+        "dos6": {
+          "status": "different",
+          "sha256": "0b41797df70242773aee7d72b6cd4a25c415ca6c5b9cc23d9b20082044e3ba7d",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\misc2.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "bf4cb5172a85b78e61e6d93efc1887ad383b1834d4c7470a676478802731192f",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\misc2.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "kernel",
+      "module": "crit",
+      "source": "dos/crit.asm",
+      "source_sha256": "3dda9be243c089ea0de5bd089158182d141ad9052d097d815d1065eef0e32752",
+      "object_sha256": "827f1f3197ec9f1540c7aa222fea3bb02b5d2eb6a15ef8b5516895e7d96b51f6",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "425d8fec7aeb45964595b33f3cdebb7dfd615e1ee76cc5fe631566a5d2acb8cc",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\dos\\crit.asm"
+        },
+        "dos6": {
+          "status": "different",
+          "sha256": "8f95042897a5d39cc514fa965f79e7f3538a213703ed98fb45d0d4cb7a9e3af1",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\crit.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "c8b96fb5e581fe084399f1bea5271c47c0f820aa5bbfa750a9deb523df3d1b2c",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\crit.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "kernel",
+      "module": "cpmio",
+      "source": "dos/cpmio.asm",
+      "source_sha256": "451b22d70c1cc590390c4f997a26ab9c7d5facbc132905684acfc59c6baaa24f",
+      "object_sha256": "90c02e64c484cca08a703dfb47f25143ad41372a2205adbbc2daab7ac6696dc4",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "ed409d5deee8a5b1764f8187cf4161c5d594b9630ee5032e8f97748b9c45e116",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\dos\\cpmio.asm"
+        },
+        "dos6": {
+          "status": "identical",
+          "sha256": "451b22d70c1cc590390c4f997a26ab9c7d5facbc132905684acfc59c6baaa24f",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\cpmio.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "41ef30cb1fd2c409a8b296023e09fded40659c25392d785046ff2e35e689ef23",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\cpmio.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "kernel",
+      "module": "cpmio2",
+      "source": "dos/cpmio2.asm",
+      "source_sha256": "d2a5a4ef5121bb9a8928c83d54499e3e239d182939a062b5a0f02fa7d234265f",
+      "object_sha256": "c2c9191ebae46ba7f8dcbfac0f70b61fbe72f42163a8cff5f81dc9927fad0203",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "be1c1ac94665ee5a222ec215a8cb7bfa2cf9c5383168128b0ddb90eac072a1a0",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\dos\\cpmio2.asm"
+        },
+        "dos6": {
+          "status": "identical",
+          "sha256": "d2a5a4ef5121bb9a8928c83d54499e3e239d182939a062b5a0f02fa7d234265f",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\cpmio2.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "edc84f4650500759be5506add0742da59e040070fbe6fe1fe67d35361b37c986",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\cpmio2.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "kernel",
+      "module": "fcbio",
+      "source": "dos/fcbio.asm",
+      "source_sha256": "826fb2b0c8bfb9d2da36c8722270d68bd62a0c205699941f0a66471ee0720608",
+      "object_sha256": "3886de1eee5888c8afb62d9dfa6cd710f84632d7fb5732d19eb5fe9d89f0da9a",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "363de101bffcbad8cb4ff2b0396ea29ac3e6d307019ae21d66f899df075d435e",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\dos\\fcbio.asm"
+        },
+        "dos6": {
+          "status": "identical",
+          "sha256": "826fb2b0c8bfb9d2da36c8722270d68bd62a0c205699941f0a66471ee0720608",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\fcbio.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "aeb3184fb2831684a2859930f9f873006e5e9e9287abaa875fc63b634de49544",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\fcbio.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "kernel",
+      "module": "fcbio2",
+      "source": "dos/fcbio2.asm",
+      "source_sha256": "2faabcea11b9476c1e6108db7eef581c9e1c46793313b2c358343dca31912293",
+      "object_sha256": "c8924312396ebcc3dfcf361642b4937a04cbc4eba194288d65fdd156881844e5",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "696f568e39cda84e01075dddb49df84ffaf9f111b56150d01da4fed206b19b5d",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\dos\\fcbio2.asm"
+        },
+        "dos6": {
+          "status": "identical",
+          "sha256": "2faabcea11b9476c1e6108db7eef581c9e1c46793313b2c358343dca31912293",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\fcbio2.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "1e27a199b4df0a9b36df3fe6a6b5193382c88c1aab86dd9b62c4f2cc48480ad3",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\fcbio2.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "kernel",
+      "module": "search",
+      "source": "dos/search.asm",
+      "source_sha256": "13196cd660edcafb10477fab1a6d807649e7be86f6f4a9c6e436161f0e60d82c",
+      "object_sha256": "c3c8288358a1ff80b872dcbec89456cf63b6ccda6bc2af0edf85a57222b8c554",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "9f97747f4be83e5c0240b48c83ed2e350d46cfd8432c9176fc5ae76365e51ff3",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\dos\\search.asm"
+        },
+        "dos6": {
+          "status": "identical",
+          "sha256": "13196cd660edcafb10477fab1a6d807649e7be86f6f4a9c6e436161f0e60d82c",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\search.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "77daf8d04a8d1be53e151d015f5e4d958954df3942e9e279d86cdf8460f54116",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\search.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "kernel",
+      "module": "path",
+      "source": "dos/path.asm",
+      "source_sha256": "f93d8c15498c8751c0de278267f8d80bf328559f34bb70494a1a303ef3cef5f2",
+      "object_sha256": "176ee72d1ad15f6fe2407c3250cbca138f576a81357306093164ddfcc12078bc",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "bd111f35ad06774100f4fd0b1d299390b4a221a8fd716ca136ffaab9d8082be9",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\dos\\path.asm"
+        },
+        "dos6": {
+          "status": "identical",
+          "sha256": "f93d8c15498c8751c0de278267f8d80bf328559f34bb70494a1a303ef3cef5f2",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\path.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "6675513b55dd0f59769638fbc4e03f8671236bfb47fc7a564e2d7a22034a8815",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\path.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "kernel",
+      "module": "ioctl",
+      "source": "dos/ioctl.asm",
+      "source_sha256": "5d2e75742cba4d8f45f5c05ff731b1ee32de092cd01b8aa01442b6ab10d8e5b8",
+      "object_sha256": "e5605ae485d26eb90aceceb0b1d8942191a5fd08ce23d630fc5b4d4d5bb33c3f",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "8dc2168299012c24a663035ca655ac14169dbee494858cbdc895e60df7b8d8fa",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\dos\\ioctl.asm"
+        },
+        "dos6": {
+          "status": "identical",
+          "sha256": "5d2e75742cba4d8f45f5c05ff731b1ee32de092cd01b8aa01442b6ab10d8e5b8",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\ioctl.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "a820afc231874dff1abf0972ea9c1c227fc5b616a6d84ade768000375c2c762a",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\ioctl.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "kernel",
+      "module": "delete",
+      "source": "dos/delete.asm",
+      "source_sha256": "5fe514092accffa110a13a4f05dd2104664cfad87479f21bb57ea411d1cf1d77",
+      "object_sha256": "b4a84b86facdc1565daab053fe8a242fd799873d0d7b7c41825848aa2a4ecefa",
+      "references": {
+        "opennt": {
+          "status": "missing"
+        },
+        "dos6": {
+          "status": "identical",
+          "sha256": "5fe514092accffa110a13a4f05dd2104664cfad87479f21bb57ea411d1cf1d77",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\delete.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "b0f375fa469d3502370f915cba512004e972b4c8a3e6c4e5b5045ce533e0756c",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\delete.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "kernel",
+      "module": "rename",
+      "source": "dos/rename.asm",
+      "source_sha256": "e6b1bc6274952b29234230fb72dff9e2cb601558d75af5a298079df93b101dbd",
+      "object_sha256": "3df124f97e4b37840766a3e216340eabe4847dab3d186604cc2d4916e7a84b62",
+      "references": {
+        "opennt": {
+          "status": "missing"
+        },
+        "dos6": {
+          "status": "identical",
+          "sha256": "e6b1bc6274952b29234230fb72dff9e2cb601558d75af5a298079df93b101dbd",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\rename.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "c5e8f2d61780e7b5541a8ef1c00815de3487185d02d94f68498e33cf005de70d",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\rename.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "kernel",
+      "module": "finfo",
+      "source": "dos/finfo.asm",
+      "source_sha256": "58ba5d206fe7c20eea409db6ac39ebcf2e59db19b5fc691f942b3ca90ec02c39",
+      "object_sha256": "499d212d84da013dd86be771e36bc5b072659150754cdf108e1aef28438d60d3",
+      "references": {
+        "opennt": {
+          "status": "missing"
+        },
+        "dos6": {
+          "status": "identical",
+          "sha256": "58ba5d206fe7c20eea409db6ac39ebcf2e59db19b5fc691f942b3ca90ec02c39",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\finfo.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "91269f48b23e4d0c78ea45803551f83641b5a4229eebc925ddc8c850065a64bb",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\finfo.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "kernel",
+      "module": "dup",
+      "source": "dos/dup.asm",
+      "source_sha256": "84fc63a07997b1f2e5107af784eaa26bb827189cd92c177231af1d8643719823",
+      "object_sha256": "5358fd318f85a3b52e03aa9fb263fcf44a9472fbc7efbba576872aa221b81b02",
+      "references": {
+        "opennt": {
+          "status": "identical",
+          "sha256": "84fc63a07997b1f2e5107af784eaa26bb827189cd92c177231af1d8643719823",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\dos\\dup.asm"
+        },
+        "dos6": {
+          "status": "different",
+          "sha256": "e12500722670edd6faa184679039b09225c9f6756c2a2fc644dfabb5e2536b09",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dup.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "dc1ce1e26b5ac1420a612df6ea338daa63298335d077c603548abb1b05bbf6c4",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\dup.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "kernel",
+      "module": "create",
+      "source": "dos/create.asm",
+      "source_sha256": "bfb5640cd1b63391bd24997ed229d182f2fb07299082c31d0f14643b117c449e",
+      "object_sha256": "a20c8ce2ce56d03c6238dce5dd0a16ebd357f5b4f7409f68ecbcf3ec4841e020",
+      "references": {
+        "opennt": {
+          "status": "missing"
+        },
+        "dos6": {
+          "status": "different",
+          "sha256": "4a76a4fb11682cd81daca1dd2af9afe79fcf21db428a3e19d32af51ea902e9bb",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\create.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "0417865e4f0e8550de69d24f110c859a20e5d929757fca115747c30a5b23d6dd",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\create.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "kernel",
+      "module": "open",
+      "source": "dos/open.asm",
+      "source_sha256": "ce1a64fc65561ce6d5ca7d5f655a798af3a77b1aa573cf4b3985ce1156640d12",
+      "object_sha256": "1b1fd9eea4332ea1f7dfcadafce4565730c6fab2ee417edf5ecaecd93738fcd6",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "afef241b942235a59ce22f2ab5fd50cb1690c7cb244119b22204ee57521dd81c",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\dos\\open.asm"
+        },
+        "dos6": {
+          "status": "different",
+          "sha256": "ec819887cd3e79ee1e4cc9b010fc8c4f0918699f277477a95196134e0d6cdc94",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\open.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "2ea329779c38bf30e87f777e484e685e9ce2a1baae6b3cb0d866815fac5cfcb5",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\open.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "kernel",
+      "module": "dinfo",
+      "source": "dos/dinfo.asm",
+      "source_sha256": "3bc73774ddcecfc61214336f65449da0331edfd9513c5752100fcfd6fd481c51",
+      "object_sha256": "36dd133cd6c0998ddde627d42cb921f441d5520ace199ac35dc2251e4d7b9c32",
+      "references": {
+        "opennt": {
+          "status": "missing"
+        },
+        "dos6": {
+          "status": "identical",
+          "sha256": "3bc73774ddcecfc61214336f65449da0331edfd9513c5752100fcfd6fd481c51",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dinfo.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "6a9b51fac1e60d0314eeaf42085dd04b7377e7647eac6a4d2aa116b514c92209",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\dinfo.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "kernel",
+      "module": "isearch",
+      "source": "dos/isearch.asm",
+      "source_sha256": "ec0bb3be4beec3c99e8931d737222a09f1c5f728009ea4efd27a09d2936cc039",
+      "object_sha256": "90c54fa6450195074c2b761f2148982a16e75cfeecd4d0bec910f02b7d72af26",
+      "references": {
+        "opennt": {
+          "status": "missing"
+        },
+        "dos6": {
+          "status": "identical",
+          "sha256": "ec0bb3be4beec3c99e8931d737222a09f1c5f728009ea4efd27a09d2936cc039",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\isearch.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "36b5ad74ce11915b443510b9ba108589573dc19988ae4f463165f2ac2eeb5339",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\isearch.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "kernel",
+      "module": "abort",
+      "source": "dos/abort.asm",
+      "source_sha256": "13462864fcadc38f3fd0a910aab6abac0a68257d6fdb9e0ed77258fa9254c995",
+      "object_sha256": "928769617ce25b72727c12b59f55a3e6ce80f509a2402c3f9e267a4b2057664a",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "d24922a1d75bd941716e171179f016c1bb0ec412528046ea0c4bfb6c68abb53c",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\dos\\abort.asm"
+        },
+        "dos6": {
+          "status": "identical",
+          "sha256": "13462864fcadc38f3fd0a910aab6abac0a68257d6fdb9e0ed77258fa9254c995",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\abort.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "c220263a75488c52c5f0c61c1e0be1c412e67ac300a91a2a6e3675a5423d1dfe",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\abort.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "kernel",
+      "module": "close",
+      "source": "dos/close.asm",
+      "source_sha256": "333aae343db2c3d6c4ba52adc3d90c49c0b7b2e259de65f446e633731b76f62e",
+      "object_sha256": "6c336d843c809d0739637565920c1e68169904744b254df78abaf41dadd87013",
+      "references": {
+        "opennt": {
+          "status": "missing"
+        },
+        "dos6": {
+          "status": "different",
+          "sha256": "b9bcb41f70577e9bf407eabfbca3f974cc0c428b93a7574b54be27581821b46b",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\close.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "3911b0dcc5ecee662e1a05e500ee1f7b4aa50179a374cfe92ffd8bbe9885c6a5",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\close.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "kernel",
+      "module": "dircall",
+      "source": "dos/dircall.asm",
+      "source_sha256": "769049ce7d690ab8be44205a66cf4d8c900048ef7ec230655599e2b8a5e47a19",
+      "object_sha256": "e3244dca3a58374b3a642d9f28b5beb3b58dbfda992aec5a02f7128318ed8f81",
+      "references": {
+        "opennt": {
+          "status": "missing"
+        },
+        "dos6": {
+          "status": "identical",
+          "sha256": "769049ce7d690ab8be44205a66cf4d8c900048ef7ec230655599e2b8a5e47a19",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dircall.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "1e635e391029e934fc1997e627844c1280918308027eae91659acc3b999a1c9a",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\dircall.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "kernel",
+      "module": "disk",
+      "source": "dos/disk.asm",
+      "source_sha256": "3d94a6ff09848754e0caf3aa52aff6ab69a17d8e440d2d972d12674e8030033f",
+      "object_sha256": "d37a26cea2b59a9ce931a89728e7bf15df40cd67483c68662fecec046d6bc762",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "e312fd70517e5101302215cbf37074b5f50eb20efe5303a79f7c9f17376e1845",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\dos\\disk.asm"
+        },
+        "dos6": {
+          "status": "different",
+          "sha256": "d4a7a2cbda59cc693754529806c4e6b7fcbde376a42e647eacefecef87cd9cca",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\disk.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "992f2ada2d806e9f2d3f751ff42ee72b4ce2193564da01f9b95478ea353fa207",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\disk.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "kernel",
+      "module": "disk2",
+      "source": "dos/disk2.asm",
+      "source_sha256": "9b7c0483a2960e70ee4adb82f795179a2fff4f62fd9036c0406ca31f3c25036b",
+      "object_sha256": "0350f17462dbd38c5619893d7abd6da875bdb8868f40df43633863107e88fefb",
+      "references": {
+        "opennt": {
+          "status": "missing"
+        },
+        "dos6": {
+          "status": "different",
+          "sha256": "0876bb2c21d9232c3de57ee681c39b028003c09eeb58db36f6f2d9bda4527cb8",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\disk2.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "7aaa5493f8a3f4bb07c5b786089ab13d719435dbea66bfd9737e0fb5a3b43342",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\disk2.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "kernel",
+      "module": "disk3",
+      "source": "dos/disk3.asm",
+      "source_sha256": "0793350781fb07928f0a276c53bdf63dac25e2ef51a6e2051af430f79ddb8e41",
+      "object_sha256": "f3cc2dc047e21331324d7fe845b47f744353936e3e8bc58124a5f00edcba1726",
+      "references": {
+        "opennt": {
+          "status": "missing"
+        },
+        "dos6": {
+          "status": "different",
+          "sha256": "9576ede44a7a1ff86d46cd8ed02749d783a48ff2d39b703a26d007139f821fdd",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\disk3.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "e67d369b433c308f7a41df91a453a6be50559da9421811421182c380147923d4",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\disk3.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "kernel",
+      "module": "dir",
+      "source": "dos/dir.asm",
+      "source_sha256": "03ef140acfbe6288adb7d6571a839d8089daa7d6d00e531abaae6735419dc63b",
+      "object_sha256": "fdceeb4edc038626338f854d9dc9141839d95330d6fc8071b5daf4c10d90d9bf",
+      "references": {
+        "opennt": {
+          "status": "missing"
+        },
+        "dos6": {
+          "status": "identical",
+          "sha256": "03ef140acfbe6288adb7d6571a839d8089daa7d6d00e531abaae6735419dc63b",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "2de0bfbeaebc5063f492c21e03062aaaaed05090557977141ef6a247e623d492",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\dir.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "kernel",
+      "module": "dir2",
+      "source": "dos/dir2.asm",
+      "source_sha256": "1774b97832ce3257f4d67ebbcff92850c6736228a1c6c087bb683c08e8f571ca",
+      "object_sha256": "8527751518ebdc5a795c7fb7ecf17c92cc50478c9ec0d17f038b9c4418d23718",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "99c0448c781c6e521524aed7b0d565cc41f3201111163fce2d983a6207e59821",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\dos\\dir2.asm"
+        },
+        "dos6": {
+          "status": "different",
+          "sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "a6d271c3a64a75416783a1da0e032c0989d7cac5939e629a97f1c09741b984c5",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\dir2.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "kernel",
+      "module": "dev",
+      "source": "dos/dev.asm",
+      "source_sha256": "a86e76f3ff315c8667bc6962ff0c55b4f8e9dfe1fc42394a71f3efa272ebb6e7",
+      "object_sha256": "eaf0759a8cb692df2bc2a3ce0465d570449c9477c03324532f539f8c89abd618",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "92b7f0452900116416e92aaa43b2eb42800878b75b00582b988925ce6ab88826",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\dos\\dev.asm"
+        },
+        "dos6": {
+          "status": "different",
+          "sha256": "1fdd4f63b181b3575c649caf13ddc29b0d79c6ddc45a60957971a22a678f21a1",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dev.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "59d2201c48a595d4839aaadb1c520448c69c24b77f7ac393e96e9ff72e674f79",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\dev.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "kernel",
+      "module": "mknode",
+      "source": "dos/mknode.asm",
+      "source_sha256": "e3c479c9179857e03b6c360931201a1db68af23234dd92408e84c11a50854158",
+      "object_sha256": "ed22297721c512b04a4762cccf7f22441621989609832a0e4e000b98bb5312fe",
+      "references": {
+        "opennt": {
+          "status": "missing"
+        },
+        "dos6": {
+          "status": "identical",
+          "sha256": "e3c479c9179857e03b6c360931201a1db68af23234dd92408e84c11a50854158",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\mknode.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "0611bc05262a44799b8e8e750de9d7818886bfeab5a14df822baa72fac254f5e",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\mknode.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "kernel",
+      "module": "rom",
+      "source": "dos/rom.asm",
+      "source_sha256": "1ded439ece28528f37782a8f9b53726ca765662a4000970fee46d5ce06084061",
+      "object_sha256": "d401ccdcfeaee4bbbd2f6a674cffbb6b9fc81cc34fc94a4e4c3eea49b4f4bea6",
+      "references": {
+        "opennt": {
+          "status": "missing"
+        },
+        "dos6": {
+          "status": "different",
+          "sha256": "870a70fa594015cf46864fee33e861cfa5d4367631c832d16b509718c4cc294c",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\rom.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "8ed3019c3d76d3732b617459f8e733fe3764af03e592a603755d4f1d6b5db11d",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\rom.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "kernel",
+      "module": "fcb",
+      "source": "dos/fcb.asm",
+      "source_sha256": "8d766ace3aab383ea288195b0419bb1d7f05e15f910605203e35000d9f293db2",
+      "object_sha256": "53d695eb3ba05d02663572be33d1c34382122459eb0df67e378f15cfae525be8",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "5cec98077ce05b711aafc52f1ad2c1bb72c4845df272c4dc627355e9684d549c",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\dos\\fcb.asm"
+        },
+        "dos6": {
+          "status": "different",
+          "sha256": "dd7c6d6b85d08585be900b91f329821a81c6ee9b5f1cb71268382af4fb39a01c",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\fcb.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "f69cc55f2197e51f43ac8f75b011dad180cfe70c9315004af31ea22a59b32e89",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\fcb.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "kernel",
+      "module": "msctrlc",
+      "source": "dos/msctrlc.asm",
+      "source_sha256": "f2a11cf2709ec0d56b41d8e32df0d2d3026b0f64d506432fb652566f85af6581",
+      "object_sha256": "d31848e4a45fa4ea623ce64bb56e0c5fee07fe4da927dbae5cd08c6793743235",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "8d1b22b12a10eade8b6cf83276be13ac9e13971f3f83eeac3961ad8b3aa9120c",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\dos\\msctrlc.asm"
+        },
+        "dos6": {
+          "status": "different",
+          "sha256": "251d8ede15d74e063a9f5a065366b9db06b3c6890f2a0d7a8ee553489d403143",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\msctrlc.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "41a8fe8d5f7ac04a5dbb4972a38d754a3f8e69b442974fd4c117f5dfc26f3777",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\msctrlc.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "kernel",
+      "module": "fat",
+      "source": "dos/fat.asm",
+      "source_sha256": "69b434ab7d945e6de0fbfe9e6a657de2d622a54f92661d4117721a5be15f385f",
+      "object_sha256": "2f2f50581dd06cf6e239cc0bb7d1580eadf9fdc43117b4ef126ff7f507dfe6f0",
+      "references": {
+        "opennt": {
+          "status": "missing"
+        },
+        "dos6": {
+          "status": "identical",
+          "sha256": "69b434ab7d945e6de0fbfe9e6a657de2d622a54f92661d4117721a5be15f385f",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\fat.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "9a7327b01d894421bc8057ee164d6a39e359e6e04de2c7dc21ee4bca62520a00",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\fat.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "kernel",
+      "module": "buf",
+      "source": "dos/buf.asm",
+      "source_sha256": "c6efe316978116040b42da25704ce212c6d1c675dbee9059603e1bf6ded6bf96",
+      "object_sha256": "bd1de69b1a29ea8d808786f680bcd1c2f0c4a24a88e251378d82306ea4d172a7",
+      "references": {
+        "opennt": {
+          "status": "missing"
+        },
+        "dos6": {
+          "status": "different",
+          "sha256": "b162899aabcec71289e34b82326457544fd0e794fd20ee97a2f063ce1542ba21",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\buf.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "a556986bdd62dd602e6f5e100ad4458986470eb58e9c46aa5683762fa3594b0d",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\buf.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "kernel",
+      "module": "msproc",
+      "source": "dos/msproc.asm",
+      "source_sha256": "639a7c530b6ff599f0717353c50e2ec1335304a561476083135854229752ca47",
+      "object_sha256": "6d290e9b064c0afcf41d65e92af6778c7cf3a3dcf8a027565caeeead96228431",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "8ef142f6940ebd00bb88a2f9fbfe73ff29842d630e96282101390e19c752c492",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\dos\\msproc.asm"
+        },
+        "dos6": {
+          "status": "different",
+          "sha256": "4aa312105af8582066ac6fe55f47755f6192ac7f9f21a9f2658ab68050a65a98",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\msproc.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "37d8e11c96fefed06a6312376cc9783d95b00ebc36cd3d5d6e57a41eaa8e429b",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\msproc.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "kernel",
+      "module": "alloc",
+      "source": "dos/alloc.asm",
+      "source_sha256": "98c929ded7a515871ecf464ec96bbfda483b3ea4295c739ce1afcbd78ffdb450",
+      "object_sha256": "63f6bbff68a61d5885921e8b190f369831a7c3bb9fcd4e062a627adf46af0ff7",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "9b84454f4b4f5371c8b8de1525d378b5108b9514bab9215761cbce28ba7aa249",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\dos\\alloc.asm"
+        },
+        "dos6": {
+          "status": "identical",
+          "sha256": "98c929ded7a515871ecf464ec96bbfda483b3ea4295c739ce1afcbd78ffdb450",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\alloc.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "f9ce3fffff5e538dbea6ae542fe0c795b59611169c9ea6f9a5f6bf332b1f29b6",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\alloc.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "kernel",
+      "module": "srvcall",
+      "source": "dos/srvcall.asm",
+      "source_sha256": "2074931698e50d0f41e9584334b72fd622b49ed3c7595f2606acc584ed41a2f3",
+      "object_sha256": "5f469e72a1b53d1db7540c79d6b128a54b69c6d75140dd604b8ce15663d637ed",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "94476e5e9a7538ed1956b2ab6bb4751295fa9e045dc114756599f1bd16e61fa6",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\dos\\srvcall.asm"
+        },
+        "dos6": {
+          "status": "identical",
+          "sha256": "2074931698e50d0f41e9584334b72fd622b49ed3c7595f2606acc584ed41a2f3",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\srvcall.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "33f0082003b89b42bd723e0829dbbc48afa0e35f43cf40115ac04d18319f4cd2",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\srvcall.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "kernel",
+      "module": "segcheck",
+      "source": "dos/segcheck.asm",
+      "source_sha256": "a428051cf4adb199cbc4694821873886238041275354dfcd2e71286c7449fed9",
+      "object_sha256": "6287bf2a481c4f96bd015519e49d7ccef252f58e4bd535837ab4de6d311aba37",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "6d42468cad2d40f90a3ceba950d173ffcf87e20ae0b5660cb8de0deb9689d4ef",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\dos\\segcheck.asm"
+        },
+        "dos6": {
+          "status": "different",
+          "sha256": "b5bbcf41397409b980277292477b75cca01212ba20909767273ffb9a34956da7",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\segcheck.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "f95db327f1d6759f9b33ac8e3c1253dbc1c4193200a381b1bf049ea9f64ff960",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\segcheck.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "kernel",
+      "module": "util",
+      "source": "dos/util.asm",
+      "source_sha256": "664389bd28b8c9455b32c2021d6a04ee2400931326d355f9604eff5ced23ab1e",
+      "object_sha256": "df0b8657376236fc3825b81cdb4105da402d345182099de0561f7602a353b982",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "8e9636bad8d717e7e9daa6ec3a9e36eb6563969dfae2bf9bab47d232bdfe4889",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\dos\\util.asm"
+        },
+        "dos6": {
+          "status": "identical",
+          "sha256": "664389bd28b8c9455b32c2021d6a04ee2400931326d355f9604eff5ced23ab1e",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\util.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "b2c42b788aefa0a27f4ef55d3a5a8d58cf2e6399743815385456978b8a2aac8a",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\util.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "kernel",
+      "module": "handle",
+      "source": "dos/handle.asm",
+      "source_sha256": "f42fa91329b674864a5421b40be415b348a18f0793221b9c07d526b12924e90f",
+      "object_sha256": "e92d48b2e74f42d86aa1290026370eb17072c61da27a11e0d3d8927ef89c01a2",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "c323c9d038460bc6a206d4cef1ff2fdc47151fc3e7ea8eda2db4224170771321",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\dos\\handle.asm"
+        },
+        "dos6": {
+          "status": "identical",
+          "sha256": "f42fa91329b674864a5421b40be415b348a18f0793221b9c07d526b12924e90f",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\handle.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "bf0e36600531951bad96e3fc14d80e461012a6908c55054ed5c511d117edb22c",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\handle.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "kernel",
+      "module": "macro",
+      "source": "dos/macro.asm",
+      "source_sha256": "86b39aee4b10eb6bec74ad5427047c348fb8270a3d6a3dc5818d6c8222a8a788",
+      "object_sha256": "2f03d7144c937d893c1b9c526f46b32002ad42cf6758753fe5176a5e52990e2a",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "f539e62f8b1317b1d97b7c664bbf0262dc16f3591614209818f44d092c06e5f0",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\dos\\macro.asm"
+        },
+        "dos6": {
+          "status": "identical",
+          "sha256": "86b39aee4b10eb6bec74ad5427047c348fb8270a3d6a3dc5818d6c8222a8a788",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\macro.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "3d6ee812ff39ee480ed2dfd72861f44434e9df06c8dcb83554f8692ed9fb9dad",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\macro.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "kernel",
+      "module": "macro2",
+      "source": "dos/macro2.asm",
+      "source_sha256": "118eddf562852d8416834010f1eef1e2c331a6e155b32970fcf8bcee52853ec1",
+      "object_sha256": "a2209a6682a87eaa0c107d08f36367236dc45712411b0fadf6ab4b5d6b5318a0",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "4535001b614701cece712a6d10f35f90c714d3f480a163116f3e20cc2862aa89",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\dos\\macro2.asm"
+        },
+        "dos6": {
+          "status": "different",
+          "sha256": "599c74d3c01f65985e9ffa75fe6bf3eea8a5b36bdf8ef6808634f17deaab77d2",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\macro2.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "f3752b30dbed059a4538eac14d77242c33ff59864f16b8f5957572027e80f003",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\macro2.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "kernel",
+      "module": "file",
+      "source": "dos/file.asm",
+      "source_sha256": "28f25db8a2d344b22f3e6cf9618b5f85458c16b497978a2862283dbe721c7c77",
+      "object_sha256": "58121dc242c884c95fb64d9d6d642c91768cfc224c77f8923d4e65380a490124",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "09f6f2e06f14754cfe069335906d26676ab5538c7c569a33b2d62e052fcd633e",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\dos\\file.asm"
+        },
+        "dos6": {
+          "status": "identical",
+          "sha256": "28f25db8a2d344b22f3e6cf9618b5f85458c16b497978a2862283dbe721c7c77",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\file.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "a3471406b4897971951066c394ce5108cbb4b1e99218e57158b9cd48c95a9705",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\file.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "kernel",
+      "module": "lock",
+      "source": "dos/lock.asm",
+      "source_sha256": "99dc1dbc2c37e6b2461d1c7921da39d54e81736e3424d2c95c5912a6351f0891",
+      "object_sha256": "6c0d400b962e453ff17a78a531f5222378c157c245fb89883bd4cc10c01ec5fd",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "da0824bc6c56e0ed73b9ccd49522c95268d5b6e86e627b50c7a7f3fa648da3fe",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\dos\\lock.asm"
+        },
+        "dos6": {
+          "status": "identical",
+          "sha256": "99dc1dbc2c37e6b2461d1c7921da39d54e81736e3424d2c95c5912a6351f0891",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\lock.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "cb2cf0af255642f930523af1ea7341543beb3eb17eb4347dfb5c123fd5b59ec4",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\lock.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "kernel",
+      "module": "share",
+      "source": "dos/share.asm",
+      "source_sha256": "0eb75b8acef5c5dd2bd86d0c7b26ae885ba72d18c2e5bc2d2b01476ef46f1aa7",
+      "object_sha256": "16e36bf4758e222a18f83b656172e1165e74fb107175af51dc7ca52c31f8c08f",
+      "references": {
+        "opennt": {
+          "status": "missing"
+        },
+        "dos6": {
+          "status": "identical",
+          "sha256": "0eb75b8acef5c5dd2bd86d0c7b26ae885ba72d18c2e5bc2d2b01476ef46f1aa7",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\share.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "7e9ea5bc892dde2d5277ce69abc5ba3608746714bd83da1927c9d8efba049373",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\share.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "kernel",
+      "module": "exepatch",
+      "source": "dos/exepatch.asm",
+      "source_sha256": "17ede81998c879d8977c3aa685736c01b15d859fad1465cd228c55072ece5d59",
+      "object_sha256": "025d56ed63d7d551398ef65c636d0a4cc5caab635b6f44fee6ef9abccfd428d3",
+      "references": {
+        "opennt": {
+          "status": "identical",
+          "sha256": "17ede81998c879d8977c3aa685736c01b15d859fad1465cd228c55072ece5d59",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\dos\\exepatch.asm"
+        },
+        "dos6": {
+          "status": "different",
+          "sha256": "ab3b9501d4ef3401a360692c5a4c59c24d19c6590231173c6cabba59d723d99a",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\exepatch.asm"
+        },
+        "dos4": {
+          "status": "missing"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "kernel",
+      "module": "msinit",
+      "source": "dos/msinit.asm",
+      "source_sha256": "83782a7b23723ed8cacfb6ad1006eeaef70ef282e49e70be339e29ff79204411",
+      "object_sha256": "312328b23df9e56a5dc42988dc8685a1766256fd3302e0eb12ab4c19f1e7d720",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "5b0f2e3e9fe9c083b8cf03e4307e9a90bddacddad22176062c59a314b8c46620",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\dos\\msinit.asm"
+        },
+        "dos6": {
+          "status": "different",
+          "sha256": "67a662e3c6c186fd2fe0604624557077dcd7f8be65f85e3be01f26f250a0c2a0",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\msinit.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "c6bf13b2cd5751fbbb7f70a7af84b01024752f7b5f546451ca284560ea152f81",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\msinit.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "command",
+      "module": "command1",
+      "source": "cmd/command/command1.asm",
+      "source_sha256": "7c6cc9b7f9ecdf4c047dff14654a94c99caff51178f70451f211f3bf997ea5eb",
+      "object_sha256": "0f876299b3653e9a2d993ba6ccefe91216a80fc4a65732afa90582808d1408b0",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "192571809b9f992e6dd4615a15f658bc98ee9b43cc3b9a566e87300638452b2b",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\command1.asm"
+        },
+        "dos6": {
+          "status": "different",
+          "sha256": "f06136213c6bb00c156eee0876a4ae821166567027f18c22c71196a1ffa1e40d",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\command1.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "eee2945b304eeb97da965c716e940c271149b6c76527462ab1a3025fa384d319",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\CMD\\COMMAND\\command1.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "command",
+      "module": "command2",
+      "source": "cmd/command/command2.asm",
+      "source_sha256": "3f0c58a4385a171de50d408ee1f5bf6f6bb08bc65851a6539ed88d9b8233b1e4",
+      "object_sha256": "c642bce8d2eca76daa649cf3c84a4dd92a01f56a35e394b5ecd72945a49cd957",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "086a7c72a4c9fbaafa59501c85ebe3350e47fc865bb502ef2e57ff3e6c785f65",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\command2.asm"
+        },
+        "dos6": {
+          "status": "different",
+          "sha256": "aac1b9cad1f30e9df6ea1e9f8d463e365d068e77be200e44b9a2103251ee28a7",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\command2.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "a78842189ab7098f3d252cdac11f0b305bda2ace14dbe992260f09034dbd8c09",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\CMD\\COMMAND\\command2.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "command",
+      "module": "rucode",
+      "source": "cmd/command/rucode.asm",
+      "source_sha256": "db78b274658e577ef876562cc721f66013fd05dab50e44533971aebd8dc4c3f4",
+      "object_sha256": "f55d4b5b5561093c323e47343f9c7b95ced474ecdd82fc7c9af8fcfa61c042f9",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "245d7f359483d57345876b5a62f2f671a4ab271d4b1a3f8c0a44c0335052ee9f",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\rucode.asm"
+        },
+        "dos6": {
+          "status": "different",
+          "sha256": "fc7b22775027fe13379317ffe2586ef6d058afa9c3c87d51f94c88e2c66cbec9",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\rucode.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "3843bc9458a3aa0cdb32d29a0c2cdda393e7cb75606719db06c593013da4dcdb",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\CMD\\COMMAND\\rucode.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "command",
+      "module": "stub",
+      "source": "cmd/command/stub.asm",
+      "source_sha256": "06bef972296b25751563239325c008e4cce3de3d482fb658a19514d4c2b58147",
+      "object_sha256": "31a3f2777e3ae946b88d87342c96ceebb2e83e58e54f62e4486eac0e2de7f95a",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "650b4c89fe06e647f461bd2f5b634c2cf5e850b772bde6ab902c96fbf862c7f4",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\stub.asm"
+        },
+        "dos6": {
+          "status": "different",
+          "sha256": "577878c59d37691882a662e3ff6a07f3063e04406a121439271383885843184a",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\stub.asm"
+        },
+        "dos4": {
+          "status": "missing"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "command",
+      "module": "rdata",
+      "source": "cmd/command/rdata.asm",
+      "source_sha256": "9b1184ab2ade67dfb7ba846fb8766e36e1e9aac0e5ede95f126211fd899b40d9",
+      "object_sha256": "3bc10056922c71757fb8e63451e4a811a3d87d2eea624c26ebd82fa21382a4b9",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "350cb74da4d43313cf7ce0f9bdb957cefa5759ef32f439f8a83102f0162ed441",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\rdata.asm"
+        },
+        "dos6": {
+          "status": "different",
+          "sha256": "3101420207a251880f4eacc22d56beb819a0987ea2698e87e3bea3d27fe6e685",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\rdata.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "9af1d227663b0d7b23eecf98e523a3f09d6963fc30d1f05e06c03c19c074d9f8",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\CMD\\COMMAND\\rdata.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "command",
+      "module": "init",
+      "source": "cmd/command/init.asm",
+      "source_sha256": "6aed5eacd2093e0e097d03690add363e23da9a0f81a734e01ed51bd673ec1c07",
+      "object_sha256": "6e4c3986c66411a91667522b6cad9225a0e87d47ed2768a40e61bce3a3bc960e",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "3d69d0c82789ba5eb359794096ab215afe4f705cba35ca211948e93923e8fd16",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\init.asm"
+        },
+        "dos6": {
+          "status": "different",
+          "sha256": "787796985fce83b27799eea24d3d48f94e82bfaad4bddb1ebbc3ce713372bc83",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\init.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "73e87576714a151c7ca8596a2cfe03fb9bacbfd013d7f83f48c3bd31e33cbd0d",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\CMD\\COMMAND\\init.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "command",
+      "module": "iparse",
+      "source": "cmd/command/iparse.asm",
+      "source_sha256": "212d981c0338012fe96849a7ea569bea2172d267beeb57415d702d603e7d2e7e",
+      "object_sha256": "2429abca5f5af5f8b9e035693bb98dafc37e232f94b5f75e2a1d41cbeaad64d6",
+      "references": {
+        "opennt": {
+          "status": "identical",
+          "sha256": "212d981c0338012fe96849a7ea569bea2172d267beeb57415d702d603e7d2e7e",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\iparse.asm"
+        },
+        "dos6": {
+          "status": "identical",
+          "sha256": "212d981c0338012fe96849a7ea569bea2172d267beeb57415d702d603e7d2e7e",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\iparse.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "6327feab2b825e639e44c11fd1058c70cf7ec1eba6bdd0da7743ebf5daa04ac6",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\CMD\\COMMAND\\iparse.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "command",
+      "module": "uinit",
+      "source": "cmd/command/uinit.asm",
+      "source_sha256": "fb08dc811eb2f0d1be49cad8f6ee4b8d50cb38e083e345b8e2d1cb76c0a99eca",
+      "object_sha256": "6eb27c770d01217495063679ca397efc916750b77b19498fc83af74461fb8f6b",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "69cf155b487039a7fcada5125e4ed99d1c41d4770a7869f77549c77e6df1420e",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\uinit.asm"
+        },
+        "dos6": {
+          "status": "different",
+          "sha256": "71fe34ddc30f096c3d2bfd7fda28e2ac269fb45e81900400302305b2c9631dfd",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\uinit.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "202fc272577ac1c28a11afdf6524b5a00f0cfc6baff9c88cb05ad4c70ad25d77",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\CMD\\COMMAND\\uinit.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "command",
+      "module": "tcode",
+      "source": "cmd/command/tcode.asm",
+      "source_sha256": "1c5d65595cb2cfcef28dfe9560edae9d95aa2c1a90714458bcfbb482112ab3e8",
+      "object_sha256": "1d45a1bda6014dbb7b58dd54bf575673bea591b6589e541d703eb5bd09116994",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "223938eef6bc48314805cb3c35ebbd11cd6da10316ed09952c8f06cf9ca11377",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tcode.asm"
+        },
+        "dos6": {
+          "status": "different",
+          "sha256": "c3365e7a9cecaa60fe7469f7b14c2a1c7153f22865b9542ad7e3e33bc5571f6c",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\tcode.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "be25e15882400f04dbdcf4e33ed8aff24b67bafc649a0a583b478b733bb89f99",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\CMD\\COMMAND\\tcode.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "command",
+      "module": "tbatch",
+      "source": "cmd/command/tbatch.asm",
+      "source_sha256": "5222e3c6e530e5daf381934c1e4ed7cc959640d3363e7de21cce5bc817f3d1ed",
+      "object_sha256": "4c29b282227f6f744116d38c51dfd7c4f647bdef710251de263fd1a51e38a457",
+      "references": {
+        "opennt": {
+          "status": "identical",
+          "sha256": "5222e3c6e530e5daf381934c1e4ed7cc959640d3363e7de21cce5bc817f3d1ed",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tbatch.asm"
+        },
+        "dos6": {
+          "status": "different",
+          "sha256": "acb6e1ca668f484e6634add3615828593eba2c1aa320f4dc29b3d698ce9c3113",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\tbatch.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "1f61795cfbdc4140b22394eb836b5c1c2e2338d5f9f12aeadc8dfe6f3818e35a",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\CMD\\COMMAND\\tbatch.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "command",
+      "module": "tbatch2",
+      "source": "cmd/command/tbatch2.asm",
+      "source_sha256": "a347cc53c8db8d9e54e2783e510fe52d2d816f108ccb7005f47c5acc97e661e6",
+      "object_sha256": "cf068e7688ff6d5cc70c72cd55837a5d0aaf0c296ab640e3cf1e3f5368cd87f5",
+      "references": {
+        "opennt": {
+          "status": "identical",
+          "sha256": "a347cc53c8db8d9e54e2783e510fe52d2d816f108ccb7005f47c5acc97e661e6",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tbatch2.asm"
+        },
+        "dos6": {
+          "status": "identical",
+          "sha256": "a347cc53c8db8d9e54e2783e510fe52d2d816f108ccb7005f47c5acc97e661e6",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\tbatch2.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "29efe2de40c086430e617eddaa8e9b3aeb83b13b9136cab19d8dd253be7a04c2",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\CMD\\COMMAND\\tbatch2.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "command",
+      "module": "tfor",
+      "source": "cmd/command/tfor.asm",
+      "source_sha256": "93cd89114a467bce48900d36c81897f5f739a091280c17a6560d7b953dd519ae",
+      "object_sha256": "d811316ede1d0083d21c1c43bb36af0f394faa6c5febd1a20db169126354efe5",
+      "references": {
+        "opennt": {
+          "status": "identical",
+          "sha256": "93cd89114a467bce48900d36c81897f5f739a091280c17a6560d7b953dd519ae",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tfor.asm"
+        },
+        "dos6": {
+          "status": "identical",
+          "sha256": "93cd89114a467bce48900d36c81897f5f739a091280c17a6560d7b953dd519ae",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\tfor.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "2dee109922513338a3b13e0d409e31d3d5f7c7ca9607a2f4d6cff282b7f9f6ea",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\CMD\\COMMAND\\tfor.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "command",
+      "module": "dir",
+      "source": "cmd/command/dir.asm",
+      "source_sha256": "00923f40298347ac15f2eec25fd958b7b2babdd630ae2530df086f03d8dc0e9e",
+      "object_sha256": "7e0ca315ee0d8dcbcdcd4a31f89a82a9d1e8f3a44874da09ae13fff0136f4fc3",
+      "references": {
+        "opennt": {
+          "status": "identical",
+          "sha256": "00923f40298347ac15f2eec25fd958b7b2babdd630ae2530df086f03d8dc0e9e",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\dir.asm"
+        },
+        "dos6": {
+          "status": "different",
+          "sha256": "d01bf2bcc1f37c88de1bd8c0c84838c3a01fff1cc03d70d33ec5ba3643b49954",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\dir.asm"
+        },
+        "dos4": {
+          "status": "missing"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "command",
+      "module": "tcmd1b",
+      "source": "cmd/command/tcmd1b.asm",
+      "source_sha256": "f0b51ade51915b16a91f2147e9cf8013ad0f60af4a6031eba96e8593a6077800",
+      "object_sha256": "cde2dd7f5a0b4329a8e84bf0cbc31903dd723669b99a677cc243a532aa999233",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "f2414606b4b8a4f948bd04b9591466491a481f6f9a4c68b3edb05707d6aef538",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tcmd1b.asm"
+        },
+        "dos6": {
+          "status": "different",
+          "sha256": "052c9e921800c18fd1055bbe2cecd4a2a06999204781f31349636fcafb98da75",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\tcmd1b.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "df96b111ec1287919eda378783cf590af84f6cf232fe7c9031005b59e6db2e3d",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\CMD\\COMMAND\\tcmd1b.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "command",
+      "module": "tcmd2a",
+      "source": "cmd/command/tcmd2a.asm",
+      "source_sha256": "d72fb16ed0bad994826ff5d12499925c2c3a19a123ef6c2d57c34d210fb5ee57",
+      "object_sha256": "a2a46333b5f1c1cad3f88ff57519de6da3a9484c7ae68e1943d77dd1fdac3084",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "e93964b8a359112199aaca42bade5548812bd683afeb03c5391d79d8f80f4c83",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tcmd2a.asm"
+        },
+        "dos6": {
+          "status": "different",
+          "sha256": "1e1b18ba34ff9fefe6e6c0535f574ff037dd7095189639464c641a45d886af9d",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\tcmd2a.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "69ba0be44d1b4b1f43e7a0b1543236194e4f87e06713ba47713bf9563761b0ad",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\CMD\\COMMAND\\tcmd2a.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "command",
+      "module": "tcmd2b",
+      "source": "cmd/command/tcmd2b.asm",
+      "source_sha256": "ca8021cd94837a1d9937094d63c6c475373f82aaccace695be9fc0a6c8b36e37",
+      "object_sha256": "f437685d68992eb90133e1277a8396c93ddd7f45425688a822b148db77e6898e",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "0f964c7b6aef2e04790c2b4f66cd5c559e9e05bea0a91ed2adaca08f28125280",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tcmd2b.asm"
+        },
+        "dos6": {
+          "status": "different",
+          "sha256": "516e4020c448f98a5e8186994b174740995e1b325774fee94d8ea3882f8636c4",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\tcmd2b.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "8639b815b508d60e60d73af2c0ef47b6f426a8403122a3869889ae272731d8e1",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\CMD\\COMMAND\\tcmd2b.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "command",
+      "module": "tenv",
+      "source": "cmd/command/tenv.asm",
+      "source_sha256": "1df4836e38f0aa5e6ef2c972f433cd73256685fd6ea9ceebf8b7db60e8a1226c",
+      "object_sha256": "58ee9382d88d88a095cf9b5ce127ed0b3122c0f4bdd594b36d81c81251fd2005",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "bc67edd71988d695d6a679ae98dc07aee405fd9dbe319a4eee206fc710d7de85",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tenv.asm"
+        },
+        "dos6": {
+          "status": "different",
+          "sha256": "d0bc63bd712fb3ba820eae4ced701f9a2883375df709e802c12c7156d6dd4293",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\tenv.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "d449f9f49cedc12448e9b6a4eadedccfa3df4c00f248a7c681f0c37bf5d1ffc0",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\CMD\\COMMAND\\tenv.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "command",
+      "module": "tenv2",
+      "source": "cmd/command/tenv2.asm",
+      "source_sha256": "46a0c1a731bb73e4afe4d17c40f48b96f78817a18483f210fe59c2994fd0affd",
+      "object_sha256": "a34c4a115987c0ceb0d13b2b3b7616068c1894ba62dffa98ab0e02ae277af1a0",
+      "references": {
+        "opennt": {
+          "status": "identical",
+          "sha256": "46a0c1a731bb73e4afe4d17c40f48b96f78817a18483f210fe59c2994fd0affd",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tenv2.asm"
+        },
+        "dos6": {
+          "status": "identical",
+          "sha256": "46a0c1a731bb73e4afe4d17c40f48b96f78817a18483f210fe59c2994fd0affd",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\tenv2.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "11d11c7586e6eea45c00e6584427db17ab1a4fc3735905d94df94ee158f8f1b7",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\CMD\\COMMAND\\tenv2.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "command",
+      "module": "tmisc1",
+      "source": "cmd/command/tmisc1.asm",
+      "source_sha256": "14b15d90d67642f9f23d483b5c04e9f62ef839dfd6f077cd65225e5c70db18c8",
+      "object_sha256": "afdcf4a2fe323a99e66830fd4336ba307d03cd4e9759b015a55a1777f5fa199e",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "6d9fcd49ae29b1bec75ba82a11f7867822066156836b9fb6faf9c2637f8ab341",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tmisc1.asm"
+        },
+        "dos6": {
+          "status": "different",
+          "sha256": "47cedfe55759e8b91640bb819283e51b66bac039cf9e287d65ef36f7a333588e",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\tmisc1.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "69afd734721dd9cbf9081955cfb00d629e6b2de3021b1fc52be00aa8f1c7c849",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\CMD\\COMMAND\\tmisc1.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "command",
+      "module": "tmisc2",
+      "source": "cmd/command/tmisc2.asm",
+      "source_sha256": "3c99901c307699d4bd13d5543e9e2325f2be488fb864804ca7d32cb0a3dd1f20",
+      "object_sha256": "2277b02be4251eb6fedb43844486fc4c88e52a20f7b87a58dcebc094b3b29e2c",
+      "references": {
+        "opennt": {
+          "status": "identical",
+          "sha256": "3c99901c307699d4bd13d5543e9e2325f2be488fb864804ca7d32cb0a3dd1f20",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tmisc2.asm"
+        },
+        "dos6": {
+          "status": "different",
+          "sha256": "27e4410c0a0b9b246dd7057830dec354689b91067bc27d0dd6d6a96377710e4c",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\tmisc2.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "6740df81b50ebf415106d5df6fbea95b3461c30ba45ff881be68944d80497e63",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\CMD\\COMMAND\\tmisc2.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "command",
+      "module": "tpipe",
+      "source": "cmd/command/tpipe.asm",
+      "source_sha256": "8212af6332ff32ff97a743371f24e9a7c0119bd3809a870c339ce287e7005310",
+      "object_sha256": "e38cfe4a71e750bf19c3b569510756d5e517646f53e9237a4c1d1fc876014d38",
+      "references": {
+        "opennt": {
+          "status": "identical",
+          "sha256": "8212af6332ff32ff97a743371f24e9a7c0119bd3809a870c339ce287e7005310",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tpipe.asm"
+        },
+        "dos6": {
+          "status": "identical",
+          "sha256": "8212af6332ff32ff97a743371f24e9a7c0119bd3809a870c339ce287e7005310",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\tpipe.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "1d3f38d03eec3854627a642b118dc32af26122f02b3d9d8eb90290976bf890f2",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\CMD\\COMMAND\\tpipe.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "command",
+      "module": "parse2",
+      "source": "cmd/command/parse2.asm",
+      "source_sha256": "d885de9709a598f2e1b635986a7cedf6d2ae00321155cf4e465d360b114da283",
+      "object_sha256": "342bb94ae849997cb40a76430153606997e5f1b7d5421d472dcb3d96a0bee3bd",
+      "references": {
+        "opennt": {
+          "status": "identical",
+          "sha256": "d885de9709a598f2e1b635986a7cedf6d2ae00321155cf4e465d360b114da283",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\parse2.asm"
+        },
+        "dos6": {
+          "status": "identical",
+          "sha256": "d885de9709a598f2e1b635986a7cedf6d2ae00321155cf4e465d360b114da283",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\parse2.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "506dc0d37b14f562ca6ee15a644b8388d1146ccd28ba5aa56375a6b55217fe20",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\CMD\\COMMAND\\parse2.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "command",
+      "module": "path1",
+      "source": "cmd/command/path1.asm",
+      "source_sha256": "15a56b1ff45378c64e64482d5c88997f10c6eb07f08e5739d1ec60a44de819d5",
+      "object_sha256": "8db1f86a72c2cc0e7d3809e9dd0f04e43edfcf28c081885f6bc18dfe6c785e1c",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "a6846cdf08eb4fa77b0e2a0184938e6cc3ac3d781b5c8c0465398ed9c59fa48b",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\path1.asm"
+        },
+        "dos6": {
+          "status": "different",
+          "sha256": "eb2126371c40ddd0e13fd28da8f0dd3cc652d5c1b69d52ab1481641ffea04826",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\path1.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "628270502cee8a3ff0e682d0d720efbb7d882d544b81d9fbc68e8b545677644d",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\CMD\\COMMAND\\path1.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "command",
+      "module": "path2",
+      "source": "cmd/command/path2.asm",
+      "source_sha256": "c230a86460f0677b0b51a1657428161f1c3f05d1857c6573cfc4132457c398d3",
+      "object_sha256": "de8566e2f89c5e24b65f9dd9a0a8e31129c53c3494a15a8b117a149a6c9e1c0f",
+      "references": {
+        "opennt": {
+          "status": "identical",
+          "sha256": "c230a86460f0677b0b51a1657428161f1c3f05d1857c6573cfc4132457c398d3",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\path2.asm"
+        },
+        "dos6": {
+          "status": "identical",
+          "sha256": "c230a86460f0677b0b51a1657428161f1c3f05d1857c6573cfc4132457c398d3",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\path2.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "4394c7a2eb3da1efd33de48e329397cf532d99370528de19d7b6fbbcd336d5c7",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\CMD\\COMMAND\\path2.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "command",
+      "module": "tucode",
+      "source": "cmd/command/tucode.asm",
+      "source_sha256": "33a7ef94560d9b04bb431842426cd83e79c654ffef6b8faff414eded486b7628",
+      "object_sha256": "7aa1b26b91941b9d2b1d1ff452dc8fdd2f3b4cc1826bdf6b7eaadb133ede1092",
+      "references": {
+        "opennt": {
+          "status": "identical",
+          "sha256": "33a7ef94560d9b04bb431842426cd83e79c654ffef6b8faff414eded486b7628",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tucode.asm"
+        },
+        "dos6": {
+          "status": "identical",
+          "sha256": "33a7ef94560d9b04bb431842426cd83e79c654ffef6b8faff414eded486b7628",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\tucode.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "f505978476658e62163a6800948088e45437a5b9599796031300a4e037987c3c",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\CMD\\COMMAND\\tucode.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "command",
+      "module": "copy",
+      "source": "cmd/command/copy.asm",
+      "source_sha256": "10de61fd6fb514a2dbf7c133d0aa600346a519faba9a2f3b7a3615f281500817",
+      "object_sha256": "9e40ac34906b22311814d00947e4fed9707474b3df0ccaf21ebba1d6acabe274",
+      "references": {
+        "opennt": {
+          "status": "identical",
+          "sha256": "10de61fd6fb514a2dbf7c133d0aa600346a519faba9a2f3b7a3615f281500817",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\copy.asm"
+        },
+        "dos6": {
+          "status": "identical",
+          "sha256": "10de61fd6fb514a2dbf7c133d0aa600346a519faba9a2f3b7a3615f281500817",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\copy.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "25817522d335347749ea67f775a63c5e940057fb0d6a6d0b1c58501e2fef65a7",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\CMD\\COMMAND\\copy.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "command",
+      "module": "copypr1",
+      "source": "cmd/command/copypr1.asm",
+      "source_sha256": "af82e6aa29923b6d8b3be87d83fb7ff4ce790d256451fe75f8628f8ac00bceab",
+      "object_sha256": "605c462fe7907d654d2c9f58c5782e78d45983b6406da663135371aad62fbf4f",
+      "references": {
+        "opennt": {
+          "status": "identical",
+          "sha256": "af82e6aa29923b6d8b3be87d83fb7ff4ce790d256451fe75f8628f8ac00bceab",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\copypr1.asm"
+        },
+        "dos6": {
+          "status": "identical",
+          "sha256": "af82e6aa29923b6d8b3be87d83fb7ff4ce790d256451fe75f8628f8ac00bceab",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\copypr1.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "8d56e76748200955479a58e406b3106aaf011ebc5fe7522bfc62e4a234715b2c",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\CMD\\COMMAND\\copypr1.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "command",
+      "module": "copypr2",
+      "source": "cmd/command/copypr2.asm",
+      "source_sha256": "8519fdc7f922e5dfbf1a0c4c33d578e1f72c0517572f4ece6546e14b160e15ee",
+      "object_sha256": "bd9c1db657eb626651f8aff943574bc73b6a3b46e2548b4d321f3d77b7e19374",
+      "references": {
+        "opennt": {
+          "status": "identical",
+          "sha256": "8519fdc7f922e5dfbf1a0c4c33d578e1f72c0517572f4ece6546e14b160e15ee",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\copypr2.asm"
+        },
+        "dos6": {
+          "status": "identical",
+          "sha256": "8519fdc7f922e5dfbf1a0c4c33d578e1f72c0517572f4ece6546e14b160e15ee",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\copypr2.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "0834a388c3229ba072032337b04bc8c71420768dc1c33f577bb06cf67a69cf1b",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\CMD\\COMMAND\\copypr2.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "command",
+      "module": "cparse",
+      "source": "cmd/command/cparse.asm",
+      "source_sha256": "1a355a2d1194d98b26bf448b1e85a522ea5a0e8ded4071aa11f0d69c2895d5a0",
+      "object_sha256": "b0eb612fb5ec39565bed1a20f47c2e08943ff7ca080c364d07ec8e8c040a0fe0",
+      "references": {
+        "opennt": {
+          "status": "identical",
+          "sha256": "1a355a2d1194d98b26bf448b1e85a522ea5a0e8ded4071aa11f0d69c2895d5a0",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\cparse.asm"
+        },
+        "dos6": {
+          "status": "identical",
+          "sha256": "1a355a2d1194d98b26bf448b1e85a522ea5a0e8ded4071aa11f0d69c2895d5a0",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\cparse.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "7046b64dedfeea7b699da41b784141d26e6009fd042f8449f44a0c5128dc0b8b",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\CMD\\COMMAND\\cparse.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "command",
+      "module": "tparse",
+      "source": "cmd/command/tparse.asm",
+      "source_sha256": "6b5e17ff0428e5b9d7d87ec076ef92c2b8f6dbb8e0f09a9e325af0c2e55ba51d",
+      "object_sha256": "8c8cf19ee3be9b66dae9f37d807c1db5c004016f41ac45c49c6a24be1427381e",
+      "references": {
+        "opennt": {
+          "status": "identical",
+          "sha256": "6b5e17ff0428e5b9d7d87ec076ef92c2b8f6dbb8e0f09a9e325af0c2e55ba51d",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tparse.asm"
+        },
+        "dos6": {
+          "status": "identical",
+          "sha256": "6b5e17ff0428e5b9d7d87ec076ef92c2b8f6dbb8e0f09a9e325af0c2e55ba51d",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\tparse.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "578633792735c404dcccd22419fa2e225f42689ed6d4d164be18427e565a2af0",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\CMD\\COMMAND\\tparse.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "command",
+      "module": "tprintf",
+      "source": "cmd/command/tprintf.asm",
+      "source_sha256": "8d26916986436081d862eac4d9988b47f846da6180c69d80a1a9d730ff46829e",
+      "object_sha256": "45c950d7efd87c12eeefeb2e41b2f17e2f72f62c5def01e0ea76f6a5063f732f",
+      "references": {
+        "opennt": {
+          "status": "identical",
+          "sha256": "8d26916986436081d862eac4d9988b47f846da6180c69d80a1a9d730ff46829e",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tprintf.asm"
+        },
+        "dos6": {
+          "status": "identical",
+          "sha256": "8d26916986436081d862eac4d9988b47f846da6180c69d80a1a9d730ff46829e",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\tprintf.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "dac8b7084f474df0380e02c14c903efa082265e6fa644e3d770766089a0c0800",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\CMD\\COMMAND\\tprintf.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "command",
+      "module": "loadhi",
+      "source": "cmd/command/loadhi.asm",
+      "source_sha256": "ce1b19ba147ed5e37d6aca33d5aab641fbbe7646efef76ff950d5eba25ee9435",
+      "object_sha256": "f4279b8a390901aae7445faf5266b8c0057249ed8489eb9ea27002682cf8b94b",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "8e1f504aeccc73c3692bceafc42ea0a23859992607c6beab9af51e6d2eabec92",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\loadhi.asm"
+        },
+        "dos6": {
+          "status": "different",
+          "sha256": "f3276d251f387197d2bf089da98e8f690fa60c9d7def3b0c93d511994a73e65f",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\loadhi.asm"
+        },
+        "dos4": {
+          "status": "missing"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "command",
+      "module": "tdata",
+      "source": "cmd/command/tdata.asm",
+      "source_sha256": "3d86f011c3b5ef73de73b92cac875c4d6847900a114b9b0eea9bcba519e7e293",
+      "object_sha256": "f12cca67581af00bd8939a4559a51616c8828a17235904363f189c513ee101c4",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "46d7e67ecb0cd95a59a254420af02e6770a6b1fb9ada49a0da1c276ee344af78",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tdata.asm"
+        },
+        "dos6": {
+          "status": "different",
+          "sha256": "b3f3568bfc63a280ac08283587f951aa837da97adc099c8d90ab1ae13a51f03d",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\tdata.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "0f41e6b928b3b204faffeade2259b6c05c5085fd96e378eb04b43fe01fc96ea9",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\CMD\\COMMAND\\tdata.asm"
+        }
+      },
+      "partial_dos4_references": []
+    },
+    {
+      "group": "command",
+      "module": "tspc",
+      "source": "cmd/command/tspc.asm",
+      "source_sha256": "516b7fadf962ccd0a6d5cb4e32e63dd0a9c9f8b9450e06f1f87ee4800f563b8f",
+      "object_sha256": "23bb975e3eb93c6cfadfc20e89650042c2af1bcaac52a4d50a3107909e3f3b0d",
+      "references": {
+        "opennt": {
+          "status": "different",
+          "sha256": "cae808af6cd1657cc41f4e83d26f67353d085d291db2f300e9380025b41a350f",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tspc.asm"
+        },
+        "dos6": {
+          "status": "different",
+          "sha256": "3dc9ce6f801dd4f1c01fa47676783b4758b2ff3605e7fc8668c3bc658c8e7ffa",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\tspc.asm"
+        },
+        "dos4": {
+          "status": "different",
+          "sha256": "d0beeb08ae81f2fe01cc82f45b91c7e4d97ac303ae4180f01ceef05147df1410",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\CMD\\COMMAND\\tspc.asm"
+        }
+      },
+      "partial_dos4_references": []
+    }
+  ],
+  "scope": "Linked modules; full references use exact source bytes. Missing means no whole-module mapping; partial DOS 4 references are listed separately. Differences are review leads, not style or authorship verdicts."
+}

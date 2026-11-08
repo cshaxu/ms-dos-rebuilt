@@ -1,0 +1,35 @@
+{
+  "index": 137,
+  "file": "cmd/command/rucode.asm",
+  "reviewed_sha256": "db78b274658e577ef876562cc721f66013fd05dab50e44533971aebd8dc4c3f4",
+  "decision": "retain_round2",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\rucode.asm",
+      "sha256": "fc7b22775027fe13379317ffe2586ef6d058afa9c3c87d51f94c88e2c66cbec9"
+    },
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\CMD\\COMMAND\\RUCODE.ASM",
+      "sha256": "3843bc9458a3aa0cdb32d29a0c2cdda393e7cb75606719db06c593013da4dcdb"
+    },
+    {
+      "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\rucode.asm",
+      "sha256": "245d7f359483d57345876b5a62f2f671a4ab271d4b1a3f8c0a44c0335052ee9f"
+    }
+  ],
+  "reason": [
+    "OpenNT uses 5501h instead of the target 5500h to distinguish NTVDM COMMAND, explicitly identified in its comments.",
+    "DOS 6 moves the common state constant into COMEQU and adds ROMDOS-specific state and message retrieval paths. Current COMEQU does not define that constant.",
+    "DOS 4 module is structurally different."
+  ],
+  "target_evidence": {
+    "path": "O:\\DOS\\COMMAND.COM",
+    "sha256": "74ad25067e7d9f5c3a0ac2f2967347defb0ffef9e6ed60b60e6499f0b1a8cc89",
+    "file_offset": 4990,
+    "bytes_hex": "3d0055741c",
+    "prior_review": "docs/etc/evidence/file-review-137-rucode.json"
+  },
+  "change": "No source change.",
+  "verification": "Latest integrated-source-p36t4oy1 matches all three targets; current lexical scan has no hits.",
+  "limitations": "ROMDOS and historical DOS 5 source remain unverified."
+}

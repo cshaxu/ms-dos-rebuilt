@@ -1,0 +1,28 @@
+{
+  "index": 118,
+  "file": "cmd/command/command2.asm",
+  "reviewed_sha256": "3f0c58a4385a171de50d408ee1f5bf6f6bb08bc65851a6539ed88d9b8233b1e4",
+  "decision": "retain_round2",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\command2.asm",
+      "sha256": "aac1b9cad1f30e9df6ea1e9f8d463e365d068e77be200e44b9a2103251ee28a7"
+    },
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\CMD\\COMMAND\\COMMAND2.ASM",
+      "sha256": "a78842189ab7098f3d252cdac11f0b305bda2ace14dbe992260f09034dbd8c09"
+    },
+    {
+      "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\command2.asm",
+      "sha256": "086a7c72a4c9fbaafa59501c85ebe3350e47fc865bb502ef2e57ff3e6c785f65"
+    }
+  ],
+  "reason": [
+    "DOS 6 changes environment allocation flag name and branch polarity and adds ROMDOS transient-loading logic. Those are substantive implementation and configuration differences, not simple formatting.",
+    "OpenNT adds stderr handling and a close-handle change dated March 1993.",
+    "DOS 4 module differs substantially in structure and code."
+  ],
+  "change": "No source change.",
+  "verification": "Latest integrated-source-jebmrgwo matches all three retained targets; current lexical scan has no hits.",
+  "limitations": "Matching default build does not establish ROMDOS behavior or historical DOS 5 original source."
+}

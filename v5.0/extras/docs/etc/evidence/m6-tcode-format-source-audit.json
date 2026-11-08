@@ -1,0 +1,105 @@
+{
+  "source": "cmd/command/tcode.asm",
+  "before_sha256": "d2e4ea49a73dc53c91626bfaf05f0cc3684f2cbc70bb6529f10012b10ea88e3b",
+  "after_sha256": "1c5d65595cb2cfcef28dfe9560edae9d95aa2c1a90714458bcfbb482112ab3e8",
+  "reference": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\tcode.asm",
+  "reference_sha256": "c3365e7a9cecaa60fe7469f7b14c2a1c7153f22865b9542ad7e3e33bc5571f6c",
+  "changes": [
+    {
+      "line": 15,
+      "before": ";\tM025    SR      9/12/90         Removed calls to SetStdInOn,SetStdInOff",
+      "after": ";\tM025\tSR\t9/12/90\tRemoved calls to SetStdInOn,SetStdInOff"
+    },
+    {
+      "line": 227,
+      "before": "\tJZ      NOPCLOSE                        ; Don't bother if they don't exist",
+      "after": "\tJZ\tNOPCLOSE\t\t\t; Don't bother if they don't exist"
+    },
+    {
+      "line": 229,
+      "before": "\tJNZ     NOPCLOSE                        ; Don't del if still piping",
+      "after": "\tJNZ\tNOPCLOSE\t\t\t; Don't del if still piping"
+    },
+    {
+      "line": 234,
+      "before": "\tMOV     AX,CS                           ; Get segment we're in",
+      "after": "\tMOV\tAX,CS\t\t\t\t; Get segment we're in"
+    },
+    {
+      "line": 267,
+      "before": "\tJZ      GETCOM                          ; Don't do the CRLF",
+      "after": "\tJZ\tGETCOM\t\t\t\t; Don't do the CRLF"
+    },
+    {
+      "line": 272,
+      "before": "\tTEST    [FORFLAG],-1                    ; G  Don't print prompt in FOR",
+      "after": "\tTEST\t[FORFLAG],-1\t\t\t; G  Don't print prompt in FOR"
+    },
+    {
+      "line": 274,
+      "before": "\tTEST    [BATCH], -1                     ; G  Don't print prompt if in batch",
+      "after": "\tTEST\t[BATCH], -1\t\t\t; G  Don't print prompt if in batch"
+    },
+    {
+      "line": 293,
+      "before": "\tTEST    [FORFLAG],-1                    ; G  Don't print prompt in FOR",
+      "after": "\tTEST\t[FORFLAG],-1\t\t\t; G  Don't print prompt in FOR"
+    },
+    {
+      "line": 295,
+      "before": "\tTEST    [BATCH], -1                     ; G  Don't print prompt if in batch",
+      "after": "\tTEST\t[BATCH], -1\t\t\t; G  Don't print prompt if in batch"
+    },
+    {
+      "line": 312,
+      "before": ";\tBugbug:         MULT_SHELL_GET no longer used?",
+      "after": ";\tBugbug:\tMULT_SHELL_GET no longer used?"
+    },
+    {
+      "line": 341,
+      "before": "\tJMP     SHORT DoCom1                          ; echoing already done",
+      "after": "\tJMP SHORT DoCom1\t\t\t; echoing already done"
+    },
+    {
+      "line": 437,
+      "before": "\tcmp     arg.argvcnt, 0                  ; there WAS a command, wasn't there?",
+      "after": "\tcmp\targ.argvcnt, 0\t\t\t; there WAS a command, wasn't there?"
+    },
+    {
+      "line": 447,
+      "before": "\tcmp     BYTE PTR [BX+1],':'             ; was a drive specified?",
+      "after": "\tcmp\tBYTE PTR [BX+1],':'             ; was a drive specified?"
+    },
+    {
+      "line": 459,
+      "before": "\tjnz     drvgd                           ; if not, we have:  \"d:\", \"d:\\\", \"d:/\"",
+      "after": "\tjnz\tdrvgd\t\t\t\t; if not, we have:  \"d:\", \"d:\\\", \"d:/\""
+    },
+    {
+      "line": 468,
+      "before": "\tMOV     AL,' '",
+      "after": "\tMOV\tAL,' '"
+    },
+    {
+      "line": 495,
+      "before": "\tjz      do_skipped                      ; 'cause parse_file_descriptor is dumb",
+      "after": "\tjz\tdo_skipped\t\t\t; 'cause parse_file_descriptor is dumb"
+    },
+    {
+      "line": 496,
+      "before": "\tcmp     AL, 0DH                         ; can't always depend on argv[0].arglen",
+      "after": "\tcmp\tAL, 0DH \t\t\t; can't always depend on argv[0].arglen"
+    },
+    {
+      "line": 552,
+      "before": "\tnot     DI                              ; ARGTS doesn't include the flags",
+      "after": "\tnot\tDI\t\t\t\t; ARGTS doesn't include the flags"
+    },
+    {
+      "line": 560,
+      "before": "\tdec     al                              ; (I don't know why -- old code did it)",
+      "after": "\tdec\tal\t\t\t\t; (I don't know why -- old code did it)"
+    }
+  ],
+  "scope": "Only whitespace alignment of matching lines was restored from DOS 6; instruction tokens, comments, and target-specific logic remain unchanged. Exact historical DOS 5 formatting is not independently established."
+}

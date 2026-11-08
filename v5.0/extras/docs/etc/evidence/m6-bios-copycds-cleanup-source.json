@@ -1,0 +1,53 @@
+{
+  "files": {
+    "bios/sysconf.asm": {
+      "before": "2ad763a39b3597fccf3eabf2334e19ec2206a66820fd7d99c06147441ca44c0d",
+      "after": "fe05addce44e7875e7cc6178ce75798bf5d0fe8f24948535aca2c5ad75018675",
+      "blocks": 3,
+      "default_paths_kept": 0
+    },
+    "bios/sysinit1.asm": {
+      "before": "4f830adec25ed50068707b691ad8b0b623aceb9e6d3e9e32a4564b1a2e3825e4",
+      "after": "e927b0b0574b75479c7a7448ac04e99f45abc0d93a46708964137b75fe526540",
+      "blocks": 8,
+      "default_paths_kept": 1
+    },
+    "bios/inc/version.inc": {
+      "before": "c97f4ae5cf0527c7a3251ed6376794f1236bff7b288cef8fa8b9a333f3a0f669",
+      "after": "7ab6100c70e613a41ec32d80519d73784cadaad14c1bff44e0aaa8cfb6214142",
+      "blocks": 1
+    },
+    "bios/inc/mult.inc": {
+      "before": "73037418e659c1eab2d3e67fc7e29eebed8fc6f1fe5790848ee22f9870ef89a6",
+      "after": "c8e67ef05870600106bca0e6eb02229541a47162aba0a674aabf4fa2fbbeb665",
+      "blocks": 4
+    }
+  },
+  "removed_fragments": {
+    "bios/sysconf.asm": [
+      "ifdef\tCOPYCDS\r\n\textrn\tnewnum_cdss:word\r\nendif ; COPYCDS\r\n",
+      "ifdef\tCOPYCDS\r\n\txor\tah, ah\r\n\tmov\tnewnum_cdss, ax\t\t; save number of new CDSs to be built\r\nendif ; COPYCDS\r\n",
+      "ifdef\tCOPYCDS\r\n\txor\tal, al\t\t\t; build CDSs incrementally\r\nendif ; COPYCDS\r\n"
+    ],
+    "bios/sysinit1.asm": [
+      "ifdef\t\tCOPYCDS\r\n\t\tpublic\tnewnum_cdss\r\noldnum_cdss\tdw\t?\t\t; number of DPB/CDSs built so far\r\nnewnum_cdss\tdw\t?\t\t; number of CDSs to be built for the\r\n\t\t\t\t\t;  newly initialized device\r\nendif ; COPYCDS\r\n",
+      "ifdef\tCOPYCDS\r\n\tmov\tal, 1\t\t\t; ask tempcds to build CDSs from\r\n\t\t\t\t\t;  scratch\r\nendif ; COPYCDS\r\n",
+      "ifdef\tCOPYCDS\r\n\tpush\tax\t\t\t; save build from scratch flag\r\nendif ; COPYCDS\r\n",
+      "ifdef\tCOPYCDS\r\n\tpop\tax\t\t\t; get back build from scratch flag\r\n\tor\tal, al\t\t\t; build from scratch ?\r\n\tjz\t@f\r\n\tmov\tbyte ptr DirStrng,\"A\"\t; if from scratch, start with A\r\n\tmov\toldnum_cdss, cx\r\n\tjmp\tshort fooset\t\t; yes!\r\n@@:\r\n\tcall\tSlideCDSs\t\t; Do not build from scratch, instead\r\n\t\t\t\t\t;  slide the old CDSs down and build\r\n\t\t\t\t\t;  the new ones\r\n\r\nendif ; COPYCDS\r\n",
+      "ifndef\tCOPYCDS\r\n\tmov\tbyte ptr DirStrng,\"A\"\r\nendif ; COPYCDS\r\n",
+      "ifdef\tCOPYCDS\r\n;\r\n;----------------------------------------------------------------------------\r\n;\r\n; SlideCDSs : Slide the old CDSs down and build the new CDSs above the\r\n;\t\told ones.\r\n;\r\n;\tINPUT :\r\n;\tDS:SI = pointer to first DPB\r\n;\tES:DI = pointer to the start of new CDS table\r\n;\toldnum_cdss = number of CDSs built so far\r\n;\tnewnum_cdss = number of CDSs to be added\r\n;\r\n;\tOUTPUT : (regs are set up for FOOSET)\r\n;\tDS:SI = pointer to first new DPB for which CDS is to be built\r\n;\tES:DI = pointer to memory where the new CDSs can be built\r\n;\tCX    = number of new CDSs to be built\r\n;\toldnum_cdss is updated to take the newly built CDSs into account\r\n;\r\n;----------------------------------------------------------------------------\r\n;\r\nSlideCDSs\tproc\r\n\r\n\tmov\tcx, oldnum_cdss\t\t; CX = number of CDSs already\r\n\t\t\t\t\t;\tpresent\r\n\tjcxz\tsc90\t\t\t; if zero CDSs no need to slide\r\n\tpush\tcx\t\t\t; save old number of CDSs\r\nsc10:\r\n\tlds\tsi, [si].dpb_next_dpb\t; skip the old DPBs for which CDSs\r\n\tloop\tsc10\t\t\t;  have been already built\r\n\tpop\tcx\r\n\r\n\tpush\tds\r\n\tpush\tsi\t\t\t; save pointer to first new DPB\r\n\r\n\tmov\tal, SIZE curdir_list\r\n\tmul\tcl\r\n\tpush\tax\r\n\tcall\tpararound\t\t; AX = size of old CDS table in paras\r\n\tmov\tsi, [confbot]\r\n\tsub\tsi, ax\r\n\tmov\tds, si\r\n\txor\tsi, si\t\t\t; DS:SI = pointer to the current CDS\r\n\t\t\t\t\t;\t   table\r\n\tpop\tcx\t\t\t; CX = size of the CDS table\r\n\t\t\t\t\t;\t(note push AX above)\r\n\tcld\r\n\trep\tmovsb\r\n\r\n\tpop\tsi\t\t\t; get back pointer to first new DPB\r\n\tpop\tds\r\n\r\nsc90:\r\n\tmov\tcx, newnum_cdss\t\t; set CX = number new CDSs to be built\r\n\tadd\toldnum_cdss, cx\t\t; update oldnumCDSs to reflect the new\r\n\t\t\t\t\t;  addition\r\n\tret\r\n\r\nSlideCDSs\tendp\r\n\r\nendif ; COPYCDS\r\n",
+      "ifdef\tCOPYCDS\r\n\txor\tch, ch\r\n\tsub\tcx, oldnum_cdss\t\t; CX = number of new CDSs to be built\r\n\tmov\tnewnum_cdss, cx\r\n\tcall\tSlideCDSs\r\n\tjcxz\tskip_fooset\t\t; quit if no more CDSs to be built\r\n\tmov\tsi, -1\t\t\t; new CDSs do not have DPBs\r\nendif ; COPYCDS\r\n",
+      "ifdef\tCOPYCDS\r\nskip_fooset:\r\nendif ; COPYCDS\r\n"
+    ],
+    "bios/inc/version.inc": [
+      "; This flag should be defined to keep the data stored in the CDS\r\n; created at startup.  The default behaviour is to rebuild the CDS\r\n; when each device is initialized.  Defining this allows device drivers\r\n; to make lasting changes to the CDS structure.\r\n;\r\n;\tBUGBUG -- 16 Nov 92 -- chuckst -- COPYCDS was desirable for\r\n;\tDblSpace, but it broke SuperStore (DR) compression's SWAP\r\n;\tfunction, since it didn't take CDSs into account in its\r\n;\tswapping.  It is hereby removed.\r\n;\r\n;COPYCDS equ TRUE\r\n\r\n"
+    ],
+    "bios/inc/mult.inc": [
+      ";                multMagicdrv           11h\r\n",
+      "multMAGIC       EQU     256*multMULT + 11h\r\n",
+      "    ;  11   dblspace api\r\n",
+      "    ;  13   dblspace/mrci stealth packet api\r\n"
+    ]
+  },
+  "scope": "Remove later disabled COPYCDS and DBLSPACE-only multiplex markers; preserve the target default branch and all surviving code."
+}

@@ -1,0 +1,76 @@
+{
+  "module": "abort-full",
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\physical-sft-probe-gaif7wrl",
+  "candidate_proof_sha256": "b845706aaf1e02615f5889a18525924046b93124e114f62dc99bbf9bee58849b",
+  "link_report_sha256": "1bbdfe1c5717a66605a3aef82166c9d11164f5e85d841c1f70d29448a8b796da",
+  "linked_start": 26973,
+  "public_anchors": [
+    {
+      "symbol": "dos_abort",
+      "object_offset": 0,
+      "linked_offset": 26973
+    }
+  ],
+  "bytes": 109,
+  "named_fixups": [
+    {
+      "offset": 3,
+      "symbol": "CurrentPDB",
+      "relative": false,
+      "target_symbol": 816,
+      "linked_symbol": 816
+    },
+    {
+      "offset": 15,
+      "symbol": "$close",
+      "relative": true,
+      "target_symbol": 42699,
+      "linked_symbol": 38895
+    },
+    {
+      "offset": 29,
+      "symbol": "JSHARE",
+      "relative": false,
+      "target_symbol": 144,
+      "linked_symbol": 144
+    },
+    {
+      "offset": 34,
+      "symbol": "sftFCB",
+      "relative": false,
+      "target_symbol": 64,
+      "linked_symbol": 64
+    },
+    {
+      "offset": 47,
+      "symbol": "PROC_ID",
+      "relative": false,
+      "target_symbol": 828,
+      "linked_symbol": 828
+    },
+    {
+      "offset": 69,
+      "symbol": "SFFromSFN",
+      "relative": true,
+      "target_symbol": 42564,
+      "linked_symbol": 38760
+    },
+    {
+      "offset": 83,
+      "symbol": "PROC_ID",
+      "relative": false,
+      "target_symbol": 828,
+      "linked_symbol": 828
+    },
+    {
+      "offset": 93,
+      "symbol": "USER_ID",
+      "relative": false,
+      "target_symbol": 830,
+      "linked_symbol": 830
+    }
+  ],
+  "remaining_differences": [],
+  "correspondence": true,
+  "scope": "Complete linked MZ module, only candidate OMF named relocations adjusted; physical data placement can differ. Not runtime or whole-kernel identity."
+}

@@ -1,0 +1,24 @@
+{
+  "changes": {
+    "inc/const2.asm": {
+      "before": "88f1d4cd4533abc0c1ad55961f262263d4fbcce62cddb6c2759bb788d174b96b",
+      "after": "585163f0859fcfdf471508ae5a7c1ddc2c8a2ba1f071882efce1445106df09dd"
+    },
+    "inc/origin.inc": {
+      "before": "41760b83baf1990c851f58e44e1414689ab5d117e93ef733b916b22aa779f353",
+      "after": "3393e0f2333596067a157d25c0fec12d331524066961a271ce09b389971d44c9"
+    },
+    "inc/bdsize.inc": {
+      "before": "eaf5420a062d06b200ec7e80192c5c1c7cc8957363f863891b1afaf988d6041d",
+      "after": "a912b387e75d0ff5057fc4f0102b9fea0a1b0c98298fc04aa1afda95f4f189e5"
+    }
+  },
+  "removed_nt_fragment": "; On NT SFT Size is smaller than DOS so we have to pad some space to maintain\r\n; the offsets in data segmeents. Below FILLSPACE is pad. 59 is the size of\r\n; DOS5.0 sft entry.\r\n\r\nFILLSPACE   equ  (sf_default_number * (59 - (SIZE sf_entry)))\r\n",
+  "map_segments": {
+    "BIOS_DATA": "0900h",
+    "BIOS_CODE": "1A60h",
+    "DOSDATA": "1362h"
+  },
+  "formula": "(0700h + 0900h + 1A60h + 1362h + 0Fh) AND NOT 0Fh = 3DD0h",
+  "reference": "../v6.0/c6ers/tools6/bin/getsize.c selects BIOS_DATA, BIOS_CODE and DOSDATA segment lengths."
+}

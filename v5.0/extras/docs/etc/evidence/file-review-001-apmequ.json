@@ -1,0 +1,25 @@
+{
+  "index": 1,
+  "file": "bios/apmequ.inc",
+  "reviewed_sha256": "6ea83b5c2ad1a1bc2f95d9a1b2f84762cb305f589cd06b2c6a9bf37e1aa23258",
+  "status": "reviewed",
+  "reference": {
+    "dos6": "v6.0/bios/apmequ.inc",
+    "sha256": "6ea83b5c2ad1a1bc2f95d9a1b2f84762cb305f589cd06b2c6a9bf37e1aa23258",
+    "byte_identical": true,
+    "dos4_and_opennt": "No same-name file found in searched reference trees."
+  },
+  "content_review": "APM function codes, device IDs, events and masks; no NT BOP or host-specific service names found. No source change needed.",
+  "consumers": [
+    "bios/power.asm",
+    "bios/ptime.asm"
+  ],
+  "verification": {
+    "target_configuration": "POWER disabled; this file does not establish target binary provenance.",
+    "optional_assembly": "docs/etc/evidence/m6-power-message-enabled-assembly-audit.json",
+    "optional_assembly_input": "build/power-enabled-asm-ych7r_e7/src/apmequ.inc",
+    "optional_assembly_input_sha256": "6ea83b5c2ad1a1bc2f95d9a1b2f84762cb305f589cd06b2c6a9bf37e1aa23258",
+    "limits": "POWER module assembled only; optional link, execution and DOS 5 original source are not established."
+  },
+  "disposition": "Retained unmodified. File review is complete under this workflow; optional POWER implementation and messages are separately tracked."
+}

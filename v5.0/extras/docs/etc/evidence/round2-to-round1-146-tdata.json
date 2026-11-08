@@ -1,0 +1,32 @@
+{
+  "index": 146,
+  "file": "cmd/command/tdata.asm",
+  "reviewed_sha256": "3d86f011c3b5ef73de73b92cac875c4d6847900a114b9b0eea9bcba519e7e293",
+  "decision": "retain_round2",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\tdata.asm",
+      "sha256": "b3f3568bfc63a280ac08283587f951aa837da97adc099c8d90ab1ae13a51f03d"
+    },
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dev\\smartdrv\\tdata.asm",
+      "sha256": "daa06629e19478573a4397ba02129658e245ecdc698e1cf78bf5ec0d403aa282"
+    },
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\CMD\\COMMAND\\TDATA.ASM",
+      "sha256": "0f41e6b928b3b204faffeade2259b6c05c5085fd96e378eb04b43fe01fc96ea9"
+    },
+    {
+      "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tdata.asm",
+      "sha256": "46d7e67ecb0cd95a59a254420af02e6770a6b1fb9ada49a0da1c276ee344af78"
+    }
+  ],
+  "reason": [
+    "DOS 6 adds DoubleSpace DIR switches and compressed-volume handling and changes help-message lists and beta text.",
+    "OpenNT adds a table of commands with NT-specific meaning.",
+    "DOS 4 differs in table layout; DOS 6 SmartDrive file is a different component."
+  ],
+  "change": "No source change.",
+  "verification": "Latest integrated-source-w89ln5jt matches the three retained targets; current lexical scan has no hits.",
+  "limitations": "Default target build does not prove optional branches or historical original source."
+}

@@ -1,0 +1,715 @@
+{
+  "universe": [
+    "macro2-full",
+    "util-full",
+    "srvcall-full",
+    "alloc-full",
+    "macro-full",
+    "cpmio-full",
+    "msdisp-full",
+    "cpmio2-full",
+    "msctrlc-full",
+    "mscode-full",
+    "misc-full",
+    "dinfo-full",
+    "getset-full",
+    "ioctl-full",
+    "path-full",
+    "search-full",
+    "disk-full",
+    "disk2-full",
+    "disk3-full",
+    "rom-full",
+    "mknode",
+    "dircall",
+    "share",
+    "create-full",
+    "dev-iofunc",
+    "dev-openclose",
+    "dev-io",
+    "delete-full",
+    "lock-full",
+    "close-full",
+    "finfo-full",
+    "rename-full",
+    "open-full",
+    "isearch-full",
+    "abort-full",
+    "handle-full",
+    "file-full",
+    "fcbio-full",
+    "fcbio2-full"
+  ],
+  "universe_source_sha256": "61a0472c0e5bf5e3752f392ec62eabb9236a3a7d4a0cdcb80cbf85905a4aad45",
+  "link_report_sha256": "1bbdfe1c5717a66605a3aef82166c9d11164f5e85d841c1f70d29448a8b796da",
+  "rows": [
+    {
+      "module": "macro2-full",
+      "proof": "m4-t5-macro2-full-probe-linked-verification.json",
+      "proof_sha256": "b516737e1f595c3d1854d67e8a04e1b8265fb34f3f522411710f40ae8344570a",
+      "target_range": [
+        27911,
+        28893
+      ],
+      "linked_range": [
+        39931,
+        40913
+      ],
+      "bytes": 982,
+      "fixups": 106,
+      "public_anchors": 18,
+      "verified": true
+    },
+    {
+      "module": "util-full",
+      "proof": "m4-t5-util-full-probe-linked-verification.json",
+      "proof_sha256": "69dc39ffccfdf4c46c9b2e31b2750c920e5746fe2abedf8f5e8ba8f2a54ac6a0",
+      "target_range": [
+        26685,
+        26875
+      ],
+      "linked_range": [
+        38705,
+        38895
+      ],
+      "bytes": 190,
+      "fixups": 12,
+      "public_anchors": 5,
+      "verified": true
+    },
+    {
+      "module": "srvcall-full",
+      "proof": "m4-t5-srvcall-full-probe-linked-verification.json",
+      "proof_sha256": "50881a4c8e787248fec0548ac7bd64b892c6bf2209afc9dfae87c9aa91516556",
+      "target_range": [
+        26343,
+        26685
+      ],
+      "linked_range": [
+        37659,
+        38001
+      ],
+      "bytes": 342,
+      "fixups": 49,
+      "public_anchors": 3,
+      "verified": true
+    },
+    {
+      "module": "alloc-full",
+      "proof": "m4-t5-alloc-full-probe-linked-verification.json",
+      "proof_sha256": "174fc6e287baf0460b4478b66dea3346949768fdcc7a80c4c5be8cc8b4e65f01",
+      "target_range": [
+        25586,
+        26343
+      ],
+      "linked_range": [
+        36902,
+        37659
+      ],
+      "bytes": 757,
+      "fixups": 78,
+      "public_anchors": 9,
+      "verified": true
+    },
+    {
+      "module": "macro-full",
+      "proof": "m4-t5-macro-full-probe-linked-verification.json",
+      "proof_sha256": "a47fbe098df44b673fabb930a6142e73ed74ca3b933bf94587ee40b9031f97b3",
+      "target_range": [
+        27515,
+        27911
+      ],
+      "linked_range": [
+        39535,
+        39931
+      ],
+      "bytes": 396,
+      "fixups": 32,
+      "public_anchors": 7,
+      "verified": true
+    },
+    {
+      "module": "cpmio-full",
+      "proof": "m4-t5-cpmio-full-probe-linked-verification.json",
+      "proof_sha256": "cb4c95f7296adc84b216f91e98068b94070edb3d78f5e2f8cf1484877401c364",
+      "target_range": [
+        5078,
+        5884
+      ],
+      "linked_range": [
+        20902,
+        21708
+      ],
+      "bytes": 806,
+      "fixups": 86,
+      "public_anchors": 22,
+      "verified": true
+    },
+    {
+      "module": "msdisp-full",
+      "proof": "m4-t5-msdisp-full-probe-linked-verification.json",
+      "proof_sha256": "aac74c838895584df13a3032790859825df964b33c37a1515468eef186ad6d93",
+      "target_range": [
+        629,
+        1199
+      ],
+      "linked_range": [
+        16453,
+        17023
+      ],
+      "bytes": 570,
+      "fixups": 76,
+      "public_anchors": 14,
+      "verified": true
+    },
+    {
+      "module": "cpmio2-full",
+      "proof": "m4-t5-cpmio2-full-probe-linked-verification.json",
+      "proof_sha256": "2b3105c0e5e09408c4083399beaa8c8d14ed8ab852f257c58640d1180d459267",
+      "target_range": [
+        5884,
+        6185
+      ],
+      "linked_range": [
+        21708,
+        22009
+      ],
+      "bytes": 301,
+      "fixups": 32,
+      "public_anchors": 11,
+      "verified": true
+    },
+    {
+      "module": "msctrlc-full",
+      "proof": "m4-t5-msctrlc-full-probe-linked-verification.json",
+      "proof_sha256": "2c74fffc083055ef5d555257d966d7daf7cea4026464d6b3f011247b363d37af",
+      "target_range": [
+        21064,
+        22222
+      ],
+      "linked_range": [
+        34008,
+        35166
+      ],
+      "bytes": 1158,
+      "fixups": 159,
+      "public_anchors": 16,
+      "verified": true
+    },
+    {
+      "module": "mscode-full",
+      "proof": "m4-t5-mscode-full-probe-linked-verification.json",
+      "proof_sha256": "60184e35fcfcff5ad37d0afa8e2305c3e6d8862ecd7ea7e8aacb6dd2db7c950d",
+      "target_range": [
+        1199,
+        2459
+      ],
+      "linked_range": [
+        17023,
+        18283
+      ],
+      "bytes": 1260,
+      "fixups": 136,
+      "public_anchors": 27,
+      "verified": true
+    },
+    {
+      "module": "misc-full",
+      "proof": "m4-t5-misc-full-probe-linked-verification.json",
+      "proof_sha256": "1b2b5e6cb9302ce847b6301e28a98447ec8980f42ef2ca3b34720e56d5f10851",
+      "target_range": [
+        3920,
+        4595
+      ],
+      "linked_range": [
+        19872,
+        20547
+      ],
+      "bytes": 675,
+      "fixups": 43,
+      "public_anchors": 12,
+      "verified": true
+    },
+    {
+      "module": "dinfo-full",
+      "proof": "m4-t5-dinfo-full-probe-linked-verification.json",
+      "proof_sha256": "92e3a0f906cd63cb7a2a62000a714e13e02ef49e004c4d5e3481fffb41a61e2b",
+      "target_range": [
+        11761,
+        11858
+      ],
+      "linked_range": [
+        43068,
+        43165
+      ],
+      "bytes": 97,
+      "fixups": 8,
+      "public_anchors": 1,
+      "verified": true
+    },
+    {
+      "module": "getset-full",
+      "proof": "m4-t5-getset-full-probe-linked-verification.json",
+      "proof_sha256": "7f6fbb9d91fae3abe7b7454467dc4168daefc146e9a53a3b0078f7be4501cdf5",
+      "target_range": [
+        3135,
+        3909
+      ],
+      "linked_range": [
+        18959,
+        19733
+      ],
+      "bytes": 774,
+      "fixups": 65,
+      "public_anchors": 18,
+      "verified": true
+    },
+    {
+      "module": "ioctl-full",
+      "proof": "m4-t5-ioctl-full-probe-linked-verification.json",
+      "proof_sha256": "e60529f13b4371bb15122802332886d6830635feb0802b75f6888cb564ac5e0e",
+      "target_range": [
+        9018,
+        9753
+      ],
+      "linked_range": [
+        25843,
+        26578
+      ],
+      "bytes": 735,
+      "fixups": 103,
+      "public_anchors": 1,
+      "verified": true
+    },
+    {
+      "module": "path-full",
+      "proof": "m4-t5-path-full-probe-linked-verification.json",
+      "proof_sha256": "14b43a06078b7d6a21ad94e03ff8ae586981da290caf0e5f92f437cbd103f4f8",
+      "target_range": [
+        8652,
+        9018
+      ],
+      "linked_range": [
+        24956,
+        25322
+      ],
+      "bytes": 366,
+      "fixups": 43,
+      "public_anchors": 6,
+      "verified": true
+    },
+    {
+      "module": "search-full",
+      "proof": "m4-t5-search-full-probe-linked-verification.json",
+      "proof_sha256": "7b371c3d22edbe7c3450351e56f2fdff563dcbcf931f7e5841264c12ae9047a3",
+      "target_range": [
+        8187,
+        8652
+      ],
+      "linked_range": [
+        24011,
+        24476
+      ],
+      "bytes": 465,
+      "fixups": 68,
+      "public_anchors": 6,
+      "verified": true
+    },
+    {
+      "module": "disk-full",
+      "proof": "m4-t5-disk-full-probe-linked-verification.json",
+      "proof_sha256": "af967c33876296ed1fc6d3ec300a5144c8893c17ca7f74d67e3cc89526adbdb9",
+      "target_range": [
+        13311,
+        14517
+      ],
+      "linked_range": [
+        27082,
+        28288
+      ],
+      "bytes": 1206,
+      "fixups": 139,
+      "public_anchors": 12,
+      "verified": true
+    },
+    {
+      "module": "disk2-full",
+      "proof": "m4-t5-disk2-full-probe-linked-verification.json",
+      "proof_sha256": "9805b9197d5e45cedf08895e1c690d8defaca9152e36598cc0ffafdf4c230b94",
+      "target_range": [
+        14517,
+        15254
+      ],
+      "linked_range": [
+        28288,
+        29025
+      ],
+      "bytes": 737,
+      "fixups": 87,
+      "public_anchors": 15,
+      "verified": true
+    },
+    {
+      "module": "disk3-full",
+      "proof": "m4-t5-disk3-full-probe-linked-verification.json",
+      "proof_sha256": "e46f24bcc3bf088cacde1ccb6dd2e808fa6c48faf347c06102de0d3b2b481816",
+      "target_range": [
+        15254,
+        16064
+      ],
+      "linked_range": [
+        43165,
+        43975
+      ],
+      "bytes": 810,
+      "fixups": 99,
+      "public_anchors": 6,
+      "verified": true
+    },
+    {
+      "module": "rom-full",
+      "proof": "m4-t5-rom-full-probe-linked-verification.json",
+      "proof_sha256": "947830f6bdb5e9294b11aa1385832f56537e6c4f03e9ab400ce7509d2e6cdf4b",
+      "target_range": [
+        19943,
+        20647
+      ],
+      "linked_range": [
+        38001,
+        38705
+      ],
+      "bytes": 704,
+      "fixups": 68,
+      "public_anchors": 13,
+      "verified": true
+    },
+    {
+      "module": "mknode",
+      "proof": "m4-t5-mknode-probe-linked-verification.json",
+      "proof_sha256": "407d31f50f68f18a8447b1db7bf76cbea06dc4f441ea5462f618d1d45163704d",
+      "target_range": [
+        19002,
+        19943
+      ],
+      "linked_range": [
+        44403,
+        45344
+      ],
+      "bytes": 941,
+      "fixups": 89,
+      "public_anchors": 9,
+      "verified": true
+    },
+    {
+      "module": "dircall",
+      "proof": "m4-t5-dircall-probe-linked-verification.json",
+      "proof_sha256": "78af2ecc185d0fa18e0c31486e22b06f77030bbf31542356e78a1eef93d1091c",
+      "target_range": [
+        12790,
+        13311
+      ],
+      "linked_range": [
+        25322,
+        25843
+      ],
+      "bytes": 521,
+      "fixups": 73,
+      "public_anchors": 3,
+      "verified": true
+    },
+    {
+      "module": "share",
+      "proof": "m4-t5-share-probe-linked-verification.json",
+      "proof_sha256": "8f28155410435ee52be5f3470a1d920d8e4f7c5567d2ee1c91b9498331c6da6d",
+      "target_range": [
+        30040,
+        30122
+      ],
+      "linked_range": [
+        45344,
+        45426
+      ],
+      "bytes": 82,
+      "fixups": 11,
+      "public_anchors": 4,
+      "verified": true
+    },
+    {
+      "module": "create-full",
+      "proof": "m4-t5-create-full-probe-linked-verification.json",
+      "proof_sha256": "a892a16bc7d8c446121d7f9363daeca1a2a9d47446804f2b4cbd9bec7ba1cf0b",
+      "target_range": [
+        11088,
+        11388
+      ],
+      "linked_range": [
+        45426,
+        45726
+      ],
+      "bytes": 300,
+      "fixups": 34,
+      "public_anchors": 7,
+      "verified": true
+    },
+    {
+      "module": "dev-iofunc",
+      "proof": "m4-t5-dev-iofunc-probe-linked-verification.json",
+      "proof_sha256": "61984358ae29c16d8ba005035f8d0249053294f2ad2b4b6c547393c0990dec75",
+      "target_range": [
+        17910,
+        18270
+      ],
+      "linked_range": [
+        30871,
+        31231
+      ],
+      "bytes": 360,
+      "fixups": 55,
+      "public_anchors": 3,
+      "verified": true
+    },
+    {
+      "module": "dev-openclose",
+      "proof": "m4-t5-dev-openclose-probe-linked-verification.json",
+      "proof_sha256": "9a509b4ddd39be6dd3c1076ef59f7e0fe9b627040ba64e782685283bde3be0d0",
+      "target_range": [
+        18270,
+        18399
+      ],
+      "linked_range": [
+        31231,
+        31360
+      ],
+      "bytes": 129,
+      "fixups": 7,
+      "public_anchors": 3,
+      "verified": true
+    },
+    {
+      "module": "dev-io",
+      "proof": "m4-t5-dev-io-probe-linked-verification.json",
+      "proof_sha256": "5e20a373bc536b7bd01c6d70af7b2e2c69c252c3db890228bded5e96b5cedf8e",
+      "target_range": [
+        18399,
+        19002
+      ],
+      "linked_range": [
+        31360,
+        31963
+      ],
+      "bytes": 603,
+      "fixups": 81,
+      "public_anchors": 11,
+      "verified": true
+    },
+    {
+      "module": "delete-full",
+      "proof": "m4-t5-delete-full-probe-linked-verification.json",
+      "proof_sha256": "40573cc81061246e8721a4c778d5abd6705da9bd18f61ec996fd93cd6f142df4",
+      "target_range": [
+        9753,
+        10233
+      ],
+      "linked_range": [
+        24476,
+        24956
+      ],
+      "bytes": 480,
+      "fixups": 57,
+      "public_anchors": 6,
+      "verified": true
+    },
+    {
+      "module": "lock-full",
+      "proof": "m4-t5-lock-full-probe-linked-verification.json",
+      "proof_sha256": "d56ad0b1cea5881cdcdad5693ac4dec4b2f8b7ed57b3d210d786c134ef8b05e3",
+      "target_range": [
+        29862,
+        30040
+      ],
+      "linked_range": [
+        41882,
+        42060
+      ],
+      "bytes": 178,
+      "fixups": 16,
+      "public_anchors": 4,
+      "verified": true
+    },
+    {
+      "module": "close-full",
+      "proof": "m4-t5-close-full-probe-linked-verification.json",
+      "proof_sha256": "7c188cd310b9cbca35de31d802cf4ea408c4992dfa4a6055b8084fbae0d031ca",
+      "target_range": [
+        12362,
+        12790
+      ],
+      "linked_range": [
+        43975,
+        44403
+      ],
+      "bytes": 428,
+      "fixups": 39,
+      "public_anchors": 5,
+      "verified": true
+    },
+    {
+      "module": "finfo-full",
+      "proof": "m4-t5-finfo-full-probe-linked-verification.json",
+      "proof_sha256": "842672adf30367165ed39d07af58c5cfeb6851399ea4454041c076ff4fe1a53b",
+      "target_range": [
+        10806,
+        11066
+      ],
+      "linked_range": [
+        45726,
+        45986
+      ],
+      "bytes": 260,
+      "fixups": 26,
+      "public_anchors": 3,
+      "verified": true
+    },
+    {
+      "module": "rename-full",
+      "proof": "m4-t5-rename-full-probe-linked-verification.json",
+      "proof_sha256": "495b268bc9c45075dcc150ec997d045bcca8bd20780d4a5778e3fdc6567cdeab",
+      "target_range": [
+        10233,
+        10806
+      ],
+      "linked_range": [
+        45986,
+        46559
+      ],
+      "bytes": 573,
+      "fixups": 93,
+      "public_anchors": 2,
+      "verified": true
+    },
+    {
+      "module": "open-full",
+      "proof": "m4-t5-open-full-probe-linked-verification.json",
+      "proof_sha256": "b2a16d4b4cd9c7b72cf38da2f7dd7a17b4070b459064c732156a5d405af41b09",
+      "target_range": [
+        11388,
+        11761
+      ],
+      "linked_range": [
+        26600,
+        26973
+      ],
+      "bytes": 373,
+      "fixups": 38,
+      "public_anchors": 5,
+      "verified": true
+    },
+    {
+      "module": "isearch-full",
+      "proof": "m4-t5-isearch-full-probe-linked-verification.json",
+      "proof_sha256": "d60694d149e11702516abe2c5b550aa88f5384deb5f505c01e1ae9c519f5ab61",
+      "target_range": [
+        11858,
+        12253
+      ],
+      "linked_range": [
+        46559,
+        46954
+      ],
+      "bytes": 395,
+      "fixups": 50,
+      "public_anchors": 4,
+      "verified": true
+    },
+    {
+      "module": "abort-full",
+      "proof": "m4-t5-abort-full-probe-linked-verification.json",
+      "proof_sha256": "aece5a9648411f1998eaf694cea4ba9ef66fb38199a6ccecbcc78c5fdd09b1f4",
+      "target_range": [
+        12253,
+        12362
+      ],
+      "linked_range": [
+        26973,
+        27082
+      ],
+      "bytes": 109,
+      "fixups": 8,
+      "public_anchors": 1,
+      "verified": true
+    },
+    {
+      "module": "handle-full",
+      "proof": "m4-t5-handle-full-probe-linked-verification.json",
+      "proof_sha256": "9c1417ef79874b7423642d1f51be88d141e7b64370ff23b3c2a1ee4726fe807b",
+      "target_range": [
+        26875,
+        27515
+      ],
+      "linked_range": [
+        38895,
+        39535
+      ],
+      "bytes": 640,
+      "fixups": 48,
+      "public_anchors": 11,
+      "verified": true
+    },
+    {
+      "module": "file-full",
+      "proof": "m4-t5-file-full-probe-linked-verification.json",
+      "proof_sha256": "3e259c760a1da07afe0a93f3f5a6caba28d4d52624f5de5a8e98d5e4e6ecefd3",
+      "target_range": [
+        28893,
+        29862
+      ],
+      "linked_range": [
+        40913,
+        41882
+      ],
+      "bytes": 969,
+      "fixups": 119,
+      "public_anchors": 13,
+      "verified": true
+    },
+    {
+      "module": "fcbio-full",
+      "proof": "m4-t5-fcbio-full-probe-linked-verification.json",
+      "proof_sha256": "b79cd5acb0c05d79bbc1ffd31323b0a86e3e0b1cd972fa9d9d0d9469a7651322",
+      "target_range": [
+        6185,
+        7409
+      ],
+      "linked_range": [
+        22009,
+        23233
+      ],
+      "bytes": 1224,
+      "fixups": 95,
+      "public_anchors": 14,
+      "verified": true
+    },
+    {
+      "module": "fcbio2-full",
+      "proof": "m4-t5-fcbio2-full-probe-linked-verification.json",
+      "proof_sha256": "fb7fdd38f2ab67ecd3b059340c949e25c6144b03f2bcb0ac432f7560d5c05bd2",
+      "target_range": [
+        7409,
+        8187
+      ],
+      "linked_range": [
+        23233,
+        24011
+      ],
+      "bytes": 778,
+      "fixups": 49,
+      "public_anchors": 16,
+      "verified": true
+    }
+  ],
+  "unique_target_bytes": 22674,
+  "unique_linked_bytes": 22674,
+  "total_fixups": 2477,
+  "complete_for_declared_universe": true,
+  "scope": "36 complete modules plus three DEV slices, verified in the actual linked probe with named OMF relocation adjustments. Excludes other kernel modules, transitive callee correctness, global layout identity, runtime and IO.SYS."
+}

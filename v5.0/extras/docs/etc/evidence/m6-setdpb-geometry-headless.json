@@ -1,0 +1,31 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\setdpbgeom-vm-s3cvu2nf",
+  "image_before_sha256": "8448fc3836d3c498b2960f9f0554ed518eb501bc43e132dac09315d965187b10",
+  "image_after_sha256": "6d4f800b079b0817ac618dbb328bdebb268dc6406243c437c74432bf2bd008d5",
+  "guest_source_sha256": "904baa8e0071e1aff0f69d596a6cb0be4af61f282b3e16fda1a9d3cb131e1ea2",
+  "guest_probe_sha256": "f34fd67131aa1e309f7ffb43506bcc57e926b64dbedcbf2991deacdb9b77a8d3",
+  "headless_probe_sha256": "b5b718d3f27e09242ae859b48756d80b83ba1d56843f7234962e7b3f17aa7aaa",
+  "log_sha256": "b3a2208e8db2d77021b77154bd9a5ba7e02972488669790be39601dccb9d5315",
+  "system_files": {
+    "IO.SYS": "dd0915ed366b3f640284df4be30ed35f413dfd5b6966c1f25eee9598a5bf53e0",
+    "MSDOS.SYS": "4e41ca4e5893d4cf293f81ad01adbdbd12f7039534f59148214a9cca309529a2",
+    "COMMAND.COM": "74ad25067e7d9f5c3a0ac2f2967347defb0ffef9e6ed60b60e6499f0b1a8cc89"
+  },
+  "fresh_build_stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\source-workspace-review-20261107\\build\\integrated-source-o_cqtv71",
+  "checked_cases": {
+    "fat12_720k": {
+      "sectors_per_cluster": 2,
+      "first_data_sector": 14,
+      "max_cluster": 714
+    },
+    "fat16_64m": {
+      "sectors_per_cluster": 4,
+      "first_data_sector": 289,
+      "max_cluster": 32696,
+      "total_sectors_32bit": 131072
+    }
+  },
+  "results": "SETDPBGEOM-PASS; PROBE-PASS",
+  "passed": true,
+  "scope": "INT 21h/AH=53h on two private BPB/DPB buffers using binaries equal to the fresh build. Not a test of writing real DPBs, other geometries, supplied product, or original media."
+}

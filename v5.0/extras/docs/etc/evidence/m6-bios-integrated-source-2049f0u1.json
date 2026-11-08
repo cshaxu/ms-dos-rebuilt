@@ -1,0 +1,293 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\bios-comparison-eakokbpz",
+  "inputs": {
+    "inc\\arena.inc": "8b7e1038bdde542ff71fe320fd666788a3f517bed0ba90d3cad146e001933589",
+    "inc\\bootform.inc": "4b965419b9fb2c035961b8042f7a494a6a8baeb1df63c270bb068658e2f1bea9",
+    "inc\\bpb.inc": "43452ad264b7242d892634f19bfcd036f8a2f1c926745466b27039e8c5f960a8",
+    "inc\\buffer.INC": "dd480d8e43f47d3ba741498ee67dae60716c3fe7fdba92afb73e14f302897b16",
+    "inc\\copyrigh.inc": "5f5ba93635d6200394f545d20d91532da8ff30d1eacda0d786d79d61cd488ae7",
+    "inc\\cputype.inc": "e9bf8b0a5ee0e10936d5403cddadacc898ce1f8b6807ab955b2d0639e5b50cb0",
+    "inc\\curdir.inc": "35ce4c7f4511ccd82b0080f769f1efee90853f42c93a1c9d98a7ab930e618aaf",
+    "inc\\dbcs.sw": "ca8e10fb6de72593568aa21cb1e24b36a180c64fff0a49ceb8194c75e79737dd",
+    "inc\\devsym.inc": "fc490d94869f327034ac3224f7f3bad918ee643041e3f939b4b65693f24e3071",
+    "inc\\dirent.INC": "72797ae77d98550ea6ad11aa4a9d46d8ddd88d3dfbb1872aca0c1cd6a52adaa9",
+    "inc\\doscntry.inc": "0afc8359d8e51c0da06b15cf725c15a1600b8a4a44f68a74964c78c1b4864a33",
+    "inc\\dosmac.inc": "30acfd9ff4cfa69f2719bc61a4416c3c37fc4cb3ae2b5cdaed64096dfbc67675",
+    "inc\\dossym.inc": "7251b43759082b218b6216a267c69efe1adc46da7e5a8bdf75ddd94d366de6a9",
+    "inc\\dpb.inc": "78a9717b8fe123d31651d6351adeb6789501ef273ce2476316f5d4ec7c450ec0",
+    "inc\\error.inc": "f175053c01e3e4108cab8ac0cef34f5a53e70e050c93216f12182154a2a8968b",
+    "inc\\exe.inc": "9823aec6d6bf327ca248ae828bf213aa053f1a466e5d27ffaad455758fd05b36",
+    "inc\\ioctl.inc": "3578ed8c51c3856a05bb9dabac438feb9e4bf3ddacd98befa0d90b96e244464c",
+    "inc\\msbdata.inc": "9e324c8a49c1487c2dff0dccbe1350f5bbc82dc3aa1843b0e71d4b71ad6dc827",
+    "inc\\msbds.inc": "641a8c8ad5a1d611d72342fdf40e20f91ce4a02f89cd83b47d041cebc4265e75",
+    "inc\\mult.inc": "96c9bad6dfeeb1816a8befbd1414bd54fb1c054d7bc3d3d25079673100796b67",
+    "inc\\oemconf.inc": "aff9b69a014044feb6f8261a1bb7fd5a453a5aa85c10633e0d8c707ddf1cc46d",
+    "inc\\parse.asm": "65ecd960668b4bddb74a6b1bff25a21a15d20b3b7efac0183218a334c39e959a",
+    "inc\\pdb.inc": "e5d7f79a89904b334b869292e28596adbdac23e26d953d12bc0a6cb46a1e4b29",
+    "inc\\psdata.inc": "071642bb031b8a932578bd294f2f4527b2a89442f7a3caeb5f1bd446b59b4381",
+    "inc\\rombios.inc": "14aa46d7fdbefc03488bf91eb69815d292c61042580419a033622ed367aa564f",
+    "inc\\sf.inc": "98f38dad3562b516b4232ceb309a16f6b3ec8f4a899f99a7e433380f466df98d",
+    "inc\\syscall.inc": "6c48280825687958d53d845e42cf9abbc7a35231108b59787da902160bc955be",
+    "inc\\sysvar.inc": "e10451b7564ef7f5fe100cfd85d2f873a076ad9ad37ab09a53f95acc42577f2e",
+    "inc\\umb.inc": "c53551ce1da16fff455029aea3e38ce029db4d4bb1e61c971c63d7ea8f338c73",
+    "inc\\version.inc": "7ab6100c70e613a41ec32d80519d73784cadaad14c1bff44e0aaa8cfb6214142",
+    "inc\\versiona.inc": "bae6036c30263ffd0a4ac74beee3075c919d3f13f45c076af32043af68b65212",
+    "inc\\win386.inc": "f93d2bd1d1c4be0bb0474a4e0ed8796e0f10fdc8e424fc0ffcd64890e599219c",
+    "src\\apmequ.inc": "6ea83b5c2ad1a1bc2f95d9a1b2f84762cb305f589cd06b2c6a9bf37e1aa23258",
+    "src\\biosseg.inc": "d81bdc2ca6e1638c581e21afb6d4aaa59e5ba65fc02bb15df2d9c22208e5d335",
+    "src\\biostruc.inc": "df66a5bce6e1d8f3fa5101cdf5a4901ea060a3aa8f919e1a9a92b347c135b7f1",
+    "src\\config.inc": "339ee489afc02151758deedcd870e896373cb1da0f66423924c4ea9806d2a036",
+    "src\\devmark.inc": "d6f3dfbcb520b51e6a3b1d0a4bb5b7a2aa5fa268eca22dda1f23f8347f4c7c22",
+    "src\\msbio1.asm": "788082936b0f9eeb6149fee894781e55768904701040f7d5e65bc6a65e76b79c",
+    "src\\msbio2.asm": "59e0c7b3b58497df33cf48829da38ca77bc4307fd27d1ce963089b310b655ef2",
+    "src\\mschar.asm": "1c6d2aaa8f16c8349bc7d38c9fcf52307fd2791a928e7c7dc9a773cda85aaae7",
+    "src\\msdioctl.asm": "3a3b6b72573f02a1d582d08cee53af5b7eaa031beb0ed70939563d2d0f80e606",
+    "src\\msdisk.asm": "0c166896c215dddd08f7440f462d07a9191c2ff06283139dd15081f09a234038",
+    "src\\msdskpr.inc": "e8dd92dced3a3c098cddefa5ca73804cae9dac8cd0870d6ba51ef10b7c1ebd59",
+    "src\\msend.asm": "bae3ad30776f8ee34d07a95af38fa913dd35493987aa8e7e958e6ba54d00f25a",
+    "src\\msequ.inc": "ce05581d636a79dbb1429fae1375adecd83afee6881bc22527df054aece8ec8b",
+    "src\\msgroup.inc": "e3784b1333bf98e632ce3ee94b41dc7ffa7b8da3ed6c7e27b8eaf0f2dee8fe34",
+    "src\\msinit.asm": "1db3f560402bef4b3ddbe8f3129589e212bbb83c94cf5a545141d4f09834d778",
+    "src\\msint13.asm": "4c7241c46f47c45bd728f40f6b3eb2f9b8784197b3cf1e752be3961c5a17aeec",
+    "src\\power.asm": "d3090363616ba41069834f7796b7f719c8c40ee82c1ec48ecfb5ee3aa373f95d",
+    "src\\power.inc": "7ba90c01066279b1dd7540226449e47b5d10cf0ecbf28ca06bbfb4100ec74f93",
+    "src\\ptime.asm": "dc40f17b2330fd64ce85d9b4d2a35c8f0d716790762a99f3ed64089652e255ee",
+    "src\\sysconf.asm": "97652ce73b0834a0d6cb9b9c56ad4879982f5a653c4d4491a85feaffc1a51b55",
+    "src\\sysimes.asm": "8d88bc79822b6650e0046c32a8c1463b5305910263d1e6d486ea24568530aafc",
+    "src\\sysinit1.asm": "f265c5256d484824ef432687d910bb44ee846db3a81f7dce146cb5771f90f531",
+    "src\\sysinit2.asm": "3ba14c2707669215f32f6af6f7a11117728997a057171917a9552269263618d0",
+    "masm.exe": "e54afaa9565e046cd862c29a015d685de43311acccf796469030e162ced6d00d",
+    "nosrvbld.exe": "e49e569b7e0775bdd731bcf18cea1d85c29dabc1aa9a7285de51249387711665",
+    "buildidx.exe": "6a301eaee8ea8516e541da2a61a22f1db7d09b15c278a88a8d73083aac0f4d91",
+    "link.exe": "163d8b86c18b93ccae9b2380d850cd42a9a5e1fd89a163b16170979afbbabb07",
+    "reloc.exe": "300b58668d46c3281ef2c017409aa9300499155d6593a8a9552781d2d96cc2b3",
+    "usa-ms.msg": "c8684099859fbb3829b2ab62a3e09bd396afa626928fdc4795dde0bf4b1afacb",
+    "usa-ibm.msg": "78d9a1de64be56f5bab7a4833354b58317917e8bf6e2a265718e9b47c0db03f2",
+    "msbio.skl": "b2526a57dfdcc401f0d191481e678b4e2dc030a82338fe23cdf06909c594b5fd",
+    "msbio.lnk": "8bacc4046950d548d2c5092f135c6bd079ddbc09ad9a1ca491ad0b3d0a3dc978"
+  },
+  "units": [
+    {
+      "name": "msbio1",
+      "exit": 0,
+      "object_sha256": "3729368811d18a8154392cb3253a2daa96d5c4ee7298567064ddd3d9a14784ab"
+    },
+    {
+      "name": "mschar",
+      "exit": 0,
+      "object_sha256": "afc86f7c4a0f81dde2bb019a7f55c6d6ba2131556bdabc539608c4b7413eb051"
+    },
+    {
+      "name": "msdisk",
+      "exit": 0,
+      "object_sha256": "83699866d4997c2bd56193d3c8183717fd64b7b62e4d1a00467e34ee9b483f84"
+    },
+    {
+      "name": "msdioctl",
+      "exit": 0,
+      "object_sha256": "70b6579ad1f7fb9b493787fde59ba4f620984b057c1846b150f8c84876806180"
+    },
+    {
+      "name": "msint13",
+      "exit": 0,
+      "object_sha256": "05eee01fc17b43d2c7dc7a9808b06ea436ae12166deb1ec613284c8421521849"
+    },
+    {
+      "name": "msbio2",
+      "exit": 0,
+      "object_sha256": "9a28d51412185f9fa84b07c0699040fd2de5dfb572a38c0f439d1839f788114e"
+    },
+    {
+      "name": "msinit",
+      "exit": 0,
+      "object_sha256": "22aa80bed0f075233fd97217540fe1d2723b5ce37ae6a6af4599653ff9598dae"
+    },
+    {
+      "name": "sysinit1",
+      "exit": 0,
+      "object_sha256": "f4620cedf0759138d5c80861b9089eea7bd2913a46e52beadaaaebb2aca6742d"
+    },
+    {
+      "name": "sysconf",
+      "exit": 0,
+      "object_sha256": "48fbe00a90f79e418e312a83de08c73429304ffd6b97480972be20baa9bd9954"
+    },
+    {
+      "name": "sysinit2",
+      "exit": 0,
+      "object_sha256": "a118e90f85c6f9fa3b5d811400fcce1dd5ae05dc6b7ebafb35f76be4aec8ed62"
+    },
+    {
+      "name": "sysimes",
+      "exit": 0,
+      "object_sha256": "cc98fc95efc0d30b5d17a71152061ad006ad473fa1089fc6a738c56ee069c235"
+    },
+    {
+      "name": "power",
+      "exit": 0,
+      "object_sha256": "8f343f1a7e161196f0aaefe817b15aa03670fba9e3920d1a71d6a82d9a7e55b6"
+    },
+    {
+      "name": "ptime",
+      "exit": 0,
+      "object_sha256": "81c2131534d607d8393a5a14edce15728de9971d6e355059a6a66d94ce01dab3"
+    },
+    {
+      "name": "msend",
+      "exit": 0,
+      "object_sha256": "20d3d0cf8806053ba2368adc34305e134dfa9afb3a6e6eceb076da0d9ed25044"
+    }
+  ],
+  "messages": {
+    "MSBIO.CL1": "9b9cb7ada43350eb060a47b378c8573ee897213b1810d37b1ad935360c7204bc",
+    "MSBIO.CL2": "6e795d3ec5f8145758bb78822f5d2c3ab8e6bcf669cf43151afde45342ad96a3",
+    "MSBIO.CL3": "279d5cf516a39248f910a17e02647f37737b2c4607a6cd119dc7236affed78e2",
+    "MSBIO.CL4": "3c753ff790aad0f86a84130c8a40a23a420e8ebe842cb7dde442c55e9a525873",
+    "MSBIO.CL5": "a929484571f630176541f39d8c411d6e924d8cd6358e6bc395f94b23295015d2",
+    "MSBIO.CL6": "4a23d5d9e82762b4e0fde991c2c0347c1fe33e6097d2f1ed54da9dd6cfbd0440",
+    "MSBIO.CL7": "34ed0c7aa8880b9c181d2c06b3c2e35b90651fe766bc3034925b1b5aa68e0ac4",
+    "MSBIO.CL8": "7570f98a2bd8d0eae5df2ecb6e2a1d00e981aa14679a1abbd9e80e6d604b8542",
+    "MSBIO.CL9": "9df129634ce0b164ff2a4ee6d7014d5efaf9451e2af31a91f2787a4f4dc66c76"
+  },
+  "candidate": true,
+  "oembase": true,
+  "singleconfig": true,
+  "local_source": true,
+  "combined_message_sha256": "e0a2b56e1815284ce1e2cf75e2fabe445ea714617e28beca864603c55a3b182a",
+  "bios_map_sha256": "b38c610e66aa7d5af837bdd2b27f8b5de69ae3fbad822f9c730215c12540d1d3",
+  "msbio1_matches_candidate_source": true,
+  "target_intervals": [
+    {
+      "name": "bios_prefix",
+      "start": 0,
+      "end": 1760,
+      "differences": [],
+      "equal": true
+    },
+    {
+      "name": "device_headers",
+      "start": 35,
+      "end": 256,
+      "differences": [],
+      "equal": true
+    },
+    {
+      "name": "device_entries",
+      "start": 1781,
+      "end": 1890,
+      "differences": [],
+      "equal": true
+    },
+    {
+      "name": "interrupt_handlers",
+      "start": 1890,
+      "end": 2297,
+      "differences": [],
+      "equal": true
+    },
+    {
+      "name": "candidate_prefix",
+      "start": 0,
+      "end": 2297,
+      "differences": [],
+      "equal": true
+    },
+    {
+      "name": "candidate_init_prefix",
+      "start": 2304,
+      "end": 6592,
+      "differences": [],
+      "equal": true
+    },
+    {
+      "name": "physical_bios_code",
+      "start": 9584,
+      "end": 16336,
+      "differences": [],
+      "equal": true
+    },
+    {
+      "name": "sysinit_stack_prefix",
+      "start": 16336,
+      "end": 16952,
+      "differences": [],
+      "equal": true
+    },
+    {
+      "name": "sysinit_command_data",
+      "start": 16955,
+      "end": 17360,
+      "differences": [],
+      "equal": true
+    },
+    {
+      "name": "oembase_sysinit_data",
+      "start": 16955,
+      "end": 17633,
+      "differences": [],
+      "equal": true
+    },
+    {
+      "name": "singleconfig_bios_prefix",
+      "start": 0,
+      "end": 6619,
+      "differences": [],
+      "equal": true
+    },
+    {
+      "name": "command_line_prepare",
+      "start": 18393,
+      "end": 18418,
+      "differences": [],
+      "equal": true
+    },
+    {
+      "name": "command_exec_setup",
+      "start": 18505,
+      "end": 18532,
+      "differences": [],
+      "equal": true
+    },
+    {
+      "name": "command_error_halt",
+      "start": 18537,
+      "end": 18587,
+      "differences": [],
+      "equal": true
+    },
+    {
+      "name": "clr_vdisk_displaced",
+      "start": 19310,
+      "end": 19352,
+      "target_start": 19310,
+      "differences": [],
+      "equal": true,
+      "scope": "Displaced comparison; differences need relocation analysis."
+    },
+    {
+      "name": "install_exit_code",
+      "start": 20752,
+      "end": 20763,
+      "target_start": 20752,
+      "differences": [],
+      "equal": true
+    },
+    {
+      "name": "install_return_pararound",
+      "start": 20767,
+      "end": 20780,
+      "target_start": 20767,
+      "differences": [],
+      "equal": true
+    }
+  ],
+  "output": {
+    "length": 31984,
+    "sha256": "09df7ec418edb1728662b1fe911a62c1a7bd3e19ad20b82548f022dd654750ad",
+    "target_remaining_length": 31984,
+    "common_prefix_differences": 0,
+    "first_difference": null,
+    "equal": true
+  },
+  "scope": "Single-config candidate using DOS 5 class 3 source; direct comparison against pinned BIOS extract, no runtime claim."
+}

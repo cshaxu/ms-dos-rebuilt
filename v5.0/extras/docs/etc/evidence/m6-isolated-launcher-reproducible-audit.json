@@ -1,0 +1,19 @@
+{
+  "source_sha256": "c28ccb33d1df915fbc726b62b8b80f2a2e0a1d8850724e9670b0fbacc051053b",
+  "script_sha256": "7ee1ac1cde2abaa281cab87d9459797bb148dc5cc167d24364663966660074ae",
+  "existing_launcher_sha256": "ae195ddf68aedff2fab5130e1368cb5c585e5264b84d142d4f79dc9f973f85b9",
+  "rebuilt_launcher_sha256": "ae195ddf68aedff2fab5130e1368cb5c585e5264b84d142d4f79dc9f973f85b9",
+  "byte_equal": true,
+  "compiler": "gcc (MinGW-W64 x86_64-msvcrt-posix-seh, built by Brecht Sanders, r3) 16.1.0",
+  "flags": [
+    "-O2",
+    "-luser32"
+  ],
+  "source_date_epoch": "1794007563",
+  "checks": [
+    "Rebuilt executable byte-equals the existing pinned executable",
+    "Existing output was not overwritten on a second run",
+    "Newly generated executable was not run"
+  ],
+  "scope": "Verified with the available GCC 16.1.0 toolchain. Other compilers and versions may not reproduce the pinned hash; the script rejects them if they do not."
+}

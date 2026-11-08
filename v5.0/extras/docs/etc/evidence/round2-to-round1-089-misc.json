@@ -1,0 +1,31 @@
+{
+  "index": 89,
+  "file": "dos/misc.asm",
+  "reviewed_sha256": "63ab9bfcf646de260286d81c1c48cebfb780d1e4e87e43229a06eeabcd6e7438",
+  "decision": "retain_round2",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\misc.asm",
+      "sha256": "43d8d906b97b40370705b3ae1ca004a545bb622cd9a36f3855d762d793e0758f"
+    },
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\MISC.ASM",
+      "sha256": "eae483b13a04e23c04db0a329e6915fb242b5e64b7064114116a004141b32503"
+    },
+    {
+      "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\dos\\misc.asm",
+      "sha256": "68ea572d52887bb36267648922ecbf63aa7b9a533b3f9f626f26882ad4550b70"
+    }
+  ],
+  "reason": [
+    "DOS 6 adds July 1992 FAT-size overflow checks in SETEND, changing executable logic and not present in the target reconstruction.",
+    "OpenNT replaces disk operations with host services; DOS 4 has substantial module and behavior differences."
+  ],
+  "prior_evidence": [
+    "docs/etc/evidence/file-review-089-misc.json",
+    "docs/etc/evidence/file-review-089-getdpb-edz4fx2u.json"
+  ],
+  "change": "No source change.",
+  "verification": "Latest integrated-source-3jwsdhtq matches all three target files; current lexical scan has no hits.",
+  "limitations": "The prior Get-DPB static and target comparisons do not establish all runtime cases or historical source origin."
+}

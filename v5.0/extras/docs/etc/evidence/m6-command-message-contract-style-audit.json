@@ -1,0 +1,73 @@
+{
+  "previous_stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\integrated-source-2tgrct2k",
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\integrated-source-g9jd3rk3",
+  "changes": [
+    {
+      "source": "cmd/command/rucode.asm",
+      "before_sha256": "597197684de9429913cdceca723692e485a9c0986ef0df4b93cb34473932eb08",
+      "after_sha256": "db78b274658e577ef876562cc721f66013fd05dab50e44533971aebd8dc4c3f4",
+      "references": [
+        {
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\rucode.asm",
+          "sha256": "245d7f359483d57345876b5a62f2f671a4ab271d4b1a3f8c0a44c0335052ee9f"
+        },
+        {
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\rucode.asm",
+          "sha256": "fc7b22775027fe13379317ffe2586ef6d058afa9c3c87d51f94c88e2c66cbec9"
+        },
+        {
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\CMD\\COMMAND\\rucode.asm",
+          "sha256": "3843bc9458a3aa0cdb32d29a0c2cdda393e7cb75606719db06c593013da4dcdb"
+        }
+      ]
+    },
+    {
+      "source": "cmd/command/uinit.asm",
+      "before_sha256": "48fb0668c20c6cd35df317be432e42c0acc5d103e4d8761265f6c2b395741b9e",
+      "after_sha256": "fb08dc811eb2f0d1be49cad8f6ee4b8d50cb38e083e345b8e2d1cb76c0a99eca",
+      "references": [
+        {
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\uinit.asm",
+          "sha256": "69cf155b487039a7fcada5125e4ed99d1c41d4770a7869f77549c77e6df1420e"
+        },
+        {
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\uinit.asm",
+          "sha256": "71fe34ddc30f096c3d2bfd7fda28e2ac269fb45e81900400302305b2c9631dfd"
+        },
+        {
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\CMD\\COMMAND\\uinit.asm",
+          "sha256": "202fc272577ac1c28a11afdf6524b5a00f0cfc6baff9c88cb05ad4c70ad25d77"
+        }
+      ]
+    }
+  ],
+  "description": "Restore DOS 6 failure contract ES,DI undefined and COMMAND query comment; align query and KAUTOBAT declarations with reference formatting.",
+  "contract_evidence": "MsgRetriever assigns ES from DS before validation and can change DI on failure; neither is restored on all failure exits. The statement is a conservative caller contract, not a claim of original DOS 5 text.",
+  "unchanged_objects": {
+    "bios": 14,
+    "kernel": 55,
+    "command": 34,
+    "msload": 1
+  },
+  "outputs": [
+    {
+      "name": "IO.SYS",
+      "bytes": 33430,
+      "sha256": "dd0915ed366b3f640284df4be30ed35f413dfd5b6966c1f25eee9598a5bf53e0",
+      "byte_equal": true
+    },
+    {
+      "name": "MSDOS.SYS",
+      "bytes": 37394,
+      "sha256": "4e41ca4e5893d4cf293f81ad01adbdbd12f7039534f59148214a9cca309529a2",
+      "byte_equal": true
+    },
+    {
+      "name": "COMMAND.COM",
+      "bytes": 47845,
+      "sha256": "74ad25067e7d9f5c3a0ac2f2967347defb0ffef9e6ed60b60e6499f0b1a8cc89",
+      "byte_equal": true
+    }
+  ],
+  "limitations": "Localized review only."
+}

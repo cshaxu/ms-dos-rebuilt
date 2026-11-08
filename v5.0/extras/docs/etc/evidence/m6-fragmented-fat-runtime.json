@@ -1,0 +1,24 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\fragread-vm-9q2lup4n",
+  "image_before_sha256": "217fedde6b80fd3822a9b3d9e03c4247b333bcc5331f26a94d60572698a7098a",
+  "image_after_sha256": "14a2d9caad598b0a78b36e55ae6ae6ca858fdb3254d26c9f11e996154e841909",
+  "guest_source_sha256": "5cd14c1f5d264e0593a957fb510f8afabdc91d064126de65515d463b05f5c91f",
+  "guest_probe_sha256": "3151baae81736a4e02152635fb3a62cd1a54aff5e9de23d5e55b5df539c975d8",
+  "headless_probe_sha256": "b5b718d3f27e09242ae859b48756d80b83ba1d56843f7234962e7b3f17aa7aaa",
+  "log_sha256": "b3a2208e8db2d77021b77154bd9a5ba7e02972488669790be39601dccb9d5315",
+  "fat_chain": [
+    453,
+    600,
+    455,
+    700
+  ],
+  "fat_copies_equal": true,
+  "system_files": {
+    "IO.SYS": "dd0915ed366b3f640284df4be30ed35f413dfd5b6966c1f25eee9598a5bf53e0",
+    "MSDOS.SYS": "4e41ca4e5893d4cf293f81ad01adbdbd12f7039534f59148214a9cca309529a2",
+    "COMMAND.COM": "74ad25067e7d9f5c3a0ac2f2967347defb0ffef9e6ed60b60e6499f0b1a8cc89"
+  },
+  "results": "FRAG-PASS; PROBE-PASS",
+  "passed": true,
+  "scope": "Existing source-built binaries on one disposable FAT12 floppy, using headless SoftPC core; sequential and boundary-seek reads of one fragmented file. Not supplied product, fresh build, original image, or comprehensive FAT verification."
+}

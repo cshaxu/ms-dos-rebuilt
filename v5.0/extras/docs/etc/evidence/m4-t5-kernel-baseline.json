@@ -1,0 +1,2728 @@
+{
+  "scope": "Immediate kernel directories; link lists and direct lexical references only. Not transitive dependency closure.",
+  "trees": {
+    "opennt": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\dos",
+    "dos6": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos",
+    "dos4": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS"
+  },
+  "link_order": {
+    "opennt": [
+      "origin",
+      "msdata",
+      "mstable",
+      "msdisp",
+      "mscode",
+      "msdosme",
+      "time",
+      "getset",
+      "parse",
+      "misc",
+      "misc2",
+      "cpmio",
+      "cpmio2",
+      "fcbio",
+      "fcbio2",
+      "search",
+      "path",
+      "ioctl",
+      "dup",
+      "open",
+      "abort",
+      "disk",
+      "dir2",
+      "dev",
+      "fcb",
+      "msctrlc",
+      "msproc",
+      "alloc",
+      "srvcall",
+      "segcheck",
+      "util",
+      "handle",
+      "macro",
+      "macro2",
+      "file",
+      "lock",
+      "exepatch",
+      "msinit"
+    ],
+    "dos6": [
+      "origin",
+      "msdata",
+      "mstable",
+      "msdisp",
+      "mscode",
+      "msdosme",
+      "time",
+      "getset",
+      "parse",
+      "misc",
+      "misc2",
+      "crit",
+      "cpmio",
+      "cpmio2",
+      "fcbio",
+      "fcbio2",
+      "search",
+      "path",
+      "ioctl",
+      "delete",
+      "rename",
+      "finfo",
+      "dup",
+      "create",
+      "open",
+      "dinfo",
+      "isearch",
+      "abort",
+      "close",
+      "dircall",
+      "disk",
+      "disk2",
+      "disk3",
+      "dir",
+      "dir2",
+      "dev",
+      "mknode",
+      "rom",
+      "fcb",
+      "msctrlc",
+      "fat",
+      "buf",
+      "msproc",
+      "alloc",
+      "srvcall",
+      "segcheck",
+      "dosprint",
+      "util",
+      "handle",
+      "macro",
+      "macro2",
+      "file",
+      "lock",
+      "romfind",
+      "share",
+      "exepatch",
+      "msinit"
+    ],
+    "dos4": [
+      "nibdos",
+      "const2",
+      "msdata",
+      "mstable",
+      "msdisp",
+      "mscode",
+      "msdosme",
+      "time",
+      "getset",
+      "parse",
+      "misc",
+      "misc2",
+      "crit",
+      "cpmio",
+      "cpmio2",
+      "fcbio",
+      "fcbio2",
+      "search",
+      "path",
+      "ioctl",
+      "delete",
+      "rename",
+      "finfo",
+      "dup",
+      "create",
+      "open",
+      "dinfo",
+      "isearch",
+      "abort",
+      "close",
+      "dircall",
+      "disk",
+      "disk2",
+      "disk3",
+      "dir",
+      "dir2",
+      "dev",
+      "mknode",
+      "rom",
+      "fcb",
+      "msctrlc",
+      "fat",
+      "buf",
+      "proc",
+      "alloc",
+      "srvcall",
+      "util",
+      "handle",
+      "macro",
+      "macro2",
+      "file",
+      "lock",
+      "share",
+      "extattr",
+      "ifs"
+    ]
+  },
+  "inventory": {
+    "opennt": [
+      {
+        "file": "abort.asm",
+        "bytes": 3781,
+        "sha256": "d24922a1d75bd941716e171179f016c1bb0ec412528046ea0c4bfb6c68abb53c"
+      },
+      {
+        "file": "alloc.asm",
+        "bytes": 19846,
+        "sha256": "9b84454f4b4f5371c8b8de1525d378b5108b9514bab9215761cbce28ba7aa249"
+      },
+      {
+        "file": "cpmio.asm",
+        "bytes": 25175,
+        "sha256": "ed409d5deee8a5b1764f8187cf4161c5d594b9630ee5032e8f97748b9c45e116"
+      },
+      {
+        "file": "cpmio2.asm",
+        "bytes": 8035,
+        "sha256": "be1c1ac94665ee5a222ec215a8cb7bfa2cf9c5383168128b0ddb90eac072a1a0"
+      },
+      {
+        "file": "crit.asm",
+        "bytes": 2422,
+        "sha256": "425d8fec7aeb45964595b33f3cdebb7dfd615e1ee76cc5fe631566a5d2acb8cc"
+      },
+      {
+        "file": "dev.asm",
+        "bytes": 14613,
+        "sha256": "92b7f0452900116416e92aaa43b2eb42800878b75b00582b988925ce6ab88826"
+      },
+      {
+        "file": "dir2.asm",
+        "bytes": 38124,
+        "sha256": "99c0448c781c6e521524aed7b0d565cc41f3201111163fce2d983a6207e59821"
+      },
+      {
+        "file": "disk.asm",
+        "bytes": 21656,
+        "sha256": "e312fd70517e5101302215cbf37074b5f50eb20efe5303a79f7c9f17376e1845"
+      },
+      {
+        "file": "dispatch.txt",
+        "bytes": 8203,
+        "sha256": "75775d3a6eecd745546672516db56db42c54891a5a0c8e02bcd81048b0043f40"
+      },
+      {
+        "file": "divmes.inc",
+        "bytes": 431,
+        "sha256": "4635ff455355c3c152d361972b7a599c14d25e33eae754f7eb983c75a8319f11"
+      },
+      {
+        "file": "dos.tag",
+        "bytes": 10248,
+        "sha256": "914d6830589543211f0aa3959eafa484795ea9d6b796acd3819b16cea67c6f2a"
+      },
+      {
+        "file": "dosmes.inc",
+        "bytes": 8083,
+        "sha256": "5278bfe57c6598113b6bd89a7fa69bc36423e375302266cde4f8b02c0a593608"
+      },
+      {
+        "file": "dostab.asm",
+        "bytes": 28637,
+        "sha256": "b87ffb0c02bb7941bbcf07363b22601f090de5f26e52fe4282336710dc774bb0"
+      },
+      {
+        "file": "dup.asm",
+        "bytes": 1606,
+        "sha256": "84fc63a07997b1f2e5107af784eaa26bb827189cd92c177231af1d8643719823"
+      },
+      {
+        "file": "exepatch.asm",
+        "bytes": 23721,
+        "sha256": "17ede81998c879d8977c3aa685736c01b15d859fad1465cd228c55072ece5d59"
+      },
+      {
+        "file": "fcb.asm",
+        "bytes": 16275,
+        "sha256": "5cec98077ce05b711aafc52f1ad2c1bb72c4845df272c4dc627355e9684d549c"
+      },
+      {
+        "file": "fcbio.asm",
+        "bytes": 43081,
+        "sha256": "363de101bffcbad8cb4ff2b0396ea29ac3e6d307019ae21d66f899df075d435e"
+      },
+      {
+        "file": "fcbio2.asm",
+        "bytes": 23172,
+        "sha256": "696f568e39cda84e01075dddb49df84ffaf9f111b56150d01da4fed206b19b5d"
+      },
+      {
+        "file": "file.asm",
+        "bytes": 26735,
+        "sha256": "09f6f2e06f14754cfe069335906d26676ab5538c7c569a33b2d62e052fcd633e"
+      },
+      {
+        "file": "getset.asm",
+        "bytes": 28393,
+        "sha256": "ec72b7bd0fd4e84d0f592e67896123db98f0fb2a12171356b71388bc0970ac35"
+      },
+      {
+        "file": "handle.asm",
+        "bytes": 31929,
+        "sha256": "c323c9d038460bc6a206d4cef1ff2fdc47151fc3e7ea8eda2db4224170771321"
+      },
+      {
+        "file": "ioctl.asm",
+        "bytes": 20742,
+        "sha256": "8dc2168299012c24a663035ca655ac14169dbee494858cbdc895e60df7b8d8fa"
+      },
+      {
+        "file": "kstrin.asm",
+        "bytes": 19270,
+        "sha256": "87e53bbdf5c3b218ec0ecd8cb7384165cbdc094390642a230afb2146aa46ecfc"
+      },
+      {
+        "file": "lock.asm",
+        "bytes": 4448,
+        "sha256": "da0824bc6c56e0ed73b9ccd49522c95268d5b6e86e627b50c7a7f3fa648da3fe"
+      },
+      {
+        "file": "macro.asm",
+        "bytes": 15540,
+        "sha256": "f539e62f8b1317b1d97b7c664bbf0262dc16f3591614209818f44d092c06e5f0"
+      },
+      {
+        "file": "macro2.asm",
+        "bytes": 33724,
+        "sha256": "4535001b614701cece712a6d10f35f90c714d3f480a163116f3e20cc2862aa89"
+      },
+      {
+        "file": "makedos.cmd",
+        "bytes": 140,
+        "sha256": "c9cf63e808001245efbce6f4791ce9326d320e06930d398a885a00c05c4289e1"
+      },
+      {
+        "file": "makefile",
+        "bytes": 14484,
+        "sha256": "4bfc3320f1f519fd3ec2e851ffa28e7f633e3594d6e17f4fe3e5f7183da57d3e"
+      },
+      {
+        "file": "misc.asm",
+        "bytes": 25054,
+        "sha256": "68ea572d52887bb36267648922ecbf63aa7b9a533b3f9f626f26882ad4550b70"
+      },
+      {
+        "file": "misc2.asm",
+        "bytes": 18008,
+        "sha256": "ffef367d852cb5cced423c9a5c4d03c4107958f13861c434aa4c81e6afeb7e66"
+      },
+      {
+        "file": "mscode.asm",
+        "bytes": 34335,
+        "sha256": "59f4903be6456362ede5c53fa49a31805946f5411e0a6960b0a89257a5c7d569"
+      },
+      {
+        "file": "msconst.asm",
+        "bytes": 9355,
+        "sha256": "10c27abb77c44fa457d2b926a214a33c09f8ea83d242bd2027258ef522f519f2"
+      },
+      {
+        "file": "msctrlc.asm",
+        "bytes": 27278,
+        "sha256": "8d1b22b12a10eade8b6cf83276be13ac9e13971f3f83eeac3961ad8b3aa9120c"
+      },
+      {
+        "file": "msdata.asm",
+        "bytes": 721,
+        "sha256": "4c9849974de6ba9a9fac5529c6d7c1832e3f88b53adcef04dfc67490ff4f7757"
+      },
+      {
+        "file": "msdisp.asm",
+        "bytes": 22127,
+        "sha256": "2ce748a58c20c8619fc9be08b8ce91f039d17e41e4343963124042264dd14985"
+      },
+      {
+        "file": "MSDOS.CL1",
+        "bytes": 90,
+        "sha256": "12b8032cd71b9026b0aa7f3cddd98b896d5a84c091f9bb1597d4033262238153"
+      },
+      {
+        "file": "MSDOS.CL2",
+        "bytes": 100,
+        "sha256": "eb2759bc8c8db4a665b6383ec98b53afc98c67a41e9b8aab309109504909711b"
+      },
+      {
+        "file": "MSDOS.CL3",
+        "bytes": 212,
+        "sha256": "e6312a30fa572b0ada935d76c8c306856e6d4eeb561c2f67f9deead57d97f475"
+      },
+      {
+        "file": "MSDOS.CL4",
+        "bytes": 186,
+        "sha256": "6bb4f994e388db32d50000eec3064e09d6940f20fd408eb26605a03f05e625a9"
+      },
+      {
+        "file": "msdos.lnk",
+        "bytes": 956,
+        "sha256": "828ff652663f3999f8fa75311ed31398c8e0138f93cee86f38a6f36ca9a9d840"
+      },
+      {
+        "file": "msdos.skl",
+        "bytes": 531,
+        "sha256": "a5605f538cce0c44d6eee650a50cc82b991e4f5743d804e9abe17e12c6e27a9a"
+      },
+      {
+        "file": "msdosme.asm",
+        "bytes": 252,
+        "sha256": "f54fedd4c705cf1e9a8f037685e4099398e047300ddbcd50591ac5480298508e"
+      },
+      {
+        "file": "msinit.asm",
+        "bytes": 45388,
+        "sha256": "5b0f2e3e9fe9c083b8cf03e4307e9a90bddacddad22176062c59a314b8c46620"
+      },
+      {
+        "file": "msioctl.asm",
+        "bytes": 128,
+        "sha256": "1a14342738b6940fb9d7e659757b91ee412617dbc9b1607aaa9cfeee285a0092"
+      },
+      {
+        "file": "msproc.asm",
+        "bytes": 47003,
+        "sha256": "8ef142f6940ebd00bb88a2f9fbfe73ff29842d630e96282101390e19c752c492"
+      },
+      {
+        "file": "mssw.asm",
+        "bytes": 698,
+        "sha256": "d243f21c8ff51e4368c87b97e4ad336b0b00747ae123c29e1ec079f9a066f17d"
+      },
+      {
+        "file": "mstable.asm",
+        "bytes": 21852,
+        "sha256": "58aeaa1cb208ea1a661f13df7124e964e8030cb52ba5a20ca295c2bb39c59a65"
+      },
+      {
+        "file": "NTDOS.BIN",
+        "bytes": 36642,
+        "sha256": "25218fe6ba1a1c420448c2f2e0346481736a588553747276f950079e4a2df92c"
+      },
+      {
+        "file": "NTDOS.MAP",
+        "bytes": 42961,
+        "sha256": "8abbcdda3e564b2b153ac9bb7fa795837a9e80a14bf0201d5aea2246d2e39171"
+      },
+      {
+        "file": "ntdos.sym",
+        "bytes": 10916,
+        "sha256": "d18a0fff6e8f41a086eefbdd969a41e2d48ea5e321019089e4067386741f897e"
+      },
+      {
+        "file": "NTDOS.SYS",
+        "bytes": 27858,
+        "sha256": "957662320654ad5251c3a8b228a5dadec28aa65dddbcba38c3658a6e7f93bc84"
+      },
+      {
+        "file": "open.asm",
+        "bytes": 10394,
+        "sha256": "afef241b942235a59ce22f2ab5fd50cb1690c7cb244119b22204ee57521dd81c"
+      },
+      {
+        "file": "origin.asm",
+        "bytes": 521,
+        "sha256": "862c02abb7bf5c8913c4572606d06efa56002d57df573f7b91b6d23e0522802e"
+      },
+      {
+        "file": "parse.asm",
+        "bytes": 1703,
+        "sha256": "9027269459eff80277d3c4ad8b965c229c893dcaed50938da649ed46bc21ec0f"
+      },
+      {
+        "file": "path.asm",
+        "bytes": 11127,
+        "sha256": "bd111f35ad06774100f4fd0b1d299390b4a221a8fd716ca136ffaab9d8082be9"
+      },
+      {
+        "file": "scnam.inc",
+        "bytes": 6134,
+        "sha256": "9309eba70b5aba0bb7ccb8278496300072c1872396d384422ee4346e48a1c44e"
+      },
+      {
+        "file": "search.asm",
+        "bytes": 8712,
+        "sha256": "9f97747f4be83e5c0240b48c83ed2e350d46cfd8432c9176fc5ae76365e51ff3"
+      },
+      {
+        "file": "segcheck.asm",
+        "bytes": 5975,
+        "sha256": "6d42468cad2d40f90a3ceba950d173ffcf87e20ae0b5660cb8de0deb9689d4ef"
+      },
+      {
+        "file": "srvcall.asm",
+        "bytes": 5888,
+        "sha256": "94476e5e9a7538ed1956b2ab6bb4751295fa9e045dc114756599f1bd16e61fa6"
+      },
+      {
+        "file": "state.rst",
+        "bytes": 239,
+        "sha256": "7ef73805a29bca9d437b2b1c79007fcad00712e1ad247446e8875a9691eb1885"
+      },
+      {
+        "file": "time.asm",
+        "bytes": 6980,
+        "sha256": "a29a6048533387d66b0adf6a2eb77f8f1cdf2fe3caa8a967e5590de86b86ea4d"
+      },
+      {
+        "file": "util.asm",
+        "bytes": 7999,
+        "sha256": "8e9636bad8d717e7e9daa6ec3a9e36eb6563969dfae2bf9bab47d232bdfe4889"
+      }
+    ],
+    "dos6": [
+      {
+        "file": "abort.asm",
+        "bytes": 4075,
+        "sha256": "13462864fcadc38f3fd0a910aab6abac0a68257d6fdb9e0ed77258fa9254c995"
+      },
+      {
+        "file": "alloc.asm",
+        "bytes": 21044,
+        "sha256": "98c929ded7a515871ecf464ec96bbfda483b3ea4295c739ce1afcbd78ffdb450"
+      },
+      {
+        "file": "buf.asm",
+        "bytes": 18887,
+        "sha256": "b162899aabcec71289e34b82326457544fd0e794fd20ee97a2f063ce1542ba21"
+      },
+      {
+        "file": "close.asm",
+        "bytes": 11468,
+        "sha256": "b9bcb41f70577e9bf407eabfbca3f974cc0c428b93a7574b54be27581821b46b"
+      },
+      {
+        "file": "copy.oak",
+        "bytes": 995,
+        "sha256": "c93544cbd7807207829e9af19f16747c4a147adf3f9af5c951f4ed7eb889a3c9"
+      },
+      {
+        "file": "cpmio.asm",
+        "bytes": 25930,
+        "sha256": "451b22d70c1cc590390c4f997a26ab9c7d5facbc132905684acfc59c6baaa24f"
+      },
+      {
+        "file": "cpmio2.asm",
+        "bytes": 8117,
+        "sha256": "d2a5a4ef5121bb9a8928c83d54499e3e239d182939a062b5a0f02fa7d234265f"
+      },
+      {
+        "file": "create.asm",
+        "bytes": 11191,
+        "sha256": "4a76a4fb11682cd81daca1dd2af9afe79fcf21db428a3e19d32af51ea902e9bb"
+      },
+      {
+        "file": "crit.asm",
+        "bytes": 2771,
+        "sha256": "8f95042897a5d39cc514fa965f79e7f3538a213703ed98fb45d0d4cb7a9e3af1"
+      },
+      {
+        "file": "delete.asm",
+        "bytes": 13398,
+        "sha256": "5fe514092accffa110a13a4f05dd2104664cfad87479f21bb57ea411d1cf1d77"
+      },
+      {
+        "file": "dev.asm",
+        "bytes": 26982,
+        "sha256": "1fdd4f63b181b3575c649caf13ddc29b0d79c6ddc45a60957971a22a678f21a1"
+      },
+      {
+        "file": "dinfo.asm",
+        "bytes": 3192,
+        "sha256": "3bc73774ddcecfc61214336f65449da0331edfd9513c5752100fcfd6fd481c51"
+      },
+      {
+        "file": "dir.asm",
+        "bytes": 11786,
+        "sha256": "03ef140acfbe6288adb7d6571a839d8089daa7d6d00e531abaae6735419dc63b"
+      },
+      {
+        "file": "dir2.asm",
+        "bytes": 39673,
+        "sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40"
+      },
+      {
+        "file": "dircall.asm",
+        "bytes": 11030,
+        "sha256": "769049ce7d690ab8be44205a66cf4d8c900048ef7ec230655599e2b8a5e47a19"
+      },
+      {
+        "file": "disk.asm",
+        "bytes": 25419,
+        "sha256": "d4a7a2cbda59cc693754529806c4e6b7fcbde376a42e647eacefecef87cd9cca"
+      },
+      {
+        "file": "disk2.asm",
+        "bytes": 22155,
+        "sha256": "0876bb2c21d9232c3de57ee681c39b028003c09eeb58db36f6f2d9bda4527cb8"
+      },
+      {
+        "file": "disk3.asm",
+        "bytes": 23869,
+        "sha256": "9576ede44a7a1ff86d46cd8ed02749d783a48ff2d39b703a26d007139f821fdd"
+      },
+      {
+        "file": "dispatch.txt",
+        "bytes": 8306,
+        "sha256": "bb200bdf3b03014c930032ef8e6c759f3f9bb2729c6d1003885f7daa5367517c"
+      },
+      {
+        "file": "divmes.inc",
+        "bytes": 534,
+        "sha256": "7c97a1fd07befd5d0861306e0573369d33caf84ea3190bdbae65889b7e816192"
+      },
+      {
+        "file": "dos.tag",
+        "bytes": 11530,
+        "sha256": "5e398fd35754e3d61e20d5e0a8aaff672cea87c0363ebefa97ef20ac6bd554d4"
+      },
+      {
+        "file": "dosmes.inc",
+        "bytes": 8186,
+        "sha256": "c5f7b697c97a672d659b143c50d48fc78fa16adc739a160b955ff51c2859188c"
+      },
+      {
+        "file": "dosprint.asm",
+        "bytes": 5447,
+        "sha256": "96412d605a3e19ccfaa9a4fdd57a8949eca7fce3950cf81bc4e3c6bf491b05ba"
+      },
+      {
+        "file": "dostab.asm",
+        "bytes": 30861,
+        "sha256": "6b9c684c2096e5e1c1b2c8e94a3a41d9fba7fe85289f8d0ce6e03ac2dd9f397d"
+      },
+      {
+        "file": "dup.asm",
+        "bytes": 1709,
+        "sha256": "e12500722670edd6faa184679039b09225c9f6756c2a2fc644dfabb5e2536b09"
+      },
+      {
+        "file": "exepatch.asm",
+        "bytes": 40334,
+        "sha256": "ab3b9501d4ef3401a360692c5a4c59c24d19c6590231173c6cabba59d723d99a"
+      },
+      {
+        "file": "fat.asm",
+        "bytes": 19287,
+        "sha256": "69b434ab7d945e6de0fbfe9e6a657de2d622a54f92661d4117721a5be15f385f"
+      },
+      {
+        "file": "fcb.asm",
+        "bytes": 16428,
+        "sha256": "dd7c6d6b85d08585be900b91f329821a81c6ee9b5f1cb71268382af4fb39a01c"
+      },
+      {
+        "file": "fcbio.asm",
+        "bytes": 43721,
+        "sha256": "826fb2b0c8bfb9d2da36c8722270d68bd62a0c205699941f0a66471ee0720608"
+      },
+      {
+        "file": "fcbio2.asm",
+        "bytes": 21181,
+        "sha256": "2faabcea11b9476c1e6108db7eef581c9e1c46793313b2c358343dca31912293"
+      },
+      {
+        "file": "file.asm",
+        "bytes": 30064,
+        "sha256": "28f25db8a2d344b22f3e6cf9618b5f85458c16b497978a2862283dbe721c7c77"
+      },
+      {
+        "file": "finfo.asm",
+        "bytes": 7469,
+        "sha256": "58ba5d206fe7c20eea409db6ac39ebcf2e59db19b5fc691f942b3ca90ec02c39"
+      },
+      {
+        "file": "getset.asm",
+        "bytes": 29065,
+        "sha256": "b26b12fcd432ca80055e4aec8f222942ab05625b7b9621f232ae8f20464783d7"
+      },
+      {
+        "file": "handle.asm",
+        "bytes": 18339,
+        "sha256": "f42fa91329b674864a5421b40be415b348a18f0793221b9c07d526b12924e90f"
+      },
+      {
+        "file": "ioctl.asm",
+        "bytes": 22323,
+        "sha256": "5d2e75742cba4d8f45f5c05ff731b1ee32de092cd01b8aa01442b6ab10d8e5b8"
+      },
+      {
+        "file": "isearch.asm",
+        "bytes": 9684,
+        "sha256": "ec0bb3be4beec3c99e8931d737222a09f1c5f728009ea4efd27a09d2936cc039"
+      },
+      {
+        "file": "kstrin.asm",
+        "bytes": 19374,
+        "sha256": "973c9453988f7d2148fca526a478069b6a34a197715321f20624aee615928e51"
+      },
+      {
+        "file": "lock.asm",
+        "bytes": 5311,
+        "sha256": "99dc1dbc2c37e6b2461d1c7921da39d54e81736e3424d2c95c5912a6351f0891"
+      },
+      {
+        "file": "macro.asm",
+        "bytes": 12832,
+        "sha256": "86b39aee4b10eb6bec74ad5427047c348fb8270a3d6a3dc5818d6c8222a8a788"
+      },
+      {
+        "file": "macro2.asm",
+        "bytes": 49748,
+        "sha256": "599c74d3c01f65985e9ffa75fe6bf3eea8a5b36bdf8ef6808634f17deaab77d2"
+      },
+      {
+        "file": "makedos.bat",
+        "bytes": 274,
+        "sha256": "585b23597a01a293bd43ba8b78b82ed04dd9b8edb6c0caff637aa6a9834533bd"
+      },
+      {
+        "file": "makedos.oak",
+        "bytes": 196,
+        "sha256": "2bf8e2e0087151ba849799d26c2847826fbc653d1b389c518ebf9b30b04fd3c7"
+      },
+      {
+        "file": "makefile",
+        "bytes": 19544,
+        "sha256": "99591fe7023f41f98b54808a11f8354be1d2a6040fdc270679be72bb88b3b4ad"
+      },
+      {
+        "file": "makefile.oak",
+        "bytes": 4457,
+        "sha256": "16fce92dc029751e5ccfec6a0a6c693f8f2600ddee628c6a1b2f9d45c6e921fc"
+      },
+      {
+        "file": "makeobjs",
+        "bytes": 48457,
+        "sha256": "d0995a00570942a7d029bb6a597e04952d28bb9013b11e15970cf6988698e132"
+      },
+      {
+        "file": "misc.asm",
+        "bytes": 21136,
+        "sha256": "43d8d906b97b40370705b3ae1ca004a545bb622cd9a36f3855d762d793e0758f"
+      },
+      {
+        "file": "misc2.asm",
+        "bytes": 18111,
+        "sha256": "0b41797df70242773aee7d72b6cd4a25c415ca6c5b9cc23d9b20082044e3ba7d"
+      },
+      {
+        "file": "mknode.asm",
+        "bytes": 30114,
+        "sha256": "e3c479c9179857e03b6c360931201a1db68af23234dd92408e84c11a50854158"
+      },
+      {
+        "file": "mpatch.asm",
+        "bytes": 2001,
+        "sha256": "8af243919b9d2044c6ccc4341233065ccf3a441e6bae8881f9d1065e1cd74d40"
+      },
+      {
+        "file": "mscode.asm",
+        "bytes": 36936,
+        "sha256": "dc4d766c2238e9d9045e9ea6917593c0d2d1c2bb7fb634b49df405d19a898ff3"
+      },
+      {
+        "file": "msconst.asm",
+        "bytes": 9373,
+        "sha256": "5e32f377e8f336bd307e318a010c9a77d787f79fa8fe16a33f2376ff0828f359"
+      },
+      {
+        "file": "msctrlc.asm",
+        "bytes": 27039,
+        "sha256": "251d8ede15d74e063a9f5a065366b9db06b3c6890f2a0d7a8ee553489d403143"
+      },
+      {
+        "file": "msdata.asm",
+        "bytes": 877,
+        "sha256": "8cfd6b65393186faa1f6ac8015bea073b6594c98c706a004a696cc413d590da7"
+      },
+      {
+        "file": "msdisp.asm",
+        "bytes": 21090,
+        "sha256": "441cfe675ac62e37a2967631e0b6a0a63b5cf979af8c48e3d671ce7d9bfd215d"
+      },
+      {
+        "file": "msdos.lnk",
+        "bytes": 1428,
+        "sha256": "7fc32dd2e361db355e3c591b1619fac0f68232afe4012948c9359b73d2294c0c"
+      },
+      {
+        "file": "msdos.skl",
+        "bytes": 531,
+        "sha256": "a5605f538cce0c44d6eee650a50cc82b991e4f5743d804e9abe17e12c6e27a9a"
+      },
+      {
+        "file": "msdosme.asm",
+        "bytes": 353,
+        "sha256": "9a1c7e0320fb80626151eab55fc628aa377768490bb1e415b65dbaae3393f099"
+      },
+      {
+        "file": "mshalo.asm",
+        "bytes": 5510,
+        "sha256": "89dbe90c55b755472d8f2834b9ac4e415fce6e9f0376e50b3da0821f9c964250"
+      },
+      {
+        "file": "msinit.asm",
+        "bytes": 38233,
+        "sha256": "67a662e3c6c186fd2fe0604624557077dcd7f8be65f85e3be01f26f250a0c2a0"
+      },
+      {
+        "file": "msioctl.asm",
+        "bytes": 229,
+        "sha256": "39228d3934d865562191950ef45a9347c9d998a6d59a2f323c5c2f0d8e35a65b"
+      },
+      {
+        "file": "msproc.asm",
+        "bytes": 48501,
+        "sha256": "4aa312105af8582066ac6fe55f47755f6192ac7f9f21a9f2658ab68050a65a98"
+      },
+      {
+        "file": "mssw.asm",
+        "bytes": 801,
+        "sha256": "e0490c29ff1a0415385516faeb3172e13b7e3eec546bbf02cce8ae4d752728ab"
+      },
+      {
+        "file": "mstable.asm",
+        "bytes": 22115,
+        "sha256": "a21d8332e3ae890095231455fe281a02e7d3330b4d7f3422164bdd382b5b6949"
+      },
+      {
+        "file": "open.asm",
+        "bytes": 13343,
+        "sha256": "ec819887cd3e79ee1e4cc9b010fc8c4f0918699f277477a95196134e0d6cdc94"
+      },
+      {
+        "file": "origin.asm",
+        "bytes": 646,
+        "sha256": "9e02ec81b78bd3249c55cb46fa7aa3693e64bdd4ef57bc2ef7566f754d4b03b6"
+      },
+      {
+        "file": "parse.asm",
+        "bytes": 1806,
+        "sha256": "0d8ff2285e63f56c2f5c0064199a9b54cafed39d1a064ed2d0739c5b2efabba1"
+      },
+      {
+        "file": "path.asm",
+        "bytes": 11559,
+        "sha256": "f93d8c15498c8751c0de278267f8d80bf328559f34bb70494a1a303ef3cef5f2"
+      },
+      {
+        "file": "rename.asm",
+        "bytes": 15138,
+        "sha256": "e6b1bc6274952b29234230fb72dff9e2cb601558d75af5a298079df93b101dbd"
+      },
+      {
+        "file": "restrict.inc",
+        "bytes": 1149,
+        "sha256": "a5f68b20aba15a124f3e6f9af99638505e0112edd94a72f8aac7db9160560a76"
+      },
+      {
+        "file": "rom.asm",
+        "bytes": 30328,
+        "sha256": "870a70fa594015cf46864fee33e861cfa5d4367631c832d16b509718c4cc294c"
+      },
+      {
+        "file": "romfind.asm",
+        "bytes": 13029,
+        "sha256": "f334bb028ed5ab0ae924865ce21be8b98c43ea2ab59d8624ff5bb51b99d4fb51"
+      },
+      {
+        "file": "scnam.inc",
+        "bytes": 6235,
+        "sha256": "45dc2dc00161d605fe96e1f4962e7ef6fb5af495359b46f9da3a167dfbe9b3e8"
+      },
+      {
+        "file": "search.asm",
+        "bytes": 10411,
+        "sha256": "13196cd660edcafb10477fab1a6d807649e7be86f6f4a9c6e436161f0e60d82c"
+      },
+      {
+        "file": "segcheck.asm",
+        "bytes": 6078,
+        "sha256": "b5bbcf41397409b980277292477b75cca01212ba20909767273ffb9a34956da7"
+      },
+      {
+        "file": "share.asm",
+        "bytes": 3848,
+        "sha256": "0eb75b8acef5c5dd2bd86d0c7b26ae885ba72d18c2e5bc2d2b01476ef46f1aa7"
+      },
+      {
+        "file": "shrprint.asm",
+        "bytes": 5390,
+        "sha256": "2262e4a31bd4a2e5f4a4e71d62377068ab0956811691b7c84399ca2b1221cd6d"
+      },
+      {
+        "file": "srvcall.asm",
+        "bytes": 7352,
+        "sha256": "2074931698e50d0f41e9584334b72fd622b49ed3c7595f2606acc584ed41a2f3"
+      },
+      {
+        "file": "time.asm",
+        "bytes": 10033,
+        "sha256": "7ea358d51ad44c3bc09e06c81cc468c9d9ff646abac04c619b377606f38cb336"
+      },
+      {
+        "file": "util.asm",
+        "bytes": 8386,
+        "sha256": "664389bd28b8c9455b32c2021d6a04ee2400931326d355f9604eff5ced23ab1e"
+      }
+    ],
+    "dos4": [
+      {
+        "file": "ABORT.ASM",
+        "bytes": 3443,
+        "sha256": "c220263a75488c52c5f0c61c1e0be1c412e67ac300a91a2a6e3675a5423d1dfe"
+      },
+      {
+        "file": "ALLOC.ASM",
+        "bytes": 10715,
+        "sha256": "f9ce3fffff5e538dbea6ae542fe0c795b59611169c9ea6f9a5f6bf332b1f29b6"
+      },
+      {
+        "file": "BUF.ASM",
+        "bytes": 26020,
+        "sha256": "a556986bdd62dd602e6f5e100ad4458986470eb58e9c46aa5683762fa3594b0d"
+      },
+      {
+        "file": "CLOSE.ASM",
+        "bytes": 11159,
+        "sha256": "3911b0dcc5ecee662e1a05e500ee1f7b4aa50179a374cfe92ffd8bbe9885c6a5"
+      },
+      {
+        "file": "CPMIO.ASM",
+        "bytes": 10303,
+        "sha256": "41ef30cb1fd2c409a8b296023e09fded40659c25392d785046ff2e35e689ef23"
+      },
+      {
+        "file": "CPMIO2.ASM",
+        "bytes": 6112,
+        "sha256": "edc84f4650500759be5506add0742da59e040070fbe6fe1fe67d35361b37c986"
+      },
+      {
+        "file": "CREATE.ASM",
+        "bytes": 10183,
+        "sha256": "0417865e4f0e8550de69d24f110c859a20e5d929757fca115747c30a5b23d6dd"
+      },
+      {
+        "file": "CRIT.ASM",
+        "bytes": 1809,
+        "sha256": "c8b96fb5e581fe084399f1bea5271c47c0f820aa5bbfa750a9deb523df3d1b2c"
+      },
+      {
+        "file": "CTRLC.ASM",
+        "bytes": 19656,
+        "sha256": "f82bbe2bf9fd7c57ba1c36bc9bf2d2e11f7c9b55db7cc1a933644b1d2d3126ed"
+      },
+      {
+        "file": "DELETE.ASM",
+        "bytes": 21417,
+        "sha256": "b0f375fa469d3502370f915cba512004e972b4c8a3e6c4e5b5045ce533e0756c"
+      },
+      {
+        "file": "DEV.ASM",
+        "bytes": 23938,
+        "sha256": "59d2201c48a595d4839aaadb1c520448c69c24b77f7ac393e96e9ff72e674f79"
+      },
+      {
+        "file": "DINFO.ASM",
+        "bytes": 2910,
+        "sha256": "6a9b51fac1e60d0314eeaf42085dd04b7377e7647eac6a4d2aa116b514c92209"
+      },
+      {
+        "file": "DIR.ASM",
+        "bytes": 10691,
+        "sha256": "2de0bfbeaebc5063f492c21e03062aaaaed05090557977141ef6a247e623d492"
+      },
+      {
+        "file": "DIR2.ASM",
+        "bytes": 35972,
+        "sha256": "a6d271c3a64a75416783a1da0e032c0989d7cac5939e629a97f1c09741b984c5"
+      },
+      {
+        "file": "DIRCALL.ASM",
+        "bytes": 10180,
+        "sha256": "1e635e391029e934fc1997e627844c1280918308027eae91659acc3b999a1c9a"
+      },
+      {
+        "file": "DISK.ASM",
+        "bytes": 25032,
+        "sha256": "992f2ada2d806e9f2d3f751ff42ee72b4ce2193564da01f9b95478ea353fa207"
+      },
+      {
+        "file": "DISK2.ASM",
+        "bytes": 19883,
+        "sha256": "7aaa5493f8a3f4bb07c5b786089ab13d719435dbea66bfd9737e0fb5a3b43342"
+      },
+      {
+        "file": "DISK3.ASM",
+        "bytes": 16835,
+        "sha256": "e67d369b433c308f7a41df91a453a6be50559da9421811421182c380147923d4"
+      },
+      {
+        "file": "DISP.ASM",
+        "bytes": 19644,
+        "sha256": "ea3374940dd76de064d8153179a17feb43bc716f5de4b78515c67f536657c71f"
+      },
+      {
+        "file": "DISPATCH.ASM",
+        "bytes": 8203,
+        "sha256": "75775d3a6eecd745546672516db56db42c54891a5a0c8e02bcd81048b0043f40"
+      },
+      {
+        "file": "DOSMES.ASM",
+        "bytes": 13179,
+        "sha256": "67c4164bd105d41e56edd367919ec74481e8b66e446f6cde531f0abfe10c1e36"
+      },
+      {
+        "file": "DOSPRINT.ASM",
+        "bytes": 536,
+        "sha256": "0e1b49ff44bb485018bf6d288dbbb8271316e8c712d58fcfbd212ed593231d57"
+      },
+      {
+        "file": "DUP.ASM",
+        "bytes": 1522,
+        "sha256": "dc1ce1e26b5ac1420a612df6ea338daa63298335d077c603548abb1b05bbf6c4"
+      },
+      {
+        "file": "EXEC.ASM",
+        "bytes": 22868,
+        "sha256": "ce129f4f98ebcfb20193463f90af4add49b3bd911d43dc1026fd8cbf482fb539"
+      },
+      {
+        "file": "EXTATTR.ASM",
+        "bytes": 24795,
+        "sha256": "79540bc63d696a4ab55d975b5d28afe174b6f5ff27100e76113de2fb75ade5ce"
+      },
+      {
+        "file": "FAT.ASM",
+        "bytes": 17967,
+        "sha256": "9a7327b01d894421bc8057ee164d6a39e359e6e04de2c7dc21ee4bca62520a00"
+      },
+      {
+        "file": "FCB.ASM",
+        "bytes": 12111,
+        "sha256": "f69cc55f2197e51f43ac8f75b011dad180cfe70c9315004af31ea22a59b32e89"
+      },
+      {
+        "file": "FCBIO.ASM",
+        "bytes": 32387,
+        "sha256": "aeb3184fb2831684a2859930f9f873006e5e9e9287abaa875fc63b634de49544"
+      },
+      {
+        "file": "FCBIO2.ASM",
+        "bytes": 19690,
+        "sha256": "1e27a199b4df0a9b36df3fe6a6b5193382c88c1aab86dd9b62c4f2cc48480ad3"
+      },
+      {
+        "file": "FILE.ASM",
+        "bytes": 28412,
+        "sha256": "a3471406b4897971951066c394ce5108cbb4b1e99218e57158b9cd48c95a9705"
+      },
+      {
+        "file": "FINFO.ASM",
+        "bytes": 7004,
+        "sha256": "91269f48b23e4d0c78ea45803551f83641b5a4229eebc925ddc8c850065a64bb"
+      },
+      {
+        "file": "GETSET.ASM",
+        "bytes": 23978,
+        "sha256": "546b66255fe2947ae64560759b8d78da37cc06870453b41b418777ceeb534505"
+      },
+      {
+        "file": "HANDLE.ASM",
+        "bytes": 24132,
+        "sha256": "bf0e36600531951bad96e3fc14d80e461012a6908c55054ed5c511d117edb22c"
+      },
+      {
+        "file": "HIGHSW.ASM",
+        "bytes": 743,
+        "sha256": "257b748e989018010c60754cd763f78d52a602f2b350c15ecba8b08d374b1639"
+      },
+      {
+        "file": "IFS.ASM",
+        "bytes": 15420,
+        "sha256": "5ba11929c2040b66fad8bcf21feed1b2036d463114c51f4c594ebd665aa2cb87"
+      },
+      {
+        "file": "IOCTL.ASM",
+        "bytes": 19364,
+        "sha256": "a820afc231874dff1abf0972ea9c1c227fc5b616a6d84ade768000375c2c762a"
+      },
+      {
+        "file": "ISEARCH.ASM",
+        "bytes": 8452,
+        "sha256": "36b5ad74ce11915b443510b9ba108589573dc19988ae4f463165f2ac2eeb5339"
+      },
+      {
+        "file": "KSTRIN.ASM",
+        "bytes": 18236,
+        "sha256": "e32de5e2674a833e9cedf18f21224393cd4961b3c04b2cd7570cbec75d405259"
+      },
+      {
+        "file": "LOCK.ASM",
+        "bytes": 10389,
+        "sha256": "cb2cf0af255642f930523af1ea7341543beb3eb17eb4347dfb5c123fd5b59ec4"
+      },
+      {
+        "file": "MACRO.ASM",
+        "bytes": 13766,
+        "sha256": "3d6ee812ff39ee480ed2dfd72861f44434e9df06c8dcb83554f8692ed9fb9dad"
+      },
+      {
+        "file": "MACRO2.ASM",
+        "bytes": 39012,
+        "sha256": "f3752b30dbed059a4538eac14d77242c33ff59864f16b8f5957572027e80f003"
+      },
+      {
+        "file": "MAKEFILE",
+        "bytes": 6845,
+        "sha256": "e04bbc3a51602c8ef60631697b36dc1fddb43212d1e6ee245cb812d867b968f4"
+      },
+      {
+        "file": "MISC.ASM",
+        "bytes": 15598,
+        "sha256": "eae483b13a04e23c04db0a329e6915fb242b5e64b7064114116a004141b32503"
+      },
+      {
+        "file": "MISC2.ASM",
+        "bytes": 14965,
+        "sha256": "bf4cb5172a85b78e61e6d93efc1887ad383b1834d4c7470a676478802731192f"
+      },
+      {
+        "file": "MKNODE.ASM",
+        "bytes": 31860,
+        "sha256": "0611bc05262a44799b8e8e750de9d7818886bfeab5a14df822baa72fac254f5e"
+      },
+      {
+        "file": "MS_CODE.ASM",
+        "bytes": 15396,
+        "sha256": "7c74a7d4cf3d940a7f230ee23ffade88c943485b7f4ed3c638394b4d83a6b795"
+      },
+      {
+        "file": "MS_TABLE.ASM",
+        "bytes": 37821,
+        "sha256": "89bc93a893209840ee8bd85030085bea2698e1fed15bd94ee34f50fe019f474a"
+      },
+      {
+        "file": "MSCODE.ASM",
+        "bytes": 232,
+        "sha256": "58a69ef1409577ecf145106034f049722678bb5787e881cf87500f21173525fc"
+      },
+      {
+        "file": "MSCONST.ASM",
+        "bytes": 6299,
+        "sha256": "2925f96bc3e79afd52946e6ef5c39674c8cd9b47720e84b17b15c850950cbf33"
+      },
+      {
+        "file": "MSCPMIO.ASM",
+        "bytes": 253,
+        "sha256": "94be466a39cca609678fa8718db9f1c9d9c7c76c9c864937c0e17ac3e833a88d"
+      },
+      {
+        "file": "MSCTRLC.ASM",
+        "bytes": 228,
+        "sha256": "41a8fe8d5f7ac04a5dbb4972a38d754a3f8e69b442974fd4c117f5dfc26f3777"
+      },
+      {
+        "file": "MSDISP.ASM",
+        "bytes": 220,
+        "sha256": "591dcdcb4ceb85343f0f41177ab55dd408b39d49fd7c3f6d6a9a9ce995bf5e70"
+      },
+      {
+        "file": "MSDOS.LNK",
+        "bytes": 1376,
+        "sha256": "f4049631f0ae69e0eb4ff6679cd95a23cf2ea17e23690199e885309d4d2510c0"
+      },
+      {
+        "file": "MSDOS.SKL",
+        "bytes": 291,
+        "sha256": "4f8e4102e6574307559404866e943c33857307398d23ce544b9a30e9a67e20c0"
+      },
+      {
+        "file": "MSHALO.ASM",
+        "bytes": 5407,
+        "sha256": "e77dc3c9f5e3e255c3c7b4f7ce2b771fc07fbf9342e4d00255a7c509613b422c"
+      },
+      {
+        "file": "MSINIT.ASM",
+        "bytes": 18653,
+        "sha256": "c6bf13b2cd5751fbbb7f70a7af84b01024752f7b5f546451ca284560ea152f81"
+      },
+      {
+        "file": "MSIOCTL.ASM",
+        "bytes": 128,
+        "sha256": "1a14342738b6940fb9d7e659757b91ee412617dbc9b1607aaa9cfeee285a0092"
+      },
+      {
+        "file": "MSPROC.ASM",
+        "bytes": 205,
+        "sha256": "37d8e11c96fefed06a6312376cc9783d95b00ebc36cd3d5d6e57a41eaa8e429b"
+      },
+      {
+        "file": "MSSW.ASM",
+        "bytes": 720,
+        "sha256": "cae4ae20b1715b13f55d4827c5f322be57676e28c25bd05e36a64cb494b44e9f"
+      },
+      {
+        "file": "NSTDOS.ASM",
+        "bytes": 121,
+        "sha256": "4638658e77de2dece3b9ee2c5b679df61fda5c760fb9bc4e9fd6aab7e7b50088"
+      },
+      {
+        "file": "OPEN.ASM",
+        "bytes": 16029,
+        "sha256": "2ea329779c38bf30e87f777e484e685e9ce2a1baae6b3cb0d866815fac5cfcb5"
+      },
+      {
+        "file": "PARSE.ASM",
+        "bytes": 11530,
+        "sha256": "5c904b39cedfa95a4323a1e2feef535bb955e1d59764060a6140232ea7982aec"
+      },
+      {
+        "file": "PATH.ASM",
+        "bytes": 9925,
+        "sha256": "6675513b55dd0f59769638fbc4e03f8671236bfb47fc7a564e2d7a22034a8815"
+      },
+      {
+        "file": "PRINT.ASM",
+        "bytes": 4162,
+        "sha256": "32209901eb21e310a68eea335cfa4a2fb66db995c2bd630b164792165792d4f6"
+      },
+      {
+        "file": "PROC.ASM",
+        "bytes": 3832,
+        "sha256": "28818a406918f1fd09998990f6599f43d48bde8a9e3d6b59924064dc7432bd7b"
+      },
+      {
+        "file": "RENAME.ASM",
+        "bytes": 12426,
+        "sha256": "c5e8f2d61780e7b5541a8ef1c00815de3487185d02d94f68498e33cf005de70d"
+      },
+      {
+        "file": "ROM.ASM",
+        "bytes": 37046,
+        "sha256": "8ed3019c3d76d3732b617459f8e733fe3764af03e592a603755d4f1d6b5db11d"
+      },
+      {
+        "file": "SEARCH.ASM",
+        "bytes": 8995,
+        "sha256": "77daf8d04a8d1be53e151d015f5e4d958954df3942e9e279d86cdf8460f54116"
+      },
+      {
+        "file": "SEGCHECK.ASM",
+        "bytes": 6330,
+        "sha256": "f95db327f1d6759f9b33ac8e3c1253dbc1c4193200a381b1bf049ea9f64ff960"
+      },
+      {
+        "file": "SHARE.ASM",
+        "bytes": 3729,
+        "sha256": "7e9ea5bc892dde2d5277ce69abc5ba3608746714bd83da1927c9d8efba049373"
+      },
+      {
+        "file": "SHRPRINT.ASM",
+        "bytes": 495,
+        "sha256": "264614d537e31b686252406fc32d23810900de33390e43195601037c557a55d9"
+      },
+      {
+        "file": "SRVCALL.ASM",
+        "bytes": 7078,
+        "sha256": "33f0082003b89b42bd723e0829dbbc48afa0e35f43cf40115ac04d18319f4cd2"
+      },
+      {
+        "file": "STDASW.ASM",
+        "bytes": 1013,
+        "sha256": "df2ce7283efc9739696250ca92ad905dae5f662184c1159dac585b4c7869dd62"
+      },
+      {
+        "file": "STDCODE.ASM",
+        "bytes": 245,
+        "sha256": "b5c02977306f507cd47fac401de8f9008a93d5dfa77d5e9f714410e0be08a654"
+      },
+      {
+        "file": "STDCPMIO.ASM",
+        "bytes": 258,
+        "sha256": "65774b4e6e3645a3b04f0ddce2095aebe07c966fc8de4b02fb51523a7a98e701"
+      },
+      {
+        "file": "STDCTRLC.ASM",
+        "bytes": 233,
+        "sha256": "2848509fb53bc2ecf61b12dcbe7b34b0846929b679e3f3ba942b335f592e84d1"
+      },
+      {
+        "file": "STDDATA.ASM",
+        "bytes": 561,
+        "sha256": "11aa927d02f52a9efe2af1ec55fec3568feae2bf012e283ab0eb32ab333f438d"
+      },
+      {
+        "file": "STDDISP.ASM",
+        "bytes": 228,
+        "sha256": "18956e151f3cb42e658635d3a4619a024f9f2b6c4a8a97f225e5d9b49b54bbd2"
+      },
+      {
+        "file": "STDDOSME.ASM",
+        "bytes": 316,
+        "sha256": "5f39b0b1f66bd79afc98b8e237a9cbcc6da1fc7676e5e649cbf50ff604214d93"
+      },
+      {
+        "file": "STDIOCTL.ASM",
+        "bytes": 140,
+        "sha256": "9a638bb06abf02902c1bec241efac42f9ffe42675c3f1a2851cf96ecbb5bd45a"
+      },
+      {
+        "file": "STDPROC.ASM",
+        "bytes": 223,
+        "sha256": "701a083b53f872ab26e8ff90600183cd93563498de710652672bde4aac634c22"
+      },
+      {
+        "file": "STDSW.ASM",
+        "bytes": 1015,
+        "sha256": "9cdd78844c6944044d8921eed1da6e8e51486282dac505052c4b3f0f7c997b70"
+      },
+      {
+        "file": "STDTABLE.ASM",
+        "bytes": 225,
+        "sha256": "15d4d55369144a071dc1e1598367217cecebf406cf2a5e4868bfe9bc08d2f944"
+      },
+      {
+        "file": "STRIN.ASM",
+        "bytes": 12704,
+        "sha256": "35de1a0d05e7a1b2645fc6d15ae7001375b9237ce85d84290a6c8d15427ae44f"
+      },
+      {
+        "file": "TIME.ASM",
+        "bytes": 7966,
+        "sha256": "5546016640f532fb11a2da418f26a2ea16566a2bc418cdb34bf1a0ec5e61d12f"
+      },
+      {
+        "file": "UTIL.ASM",
+        "bytes": 7736,
+        "sha256": "b2c42b788aefa0a27f4ef55d3a5a8d58cf2e6399743815385456978b8a2aac8a"
+      }
+    ]
+  },
+  "units": [
+    {
+      "module": "origin",
+      "sources": {
+        "opennt": "862c02abb7bf5c8913c4572606d06efa56002d57df573f7b91b6d23e0522802e",
+        "dos6": "9e02ec81b78bd3249c55cb46fa7aa3693e64bdd4ef57bc2ef7566f754d4b03b6",
+        "dos4": null
+      },
+      "opennt_direct_includes": [
+        "version.inc",
+        "dosseg.inc",
+        "dossym.inc",
+        "origin.inc"
+      ],
+      "lexical_host_seam_candidates": [],
+      "disposition": "unmapped; no target identity or standalone behavior established"
+    },
+    {
+      "module": "msdata",
+      "sources": {
+        "opennt": "4c9849974de6ba9a9fac5529c6d7c1832e3f88b53adcef04dfc67490ff4f7757",
+        "dos6": "8cfd6b65393186faa1f6ac8015bea073b6594c98c706a004a696cc413d590da7",
+        "dos4": null
+      },
+      "opennt_direct_includes": [
+        "version.inc",
+        "mssw.asm",
+        "dosseg.inc",
+        "dossym.inc",
+        "sf.inc",
+        "curdir.inc",
+        "arena.inc",
+        "vector.inc",
+        "devsym.inc",
+        "pdb.inc",
+        "find.inc",
+        "mi.inc",
+        "doscntry.inc",
+        "fastopen.inc",
+        "xmm.inc",
+        "vint.inc",
+        "msbdata.inc",
+        "msconst.asm",
+        "const2.asm",
+        "ms_data.asm",
+        "dostab.asm",
+        "lmstub.asm",
+        "wpatch.inc",
+        "bop.inc"
+      ],
+      "lexical_host_seam_candidates": [
+        {
+          "line": 30,
+          "code": "include vint.inc"
+        },
+        {
+          "line": 38,
+          "code": "include bop.inc"
+        }
+      ],
+      "disposition": "unmapped; no target identity or standalone behavior established"
+    },
+    {
+      "module": "mstable",
+      "sources": {
+        "opennt": "58aeaa1cb208ea1a661f13df7124e964e8030cb52ba5a20ca295c2bb39c59a65",
+        "dos6": "a21d8332e3ae890095231455fe281a02e7d3330b4d7f3422164bdd382b5b6949",
+        "dos4": null
+      },
+      "opennt_direct_includes": [
+        "version.inc",
+        "mssw.asm",
+        "version.inc",
+        "dosseg.inc",
+        "fastopen.inc",
+        "dossym.inc",
+        "syscall.inc",
+        "copyrigh.inc"
+      ],
+      "lexical_host_seam_candidates": [],
+      "disposition": "unmapped; no target identity or standalone behavior established"
+    },
+    {
+      "module": "msdisp",
+      "sources": {
+        "opennt": "2ce748a58c20c8619fc9be08b8ce91f039d17e41e4343963124042264dd14985",
+        "dos6": "441cfe675ac62e37a2967631e0b6a0a63b5cf979af8c48e3d671ce7d9bfd215d",
+        "dos4": "591dcdcb4ceb85343f0f41177ab55dd408b39d49fd7c3f6d6a9a9ce995bf5e70"
+      },
+      "opennt_direct_includes": [
+        "version.inc",
+        "mssw.asm",
+        "dossym.inc",
+        "devsym.inc",
+        "dosseg.inc",
+        "pdb.inc",
+        "vector.inc",
+        "syscall.inc",
+        "mi.inc",
+        "bugtyp.inc",
+        "dossvc.inc",
+        "bop.inc",
+        "vint.inc",
+        "dbgsvc.inc",
+        "scnam.inc"
+      ],
+      "lexical_host_seam_candidates": [
+        {
+          "line": 34,
+          "code": "include bop.inc"
+        },
+        {
+          "line": 35,
+          "code": "include vint.inc"
+        },
+        {
+          "line": 433,
+          "code": "SVC     SVC_DEMDOSDISPCALL"
+        },
+        {
+          "line": 670,
+          "code": "SVC\tSVC_DEMDOSDISPRET"
+        }
+      ],
+      "disposition": "unmapped; no target identity or standalone behavior established"
+    },
+    {
+      "module": "mscode",
+      "sources": {
+        "opennt": "59f4903be6456362ede5c53fa49a31805946f5411e0a6960b0a89257a5c7d569",
+        "dos6": "dc4d766c2238e9d9045e9ea6917593c0d2d1c2bb7fb634b49df405d19a898ff3",
+        "dos4": "58a69ef1409577ecf145106034f049722678bb5787e881cf87500f21173525fc"
+      },
+      "opennt_direct_includes": [
+        "version.inc",
+        "mssw.asm",
+        "version.inc",
+        "dossym.inc",
+        "devsym.inc",
+        "dosseg.inc",
+        "fastopen.inc",
+        "fastxxxx.inc",
+        "mult.inc",
+        "vector.inc",
+        "curdir.inc",
+        "mi.inc",
+        "win386.inc",
+        "syscall.inc",
+        "dossvc.inc",
+        "bop.inc"
+      ],
+      "lexical_host_seam_candidates": [
+        {
+          "line": 37,
+          "code": "include bop.inc"
+        },
+        {
+          "line": 252,
+          "code": "SVC\tSVC_DEMABSDRD"
+        },
+        {
+          "line": 430,
+          "code": "SVC\tSVC_DEMABSDWRT"
+        }
+      ],
+      "disposition": "unmapped; no target identity or standalone behavior established"
+    },
+    {
+      "module": "msdosme",
+      "sources": {
+        "opennt": "f54fedd4c705cf1e9a8f037685e4099398e047300ddbcd50591ac5480298508e",
+        "dos6": "9a1c7e0320fb80626151eab55fc628aa377768490bb1e415b65dbaae3393f099",
+        "dos4": null
+      },
+      "opennt_direct_includes": [
+        "version.inc",
+        "mssw.asm",
+        "dosseg.inc",
+        "dosmes.inc"
+      ],
+      "lexical_host_seam_candidates": [],
+      "disposition": "unmapped; no target identity or standalone behavior established"
+    },
+    {
+      "module": "time",
+      "sources": {
+        "opennt": "a29a6048533387d66b0adf6a2eb77f8f1cdf2fe3caa8a967e5590de86b86ea4d",
+        "dos6": "7ea358d51ad44c3bc09e06c81cc468c9d9ff646abac04c619b377606f38cb336",
+        "dos4": "5546016640f532fb11a2da418f26a2ea16566a2bc418cdb34bf1a0ec5e61d12f"
+      },
+      "opennt_direct_includes": [
+        "version.inc",
+        "dosseg.inc",
+        "dossym.inc",
+        "devsym.inc",
+        "dossvc.inc"
+      ],
+      "lexical_host_seam_candidates": [
+        {
+          "line": 45,
+          "code": "SVC\tSVC_DEMQUERYDATE"
+        },
+        {
+          "line": 67,
+          "code": "SVC\tSVC_DEMSETDATE"
+        }
+      ],
+      "disposition": "unmapped; no target identity or standalone behavior established"
+    },
+    {
+      "module": "getset",
+      "sources": {
+        "opennt": "ec72b7bd0fd4e84d0f592e67896123db98f0fb2a12171356b71388bc0970ac35",
+        "dos6": "b26b12fcd432ca80055e4aec8f222942ab05625b7b9621f232ae8f20464783d7",
+        "dos4": "546b66255fe2947ae64560759b8d78da37cc06870453b41b418777ceeb534505"
+      },
+      "opennt_direct_includes": [
+        "version.inc",
+        "dosseg.inc",
+        "dossym.inc",
+        "devsym.inc",
+        "doscntry.inc",
+        "mult.inc",
+        "pdb.inc",
+        "dossvc.inc",
+        "bop.inc"
+      ],
+      "lexical_host_seam_candidates": [
+        {
+          "line": 39,
+          "code": "include bop.inc"
+        },
+        {
+          "line": 654,
+          "code": "SVC\tSVC_DEMGSETCDPG"
+        },
+        {
+          "line": 688,
+          "code": "HRDSVC\tSVC_DEMGETDRIVEFREESPACE"
+        }
+      ],
+      "disposition": "unmapped; no target identity or standalone behavior established"
+    },
+    {
+      "module": "parse",
+      "sources": {
+        "opennt": "9027269459eff80277d3c4ad8b965c229c893dcaed50938da649ed46bc21ec0f",
+        "dos6": "0d8ff2285e63f56c2f5c0064199a9b54cafed39d1a064ed2d0739c5b2efabba1",
+        "dos4": "5c904b39cedfa95a4323a1e2feef535bb955e1d59764060a6140232ea7982aec"
+      },
+      "opennt_direct_includes": [
+        "version.inc",
+        "dosseg.inc",
+        "DOSSYM.INC",
+        "DEVSYM.INC"
+      ],
+      "lexical_host_seam_candidates": [],
+      "disposition": "unmapped; no target identity or standalone behavior established"
+    },
+    {
+      "module": "misc",
+      "sources": {
+        "opennt": "68ea572d52887bb36267648922ecbf63aa7b9a533b3f9f626f26882ad4550b70",
+        "dos6": "43d8d906b97b40370705b3ae1ca004a545bb622cd9a36f3855d762d793e0758f",
+        "dos4": "eae483b13a04e23c04db0a329e6915fb242b5e64b7064114116a004141b32503"
+      },
+      "opennt_direct_includes": [
+        "version.inc",
+        "dosseg.inc",
+        "dossym.inc",
+        "devsym.inc",
+        "mult.inc",
+        "pdb.inc",
+        "dpb.inc",
+        "bpb.inc",
+        "vector.inc",
+        "sf.inc",
+        "filemode.inc",
+        "mi.inc",
+        "curdir.inc",
+        "bugtyp.inc",
+        "dossvc.inc"
+      ],
+      "lexical_host_seam_candidates": [
+        {
+          "line": 135,
+          "code": "HRDSVC\tSVC_DEMGETDRIVEFREESPACE"
+        },
+        {
+          "line": 268,
+          "code": "HRDSVC\tSVC_DEMGETDPB"
+        },
+        {
+          "line": 309,
+          "code": "HRDSVC\tSVC_DEMDISKRESET"
+        },
+        {
+          "line": 959,
+          "code": "HRDSVC\tSVC_DEMGSETMEDIAID"
+        }
+      ],
+      "disposition": "unmapped; no target identity or standalone behavior established"
+    },
+    {
+      "module": "misc2",
+      "sources": {
+        "opennt": "ffef367d852cb5cced423c9a5c4d03c4107958f13861c434aa4c81e6afeb7e66",
+        "dos6": "0b41797df70242773aee7d72b6cd4a25c415ca6c5b9cc23d9b20082044e3ba7d",
+        "dos4": "bf4cb5172a85b78e61e6d93efc1887ad383b1834d4c7470a676478802731192f"
+      },
+      "opennt_direct_includes": [
+        "version.inc",
+        "dosseg.inc",
+        "dossym.inc",
+        "sysvar.inc",
+        "sf.inc",
+        "curdir.inc",
+        "fastxxxx.inc",
+        "bugtyp.inc"
+      ],
+      "lexical_host_seam_candidates": [],
+      "disposition": "unmapped; no target identity or standalone behavior established"
+    },
+    {
+      "module": "cpmio",
+      "sources": {
+        "opennt": "ed409d5deee8a5b1764f8187cf4161c5d594b9630ee5032e8f97748b9c45e116",
+        "dos6": "451b22d70c1cc590390c4f997a26ab9c7d5facbc132905684acfc59c6baaa24f",
+        "dos4": "41ef30cb1fd2c409a8b296023e09fded40659c25392d785046ff2e35e689ef23"
+      },
+      "opennt_direct_includes": [
+        "version.inc",
+        "dosseg.inc",
+        "DOSSYM.INC",
+        "sf.inc",
+        "vector.inc",
+        "DEVSYM.INC",
+        "doscntry.inc",
+        "kstrin.asm"
+      ],
+      "lexical_host_seam_candidates": [
+        {
+          "line": 62,
+          "code": "bop MACRO callid"
+        },
+        {
+          "line": 141,
+          "code": "bop     NT_WAIT_BOP"
+        }
+      ],
+      "disposition": "unmapped; no target identity or standalone behavior established"
+    },
+    {
+      "module": "cpmio2",
+      "sources": {
+        "opennt": "be1c1ac94665ee5a222ec215a8cb7bfa2cf9c5383168128b0ddb90eac072a1a0",
+        "dos6": "d2a5a4ef5121bb9a8928c83d54499e3e239d182939a062b5a0f02fa7d234265f",
+        "dos4": "edc84f4650500759be5506add0742da59e040070fbe6fe1fe67d35361b37c986"
+      },
+      "opennt_direct_includes": [
+        "version.inc",
+        "dosseg.inc",
+        "DOSSYM.INC",
+        "DEVSYM.INC",
+        "sf.inc"
+      ],
+      "lexical_host_seam_candidates": [],
+      "disposition": "unmapped; no target identity or standalone behavior established"
+    },
+    {
+      "module": "fcbio",
+      "sources": {
+        "opennt": "363de101bffcbad8cb4ff2b0396ea29ac3e6d307019ae21d66f899df075d435e",
+        "dos6": "826fb2b0c8bfb9d2da36c8722270d68bd62a0c205699941f0a66471ee0720608",
+        "dos4": "aeb3184fb2831684a2859930f9f873006e5e9e9287abaa875fc63b634de49544"
+      },
+      "opennt_direct_includes": [
+        "version.inc",
+        "dosseg.inc",
+        "DOSSYM.INC",
+        "DEVSYM.INC",
+        "sf.inc",
+        "cpmfcb.inc",
+        "syscall.inc",
+        "filemode.inc",
+        "mult.inc",
+        "bugtyp.inc",
+        "dossvc.inc"
+      ],
+      "lexical_host_seam_candidates": [
+        {
+          "line": 153,
+          "code": "HRDSVC\tSVC_DEMDELETEFCB"
+        },
+        {
+          "line": 199,
+          "code": "HRDSVC\tSVC_DEMGETFILEINFO"
+        },
+        {
+          "line": 301,
+          "code": "HRDSVC\tSVC_DEMCLOSEFCB"
+        },
+        {
+          "line": 475,
+          "code": "HRDSVC  SVC_DEMRENAMEFCB"
+        },
+        {
+          "line": 1212,
+          "code": "HRDSVC\tSVC_DEMCLOSEFCB"
+        }
+      ],
+      "disposition": "unmapped; no target identity or standalone behavior established"
+    },
+    {
+      "module": "fcbio2",
+      "sources": {
+        "opennt": "696f568e39cda84e01075dddb49df84ffaf9f111b56150d01da4fed206b19b5d",
+        "dos6": "2faabcea11b9476c1e6108db7eef581c9e1c46793313b2c358343dca31912293",
+        "dos4": "1e27a199b4df0a9b36df3fe6a6b5193382c88c1aab86dd9b62c4f2cc48480ad3"
+      },
+      "opennt_direct_includes": [
+        "version.inc",
+        "dosseg.inc",
+        "DOSSYM.INC",
+        "DEVSYM.INC",
+        "sf.inc",
+        "cpmfcb.inc",
+        "filemode.inc",
+        "bugtyp.inc",
+        "dossvc.inc"
+      ],
+      "lexical_host_seam_candidates": [
+        {
+          "line": 346,
+          "code": "HRDSVC\tSVC_DEMFCBIO"
+        },
+        {
+          "line": 450,
+          "code": "SVC\tSVC_DEMDATE16"
+        },
+        {
+          "line": 538,
+          "code": "HRDSVC\tSVC_DEMCREATEFCB"
+        },
+        {
+          "line": 550,
+          "code": "HRDSVC\tSVC_DEMOPENFCB"
+        },
+        {
+          "line": 693,
+          "code": "HRDSVC\tSVC_DEMCLOSEFCB"
+        }
+      ],
+      "disposition": "unmapped; no target identity or standalone behavior established"
+    },
+    {
+      "module": "search",
+      "sources": {
+        "opennt": "9f97747f4be83e5c0240b48c83ed2e350d46cfd8432c9176fc5ae76365e51ff3",
+        "dos6": "13196cd660edcafb10477fab1a6d807649e7be86f6f4a9c6e436161f0e60d82c",
+        "dos4": "77daf8d04a8d1be53e151d015f5e4d958954df3942e9e279d86cdf8460f54116"
+      },
+      "opennt_direct_includes": [
+        "version.inc",
+        "dosseg.inc",
+        "DOSSYM.INC",
+        "DEVSYM.INC",
+        "fastopen.inc",
+        "fastxxxx.inc",
+        "dossvc.inc"
+      ],
+      "lexical_host_seam_candidates": [
+        {
+          "line": 94,
+          "code": "HRDSVC\tSVC_DEMFINDFIRSTFCB"
+        },
+        {
+          "line": 210,
+          "code": "HRDSVC\tSVC_DEMFINDNEXTFCB"
+        },
+        {
+          "line": 262,
+          "code": "HRDSVC\tSVC_DEMFINDFIRST"
+        },
+        {
+          "line": 290,
+          "code": "HRDSVC\tSVC_DEMFINDNEXT"
+        }
+      ],
+      "disposition": "unmapped; no target identity or standalone behavior established"
+    },
+    {
+      "module": "path",
+      "sources": {
+        "opennt": "bd111f35ad06774100f4fd0b1d299390b4a221a8fd716ca136ffaab9d8082be9",
+        "dos6": "f93d8c15498c8751c0de278267f8d80bf328559f34bb70494a1a303ef3cef5f2",
+        "dos4": "6675513b55dd0f59769638fbc4e03f8671236bfb47fc7a564e2d7a22034a8815"
+      },
+      "opennt_direct_includes": [
+        "version.inc",
+        "dosseg.inc",
+        "dossym.inc",
+        "devsym.inc",
+        "curdir.inc",
+        "filemode.inc",
+        "mult.inc",
+        "dossvc.inc"
+      ],
+      "lexical_host_seam_candidates": [
+        {
+          "line": 105,
+          "code": "HRDSVC  SVC_DEMQUERYCURRENTDIR"
+        },
+        {
+          "line": 257,
+          "code": "HRDSVC\tSVC_DEMSETCURRENTDIR"
+        },
+        {
+          "line": 316,
+          "code": "HRDSVC\tSVC_DEMCREATEDIR"
+        },
+        {
+          "line": 389,
+          "code": "HRDSVC  SVC_DEMDELETEDIR"
+        }
+      ],
+      "disposition": "unmapped; no target identity or standalone behavior established"
+    },
+    {
+      "module": "ioctl",
+      "sources": {
+        "opennt": "8dc2168299012c24a663035ca655ac14169dbee494858cbdc895e60df7b8d8fa",
+        "dos6": "5d2e75742cba4d8f45f5c05ff731b1ee32de092cd01b8aa01442b6ab10d8e5b8",
+        "dos4": "a820afc231874dff1abf0972ea9c1c227fc5b616a6d84ade768000375c2c762a"
+      },
+      "opennt_direct_includes": [
+        "version.inc",
+        "dosseg.inc",
+        "DOSSYM.INC",
+        "DEVSYM.INC",
+        "mult.inc",
+        "sf.inc",
+        "vector.inc",
+        "curdir.inc",
+        "ioctl.inc",
+        "dossvc.inc"
+      ],
+      "lexical_host_seam_candidates": [
+        {
+          "line": 453,
+          "code": "HRDSVC\tSVC_DEMIOCTL"
+        },
+        {
+          "line": 592,
+          "code": "HRDSVC\tSVC_DEMIOCTL"
+        }
+      ],
+      "disposition": "unmapped; no target identity or standalone behavior established"
+    },
+    {
+      "module": "dup",
+      "sources": {
+        "opennt": "84fc63a07997b1f2e5107af784eaa26bb827189cd92c177231af1d8643719823",
+        "dos6": "e12500722670edd6faa184679039b09225c9f6756c2a2fc644dfabb5e2536b09",
+        "dos4": "dc1ce1e26b5ac1420a612df6ea338daa63298335d077c603548abb1b05bbf6c4"
+      },
+      "opennt_direct_includes": [
+        "version.inc",
+        "dosseg.inc",
+        "DOSSYM.INC",
+        "DEVSYM.INC",
+        "sf.inc"
+      ],
+      "lexical_host_seam_candidates": [],
+      "disposition": "unmapped; no target identity or standalone behavior established"
+    },
+    {
+      "module": "open",
+      "sources": {
+        "opennt": "afef241b942235a59ce22f2ab5fd50cb1690c7cb244119b22204ee57521dd81c",
+        "dos6": "ec819887cd3e79ee1e4cc9b010fc8c4f0918699f277477a95196134e0d6cdc94",
+        "dos4": "2ea329779c38bf30e87f777e484e685e9ce2a1baae6b3cb0d866815fac5cfcb5"
+      },
+      "opennt_direct_includes": [
+        "version.inc",
+        "dosseg.inc",
+        "dossym.inc",
+        "devsym.inc",
+        "fastopen.inc",
+        "fastxxxx.inc",
+        "sf.inc",
+        "mult.inc",
+        "filemode.inc",
+        "curdir.inc"
+      ],
+      "lexical_host_seam_candidates": [],
+      "disposition": "unmapped; no target identity or standalone behavior established"
+    },
+    {
+      "module": "abort",
+      "sources": {
+        "opennt": "d24922a1d75bd941716e171179f016c1bb0ec412528046ea0c4bfb6c68abb53c",
+        "dos6": "13462864fcadc38f3fd0a910aab6abac0a68257d6fdb9e0ed77258fa9254c995",
+        "dos4": "c220263a75488c52c5f0c61c1e0be1c412e67ac300a91a2a6e3675a5423d1dfe"
+      },
+      "opennt_direct_includes": [
+        "version.inc",
+        "dosseg.inc",
+        "DOSSYM.INC",
+        "DEVSYM.INC",
+        "sf.inc",
+        "pdb.inc",
+        "mult.inc",
+        "dossvc.inc"
+      ],
+      "lexical_host_seam_candidates": [
+        {
+          "line": 144,
+          "code": "HRDSVC  SVC_DEMCLOSE"
+        }
+      ],
+      "disposition": "unmapped; no target identity or standalone behavior established"
+    },
+    {
+      "module": "disk",
+      "sources": {
+        "opennt": "e312fd70517e5101302215cbf37074b5f50eb20efe5303a79f7c9f17376e1845",
+        "dos6": "d4a7a2cbda59cc693754529806c4e6b7fcbde376a42e647eacefecef87cd9cca",
+        "dos4": "992f2ada2d806e9f2d3f751ff42ee72b4ce2193564da01f9b95478ea353fa207"
+      },
+      "opennt_direct_includes": [
+        "version.inc",
+        "dosseg.inc",
+        "DOSSYM.INC",
+        "DEVSYM.INC",
+        "sf.inc",
+        "mult.inc",
+        "filemode.inc"
+      ],
+      "lexical_host_seam_candidates": [],
+      "disposition": "unmapped; no target identity or standalone behavior established"
+    },
+    {
+      "module": "dir2",
+      "sources": {
+        "opennt": "99c0448c781c6e521524aed7b0d565cc41f3201111163fce2d983a6207e59821",
+        "dos6": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+        "dos4": "a6d271c3a64a75416783a1da0e032c0989d7cac5939e629a97f1c09741b984c5"
+      },
+      "opennt_direct_includes": [
+        "version.inc",
+        "dosseg.inc",
+        "dossym.inc",
+        "devsym.inc",
+        "fastopen.inc",
+        "curdir.inc",
+        "dossvc.inc"
+      ],
+      "lexical_host_seam_candidates": [
+        {
+          "line": 1243,
+          "code": "HRDSVC\tSVC_DEMCHECKPATH"
+        }
+      ],
+      "disposition": "unmapped; no target identity or standalone behavior established"
+    },
+    {
+      "module": "dev",
+      "sources": {
+        "opennt": "92b7f0452900116416e92aaa43b2eb42800878b75b00582b988925ce6ab88826",
+        "dos6": "1fdd4f63b181b3575c649caf13ddc29b0d79c6ddc45a60957971a22a678f21a1",
+        "dos4": "59d2201c48a595d4839aaadb1c520448c69c24b77f7ac393e96e9ff72e674f79"
+      },
+      "opennt_direct_includes": [
+        "version.inc",
+        "dosseg.inc",
+        "DOSSYM.INC",
+        "DEVSYM.INC",
+        "sf.inc",
+        "dossvc.inc"
+      ],
+      "lexical_host_seam_candidates": [
+        {
+          "line": 333,
+          "code": "HRDSVC  SVC_DEMCHGFILEPTR"
+        },
+        {
+          "line": 344,
+          "code": "HRDSVC  SVC_DEMWRITE"
+        },
+        {
+          "line": 355,
+          "code": "HRDSVC  SVC_DEMREAD"
+        },
+        {
+          "line": 378,
+          "code": "SVC\tSVC_DEMPIPEFILEDATAEOF"
+        }
+      ],
+      "disposition": "unmapped; no target identity or standalone behavior established"
+    },
+    {
+      "module": "fcb",
+      "sources": {
+        "opennt": "5cec98077ce05b711aafc52f1ad2c1bb72c4845df272c4dc627355e9684d549c",
+        "dos6": "dd7c6d6b85d08585be900b91f329821a81c6ee9b5f1cb71268382af4fb39a01c",
+        "dos4": "f69cc55f2197e51f43ac8f75b011dad180cfe70c9315004af31ea22a59b32e89"
+      },
+      "opennt_direct_includes": [
+        "version.inc",
+        "dosseg.inc",
+        "dossym.inc",
+        "devsym.inc",
+        "doscntry.inc"
+      ],
+      "lexical_host_seam_candidates": [],
+      "disposition": "unmapped; no target identity or standalone behavior established"
+    },
+    {
+      "module": "msctrlc",
+      "sources": {
+        "opennt": "8d1b22b12a10eade8b6cf83276be13ac9e13971f3f83eeac3961ad8b3aa9120c",
+        "dos6": "251d8ede15d74e063a9f5a065366b9db06b3c6890f2a0d7a8ee553489d403143",
+        "dos4": "41a8fe8d5f7ac04a5dbb4972a38d754a3f8e69b442974fd4c117f5dfc26f3777"
+      },
+      "opennt_direct_includes": [
+        "version.inc",
+        "mssw.asm",
+        "dosseg.inc",
+        "DOSSYM.INC",
+        "DEVSYM.INC",
+        "mult.inc",
+        "pdb.inc",
+        "exe.inc",
+        "sf.inc",
+        "vector.inc",
+        "filemode.inc",
+        "mi.inc",
+        "syscall.inc",
+        "bugtyp.inc",
+        "dossvc.inc",
+        "vint.inc"
+      ],
+      "lexical_host_seam_candidates": [
+        {
+          "line": 53,
+          "code": "include vint.inc"
+        },
+        {
+          "line": 662,
+          "code": "SVC\tSVC_DEMRETRY"
+        },
+        {
+          "line": 977,
+          "code": "SVC\tSVC_PDBTERMINATE"
+        }
+      ],
+      "disposition": "unmapped; no target identity or standalone behavior established"
+    },
+    {
+      "module": "msproc",
+      "sources": {
+        "opennt": "8ef142f6940ebd00bb88a2f9fbfe73ff29842d630e96282101390e19c752c492",
+        "dos6": "4aa312105af8582066ac6fe55f47755f6192ac7f9f21a9f2658ab68050a65a98",
+        "dos4": "37d8e11c96fefed06a6312376cc9783d95b00ebc36cd3d5d6e57a41eaa8e429b"
+      },
+      "opennt_direct_includes": [
+        "version.inc",
+        "dosseg.inc",
+        "DOSSYM.INC",
+        "DEVSYM.INC",
+        "exe.inc",
+        "sf.inc",
+        "curdir.inc",
+        "syscall.inc",
+        "arena.inc",
+        "pdb.inc",
+        "vector.inc",
+        "cmdsvc.inc",
+        "dossvc.inc",
+        "bop.inc",
+        "vint.inc",
+        "dbgsvc.inc"
+      ],
+      "lexical_host_seam_candidates": [
+        {
+          "line": 40,
+          "code": "include bop.inc"
+        },
+        {
+          "line": 41,
+          "code": "include vint.inc"
+        },
+        {
+          "line": 412,
+          "code": "CMDSVC\tSVC_CMDCHECKBINARY"
+        },
+        {
+          "line": 1118,
+          "code": "SVC\tSVC_DEMLOADDOSAPPSYM"
+        },
+        {
+          "line": 1371,
+          "code": "SVC     SVC_DEMENTRYDOSAPP"
+        },
+        {
+          "line": 1765,
+          "code": "SVC\tSVC_DEMFREEDOSAPPSYM"
+        }
+      ],
+      "disposition": "unmapped; no target identity or standalone behavior established"
+    },
+    {
+      "module": "alloc",
+      "sources": {
+        "opennt": "9b84454f4b4f5371c8b8de1525d378b5108b9514bab9215761cbce28ba7aa249",
+        "dos6": "98c929ded7a515871ecf464ec96bbfda483b3ea4295c739ce1afcbd78ffdb450",
+        "dos4": "f9ce3fffff5e538dbea6ae542fe0c795b59611169c9ea6f9a5f6bf332b1f29b6"
+      },
+      "opennt_direct_includes": [
+        "version.inc",
+        "dosseg.inc",
+        "DOSSYM.INC",
+        "DEVSYM.INC",
+        "arena.inc"
+      ],
+      "lexical_host_seam_candidates": [],
+      "disposition": "unmapped; no target identity or standalone behavior established"
+    },
+    {
+      "module": "srvcall",
+      "sources": {
+        "opennt": "94476e5e9a7538ed1956b2ab6bb4751295fa9e045dc114756599f1bd16e61fa6",
+        "dos6": "2074931698e50d0f41e9584334b72fd622b49ed3c7595f2606acc584ed41a2f3",
+        "dos4": "33f0082003b89b42bd723e0829dbbc48afa0e35f43cf40115ac04d18319f4cd2"
+      },
+      "opennt_direct_includes": [
+        "version.inc",
+        "dosseg.inc",
+        "DOSSYM.INC",
+        "DEVSYM.INC",
+        "mult.inc",
+        "sf.inc",
+        "dpl.asm"
+      ],
+      "lexical_host_seam_candidates": [],
+      "disposition": "unmapped; no target identity or standalone behavior established"
+    },
+    {
+      "module": "segcheck",
+      "sources": {
+        "opennt": "6d42468cad2d40f90a3ceba950d173ffcf87e20ae0b5660cb8de0deb9689d4ef",
+        "dos6": "b5bbcf41397409b980277292477b75cca01212ba20909767273ffb9a34956da7",
+        "dos4": "f95db327f1d6759f9b33ac8e3c1253dbc1c4193200a381b1bf049ea9f64ff960"
+      },
+      "opennt_direct_includes": [
+        "version.inc",
+        "dosseg.inc",
+        "DOSSYM.INC",
+        "DEVSYM.INC",
+        "sf.inc",
+        "int2a.inc"
+      ],
+      "lexical_host_seam_candidates": [],
+      "disposition": "unmapped; no target identity or standalone behavior established"
+    },
+    {
+      "module": "util",
+      "sources": {
+        "opennt": "8e9636bad8d717e7e9daa6ec3a9e36eb6563969dfae2bf9bab47d232bdfe4889",
+        "dos6": "664389bd28b8c9455b32c2021d6a04ee2400931326d355f9604eff5ced23ab1e",
+        "dos4": "b2c42b788aefa0a27f4ef55d3a5a8d58cf2e6399743815385456978b8a2aac8a"
+      },
+      "opennt_direct_includes": [
+        "version.inc",
+        "dosseg.inc",
+        "DOSSYM.INC",
+        "DEVSYM.INC",
+        "pdb.inc",
+        "sf.inc",
+        "bugtyp.inc"
+      ],
+      "lexical_host_seam_candidates": [],
+      "disposition": "unmapped; no target identity or standalone behavior established"
+    },
+    {
+      "module": "handle",
+      "sources": {
+        "opennt": "c323c9d038460bc6a206d4cef1ff2fdc47151fc3e7ea8eda2db4224170771321",
+        "dos6": "f42fa91329b674864a5421b40be415b348a18f0793221b9c07d526b12924e90f",
+        "dos4": "bf0e36600531951bad96e3fc14d80e461012a6908c55054ed5c511d117edb22c"
+      },
+      "opennt_direct_includes": [
+        "version.inc",
+        "dosseg.inc",
+        "dossym.inc",
+        "devsym.inc",
+        "sf.inc",
+        "mult.inc",
+        "pdb.inc",
+        "filemode.inc",
+        "syscall.inc",
+        "bugtyp.inc",
+        "dossvc.inc",
+        "vint.inc"
+      ],
+      "lexical_host_seam_candidates": [
+        {
+          "line": 35,
+          "code": "include vint.inc"
+        },
+        {
+          "line": 140,
+          "code": "HRDSVC  SVC_DEMCLOSE"
+        },
+        {
+          "line": 222,
+          "code": "SVC\tSVC_DEMCOMMIT"
+        },
+        {
+          "line": 462,
+          "code": "SVC     SVC_DEMFASTREAD"
+        },
+        {
+          "line": 466,
+          "code": "HRDSVC  SVC_DEMREAD"
+        },
+        {
+          "line": 486,
+          "code": "SVC     SVC_DEMFASTWRITE"
+        },
+        {
+          "line": 490,
+          "code": "HRDSVC  SVC_DEMWRITE"
+        },
+        {
+          "line": 541,
+          "code": "SVC\tSVC_DEMPIPEFILEDATAEOF"
+        },
+        {
+          "line": 698,
+          "code": "HRDSVC  SVC_DEMCHGFILEPTR"
+        },
+        {
+          "line": 724,
+          "code": "HRDSVC  SVC_DEMCHGFILEPTR"
+        },
+        {
+          "line": 768,
+          "code": "SVC\tSVC_DEMPIPEFILEEOF"
+        },
+        {
+          "line": 840,
+          "code": "HRDSVC  SVC_DEMFILETIMES"
+        }
+      ],
+      "disposition": "unmapped; no target identity or standalone behavior established"
+    },
+    {
+      "module": "macro",
+      "sources": {
+        "opennt": "f539e62f8b1317b1d97b7c664bbf0262dc16f3591614209818f44d092c06e5f0",
+        "dos6": "86b39aee4b10eb6bec74ad5427047c348fb8270a3d6a3dc5818d6c8222a8a788",
+        "dos4": "3d6ee812ff39ee480ed2dfd72861f44434e9df06c8dcb83554f8692ed9fb9dad"
+      },
+      "opennt_direct_includes": [
+        "version.inc",
+        "dosseg.inc",
+        "DOSSYM.INC",
+        "DEVSYM.INC",
+        "mult.inc",
+        "curdir.inc",
+        "cmdsvc.inc",
+        "dossvc.inc"
+      ],
+      "lexical_host_seam_candidates": [
+        {
+          "line": 210,
+          "code": "SVC     SVC_DEMGETCOMPUTERNAME"
+        },
+        {
+          "line": 394,
+          "code": "CMDSVC  SVC_CMDGETCURDIR"
+        },
+        {
+          "line": 418,
+          "code": "CMDSVC\tSVC_CMDGETCURDIR"
+        }
+      ],
+      "disposition": "unmapped; no target identity or standalone behavior established"
+    },
+    {
+      "module": "macro2",
+      "sources": {
+        "opennt": "4535001b614701cece712a6d10f35f90c714d3f480a163116f3e20cc2862aa89",
+        "dos6": "599c74d3c01f65985e9ffa75fe6bf3eea8a5b36bdf8ef6808634f17deaab77d2",
+        "dos4": "f3752b30dbed059a4538eac14d77242c33ff59864f16b8f5957572027e80f003"
+      },
+      "opennt_direct_includes": [
+        "version.inc",
+        "dosseg.inc",
+        "DOSSYM.INC",
+        "DEVSYM.INC",
+        "mult.inc",
+        "curdir.inc"
+      ],
+      "lexical_host_seam_candidates": [],
+      "disposition": "unmapped; no target identity or standalone behavior established"
+    },
+    {
+      "module": "file",
+      "sources": {
+        "opennt": "09f6f2e06f14754cfe069335906d26676ab5538c7c569a33b2d62e052fcd633e",
+        "dos6": "28f25db8a2d344b22f3e6cf9618b5f85458c16b497978a2862283dbe721c7c77",
+        "dos4": "a3471406b4897971951066c394ce5108cbb4b1e99218e57158b9cd48c95a9705"
+      },
+      "opennt_direct_includes": [
+        "version.inc",
+        "dosseg.inc",
+        "dossym.inc",
+        "devsym.inc",
+        "sf.inc",
+        "filemode.inc",
+        "bugtyp.inc",
+        "dossvc.inc"
+      ],
+      "lexical_host_seam_candidates": [
+        {
+          "line": 203,
+          "code": "HRDSVC\tSVC_DEMCREATENEW"
+        },
+        {
+          "line": 207,
+          "code": "HRDSVC\tSVC_DEMCREATE"
+        },
+        {
+          "line": 212,
+          "code": "HRDSVC\tSVC_DEMOPEN"
+        },
+        {
+          "line": 385,
+          "code": "HRDSVC\tSVC_DEMCHMOD"
+        },
+        {
+          "line": 440,
+          "code": "HRDSVC\tSVC_DEMDELETE"
+        },
+        {
+          "line": 515,
+          "code": "HRDSVC\tSVC_DEMRENAME"
+        },
+        {
+          "line": 658,
+          "code": "SVC\tSVC_DEMQUERYTIME"
+        }
+      ],
+      "disposition": "unmapped; no target identity or standalone behavior established"
+    },
+    {
+      "module": "lock",
+      "sources": {
+        "opennt": "da0824bc6c56e0ed73b9ccd49522c95268d5b6e86e627b50c7a7f3fa648da3fe",
+        "dos6": "99dc1dbc2c37e6b2461d1c7921da39d54e81736e3424d2c95c5912a6351f0891",
+        "dos4": "cb2cf0af255642f930523af1ea7341543beb3eb17eb4347dfb5c123fd5b59ec4"
+      },
+      "opennt_direct_includes": [
+        "version.inc",
+        "dosseg.inc",
+        "DOSSYM.INC",
+        "DEVSYM.INC",
+        "lock.inc",
+        "mult.inc",
+        "sf.inc",
+        "dossvc.inc"
+      ],
+      "lexical_host_seam_candidates": [
+        {
+          "line": 111,
+          "code": "HRDSVC\tSVC_DEMLOCKOPER"
+        }
+      ],
+      "disposition": "unmapped; no target identity or standalone behavior established"
+    },
+    {
+      "module": "exepatch",
+      "sources": {
+        "opennt": "17ede81998c879d8977c3aa685736c01b15d859fad1465cd228c55072ece5d59",
+        "dos6": "ab3b9501d4ef3401a360692c5a4c59c24d19c6590231173c6cabba59d723d99a",
+        "dos4": null
+      },
+      "opennt_direct_includes": [
+        "version.inc",
+        "dosseg.inc",
+        "DOSSYM.INC",
+        "exe.inc",
+        "PDB.INC"
+      ],
+      "lexical_host_seam_candidates": [],
+      "disposition": "unmapped; no target identity or standalone behavior established"
+    },
+    {
+      "module": "msinit",
+      "sources": {
+        "opennt": "5b0f2e3e9fe9c083b8cf03e4307e9a90bddacddad22176062c59a314b8c46620",
+        "dos6": "67a662e3c6c186fd2fe0604624557077dcd7f8be65f85e3be01f26f250a0c2a0",
+        "dos4": "c6bf13b2cd5751fbbb7f70a7af84b01024752f7b5f546451ca284560ea152f81"
+      },
+      "opennt_direct_includes": [
+        "version.inc",
+        "dossym.inc",
+        "mssw.asm",
+        "dosseg.inc",
+        "sf.inc",
+        "curdir.inc",
+        "arena.inc",
+        "vector.inc",
+        "devsym.inc",
+        "pdb.inc",
+        "find.inc",
+        "mi.inc",
+        "xmm.inc",
+        "dossvc.inc",
+        "cmdsvc.inc",
+        "dbgsvc.inc",
+        "dpb.inc",
+        "sysvar.inc",
+        "doscntry.inc",
+        "fastopen.inc",
+        "bugtyp.inc",
+        "cputype.inc",
+        "win386.inc",
+        "doswow.inc"
+      ],
+      "lexical_host_seam_candidates": [
+        {
+          "line": 292,
+          "code": "SVC     SVC_DEMGETDRIVES"
+        },
+        {
+          "line": 305,
+          "code": "SVC     SVC_DEMSYSTEMSYMBOLOP"
+        },
+        {
+          "line": 311,
+          "code": "SVC     SVC_DEMSYSTEMSYMBOLOP"
+        },
+        {
+          "line": 331,
+          "code": "SVC     SVC_DEMSETDTALOCATION"
+        },
+        {
+          "line": 342,
+          "code": "SVC     SVC_DEMSETHARDERRORINFO"
+        },
+        {
+          "line": 350,
+          "code": "CMDSVC\tSVC_CMDSETINFO"
+        },
+        {
+          "line": 524,
+          "code": "SVC     SVC_DEMGETDPBLIST"
+        },
+        {
+          "line": 904,
+          "code": "SVC     SVC_DEMSYSTEMSYMBOLOP"
+        }
+      ],
+      "disposition": "unmapped; no target identity or standalone behavior established"
+    },
+    {
+      "module": "crit",
+      "sources": {
+        "opennt": "425d8fec7aeb45964595b33f3cdebb7dfd615e1ee76cc5fe631566a5d2acb8cc",
+        "dos6": "8f95042897a5d39cc514fa965f79e7f3538a213703ed98fb45d0d4cb7a9e3af1",
+        "dos4": "c8b96fb5e581fe084399f1bea5271c47c0f820aa5bbfa750a9deb523df3d1b2c"
+      },
+      "opennt_direct_includes": [
+        "version.inc",
+        "dosseg.inc",
+        "DOSSYM.INC",
+        "int2a.inc",
+        "vector.inc",
+        "bugtyp.inc"
+      ],
+      "lexical_host_seam_candidates": [],
+      "disposition": "unmapped; no target identity or standalone behavior established"
+    },
+    {
+      "module": "delete",
+      "sources": {
+        "opennt": null,
+        "dos6": "5fe514092accffa110a13a4f05dd2104664cfad87479f21bb57ea411d1cf1d77",
+        "dos4": "b0f375fa469d3502370f915cba512004e972b4c8a3e6c4e5b5045ce533e0756c"
+      },
+      "opennt_direct_includes": [],
+      "lexical_host_seam_candidates": [],
+      "disposition": "unmapped; no target identity or standalone behavior established"
+    },
+    {
+      "module": "rename",
+      "sources": {
+        "opennt": null,
+        "dos6": "e6b1bc6274952b29234230fb72dff9e2cb601558d75af5a298079df93b101dbd",
+        "dos4": "c5e8f2d61780e7b5541a8ef1c00815de3487185d02d94f68498e33cf005de70d"
+      },
+      "opennt_direct_includes": [],
+      "lexical_host_seam_candidates": [],
+      "disposition": "unmapped; no target identity or standalone behavior established"
+    },
+    {
+      "module": "finfo",
+      "sources": {
+        "opennt": null,
+        "dos6": "58ba5d206fe7c20eea409db6ac39ebcf2e59db19b5fc691f942b3ca90ec02c39",
+        "dos4": "91269f48b23e4d0c78ea45803551f83641b5a4229eebc925ddc8c850065a64bb"
+      },
+      "opennt_direct_includes": [],
+      "lexical_host_seam_candidates": [],
+      "disposition": "unmapped; no target identity or standalone behavior established"
+    },
+    {
+      "module": "create",
+      "sources": {
+        "opennt": null,
+        "dos6": "4a76a4fb11682cd81daca1dd2af9afe79fcf21db428a3e19d32af51ea902e9bb",
+        "dos4": "0417865e4f0e8550de69d24f110c859a20e5d929757fca115747c30a5b23d6dd"
+      },
+      "opennt_direct_includes": [],
+      "lexical_host_seam_candidates": [],
+      "disposition": "unmapped; no target identity or standalone behavior established"
+    },
+    {
+      "module": "dinfo",
+      "sources": {
+        "opennt": null,
+        "dos6": "3bc73774ddcecfc61214336f65449da0331edfd9513c5752100fcfd6fd481c51",
+        "dos4": "6a9b51fac1e60d0314eeaf42085dd04b7377e7647eac6a4d2aa116b514c92209"
+      },
+      "opennt_direct_includes": [],
+      "lexical_host_seam_candidates": [],
+      "disposition": "unmapped; no target identity or standalone behavior established"
+    },
+    {
+      "module": "isearch",
+      "sources": {
+        "opennt": null,
+        "dos6": "ec0bb3be4beec3c99e8931d737222a09f1c5f728009ea4efd27a09d2936cc039",
+        "dos4": "36b5ad74ce11915b443510b9ba108589573dc19988ae4f463165f2ac2eeb5339"
+      },
+      "opennt_direct_includes": [],
+      "lexical_host_seam_candidates": [],
+      "disposition": "unmapped; no target identity or standalone behavior established"
+    },
+    {
+      "module": "close",
+      "sources": {
+        "opennt": null,
+        "dos6": "b9bcb41f70577e9bf407eabfbca3f974cc0c428b93a7574b54be27581821b46b",
+        "dos4": "3911b0dcc5ecee662e1a05e500ee1f7b4aa50179a374cfe92ffd8bbe9885c6a5"
+      },
+      "opennt_direct_includes": [],
+      "lexical_host_seam_candidates": [],
+      "disposition": "unmapped; no target identity or standalone behavior established"
+    },
+    {
+      "module": "dircall",
+      "sources": {
+        "opennt": null,
+        "dos6": "769049ce7d690ab8be44205a66cf4d8c900048ef7ec230655599e2b8a5e47a19",
+        "dos4": "1e635e391029e934fc1997e627844c1280918308027eae91659acc3b999a1c9a"
+      },
+      "opennt_direct_includes": [],
+      "lexical_host_seam_candidates": [],
+      "disposition": "unmapped; no target identity or standalone behavior established"
+    },
+    {
+      "module": "disk2",
+      "sources": {
+        "opennt": null,
+        "dos6": "0876bb2c21d9232c3de57ee681c39b028003c09eeb58db36f6f2d9bda4527cb8",
+        "dos4": "7aaa5493f8a3f4bb07c5b786089ab13d719435dbea66bfd9737e0fb5a3b43342"
+      },
+      "opennt_direct_includes": [],
+      "lexical_host_seam_candidates": [],
+      "disposition": "unmapped; no target identity or standalone behavior established"
+    },
+    {
+      "module": "disk3",
+      "sources": {
+        "opennt": null,
+        "dos6": "9576ede44a7a1ff86d46cd8ed02749d783a48ff2d39b703a26d007139f821fdd",
+        "dos4": "e67d369b433c308f7a41df91a453a6be50559da9421811421182c380147923d4"
+      },
+      "opennt_direct_includes": [],
+      "lexical_host_seam_candidates": [],
+      "disposition": "unmapped; no target identity or standalone behavior established"
+    },
+    {
+      "module": "dir",
+      "sources": {
+        "opennt": null,
+        "dos6": "03ef140acfbe6288adb7d6571a839d8089daa7d6d00e531abaae6735419dc63b",
+        "dos4": "2de0bfbeaebc5063f492c21e03062aaaaed05090557977141ef6a247e623d492"
+      },
+      "opennt_direct_includes": [],
+      "lexical_host_seam_candidates": [],
+      "disposition": "unmapped; no target identity or standalone behavior established"
+    },
+    {
+      "module": "mknode",
+      "sources": {
+        "opennt": null,
+        "dos6": "e3c479c9179857e03b6c360931201a1db68af23234dd92408e84c11a50854158",
+        "dos4": "0611bc05262a44799b8e8e750de9d7818886bfeab5a14df822baa72fac254f5e"
+      },
+      "opennt_direct_includes": [],
+      "lexical_host_seam_candidates": [],
+      "disposition": "unmapped; no target identity or standalone behavior established"
+    },
+    {
+      "module": "rom",
+      "sources": {
+        "opennt": null,
+        "dos6": "870a70fa594015cf46864fee33e861cfa5d4367631c832d16b509718c4cc294c",
+        "dos4": "8ed3019c3d76d3732b617459f8e733fe3764af03e592a603755d4f1d6b5db11d"
+      },
+      "opennt_direct_includes": [],
+      "lexical_host_seam_candidates": [],
+      "disposition": "unmapped; no target identity or standalone behavior established"
+    },
+    {
+      "module": "fat",
+      "sources": {
+        "opennt": null,
+        "dos6": "69b434ab7d945e6de0fbfe9e6a657de2d622a54f92661d4117721a5be15f385f",
+        "dos4": "9a7327b01d894421bc8057ee164d6a39e359e6e04de2c7dc21ee4bca62520a00"
+      },
+      "opennt_direct_includes": [],
+      "lexical_host_seam_candidates": [],
+      "disposition": "unmapped; no target identity or standalone behavior established"
+    },
+    {
+      "module": "buf",
+      "sources": {
+        "opennt": null,
+        "dos6": "b162899aabcec71289e34b82326457544fd0e794fd20ee97a2f063ce1542ba21",
+        "dos4": "a556986bdd62dd602e6f5e100ad4458986470eb58e9c46aa5683762fa3594b0d"
+      },
+      "opennt_direct_includes": [],
+      "lexical_host_seam_candidates": [],
+      "disposition": "unmapped; no target identity or standalone behavior established"
+    },
+    {
+      "module": "dosprint",
+      "sources": {
+        "opennt": null,
+        "dos6": "96412d605a3e19ccfaa9a4fdd57a8949eca7fce3950cf81bc4e3c6bf491b05ba",
+        "dos4": "0e1b49ff44bb485018bf6d288dbbb8271316e8c712d58fcfbd212ed593231d57"
+      },
+      "opennt_direct_includes": [],
+      "lexical_host_seam_candidates": [],
+      "disposition": "unmapped; no target identity or standalone behavior established"
+    },
+    {
+      "module": "romfind",
+      "sources": {
+        "opennt": null,
+        "dos6": "f334bb028ed5ab0ae924865ce21be8b98c43ea2ab59d8624ff5bb51b99d4fb51",
+        "dos4": null
+      },
+      "opennt_direct_includes": [],
+      "lexical_host_seam_candidates": [],
+      "disposition": "unmapped; no target identity or standalone behavior established"
+    },
+    {
+      "module": "share",
+      "sources": {
+        "opennt": null,
+        "dos6": "0eb75b8acef5c5dd2bd86d0c7b26ae885ba72d18c2e5bc2d2b01476ef46f1aa7",
+        "dos4": "7e9ea5bc892dde2d5277ce69abc5ba3608746714bd83da1927c9d8efba049373"
+      },
+      "opennt_direct_includes": [],
+      "lexical_host_seam_candidates": [],
+      "disposition": "unmapped; no target identity or standalone behavior established"
+    }
+  ],
+  "dos6_only_link_units": [
+    "crit",
+    "delete",
+    "rename",
+    "finfo",
+    "create",
+    "dinfo",
+    "isearch",
+    "close",
+    "dircall",
+    "disk2",
+    "disk3",
+    "dir",
+    "mknode",
+    "rom",
+    "fat",
+    "buf",
+    "dosprint",
+    "romfind",
+    "share"
+  ],
+  "build_recipe": {
+    "opennt_make_inc": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\make.inc",
+    "opennt_make_inc_sha256": "e9d2e142803b748ce09ad7c6f91ac062c1a2f02493fdc7350e63b63db7836a4f",
+    "pipeline": [
+      "NOSRVBLD msdos.skl usa-ms.msg",
+      "MASM per linked unit",
+      "LINK /MAP @msdos.lnk",
+      "RELOC",
+      "STRIPZ"
+    ],
+    "status": "Execution evidence is separately recorded in m4-t5-reference-link.json"
+  }
+}

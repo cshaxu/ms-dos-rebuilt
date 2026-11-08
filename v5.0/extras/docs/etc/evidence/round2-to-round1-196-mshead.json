@@ -1,0 +1,28 @@
+{
+  "index": 196,
+  "file": "inc/mshead.asm",
+  "reviewed_sha256": "6d8f6206d82dbd2eabc6a2f8ad1ab9a9535acff0ba95232a0cbca3dff3a4f29d",
+  "decision": "retain_round2",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\inc\\mshead.asm",
+      "sha256": "a1572e2b8b0b2b840df0c6317d7072901f381ce2c1fe793cd5966a2e07309d29"
+    },
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\INC\\MSHEAD.ASM",
+      "sha256": "42e225d75e527c45b82d714a17e86ab7952529d48dd7a1f7f9e8343a88db64d7"
+    },
+    {
+      "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\inc\\mshead.asm",
+      "sha256": "080ccf82e02da9eb2f1502053cf15c74e19dc1335ddd055cd49bbfa792c5e537"
+    }
+  ],
+  "reason": [
+    "OpenNT code lines match but its complete file adds NTDOS.SYS and DOSEm port history, inappropriate for DOS 5.",
+    "DOS 6 adds ROMDOS conditionals around the startup jump and DosDSeg allocation; replacing the file would add unverified optional-configuration behavior.",
+    "DOS 4 uses different START/LAST segment structure and includes."
+  ],
+  "change": "No source change.",
+  "verification": "Current NT/BOP lexical scan has no hits; latest integrated-source-t61pmujw build matches all three pinned targets.",
+  "limitations": "Reference correspondence and default binary identity do not independently establish all historical source text or optional configuration behavior."
+}

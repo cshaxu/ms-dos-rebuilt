@@ -1,0 +1,28 @@
+{
+  "index": 150,
+  "file": "cmd/command/tmisc1.asm",
+  "reviewed_sha256": "14b15d90d67642f9f23d483b5c04e9f62ef839dfd6f077cd65225e5c70db18c8",
+  "decision": "retain_round2",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\tmisc1.asm",
+      "sha256": "47cedfe55759e8b91640bb819283e51b66bac039cf9e287d65ef36f7a333588e"
+    },
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\CMD\\COMMAND\\TMISC1.ASM",
+      "sha256": "69afd734721dd9cbf9081955cfb00d629e6b2de3021b1fc52be00aa8f1c7c849"
+    },
+    {
+      "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tmisc1.asm",
+      "sha256": "6d9fcd49ae29b1bec75ba82a11f7867822066156836b9fb6faf9c2637f8ab341"
+    }
+  ],
+  "reason": [
+    "DOS 6 adds ROM executable search and changes beta warning version/date constants, among other conditional differences.",
+    "OpenNT adds GetNextVdmCommand and BOP-supplied execution path handling.",
+    "DOS 4 differs substantially in command handling."
+  ],
+  "change": "No source change.",
+  "verification": "Latest integrated-source-ye1qp0mo matches all three retained targets; current lexical scan has no hits.",
+  "limitations": "Default target build does not prove optional ROM/BETA paths or historical original source."
+}

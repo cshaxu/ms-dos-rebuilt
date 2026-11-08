@@ -1,0 +1,924 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\macro2-full-recovery-vmhd25oa",
+  "source": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\dos\\macro2.full.recovery.asm",
+  "source_sha256": "7e7fc3158e8999743af956db2854c30caa6ecd2b83ad7c015326784dee511529",
+  "tool_sha256": "e54afaa9565e046cd862c29a015d685de43311acccf796469030e162ced6d00d",
+  "target_source": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\target-kernel-inspect.bin",
+  "comparative_reference": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\macro2.asm",
+  "comparative_reference_sha256": "599c74d3c01f65985e9ffa75fe6bf3eea8a5b36bdf8ef6808634f17deaab77d2",
+  "local_header_inventory": {
+    "dos\\divmes.inc": "4635ff455355c3c152d361972b7a599c14d25e33eae754f7eb983c75a8319f11",
+    "dos\\dosmes.inc": "5278bfe57c6598113b6bd89a7fa69bc36423e375302266cde4f8b02c0a593608",
+    "dos\\reference.make.inc": "e9d2e142803b748ce09ad7c6f91ac062c1a2f02493fdc7350e63b63db7836a4f",
+    "dos\\scnam.inc": "9309eba70b5aba0bb7ccb8278496300072c1872396d384422ee4346e48a1c44e",
+    "inc\\arena.inc": "f9038d0e38e15cd636ec229abb33c3831f7cfd8b0b53c0c96a01b05ed42c5fbd",
+    "inc\\bdsize.inc": "eaf5420a062d06b200ec7e80192c5c1c7cc8957363f863891b1afaf988d6041d",
+    "inc\\bpb.inc": "43452ad264b7242d892634f19bfcd036f8a2f1c926745466b27039e8c5f960a8",
+    "inc\\buffer.INC": "0e6f472f08df268434a3a2bdc34bc807dd856d86eb0d02fee58886245cb0b8a9",
+    "inc\\bugtyp.inc": "e61e02f48c5257d3ed0be51e22be6618955225aad2db1ef54e9a16e8331d5a20",
+    "inc\\COPYRIGH.INC": "5f5ba93635d6200394f545d20d91532da8ff30d1eacda0d786d79d61cd488ae7",
+    "inc\\cpmfcb.inc": "9cc5117113485abede5c9b73ed26a291984e8b894ff239477ad228bc63319b5c",
+    "inc\\cputype.inc": "34144664bdb7ce50e672b428689eb174eafbd4455acd7e5e8a80406a4452d439",
+    "inc\\devsym.inc": "bbfcd2923aa6c6278ed53d21980305ae97bdf78c0cf2950e2e1ac5317a9a7dff",
+    "inc\\dirent.INC": "d3199a48b1815444e04cf3e0e05b2a21168038f5c9440b267cca67820e474dfe",
+    "inc\\doscntry.inc": "cbc519145c8c29f229844fde16fae2ebf06b6266e01897e29b0539bd555b8a97",
+    "inc\\dosmac.INC": "6c6abe9a647d14c57f97c0bd3afafcdee6624f636fff273f2d996a7b21a693c2",
+    "inc\\dosseg.inc": "b485ff060b5086a1884591163ae088f2ea0f379c22ea7ed96801ae371880749a",
+    "inc\\dossym.inc": "e17a46ea59396490cec2dcbaf1e8e48beae2a92f7a52a519c43f14a1e2303a36",
+    "inc\\dpb.inc": "78a9717b8fe123d31651d6351adeb6789501ef273ce2476316f5d4ec7c450ec0",
+    "inc\\error.INC": "4e44f0694a7db2a15df780a3e6bb916f5f5722aca9f3df8daf4f148f0321cd8f",
+    "inc\\exe.inc": "cb88f289660af5f35a39fe6d0bd50835aeecd19a448227798f56ea85b89ba37a",
+    "inc\\fastopen.inc": "bfe2cde39a806bb6cab4665250c832a3643d3be198b4d14a9c8ba5ae2342f57d",
+    "inc\\fastxxxx.inc": "4c1d828fc57d051876859c18af8686db931215a513ea1fb760d1650d1ee3e2fb",
+    "inc\\filemode.inc": "1ed4f86e30874fd29bbf1db7d8d7bf541b3e29f9b52e3eb9cf62b007f6c88a05",
+    "inc\\find.inc": "7380ee0229ef50d6a2afaa0dcece6ab2a333217df09234037cc4a329686d47eb",
+    "inc\\int2a.inc": "a425a0ed47e3ee9264f1008d3646d17f1241be01659aa5ffca8f718ca5372161",
+    "inc\\intnat.inc": "e38d3c8a8b82f4d2b622a9bf276b087d2bb6e4e7fe33658354b06b33466ec970",
+    "inc\\ioctl.inc": "5afdc64aa6d91c4c503c9d27fe4982517f3a762b94413ee8a882a49f3736ff2f",
+    "inc\\lock.inc": "2889df10fd8228bda5c88b1ded3e0b0404335935a980cbbcd86c6417cb25d169",
+    "inc\\mi.inc": "e9c3475c654c335705ed3609ab9041a8e78b3092aad65261d7d58d74f84c0650",
+    "inc\\msbdata.inc": "71fc814eb557ddac186990c67ea55a73a5f02318a7455a072fb690f1ef4ce7be",
+    "inc\\msgdcl.inc": "19d6d486f224ddea638b566c043d949e7fba79c011f1fea254989c274feff924",
+    "inc\\mult.inc": "517bc33792cc568eb350308b931ad87b75b1d42255341950fe394df9302c48fb",
+    "inc\\origin.inc": "ef20115ebe9c9592eb87e9b21a0ebe036592ca6cf44e389d67093a80db3d008d",
+    "inc\\pdb.inc": "d247016c2a40694f8285fc33d193fd87dca9df96d50450258da170eb16e32746",
+    "inc\\psdata.inc": "bbdc48017d30a9b4b14289b0ea5003cf89b06cbbf2dc7930e30aab09983997ab",
+    "inc\\rombios.inc": "7d9d0098545cff9fdb3eef264552887d23d6ea3f175728ef5fd6f0514561ec42",
+    "inc\\sf.inc": "a7598805cfaad479960f0891903aaab458c975d8f14f6e1acfe25b44f06a2093",
+    "inc\\syscall.inc": "23cf7f5e2e180337a0c2219ae013494e2a106103655c0d00fa8631ce9de2e79d",
+    "inc\\SYSMSG.INC": "d41dc5fb8e50940cbcf356e5ba73f34adb777d1e4053f77a0c1cf9682aa862bd",
+    "inc\\sysvar.inc": "851f7781c4d1c3e0d21e3fb0e2a53af3d809d6eb93fb35584d2ea351f0be00b8",
+    "inc\\vector.inc": "c7fdd8e4468d28c8abed6c7d6e6e5e292d5dc21251821b29212eb1c61536fb12",
+    "inc\\version.inc": "387730c471bbfde2d45b08d8df86bebd430fe5abb9a8ee12688f6aa141f6f7d6",
+    "inc\\VERSIONA.INC": "df1d5b2a37fbd511701d993d7362a6cb11c3ab077bda674a69948bf71bbb958c",
+    "inc\\win386.inc": "6d76db4ccfe544931bd6daad6fca29c3f92a68ebda1a32e1470ad2d53e5f7238",
+    "inc\\wpatch.inc": "a5218655835870f97838b703b98c4e2578301aaac7a761c29ea751c41004beb3",
+    "inc\\xmm.inc": "a426a10a662ef94ec973d045cea21e3c5a3687bfc79b7b3c02d811a35215738e",
+    "inc\\kernel\\cputype.inc": "e9bf8b0a5ee0e10936d5403cddadacc898ce1f8b6807ab955b2d0639e5b50cb0",
+    "inc\\kernel\\curdir.inc": "bc780ae1b35d018b2ec60f7c49465e4a52b1f1356832d4d178a6f0f5f228cda4",
+    "inc\\ntvdm\\bop.inc": "a3705f225c47e53dc4e106c7362366477f2f06c33cb9bf52515ca1299556f669",
+    "inc\\ntvdm\\cmdsvc.inc": "7643746ceec383536ca3ea2cfc4400ac94c8c7a34bd266b09258cfcb337441c6",
+    "inc\\ntvdm\\curdir.inc": "8490c9aa0702bc17b6f73483837159934aa8c8f353df5402b71812ea87d63762",
+    "inc\\ntvdm\\DBGSVC.INC": "296a6387cfe02445e6c8d43f9f68e1fd4dfbd9d654de3ba6460dee54f6dfc171",
+    "inc\\ntvdm\\dossvc.inc": "07c4676c9a44418c5a0175acc7a09c251bde892b0a838381edeee26e49c9faf3",
+    "inc\\ntvdm\\DOSWOW.INC": "d6bd8a52bff2980dacab518da8f2330da5bb978e6c07d1846662078da49444fb",
+    "inc\\ntvdm\\vint.inc": "2ba06b3eea9a8ec96236d96ff7d996274b3feb5ac456524d6a9e8bd6a44541c7"
+  },
+  "comparison_headers": {
+    "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\inc\\sf.inc": "98f38dad3562b516b4232ceb309a16f6b3ec8f4a899f99a7e433380f466df98d"
+  },
+  "object_sha256": "e986303563d20beb1c3f6aa03ae53668e00d29bfb22734be939f61ba6495b38a",
+  "map_sha256": "9de1d07545a51baeef4736abbfe72b8cba97d2ead3e78ba39ba015b147f95210",
+  "command": [
+    "O:\\repos.hobby\\ntvdm64\\tools\\opennt\\tools16\\masm.exe",
+    "-Mx",
+    "-t",
+    "-W1",
+    "-I.",
+    "-I..\\..\\dos",
+    "-I..\\..\\inc\\kernel",
+    "-I..\\..\\inc",
+    "-I..\\..\\inc\\ntvdm",
+    "buf.asm,buf.obj,buf.lst;"
+  ],
+  "exit": 0,
+  "target_start": 27911,
+  "target_end": 28893,
+  "bytes": 982,
+  "candidate_sha256": "2a65aef97e6dadb95d4225929e43cf8299cd4648798000ed59034d54b514b283",
+  "target_slice_sha256": "2a65aef97e6dadb95d4225929e43cf8299cd4648798000ed59034d54b514b283",
+  "relocations": [
+    {
+      "offset": 16,
+      "symbol": "ExtFCB",
+      "displacement": 0,
+      "relative": false,
+      "value": 1388
+    },
+    {
+      "offset": 22,
+      "symbol": "Sattrib",
+      "displacement": 0,
+      "relative": false,
+      "value": 1389
+    },
+    {
+      "offset": 26,
+      "symbol": "GetExtended",
+      "displacement": 0,
+      "relative": true,
+      "value": 45065
+    },
+    {
+      "offset": 35,
+      "symbol": "Sattrib",
+      "displacement": 0,
+      "relative": false,
+      "value": 1389
+    },
+    {
+      "offset": 40,
+      "symbol": "ExtFCB",
+      "displacement": 0,
+      "relative": false,
+      "value": 1388
+    },
+    {
+      "offset": 45,
+      "symbol": "GetThisDrv",
+      "displacement": 0,
+      "relative": true,
+      "value": 65366
+    },
+    {
+      "offset": 50,
+      "symbol": "DOSCODE",
+      "displacement": 939,
+      "relative": true,
+      "value": 887
+    },
+    {
+      "offset": 58,
+      "symbol": "GetCharType",
+      "displacement": 0,
+      "relative": true,
+      "value": 58587
+    },
+    {
+      "offset": 70,
+      "symbol": "PackName",
+      "displacement": 0,
+      "relative": true,
+      "value": 46141
+    },
+    {
+      "offset": 86,
+      "symbol": "DOSCODE",
+      "displacement": 102,
+      "relative": true,
+      "value": 14
+    },
+    {
+      "offset": 106,
+      "symbol": "NoSetDir",
+      "displacement": 0,
+      "relative": false,
+      "value": 844
+    },
+    {
+      "offset": 112,
+      "symbol": "fSplice",
+      "displacement": 0,
+      "relative": false,
+      "value": 1393
+    },
+    {
+      "offset": 117,
+      "symbol": "cMeta",
+      "displacement": 0,
+      "relative": false,
+      "value": 1402
+    },
+    {
+      "offset": 123,
+      "symbol": "WFP_Start",
+      "displacement": 0,
+      "relative": false,
+      "value": 1458
+    },
+    {
+      "offset": 128,
+      "symbol": "Curr_Dir_End",
+      "displacement": 0,
+      "relative": false,
+      "value": 1462
+    },
+    {
+      "offset": 141,
+      "symbol": "fSharing",
+      "displacement": 0,
+      "relative": false,
+      "value": 1394
+    },
+    {
+      "offset": 147,
+      "symbol": "DOSCODE",
+      "displacement": 916,
+      "relative": true,
+      "value": 767
+    },
+    {
+      "offset": 150,
+      "symbol": "GetThisDrv",
+      "displacement": 0,
+      "relative": true,
+      "value": 65261
+    },
+    {
+      "offset": 155,
+      "symbol": "DOSCODE",
+      "displacement": 939,
+      "relative": true,
+      "value": 782
+    },
+    {
+      "offset": 161,
+      "symbol": "DOSCODE",
+      "displacement": 472,
+      "relative": true,
+      "value": 309
+    },
+    {
+      "offset": 169,
+      "symbol": "WFP_Start",
+      "displacement": 0,
+      "relative": false,
+      "value": 1458
+    },
+    {
+      "offset": 173,
+      "symbol": "fSplice",
+      "displacement": 0,
+      "relative": false,
+      "value": 1393
+    },
+    {
+      "offset": 179,
+      "symbol": "DOSCODE",
+      "displacement": 744,
+      "relative": true,
+      "value": 563
+    },
+    {
+      "offset": 185,
+      "symbol": "ThisCDS",
+      "displacement": 0,
+      "relative": false,
+      "value": 1442
+    },
+    {
+      "offset": 188,
+      "symbol": "EcritDisk",
+      "displacement": 0,
+      "relative": true,
+      "value": 42385
+    },
+    {
+      "offset": 191,
+      "symbol": "FatRead_CDS",
+      "displacement": 0,
+      "relative": true,
+      "value": 60113
+    },
+    {
+      "offset": 194,
+      "symbol": "LcritDisk",
+      "displacement": 0,
+      "relative": true,
+      "value": 42411
+    },
+    {
+      "offset": 202,
+      "symbol": "ThisCDS",
+      "displacement": 0,
+      "relative": false,
+      "value": 1442
+    },
+    {
+      "offset": 214,
+      "symbol": "DOSCODE",
+      "displacement": 916,
+      "relative": true,
+      "value": 700
+    },
+    {
+      "offset": 220,
+      "symbol": "PathChrCmp",
+      "displacement": 0,
+      "relative": true,
+      "value": 58454
+    },
+    {
+      "offset": 225,
+      "symbol": "PathChrCmp",
+      "displacement": 0,
+      "relative": true,
+      "value": 58449
+    },
+    {
+      "offset": 237,
+      "symbol": "UCase",
+      "displacement": 0,
+      "relative": true,
+      "value": 58352
+    },
+    {
+      "offset": 244,
+      "symbol": "PathChrCmp",
+      "displacement": 0,
+      "relative": true,
+      "value": 58430
+    },
+    {
+      "offset": 252,
+      "symbol": "DOSCODE",
+      "displacement": 472,
+      "relative": true,
+      "value": 218
+    },
+    {
+      "offset": 273,
+      "symbol": "CheckThisDevice",
+      "displacement": 0,
+      "relative": true,
+      "value": 54895
+    },
+    {
+      "offset": 282,
+      "symbol": "fSharing",
+      "displacement": 0,
+      "relative": false,
+      "value": 1394
+    },
+    {
+      "offset": 286,
+      "symbol": "GetThisDrv",
+      "displacement": 0,
+      "relative": true,
+      "value": 65125
+    },
+    {
+      "offset": 291,
+      "symbol": "fSharing",
+      "displacement": 0,
+      "relative": false,
+      "value": 1394
+    },
+    {
+      "offset": 295,
+      "symbol": "DOSCODE",
+      "displacement": 939,
+      "relative": true,
+      "value": 642
+    },
+    {
+      "offset": 301,
+      "symbol": "StrCpy",
+      "displacement": 0,
+      "relative": true,
+      "value": 41951
+    },
+    {
+      "offset": 308,
+      "symbol": "GetVisDrv",
+      "displacement": 0,
+      "relative": true,
+      "value": 65074
+    },
+    {
+      "offset": 319,
+      "symbol": "ValidateCDS",
+      "displacement": 0,
+      "relative": true,
+      "value": 54659
+    },
+    {
+      "offset": 334,
+      "symbol": "ThisCDS",
+      "displacement": 0,
+      "relative": false,
+      "value": 1442
+    },
+    {
+      "offset": 346,
+      "symbol": "FStrCpy",
+      "displacement": 0,
+      "relative": true,
+      "value": 41921
+    },
+    {
+      "offset": 362,
+      "symbol": "DOSCODE",
+      "displacement": 573,
+      "relative": true,
+      "value": 209
+    },
+    {
+      "offset": 374,
+      "symbol": "PathChrCmp",
+      "displacement": 0,
+      "relative": true,
+      "value": 58300
+    },
+    {
+      "offset": 387,
+      "symbol": "DOSCODE",
+      "displacement": 472,
+      "relative": true,
+      "value": 83
+    },
+    {
+      "offset": 395,
+      "symbol": "WFP_Start",
+      "displacement": 0,
+      "relative": false,
+      "value": 1458
+    },
+    {
+      "offset": 399,
+      "symbol": "ThisCDS",
+      "displacement": 0,
+      "relative": false,
+      "value": 1442
+    },
+    {
+      "offset": 402,
+      "symbol": "DOSCODE",
+      "displacement": 947,
+      "relative": true,
+      "value": 543
+    },
+    {
+      "offset": 410,
+      "symbol": "PathChrCmp",
+      "displacement": 0,
+      "relative": true,
+      "value": 58264
+    },
+    {
+      "offset": 424,
+      "symbol": "Curr_Dir_End",
+      "displacement": 0,
+      "relative": false,
+      "value": 1462
+    },
+    {
+      "offset": 430,
+      "symbol": "WFP_Start",
+      "displacement": 0,
+      "relative": false,
+      "value": 1458
+    },
+    {
+      "offset": 436,
+      "symbol": "fSplice",
+      "displacement": 0,
+      "relative": false,
+      "value": 1393
+    },
+    {
+      "offset": 442,
+      "symbol": "DOSCODE",
+      "displacement": 744,
+      "relative": true,
+      "value": 300
+    },
+    {
+      "offset": 448,
+      "symbol": "ThisCDS",
+      "displacement": 0,
+      "relative": false,
+      "value": 1442
+    },
+    {
+      "offset": 461,
+      "symbol": "EcritDisk",
+      "displacement": 0,
+      "relative": true,
+      "value": 42112
+    },
+    {
+      "offset": 464,
+      "symbol": "FatRead_CDS",
+      "displacement": 0,
+      "relative": true,
+      "value": 59840
+    },
+    {
+      "offset": 467,
+      "symbol": "LcritDisk",
+      "displacement": 0,
+      "relative": true,
+      "value": 42138
+    },
+    {
+      "offset": 474,
+      "symbol": "PathChrCmp",
+      "displacement": 0,
+      "relative": true,
+      "value": 58200
+    },
+    {
+      "offset": 508,
+      "symbol": "DOSCODE",
+      "displacement": 972,
+      "relative": true,
+      "value": 462
+    },
+    {
+      "offset": 519,
+      "symbol": "DOSCODE",
+      "displacement": 602,
+      "relative": true,
+      "value": 81
+    },
+    {
+      "offset": 538,
+      "symbol": "DOSCODE",
+      "displacement": 583,
+      "relative": true,
+      "value": 43
+    },
+    {
+      "offset": 549,
+      "symbol": "DOSCODE",
+      "displacement": 573,
+      "relative": true,
+      "value": 22
+    },
+    {
+      "offset": 555,
+      "symbol": "PathChrCmp",
+      "displacement": 0,
+      "relative": true,
+      "value": 58119
+    },
+    {
+      "offset": 566,
+      "symbol": "PathChrCmp",
+      "displacement": 0,
+      "relative": true,
+      "value": 58108
+    },
+    {
+      "offset": 580,
+      "symbol": "PathChrCmp",
+      "displacement": 0,
+      "relative": true,
+      "value": 58094
+    },
+    {
+      "offset": 592,
+      "symbol": "PathChrCmp",
+      "displacement": 0,
+      "relative": true,
+      "value": 58082
+    },
+    {
+      "offset": 621,
+      "symbol": "DOSCODE",
+      "displacement": 573,
+      "relative": true,
+      "value": 65486
+    },
+    {
+      "offset": 632,
+      "symbol": "DOSCODE",
+      "displacement": 573,
+      "relative": true,
+      "value": 65475
+    },
+    {
+      "offset": 648,
+      "symbol": "NameTrans",
+      "displacement": 0,
+      "relative": true,
+      "value": 57832
+    },
+    {
+      "offset": 658,
+      "symbol": "fSharing",
+      "displacement": 0,
+      "relative": false,
+      "value": 1394
+    },
+    {
+      "offset": 669,
+      "symbol": "cMeta",
+      "displacement": 0,
+      "relative": false,
+      "value": 1402
+    },
+    {
+      "offset": 685,
+      "symbol": "NAME1",
+      "displacement": 0,
+      "relative": false,
+      "value": 1355
+    },
+    {
+      "offset": 692,
+      "symbol": "PackName",
+      "displacement": 0,
+      "relative": true,
+      "value": 45519
+    },
+    {
+      "offset": 696,
+      "symbol": "StrLen",
+      "displacement": 0,
+      "relative": true,
+      "value": 41580
+    },
+    {
+      "offset": 713,
+      "symbol": "FStrCpy",
+      "displacement": 0,
+      "relative": true,
+      "value": 41554
+    },
+    {
+      "offset": 720,
+      "symbol": "DOSCODE",
+      "displacement": 972,
+      "relative": true,
+      "value": 250
+    },
+    {
+      "offset": 739,
+      "symbol": "StrLen",
+      "displacement": 0,
+      "relative": true,
+      "value": 41537
+    },
+    {
+      "offset": 747,
+      "symbol": "Splices",
+      "displacement": 0,
+      "relative": false,
+      "value": 90
+    },
+    {
+      "offset": 755,
+      "symbol": "ThisCDS",
+      "displacement": 0,
+      "relative": false,
+      "value": 1442
+    },
+    {
+      "offset": 760,
+      "symbol": "ThisCDS",
+      "displacement": 2,
+      "relative": false,
+      "value": 1444
+    },
+    {
+      "offset": 769,
+      "symbol": "GetCDSFromDrv",
+      "displacement": 0,
+      "relative": true,
+      "value": 64729
+    },
+    {
+      "offset": 784,
+      "symbol": "DOSCODE",
+      "displacement": 947,
+      "relative": true,
+      "value": 161
+    },
+    {
+      "offset": 800,
+      "symbol": "NoSetDir",
+      "displacement": 0,
+      "relative": false,
+      "value": 844
+    },
+    {
+      "offset": 811,
+      "symbol": "DOSCODE",
+      "displacement": 941,
+      "relative": true,
+      "value": 128
+    },
+    {
+      "offset": 815,
+      "symbol": "Curr_Dir_End",
+      "displacement": 0,
+      "relative": false,
+      "value": 1462
+    },
+    {
+      "offset": 827,
+      "symbol": "Curr_Dir_End",
+      "displacement": 0,
+      "relative": false,
+      "value": 1462
+    },
+    {
+      "offset": 838,
+      "symbol": "FStrCpy",
+      "displacement": 0,
+      "relative": true,
+      "value": 41429
+    },
+    {
+      "offset": 851,
+      "symbol": "ThisCDS",
+      "displacement": 2,
+      "relative": false,
+      "value": 1444
+    },
+    {
+      "offset": 856,
+      "symbol": "ThisCDS",
+      "displacement": 0,
+      "relative": false,
+      "value": 1442
+    },
+    {
+      "offset": 863,
+      "symbol": "ThisCDS",
+      "displacement": 0,
+      "relative": false,
+      "value": 1442
+    },
+    {
+      "offset": 871,
+      "symbol": "ThisDPB",
+      "displacement": 0,
+      "relative": false,
+      "value": 1418
+    },
+    {
+      "offset": 876,
+      "symbol": "ThisDPB",
+      "displacement": 2,
+      "relative": false,
+      "value": 1420
+    },
+    {
+      "offset": 887,
+      "symbol": "SetAttrib",
+      "displacement": 0,
+      "relative": true,
+      "value": 705
+    },
+    {
+      "offset": 890,
+      "symbol": "OpenBuf",
+      "displacement": 0,
+      "relative": false,
+      "value": 958
+    },
+    {
+      "offset": 893,
+      "symbol": "DOSCODE",
+      "displacement": 98,
+      "relative": true,
+      "value": 64739
+    },
+    {
+      "offset": 903,
+      "symbol": "SYS_Ret_Err",
+      "displacement": 0,
+      "relative": true,
+      "value": 38285
+    },
+    {
+      "offset": 906,
+      "symbol": "OpenBuf",
+      "displacement": 0,
+      "relative": false,
+      "value": 958
+    },
+    {
+      "offset": 911,
+      "symbol": "FStrCpy",
+      "displacement": 0,
+      "relative": true,
+      "value": 41356
+    },
+    {
+      "offset": 914,
+      "symbol": "SYS_Ret_OK",
+      "displacement": 0,
+      "relative": true,
+      "value": 38265
+    },
+    {
+      "offset": 948,
+      "symbol": "DStrLen",
+      "displacement": 0,
+      "relative": true,
+      "value": 41342
+    },
+    {
+      "offset": 960,
+      "symbol": "PathChrCmp",
+      "displacement": 0,
+      "relative": true,
+      "value": 57714
+    },
+    {
+      "offset": 968,
+      "symbol": "DOSCODE",
+      "displacement": 575,
+      "relative": true,
+      "value": 65141
+    },
+    {
+      "offset": 974,
+      "symbol": "DOSCODE",
+      "displacement": 575,
+      "relative": true,
+      "value": 65135
+    },
+    {
+      "offset": 979,
+      "symbol": "PathChrCmp",
+      "displacement": 0,
+      "relative": true,
+      "value": 57695
+    }
+  ],
+  "external_code_target_attributions": {
+    "GETEXTENDED": [
+      27936,
+      7468
+    ],
+    "GETTHISDRV": [
+      27955,
+      27788
+    ],
+    "GETCHARTYPE": [
+      27968,
+      21022
+    ],
+    "PACKNAME": [
+      27980,
+      8588
+    ],
+    "ECRITDISK": [
+      28098,
+      4950
+    ],
+    "FATREAD_CDS": [
+      28101,
+      22681
+    ],
+    "LCRITDISK": [
+      28104,
+      4982
+    ],
+    "PATHCHRCMP": [
+      28130,
+      21051
+    ],
+    "UCASE": [
+      28147,
+      20966
+    ],
+    "CHECKTHISDEVICE": [
+      28183,
+      17545
+    ],
+    "STRCPY": [
+      28211,
+      4629
+    ],
+    "GETVISDRV": [
+      28218,
+      27759
+    ],
+    "VALIDATECDS": [
+      28229,
+      17355
+    ],
+    "FSTRCPY": [
+      28256,
+      4644
+    ],
+    "NAMETRANS": [
+      28558,
+      20857
+    ],
+    "STRLEN": [
+      28606,
+      4653
+    ],
+    "GETCDSFROMDRV": [
+      28679,
+      27875
+    ],
+    "SETATTRIB": [
+      28797,
+      29505
+    ],
+    "SYS_RET_ERR": [
+      28813,
+      1565
+    ],
+    "SYS_RET_OK": [
+      28824,
+      1556
+    ],
+    "DSTRLEN": [
+      28858,
+      4667
+    ]
+  },
+  "differences": [],
+  "exact": true,
+  "data_layout_differences": [],
+  "scope": "Bounded source object at target layout with explicit symbol relocations; external callees are addresses only. No integrated-kernel or runtime claim."
+}

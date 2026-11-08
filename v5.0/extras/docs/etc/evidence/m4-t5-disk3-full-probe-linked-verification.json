@@ -1,0 +1,738 @@
+{
+  "module": "disk3-full",
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\physical-sft-probe-gaif7wrl",
+  "candidate_proof_sha256": "d6daffcb6e570faed9435b45ca68c3dcc14f90833da12af9b0ee4fbc155e2f4e",
+  "link_report_sha256": "1bbdfe1c5717a66605a3aef82166c9d11164f5e85d841c1f70d29448a8b796da",
+  "linked_start": 43165,
+  "public_anchors": [
+    {
+      "symbol": "wrterr",
+      "object_offset": 210,
+      "linked_offset": 43375
+    },
+    {
+      "symbol": "wrterr22",
+      "object_offset": 212,
+      "linked_offset": 43377
+    },
+    {
+      "symbol": "dskwrtbufpurge",
+      "object_offset": 622,
+      "linked_offset": 43787
+    },
+    {
+      "symbol": "diskwrite",
+      "object_offset": 0,
+      "linked_offset": 43165
+    },
+    {
+      "symbol": "div32",
+      "object_offset": 756,
+      "linked_offset": 43921
+    },
+    {
+      "symbol": "shr32",
+      "object_offset": 795,
+      "linked_offset": 43960
+    }
+  ],
+  "bytes": 810,
+  "named_fixups": [
+    {
+      "offset": 1,
+      "symbol": "CHECK_WRITE_LOCK",
+      "relative": true,
+      "target_symbol": 30286,
+      "linked_symbol": 28233
+    },
+    {
+      "offset": 7,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 31078,
+      "linked_symbol": 43165
+    },
+    {
+      "offset": 20,
+      "symbol": "TEMP_VAR",
+      "relative": false,
+      "target_symbol": 1548,
+      "linked_symbol": 1548
+    },
+    {
+      "offset": 27,
+      "symbol": "TEMP_VAR2",
+      "relative": false,
+      "target_symbol": 1550,
+      "linked_symbol": 1550
+    },
+    {
+      "offset": 31,
+      "symbol": "ThisDPB",
+      "relative": false,
+      "target_symbol": 1418,
+      "linked_symbol": 1418
+    },
+    {
+      "offset": 34,
+      "symbol": "BREAKDOWN",
+      "relative": true,
+      "target_symbol": 30593,
+      "linked_symbol": 28540
+    },
+    {
+      "offset": 37,
+      "symbol": "BytPos",
+      "relative": false,
+      "target_symbol": 1486,
+      "linked_symbol": 1486
+    },
+    {
+      "offset": 41,
+      "symbol": "BytPos",
+      "relative": false,
+      "target_symbol": 1486,
+      "linked_symbol": 1486
+    },
+    {
+      "offset": 55,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 31078,
+      "linked_symbol": 43165
+    },
+    {
+      "offset": 61,
+      "symbol": "HIGH_SECTOR",
+      "relative": false,
+      "target_symbol": 1543,
+      "linked_symbol": 1543
+    },
+    {
+      "offset": 77,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 31078,
+      "linked_symbol": 43165
+    },
+    {
+      "offset": 84,
+      "symbol": "TEMP_VAR2",
+      "relative": false,
+      "target_symbol": 1550,
+      "linked_symbol": 1550
+    },
+    {
+      "offset": 87,
+      "symbol": "TEMP_VAR",
+      "relative": false,
+      "target_symbol": 1548,
+      "linked_symbol": 1548
+    },
+    {
+      "offset": 90,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 31078,
+      "linked_symbol": 43165
+    },
+    {
+      "offset": 94,
+      "symbol": "TEMP_VAR2",
+      "relative": false,
+      "target_symbol": 1550,
+      "linked_symbol": 1550
+    },
+    {
+      "offset": 98,
+      "symbol": "ValSec",
+      "relative": false,
+      "target_symbol": 1480,
+      "linked_symbol": 1480
+    },
+    {
+      "offset": 113,
+      "symbol": "ValSec",
+      "relative": false,
+      "target_symbol": 1480,
+      "linked_symbol": 1480
+    },
+    {
+      "offset": 117,
+      "symbol": "ValSec",
+      "relative": false,
+      "target_symbol": 1480,
+      "linked_symbol": 1480
+    },
+    {
+      "offset": 122,
+      "symbol": "GrowCnt",
+      "relative": false,
+      "target_symbol": 1502,
+      "linked_symbol": 1502
+    },
+    {
+      "offset": 125,
+      "symbol": "GrowCnt",
+      "relative": false,
+      "target_symbol": 1502,
+      "linked_symbol": 1502
+    },
+    {
+      "offset": 130,
+      "symbol": "HIGH_SECTOR",
+      "relative": false,
+      "target_symbol": 1543,
+      "linked_symbol": 1543
+    },
+    {
+      "offset": 134,
+      "symbol": "TEMP_VAR2",
+      "relative": false,
+      "target_symbol": 1550,
+      "linked_symbol": 1550
+    },
+    {
+      "offset": 144,
+      "symbol": "TEMP_VAR2",
+      "relative": false,
+      "target_symbol": 1550,
+      "linked_symbol": 1550
+    },
+    {
+      "offset": 166,
+      "symbol": "HIGH_SECTOR",
+      "relative": false,
+      "target_symbol": 1543,
+      "linked_symbol": 1543
+    },
+    {
+      "offset": 169,
+      "symbol": "TEMP_VAR2",
+      "relative": false,
+      "target_symbol": 1550,
+      "linked_symbol": 1550
+    },
+    {
+      "offset": 179,
+      "symbol": "HIGH_SECTOR",
+      "relative": false,
+      "target_symbol": 1543,
+      "linked_symbol": 1543
+    },
+    {
+      "offset": 184,
+      "symbol": "TEMP_VAR2",
+      "relative": false,
+      "target_symbol": 1550,
+      "linked_symbol": 1550
+    },
+    {
+      "offset": 201,
+      "symbol": "SKPCLP",
+      "relative": true,
+      "target_symbol": 35799,
+      "linked_symbol": 38033
+    },
+    {
+      "offset": 206,
+      "symbol": "ALLOCATE",
+      "relative": true,
+      "target_symbol": 36231,
+      "linked_symbol": 38465
+    },
+    {
+      "offset": 213,
+      "symbol": "ThisDRV",
+      "relative": false,
+      "target_symbol": 1398,
+      "linked_symbol": 1398
+    },
+    {
+      "offset": 219,
+      "symbol": "THISSFT",
+      "relative": false,
+      "target_symbol": 1438,
+      "linked_symbol": 1438
+    },
+    {
+      "offset": 226,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 31078,
+      "linked_symbol": 43165
+    },
+    {
+      "offset": 235,
+      "symbol": "GrowCnt",
+      "relative": false,
+      "target_symbol": 1502,
+      "linked_symbol": 1502
+    },
+    {
+      "offset": 239,
+      "symbol": "GrowCnt",
+      "relative": false,
+      "target_symbol": 1502,
+      "linked_symbol": 1502
+    },
+    {
+      "offset": 244,
+      "symbol": "ClusNum",
+      "relative": false,
+      "target_symbol": 1468,
+      "linked_symbol": 1468
+    },
+    {
+      "offset": 247,
+      "symbol": "FNDCLUS",
+      "relative": true,
+      "target_symbol": 35767,
+      "linked_symbol": 38001
+    },
+    {
+      "offset": 253,
+      "symbol": "ClusNum",
+      "relative": false,
+      "target_symbol": 1468,
+      "linked_symbol": 1468
+    },
+    {
+      "offset": 257,
+      "symbol": "LastPos",
+      "relative": false,
+      "target_symbol": 1466,
+      "linked_symbol": 1466
+    },
+    {
+      "offset": 269,
+      "symbol": "ALLOCATE",
+      "relative": true,
+      "target_symbol": 36231,
+      "linked_symbol": 38465
+    },
+    {
+      "offset": 276,
+      "symbol": "LastPos",
+      "relative": false,
+      "target_symbol": 1466,
+      "linked_symbol": 1466
+    },
+    {
+      "offset": 283,
+      "symbol": "SKPCLP",
+      "relative": true,
+      "target_symbol": 35799,
+      "linked_symbol": 38033
+    },
+    {
+      "offset": 289,
+      "symbol": "ClusNum",
+      "relative": false,
+      "target_symbol": 1468,
+      "linked_symbol": 1468
+    },
+    {
+      "offset": 293,
+      "symbol": "LastPos",
+      "relative": false,
+      "target_symbol": 1466,
+      "linked_symbol": 1466
+    },
+    {
+      "offset": 297,
+      "symbol": "BytCnt1",
+      "relative": false,
+      "target_symbol": 1490,
+      "linked_symbol": 1490
+    },
+    {
+      "offset": 304,
+      "symbol": "ClusNum",
+      "relative": false,
+      "target_symbol": 1468,
+      "linked_symbol": 1468
+    },
+    {
+      "offset": 307,
+      "symbol": "BUFWRT",
+      "relative": true,
+      "target_symbol": 35944,
+      "linked_symbol": 38178
+    },
+    {
+      "offset": 312,
+      "symbol": "SecCnt",
+      "relative": false,
+      "target_symbol": 1494,
+      "linked_symbol": 1494
+    },
+    {
+      "offset": 320,
+      "symbol": "SecPos",
+      "relative": false,
+      "target_symbol": 1476,
+      "linked_symbol": 1476
+    },
+    {
+      "offset": 324,
+      "symbol": "SecPos",
+      "relative": false,
+      "target_symbol": 1476,
+      "linked_symbol": 1476
+    },
+    {
+      "offset": 328,
+      "symbol": "NEXTSEC",
+      "relative": true,
+      "target_symbol": 36042,
+      "linked_symbol": 38276
+    },
+    {
+      "offset": 334,
+      "symbol": "Trans",
+      "relative": false,
+      "target_symbol": 1396,
+      "linked_symbol": 1396
+    },
+    {
+      "offset": 339,
+      "symbol": "SecClusPos",
+      "relative": false,
+      "target_symbol": 1395,
+      "linked_symbol": 1395
+    },
+    {
+      "offset": 343,
+      "symbol": "ClusNum",
+      "relative": false,
+      "target_symbol": 1468,
+      "linked_symbol": 1468
+    },
+    {
+      "offset": 347,
+      "symbol": "SecCnt",
+      "relative": false,
+      "target_symbol": 1494,
+      "linked_symbol": 1494
+    },
+    {
+      "offset": 350,
+      "symbol": "OPTIMIZE",
+      "relative": true,
+      "target_symbol": 36091,
+      "linked_symbol": 38325
+    },
+    {
+      "offset": 357,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 31078,
+      "linked_symbol": 43165
+    },
+    {
+      "offset": 362,
+      "symbol": "DMAADD",
+      "relative": false,
+      "target_symbol": 812,
+      "linked_symbol": 812
+    },
+    {
+      "offset": 367,
+      "symbol": "ALLOWED",
+      "relative": false,
+      "target_symbol": 843,
+      "linked_symbol": 843
+    },
+    {
+      "offset": 371,
+      "symbol": "DWRITE",
+      "relative": true,
+      "target_symbol": 30357,
+      "linked_symbol": 28304
+    },
+    {
+      "offset": 385,
+      "symbol": "LastPos",
+      "relative": false,
+      "target_symbol": 1466,
+      "linked_symbol": 1466
+    },
+    {
+      "offset": 390,
+      "symbol": "BytCnt2",
+      "relative": false,
+      "target_symbol": 1492,
+      "linked_symbol": 1492
+    },
+    {
+      "offset": 397,
+      "symbol": "BytCnt1",
+      "relative": false,
+      "target_symbol": 1490,
+      "linked_symbol": 1490
+    },
+    {
+      "offset": 400,
+      "symbol": "NEXTSEC",
+      "relative": true,
+      "target_symbol": 36042,
+      "linked_symbol": 38276
+    },
+    {
+      "offset": 406,
+      "symbol": "BytSecPos",
+      "relative": false,
+      "target_symbol": 1484,
+      "linked_symbol": 1484
+    },
+    {
+      "offset": 411,
+      "symbol": "BUFWRT",
+      "relative": true,
+      "target_symbol": 35944,
+      "linked_symbol": 38178
+    },
+    {
+      "offset": 417,
+      "symbol": "THISSFT",
+      "relative": false,
+      "target_symbol": 1438,
+      "linked_symbol": 1438
+    },
+    {
+      "offset": 420,
+      "symbol": "GrowCnt",
+      "relative": false,
+      "target_symbol": 1502,
+      "linked_symbol": 1502
+    },
+    {
+      "offset": 424,
+      "symbol": "GrowCnt",
+      "relative": false,
+      "target_symbol": 1502,
+      "linked_symbol": 1502
+    },
+    {
+      "offset": 445,
+      "symbol": "JShare",
+      "relative": false,
+      "target_symbol": 144,
+      "linked_symbol": 144
+    },
+    {
+      "offset": 448,
+      "symbol": "SETCLUS",
+      "relative": true,
+      "target_symbol": 30898,
+      "linked_symbol": 28845
+    },
+    {
+      "offset": 451,
+      "symbol": "SET_ACC_ERR_DS",
+      "relative": true,
+      "target_symbol": 30746,
+      "linked_symbol": 28693
+    },
+    {
+      "offset": 471,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 31078,
+      "linked_symbol": 43165
+    },
+    {
+      "offset": 478,
+      "symbol": "HIGH_SECTOR",
+      "relative": false,
+      "target_symbol": 1543,
+      "linked_symbol": 1543
+    },
+    {
+      "offset": 481,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 31078,
+      "linked_symbol": 43165
+    },
+    {
+      "offset": 486,
+      "symbol": "FNDCLUS",
+      "relative": true,
+      "target_symbol": 35767,
+      "linked_symbol": 38001
+    },
+    {
+      "offset": 493,
+      "symbol": "ALLOCATE",
+      "relative": true,
+      "target_symbol": 36231,
+      "linked_symbol": 38465
+    },
+    {
+      "offset": 499,
+      "symbol": "THISSFT",
+      "relative": false,
+      "target_symbol": 1438,
+      "linked_symbol": 1438
+    },
+    {
+      "offset": 502,
+      "symbol": "BytPos",
+      "relative": false,
+      "target_symbol": 1486,
+      "linked_symbol": 1486
+    },
+    {
+      "offset": 509,
+      "symbol": "BytPos",
+      "relative": false,
+      "target_symbol": 1486,
+      "linked_symbol": 1486
+    },
+    {
+      "offset": 520,
+      "symbol": "JShare",
+      "relative": false,
+      "target_symbol": 144,
+      "linked_symbol": 144
+    },
+    {
+      "offset": 525,
+      "symbol": "ADDREC",
+      "relative": true,
+      "target_symbol": 30927,
+      "linked_symbol": 28874
+    },
+    {
+      "offset": 528,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 31078,
+      "linked_symbol": 43165
+    },
+    {
+      "offset": 533,
+      "symbol": "THISSFT",
+      "relative": false,
+      "target_symbol": 1438,
+      "linked_symbol": 1438
+    },
+    {
+      "offset": 560,
+      "symbol": "RELBLKS",
+      "relative": true,
+      "target_symbol": 36411,
+      "linked_symbol": 38645
+    },
+    {
+      "offset": 571,
+      "symbol": "THISSFT",
+      "relative": false,
+      "target_symbol": 1438,
+      "linked_symbol": 1438
+    },
+    {
+      "offset": 597,
+      "symbol": "ThisDPB",
+      "relative": false,
+      "target_symbol": 1418,
+      "linked_symbol": 1418
+    },
+    {
+      "offset": 608,
+      "symbol": "FastOpen_Update",
+      "relative": true,
+      "target_symbol": 26042,
+      "linked_symbol": 24941
+    },
+    {
+      "offset": 616,
+      "symbol": "RELEASE",
+      "relative": true,
+      "target_symbol": 36409,
+      "linked_symbol": 38643
+    },
+    {
+      "offset": 627,
+      "symbol": "HIGH_SECTOR",
+      "relative": false,
+      "target_symbol": 1543,
+      "linked_symbol": 1543
+    },
+    {
+      "offset": 643,
+      "symbol": "SC_CACHE_COUNT",
+      "relative": false,
+      "target_symbol": 119,
+      "linked_symbol": 119
+    },
+    {
+      "offset": 651,
+      "symbol": "CURSC_DRIVE",
+      "relative": false,
+      "target_symbol": 3504,
+      "linked_symbol": 3504
+    },
+    {
+      "offset": 658,
+      "symbol": "CURSC_SECTOR",
+      "relative": false,
+      "target_symbol": 3505,
+      "linked_symbol": 3505
+    },
+    {
+      "offset": 663,
+      "symbol": "CURSC_SECTOR",
+      "relative": false,
+      "target_symbol": 3505,
+      "linked_symbol": 3505
+    },
+    {
+      "offset": 676,
+      "symbol": "SC_CACHE_COUNT",
+      "relative": false,
+      "target_symbol": 119,
+      "linked_symbol": 119
+    },
+    {
+      "offset": 692,
+      "symbol": "SC_STATUS",
+      "relative": false,
+      "target_symbol": 3509,
+      "linked_symbol": 3509
+    },
+    {
+      "offset": 698,
+      "symbol": "GETCURHEAD",
+      "relative": true,
+      "target_symbol": 39030,
+      "linked_symbol": 33364
+    },
+    {
+      "offset": 732,
+      "symbol": "DEC_DIRTY_COUNT",
+      "relative": true,
+      "target_symbol": 39660,
+      "linked_symbol": 33994
+    },
+    {
+      "offset": 740,
+      "symbol": "SCANPLACE",
+      "relative": true,
+      "target_symbol": 39048,
+      "linked_symbol": 33382
+    },
+    {
+      "offset": 749,
+      "symbol": "FIRST_BUFF_ADDR",
+      "relative": false,
+      "target_symbol": 3771,
+      "linked_symbol": 3771
+    }
+  ],
+  "remaining_differences": [],
+  "correspondence": true,
+  "scope": "Complete linked MZ module, only candidate OMF named relocations adjusted; physical data placement can differ. Not runtime or whole-kernel identity."
+}

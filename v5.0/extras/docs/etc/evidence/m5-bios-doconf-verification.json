@@ -1,0 +1,43 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\bios-comparison-1ojld0jg",
+  "candidate_sha256": "09df7ec418edb1728662b1fe911a62c1a7bd3e19ad20b82548f022dd654750ad",
+  "target_bios_sha256": "09df7ec418edb1728662b1fe911a62c1a7bd3e19ad20b82548f022dd654750ad",
+  "map_sha256": "927cd424cfd8523b91657a84978766381ffe67d6dba3a7bf2b6cde9836bd1d01",
+  "candidate_offset": 24878,
+  "target_offset": 24878,
+  "length": 148,
+  "fixups": [
+    {
+      "offset": 60,
+      "symbol": "ParaRound",
+      "candidate_destination": 20768,
+      "target_destination": 20768
+    },
+    {
+      "offset": 72,
+      "symbol": "tempcds",
+      "candidate_destination": 19461,
+      "target_destination": 19461
+    },
+    {
+      "offset": 145,
+      "symbol": "badfil",
+      "candidate_destination": 30465,
+      "target_destination": 30465
+    },
+    {
+      "offset": 12,
+      "symbol": "config",
+      "candidate": 14356,
+      "target": 14356
+    },
+    {
+      "offset": 142,
+      "symbol": "config",
+      "candidate": 14356,
+      "target": 14356
+    }
+  ],
+  "normalized_equal": true,
+  "scope": "Linked doconf through error return; five named comparison-only address fixups. No runtime or whole BIOS identity claim."
+}

@@ -1,0 +1,31 @@
+{
+  "exepatch_sha256": "17ede81998c879d8977c3aa685736c01b15d859fad1465cd228c55072ece5d59",
+  "exepatch_equals_opennt": true,
+  "dostab_sha256": "fb9c190155e6c5d995c9dab8777dfaf4198f8d133bd1aca9ba1d8cec1112f833",
+  "target_kernel_sha256": "4e41ca4e5893d4cf293f81ad01adbdbd12f7039534f59148214a9cca309529a2",
+  "tables": [
+    {
+      "name": "UCASE_TAB",
+      "target_offset": 35165,
+      "bytes": 130,
+      "candidate_sha256": "d3415bf1dc1d2442f9d7824a904c5b95a6d7cf74974bcb1c421d24cfeba0130a",
+      "matches_dos6": true,
+      "opennt_value_differences": [
+        {
+          "index": 2,
+          "nt": 144,
+          "candidate": 69
+        }
+      ]
+    },
+    {
+      "name": "FILE_UCASE_TAB",
+      "target_offset": 35295,
+      "bytes": 130,
+      "candidate_sha256": "d3415bf1dc1d2442f9d7824a904c5b95a6d7cf74974bcb1c421d24cfeba0130a",
+      "matches_dos6": true,
+      "opennt_value_differences": []
+    }
+  ],
+  "scope": "OpenNT source identity for EXEPATCH and two 130-byte non-DBCS tables against pinned extracted MSDOS.SYS; no whole-module provenance or runtime behavior claim."
+}

@@ -1,0 +1,683 @@
+{
+  "module": "mknode",
+  "stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\physical-sft-probe-gaif7wrl",
+  "candidate_proof_sha256": "6f9ed8780302c5f20a78f8246d243edb118040014a00610e7530c744c2ca701e",
+  "link_report_sha256": "1bbdfe1c5717a66605a3aef82166c9d11164f5e85d841c1f70d29448a8b796da",
+  "linked_start": 44403,
+  "public_anchors": [
+    {
+      "symbol": "doopen",
+      "object_offset": 671,
+      "linked_offset": 45074
+    },
+    {
+      "symbol": "newdir",
+      "object_offset": 19,
+      "linked_offset": 44422
+    },
+    {
+      "symbol": "freeent",
+      "object_offset": 834,
+      "linked_offset": 45237
+    },
+    {
+      "symbol": "makenode",
+      "object_offset": 224,
+      "linked_offset": 44627
+    },
+    {
+      "symbol": "builddir",
+      "object_offset": 0,
+      "linked_offset": 44403
+    },
+    {
+      "symbol": "newentry",
+      "object_offset": 495,
+      "linked_offset": 44898
+    },
+    {
+      "symbol": "setdotent",
+      "object_offset": 188,
+      "linked_offset": 44591
+    },
+    {
+      "symbol": "check_virt_open",
+      "object_offset": 913,
+      "linked_offset": 45316
+    },
+    {
+      "symbol": "rename_make",
+      "object_offset": 262,
+      "linked_offset": 44665
+    }
+  ],
+  "bytes": 941,
+  "named_fixups": [
+    {
+      "offset": 1,
+      "symbol": "EntFree",
+      "relative": false,
+      "target_symbol": 1496,
+      "linked_symbol": 1496
+    },
+    {
+      "offset": 12,
+      "symbol": "DirStart",
+      "relative": false,
+      "target_symbol": 1474,
+      "linked_symbol": 1474
+    },
+    {
+      "offset": 21,
+      "symbol": "DirStart",
+      "relative": false,
+      "target_symbol": 1474,
+      "linked_symbol": 1474
+    },
+    {
+      "offset": 28,
+      "symbol": "GETEOF",
+      "relative": true,
+      "target_symbol": 36453,
+      "linked_symbol": 38687
+    },
+    {
+      "offset": 36,
+      "symbol": "ALLOCATE",
+      "relative": true,
+      "target_symbol": 36231,
+      "linked_symbol": 38465
+    },
+    {
+      "offset": 42,
+      "symbol": "DirStart",
+      "relative": false,
+      "target_symbol": 1474,
+      "linked_symbol": 1474
+    },
+    {
+      "offset": 49,
+      "symbol": "SETDIRSRCH",
+      "relative": true,
+      "target_symbol": 32220,
+      "linked_symbol": 29357
+    },
+    {
+      "offset": 55,
+      "symbol": "LastEnt",
+      "relative": false,
+      "target_symbol": 840,
+      "linked_symbol": 840
+    },
+    {
+      "offset": 64,
+      "symbol": "ClusNum",
+      "relative": false,
+      "target_symbol": 1468,
+      "linked_symbol": 1468
+    },
+    {
+      "offset": 67,
+      "symbol": "IsEof",
+      "relative": true,
+      "target_symbol": 38046,
+      "linked_symbol": 32380
+    },
+    {
+      "offset": 74,
+      "symbol": "ClusNum",
+      "relative": false,
+      "target_symbol": 1468,
+      "linked_symbol": 1468
+    },
+    {
+      "offset": 87,
+      "symbol": "DirStart",
+      "relative": false,
+      "target_symbol": 1474,
+      "linked_symbol": 1474
+    },
+    {
+      "offset": 92,
+      "symbol": "FastOpen_Update",
+      "relative": true,
+      "target_symbol": 26042,
+      "linked_symbol": 24941
+    },
+    {
+      "offset": 102,
+      "symbol": "FIGREC",
+      "relative": true,
+      "target_symbol": 36187,
+      "linked_symbol": 38421
+    },
+    {
+      "offset": 115,
+      "symbol": "ALLOWED",
+      "relative": false,
+      "target_symbol": 843,
+      "linked_symbol": 843
+    },
+    {
+      "offset": 121,
+      "symbol": "GETBUFFR",
+      "relative": true,
+      "target_symbol": 39131,
+      "linked_symbol": 33465
+    },
+    {
+      "offset": 134,
+      "symbol": "CurBuf",
+      "relative": false,
+      "target_symbol": 1506,
+      "linked_symbol": 1506
+    },
+    {
+      "offset": 163,
+      "symbol": "INC_DIRTY_COUNT",
+      "relative": true,
+      "target_symbol": 39654,
+      "linked_symbol": 33988
+    },
+    {
+      "offset": 177,
+      "symbol": "HIGH_SECTOR",
+      "relative": false,
+      "target_symbol": 1543,
+      "linked_symbol": 1543
+    },
+    {
+      "offset": 183,
+      "symbol": "LastEnt",
+      "relative": false,
+      "target_symbol": 840,
+      "linked_symbol": 840
+    },
+    {
+      "offset": 206,
+      "symbol": "THISSFT",
+      "relative": false,
+      "target_symbol": 1438,
+      "linked_symbol": 1438
+    },
+    {
+      "offset": 226,
+      "symbol": "Creating",
+      "relative": false,
+      "target_symbol": 1406,
+      "linked_symbol": 1406
+    },
+    {
+      "offset": 233,
+      "symbol": "NoSetDir",
+      "relative": false,
+      "target_symbol": 844,
+      "linked_symbol": 844
+    },
+    {
+      "offset": 237,
+      "symbol": "SATTRIB",
+      "relative": false,
+      "target_symbol": 1389,
+      "linked_symbol": 1389
+    },
+    {
+      "offset": 240,
+      "symbol": "GetPathNoSet",
+      "relative": true,
+      "target_symbol": 32327,
+      "linked_symbol": 29464
+    },
+    {
+      "offset": 264,
+      "symbol": "EXTOPEN_ON",
+      "relative": false,
+      "target_symbol": 1526,
+      "linked_symbol": 1526
+    },
+    {
+      "offset": 271,
+      "symbol": "EXTOPEN_ON",
+      "relative": false,
+      "target_symbol": 1526,
+      "linked_symbol": 1526
+    },
+    {
+      "offset": 276,
+      "symbol": "EXTOPEN_FLAG",
+      "relative": false,
+      "target_symbol": 1524,
+      "linked_symbol": 1524
+    },
+    {
+      "offset": 288,
+      "symbol": "THISSFT",
+      "relative": false,
+      "target_symbol": 1438,
+      "linked_symbol": 1438
+    },
+    {
+      "offset": 301,
+      "symbol": "Attrib",
+      "relative": false,
+      "target_symbol": 1387,
+      "linked_symbol": 1387
+    },
+    {
+      "offset": 317,
+      "symbol": "CurBuf",
+      "relative": false,
+      "target_symbol": 1506,
+      "linked_symbol": 1506
+    },
+    {
+      "offset": 329,
+      "symbol": "MatchAttributes",
+      "relative": true,
+      "target_symbol": 33024,
+      "linked_symbol": 30161
+    },
+    {
+      "offset": 343,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 34826,
+      "linked_symbol": 44403
+    },
+    {
+      "offset": 347,
+      "symbol": "THISSFT",
+      "relative": false,
+      "target_symbol": 1438,
+      "linked_symbol": 1438
+    },
+    {
+      "offset": 352,
+      "symbol": "ShareEnter",
+      "relative": true,
+      "target_symbol": 45912,
+      "linked_symbol": 45392
+    },
+    {
+      "offset": 377,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 34826,
+      "linked_symbol": 44403
+    },
+    {
+      "offset": 386,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 34826,
+      "linked_symbol": 44403
+    },
+    {
+      "offset": 392,
+      "symbol": "Attrib",
+      "relative": false,
+      "target_symbol": 1387,
+      "linked_symbol": 1387
+    },
+    {
+      "offset": 401,
+      "symbol": "ShareEnter",
+      "relative": true,
+      "target_symbol": 45912,
+      "linked_symbol": 45392
+    },
+    {
+      "offset": 411,
+      "symbol": "CurBuf",
+      "relative": false,
+      "target_symbol": 1506,
+      "linked_symbol": 1506
+    },
+    {
+      "offset": 425,
+      "symbol": "INC_DIRTY_COUNT",
+      "relative": true,
+      "target_symbol": 39654,
+      "linked_symbol": 33988
+    },
+    {
+      "offset": 434,
+      "symbol": "ThisDPB",
+      "relative": false,
+      "target_symbol": 1418,
+      "linked_symbol": 1418
+    },
+    {
+      "offset": 441,
+      "symbol": "FlushBuf",
+      "relative": true,
+      "target_symbol": 39386,
+      "linked_symbol": 33720
+    },
+    {
+      "offset": 448,
+      "symbol": "THISSFT",
+      "relative": false,
+      "target_symbol": 1438,
+      "linked_symbol": 1438
+    },
+    {
+      "offset": 453,
+      "symbol": "EcritDisk",
+      "relative": true,
+      "target_symbol": 20774,
+      "linked_symbol": 19744
+    },
+    {
+      "offset": 463,
+      "symbol": "ShareEnd",
+      "relative": true,
+      "target_symbol": 45907,
+      "linked_symbol": 45387
+    },
+    {
+      "offset": 472,
+      "symbol": "LcritDisk",
+      "relative": true,
+      "target_symbol": 20806,
+      "linked_symbol": 19776
+    },
+    {
+      "offset": 479,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 34826,
+      "linked_symbol": 44403
+    },
+    {
+      "offset": 488,
+      "symbol": "ShareEnter",
+      "relative": true,
+      "target_symbol": 45912,
+      "linked_symbol": 45392
+    },
+    {
+      "offset": 497,
+      "symbol": "ThisDPB",
+      "relative": false,
+      "target_symbol": 1418,
+      "linked_symbol": 1418
+    },
+    {
+      "offset": 503,
+      "symbol": "FAILERR",
+      "relative": false,
+      "target_symbol": 842,
+      "linked_symbol": 842
+    },
+    {
+      "offset": 510,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 34826,
+      "linked_symbol": 44403
+    },
+    {
+      "offset": 515,
+      "symbol": "GETENT",
+      "relative": true,
+      "target_symbol": 32173,
+      "linked_symbol": 29310
+    },
+    {
+      "offset": 528,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 34826,
+      "linked_symbol": 44403
+    },
+    {
+      "offset": 531,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 34826,
+      "linked_symbol": 44403
+    },
+    {
+      "offset": 537,
+      "symbol": "Attrib",
+      "relative": false,
+      "target_symbol": 1387,
+      "linked_symbol": 1387
+    },
+    {
+      "offset": 544,
+      "symbol": "VolID",
+      "relative": false,
+      "target_symbol": 1403,
+      "linked_symbol": 1403
+    },
+    {
+      "offset": 551,
+      "symbol": "CurBuf",
+      "relative": false,
+      "target_symbol": 1506,
+      "linked_symbol": 1506
+    },
+    {
+      "offset": 556,
+      "symbol": "Name1",
+      "relative": false,
+      "target_symbol": 1355,
+      "linked_symbol": 1355
+    },
+    {
+      "offset": 565,
+      "symbol": "Attrib",
+      "relative": false,
+      "target_symbol": 1387,
+      "linked_symbol": 1387
+    },
+    {
+      "offset": 575,
+      "symbol": "DATE16",
+      "relative": true,
+      "target_symbol": 18625,
+      "linked_symbol": 18625
+    },
+    {
+      "offset": 589,
+      "symbol": "CurBuf",
+      "relative": false,
+      "target_symbol": 1506,
+      "linked_symbol": 1506
+    },
+    {
+      "offset": 599,
+      "symbol": "INC_DIRTY_COUNT",
+      "relative": true,
+      "target_symbol": 39654,
+      "linked_symbol": 33988
+    },
+    {
+      "offset": 608,
+      "symbol": "ThisDPB",
+      "relative": false,
+      "target_symbol": 1418,
+      "linked_symbol": 1418
+    },
+    {
+      "offset": 620,
+      "symbol": "THISSFT",
+      "relative": false,
+      "target_symbol": 1438,
+      "linked_symbol": 1438
+    },
+    {
+      "offset": 633,
+      "symbol": "ThisDPB",
+      "relative": false,
+      "target_symbol": 1418,
+      "linked_symbol": 1418
+    },
+    {
+      "offset": 648,
+      "symbol": "Dev_Open_SFT",
+      "relative": true,
+      "target_symbol": 34094,
+      "linked_symbol": 31231
+    },
+    {
+      "offset": 652,
+      "symbol": "VIRTUAL_OPEN",
+      "relative": false,
+      "target_symbol": 2722,
+      "linked_symbol": 2722
+    },
+    {
+      "offset": 658,
+      "symbol": "FlushBuf",
+      "relative": true,
+      "target_symbol": 39386,
+      "linked_symbol": 33720
+    },
+    {
+      "offset": 661,
+      "symbol": "DOSCODE",
+      "relative": true,
+      "target_symbol": 34826,
+      "linked_symbol": 44403
+    },
+    {
+      "offset": 675,
+      "symbol": "THISSFT",
+      "relative": false,
+      "target_symbol": 1438,
+      "linked_symbol": 1438
+    },
+    {
+      "offset": 688,
+      "symbol": "CurBuf",
+      "relative": false,
+      "target_symbol": 1506,
+      "linked_symbol": 1506
+    },
+    {
+      "offset": 712,
+      "symbol": "ThisDPB",
+      "relative": false,
+      "target_symbol": 1418,
+      "linked_symbol": 1418
+    },
+    {
+      "offset": 769,
+      "symbol": "FastOpenFlg",
+      "relative": false,
+      "target_symbol": 3386,
+      "linked_symbol": 3386
+    },
+    {
+      "offset": 775,
+      "symbol": "FastOpen_Ext_info",
+      "relative": false,
+      "target_symbol": 3387,
+      "linked_symbol": 3387
+    },
+    {
+      "offset": 795,
+      "symbol": "CurBuf",
+      "relative": false,
+      "target_symbol": 1506,
+      "linked_symbol": 1506
+    },
+    {
+      "offset": 837,
+      "symbol": "CurBuf",
+      "relative": false,
+      "target_symbol": 1506,
+      "linked_symbol": 1506
+    },
+    {
+      "offset": 847,
+      "symbol": "HIGH_SECTOR",
+      "relative": false,
+      "target_symbol": 1543,
+      "linked_symbol": 1543
+    },
+    {
+      "offset": 869,
+      "symbol": "HIGH_SECTOR",
+      "relative": false,
+      "target_symbol": 1543,
+      "linked_symbol": 1543
+    },
+    {
+      "offset": 875,
+      "symbol": "RELEASE",
+      "relative": true,
+      "target_symbol": 36409,
+      "linked_symbol": 38643
+    },
+    {
+      "offset": 880,
+      "symbol": "HIGH_SECTOR",
+      "relative": false,
+      "target_symbol": 1543,
+      "linked_symbol": 1543
+    },
+    {
+      "offset": 888,
+      "symbol": "ALLOWED",
+      "relative": false,
+      "target_symbol": 843,
+      "linked_symbol": 843
+    },
+    {
+      "offset": 894,
+      "symbol": "GETBUFFR",
+      "relative": true,
+      "target_symbol": 39131,
+      "linked_symbol": 33465
+    },
+    {
+      "offset": 900,
+      "symbol": "SET_BUF_AS_DIR",
+      "relative": true,
+      "target_symbol": 30202,
+      "linked_symbol": 28149
+    },
+    {
+      "offset": 904,
+      "symbol": "CurBuf",
+      "relative": false,
+      "target_symbol": 1506,
+      "linked_symbol": 1506
+    },
+    {
+      "offset": 917,
+      "symbol": "VIRTUAL_OPEN",
+      "relative": false,
+      "target_symbol": 2722,
+      "linked_symbol": 2722
+    },
+    {
+      "offset": 924,
+      "symbol": "VIRTUAL_OPEN",
+      "relative": false,
+      "target_symbol": 2722,
+      "linked_symbol": 2722
+    },
+    {
+      "offset": 931,
+      "symbol": "THISSFT",
+      "relative": false,
+      "target_symbol": 1438,
+      "linked_symbol": 1438
+    },
+    {
+      "offset": 934,
+      "symbol": "DEV_CLOSE_SFT",
+      "relative": true,
+      "target_symbol": 34102,
+      "linked_symbol": 31239
+    }
+  ],
+  "remaining_differences": [],
+  "correspondence": true,
+  "scope": "Complete linked MZ module, only candidate OMF named relocations adjusted; physical data placement can differ. Not runtime or whole-kernel identity."
+}

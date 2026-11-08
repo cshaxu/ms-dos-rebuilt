@@ -1,0 +1,89 @@
+{
+  "index": 158,
+  "file": "cmd/command/uinit.asm",
+  "reviewed_sha256": "820127a394f8bc2bc73a94852378c9e88ae8dc125fc8daa1d16bb4002f9cf18c",
+  "status": "reviewed",
+  "role": "COMMAND initialization data and command-line parser definitions.",
+  "references": {
+    "opennt": {
+      "status": "different",
+      "sha256": "69cf155b487039a7fcada5125e4ed99d1c41d4770a7869f77549c77e6df1420e",
+      "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\uinit.asm"
+    },
+    "dos6": {
+      "status": "different",
+      "sha256": "71fe34ddc30f096c3d2bfd7fda28e2ac269fb45e81900400302305b2c9631dfd",
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\uinit.asm"
+    },
+    "dos4": {
+      "status": "different",
+      "sha256": "202fc272577ac1c28a11afdf6524b5a00f0cfc6baff9c88cb05ad4c70ad25d77",
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\CMD\\COMMAND\\uinit.asm"
+    }
+  },
+  "review": {
+    "code_lines": 238,
+    "reference_passage_covered": 237,
+    "uncovered_lines": [
+      214
+    ],
+    "disposition": "Switch count 7 is required by the retained DOS 5 target and seven following pointers. DOS 4 count is 6; DOS 6 and OpenNT counts are 8. Owner chose to preserve target value.",
+    "format_change": "docs/etc/evidence/file-review-158-uinit-format-source.json",
+    "nt_bop_screen": "No lexical indicators in file."
+  },
+  "verification": {
+    "stage": "build\\integrated-source-fu7ucnox",
+    "built_source_identical": true,
+    "object_sha256": "6eb27c770d01217495063679ca397efc916750b77b19498fc83af74461fb8f6b",
+    "switch_count_target_offset": 7647,
+    "switch_count": 7,
+    "switches": [
+      {
+        "index": 1,
+        "pointer": 7928,
+        "syntax": "/P",
+        "syntax_offset": 7681
+      },
+      {
+        "index": 2,
+        "pointer": 7940,
+        "syntax": "/F",
+        "syntax_offset": 7693
+      },
+      {
+        "index": 3,
+        "pointer": 7952,
+        "syntax": "/D",
+        "syntax_offset": 7705
+      },
+      {
+        "index": 4,
+        "pointer": 7964,
+        "syntax": "/E",
+        "syntax_offset": 7717
+      },
+      {
+        "index": 5,
+        "pointer": 7989,
+        "syntax": "/C",
+        "syntax_offset": 7742
+      },
+      {
+        "index": 6,
+        "pointer": 8001,
+        "syntax": "/MSG",
+        "syntax_offset": 7754
+      },
+      {
+        "index": 7,
+        "pointer": 8015,
+        "syntax": "/?",
+        "syntax_offset": 7768
+      }
+    ],
+    "unchanged_objects": 104,
+    "all_three_targets_byte_equal": true,
+    "limits": "Static target data and reference comparison; optional configurations and original source text not independently established."
+  },
+  "disposition": "Retained target count 7, aligned formatting to DOS 6; individually reviewed version-specific data."
+}

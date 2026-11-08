@@ -1,0 +1,128 @@
+{
+  "index": 214,
+  "file": "messages/comimsg.inc",
+  "reviewed_sha256": "84e82d3db774b3a102cc4b901a7b035d05c1848591c00c145ed08ba4eb4b65d1",
+  "status": "reviewed",
+  "role": "COMMAND initialization and help message definitions.",
+  "references": {
+    "opennt": {
+      "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\messages\\comimsg.inc",
+      "sha256": "c006bbcfc0dcfbabded1648f8f0efa1f769cabf9cebcf1ceb8940ae54027c644",
+      "different_lines": [
+        7
+      ]
+    },
+    "dos4_dos6": "No same-name reference found in corresponding trees."
+  },
+  "review": {
+    "difference": "OpenNT version banner replaced with the retained DOS 5 target version and copyright text; all other source lines match.",
+    "nt_bop_screen": "No lexical indicators; NT-specific banner removed.",
+    "format": "OpenNT matching file uses same syntax and line formatting; target-specific message text retained."
+  },
+  "verification": {
+    "stage": "build\\integrated-source-fu7ucnox",
+    "built_source_identical": true,
+    "message_records": [
+      {
+        "name": "BadVerMsg",
+        "file_offset": 7784,
+        "length": 23,
+        "sha256": "ea7f10712c9d5e302a886b594b25be936309c2bccbb081193cc9b824d00f8ee1"
+      },
+      {
+        "name": "OutEnvMsg",
+        "file_offset": 7808,
+        "length": 26,
+        "sha256": "80812b2873a5db4820b0be77133d3e5c652d2a78207b66417386a5d152137ca7"
+      },
+      {
+        "name": "CopyrightMsg",
+        "file_offset": 7835,
+        "length": 94,
+        "sha256": "4073fc41a9ed73ca59746672bda1173646ed3116c2307be9a4fc03002c2c75e3"
+      },
+      {
+        "name": "BadComLkMsg",
+        "file_offset": 7930,
+        "length": 40,
+        "sha256": "7af957462a293343a690b9185d49f448c57158cc1bcebcc63a8584a935dc8683"
+      },
+      {
+        "name": "BadComAccMsg",
+        "file_offset": 7971,
+        "length": 54,
+        "sha256": "0c0ad7ed50101cee07f91d0e7b3dc0ebe04ea84a35a0b624f3a003548f662ccc"
+      },
+      {
+        "name": "Help1Msg",
+        "file_offset": 8026,
+        "length": 60,
+        "sha256": "aab25768c304b80dd5e9eab0d74aa44b3367cd4f8fc06e089e52847b440e4f27"
+      },
+      {
+        "name": "Help2Msg",
+        "file_offset": 8087,
+        "length": 70,
+        "sha256": "030c187fa85f2f33e84a7f07126ff79e1873ec5ee910cdaab204b56025a53443"
+      },
+      {
+        "name": "Help3Msg",
+        "file_offset": 8158,
+        "length": 72,
+        "sha256": "ef6175209c5a3ac8cb1be5f9c21153a22989b13af8c1dc803f6819ff1503c0db"
+      },
+      {
+        "name": "Help4Msg",
+        "file_offset": 8231,
+        "length": 77,
+        "sha256": "5e53af0584b8971554e65b4fd9753a6a03b67dc13a91ec25fdbe82a339800791"
+      },
+      {
+        "name": "Help5Msg",
+        "file_offset": 8309,
+        "length": 69,
+        "sha256": "619c83a0531b87aa6f8a749f04b32dcf3fe2fc8ee7dd2f2fe158423429e7d155"
+      },
+      {
+        "name": "Help6Msg",
+        "file_offset": 8379,
+        "length": 77,
+        "sha256": "20eff7ef6f64874f2cf9e4bea73ba14b97bcf515695662397279e3d05f4c2457"
+      },
+      {
+        "name": "Help7Msg",
+        "file_offset": 8457,
+        "length": 80,
+        "sha256": "c046b1d7f657dde0a7a63acb6d224f756512364d8185c2e8ddf7601bd927e0bd"
+      },
+      {
+        "name": "Help8Msg",
+        "file_offset": 8538,
+        "length": 78,
+        "sha256": "dffe30e3482b066304a805ea7937d3d8e85e90d4ca7ce35862d1050448ba6140"
+      },
+      {
+        "name": "Help9Msg",
+        "file_offset": 8617,
+        "length": 56,
+        "sha256": "8ccf4fd5245122f35fea1d9c33d275afc2108b8815d90d67f1bf3255686ac6c0"
+      }
+    ],
+    "help_pointer_table_offset": 8674,
+    "help_pointer_values": [
+      8282,
+      8343,
+      8414,
+      8487,
+      8565,
+      8635,
+      8713,
+      8794,
+      8873,
+      0
+    ],
+    "all_three_targets_byte_equal": true,
+    "limits": "Message bytes and pointers verified in retained target; reference comparison does not prove exact historical source text or all languages."
+  },
+  "disposition": "Retained target-specific banner; no source edits required."
+}

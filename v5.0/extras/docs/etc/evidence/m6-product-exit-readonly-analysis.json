@@ -1,0 +1,16 @@
+{
+  "product_sha256": "9f1212f8b26a5e98bb06b5fec601a6ff7cf6c499f16991dd68d62fb81ab75c3e",
+  "test_config_sha256": "a93d85535b25b03a80e445c08286782e8bd14a4e92072edbcd0d255fafd6b8b0",
+  "same_product_and_config_as_prior_product_smoke": true,
+  "test_config_path_length": 78,
+  "reference_config_path_capacity": 1024,
+  "observed_exit_code": 1,
+  "source_diagnostic_candidates": [
+    "cannot determine configuration path",
+    "cannot read configuration",
+    "path too long",
+    "machine composition failure",
+    "product session failure"
+  ],
+  "scope": "Read-only source and binary-string review; product output was not captured, so the actual failing branch remains unknown. Matching strings do not prove exact executable-source identity."
+}

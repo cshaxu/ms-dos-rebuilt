@@ -1,0 +1,3 @@
+# Candidate: target and reference baseline
+
+Establish the reproducible M0 evidence foundation: read-only FAT12 extraction, independent hashes, integrity/geometry and missing-tail assessment; inventory and hash OpenNT primary source and DOS 6/4 reference inputs; record version, country, build dependencies, known source rights and unknowns. Produce an actionable module inventory and the first bounded build or COMMAND slice proposal. Do not assert an original disk image or successful boot from zero padding. Admission, scope, verification and exit criteria belong in the active packet when work starts.

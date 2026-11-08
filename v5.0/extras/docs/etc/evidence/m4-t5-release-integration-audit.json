@@ -1,0 +1,24 @@
+{
+  "build": "m4-t5-release-build.json",
+  "unique_target_slice_bytes": 6140,
+  "verified_calls": 115,
+  "snapshots": {
+    "m4-t5-release-build.json": {
+      "inputs": 114,
+      "mismatches": []
+    },
+    "m2-t3-command-exact-verification.json": {
+      "inputs": 113,
+      "mismatches": []
+    }
+  },
+  "target_difference_from_dos6": "DOS 5 RELEASE returns on error/zero/end and does not run the later RELEASE_flush tail",
+  "remaining_dircall_symbols": [
+    "SET_MKND_ERR",
+    "MAKENODE",
+    "NEWDIR",
+    "SETDOTENT",
+    "FastOpen_Delete"
+  ],
+  "limits": "Shared preceding RET is currently supplied by FIGREC, not the original preceding PACK call sequence. Original full rom layout remains to restore. No disk mutation runtime proof."
+}

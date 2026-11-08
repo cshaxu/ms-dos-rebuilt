@@ -1,0 +1,28 @@
+{
+  "index": 88,
+  "file": "dos/macro2.asm",
+  "reviewed_sha256": "6f21d03309ffe72aaba95d9885546d7b76c16d0e2778ae0a2e176b05f61eed15",
+  "decision": "retain_round2",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\macro2.asm",
+      "sha256": "599c74d3c01f65985e9ffa75fe6bf3eea8a5b36bdf8ef6808634f17deaab77d2"
+    },
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\DOS\\MACRO2.ASM",
+      "sha256": "f3752b30dbed059a4538eac14d77242c33ff59864f16b8f5957572027e80f003"
+    },
+    {
+      "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\doskrnl\\dos\\macro2.asm",
+      "sha256": "4535001b614701cece712a6d10f35f90c714d3f480a163116f3e20cc2862aa89"
+    }
+  ],
+  "reason": [
+    "DOS 6 adds an explicitly 1992 CD-ROM extension scan workaround and call/jump thunk in place of the target direct CheckThisDevice call.",
+    "DOS 4 has extensive structural and behavioral differences, while OpenNT contains NT DOSEm port history and changes."
+  ],
+  "target_evidence": "Existing file-review-088-macro2.json and m4-t5-macro2-full-verification.json record target direct call and linked target comparison.",
+  "change": "No source change.",
+  "verification": "Current lexical screen has no hits; latest integrated-source-3jwsdhtq matches all three retained targets.",
+  "limits": "Historical original DOS 5 source and optional runtime variants are not established."
+}

@@ -1,0 +1,131 @@
+{
+  "build_report": "m4-t5-cache-parms-build.json",
+  "candidate_sha256": "4ab89a50319cfbc7953901cbd080b4b401a6415d1a7cfb6d0050d5a7d79dc367",
+  "target_sha256": "4e41ca4e5893d4cf293f81ad01adbdbd12f7039534f59148214a9cca309529a2",
+  "routines": [
+    {
+      "name": "GetCurHead",
+      "candidate_offset": 11518,
+      "target_offset": 23206,
+      "size": 18,
+      "candidate_hex": "36c53e6d0036c7061e00ffff36893ebb0ec3",
+      "target_hex": "36c53e6d0036c7061e00ffff36893ebb0ec3",
+      "exact": true
+    },
+    {
+      "name": "ScanPlace",
+      "candidate_offset": 11536,
+      "target_offset": 23224,
+      "size": 7,
+      "candidate_hex": "ff35e802005fc3",
+      "target_hex": "ff35e802005fc3",
+      "exact": true
+    },
+    {
+      "name": "PLACEBUF",
+      "candidate_offset": 11543,
+      "target_offset": 23231,
+      "size": 61,
+      "candidate_hex": "5053568b05368b1e6d003bc374203bfb750636a36d00eb168b75028904968944028b7702893c897f02897502891d5e5b58807d04ff750536893e6d00c3",
+      "target_hex": "5053568b05368b1e6d003bc374203bfb750636a36d00eb168b75028904968944028b7702893c897f02897502891d5e5b58807d04ff750536893e6d00c3",
+      "exact": true
+    },
+    {
+      "name": "PointComp",
+      "candidate_offset": 11604,
+      "target_offset": 23292,
+      "size": 15,
+      "candidate_hex": "3bf7750a51528cd98cc23bca5a59c3",
+      "target_hex": "3bf7750a51528cd98cc23bca5a59c3",
+      "exact": true
+    },
+    {
+      "name": "SET_RQ_SC_PARMS",
+      "candidate_offset": 11619,
+      "target_offset": 23811,
+      "size": 19,
+      "candidate_hex": "50268b460236a3ad0d268a460036a2af0d58c3",
+      "target_hex": "50268b460236a3ad0d268a460036a2af0d58c3",
+      "exact": true
+    },
+    {
+      "name": "INC_DIRTY_COUNT",
+      "candidate_offset": 11638,
+      "target_offset": 23830,
+      "size": 6,
+      "candidate_hex": "36ff067100c3",
+      "target_hex": "36ff067100c3",
+      "exact": true
+    },
+    {
+      "name": "DEC_DIRTY_COUNT",
+      "candidate_offset": 11644,
+      "target_offset": 23836,
+      "size": 14,
+      "candidate_hex": "36833e710000740536ff0e7100c3",
+      "target_hex": "36833e710000740536ff0e7100c3",
+      "exact": true
+    },
+    {
+      "name": "GOTDPB",
+      "candidate_offset": 1449,
+      "target_offset": 1547,
+      "size": 9,
+      "candidate_hex": "892e8a058c068c05c3",
+      "target_hex": "892e8a058c068c05c3",
+      "exact": true
+    }
+  ],
+  "target_static_call_edges": [
+    {
+      "site": 3994,
+      "bytes": "e8ef5c",
+      "destination": 27788,
+      "expected_destination": 27788,
+      "label": "GetThisDrv candidate",
+      "exact": true
+    },
+    {
+      "site": 4010,
+      "bytes": "e8a903",
+      "destination": 4950,
+      "expected_destination": 4950,
+      "label": "EnterCritDisk candidate",
+      "exact": true
+    },
+    {
+      "site": 4013,
+      "bytes": "e8e948",
+      "destination": 22681,
+      "expected_destination": 22681,
+      "label": "FATREAD_CDS candidate",
+      "exact": true
+    },
+    {
+      "site": 4016,
+      "bytes": "e8c303",
+      "destination": 4982,
+      "expected_destination": 4982,
+      "label": "LeaveCritDisk candidate",
+      "exact": true
+    },
+    {
+      "site": 4021,
+      "bytes": "e8edf4",
+      "destination": 1189,
+      "expected_destination": 1189,
+      "label": "get_user_stack candidate",
+      "exact": true
+    },
+    {
+      "site": 22694,
+      "bytes": "e862ad",
+      "destination": 1547,
+      "expected_destination": 1547,
+      "label": "GOTDPB",
+      "exact": true
+    }
+  ],
+  "all_exact": true,
+  "scope": "Eight complete source routines and six target static call edges only; FATREAD_CDS label remains comparative attribution, no runtime or whole-kernel equivalence."
+}

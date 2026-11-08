@@ -1,0 +1,182 @@
+{
+  "candidate": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\source-package-candidate-c9daddmz",
+  "scope": "Literal basename inventory only: no search-order, macro expansion, conditional evaluation, assembler execution, or dependency-closure claim.",
+  "groups": {
+    "bios": {
+      "directives": 192,
+      "unmatched_names": {
+        "msbio.cl2": [
+          "bios/msbio2.asm:249"
+        ],
+        "msbio.cl4": [
+          "bios/sysinit1.asm:4128"
+        ],
+        "msbio.cl5": [
+          "bios/sysinit1.asm:662"
+        ],
+        "msbio.cl6": [
+          "bios/sysinit1.asm:2141"
+        ],
+        "msbio.cl7": [
+          "bios/sysinit1.asm:5194"
+        ],
+        "msbio.cl8": [
+          "bios/msinit.asm:909"
+        ],
+        "msbio.cl9": [
+          "bios/power.asm:3696"
+        ],
+        "msdos.cl2": [
+          "kernel-source/inc/lmstub.asm:816"
+        ],
+        "msdos.cl3": [
+          "kernel-source/inc/yesno.asm:3"
+        ]
+      }
+    },
+    "kernel": {
+      "directives": 488,
+      "unmatched_names": {
+        "msdos.cl1": [
+          "kernel-source/dos/divmes.inc:6"
+        ],
+        "msdos.cl2": [
+          "kernel-source/inc/lmstub.asm:816"
+        ],
+        "msdos.cl3": [
+          "kernel-source/inc/yesno.asm:3"
+        ],
+        "msdos.cl4": [
+          "kernel-source/dos/divmes.inc:16"
+        ],
+        "restrict.inc": [
+          "kernel-source/dos/msproc.asm:333"
+        ]
+      }
+    },
+    "command": {
+      "directives": 275,
+      "unmatched_names": {
+        "&ext": [
+          "inc/SYSMSG.INC:465"
+        ],
+        "&utilname.ctl": [
+          "inc/SYSMSG.INC:387"
+        ],
+        "msdos.cl2": [
+          "inc/lmstub.asm:831",
+          "inc/lmstub.physical.recovery.asm:816",
+          "inc/lmstub.tail.recovery.asm:816"
+        ],
+        "msdos.cl3": [
+          "inc/yesno.asm:3"
+        ]
+      }
+    }
+  },
+  "retained_generated_message_files": {
+    "kernel": [
+      {
+        "name": "MSDOS.CL1",
+        "bytes": 90,
+        "sha256": "12b8032cd71b9026b0aa7f3cddd98b896d5a84c091f9bb1597d4033262238153"
+      },
+      {
+        "name": "MSDOS.CL2",
+        "bytes": 100,
+        "sha256": "eb2759bc8c8db4a665b6383ec98b53afc98c67a41e9b8aab309109504909711b"
+      },
+      {
+        "name": "MSDOS.CL3",
+        "bytes": 212,
+        "sha256": "e6312a30fa572b0ada935d76c8c306856e6d4eeb561c2f67f9deead57d97f475"
+      },
+      {
+        "name": "MSDOS.CL4",
+        "bytes": 186,
+        "sha256": "6bb4f994e388db32d50000eec3064e09d6940f20fd408eb26605a03f05e625a9"
+      }
+    ],
+    "bios": [
+      {
+        "name": "MSBIO.CL1",
+        "bytes": 159,
+        "sha256": "9b9cb7ada43350eb060a47b378c8573ee897213b1810d37b1ad935360c7204bc"
+      },
+      {
+        "name": "MSBIO.CL2",
+        "bytes": 184,
+        "sha256": "6e795d3ec5f8145758bb78822f5d2c3ab8e6bcf669cf43151afde45342ad96a3"
+      },
+      {
+        "name": "MSBIO.CL3",
+        "bytes": 816,
+        "sha256": "cc199f0c5f8fa1ac91c81cb9d204d8bebc1af42aec280dc9b15dbccdabc2fb01"
+      },
+      {
+        "name": "MSBIO.CL4",
+        "bytes": 104,
+        "sha256": "3c753ff790aad0f86a84130c8a40a23a420e8ebe842cb7dde442c55e9a525873"
+      },
+      {
+        "name": "MSBIO.CL5",
+        "bytes": 152,
+        "sha256": "a929484571f630176541f39d8c411d6e924d8cd6358e6bc395f94b23295015d2"
+      },
+      {
+        "name": "MSBIO.CL6",
+        "bytes": 211,
+        "sha256": "4a23d5d9e82762b4e0fde991c2c0347c1fe33e6097d2f1ed54da9dd6cfbd0440"
+      },
+      {
+        "name": "MSBIO.CL7",
+        "bytes": 113,
+        "sha256": "34ed0c7aa8880b9c181d2c06b3c2e35b90651fe766bc3034925b1b5aa68e0ac4"
+      },
+      {
+        "name": "MSBIO.CL8",
+        "bytes": 129,
+        "sha256": "7570f98a2bd8d0eae5df2ecb6e2a1d00e981aa14679a1abbd9e80e6d604b8542"
+      },
+      {
+        "name": "MSBIO.CL9",
+        "bytes": 82,
+        "sha256": "896442afe7546c104ba49e921b4aa20a7033a53f01a299fd2c1cd5ead5a84e79"
+      }
+    ],
+    "command": [
+      {
+        "name": "COMMAND.CL1",
+        "bytes": 2000,
+        "sha256": "9162c031d609799abcfbb8b2c0808aad8a8e52e2f8402cf543b692482d050f9d"
+      },
+      {
+        "name": "COMMAND.CL2",
+        "bytes": 1281,
+        "sha256": "4d7debffaff48325ed12f0657e2bc1201e9a110bc0d51d7a50275c8eb2c148c7"
+      },
+      {
+        "name": "COMMAND.CL3",
+        "bytes": 1176,
+        "sha256": "df7ca28570386425254fc078ae37f5469ccf566fcebd63f50221da5c118bc92a"
+      },
+      {
+        "name": "COMMAND.CL4",
+        "bytes": 1173,
+        "sha256": "ea9453cf4538ed99dec5be95a80283b1ba7a4f870e3ce9a56d48299300805e2d"
+      },
+      {
+        "name": "COMMAND.CLF",
+        "bytes": 49190,
+        "sha256": "7618ea9164efe83ec134bc415b9dd0879920b3036624d41ec454012546937d03"
+      }
+    ]
+  },
+  "interpretation": [
+    "MSBIO.CL2-CL9 and MSDOS.CL1-CL4 are retained generated message files; the recipes generate resources during builds.",
+    "RESTRICT.INC is inside IFDEF RESTRICTED_BUILD in MSPROC.ASM; the normal kernel recipe does not request that optional build.",
+    "The ampersand names are macro operands in SYSMSG.INC, not literal file names.",
+    "Groups scan all files, including unused files and inactive branches; availability of a basename does not prove correct include-path resolution.",
+    "Retained generated files are evidence of earlier builds, not proof that the current snapshot can reproduce them."
+  ]
+}

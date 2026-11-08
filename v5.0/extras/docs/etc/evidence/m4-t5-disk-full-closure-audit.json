@@ -1,0 +1,65 @@
+{
+  "build": "m4-t5-openclose-build.json",
+  "candidates": [
+    {
+      "module": "disk-full",
+      "proof": "m4-t5-disk-full-verification.json",
+      "proof_sha256": "7b7ac0cd95d8562470041fa5bac9535a29ac3f06fb5ed5ec06109035a9ea6d41",
+      "bytes": 1206,
+      "data_layout_differences": [
+        {
+          "symbol": "IsWin386",
+          "production": 4110,
+          "target": 4144,
+          "operand_site": 13440,
+          "scope": "Comparison-only symbol placement"
+        }
+      ],
+      "external_symbols_absent_from_current_link": [
+        "DISKREAD",
+        "DISKWRITE",
+        "DOS_COMMIT",
+        "LOCK_CHECK",
+        "READ_LOCK_VIOLATION",
+        "SETUP",
+        "WRITE_LOCK_VIOLATION"
+      ]
+    },
+    {
+      "module": "disk2-full",
+      "proof": "m4-t5-disk2-full-verification.json",
+      "proof_sha256": "27c9af106ab66ae8aba7e046a3d3399e1b4f9be700144e2d105ffc130ccb302d",
+      "bytes": 737,
+      "data_layout_differences": [],
+      "external_symbols_absent_from_current_link": [
+        "BUFRD",
+        "CHECK_READ_LOCK",
+        "DIV32",
+        "FNDCLUS",
+        "LOCK_VIOLATION",
+        "NEXTSEC",
+        "OPTIMIZE",
+        "SHR32",
+        "WRTERR22"
+      ]
+    }
+  ],
+  "snapshots": {
+    "m4-t5-openclose-build.json": {
+      "inputs": 115,
+      "mismatches": []
+    },
+    "m2-t3-command-exact-verification.json": {
+      "inputs": 113,
+      "mismatches": []
+    }
+  },
+  "integration_plan": [
+    "Restore disk3.asm DISKWRITE/DIV32/SHR32 and rom.asm FNDCLUS/BUFRD/NEXTSEC/OPTIMIZE dependencies.",
+    "Restore close.asm DOS_COMMIT and physical locking helpers.",
+    "Migrate kernel-only SFT and NT-handle users; integrate full disk/disk2/dev together, removing duplicate bounded diskread entries.",
+    "Correct IsWin386 placement from actual data source layout; do not copy comparison-only address substitution into production.",
+    "Clean isolated build and actual linked operand/call checks, then standalone runtime and whole target identity."
+  ],
+  "scope": "Complete module target-layout correspondence; missing external symbol inventory is a link dependency list, not proof of callee correctness or completeness of transitive dependencies."
+}

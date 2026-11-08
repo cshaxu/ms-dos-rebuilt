@@ -1,0 +1,30 @@
+{
+  "changes": {
+    "dos/disk.asm": {
+      "before": "4752eef26b56602bf151fbf4fd62b10e8e69f8b28ee4276b77b2eb2cad9f4af7",
+      "after": "937b048d6f05041ab10a5519332a806445d8abbbc7217b386377f6e1538e6959"
+    },
+    "dos/disk3.asm": {
+      "before": "e1efd25c46535530b31872ff3874bb57e50374786328e5816d42e4484b236fa5",
+      "after": "c6dc525577900c4e2172542c46cebf5d488d2eec64836a024a7039c3f743c6c5"
+    },
+    "dos/msproc.asm": {
+      "before": "8ca404d7a2e8bc0c3a23dbae4590cb132f4be447a0f3ae72b4996ee8ad17eaf8",
+      "after": "83591009afc7ea2bb6ef18477f8ef115af73042c8959127fca2fb14586122dc3"
+    },
+    "dos/msinit.asm": {
+      "before": "866888016fe1550a803412b412ff2c6b372716d05cb28ad3837c678fa24e20a2",
+      "after": "bd83645a85726153cba1632f3095ab575955608bad802fb303b18a5b92fba1af"
+    },
+    "dos/dosprint.asm": {
+      "after": "96412d605a3e19ccfaa9a4fdd57a8949eca7fce3950cf81bc4e3c6bf491b05ba",
+      "reference": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dosprint.asm"
+    },
+    "dos/msdos-debug.lnk": {
+      "after": "f8c340b1c79383accd26808781489c5677e704d77e81b2cc11dcf50e84b303a1",
+      "reference": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\kernel-debug-repair-tfde0vuo\\msdos.lnk"
+    }
+  },
+  "probe_stage": "O:\\repos.hobby\\ms-dos-archaeology\\v5.0\\build\\kernel-debug-repair-tfde0vuo",
+  "scope": "DEBUG-only long jumps and removal of undefined debug exports; DOSPRINT copied unmodified from DOS 6 for debug use, separate debug link order. Default target remains unchanged."
+}

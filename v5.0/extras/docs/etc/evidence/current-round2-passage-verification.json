@@ -1,0 +1,182 @@
+{
+  "automatic_evidence_sha256": "5a75133d05731dc848d998fb9e8995993e23c8b03b18f786cc526a50fe326164",
+  "files_checked": 28,
+  "code_lines_checked": 12462,
+  "passages_by_method": {
+    "exact": 2578,
+    "passage": 582,
+    "individually reviewed": 8
+  },
+  "files": [
+    {
+      "index": 4,
+      "file": "bios/config.inc",
+      "code_lines": 20,
+      "passages": 9
+    },
+    {
+      "index": 21,
+      "file": "bios/inc/mult.inc",
+      "code_lines": 12,
+      "passages": 11
+    },
+    {
+      "index": 30,
+      "file": "bios/inc/version.inc",
+      "code_lines": 96,
+      "passages": 29
+    },
+    {
+      "index": 33,
+      "file": "bios/msbio2.asm",
+      "code_lines": 738,
+      "passages": 235
+    },
+    {
+      "index": 41,
+      "file": "bios/msinit.asm",
+      "code_lines": 2205,
+      "passages": 612
+    },
+    {
+      "index": 88,
+      "file": "dos/macro2.asm",
+      "code_lines": 795,
+      "passages": 201
+    },
+    {
+      "index": 89,
+      "file": "dos/misc.asm",
+      "code_lines": 347,
+      "passages": 103
+    },
+    {
+      "index": 95,
+      "file": "dos/msdata.asm",
+      "code_lines": 30,
+      "passages": 5
+    },
+    {
+      "index": 101,
+      "file": "dos/mstable.asm",
+      "code_lines": 289,
+      "passages": 56
+    },
+    {
+      "index": 107,
+      "file": "dos/rom.asm",
+      "code_lines": 429,
+      "passages": 101
+    },
+    {
+      "index": 116,
+      "file": "cmd/command/comequ.asm",
+      "code_lines": 182,
+      "passages": 25
+    },
+    {
+      "index": 118,
+      "file": "cmd/command/command2.asm",
+      "code_lines": 551,
+      "passages": 127
+    },
+    {
+      "index": 126,
+      "file": "cmd/command/envdata.asm",
+      "code_lines": 9,
+      "passages": 6
+    },
+    {
+      "index": 129,
+      "file": "cmd/command/init.asm",
+      "code_lines": 1326,
+      "passages": 407
+    },
+    {
+      "index": 131,
+      "file": "cmd/command/loadhi.asm",
+      "code_lines": 229,
+      "passages": 116
+    },
+    {
+      "index": 135,
+      "file": "cmd/command/rdata.asm",
+      "code_lines": 402,
+      "passages": 113
+    },
+    {
+      "index": 137,
+      "file": "cmd/command/rucode.asm",
+      "code_lines": 669,
+      "passages": 183
+    },
+    {
+      "index": 138,
+      "file": "cmd/command/stub.asm",
+      "code_lines": 171,
+      "passages": 54
+    },
+    {
+      "index": 145,
+      "file": "cmd/command/tcode.asm",
+      "code_lines": 421,
+      "passages": 88
+    },
+    {
+      "index": 146,
+      "file": "cmd/command/tdata.asm",
+      "code_lines": 702,
+      "passages": 112
+    },
+    {
+      "index": 150,
+      "file": "cmd/command/tmisc1.asm",
+      "code_lines": 608,
+      "passages": 151
+    },
+    {
+      "index": 155,
+      "file": "cmd/command/tranmsg.asm",
+      "code_lines": 547,
+      "passages": 88
+    },
+    {
+      "index": 156,
+      "file": "cmd/command/tspc.asm",
+      "code_lines": 419,
+      "passages": 57
+    },
+    {
+      "index": 174,
+      "file": "inc/dosmac.INC",
+      "code_lines": 867,
+      "passages": 148
+    },
+    {
+      "index": 188,
+      "file": "inc/lmstub.asm",
+      "code_lines": 371,
+      "passages": 110
+    },
+    {
+      "index": 196,
+      "file": "inc/mshead.asm",
+      "code_lines": 17,
+      "passages": 14
+    },
+    {
+      "index": 198,
+      "file": "inc/origin.inc",
+      "code_lines": 4,
+      "passages": 2
+    },
+    {
+      "index": 209,
+      "file": "inc/VERSIONA.INC",
+      "code_lines": 6,
+      "passages": 5
+    }
+  ],
+  "scope": "Compared each recorded source passage with its cited reference lines after the project classifier removes assembly comments and blank lines and strips edge whitespace; all code lines are covered.",
+  "limitations": "This confirms textual matches only, not macro expansion, original authorship, NT/BOP absence beyond existing lexical checks, or optional-configuration behavior."
+}

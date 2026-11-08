@@ -1,0 +1,28 @@
+{
+  "index": 156,
+  "file": "cmd/command/tspc.asm",
+  "reviewed_sha256": "516b7fadf962ccd0a6d5cb4e32e63dd0a9c9f8b9450e06f1f87ee4800f563b8f",
+  "decision": "retain_round2",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\tspc.asm",
+      "sha256": "3dc9ce6f801dd4f1c01fa47676783b4758b2ff3605e7fc8668c3bc658c8e7ffa"
+    },
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v4.0\\src\\CMD\\COMMAND\\TSPC.ASM",
+      "sha256": "d0beeb08ae81f2fe01cc82f45b91c7e4d97ac303ae4180f01ceef05147df1410"
+    },
+    {
+      "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\tspc.asm",
+      "sha256": "cae808af6cd1657cc41f4e83d26f67353d085d291db2f300e9380025b41a350f"
+    }
+  ],
+  "reason": [
+    "DOS 6 adds DoubleSpace workspace, compression buffers and ROMEXEC variables.",
+    "OpenNT adds SCS host command information and an expanded EXECPATH buffer.",
+    "DOS 4 has a different transient workspace layout."
+  ],
+  "change": "No source change.",
+  "verification": "Latest integrated-source-ye1qp0mo matches the three retained targets; current lexical scan has no hits.",
+  "limitations": "Default target build does not prove optional configurations or historical original source."
+}

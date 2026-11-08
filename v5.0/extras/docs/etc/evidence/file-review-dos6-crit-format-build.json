@@ -1,0 +1,38 @@
+{
+  "stage": "build\\integrated-source-fpta7_xz",
+  "previous_stage": "build\\integrated-source-m1_2507r",
+  "source_audit": "file-review-dos6-crit-format-source.json",
+  "object_changes": {
+    "msload": {},
+    "bios": {},
+    "kernel": {},
+    "command": {}
+  },
+  "object_counts": {
+    "msload": 1,
+    "bios": 14,
+    "kernel": 55,
+    "command": 34
+  },
+  "files": [
+    {
+      "name": "IO.SYS",
+      "bytes": 33430,
+      "sha256": "dd0915ed366b3f640284df4be30ed35f413dfd5b6966c1f25eee9598a5bf53e0",
+      "byte_equal": true
+    },
+    {
+      "name": "MSDOS.SYS",
+      "bytes": 37394,
+      "sha256": "4e41ca4e5893d4cf293f81ad01adbdbd12f7039534f59148214a9cca309529a2",
+      "byte_equal": true
+    },
+    {
+      "name": "COMMAND.COM",
+      "bytes": 47845,
+      "sha256": "74ad25067e7d9f5c3a0ac2f2967347defb0ffef9e6ed60b60e6499f0b1a8cc89",
+      "byte_equal": true
+    }
+  ],
+  "scope": "Owner-requested exact DOS 6 spelling and spacing; DOS 5 instructions remain target-identical."
+}

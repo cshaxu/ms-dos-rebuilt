@@ -1,0 +1,47 @@
+{
+  "index": 89,
+  "file": "dos/misc.asm",
+  "reviewed_sha256": "63ab9bfcf646de260286d81c1c48cebfb780d1e4e87e43229a06eeabcd6e7438",
+  "status": "auto_qualified",
+  "source_change": "docs/etc/evidence/file-review-089-misc-format-source.json",
+  "source_code_lines": 347,
+  "reference_passages": 103,
+  "disposition": "Get-DPB macros aligned to DOS 6; all current code lines occur in order in DOS 6. DOS 6-only additional FAT checks remain absent to preserve target bytes.",
+  "verification": {
+    "stage": "build\\integrated-source-edz4fx2u",
+    "object_changes": {
+      "msload": {},
+      "bios": {},
+      "kernel": {
+        "misc": {
+          "before": "7c537087caaa1e0fe223ab72df523bf97eaa8bf387a398c0df8a2629e1fbd0e5",
+          "after": "ed2696545787b055ee20b065f9ac44bdff27ba3a8c72bd8c9a6a4ed1ecb5cd10"
+        }
+      },
+      "command": {}
+    },
+    "files": [
+      {
+        "name": "IO.SYS",
+        "bytes": 33430,
+        "sha256": "dd0915ed366b3f640284df4be30ed35f413dfd5b6966c1f25eee9598a5bf53e0",
+        "byte_equal": true
+      },
+      {
+        "name": "MSDOS.SYS",
+        "bytes": 37394,
+        "sha256": "4e41ca4e5893d4cf293f81ad01adbdbd12f7039534f59148214a9cca309529a2",
+        "byte_equal": true
+      },
+      {
+        "name": "COMMAND.COM",
+        "bytes": 47845,
+        "sha256": "74ad25067e7d9f5c3a0ac2f2967347defb0ffef9e6ed60b60e6499f0b1a8cc89",
+        "byte_equal": true
+      }
+    ],
+    "get_dpb_evidence": "docs/etc/evidence/file-review-089-getdpb-edz4fx2u.json",
+    "nt_bop_screen": "No lexical indicators",
+    "limits": "Source text and target build do not establish original DOS 5 text or all runtime behavior."
+  }
+}
