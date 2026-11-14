@@ -4,13 +4,12 @@
 ;	All Rights Reserved.
 ;
 
-;** EXEPATCH.ASM 
+;** EXECHOT.ASM - Execution preparation and Rational 386 patches
 ;
 ;	Contains the foll:
 ;
-;		- code to find and overlay buggy unpack code
-;		- new code to be overlayed on buggy unpack code 
-;		- old code sequence to identify buggy unpack code
+;		- execution preparation and notifications
+;		- Rational 386 patch detection and replacement
 ;
 ;	Revision history:
 ;
@@ -46,30 +45,6 @@ INCLUDE	PDB.INC
 
 	public	Rational386Patch
 
-PATCH1_COM_OFFSET	EQU	06CH
-PATCH1_OFFSET		EQU	028H
-PATCH1_CHKSUM		EQU	0EF4EH
-CHKSUM1_LEN		EQU	11CH/2
-
-PATCH2_COM_OFFSET	EQU	076H
-PATCH2_OFFSET		EQU	032H
-
-	; The strings that start at offset 076h have two possible 
-	; check sums that are defined as PATCH2_CHKSUM PATCH2A_CHKSUM
-
-PATCH2_CHKSUM		EQU	78B2H
-CHKSUM2_LEN		EQU	119H/2
-PATCH2A_CHKSUM		EQU	1C47H		; M046
-CHKSUM2A_LEN		EQU	103H/2		; M046
-
-PATCH3_COM_OFFSET	EQU	074H
-PATCH3_OFFSET		EQU	032H
-PATCH3_CHKSUM		EQU	4EDEH
-CHKSUM3_LEN		EQU	117H/2
-
-
-
-
 DOSDATA	SEGMENT
 
 ;	EXTRN	exec_signature	:WORD	; Must contain 4D5A  (yay zibo!)
@@ -77,9 +52,6 @@ DOSDATA	SEGMENT
 ;	EXTRN	exec_init_IP 	:WORD	; IP of entry
 ;	EXTRN	exec_init_CS 	:WORD	; CS of entry
 
-	EXTRN	UNPACK_OFFSET	:WORD
-	EXTRN	RatBugCode	:FAR
-	EXTRN	RationalPatchPtr:word
 	EXTRN	fixexepatch	:word		; M028
 	EXTRN	Rational386PatchPtr:word
 	EXTRN	Special_Version	:word		; M028
@@ -93,7 +65,7 @@ DOSDATA	ENDS
 
 
 DOSCODE	SEGMENT
-        EXTRN IsCopyProt:NEAR
+	EXTRN	IsCopyProt:NEAR
 	EXTRN	ExecSaveState:NEAR,ExecNotify:NEAR
 
 ; M028 - BEGIN
@@ -208,7 +180,7 @@ ExecReady	endp
 ; or later processor, regardless of whether MS-DOS is running in the HMA
 ; or not.
 ;
-; The other Rational patch routine (RationalPatch, below) fixes a register
+; The other Rational patch routine (RationalPatch in EXEPATCH.ASM) fixes a register
 ; trashing problem on 286 processors, and is only executed if MS-DOS is
 ; running in the HMA.
 ;
@@ -919,9 +891,9 @@ VVDigit 	endp
 
 ;-----------------------------------------------------------------------
 
-        PUBLIC ScanCodeSeq,VerifyVersion
+	public	ScanCodeSeq,VerifyVersion
 	db	"MS-DOS Version 7 (C)Copyright 1981-1995 Microsoft Corp "
 	db	"Licensed Material - Property of Microsoft All rights reserved "
 
-DOSCODE ENDS
-        END
+DOSCODE	ENDS
+	END

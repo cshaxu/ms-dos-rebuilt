@@ -56,10 +56,10 @@ IO.SYS, MSDOS.SYS and COMMAND.COM all equal. This is an existing-asset check,
 not a claim that a new build has run. The accepted six-byte MSDOS.SYS config
 remains the target; other media provenance does not silently change it.
 
-## Current prefix: 167/293
+## Current prefix: 168/293
 
-Modified source/build files 85, exact 25, necessary unchanged 21,
-no same-name reference unchanged 36. Next: 168, dos/exechot.asm. Tooling modified
+Modified source/build files 86, exact 25, necessary unchanged 21,
+no same-name reference unchanged 36. Next: 169, dos/exepatch.asm. Tooling modified
 1 (ioimage.c case-insensitive map symbol lookup), outside source count.
 See etc/T25/part1.md. BIOSTAIL.OBJ is unchanged; all compiler/link phases ran,
 then packaging failure was diagnosed and repaired. Fresh three-output FC/B
@@ -435,3 +435,10 @@ the actual declarations and removes orphan commentary, retaining 950 data.
 Fresh MSDATA/kernel link unchanged; freshly packed IO.SYS and inherited
 other outputs target-exact, 293 inputs checked. See part65.md/file166-build.txt.
 Next: 168 dos/exechot.asm. Final full build and completion audit pending.
+
+P66 accepts file 168 EXECHOT: remove 14 unused constants and three externs,
+correct copied module description and cross-file reference. Procedure bodies
+retain reference implementation plus 950 notifications and encodings. Fresh
+kernel link unchanged, freshly packed IO.SYS and inherited other outputs
+target-exact; 293 inputs checked. See part66.md/file168-build.txt.
+Next: 169 dos/exepatch.asm. Final full build and completion audit pending.
