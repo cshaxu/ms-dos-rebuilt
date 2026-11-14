@@ -85,11 +85,11 @@ hdrv_pat label	word			; patched by msinit
 In_Bios	=	0ffffh	; define flag for msbdata.inc
 	include	oemconf.inc
 	public	dosdatasg,bios_i2f,bios_flags,romstartaddr,altah
-DosDataSg	dw	0b146h		; initial value, reset by init
+DosDataSg	dw	0b1a6h		; initial value, reset by init
 bios_i2f proc far
 	jmp	near ptr int_2f
 bios_i2f endp
-bios_flags dw 1216h
+bios_flags dw 1268h
 	public	a20_mask,changeline_mask,single_drive_mask,setowner_mask
 	public	k09_mask,int19_init_mask,multrk_mask,format_multitrk_mask
 	public	multrk_configured_mask

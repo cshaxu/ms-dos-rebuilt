@@ -70,7 +70,7 @@ dosinfo	dd	0		; address of the DOS Sysini Variables
 
 dos_temp_location label	dword
 dosinit	dw	0
-sysinit_reserve_size equ 1286h          ; DOS image load segment
+sysinit_reserve_size equ 12D8h          ; DOS image load segment
 sysinit_reserve_count label word
 current_dos_location dw 0
 

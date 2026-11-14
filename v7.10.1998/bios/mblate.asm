@@ -49,7 +49,8 @@ system_exec_records	label	word
 	dw	4,offset exec_allow_fat32,0f000h
 system_exec_tail_end db 13,0
 system_io_path db	'C:\IO.SYS',0
-system_winboot_path db 'C:\WINBOOT.SYS',0
+system_winboot_path db 'C:\JO.SYS',0
+	db	90h			; align the following EXEC environment
 
 ; Empty environment and EXEC parameter block for the system file.
 	public	system_exec_environment,system_exec_env_end,system_exec_block
@@ -383,7 +384,8 @@ boot_prepare_system_file	label	near
 	pop	ds
 	assume	ds:sysinitseg
 	call	boot_check_windows_path
-	mov	al,0
+	mov	al,exec_windows_path
+	or	al,80h
 	xchg	al,exec_windows_path
 	mov	ah,exec_mode
 	push	ax
@@ -394,7 +396,7 @@ boot_prepare_system_file	label	near
 ;----------------------------------------------------------------------------
 ; boot_run_system_file
 ;
-; Query before executing WINBOOT.SYS or IO.SYS and save the return code.
+; Query before executing JO.SYS or IO.SYS and save the return code.
 ; ES:BX points to the EXEC parameter block.
 ;----------------------------------------------------------------------------
 ;
@@ -479,8 +481,8 @@ exec_fat32_ready:
 	pop	ax
 	or	exec_mode,ah
 	xchg	al,exec_windows_path
-	test	al,al
-	jz	short exec_check_status
+	test	al,80h
+	jnz	short exec_check_status
 	mov	exec_windows_path,al
 	test	boot_config_flags,20h
 	jz	short exec_prepare_paths

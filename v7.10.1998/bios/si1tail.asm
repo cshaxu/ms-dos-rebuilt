@@ -1010,7 +1010,7 @@ fcb7_fillloop:
 	add	dx,word ptr [sysinit_msg_table+118]
 	call	print
 buffer_default:
-	mov	cx,30
+	mov	cx,20
 	mov	[h_buffers],0
 	cmp	byte ptr [dos_umb_flag],0
 	je	buffer_save_count
@@ -1023,7 +1023,6 @@ buffer_default:
 	jbe	buffer_save_count
 	sub	dx,dx
 	div	[singlebuffersize]
-	inc	cx
 	cmp	ax,cx
 	jae	buffer_save_count
 	xchg	ax,cx
