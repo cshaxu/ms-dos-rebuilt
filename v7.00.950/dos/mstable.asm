@@ -355,8 +355,8 @@ endif
 
 
         short_addr  $InternalTable                 ; 112    70
-        short_addr  $LfnCall                       ; 113    71
-        short_addr  $ExtendedCall                  ; 114    72
+        short_addr  $LfnCall                        ; 113    71
+        short_addr  $ExtendedCall                   ; 114    72
         short_addr  $DriveFlags                    ; 115    73
 
 VAL2    =       ($-DISPATCH)/2 - 1
@@ -425,7 +425,7 @@ DOSTable    LABEL   WORD
 	Short_addr  NO_OP		;   M006: 47  no longer supported
 ;***       Short_addr  Fake_Version     ;   47  Fake_Version  DOS 4.0  ;AN006;
 
-        Short_addr  FindDirSft          ;   48  directory position of SFT
+        Short_addr  FindDirSft		;   48  directory position of SFT
 
 DOSTableEnd LABEL   BYTE
 
