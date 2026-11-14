@@ -499,10 +499,10 @@ exechot.obj: exechot.asm $(inc)/buffer.inc $(inc)/dbcs.sw \
 	$(inc)/error.inc $(inc)/exe.inc $(inc)/pdb.inc $(inc)/version.inc \
 	$(inc)/versiona.inc
 
-idle.obj: idle.asm $(inc)/buffer.inc $(inc)/bugtyp.inc $(inc)/curdir.inc \
+idle.obj: idle.asm $(inc)/buffer.inc \
 	$(inc)/dbcs.sw $(inc)/dirent.inc $(inc)/dosmac.inc $(inc)/dosseg.inc \
-	$(inc)/dossym.inc $(inc)/error.inc $(inc)/fastxxxx.inc $(inc)/sf.inc \
-	$(inc)/sysvar.inc $(inc)/version.inc $(inc)/versiona.inc
+	$(inc)/dossym.inc $(inc)/error.inc \
+	$(inc)/version.inc $(inc)/versiona.inc
 
 diskio.obj: diskio.asm $(inc)/buffer.inc $(inc)/dbcs.sw \
 	$(inc)/devsym.inc $(inc)/dirent.inc $(inc)/dosmac.inc $(inc)/dosseg.inc \
@@ -513,7 +513,7 @@ diskio.obj: diskio.asm $(inc)/buffer.inc $(inc)/dbcs.sw \
 
 dircmp.obj: dircmp.asm $(inc)/buffer.inc $(inc)/dbcs.sw \
 	$(inc)/dirent.inc $(inc)/dosmac.inc $(inc)/dosseg.inc $(inc)/dossym.inc \
-	$(inc)/dpb.inc $(inc)/error.inc $(inc)/fastopen.inc $(inc)/version.inc \
+	$(inc)/error.inc $(inc)/version.inc \
 	$(inc)/versiona.inc
 
 devcache.obj: devcache.asm $(inc)/buffer.inc $(inc)/dbcs.sw \

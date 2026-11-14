@@ -74,8 +74,8 @@
         I_need  HIGH_SECTOR,WORD              ;>32mb                            ;AN000;
 
 
-        i_need DOS_FLAG,BYTE
-        i_need NlsBuffer,BYTE
+        I_need  DOS_FLAG,BYTE
+        I_need  NlsBuffer,BYTE
 DOSCODE SEGMENT
         ASSUME  SS:DOSDATA,CS:DOSCODE
 
@@ -108,7 +108,7 @@ procedure BUILDDIR,NEAR
 	DOSAssume   <DS>,"BuildDir"
 
         MOV     AX,[ENTFREE]
-        db 083h,0F8h,0FFh ; CMP AX,-1 - short immediate
+        DB      083h,0F8h,0FFh ; CMP AX,-1, sign-extended immediate
         JZ      CHECK_IF_ROOT
         CLC
         return
@@ -175,6 +175,7 @@ ADDINGDIR:
         POP     BX
         POP     [FatClusterHigh]
         JB      NOTFIRSTGROW
+;;;; 10/17/86 update CLUSNUM in the fastopen cache
         MOV     [CLUSNUM],BX
         PUSH    [FatClusterHigh]
         POP     [ClusNumHigh]
@@ -504,7 +505,7 @@ make_new:
 yesdirty2:
         LES     BP,ThisDPB
         MOV     AL,ES:[BP].DPB_Drive    ; get drive for flush
-        Invoke  DeferredFlush                ; write out buffer.
+        Invoke  DeferredFlush           ; write out buffer.
         POP     AX
         jmp     make_Share_ret
 ;

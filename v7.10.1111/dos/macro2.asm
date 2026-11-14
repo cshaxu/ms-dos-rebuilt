@@ -101,7 +101,7 @@ Installed = TRUE
 	I_Need  Temp_Var,WORD           ;AN000; variable for temporary use 3/31/KK
 	I_Need  DOS34_FLAG,WORD         ;AN000; variable for dos34
 
-        I_need DOS_FLAG,BYTE
+	I_Need  DOS_FLAG,BYTE
 DOSCODE SEGMENT
 	ASSUME  SS:DOSDATA,CS:DOSCODE
 
@@ -355,7 +355,7 @@ NO_CHECK:
 	XCHG    AH,AL                   ; swap for second byte
 	call    PathChrCmp              ; convert to normal form
 	JNZ     CheckDevice             ; not a path char
-	DB      38h,0C4h               ; CMP AH,AL, register-to-r/m form
+	DB      38h,0C4h                ; CMP AH,AL: are they same?
 	JNZ     CheckDevice             ; nope
 ;
 ; We have a UNC request.  We must copy the string up to the beginning of the

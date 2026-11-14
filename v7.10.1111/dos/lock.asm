@@ -9,8 +9,6 @@
 
 ;**	LOCK.ASM - File Locking Routines
 ;
-;	LOCK_CHECK
-;	LOCK_VIOLATION
 ;	$LockOper
 ;
 ;	Revision history:

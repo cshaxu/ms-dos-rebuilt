@@ -1070,7 +1070,7 @@ Win386_Leaving:
 	test	dx, 1			; is this really win386?
 	JZ	win_leaving_real
 	JMP	SHORT win_nexti2f
-win_leaving_real:		; NO!  It's win 286 dos extender! M002
+win_leaving_real:		; Windows enhanced mode is leaving
 
 	and	ds:[IsWIN386],0feh	; Win386 is gone
 	and	ds:redir_patch,0	; Disable critical sections ; M002
@@ -1294,7 +1294,7 @@ ENDIF
 ;Input: same as ABSDRD and ABSDWRT
 ;	 ES:BP -> DPB
 ;Functions: convert 32bit absolute RW input parms to 16bit input parms
-;Output: carry set when old-style parms cannot address the drive
+;Output: carry set when CX=-1 and drive is less then 32mb
 ;	 carry clear, parms ok
 ;
 ;---------------------------------------------------------------------------

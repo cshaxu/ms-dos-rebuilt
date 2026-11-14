@@ -75,7 +75,7 @@
 
 
 DOSCODE	SEGMENT
-        EXTRN SC_STATUS:WORD
+	EXTRN	SC_STATUS:WORD
 
 	allow_getdseg
 
@@ -476,11 +476,11 @@ yesfat:
 	MOV	DX,AX
 	LODSB
 	DEC	AL
-	STOSB				; Cluster mask
+	STOSB				; dpb_cluster_mask
 	INC	AL
 	XOR	AH,AH
 LOG2LOOP:
-	TEST	AL,1
+	test	AL,1
 	JNZ	SAVLOG
 	INC	AH
 	SHR	AL,1
@@ -495,7 +495,7 @@ SAVLOG:
 	STOSW				; Root entries
 	SHR	DX,5
 	DEC	AX
-	ADD	AX,DX
+	ADD	AX,DX			; Cause Round Up
 	MOV	CX,DX
 	XOR	DX,DX
 	DIV	CX
@@ -646,8 +646,9 @@ SetDPBReturn:
 	.8086
 EndProc $SETDPB
 
-; Validate an extended free-space query's root pathname at DS:SI.
-; Return AL = drive number, or -1 for an invalid pathname.
+;	now ax = maximum legal cluster
+
+;	end M008
 
 procedure DriveRoot,NEAR
 	XOR	AL,AL
@@ -711,50 +712,50 @@ drive_not_control:
         jns     drive_flags_number
         mov     dl,CURDRV
 drive_flags_number:
-        mov     dh,0
-        mov     bx,dx
-        cmp     cl,1
-        ja      drive_flags_bad_function
-        mov     ah,BYTE PTR [bx+NlsBuffer+20]
-        cmp     cl,0
-        je      drive_flags_access
-        test    al,al
-        jz      drive_flags_get_flush
-        and     ah,0F7h
-        and     ch,8
-        or      ah,ch
-        mov     BYTE PTR [bx+NlsBuffer+20],ah
-        test    ah,8
-        jnz     drive_flags_done
-        mov     al,0FFh
-        invoke  DeferredFlush
-        jmp     short drive_flags_done
+	mov     dh,0
+	mov     bx,dx
+	cmp     cl,1
+	ja      drive_flags_bad_function
+	mov     ah,BYTE PTR [bx+NlsBuffer+20]
+	cmp     cl,0
+	je      drive_flags_access
+	test    al,al
+	jz      drive_flags_get_flush
+	and     ah,0F7h
+	and     ch,8
+	or      ah,ch
+	mov     BYTE PTR [bx+NlsBuffer+20],ah
+	test    ah,8
+	jnz     drive_flags_done
+	mov     al,0FFh
+	invoke  DeferredFlush
+	jmp     short drive_flags_done
 drive_flags_get_flush:
-        and     ah,8
-        jmp     short drive_flags_result
+	and     ah,8
+	jmp     short drive_flags_result
 drive_flags_access:
-        test    al,al
-        jz      drive_flags_get_access
-        and     ah,0F9h
-        test    ch,2
-        jz      drive_flags_store
-        or      ah,6
+	test    al,al
+	jz      drive_flags_get_access
+	and     ah,0F9h
+	test    ch,2
+	jz      drive_flags_store
+	or      ah,6
 drive_flags_store:
-        mov     BYTE PTR [bx+NlsBuffer+20],ah
-        jmp     short drive_flags_done
+	mov     BYTE PTR [bx+NlsBuffer+20],ah
+	jmp     short drive_flags_done
 drive_flags_get_access:
-        and     ah,6
+	and     ah,6
 drive_flags_result:
-        mov     al,cl
-        invoke  Get_User_Stack
-        mov     [si.user_CX],ax
+	mov     al,cl
+	invoke  Get_User_Stack
+	mov     [si.user_CX],ax
 drive_flags_done:
         STI
         jmp     SYS_RET_OK
 drive_flags_bad_drive:
-        mov     al,error_invalid_drive
+	mov     al,error_invalid_drive
 drive_flags_error:
-        jmp     SYS_RET_ERR
+	jmp     SYS_RET_ERR
 drive_flags_bad_function:
         mov     al,error_invalid_function
 drive_flags_function_error:

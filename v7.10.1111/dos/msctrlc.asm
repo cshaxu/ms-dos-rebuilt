@@ -266,7 +266,7 @@ GotCh:
         jmp CNTCHAND
 EndProc DSKSTATCHK
 
-procedure STATCHK,NEAR
+procedure   STATCHK,NEAR
         ASSUME DS:NOTHING,SS:DOSDATA
         push bx
         push ax
@@ -1224,7 +1224,7 @@ FIRST_BUFF_ADDR dw 0
 
 ; DS addresses DOSDATA; defer writes when the target flag requests it.
         i_need  DeferredFlushFlags,BYTE
-procedure DeferredFlush,near
+procedure   DeferredFlush,NEAR
         ASSUME  DS:DOSDATA
         test    DeferredFlushFlags,1
         .386

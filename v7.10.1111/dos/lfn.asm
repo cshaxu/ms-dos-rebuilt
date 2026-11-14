@@ -1,7 +1,7 @@
         TITLE   LFN - Long filename directory state
         NAME    LFN
 ;
-; Reconstructed from the DOS 7.0a target. Procedure names are assigned.
+; Maintain long filename directory entries and return unsupported calls.
 ;
         include version.inc
         include dosseg.inc
@@ -32,7 +32,7 @@ procedure LfnScanEntry,near
         ASSUME  DS:DOSDATA
         test    ah,ah
         jz      lfn_scan_other
-        cmp     ah,0e5h
+        cmp     ah,DIRFREE
         jz      lfn_scan_deleted
         and     al,0fh
         cmp     al,0fh
@@ -68,7 +68,7 @@ lfn_scan_other:
         ret
 EndProc LfnScanEntry
 
-; Input: DS:DI -> saved nine-word directory state.
+; Input: DS:DI -> saved seven-word directory state.
 ; Delete its entries, flush changed directory buffers, restore search state.
 ; Carry reports failure. The count is cleared after the state is restored.
 lfn_delete_empty:
@@ -206,7 +206,7 @@ lfn_save_done:
         ret
 EndProc LfnSaveState
 
-; Unsupported extended calls return the complete function code.
+; Return carry set with AL clear and AH equal to the function number.
         EXTRN   From_GetSet:NEAR
 procedure $LfnCall,near
         mov     ax,7100h

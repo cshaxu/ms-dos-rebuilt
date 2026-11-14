@@ -181,3 +181,19 @@ ordinal,path,disposition,verification
 180,dos/ioctl.asm,reduced,Restored common IOCTL formatter and comments; retained shared error stubs and target categories
 181,dos/isearch.asm,reduced,Restored common search formatting; kept dword directory start and target search state
 182,dos/kstrin.asm,exact,Byte comparison with frozen 950
+183,dos/lfn.asm,reduced,Restored the DIRFREE constant and inherited LFN comments; preserved high cluster state and target directory entry behavior
+184,dos/lock.asm,reduced,Restored formatting; retained target local lock result and unused SHARE dispatch removal
+185,dos/lockio.asm,reduced,Restored module title and formatting; retained target sharing and retry rules
+186,dos/macro.asm,retained,1111 adds extended assign dispatch and Win386 state with stack switching
+187,dos/macro2.asm,reduced-to-exact,Restored the operand-encoding comment and source layout
+188,dos/makefile,reduced,Restored 950 dependency sets for now-identical IDLE and DIRCMP; kept target ML rules
+189,dos/misc.asm,reduced,Restored common declarations and comments; retained extended disk and allocation calls
+190,dos/misc2.asm,reduced,Restored inherited formatting; retained moved utility entry points and target CDS checks
+191,dos/mknode.asm,reduced,Restored declaration formatting; retained high clusters and FAT32 directory initialization
+192,dos/mpatch.asm,exact,Byte comparison with frozen 950
+193,dos/mscode.asm,reduced,Restored common formatting; retained target absolute I/O and Windows notifications
+194,dos/msconst.asm,reduced-to-exact,Restored DOS constant table source and comments
+195,dos/msctrlc.asm,reduced,Restored common assembly formatting; kept stack and sector changes
+196,dos/msdata.asm,exact,Byte comparison with frozen 950
+197,dos/msdisp.asm,reduced,Restored comments at the DOS call entry; kept 1111 dispatch and register path
+198,dos/msdos.cfg,retained,The frozen target MSDOS.SYS is the nine-byte marker 3b5739354542440d0a

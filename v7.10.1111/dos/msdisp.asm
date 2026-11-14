@@ -204,10 +204,10 @@ scct_3:
 	jmp	SHORT scct_9s		; Jump to exit (returning old status)
 
 scct_4:
-	db	083h,0E8h,3		; SUB AX,3 - short immediate
+	db	083h,0E8h,3		; Subtract 3 to test for subfunction 5
 	ja	scct_5
 	jb	scct_9s
-	mov	DL,BootDrive
+	mov	DL, BootDrive		; Return boot drive in DL
 	jmp	SHORT scct_9s
 scct_5:
 	dec	AX
@@ -215,7 +215,7 @@ scct_5:
 	mov	BX,(Minor_Version SHL 8) + Major_Version
 	mov	DL,DOSREVNM
 	xor	DH,DH
-	cmp	[DosHasHMA],0
+	cmp	[DosHasHMA], 0		; is DOS in HMA?  (M021)
 	je	@F
 	or	DH,DOSINHMA
 @@:

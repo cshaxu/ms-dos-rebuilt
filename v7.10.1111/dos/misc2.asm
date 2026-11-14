@@ -13,7 +13,7 @@
 ;	StrCmp
 ;	StrLen
 ;	DStrLen
-;	Idle
+;	CheckCDSDrive
 ;	TableDispatch
 ;	FastInit			  ; DOS 4.0
 ;	FastRet			  ; DOS 4.0
@@ -68,13 +68,13 @@ DOSCODE	SEGMENT
 
 
 
-Break <CheckCDSDrive - test the local drive state>
+Break	<CheckCDSDrive - test the local drive state>
 ; Inputs: DS is DOSDATA, ES:DI points to the CDS.
 ; Outputs: Z if the drive is available. Registers preserved.
 
 	EXTRN	DosDSeg:WORD
 
-Procedure CheckCDSDrive,NEAR
+Procedure   CheckCDSDrive,NEAR
 	ASSUME DS:DOSDATA
 	PUSH	BX
 	MOV	BX,ES
@@ -355,7 +355,17 @@ EndProc IsSFTNet
 
 Break	<FastInit - FASTXXX installation entry>
 ;----------------------------------------------------------------------------
-;   Outputs: Carry clear. Registers preserved.
+;   DOS 4.00   2/9/87
+;   FastInit  - initialize the FASTXXX routine entry
+;		  in the FastTable
+;
+;   Inputs:	BX = FASTXXX ID ( 1=fastopen )
+;		DS:SI = address of FASTXXX routine entry
+;		   SI = -1 for query only
+;   Outputs:	Carry flag clear, if success
+;		Carry flag set,   if failure
+;
+;
 ;----------------------------------------------------------------------------
 
 Procedure   FastInit,NEAR

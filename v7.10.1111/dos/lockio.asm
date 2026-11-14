@@ -1,4 +1,4 @@
-	TITLE	LOCK ROUTINES - Routines for file locking
+	TITLE	LOCKIO - Lock checks for local I/O
 	NAME	LOCKIO
 
 ;
@@ -7,11 +7,10 @@
 ;	All Rights Reserved.
 ;
 
-;**	LOCK.ASM - File Locking Routines
+;**	LOCKIO.ASM - Local I/O Lock Checks
 ;
 ;	LOCK_CHECK
 ;	LOCK_VIOLATION
-;	$LockOper
 ;
 ;	Revision history:
 ;	  A000	 version 4.00	Jan. 1988
