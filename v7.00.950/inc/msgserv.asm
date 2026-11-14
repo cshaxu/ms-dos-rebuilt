@@ -1514,28 +1514,6 @@ ELSE
 	  PUSH	  DS					     ;;AN000;; Yes,
 	  PUSH	  ES					     ;;AN000;;
 	  POP	  DS					     ;;AN000;;	 Set DS to segment of message text
-IF COMT
-	  CMP	  CS:DirOutputActive,0
-	  JE	  $M_DIR_H_DIRECT
-	  PUBLIC DirMsgHandleBuffer
-DirMsgHandleBuffer:
-	  PUSH	  ES
-	  PUSH	  SI
-	  MOV	  SI,DI
-	  LES	  DI,CS:DirOutputPtr
-	  CLD
-	  PUSH	  CX
-	  REP	  MOVSB
-	  POP	  CX
-	  MOV	  AX,CX
-	  MOV	  WORD PTR CS:DirOutputPtr,DI
-	  CLC
-	  POP	  SI
-	  POP	  ES
-	  POP	  DS
-	  RET
-$M_DIR_H_DIRECT:
-ENDIF
 	  MOV	  AH,DOS_WRITE_HANDLE			     ;;AN000;;	 DOS function to write to a handle
 	  MOV	  DX,DI 				     ;;AN000;;	 Pointer to data to write
 	  CMP	  CX,$M_SINGLE_CHAR			     ;;AN000;;	 Is this a single character?
@@ -1691,25 +1669,6 @@ ELSE
 	PUSH	DS					     ;;AN000;;
 	PUSH	ES					     ;;AN000;;
 	POP	DS					     ;;AN000;; Set DS to segment of message text
-IF COMT
-	CMP	CS:DirOutputActive,0
-	JE	$M_DIR_D_DIRECT
-	PUBLIC DirMsgConsoleBuffer
-DirMsgConsoleBuffer:
-	PUSH	ES
-	PUSH	SI
-	MOV	SI,DI
-	LES	DI,CS:DirOutputPtr
-	CLD
-	REP	MOVSB
-	MOV	WORD PTR CS:DirOutputPtr,DI
-	POP	SI
-	POP	ES
-	CLC
-	POP	DS
-	RET
-$M_DIR_D_DIRECT:
-ENDIF
 IF	NOT	COMR
 	CMP	CX,$M_SINGLE_CHAR			     ;;AN000;; Is this a single character?
 ;	$IF	E					     ;;AN000;; Yes,
