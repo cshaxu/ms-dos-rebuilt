@@ -56,10 +56,10 @@ IO.SYS, MSDOS.SYS and COMMAND.COM all equal. This is an existing-asset check,
 not a claim that a new build has run. The accepted six-byte MSDOS.SYS config
 remains the target; other media provenance does not silently change it.
 
-## Current prefix: 141/293
+## Current prefix: 144/293
 
-Modified source/build files 70, exact 21, necessary unchanged 14,
-no same-name reference unchanged 36. Next: 142, dos/abort.asm. Tooling modified
+Modified source/build files 71, exact 21, necessary unchanged 16,
+no same-name reference unchanged 36. Next: 145, dos/close.asm. Tooling modified
 1 (ioimage.c case-insensitive map symbol lookup), outside source count.
 See etc/T25/part1.md. BIOSTAIL.OBJ is unchanged; all compiler/link phases ran,
 then packaging failure was diagnosed and repaired. Fresh three-output FC/B
@@ -340,3 +340,10 @@ makefile dependency list. Initial missing-symbol failure is retained; both
 corrected UINIT and subsequent dependency build pass all target/input checks.
 Latest: extras/build/t25-uinit-dep-24731-8287; see part50.md.
 Next: 142 dos/abort.asm. Final full build and semantic completion work pending.
+
+P51 accepts files 142-144: retain ABORT's shared directory-SFT cleanup and
+ALLOC's required immediate encoding (ordinary mnemonic probe rejected and
+restored); normalize BUF's added formatting and remove stale comments.
+Fresh BUF.OBJ is unchanged; 293 inputs match; inherited triple target-exact.
+Latest: extras/build/t25-buf-26292-1449; see part51.md.
+Next: 145 dos/close.asm. Final full build and completion audit pending.
