@@ -2210,6 +2210,8 @@ boot_option_options label byte
 	dw      200h
 	db      'AUTOSCAN',0
 	dw      offset boot_option_autoscan
+	db      'WINVER',0
+	dw      offset boot_option_winver
 	db      0
 	dw      offset boot_section_restart
 
@@ -2338,16 +2340,8 @@ boot_option_uninstall proc near
 	ret
 boot_option_uninstall endp
 
-; Store BOOTDELAY if it is no greater than 3600 seconds.
+; Accept the BOOTDELAY key for existing startup files.
 boot_option_delay proc near
-	lodsb
-	cmp     al,'='
-	jne     boot_option_error
-	call    boot_option_number
-	jc      boot_option_error
-	cmp     ax,3600
-	ja      boot_option_error
-	mov     word ptr ds:[boot_delay],ax
 	ret
 boot_option_delay endp
 
@@ -2383,6 +2377,14 @@ boot_scan_done:
 	pop     es
 	ret
 boot_option_autoscan endp
+
+; Accept the WINVER identification string.
+boot_option_winver proc near
+	lodsb
+	cmp     al,'='
+	jne     boot_option_error
+	ret
+boot_option_winver endp
 
 ; Store the DISABLELOG option in the BIOS startup state.
 boot_option_disablelog proc near

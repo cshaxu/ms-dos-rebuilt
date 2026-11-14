@@ -1348,6 +1348,7 @@ sysinit_previous_done:
 	cli
 	mov     sp,offset sysinit_exec_start
 	jmp     short sysinit_exec_start
+	nop                             ; Align the startup stack entry.
 	public	sysinit_exec_start
 sysinit_exec_start:
 	sti

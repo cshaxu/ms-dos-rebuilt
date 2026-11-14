@@ -1946,13 +1946,20 @@ RegQueryValueEx proc far
 	push si
 	push ds
 	mov ds,ax
+	mov si,[bp+12h]
+	mov ax,[bp+14h]
+	or ax,si
+	jz short rqvt_check_buffer
+	mov es,[bp+14h]
+	db 66h
+	mov word ptr es:[si],0
+	dw 0
+rqvt_check_buffer:
 	mov di,[bp+1Ah]
-	mov si,[bp+16h]
 	mov ax,[bp+1Ch]
 	or ax,di
 	jnz short rqvt_validate
-	mov ax,[bp+18h]
-	or ax,si
+	cmp dword ptr [bp+16h],0
 	jz short rqvt_validate
 	mov ax,57h
 	jmp rqvt_exit
@@ -1982,9 +1989,9 @@ rqvt_validate:
 	push ax
 	push ax
 	push ax
-	push dword ptr [bp+12h]
-	push word ptr [bp+18h]
+	push word ptr [bp+14h]
 	push si
+	push dword ptr [bp+16h]
 	push word ptr [bp+1Ch]
 	push di
 	call RegQueryValueCore
@@ -2007,22 +2014,22 @@ rqvt_missing:
 	cmp byte ptr es:[bx],0
 	jnz short rqvt_result
 rqvt_default:
-	cmp dword ptr [bp+12h],0
+	mov ax,[bp+14h]
+	or ax,si
 	jz short rqvt_buffer
-	les bx,[bp+12h]
+	mov es,[bp+14h]
 	db 66h
-	mov word ptr es:[bx],1
+	mov word ptr es:[si],1
 	dw 0
 rqvt_buffer:
-	mov ax,[bp+18h]
-	or ax,si
+	cmp dword ptr [bp+16h],0
 	jz short rqvt_set_length
 	mov es,word ptr [bp+1Ch]
 	db 66h
 	cmp word ptr es:[di],0
 	jz short rqvt_set_length
-	mov es,word ptr [bp+18h]
-	mov byte ptr es:[si],0
+	les bx,[bp+16h]
+	mov byte ptr es:[bx],0
 rqvt_set_length:
 	mov ax,[bp+1Ch]
 	or ax,di
