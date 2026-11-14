@@ -56,10 +56,10 @@ IO.SYS, MSDOS.SYS and COMMAND.COM all equal. This is an existing-asset check,
 not a claim that a new build has run. The accepted six-byte MSDOS.SYS config
 remains the target; other media provenance does not silently change it.
 
-## Current prefix: 124/293
+## Current prefix: 125/293
 
-Modified source/build files 54, exact 21, necessary unchanged 13,
-no same-name reference unchanged 36. Next: 125, cmd/command/tcmd1b.asm. Tooling modified
+Modified source/build files 55, exact 21, necessary unchanged 13,
+no same-name reference unchanged 36. Next: 126, cmd/command/tcmd2a.asm. Tooling modified
 1 (ioimage.c case-insensitive map symbol lookup), outside source count.
 See etc/T25/part1.md. BIOSTAIL.OBJ is unchanged; all compiler/link phases ran,
 then packaging failure was diagnosed and repaired. Fresh three-output FC/B
@@ -235,4 +235,8 @@ File 124 restores TBATCH2's IF instruction formatting, inherited argument
 comments and separate declarations. EOF sequence, LFN/UNC lookup and dynamic
 command-buffer behavior remain intact. COMMAND rebuild/repack and all target
 and input checks pass; extras/build/t25-tbatch2-15502-1181; see part33.md.
-Next: 125 tcmd1b.asm. Full automatic final build remains pending.
+File 125 removes TCMD1B's unused added external, restores ERASE/error formatting
+and comments, and relocates the misplaced VOLUME heading. Required shared
+parse/path/rename behavior remains intact. COMMAND rebuild/repack and all target
+and input checks pass; extras/build/t25-tcmd1b-15992-7810; see part34.md.
+Next: 126 tcmd2a.asm. Full automatic final build remains pending.

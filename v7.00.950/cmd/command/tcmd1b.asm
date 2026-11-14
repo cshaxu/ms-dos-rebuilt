@@ -54,12 +54,19 @@ TRANSPACE	SEGMENT PUBLIC BYTE	;AC000;
 	EXTRN	destinfo:byte
 	EXTRN	destisdir:byte
 	EXTRN	dirflag:byte
-	EXTRN	ObjCnt:BYTE,ParseArgIndex:WORD,ParseFileArg:WORD,ParseResultType:BYTE
+	EXTRN	ObjCnt:BYTE
+	EXTRN	ParseArgIndex:WORD
+	EXTRN	ParseFileArg:WORD
+	EXTRN	ParseResultType:BYTE
 	EXTRN	PathOpenFunction:WORD
-	EXTRN	PathRenameFunction:WORD,CopyFindDataOffset:WORD
-	EXTRN	RenameSourceArg:WORD,DirSearchPos:WORD,DirEntryPos:WORD
-	EXTRN	DirSearchPath:BYTE,DirEntryPath:BYTE
-	EXTRN	PathFindMode:BYTE,DirNetworkPath:BYTE
+	EXTRN	PathRenameFunction:WORD
+	EXTRN	CopyFindDataOffset:WORD
+	EXTRN	RenameSourceArg:WORD
+	EXTRN	DirEntryPos:WORD
+	EXTRN	DirSearchPath:BYTE
+	EXTRN	DirEntryPath:BYTE
+	EXTRN	PathFindMode:BYTE
+	EXTRN	DirNetworkPath:BYTE
 	EXTRN	dirbuf:byte
 	EXTRN	msg_numb:word		;AN022;
 	EXTRN	one_char_val:byte
@@ -92,13 +99,19 @@ transpace   ends
 	EXTRN	cerror:near
 	EXTRN	error_output:near
 	EXTRN	notest2:near
-	EXTRN	ParseArgument:NEAR,DirStoreArgument:NEAR
-	EXTRN	CheckParsedArgs:NEAR,GetParsedArg:NEAR
-	EXTRN	SelectPathInterface:NEAR,IsNetworkPath:NEAR
-	EXTRN	DirSetEntryPosition:NEAR,DirAppendWildcard:NEAR
+	EXTRN	ParseArgument:NEAR
+	EXTRN	DirStoreArgument:NEAR
+	EXTRN	CheckParsedArgs:NEAR
+	EXTRN	GetParsedArg:NEAR
+	EXTRN	SelectPathInterface:NEAR
+	EXTRN	IsNetworkPath:NEAR
+	EXTRN	DirSetEntryPosition:NEAR
+	EXTRN	DirAppendWildcard:NEAR
 	EXTRN	DirSetupParamError:NEAR
-	EXTRN	PathFindFirst:NEAR,PathFindNext:NEAR
-	EXTRN	DirAppendSearchName:NEAR,CopyMakeTargetName:NEAR
+	EXTRN	PathFindFirst:NEAR
+	EXTRN	PathFindNext:NEAR
+	EXTRN	DirAppendSearchName:NEAR
+	EXTRN	CopyMakeTargetName:NEAR
 	EXTRN	std_printf:near
 	EXTRN	tcommand:near
 
@@ -149,85 +162,85 @@ PAUSE:
 assume	ds:trangroup,es:trangroup
 
 ERASE:
-        MOV     COMSW,0
-        MOV     PathFindMode,0
-        XOR     CX,CX
-        MOV     ParseArgIndex,1
-        MOV     ObjCnt,0
+	mov	comsw,0 			;AN000; clear switch indicator
+	MOV	PathFindMode,0
+	XOR	CX,CX
+	MOV	ParseArgIndex,1
+	MOV	ObjCnt,0
 EraseScan:
-        MOV     DI,OFFSET TRANGROUP:parse_erase
-        INVOKE  ParseArgument
-        JC      SHORT EraseParseEnd
-        CMP     ParseResultType,1
-        JZ      SHORT EraseSwitch
-        CMP     BYTE PTR [SI+1],':'
-        JNZ     SHORT ErasePath
-        CMP     BYTE PTR [SI+2],0
-        JNZ     SHORT ErasePath
-        MOV     AX,error_file_not_found
-        JMP     extend_setup
+	MOV	DI,OFFSET TRANGROUP:parse_erase
+	INVOKE	ParseArgument
+	JC	SHORT EraseParseEnd
+	CMP	ParseResultType,1
+	JZ	SHORT EraseSwitch
+	CMP	BYTE PTR [SI+1],':'
+	JNZ	SHORT ErasePath
+	CMP	BYTE PTR [SI+2],0
+	JNZ	SHORT ErasePath
+	MOV	AX,error_file_not_found
+	JMP	extend_setup
 ErasePath:
-        INC     ObjCnt
-        CMP     ObjCnt,1
-        JNA     SHORT EraseOnePath
-        MOV     AX,1
-        CALL    DirSetupParamError
-        JMP     SHORT errj2
+	INC	ObjCnt
+	CMP	ObjCnt,1
+	JNA	SHORT EraseOnePath
+	MOV	AX,1
+	CALL	DirSetupParamError
+	JMP	SHORT errj2
 EraseOnePath:
-        CALL    DirStoreArgument
-        PUSH    SI
-        CALL    SelectPathInterface
-        MOV     PathFindMode,AL
-        POP     SI
-        CALL    IsNetworkPath
-        MOV     DirNetworkPath,AL
-        INVOKE  Move_To_SrcBuf
-        JMP     SHORT EraseScan
+	CALL	DirStoreArgument
+	PUSH	SI
+	CALL	SelectPathInterface
+	MOV	PathFindMode,AL
+	POP	SI
+	CALL	IsNetworkPath
+	MOV	DirNetworkPath,AL
+	INVOKE	Move_To_SrcBuf
+	JMP	SHORT EraseScan
 EraseSwitch:
-        CMP     COMSW,0
-        JZ      SHORT EraseSetPrompt
-        MOV     AX,1
-        CALL    DirSetupParamError
-        JMP     SHORT errj2
+	CMP	COMSW,0
+	JZ	SHORT EraseSetPrompt
+	MOV	AX,1
+	CALL	DirSetupParamError
+	JMP	SHORT errj2
 EraseSetPrompt:
-        INC     COMSW
-        JMP     SHORT EraseScan
+	INC	COMSW
+	JMP	SHORT EraseScan
 EraseParseEnd:
-        OR      AX,AX
-        JZ      SHORT EraseCheckPath
-        JMP     SHORT errj2
-        RET
+	OR	AX,AX
+	JZ	SHORT EraseCheckPath
+	JMP	SHORT errj2
+	RET
 EraseMissing:
-        MOV     AX,2
-        CALL    DirSetupParamError
-        JMP     SHORT errj2
+	MOV	AX,2
+	CALL	DirSetupParamError
+	JMP	SHORT errj2
 EraseCheckPath:
-        CMP     ObjCnt,1
-        JNZ     SHORT EraseMissing
-        MOV     dirflag,0
-        INVOKE  PathCrunch
-        JNC     SHORT EraseCrunched
-        MOV     AX,[msg_numb]
-        CMP     AX,0
-        JNZ     SHORT extend_setup
-        CMP     [destisdir],0
-        JNZ     SHORT badpath_err
-        JMP     SHORT EraseExecute
+	CMP	ObjCnt,1
+	JNZ	SHORT EraseMissing
+	MOV	dirflag,0
+	INVOKE	PathCrunch
+	JNC	SHORT EraseCrunched
+	mov	ax,[msg_numb]			;AN022; get message number
+	cmp	ax,0				;AN022; was message flag set?
+	JNZ	SHORT extend_setup
+	CMP	[destisdir],0
+	JNZ	SHORT badpath_err
+	JMP	SHORT EraseExecute
 EraseCrunched:
-        JNZ     SHORT EraseExecute
-        CALL    DirSetEntryPosition
-        CALL    DirAppendWildcard
+	JNZ	SHORT EraseExecute
+	CALL	DirSetEntryPosition
+	CALL	DirAppendWildcard
 EraseExecute:
-        INVOKE  RestUDir1
-        JMP     NOTEST2
+	INVOKE	RestUDir1
+	JMP	NOTEST2
 badpath_err:
-        MOV     AX,error_path_not_found
+	MOV	AX,error_path_not_found
 extend_setup:
-        MOV     msg_disp_class,ext_msg_class
-        MOV     DX,OFFSET TRANGROUP:Extend_Buf_ptr
-        MOV     Extend_Buf_ptr,AX
+	mov	msg_disp_class,ext_msg_class	;AN022; set up extended error msg class
+	mov	dx,offset TranGroup:Extend_Buf_ptr ;AC022; get extended message pointer
+	mov	Extend_Buf_ptr,ax		;AN022; get message number in control block
 errj2:
-        JMP     CERROR
+	JMP	CERROR
 
 	break	Rename
 
@@ -540,13 +553,9 @@ Error_outputj:
 typelp_ret:
 	ret
 
-	break	Volume
 assume	ds:trangroup,es:trangroup
 
-;
-; VOLUME command displays the volume ID on the specified drive
-;
- ; Parse the one pathname accepted by TYPE.
+; Parse the one pathname accepted by TYPE.
 ParseTypeFile PROC NEAR
 	mov	ES:ParseArgIndex,1
 	mov	ES:ObjCnt,0
@@ -581,15 +590,19 @@ TypeParseCount:
 ParseTypeFile ENDP
 
 ; Set up a parse error that has no substitution argument.
-        PUBLIC  SetupMissingArgument
+	PUBLIC	SetupMissingArgument
 SetupMissingArgument PROC NEAR
-        mov     ES:msg_disp_class,parse_msg_class
-        mov     ES:Extend_Buf_ptr,ax
-        mov     ES:Extend_buf_sub,0
-        mov     dx,offset TRANGROUP:Extend_Buf_ptr
-        ret
+	mov	ES:msg_disp_class,parse_msg_class
+	mov	ES:Extend_Buf_ptr,ax
+	mov	ES:Extend_buf_sub,0
+	mov	dx,offset TRANGROUP:Extend_Buf_ptr
+	ret
 SetupMissingArgument ENDP
 
+	break	Volume
+;
+; VOLUME command displays the volume ID on the specified drive
+;
 VOLUME:
 	mov	ParseArgIndex,1
 	mov	di,offset TRANGROUP:PARSE_VOL
