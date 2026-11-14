@@ -117,60 +117,66 @@ break	$Chdir
 assume	ds:trangroup,es:trangroup
 
 $CHDIR:
-        mov     ParseArgIndex,1
-        mov     di,offset TRANGROUP:parse_chdir
-        invoke  ParseArgument
-        jnc     short ChDirArgument
-        or      ax,ax
-        jz      short bwdJ
-        cmp     ax,-1
-        jnz     short ChDirErr
-        mov     ax,10
-        jmp     short ChDirExtra
+	mov	ParseArgIndex,1
+	mov	di,offset TRANGROUP:parse_chdir
+	invoke	ParseArgument
+	jnc	short ChDirArgument
+	or	ax,ax
+	jz	short bwdJ
+	cmp	ax,-1
+	jnz	short ChDirErr
+	mov	ax,10
+	jmp	short ChDirExtra
 ChDirArgument:
-        push    si
-        invoke  SelectPathInterface
-        pop     si
-        cmp     [bx].arglen,2
-        jnz     short REALCD
-        cmp     byte ptr [si+1],':'
-        jnz     short REALCD
-        invoke  CheckParsedArgs
-        jc      short bwdJ
+	push	si
+	invoke	SelectPathInterface
+	pop	si
+	cmp	[bx].arglen,2
+	jnz	short REALCD
+	cmp	byte ptr [si+1],':'
+	jnz	short REALCD
+	invoke	CheckParsedArgs
+	jc	short bwdJ
 ChDirExtra:
-        invoke  GetParsedArg
-        mov     ax,1
-        invoke  DirSetupParamError
-        jmp     short ChDirErr
+	invoke	GetParsedArg
+	mov	ax,1
+	invoke	DirSetupParamError
+	jmp	short ChDirErr
 bwdJ:
-        invoke  build_dir_for_chdir
-        call    crlf2
+	invoke	build_dir_for_chdir
+	call	crlf2
 ChDirDone:
-        ret
+	ret
 REALCD:
-        push    si
-        invoke  move_to_srcbuf
-        invoke  CheckParsedArgs
-        pop     si
-        jnc     short ChDirExtra
-        invoke  SETPATH
-        test    [DESTINFO],2
-        jnz     short BadChDir
-        mov     ax,PathChdirFunction
-        int     21h
-        jnc     short ChDirDone
-        invoke  get_ext_error_number
-        cmp     ax,error_path_not_found
-        jz      short BadChDir
-        cmp     ax,error_access_denied
-        jz      short BadChDir
-        call    Set_Ext_Error_Subst
-        jmp     short ChDirErr
+	push	si
+	invoke	move_to_srcbuf
+	invoke	CheckParsedArgs
+	pop	si
+	jnc	short ChDirExtra
+	invoke	SETPATH
+	test	[DESTINFO],2
+	jnz	short BadChDir
+	mov	ax,PathChdirFunction
+	int	21h
+	jnc	short ChDirDone
+	invoke	get_ext_error_number
+	cmp	ax,error_path_not_found
+	jz	short BadChDir
+;SR;
+; We want to issue "Invalid Directory" message even if the path is valid
+;but is not a directory. The extended error returns "Access denied" which
+;is kind of confusing. Issue the old message if access denied error is 
+;returned
+;
+	cmp	ax,error_access_denied
+	jz	short BadChDir
+	call	Set_Ext_Error_Subst
+	jmp	short ChDirErr
 BadChDir:
-        mov     dx,offset TRANGROUP:BADCD_ptr
+	mov	dx,offset TRANGROUP:BADCD_ptr
 ChDirErr:
-        invoke  Std_Eprintf
-        ret
+	invoke	Std_Eprintf
+	ret
 
 break	$Mkdir
 
@@ -232,65 +238,65 @@ Break	<Common MkDir/RmDir set up code>
 ;****************************************************************
 
 SETRMMK:
-        mov     ParseArgIndex,1
-        mov     ObjCnt,0
-        mov     PathRmdirFunction,3A00H
-        mov     PathMkdirFunction,3900H
+	mov	ParseArgIndex,1
+	mov	ObjCnt,0
+	mov	PathRmdirFunction,RMDIR SHL 8
+	mov	PathMkdirFunction,MKDIR SHL 8
 mrdir_parse:
-        mov     di,offset TRANGROUP:parse_ctty
-        invoke  ParseArgument
-        jc      short mrdir_end
-        inc     ObjCnt
-        cmp     ObjCnt,1
-        ja      short mrdir_extra
-        test    cl,2
-        jnz     short mrdir_bad
-        push    si
-        invoke  SelectPathInterface
-        pop     si
-        or      al,al
-        jz      short mrdir_copy
-        mov     PathRmdirFunction,713AH
-        mov     PathMkdirFunction,7139H
+	mov	di,offset TRANGROUP:parse_ctty
+	invoke	ParseArgument
+	jc	short mrdir_end
+	inc	ObjCnt
+	cmp	ObjCnt,1
+	ja	short mrdir_extra
+	test	cl,2
+	jnz	short mrdir_bad
+	push	si
+	invoke	SelectPathInterface
+	pop	si
+	or	al,al
+	jz	short mrdir_copy
+	mov	PathRmdirFunction,713AH
+	mov	PathMkdirFunction,7139H
 mrdir_copy:
-        mov     di,offset TRANGROUP:srcxname
-        push    di
-        push    si
-mrdir_move_filename:
-        lodsb
-        stosb
-        cmp     al,end_of_line_out
-        jnz     mrdir_move_filename
-        pop     si
-        pop     di
-        mov     dx,di
-        clc
-        jmp     short mrdir_parse
+	mov	di,offset TRANGROUP:srcxname
+	push	di
+	push	si
+mrdir_move_filename:				;AN000; put filespec in srcxname
+	lodsb					;get a char from buffer
+	stosb					;AN000; store in srcxname
+	cmp	al,end_of_line_out		;AC000; it char a terminator?
+	jnz	mrdir_move_filename		;AC000; no - keep moving
+	pop	si
+	pop	di
+	mov	dx,di
+	clc
+	jmp	short mrdir_parse
 mrdir_end:
-        or      ax,ax
-        jz      short mrdir_count
-        cmp     ax,-1
-        je      short mrdir_bad
-        jmp     cerror
+	or	ax,ax
+	jz	short mrdir_count
+	cmp	ax,-1
+	je	short mrdir_bad
+	jmp	cerror
 mrdir_bad:
-        mov     dx,offset TRANGROUP:BadCPMes_Ptr
+	mov	dx,offset TRANGROUP:BadCPMes_Ptr
 mrdir_error:
-        stc
+	stc
 mrdir_return:
-        ret
+	ret
 mrdir_extra:
-        dec     ParseArgIndex
-        invoke  GetParsedArg
-        mov     ax,1
-        invoke  DirSetupParamError
-        jmp     short mrdir_error
+	dec	ParseArgIndex
+	invoke	GetParsedArg
+	mov	ax,1
+	invoke	DirSetupParamError
+	jmp	short mrdir_error
 mrdir_count:
-        cmp     ObjCnt,1
-        clc
-        jz      short mrdir_return
-        mov     ax,2
-        invoke  SetupMissingArgument
-        jmp     short mrdir_error
+	cmp	ObjCnt,1
+	clc
+	jz	short mrdir_return
+	mov	ax,2
+	invoke	SetupMissingArgument
+	jmp	short mrdir_error
 
 break	$Rmdir
 
@@ -451,43 +457,47 @@ DELIM:
 ASSUME	DS:TRANGROUP,ES:TRANGROUP
 
 
-FCB_TO_ASCZ:
-        push    bx
-        mov     cx,8
-        mov     bx,di
+FCB_TO_ASCZ:					; Convert DS:SI to ASCIZ ES:DI
+	push	bx
+	mov	cx,8
+	mov	bx,di
 MAINNAME:
-        lodsb
-        stosb
-        cmp     al,' '
-        jz      short SKIPSPC
-        mov     bx,di
+	lodsb
+	stosb
+	cmp	al,' '
+	jz	short SKIPSPC
+	mov	bx,di
 SKIPSPC:
-        loop    MAINNAME
-        mov     di,bx
-        mov     al,dot_chr
-        stosb
-        mov     cl,3
+	loop	MAINNAME
+	mov	di,bx
+	mov	al,dot_chr
+	stosb
+	mov	cl,3
 EXTNAME:
-        lodsb
-        stosb
-        cmp     al,' '
-        jz      short EXTSPACE
-        mov     bx,di
+	lodsb
+	stosb
+	cmp	al,' '
+	jz	short EXTSPACE
+	mov	bx,di
 EXTSPACE:
-        loop    EXTNAME
-        mov     di,bx
-        xor     al,al
-        stosb
-        pop     bx
+	loop	EXTNAME
+	mov	di,bx
+	xor	al,al
+	stosb
+	pop	bx
 FCBReturn:
-        ret
+	ret
 
 STRCOMP:
-        cmpsb
-        jnz     short FCBReturn
-        cmp     byte ptr [si-1],0
-        jz      short FCBReturn
-        jmp     short STRCOMP
+;
+; Compare ASCIZ DS:SI with ES:DI.
+; SI,DI destroyed.
+;
+	cmpsb
+	jnz	short FCBReturn			; Strings not equal
+	cmp	byte ptr [SI-1],0		; Hit NUL terminator?
+	jz	short FCBReturn			; Yes, strings equal
+	jmp	short STRCOMP			; Equal so far, keep going
 
 
 CRPRINT:
