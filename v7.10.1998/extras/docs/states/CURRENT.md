@@ -44,3 +44,5 @@ P9 restores cached registry enumeration and connects chained value lookup to the
 P10 restores the FE registry write chain inside REGOPEN and REGREAD using the existing key handles, cache and extent allocator. In the isolated configuration link, the three new extent operations match 466 target bytes exactly. The 910-byte value writer matches except for 19 linked call displacement bytes. The whole-image build still verifies COMMAND.COM and MSDOS.SYS. IO.SYS remains open.
 
 P11 connects the ASD.DAT import to the existing configuration main and registry APIs. Stage cmd-18119-31508 builds all three images. The six ASD procedures occupy the target offsets and match their 1052 target bytes apart from 12 FAR call operands. IO.SYS is 221990 bytes against 222390 and remains open. COMMAND.COM and MSDOS.SYS continue to match in full.
+
+P12 restores DOS commit and the registry header update in the existing RegSaveFile path. The 21-byte DOS commit wrapper and 39-byte DOS allocation wrapper match their target blocks. Stage cmd-18850-14319 builds IO.SYS at 222102 bytes against 222390, with full matches for COMMAND.COM and MSDOS.SYS. IO.SYS remains open.

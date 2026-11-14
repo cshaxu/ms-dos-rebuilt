@@ -22,6 +22,8 @@ CGROUP group _TEXT,REGTEXT
 	extrn RegDosWrite:near
 	extrn RegDosRead:near
 	extrn RegDosClose:near
+	extrn RegDosCommit:near
+	extrn RegDosSeek:near
 	extrn RegZeroMemory:near
 	extrn RegDosFree:near
 	extrn RegDosGetAttr:near
@@ -827,6 +829,13 @@ rsfs_position:
 	call RegDosWrite
 	or ax,ax
 	jz rsfs_error
+	mov es,[bp+6]
+	test byte ptr es:[si+28h],8
+	jz short rsfs_keys
+	push word ptr [bp-4]
+	call RegDosCommit
+	or ax,ax
+	jz rsfs_error
 rsfs_keys:
 	push word ptr [bp+6]
 	push si
@@ -835,7 +844,7 @@ rsfs_keys:
 	call RegWriteKeyBlocks
 	mov [bp-8],ax
 	or ax,ax
-	jnz short rsfs_error
+	jnz short rsfs_commit_error
 	push word ptr [bp+6]
 	push si
 	push word ptr [bp-6]
@@ -843,7 +852,35 @@ rsfs_keys:
 	call RegWriteDataBlock
 	mov [bp-8],ax
 	or ax,ax
-	jnz short rsfs_error
+	jnz short rsfs_commit_error
+	push word ptr [bp-4]
+	call RegDosCommit
+	or ax,ax
+	jnz short rsfs_head_done
+rsfs_commit_error:
+	jmp rsfs_error
+rsfs_head_done:
+	mov es,[bp+6]
+	test byte ptr es:[si+28h],8
+	jz short rsfs_close
+	and byte ptr es:[si+28h],0F7h
+	push word ptr [bp-4]
+	push 0
+	push 0
+	call RegDosSeek
+	or ax,ax
+	jz short rsfs_error
+	push word ptr [bp-4]
+	mov ax,si
+	mov dx,[bp+6]
+	add ax,16h
+	push dx
+	push ax
+	push 20h
+	call RegDosWrite
+	or ax,ax
+	jz short rsfs_error
+rsfs_close:
 	push word ptr [bp-4]
 	call RegDosClose
 	cmp word ptr [bp-6],-1

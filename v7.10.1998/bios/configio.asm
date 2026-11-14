@@ -107,6 +107,23 @@ rds_done:
         pop bp
         ret 6
 RegDosSeek endp
+; Commit pending registry file writes through DOS.
+	public RegDosCommit
+RegDosCommit proc near
+        push bp
+        mov bp,sp
+        push si
+        push di
+        mov bx,[bp+4]
+        mov ah,68h
+        int 21h
+        cmc
+        sbb ax,ax
+        pop di
+        pop si
+        pop bp
+        ret 2
+RegDosCommit endp
 	public RegDosClose
 RegDosClose proc near
         push bp
@@ -201,8 +218,12 @@ RegDosAlloc proc near
         push di
         mov bx,[bp+4]
         add bx,15
-        jo short rda_error
+        jnc short rda_paragraphs
+        mov bx,1000h
+        jmp short rda_allocate
+rda_paragraphs:
         shr bx,4
+rda_allocate:
         mov ah,48h
         int 21h
         jnc short rda_done
