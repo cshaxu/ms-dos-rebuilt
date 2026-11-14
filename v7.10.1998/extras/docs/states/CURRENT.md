@@ -24,3 +24,5 @@
 P1 freezes the target, records the [binary comparison](../etc/block-baseline.md), and seeds the full source and production build entry.
 
 P1 build stage `cmd-30323-14713` produced the three files. MSDOS.SYS and all COMMAND resource bytes matched the FE target. COMMAND linked code and IO.SYS require further reconstruction. The publication gate remains in force.
+
+P2 restores the five extra SYSINIT slots and localized text in the existing resource source. All 4767 bytes of the linked resource match the frozen FE block. The FE message slots shift later indices; call sites and the remaining BIOS layout are still under reconstruction. The bytes outside the resource remain subject to the complete-image gate.

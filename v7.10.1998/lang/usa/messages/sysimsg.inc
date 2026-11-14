@@ -61,6 +61,11 @@ sysinit_prompt_index label word
 	dw	offset sysinit_msg_41 - offset sysinit_msg_base
 	dw	offset sysinit_msg_42 - offset sysinit_msg_base
 	dw	offset sysinit_msg_43 - offset sysinit_msg_base
+	dw	offset sysinit_msg_reserved_1 - offset sysinit_msg_base
+	dw	offset sysinit_msg_reserved_2 - offset sysinit_msg_base
+	dw	offset sysinit_msg_reserved_3 - offset sysinit_msg_base
+	dw	offset sysinit_msg_reserved_4 - offset sysinit_msg_base
+	dw	offset sysinit_msg_reserved_5 - offset sysinit_msg_base
 	dw	offset sysinit_msg_44 - offset sysinit_msg_base
 	dw	offset sysinit_msg_45 - offset sysinit_msg_base
 	dw	offset sysinit_msg_46 - offset sysinit_msg_base
@@ -91,13 +96,13 @@ sysinit_msg_62 label byte
 	public	StartMsg
 StartMsg label byte
 sysinit_msg_00 label byte
-	db	"Starting Windows 95...",13,10,13,10,"$",0
+	db	"Starting Windows 98...",13,10,13,10,"$",0
 sysinit_msg_01 label byte
-	db	"Windows 95 is now starting your MS-DOS-based program.",13,10,13,10,"$",0
+	db	"Windows 98 is now starting your MS-DOS-based program.",13,10,13,10,"$",0
 sysinit_msg_02 label byte
-	db	"Windows 95 is now restarting...",13,10,13,10,"$",0
+	db	"Windows 98 is now restarting...",13,10,13,10,"$",0
 sysinit_msg_03 label byte
-	db	"Press Esc now to cancel MS-DOS mode and restart Windows 95..",".$",0
+	db	"Press Esc now to cancel MS-DOS mode and restart Windows 98..",".$",0
 	public	badopm
 badopm label byte
 sysinit_msg_04 label byte
@@ -162,7 +167,7 @@ sysinit_msg_18 label byte
 	public	$MenuHeader
 $MenuHeader label byte
 sysinit_msg_19 label byte
-	db	13,10,"  Microsoft Windows 95 Startup Menu",13,10,"  ",205,205,205,205,205,205,205,205
+	db	13,10,"  Microsoft Windows 98 Startup Menu",13,10,"  ",205,205,205,205,205,205,205,205
 	db	205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205
 	db	205,205,205,205,13,10,"$",0
 	public	$MenuPrmpt
@@ -226,7 +231,7 @@ sysinit_msg_38 label byte
 	db	"Load the Windows graphical user interface [Enter=Y,Esc=N]?$",0
 sysinit_msg_39 label byte
 	db	"  Warning: Windows has detected a registry/configuration err","or.",13,10
-	db	"  Choose Safe mode, to start Windows with a minimal set of d","rivers.",13,10,"$",0
+	db	"  Choose, Command prompt only, and run SCANREG.         ",13,10,"$",0
 sysinit_msg_40 label byte
 	db	"  Warning: Windows has detected a compressed drive access er","ror.",13,10
 	db	"  Choose Safe mode command prompt only, to help you identify"," the problem.",13,10,"$"
@@ -241,6 +246,16 @@ sysinit_msg_42 label byte
 sysinit_msg_43 label byte
 	db	"Warning: the system configuration manager failed to run.",13,10
 	db	"Some of your real-mode device drivers may not initialize pro","perly.",13,10,"$",0
+sysinit_msg_reserved_1 label byte
+	db	173 dup (" "),"$",0
+sysinit_msg_reserved_2 label byte
+	db	72 dup (" "),"$",0
+sysinit_msg_reserved_3 label byte
+	db	34 dup (" "),"$",0
+sysinit_msg_reserved_4 label byte
+	db	12 dup ("   $"),0
+sysinit_msg_reserved_5 label byte
+	db	125 dup (" "),"$",0
 sysinit_msg_44 label byte
 	db	"Normal",0,0
 sysinit_msg_45 label byte
