@@ -2410,6 +2410,217 @@ RegAllocateDataRecord endp
 	db 0
 	endif
 
+; Expand a record into the following free extent when it is large enough.
+	public RegGrowDataExtent
+RegGrowDataExtent proc near
+	enter 1Eh,0
+	push di
+	push si
+	mov bx,[bp+4]
+	les si,[bp+0Ch]
+	mov ax,es:[si+010h]
+	mov dx,es:[si+012h]
+	imul cx,[bp+0Ah],014h
+	add ax,cx
+	mov [bp-014h],ax
+	mov [bp-012h],dx
+	mov si,ax
+	mov es,dx
+	db 66h
+	mov cx,es:[si]
+	mov [bp-0Ch],ecx
+	mov es,[bp+6]
+	mov [bp-01Eh],cx
+	mov ax,es:[bx]
+	mov di,ax
+	mov cx,dx
+	add ax,bx
+	mov [bp-01Ah],ax
+	mov word ptr [bp-018h],es
+	sub ax,[bp-01Eh]
+	mov [bp-016h],ax
+	mov es,cx
+	cmp ax,es:[si+8]
+	jnc short rgde_loc_6ed2
+	les bx,[bp-01Ah]
+	db 66h
+	cmp word ptr es:[bx+4],-1
+	jnz short rgde_loc_6ed2
+	mov cx,[bp+8]
+	sub cx,di
+	mov di,es:[bx]
+	cmp di,cx
+	jnc short rgde_enough
+rgde_loc_6ed2:
+	jmp near ptr rgde_no_space
+rgde_enough:
+	mov si,cx
+	mov bx,di
+	sub bx,cx
+	cmp bx,022h
+	jc short rgde_use_whole
+	add ax,cx
+	mov [bp-010h],ax
+	mov word ptr [bp-0Eh],0
+	mov cx,[bp-01Ah]
+	mov di,cx
+	db 66h
+	mov ax,es:[di+8]
+	add di,si
+	db 66h
+	mov es:[di+8],ax
+	db 66h
+	mov word ptr es:[di+4],-1
+	dw -1
+	mov es:[di],bx
+	mov word ptr es:[di+2],0
+	jmp short rgde_update_size
+rgde_use_whole:
+	mov cx,[bp-01Ah]
+	mov di,cx
+	db 66h
+	mov ax,es:[di+8]
+	mov [bp-010h],eax
+	add si,bx
+rgde_update_size:
+	sub cx,cx
+	les bx,[bp+4]
+	add es:[bx],si
+	adc es:[bx+2],cx
+	les bx,[bp-014h]
+	sub es:[bx+0Ah],si
+	les bx,[bp-0Ch]
+	mov ax,es:[bx+010h]
+	mov dx,es:[bx+012h]
+	mov cx,[bp-016h]
+	sub bx,bx
+	cmp ax,cx
+	jnz short rgde_find_previous
+	cmp dx,bx
+	jnz short rgde_find_previous
+	mov ax,[bp-010h]
+	mov bx,[bp-0Ch]
+	mov dx,[bp-0Eh]
+	mov es:[bx+010h],ax
+	mov es:[bx+012h],dx
+	jmp short rgde_success
+rgde_find_previous:
+	mov di,[bp-0Ch]
+rgde_loc_6f60:
+	cmp ax,0FFFFh
+	jnz short rgde_next_free
+	cmp dx,ax
+	jz short rgde_success
+rgde_next_free:
+	mov si,ax
+	mov ax,[bp-0Ah]
+	mov es,ax
+	add si,di
+	mov bx,si
+	mov ax,es:[si+8]
+	mov dx,es:[si+0Ah]
+	sub si,si
+	cmp ax,cx
+	jnz short rgde_loc_6f60
+	cmp dx,si
+	jnz short rgde_loc_6f60
+	mov eax,[bp-010h]
+	db 66h
+	mov es:[bx+8],ax
+rgde_success:
+	xor ax,ax
+	jmp short rgde_done
+rgde_no_space:
+	mov ax,0Eh
+rgde_done:
+	pop si
+	pop di
+	leave
+	ret 0Ch
+RegGrowDataExtent endp
+	if ($ - RegistryCode) and 1
+	db 0
+	endif
+
+; Return a data extent to the free chain and update the available byte count.
+	public RegFreeDataExtent
+RegFreeDataExtent proc near
+	enter 0Ch,0
+	push di
+	push si
+	mov cx,[bp+8]
+	mov di,[bp+4]
+	mov si,cx
+	mov es,[bp+0Ah]
+	mov ax,es:[si]
+	mov dx,es:[si+2]
+	mov bx,ax
+	mov [bp-2],dx
+	mov es,[bp+6]
+	db 66h
+	mov word ptr es:[di+4],-1
+	dw -1
+	mov ax,es
+	mov es,[bp-2]
+	mov cx,es:[bx+010h]
+	mov dx,es:[bx+012h]
+	push ax
+	lea ax,[bx+010h]
+	mov [bp-8],ax
+	mov word ptr [bp-6],es
+	pop ax
+	mov [bp-0Ch],bx
+	mov es,ax
+	mov es:[di+8],cx
+	mov es:[di+0Ah],dx
+	mov cx,di
+	sub cx,[bp-0Ch]
+	sbb dx,dx
+	les bx,[bp-8]
+	mov es:[bx],cx
+	mov es:[bx+2],dx
+	mov es,ax
+	mov ax,es:[di]
+	mov es,[bp+0Ah]
+	add es:[si+0Ah],ax
+	pop si
+	pop di
+	leave
+	ret 8
+RegFreeDataExtent endp
+	if ($ - RegistryCode) and 1
+	db 0
+	endif
+
+; Clear a record slot and adjust the last used slot.
+	public RegTrimDataSlots
+RegTrimDataSlots proc near
+	push bp
+	mov bp,sp
+	push di
+	push si
+	mov di,[bp+6]
+	mov bx,[bp+4]
+	mov es,[bp+8]
+	cmp es:[di+0Ch],bx
+	jna short rtds_clear_slot
+	mov es:[di+0Ch],bx
+rtds_clear_slot:
+	mov ax,bx
+	add ax,bx
+	mov es,[bp+8]
+	les si,es:[di+4]
+	add si,ax
+	mov word ptr es:[si],0
+	pop si
+	pop di
+	leave
+	ret 6
+RegTrimDataSlots endp
+	if ($ - RegistryCode) and 1
+	db 0
+	endif
+
 	public RegWriteDataBlock
 RegWriteDataBlock proc near
 	enter 0Eh,0

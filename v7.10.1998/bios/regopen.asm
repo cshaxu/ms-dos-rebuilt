@@ -32,6 +32,13 @@ RegistryCode label byte
 	extrn RegAllocate:near
 	extrn RegDosFree:near
 	extrn RegEnumValueRecord:near
+	extrn RegGrowDataExtent:near
+	extrn RegFreeDataExtent:near
+	extrn RegTrimDataSlots:near
+	extrn RegTakeDataExtent:near
+	extrn RegRemoveValueRecord:near
+	extrn RegValueNameNumber:near
+	extrn RegFormatValueName:near
 	public RegCheckPath
 RegCheckPath proc near
 	enter 6,0
@@ -736,6 +743,878 @@ rckt_done:
 	leave
 	retf
 RegCloseKey endp
+	if ($ - RegistryCode) and 1
+	db 0
+	endif
+
+; Expand the locked value record in place or move it to a new extent.
+	public RegResizeValueRecord
+RegResizeValueRecord proc near
+	enter 022h,0
+	push di
+	push si
+	cmp dword ptr [bp+8],0EFE0h
+	jna short rrvr_try_next
+	mov ax,0401h
+	jmp near ptr rrvr_no_memory
+rrvr_try_next:
+	mov si,[bp+4]
+	mov es,[bp+6]
+	db 66h
+	mov ax,es:[si]
+	mov dx,es:[si+2]
+	mov [bp-0Ah],eax
+	mov bx,ax
+	mov es,dx
+	mov cx,es:[bx+4]
+	mov dx,es:[bx+6]
+	mov di,dx
+	mov [bp-6],cx
+	les bx,[bp+0Ch]
+	db 66h
+	push word ptr es:[bx+6]
+	push dx
+	push word ptr [bp+8]
+	push word ptr [bp-8]
+	push ax
+	call RegGrowDataExtent
+	or ax,ax
+	jnz short rrvr_copy_record
+rrvr_allocate_record:
+	xor ax,ax
+	jmp near ptr rrvr_no_memory
+rrvr_copy_record:
+	mov si,[bp+0Ch]
+	mov es,[bp+0Eh]
+	db 66h
+	push word ptr es:[si+6]
+	push di
+	push dword ptr [bp+6]
+	push word ptr [bp+4]
+	call RegTakeDataExtent
+	or ax,ax
+	jnz near ptr rrvr_release_old
+	mov es,[bp+0Eh]
+	les bx,es:[si+6]
+	mov ax,es:[bx+010h]
+	mov dx,es:[bx+012h]
+	imul cx,di,014h
+	add ax,cx
+	mov [bp-4],ax
+	mov [bp-2],dx
+	mov cx,[bp-6]
+	add cx,cx
+	mov es,dx
+	mov bx,ax
+	mov [bp-014h],ax
+	mov word ptr [bp-012h],es
+	les bx,es:[bx+4]
+	add bx,cx
+	mov ax,es:[bx]
+	les bx,[bp-014h]
+	add ax,es:[bx]
+	mov dx,es:[bx+2]
+	mov [bp-0Ah],ax
+	mov [bp-8],dx
+	les bx,[bp+4]
+	mov [bp-018h],ax
+	mov [bp-016h],dx
+	db 66h
+	mov ax,es:[bx]
+	add ax,4
+	push eax
+	mov eax,[bp-018h]
+	add ax,4
+	push eax
+	les bx,[bp-018h]
+	mov ax,es:[bx+8]
+	sub ax,4
+	push ax
+	mov [bp-01Ah],cx
+	call RegMoveMemory
+	push dword ptr [bp-4]
+	push dword ptr [bp-0Ah]
+	call RegFreeDataExtent
+	les bx,[bp+4]
+	mov ax,es:[bx]
+	les bx,[bp-4]
+	sub ax,es:[bx]
+	les bx,es:[bx+4]
+	add bx,[bp-01Ah]
+	mov es:[bx],ax
+	jmp near ptr rrvr_allocate_record
+rrvr_release_old:
+	mov es,[bp+0Eh]
+	db 66h
+	push word ptr es:[si+6]
+	db 66h
+	push word ptr es:[si+0Ah]
+	lea ax,[bp-010h]
+	push ss
+	push ax
+	call RegFetchKeyRecord
+	or ax,ax
+	jnz near ptr rrvr_finish
+	mov es,[bp+0Eh]
+	db 66h
+	push word ptr es:[si+6]
+	push dword ptr [bp+6]
+	push word ptr [bp+4]
+	call RegAllocateDataRecord
+	mov [bp-0Ch],ax
+	or ax,ax
+	jnz near ptr rrvr_install_new
+	mov es,[bp+0Eh]
+	les bx,es:[si+6]
+	mov ax,es:[bx+010h]
+	mov dx,es:[bx+012h]
+	imul cx,di,014h
+	add ax,cx
+	mov [bp-4],ax
+	mov [bp-2],dx
+	mov cx,[bp-6]
+	add cx,cx
+	mov es,dx
+	mov bx,ax
+	les bx,es:[bx+4]
+	add bx,cx
+	mov cx,es:[bx]
+	mov bx,ax
+	mov es,dx
+	add cx,es:[bx]
+	mov ax,es:[bx+2]
+	mov [bp-0Ah],cx
+	mov [bp-8],ax
+	les bx,[bp+4]
+	mov [bp-01Eh],cx
+	mov [bp-01Ch],ax
+	db 66h
+	mov ax,es:[bx]
+	add ax,8
+	push eax
+	mov ax,cx
+	mov dx,[bp-01Ch]
+	add ax,8
+	push dx
+	push ax
+	mov bx,ax
+	mov es,dx
+	mov ax,es:[bx]
+	sub ax,8
+	push ax
+	call RegMoveMemory
+	push dword ptr [bp-4]
+	push dword ptr [bp-0Ah]
+	call RegFreeDataExtent
+	push dword ptr [bp-4]
+	push word ptr [bp-6]
+	call RegTrimDataSlots
+	mov es,[bp+0Eh]
+	db 66h
+	push word ptr es:[si+6]
+	push di
+	push 1
+	call RegUnlockDataCache
+	les bx,[bp+4]
+	les bx,es:[bx]
+	mov ax,es:[bx+6]
+	mov es,[bp+0Eh]
+	mov es:[si+012h],ax
+	mov es:[si+014h],ax
+	mov ax,es:[si+012h]
+	les bx,[bp-010h]
+	mov es:[bx+0Ch],ax
+	les bx,[bp+4]
+	les bx,es:[bx]
+	mov al,es:[bx+4]
+	mov es,[bp+0Eh]
+	mov es:[si+016h],al
+	mov ah,al
+	sub al,al
+	mov dx,ax
+	sub cx,cx
+	les bx,[bp-010h]
+	mov [bp-022h],cx
+	mov [bp-020h],ax
+	xor cx,es:[bx+8]
+	xor dx,es:[bx+0Ah]
+	and dh,al
+	xor cx,[bp-022h]
+	xor dx,ax
+	mov es:[bx+8],cx
+	mov es:[bx+0Ah],dx
+rrvr_install_new:
+	mov es,[bp+0Eh]
+	db 66h
+	push word ptr es:[si+6]
+	db 66h
+	push word ptr es:[si+0Ah]
+	push 1
+	call RegUnlockKeyCache
+	mov ax,[bp-0Ch]
+	jmp short rrvr_no_memory
+rrvr_finish:
+	mov ax,0Eh
+rrvr_no_memory:
+	pop si
+	pop di
+	leave
+	ret 0Ch
+RegResizeValueRecord endp
+	if ($ - RegistryCode) and 1
+	db 0
+	endif
+
+; Find the value in its owning key or select a continuation key for the write.
+	public RegWriteChainedValue
+RegWriteChainedValue proc near
+	enter 020h,0
+	push di
+	push si
+	mov si,[bp+0Eh]
+	mov di,[bp+012h]
+	mov word ptr [bp-0Ch],1
+	mov word ptr [bp-6],0
+	push word ptr [bp+014h]
+	push di
+	push word ptr [bp+010h]
+	push si
+	push dword ptr [bp+0Ah]
+	push dword ptr [bp+6]
+	push word ptr [bp+4]
+	xor ax,ax
+	mov [bp-2],ax
+	push ax
+	call RegWriteValueRecord
+	mov [bp-4],ax
+	cmp ax,0401h
+	jnz near ptr rwcv_enumerate
+	push word ptr [bp+014h]
+	push di
+	push word ptr [bp+010h]
+	push si
+	lea ax,[bp-018h]
+	push ss
+	push ax
+	lea ax,[bp-01Ch]
+	push ss
+	push ax
+	call RegFindChainedValue
+	mov [bp-4],ax
+	or ax,ax
+	jnz near ptr rwcv_select_key
+	mov es,[bp+014h]
+	mov ax,es:[di+014h]
+	cmp es:[di+012h],ax
+	jz short rwcv_search_existing
+	mov word ptr [bp-2],1
+rwcv_search_existing:
+	push dword ptr [bp-018h]
+	push dword ptr [bp-01Ch]
+	call RegRemoveValueRecord
+	mov es,[bp+014h]
+	db 66h
+	push word ptr es:[di+6]
+	push word ptr es:[di+014h]
+	push 1
+	call RegUnlockDataCache
+rwcv_use_chain:
+	push 0100h
+	call RegAllocate
+	mov [bp-0Ah],ax
+	mov [bp-8],dx
+	or dx,ax
+	jz near ptr rwcv_check_next
+	mov di,[bp+012h]
+	mov es,[bp+014h]
+	test byte ptr es:[di+3],1
+	jz near ptr rwcv_create_key
+	cmp word ptr [bp-2],0
+	jz short rwcv_replace_value
+	push es
+	push di
+	push dword ptr [bp+0Eh]
+	push dword ptr [bp+0Ah]
+	push dword ptr [bp+6]
+	push word ptr [bp+4]
+	push 1
+	call RegWriteValueRecord
+	mov si,ax
+	or si,ax
+	jz near ptr rwcv_done_chain
+rwcv_replace_value:
+	mov word ptr [bp-2],0
+	mov di,[bp-0Ah]
+rwcv_alloc_error:
+	mov dword ptr [bp-020h],0100h
+	push dword ptr [bp+012h]
+	push word ptr [bp-2]
+	inc word ptr [bp-2]
+	push word ptr [bp-8]
+	push di
+	lea ax,[bp-020h]
+	push ss
+	push ax
+	push 4
+	call RegEnumValueRecord
+	or ax,ax
+	jnz short rwcv_make_name
+	push word ptr [bp-8]
+	push di
+	call RegValueNameNumber
+	mov [bp-0Ch],ax
+	cmp ax,[bp-6]
+	jna short rwcv_write_current
+	mov [bp-6],ax
+rwcv_write_current:
+	push dword ptr [bp+012h]
+	push word ptr [bp-8]
+	push di
+	lea ax,[bp-010h]
+	push ss
+	push ax
+	push 4
+	call RegOpenPath
+	or ax,ax
+	jnz short rwcv_make_name
+	push dword ptr [bp-010h]
+	push dword ptr [bp+0Eh]
+	push dword ptr [bp+0Ah]
+	push dword ptr [bp+6]
+	push word ptr [bp+4]
+	push 1
+	call RegWriteValueRecord
+	mov si,ax
+	push dword ptr [bp-010h]
+	call RegReleaseKeyHandle
+	cmp si,0401h
+	jz short rwcv_alloc_error
+	jmp near ptr rwcv_done_chain
+rwcv_enumerate:
+	mov si,ax
+	jmp near ptr rwcv_release_buffer
+rwcv_select_key:
+	cmp ax,03F4h
+	jz near ptr rwcv_use_chain
+rwcv_check_next:
+	mov ax,0Eh
+	jmp near ptr rwcv_done
+rwcv_make_name:
+	mov di,[bp+012h]
+rwcv_create_key:
+	cmp word ptr [bp-6],0
+	jz short rwcv_mark_child
+	mov ax,[bp-6]
+	inc ax
+	mov [bp-0Ch],ax
+rwcv_mark_child:
+	push word ptr [bp-0Ch]
+	push dword ptr [bp-0Ah]
+	call RegFormatValueName
+	push word ptr [bp+014h]
+	push di
+	push dword ptr [bp-0Ah]
+	lea ax,[bp-010h]
+	push ss
+	push ax
+	push 1
+	call RegOpenPath
+	mov si,ax
+	or si,ax
+	jnz near ptr rwcv_done_chain
+	mov es,[bp+014h]
+	test byte ptr es:[di+3],1
+	jnz short rwcv_write_new
+	db 66h
+	push word ptr es:[di+6]
+	db 66h
+	push word ptr es:[di+0Ah]
+	lea ax,[bp-014h]
+	push ss
+	push ax
+	call RegFetchKeyRecord
+	mov si,ax
+	or si,ax
+	jnz short rwcv_done_chain
+	les bx,[bp-014h]
+	or byte ptr es:[bx+3],2
+	mov es,[bp+014h]
+	or byte ptr es:[di+3],1
+	db 66h
+	push word ptr es:[di+6]
+	db 66h
+	push word ptr es:[di+0Ah]
+	push 1
+	call RegUnlockKeyCache
+rwcv_write_new:
+	les bx,[bp-010h]
+	db 66h
+	push word ptr es:[bx+6]
+	db 66h
+	push word ptr es:[bx+0Ah]
+	lea ax,[bp-014h]
+	push ss
+	push ax
+	call RegFetchKeyRecord
+	mov si,ax
+	or si,ax
+	jnz short rwcv_done_chain
+	les bx,[bp-014h]
+	or byte ptr es:[bx+3],4
+	les bx,[bp-010h]
+	db 66h
+	push word ptr es:[bx+6]
+	db 66h
+	push word ptr es:[bx+0Ah]
+	push 1
+	call RegUnlockKeyCache
+	push dword ptr [bp-010h]
+	push dword ptr [bp+0Eh]
+	push dword ptr [bp+0Ah]
+	push dword ptr [bp+6]
+	push word ptr [bp+4]
+	push 1
+	call RegWriteValueRecord
+	mov si,ax
+	push dword ptr [bp-010h]
+	call RegReleaseKeyHandle
+rwcv_done_chain:
+	push dword ptr [bp-0Ah]
+	call RegDosFree
+	cmp si,0401h
+	jnz short rwcv_release_buffer
+	mov si,0Eh
+rwcv_release_buffer:
+	mov ax,si
+rwcv_done:
+	pop si
+	pop di
+	leave
+	ret 012h
+RegWriteChainedValue endp
+	if ($ - RegistryCode) and 1
+	db 0
+	endif
+
+; Update the value within one key and release the modified data record.
+	public RegWriteValueRecord
+RegWriteValueRecord proc near
+	enter 01Ah,0
+	push di
+	push si
+	cmp dword ptr [bp+010h],0
+	jnz short rwvr_find_value
+	xor bx,bx
+	jmp short rwvr_found_value
+rwvr_find_value:
+	les di,[bp+010h]
+	mov cx,0FFFFh
+	xor ax,ax
+	repne scasb
+	not cx
+	dec cx
+	mov bx,cx
+rwvr_found_value:
+	cmp bx,0FFh
+	jna short rwvr_new_value
+	mov ax,057h
+	jmp near ptr rwvr_no_value
+rwvr_new_value:
+	mov [bp-0Eh],bx
+	mov ax,bx
+	add ax,[bp+6]
+	add ax,0Ch
+	mov [bp-0Ch],ax
+	cmp word ptr [bp+4],0
+	jnz short rwvr_check_record
+	push dword ptr [bp+014h]
+	push dword ptr [bp+010h]
+	lea ax,[bp-012h]
+	push ss
+	push ax
+	lea ax,[bp-016h]
+	push ss
+	push ax
+	call RegFindChainedValue
+	mov [bp-0Ah],ax
+	jmp short rwvr_check_type
+rwvr_check_record:
+	mov word ptr [bp-0Ah],03F4h
+rwvr_check_type:
+	cmp word ptr [bp-0Ah],0
+	jnz near ptr rwvr_unlock_key
+	les bx,[bp-016h]
+	mov ax,es:[bx+8]
+	add ax,es:[bx+0Ah]
+	add ax,0Ch
+	mov [bp-6],ax
+	cmp ax,[bp-0Ch]
+	jnz short rwvr_new_length
+	mov ax,[bp+6]
+	cmp es:[bx+0Ah],ax
+	jnz short rwvr_new_length
+	mov eax,[bp+0Ch]
+	db 66h
+	cmp es:[bx],ax
+	jnz short rwvr_new_length
+	mov si,[bp-0Eh]
+	mov ax,[bp+8]
+	mov dx,[bp+0Ah]
+	mov cx,[bp+6]
+	push ds
+	mov di,ax
+	lea si,[bx+si+0Ch]
+	push es
+	pop ds
+	mov es,dx
+	shr cx,1
+	sbb ax,ax
+	cmp cx,cx
+	repe cmpsw
+	jnz short rwvr_old_length
+	sub cx,ax
+	repe cmpsb
+rwvr_old_length:
+	pop ds
+	jnz short rwvr_new_length
+	les bx,[bp+014h]
+	db 66h
+	push word ptr es:[bx+6]
+	push word ptr es:[bx+014h]
+	push 0
+	call RegUnlockDataCache
+	xor ax,ax
+	jmp near ptr rwvr_no_value
+rwvr_new_length:
+	mov si,[bp-0Ch]
+	cmp [bp-6],si
+	jna short rwvr_ensure_space
+	mov ax,[bp-6]
+	sub ax,si
+	sub dx,dx
+	les bx,[bp-012h]
+	sub es:[bx+8],ax
+	sbb es:[bx+0Ah],dx
+	jmp short rwvr_empty_slot
+rwvr_ensure_space:
+	cmp [bp-6],si
+	jnc short rwvr_empty_slot
+	les bx,[bp-012h]
+	mov ax,es:[bx]
+	sub ax,es:[bx+8]
+	mov cx,si
+	sub cx,[bp-6]
+	mov [bp-2],cx
+	cmp ax,cx
+	jnc short rwvr_shift_data
+	mov ax,[bp-016h]
+	sub ax,bx
+	mov [bp-8],ax
+	push dword ptr [bp+014h]
+	mov ax,cx
+	sub dx,dx
+	add ax,es:[bx+8]
+	adc dx,es:[bx+0Ah]
+	push dx
+	push ax
+	lea ax,[bp-012h]
+	push ss
+	push ax
+	call RegResizeValueRecord
+	mov [bp-0Ah],ax
+	or ax,ax
+	jz short rwvr_unlock_error
+	les bx,[bp+014h]
+	db 66h
+	push word ptr es:[bx+6]
+	push word ptr es:[bx+014h]
+	push 0
+	call RegUnlockDataCache
+	mov ax,[bp-0Ah]
+	jmp near ptr rwvr_no_value
+rwvr_unlock_error:
+	mov eax,[bp-012h]
+	add ax,[bp-8]
+	mov [bp-016h],eax
+rwvr_shift_data:
+	mov ax,[bp-2]
+	sub dx,dx
+	les bx,[bp-012h]
+	add es:[bx+8],ax
+	adc es:[bx+0Ah],dx
+rwvr_empty_slot:
+	mov eax,[bp-016h]
+	mov dx,[bp-014h]
+	add ax,si
+	mov [bp-4],eax
+	les bx,[bp-012h]
+	sub ax,es:[bx+8]
+	neg ax
+	add ax,bx
+	mov [bp-8],ax
+	or ax,ax
+	jz short rwvr_allocate_block
+	push dx
+	push word ptr [bp-4]
+	mov ax,[bp-016h]
+	add ax,[bp-6]
+	push dx
+	push ax
+	push word ptr [bp-8]
+	call RegMoveMemory
+rwvr_allocate_block:
+	mov di,[bp+014h]
+	mov si,[bp-0Ah]
+	jmp near ptr rwvr_complete
+rwvr_unlock_key:
+	mov si,[bp-0Ah]
+	cmp si,03F4h
+	jnz short rwvr_set_record
+	les bx,[bp+014h]
+	cmp word ptr es:[bx+012h],-1
+	jnz near ptr rwvr_copy_name
+	db 66h
+	push word ptr es:[bx+6]
+	db 66h
+	push word ptr es:[bx+0Ah]
+	lea ax,[bp-01Ah]
+	push ss
+	push ax
+	call RegFetchKeyRecord
+	or ax,ax
+	jnz short rwvr_use_record
+	les bx,[bp+014h]
+	db 66h
+	push word ptr es:[bx+6]
+	mov ax,[bp-0Ch]
+	add ax,015h
+	push ax
+	lea ax,[bp-012h]
+	push ss
+	push ax
+	call RegAllocateDataRecord
+	or ax,ax
+	jz short rwvr_unlock_new
+	les bx,[bp+014h]
+	db 66h
+	push word ptr es:[bx+6]
+	db 66h
+	push word ptr es:[bx+0Ah]
+	push 0
+	call RegUnlockKeyCache
+rwvr_use_record:
+	mov ax,03F3h
+	jmp near ptr rwvr_no_value
+rwvr_set_record:
+	mov di,[bp+014h]
+	jmp near ptr rwvr_complete
+rwvr_unlock_new:
+	les bx,[bp-012h]
+	db 66h
+	mov word ptr es:[bx+8],015h
+	dw 0
+	les bx,[bp-012h]
+	mov word ptr es:[bx+0Ch],1
+	les bx,[bp-012h]
+	mov byte ptr es:[bx+014h],0
+	les bx,[bp-012h]
+	mov word ptr es:[bx+0Eh],0
+	les bx,[bp-012h]
+	mov word ptr es:[bx+010h],0
+	les bx,[bp-012h]
+	mov word ptr es:[bx+012h],0
+	les bx,[bp-012h]
+	mov ax,es:[bx+6]
+	les bx,[bp-01Ah]
+	mov es:[bx+0Ch],ax
+	les bx,[bp-012h]
+	sub al,al
+	mov ah,es:[bx+4]
+	mov dx,ax
+	sub cx,cx
+	les bx,[bp-01Ah]
+	mov si,cx
+	mov di,ax
+	xor cx,es:[bx+8]
+	xor dx,es:[bx+0Ah]
+	and dh,al
+	xor si,cx
+	xor di,dx
+	mov es:[bx+8],si
+	mov es:[bx+0Ah],di
+	les bx,[bp-01Ah]
+	mov ax,es:[bx+0Ch]
+	les bx,[bp+014h]
+	mov es:[bx+012h],ax
+	les bx,[bp-01Ah]
+	mov al,es:[bx+0Bh]
+	les bx,[bp+014h]
+	mov es:[bx+016h],al
+	db 66h
+	push word ptr es:[bx+6]
+	db 66h
+	push word ptr es:[bx+0Ah]
+	push 1
+	call RegUnlockKeyCache
+	xor si,si
+	mov di,[bp+014h]
+	jmp short rwvr_copy_data
+rwvr_copy_name:
+	mov di,bx
+	db 66h
+	push word ptr es:[di+6]
+	push word ptr es:[di+012h]
+	mov al,es:[di+016h]
+	push ax
+	lea ax,[bp-012h]
+	push ss
+	push ax
+	call RegFetchDataRecord
+	mov si,ax
+	or si,ax
+	jnz short rwvr_complete
+	les bx,[bp-012h]
+	mov ax,es:[bx]
+	sub ax,es:[bx+8]
+	cmp ax,[bp-0Ch]
+	jnc short rwvr_copy_data
+	push word ptr [bp+016h]
+	push di
+	mov ax,[bp-0Ch]
+	sub dx,dx
+	add ax,es:[bx+8]
+	adc dx,es:[bx+0Ah]
+	push dx
+	push ax
+	lea ax,[bp-012h]
+	push ss
+	push ax
+	call RegResizeValueRecord
+	mov si,ax
+	or si,ax
+	jz short rwvr_copy_data
+	mov es,[bp+016h]
+	db 66h
+	push word ptr es:[di+6]
+	push word ptr es:[di+012h]
+	push 0
+	jmp near ptr rwvr_done
+rwvr_copy_data:
+	mov es,[bp+016h]
+	mov ax,es:[di+012h]
+	mov es:[di+014h],ax
+	les bx,[bp-012h]
+	add bx,es:[bx+8]
+	mov [bp-016h],bx
+	mov word ptr [bp-014h],es
+	mov ax,[bp-0Ch]
+	sub dx,dx
+	mov bx,[bp-012h]
+	add es:[bx+8],ax
+	adc es:[bx+0Ah],dx
+	les bx,[bp-012h]
+	inc word ptr es:[bx+0Eh]
+rwvr_complete:
+	or si,si
+	jnz short rwvr_result
+	mov eax,[bp+0Ch]
+	les bx,[bp-016h]
+	db 66h
+	mov es:[bx],ax
+	mov ax,[bp-0Eh]
+	les bx,[bp-016h]
+	mov es:[bx+8],ax
+	mov ecx,[bp-016h]
+	add cx,0Ch
+	push ecx
+	push dword ptr [bp+010h]
+	push ax
+	call RegMoveMemory
+	mov ax,[bp+6]
+	les bx,[bp-016h]
+	mov es:[bx+0Ah],ax
+	mov ecx,[bp-016h]
+	add cx,[bp-0Eh]
+	add cx,0Ch
+	push ecx
+	push dword ptr [bp+8]
+	push ax
+	call RegMoveMemory
+	mov es,[bp+016h]
+	db 66h
+	push word ptr es:[di+6]
+	push word ptr es:[di+014h]
+	push 1
+rwvr_done:
+	call RegUnlockDataCache
+rwvr_result:
+	mov ax,si
+rwvr_no_value:
+	pop si
+	pop di
+	leave
+	ret 014h
+RegWriteValueRecord endp
+	if ($ - RegistryCode) and 1
+	db 0
+	endif
+
+; Validate the public value arguments and write through the existing key handle.
+	public RegSetValueCore
+RegSetValueCore proc far
+	mov ax,DGROUP
+	enter 2,0
+	push di
+	push ds
+	mov ds,ax
+	cmp dword ptr [bp+012h],1
+	jnz short rsvc_check_size
+	les di,[bp+016h]
+	mov cx,0FFFFh
+	xor ax,ax
+	repne scasb
+	not cx
+	dec cx
+	mov [bp+01Ah],cx
+	mov [bp+01Ch],ax
+	cmp cx,04000h
+	jc short rsvc_check_size
+rsvc_invalid:
+	mov ax,057h
+	jmp short rsvc_done
+rsvc_check_size:
+	cmp dword ptr [bp+01Ah],04000h
+	ja short rsvc_invalid
+	lea ax,[bp+6]
+	push ss
+	push ax
+	call RegValidateKeyHandle
+	mov [bp-2],ax
+	or ax,ax
+	jnz short rsvc_result
+	les bx,[bp+6]
+	les bx,es:[bx+6]
+	test byte ptr es:[bx+056h],080h
+	jz short rsvc_write
+	mov word ptr [bp-2],5
+	jmp short rsvc_result
+rsvc_write:
+	push dword ptr [bp+6]
+	push dword ptr [bp+0Ah]
+	push dword ptr [bp+012h]
+	push dword ptr [bp+016h]
+	push word ptr [bp+01Ah]
+	call RegWriteChainedValue
+	mov [bp-2],ax
+rsvc_result:
+	mov ax,[bp-2]
+rsvc_done:
+	cwd
+	pop ds
+	pop di
+	leave
+	retf
+RegSetValueCore endp
 	if ($ - RegistryCode) and 1
 	db 0
 	endif
