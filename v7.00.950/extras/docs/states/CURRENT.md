@@ -56,10 +56,10 @@ IO.SYS, MSDOS.SYS and COMMAND.COM all equal. This is an existing-asset check,
 not a claim that a new build has run. The accepted six-byte MSDOS.SYS config
 remains the target; other media provenance does not silently change it.
 
-## Current prefix: 134/293
+## Current prefix: 136/293
 
-Modified source/build files 64, exact 21, necessary unchanged 13,
-no same-name reference unchanged 36. Next: 135, cmd/command/tparse.asm. Tooling modified
+Modified source/build files 65, exact 21, necessary unchanged 14,
+no same-name reference unchanged 36. Next: 137, cmd/command/tprintf.asm. Tooling modified
 1 (ioimage.c case-insensitive map symbol lookup), outside source count.
 See etc/T25/part1.md. BIOSTAIL.OBJ is unchanged; all compiler/link phases ran,
 then packaging failure was diagnosed and repaired. Fresh three-output FC/B
@@ -278,4 +278,9 @@ literals with existing symbols, and corrects the stale switch-scan comment.
 Shared path/search and necessary LFN redirection behavior remain intact.
 COMMAND rebuild/repack and all target/input checks pass;
 extras/build/t25-tmisc2-19950-1260; see part43.md.
-Next: 135 tparse.asm. Full automatic final build remains pending.
+Files 135-136: retain TPARSE's required 260-byte operand buffer setting;
+remove TPIPE's unused static-buffer/country externals, restore inherited date
+paragraphs and misplaced pipe comments, correct dynamic input-buffer contracts.
+COMMAND rebuild/repack and all target/input checks pass;
+extras/build/t25-tpipe-20518-3707; see part44.md.
+Next: 137 tprintf.asm. Full automatic final build remains pending.

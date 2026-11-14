@@ -74,14 +74,12 @@ TRANDATA	SEGMENT PUBLIC BYTE	;AC000;
 TRANDATA	ENDS
 
 TRANSPACE	SEGMENT PUBLIC BYTE	;AC000;
-	EXTRN	COMBUF:BYTE
 	EXTRN	ComBufPtr:WORD
 	EXTRN	TranSpaceEnd:BYTE
 	EXTRN	ParseArgIndex:WORD
 	EXTRN	date_day:byte		;AN000;
 	EXTRN	date_month:byte 	;AN000;
 	EXTRN	date_year:word		;AN000;
-	EXTRN	INTERNATVARS:BYTE
 	EXTRN	RESSEG:WORD
 	EXTRN	time_fraction:byte	;AN000;
 	EXTRN	time_hour:byte		;AN000;
@@ -96,7 +94,8 @@ ASSUME	CS:TRANGROUP,DS:NOTHING,ES:NOTHING,SS:NOTHING
 	EXTRN	NOPIPEPROC:NEAR
 	EXTRN	parseline:NEAR
 	EXTRN	GETARG:NEAR
-	EXTRN	ParseArgument:NEAR,CheckParsedArgs:NEAR
+	EXTRN	ParseArgument:NEAR
+	EXTRN	CheckParsedArgs:NEAR
 	EXTRN	STD_PRINTF:NEAR
 	EXTRN	TCOMMAND:NEAR
 	EXTRN	TESTDOREIN:NEAR
@@ -338,8 +337,8 @@ FIRSTPIPE:
 	XOR	CX,CX
 	PUSH	DS
 	MOV	DS,WORD PTR [PIPEPTR+2]
-	CMP	BYTE PTR [SI],0DH
-	POP	DS		; '|<CR>'
+	CMP	BYTE PTR [SI],0DH		; '|<CR>'
+	POP	DS
 	JNZ	PIPEOK1
 PIPEERRSYNJ:
 	JMP	PIPEERRSYN
@@ -347,13 +346,13 @@ PIPEOK1:
 	mov	al,vbar
 	PUSH	DS
 	MOV	DS,WORD PTR [PIPEPTR+2]
-	CMP	BYTE PTR [SI],al
-	POP	DS		; '||'
+	CMP	BYTE PTR [SI],al		; '||'
+	POP	DS
 	JZ	PIPEERRSYNJ
 	PUSH	DS
 	MOV	DS,WORD PTR [PIPEPTR+2]
-	CMP	BYTE PTR [SI],AltPipeChr
-	POP	DS	; '##' or '|#'?
+	CMP	BYTE PTR [SI],AltPipeChr	; '##' or '|#'?
+	POP	DS
 	JZ	PipeErrSynJ			; Yes, Error
 PIPECOMLP:
 	PUSH	DS
@@ -485,12 +484,17 @@ DATE:
 	or	ax,ax
 	jnz	DATERR
 PRMTDAT:
-	invoke	GetDate
-	xchg	dh,dl
-	mov	CurDat_yr,cx
-	mov	CurDat_mo_day,dx
-	mov	dx,offset TRANGROUP:CurDat_ptr
+	; Print "Current date is
+
+	invoke	GetDate 			;AN000; get date  for output
+	xchg	dh,dl				;AN000; switch month & day
+	mov	CurDat_yr,cx			;AC000; put year into message control block
+	mov	CurDat_mo_day,dx		;AC000; put month and day into message control block
+	mov	dx,offset trangroup:CurDat_ptr	;AC000; set up message for output
 	invoke	std_printf
+;AD061; mov	CurDat_yr,0			;AC000; reset year, month and day
+;AD061; mov	CurDat_mo_day,0 		;AC000;     pointers in control block
+
 GET_NEW_DATE:
 	call	GETDAT
 	jnc	COMDAT
@@ -498,24 +502,24 @@ GET_NEW_DATE:
 	jz	date_end
 	jmp	short DATERR
 COMDAT:
-	mov	cx,date_year
-	mov	dh,date_month
-	mov	dl,date_day
-	push	cx
-	push	dx
+	mov	cx,date_year			;AC000; get parts of date in
+	mov	dh,date_month			;AC000;    cx and dx for set
+	mov	dl,date_day			;AC000;    date function call.
+	push	cx				;AC000; save date
+	push	dx				;AC000;
 	call	CheckParsedArgs
-	pop	dx
-	pop	cx
-	jnc	DATERR
-	mov	ah,SET_DATE
-	int	21H
-	or	al,al
-	jnz	DATERR
+	pop	dx				;AC000; retrieve date
+	pop	cx				;AC000;
+	jnc	DATERR				; extra stuff on line - try again
+	MOV	AH,SET_DATE			;yes - set date
+	INT	21h
+	OR	AL,AL
+	JNZ	DATERR
 date_end:
 	ret
 DATERR:
-	invoke	CRLF2
-	mov	dx,offset TRANGROUP:BADDAT_ptr
+	invoke	crlf2				;AN028; print out a blank line
+	MOV	DX,OFFSET TRANGROUP:BADDAT_ptr
 	invoke	std_printf
 	jmp	short GET_NEW_DATE
 
@@ -673,14 +677,14 @@ PRINT_TIME:
 ; *
 ; * FUNCTION:	 Gets the date format from the COUNTRY DEPENDENT
 ; *		 INFORMATION and issues the "Enter new date"
-; *		 message with the proper date format.  COMBUF
+; *		 message with the proper date format.  The command buffer
 ; *		 is reset to get a date from the command line.
 ; *		 The PARSE_DATE blocks are then reset and the
 ; *		 PARSE function call is issued.
 ; *
 ; * INPUT:	 NONE
 ; *
-; * OUTPUT:	 COMBUF
+; * OUTPUT:	 command buffer at ComBufPtr
 ; *		 PARSER RETURN CODES
 ; *
 ; ****************************************************************
@@ -747,13 +751,13 @@ GETDAT	endp					;AC000;
 ; *
 ; * FUNCTION:	 Gets the time format from the COUNTRY DEPENDENT
 ; *		 INFORMATION and issues the "Enter new time"
-; *		 message. COMBUF is reset to get a time from the
+; *		 message. The temporary input buffer is reset to get a time from the
 ; *		 command line.	The PARSE_TIME blocks are then
 ; *		 reset and the PARSE function call is issued.
 ; *
 ; * INPUT:	 NONE
 ; *
-; * OUTPUT:	 COMBUF
+; * OUTPUT:	 temporary input buffer at TranSpaceEnd
 ; *		 PARSER RETURN CODES
 ; *
 ; ****************************************************************
