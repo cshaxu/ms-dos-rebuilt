@@ -56,10 +56,10 @@ IO.SYS, MSDOS.SYS and COMMAND.COM all equal. This is an existing-asset check,
 not a claim that a new build has run. The accepted six-byte MSDOS.SYS config
 remains the target; other media provenance does not silently change it.
 
-## Current prefix: 161/293
+## Current prefix: 163/293
 
-Modified source/build files 83, exact 22, necessary unchanged 20,
-no same-name reference unchanged 36. Next: 162, dos/diskset.asm. Tooling modified
+Modified source/build files 84, exact 23, necessary unchanged 20,
+no same-name reference unchanged 36. Next: 164, dos/dosmes.inc. Tooling modified
 1 (ioimage.c case-insensitive map symbol lookup), outside source count.
 See etc/T25/part1.md. BIOSTAIL.OBJ is unchanged; all compiler/link phases ran,
 then packaging failure was diagnosed and repaired. Fresh three-output FC/B
@@ -422,3 +422,9 @@ module identity and restore two original procedure contracts. Existing code
 is preserved; fresh kernel link unchanged, fresh IO.SYS and inherited other
 outputs exact; all 293 inputs verified. See part63.md/file161-build.txt.
 Next: 162 dos/diskset.asm. Final full build and completion audit pending.
+
+P64 accepts files 162-163: DISKSET removes 15 unused declarations and restores
+the reference SETUP contract; DIVMES is reference-exact. Fresh kernel link
+unchanged, fresh IO.SYS and inherited other two outputs target-exact; all
+293 stage inputs checked. See part64.md/file162-build.txt.
+Next: 164 dos/dosmes.inc. Final full build and completion audit pending.

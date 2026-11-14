@@ -1,5 +1,5 @@
-	TITLE	DISK2 - Disk utility routines
-	NAME	Disk2
+	TITLE	DISKSET - Disk request setup
+	NAME	DiskSet
 
 ;
 ;	Microsoft Confidential
@@ -7,30 +7,16 @@
 ;	All Rights Reserved.
 ;
 
-;**	Low level Read and write routines for local SFT I/O on files and devs
+;**	DISKSET.ASM - Disk request setup and error mapping
 ;
-;	DskRead
-;	DWRITE
-;	DSKWRITE
 ;	HarderrRW
 ;	SETUP
-;	BREAKDOWN
-;	READ_LOCK_VIOLATION
-;	WRITE_LOCK_VIOLATION
-;	DISKREAD
-;	SET_ACC_ERR_DS
-;	SET_ACC_ERR
-;	SETSFT
-;	SETCLUS
-;	AddRec
 ;
 ;	Revision history:
 ;
 ;		AN000 version 4.00 Jan. 1988
 ;		M039 DB 10/17/90 - Disk read/write optimization
 
-	extrn	GetCurHead:near
-	extrn	ScanPlace:near
 
 	.xlist
 	.xcref
@@ -47,41 +33,28 @@
 
 Installed = TRUE
 
-	i_need	THISSFT,DWORD
 	i_need	DMAADD,DWORD
 	i_need	NEXTADD,WORD
 	i_need	ThisDrv,BYTE
 	i_need	SecClusPos,BYTE
 	i_need	ClusNum,WORD
-	i_need	ReadOp,BYTE
 	i_need	Trans,BYTE
 	i_need	BytPos,4
 	i_need	SecPos,DWORD		 ; DOS 4.00 >32mb			;AN000;
 	i_need	BytSecPos,WORD
-	i_need	BytCnt1,WORD
-	i_need	BytCnt2,WORD
-	i_need	SecCnt,WORD
 	i_need	ThisDPB,DWORD
-	i_need	LastPos,WORD
 	i_need	EXTERRPT,DWORD
 	i_need	CALLVIDRW,DWORD
-	i_need	ALLOWED,BYTE
-	i_need	DEVCALL,BYTE
-	i_need	CALLSCNT,WORD
 
 ;**RMFHFE**	i_need	DISK_FULL,BYTE		  ; disk full flag for ran blk wrt
 
-	i_need	HIGH_SECTOR,WORD	  ; F.C. >32mb	  ;AN000;
-	i_need	TEMP_VAR2,WORD		  ; LB. 	  ;AN000;
-	i_need	TEMP_VAR,WORD		  ; LB. 	  ;AN000;
-	i_need	DirtyBufferCount,WORD
 
 
 DOSCODE	Segment
 	ASSUME	SS:DOSDATA, CS:DOSCODE
 
 
-        ASSUME DS:NOTHING,ES:NOTHING
+	ASSUME	DS:NOTHING,ES:NOTHING
 Break	<HardErrRW - map extended errors and call harderr>
 ;---------------------------------------------------------------------------
 ;
@@ -127,6 +100,44 @@ DO_ERR:
 	return
 
 EndProc HARDERRRW
+
+Break	<SETUP -- SETUP A DISK READ OR WRITE FROM USER>
+;----------------------------------------------------------------------------
+;
+; Procedure Name : SETUP
+;
+; Inputs:
+;	ES:DI point to SFT (value also in THISSFT)
+;	DMAAdd contains transfer address
+;	CX = Byte count
+;	DS = DOSDATA
+;   WARNING Stack must be clean, two ret addrs on stack, 1st of caller,
+;		2nd of caller of caller.
+; Outputs:
+;	    CX = byte count
+;	    [THISDPB] = Base of drive parameters if file
+;		      = Pointer to device header if device or NET
+;	    ES:DI Points to SFT
+;	    [NEXTADD] = Displacement of disk transfer within segment
+;	    [TRANS] = 0 (No transfers yet)
+;	    BytPos = Byte position in file
+;
+;	The following fields are relevant to local files (not devices) only:
+;
+;	    SecPos = Position of first sector (local files only)
+;	    [BYTSECPOS] = Byte position in first sector (local files only)
+;	    [CLUSNUM] = First cluster (local files only)
+;	    [SECCLUSPOS] = Sector within first cluster (local files only)
+;	    [THISDRV] = Physical unit number (local files only)
+;
+;      RETURNS ONE LEVEL UP WITH:
+;	   CX = 0
+;	   CARRY = Clear
+;	IF AN ERROR IS DETECTED
+; All other registers destroyed
+;----------------------------------------------------------------------------
+
+;hkn; called from disk.asm. DS has been set up to DOSDATA.
 
 procedure   SETUP,NEAR
 	DOSAssume   <DS>,"SetUp"
@@ -208,5 +219,5 @@ NOROOM:
 	return			; RETURN TO CALLER OF CALLER
 EndProc SETUP
 
-DOSCODE ENDS
-        END
+DOSCODE	ENDS
+	END
