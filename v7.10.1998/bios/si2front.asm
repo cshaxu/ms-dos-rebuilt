@@ -942,7 +942,6 @@ swchk7_loop:
         pop     ds
         assume  ds:sysinitseg
         jnz     short swchk7_nextline
-        mov     word ptr [boot_delay],0
         jmp     short swchk7_nextline
 swchk7_next1:
         cmp     al,CONFIG_NUMLOCK
@@ -971,7 +970,6 @@ swchk7_scan1:
 swchk7_scan2:
         cmp     al,byte ptr swit_f+1
         jne     short swchk7_scan1
-        mov     word ptr [boot_delay],0
         jmp     short swchk7_scan
 swchk7_nextline:
         call    skip_opt_line

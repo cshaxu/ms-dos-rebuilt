@@ -54,3 +54,5 @@ P14 restores the FE startup modifier keys and the early menu scan in the existin
 P15 restores FE key allocation inside the inherited REGREAD allocator, retaining its shared cache services. Its complete 720-byte target block differs in six linked call bytes. Stage cmd-21456-6331 produces 222422 IO.SYS bytes and full matches for COMMAND.COM and MSDOS.SYS. IO.SYS still differs from the frozen image.
 
 P16 integrates the FE signature and version checks into RegReadFile and updates the inherited save routine to mark the correct header state during in-place writes. Stage cmd-22217-20342 brings IO.SYS to the same 222390-byte length as the frozen target, with the first 2048 bytes matching exactly. The BIOS, embedded kernel and configuration still have unresolved instruction or layout differences. COMMAND.COM and MSDOS.SYS remain exact.
+
+P17 removes the two obsolete BOOTDELAY writes from the initial menu scan in SI2FRONT. Stage cmd-22890-6289 aligns the 145-byte menu block with the target modulo a one-byte preceding displacement. Ten linked operand bytes remain in the block. COMMAND.COM and MSDOS.SYS continue to match. IO.SYS remains open.
