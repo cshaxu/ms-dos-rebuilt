@@ -70,13 +70,12 @@ procedure   pJFNFromHandle,NEAR
     ASSUME ES:NOTHING
 
 	CMP	BX,ES:PDB_JFN_Length	; is handle greater than allocated
-        JAE     pjfn_error
-pjfn10: LES     DI,ES:PDB_JFN_Pointer ; get pointer to beginning of table
+	JAE	pjfn_error		; handle outside the table
+	LES	DI,ES:PDB_JFN_Pointer	; get pointer to beginning of table
         ADD     DI,BX               ; add in offset, clear carry
         return
 pjfn_error:
         MOV     AL,error_invalid_handle
-ReturnCarry:
         STC
         return
 
@@ -108,8 +107,7 @@ procedure   SFFromHandle,NEAR
 	CALL    pJFNFromHandle          ; get jfn pointer
 	retc                            ; return if error
 	CMP     BYTE PTR ES:[DI],-1     ; unused handle
-        JZ      sfhandle_error
-GetSF:
+	JZ	sfhandle_error		; no SFT for an unused handle
 	SAVE	<BX>			; save handle
 	MOV     BL,BYTE PTR ES:[DI]     ; get SFN
 	XOR     BH,BH                   ; ignore upper half
