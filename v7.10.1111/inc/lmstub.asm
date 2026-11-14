@@ -585,7 +585,7 @@ EnsureA20ON	endp
 
 
 XMMerror:
-	call	dword ptr cs:[BiosErrorVector]
+	call	dword ptr cs:[BiosErrorVector] ; Report the A20 error through BIOS
 
 		public	RatBugCode
 RatBugCode	proc	far
@@ -745,12 +745,12 @@ else
 endif
 ; ------------------------------------------------<MSKK01>----------------------
 
-        PUBLIC  LocaleInfo,LocaleInfoEnd
+	PUBLIC	LocaleInfo,LocaleInfoEnd
 LocaleInfoPrefix LABEL WORD
         PUBLIC  DosCallDepth
-DosCallDepth db 0
+DosCallDepth	db	0
         PUBLIC  DeviceCallDepth
-DeviceCallDepth db 0
+DeviceCallDepth	db	0
 LocaleInfo LABEL BYTE
         db      'ENU',0,'USA',0,'US'
         dw      1,2,0
@@ -767,7 +767,7 @@ NlsResponseTable LABEL WORD
         dw      OFFSET DOSDATA:NLS_YES
         dw      OFFSET DOSDATA:BiosErrorVector
 include yesno.asm
-BiosErrorVector dd 0
+BiosErrorVector	dd	0
 
 ; M034 BEGIN
 IFDEF	ROMDOS

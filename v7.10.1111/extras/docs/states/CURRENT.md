@@ -23,6 +23,6 @@ The inventory was frozen with `dir /a /b /s bios cmd dos inc lang` in each versi
 
 T20 S4 is archived [here](../history/T20-S4.md). Its verified registry work is part of the production baseline.
 
-P14 completed ordinals 199–223 and finished the kernel. Of 223 reviewed paths, 117 distinct source files were edited and 111 now match 950, including 40 made exact by audit edits. Continue with ordinal 224.
+P15 completed ordinals 224–294. M6 T26 S1 is closed. All 294 paths are accounted for, 119 distinct source files were edited, and 166 of 291 current files match 950 byte for byte. The other 125 current files include 124 differing common paths and one 1111 startup file.
 
-[Verified P14 build](../etc/T26/P14.md).
+[Closure audit and final build](../etc/T26/P15.md).

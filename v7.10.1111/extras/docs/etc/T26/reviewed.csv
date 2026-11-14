@@ -222,3 +222,74 @@ ordinal,path,disposition,verification
 221,dos/srvcall.asm,retained,Target server close path uses the local return without the 950 share callback
 222,dos/time.asm,retained,Target time packing uses immediate shifts and different instruction encodings
 223,dos/util.asm,reduced-to-exact,Removed unreferenced local labels and restored the handle lookup comments
+224,inc/arena.inc,exact,Byte comparison with frozen 950
+225,inc/bdsize.inc,exact,Byte comparison with frozen 950
+226,inc/bootform.inc,exact,Byte comparison with frozen 950
+227,inc/bpb.inc,retained,Extended BPB fields replace 950 padding and are consumed by FAT32 BIOS and kernel paths
+228,inc/buffer.inc,retained,FAT copy spacing is now a dword; the reserved bytes preserve the extended buffer layout
+229,inc/bugtyp.inc,exact,Byte comparison with frozen 950
+230,inc/const2.asm,exact,Byte comparison with frozen 950
+231,inc/copyrigh.inc,exact,Byte comparison with frozen 950
+232,inc/cpmfcb.inc,exact,Byte comparison with frozen 950
+233,inc/cputype.inc,exact,Byte comparison with frozen 950
+234,inc/curdir.inc,exact,Byte comparison with frozen 950
+235,inc/dbcs.sw,exact,Byte comparison with frozen 950
+236,inc/devsym.inc,exact,Byte comparison with frozen 950
+237,inc/dirent.inc,retained,The FAT32 directory entry uses a high cluster word alias in the existing directory layout
+238,inc/doscntry.inc,exact,Byte comparison with frozen 950
+239,inc/dosmac.inc,retained,ML uses EXTERNDEF for forward near references; MASM 5 retains the original EXTRN path
+240,inc/dosseg.inc,exact,Byte comparison with frozen 950
+241,inc/dossym.inc,exact,Byte comparison with frozen 950
+242,inc/dpb.inc,retained,The target DPB adds extended FAT32 sector cluster and free count fields
+243,inc/dpl.asm,exact,Byte comparison with frozen 950
+244,inc/ds_vers.inc,exact,Byte comparison with frozen 950
+245,inc/ea.inc,exact,Byte comparison with frozen 950
+246,inc/error.inc,exact,Byte comparison with frozen 950
+247,inc/exe.inc,exact,Byte comparison with frozen 950
+248,inc/fastopen.inc,exact,Byte comparison with frozen 950
+249,inc/fastxxxx.inc,exact,Byte comparison with frozen 950
+250,inc/filemode.inc,exact,Byte comparison with frozen 950
+251,inc/find.inc,exact,Byte comparison with frozen 950
+252,inc/highexit.inc,exact,Byte comparison with frozen 950
+253,inc/highload.inc,exact,Byte comparison with frozen 950
+254,inc/highvar.inc,exact,Byte comparison with frozen 950
+255,inc/int2a.inc,exact,Byte comparison with frozen 950
+256,inc/intnat.inc,exact,Byte comparison with frozen 950
+257,inc/ioctl.inc,retained,Legacy 31-byte BPB and extended IOCTL parameter records have distinct target layouts
+258,inc/lmstub.asm,reduced,Restored common stub formatting and A20 reporting comment; kept the target LSS stack restore
+259,inc/lock.inc,exact,Byte comparison with frozen 950
+260,inc/magicdrv.inc,exact,Byte comparison with frozen 950
+261,inc/mi.inc,exact,Byte comparison with frozen 950
+262,inc/msbdata.inc,exact,Byte comparison with frozen 950
+263,inc/msbds.inc,retained,The BDS copies both expanded BPBs and carries different initial geometry values
+264,inc/msgdcl.inc,exact,Byte comparison with frozen 950
+265,inc/msgserv.asm,retained,Target COMMAND includes the DIR buffer branches in both handle and console message output
+266,inc/mshalo.asm,exact,Byte comparison with frozen 950
+267,inc/mshead.asm,exact,Byte comparison with frozen 950
+268,inc/ms_data.asm,reduced,Restored the saved directory state comment; kept wider I/O records and additional FAT32 fields
+269,inc/mult.inc,exact,Byte comparison with frozen 950
+270,inc/oemconf.inc,exact,Byte comparison with frozen 950
+271,inc/origin.inc,exact,Byte comparison with frozen 950
+272,inc/parse.asm,exact,Byte comparison with frozen 950
+273,inc/pdb.inc,exact,Byte comparison with frozen 950
+274,inc/psdata.inc,exact,Byte comparison with frozen 950
+275,inc/rombios.inc,exact,Byte comparison with frozen 950
+276,inc/sf.inc,retained,FAT32 cluster aliases extend local SFT use without changing the linked record format
+277,inc/smifssym.inc,exact,Byte comparison with frozen 950
+278,inc/syscall.inc,exact,Byte comparison with frozen 950
+279,inc/sysmsg.inc,exact,Byte comparison with frozen 950
+280,inc/sysvar.inc,exact,Byte comparison with frozen 950
+281,inc/umb.inc,exact,Byte comparison with frozen 950
+282,inc/vector.inc,exact,Byte comparison with frozen 950
+283,inc/version.inc,exact,Byte comparison with frozen 950
+284,inc/versiona.inc,retained,The kernel and command inherit the 7.10 version constant
+285,inc/win386.inc,exact,Byte comparison with frozen 950
+286,inc/wpatch.inc,exact,Byte comparison with frozen 950
+287,inc/xmm.inc,exact,Byte comparison with frozen 950
+288,inc/yesno.asm,exact,Byte comparison with frozen 950
+289,lang/usa/messages/biosmsg.inc,retained,1111 IO.SYS contains the expanded 600-byte BIOS message table and fourth diagnostic
+290,lang/usa/messages/comimsg.inc,retained,The target includes both the Memphis and Windows 95 startup messages and adds initialization message 32
+291,lang/usa/messages/comrmsg.inc,exact,Byte comparison with frozen 950
+292,lang/usa/messages/sysimsg.inc,retained,The two startup diagnostics are placed first in the target SysInitMsg table and payload
+293,lang/usa/messages/usa-ms-command.msg,retained,The target COMMAND resources include both version strings plus the four large-volume strings and the 4GB value
+294,lang/usa/messages/usa-ms-dos.msg,exact,Byte comparison with frozen 950
