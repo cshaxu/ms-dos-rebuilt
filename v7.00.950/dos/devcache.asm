@@ -1,5 +1,5 @@
-	TITLE	DEV - Device call routines
-	NAME	Dev
+	TITLE	DEVCACHE - Secondary cache routines
+	NAME	DevCache
 
 ;
 ;	Microsoft Confidential
@@ -8,15 +8,8 @@
 ;
 
 
-;**	Misc Routines to do 1-12 low level I/O and call devices
+;**	DEVCACHE.ASM - Secondary cache routines
 ;
-;	IOFUNC
-;	DEVIOCALL
-;	SETREAD
-;	SETWRITE
-;	DEVIOCALL2
-;	DEV_OPEN_SFT
-;	DEV_CLOSE_SFT
 ;	RW_SC
 ;	IN_SC
 ;	INVALIDATE_SC
@@ -39,42 +32,28 @@
 	.cref
 	.list
 
-	i_need	IOXAD,DWORD
-	i_need	IOSCNT,WORD
-	i_need	DEVIOBUF,4
-	i_need	IOCALL,BYTE
-	i_need	IOMED,BYTE
-	i_need	IORCHR,BYTE
 	i_need	CALLSCNT,WORD
-	i_need	DMAAdd,DWORD
-	i_need	CallDevAd,DWORD
 	i_need	CallXAD,DWORD
-	i_need	DPBHead,DWORD
-	i_need	ThisSFT,DWORD
-	i_need	ThisDPB,DWORD
 	i_need	DevCall,DWORD
-	i_need	VerFlg,BYTE
 	i_need	HIGH_SECTOR,WORD	       ;AN000;
 	i_need	CALLSSEC,WORD		       ;AN000;
-	i_need	CALLNEWSC,DWORD 	       ;AN000;
 	i_need	SC_CACHE_COUNT,WORD	       ;AN000;
 	i_need	SC_CACHE_PTR,DWORD	       ;AN000;
 	i_need	TEMP_VAR,WORD		       ;AN000;
 	i_need	TEMP_VAR2,WORD		       ;AN000;
-	i_need	InterChar,BYTE	;AN000; interim character flag 2/13/KK
-	i_need	InterCon,BYTE	;AN000; Console mode flag(1:interim mode) 2/13/KK
-	i_need	SaveCurFlg,BYTE ;AN000; Console out mode(1:print & don't adv cursor) 2 /13/KK
 	i_need	DDMOVE,BYTE	;AN000; flag for DWORD move
-	i_need	DOS34_FLAG,WORD ;AN000;
-	i_need	fshare,BYTE	;AN010; share flag
-
-	i_need 	IoStatFail,BYTE	;SR; set if user failed on I24 in IOFUNC
 
 
-DOSCODE Segment
-        ASSUME CS:DOSCODE,SS:DOSDATA,DS:NOTHING,ES:NOTHING
-        EXTRN SEQ_SECTOR:DWORD,SC_SECTOR_SIZE:WORD,SC_DRIVE:BYTE
-        EXTRN CURSC_DRIVE:BYTE,CURSC_SECTOR:WORD,SC_STATUS:WORD,SC_FLAG:BYTE
+
+DOSCODE	Segment
+	ASSUME	CS:DOSCODE,SS:DOSDATA,DS:NOTHING,ES:NOTHING
+	EXTRN	SEQ_SECTOR:DWORD
+	EXTRN	SC_SECTOR_SIZE:WORD
+	EXTRN	SC_DRIVE:BYTE
+	EXTRN	CURSC_DRIVE:BYTE
+	EXTRN	CURSC_SECTOR:WORD
+	EXTRN	SC_STATUS:WORD
+	EXTRN	SC_FLAG:BYTE
 
 Break	<RW_SC -- Read Write Secondary Cache>
 ;---------------------------------------------------------------------------
@@ -98,7 +77,7 @@ Break	<RW_SC -- Read Write Secondary Cache>
 
 procedure   RW_SC,NEAR		;AN000;
 
-	; SS override for all variables used.
+	; Cache state uses CS overrides; DOSDATA variables use SS overrides.
 
 	CMP	[SC_CACHE_COUNT],0	;AN000;LB. secondary cache exists?
 	JZ	scexit4 		;AN000;LB. no, do nothing
@@ -196,7 +175,7 @@ Break	<IN_SC -- check if in secondary cache>
 
 procedure   IN_SC,NEAR		    ;AN000;
 
-	; SS override for all variables used
+	; Cache state uses CS overrides; DOSDATA variables use SS overrides
 
 	MOV	AL,CS:[SC_DRIVE]		    ;AN000;;LB. current drive
 	CMP	AL,CS:[CURSC_DRIVE]	    ;AN000;;LB. same as SC drive
@@ -237,7 +216,7 @@ Break	<INVALIDATE_SC - invalide secondary cache>
 
 procedure   INVALIDATE_SC,NEAR	    ;AN000;
 
-	; SS override for all variables used
+	; Cache state uses CS overrides; DOSDATA variables use SS overrides
 
 	CALL	IN_SC			    ;AN000;;LB. in secondary cache
 	JC	outrange		    ;AN000;;LB. no
@@ -254,10 +233,10 @@ EndProc INVALIDATE_SC			    ;AN000;
 Break	<VIRREAD- virtually read data into buffer>
 ;--------------------------------------------------------------------------
 ;
-; Procedure Name : SC_FLAG
+; Procedure Name : VIRREAD
 ;
-; Inputs:  SC_FLAG = 0 , no sectors were read into SC
-;		     1, continous sectors were read into SC
+; Inputs:  SC_FLAG = 1, continuous sectors were read into SC
+;          Caller checks SC_FLAG before calling VIRREAD.
 ; Function:
 ;	   Move data from SC to buffer
 ; Output:
@@ -272,7 +251,7 @@ Break	<VIRREAD- virtually read data into buffer>
 
 procedure   VIRREAD,NEAR	    ;AN000;
 
-	; SS override for all variables used
+	; Cache state uses CS overrides; DOSDATA variables use SS overrides
 	MOV	AX,[TEMP_VAR2]		    ;AN000;;LB. restore buffer addr
 	MOV	WORD PTR [CALLXAD+2],AX     ;AN000;;LB.
 	MOV	AX,[TEMP_VAR]		    ;AN000;;LB.
@@ -328,7 +307,7 @@ Break	<SC2BUF- move data from SC to buffer>
 
 procedure   SC2BUF,NEAR 	    ;AN000;
 
-	; SS override for all variables used
+	; Cache state uses CS overrides; DOSDATA variables use SS overrides
 
 	CALL	IN_SC			    ;AN000;;LB. in secondary cache
 	JC	noSC			    ;AN000;;LB. no
@@ -362,5 +341,5 @@ sexit:					    ;AN000;
 	return				    ;AN000;    ;LB.
 
 EndProc SC2BUF
-DOSCODE ENDS
-        END
+DOSCODE	ENDS
+	END

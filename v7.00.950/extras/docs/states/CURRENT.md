@@ -56,10 +56,10 @@ IO.SYS, MSDOS.SYS and COMMAND.COM all equal. This is an existing-asset check,
 not a claim that a new build has run. The accepted six-byte MSDOS.SYS config
 remains the target; other media provenance does not silently change it.
 
-## Current prefix: 151/293
+## Current prefix: 153/293
 
-Modified source/build files 75, exact 21, necessary unchanged 19,
-no same-name reference unchanged 36. Next: 152, dos/devcache.asm. Tooling modified
+Modified source/build files 76, exact 22, necessary unchanged 19,
+no same-name reference unchanged 36. Next: 154, dos/dir.asm. Tooling modified
 1 (ioimage.c case-insensitive map symbol lookup), outside source count.
 See etc/T25/part1.md. BIOSTAIL.OBJ is unchanged; all compiler/link phases ran,
 then packaging failure was diagnosed and repaired. Fresh three-output FC/B
@@ -374,3 +374,9 @@ device flag symbols. Fresh kernel link unchanged; repacked IO.SYS and inherited
 other outputs exact; all 293 inputs verified. See part55.md.
 Latest: extras/build/t25-dev-28535-12804. Next: 152 dos/devcache.asm.
 Final full build and completion audit pending.
+
+P56 accepts files 152-153: remove DEVCACHE's 19 unused copied declarations,
+correct module identity and cache contracts; DINFO is reference-exact.
+Fresh kernel link unchanged; fresh IO.SYS and both inherited outputs exact.
+All 293 inputs match the verified stage; see part56.md and file152-build.txt.
+Next: 154 dos/dir.asm. Final full build and completion audit pending.
