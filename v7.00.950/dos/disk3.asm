@@ -81,11 +81,10 @@ Installed = TRUE
 
 
 DOSCODE Segment
-        EXTRN SC_DRIVE:BYTE
-        EXTRN SC_STATUS:WORD
-        EXTRN CURSC_SECTOR:WORD
-        EXTRN CURSC_DRIVE:BYTE
-        EXTRN FIRST_BUFF_ADDR:WORD
+	EXTRN	SC_STATUS:WORD
+	EXTRN	CURSC_SECTOR:WORD
+	EXTRN	CURSC_DRIVE:BYTE
+	EXTRN	FIRST_BUFF_ADDR:WORD
 	ASSUME  SS:DOSDATA,CS:DOSCODE
 
 Break   <DISKWRITE -- PERFORM USER DISK WRITE>
@@ -156,7 +155,8 @@ WRITE_OK:
 	PUSH	DX			;M039: Free DX for use by SHR32
 	MOV	DX,CX			;M039
 	JNZ     CALCLUS
-        DB      083h,0e8h,1     ; SUB AX,1 - target encoding                    ;AX must be zero base indexed          ;AC000;
+	; SUB AX,1 with a sign-extended immediate.
+	DB      083h,0e8h,1            ;AX must be zero base indexed          ;AC000;
 	SBB	DX,0			;M039 ;F.C. >32mb			       ;AN000;
 
 CALCLUS:
@@ -187,7 +187,8 @@ CALCLUS:
 
 	OR      DX,DX
 	JZ      NORND
-        DB      083h,0c0h,1     ; ADD AX,1 - target encoding            	;Round up if any remainder                     ;AC000;
+	; ADD AX,1 with a sign-extended immediate.
+	DB      083h,0c0h,1        	;Round up if any remainder                     ;AC000;
 	ADC     [VALSEC+2],0
 NORND:	MOV     WORD PTR [VALSEC],AX
 
@@ -425,7 +426,7 @@ WRTEOF:
 	MOV     CX,AX
 	OR      CX,DX
 	JZ      KILLFIL
-        DB      083h,0e8h,1     ; SUB AX,1 - target encoding
+	DB      083h,0e8h,1      ; SUB AX,1 with a sign-extended immediate
 	SBB     DX,0
 
 	PUSH    BX
