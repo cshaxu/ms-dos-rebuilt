@@ -29,7 +29,7 @@
 
 Installed = TRUE
 
-        i_need  IoState3,WORD
+	i_need	IoState3,WORD
 	i_need	RENAMEDMA,BYTE
 	i_need	AUXSTACK,BYTE
 	i_need	DESTSTART,WORD
@@ -125,7 +125,7 @@ LOCAL_RENAME:
 	MOV	AL,BYTE PTR [SI]
 	MOV	AH,BYTE PTR [DI]
 	OR	AX,2020H		; Lower case
-        DB      038h,0e0h       ; CMP AL,AH - target opcode
+	DB	038h,0E0h		; CMP AL,AH, register-to-r/m form
 	JZ	SAMEDRV
 	MOV	AX,error_not_same_device
 	STC
@@ -143,7 +143,7 @@ SAMEDRV:
 	invoke	DOS_SEARCH_FIRST	; Sets [NoSetDir] to 1, [CURBUF+2]:BX
 					;    points to entry
 	JNC	Check_Dev
-        DB      083h,0f8h,error_no_more_files ; CMP AX,short immediate
+	DB	083h,0F8h,error_no_more_files ; CMP AX, signed immediate
 	JNZ	GOTERR
 	MOV	AX,error_file_not_found
 GOTERR:

@@ -97,7 +97,7 @@ CurdirErr:
 CurrentValidate:
 	SAVE	<DS,SI> 		; save destination
 
-;hkn; 	Set up DS to access ThisCDS
+;hkn; 	Set up DS to access NoSetDir
 	getdseg	<ds>			; ds -> dosdata
 
 	MOV	NoSetDir,0		; interested only in contents
@@ -108,7 +108,6 @@ CurrentValidate:
 	Invoke	ValidateCDS		; output is ES:DI -> CDS
 	SAVE	<ES,DI> 		; swap source and destination
 	RESTORE <SI,DS>
-GetDst:
 	RESTORE <DI,ES>		; get real destination
 	JC	CurdirErr
 	ADD	SI,curdir_text
@@ -259,7 +258,7 @@ procedure $CHDIR,NEAR
 ChDirErrP:
 	MOV	AL,error_path_not_found
 ChdirErr:
-	JMP	SHORT RmDirReturn	; oops!
+	JMP	SHORT RmDirReturn	; return the path error
 
 ChDirCrack:
 
