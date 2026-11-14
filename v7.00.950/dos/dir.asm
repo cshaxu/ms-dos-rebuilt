@@ -60,7 +60,7 @@
 
 DOSCODE	Segment
 	allow_getdseg
-        EXTRN MetaCompare:NEAR
+	EXTRN	MetaCompare:NEAR
 	ASSUME	SS:DOSDATA,CS:DOSCODE
 
 Break	<FINDENTRY -- LOOK FOR AN ENTRY>
@@ -188,13 +188,13 @@ NextEntJ:
 	JMP	SHORT SETESRET
 
 LfnSkipEntry:
-        POP     DS
+	POP	DS
 LfnNextEntry:
-        ASSUME  DS:DOSDATA
-        LES     BP,[THISDPB]
-        CALL    NEXTENTRY
-        JNC     LfnSearchEntry
-        JMP     SHORT SETESRET
+	ASSUME	DS:DOSDATA
+	LES	BP,[THISDPB]
+	CALL	NEXTENTRY
+	JNC	LfnSearchEntry
+	JMP	SHORT SETESRET
 
 FOUND:
 ;
@@ -228,33 +228,15 @@ RETFF:
 	LES	BP,[THISDPB]
 	MOV	AH,ES:[BP.dpb_drive]
 SETESRET:
-        PUSH    SS
-        POP     ES
-        PUSH    ENTLAST
-        POP     IoState1+12
-        JNC     LfnSearchReturn
-        MOV     IoState1,0
+	PUSH	SS
+	POP	ES
+	PUSH	ENTLAST
+	POP	IoState1+12
+	JNC	LfnSearchReturn
+	MOV	IoState1,0
 LfnSearchReturn:
-        return
+	return
 EndProc Search
-
-;----------------------------------------------------------------------------
-;
-; Procedure Name : MetaCompare
-;
-; Inputs:
-;	DS:SI -> 11 character FCB style name NO '?'
-;	    Typically this is a directory entry.  It MUST be in upper case
-;	ES:DI -> 11 character FCB style name with possible '?'
-;	    Typically this is a FCB or SFT.  It MUST be in upper case
-; Function:
-;	Compare FCB style names allowing for ? match to any char
-; Outputs:
-;	Zero if match else NZ
-; Destroys CX,SI,DI all others preserved
-;----------------------------------------------------------------------------
-
-
 
 Break	<NEXTENTRY -- STEP THROUGH DIRECTORY>
 ;----------------------------------------------------------------------------
@@ -454,114 +436,120 @@ entry	SETROOTSRCH
 EndProc SETDIRSRCH,NoCheck
 
 ; Associate open SFT entries with their directory position.
-; Names assigned from target behavior. Zero cluster marks an unused slot.
-        PUBLIC DirSftIds,DirSftPositions,DirSftCluster
+; Zero directory cluster marks an unused slot.
+	PUBLIC	DirSftIds
+	PUBLIC	DirSftPositions
+	PUBLIC	DirSftCluster
 DirSftIds       DB      20 DUP (0)
-DirSftPositions DW      40 DUP (0)
+DirSftPositions DW      (2 * LENGTH DirSftIds) DUP (0)
 DirSftCluster   DW      0
 
-        .286
-procedure SaveDirSft,near
-        ASSUME  DS:NOTHING,ES:NOTHING,SS:DOSDATA
-        pusha
-        call    DirSftNumber
-        xor     bx,bx
-        mov     cx,20
+	.286
+; ES:DI points to an SFT. Save its current directory position if space permits.
+; General registers preserved.
+procedure   SaveDirSft,NEAR
+	ASSUME	DS:NOTHING,ES:NOTHING,SS:DOSDATA
+	pusha
+	call	DirSftNumber
+	xor	bx,bx
+	mov	cx,LENGTH DirSftIds
 dir_sft_free:
-        cmp     WORD PTR CS:DirSftPositions[bx],0
-        jz      dir_sft_store
-        add     bx,4
-        loop    dir_sft_free
-        jmp     short dir_sft_saved
+	cmp	WORD PTR CS:DirSftPositions[bx],0
+	jz	dir_sft_store
+	add	bx,4
+	loop	dir_sft_free
+	jmp	short dir_sft_saved
 dir_sft_store:
-        mov     cx,CS:DirSftCluster
-        mov     WORD PTR CS:DirSftPositions[bx],cx
-        mov     dx,LastEnt
-        mov     WORD PTR CS:DirSftPositions[bx+2],dx
-        shr     bx,2
-        mov     CS:DirSftIds[bx],al
+	mov	cx,CS:DirSftCluster
+	mov	WORD PTR CS:DirSftPositions[bx],cx
+	mov	dx,LastEnt
+	mov	WORD PTR CS:DirSftPositions[bx+2],dx
+	shr	bx,2
+	mov	CS:DirSftIds[bx],al
 dir_sft_saved:
-        popa
-        ret
+	popa
+	ret
 EndProc SaveDirSft
 
 ; ES:DI points to an SFT. Return its number in AL, carry on failure.
-procedure DirSftNumber,near
-        push    es
-        xor     cx,cx
-        mov     dx,es
-        getdseg <es>
-        les     bx,es:sft_addr
+procedure   DirSftNumber,NEAR
+	push	es
+	xor	cx,cx
+	mov	dx,es
+	getdseg	<es>
+	les	bx,es:sft_addr
 dir_sft_block:
-        mov     ax,es
-        cmp     ax,dx
-        jne     dir_sft_next_block
-        mov     ax,di
-        sub     ax,bx
-        db      083h,0E8h,SFTable ; SUB AX,SFTable - short immediate
-        mov     bl,SIZE sf_entry
-        div     bl
-        add     ax,cx
-        jmp     short dir_sft_number_done
+	mov	ax,es
+	cmp	ax,dx
+	jne	dir_sft_next_block
+	mov	ax,di
+	sub	ax,bx
+	db	083h,0E8h,SFTable ; SUB AX,SFTable - short immediate
+	mov	bl,SIZE sf_entry
+	div	bl
+	add	ax,cx
+	jmp	short dir_sft_number_done
 dir_sft_next_block:
-        add     cx,es:[bx.SFCount]
-        les     bx,es:[bx.SFLink]
-        cmp     bx,-1
-        jne     dir_sft_block
-        stc
+	add	cx,es:[bx.SFCount]
+	les	bx,es:[bx.SFLink]
+	cmp	bx,-1
+	jne	dir_sft_block
+	stc
 dir_sft_number_done:
-        pop     es
-        ret
+	pop	es
+	ret
 EndProc DirSftNumber
 
 ; ES:DI points to an SFT. Return directory cluster:entry in CX:DX.
-procedure FindDirSft,near
-        call    DirSftNumber
-        jc      dir_sft_find_done
-        push    es
-        push    di
-        push    cs
-        pop     es
-        ASSUME  ES:DOSCODE
-        mov     cx,20
-        mov     di,OFFSET DirSftIds
+procedure   FindDirSft,NEAR
+	call	DirSftNumber
+	jc	dir_sft_find_done
+	push	es
+	push	di
+	push	cs
+	pop	es
+	ASSUME	ES:DOSCODE
+	mov	cx,LENGTH DirSftIds
+	mov	di,OFFSET DirSftIds
 dir_sft_scan:
-        repne   scasb
-        stc
-        jne     dir_sft_find_exit
-        lea     bx,[di-1]
-        sub     bx,OFFSET DirSftIds
-        shl     bx,2
-        cmp     WORD PTR es:DirSftPositions[bx],0
-        jne     dir_sft_found
-        test    cx,cx
-        jnz     dir_sft_scan
-        stc
-        jmp     short dir_sft_find_exit
+	repne	scasb
+	stc
+	jne	dir_sft_find_exit
+	lea	bx,[di-1]
+	sub	bx,OFFSET DirSftIds
+	shl	bx,2
+	cmp	WORD PTR es:DirSftPositions[bx],0
+	jne	dir_sft_found
+	test	cx,cx
+	jnz	dir_sft_scan
+	stc
+	jmp	short dir_sft_find_exit
 dir_sft_found:
-        mov     cx,WORD PTR es:DirSftPositions[bx]
-        mov     dx,WORD PTR es:DirSftPositions[bx+2]
-        clc
+	mov	cx,WORD PTR es:DirSftPositions[bx]
+	mov	dx,WORD PTR es:DirSftPositions[bx+2]
+	clc
 dir_sft_find_exit:
-        pop     di
-        pop     es
-        ASSUME  ES:NOTHING
+	pop	di
+	pop	es
+	ASSUME	ES:NOTHING
 dir_sft_find_done:
-        mov     ax,0
-        ret
+	mov	ax,0
+	ret
 EndProc FindDirSft
 
-procedure ClearDirSft,near
-        pusha
-        mov     WORD PTR es:[di],0
-        call    FindDirSft
-        jc      dir_sft_clear_done
-        mov     WORD PTR CS:DirSftPositions[bx],0
+; ES:DI points to an SFT. Clear its reference count and directory association.
+; General registers preserved.
+procedure   ClearDirSft,NEAR
+	pusha
+	mov	es:[di].sf_ref_count,0
+	call	FindDirSft
+	jc	dir_sft_clear_done
+	mov	WORD PTR CS:DirSftPositions[bx],0
 dir_sft_clear_done:
-        popa
-        ret
+	popa
+	ret
 EndProc ClearDirSft
-        .8086
+	.8086
 
 DOSCODE	ENDS
 	END
