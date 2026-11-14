@@ -1,11 +1,10 @@
-;** PNPTI.ASM - No arguments. Return firmware capability probe status.
+;** PNPTI.ASM - Query Texas Instruments firmware capabilities.
 ;
-; FAR C entry: No arguments. Return firmware capability probe status.
-; Preserve firmware signatures, service selectors, ports and return codes.
-; Local instruction flow follows the target; final layout is linked.
+; FAR C entry; no arguments. Check the BIOS signature and capability
+; flags, then query the current state. Return the probe result in AX:
+; 7FFFh if absent, 0 if unsupported, otherwise 1, 2 or 3.
 ;
 _DATA segment word public 'DATA'
-; No registry state dependencies.
 _DATA ends
 DGROUP group _DATA
 PNPTI segment word public 'CODE'
@@ -28,7 +27,7 @@ ConfigProbeTI proc far
         pop si
         pop ds
         cmp bx,05449h
-        jz short ti_loc_026
+        jz short ti_query_capabilities
         mov ax,07FFFh
         pop si
         pop di
@@ -36,20 +35,20 @@ ConfigProbeTI proc far
         pop bp
         ret
         nop
-ti_loc_026:
+ti_query_capabilities:
         mov ax,0F95Fh
         int 015h
         or ah,ah
-        jnz short ti_loc_04D
+        jnz short ti_unsupported
         cmp word ptr es:[bx],0Ch
-        jl short ti_loc_04D
+        jl short ti_unsupported
         test word ptr es:[bx+0Ah],080h
-        jnz short ti_loc_056
+        jnz short ti_query_state
         test word ptr es:[bx+018h],08h
-        jnz short ti_loc_056
+        jnz short ti_query_state
         test word ptr es:[bx+0Ah],0200h
-        jnz short ti_loc_056
-ti_loc_04D:
+        jnz short ti_query_state
+ti_unsupported:
         xor ax,ax
         pop si
         pop di
@@ -57,18 +56,18 @@ ti_loc_04D:
         pop bp
         ret
         nop
-ti_loc_056:
+ti_query_state:
         mov ax,0FB00h
         int 015h
         cmp ah,086h
-        jz short ti_loc_078
+        jz short ti_default_result
         mov cx,02h
         test al,02h
-        jnz short ti_loc_06C
+        jnz short ti_return_result
         inc cx
         test al,01h
-        jz short ti_loc_078
-ti_loc_06C:
+        jz short ti_default_result
+ti_return_result:
         mov [bp-02h],cx
         mov ax,[bp-02h]
         pop si
@@ -76,7 +75,7 @@ ti_loc_06C:
         mov sp,bp
         pop bp
         ret
-ti_loc_078:
+ti_default_result:
         mov ax,01h
         pop si
         pop di

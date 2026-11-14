@@ -715,7 +715,7 @@ VerifyTrack PROC NEAR
 	mov	CS:rFlag,romverify
 	mov	CS:[CurTrk],CX
 	mov	CS:[CurHd],AL		; **** ASSUME heads < 256
-	mov	CX,CS:[SectorsPerTrack]
+	mov	CX,CS:[SectorsPerTrack]	;cl = sectors/track
 
 		; Check specialfunctions to see if DO_FAST_FORMAT has been
 		; specified if not we should go to the normal track verification
@@ -743,10 +743,10 @@ VerifyTrack PROC NEAR
 	test	ES:[DI].BDS_Flags,fNon_Removable ; Hard disk?
 	jz	NormVerifyTrack
 
-	test	Bios_Flags,0200h
+	test	Bios_Flags,0200h ; Multitrack operation = on?
 	jz	NormVerifyTrack
 
-	or	Bios_Flags,0800h
+	or	Bios_Flags,0800h	; Then set the flag
 
 NormVerifyTrack:
 	xor	AX,AX			; 1st sector
@@ -755,7 +755,7 @@ NormVerifyTrack:
 	mov	CS:Xfer_Seg,BX		; Set transfer segment to zero, too
 	call	TrackIo
 	pushf
-	and	Bios_Flags,NOT 0800h
+	and	Bios_Flags,NOT 0800h	; Reset the flag.
 	popf
 	ret
 

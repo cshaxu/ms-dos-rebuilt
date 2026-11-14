@@ -506,8 +506,8 @@ cdev_entry proc	near
 ; M064 - BEGIN
 ;
 	push	ax
-	mov	ax,DosDataSg
-	cmp	word ptr [ptrsav+2],ax
+	mov	ax, DosDataSg
+	cmp	word ptr [ptrsav+2], ax
 	pop	ax
 	je	short ce_enter_codeseg
 	call	EnsureA20On
@@ -1193,15 +1193,25 @@ bc_retf	proc	far
 
 bc_retf	endp
 
-	public	bc_cmderr,bc_err_cnt
+	public	bc_cmderr
 bc_cmderr:
-	mov	al,3
+	mov	al,3			;unknown command error
+
+;	now zero the count field by subtracting its current value,
+;	  which is still in cx, from itself.
+
+
+;	subtract the number of i/o's NOT YET COMPLETED from total
+;	  in order to return the number actually complete
+
+
+	public	bc_err_cnt
 bc_err_cnt:
 	assume	ds:Bios_Data
 	les	bx,[ptrsav]
-	sub	es:word ptr [bx].count,cx
-	mov	ah,81h
-	stc
+	sub	es:word ptr [bx].count,cx;# of successful i/o's
+	mov	ah,81h			;mark error return
+	stc				; indicate abnormal end
 	ret
 
 ;
@@ -1225,18 +1235,13 @@ command_error:
 	public	Bios_Data_Word
 Bios_Data_Word	dw	Bios_Data
 
-;----------------------------------------------------------
-;
-;	exit - all routines return through this path
-;
-
-; Saved hardware vectors used by the reboot handler.
+;	we assume the following remain contiguous and their order doesn't change
 
 i19_lst:
 	irp	aa,<02,08,09,0a,0b,0c,0d,0e,70,72,73,74,76,77>
 	public	int19old&aa
-		db	aa&h
-int19old&aa	dd	-1
+		db	aa&h	; store the number as a byte
+int19old&aa	dd	-1	;orignal hardware int. vectors for int 19h.
 	endm
 num_i19 =	((offset $) - (offset i19_lst))/5
 	.386
@@ -1816,8 +1821,25 @@ auxbuf		db	4 dup (0)
 base_century	db	19
 base_year	db	80
 month_tab	db	31,28,31,30,31,30,31,31,30,31,30,31
-bin_date_time	db	4 dup (0)
-month_table	dw	0,31,59,90,120,151,181,212,243,273,304,334
+bin_date_time:
+	db	0		; century (19 or 20) or hours (0-23)
+	db	0		; year in century (0...99) or minutes (0-59)
+	db	0		; month in year (1...12) or seconds (0-59)
+	db	0		; day in month (1...31)
+
+month_table:
+	dw	0		; january
+	dw	31		; february
+	dw	59
+	dw	90
+	dw	120
+	dw	151
+	dw	181
+	dw	212
+	dw	243
+	dw	273
+	dw	304
+	dw	334		; december
 	.8086
 	extrn	int6c_code:far,int6c_update:near
 

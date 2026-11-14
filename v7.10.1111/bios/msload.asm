@@ -67,8 +67,8 @@ cSeg	SEGMENT PUBLIC para 'code'
 	ORG	200h
 Start:
 	db	'BJ'
-	mov	ax,[bp-4h]
-	mov	dx,[bp-2h]
+	mov	ax,[bp-4]
+	mov	dx,[bp-2]
 	push	cs
 	pop	ds
 	mov	ds:BootFirstLow,ax
@@ -82,13 +82,13 @@ Start:
 	mov	ds:BootParmOffset,si
 	mov	ds:BootParmSegment,ax
 	int	12h
-	shl	ax,6h
+	shl	ax,6
 	xor	bx,bx
 	mov	ds,bx
-	lds	bx,dword ptr ds:[0bch]
-	cmp	word ptr [bx+3h],5052h
+	lds	bx,dword ptr ds:[2fh*4]
+	cmp	word ptr [bx+3],'PR'
 	jnz	short loader_no_rpl
-	cmp	byte ptr [bx+5h],4ch
+	cmp	byte ptr [bx+5],'L'
 	jnz	short loader_no_rpl
 	mov	dx,ax
 	mov	ax,4a06h
@@ -133,7 +133,7 @@ loader_error_next:
 	cmp	al,0ffh
 	jz	short loader_error_name
 	mov	ah,0eh
-	mov	bx,7h
+	mov	bx,7
 	int	10h
 	jmp	short loader_error_next
 loader_error_name:

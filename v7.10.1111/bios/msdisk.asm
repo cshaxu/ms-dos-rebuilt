@@ -46,7 +46,6 @@
 ;	  operating environment and in some cases may not be mentioned in
 ;	  the subroutine headers where it will be assumed.
 
-numerr	=	9			; number of ROM error codes
 
 ;data
 
@@ -148,7 +147,7 @@ accesscount	db	0
 tim_drv		db	-1
 medbyt		db	?
 wrtverify	label	word
-rflag		db	2
+rflag		db	romread 	;2 for read, 3 for write
 verify		db	0
 seccnt		dw	0
 motorstartup	db	?
@@ -175,9 +174,27 @@ vol_no_name	db	"NO NAME    ",0
 sm92		db	3,9,70h
 		dw	2*9*80
 		db	2,2
-errin		db	0cch,80h,40h,10h,8,6,4,3
-lsterr		db	0
-errout		db	10,2,6,4,4,15,8,0,12
+errin	db	0cch			; write fault error
+	db	80h			;no response
+	db	40h			;seek failure
+	db	10h			;bad crc
+	db	8			;dma overrun
+	db	6			; media change
+	db	4			;sector not found
+	db	3			;write attempt to write-protect disk
+lsterr	db	0			;all other errors
+
+;	returned error codes corresponding to above
+
+errout	db	10			; write fault error
+	db	2			;no response
+	db	6			;seek failure
+	db	4			;bad crc
+	db	4			;dma overrun
+	db	15			; invalid media change
+	db	8			;sector not found
+	db	0			;write attempt on write-protect disk
+	db	12			;general error
 numerr		=	errout-errin
 
 ;--------------------------------------------------------------
@@ -1232,7 +1249,7 @@ not_fsetowner:
 	mov	es,bx
 	xchg	al,es:byte ptr lstdrv	    ;	     then swap(curr_drv,req_drv)
 	pop	es
-	db 38h,0c4h			    ;	     else
+	db 38h,0c4h	; cmp ah,al (r/m8,r8); else
 	pop	ax			    ;		  swap(curr_drv,req_drv)
 	je	singleret		    ;		  issue swap_dsk_msg
 

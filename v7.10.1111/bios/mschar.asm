@@ -617,7 +617,7 @@ prn_tilbloop:
 	push	bx
 	mov	bx,cs:[printdev]
 	shl	bx,1
-	mov	cx,cs:wait_count[bx]
+	mov	cx,cs:wait_count[bx]	; wait count times to come ready
 	pop	bx
 
 prn_getstat:
@@ -667,7 +667,7 @@ prnfunc_ok:
 	les	di,es:[di].genericioctl_packet
 	mov	bx,cs:[printdev]
 	shl	bx,1
-	mov	cx,cs:wait_count[bx]
+	mov	cx,cs:wait_count[bx]	; pull out retry count for device
 
 	cmp	al,get_retry_count
 	jz	prngetcount
@@ -677,7 +677,7 @@ prnfunc_ok:
 
 	mov	cx,es:[di].rc_count
 prngetcount:
-	mov	cs:wait_count[bx],cx
+	mov	cs:wait_count[bx],cx	; place "new" retry count
 	mov	es:[di].rc_count,cx	; return current retry count
 	clc
 	ret

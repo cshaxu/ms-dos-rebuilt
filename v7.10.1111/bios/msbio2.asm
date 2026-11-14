@@ -205,13 +205,18 @@ swpdsk_focus_return:
 	pop	es
 	pop	di
 swpdsk_focus_done:
-	mov	dl,es:[di].bds_drivelet
-	mov	dh,dl
-	xor	dh,1
-	sub	cx,cx
-	mov	ax,(multMULT shl 8) or multMULTSWPDSK
-	int	2fh
-	inc	cx
+	mov	dl, es:[di].bds_drivelet; get the drive letter
+;
+; WARNING : next two instructions assume that if the new disk is for drive B
+;           then existing dsk is drive A & vice versa
+;
+	mov	dh, dl
+	xor	dh, 1
+	sub	cx, cx			; nobody has handled swap disk
+	mov	ax, (multMULT shl 8) or multMULTSWPDSK
+					; broad cast code for swap disk
+	int	2fh			; Braodcast it
+	inc	cx			; cx == -1 ?
 	jz	swpdsk_done
 	add	dl,'A'
 	mov	si,offset Bios_Code:bios_msg_base
@@ -870,7 +875,7 @@ readvid_fat_size:
 	movzx	ecx,es:[di].BDS_BPB.BPB_RESERVEDSECTORS
 	add	eax,ecx			; add on reserved sectors
 
-					; ax is now sector # (0 based)
+					; eax is now sector # (0 based)
 	mov	cs:[root_sec],eax	; set initial value
 	mov	ax,es:[di].BDS_BPB.BPB_ROOTENTRIES ; # root dir entries
 	shr	ax,4			; 16 entries/sector

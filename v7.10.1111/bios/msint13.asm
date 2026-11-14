@@ -292,11 +292,11 @@ win_check0f:
 win_check12:
 	cmp	al,12h
 	jz	win_info12
-	cmp	al,5
+	cmp	al, Win386_Init		; is it win386 initializing?
 	jz	Win386Init
-	cmp	al,6
+	cmp	al, Win386_Exit		; is it win386 exiting?
 	jz	Win386Exit
-	cmp	al,7
+	cmp	al, Win386_Devcall	; win386 device call out
 	jz	win_info7
 	cmp	al,90h
 	jz	win_callback
@@ -321,8 +321,8 @@ win_info7:
 	mov	di,43dh
 	jmp	short win_iret
 Win386Init:
-	test	dx,1
-	jnz	win_iret
+	test	dx, 1			; is it win386 or win286 dos extender?
+	jnz	win_iret		; if not win386, then continue
 	or	byte ptr bios_flags,40h
 	mov	cs:win386_instance_next,bx
 	mov	cs:win386_instance_next_seg,es
@@ -510,7 +510,7 @@ mult_check33:
 	jnz	mult_check1
 	jmp	win386_info
 mult_check1:
-	cmp	al,1
+	cmp	al, multMULTGETHMAPTR
 	jnz	mult_check4
 	call	hma_largest
 	iret
@@ -525,7 +525,7 @@ mult_check4:
 mult_check2:
 	push	cx
 	push	dx
-	cmp	al,2
+	cmp	al, multMULTALLOCHMA
 	jnz	mult_check3
 	push	bp
 	mov	bp,sp
@@ -1029,7 +1029,7 @@ ps2_30_problem: 			; ps2_30 = ps2 model 30.
 
 ;	here is the actual int13 handler
 
-	public	i13z
+	public i13z
 i13z proc	far
 	assume	ds:nothing,es:nothing
 
@@ -1352,7 +1352,7 @@ no_skip_first:
 ;	  for the whole block to fit, unless the dma error was returned
 ;	  in error.
 
-	db 38h,0c4h			; can we fit it in?
+	db 38h,0c4h	; cmp ah,al (r/m8,r8); can we fit it in?
 	jb	doblock 		; no, perform blocking.
 
 ;	yes, the request fits.  let it happen.
@@ -1454,7 +1454,8 @@ doblockflop:
 	pop	cx
 
 doblockcontinue:
-	db 38h,0c4h			;if safe_# >= #_of_sectors_to_go_before dma,
+	db 38h,0c4h	; cmp ah,al (r/m8,r8)
+					;if safe_# >= #_of_sectors_to_go_before dma,
 	jae	doblocklast		;then #_of_sectors_to_go as it is for doint.
 
 	push	ax			;save ah, al
@@ -1474,7 +1475,7 @@ doblockdoint:				;let ah = al = # of sectors for this shot
 	add	cl,ah			;advance sector #. safety gauranteed.
 	add	bh,ah			;advance dma address
 	add	bh,ah			;twice for 512 byte sectors.
-	db 38h,0c4h			;check the previous value
+	db 38h,0c4h	; cmp ah,al (r/m8,r8); check the previous value
 	je	buffer			;if #_of_sectors_to_go < safe_#,
 					; then we are done already.
 

@@ -1,8 +1,8 @@
-;** PNPCHECK.ASM - FAR PnP BIOS header. Check known incompatible entry signatures.
+;** PNPCHECK.ASM - Reject incompatible PnP BIOS entry points.
 ;
-; FAR C entry: FAR PnP BIOS header. Check known incompatible entry signatures.
-; Original ROM scan, signature checks and DS restoration are preserved.
-; Local instruction flow follows the target; final layout is linked.
+; FAR C entry: FAR pointer to the PnP BIOS installation header.
+; Compare the entry code with the two known incompatible signatures.
+; Return AX = 1 to reject the entry, AX = 0 otherwise; restore DS from SS.
 ;
 _DATA segment word public 'DATA'
         extrn PnPBadEntry1:byte
@@ -37,15 +37,15 @@ ConfigRejectPnPEntry proc far
         adc dx,00h
         mov [bp-04h],ax
         cmp byte ptr [si+05h],021h
-        jc short check_loc_08A
+        jc short check_reject
         mov ds,dx
         mov bx,ax
         cmp byte ptr [bx],0E9h
-        jnz short check_loc_048
+        jnz short check_first_signature
         mov ax,[bx+01h]
         add ax,03h
         add [bp-04h],ax
-check_loc_048:
+check_first_signature:
         mov ax,[bp-04h]
         mov dx,ss
         mov cx,0Ch
@@ -56,11 +56,11 @@ check_loc_048:
         sbb ax,ax
         cmp cx,cx
         repe cmpsw
-        jnz short check_loc_065
+        jnz short check_second_signature
         sub cx,ax
         repe cmpsb
-check_loc_065:
-        jz short check_loc_08A
+check_second_signature:
+        jz short check_reject
         mov ax,[bp-04h]
         mov dx,ss
         mov cx,08h
@@ -69,18 +69,18 @@ check_loc_065:
         mov es,dx
         xor ax,ax
         repe cmpsb
-        jz short check_loc_081
+        jz short check_compare_result
         sbb ax,ax
         sbb ax,0FFFFh
-check_loc_081:
+check_compare_result:
         or ax,ax
-        jz short check_loc_08A
+        jz short check_reject
         xor ax,ax
-        jmp short check_loc_08D
+        jmp short check_return
         nop
-check_loc_08A:
+check_reject:
         mov ax,01h
-check_loc_08D:
+check_return:
         push ss
         pop ds
         pop si

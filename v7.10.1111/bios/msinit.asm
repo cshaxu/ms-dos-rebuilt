@@ -1332,10 +1332,11 @@ loop_drive:
 	jb	got_more
 	jmp	done_drives
 got_more:
-	xor	cx,cx
-	les	di,es:[di].bds_link
-	mov	dh,ff48tpi
-	mov	num_cyln,40
+	xor	cx,cx			; zero all flags
+	les	di,es:[di].bds_link	; get next bds
+	mov	dh,ff48tpi		; set form factor to 48 tpi
+	mov	num_cyln,40		; 40 tracks per side
+
 	push	ds
 	push	es
 	.286

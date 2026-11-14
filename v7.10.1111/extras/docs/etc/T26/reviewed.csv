@@ -41,3 +41,28 @@ ordinal,path,disposition,verification
 40,bios/mrcf.inc,exact,Byte comparison with frozen 950
 41,bios/msbio.lnk,exact,Byte comparison with frozen 950
 42,bios/msbio.skl,exact,Byte comparison with frozen 950
+43,bios/msbio1.asm,reduced,Restored error and vector comments plus 950 date table declarations; retained FAT32 BDS fields and target messages
+44,bios/msbio2.asm,reduced,Restored drive swap comments; retained expanded BPB selection and volume ID sector arithmetic
+45,bios/mschar.asm,reduced-to-exact,Restored unchanged printer retry count comments
+46,bios/msdioctl.asm,reduced,Restored VerifyTrack comments; retained extended IOCTL and BootIo behavior
+47,bios/msdisk.asm,reduced,Restored ROM error tables and romread constant; removed redundant numerr assignment while retaining FAT32 BPB processing
+48,bios/msdskpr.inc,exact,Byte comparison with frozen 950
+49,bios/msend.asm,exact,Byte comparison with frozen 950
+50,bios/msequ.inc,exact,Byte comparison with frozen 950
+51,bios/msgroup.inc,exact,Byte comparison with frozen 950
+52,bios/msinit.asm,reduced,Restored inherited floppy setup comments; retained target BIOS initialization and FAT32 partition handling
+53,bios/msint13.asm,reduced,Restored Win386 and HMA constants and comments; retained immediate DMA address shift
+54,bios/msload.asm,reduced,Restored 950 expressions in the inherited startup loop; retained the 1111 four-sector layout and FAT32 and LBA loader
+55,bios/pathsrc.asm,exact,Byte comparison with frozen 950
+56,bios/pnpcaps.asm,reduced-to-exact,Verified assembler statements and branch destinations are equivalent; restored the complete 950 file
+57,bios/pnpcheck.asm,reduced-to-exact,Verified assembler statements and branch destinations are equivalent; restored the complete 950 file
+58,bios/pnpcpq.asm,reduced-to-exact,Verified assembler statements and branch destinations are equivalent; restored the complete 950 file
+59,bios/pnpfind.asm,reduced-to-exact,Verified assembler statements and branch destinations are equivalent; restored the complete 950 file
+60,bios/pnpibm.asm,reduced-to-exact,Verified assembler statements and branch destinations are equivalent; restored the complete 950 file
+61,bios/pnplf.asm,reduced-to-exact,Verified assembler statements and branch destinations are equivalent; restored the complete 950 file
+62,bios/pnpti.asm,reduced-to-exact,Verified assembler statements and branch destinations are equivalent; restored the complete 950 file
+63,bios/pnptosh.asm,reduced-to-exact,Verified assembler statements and branch destinations are equivalent; restored the complete 950 file
+64,bios/power.asm,exact,Byte comparison with frozen 950
+65,bios/power.inc,exact,Byte comparison with frozen 950
+66,bios/ptime.asm,exact,Byte comparison with frozen 950
+67,bios/rapiopen.asm,absent,1111 links the registry open entry from regopen.obj and omits rapiopen.obj; the 950 module would duplicate the open path

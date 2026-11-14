@@ -1,6 +1,9 @@
-;** PNPTOSH.ASM - Toshiba firmware capability probe
+;** PNPTOSH.ASM - Query Toshiba firmware capabilities.
 ;
-; FAR entry with no arguments. Preserve model switch and I/O delays.
+; FAR C entry; no arguments. Select the configuration ports by model.
+; Return the probe result in AX: 7FFFh if not Toshiba, 0 if the model
+; is unsupported, otherwise 1 or 2.
+;
         extrn _strncmp:far
 _DATA segment word public 'DATA'
         extrn PnPToshibaName:byte

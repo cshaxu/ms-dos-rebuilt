@@ -1,8 +1,8 @@
-;** PNPCPQ.ASM - No arguments. Return firmware capability probe status.
+;** PNPCPQ.ASM - Query Compaq firmware capabilities.
 ;
-; FAR C entry: No arguments. Return firmware capability probe status.
-; Preserve firmware signatures, service selectors, ports and return codes.
-; Local instruction flow follows the target; final layout is linked.
+; FAR C entry; no arguments. Check the ROM name and supported models,
+; then read the configuration port. Return the probe result in AX:
+; 7FFFh if not Compaq, 0 if unsupported, otherwise 1 or 2.
 ;
         extrn _strncmp:far
 _DATA segment word public 'DATA'
@@ -29,59 +29,59 @@ ConfigProbeCompaq proc far
         call _strncmp
         add sp,0Ah
         or ax,ax
-        jz short cpq_loc_02A
+        jz short cpq_query_model
         mov ax,07FFFh
         mov sp,bp
         pop bp
         ret
-cpq_loc_02A:
+cpq_query_model:
         mov ax,0E800h
         int 015h
         mov [bp-02h],bx
-        jnc short cpq_loc_03A
-cpq_loc_034:
+        jnc short cpq_check_model
+cpq_unsupported:
         xor ax,ax
         mov sp,bp
         pop bp
         ret
-cpq_loc_03A:
+cpq_check_model:
         mov ax,[bp-02h]
         cmp ax,0DCh
-        jz short cpq_loc_071
-        ja short cpq_loc_05E
+        jz short cpq_read_configuration
+        ja short cpq_newer_models
         cmp ax,0D8h
-        jz short cpq_loc_071
-        ja short cpq_loc_034
+        jz short cpq_read_configuration
+        ja short cpq_unsupported
         sub al,054h
-        jc short cpq_loc_034
+        jc short cpq_unsupported
         sub al,01h
-        jna short cpq_loc_071
+        jna short cpq_read_configuration
         sub al,07Bh
-        jc short cpq_loc_034
+        jc short cpq_unsupported
         sub al,01h
-        jna short cpq_loc_071
-        jmp short cpq_loc_034
+        jna short cpq_read_configuration
+        jmp short cpq_unsupported
         nop
-cpq_loc_05E:
+cpq_newer_models:
         cmp ax,0FCh
-        jz short cpq_loc_071
-        ja short cpq_loc_034
+        jz short cpq_read_configuration
+        ja short cpq_unsupported
         sub al,0E8h
-        jc short cpq_loc_034
+        jc short cpq_unsupported
         sub al,02h
-        jna short cpq_loc_071
+        jna short cpq_read_configuration
         sub al,02h
-        jnz short cpq_loc_034
-cpq_loc_071:
+        jnz short cpq_unsupported
+cpq_read_configuration:
         mov dx,01C65h
         in al,dx
         test al,020h
-        jz short cpq_loc_080
+        jz short cpq_result_two
         mov ax,01h
         mov sp,bp
         pop bp
         ret
-cpq_loc_080:
+cpq_result_two:
         mov ax,02h
         mov sp,bp
         pop bp

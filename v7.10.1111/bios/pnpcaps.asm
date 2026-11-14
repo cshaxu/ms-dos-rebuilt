@@ -1,8 +1,8 @@
-;** PNPCAPS.ASM - FAR output pointers. Query PnP BIOS or fallback firmware probes.
+;** PNPCAPS.ASM - Query firmware configuration capabilities.
 ;
-; FAR C entry: FAR output pointers. Query PnP BIOS or fallback firmware probes.
-; PnP service five, then ordered firmware probes with zero terminator.
-; Local instruction flow follows the target; final layout is linked.
+; FAR C entry: two FAR output pointers, initially cleared to zero.
+; Query PnP BIOS service 5; if no PnP BIOS is found, try each entry
+; in PnPProbeTable until a probe supplies a result or the table ends.
 ;
         extrn ConfigProbeCompaq:far,ConfigProbeToshiba:far,ConfigProbeLF:far,ConfigProbeTI:far,ConfigProbeIBM:far
 _DATA segment word public 'DATA'
@@ -33,7 +33,7 @@ ConfigGetCapabilities proc far
         mov di,ax
         mov [bp-02h],dx
         or dx,ax
-        jz short caps_loc_0AA
+        jz short caps_probe_firmware
         mov es,word ptr [bp-02h]
         push word ptr es:[di+01Bh]
         lea ax,[bp-0Eh]
@@ -44,27 +44,27 @@ ConfigGetCapabilities proc far
         call dword ptr es:[di+0Dh]
         add sp,08h
         cmp ax,089h
-        jz short caps_loc_05E
-        jna short caps_loc_04F
-        jmp caps_loc_106
-caps_loc_04F:
+        jz short caps_copy_info
+        jna short caps_check_status
+        jmp caps_exit
+caps_check_status:
         or al,al
-        jz short caps_loc_05E
+        jz short caps_copy_info
         sub al,087h
-        jz short caps_loc_096
+        jz short caps_no_info
         pop si
         pop di
         mov sp,bp
         pop bp
         ret
         nop
-caps_loc_05E:
+caps_copy_info:
         mov ax,[bp-0Ch]
         or ax,[bp-0Eh]
-        jnz short caps_loc_070
+        jnz short caps_store_info
         mov word ptr [bp-0Eh],0FFF0h
         mov word ptr [bp-0Ch],0FFFFh
-caps_loc_070:
+caps_store_info:
         mov ax,[bp-0Eh]
         mov dx,[bp-0Ch]
         les bx,[bp+06h]
@@ -80,7 +80,7 @@ caps_loc_070:
         mov sp,bp
         pop bp
         ret
-caps_loc_096:
+caps_no_info:
         mov es,word ptr [bp+0Ch]
         mov word ptr es:[si],01h
         mov word ptr es:[si+02h],00h
@@ -89,48 +89,48 @@ caps_loc_096:
         mov sp,bp
         pop bp
         ret
-caps_loc_0AA:
+caps_probe_firmware:
         mov bx,offset DGROUP:PnPProbeTable
         mov di,bx
         mov word ptr [bp-02h],ds
         mov ax,[bx+02h]
         or ax,[bx]
-        jz short caps_loc_106
-caps_loc_0B9:
+        jz short caps_exit
+caps_probe_next:
         mov es,word ptr [bp-02h]
         call dword ptr es:[di]
         mov si,ax
         cmp si,07FFFh
-        jz short caps_loc_0DB
+        jz short caps_advance_probe
         or si,ax
-        jz short caps_loc_106
+        jz short caps_exit
         cmp si,01h
-        jz short caps_loc_0F0
+        jz short caps_set_default
         cmp si,02h
-        jc short caps_loc_0DB
+        jc short caps_advance_probe
         cmp si,07FFEh
-        jna short caps_loc_0FA
-caps_loc_0DB:
+        jna short caps_set_result
+caps_advance_probe:
         add di,04h
         mov es,word ptr [bp-02h]
         mov ax,es:[di+02h]
         or ax,es:[di]
-        jnz short caps_loc_0B9
+        jnz short caps_probe_next
         pop si
         pop di
         mov sp,bp
         pop bp
         ret
-caps_loc_0F0:
+caps_set_default:
         les bx,[bp+0Ah]
         mov word ptr es:[bx],01h
-        jmp short caps_loc_100
-caps_loc_0FA:
+        jmp short caps_clear_high
+caps_set_result:
         les bx,[bp+0Ah]
         mov es:[bx],si
-caps_loc_100:
+caps_clear_high:
         mov word ptr es:[bx+02h],00h
-caps_loc_106:
+caps_exit:
         pop si
         pop di
         mov sp,bp
