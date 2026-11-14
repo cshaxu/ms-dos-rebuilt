@@ -1,0 +1,26 @@
+{
+  "change": "Owner-requested end pause on success and failure; saved exit code preserved.",
+  "before_sha256": "606ca04cb4baff2d85474515a190ed5b26bd8cd0cd5365c2dad40402a0a5a6c5",
+  "after_sha256": "462a4d3593ecd62e2903dc1fcbdb3ca6876da14643e9b98dc4ee6270268456f9",
+  "dos_rebuild": false,
+  "status": "verified",
+  "tests": [
+    {
+      "case": "helper exit 0",
+      "exit_code": 0,
+      "pause_observed": true
+    },
+    {
+      "case": "helper exit 7",
+      "exit_code": 7,
+      "pause_observed": true
+    },
+    {
+      "case": "existing lock",
+      "exit_code": 1,
+      "pause_observed": true,
+      "existing_lock_preserved": true
+    }
+  ],
+  "fixture": "O:\\repos.hobby\\ms-dos-rebuilt\\v6.2\\extras\\build\\pause-test-0kmqod7i"
+}

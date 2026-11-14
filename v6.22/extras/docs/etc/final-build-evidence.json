@@ -1,0 +1,73 @@
+{
+  "description": "Complete byte comparison of clean layered source build against the image-derived targets. Binary equivalence does not establish provenance of every recovered source line.",
+  "inputs_unchanged": true,
+  "source_files": 220,
+  "modified_files": [
+    {
+      "index": 34,
+      "path": "bios/syspre.asm",
+      "sha256": "65e7a17f4525b13a87e4d3a50e770d491fbc44b4f22043f5ef3b3a96dc93ce17",
+      "reason": "Target IO.SYS verified equal outside startup menu message"
+    },
+    {
+      "index": 118,
+      "path": "cmd/command/cratio.asm",
+      "sha256": "ab9ce983afee6bf5017876483458b0b09fc944f8a2f3ab916c2faa9a6990f28a",
+      "reason": "Target OpenCVF tries DRVSPACE before DBLSPACE and uses a nearby error branch; reconstructed from target instructions."
+    },
+    {
+      "index": 136,
+      "path": "cmd/command/tcmd2a.asm",
+      "sha256": "1e1b18ba34ff9fefe6e6c0535f574ff037dd7095189639464c641a45d886af9d",
+      "reason": "Target version-display instructions match the 6.20 source; restore xchg AH,AL to display the kernel minor version."
+    },
+    {
+      "index": 159,
+      "path": "inc/copyrigh.inc",
+      "sha256": "3de09de4d754760b4b1e015404f95cdc7a2e6ca55f0b22a5b3ade1e734a3c227",
+      "reason": "USA copyright year follows target MSDOS.SYS 0x223 and IO.SYS copyright"
+    },
+    {
+      "index": 212,
+      "path": "inc/versiona.inc",
+      "sha256": "a1ba1f9824e7f8c1c3abf956fa2161179e4697e4fc3a25bdcf1bd98117f1fdb5",
+      "reason": "DOS 6.22 target minor byte 0x16"
+    },
+    {
+      "index": 217,
+      "path": "lang/usa/messages/comimsg.inc",
+      "sha256": "b34409f4fc0c721c6212e8f0ceab1e0ca6af7e43315ab8c70f92b4d9230ff387",
+      "reason": "Target COMMAND.COM startup banner changes 6.21 to 6.22 and copyright year 1993 to 1994."
+    },
+    {
+      "index": 220,
+      "path": "lang/usa/messages/usa-ms-dos.msg",
+      "sha256": "ad9c3e687ef4ab2c07874aecaef1332b1c3ef4cc5c2db5a1af174f9b66b74d99",
+      "reason": "Target 6.22 startup menu heading and underline"
+    }
+  ],
+  "inherited_files": 213,
+  "results": [
+    {
+      "file": "IO.SYS",
+      "length": 40774,
+      "sha256": "e443d6fb7303cd341d59a260262ae2aa20029a54d8e8daac83c1d4efa9042d75",
+      "target_sha256": "e443d6fb7303cd341d59a260262ae2aa20029a54d8e8daac83c1d4efa9042d75",
+      "byte_equal": true
+    },
+    {
+      "file": "MSDOS.SYS",
+      "length": 38138,
+      "sha256": "6db133420bf04ddbafe310a720fab934db3e7dc9f5a53fc6692d5a01cbbc0d4e",
+      "target_sha256": "6db133420bf04ddbafe310a720fab934db3e7dc9f5a53fc6692d5a01cbbc0d4e",
+      "byte_equal": true
+    },
+    {
+      "file": "COMMAND.COM",
+      "length": 54645,
+      "sha256": "65fa71b0a34e91feffc31297fb5e24d40767c72fb513e46aaac721bda7836110",
+      "target_sha256": "65fa71b0a34e91feffc31297fb5e24d40767c72fb513e46aaac721bda7836110",
+      "byte_equal": true
+    }
+  ]
+}

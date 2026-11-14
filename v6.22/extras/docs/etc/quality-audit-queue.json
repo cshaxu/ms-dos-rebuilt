@@ -1,0 +1,241 @@
+{
+  "task": "M4 T9 S1",
+  "initial_files": 18,
+  "files": [
+    {
+      "path": "bios/syspre.asm",
+      "sha256": "65e7a17f4525b13a87e4d3a50e770d491fbc44b4f22043f5ef3b3a96dc93ce17",
+      "kind": "source",
+      "status": "reviewed_retained",
+      "number": 1,
+      "evidence": "quality-source-audit.json"
+    },
+    {
+      "path": "inc/copyrigh.inc",
+      "sha256": "3de09de4d754760b4b1e015404f95cdc7a2e6ca55f0b22a5b3ade1e734a3c227",
+      "kind": "source",
+      "status": "reviewed_retained",
+      "number": 2,
+      "evidence": "quality-source-audit.json"
+    },
+    {
+      "path": "inc/versiona.inc",
+      "sha256": "a1ba1f9824e7f8c1c3abf956fa2161179e4697e4fc3a25bdcf1bd98117f1fdb5",
+      "kind": "source",
+      "status": "reviewed_retained",
+      "number": 3,
+      "evidence": "quality-source-audit.json"
+    },
+    {
+      "path": "cmd/command/cratio.asm",
+      "sha256": "ab9ce983afee6bf5017876483458b0b09fc944f8a2f3ab916c2faa9a6990f28a",
+      "kind": "source",
+      "status": "reviewed_retained",
+      "number": 4,
+      "evidence": "quality-source-audit.json"
+    },
+    {
+      "path": "cmd/command/tcmd2a.asm",
+      "sha256": "1e1b18ba34ff9fefe6e6c0535f574ff037dd7095189639464c641a45d886af9d",
+      "kind": "source",
+      "status": "retired_reference_identical_overlay",
+      "number": 5,
+      "reference": "v6.2/cmd/command/tcmd2a.asm",
+      "reason": "Exact baseline file; inherit directly instead of storing a redundant overlay."
+    },
+    {
+      "path": "lang/usa/messages/comimsg.inc",
+      "sha256": "b34409f4fc0c721c6212e8f0ceab1e0ca6af7e43315ab8c70f92b4d9230ff387",
+      "kind": "source",
+      "status": "reviewed_retained",
+      "number": 6,
+      "evidence": "quality-source-audit.json"
+    },
+    {
+      "path": "lang/usa/messages/usa-ms-dos.msg",
+      "sha256": "ad9c3e687ef4ab2c07874aecaef1332b1c3ef4cc5c2db5a1af174f9b66b74d99",
+      "kind": "source",
+      "status": "reviewed_retained",
+      "number": 7,
+      "evidence": "quality-source-audit.json"
+    },
+    {
+      "path": "extras/tools/__pycache__/build_command_reference.cpython-313.pyc",
+      "sha256": "7a5b72ad53bf31120a0683a00127ffa4f9418c90a2d065e689d7eefea4e8936d",
+      "kind": "tool",
+      "status": "retired_non_cmd_script",
+      "number": 8,
+      "evidence": "quality-script-retirement.json"
+    },
+    {
+      "path": "extras/tools/__pycache__/build_kernel_reference.cpython-313.pyc",
+      "sha256": "9df5ed7703fbe12efeb1607626d29ae17fdc8a26588402ea382c9dd5a0ea9288",
+      "kind": "tool",
+      "status": "retired_non_cmd_script",
+      "number": 9,
+      "evidence": "quality-script-retirement.json"
+    },
+    {
+      "path": "extras/tools/__pycache__/build_three.cpython-313.pyc",
+      "sha256": "74ecec0e63100db31750d09f212f7dd8a71b28bd8bbec540e4d5bc2df0a3c925",
+      "kind": "tool",
+      "status": "retired_non_cmd_script",
+      "number": 10,
+      "evidence": "quality-script-retirement.json"
+    },
+    {
+      "path": "extras/tools/__pycache__/target_fat12.cpython-313.pyc",
+      "sha256": "d903d4af699cf86cba5ad59147115fbb234c1e2d9f2500fd77884477a5368681",
+      "kind": "tool",
+      "status": "retired_non_cmd_script",
+      "number": 11,
+      "evidence": "quality-script-retirement.json"
+    },
+    {
+      "path": "extras/tools/build_bios_reference.py",
+      "sha256": "8a746db8539d35e35c59fcfe299f7cca67d664e4647df88bf43f44ae69f0ab78",
+      "kind": "tool",
+      "status": "retired_non_cmd_script",
+      "number": 12,
+      "evidence": "quality-script-retirement.json"
+    },
+    {
+      "path": "extras/tools/build_command_reference.py",
+      "sha256": "1289655d8d9247527f281ff04b1225affa7f163ff7794b5f991bbd969f96b065",
+      "kind": "tool",
+      "status": "retired_non_cmd_script",
+      "number": 13,
+      "evidence": "quality-script-retirement.json"
+    },
+    {
+      "path": "extras/tools/build_isolated_runner.py",
+      "sha256": "bc957ac86710f8dacdcd3ed2413e4ea17747c4c46a888124dfb1305217751619",
+      "kind": "tool",
+      "status": "retired_non_cmd_script",
+      "number": 14,
+      "evidence": "quality-script-retirement.json"
+    },
+    {
+      "path": "extras/tools/build_kernel_reference.py",
+      "sha256": "758d02b80a6c06d75f32d61ce19e8356c6cfd0f731193faea3a9b2703737bc02",
+      "kind": "tool",
+      "status": "retired_non_cmd_script",
+      "number": 15,
+      "evidence": "quality-script-retirement.json"
+    },
+    {
+      "path": "extras/tools/build_three.py",
+      "sha256": "0b15bddbb799c0f5a8c01c51934846bf824ada0658f418db828a52cef05334bf",
+      "kind": "tool",
+      "status": "retired_non_cmd_script",
+      "number": 16,
+      "evidence": "quality-script-retirement.json"
+    },
+    {
+      "path": "extras/tools/isolated_tool_runner.c",
+      "sha256": "c28ccb33d1df915fbc726b62b8b80f2a2e0a1d8850724e9670b0fbacc051053b",
+      "kind": "tool",
+      "status": "verified_format_only",
+      "number": 17,
+      "final_sha256": "39fcd07d5de6c59273a46159046f01a0a5f2e2494c698c6d2487532c78d33312",
+      "reference": "v6.2/extras/tools/isolated_tool_runner.c",
+      "evidence": "Accepted input and native runner pins identical to verified v6.20; no behavior change."
+    },
+    {
+      "path": "extras/tools/target_fat12.py",
+      "sha256": "f8cc8eed664e7adcf16d12b60d9685557d9729772b16685662e01829314f6f72",
+      "kind": "tool",
+      "status": "retired_non_cmd_script",
+      "number": 18,
+      "evidence": "quality-script-retirement.json"
+    },
+    {
+      "number": 19,
+      "path": "build.cmd",
+      "sha256": "606ca04cb4baff2d85474515a190ed5b26bd8cd0cd5365c2dad40402a0a5a6c5",
+      "kind": "build_tool",
+      "status": "verified_added",
+      "evidence": "quality-build-acceptance.json"
+    },
+    {
+      "number": 20,
+      "path": "extras/tools/build.cmd",
+      "sha256": "dd08df422b3a49d7f3645898f0bad5fa229c38a0cc60aa55fa5659169ff72218",
+      "kind": "build_tool",
+      "status": "verified_added",
+      "evidence": "quality-build-acceptance.json"
+    },
+    {
+      "number": 21,
+      "path": "extras/tools/dosbuild/baseline.lst",
+      "sha256": "5054ca958a63752d5dfdd8b93fc580a95a2d0c5e47107a7a7e6f5827437a4c62",
+      "kind": "build_tool",
+      "status": "verified_added",
+      "evidence": "quality-build-acceptance.json"
+    },
+    {
+      "number": 22,
+      "path": "extras/tools/dosbuild/build.bat",
+      "sha256": "d5c415856612e29a08053d9fc10c6835f47bddda66cad61a6b9a5f631aee7782",
+      "kind": "build_tool",
+      "status": "verified_added",
+      "evidence": "quality-build-acceptance.json"
+    },
+    {
+      "number": 23,
+      "path": "extras/tools/dosbuild/host-tools.cmd",
+      "sha256": "6aef4ff8990a26ce17e7e70189b56f8825a948ded61bc26728572b70a1e48c7d",
+      "kind": "build_tool",
+      "status": "verified_added",
+      "evidence": "quality-build-acceptance.json"
+    },
+    {
+      "number": 24,
+      "path": "extras/tools/dosbuild/nosrv.bat",
+      "sha256": "60b1028b408dadaac310542c6816818759e9274155e65b562a4253474dcfd1bc",
+      "kind": "build_tool",
+      "status": "verified_added",
+      "evidence": "quality-build-acceptance.json"
+    },
+    {
+      "number": 25,
+      "path": "extras/tools/dosbuild/overlay.lst",
+      "sha256": "f277bc98c90037d4da475d698765c4d22a59c0a29a0d87ce23fa561fab1b05bc",
+      "kind": "build_tool",
+      "status": "verified_added",
+      "evidence": "quality-build-acceptance.json"
+    },
+    {
+      "number": 26,
+      "path": "extras/tools/dosbuild/targets.sha256",
+      "sha256": "2d3db72ea17556b8cbb2b2ce75a4fad81071bbd629574ff526e0b595eb6cd370",
+      "kind": "build_tool",
+      "status": "verified_added",
+      "evidence": "quality-build-acceptance.json"
+    },
+    {
+      "number": 27,
+      "path": "extras/tools/dosbuild/tools.ini",
+      "sha256": "2897bc51cbccf0306c2154a91ffc386f20e5713e0e009ee9dfee615ec53440c1",
+      "kind": "build_tool",
+      "status": "verified_added",
+      "evidence": "quality-build-acceptance.json"
+    },
+    {
+      "number": 28,
+      "path": "extras/tools/dosbuild/tools.lst",
+      "sha256": "a620e917451d7243fa6fb6ec9335360e505c48e7a7ae55ccb8d1a92fb6bef029",
+      "kind": "build_tool",
+      "status": "verified_added",
+      "evidence": "quality-build-acceptance.json"
+    }
+  ],
+  "status_counts": {
+    "reviewed_retained": 6,
+    "retired_reference_identical_overlay": 1,
+    "retired_non_cmd_script": 10,
+    "verified_format_only": 1,
+    "verified_added": 10
+  },
+  "completion": "No pending files; inherited 225-file scope covered separately by quality-source-audit.json"
+}

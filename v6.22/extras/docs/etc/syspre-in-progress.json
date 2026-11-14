@@ -1,0 +1,30 @@
+{
+  "file": "bios/syspre.asm",
+  "source_sha256": "65e7a17f4525b13a87e4d3a50e770d491fbc44b4f22043f5ef3b3a96dc93ce17",
+  "baseline": "v6.21 inherited from v6.2",
+  "changes": [
+    "Reconstruct DRVSPACE and DBLSPACE file selection using the target control flow.",
+    "Track selected filename and negotiate driver revision as indicated by target instructions.",
+    "Preserve BX across preloading and reuse the selected name during postloading."
+  ],
+  "verification": {
+    "build": "extras/build/three-core-hoy3z050/summary.json",
+    "io_size": 40774,
+    "remaining_differences": [
+      "0x9dcb",
+      "0x9dcc",
+      "0x9dcd",
+      "0x9dce",
+      "0x9dcf",
+      "0x9dd0",
+      "0x9dd1",
+      "0x9dd2",
+      "0x9dd3",
+      "0x9dd4",
+      "0x9de6"
+    ],
+    "remaining_scope": "startup menu message only",
+    "outside_message_bytes_equal": true
+  },
+  "limitations": "Labels are reconstructed; behavior follows target instruction sequence rather than a verified original 6.22 source file."
+}

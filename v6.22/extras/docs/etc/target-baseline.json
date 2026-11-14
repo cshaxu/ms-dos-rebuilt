@@ -1,0 +1,45 @@
+{
+  "image": {
+    "size": 1474560,
+    "sha256": "1ab300a0a54b8f384cc457424ea0d2f3f46bef11c0172429c6b207b2ec539e6e",
+    "bpb_bytes": 1474560,
+    "bytes_per_sector": 512,
+    "sectors_per_cluster": 1,
+    "reserved_sectors": 1,
+    "fat_count": 2,
+    "fat_sectors": 9,
+    "root_entries": 224,
+    "data_offset": 16896,
+    "fat_copies_equal": true
+  },
+  "files": {
+    "IO.SYS": {
+      "size": 40774,
+      "sha256": "e443d6fb7303cd341d59a260262ae2aa20029a54d8e8daac83c1d4efa9042d75",
+      "first_cluster": 2,
+      "clusters": 80,
+      "last_cluster": 81,
+      "attributes": 7
+    },
+    "MSDOS.SYS": {
+      "size": 38138,
+      "sha256": "6db133420bf04ddbafe310a720fab934db3e7dc9f5a53fc6692d5a01cbbc0d4e",
+      "first_cluster": 82,
+      "clusters": 75,
+      "last_cluster": 156,
+      "attributes": 7
+    },
+    "COMMAND.COM": {
+      "size": 54645,
+      "sha256": "65fa71b0a34e91feffc31297fb5e24d40767c72fb513e46aaac721bda7836110",
+      "first_cluster": 176,
+      "clusters": 107,
+      "last_cluster": 282,
+      "attributes": 32
+    }
+  },
+  "source_image": "E:\\core\\collection\\systems\\x86_16_dos\\msdos_6xx\\msdos622_en_boot.img",
+  "target_directory": "extras/baselines/targets",
+  "missing_tail_bytes": 0,
+  "scope": "Read-only FAT12 extraction; three core files."
+}

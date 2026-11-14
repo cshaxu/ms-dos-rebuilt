@@ -1,0 +1,3 @@
+# Architecture rules
+
+Adapted from SoftPC `docs/rules/ARCHITECTURE.md`. Follow the ownership and provenance boundaries in the project architecture. Original input files remain immutable. The reconstructed v6.21 overlay on v6.2 is the primary source baseline; DOS 6.0, v5.0, DOS 4, and OpenNT are comparative references. None proves that each instruction is original DOS 6.22. Focus review on evidenced DOS 6.22 binary differences. If OpenNT code is actually introduced, assess any source-specific host dependencies in that code using evidence; do not impose a blanket NT/BOP cleanup on DOS 6.0 or Astro baseline files. Preserve traceable origin and direct/inferred/unknown classifications. Review distribution rights separately from technical access.
