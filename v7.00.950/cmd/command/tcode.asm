@@ -30,7 +30,8 @@ TITLE	Part1 COMMAND Transient Routines
 
 CODERES 	SEGMENT PUBLIC BYTE	;AC000;
 	EXTRN	EXEC_WAIT:NEAR
-	EXTRN	ExecTopRet:NEAR, Ext_Exec:NEAR
+	EXTRN	ExecTopRet:NEAR
+	EXTRN	Ext_Exec:NEAR
 CODERES ENDS
 
 DATARES 	SEGMENT PUBLIC BYTE	;AC000;
@@ -58,7 +59,8 @@ DATARES 	SEGMENT PUBLIC BYTE	;AC000;
         EXTRN   SEMIPERMCOM:BYTE
 	EXTRN	VERVAL:WORD
 	EXTRN	YSwitchFlags:WORD
-	EXTRN	CmdBufSize:WORD, InputBufSize:WORD
+	EXTRN	CmdBufSize:WORD
+	EXTRN	InputBufSize:WORD
 DATARES ENDS
 
 TRANDATA	SEGMENT PUBLIC BYTE	;AC000;
@@ -66,7 +68,8 @@ TRANDATA	SEGMENT PUBLIC BYTE	;AC000;
 	EXTRN	ForCommandName:BYTE
 	EXTRN	WinCommand:BYTE
 	EXTRN	BatchStep_Ptr:word	; batch execution prompt
-	EXTRN	TraceReturn_Ptr:WORD, TraceReload_Ptr:WORD
+	EXTRN	TraceReturn_Ptr:WORD
+	EXTRN	TraceReload_Ptr:WORD
 TRANDATA	ENDS
 
 TRANSPACE	SEGMENT PUBLIC BYTE	;AC000;
@@ -77,11 +80,14 @@ TRANSPACE	SEGMENT PUBLIC BYTE	;AC000;
 	EXTRN	ARGTS:WORD
 	EXTRN	BYTCNT:WORD
 	EXTRN	comptr:WORD
-	EXTRN	expand_star:BYTE, cpyflag:BYTE
-	EXTRN	ForTokenFound:BYTE, ForVariable:BYTE
+	EXTRN	expand_star:BYTE
+	EXTRN	cpyflag:BYTE
+	EXTRN	ForTokenFound:BYTE
+	EXTRN	ForVariable:BYTE
 	EXTRN	COMSW:WORD
 	EXTRN	CURDRV:BYTE
-	EXTRN	fTest:WORD, TracePrinted:BYTE
+	EXTRN	fTest:WORD
+	EXTRN	TracePrinted:BYTE
 	EXTRN	HEADCALL:DWORD
 	EXTRN	IDLEN:BYTE
 	EXTRN	INTERNATVARS:BYTE
@@ -90,7 +96,9 @@ TRANSPACE	SEGMENT PUBLIC BYTE	;AC000;
 	EXTRN	RE_INSTR:BYTE
 	EXTRN	RESSEG:WORD
 	EXTRN	TranSpaceEnd:BYTE
-	EXTRN	CmdBufferLength:WORD, InputBufferLength:WORD, ComBufPtr:WORD
+	EXTRN	CmdBufferLength:WORD
+	EXTRN	InputBufferLength:WORD
+	EXTRN	ComBufPtr:WORD
 	EXTRN	SPECDRV:BYTE
 	EXTRN	SavedBatchPosition:DWORD
 	EXTRN	STACK:WORD
@@ -290,7 +298,7 @@ TraceReload:
 	INVOKE	std_printf
 	AND	BYTE PTR [fTest],NOT 2
 TraceDone:
-        PUBLIC  InitializeInputState
+	PUBLIC	InitializeInputState
 InitializeInputState:
 	MOV	DS,[RESSEG]			; All batch work must use resident seg.
 ASSUME	DS:RESGROUP
@@ -526,7 +534,7 @@ CopyInputBuffer:
 	MOV	[DI-2],CX
 	INC	CX
 	ADD	SI,2
-	REP	MOVSB
+	REP	MOVSB				; Transfer it to the cooked buffer
 	INVOKE	CRLF2
 	XOR	AX,AX				; interactive command
 	JMP	SHORT SetCopyMode
@@ -657,8 +665,8 @@ DRVGD:
 	MOV	[IDLEN],AL			; IDLEN is truly the length
 	PUBLIC	ParseCommandArguments
 ParseCommandArguments:
-	MOV	DI,arg.argv[0].argsw_word
-	MOV	[COMSW],DI
+	mov	DI, arg.argv[0].argsw_word
+	mov	[COMSW], DI			; ah yes, the old addressing mode problem...
 	CALL	ParseCommandFCBs
 
 	mov	DI, arg.argv[2*SIZE argv_ele].argsw_word
@@ -732,7 +740,7 @@ InitCommandBuffers ENDP
 	PUBLIC	ParseCommandFCBs
 ParseCommandFCBs PROC NEAR
 ASSUME	DS:TRANGROUP
-	MOV	SI,arg.argv[1*SIZE argv_ele].argpointer
+	mov	SI, arg.argv[1 * SIZE argv_ele].argpointer  ; s = argv[1];
 	OR	SI,SI
 	JNZ	SHORT DoParse
 	MOV	SI,[comptr]
@@ -740,18 +748,18 @@ DoParse:
 	MOV	DI,FCB
 	MOV	AX,(PARSE_FILE_DESCRIPTOR SHL 8) OR 01H
 	INT	21H
-	MOV	[PARM1],AL
-	MOV	DI,arg.argv[1*SIZE argv_ele].argsw_word
-	MOV	[ARG1S],DI
-	MOV	SI,arg.argv[2*SIZE argv_ele].argpointer
+	MOV	[PARM1],AL			; Save result of parse
+	mov	DI, arg.argv[1*SIZE argv_ele].argsw_word
+	mov	[ARG1S], DI
+	mov	SI, arg.argv[2*SIZE argv_ele].argpointer    ; s = argv[2];
 	OR	SI,SI
 	JNZ	SHORT DoParse2
 	MOV	SI,[comptr]
 DoParse2:
 	MOV	DI,FCB+10H
 	MOV	AX,(PARSE_FILE_DESCRIPTOR SHL 8) OR 01H
-	INT	21H
-	MOV	[PARM2],AL
+	INT	21h			; Parse file name
+	MOV	[PARM2],AL			; Save result
 	RET
 ParseCommandFCBs ENDP
 

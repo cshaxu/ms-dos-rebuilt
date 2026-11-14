@@ -56,10 +56,10 @@ IO.SYS, MSDOS.SYS and COMMAND.COM all equal. This is an existing-asset check,
 not a claim that a new build has run. The accepted six-byte MSDOS.SYS config
 remains the target; other media provenance does not silently change it.
 
-## Current prefix: 127/293
+## Current prefix: 128/293
 
-Modified source/build files 57, exact 21, necessary unchanged 13,
-no same-name reference unchanged 36. Next: 128, cmd/command/tcode.asm. Tooling modified
+Modified source/build files 58, exact 21, necessary unchanged 13,
+no same-name reference unchanged 36. Next: 129, cmd/command/tdata.asm. Tooling modified
 1 (ioimage.c case-insensitive map symbol lookup), outside source count.
 See etc/T25/part1.md. BIOSTAIL.OBJ is unchanged; all compiler/link phases ran,
 then packaging failure was diagnosed and repaired. Fresh three-output FC/B
@@ -247,4 +247,8 @@ File 127 restores TCMD2B's original parser-error procedure, command formatting
 and eight DOS service expressions. Required EXIT/LOCK/parser behavior remains
 intact. COMMAND rebuild/repack and all target/input checks pass;
 extras/build/t25-tcmd2b-16998-8751; see part36.md.
-Next: 128 tcode.asm. Full automatic final build remains pending.
+File 128 restores TCODE's inherited FCB parsing/switch formatting and comments,
+cooked-buffer copy explanation and external declaration style. Required dynamic
+input, command-state and batch-step paths remain intact. COMMAND rebuild/repack
+and all target/input checks pass; extras/build/t25-tcode-17491-26128; see part37.md.
+Next: 129 tdata.asm. Full automatic final build remains pending.
