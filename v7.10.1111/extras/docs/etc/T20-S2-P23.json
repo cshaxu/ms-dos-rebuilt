@@ -1,0 +1,63 @@
+{
+  "task": "M6 T20 S2 P23",
+  "file": "bios/msbio1.asm",
+  "status": "in-progress-relocation-validation-pending",
+  "source_blob": "5e5c3aad1e5ec6f6c0c8a5f352adc978ba814bf4",
+  "changes": [
+    {
+      "symbol": "DosDataSg",
+      "old": "9E46h",
+      "target": "B146h",
+      "file_offset": 2051
+    },
+    {
+      "symbol": "bios_flags",
+      "old": "10DCh",
+      "target": "1216h",
+      "file_offset": 2056
+    }
+  ],
+  "evidence": "Frozen target IO.SYS initial BIOS header at2048; values are existing source initialization fields, not injected target bytes.",
+  "build": "Full module original ML build PASS; same two inherited ASSUME CS warnings.",
+  "segments": [
+    {
+      "name": "Bios_Data",
+      "base": 2048,
+      "length": 1335,
+      "compared": 1067,
+      "differences": 0,
+      "relocation_bytes_pending": 268
+    },
+    {
+      "name": "SysInitSeg",
+      "base": 23086,
+      "length": 4413,
+      "compared": 4399,
+      "differences": 0,
+      "relocation_bytes_pending": 14
+    },
+    {
+      "name": "Bios_Code",
+      "base": 8704,
+      "length": 1908,
+      "compared": 1739,
+      "differences": 0,
+      "relocation_bytes_pending": 106,
+      "absent_bytes": 63
+    }
+  ],
+  "totals": {
+    "nonrelocation_bytes_compared": 7205,
+    "differences": 0,
+    "relocation_bytes_pending": 388,
+    "absent_bytes": 63
+  },
+  "scope": "No whole-module or image acceptance; OMF scanner excludes relocations and absent bytes.",
+  "counts": {
+    "modified_core": 15,
+    "reviewed_unchanged": 40,
+    "files_modified_this_part": 1,
+    "new_core_files": 0
+  },
+  "next": "Bind relocation operands to provider symbols and segment frames; retain msbio1 as open SCC member."
+}

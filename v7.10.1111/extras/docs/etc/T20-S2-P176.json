@@ -1,0 +1,9 @@
+{
+  "task": "M6 T20 S2 P176",
+  "change": "Merge duplicated target root path strings into original 950 data declarations in regroot.asm, with aliases for both current callers. Use target uppercase bytes.",
+  "source_blob_sha1": {"bios/regroot.asm":"b94721dcddb6ed5151ddaff28137b777d941e5e6"},
+  "build": {"command": "extras/build/cmd-17188-26244/regfind-build.cmd", "exit": 0, "io_before": 247436, "io_after": 247420, "note": "26 duplicate string bytes removed; whole IO shrinks 16 bytes after alignment."},
+  "proof": {"target_string_bytes_directly_equal": 26, "linked_procedure_group_bytes": 8315, "literal_equal": 7921, "verified_address_bytes": 394, "log": "extras/build/cmd-17188-26244/merged-root.compare.log"},
+  "counts": {"modified_this_part": 1, "unchanged_complete_files_newly_certified": 0, "modified_total": 90, "baseline_identical": 203},
+  "remaining": "Audit and consolidate corresponding code in dependency order. FAR legacy file and API consumers have incompatible interfaces and remain active pending coordinated caller migration; no broad equivalence claimed. Final three-output identity remains open."
+}

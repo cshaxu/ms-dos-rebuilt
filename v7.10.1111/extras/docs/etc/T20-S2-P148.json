@@ -1,0 +1,29 @@
+{
+  "task": "M6 T20 S2 P148",
+  "previous_turn": "progress: complete build refreshed all three products and maps",
+  "change": "bios/config.lnk adds inherited CRT m0393.obj (__aFlmul/__aFulmul) and m0405.obj (__aFuldiv) in target arithmetic-helper order. No duplicate implementation or source module added.",
+  "source_blob_sha1": "f116b6cf4cee12e1e1a2c2c5ef26225aca993363",
+  "build": {
+    "command": "extras/build/cmd-17188-26244/relink.cmd",
+    "exit": 0,
+    "scope": "Whole configuration link and whole IO image packaging; unchanged assembly not rebuilt",
+    "io_bytes": 234044,
+    "configuration_offset": 187392,
+    "configuration_bytes": 46652
+  },
+  "proof": {
+    "built_symbol_start": "0916:0600",
+    "target_symbol_start": "014E:07F8",
+    "built_io_offset": 226144,
+    "target_io_offset": 194776,
+    "length": 170,
+    "comparison": "FC /B crt-arithmetic-built.bin crt-arithmetic-target.bin: no differences encountered",
+    "procedures": ["__aFlmul/__aFulmul", "__aFlshl", "__aFuldiv", "__aFulshr"],
+    "newly_supplied_object_extents": [50,96],
+    "evidence_directory": "extras/build/cmd-17188-26244"
+  },
+  "limitations": "Registry source still needs replacement of baseline implementation in existing modules. Pointer-difference helper still has baseline callers; do not remove it before those consumers are restored. Overall IO grows while necessary CRT dependencies are introduced; this is not an overall size-convergence claim. Final layout/bindings remain open.",
+  "counts": {"modified_this_part":1,"modified_assembly_files":0,"modified_link_files":1,"unchanged_complete_files_newly_certified":0,"modified_total":85,"baseline_identical":208,"in_progress":59},
+  "full_identity": false,
+  "published": false
+}

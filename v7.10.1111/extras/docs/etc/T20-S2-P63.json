@@ -1,0 +1,13 @@
+{
+  "task":"M6 T20 S2 P63",
+  "source":"bios/sysconf.asm",
+  "source_blob":"1bf16770411fda5b0a384c7848daf47efbc9f9d6",
+  "changes":"Correct seven direct and nine indexed message references; use existing BUFINSIZ24 instead of legacy20 in sector-size check and buffer clearing",
+  "build":"extras/build/cmd-17081-23949/incremental.cmd",
+  "build_exit":0,
+  "check":"extras/build/cmd-17081-23949/p63check.cmd",
+  "check_exit":0,
+  "region":{"offset":48442,"bytes":12192,"excluded_word_offsets":[3717,6294,6297,6304,6307,6796],"exact_complement_bytes":12180,"exclusions":"Six external call operands; whole-module integration remains open"},
+  "counts":{"core_modified_this_part":1,"core_modified_total":31,"reviewed_unchanged":39,"new_core_files":0},
+  "full_identity":false,"published":false
+}

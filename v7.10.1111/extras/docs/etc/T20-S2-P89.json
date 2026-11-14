@@ -1,0 +1,32 @@
+{
+  "task": "M6 T20 S2 P89",
+  "changes": "Restore FATSecRd full-sector preservation, active-FAT-only read, 32-bit alternate FAT stride, and original sector/high-word restoration on success/fallback. Existing DREAD retry policy retained. Add original ML module recipe; no new core source file.",
+  "sources": {"dos/diskio.asm": "050b73f320c83cf2834cb54892096206839a6768", "dos/makefile": "b7b8c76cd6aa7d03c00d93293b1068e08e5b98ae"},
+  "build": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+  "build_exit": 0,
+  "comparison": {
+    "scope": "FATSecRd through DREAD and common return, ending at next module CHECK_WRITE_LOCK",
+    "built_runtime": "B268..B302 exclusive",
+    "target_runtime": "BBC4..BC5E exclusive",
+    "built_offset": 105640,
+    "target_offset": 108036,
+    "bytes": 154,
+    "equal_bytes": 152,
+    "different_bytes": 2,
+    "remaining": "HARDERRRW call operand at relative7C..7D; all internal encodings/layout and both DSKREAD calls match"
+  },
+  "unchanged_provider_check": {
+    "scope": "Existing disk2.asm DskRead/DWRITE/DSKWRITE through DODSKOP return",
+    "built_offset": 105849,
+    "target_offset": 108245,
+    "bytes": 88,
+    "equal_bytes": 81,
+    "different_bytes": 7,
+    "remaining": "Four external calls SETREAD,HARDERRRW,SETWRITE,DEVIOCALL2; do not rewrite matching provider instructions or accept entire disk2.asm from this partial proof"
+  },
+  "evidence": "extras/build/cmd-17081-23949/p89 retains linked IO.SYS/MSDOS.MAP/kernel.log, both unmodified extracted comparison pairs and FC /B logs. Reproduce with s2-p1/span.exe at recorded offsets and lengths.",
+  "open": "diskio DirRead still needs high-word scratch provider at target AF2 and cluster-chain restoration; whole module not accepted. Remaining disk2 file-I/O paths also need FAT32 restoration. Skip proved read/write bodies and resolve actual dependencies.",
+  "counts": {"core_modified_this_part": 2, "core_modified_total": 45, "core_identical_to_baseline": 248, "reviewed_modified": 26, "reviewed_unchanged": 38, "reviewed_total": 64, "in_progress": 19, "new_core_files": 0},
+  "full_identity": false,
+  "published": false
+}

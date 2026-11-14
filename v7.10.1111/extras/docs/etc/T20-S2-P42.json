@@ -1,0 +1,23 @@
+{
+  "task": "M6 T20 S2 P42",
+  "sources": [{"file":"bios/sysinit1.asm","blob":"4d80524c4b9de52584174a2cf1b833d0c7a87dda"}],
+  "changes": [
+    "Restore short jump after initial stack assignment; use near code label",
+    "Restore two DWORD RPL arena-name stores in existing386 instruction scope",
+    "Restore CLI, short jump and STI around optional-system execution stack assignment"
+  ],
+  "build": "extras/build/cmd-17081-23949/incremental.cmd",
+  "build_exit": 0,
+  "resolved_build_error": "ML A2028 for jump to byte label: changed locstack label to near",
+  "check": "extras/build/cmd-17081-23949/p42check.cmd",
+  "check_exit": 0,
+  "exact_ranges": [
+    {"offset":28247,"bytes":42,"scope":"Initial stack switch and DOS initialization workspace preparation"},
+    {"offset":28489,"bytes":82,"scope":"Complete conditional RPL arena allocation and marking branch"},
+    {"offset":29204,"bytes":7,"scope":"Optional-system execution stack switch"}
+  ],
+  "counts": {"core_modified_this_part":1,"core_modified_total":25,"reviewed_unchanged":39,"new_core_files":0},
+  "pending": "SYSINIT external operands, subsequent initialization paths and full IO/CMD identity",
+  "published":false,
+  "full_identity":false
+}

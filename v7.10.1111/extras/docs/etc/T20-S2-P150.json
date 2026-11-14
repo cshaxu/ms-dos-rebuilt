@@ -1,0 +1,33 @@
+{
+  "task": "M6 T20 S2 P150",
+  "previous_turn": "progress: complete registry DOS service group restored and linked",
+  "change": "Restore four target NEAR cache-reclamation routines in existing bios/regread.asm. They use the restored RegDosFree and each other; do not duplicate source modules or replace the old external API prematurely.",
+  "source_blob_sha1": "e55fdf5cc12e273153de5304decc8d8f369a1083",
+  "build": {
+    "command": "extras/build/cmd-17188-26244/regread-build.cmd",
+    "exit": 0,
+    "scope": "Changed production module assembly, existing OMF layout step, complete configuration link and IO packaging",
+    "io_bytes": 234908,
+    "configuration_bytes": 47516,
+    "diagnostics": "Seven existing A4057 warnings in legacy code remain. Initial new segment declaration required moving .386 before USE16. Operand-size/ES prefix order restored explicitly after whole-body comparison. Final build passes."
+  },
+  "proof": {
+    "blocks": [
+      {"name":"RegDiscardCache","built":"0916:024C","target":"014E:22CE","bytes":49},
+      {"name":"RegTrimKeyCache","built":"0916:027E","target":"014E:3F6C","bytes":100},
+      {"name":"RegReleaseDataBuffers","built":"0916:02E2","target":"014E:40E2","bytes":71},
+      {"name":"RegTrimDataCache","built":"0916:032A","target":"014E:4AFA","bytes":91}
+    ],
+    "total":311,
+    "equal_bytes":299,
+    "call_operand_bytes":12,
+    "call_bindings_verified":6,
+    "method":"cachecheck.c compares every byte in all four procedures except the six relative displacements; independently decodes each displacement in both images and verifies the corresponding linker symbol/target destination. This is not unrestricted operand masking or an overall recovery percentage.",
+    "directory":"extras/build/cmd-17188-26244",
+    "log":"cachecheck.log"
+  },
+  "next": "Allocation retry calls file-list traversal with save/discard callbacks. Discard callback dependencies are now restored; save callback still depends on file persistence. Restore that dependency group before switching initialization and removing legacy implementations. Do not claim the old registry consumers are integrated.",
+  "counts":{"modified_this_part":1,"unchanged_complete_files_newly_certified":0,"new_source_files":0,"modified_total":87,"baseline_identical":206,"in_progress":61},
+  "full_identity":false,
+  "published":false
+}

@@ -1,0 +1,23 @@
+{
+  "task": "M6 T20 S2 P41",
+  "sources": [
+    {"file": "bios/sysinit1.asm", "blob": "5a406fc64bec1d2d7b954040e152bdd621de5db6"},
+    {"file": "bios/makefile", "blob": "84cbdb75a0ba629a2acbfe49d4932c548df7c9c6"}
+  ],
+  "changes": ["BDS compaction uses size bds_struc instead of legacy100-byte literals", "Include existing msbds.inc and declare make dependency"],
+  "build": "extras/build/cmd-17081-23949/incremental.cmd",
+  "build_exit": 0,
+  "check": "extras/build/cmd-17081-23949/p41check.cmd",
+  "check_exit": 0,
+  "exact_ranges": [
+    {"offset":27904,"bytes":67,"scope":"Initialization BDS compaction loop"},
+    {"offset":17189,"bytes":2903,"scope":"Continuous INT13 and following BIOS code; overlaps code-head"},
+    {"offset":8704,"bytes":12265,"scope":"BIOS code prefix"},
+    {"offset":20971,"bytes":1205,"scope":"BIOS code suffix through SYSINIT boundary"}
+  ],
+  "remaining_code_region_difference": {"offset":20969,"bytes":2},
+  "counts": {"core_modified_this_part":2,"core_modified_total":25,"reviewed_unchanged":39,"new_core_files":0},
+  "pending":"Remaining SYSINIT and kernel/COMMAND differences; no whole-module promotion based on partial segments",
+  "published":false,
+  "full_identity":false
+}

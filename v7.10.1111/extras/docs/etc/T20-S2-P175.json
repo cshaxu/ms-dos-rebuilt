@@ -1,0 +1,8 @@
+{
+  "task": "M6 T20 S2 P175",
+  "change": "Restore target file creation and connect key/data cache creation, save, and cleanup; completed before owner's merge-first direction.",
+  "source_blob_sha1": {"bios/regread.asm":"9180d06ee9a93b0129d1dc8c8da83b1abc9f1f66"},
+  "build": {"command": "extras/build/cmd-17188-26244/regread-build.cmd", "exit": 0, "io_bytes": 247436},
+  "proof": {"target": "014E:1BCC", "new_bytes": 498, "exact": 470, "verified_address_bytes": 28, "verifier": "extras/build/cmd-17188-26244/datachaincheck.c", "log": "create-file.compare.log"},
+  "remaining": "Existing FAR RegCreateEmptyFile still active; target procedure has different state/ABI. Evaluate integration and remove duplicate only after moving all callers."
+}

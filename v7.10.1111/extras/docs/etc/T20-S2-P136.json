@@ -1,0 +1,38 @@
+{
+  "task": "M6 T20 S2 P136",
+  "previous_turn": "progress: P135 restored extended query entries",
+  "changes": [
+    "Export existing near absolute read/write paths in mscode; AH=1 selects existing near-return handling.",
+    "Restore extended absolute I/O parameter checks, read/write dispatch, saved-user-flags error return and STI success path in misc.",
+    "Replace error-branch +2 expression with a named label after verification; no emitted instruction change."
+  ],
+  "source_blob_sha1": {
+    "misc": "6cd918c10d4ffdbce671642d0c945ce53df11edb",
+    "mscode": "f3f7558aed09445c6c4d7c64dfca0e09c520874d"
+  },
+  "build": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+  "build_exit": 0,
+  "comparison": {
+    "scope": "Whole subfunction5 handler",
+    "built": "5480..54AC",
+    "target": "5482..54AE",
+    "bytes": 44,
+    "equal": 41,
+    "different": 3,
+    "remaining": "Relative call operands to AbsWriteExtended4550, AbsReadExtended44A1, Get_User_Stack43F7. Provider targets match; final handler placement pending."
+  },
+  "incomplete": "Subfunction4 and final dispatcher layout remain pending.",
+  "evidence": "extras/build/cmd-17081-23949/p136: fullIO/map, guest make.log, spans and FC log",
+  "counts": {
+    "modified_this_part": 2,
+    "unchanged_reviewed_this_part": 0,
+    "new_source_files": 0,
+    "modified_total": 79,
+    "baseline_identical": 214,
+    "reviewed_modified": 26,
+    "reviewed_unchanged": 43,
+    "in_progress": 53
+  },
+  "full_identity": false,
+  "published": false
+}

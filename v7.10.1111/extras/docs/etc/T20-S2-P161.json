@@ -1,0 +1,9 @@
+{
+  "task": "M6 T20 S2 P161",
+  "change": "Restore data cache directory initialization and header reading in existing regread.asm; dependency for file initialization.",
+  "source_blob_sha1": "be0497690c62f0cc90cd2f285cd6bcb7f8ddb346",
+  "build": {"command": "extras/build/cmd-17188-26244/regread-build.cmd", "exit": 0, "io_bytes": 240808},
+  "proof": {"target": "014E:4B7E", "new_bytes": 217, "new_exact": 207, "verified_call_operands": 10, "combined_bytes": 1770, "combined_exact": 1686, "combined_verified_addresses": 84, "verifier": "extras/build/cmd-17188-26244/datachaincheck.c", "exit": 0},
+  "counts": {"modified_this_part": 1, "unchanged_complete_files_newly_certified": 0, "modified_total": 90, "baseline_identical": 203},
+  "remaining": "Key-record allocation, data allocation, file initialization, root-path/API integration and removal of legacy paths. Final three-output identity remains open."
+}

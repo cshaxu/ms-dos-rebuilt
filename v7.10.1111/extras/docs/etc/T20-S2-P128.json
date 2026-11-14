@@ -1,0 +1,30 @@
+{
+  "task": "M6 T20 S2 P128",
+  "changes": "Align_Buffer uses SHR BX,4 without saving/restoring CX. Remove obsolete SHARE file-time notification and unused JShare import; preserve XOR AX,AX and word DMA saves/restores as in target.",
+  "source_blob_sha1": "f673bce7eacb6b9aa1ce096d00792b5f3c79a069",
+  "build_exit": 0,
+  "build": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+  "comparison": {
+    "scope": "Entire handle.asm module",
+    "built_runtime": "A16C..A467",
+    "target_runtime": "A7FF..AAFA",
+    "bytes": 763,
+    "equal": 732,
+    "different": 31,
+    "remaining": "External call/jump operands and DOS_Read/DOS_Write immediate code addresses only; internal flow and data operands match."
+  },
+  "evidence": "extras/build/cmd-17081-23949/p128: full IO.SYS, map, kernel log, module spans and FC log",
+  "counts": {
+    "modified_this_part": 1,
+    "unchanged_reviewed_this_part": 0,
+    "new_source_files": 0,
+    "modified_total": 74,
+    "baseline_identical": 219,
+    "reviewed_modified": 26,
+    "reviewed_unchanged": 41,
+    "in_progress": 48
+  },
+  "next": "Skip handle body; continue macro.asm drive/CDS provider differences, preserving dependency-first ordering.",
+  "full_identity": false,
+  "published": false
+}

@@ -1,0 +1,14 @@
+{
+  "task":"M6 T20 S2 P50",
+  "sources":[{"file":"bios/si1tail.asm","blob":"0b3e3a4e7099c27041d566e506854520d0b53f35"},{"file":"bios/makefile","blob":"c04a835ef45a57c12291e655e0d9fe6cfd161e72"}],
+  "changes":["Final BDS copying and link traversal use existing extended structure size", "Restore SFT chain-end traversal before appending allocated entries", "Restore immediate shifts for device table size and paragraph rounding", "Declare msbds include dependency"],
+  "build":"extras/build/cmd-17081-23949/incremental.cmd",
+  "build_exit":0,
+  "check":"extras/build/cmd-17081-23949/p50check.cmd",
+  "check_exit":0,
+  "exact_ranges":[{"offset":30947,"bytes":816,"scope":"Complete extended read, root lookup, FAT chain and compressed-driver lookup; no exclusions"},{"offset":39227,"bytes":21,"scope":"SFT chain traversal and append"},{"offset":40221,"bytes":9,"scope":"Paragraph rounding helper"}],
+  "resolved":"boot_copy_buffer now4DD2 through natural linker layout; all P44/P45 operand exclusions closed",
+  "counts":{"core_modified_this_part":2,"core_modified_total":28,"reviewed_unchanged":39,"new_core_files":0},
+  "pending":"Other initialization bindings and full IO/CMD identity",
+  "published":false,"full_identity":false
+}

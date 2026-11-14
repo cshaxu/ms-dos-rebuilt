@@ -1,0 +1,68 @@
+{
+  "task": "M6 T20 S2 P13",
+  "reference_policy": "Only v7.00.950 source baseline and frozen7.10.1111 target image",
+  "files": [
+    {
+      "unit": 31,
+      "path": "inc/pdb.inc",
+      "disposition": "unchanged950; FC /B exit0; source review only"
+    },
+    {
+      "unit": 32,
+      "path": "inc/sf.inc",
+      "disposition": "modified; FAT32 local-file aliases added, structure remains59 bytes"
+    }
+  ],
+  "dependencies": "Neither has INCLUDE/EXTRN. Caller supplies non-emitting BREAK listing macro.",
+  "layout": {
+    "sf_entry_size": 59,
+    "sf_firclus32": 43,
+    "sf_firclus_hi": 45,
+    "sf_lstclus32": 53,
+    "sf_lstclus_hi": 55,
+    "sf_cluspos_hi": 11
+  },
+  "derivation": "Target first-allocation path8A70..8A88 writes cluster low/high pair at2B/2D and35/37. Corresponding950 rom.asm first-allocation path writes sf_firclus and sf_lstclus. Target file-transfer exit7F40..7F58 writes high/low last-cluster and cluster-position pairs; carry into high position is visible at7F09. SFT traversal at2203 advances3Bh.",
+  "probe": {
+    "tools": "Inherited original ML /c /nologo /Zm, LINK and RELOC; private-desktop C runner",
+    "scratch": "extras/build/s2-p13",
+    "spans": [
+      {
+        "target_offset": 111577,
+        "length": 4
+      },
+      {
+        "target_offset": 111581,
+        "length": 4
+      },
+      {
+        "target_offset": 111585,
+        "length": 4
+      },
+      {
+        "target_offset": 111589,
+        "length": 4
+      },
+      {
+        "target_offset": 108721,
+        "length": 4
+      },
+      {
+        "target_offset": 84835,
+        "length": 3
+      }
+    ],
+    "length": 23,
+    "result": "PASS, clean asm.log; FC /B probe.bin expected.bin exit0",
+    "assertions": "Entry size3Bh and underlying offsets2Bh/35h/0Bh"
+  },
+  "limits": "Added names are reconstruction aliases, not claimed original identifiers. No target data used in assembly. Complete SFT consumer behavior and full kernel remain pending; old network/legacy field names and layout retained.",
+  "counts": {
+    "core_processed": 32,
+    "core_modified": 12,
+    "core_unchanged": 20,
+    "core_unreviewed": 261,
+    "tool_modified": 1,
+    "new_core_files": 0
+  }
+}

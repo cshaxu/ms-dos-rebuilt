@@ -1,0 +1,22 @@
+{
+  "task":"M6 T20 S2 P33",
+  "status":"disk-media-identification-paths-restored",
+  "source":"bios/msdisk.asm",
+  "source_blob":"735e3eb18949804101b8eed51f3a74207dea885c",
+  "changes":["FAT32 default identifier selection", "Read FAT32 serial, volume label and file system ID in existing mov_media_ids", "Restore extended boot recognition conditions"],
+  "build":"extras/build/cmd-17081-23949/incremental.cmd",
+  "build_exit":0,
+  "check":"extras/build/cmd-17081-23949/p33check.cmd",
+  "check_exit":0,
+  "evidence_directory":"extras/build/cmd-17081-23949/p33",
+  "exact_blocks":[
+    {"name":"disk data and identifiers","built":12248,"target":12248,"bytes":99},
+    {"name":"clear_ids complete","built":12682,"target":12682,"bytes":57},
+    {"name":"mov_media_ids complete","built":13124,"target":13259,"bytes":83}
+  ],
+  "boot_recognition":{"built":12929,"target":13130,"length":129,"exact_bytes":127,"excluded":"Two-byte relative read_sector call displacement; intervening getbp/movbpb restoration remains open"},
+  "counts":{"core_modified_this_part":1,"core_modified_total":19,"reviewed_unchanged":39,"new_core_files":0,"open_modified_scc_members":3},
+  "next":"Restore GetBP extended BPB ingestion in existing module; replace obsolete movbpb path based on target",
+  "published":false,
+  "full_identity":false
+}

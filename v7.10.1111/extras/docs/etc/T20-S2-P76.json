@@ -1,0 +1,19 @@
+{
+  "task": "M6 T20 S2 P76",
+  "sources": {
+    "dos/diskset.asm": "236ef7592ad317e348e7cf45c71ee5fa10b4a7fc",
+    "dos/makefile": "2d2a914aa3d5f19e1a100967b54b3f1b4698c0e7"
+  },
+  "changes": "Restore complete SETUP using 32-bit file position, sector division, cluster shift and FAT32 max-cluster check. Store ClusNumHigh in the existing shared field. Preserve target interrupt exclusion and exit paths. Remove SETUP calls to DIV32/SHR32; helpers remain for disk3 consumers. Assemble diskset with inherited Microsoft ML using the existing makefile form.",
+  "dependency_basis": "DPB_FAT_SIZE, DPB_MAX_CLUSTER32 and ClusNumHigh already defined; no new shared ABI or new source module. Remaining HARDERR binding and preceding linked-module lengths are unresolved.",
+  "build": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+  "build_exit": 0,
+  "build_scope": "Changed diskset compiled; complete kernel linked and IO.SYS repacked. BIOS and COMMAND retained unchanged.",
+  "check": "extras/build/cmd-17081-23949/p76check.cmd",
+  "check_exit": 0,
+  "exact_regions": [{"built_offset": 91303, "target_offset": 93577, "built_runtime": "7A67", "target_runtime": "8349", "bytes": 158, "purpose": "Complete SETUP procedure including FAT16/FAT32 and error exits", "excluded_bytes": 0}],
+  "verification_note": "Offsets follow complete linked map and target instruction boundaries; no binary patching, operand normalization or exclusions. This proof does not claim module placement or whole-image identity.",
+  "counts": {"core_modified_this_part": 2, "core_modified_total": 41, "core_identical_to_baseline": 252, "reviewed_modified": 26, "reviewed_unchanged": 38, "reviewed_total": 64, "in_progress": 15, "new_core_files": 0},
+  "full_identity": false,
+  "published": false
+}

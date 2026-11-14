@@ -1,0 +1,36 @@
+{
+  "task": "M6 T20 S2 P114",
+  "changes": "Restore finfo direct GetPath query and remove absent FastOpen update path and unreferenced GET_FAST_PATH wrapper. Existing attribute logic retained.",
+  "sources": {
+    "dos/finfo.asm": "9adbc83d7aba54db710fbfa068501f2f25b892fc"
+  },
+  "build": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+  "build_exit": 0,
+  "build_note": "First run ended FAIL after stripz; second invocation reran stripz and passed. Repeated unexplained failure remains a toolchain investigation item; first-build.log retained.",
+  "comparison": {
+    "scope": "Whole finfo module",
+    "built_runtime": "6C71..6D56 exclusive",
+    "target_runtime": "72E8..73CD exclusive",
+    "built_offset": 87729,
+    "target_offset": 89384,
+    "bytes": 229,
+    "equal_bytes": 215,
+    "different_bytes": 14,
+    "remaining": "External call operands only; internal instructions, branches and data operands match."
+  },
+  "evidence": "extras/build/cmd-17081-23949/p114 contains whole spans, FC /B log, linked IO.SYS, MSDOS.MAP, first-build.log and successful kernel.log.",
+  "counts": {
+    "core_modified_this_part": 1,
+    "unchanged_files_newly_accepted": 0,
+    "core_modified_total": 59,
+    "core_identical_to_baseline": 234,
+    "reviewed_modified": 26,
+    "reviewed_unchanged": 38,
+    "reviewed_total": 64,
+    "in_progress": 33,
+    "new_core_files": 0
+  },
+  "next": "Restore rename.asm remaining FastOpen_Delete/FastOpen_Rename consumers before deleting obsolete helper tail from delete.asm. Skip finfo body. Investigate recurring stripz first-run failure without suppressing errors.",
+  "full_identity": false,
+  "published": false
+}

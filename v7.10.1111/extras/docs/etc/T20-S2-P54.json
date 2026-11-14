@@ -1,0 +1,13 @@
+{
+  "task":"M6 T20 S2 P54",
+  "sources":[{"file":"bios/sysconf.asm","blob":"3a1e1981ea2a9efcb43db449f1d9f50f4adfe39b"},{"file":"bios/makefile","blob":"3ad7d973dcb84f89869b2413484244a62baa8dca"}],
+  "changes":["Initialize device DPB access state80h", "Validate extended FAT size/version and temporarily supply legacy FAT size9 where target requires", "Restore EX/AR signature and CX/DX preservation around SetDPB, then restore input BPB", "Use DEC/JNZ for expanded per-unit loop, scope .386 locally", "Add existing BPB structure include and build dependency"],
+  "build":"extras/build/cmd-17081-23949/incremental.cmd",
+  "build_exit":0,
+  "check":"extras/build/cmd-17081-23949/p54check.cmd",
+  "check_exit":0,
+  "exact_ranges":[{"offset":53814,"bytes":86,"scope":"DPB initialization, BPB validation, SetDPB and driver address writes"},{"offset":53903,"bytes":10,"scope":"Per-unit loop tail"}],
+  "counts":{"core_modified_this_part":2,"core_modified_total":29,"reviewed_unchanged":39,"new_core_files":0},
+  "pending":"Full sysconf integration; exec_modeAC97 versus targetACAD; full IO/CMD identity",
+  "full_identity":false,"published":false
+}

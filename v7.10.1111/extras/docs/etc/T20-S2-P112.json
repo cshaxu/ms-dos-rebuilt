@@ -1,0 +1,36 @@
+{
+  "task": "M6 T20 S2 P112",
+  "changes": "Restore close 32-bit first-cluster writeback and successful local-file FSInfo update. Remove absent FastOpen update and timestamp-sharing notification. Preserve target OLD_FIRSTCLUS write and bypass FSInfo update on read/name errors.",
+  "sources": {
+    "dos/close.asm": "7f77f3707dd3e2b3566f90ff0809dec5557f5a58"
+  },
+  "build": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+  "build_exit": 0,
+  "build_note": "First run reached stripz but returned FAIL. A second invocation reran stripz, returned PASS and packaged successfully; initial stripz failure cause not established.",
+  "comparison": {
+    "scope": "Whole close module",
+    "built_runtime": "74AD..765E exclusive",
+    "target_runtime": "7B14..7CC5 exclusive",
+    "built_offset": 89837,
+    "target_offset": 91476,
+    "bytes": 433,
+    "equal_bytes": 415,
+    "different_bytes": 18,
+    "remaining": "External call operands only. Internal control flow, data operands, 32-bit cluster writeback and FSInfo gate match."
+  },
+  "evidence": "extras/build/cmd-17081-23949/p112 contains whole spans, FC /B log, disassembly, linked IO.SYS, MSDOS.MAP and successful stripz log.",
+  "counts": {
+    "core_modified_this_part": 1,
+    "unchanged_files_newly_accepted": 0,
+    "core_modified_total": 57,
+    "core_identical_to_baseline": 236,
+    "reviewed_modified": 26,
+    "reviewed_unchanged": 38,
+    "reviewed_total": 64,
+    "in_progress": 31,
+    "new_core_files": 0
+  },
+  "next": "Skip close body. Continue delete/rename callers and their actual dependencies using complete linked differences. Shared-data layout and final external bindings remain open.",
+  "full_identity": false,
+  "published": false
+}

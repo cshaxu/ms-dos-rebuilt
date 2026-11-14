@@ -1,0 +1,19 @@
+{
+  "task":"M6 T20 S2 P37",
+  "status":"ioctl-tail-restored-external-bindings-open",
+  "source":"bios/msdioctl.asm",
+  "source_blob":"bb8ad1e330de20bcdd7aa5fefe250ae2110cb3a8",
+  "compiled_source_blob":"8bc1f14009d6e8b774e27efd5de130b6f79bc20b",
+  "post_build_change":"Two documentation lines only; no instruction changes or rebuild",
+  "changes":["FAT32 get/set media ID offsets and common copy paths", "BootIo backup-sector fallback and mirrored writes", "RAWIO32 support query", "Target BIOS functions45/46 and extension signature55AA"],
+  "build":"extras/build/cmd-17081-23949/incremental.cmd",
+  "build_exit":0,
+  "check":"extras/build/cmd-17081-23949/p37check.cmd",
+  "check_exit":0,
+  "evidence_directory":"extras/build/cmd-17081-23949/p37",
+  "range":{"built":14951,"target":14951,"length":2238,"exact_bytes":2234,"includes":"Module data/code plus preceding alignment byte","excluded_words":[{"bios_code_offset":"201E","symbol":"HasChange"},{"bios_code_offset":"202D","symbol":"Set_Changed_DL"}]},
+  "counts":{"core_modified_this_part":1,"core_modified_total":20,"reviewed_unchanged":39,"new_core_files":0},
+  "pending":"Resolve two provider bindings within BIOS SCC; full IO/CMD identity remains open",
+  "published":false,
+  "full_identity":false
+}

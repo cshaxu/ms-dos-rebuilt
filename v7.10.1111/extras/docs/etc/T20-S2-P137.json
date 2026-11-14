@@ -1,0 +1,35 @@
+{
+  "task": "M6 T20 S2 P137",
+  "previous_turn": "progress: P136 restored absolute-I/O subfunction5",
+  "changes": [
+    "Restore complete extended control subfunction4 in misc: DPB rebuild/invalidation, FAT32 root cluster, FAT mirroring/active copy and free-space cache.",
+    "Synchronize FAT copies using existing GETCURHEAD/CHECKFLUSH/DREAD/DWRITE providers; preserve carry/error/interrupt handling.",
+    "Complete dispatcher and target error-branch chain; whole misc comparison now covers all procedures."
+  ],
+  "source_blob_sha1": "79bd5c1fae020f4c08a6e07e6fbb82fb9d2a3d82",
+  "build": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+  "build_exit": 0,
+  "comparison": {
+    "scope": "Whole misc.asm",
+    "built": "503E..588C",
+    "target": "5035..5883",
+    "bytes": 2126,
+    "equal": 2078,
+    "different": 48,
+    "remaining": "External relative call/jump operands and SC_STATUS code-segment address only; no instruction/data/internal-branch differences."
+  },
+  "post_build": "Added subfunction4 description comment only; no instruction rebuild per owner requirement.",
+  "evidence": "extras/build/cmd-17081-23949/p137: fullIO/map, guest make.log, full module spans/disassembly/FC log",
+  "counts": {
+    "modified_this_part": 1,
+    "unchanged_reviewed_this_part": 0,
+    "new_source_files": 0,
+    "modified_total": 79,
+    "baseline_identical": 214,
+    "reviewed_modified": 26,
+    "reviewed_unchanged": 43,
+    "in_progress": 53
+  },
+  "full_identity": false,
+  "published": false
+}

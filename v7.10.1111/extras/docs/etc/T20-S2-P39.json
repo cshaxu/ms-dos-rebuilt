@@ -1,0 +1,14 @@
+{
+  "task":"M6 T20 S2 P39",
+  "sources":[{"file":"bios/msbio2.asm","blob":"7418d1bbf79da9d741a88198d2d59f9001b9461b"},{"file":"bios/makefile","blob":"483a58c520a101453168d30cd41a199150df710a"}],
+  "changes":["DWORD root sector and32-bit FAT/CHS arithmetic", "Target FAT32 volume-label guards", "Use existing original ML recipe for msbio2 386 encoding"],
+  "build":"extras/build/cmd-17081-23949/incremental.cmd",
+  "build_exit":0,
+  "check":"extras/build/cmd-17081-23949/p39check.cmd",
+  "check_exit":0,
+  "exact_range":{"offset":20092,"bytes":297,"scope":"set_volume_id through check_media_id, including root_sec and complete reader"},
+  "counts":{"core_modified_this_part":2,"assembly_files_modified":1,"makefiles_modified":1,"core_modified_total":23,"reviewed_unchanged":39,"new_core_files":0},
+  "pending":"Remaining provider integration and full IO/CMD identity",
+  "published":false,
+  "full_identity":false
+}

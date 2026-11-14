@@ -1,0 +1,46 @@
+{
+  "task": "M6 T20 S2 P138",
+  "previous_turn": "progress: P137 completed misc body restoration",
+  "changes": [
+    "Restore five immediate shifts in DATE16/READTIME/DODATE using original assembly style and scoped .186; remove9 extra bytes.",
+    "Skip baseline-identical crit.asm after whole-module exact target comparison."
+  ],
+  "source_blob_sha1": {
+    "time": "648a70da95249f02d5e76816977e3d04ae3ed9b7",
+    "crit": "b54ad5a40c7686defe55ded7b8c7c7956eab263e"
+  },
+  "build": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+  "build_exit": 0,
+  "comparisons": [
+    {
+      "module": "time.asm",
+      "built": "4909..4AE3",
+      "target": "4909..4AE3",
+      "bytes": 474,
+      "equal": 461,
+      "different": 13,
+      "remaining": "SETREAD, SETWRITE, DEVIOCALL2 operands only."
+    },
+    {
+      "module": "crit.asm",
+      "built": "59B6..5A92",
+      "target": "59B6..5A92",
+      "bytes": 220,
+      "equal": 220,
+      "different": 0
+    }
+  ],
+  "evidence": "extras/build/cmd-17081-23949/p138: fullIO/map, guest make.log, whole spans and FC logs",
+  "counts": {
+    "modified_this_part": 1,
+    "unchanged_reviewed_this_part": 1,
+    "new_source_files": 0,
+    "modified_total": 80,
+    "baseline_identical": 213,
+    "reviewed_modified": 26,
+    "reviewed_unchanged": 44,
+    "in_progress": 54
+  },
+  "full_identity": false,
+  "published": false
+}

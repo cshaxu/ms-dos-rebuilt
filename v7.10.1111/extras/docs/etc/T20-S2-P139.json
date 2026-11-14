@@ -1,0 +1,64 @@
+{
+  "task": "M6 T20 S2 P139",
+  "method": "Linked whole-image build -> module boundaries -> grouped source corrections -> full relink -> byte comparison. Skip proven bodies, retain external bindings for final integration. No standalone assembly probes.",
+  "changes": [
+    "FCBIO: restore 386 file-length division, FAT32 cluster fields and hard-error sector handling; replace obsolete SHARE hooks; restore regeneration stack handling and target register save sequence; remove redundant device test.",
+    "Makefile: use original ML recipe for FCBIO 386 instructions.",
+    "CPMIO and CPMIO2: baseline byte-identical source, whole linked bodies verified apart from external addresses; skip further body audits."
+  ],
+  "build": {
+    "command": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+    "exit": 0,
+    "guest_log": "extras/build/cmd-17081-23949/p139/make.log",
+    "io_bytes": 233388,
+    "configuration_offset": 186880
+  },
+  "comparisons": [
+    {
+      "module": "fcbio.asm",
+      "built": "5F32..641A",
+      "target": "5F32..641A",
+      "bytes": 1256,
+      "equal": 1234,
+      "different": 22,
+      "remaining": "20 external CALL operands only",
+      "snapshot": "P139 linked image"
+    },
+    {
+      "module": "cpmio.asm",
+      "built": "5A92..5DFC",
+      "target": "5A92..5DFC",
+      "bytes": 874,
+      "equal": 854,
+      "different": 20,
+      "remaining": "External code addresses only",
+      "snapshot": "P138 linked image; source unchanged in P139"
+    },
+    {
+      "module": "cpmio2.asm",
+      "built": "5DFC..5F32",
+      "target": "5DFC..5F32",
+      "bytes": 310,
+      "equal": 294,
+      "different": 16,
+      "remaining": "External CALL operands only",
+      "snapshot": "P138 linked image; source unchanged in P139"
+    }
+  ],
+  "counts": {
+    "modified_this_part": 2,
+    "modified_asm": 1,
+    "modified_makefile": 1,
+    "unchanged_reviewed_this_part": 2,
+    "new_source_files": 0,
+    "modified_total": 80,
+    "baseline_identical": 213,
+    "reviewed_modified": 26,
+    "reviewed_unchanged": 46,
+    "in_progress": 54
+  },
+  "full_identity": false,
+  "msdos_sys_exact": true,
+  "command_rebuilt_this_part": false,
+  "published": false
+}

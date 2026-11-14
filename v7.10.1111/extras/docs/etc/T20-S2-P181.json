@@ -1,0 +1,8 @@
+{
+  "task": "M6 T20 S2 P181",
+  "change": "Resolve clean versus incremental IO mismatch: apply the same inherited OMF fixup ordering to cfgmain, cfgline and cfgmenu in the disposable incremental build helper before linking. No production source or build recipe changed.",
+  "cause": "Incremental cfg-switch assembled three objects without the --whole fixup ordering already applied by extras/build.cmd; their link relocation order therefore differed. Object order logs show 28,29,50 operands reordered, with code/data unchanged.",
+  "proof": {"clean": "extras/build/cmd-8713-29719/out/IO.SYS", "incremental": "extras/build/cmd-17188-26244/out/IO.SYS", "command": "fc /b out/IO.SYS ../cmd-8713-29719/out/IO.SYS", "exit": 0, "bytes": 247328, "registry_group_bytes": 8623, "registry_comparison_log": "extras/build/cmd-17188-26244/reproducible.compare.log", "cfg_main": "160 bytes: 140 exact, 12 verified call operands, 8 layout-dependent bytes pending"},
+  "counts": {"modified_core_this_part": 0, "unchanged_complete_files_newly_certified": 0, "modified_total": 94, "baseline_identical": 199},
+  "remaining": "This proves equality for the current full and incremental images, not equality to the target. Remove remaining old registry sections after their consumers are reconciled; final IO and COMMAND identity remain open."
+}

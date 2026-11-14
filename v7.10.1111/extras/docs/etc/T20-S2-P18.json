@@ -1,0 +1,65 @@
+{
+  "task": "M6 T20 S2 P18",
+  "source_baseline": "v7.00.950",
+  "files": [
+    {
+      "unit": 46,
+      "path": "inc/copyrigh.inc",
+      "baseline_equal": true,
+      "fc_exit": 0,
+      "review": "USA literal117-byte resource matches accepted950 offset32633 and1111 offsets37570/107655 exactly; two FC /B comparisons exit0. Other language branches preserved."
+    },
+    {
+      "unit": 47,
+      "path": "inc/win386.inc",
+      "baseline_equal": true,
+      "fc_exit": 0,
+      "review": "Interrupt constants and SIS/IIS structures have no INCLUDE or external prerequisites; target consumer validation pending."
+    },
+    {
+      "unit": 48,
+      "path": "inc/magicdrv.inc",
+      "baseline_equal": true,
+      "fc_exit": 0,
+      "review": "Compression CVF BPB definitions are a separate on-disk format, not the expanded FAT32 A_BPB; preserve until target consumer evidence."
+    },
+    {
+      "unit": 49,
+      "path": "inc/highvar.inc",
+      "baseline_equal": true,
+      "fc_exit": 0,
+      "review": "BIOS sysconf defines neither HV_Extern nor HV_LoadHigh; selected path defines local data and CS-based access macros. COMMAND contexts remain pending; no standalone target layout claim."
+    }
+  ],
+  "source_changes": 0,
+  "rebuilt": false,
+  "byte_evidence": {
+    "length": 117,
+    "baseline_offset": 32633,
+    "target_offsets": [
+      37570,
+      107655
+    ],
+    "comparison": "FC /B old.bin bios.bin and old.bin kernel.bin exit0",
+    "scratch": "extras/build/s2-p18",
+    "mapping": "USA three literal DB strings in inc/copyrigh.inc; bios/si2front.asm includes the resource"
+  },
+  "remaining_includes": [
+    "inc/psdata.inc",
+    "inc/parse.asm",
+    "inc/highload.inc",
+    "inc/highexit.inc",
+    "bios/mrcf.inc"
+  ],
+  "context_findings": {
+    "highexit": "Fully read, not yet admitted: DeviceHigh depends on arena definitions from caller/highload context and highvar macros/data. HV_LoadHigh branch includes arena itself. Bind with highload/sysconf before target validation.",
+    "mrcf": "Executable inclusion in bios/logocode.asm at line603; retain as pending, not a constant include."
+  },
+  "counts": {
+    "processed": 49,
+    "modified": 14,
+    "unchanged": 35,
+    "unreviewed": 244
+  },
+  "acceptance": "Only copyright bytes locally validated; three-output acceptance remains pending."
+}

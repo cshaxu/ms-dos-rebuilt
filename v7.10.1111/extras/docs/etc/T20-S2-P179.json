@@ -1,0 +1,9 @@
+{
+  "task": "M6 T20 S2 P179",
+  "change": "Unlink rqvalue.obj after reference audit: cfg callers now bind target query, and no remaining source caller references legacy wrapper exports. Retain source/compile recipe until its code is consolidated into the original module structure.",
+  "source_blob_sha1": {"bios/config.lnk":"7b3a8ab53f68eeb3b7411831248dccaa7582beb7"},
+  "build": {"command": "extras/build/cmd-17188-26244/relink.cmd", "exit": 0, "io_before": 247744, "io_after": 247328, "removed_linked_bytes": 416},
+  "proof": {"registry_group_bytes": 8623, "registry_group_exact": 8211, "registry_group_verified_addresses": 412, "registry_log": "extras/build/cmd-17188-26244/unlink-rqvalue.compare.log", "cfg_main_bytes": 160, "cfg_main_exact": 140, "cfg_main_verified_address_bytes": 12, "cfg_main_layout_bytes_pending": 8, "cfg_main_verifier": "extras/build/cmd-17188-26244/cfgmaincheck.c"},
+  "counts": {"modified_this_part": 1, "unchanged_complete_files_newly_certified": 0, "modified_total": 93, "baseline_identical": 200},
+  "remaining": "Continue stripping other linked legacy sections after complete reference mapping; rqvalue source and build preparation remain temporarily for orderly module consolidation. Final three-output identity remains open."
+}

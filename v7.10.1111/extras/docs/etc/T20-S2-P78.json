@@ -1,0 +1,19 @@
+{
+  "task": "M6 T20 S2 P78",
+  "sources": {"dos/msctrlc.asm": "019d0a9ee953eeb3c0230173a54222af1bce19e3"},
+  "changes": "Restore the shared high-register recovery procedure before CNTCHAND, selecting the saved ten-byte record via AuxStack/DskStack/IoStack boundaries. Restore EDI/EDX/ECX/EBX/EAX high words while preserving low words and flags. Call it before INT23 and INT24 user-stack transitions; replace separate SS/SP loads with LSS as in target. No new file or duplicated helper.",
+  "dependency_basis": "Uses the five high words already saved by msdisp. Existing stack symbols resolve to07A0/0920/0AA0; saved records are ten bytes below these boundaries.",
+  "build": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+  "build_exit": 0,
+  "check": "extras/build/cmd-17081-23949/p78check.cmd",
+  "check_exit": 0,
+  "exact_regions": [
+    {"built_offset": 96270, "target_offset": 98569, "bytes": 67, "purpose": "Complete shared high-register recovery procedure"},
+    {"built_offset": 96371, "target_offset": 98670, "bytes": 9, "purpose": "INT23 recovery call, CLI and LSS"},
+    {"built_offset": 96870, "target_offset": 99169, "bytes": 9, "purpose": "INT24 recovery call and LSS"}
+  ],
+  "verification_note": "Direct comparison of complete linked output at source-attributed boundaries, no operand exclusions. The remainder of msctrlc and whole-image placement are still unresolved.",
+  "counts": {"core_modified_this_part": 1, "core_modified_total": 42, "core_identical_to_baseline": 251, "reviewed_modified": 26, "reviewed_unchanged": 38, "reviewed_total": 64, "in_progress": 16, "new_core_files": 0},
+  "full_identity": false,
+  "published": false
+}

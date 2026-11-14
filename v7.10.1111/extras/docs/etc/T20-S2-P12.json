@@ -1,0 +1,92 @@
+{
+  "task": "M6 T20 S2 P12",
+  "status": "source-definition-review-only; consumer-validation-pending",
+  "files": [
+    {
+      "unit": 25,
+      "path": "inc/sysvar.inc",
+      "change": "none",
+      "reference": "../v7.00.950/inc/sysvar.inc",
+      "comparison": "FC /B against v7.00.950 exit0; exact",
+      "dependencies": "No includes or EXTRN. curdir/arena require caller listing BREAK macro."
+    },
+    {
+      "unit": 26,
+      "path": "inc/curdir.inc",
+      "change": "none",
+      "reference": "../v7.00.950/inc/curdir.inc",
+      "comparison": "FC /B against v7.00.950 exit0; exact",
+      "dependencies": "No includes or EXTRN. curdir/arena require caller listing BREAK macro."
+    },
+    {
+      "unit": 27,
+      "path": "inc/arena.inc",
+      "change": "none",
+      "reference": "../v7.00.950/inc/arena.inc",
+      "comparison": "FC /B against v7.00.950 exit0; exact",
+      "dependencies": "No includes or EXTRN. curdir/arena require caller listing BREAK macro."
+    },
+    {
+      "unit": 28,
+      "path": "inc/rombios.inc",
+      "change": "none",
+      "reference": "../v7.00.950/inc/rombios.inc",
+      "comparison": "FC /B against v7.00.950 exit0; exact",
+      "dependencies": "No includes or EXTRN. curdir/arena require caller listing BREAK macro."
+    },
+    {
+      "unit": 29,
+      "path": "bios/devmark.inc",
+      "change": "none",
+      "reference": "../v7.00.950/bios/devmark.inc",
+      "comparison": "FC /B against v7.00.950 exit0; exact",
+      "dependencies": "No includes or EXTRN. curdir/arena require caller listing BREAK macro."
+    },
+    {
+      "unit": 30,
+      "path": "inc/cputype.inc",
+      "change": "none",
+      "reference": "../v7.00.950/inc/cputype.inc",
+      "comparison": "FC /B against v7.00.950 exit0; exact",
+      "dependencies": "No includes or EXTRN. curdir/arena require caller listing BREAK macro."
+    }
+  ],
+  "scope": "Full source read and direct comparison to v7.00.950. No NT/BOP additions; preserve baseline definitions. No recompilation or target-binary completion inferred.",
+  "remaining_bios_include_closure": [
+    "inc/pdb.inc",
+    "inc/sf.inc",
+    "inc/syscall.inc",
+    "inc/dossym.inc",
+    "inc/dosmac.inc",
+    "inc/mult.inc",
+    "inc/doscntry.inc",
+    "bios/config.inc",
+    "inc/copyrigh.inc",
+    "inc/error.inc",
+    "bios/msgroup.inc",
+    "inc/win386.inc",
+    "inc/magicdrv.inc",
+    "inc/umb.inc",
+    "inc/parse.asm",
+    "inc/highvar.inc",
+    "inc/highload.inc",
+    "inc/highexit.inc",
+    "inc/ds_vers.inc",
+    "bios/mrcf.inc",
+    "inc/dbcs.sw",
+    "inc/buffer.inc",
+    "inc/dirent.inc",
+    "inc/psdata.inc"
+  ],
+  "ordering": "24 pending source include files are the transitive closure of the18-module BIOS SCC minus reviewed units. Textual leaves require semantic prerequisite inspection before admission. dosmac/dossym context and included executable parse/highload/highexit/mrcf code must not be treated as context-free constants.",
+  "counts": {
+    "core_processed": 30,
+    "core_modified": 11,
+    "core_unchanged": 19,
+    "core_unreviewed": 263,
+    "tool_modified": 1,
+    "new_core_files": 0
+  },
+  "next": "Read pending PDB/SF and remaining constant/structure leaves; resolve dosmac/dossym semantic context and included-code dependencies before editing BIOS SCC.",
+  "reference_policy": "Owner correction: use only v7.00.950 source baseline and frozen7.10.1111 target image. Do not consult any other version. Earlier DOS6 comparison was not an applicable acceptance basis."
+}

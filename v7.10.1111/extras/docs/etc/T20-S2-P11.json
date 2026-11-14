@@ -1,0 +1,94 @@
+{
+  "task": "M6 T20 S2 P11",
+  "unit": 24,
+  "file": "inc/dpb.inc",
+  "status": "layout-probe-exact-consumer-integration-pending",
+  "source_blob_sha1": "9c602e03d32a5526e40da58c46fd18de806c3ec8",
+  "dependencies": "No INCLUDE/EXTRN. Caller-supplied BREAK listing macro; probe supplies one-argument empty macro.",
+  "changes": "Widen DPB_FREE_CNT from WORD to DWORD; append eight FAT32 fields. Preserve prefix through offset1Eh and existing names.",
+  "layout": {
+    "DPBSIZ": 61,
+    "DPB_FREE_CNT": 31,
+    "DPB_EXTFLAGS": 35,
+    "DPB_FSINFO": 37,
+    "DPB_BKBOOTSEC": 39,
+    "DPB_FIRST_SECTOR32": 41,
+    "DPB_MAX_CLUSTER32": 45,
+    "DPB_FAT_SIZE32": 49,
+    "DPB_ROOTCLUS": 53,
+    "DPB_NEXT_FREE32": 57
+  },
+  "evidence": {
+    "target": "extras/baselines/targets/IO.SYS",
+    "kernel_file_base": 76128,
+    "interpretation": "BPB-to-DPB initialization copies FAT size, FSInfo, backup boot and root cluster, computes first/max cluster fields, stores mirror flags. FSInfo signature checks and offsets1E8h/1ECh lead to free-count/next-free stores. Startup allocator advances/subtracts3Dh.",
+    "spans": [
+      {
+        "target_offset": 81042,
+        "probe_offset": 0,
+        "length": 5
+      },
+      {
+        "target_offset": 81102,
+        "probe_offset": 5,
+        "length": 4
+      },
+      {
+        "target_offset": 81122,
+        "probe_offset": 9,
+        "length": 4
+      },
+      {
+        "target_offset": 81133,
+        "probe_offset": 13,
+        "length": 5
+      },
+      {
+        "target_offset": 81171,
+        "probe_offset": 18,
+        "length": 4
+      },
+      {
+        "target_offset": 81194,
+        "probe_offset": 22,
+        "length": 5
+      },
+      {
+        "target_offset": 81348,
+        "probe_offset": 27,
+        "length": 5
+      },
+      {
+        "target_offset": 113487,
+        "probe_offset": 32,
+        "length": 5
+      },
+      {
+        "target_offset": 113504,
+        "probe_offset": 37,
+        "length": 5
+      },
+      {
+        "target_offset": 115743,
+        "probe_offset": 42,
+        "length": 3
+      }
+    ],
+    "probe_bytes": 45,
+    "comparison": "FC /B probe.bin expected.bin: exit0; target concatenation is comparison-only",
+    "assertions": 10,
+    "tools": "Original ML6.00 /c /nologo /Zm; LINK5.10; RELOC; private desktop C runner",
+    "scratch": "extras/build/s2-p11",
+    "diagnostic": "extras/build/s2-p10/kernel.dis"
+  },
+  "toolchain_findings": "MASM5 emits26 66 for386 memory instructions; original ML emits target66 26. Used original ML without prefix hacks. Probe BREAK macro argument fixed; final assembly log clean, no errors/warnings.",
+  "limits": "Field names added by reconstruction, not claimed original identifiers. Not whole-kernel acceptance. Existing consumers requiring low16-bit DPB_FREE_CNT access must explicitly use WORD PTR as target demands; other consumers require32-bit operations. Do not mark those consumers complete.",
+  "counts": {
+    "core_processed": 24,
+    "core_modified": 11,
+    "core_unchanged": 13,
+    "core_unreviewed": 269,
+    "tool_modified": 1,
+    "new_core_files": 0
+  }
+}

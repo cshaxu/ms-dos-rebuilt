@@ -1,0 +1,17 @@
+{
+  "task": "M6 T20 S2 P25",
+  "file": "bios/msinit.asm",
+  "status": "restoration-in-progress",
+  "source_blob": "457b502beae1f35dc5db7dabcc9e2287e2c1d561",
+  "changes": ["Extend local bpbx from25 to53 bytes with zero FAT32 fields", "Use zero alignment bytes around four existing floppy BPBs"],
+  "consumer": "setdrvparms retains mov cx,size bpbx; listing now emits B9 0035",
+  "build_directory": "extras/build/cmd-17081-23949",
+  "command": "incremental.cmd: original NMAKE, ML msinit, full BIOS LINK/RELOC, repack.cmd, analyze.cmd",
+  "exit": 0,
+  "verification": {"artifact":"out/IO.SYS", "built_offset":4030, "target_offset":4040, "length":216, "exact":true, "log":"IO.SYS.anchors.log", "listing":"bios/msinit.lst"},
+  "prior_artifacts": "p25-before/msbio.bin, p25-before/msbio.map, p25-before/IO.SYS",
+  "pending": "FAT16/FAT32 disk tables and initialization consumers; full BIOS and final IO/CMD equality",
+  "counts": {"core_modified_this_part":1, "core_modified_total":16, "reviewed_unchanged":40, "new_core_files":0},
+  "published": false,
+  "full_identity": false
+}

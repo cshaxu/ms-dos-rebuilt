@@ -1,0 +1,9 @@
+{
+  "task": "M6 T20 S2 P162",
+  "change": "Restore key-cache directory initialization, a dependency for key-record allocation, in existing regread.asm.",
+  "source_blob_sha1": "dd56f0bbb83a0eefa4ebd2611068393cbcabbdfd",
+  "build": {"command": "extras/build/cmd-17188-26244/regread-build.cmd", "exit": 0, "io_bytes": 241018},
+  "proof": {"target": "014E:3FD0", "new_bytes": 195, "new_exact": 183, "verified_call_operands": 12, "combined_bytes": 1965, "combined_exact": 1869, "combined_verified_addresses": 96, "verifier": "extras/build/cmd-17188-26244/datachaincheck.c", "log": "key-init.compare.log", "exit": 0},
+  "counts": {"modified_this_part": 1, "unchanged_complete_files_newly_certified": 0, "modified_total": 90, "baseline_identical": 203},
+  "remaining": "Key-record allocation, data allocation, file initialization, root-path/API integration and removal of legacy paths. Final three-output identity remains open."
+}

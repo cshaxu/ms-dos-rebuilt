@@ -1,0 +1,13 @@
+{
+  "task": "M6 T20 S2 P86",
+  "sources": {"dos/fat.asm": "4c148724ea5ddb18be56e7bd104e762290f3ee7c"},
+  "changes": "Restore FAT32 EOF threshold check using FatClusterHigh, preserving legacy FAT12/16 thresholds. Whole-module comparison also identified missing failed-BPB buffer invalidation; restore LDS CALLXAD and buffer-ID reset before FATERR.",
+  "build": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+  "build_exit": 0,
+  "comparison": {"built_offset": 108356, "target_offset": 111868, "bytes": 1742, "built_runtime_range": "BD04..C3D2 exclusive", "target_runtime_range": "CABC..D18A exclusive", "equal_bytes": 1704, "different_bytes": 38, "log": "extras/build/cmd-17081-23949/p86/fat-diff.log", "scope": "Entire fat.asm output from IsEOF through FATERRJ before GETCURHEAD. Remaining differences lie in external calls/cache addresses. No excluded bytes; internal layout matches. Earlier1733-byte tentative endpoint was incorrect and superseded by actual next-module boundary."},
+  "reproduction": "Extract1742 bytes at recorded offsets from final p86/IO.SYS and frozen target with extras/build/s2-p1/span.exe; FC /B; RG -c ^0 p86/fat-diff.log returns38. Final map/log retained.",
+  "open": "Provider binding and whole-image placement remain unresolved; do not accept whole fat.asm solely on matching internal layout. Next restore upstream/provider dependencies without re-auditing these matching instruction bodies.",
+  "counts": {"core_modified_this_part": 1, "core_modified_total": 43, "core_identical_to_baseline": 250, "reviewed_modified": 26, "reviewed_unchanged": 38, "reviewed_total": 64, "in_progress": 17, "new_core_files": 0},
+  "full_identity": false,
+  "published": false
+}

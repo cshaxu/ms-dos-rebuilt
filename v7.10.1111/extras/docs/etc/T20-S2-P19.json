@@ -1,0 +1,457 @@
+{
+  "task": "M6 T20 S2 P19",
+  "baseline": "v7.00.950 only",
+  "files": [
+    {
+      "unit": 50,
+      "path": "inc/psdata.inc",
+      "source_modified": false,
+      "proof": "BIOS-selected data included with parse.asm in2409-byte verified block."
+    },
+    {
+      "unit": 51,
+      "path": "bios/mrcf.inc",
+      "source_modified": false,
+      "proof": "Full2641-byte decoder uniquely matches target62930;2605 direct bytes and18 resolved internal words."
+    },
+    {
+      "unit": 52,
+      "path": "inc/highload.inc",
+      "source_modified": false,
+      "proof": "BIOS-selected1674-byte preparation span plus207-byte highexit form1881-byte block at56170;1803 direct bytes and39 symbol-bound address words."
+    },
+    {
+      "unit": 53,
+      "path": "inc/highexit.inc",
+      "source_modified": false,
+      "proof": "BIOS-selected207-byte exit span at57844 verified in1881-byte preparation/exit block; all three highvar address references bound."
+    },
+    {
+      "unit": 54,
+      "path": "inc/parse.asm",
+      "source_modified": false,
+      "proof": "BIOS parser plus psdata spans2409 bytes at48457;2225 direct bytes and92 resolved internal address words; unique match, wrong-base control fails."
+    }
+  ],
+  "recompiled": false,
+  "decoder": {
+    "old_offset": 57424,
+    "new_offset": 62930,
+    "length": 2641,
+    "internal_fixups": [
+      24,
+      26,
+      28,
+      30,
+      32,
+      34,
+      36,
+      38,
+      46,
+      51,
+      56,
+      86,
+      109,
+      170,
+      2544,
+      2567,
+      2622,
+      2632
+    ],
+    "negative_control": "Target segment base22177:zero matches; correct22176:one match."
+  },
+  "devicehigh": {
+    "baseline_file_offset": 50712,
+    "target_file_offset": 56170,
+    "length": 1881,
+    "files": [
+      "inc/highload.inc",
+      "inc/highexit.inc"
+    ],
+    "boundary": 1674,
+    "bindings": [
+      {
+        "offset": 10,
+        "symbol": "fUmbTiny",
+        "old": 26265,
+        "target": 29285,
+        "listing": "1E26  26: A2 0BCF R\t      C \tmov\tfUmbTiny, al\t\t;Shrink UMBs? (made 1 if /S given)"
+      },
+      {
+        "offset": 14,
+        "symbol": "fInHigh",
+        "old": 26264,
+        "target": 29284,
+        "listing": "1E2A  26: A2 0BCE R\t      C \tmov\tfInHigh,  al\t\t;Set to 1 when DH/LH has been called"
+      },
+      {
+        "offset": 18,
+        "symbol": "SegLoad",
+        "old": 26266,
+        "target": 29286,
+        "listing": "1E2E  26: A3 0BD0 R\t      C \tmov\tSegLoad,  ax\t\t;Load Address (seg), used for DH only"
+      },
+      {
+        "offset": 23,
+        "symbol": "UmbLoad",
+        "old": 26268,
+        "target": 29288,
+        "listing": "1E32  26: C6 06 0BD2 R\t      C \tmov\tUmbLoad, UNSPECIFIED\t;Later is the # of the 1st spec'd UMB"
+      },
+      {
+        "offset": 28,
+        "symbol": "fm_argc",
+        "old": 26319,
+        "target": 29339,
+        "listing": "1E38  26: A2 0C05 R\t      C \tmov\tfm_argc,  al\t\t;Start with zero args having been read"
+      },
+      {
+        "offset": 35,
+        "symbol": "UmbUsed",
+        "old": 26269,
+        "target": 29289,
+        "listing": "1E40  BF 0BD3 R\t      C \tmov\tdi, offset ES:UmbUsed\t;on the UmbUsed array,"
+      },
+      {
+        "offset": 43,
+        "symbol": "UmbSize",
+        "old": 26285,
+        "target": 29305,
+        "listing": "1E48  BF 0BE3 R\t      C \tmov\tdi, offset ES:UmbSize\t;on the UmbSize array,"
+      },
+      {
+        "offset": 149,
+        "symbol": "fm_umb",
+        "old": 26317,
+        "target": 29337,
+        "listing": "1EB1  26: A2 0C03 R\t     1C \tmov\tfm_umb, al"
+      },
+      {
+        "offset": 168,
+        "symbol": "fm_umb",
+        "old": 26317,
+        "target": 29337,
+        "listing": "1EC4  8A 1E 0C03 R\t     1C \tmov\tbl, fm_umb"
+      },
+      {
+        "offset": 213,
+        "symbol": "fUmbTiny",
+        "old": 26265,
+        "target": 29285,
+        "listing": "1EF0  26: C6 06 0BCF R\t     1C \tmov\tfUmbTiny, 1"
+      },
+      {
+        "offset": 339,
+        "symbol": "fm_argc",
+        "old": 26319,
+        "target": 29339,
+        "listing": "1F70  A0 0C05 R\t     1C \tmov\tal, fm_argc"
+      },
+      {
+        "offset": 349,
+        "symbol": "fm_argc",
+        "old": 26319,
+        "target": 29339,
+        "listing": "1F79  26: A2 0C05 R\t     1C \tmov\tfm_argc, al"
+      },
+      {
+        "offset": 389,
+        "symbol": "UmbUsed",
+        "old": 26269,
+        "target": 29289,
+        "listing": "1FA0  26: C6 87 0BD3 R\t      C \tmov\tes:UmbUsed[bx], 0"
+      },
+      {
+        "offset": 395,
+        "symbol": "UmbLoad",
+        "old": 26268,
+        "target": 29288,
+        "listing": "1FA6  26: 38 06 0BD2 R\t      C \tcmp\tUmbLoad, al"
+      },
+      {
+        "offset": 402,
+        "symbol": "UmbLoad",
+        "old": 26268,
+        "target": 29288,
+        "listing": "1FAD  26: C6 06 0BD2 R\t      C \tmov\tUmbLoad, 0\t; If unmarked the load UMB, load into convent."
+      },
+      {
+        "offset": 427,
+        "symbol": "UmbLoad",
+        "old": 26268,
+        "target": 29288,
+        "listing": "1FC7  80 3E 0BD2 R FF\t      C \tcmp\tUmbLoad, UNSPECIFIED\t; If this, we haven't been here before"
+      },
+      {
+        "offset": 433,
+        "symbol": "UmbLoad",
+        "old": 26268,
+        "target": 29288,
+        "listing": "1FCE  A2 0BD2 R\t      C \tmov\tUmbLoad, al\t; So remember this UMB as the load UMB slot."
+      },
+      {
+        "offset": 449,
+        "symbol": "UmbUsed",
+        "old": 26269,
+        "target": 29289,
+        "listing": "1FDC  26: 86 87 0BD3 R\t      C \txchg\tES:UmbUsed[bx], al"
+      },
+      {
+        "offset": 476,
+        "symbol": "UmbSize",
+        "old": 26285,
+        "target": 29305,
+        "listing": "1FF7  26: 89 87 0BE3 R\t      C \tmov\tes:UmbSize[bx], ax\t; Store the size"
+      },
+      {
+        "offset": 487,
+        "symbol": "gnradix",
+        "old": 31434,
+        "target": 34476,
+        "listing": "2002  2E: 83 3E 2000 R\t      C \tcmp\tgnradix, 16"
+      },
+      {
+        "offset": 551,
+        "symbol": "gnradix",
+        "old": 31434,
+        "target": 34476,
+        "listing": "2042  2E: C7 06 2000 R\t      C \tmov\tgnradix, 10\t\t; And default to a radix of 10 (dec)"
+      },
+      {
+        "offset": 584,
+        "symbol": "gnradix",
+        "old": 31434,
+        "target": 34476,
+        "listing": "2063  2E: C7 06 2000 R\t      C gxn10:\tmov\tgnradix, 16"
+      },
+      {
+        "offset": 627,
+        "symbol": "gnradix",
+        "old": 31434,
+        "target": 34476,
+        "listing": "208E  2E: F7 26 2000 R\t      C \tmul\tgnradix\t\t; DX=?,      AX=new:hi, TOS=old:lo, BX=0"
+      },
+      {
+        "offset": 639,
+        "symbol": "gnradix",
+        "old": 31434,
+        "target": 34476,
+        "listing": "209A  2E: F7 26 2000 R\t      C \tmul\tgnradix\t\t; DX=carry,  AX=new:lo, TOS=orig,   BX=new:hi"
+      },
+      {
+        "offset": 783,
+        "symbol": "gnradix",
+        "old": 31434,
+        "target": 34476,
+        "listing": "212A  2E: 83 3E 2000 R\t      C \tcmp\tgnradix, 16"
+      },
+      {
+        "offset": 810,
+        "symbol": "UmbLoad",
+        "old": 26268,
+        "target": 29288,
+        "listing": "2147  A0 0BD2 R\t      C \tmov\tal, UmbLoad"
+      },
+      {
+        "offset": 851,
+        "symbol": "fInHigh",
+        "old": 26264,
+        "target": 29284,
+        "listing": "216E  26: C6 06 0BCE R\t     1C \tmov\tfInHigh, 1"
+      },
+      {
+        "offset": 903,
+        "symbol": "UmbLoad",
+        "old": 26268,
+        "target": 29288,
+        "listing": "21A4  A0 0BD2 R\t     1C \tmov\tal, UmbLoad"
+      },
+      {
+        "offset": 913,
+        "symbol": "UmbLoad",
+        "old": 26268,
+        "target": 29288,
+        "listing": "21AE  A0 0BD2 R\t      C \tmov\tal, UmbLoad"
+      },
+      {
+        "offset": 918,
+        "symbol": "UmbSize",
+        "old": 26285,
+        "target": 29305,
+        "listing": "21B3  BB 0BE3 R\t      C \tmov\tbx, offset DS:UmbSize\t;                     bx==array"
+      },
+      {
+        "offset": 939,
+        "symbol": "UmbSize",
+        "old": 26285,
+        "target": 29305,
+        "listing": "21C8  BB 0BE3 R\t      C \tmov\tbx, offset DS:UmbSize\t;                     bx==array"
+      },
+      {
+        "offset": 957,
+        "symbol": "UmbLoad",
+        "old": 26268,
+        "target": 29288,
+        "listing": "21D9  26: A2 0BD2 R\t     1C \tmov\tUmbLoad, al"
+      },
+      {
+        "offset": 967,
+        "symbol": "UmbLoad",
+        "old": 26268,
+        "target": 29288,
+        "listing": "21E3  8A 16 0BD2 R\t     1C \tmov\tdl, UmbLoad"
+      },
+      {
+        "offset": 1028,
+        "symbol": "fUmbTiny",
+        "old": 26265,
+        "target": 29285,
+        "listing": "2221  A0 0BCF R\t     1C \tmov\tal, fUmbTiny"
+      },
+      {
+        "offset": 1233,
+        "symbol": "UmbUsed",
+        "old": 26269,
+        "target": 29289,
+        "listing": "22ED  8A 87 0BD3 R\t     1C \tmov\tal, DS:UmbUsed[bx]"
+      },
+      {
+        "offset": 1665,
+        "symbol": "fm_umb",
+        "old": 26317,
+        "target": 29337,
+        "listing": "249D  8A 1E 0C03 R\t     1C \tmov\tbl, fm_umb"
+      },
+      {
+        "offset": 1679,
+        "symbol": "fInHigh",
+        "old": 26264,
+        "target": 29284,
+        "listing": "24AC  A0 0BCE R\t     1C \tmov\tal, fInHigh"
+      },
+      {
+        "offset": 1701,
+        "symbol": "fInHigh",
+        "old": 26264,
+        "target": 29284,
+        "listing": "24C0  26: C6 06 0BCE R\t     1C \tmov\tfInHigh, 0"
+      },
+      {
+        "offset": 1718,
+        "symbol": "fm_umb",
+        "old": 26317,
+        "target": 29337,
+        "listing": "24D2  8A 1E 0C03 R\t     1C \tmov\tbl, fm_umb"
+      }
+    ],
+    "context": "BIOS HV_LoadHigh absent, DEBUG_PRTABLE absent; highvar and arena definitions already reviewed; COMMAND branch not validated",
+    "source_changed": false,
+    "ledger_written": false
+  },
+  "parser": {
+    "old_offset": 43021,
+    "new_offset": 48457,
+    "length": 2409,
+    "internal_fixups": [
+      301,
+      309,
+      314,
+      321,
+      328,
+      335,
+      342,
+      349,
+      356,
+      387,
+      394,
+      399,
+      423,
+      436,
+      454,
+      474,
+      483,
+      490,
+      507,
+      521,
+      527,
+      546,
+      590,
+      644,
+      654,
+      658,
+      663,
+      668,
+      673,
+      689,
+      705,
+      760,
+      781,
+      792,
+      798,
+      805,
+      811,
+      829,
+      851,
+      885,
+      897,
+      952,
+      1013,
+      1031,
+      1060,
+      1070,
+      1083,
+      1093,
+      1106,
+      1119,
+      1132,
+      1142,
+      1155,
+      1165,
+      1173,
+      1181,
+      1277,
+      1329,
+      1335,
+      1352,
+      1447,
+      1491,
+      1566,
+      1586,
+      1606,
+      1701,
+      1723,
+      1759,
+      1780,
+      1837,
+      1894,
+      1908,
+      1925,
+      1952,
+      1985,
+      1995,
+      2019,
+      2097,
+      2118,
+      2126,
+      2201,
+      2207,
+      2273,
+      2278,
+      2286,
+      2295,
+      2318,
+      2329,
+      2366,
+      2371,
+      2376,
+      2381
+    ],
+    "negative_control": "Target segment base22177:zero matches; correct22176:one match."
+  },
+  "scope": "BIOS selected contexts only; COMMAND consumers and whole-image linking pending.",
+  "counts": {
+    "reviewed_core": 54,
+    "modified": 14,
+    "unchanged": 40
+  }
+}

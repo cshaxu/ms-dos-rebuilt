@@ -1,0 +1,76 @@
+{
+  "task": "M6 T20 S2 P4",
+  "status": "shared-structures-verified-integration-pending",
+  "execution_units": [
+    {
+      "unit": 4,
+      "path": "inc/bpb.inc",
+      "depends_on": [],
+      "change": "Replace obsolete six-byte reserved tail with the FAT32 extended BPB fields; retain all first 25-byte legacy field offsets.",
+      "size_before": 31,
+      "size_after": 53,
+      "source_blob_sha1": "d81ab16ce7c95928decd17223ebfc67ef0085162"
+    },
+    {
+      "unit": 5,
+      "path": "inc/msbds.inc",
+      "depends_on": [
+        "inc/bpb.inc"
+      ],
+      "change": "Expand actual and recommended BPB storage, initialize recommended BPB, and match target root-entry and total-sector defaults.",
+      "size_before": 100,
+      "size_after": 150,
+      "source_blob_sha1": "00f6d9e8d103441b775b709e808a9b53130cad0e"
+    }
+  ],
+  "evidence": {
+    "target_file": "extras/baselines/targets/IO.SYS",
+    "first_builtin_bds_offset": 23086,
+    "builtin_bds_count": 4,
+    "bds_stride": 150,
+    "first_general_bds_offset": 23686,
+    "pattern": "NO NAME strings repeat at 23211,23361,23511,23661 then23811 and onwards; far-link offsets advance 0096h. Exact template at23686 contains default physical drive50h/logical03h.",
+    "bpb_field_offsets": {
+      "BPB_BIGSECTORSPERFAT": 25,
+      "BPB_EXTFLAGS": 29,
+      "BPB_FSVER": 31,
+      "BPB_ROOTCLUS": 33,
+      "BPB_FSINFO": 37,
+      "BPB_BKBOOTSEC": 39
+    },
+    "bds_field_offsets": {
+      "BDS_BPB": 6,
+      "bds_fatsiz": 59,
+      "BDS_RBPB": 67,
+      "bds_track": 120,
+      "bds_volid": 125
+    },
+    "field_semantics_reference": {
+      "title": "Microsoft FAT32 File System Specification v1.03",
+      "url": "https://www.pcjs.org/documents/papers/microsoft/MS_FAT_OVERVIEW_103-2000-12-06.pdf",
+      "scope": "Field names/meaning and 28-byte FAT32 extension only. This later document is not evidence of original OSR2 source spelling; offsets and actual initial values are verified against the target."
+    }
+  },
+  "verification": {
+    "tools": "Original MASM5.10A, LINK, RELOC, verified isolated-desktop runner",
+    "scratch": "extras/build/s2-p4",
+    "bpb_probe": "A_BPB instance with target values: complete53-byte FC /B match at target23692; ERRNZ assertions for size/extension offsets pass.",
+    "bds_probe": "BDS_STRUC <-1>: complete150-byte FC /B match at target23686; ERRNZ assertions for size and key offsets pass.",
+    "bds_sha256": "3b304fd0651d07233e45fcb22da0fa4ea7b5918ef59538eee712970ee38c0488",
+    "build_marker": "PASS",
+    "source_style": "Existing DW/DB/DD declarations and BPB-prefixed fields retained. MASM5 rejects nested initialized STRUC members, so recommended BPB uses the existing flat field declaration style. No extra macro/module or binary patch introduced."
+  },
+  "counts": {
+    "core_processed": 5,
+    "core_modified": 5,
+    "core_unchanged": 0,
+    "baseline_identical_not_certified": 288,
+    "tool_modified": 1,
+    "new_source_files": 0
+  },
+  "remaining": [
+    "The four boot-drive BDS initializers in msbio1.asm still use the old layout and remain pending in the BIOS implementation unit.",
+    "Header size changes require affected consumer rebuilds during integration; no complete BIOS/kernel acceptance claimed.",
+    "msbio1/msinit have a verified symbol cycle: msbio1 imports init; msinit imports hdrv_pat, dosdatasg, and other msbio1 exports. Determine the full component before admitting consumer edits."
+  ]
+}

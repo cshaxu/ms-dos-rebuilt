@@ -1,0 +1,9 @@
+{
+  "task": "M6 T20 S2 P174",
+  "change": "Restore target file open/read, header validation, cache initialization, attribute handling and active-file linkage.",
+  "source_blob_sha1": {"bios/regread.asm":"e3cc6d5b9fc4b5bdda36acada70a018a366c0312"},
+  "build": {"command": "extras/build/cmd-17188-26244/regread-build.cmd", "exit": 0, "io_bytes": 246924},
+  "proof": {"target_entries": ["014E:1DC0", "014E:1F24"], "new_code_bytes": 426, "new_exact": 392, "verified_address_bytes": 34, "combined_code_bytes": 7817, "combined_exact": 7451, "combined_verified_addresses": 366, "verifier": "extras/build/cmd-17188-26244/datachaincheck.c", "log": "openfile.compare.log", "exit": 0},
+  "counts": {"modified_this_part": 1, "unchanged_complete_files_newly_certified": 0, "modified_total": 90, "baseline_identical": 203},
+  "remaining": "Root binding and configuration caller integration remain; target file-create path also remains unresolved. Legacy code is still active and no old path was removed. Final three-output identity remains open."
+}

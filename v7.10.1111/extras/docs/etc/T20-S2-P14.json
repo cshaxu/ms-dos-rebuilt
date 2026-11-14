@@ -1,0 +1,57 @@
+{
+  "task": "M6 T20 S2 P14",
+  "reference_policy": "Only950 source and1111 target",
+  "files": [
+    {
+      "unit": 33,
+      "path": "bios/config.inc",
+      "modified": false,
+      "comparison": "FC /B against ../v7.00.950/bios/config.inc: exit0",
+      "scope": "CONFIG command-table use verified; complete consumer integration pending"
+    },
+    {
+      "unit": 34,
+      "path": "inc/syscall.inc",
+      "modified": false,
+      "comparison": "FC /B against ../v7.00.950/inc/syscall.inc: exit0",
+      "scope": "source definitions reviewed; target consumer validation pending"
+    },
+    {
+      "unit": 35,
+      "path": "inc/mult.inc",
+      "modified": false,
+      "comparison": "FC /B against ../v7.00.950/inc/mult.inc: exit0",
+      "scope": "source definitions reviewed; target consumer validation pending"
+    },
+    {
+      "unit": 36,
+      "path": "inc/error.inc",
+      "modified": false,
+      "comparison": "FC /B against ../v7.00.950/inc/error.inc: exit0",
+      "scope": "source definitions reviewed; target consumer validation pending"
+    }
+  ],
+  "dependencies": "No INCLUDE/EXTRN. config takes caller DOS7_CONFIG flag; mult/error use caller non-emitting BREAK macro; syscall uses assembler listing directives.",
+  "table": {
+    "baseline": "../v7.00.950/extras/assets/IO.SYS",
+    "baseline_offset": 33012,
+    "target": "extras/baselines/targets/IO.SYS",
+    "target_offset": 37949,
+    "length": 303,
+    "end_exclusive": 38252,
+    "comparison": "FC /B exit0",
+    "boundaries": "01 5B 5B starts the first entry; 08 SWITCHES 31 00 ends the last entry and terminates table",
+    "source": "bios/si2front.asm comtab; reads config.inc definitions, plus local CONFIG_LOGO"
+  },
+  "scratch": "extras/build/s2-p14",
+  "rebuild": "None; source instructions unchanged, reused accepted950 product for direct comparison",
+  "open": "dirent.inc and buffer.inc read for next dependency work but not dispositioned: target field meanings require more evidence before modifications. Source identity alone will not resolve FAT32 layout changes.",
+  "counts": {
+    "core_processed": 36,
+    "core_modified": 12,
+    "core_unchanged": 24,
+    "core_unreviewed": 257,
+    "tool_modified": 1,
+    "new_core_files": 0
+  }
+}

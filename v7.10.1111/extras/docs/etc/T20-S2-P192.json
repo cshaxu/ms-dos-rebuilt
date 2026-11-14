@@ -1,0 +1,22 @@
+{
+  "task": "M6 T20 S2 P192",
+  "scope": "Adapt the original 950 RegNameSum computation on its existing path",
+  "source": "bios/regstr.asm",
+  "change": "Replace the original computation loop with the 1111 counted checksum loop inside the existing RegNameSum procedure. Count the existing zero-terminated input and retain its FAR calling convention. No second checksum implementation or new public entry is present.",
+  "build": {
+    "command": "extras/build/cmd-20864-14811/regstr-build.cmd",
+    "result": "assembly and complete configuration link succeeded",
+    "io_bytes": 234656
+  },
+  "verification": {
+    "target_code": "5 entry bytes and 73 counted-loop bytes directly match IO.SYS target; counting setup and FAR return differ.",
+    "linked_checker": "extras/build/cmd-20864-14811/sum-linked.c",
+    "compatibility": "The isolated DOS harness compared current and 950 routines on empty, mixed-case, high-bit, 1000-byte and 255-high-byte strings and on each nonzero single byte. Expected values and SI preservation were checked.",
+    "harness": "extras/build/cmd-20864-14811/bios/nmtest.asm",
+    "io_core": "186880 bytes at file offsets 512..187391 directly match target",
+    "limitation": "The target uses a NEAR counted interface; the existing 950 FAR zero-terminated interface is retained until its consumer group is migrated. This is not a complete routine or whole IO match."
+  },
+  "counts": {"modified_this_part":1,"newly_baseline_identical_this_part":0,"modified_total":90,"baseline_identical":203},
+  "full_identity": false,
+  "published": false
+}

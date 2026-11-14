@@ -1,0 +1,13 @@
+{
+  "task":"M6 T20 S2 P43",
+  "sources":[{"file":"bios/sysinit1.asm","blob":"06eb9982fa78e7e92a059643355fa0d2d490130b"}],
+  "changes":["Restore immediate12-bit and4-bit shifts in ClrVDISKHeader using original286 instruction scope"],
+  "build":"extras/build/cmd-17081-23949/incremental.cmd",
+  "build_exit":0,
+  "check":"extras/build/cmd-17081-23949/p43check.cmd",
+  "exact_ranges":[{"offset":30696,"bytes":128,"scope":"ClrVDISKHeader and subsequent VDISK helpers"},{"offset":30894,"bytes":53,"scope":"Complete compressed-boot record procedure"}],
+  "next_difference":"Target boot_read_sector at SYSINIT2250 includes INT13 AH42 for partition types0C/0E; boot_find_file at2311 adds FAT32 root traversal. Existing boot_copy_buffer provider must be expanded and its population reconciled before those consumers are accepted.",
+  "counts":{"core_modified_this_part":1,"core_modified_total":25,"reviewed_unchanged":39,"new_core_files":0},
+  "published":false,
+  "full_identity":false
+}

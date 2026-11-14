@@ -1,0 +1,20 @@
+{
+  "task":"M6 T20 S2 P30",
+  "status":"message-frame-restored-at-current-linked-placement",
+  "sources":[
+    {"file":"bios/msinit.asm","blob":"622bc27250e98b8445e7691e12f5a256179a6c21"},
+    {"file":"bios/sysimes.asm","blob":"91b53767aef874e1e5479fa976474248326da019"}
+  ],
+  "changes":["Place existing resource in paragraph-aligned SYSINITMSG", "Use original-linker segment references and DS save/restore in CPU/A20 consumers", "Use ES for resident A20 pointer store"],
+  "check":"extras/build/cmd-17081-23949/p30check.cmd",
+  "check_exit":0,
+  "evidence_directory":"extras/build/cmd-17081-23949/p30",
+  "resource":{"built_offset":65296,"target_offset":67632,"length":4307,"exact":true},
+  "call_blocks":{"cpu_bytes":20,"a20_bytes":25,"direct_exact_bytes":39,"segment_word_bytes":4,"runtime_segment":4065,"target_segment":4211},
+  "segment_basis":"map0F71 + RELOC70 = runtime0FE1; file65296 agrees with BIOS base2048",
+  "other_consumer_check":"SYSINIT1 file27675 preserves SYSINIT-relative AB9A/AB46 operands",
+  "counts":{"core_modified_this_part":2,"core_modified_total":17,"reviewed_unchanged":39,"new_core_files":0},
+  "pending":"Remaining BIOS modules/layout, other message consumers and final exact IO/CMD outputs",
+  "published":false,
+  "full_identity":false
+}

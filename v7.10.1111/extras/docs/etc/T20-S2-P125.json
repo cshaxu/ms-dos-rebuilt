@@ -1,0 +1,38 @@
+{
+  "task": "M6 T20 S2 P125",
+  "changes": "Replace four SHR AL,1 instructions in GetCharType with target SHR AL,4 using .186/.8086 scope; preserve existing FCB structure, table, comments and conditional branches.",
+  "source_blob_sha1": "4b5d3d51440f6d21a9e635a6d22e496743ac371a",
+  "build": {
+    "command": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+    "exit": 0,
+    "note": "Initial NMAKE invocation failed after MASM command without diagnostic. Standalone same MASM command produced object and DIAG.OK PASS. Following full kernel link/package passed. Failure log retained, root cause unresolved."
+  },
+  "comparison": {
+    "scope": "Whole FCB module including CharType table",
+    "built_runtime": "8D19..8EB5",
+    "target_runtime": "93AC..9548",
+    "built_file_offset": 96089,
+    "target_file_offset": 97772,
+    "bytes": 412,
+    "equal": 408,
+    "different": 4,
+    "remaining": {
+      "56": "GetVisDrv call operand",
+      "141": "FILE_UCASE_TAB offset differs by five; shared layout unresolved",
+      "17D..17E": "CharType internal absolute address"
+    }
+  },
+  "evidence": "extras/build/cmd-17081-23949/p125: full IO.SYS/map, successful and failed kernel logs, DIAG.OK, spans and FC log",
+  "counts": {
+    "modified_this_part": 1,
+    "unchanged_reviewed_this_part": 0,
+    "modified_total": 71,
+    "baseline_identical": 222,
+    "reviewed_modified": 26,
+    "reviewed_unchanged": 40,
+    "in_progress": 45
+  },
+  "next": "Skip FCB instruction/table body. Resolve shared UCASE layout and remaining kernel provider differences using linked image; no arbitrary padding.",
+  "full_identity": false,
+  "published": false
+}

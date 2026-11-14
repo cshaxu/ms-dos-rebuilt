@@ -1,0 +1,34 @@
+{
+  "task": "M6 T20 S2 P129",
+  "changes": [
+    "Restore AssignOper80h/84h flag and return EBX high word through active Aux/Dsk/IO stack's existing ten-byte high-register frame, using stack symbols.",
+    "Use Installed EQ FALSE conditions to preserve installed redirector dispatch with386 assembly; fix verified initial PRINTER_GETSET_STRING unresolved external.",
+    "InitCDS uses target XOR AX,AX."
+  ],
+  "source_blob_sha1": "0134660614f4124f517e4c0b565794bfb7469466",
+  "build_exit": 0,
+  "build": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+  "comparison": {
+    "scope": "Whole macro.asm drive/CDS module",
+    "built_runtime": "A467..A63E",
+    "target_runtime": "AAFA..ACD1",
+    "bytes": 471,
+    "equal": 461,
+    "different": 10,
+    "remaining": "Sys_Ret_OK, Sys_Ret_Err and Get_User_Stack operands only. All internal branches, data references and stack-frame operations match."
+  },
+  "evidence": "extras/build/cmd-17081-23949/p129: complete IO.SYS/map, final and initial failed kernel logs, spans and FC log",
+  "counts": {
+    "modified_this_part": 1,
+    "unchanged_reviewed_this_part": 0,
+    "new_source_files": 0,
+    "modified_total": 75,
+    "baseline_identical": 218,
+    "reviewed_modified": 26,
+    "reviewed_unchanged": 41,
+    "in_progress": 49
+  },
+  "next": "Skip macro body. Continue macro2 path-translation provider from whole linked image; unresolved shared-data layout retained.",
+  "full_identity": false,
+  "published": false
+}

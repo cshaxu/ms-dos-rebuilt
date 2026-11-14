@@ -1,0 +1,23 @@
+{
+  "task": "M6 T20 S2 P68",
+  "sources": {
+    "dos/dostab.asm": "a98be119b3bb9cf1f3cb9dd2eade32da153f2365",
+    "dos/mscode.asm": "21dd980a083dc2e908eb8ad80bfbfcf252477d3f",
+    "dos/mstable.asm": "7d64925b401faa63cda1c75e0bb079ba6f633ad9"
+  },
+  "changes": "Add target notification byte at DOSDATA:0F5C, service controlling IsWin386 bit1 and this byte, and INT2F internal service49 entry. Names are inferred from target behavior. Preserve target instruction sequence including invalid-selector return path.",
+  "dependency_order": ["DOSDATA declaration", "service implementation", "dispatch-table reference"],
+  "build": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+  "build_exit": 0,
+  "check": "extras/build/cmd-17081-23949/p68check.cmd",
+  "check_exit": 0,
+  "regions": [
+    {"built_offset":78281,"target_offset":78447,"exact_bytes":51,"purpose":"New INT2F1231 state-control service"},
+    {"built_offset":77123,"target_offset":77123,"exact_bytes":170,"purpose":"P67 dispatch/return region now at target offset"}
+  ],
+  "layout": "Set_Ctrl_C_Trapping now4133, matching target. Added table entry resolves prior two-byte upstream displacement without padding.",
+  "counts": {"core_modified_this_part":3,"core_modified_total":35,"reviewed_modified":25,"reviewed_unchanged":39,"reviewed_total":64,"new_core_files":0},
+  "limitations": "Three modules remain in progress. Whole kernel and whole IO.SYS still differ; prior overlapping dispatcher proof is not additional coverage.",
+  "full_identity":false,
+  "published":false
+}

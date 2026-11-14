@@ -1,0 +1,14 @@
+{
+  "task": "M6 T20 S2 P99",
+  "changes": "Restore coherent directory-search provider group in existing dir.asm: high-word cluster state, UNPACK/FIGREC interfaces, FAT32 root validation and search, fixed root DWORD sector state; move and widen existing SFT position table to target layout, restore six-byte record store/lookup/clear. Use original ML recipe. No new core files.",
+  "sources": {"dos/dir.asm": "131ec7b8cdcfd667e3e71e71e425fbd150b4b25d", "dos/makefile": "c6ab420337014a699b354d7cdbd6edf69eb4f743"},
+  "dependency_order": "dir2 GetPath still consumes old search interface. Restore dir.asm providers first; underlying FAT UNPACK and rom FIGREC bodies already restored. Do not claim caller integration until remaining directory consumers are updated.",
+  "build": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+  "build_exit": 0,
+  "comparison": {"scope": "Contiguous SFT tables, SETDIRSRCH/SETROOTSRCH, SaveDirSft/DirSftNumber/FindDirSft/ClearDirSft", "built_runtime": "7C6D..7EA1 exclusive", "target_runtime": "8571..87A5 exclusive", "built_offset": 91821, "target_offset": 94129, "bytes": 564, "equal_bytes": 527, "different_bytes": 37, "remaining": "19 symbol address words:17 local absolute table/cluster references and two external relative UNPACK/FIGREC calls. All instructions, data contents and internal relative branches otherwise match."},
+  "evidence": "extras/build/cmd-17081-23949/p99: complete spans, FC /B log, final IO.SYS, MSDOS.MAP and kernel.log. All-three comparison rerun; only MSDOS.SYS exact.",
+  "counts": {"core_modified_this_part": 2, "unchanged_files_newly_accepted": 0, "core_modified_total": 49, "core_identical_to_baseline": 244, "reviewed_modified": 26, "reviewed_unchanged": 38, "reviewed_total": 64, "in_progress": 23, "new_core_files": 0},
+  "next": "Complete earlier dir.asm entry traversal and directory-state consumers before whole-module acceptance, then adapt dir2 path callers. Skip this proved564-byte group. Shared-data MARK2/UCASE and full-image identity remain unresolved.",
+  "full_identity": false,
+  "published": false
+}

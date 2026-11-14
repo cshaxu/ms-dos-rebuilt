@@ -1,0 +1,76 @@
+{
+  "task": "M6 T20 S2 P2",
+  "status": "loader-span-verified-integration-pending",
+  "goal": "Restore v7.10.1111 source",
+  "unit": {
+    "order": 3,
+    "file": "bios/msload.asm",
+    "inventory_id": 53,
+    "dependencies": [],
+    "dependency_proof": "bios/makefile defines DOS7_CONFIG; msload.asm INCLUDEs are all in IFNDEF DOS7_CONFIG or the inactive ELSE. Active branch has no external symbols; IoSysAddr is an absolute segment declaration.",
+    "baseline": "v7.00.950/bios/msload.asm",
+    "changes": [
+      "32-bit FAT32 cluster and sector arithmetic",
+      "FAT12/16 boot record expansion into FAT32 layout",
+      "INT 13h AH=42h LBA reads with CHS fallback",
+      "Four-sector initial load and 1536-byte loader extent"
+    ],
+    "new_source_files": 0
+  },
+  "verification": {
+    "assembler": "Original DOS6 ML",
+    "flags": "/nologo /c /Zm /DUSA /DDBLSPACE_HOOKS /DDOS7_CONFIG /Flloader.lst /Foloader.obj",
+    "link": "LINK /MAP loader.obj,loader.exe,loader.map;",
+    "expected_link_warning": "L4021: no stack segment (standalone boot loader)",
+    "runtime": "Verified private-desktop runner; compilation only; no target OS boot",
+    "build_marker": "PASS",
+    "linked_image": {
+      "mz_header": 512,
+      "entry_offset": 512,
+      "code_file_offset": 1024,
+      "size": 1536
+    },
+    "target": {
+      "file": "extras/baselines/targets/IO.SYS",
+      "offset": 512,
+      "size": 1536
+    },
+    "comparison": "FC /B: no differences encountered; exit 0",
+    "sha256": "7a5ef4ac1121f4b0039e9de0aca00bde8352843cef926e6ab5e037e9b9ea297c",
+    "scratch": "extras/build/s2-p2",
+    "source_blob_sha1": "e89929aa11a8fe522abe7b66f93c2828ae7879b9",
+    "initial_masm_probe": "MASM5.10A produced alternate immediate/prefix encodings. Formal makefile already uses ML; its output is exact. No output patching or target bytes are used in compilation."
+  },
+  "correction": {
+    "previous_loader_comparison": "1024-byte same-length comparison truncated the 1111 loader",
+    "old_loader": {
+      "offset": 512,
+      "size": 1024
+    },
+    "new_loader": {
+      "offset": 512,
+      "size": 1536
+    },
+    "old_bios_start": 1536,
+    "new_bios_start": 2048,
+    "proof": [
+      "Relocation copies 0800h bytes",
+      "BIOS handoff copies from offset 0800h",
+      "Loader signature MS at 07FEh",
+      "Linked loader code matches entire 0200h..07FFh target span"
+    ],
+    "prior_bios_metric": "Previous BIOS comparison starting at 1536 for both images includes 512 bytes of 1111 loader. Do not use that percentage as a BIOS restoration measure."
+  },
+  "counts": {
+    "processed_core_files": 3,
+    "modified": 3,
+    "unchanged": 0,
+    "baseline_identical_not_certified": 290
+  },
+  "remaining": [
+    "ioimage.c still assumes 1024-byte loader; admit container adaptation before integrated build.",
+    "BIOS, kernel, configuration executable and COMMAND differences remain.",
+    "No complete IO.SYS or COMMAND.COM acceptance and no assets publication."
+  ],
+  "next": "Map the first BIOS dependencies using corrected 2048-byte offset; adapt container extent from linked loader size when its input layout is admitted."
+}

@@ -1,0 +1,21 @@
+{
+  "task": "M6 T20 S2 P190",
+  "scope": "Compare the existing first-path ConfigPublishData procedure to the 1111 target",
+  "source": "bios/cfgpub.asm",
+  "source_changed": false,
+  "build": "extras/build/cmd-20864-14811/out/IO.SYS",
+  "target": "extras/baselines/targets/IO.SYS",
+  "verification": {
+    "procedure_bytes": 322,
+    "literal_equal": 302,
+    "far_call_address_bytes_verified": 16,
+    "data_address_bytes_verified": 4,
+    "calls": ["__open", "ConfigIOWrite", "__close", "__close"],
+    "data_symbol": "ConfigInfoData",
+    "checker": "extras/build/cmd-20864-14811/cfgpubcheck.c",
+    "limitation": "Corresponding call targets and data bindings were checked, but provider equivalence and final placement remain open."
+  },
+  "counts": {"modified_this_part":0,"newly_baseline_identical_this_part":0,"modified_total":89,"baseline_identical":204},
+  "full_identity": false,
+  "published": false
+}

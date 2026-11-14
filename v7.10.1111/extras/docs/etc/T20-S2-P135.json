@@ -1,0 +1,34 @@
+{
+  "task": "M6 T20 S2 P135",
+  "previous_turn": "progress: P134 restored whole SETDPB",
+  "changes": [
+    "Restore root-path validation and extended DPB/free-space query entries in existing misc module.",
+    "Dispatch subfunctions2/3 into existing restored providers; no duplicate implementation.",
+    "Share prior SETDPB return and explicit near error transfer to preserve target encoding."
+  ],
+  "source_blob_sha1": "e8e030aa86f589f0c82c63ca722de6206cc57928",
+  "build_exit": 0,
+  "build": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+  "comparison": {
+    "built": "53C4..53FB",
+    "target": "53BB..53F2",
+    "bytes": 55,
+    "equal": 50,
+    "different": 5,
+    "remaining": "4 PathChrCmp/DriveFromText address bytes,1 error-target displacement pending full dispatcher restoration."
+  },
+  "incomplete": "Subfunctions4/5 and exact dispatcher body remain unimplemented; no whole-module completion claim.",
+  "evidence": "extras/build/cmd-17081-23949/p135: fullIO/map, guest make.log, spans/FC log",
+  "counts": {
+    "modified_this_part": 1,
+    "unchanged_reviewed_this_part": 0,
+    "new_source_files": 0,
+    "modified_total": 79,
+    "baseline_identical": 214,
+    "reviewed_modified": 26,
+    "reviewed_unchanged": 43,
+    "in_progress": 53
+  },
+  "full_identity": false,
+  "published": false
+}

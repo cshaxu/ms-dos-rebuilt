@@ -1,0 +1,26 @@
+{
+  "task": "M6 T20 S2 P26",
+  "file": "bios/msinit.asm",
+  "status": "restoration-in-progress",
+  "source_blob": "7b1cb46891877ef1825f8e4d9c8a3076c429109b",
+  "changes": [
+    "FAT16/FAT32 tables with DWORD sector limits",
+    "DWORD limit scan and default FAT-size arithmetic",
+    "FFOTHER recommended-BPB capacity, cluster and FAT-size arithmetic",
+    "Near transfer to set_recbpb after procedure growth"
+  ],
+  "build": "Original NMAKE/ML plus full BIOS LINK/RELOC; complete IO repack using existing linked components",
+  "check": "extras/build/cmd-17081-23949/p26check.cmd",
+  "check_exit": 0,
+  "evidence_directory": "extras/build/cmd-17081-23949/p26",
+  "exact_blocks": [
+    {"name":"parameter tables", "built_offset":3900, "target_offset":3900, "length":120},
+    {"name":"scan and default FAT calculation before clear_ids binding", "built_offset":6891, "target_offset":7409, "length":202},
+    {"name":"process_other before constant address operands", "built_offset":7315, "target_offset":7833, "length":189}
+  ],
+  "exact_bytes": 511,
+  "pending": "Hard-disk FAT32 partition/table selection, boot retry, validated BPB ingestion, remaining init_temp_h consumers; full module/integration acceptance",
+  "counts": {"core_modified_this_part":1, "core_modified_total":16, "reviewed_unchanged":40, "new_core_files":0},
+  "published": false,
+  "full_identity": false
+}

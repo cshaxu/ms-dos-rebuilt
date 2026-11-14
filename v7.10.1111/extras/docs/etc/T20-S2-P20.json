@@ -1,0 +1,46 @@
+{
+  "task": "M6 T20 S2 P20",
+  "status": "in-progress",
+  "file": "bios/msbio1.asm",
+  "unit": 55,
+  "changes": [
+    "Expand actual BPB by28 bytes and recommended BPB by22, preserving existing defaults and original structure.",
+    "Change chardev_entry dispatch ADD AX,AX to SHL AX,1, target file8863 D1 E0."
+  ],
+  "target_templates": {
+    "offsets": [
+      23086,
+      23236,
+      23386,
+      23536
+    ],
+    "size": 150,
+    "next_offsets": [
+      1060,
+      1210,
+      1360,
+      65535
+    ],
+    "segments": [
+      1370,
+      1370,
+      1370,
+      65535
+    ]
+  },
+  "source_blob": "1ee257631442d3d1408e2c475dd130623fef542d",
+  "verification": "Original ML/LINK/RELOC probe assembles cleanly; expected no-stack LINK warning. Four150-byte BDS templates (600 bytes) match target23086 exactly; SHL AX,1 two bytes match target8863. Both FC /B exit0. Probe fixes known target placement solely for local verification, not a whole-image build.",
+  "next": "Continue restoring other msbio1 BIOS SCC code/data differences; full module and linked image remain open.",
+  "source_changes_this_part": 1,
+  "probe": {
+    "directory": "extras/build/s2-p20",
+    "commands": [
+      "run.cmd",
+      "check.cmd"
+    ],
+    "build_marker": "PASS",
+    "bds_bytes": 600,
+    "shift_bytes": 2,
+    "scope": "Local verified edits only; no full module or image acceptance."
+  }
+}

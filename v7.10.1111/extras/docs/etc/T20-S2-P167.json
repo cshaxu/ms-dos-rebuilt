@@ -1,0 +1,9 @@
+{
+  "task": "M6 T20 S2 P167",
+  "change": "Restore data extent allocation, free-record index selection and data-record allocation; connect existing creation, growth, compaction, load and release providers.",
+  "source_blob_sha1": "40d4fc51800608ce8690b609856760773369a180",
+  "build": {"command": "extras/build/cmd-17188-26244/regread-build.cmd", "exit": 0, "io_bytes": 243280},
+  "proof": {"target_entries": ["014E:470E", "014E:47DE", "014E:4858"], "new_bytes": 655, "new_exact": 637, "verified_call_operands": 18, "combined_bytes": 4216, "combined_exact": 4062, "combined_verified_addresses": 154, "verifier": "extras/build/cmd-17188-26244/datachaincheck.c", "log": "data-allocation.compare.log", "exit": 0},
+  "counts": {"modified_this_part": 1, "unchanged_complete_files_newly_certified": 0, "modified_total": 90, "baseline_identical": 203},
+  "remaining": "File initialization, root-path/API integration and removal of legacy paths. This internal allocation chain is not yet connected to public lifecycle. Final three-output identity remains open."
+}

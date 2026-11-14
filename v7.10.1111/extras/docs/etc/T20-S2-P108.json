@@ -1,0 +1,13 @@
+{
+  "task": "M6 T20 S2 P108",
+  "changes": "Restore DOS_MKDIR temporary SFT access mode, DWORD sector save, FAT32 root-parent normalization, 32-bit parent and dot-entry clusters, new directory high cluster field, allocation failure stack cleanup and shared DIRUP FSInfo update. Existing dircall module only.",
+  "sources": {"dos/dircall.asm": "506e8d330828cc1414b3cf94c656ff05ade7425d"},
+  "build": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+  "build_exit": 0,
+  "comparison": {"scope": "Whole dircall: DOS_MKDIR, DOS_CHDIR and DOS_RMDIR", "built_runtime": "765F..78E3 exclusive", "target_runtime": "7CC5..7F49 exclusive", "built_offset": 90271, "target_offset": 91909, "bytes": 644, "equal_bytes": 614, "different_bytes": 30, "remaining": "All differing bytes are external call/jump operands. Internal branches and data operands match. MakeNode, NEWDIR, SETDOTENT, GETENT, GetPath and directory-search relative bindings now match without exclusions. Remaining targets include TestNet, critical-section helpers, SET_MKND_ERR, buffer routines, UpdateFSInfo, DeferredFlush, RELEASE and LFN helpers."},
+  "evidence": "extras/build/cmd-17081-23949/p108 contains complete spans, FC /B log, disassembly, linked IO.SYS, MSDOS.MAP and kernel.log. Whole module proof supersedes earlier overlapping CHDIR/RMDIR proofs; do not add their coverage again.",
+  "counts": {"core_modified_this_part": 1, "unchanged_files_newly_accepted": 0, "core_modified_total": 53, "core_identical_to_baseline": 240, "reviewed_modified": 26, "reviewed_unchanged": 38, "reviewed_total": 64, "in_progress": 27, "new_core_files": 0},
+  "next": "Skip whole dircall and mknode instruction bodies. Locate remaining upstream caller differences and shared-data layout through the complete linked image; restore their dependency groups without re-auditing proved directory bodies.",
+  "full_identity": false,
+  "published": false
+}

@@ -1,0 +1,9 @@
+{
+  "task": "M6 T20 S2 P165",
+  "change": "Restore new data-block allocation, header and free-record initialization in existing regread.asm.",
+  "source_blob_sha1": "5e7ab33cb1b47d1903057f8bbf8c702e2908c8a1",
+  "build": {"command": "extras/build/cmd-17188-26244/regread-build.cmd", "exit": 0, "io_bytes": 242384},
+  "proof": {"target": "014E:44CE", "new_bytes": 334, "new_exact": 328, "verified_call_operands": 6, "combined_bytes": 3319, "combined_exact": 3187, "combined_verified_addresses": 132, "verifier": "extras/build/cmd-17188-26244/datachaincheck.c", "log": "create-data.compare.log", "exit": 0},
+  "counts": {"modified_this_part": 1, "unchanged_complete_files_newly_certified": 0, "modified_total": 90, "baseline_identical": 203},
+  "remaining": "Data record allocation, file initialization, root-path/API integration and removal of legacy paths. New procedure is staged, with no caller switched; IO growth is not convergence. Final three-output identity remains open."
+}

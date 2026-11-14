@@ -1,0 +1,22 @@
+{
+  "task": "M6 T20 S2 P28",
+  "file": "bios/msinit.asm",
+  "source_blob": "355b2dc51f8c5d1be2af5192f7d1dcb7397a19d7",
+  "status": "restoration-in-progress",
+  "changes": ["vector clearing/copy/install instruction restoration", "domini signature-result check", "extended partition buffer preservation and CHS/LBA field addressing", "partition table bounds", "extended read AX initialization", "logical FAT32/LBA partition recognition"],
+  "build": "Original ML/NMAKE and complete BIOS LINK/RELOC; repack of complete IO image",
+  "check": "extras/build/cmd-17081-23949/p28check.cmd",
+  "check_exit": 0,
+  "evidence_directory": "extras/build/cmd-17081-23949/p28",
+  "exact_blocks": [
+    {"name":"vector initialization", "built_offset":4438, "target_offset":4445, "length":269},
+    {"name":"continuous getboot/sethard path", "built_offset":6147, "target_offset":6213, "length":962},
+    {"name":"complete setmini", "built_offset":8415, "target_offset":8481, "length":78}
+  ],
+  "exact_bytes_at_checkpoint": 1309,
+  "overlap_warning": "Includes previously proven code; not additive unique progress",
+  "pending": "CPU/A20 message segment/provider and remaining early initialization differences; complete module and image validation",
+  "counts": {"core_modified_this_part":1, "core_modified_total":16, "reviewed_unchanged":40, "new_core_files":0},
+  "published": false,
+  "full_identity": false
+}

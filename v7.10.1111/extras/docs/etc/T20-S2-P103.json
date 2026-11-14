@@ -1,0 +1,14 @@
+{
+  "task": "M6 T20 S2 P103",
+  "changes": "Remove unreferenced LookupPath/InsertPath FastOpen tail and its unused imports/include from existing dir2.asm. Target CheckThisDevice ends at8BD6 immediately before dev cache data; no corresponding helper code. Full link confirms no unresolved consumers. Removed296 emitted bytes, no new implementation or binary patch.",
+  "sources": {"dos/dir2.asm": "3c47f6ee1bd04ce3ba425c9ce2f9cd0d9913b323"},
+  "build": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+  "build_exit": 0,
+  "comparison": {"scope": "Whole dir2.asm GetPath through CheckThisDevice", "built_runtime": "7EBA..82EB exclusive", "target_runtime": "87A5..8BD6 exclusive", "built_offset": 92410, "target_offset": 94693, "bytes": 1073, "equal_bytes": 1044, "different_bytes": 29, "remaining": "17 external call words only. All internal branch displacements, instructions and other data match. Supersedes overlapping partial dir2 proofs; not additive coverage."},
+  "reference_sweep": "Before deletion rg over dos/inc ASM/INC found LookupPath and InsertPath only at their definitions and documentation. Target8BD6 starts dev cache data. Final original-tool full link passes after deletion. Shared FastOpen data/providers elsewhere are not removed without their consumer restoration.",
+  "evidence": "extras/build/cmd-17081-23949/p103 contains full module spans and FC /B log, final linked IO.SYS, MSDOS.MAP and kernel.log. MSDOS.SYS exact; IO.SYS/COMMAND.COM not exact.",
+  "counts": {"core_modified_this_part": 1, "unchanged_files_newly_accepted": 0, "core_modified_total": 51, "core_identical_to_baseline": 242, "reviewed_modified": 26, "reviewed_unchanged": 38, "reviewed_total": 64, "in_progress": 25, "new_core_files": 0},
+  "next": "Skip whole dir/dir2/dev instruction bodies. Continue directory creation/removal callers in dircall with dependency-first handling of mknode/allocation and target-derived ABI. Remaining shared-data MARK2/UCASE layout and external bindings stay open.",
+  "full_identity": false,
+  "published": false
+}

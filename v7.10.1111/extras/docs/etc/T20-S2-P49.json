@@ -1,0 +1,18 @@
+{
+  "task":"M6 T20 S2 P49",
+  "sources":[{"file":"bios/sysinit1.asm","blob":"dfd886fcfbd66145fcb119be28810ade3cc5a1c4"},{"file":"bios/si2front.asm","blob":"e18b4439825301d222ddbedb760722e88994f0ab"}],
+  "changes":["Restore actual FAT16/FAT32 capacity and explicit-cluster threshold tables", "Apply reserved-sector, root-entry and cluster overrides to BPB", "Restore32-bit capacity, FAT size and default/explicit allocation-unit selection in existing BPB generator", "Retain target legacy media path only when no extended options are supplied"],
+  "build":"extras/build/cmd-17081-23949/incremental.cmd",
+  "build_exit":0,
+  "check":"extras/build/cmd-17081-23949/p49check.cmd",
+  "check_exit":0,
+  "exact_ranges":[
+    {"built_offset":32265,"target_offset":32266,"bytes":676,"scope":"Entire setdeviceparameters procedure, no exclusions"},
+    {"built_offset":31776,"target_offset":31775,"bytes":106,"scope":"Entire setparms IOCTL procedure, no exclusions"},
+    {"built_offset":38562,"target_offset":38562,"bytes":126,"scope":"All capacity and explicit-cluster threshold records"}
+  ],
+  "counts":{"core_modified_this_part":2,"core_modified_total":27,"reviewed_unchanged":39,"new_core_files":0},
+  "output_sizes":{"IO.SYS":228268,"MSDOS.SYS":9,"COMMAND.COM":92870},
+  "pending":"Complete SYSINIT placement and other module paths; boot_copy_buffer current4DCC versus target4DD2 still displaces reader operands",
+  "published":false,"full_identity":false
+}

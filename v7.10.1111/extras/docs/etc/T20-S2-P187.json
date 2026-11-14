@@ -1,0 +1,26 @@
+{
+  "task": "M6 T20 S2 P187",
+  "scope": "Align original registry class and default-user strings to the 1111 target",
+  "file": "bios/regroot.asm",
+  "change": "Add EVEN after RegClassesPath in the original data path; retain existing string contents and all other registry state.",
+  "build": {
+    "command": "extras/build/cmd-20864-14811/regfind-build.cmd",
+    "result": "assembly and complete configuration link succeeded",
+    "io_bytes": 234604
+  },
+  "proof": {
+    "source": "extras/baselines/targets/IO.SYS",
+    "target_offset": 213570,
+    "built_offset": 232692,
+    "length": 27,
+    "result": "all 27 bytes equal, including one alignment byte",
+    "unaffected_io_core": "186880 bytes at offsets 512..187391 directly equal"
+  },
+  "counts": {
+    "modified_this_part": 1,
+    "newly_baseline_identical_this_part": 0,
+    "modified_total": 87,
+    "baseline_identical": 206
+  },
+  "limitations": "Full IO.SYS and COMMAND.COM do not match; no target output was published."
+}

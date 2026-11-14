@@ -1,0 +1,9 @@
+{
+  "task": "M6 T20 S2 P166",
+  "change": "Restore data-block growth and connect it to the reconstructed compaction provider in existing regread.asm.",
+  "source_blob_sha1": "7ee23c5d8825b3ab3933eeee15a7189a7777f8f3",
+  "build": {"command": "extras/build/cmd-17188-26244/regread-build.cmd", "exit": 0, "io_bytes": 242624},
+  "proof": {"target": "014E:461C", "new_bytes": 242, "new_exact": 238, "verified_call_operands": 4, "combined_bytes": 3561, "combined_exact": 3425, "combined_verified_addresses": 136, "verifier": "extras/build/cmd-17188-26244/datachaincheck.c", "log": "grow-data.compare.log", "exit": 0},
+  "counts": {"modified_this_part": 1, "unchanged_complete_files_newly_certified": 0, "modified_total": 90, "baseline_identical": 203},
+  "remaining": "Data record allocation caller, file initialization, root-path/API integration and removal of legacy paths. Growth/compaction are connected internally but not to the public lifecycle. Final three-output identity remains open."
+}

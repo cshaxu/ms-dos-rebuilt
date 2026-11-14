@@ -1,0 +1,50 @@
+{
+  "task": "M6 T20 S2 P140",
+  "previous_turn": "progress: P139 restored FCBIO and skipped two baseline-identical modules",
+  "changes": [
+    "FCBIO2: 386 record position multiply; reject local FAT32 file opens while retaining device/volume handling; target long conditional branch; include DPB and use original ML recipe.",
+    "Final linked binding audit corrects misc GETCURHEAD/CHECKFLUSH to GETCURHEAD/BUFWRITE and dinfo PLACEBUF/BUFWRITE to GETCURHEAD/BUFWRITE. Earlier external-address-only classifications did not prove correct callees; P140 resolves both."
+  ],
+  "source_blob_sha1": {
+    "dos/fcbio2.asm": "7a99cbf453ae1e969f8a0501b9deb08137edc283",
+    "dos/makefile": "49330c2ec63e31b28a6fefbcf03b041eae8cf8e8",
+    "dos/misc.asm": "1ccff3917ab2195ec5a7694f7d3d7b08b6db749d",
+    "dos/dinfo.asm": "b2563acaec9d7d5ce477922cd4a01e0a9a41c894"
+  },
+  "build": {
+    "command": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+    "exit": 0,
+    "io_bytes": 233900,
+    "configuration_offset": 187392,
+    "command_rebuilt": false
+  },
+  "comparison": {
+    "fcbio2": {
+      "runtime": "641A..674D",
+      "bytes": 819,
+      "equal": 819
+    },
+    "kernel_contiguous": {
+      "runtime": "4909..D4D9",
+      "file_offset": 78665,
+      "bytes": 35792,
+      "equal": 35785,
+      "different": 7,
+      "remaining": "6 bytes in data symbol addresses (5-byte shared-layout gap), 1 byte in IsCopyProt call displacement; not whole IO.SYS coverage"
+    }
+  },
+  "evidence": "extras/build/cmd-17081-23949/p140: full IO, map, make.log, whole spans and diff logs",
+  "counts": {
+    "modified_this_part": 4,
+    "modified_asm": 3,
+    "modified_makefile": 1,
+    "unchanged_reviewed_this_part": 0,
+    "new_source_files": 0,
+    "modified_total": 81,
+    "baseline_identical": 212,
+    "in_progress": 55
+  },
+  "full_identity": false,
+  "msdos_sys_exact": true,
+  "published": false
+}

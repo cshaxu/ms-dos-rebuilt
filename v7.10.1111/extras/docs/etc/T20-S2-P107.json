@@ -1,0 +1,13 @@
+{
+  "task": "M6 T20 S2 P107",
+  "changes": "Restore MakeNode FAT32 creation gate, DOOPEN 32-bit SFT cluster fields and FREEENT 32-bit cluster validation/release. Remove obsolete FastOpen alternate SFT fill path. Use existing mknode module; no new core files.",
+  "sources": {"dos/mknode.asm": "8b9f403b845b03eb0da62165dc88358361869846"},
+  "build": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+  "build_exit": 0,
+  "comparison": {"scope": "Whole mknode linked body, including directory allocation, dot entries, MakeNode, NewEntry, DOOPEN, FREEENT and CHECK_VIRT_OPEN", "built_runtime": "8857..8D07 exclusive", "target_runtime": "8EFC..93AC exclusive", "built_offset": 94871, "target_offset": 96572, "bytes": 1200, "equal_bytes": 1175, "different_bytes": 25, "remaining": "Twenty external call words contain all 25 differing bytes. Internal instructions and control flow match. External symbol placement remains unresolved."},
+  "evidence": "extras/build/cmd-17081-23949/p107: mknode-built.bin, mknode-target.bin, mknode-diff.log, IO.SYS, MSDOS.MAP and kernel.log. This supersedes the overlapping P106 prefix proof. tail-* files are intermediate evidence, not additional coverage.",
+  "counts": {"core_modified_this_part": 1, "unchanged_files_newly_accepted": 0, "core_modified_total": 53, "core_identical_to_baseline": 240, "reviewed_modified": 26, "reviewed_unchanged": 38, "reviewed_total": 64, "in_progress": 27, "new_core_files": 0},
+  "next": "Skip whole mknode body. Restore DOS_MKDIR caller integration using the linked target differences; preserve previously proved DOS_CHDIR and DOS_RMDIR bodies. Resolve shared-data layout and external bindings through full relinking.",
+  "full_identity": false,
+  "published": false
+}

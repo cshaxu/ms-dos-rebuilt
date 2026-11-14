@@ -1,0 +1,9 @@
+{
+  "task": "M6 T20 S2 P184",
+  "objective": "Verify that the original 950 configuration profile-name reader was retained when its query binding moved to the target implementation.",
+  "source": "bios/cfgline.asm:ConfigReadProfileName",
+  "proof": {"target": "0031:02DE", "bytes":200, "literal_equal":178, "verified_symbol_address_bytes":22, "verified_data_symbols": ["ConfigUnnamed", "ConfigNameKey", "ConfigNameFormat", "ConfigNameBuffer"], "verified_far_calls": ["_sprintf", "RegQueryValueTarget", "_strncpy"], "verifier":"extras/build/cmd-17188-26244/cfgnamecheck.c", "exit":0},
+  "interpretation": "The complete original procedure's instructions and internal layout match target once five linked data references and three FAR call bindings are checked against their corresponding symbols. Do not rewrite this body; final absolute placement is still unresolved. This is not whole-file or whole-IO acceptance.",
+  "counts":{"modified_core_this_part":0,"unchanged_complete_files_newly_certified":0,"modified_total":94,"baseline_identical":199},
+  "remaining":"Audit the other cfgline and cfgmenu procedures at their full boundaries, then continue consolidation of registry implementation into the original modules. Final three-output identity remains open."
+}

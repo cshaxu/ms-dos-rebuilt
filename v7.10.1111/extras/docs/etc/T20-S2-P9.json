@@ -1,0 +1,92 @@
+{
+  "task": "M6 T20 S2 P9",
+  "status": "definition-review-and-selected-target-use; integration-pending",
+  "files": [
+    {
+      "unit": 18,
+      "path": "inc/devsym.inc",
+      "change": "none",
+      "comparison": "FC /B exact against ms-dos-archaeology/v6.0/inc/devsym.inc",
+      "dependencies": [],
+      "scope": "Selected target use verified; other consumers pending"
+    },
+    {
+      "unit": 19,
+      "path": "bios/msequ.inc",
+      "change": "none",
+      "comparison": "FC /B exact against ms-dos-archaeology/v6.0/bios/msequ.inc",
+      "dependencies": [],
+      "scope": "Selected target use verified; other consumers pending"
+    },
+    {
+      "unit": 20,
+      "path": "bios/msdskpr.inc",
+      "change": "none",
+      "comparison": "FC /B exact against ms-dos-archaeology/v6.0/bios/msdskpr.inc",
+      "dependencies": [],
+      "scope": "Definition/source review only; consumer validation pending"
+    },
+    {
+      "unit": 21,
+      "path": "bios/biostruc.inc",
+      "change": "none",
+      "comparison": "FC /B exact against ms-dos-archaeology/v6.0/bios/biostruc.inc",
+      "dependencies": [],
+      "scope": "Definition/source review only; consumer validation pending"
+    },
+    {
+      "unit": 22,
+      "path": "inc/bootform.inc",
+      "change": "none",
+      "comparison": "FC /B exact against ms-dos-archaeology/v6.0/inc/bootform.inc",
+      "dependencies": [
+        "inc/bpb.inc"
+      ],
+      "scope": "Definition/source review only; consumer validation pending"
+    }
+  ],
+  "proof": {
+    "devsym": {
+      "target": "IO.SYS",
+      "offset": 2070,
+      "bytes": "28 00 70 00 13 80 7A 02 85 02 43 4F 4E 20 20 20 20 20",
+      "meaning": "18-byte CON SYSDEV: next far pointer4, attribute2, strategy2, interrupt2, name8."
+    },
+    "msequ": {
+      "target_offset": 8768,
+      "length": 144,
+      "fields": {
+        "unit": 1,
+        "media": 13,
+        "count": 18,
+        "start": 20,
+        "start_h": 28,
+        "start_l": 26,
+        "cmd": 2,
+        "trans": 14,
+        "status": 3
+      },
+      "meaning": "Actual target device-dispatch instructions use these exact request-packet offsets.",
+      "scratch": "extras/build/s2-p8/dispatch.bin"
+    },
+    "remaining_definitions": "msdskpr defines11-byte BIOS disk table; biostruc defines10-byte INT15 C0 descriptor; bootform retains legacy FAT12/16 header and inactive legacy IBMLOADSIZE=3. These definitions do not themselves emit bytes and no full consumer validation is claimed."
+  },
+  "next_difference": {
+    "file": "bios/msbio1.asm",
+    "source": "add ax,ax in chardev_entry",
+    "target_offset": 8863,
+    "target_bytes": "D1 E0",
+    "target_instruction": "shl ax,1",
+    "state": "unmodified; restore within dependency-resolved BIOS SCC",
+    "other_open": "Four local bds_str templates still100 bytes versus150 target; shared BDS_STRUC already restored."
+  },
+  "counts": {
+    "core_processed": 22,
+    "modified": 9,
+    "unchanged": 13,
+    "unreviewed": 271,
+    "tool_modified": 1,
+    "new_core_files": 0
+  },
+  "verification_policy": "No rebuild because no emitting source changed; definition identity does not assert1111 target completion."
+}

@@ -1,0 +1,13 @@
+{
+  "task": "M6 T20 S2 P95",
+  "sources": {"dos/disk2.asm": "167cd159e4865c1da218c6fc8f1f9135dfe4092d", "dos/makefile": "ef782dec2aabb9712636abd3a8deeea55c183c58"},
+  "changes": "Restore DISKREAD32-bit size/position subtraction and FNDCLUS interface, error-path EBX stack cleanup and interrupt enable, high cluster/position propagation across buffered and physical reads, OPTIMIZE next-cluster high preservation, and SFT high-word updates. Retain matched physical I/O and buffer-scan bodies. Explicit short conditional branch matches target ML encoding. Add original ML recipe.",
+  "build": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+  "build_exit": 0,
+  "comparison": {"scope": "Entire disk2.asm from CHECK_WRITE_LOCK through DskRdBufScan, before disk3 DISKWRITE", "built_runtime": "B334..B5E6 exclusive", "target_runtime": "BC5E..BF10 exclusive", "built_offset": 105844, "target_offset": 108190, "bytes": 690, "equal_bytes": 650, "different_bytes": 40, "remaining": "External calls/jump and FIRST_BUFF_ADDR operands only; no internal layout/instruction differences. Full module comparison supersedes P89 partial disk2 provider proof."},
+  "evidence": "extras/build/cmd-17081-23949/p95 retains final IO.SYS/MSDOS.MAP/kernel.log, whole-module binaries and FC /B log. s2-p1/span.exe at recorded offsets/length reproduces comparison. Earlier692-byte diagnostic disassembly is pre-short-branch correction, not final evidence.",
+  "next": "Restore disk3 writing caller group against same target and existing providers. Skip matched disk2/rom/FAT/buffer bodies; external bindings and shared-data layout remain open.",
+  "counts": {"core_modified_this_part": 2, "core_modified_total": 47, "core_identical_to_baseline": 246, "reviewed_modified": 26, "reviewed_unchanged": 38, "reviewed_total": 64, "in_progress": 21, "new_core_files": 0},
+  "full_identity": false,
+  "published": false
+}

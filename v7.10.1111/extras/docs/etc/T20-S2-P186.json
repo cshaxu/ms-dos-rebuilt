@@ -1,0 +1,10 @@
+{
+  "task":"M6 T20 S2 P186",
+  "scope":"Compare the original registry query module with the reconstructed target entry before choosing a consolidation.",
+  "original":{"path":"bios/rqvalue.asm", "procedure":"RegQueryValueEx", "interface":"FAR; key, name, reserved, type pointer, data pointer and size pointer; caller cleans arguments", "implementation":"checks RegVMEntry then dispatches to Windows service or local RegQueryValueCore"},
+  "current_target":{"path":"bios/regfind.asm", "procedure":"RegQueryValueEx", "interface":"same FAR caller-facing parameter positions and caller cleanup", "implementation":"loads DGROUP, validates the key, finds and copies the value, releases the data-cache pin, and handles empty default values"},
+  "evidence":"P172 directly compared the complete target routine at 014E:2C98; P185 restored original exported name and cfgline source; P179 unlinked rqvalue.obj. Source inspection confirms the original and current target bodies occupy different modules and are duplicate definitions if linked together.",
+  "decision":"The user-facing FAR ABI allows the original cfgline callers to remain unchanged, but the original wrapper's Windows dispatch and local-provider ABI do not match the target body. Consolidation must adapt the original rqvalue module and its dependent lookup/copy providers to the target, avoiding a second public routine and preserving original file ownership where possible. Do not reintroduce unused wrappers or silently link duplicate public symbols.",
+  "counts":{"modified_core_this_part":0,"unchanged_complete_files_newly_certified":0,"modified_total":93,"baseline_identical":200},
+  "remaining":"Implement and verify the module-level consolidation; other cfg callers, root and file lifecycle remain under audit. Final three-output identity remains open."
+}

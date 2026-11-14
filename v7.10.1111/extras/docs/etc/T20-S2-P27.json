@@ -1,0 +1,25 @@
+{
+  "task": "M6 T20 S2 P27",
+  "file": "bios/msinit.asm",
+  "status": "restoration-in-progress",
+  "source_blob": "95b46f829601c6994b7685a0f36552bf8560827d",
+  "changes": ["getboot read retry and signature flags", "direct-volume boot validation", "FAT32 partition and LBA selection", "backup boot sector read", "extended BPB validation and ingestion", "32-bit cluster classification and cylinder count", "remove all init_temp_h consumers before introducing FAT32/retry bytes"],
+  "build": "Original ML/NMAKE and complete BIOS LINK/RELOC; complete IO image repacked",
+  "check": "extras/build/cmd-17081-23949/p27check.cmd",
+  "check_exit": 0,
+  "evidence_directory": "extras/build/cmd-17081-23949/p27",
+  "exact_blocks": [
+    {"name":"getboot and partition path", "built_offset":6148, "target_offset":6213, "length":563},
+    {"name":"boot read and validation", "built_offset":6714, "target_offset":6779, "length":396},
+    {"name":"BPB and cluster arithmetic", "built_offset":7119, "target_offset":7184, "length":190},
+    {"name":"default parameters", "built_offset":7324, "target_offset":7389, "length":222},
+    {"name":"recommended parameters", "built_offset":7768, "target_offset":7833, "length":189}
+  ],
+  "exact_bytes_at_checkpoint": 1560,
+  "overlap_warning": "Includes blocks proven in P26; not an additive unique-byte progress count",
+  "io_bytes": 226220,
+  "pending": "Remaining earlier initialization and disk helper tail differences; external bindings; whole-module and full-image acceptance",
+  "counts": {"core_modified_this_part":1, "core_modified_total":16, "reviewed_unchanged":40, "new_core_files":0},
+  "published": false,
+  "full_identity": false
+}

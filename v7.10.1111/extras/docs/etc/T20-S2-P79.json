@@ -1,0 +1,14 @@
+{
+  "task": "M6 T20 S2 P79",
+  "sources": {"dos/msctrlc.asm": "95d5b5fd337aa3784c1464884db32105dc549a1e"},
+  "changes": "Restore DWORD ExitHold pop and LSS of PDB user stack; expand existing CL0FATENTRY to DWORD, proven by target EDI read at CB11 and low/high writes at CCC5/CCD0; restore direct near conditional jump from DeferredFlush to FLUSHBUF.",
+  "build": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+  "build_exit": 0,
+  "module_comparison": {"built_offset": 95885, "target_offset": 98184, "bytes": 1380, "equal_bytes": 1319, "different_bytes": 61, "log": "extras/build/cmd-17081-23949/p79/module-diff.log", "scope": "Entire msctrlc linked region including data and DeferredFlush; remaining address/call differences need provider validation. Not whole-file acceptance."},
+  "exact_region": {"built_offset": 97150, "target_offset": 99449, "bytes": 14, "purpose": "ExitHold restoration and PDB stack transition", "fc_exit": 0},
+  "reproduction": "Use extras/build/s2-p1/span.exe on the retained p79/IO.SYS and frozen target with recorded decimal offsets/lengths, then FC /B. RG -c ^0 p79/module-diff.log returns61. No excluded operands or binary edits.",
+  "open_dependency": "fat.asm still uses low-word CL0FATENTRY access; restore its high-word handling with the FAT32 consumers, not by introducing duplicate storage.",
+  "counts": {"core_modified_this_part": 1, "core_modified_total": 42, "core_identical_to_baseline": 251, "reviewed_modified": 26, "reviewed_unchanged": 38, "reviewed_total": 64, "in_progress": 16, "new_core_files": 0},
+  "full_identity": false,
+  "published": false
+}

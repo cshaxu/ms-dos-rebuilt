@@ -1,0 +1,49 @@
+{
+  "task": "M6 T20 S2 P8",
+  "status": "verified-local-resource-integration-pending",
+  "order": [
+    "inc/version.inc",
+    "bios/biosseg.inc",
+    "lang/usa/messages/sysimsg.inc",
+    "bios/sysimes.asm"
+  ],
+  "changes": "Move existing messages61/62 and their index entries before00. Preserve all text, semantic labels/public aliases, remaining message order and derived wrapper header.",
+  "target": {
+    "file": "extras/baselines/targets/IO.SYS",
+    "offset": 67632,
+    "length": 4307,
+    "end_exclusive": 71939,
+    "sha256": "314f6d91ea1d9117fcce605026adbd14f1bd9004a440ef99a201b508b29b6189"
+  },
+  "verification": {
+    "tools": "MASM5.10A/LINK5.10/RELOC; existing private-desktop C runner",
+    "commands": [
+      "masm -Mx -t sysimes.asm,sysimes.obj,sysimes.lst;",
+      "link /MAP sysimes.obj,sysimes.exe,sysimes.map;",
+      "reloc sysimes.exe sysimes.bin",
+      "fc /b extras\\build\\s2-p8\\bios\\sysimes.bin extras\\build\\s2-p8\\target.bin"
+    ],
+    "result": "PASS; FC exit0; header64/138/0100h/4307 and all offsets/text match",
+    "scratch": "extras/build/s2-p8"
+  },
+  "files": {
+    "modified": [
+      "lang/usa/messages/sysimsg.inc"
+    ],
+    "unchanged": [
+      "inc/version.inc",
+      "bios/biosseg.inc",
+      "bios/sysimes.asm"
+    ]
+  },
+  "counts": {
+    "core_processed": 17,
+    "core_modified": 9,
+    "core_unchanged": 8,
+    "core_unreviewed": 276,
+    "tool_modified": 1,
+    "new_core_files": 0
+  },
+  "limits": "No full-image acceptance. Other header consumers await integration. Numeric consumer message indexes must be restored inside BIOS cyclic component; no downstream file modified early.",
+  "next": "Resolve remaining include prerequisites of18-module BIOS SCC, then process component; pathsrc follows SCC."
+}

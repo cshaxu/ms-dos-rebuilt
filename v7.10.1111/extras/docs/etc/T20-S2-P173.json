@@ -1,0 +1,9 @@
+{
+  "task": "M6 T20 S2 P173",
+  "change": "Restore file cleanup, root closure and registry initialization/termination; connect allocation, save, cache release and root cleanup.",
+  "source_blob_sha1": {"bios/regread.asm":"d6ad3ee07c8db3046b5b1711f90e5a7e8fae8013"},
+  "build": {"command": "extras/build/cmd-17188-26244/regread-build.cmd", "exit": 0, "io_bytes": 246508},
+  "proof": {"target_entries": ["014E:1F6C", "014E:1B72", "014E:1B3C", "014E:1B98"], "new_code_bytes": 427, "new_exact": 369, "verified_address_bytes": 58, "combined_code_bytes": 7391, "combined_exact": 7059, "combined_verified_addresses": 332, "verifier": "extras/build/cmd-17188-26244/datachaincheck.c", "log": "lifecycle.compare.log", "exit": 0},
+  "counts": {"modified_this_part": 1, "unchanged_complete_files_newly_certified": 0, "modified_total": 90, "baseline_identical": 203},
+  "remaining": "File open/read initialization and binding root file states are still missing. cfg consumers still bind legacy entries; no legacy implementation removed. Final three-output identity remains open."
+}

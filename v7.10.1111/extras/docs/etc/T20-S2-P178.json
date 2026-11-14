@@ -1,0 +1,9 @@
+{
+  "task": "M6 T20 S2 P178",
+  "change": "Restore target root binding/mount and switch existing cfgmain, cfgline and cfgmenu callers as a group to target registry init, mount, open, query, close and terminate. Preserve old implementations pending removal audit.",
+  "source_blob_sha1": {"bios/regfind.asm":"cdd95567dc870216ac34a80d6f4656f91d46c5c3", "bios/cfgmain.asm":"38ecab1b3dbc6fb43e9fd9213a2bd834657ed774", "bios/cfgline.asm":"b6b4d945637ea068c66b204b49926ee3fc5e45d3", "bios/cfgmenu.asm":"5b7dc52586d1fcba06f8a338b56ec784634d911d"},
+  "build": {"commands": ["extras/build/cmd-17188-26244/regfind-build.cmd", "extras/build/cmd-17188-26244/cfg-switch.cmd"], "exit": 0, "io_bytes": 247744, "warning": "cfgmenu.asm A4031 at line277, pre-existing instruction; no severe assembler error."},
+  "proof": {"root_bind_and_mount_target": ["014E:233A", "014E:23D8"], "root_code_bytes": 308, "root_exact_bytes": 290, "root_verified_address_bytes": 18, "registry_group_bytes": 8623, "registry_group_exact": 8211, "registry_group_verified_addresses": 412, "registry_log": "extras/build/cmd-17188-26244/cfg-switch.compare.log", "cfg_main_bytes": 160, "cfg_main_exact": 140, "cfg_main_verified_address_bytes": 12, "cfg_main_layout_bytes_pending": 8, "cfg_main_verifier": "extras/build/cmd-17188-26244/cfgmaincheck.c"},
+  "counts": {"modified_this_part": 4, "unchanged_complete_files_newly_certified": 0, "modified_total": 93, "baseline_identical": 200, "in_progress": 67},
+  "remaining": "Legacy registry modules and sections still link and must be removed after reference audit; cfgline and cfgmenu instruction bodies and bindings need full target comparison. Overall IO and COMMAND identity remain open. No target binary published."
+}

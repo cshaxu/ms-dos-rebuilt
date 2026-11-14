@@ -1,0 +1,14 @@
+{
+  "task":"M6 T20 S2 P58",
+  "source":"bios/sysconf.asm",
+  "source_blob":"079a15eb446c798024d95d0b192d3e1b25a782d4",
+  "changes":"Restore target PUSHA/POPA in QEMM name detection, locally scoped .286",
+  "build":"extras/build/cmd-17081-23949/incremental.cmd",
+  "build_exit":0,
+  "check":"extras/build/cmd-17081-23949/p58check.cmd",
+  "check_exit":0,
+  "exact_ranges":[{"offset":59767,"bytes":914,"scope":"Contiguous device records through configuration hook and QEMM detection, including following names; extends P57, not additional unique914 bytes"}],
+  "next":"syspre compression revision target0101 versus current000C, then preload failure prompt path; investigate existing revision provider and consumers",
+  "counts":{"core_modified_this_part":1,"core_modified_total":29,"reviewed_unchanged":39,"new_core_files":0},
+  "full_identity":false,"published":false
+}

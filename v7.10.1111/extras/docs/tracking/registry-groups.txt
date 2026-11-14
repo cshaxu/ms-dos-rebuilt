@@ -1,0 +1,618 @@
+Source: O:\repos.hobby\ms-dos-rebuilt\v7.10.1111\bios
+Procedures: 155; direct calls/tail calls: 476; SCCs: 152
+Scope: reg*.asm, rapiopen.asm, rqvalue.asm, configio.asm.
+Dependency-first SCC order. Assembly PROC declarations only.
+Includes direct calls/tail calls and pushed procedure offsets as conservative dependencies.
+Unresolved/indirect calls, shared data and conditional assembly require review.
+These are source dependencies, not verified target functions.
+
+GROUP 0 (1 procedures)
+  ConfigOpen configio.asm:18
+  dependencies:
+
+GROUP 1 (1 procedures)
+  ConfigClose configio.asm:63
+  dependencies:
+
+GROUP 2 (1 procedures)
+  ConfigReadAll configio.asm:103
+  dependencies:
+
+GROUP 3 (1 procedures)
+  ConfigRead configio.asm:155
+  dependencies:
+
+GROUP 4 (1 procedures)
+  ConfigWriteAll configio.asm:185
+  dependencies:
+
+GROUP 5 (1 procedures)
+  ConfigSeek configio.asm:234
+  dependencies:
+
+GROUP 6 (1 procedures)
+  ConfigCreate configio.asm:260
+  dependencies:
+
+GROUP 7 (1 procedures)
+  ConfigDelete configio.asm:289
+  dependencies:
+
+GROUP 8 (1 procedures)
+  ConfigRename configio.asm:320
+  dependencies:
+
+GROUP 9 (1 procedures)
+  ConfigGetAttr configio.asm:369
+  dependencies:
+
+GROUP 10 (1 procedures)
+  RegDosCreate configio.asm:407
+  dependencies:
+
+GROUP 11 (1 procedures)
+  RegDosOpen configio.asm:429
+  dependencies:
+
+GROUP 12 (1 procedures)
+  RegDosWrite configio.asm:451
+  dependencies:
+
+GROUP 13 (1 procedures)
+  RegDosRead configio.asm:455
+  dependencies:
+
+GROUP 14 (1 procedures)
+  RegDosSeek configio.asm:482
+  dependencies:
+
+GROUP 15 (1 procedures)
+  RegDosClose configio.asm:508
+  dependencies:
+
+GROUP 16 (1 procedures)
+  RegMoveMemory configio.asm:524
+  dependencies:
+
+GROUP 17 (1 procedures)
+  RegZeroMemory configio.asm:575
+  dependencies:
+
+GROUP 18 (1 procedures)
+  RegDosAlloc configio.asm:600
+  dependencies:
+
+GROUP 19 (1 procedures)
+  RegDosFree configio.asm:623
+  dependencies:
+
+GROUP 20 (1 procedures)
+  RegDosRealloc configio.asm:639
+  dependencies: 16 18 19
+
+GROUP 21 (1 procedures)
+  RegDosGetAttr configio.asm:688
+  dependencies:
+
+GROUP 22 (1 procedures)
+  RegDosSetAttr configio.asm:715
+  dependencies:
+
+GROUP 23 (1 procedures)
+  RegDosDelete configio.asm:734
+  dependencies:
+
+GROUP 24 (1 procedures)
+  RegDosRename configio.asm:752
+  dependencies:
+
+GROUP 25 (1 procedures)
+  RegDosTempFile configio.asm:773
+  dependencies:
+
+GROUP 26 (1 procedures)
+  RegAllocate regread.asm:3451
+  dependencies:
+
+GROUP 27 (1 procedures)
+  RegLoadKey regopen.asm:3663
+  dependencies: 0 1 2 5 26
+
+GROUP 28 (1 procedures)
+  RegPathPart regstr.asm:14
+  dependencies:
+
+GROUP 29 (1 procedures)
+  RegNameChecksum regstr.asm:298
+  dependencies:
+
+GROUP 30 (1 procedures)
+  RegHasPendingState regread.asm:3045
+  dependencies:
+
+GROUP 31 (1 procedures)
+  RegChecksum regread.asm:3352
+  dependencies:
+
+GROUP 32 (1 procedures)
+  RegValidateHeader regread.asm:3255
+  dependencies: 31
+
+GROUP 33 (1 procedures)
+  RegValidateKeyBlock regread.asm:3297
+  dependencies:
+
+GROUP 34 (1 procedures)
+  RegStringLength regstr.asm:98
+  dependencies:
+
+GROUP 35 (1 procedures)
+  RegCopyBytes regstr.asm:197
+  dependencies: 16
+
+GROUP 36 (1 procedures)
+  RegMakeTempName regread.asm:3100
+  dependencies: 34 35
+
+GROUP 37 (1 procedures)
+  RegIndexBlock regread.asm:2493
+  dependencies:
+
+GROUP 38 (1 procedures)
+  RegPackDataBlock regread.asm:2886
+  dependencies: 35 37
+
+GROUP 39 (1 procedures)
+  RegDirtyDataBlock regread.asm:3430
+  dependencies:
+
+GROUP 40 (1 procedures)
+  RegValidateDataBlock regread.asm:3320
+  dependencies:
+
+GROUP 41 (1 procedures)
+  RegWriteDataBlock regread.asm:1487
+  dependencies: 4 5 40
+
+GROUP 42 (1 procedures)
+  RegInvalidBlock regvmcal.asm:173
+  dependencies:
+
+GROUP 43 (1 procedures)
+  RegFlushDataBlock regread.asm:2104
+  dependencies: 0 1 41 42
+
+GROUP 44 (1 procedures)
+  RegNotifyLoad regvmcal.asm:177
+  dependencies:
+
+GROUP 45 (1 procedures)
+  RegScanDataBlocks regread.asm:2035
+  dependencies: 30 43
+
+GROUP 46 (3 procedures)
+  RegSaveFile regread.asm:766
+  RegLoadDataBlock regread.asm:1584
+  RegMaintainCache regread.asm:1930
+  dependencies: 0 1 2 4 5 6 7 8 9 30 32 33 36 37 38 39 40 41 42 43 44 45
+
+GROUP 47 (1 procedures)
+  RegGetDataBlock regopen.asm:2523
+  dependencies: 42 46
+
+GROUP 48 (1 procedures)
+  RegTakeFreeSpace regopen.asm:3010
+  dependencies:
+
+GROUP 49 (1 procedures)
+  RegGrowDataBlock regread.asm:2564
+  dependencies: 38 39
+
+GROUP 50 (1 procedures)
+  RegNextDataBlock regopen.asm:2938
+  dependencies: 46
+
+GROUP 51 (1 procedures)
+  RegNewDataBlock regread.asm:2319
+  dependencies: 37
+
+GROUP 52 (1 procedures)
+  RegBlockEndOffset regread.asm:2459
+  dependencies:
+
+GROUP 53 (1 procedures)
+  RegDirtyHeader regread.asm:3392
+  dependencies:
+
+GROUP 54 (1 procedures)
+  RegAppendDataBlock regread.asm:2207
+  dependencies: 51 52 53
+
+GROUP 55 (1 procedures)
+  RegAssignRecordId regopen.asm:2885
+  dependencies:
+
+GROUP 56 (1 procedures)
+  RegAllocateRecord regopen.asm:2590
+  dependencies: 35 39 46 47 48 49 50 54 55
+
+GROUP 57 (1 procedures)
+  RegDirtyKeyBlock regread.asm:3411
+  dependencies:
+
+GROUP 58 (1 procedures)
+  RegGetKeyRecord regopen.asm:500
+  dependencies: 27 46 47 56 57
+
+GROUP 59 (1 procedures)
+  RegCompareName regstr.asm:238
+  dependencies:
+
+GROUP 60 (1 procedures)
+  RegSearchPath regopen.asm:273
+  dependencies: 27 28 29 58 59
+
+GROUP 61 (1 procedures)
+  RegFindAlias reginit.asm:212
+  dependencies: 28 29 59
+
+GROUP 62 (1 procedures)
+  RegCopyPart regstr.asm:67
+  dependencies:
+
+GROUP 63 (1 procedures)
+  RegGrowKeyBlock regread.asm:2732
+  dependencies: 27 53 57
+
+GROUP 64 (1 procedures)
+  RegFreeRecord regopen.asm:2300
+  dependencies: 39 47
+
+GROUP 65 (1 procedures)
+  RegFreeRecordId regopen.asm:2237
+  dependencies: 47 64
+
+GROUP 66 (1 procedures)
+  RegFreeKeyNode regopen.asm:2382
+  dependencies: 27
+
+GROUP 67 (1 procedures)
+  RegInvalidateKey regfind.asm:492
+  dependencies:
+
+GROUP 68 (1 procedures)
+  RegDeleteKeyTree regopen.asm:844
+  dependencies: 27 57 58 64 66 67
+
+GROUP 69 (1 procedures)
+  RegCreatePath regopen.asm:967
+  dependencies: 27 28 29 34 46 47 56 57 60 62 63 65 68
+
+GROUP 70 (1 procedures)
+  RegOpenPath regopen.asm:51
+  dependencies: 28 60 61 69
+
+GROUP 71 (1 procedures)
+  RegInitClassesRoot regstart.asm:476
+  dependencies: 69
+
+GROUP 72 (2 procedures)
+  RegValidateKeyHandle regfind.asm:181
+  RegInitUserRoot regstart.asm:557
+  dependencies: 27 70 71
+
+GROUP 73 (1 procedures)
+  RegFileAddRef regfind.asm:544
+  dependencies:
+
+GROUP 74 (1 procedures)
+  RegKeyCreate regfind.asm:338
+  dependencies: 26
+
+GROUP 75 (1 procedures)
+  RegFindOrCreate regfind.asm:146
+  dependencies: 74
+
+GROUP 76 (1 procedures)
+  RegFileReleaseRef regfind.asm:560
+  dependencies:
+
+GROUP 77 (1 procedures)
+  RegOpenKey rapiopen.asm:79
+  dependencies: 70 72 73 75 76
+
+GROUP 78 (1 procedures)
+  RegKeyDestroy regfind.asm:417
+  dependencies:
+
+GROUP 79 (1 procedures)
+  RegCloseKey rapiopen.asm:184
+  dependencies: 46 72 76 78
+
+GROUP 80 (1 procedures)
+  RegFindValue regopen.asm:648
+  dependencies: 59
+
+GROUP 81 (1 procedures)
+  RegQueryValueCore rapiopen.asm:264
+  dependencies: 35 58 70 72 80
+
+GROUP 82 (1 procedures)
+  RegVMCreateKey regvmcal.asm:53
+  dependencies:
+
+GROUP 83 (1 procedures)
+  RegCreateKey rapiopen.asm:480
+  dependencies: 70 72 73 75 76 82
+
+GROUP 84 (1 procedures)
+  RegVMDeleteKey regvmcal.asm:63
+  dependencies:
+
+GROUP 85 (1 procedures)
+  RegDeleteKey rapiopen.asm:602
+  dependencies: 57 61 68 70 72 84
+
+GROUP 86 (1 procedures)
+  RegVMDeleteValue regvmcal.asm:73
+  dependencies:
+
+GROUP 87 (1 procedures)
+  RegRemoveValue regopen.asm:733
+  dependencies: 39 42 47 80
+
+GROUP 88 (1 procedures)
+  RegDeleteValue rapiopen.asm:745
+  dependencies: 27 58 72 86 87
+
+GROUP 89 (1 procedures)
+  RegExtendRecord regopen.asm:3521
+  dependencies:
+
+GROUP 90 (1 procedures)
+  RegResizeRecord regopen.asm:3149
+  dependencies: 35 38 39 47 48 49 56 57 58 64 89
+
+GROUP 91 (1 procedures)
+  RegPointerDifference regpdiff.asm:15
+  dependencies:
+
+GROUP 92 (1 procedures)
+  RegSetValue regopen.asm:1463
+  dependencies: 34 35 39 42 47 58 80 90 91
+
+GROUP 93 (1 procedures)
+  RegSetValueCore rapiopen.asm:848
+  dependencies: 34 70 72 92
+
+GROUP 94 (1 procedures)
+  RegVMEnumKey regvmcal.asm:103
+  dependencies:
+
+GROUP 95 (1 procedures)
+  RegEnumerateKey regopen.asm:1881
+  dependencies: 27 34 35 58
+
+GROUP 96 (1 procedures)
+  RegEnumKey rapiopen.asm:946
+  dependencies: 27 72 94 95
+
+GROUP 97 (1 procedures)
+  RegVMEnumValue regvmcal.asm:113
+  dependencies:
+
+GROUP 98 (1 procedures)
+  RegValueAtIndex regopen.asm:2176
+  dependencies:
+
+GROUP 99 (1 procedures)
+  RegEnumValue rapiopen.asm:1017
+  dependencies: 27 35 58 72 97 98
+
+GROUP 100 (1 procedures)
+  RegUnsupportedOperation rapiopen.asm:1249
+  dependencies:
+
+GROUP 101 (1 procedures)
+  RegVMFlushKey regvmcal.asm:123
+  dependencies:
+
+GROUP 102 (1 procedures)
+  RegFlushKey rapiopen.asm:1263
+  dependencies: 46 72 101
+
+GROUP 103 (1 procedures)
+  RegVMRemapKey regvmcal.asm:133
+  dependencies:
+
+GROUP 104 (1 procedures)
+  RegInvalidateOwner regfind.asm:734
+  dependencies:
+
+GROUP 105 (1 procedures)
+  RegRemapKey rapiopen.asm:1316
+  dependencies: 72 103 104
+
+GROUP 106 (1 procedures)
+  RegVMLoadKey regvmcal.asm:143
+  dependencies:
+
+GROUP 107 (1 procedures)
+  RegHVCreate regfind.asm:809
+  dependencies: 26
+
+GROUP 108 (1 procedures)
+  RegFileCreate regfind.asm:576
+  dependencies: 26
+
+GROUP 109 (1 procedures)
+  RegInitHeader reginit.asm:56
+  dependencies:
+
+GROUP 110 (1 procedures)
+  RegInitKeyBlock reginit.asm:91
+  dependencies:
+
+GROUP 111 (1 procedures)
+  RegInitDataBlock reginit.asm:159
+  dependencies:
+
+GROUP 112 (1 procedures)
+  RegRebuildNameHashes regread.asm:617
+  dependencies: 27 29 57 58
+
+GROUP 113 (1 procedures)
+  RegReleaseFileBuffers regstart.asm:684
+  dependencies:
+
+GROUP 114 (1 procedures)
+  RegReadFile regread.asm:59
+  dependencies: 0 1 2 5 26 32 33 34 35 37 44 109 110 111 112 113
+
+GROUP 115 (1 procedures)
+  RegAddMount reginit.asm:307
+  dependencies: 26 29 34 35
+
+GROUP 116 (1 procedures)
+  RegFileUnlink regfind.asm:660
+  dependencies:
+
+GROUP 117 (1 procedures)
+  RegHVUnlink regfind.asm:864
+  dependencies:
+
+GROUP 118 (1 procedures)
+  RegLoadKeyAPI rapiopen.asm:1461
+  dependencies: 70 106 107 108 114 115 116 117
+
+GROUP 119 (1 procedures)
+  RegVMUnloadKey regvmcal.asm:153
+  dependencies:
+
+GROUP 120 (1 procedures)
+  RegInvalidateFile regfind.asm:771
+  dependencies:
+
+GROUP 121 (1 procedures)
+  RegUnlinkMount reginit.asm:421
+  dependencies:
+
+GROUP 122 (1 procedures)
+  RegUnloadKey rapiopen.asm:1612
+  dependencies: 61 72 113 116 119 120 121
+
+GROUP 123 (1 procedures)
+  RegVMSaveKey regvmcal.asm:163
+  dependencies:
+
+GROUP 124 (1 procedures)
+  RegInitKeyRecords reginit.asm:116
+  dependencies:
+
+GROUP 125 (1 procedures)
+  RegPrepareSaveFile reginit.asm:486
+  dependencies: 1 4 5 6 7 26 27 29 34 35 58 72 109 110 111 124
+
+GROUP 126 (1 procedures)
+  RegCopyKeyTree reginit.asm:807
+  dependencies: 77 79 83 93 96 99
+
+GROUP 127 (1 procedures)
+  RegSaveKey rapiopen.asm:1734
+  dependencies: 7 26 72 77 79 102 118 122 123 125 126
+
+GROUP 128 (1 procedures)
+  RegFindKey regfind.asm:54
+  dependencies:
+
+GROUP 129 (1 procedures)
+  RegFreeDataBlock regread.asm:2430
+  dependencies:
+
+GROUP 130 (1 procedures)
+  RegRecoverFile regread.asm:3145
+  dependencies: 7 8 9 36
+
+GROUP 131 (1 procedures)
+  RegIsWindowsPath regvm.asm:16
+  dependencies:
+
+GROUP 132 (1 procedures)
+  RegGetVMEntry regvm.asm:70
+  dependencies:
+
+GROUP 133 (1 procedures)
+  RegCreateEmptyFile regstart.asm:1048
+  dependencies: 1 4 5 6 26 109 110 111 124
+
+GROUP 134 (1 procedures)
+  RegInitialize regstart.asm:59
+  dependencies: 7 9 71 72 108 113 114 130 131 132 133
+
+GROUP 135 (1 procedures)
+  RegReloadSystem regstart.asm:415
+  dependencies: 114
+
+GROUP 136 (1 procedures)
+  RegReleaseMounts regstart.asm:845
+  dependencies: 113 116
+
+GROUP 137 (1 procedures)
+  RegTerminate regstart.asm:911
+  dependencies: 113 116 136
+
+GROUP 138 (1 procedures)
+  RegFlushAll regstart.asm:1252
+  dependencies: 46
+
+GROUP 139 (1 procedures)
+  RegAppendBytes regstr.asm:120
+  dependencies:
+
+GROUP 140 (1 procedures)
+  RegUpperCopy regstr.asm:153
+  dependencies:
+
+GROUP 141 (1 procedures)
+  RegVMOpenKey regvmcal.asm:13
+  dependencies:
+
+GROUP 142 (1 procedures)
+  RegVMCloseKey regvmcal.asm:23
+  dependencies:
+
+GROUP 143 (1 procedures)
+  RegVMQueryValue regvmcal.asm:33
+  dependencies:
+
+GROUP 144 (1 procedures)
+  RegVMQueryValueEx regvmcal.asm:43
+  dependencies:
+
+GROUP 145 (1 procedures)
+  RegVMSetValue regvmcal.asm:83
+  dependencies:
+
+GROUP 146 (1 procedures)
+  RegVMSetValueEx regvmcal.asm:93
+  dependencies:
+
+GROUP 147 (1 procedures)
+  RegQueryValue rqvalue.asm:36
+  dependencies: 81 143
+
+GROUP 148 (1 procedures)
+  RegQueryValueEx rqvalue.asm:82
+  dependencies: 81
+
+GROUP 149 (1 procedures)
+  RegSetValueAPI rqvalue.asm:129
+  dependencies: 93 145
+
+GROUP 150 (1 procedures)
+  RegSetValueEx rqvalue.asm:177
+  dependencies: 93 146
+
+GROUP 151 (1 procedures)
+  RegSetCheckPolicy rqvalue.asm:225
+  dependencies:

@@ -1,0 +1,27 @@
+{
+  "task": "M6 T20 S2 P147",
+  "kind": "integrated clean-build baseline and execution adjustment",
+  "command": "extras\\build.cmd <nul",
+  "stage": "extras/build/cmd-17188-26244",
+  "exit": 1,
+  "reason": "All compilation/link/package phases completed; final IO and COMMAND target comparisons failed as expected for incomplete restoration.",
+  "input_snapshot_match": true,
+  "outputs": {
+    "IO.SYS": {"built":233900,"target":214836,"exact":false},
+    "MSDOS.SYS": {"built":9,"target":9,"exact":true},
+    "COMMAND.COM": {"built":92870,"target":93812,"exact":false}
+  },
+  "proof": {
+    "io_interval": "[512,187392)",
+    "io_exact_bytes": 186880,
+    "direct_comparison": "io-core.compare.log",
+    "prior_output_comparison": "Fresh IO and COMMAND directly FC /B compared equal to cmd-17081-23949 outputs.",
+    "target_comparisons": "IO.SYS.compare.log, MSDOS.SYS.compare.log, COMMAND.COM.compare.log",
+    "maps": "bios/config.map, bios/msbio.map, dos/msdos.map, cmd/command/command.map"
+  },
+  "diagnostics": "ML.err missing: diagnostic A4910 accompanies warnings without text. Not a diagnostic-free build claim. Inspect retained MAKE.LOG files.",
+  "execution": "Restore configuration/registry as a coherent dependency group in existing modules. Relink full config and IO after group changes. Skip exact core and proven REGIO bodies unless dependencies change. Use fresh COMMAND map/output for later localization. No tiny-probe workstream; no repeated clean build without cause.",
+  "counts": {"modified_this_part":0,"unchanged_complete_files_newly_certified":0,"modified_total":84,"baseline_identical":209,"in_progress":58},
+  "published": false,
+  "full_identity": false
+}

@@ -1,0 +1,18 @@
+{
+  "task": "M6 T20 S2 P67",
+  "source": "dos/msdisp.asm",
+  "source_blob": "6e95405fdd9ab6b2229417205a28bbc9b0079192",
+  "changes": "Restore high words of EAX/EBX/ECX/EDX/EDI across break checking and INT21 dispatch; restore LSS user-stack return. Use IBM EQ 0 instead of width-sensitive NOT IBM after MASM .386 enables wider expression evaluation.",
+  "build": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+  "build_exit": 0,
+  "check": "extras/build/cmd-17081-23949/p67check.cmd",
+  "check_exit": 0,
+  "regions": [
+    {"built_offset":77067,"target_offset":77069,"exact_bytes":50,"purpose":"High-word save before break check"},
+    {"built_offset":77121,"target_offset":77123,"exact_bytes":170,"purpose":"Dispatch, alternate save path, high-word restoration and LSS return"}
+  ],
+  "limitations": "Module remains in progress. Target dispatcher begins two bytes later; external DskStatChk call and whole-kernel layout are not exact. No target bytes copied into build output.",
+  "counts": {"core_modified_this_part":1,"core_modified_total":32,"reviewed_modified":25,"reviewed_unchanged":39,"reviewed_total":64,"new_core_files":0},
+  "full_identity":false,
+  "published":false
+}

@@ -1,0 +1,16 @@
+{
+  "task": "M6 T20 S2 P160",
+  "changes": ["Restore key-record decoding, cache loading/pinning, allocated-record fetch and unlock/dirty propagation in existing regread.asm. All providers exist; root-path callers remain pending."],
+  "source_blob_sha1": {"bios/regread.asm": "b68a0db6fe4397e3524bd9e9fb4117c8f21f50bb"},
+  "build": {"command": "extras/build/cmd-17188-26244/regread-build.cmd", "exit": 0, "io_bytes": 240600, "configuration_bytes": 53208, "diagnostics": "Seven inherited A4057 warnings. Target operand-prefix ordering and full-width ADD immediate preserved explicitly in source; no binary patching."},
+  "proof": {
+    "new_procedures": 4, "new_bytes": 855, "new_exact_bytes": 811, "new_verified_address_bytes": 44,
+    "target_entries": ["014E:33FC", "014E:36E4", "014E:3888", "014E:38CC"],
+    "combined_procedures": 10, "combined_bytes": 1553, "combined_exact_bytes": 1479, "combined_verified_address_bytes": 74,
+    "method": "Complete procedures extracted logically from whole linked IO.SYS. Built symbols resolved from config.map; NEAR and FAR call destinations, transfer-buffer data offset and decoder callback independently verified. Every remaining byte compares literally. Combined check includes the directly dependent data chain from P159, not unrelated proven core.",
+    "directory": "extras/build/cmd-17188-26244", "verifier": "datachaincheck.c", "log": "key-data.compare.log", "exit": 0
+  },
+  "counts": {"modified_this_part": 1, "unchanged_complete_files_newly_certified": 0, "new_source_files": 0, "modified_total": 90, "baseline_identical": 203},
+  "remaining": "Record allocation, data compaction/allocation, file initialization, root-path/public API consumer integration and removal of superseded legacy paths. IO configuration is still inflated by staging. COMMAND and final three-file identity remain unresolved.",
+  "full_identity": false, "published": false
+}

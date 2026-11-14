@@ -1,0 +1,23 @@
+{
+  "task": "M6 T20 S2 P21",
+  "file": "bios/msbio1.asm",
+  "status": "full-module-assembly-pass-restoration-in-progress",
+  "source_changed": false,
+  "tool": "Inherited ML with makefile explicit rule",
+  "flags": "/c /nologo /Zm /DUSA /DDBLSPACE_HOOKS /DDOS7_CONFIG; INCLUDE=bios;inc",
+  "scratch": "extras/build/s2-p21",
+  "result": "BUILD.OK PASS; object emitted",
+  "object_sha256": "2a8bf31b2728d856e9723ac76b30d122dcf4b83521499a772d453fea1cb33cf9",
+  "warnings": [
+    "A4004 cannot ASSUME CS at source69 and77; same warnings present in accepted950 P39 listing."
+  ],
+  "probe_correction": "Initial scratch command incorrectly used generic MASM rule and failed. Corrected to msbio1 makefile explicit ML rule. No production toolchain or source workaround introduced.",
+  "diagnostic_resource": "Copied inherited950 ML.err into scratch tools to expose warning text.",
+  "acceptance": "Module assembles; does not prove full module target identity or whole-image link. P20 proves only600 BDS bytes and2 dispatch bytes.",
+  "counts": {
+    "changed_core": 15,
+    "reviewed_unchanged": 40,
+    "new_core_files": 0
+  },
+  "next": "Compare emitted msbio1 code/data spans using symbol-bound relocations; keep file open until remaining differences resolved."
+}

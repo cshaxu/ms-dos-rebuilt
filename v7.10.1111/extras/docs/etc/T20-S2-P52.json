@@ -1,0 +1,15 @@
+{
+  "task":"M6 T20 S2 P52",
+  "source":"bios/sysinit2.asm",
+  "source_blob":"aa3b4943280c6780249edbf9fe391b2a34e29335",
+  "changes":["Restore immediate shell-size shifts", "Restore target shell image byte check 7Ah", "Close AUTOEXEC file handle after successful existence check; preserve error sentinel and BX"],
+  "build":"extras/build/cmd-17081-23949/incremental.cmd",
+  "build_exit":0,
+  "check":"extras/build/cmd-17081-23949/p52check.cmd",
+  "check_exit":0,
+  "exact_ranges":[{"offset":45742,"bytes":72,"scope":"Complete shell-record rotation"}],
+  "partial_ranges":[{"offset":43998,"bytes":212,"excluded_word_offsets":[18,25],"exact_complement_bytes":208,"scope":"Complete shell sizing; environment provider addresses remain"},{"offset":45452,"bytes":290,"excluded_word_offsets":[82,88,224,231],"exact_complement_bytes":282,"scope":"Complete shell preparation; exec option/value addresses remain"}],
+  "layout":"Environment preparation5C56 and previous-menu check5E50 now naturally align with target",
+  "counts":{"core_modified_this_part":1,"core_modified_total":28,"reviewed_unchanged":39,"new_core_files":0},
+  "full_identity":false,"published":false
+}

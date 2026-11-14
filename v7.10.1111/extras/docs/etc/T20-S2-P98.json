@@ -1,0 +1,14 @@
+{
+  "task": "M6 T20 S2 P98",
+  "changes": "Restore DWORD file-position and DMA address stack operations and low/high transfer-address assignment order in existing dev.asm. Original ML recipe emits required operand/segment prefix order. No new core implementation files.",
+  "sources": {"dos/dev.asm": "00bf706d01e511f2bf23eda5c644a75f3298b2fe", "dos/makefile": "2ecef6a15f72b3b465748473fb0815f2f6e5659f"},
+  "build": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+  "build_exit": 0,
+  "comparison": {"scope": "Entire dev.asm, including cache data and device request setup", "built_offset": 93649, "target_offset": 95766, "bytes": 806, "equal_bytes": 765, "different_bytes": 41, "remaining": "21 symbol address words: local absolute table/cache addresses and external call or callback bindings. One word has one equal byte. All other bytes and internal relative branches match. Module shrank from817 to806 bytes, matching target length."},
+  "unchanged_body": {"path": "dos/devcache.asm", "bytes": 399, "built_offset_before_this_change": 107694, "target_offset": 110040, "different_bytes": 42, "remaining": "21 absolute cache-data address operands supplied by dev.asm; no instruction changes required."},
+  "evidence": "extras/build/cmd-17081-23949/p98 contains whole module spans, FC /B differences, disassembly, final linked IO.SYS, MSDOS.MAP and kernel.log. dev-final.bin is final output; cache-built.bin is pre-change output, explicitly retained for body proof.",
+  "counts": {"core_modified_this_part": 2, "unchanged_body_checked_this_part": 1, "core_modified_total": 49, "core_identical_to_baseline": 244, "reviewed_modified": 26, "reviewed_unchanged": 38, "reviewed_total": 64, "in_progress": 23, "new_core_files": 0},
+  "next": "Skip proved device/cache bodies. Restore upstream providers and shared-data layout using full linked differences. Do not delete still-referenced FastOpen state or insert padding to conceal MARK2/UCASE layout differences.",
+  "full_identity": false,
+  "published": false
+}

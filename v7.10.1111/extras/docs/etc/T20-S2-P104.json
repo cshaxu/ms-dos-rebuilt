@@ -1,0 +1,14 @@
+{
+  "task": "M6 T20 S2 P104",
+  "changes": "Restore missing FAT32 allocation/boot-information writeback provider as UpdateFSInfo in existing dinfo.asm, where target places it after DISK_INFO. Reuse PLACEBUF/BUFWRITE/DREAD/DWRITE. Handles FSInfo signatures, free count/next-free updates, primary and backup boot root-cluster/extflags updates, status-bit clearing and error propagation. Name assigned from behavior, not claimed original. Original ML recipe; explicit WORD free-count operands retain preceding legacy DISK_INFO encoding until its restoration.",
+  "sources": {"dos/dinfo.asm": "dc1140981e566d1f2b6883151fd6b91b4aefa982", "dos/makefile": "eea222d33ee616fd9216769e5221b1f6ffc25b83"},
+  "build": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+  "build_exit": 0,
+  "comparison": {"scope": "Entire UpdateFSInfo", "built_runtime": "7072..71DB exclusive", "target_runtime": "77D0..7939 exclusive", "built_offset": 88754, "target_offset": 90640, "bytes": 361, "equal_bytes": 349, "different_bytes": 12, "remaining": "Six external call words: PLACEBUF, BUFWRITE, DREAD twice, DWRITE twice. All internal branches and non-address bytes match."},
+  "dependency_order": "Target DOS_RMDIR calls77D0 after RELEASE. Source lacked provider; restore it before modifying directory deletion consumer. Full callable provider now exists but consumers are not yet connected. Underlying buffer and disk I/O providers already restored.",
+  "evidence": "extras/build/cmd-17081-23949/p104 retains complete spans, FC /B log, final IO.SYS, MSDOS.MAP and kernel.log. Final review checked actual call target bodies, corrected BUFWRITE selection and dpb_first_access field before acceptance.",
+  "counts": {"core_modified_this_part": 2, "unchanged_files_newly_accepted": 0, "core_modified_total": 52, "core_identical_to_baseline": 241, "reviewed_modified": 26, "reviewed_unchanged": 38, "reviewed_total": 64, "in_progress": 26, "new_core_files": 0},
+  "next": "Restore DISK_INFO32-bit free-space count and call restored UpdateFSInfo; integrate DOS_RMDIR root checks/release/high-word state/writeback, then creation dependencies. Skip proved361-byte provider body. Shared-data layout/full identity remain open.",
+  "full_identity": false,
+  "published": false
+}

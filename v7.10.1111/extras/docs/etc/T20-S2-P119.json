@@ -1,0 +1,35 @@
+{
+  "task": "M6 T20 S2 P119",
+  "changes": "Remove unreferenced WinoldPatch2/UmbSave2/UmbSaveFlag storage and mscode import declarations. No instruction changes. Keep original ERR_TABLE_21 ORG0DDB; natural gap remains seven bytes. MARK2 changes from0DE2 to0DD4, eliminating overlap warning.",
+  "sources": {
+    "dos/dostab.asm": "bac4a34dd0094c31b03f8b78fea5f96bdcf0f641",
+    "dos/mscode.asm": "dcbe2e0d394d291b3d5cd4d3133572f9a20fa42a"
+  },
+  "build": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+  "build_exit": 0,
+  "comparison": {
+    "scope": "DOSDATA0D9E..0DEE spanning packet/label/null-driver/gap/error-table boundary",
+    "built_offset": 118254,
+    "target_offset": 120062,
+    "bytes": 80,
+    "equal_bytes": 80,
+    "different_bytes": 0
+  },
+  "evidence": "extras/build/cmd-17081-23949/p119: data spans and FC log, linked IO.SYS, MSDOS.MAP, kernel.log. Full source reference sweep finds only removed definitions/imports. No claim about original symbolic names inside zero-filled gap.",
+  "counts": {
+    "core_modified_this_part": 2,
+    "data_modified": 1,
+    "unused_import_only": 1,
+    "unchanged_files_newly_accepted": 0,
+    "core_modified_total": 67,
+    "core_identical_to_baseline": 226,
+    "reviewed_modified": 26,
+    "reviewed_unchanged": 38,
+    "reviewed_total": 64,
+    "in_progress": 41,
+    "new_core_files": 0
+  },
+  "next": "Resolve UCASE/SWAP_END boundary and search caller differences. MARK2 overlap is resolved; do not re-investigate it without new evidence. Full DOSDATA and whole-image identity remain open.",
+  "full_identity": false,
+  "published": false
+}

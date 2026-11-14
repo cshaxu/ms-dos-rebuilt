@@ -1,0 +1,3886 @@
+diff --git a/O:/repos.hobby/ms-dos-rebuilt/v7.10.1111/bios/regread.asm b/regread-storage-draft.asm
+index 5c7acab..da8d8ba 100644
+--- a/O:/repos.hobby/ms-dos-rebuilt/v7.10.1111/bios/regread.asm
++++ b/regread-storage-draft.asm
+@@ -56,552 +56,162 @@ REGFILE	segment	word public 'CODE'
+ ; ENTRY: [BP+6] = FAR pathname, [BP+0Ah] = FAR file descriptor.
+ ; Descriptor flags select file-backed or newly initialized storage.
+ ;
+-RegReadFile	proc	far
+-	push	bp
+-	mov	bp,sp
+-	sub	sp,05Eh
+-	push	si
+-	sub	ax,ax
+-	mov	[bp-04Ah],ax
+-	mov	[bp-04Ch],ax
+-	mov	word ptr [bp-058h],0FFFFh
+-	les	bx,[bp+0Ah]
+-	mov	es:[bx+01Eh],ax
+-	mov	es:[bx+01Ch],ax
+-	mov	ax,0FFFFh
+-	cwd
+-	mov	es:[bx+020h],ax
+-	mov	es:[bx+022h],dx
+-	mov	es:[bx+024h],ax
+-	mov	es:[bx+026h],dx
+-	mov	es:[bx+028h],ax
+-	mov	es:[bx+02Ah],ax
+-	or	byte ptr es:[bx+011h],080h
+-	mov	ax,RegReserveBlock+2
+-	or	ax,RegReserveBlock
+-	jnz	short regread_read_loc_079
+-	sub	ax,ax
+-	push	ax
+-	push	ax
+-	mov	ax,01900h
+-	cwd
+-	push	dx
+-	push	ax
+-	call	far ptr ConfigAlloc
+-	add	sp,08h
+-	mov	RegReserveBlock,ax
+-	mov	RegReserveBlock+2,dx
+-	mov	ax,dx
+-	or	ax,RegReserveBlock
+-	jz	short regread_read_loc_06F
+-	mov	ax,01900h
+-	jmp	short regread_read_loc_071
+-regread_read_loc_06F:
+-	xor	ax,ax
+-regread_read_loc_071:
+-	cwd
+-	mov	RegReserveSize,ax
+-	mov	RegReserveSize+2,dx
+-regread_read_loc_079:
+-	les	bx,[bp+0Ah]
+-	test	byte ptr es:[bx+011h],01h
+-	jnz	short regread_read_loc_0E6
+-	sub	ax,ax
+-	push	ax
+-	push	ax
+-	push	word ptr [bp+08h]
+-	push	word ptr [bp+06h]
+-	call	far ptr RegStringLength
+-	add	sp,04h
+-	inc	ax
+-	mov	[bp-04Eh],ax
+-	sub	dx,dx
+-	push	dx
+-	push	ax
+-	push	cs
+-	call	near ptr RegAllocate
+-	add	sp,08h
+-	mov	[bp-04h],ax
+-	mov	[bp-02h],dx
+-	or	dx,ax
+-	jnz	short regread_read_loc_0BA
+-regread_read_loc_0AE:
+-	mov	ax,0Eh
+-	cwd
+-	jmp	regread_read_loc_579
+-regread_read_loc_0BA:
+-	mov	ax,[bp-04Eh]
+-	sub	dx,dx
+-	push	dx
+-	push	ax
+-	push	word ptr [bp+08h]
+-	push	word ptr [bp+06h]
+-	push	word ptr [bp-02h]
+-	push	word ptr [bp-04h]
+-	call	far ptr RegCopyBytes
+-	add	sp,0Ch
+-	mov	ax,[bp-04h]
+-	mov	dx,[bp-02h]
+-	les	bx,[bp+0Ah]
+-	mov	es:[bx+014h],ax
+-	mov	es:[bx+016h],dx
+-regread_read_loc_0E6:
+-	sub	ax,ax
+-	push	ax
+-	push	ax
+-	mov	ax,020h
+-	cwd
+-	push	dx
+-	push	ax
+-	push	cs
+-	call	near ptr RegAllocate
+-	add	sp,08h
+-	mov	[bp-04h],ax
+-	mov	[bp-02h],dx
+-	or	dx,ax
+-	jz	short regread_read_loc_0AE
+-	mov	dx,[bp-02h]
+-	les	bx,[bp+0Ah]
+-	mov	es:[bx+020h],ax
+-	mov	es:[bx+022h],dx
+-	test	byte ptr es:[bx+011h],01h
+-	jz	short regread_read_loc_164
+-	mov	word ptr es:[bx+01Ch],01h
+-	mov	word ptr es:[bx+01Eh],00h
+-	mov	cx,01h
+-	push	cx
+-	push	dx
+-	push	ax
+-	call	far ptr RegInitHeader
+-	add	sp,06h
+-regread_read_loc_130:
+-	push	word ptr [bp-02h]
+-	push	word ptr [bp-04h]
+-	call	near ptr RegValidateHeader
+-	or	ax,ax
+-	jz	short regread_read_loc_150
+-	jmp	regread_read_loc_201
+-regread_read_loc_150:
+-	les	bx,[bp+0Ah]
+-	mov	word ptr [bp-04Ch],03F1h
+-	or	byte ptr es:[bx+010h],08h
+-	jmp	short regread_read_loc_191
+-regread_read_loc_164:
+-	lea	ax,[bp-05Eh]
+-	push	ss
+-	push	ax
+-	mov	ax,02h
+-	cwd
+-	push	dx
+-	push	ax
+-	mov	ax,es:[bx+02Ch]
+-	cwd
+-	push	dx
+-	push	ax
+-	push	word ptr [bp+08h]
+-	push	word ptr [bp+06h]
+-	call	far ptr ConfigOpen
+-	add	sp,010h
+-	mov	[bp-058h],ax
+-	cmp	ax,0FFFFh
+-	jnz	short regread_read_loc_199
+-regread_read_loc_18C:
+-	mov	word ptr [bp-04Ch],03F8h
+-regread_read_loc_191:
+-	mov	word ptr [bp-04Ah],00h
+-	jmp	regread_read_loc_532
+-regread_read_loc_199:
+-	cmp	word ptr [bp-05Eh],00h
+-	jz	short regread_read_loc_1A7
+-	les	bx,[bp+0Ah]
+-	or	byte ptr es:[bx+011h],080h
+-regread_read_loc_1A7:
+-	les	bx,[bp+0Ah]
+-	cmp	word ptr es:[bx+02Ch],00h
+-	jz	short regread_read_loc_1C5
+-	sub	ax,ax
+-	push	ax
+-	push	ax
+-	mov	ax,es:[bx+02Eh]
+-	mov	[bp-058h],ax
+-	push	ax
+-	call	far ptr RegNotifyLoad
+-	add	sp,06h
+-regread_read_loc_1C5:
+-	les	bx,[bp+0Ah]
+-	mov	ax,es:[bx+02Ch]
+-	cwd
+-	push	dx
+-	push	ax
+-	mov	ax,020h
+-	cwd
+-	push	dx
+-	push	ax
+-	push	word ptr [bp-02h]
+-	push	word ptr [bp-04h]
+-	push	word ptr [bp-058h]
+-	call	far ptr ConfigReadAll
+-	add	sp,0Eh
+-	cmp	ax,0FFFFh
+-	jnz	short regread_read_loc_1EF
+-	cmp	dx,ax
+-	jz	short regread_read_loc_1F2
+-regread_read_loc_1EF:
+-	jmp	regread_read_loc_130
+-regread_read_loc_1F2:
+-	les	bx,[bp+0Ah]
+-	or	byte ptr es:[bx+010h],020h
+-	jmp	short regread_read_loc_18C
+-regread_read_loc_201:
+-	les	bx,[bp-04h]
+-	and	byte ptr es:[bx+012h],0FAh
+-	mov	ax,es:[bx+010h]
+-	les	bx,[bp+0Ah]
+-	mov	es:[bx+0Eh],ax
+-	and	byte ptr es:[bx+010h],086h
+-	test	byte ptr es:[bx+011h],01h
+-	jz	short regread_read_loc_267
+-	lea	ax,[bp-044h]
+-	push	ss
+-	push	ax
+-	call	far ptr RegInitKeyBlock
+-	add	sp,04h
+-regread_read_loc_239:
+-	sub	ax,ax
+-	push	ax
+-	push	ax
+-	mov	ax,0420h
+-	cwd
+-	mov	[bp-048h],ax
+-	mov	[bp-046h],dx
+-	push	dx
+-	push	ax
+-	push	cs
+-	call	near ptr RegAllocate
+-	add	sp,08h
+-	mov	[bp-04h],ax
+-	mov	[bp-02h],dx
+-	or	dx,ax
+-	jnz	short regread_read_loc_2A7
+-regread_read_loc_25F:
+-	mov	word ptr [bp-04Ch],0Eh
+-	jmp	regread_read_loc_191
+-regread_read_loc_267:
+-	mov	ax,es:[bx+02Ch]
+-	cwd
+-	push	dx
+-	push	ax
+-	mov	ax,020h
+-	cwd
+-	push	dx
+-	push	ax
+-	lea	cx,[bp-044h]
+-	push	ss
+-	push	cx
+-	push	word ptr [bp-058h]
+-	call	far ptr ConfigReadAll
+-	add	sp,0Eh
+-	cmp	ax,0FFFFh
+-	jnz	short regread_read_loc_239
+-	cmp	dx,ax
+-	jnz	short regread_read_loc_239
+-	mov	word ptr [bp-04Ch],03F8h
+-regread_read_loc_297:
+-	mov	word ptr [bp-04Ah],00h
+-	les	bx,[bp+0Ah]
+-	or	byte ptr es:[bx+010h],020h
+-	jmp	regread_read_loc_532
+-regread_read_loc_2A7:
+-	mov	ax,020h
+-	cwd
+-	push	dx
+-	push	ax
+-	lea	ax,[bp-044h]
+-	push	ss
+-	push	ax
+-	push	word ptr [bp-02h]
+-	push	word ptr [bp-04h]
+-	call	far ptr RegCopyBytes
+-	add	sp,0Ch
+-	mov	ax,[bp-04h]
+-	mov	dx,[bp-02h]
+-	les	bx,[bp+0Ah]
+-	mov	es:[bx+024h],ax
+-	mov	es:[bx+026h],dx
+-	mov	word ptr [bp-050h],00h
+-	mov	es,word ptr [bp-02h]
+-regread_read_loc_2D9:
+-	mov	si,[bp-050h]
+-	add	si,si
+-	add	si,si
+-	mov	bx,[bp-04h]
+-	sub	ax,ax
+-	mov	es:[bx+si+022h],ax
+-	mov	es:[bx+si+020h],ax
+-	inc	word ptr [bp-050h]
+-	cmp	word ptr [bp-050h],0100h
+-	jc	short regread_read_loc_2D9
+-	les	bx,[bp+0Ah]
+-	push	word ptr es:[bx+026h]
+-	push	word ptr es:[bx+024h]
+-	push	cs
+-	call	near ptr RegValidateKeyBlock
+-	add	sp,04h
+-	or	ax,ax
+-	jnz	short regread_read_loc_327
+-regread_read_loc_30D:
+-	mov	word ptr [bp-04Ch],03F1h
+-	mov	word ptr [bp-04Ah],00h
+-	les	bx,[bp+0Ah]
+-	or	byte ptr es:[bx+010h],08h
+-	jmp	regread_read_loc_532
+-regread_read_loc_327:
+-	les	bx,[bp+0Ah]
+-	les	bx,es:[bx+024h]
+-	and	byte ptr es:[bx+010h],0F8h
+-	les	bx,[bp+0Ah]
+-	cmp	word ptr es:[bx+0Eh],00h
+-	jz	short regread_read_loc_39B
+-	sub	ax,ax
+-	push	ax
+-	push	ax
+-	mov	ax,018h
+-	mul	word ptr es:[bx+0Eh]
+-	sub	dx,dx
+-	push	dx
+-	push	ax
+-	push	cs
+-	call	near ptr RegAllocate
+-	add	sp,08h
+-	mov	[bp-04h],ax
+-	mov	[bp-02h],dx
+-	or	dx,ax
+-	jnz	short regread_read_loc_369
+-	jmp	regread_read_loc_25F
+-regread_read_loc_369:
+-	mov	dx,[bp-02h]
+-	mov	[bp-05Ch],ax
+-	mov	[bp-05Ah],dx
+-	les	bx,[bp+0Ah]
+-	mov	ax,es:[bx+0Eh]
+-	mov	[bp-050h],ax
+-	jmp	short regread_read_loc_385
+-regread_read_loc_37E:
+-	dec	word ptr [bp-050h]
+-	add	word ptr [bp-05Ch],0Ch
+-regread_read_loc_385:
+-	cmp	word ptr [bp-050h],00h
+-	jz	short regread_read_loc_3A5
+-	les	bx,[bp-05Ch]
+-	mov	word ptr es:[bx],0FFFFh
+-	mov	word ptr es:[bx+02h],0FFFFh
+-	jmp	short regread_read_loc_37E
+-regread_read_loc_39B:
+-	mov	word ptr [bp-04h],0FFFFh
+-	mov	word ptr [bp-02h],0FFFFh
+-regread_read_loc_3A5:
+-	mov	ax,[bp-04h]
+-	mov	dx,[bp-02h]
+-	les	bx,[bp+0Ah]
+-	mov	es:[bx+028h],ax
+-	mov	es:[bx+02Ah],dx
+-	mov	[bp-05Ch],ax
+-	mov	[bp-05Ah],dx
+-	les	bx,es:[bx+020h]
+-	mov	ax,es:[bx+08h]
+-	mov	dx,es:[bx+0Ah]
+-	mov	[bp-056h],ax
+-	mov	[bp-054h],dx
+-	les	bx,[bp+0Ah]
+-	mov	ax,es:[bx+0Eh]
+-	mov	[bp-050h],ax
+-	jmp	short regread_read_loc_43F
+-regread_read_loc_3DA:
+-	mov	ax,es:[bx+02Ch]
+-	cwd
+-	push	dx
+-	push	ax
+-	mov	ax,020h
+-	cwd
+-	push	dx
+-	push	ax
+-	lea	cx,[bp-044h]
+-	push	ss
+-	push	cx
+-	push	word ptr [bp-058h]
+-	call	far ptr ConfigReadAll
+-	add	sp,0Eh
+-	cmp	ax,0FFFFh
+-	jnz	short regread_read_loc_40D
+-	cmp	dx,ax
+-	jnz	short regread_read_loc_40D
+-	mov	word ptr [bp-04Ch],03F8h
+-	jmp	regread_read_loc_297
+-regread_read_loc_40D:
+-	cmp	word ptr [bp-044h],04752h
+-	jz	short regread_read_loc_417
+-	jmp	regread_read_loc_30D
+-regread_read_loc_417:
+-	cmp	word ptr [bp-042h],04244h
+-	jz	short regread_read_loc_421
+-	jmp	regread_read_loc_30D
+-regread_read_loc_421:
+-	cmp	word ptr [bp-03Eh],0
+-	jz	short regread_cache_header_valid
+-	jmp	regread_read_loc_30D
+-regread_cache_header_valid:
+-	mov	ax,[bp-040h]
+-	mov	dx,[bp-03Eh]
+-regread_read_loc_427:
+-	les	bx,[bp-05Ch]
+-	mov	es:[bx+08h],ax
+-	mov	es:[bx+0Ah],dx
+-	add	[bp-056h],ax
+-	adc	[bp-054h],dx
+-	dec	word ptr [bp-050h]
+-	add	word ptr [bp-05Ch],0Ch
+-regread_read_loc_43F:
+-	cmp	word ptr [bp-050h],00h
+-	jnz	short regread_read_loc_448
+-	jmp	regread_read_loc_517
+-regread_read_loc_448:
+-	les	bx,[bp+0Ah]
+-	test	byte ptr es:[bx+011h],01h
+-	jnz	short regread_read_loc_46E
+-	mov	ax,es:[bx+02Ch]
+-	cwd
+-	push	dx
+-	push	ax
+-	sub	ax,ax
+-	push	ax
+-	push	ax
+-	push	word ptr [bp-054h]
+-	push	word ptr [bp-056h]
+-	push	word ptr [bp-058h]
+-	call	far ptr ConfigSeek
+-	jc	short regread_cache_seek_carry
+-	add	sp,0Eh
+-	cmp	ax,[bp-056h]
+-	jnz	short regread_cache_seek_error
+-	cmp	dx,[bp-054h]
+-	jz	short regread_read_loc_46E
+-regread_cache_seek_error:
+-	mov	word ptr [bp-04Ch],03F8h
+-	jmp	regread_read_loc_297
+-regread_cache_seek_carry:
+-	add	sp,0Eh
+-	jmp	short regread_cache_seek_error
+-regread_read_loc_46E:
+-	mov	ax,[bp-056h]
+-	mov	dx,[bp-054h]
+-	les	bx,[bp-05Ch]
+-	mov	es:[bx+04h],ax
+-	mov	es:[bx+06h],dx
+-	les	bx,[bp+0Ah]
+-	test	byte ptr es:[bx+011h],01h
+-	jnz	short regread_read_loc_48C
+-	jmp	regread_read_loc_3DA
+-regread_read_loc_48C:
+-	sub	ax,ax
+-	push	ax
+-	push	ax
+-	mov	ax,01000h
+-	cwd
+-	push	dx
+-	push	ax
+-	push	cs
+-	call	near ptr RegAllocate
+-	add	sp,08h
+-	mov	[bp-04h],ax
+-	mov	[bp-02h],dx
+-	or	dx,ax
+-	jz	short regread_read_loc_4E0
+-	push	word ptr [bp-02h]
+-	push	ax
+-	call	far ptr RegInitDataBlock
+-	add	sp,04h
+-	mov	ax,[bp-04h]
+-	mov	dx,[bp-02h]
+-	les	bx,[bp-05Ch]
+-	mov	es:[bx],ax
+-	mov	es:[bx+02h],dx
+-	mov	ax,01h
+-	cwd
+-	push	dx
+-	push	ax
+-	mov	ax,01FEh
+-	cwd
+-	push	dx
+-	push	ax
+-	push	cs
+-	call	near ptr RegAllocate
+-	add	sp,08h
+-	mov	[bp-04h],ax
+-	mov	[bp-02h],dx
+-	or	dx,ax
+-	jnz	short regread_read_loc_4E3
+-regread_read_loc_4E0:
+-	jmp	regread_read_loc_25F
+-regread_read_loc_4E3:
+-	push	word ptr [bp-02h]
+-	push	ax
+-	les	bx,[bp-05Ch]
+-	push	word ptr es:[bx+02h]
+-	push	word ptr es:[bx]
+-	push	cs
+-	call	near ptr RegIndexBlock
+-	add	sp,08h
+-	mov	ax,[bp-04h]
+-	mov	dx,[bp-02h]
+-	les	bx,[bp-05Ch]
+-	les	bx,es:[bx]
+-	mov	es:[bx+018h],ax
+-	mov	es:[bx+01Ah],dx
+-	mov	ax,es:[bx+04h]
+-	mov	dx,es:[bx+06h]
+-	jmp	regread_read_loc_427
+-regread_read_loc_517:
+-	les	bx,[bp+0Ah]
+-	les	bx,es:[bx+024h]
+-	test	byte ptr es:[bx+010h],08h
+-	jnz	short regread_read_loc_532
+-	push	word ptr [bp+0Ch]
+-	push	word ptr [bp+0Ah]
+-	call	far ptr RegRebuildNameHashes
+-	add	sp,04h
+-regread_read_loc_532:
+-	mov	ax,[bp-04Ah]
+-	or	ax,[bp-04Ch]
+-	jz	short regread_read_loc_54E
+-	push	word ptr [bp+0Ch]
+-	push	word ptr [bp+0Ah]
+-	call	far ptr RegReleaseFileBuffers
+-	add	sp,04h
+-regread_read_loc_54E:
+-	cmp	word ptr [bp-058h],-1
+-	jz	short regread_read_loc_573
+-	sub	ax,ax
+-	push	ax
+-	push	ax
+-	les	bx,[bp+0Ah]
+-	mov	ax,es:[bx+02Ch]
+-	cwd
+-	push	dx
+-	push	ax
+-	push	word ptr [bp-058h]
+-	push	word ptr [bp+08h]
+-	push	word ptr [bp+06h]
+-	call	far ptr ConfigClose
+-	add	sp,0Eh
+-regread_read_loc_573:
+-	mov	ax,[bp-04Ch]
+-	mov	dx,[bp-04Ah]
+-regread_read_loc_579:
+-	pop	si
+-	mov	sp,bp
+-	pop	bp
+-	ret
+-RegReadFile	endp
++RegReadFile proc near
++	enter 0Ah,0
++	push di
++	push si
++	les di,[bp+4]
++	mov cx,-1
++	xor ax,ax
++	repne scasb
++	not cx
++	dec cx
++	add cx,59h
++	push cx
++	call RegAllocate
++	mov [bp-4],ax
++	mov [bp-2],dx
++	or dx,ax
++	jnz short roft_allocated
++	mov si,0Eh
++	jmp roft_result
++roft_allocated:
++	push word ptr [bp-2]
++	push ax
++	push 59h
++	call RegZeroMemory
++	mov bx,[bp-4]
++	mov cx,[bp-2]
++	add bx,58h
++	push ds
++	mov si,bx
++	mov ds,cx
++	les di,[bp+4]
++	mov cx,-1
++	xor ax,ax
++	repne scasb
++	not cx
++	sub di,cx
++	xchg di,si
++	push ds
++	push es
++	pop ds
++	pop es
++	shr cx,1
++	rep movsw
++	adc cx,cx
++	rep movsb
++	pop ds
++	mov word ptr [bp-6],3F8h
++	push dword ptr [bp+4]
++	push ax
++	call RegDosOpen
++	mov [bp-0Ah],ax
++	inc ax
++	jz short roft_open_error
++	push word ptr [bp-0Ah]
++	mov eax,[bp-4]
++	add ax,16h
++	push eax
++	push 20h
++	call RegDosRead
++	or ax,ax
++	jz short roft_read_error
++	mov eax,[bp-4]
++	add ax,16h
++	push eax
++	call RegValidateHeader
++	or ax,ax
++	jnz short roft_header
++roft_invalid:
++	mov si,3F1h
++	jmp roft_close_error
++roft_open_error:
++	mov si,[bp-6]
++	jmp roft_free
++roft_header:
++	les bx,[bp-4]
++	and byte ptr es:[bx+28h],0FAh
++	; CMP DWORD PTR ES:[BX+1Ah],00020000h, operand prefix first.
++	db 66h,26h,81h,7Fh,1Ah
++	dd 20000h
++	jnz short roft_key_header
++	les bx,[bp-4]
++	or byte ptr es:[bx+56h],8
++roft_key_header:
++	push word ptr [bp-0Ah]
++	mov eax,[bp-4]
++	add ax,36h
++	push eax
++	push 20h
++	call RegDosRead
++	or ax,ax
++	jz short roft_read_error
++	les bx,[bp-4]
++	; CMP DWORD PTR ES:[BX+36h],'RGKN', operand prefix first.
++	db 66h,26h,81h,7Fh,36h
++	dd 4E4B4752h
++	jz short roft_caches
++	jmp short roft_invalid
++roft_read_error:
++	mov si,[bp-6]
++	jmp short roft_close_error
++roft_caches:
++	push es
++	push bx
++	call RegInitKeyCache
++	mov si,ax
++	or si,ax
++	jnz short roft_close_error
++	push dword ptr [bp-4]
++	push word ptr [bp-0Ah]
++	call RegInitDataCache
++	mov si,ax
++	or si,ax
++	jnz short roft_close_error
++	push word ptr [bp-0Ah]
++	call RegDosClose
++	push dword ptr [bp+4]
++	call RegDosGetAttr
++	cmp ax,-1
++	jnz short roft_attributes
++	cmp dx,ax
++	jz short roft_link
++roft_attributes:
++	push dword ptr [bp+4]
++	push ax
++	call RegDosSetAttr
++	or ax,ax
++	jnz short roft_link
++	les bx,[bp-4]
++	or byte ptr es:[bx+56h],80h
++roft_link:
++	mov eax,RegActiveFiles
++	les bx,[bp-4]
++	db 66h
++	mov es:[bx],ax
++	mov word ptr RegActiveFiles,bx
++	mov word ptr RegActiveFiles+2,es
++	les bx,[bp+8]
++	mov eax,[bp-4]
++	db 66h
++	mov es:[bx],ax
++	xor ax,ax
++	jmp short roft_done
++roft_close_error:
++	push word ptr [bp-0Ah]
++	call RegDosClose
++roft_free:
++	push dword ptr [bp-4]
++	call RegFreeFileTarget
++roft_result:
++	mov ax,si
++roft_done:
++	pop si
++	pop di
++	leave
++	ret 8
++RegReadFile endp
+ REGFILE	ends
+ 	.386
+ _TEXT	segment	word public use16 'CODE'
+@@ -763,1161 +373,468 @@ REGFILE	segment	word public 'CODE'
+ ; Pending layout changes require a replacement file; otherwise write
+ ; changed blocks in place. Both paths use the same block writer.
+ ;
+-RegSaveFile	proc	far
+-	push	bp
+-	mov	bp,sp
+-	sub	sp,0220h
+-	push	si
+-	mov	ax,0FFFFh
+-	mov	[bp-02h],ax
+-	mov	[bp-04h],ax
+-	sub	ax,ax
+-	mov	[bp-01Ah],ax
+-	mov	[bp-01Ch],ax
+-	cmp	RegIOInhibit,ax
+-	jz	short regsave_save_loc_026
+-regsave_save_loc_01F:
+-	xor	ax,ax
+-regsave_save_loc_021:
+-	xor	dx,dx
+-	jmp	regsave_save_loc_728
+-regsave_save_loc_026:
+-	les	bx,[bp+06h]
+-	test	byte ptr es:[bx+010h],01h
+-	jz	short regsave_save_loc_01F
+-	cmp	es:[bx+02Ch],ax
+-	jnz	short regsave_save_loc_01F
+-	test	byte ptr es:[bx+010h],038h
+-	jz	short regsave_save_loc_042
+-regsave_save_loc_03D:
+-	mov	ax,03F7h
+-	jmp	short regsave_save_loc_021
+-regsave_save_loc_042:
+-	push	word ptr es:[bx+022h]
+-	push	word ptr es:[bx+020h]
+-	call	near ptr RegValidateHeader
+-	or	ax,ax
+-	jz	short regsave_save_loc_06B
+-	les	bx,[bp+06h]
+-	push	word ptr es:[bx+026h]
+-	push	word ptr es:[bx+024h]
+-	push	cs
+-	call	near ptr RegValidateKeyBlock
+-	add	sp,04h
+-	or	ax,ax
+-	jnz	short regsave_save_loc_075
+-regsave_save_loc_06B:
+-	les	bx,[bp+06h]
+-	or	byte ptr es:[bx+010h],010h
+-	jmp	short regsave_save_loc_03D
+-regsave_save_loc_075:
+-	les	bx,[bp+06h]
+-	test	byte ptr es:[bx+011h],040h
+-	jnz	short regsave_save_loc_01F
+-	or	byte ptr es:[bx+011h],040h
+-	and	word ptr es:[bx+010h],0F79Fh
+-	push	es
+-	push	bx
+-	push	cs
+-	call	near ptr RegHasPendingState
+-	add	sp,04h
+-	mov	[bp-08h],ax
+-	lea	ax,[bp-021Eh]
+-	push	ss
+-	push	ax
+-	cmp	word ptr [bp-08h],01h
+-	sbb	ax,ax
+-	neg	ax
+-	cwd
+-	push	dx
+-	push	ax
+-	sub	ax,ax
+-	push	ax
+-	push	ax
+-	les	bx,[bp+06h]
+-	push	word ptr es:[bx+016h]
+-	push	word ptr es:[bx+014h]
+-	call	far ptr ConfigOpen
+-	add	sp,010h
+-	mov	[bp-02h],ax
+-	cmp	ax,0FFFFh
+-	jz	short regsave_save_loc_0C9
+-	jmp	regsave_save_loc_1E9
+-regsave_save_loc_0C9:
+-	les	bx,[bp+06h]
+-	or	byte ptr es:[bx+010h],020h
+-regsave_save_loc_0D1:
+-	mov	word ptr [bp-01Ch],03F8h
+-regsave_save_loc_0D6:
+-	mov	word ptr [bp-01Ah],00h
+-regsave_save_loc_0DB:
+-	cmp	word ptr [bp-02h],-1
+-	jz	short regsave_save_loc_106
+-	cmp	word ptr [bp-08h],01h
+-	sbb	ax,ax
+-	neg	ax
+-	cwd
+-	push	dx
+-	push	ax
+-	sub	ax,ax
+-	push	ax
+-	push	ax
+-	push	word ptr [bp-02h]
+-	les	bx,[bp+06h]
+-	push	word ptr es:[bx+016h]
+-	push	word ptr es:[bx+014h]
+-	call	far ptr ConfigClose
+-	add	sp,0Eh
+-regsave_save_loc_106:
+-	mov	ax,[bp-02h]
+-	cmp	[bp-04h],ax
+-	jz	short regsave_save_loc_12F
+-	cmp	word ptr [bp-04h],-1
+-	jz	short regsave_save_loc_12F
+-	mov	ax,01h
+-	cwd
+-	push	dx
+-	push	ax
+-	sub	ax,ax
+-	push	ax
+-	push	ax
+-	push	word ptr [bp-04h]
+-	lea	ax,[bp-011Ch]
+-	push	ss
+-	push	ax
+-	call	far ptr ConfigClose
+-	add	sp,0Eh
+-regsave_save_loc_12F:
+-	mov	ax,[bp-01Ah]
+-	or	ax,[bp-01Ch]
+-	jz	short regsave_save_loc_13A
+-	jmp	regsave_save_loc_62F
+-regsave_save_loc_13A:
+-	cmp	word ptr [bp-08h],00h
+-	jnz	short regsave_save_loc_143
+-	jmp	regsave_save_loc_649
+-regsave_save_loc_143:
+-	mov	al,073h
+-	push	ax
+-	lea	cx,[bp-021Ch]
+-	push	ss
+-	push	cx
+-	les	bx,[bp+06h]
+-	push	word ptr es:[bx+016h]
+-	push	word ptr es:[bx+014h]
+-	push	cs
+-	call	near ptr RegMakeTempName
+-	add	sp,0Ah
+-	sub	ax,ax
+-	push	ax
+-	push	ax
+-	lea	ax,[bp-021Ch]
+-	push	ss
+-	push	ax
+-	call	far ptr ConfigDelete
+-	add	sp,08h
+-	sub	ax,ax
+-	push	ax
+-	push	ax
+-	lea	ax,[bp-021Ch]
+-	push	ss
+-	push	ax
+-	les	bx,[bp+06h]
+-	push	word ptr es:[bx+016h]
+-	push	word ptr es:[bx+014h]
+-	call	far ptr ConfigRename
+-	add	sp,0Ch
+-	sub	ax,ax
+-	push	ax
+-	push	ax
+-	les	bx,[bp+06h]
+-	push	word ptr es:[bx+016h]
+-	push	word ptr es:[bx+014h]
+-	lea	ax,[bp-011Ch]
+-	push	ss
+-	push	ax
+-	call	far ptr ConfigRename
+-	add	sp,0Ch
+-	or	ax,ax
+-	jz	short regsave_save_loc_1B1
+-	jmp	regsave_save_loc_625
+-regsave_save_loc_1B1:
+-	push	ax
+-	push	ax
+-	lea	ax,[bp-011Ch]
+-	push	ss
+-	push	ax
+-	call	far ptr ConfigDelete
+-	add	sp,08h
+-	sub	ax,ax
+-	push	ax
+-	push	ax
+-	les	bx,[bp+06h]
+-	push	word ptr es:[bx+016h]
+-	push	word ptr es:[bx+014h]
+-	lea	ax,[bp-021Ch]
+-	push	ss
+-	push	ax
+-	call	far ptr ConfigRename
+-	add	sp,0Ch
+-	les	bx,[bp+06h]
+-	or	byte ptr es:[bx+010h],040h
+-	jmp	regsave_save_loc_649
+-regsave_save_loc_1E9:
+-	cmp	word ptr [bp-08h],00h
+-	jz	short regsave_save_loc_24F
+-	mov	al,07Eh
+-	push	ax
+-	lea	cx,[bp-011Ch]
+-	push	ss
+-	push	cx
+-	les	bx,[bp+06h]
+-	push	word ptr es:[bx+016h]
+-	push	word ptr es:[bx+014h]
+-	push	cs
+-	call	near ptr RegMakeTempName
+-	add	sp,0Ah
+-	sub	ax,ax
+-	push	ax
+-	push	ax
+-	lea	ax,[bp-011Ch]
+-	push	ss
+-	push	ax
+-	call	far ptr ConfigGetAttr
+-	add	sp,08h
+-	or	dx,ax
+-	jz	short regsave_save_loc_232
+-	sub	ax,ax
+-	push	ax
+-	push	ax
+-	lea	ax,[bp-011Ch]
+-	push	ss
+-	push	ax
+-	call	far ptr ConfigDelete
+-	add	sp,08h
+-regsave_save_loc_232:
+-	sub	ax,ax
+-	push	ax
+-	push	ax
+-	lea	ax,[bp-011Ch]
+-	push	ss
+-	push	ax
+-	call	far ptr ConfigCreate
+-	add	sp,08h
+-	mov	[bp-04h],ax
+-	cmp	ax,0FFFFh
+-	jnz	short regsave_save_loc_252
+-	jmp	regsave_save_loc_455
+-regsave_save_loc_24F:
+-	mov	[bp-04h],ax
+-regsave_save_loc_252:
+-	les	bx,[bp+06h]
+-	les	bx,es:[bx+020h]
+-	test	byte ptr es:[bx+012h],01h
+-	jnz	short regsave_save_loc_266
+-	cmp	word ptr [bp-08h],00h
+-	jz	short regsave_save_loc_292
+-regsave_save_loc_266:
+-	sub	ax,ax
+-	push	ax
+-	push	ax
+-	mov	ax,020h
+-	cwd
+-	push	dx
+-	push	ax
+-	les	bx,[bp+06h]
+-	push	word ptr es:[bx+022h]
+-	push	word ptr es:[bx+020h]
+-	push	word ptr [bp-04h]
+-	call	far ptr ConfigWriteAll
+-	add	sp,0Eh
+-	cmp	ax,0FFFFh
+-	jnz	short regsave_save_loc_292
+-	cmp	dx,ax
+-	jnz	short regsave_save_loc_292
+-	jmp	regsave_save_loc_455
+-regsave_save_loc_292:
+-	les	bx,[bp+06h]
+-	les	bx,es:[bx+024h]
+-	test	byte ptr es:[bx+010h],01h
+-	jnz	short regsave_save_loc_2A6
+-	cmp	word ptr [bp-08h],00h
+-	jz	short regsave_save_loc_2E9
+-regsave_save_loc_2A6:
+-	sub	ax,ax
+-	push	ax
+-	push	ax
+-	push	ax
+-	push	ax
+-	mov	ax,020h
+-	cwd
+-	push	dx
+-	push	ax
+-	push	word ptr [bp-04h]
+-	call	far ptr ConfigSeek
+-	add	sp,0Eh
+-	sub	ax,ax
+-	push	ax
+-	push	ax
+-	les	bx,[bp+06h]
+-	les	bx,es:[bx+024h]
+-	push	word ptr es:[bx+06h]
+-	push	word ptr es:[bx+04h]
+-	push	es
+-	push	bx
+-	push	word ptr [bp-04h]
+-	call	far ptr ConfigWriteAll
+-	add	sp,0Eh
+-	cmp	ax,0FFFFh
+-	jnz	short regsave_save_loc_2E9
+-	cmp	dx,ax
+-	jnz	short regsave_save_loc_2E9
+-	jmp	regsave_save_loc_455
+-regsave_save_loc_2E9:
+-	les	bx,[bp+06h]
+-	mov	ax,es:[bx+028h]
+-	mov	dx,es:[bx+02Ah]
+-	mov	[bp-014h],ax
+-	mov	[bp-012h],dx
+-	mov	cx,ax
+-	mov	ax,0Ch
+-	mov	si,dx
+-	mul	word ptr es:[bx+0Eh]
+-	add	cx,ax
+-	mov	[bp-010h],cx
+-	mov	[bp-0Eh],si
+-	mov	word ptr [bp-06h],00h
+-	jmp	short regsave_save_loc_349
+-regsave_save_loc_314:
+-	les	bx,[bp-0Ch]
+-	mov	ax,es:[bx+04h]
+-	mov	dx,es:[bx+06h]
+-	add	ax,es:[bx+08h]
+-	adc	dx,es:[bx+0Ah]
+-regsave_save_loc_327:
+-	les	bx,[bp-010h]
+-	mov	es:[bx+04h],ax
+-	mov	es:[bx+06h],dx
+-	mov	ax,[bp-010h]
+-	mov	dx,[bp-0Eh]
+-	mov	[bp-0Ch],ax
+-	mov	[bp-0Ah],dx
+-	inc	word ptr [bp-06h]
+-	add	word ptr [bp-014h],0Ch
+-	add	word ptr [bp-010h],0Ch
+-regsave_save_loc_349:
+-	mov	ax,[bp-06h]
+-	les	bx,[bp+06h]
+-	cmp	es:[bx+0Eh],ax
+-	jna	short regsave_save_loc_394
+-	les	bx,[bp-014h]
+-	mov	cx,es:[bx+08h]
+-	mov	dx,es:[bx+0Ah]
+-	les	bx,[bp-010h]
+-	mov	es:[bx+08h],cx
+-	mov	es:[bx+0Ah],dx
+-	les	bx,[bp-014h]
+-	mov	cx,es:[bx]
+-	mov	dx,es:[bx+02h]
+-	les	bx,[bp-010h]
+-	mov	es:[bx],cx
+-	mov	es:[bx+02h],dx
+-	or	ax,ax
+-	jnz	short regsave_save_loc_314
+-	les	bx,[bp+06h]
+-	les	bx,es:[bx+020h]
+-	mov	ax,es:[bx+08h]
+-	mov	dx,es:[bx+0Ah]
+-	jmp	short regsave_save_loc_327
+-regsave_save_loc_394:
+-	mov	ax,es:[bx+028h]
+-	mov	dx,es:[bx+02Ah]
+-	mov	[bp-014h],ax
+-	mov	[bp-012h],dx
+-	mov	cx,ax
+-	mov	ax,0Ch
+-	mov	si,dx
+-	mul	word ptr es:[bx+0Eh]
+-	add	cx,ax
+-	mov	[bp-010h],cx
+-	mov	[bp-0Eh],si
+-	mov	word ptr [bp-06h],00h
+-	jmp	regsave_save_loc_46B
+-regsave_save_loc_3BD:
+-	les	bx,[bp-018h]
+-	mov	ax,es:[bx+0Ch]
+-	test	al,08h
+-	jz	short regsave_save_loc_3D4
+-	mov	ax,[bp-06h]
+-	cmp	es:[bx+0Eh],ax
+-	jz	short regsave_save_loc_3EE
+-	jmp	regsave_save_loc_4A0
+-regsave_save_loc_3D4:
+-	and	al,0FBh
+-	mov	es:[bx+0Ch],ax
+-	mov	word ptr es:[bx+0Eh],00h
+-	mov	ax,08h
+-	mov	dx,[bp-06h]
+-	or	es:[bx+0Ch],ax
+-	or	es:[bx+0Eh],dx
+-regsave_save_loc_3EE:
+-	les	bx,[bp-018h]
+-	test	byte ptr es:[bx+0Ch],01h
+-	jz	short regsave_save_loc_427
+-	les	bx,[bp-014h]
+-	push	word ptr es:[bx+0Ah]
+-	push	word ptr es:[bx+08h]
+-	push	word ptr [bp-016h]
+-	push	word ptr [bp-018h]
+-	push	cs
+-	call	near ptr RegPackDataBlock
+-	add	sp,08h
+-	or	ax,ax
+-	jz	short regsave_save_loc_427
+-	push	word ptr [bp-016h]
+-	push	word ptr [bp-018h]
+-	push	word ptr [bp+08h]
+-	push	word ptr [bp+06h]
+-	push	cs
+-	call	near ptr RegDirtyDataBlock
+-	add	sp,08h
+-regsave_save_loc_427:
+-	les	bx,[bp-018h]
+-	test	byte ptr es:[bx+0Ch],01h
+-	jnz	short regsave_save_loc_437
+-	cmp	word ptr [bp-08h],00h
+-	jz	short regsave_save_loc_460
+-regsave_save_loc_437:
+-	push	word ptr [bp+08h]
+-	push	word ptr [bp+06h]
+-	mov	ax,01h
+-	push	ax
+-	push	word ptr [bp-0Eh]
+-	push	word ptr [bp-010h]
+-	push	word ptr [bp-04h]
+-	push	cs
+-	call	near ptr RegWriteDataBlock
+-	add	sp,0Ch
+-	or	dx,ax
+-	jz	short regsave_save_loc_460
+-regsave_save_loc_455:
+-	les	bx,[bp+06h]
+-	or	byte ptr es:[bx+010h],040h
+-	jmp	regsave_save_loc_0D1
+-regsave_save_loc_460:
+-	inc	word ptr [bp-06h]
+-	add	word ptr [bp-014h],0Ch
+-	add	word ptr [bp-010h],0Ch
+-regsave_save_loc_46B:
+-	mov	ax,[bp-06h]
+-	les	bx,[bp+06h]
+-	cmp	es:[bx+0Eh],ax
+-	jna	short regsave_save_loc_4B5
+-	les	bx,[bp-010h]
+-	mov	ax,es:[bx]
+-	mov	dx,es:[bx+02h]
+-	mov	[bp-018h],ax
+-	mov	[bp-016h],dx
+-	cmp	ax,0FFFFh
+-	jnz	short regsave_save_loc_490
+-	cmp	dx,ax
+-	jz	short regsave_save_loc_460
+-regsave_save_loc_490:
+-	push	dx
+-	push	ax
+-	call	near ptr RegValidateDataBlock
+-	or	ax,ax
+-	jz	short regsave_save_loc_4A0
+-	jmp	regsave_save_loc_3BD
+-regsave_save_loc_4A0:
+-	call	far ptr RegInvalidBlock
+-regsave_save_loc_4A5:
+-	les	bx,[bp+06h]
+-	or	byte ptr es:[bx+010h],010h
+-	mov	word ptr [bp-01Ch],03F7h
+-	jmp	regsave_save_loc_0D6
+-regsave_save_loc_4B5:
+-	cmp	word ptr [bp-08h],00h
+-	jnz	short regsave_save_loc_4BE
+-	jmp	regsave_save_loc_0DB
+-regsave_save_loc_4BE:
+-	mov	ax,es:[bx+028h]
+-	mov	dx,es:[bx+02Ah]
+-	mov	[bp-014h],ax
+-	mov	[bp-012h],dx
+-	mov	cx,ax
+-	mov	ax,0Ch
+-	mov	si,dx
+-	mul	word ptr es:[bx+0Eh]
+-	add	cx,ax
+-	mov	[bp-010h],cx
+-	mov	[bp-0Eh],si
+-	mov	word ptr [bp-06h],00h
+-	jmp	regsave_save_loc_5AA
+-regsave_save_loc_4E7:
+-	les	bx,[bp-0Ch]
+-	cmp	word ptr es:[bx],-1
+-	jnz	short regsave_save_loc_4F7
+-	cmp	word ptr es:[bx+02h],-1
+-	jz	short regsave_save_loc_52D
+-regsave_save_loc_4F7:
+-	les	bx,es:[bx]
+-	test	byte ptr es:[bx+0Ch],01h
+-	jnz	short regsave_save_loc_52D
+-	push	word ptr [bp-0Ah]
+-	push	word ptr [bp-0Ch]
+-	push	word ptr [bp+08h]
+-	push	word ptr [bp+06h]
+-	push	cs
+-	call	near ptr RegFlushDataBlock
+-	add	sp,08h
+-	mov	ax,0Ch
+-	les	bx,[bp+06h]
+-	mul	word ptr es:[bx+0Eh]
+-	mov	si,ax
+-	les	bx,[bp-0Ch]
+-	sub	ax,ax
+-	mov	es:[bx+si+0Ah],ax
+-	mov	es:[bx+si+08h],ax
+-regsave_save_loc_52D:
+-	inc	word ptr [bp-0220h]
+-	add	word ptr [bp-0Ch],0Ch
+-regsave_save_loc_535:
+-	mov	ax,[bp-0220h]
+-	les	bx,[bp+06h]
+-	cmp	es:[bx+0Eh],ax
+-	ja	short regsave_save_loc_4E7
+-	push	word ptr [bp-02h]
+-	push	word ptr [bp-06h]
+-	push	es
+-	push	bx
+-	push	cs
+-	call	near ptr RegLoadDataBlock
+-	add	sp,08h
+-	mov	[bp-01Ch],ax
+-	mov	[bp-01Ah],dx
+-	or	dx,ax
+-	jz	short regsave_save_loc_55E
+-	jmp	regsave_save_loc_0DB
+-regsave_save_loc_55E:
+-	les	bx,[bp-014h]
+-	les	bx,es:[bx]
+-	mov	ax,es
+-	les	si,[bp-010h]
+-	mov	es:[si],bx
+-	mov	es:[si+02h],ax
+-	mov	es,ax
+-	mov	ax,[bp-06h]
+-	cmp	es:[bx+0Eh],ax
+-	jz	short regsave_save_loc_57E
+-	jmp	regsave_save_loc_4A5
+-regsave_save_loc_57E:
+-	push	word ptr [bp+08h]
+-	push	word ptr [bp+06h]
+-	mov	ax,01h
+-	push	ax
+-	push	word ptr [bp-0Eh]
+-	push	word ptr [bp-010h]
+-	push	word ptr [bp-04h]
+-	push	cs
+-	call	near ptr RegWriteDataBlock
+-	add	sp,0Ch
+-	or	dx,ax
+-	jz	short regsave_save_loc_59F
+-	jmp	regsave_save_loc_455
+-regsave_save_loc_59F:
+-	inc	word ptr [bp-06h]
+-	add	word ptr [bp-014h],0Ch
+-	add	word ptr [bp-010h],0Ch
+-regsave_save_loc_5AA:
+-	mov	ax,[bp-06h]
+-	les	bx,[bp+06h]
+-	cmp	es:[bx+0Eh],ax
+-	ja	short regsave_save_loc_5B9
+-	jmp	regsave_save_loc_0DB
+-regsave_save_loc_5B9:
+-	les	bx,[bp-014h]
+-	mov	cx,es:[bx]
+-	mov	dx,es:[bx+02h]
+-	mov	[bp-018h],cx
+-	mov	[bp-016h],dx
+-	cmp	cx,-1
+-	jnz	short regsave_save_loc_59F
+-	cmp	dx,cx
+-	jnz	short regsave_save_loc_59F
+-	les	bx,[bp-010h]
+-	mov	cx,es:[bx+0Ah]
+-	or	cx,es:[bx+08h]
+-	jz	short regsave_save_loc_59F
+-	push	word ptr [bp-02h]
+-	push	ax
+-	push	word ptr [bp+08h]
+-	push	word ptr [bp+06h]
+-	push	cs
+-	call	near ptr RegLoadDataBlock
+-	add	sp,08h
+-	mov	[bp-01Ch],ax
+-	mov	[bp-01Ah],dx
+-	or	dx,ax
+-	jnz	short regsave_save_loc_5FD
+-	jmp	regsave_save_loc_55E
+-regsave_save_loc_5FD:
+-	cmp	ax,0Eh
+-	jnz	short regsave_save_loc_608
+-	cmp	word ptr [bp-01Ah],00h
+-	jz	short regsave_save_loc_60B
+-regsave_save_loc_608:
+-	jmp	regsave_save_loc_0DB
+-regsave_save_loc_60B:
+-	les	bx,[bp+06h]
+-	mov	ax,es:[bx+028h]
+-	mov	dx,es:[bx+02Ah]
+-	mov	[bp-0Ch],ax
+-	mov	[bp-0Ah],dx
+-	mov	word ptr [bp-0220h],00h
+-	jmp	regsave_save_loc_535
+-regsave_save_loc_625:
+-	sub	ax,ax
+-	push	ax
+-	push	ax
+-	lea	ax,[bp-021Ch]
+-	jmp	short regsave_save_loc_63F
+-regsave_save_loc_62F:
+-	les	bx,[bp+06h]
+-	or	byte ptr es:[bx+010h],040h
+-	sub	ax,ax
+-	push	ax
+-	push	ax
+-	lea	ax,[bp-011Ch]
+-regsave_save_loc_63F:
+-	push	ss
+-	push	ax
+-	call	far ptr ConfigDelete
+-	add	sp,08h
+-regsave_save_loc_649:
+-	mov	ax,[bp-01Ah]
+-	or	ax,[bp-01Ch]
+-	jz	short regsave_save_loc_654
+-	jmp	regsave_save_loc_71A
+-regsave_save_loc_654:
+-	les	bx,[bp+06h]
+-	and	byte ptr es:[bx+010h],0FEh
+-	mov	ax,es:[bx+028h]
+-	mov	dx,es:[bx+02Ah]
+-	mov	[bp-014h],ax
+-	mov	[bp-012h],dx
+-	mov	cx,ax
+-	mov	ax,0Ch
+-	mov	si,dx
+-	mul	word ptr es:[bx+0Eh]
+-	add	cx,ax
+-	mov	[bp-010h],cx
+-	mov	[bp-0Eh],si
+-	mov	word ptr [bp-06h],00h
+-	jmp	short regsave_save_loc_6D5
+-regsave_save_loc_684:
+-	les	bx,[bp-010h]
+-	mov	ax,es:[bx+04h]
+-	mov	dx,es:[bx+06h]
+-	les	bx,[bp-014h]
+-	mov	es:[bx+04h],ax
+-	mov	es:[bx+06h],dx
+-	mov	ax,es:[bx]
+-	mov	dx,es:[bx+02h]
+-	mov	[bp-018h],ax
+-	mov	[bp-016h],dx
+-	cmp	ax,0FFFFh
+-	jnz	short regsave_save_loc_6B0
+-	cmp	dx,ax
+-	jz	short regsave_save_loc_6CA
+-regsave_save_loc_6B0:
+-	mov	bx,ax
+-	mov	es,dx
+-	and	byte ptr es:[bx+0Ch],0F8h
+-	les	bx,[bp-014h]
+-	push	word ptr es:[bx+02h]
+-	push	word ptr es:[bx]
+-	call	near ptr RegValidateDataBlock
+-regsave_save_loc_6CA:
+-	inc	word ptr [bp-06h]
+-	add	word ptr [bp-014h],0Ch
+-	add	word ptr [bp-010h],0Ch
+-regsave_save_loc_6D5:
+-	mov	ax,[bp-06h]
+-	les	bx,[bp+06h]
+-	cmp	es:[bx+0Eh],ax
+-	ja	short regsave_save_loc_684
+-	les	bx,es:[bx+024h]
+-	and	byte ptr es:[bx+010h],0F8h
+-	les	bx,[bp+06h]
+-	push	word ptr es:[bx+026h]
+-	push	word ptr es:[bx+024h]
+-	push	cs
+-	call	near ptr RegValidateKeyBlock
+-	add	sp,04h
+-	les	bx,[bp+06h]
+-	les	bx,es:[bx+020h]
+-	and	byte ptr es:[bx+012h],0FAh
+-	les	bx,[bp+06h]
+-	push	word ptr es:[bx+022h]
+-	push	word ptr es:[bx+020h]
+-	call	near ptr RegValidateHeader
+-regsave_save_loc_71A:
+-	les	bx,[bp+06h]
+-	and	byte ptr es:[bx+011h],0BFh
+-	mov	ax,[bp-01Ch]
+-	mov	dx,[bp-01Ah]
+-regsave_save_loc_728:
+-	pop	si
+-	mov	sp,bp
+-	pop	bp
+-	ret
+-RegSaveFile	endp
+-	even
+-	assume	cs:REGFILE,ds:DGROUP
+-	public	RegWriteDataBlock
+-
+-;** RegWriteDataBlock - Validate and write one cached block
+-;
+-; ENTRY: [BP+6] = WORD file handle, [BP+8] = FAR cache entry,
+-;        [BP+0Ch] = WORD seek flag, [BP+0Eh] = FAR file descriptor.
+-; EXIT: DX:AX = status. Unless the file's save flag bypasses validation,
+-; validate and clear checksum validity before writing; clear dirty flags on success.
+-;
+-RegWriteDataBlock	proc	far
+-	push	bp
+-	mov	bp,sp
+-	cmp	RegIOInhibit,0
+-	jz	short regwrite_rw_validate
+-	mov	ax,0A7h
+-regwrite_rw_status:
+-	xor	dx,dx
+-	jmp	regwrite_rw_exit
+-regwrite_rw_validate:
+-	les	bx,[bp+14]
+-	test	byte ptr es:[bx+11h],40h
+-	jnz	short regwrite_rw_seek
+-	les	bx,[bp+8]
+-	push	word ptr es:[bx+2]
+-	push	word ptr es:[bx]
+-	call	near ptr RegValidateDataBlock
+-	mov	sp,bp
+-	or	ax,ax
+-	jnz	short regwrite_rw_seek
+-	mov	ax,3F1h
+-	jmp	short regwrite_rw_status
+-regwrite_rw_seek:
+-	les	bx,[bp+8]
+-	les	bx,es:[bx]
+-	and	byte ptr es:[bx+0Ch],0FBh
+-	cmp	word ptr [bp+12],0
+-	jz	short regwrite_rw_write
+-	les	bx,[bp+14]
+-	mov	ax,es:[bx+2Ch]
+-	cwd
+-	push	dx
+-	push	ax
+-	sub	ax,ax
+-	push	ax
+-	push	ax
+-	les	bx,[bp+8]
+-	push	word ptr es:[bx+6]
+-	push	word ptr es:[bx+4]
+-	push	word ptr [bp+6]
+-	call	far ptr ConfigSeek
+-	mov	sp,bp
+-	jc	short regwrite_rw_seek_error
+-	les	bx,[bp+8]
+-	cmp	ax,es:[bx+4]
+-	jnz	short regwrite_rw_seek_error
+-	cmp	dx,es:[bx+6]
+-	jz	short regwrite_rw_write
+-regwrite_rw_seek_error:
+-	mov	ax,3F8h
+-	jmp	regwrite_rw_status
+-regwrite_rw_write:
+-	les	bx,[bp+14]
+-	mov	ax,es:[bx+2Ch]
+-	cwd
+-	push	dx
+-	push	ax
+-	les	bx,[bp+8]
+-	push	word ptr es:[bx+10]
+-	push	word ptr es:[bx+8]
+-	push	word ptr es:[bx+2]
+-	push	word ptr es:[bx]
+-	push	word ptr [bp+6]
+-	call	far ptr ConfigWriteAll
+-	mov	sp,bp
+-	cmp	ax,-1
+-	jnz	short regwrite_rw_update
+-	cmp	dx,ax
+-	jnz	short regwrite_rw_update
+-	mov	ax,3F8h
+-	jmp	regwrite_rw_status
+-regwrite_rw_update:
+-	les	bx,[bp+14]
+-	test	byte ptr es:[bx+11h],40h
+-	jnz	short regwrite_rw_ok
+-	les	bx,[bp+8]
+-	les	bx,es:[bx]
+-	and	byte ptr es:[bx+0Ch],0F8h
+-regwrite_rw_ok:
+-	xor	ax,ax
+-	jmp	regwrite_rw_status
+-regwrite_rw_exit:
+-	mov	sp,bp
+-	pop	bp
+-	ret
+-RegWriteDataBlock	endp
+-	even
+-	assume	cs:REGFILE,ds:DGROUP
+-	public	RegLoadDataBlock
+-
+-;** RegLoadDataBlock - Read and index one data block
+-;
+-; ENTRY: [BP+6] = FAR file, [BP+0Ah] = WORD block index,
+-;        [BP+0Ch] = WORD handle (-1 opens the file here).
+-; EXIT: DX:AX = status. Close locally opened files and release
+-; allocated buffers on the error cleanup path.
+-;
+-RegLoadDataBlock	proc	far
+-	push	bp
+-	mov	bp,sp
+-	sub	sp,01Eh
+-	push	di
+-	push	si
+-	sub	ax,ax
+-	mov	[bp-02h],ax
+-	mov	[bp-04h],ax
+-	mov	[bp-06h],ax
+-	mov	[bp-08h],ax
+-	mov	[bp-0Ah],ax
+-	mov	[bp-0Ch],ax
+-	mov	[bp-018h],ax
+-	cmp	RegIOInhibit,ax
+-	jz	short regload_load_loc_02D
+-	mov	ax,0A7h
+-regload_load_loc_028:
+-	xor	dx,dx
+-	jmp	regload_load_loc_331
+-regload_load_loc_02D:
+-	mov	ax,[bp+0Ah]
+-	les	bx,[bp+06h]
+-	cmp	es:[bx+0Eh],ax
+-	ja	short regload_load_loc_04B
+-	les	bx,[bp+06h]
+-	mov	ax,03F1h
+-	or	byte ptr es:[bx+010h],08h
+-	jmp	short regload_load_loc_028
+-regload_load_loc_04B:
+-	mov	ax,0Ch
+-	mul	word ptr [bp+0Ah]
+-	mov	bx,ax
+-	mov	si,[bp+06h]
+-	les	si,es:[si+028h]
+-	mov	ax,es:[bx+si+08h]
+-	mov	dx,es:[bx+si+0Ah]
+-	mov	[bp-014h],ax
+-	mov	[bp-012h],dx
+-regload_load_loc_068:
+-	mov	ax,[bp-018h]
+-	inc	word ptr [bp-018h]
+-	cmp	ax,01h
+-	jng	short regload_load_loc_076
+-	jmp	regload_load_loc_10F
+-regload_load_loc_076:
+-	mov	ax,0Ch
+-	mul	word ptr [bp+0Ah]
+-	mov	si,ax
+-	les	bx,[bp+06h]
+-	les	bx,es:[bx+028h]
+-	cmp	word ptr es:[bx+si],-1
+-	jnz	short regload_load_loc_092
+-	cmp	word ptr es:[bx+si+02h],-1
+-	jz	short regload_load_loc_096
+-regload_load_loc_092:
+-	xor	ax,ax
+-	jmp	short regload_load_loc_028
+-regload_load_loc_096:
+-	sub	ax,ax
+-	push	ax
+-	push	ax
+-	push	word ptr [bp-012h]
+-	push	word ptr [bp-014h]
+-	call	far ptr ConfigAlloc
+-	add	sp,08h
+-	mov	[bp-04h],ax
+-	mov	[bp-02h],dx
+-	or	dx,ax
+-	jnz	short regload_load_loc_0D1
+-regload_load_loc_0B2:
+-	mov	ax,0FFFFh
+-	cwd
+-	push	dx
+-	push	ax
+-	push	word ptr [bp+08h]
+-	push	word ptr [bp+06h]
+-	push	cs
+-	call	near ptr RegMaintainCache
+-	add	sp,08h
+-	mov	word ptr [bp-0Ch],0Eh
+-	mov	word ptr [bp-0Ah],00h
+-	jmp	short regload_load_loc_068
+-regload_load_loc_0D1:
+-	mov	ax,01h
+-	cwd
+-	push	dx
+-	push	ax
+-	mov	ax,01FEh
+-	cwd
+-	push	dx
+-	push	ax
+-	call	far ptr ConfigAlloc
+-	add	sp,08h
+-	mov	[bp-08h],ax
+-	mov	[bp-06h],dx
+-	or	dx,ax
+-	jnz	short regload_load_loc_107
+-	push	word ptr [bp-02h]
+-	push	word ptr [bp-04h]
+-	call	far ptr ConfigFree
+-	add	sp,04h
+-	sub	ax,ax
+-	mov	[bp-02h],ax
+-	mov	[bp-04h],ax
+-	jmp	short regload_load_loc_0B2
+-regload_load_loc_107:
+-	sub	ax,ax
+-	mov	[bp-0Ah],ax
+-	mov	[bp-0Ch],ax
+-regload_load_loc_10F:
+-	mov	ax,[bp+0Ch]
+-	mov	[bp-016h],ax
+-	cmp	ax,0FFFFh
+-	jnz	short regload_load_loc_15C
+-	lea	ax,[bp-01Ch]
+-	push	ss
+-	push	ax
+-	sub	ax,ax
+-	push	ax
+-	push	ax
+-	les	bx,[bp+06h]
+-	mov	ax,es:[bx+02Ch]
+-	cwd
+-	push	dx
+-	push	ax
+-	push	word ptr es:[bx+016h]
+-	push	word ptr es:[bx+014h]
+-	call	far ptr ConfigOpen
+-	add	sp,010h
+-	mov	[bp-016h],ax
+-	cmp	ax,0FFFFh
+-	jnz	short regload_load_loc_15C
+-	les	bx,[bp+06h]
+-	mov	word ptr [bp-0Ch],03F8h
+-	or	byte ptr es:[bx+010h],020h
+-	mov	word ptr [bp-0Ah],00h
+-regload_load_loc_15C:
+-	mov	ax,[bp-0Ah]
+-	or	ax,[bp-0Ch]
+-	jz	short regload_load_loc_173
+-	jmp	regload_load_loc_2C5
+-regload_load_loc_173:
+-	les	bx,[bp+06h]
+-	cmp	word ptr es:[bx+02Ch],00h
+-	jz	short regload_load_loc_191
+-	sub	ax,ax
+-	push	ax
+-	push	ax
+-	mov	ax,es:[bx+02Eh]
+-	mov	[bp-016h],ax
+-	push	ax
+-	call	far ptr RegNotifyLoad
+-	add	sp,06h
+-regload_load_loc_191:
+-	les	bx,[bp+06h]
+-	mov	ax,es:[bx+02Ch]
+-	cwd
+-	push	dx
+-	push	ax
+-	sub	cx,cx
+-	push	cx
+-	push	cx
+-	mov	cx,ax
+-	mov	ax,0Ch
+-	mov	si,dx
+-	mul	word ptr [bp+0Ah]
+-	mov	di,bx
+-	les	bx,es:[di+028h]
+-	mov	di,ax
+-	push	word ptr es:[bx+di+06h]
+-	push	word ptr es:[bx+di+04h]
+-	push	word ptr [bp-016h]
+-	mov	di,cx
+-	call	far ptr ConfigSeek
+-	jc	short regload_seek_carry
+-	add	sp,0Eh
+-	push	ax
+-	push	dx
+-	mov	ax,0Ch
+-	mul	word ptr [bp+0Ah]
+-	les	bx,[bp+06h]
+-	les	bx,es:[bx+028h]
+-	add	bx,ax
+-	pop	dx
+-	pop	ax
+-	cmp	ax,es:[bx+04h]
+-	jnz	short regload_seek_error
+-	cmp	dx,es:[bx+06h]
+-	jz	short regload_seek_ok
+-regload_seek_error:
+-	jmp	regload_ioerror
+-regload_seek_carry:
+-	add	sp,0Eh
+-	jmp	short regload_seek_error
+-regload_seek_ok:
+-	push	si
+-	push	di
+-	push	word ptr [bp-012h]
+-	push	word ptr [bp-014h]
+-	push	word ptr [bp-02h]
+-	push	word ptr [bp-04h]
+-	push	word ptr [bp-016h]
+-	call	far ptr ConfigReadAll
+-	add	sp,0Eh
+-	cmp	ax,0FFFFh
+-	jnz	short regload_load_loc_1FD
+-	cmp	dx,ax
+-	jnz	short regload_load_loc_1FD
+-regload_ioerror:
+-	les	bx,[bp+06h]
+-	mov	word ptr [bp-0Ch],03F8h
+-	or	byte ptr es:[bx+010h],020h
+-regload_load_loc_1F5:
+-	mov	word ptr [bp-0Ah],00h
+-	jmp	regload_load_loc_2C5
+-regload_load_loc_1FD:
+-	mov	ax,[bp-014h]
+-	mov	dx,[bp-012h]
+-	les	bx,[bp-04h]
+-	mov	[bp-010h],bx
+-	mov	word ptr [bp-0Eh],es
+-	cmp	es:[bx+04h],ax
+-	jnz	short regload_load_loc_239
+-	cmp	es:[bx+06h],dx
+-	jnz	short regload_load_loc_239
+-	push	es
+-	push	bx
+-	call	near ptr RegValidateDataBlock
+-	or	ax,ax
+-	jnz	short regload_header_valid
+-	mov	word ptr [bp-0Ch],03F1h
+-	jmp	short regload_corrupt
+-regload_header_valid:
+-	les	bx,[bp-04h]
+-	mov	ax,es:[bx+0Ch]
+-	test	al,08h
+-	jz	short regload_load_loc_24D
+-	mov	ax,[bp+0Ah]
+-	cmp	es:[bx+0Eh],ax
+-	jz	short regload_load_loc_24D
+-regload_load_loc_239:
+-	mov	word ptr [bp-0Ch],03F7h
+-regload_corrupt:
+-	les	bx,[bp+06h]
+-	or	byte ptr es:[bx+010h],08h
+-	jmp	short regload_load_loc_1F5
+-regload_load_loc_24D:
+-	mov	ax,[bp-08h]
+-	mov	dx,[bp-06h]
+-	les	bx,[bp-010h]
+-	mov	es:[bx+018h],ax
+-	mov	es:[bx+01Ah],dx
+-	push	dx
+-	push	ax
+-	push	es
+-	push	bx
+-	push	cs
+-	call	near ptr RegIndexBlock
+-	add	sp,08h
+-	or	ax,ax
+-	jnz	short regload_load_loc_275
+-	mov	word ptr [bp-0Ch],03F1h
+-	les	bx,[bp+06h]
+-	or	byte ptr es:[bx+010h],08h
+-	jmp	regload_load_loc_1F5
+-regload_load_loc_275:
+-	mov	ax,0Ch
+-	mul	word ptr [bp+0Ah]
+-	mov	si,ax
+-	les	bx,[bp+06h]
+-	les	bx,es:[bx+028h]
+-	mov	ax,[bp-010h]
+-	mov	dx,[bp-0Eh]
+-	mov	es:[bx+si],ax
+-	mov	es:[bx+si+02h],dx
+-	mov	bx,ax
+-	mov	es,dx
+-	mov	cx,es:[bx+0Ch]
+-	and	cl,0F8h
+-	mov	es:[bx+0Ch],cx
+-	mov	word ptr es:[bx+0Eh],00h
+-	mov	cx,08h
+-	mov	si,[bp+0Ah]
+-	or	es:[bx+0Ch],cx
+-	or	es:[bx+0Eh],si
+-	push	dx
+-	push	ax
+-	call	near ptr RegValidateDataBlock
+-	sub	ax,ax
+-	mov	[bp-0Ah],ax
+-	mov	[bp-0Ch],ax
+-regload_load_loc_2C5:
+-	cmp	word ptr [bp+0Ch],-1
+-	jnz	short regload_load_loc_2F2
+-	sub	ax,ax
+-	push	ax
+-	push	ax
+-	les	bx,[bp+06h]
+-	mov	ax,es:[bx+02Ch]
+-	cwd
+-	push	dx
+-	push	ax
+-	push	word ptr [bp-016h]
+-	push	word ptr es:[bx+016h]
+-	push	word ptr es:[bx+014h]
+-	call	far ptr ConfigClose
+-	add	sp,0Eh
+-regload_load_loc_2F2:
+-	mov	ax,[bp-0Ah]
+-	or	ax,[bp-0Ch]
+-	jz	short regload_load_loc_32B
+-	mov	ax,[bp-02h]
+-	or	ax,[bp-04h]
+-	jz	short regload_load_loc_315
+-	push	word ptr [bp-02h]
+-	push	word ptr [bp-04h]
+-	call	far ptr ConfigFree
+-	add	sp,04h
+-regload_load_loc_315:
+-	mov	ax,[bp-06h]
+-	or	ax,[bp-08h]
+-	jz	short regload_load_loc_32B
+-	push	word ptr [bp-06h]
+-	push	word ptr [bp-08h]
+-	call	far ptr ConfigFree
+-	add	sp,04h
+-regload_load_loc_32B:
+-	mov	ax,[bp-0Ch]
+-	mov	dx,[bp-0Ah]
+-regload_load_loc_331:
+-	pop	si
+-	pop	di
+-	mov	sp,bp
+-	pop	bp
+-	ret
+-RegLoadDataBlock	endp
++RegSaveFile proc near
++	enter 10Ch,0
++	push di
++	push si
++	mov si,[bp+4]
++	mov es,word ptr [bp+6]
++	test byte ptr es:[si+56h],1
++	jnz short rsfs_check
++rsfs_clean:
++	xor ax,ax
++	jmp rsfs_done
++rsfs_check:
++	test byte ptr es:[si+56h],50h
++	jnz short rsfs_clean
++	mov bx,si
++	or byte ptr es:[bx+56h],10h
++	mov word ptr [bp-8],3F8h
++	mov ax,-1
++	mov [bp-6],ax
++	mov [bp-4],ax
++	lea ax,[bx+58h]
++	push es
++	push ax
++	push 0
++	call RegDosSetAttr
++	or ax,ax
++	jz rsfs_path_error
++	les bx,[bp+4]
++	test byte ptr es:[bx+56h],4
++	jz rsfs_inplace
++	mov ax,bx
++	add ax,58h
++	mov di,ax
++	mov cx,-1
++	xor ax,ax
++	repne scasb
++	not cx
++	dec cx
++	mov [bp-2],cx
++	cmp cx,104h
++	jae rsfs_path_error
++	mov bx,[bp+4]
++	add bx,58h
++	push ds
++	mov di,bx
++	lea si,[bp-10Ch]
++	push ss
++	pop ds
++	mov cx,-1
++	repne scasb
++	not cx
++	sub di,cx
++	xchg di,si
++	push ds
++	push es
++	pop ds
++	pop es
++	shr cx,1
++	rep movsw
++	adc cx,cx
++	rep movsb
++	pop ds
++	mov bx,[bp-2]
++rsfs_separator:
++	dec bx
++	jz short rsfs_directory
++	mov si,bx
++	cmp byte ptr [bp+si-10Ch],'\'
++	jnz short rsfs_separator
++rsfs_directory:
++	or bx,bx
++	jz short rsfs_default
++	mov si,bx
++	mov byte ptr [bp+si-10Bh],0
++	jmp short rsfs_temp
++rsfs_default:
++	push ds
++	mov di,offset DGROUP:RegCurrentDirectory
++	lea si,[bp-10Ch]
++	push ds
++	pop es
++	push ss
++	pop ds
++	mov cx,-1
++	xor ax,ax
++	repne scasb
++	not cx
++	sub di,cx
++	xchg di,si
++	push ds
++	push es
++	pop ds
++	pop es
++	shr cx,1
++	rep movsw
++	adc cx,cx
++	rep movsb
++	pop ds
++rsfs_temp:
++	lea ax,[bp-10Ch]
++	push ss
++	push ax
++	call RegDosTempFile
++	mov [bp-4],ax
++	inc ax
++	jz short rsfs_path_error
++	mov eax,[bp+4]
++	add ax,58h
++	push eax
++	push 0
++	call RegDosOpen
++	mov [bp-6],ax
++	inc ax
++	jnz short rsfs_have_input
++rsfs_path_error:
++	mov si,[bp+4]
++	jmp rsfs_error
++rsfs_have_input:
++	mov si,[bp+4]
++	jmp short rsfs_header
++rsfs_inplace:
++	mov si,bx
++	lea ax,[bx+58h]
++	push es
++	push ax
++	push 1
++	call RegDosOpen
++	mov [bp-4],ax
++	inc ax
++	jz rsfs_error
++rsfs_header:
++	cmp word ptr [bp-6],-1
++	jnz short rsfs_extent
++	mov es,word ptr [bp+6]
++	test byte ptr es:[si+28h],1
++	jz short rsfs_keys
++rsfs_extent:
++	mov es,word ptr [bp+6]
++	test byte ptr es:[si+56h],8
++	jz short rsfs_packed
++	mov ax,es:[si+0Ch]
++	mov dx,es:[si+0Eh]
++	add ah,10h
++	jmp short rsfs_position
++rsfs_packed:
++	mov ax,es:[si+0Ch]
++	mov dx,es:[si+0Eh]
++	add ax,20h
++rsfs_position:
++	adc dx,0
++	mov es:[si+1Eh],ax
++	mov es:[si+20h],dx
++	push word ptr [bp-4]
++	mov ax,si
++	mov dx,[bp+6]
++	add ax,16h
++	push dx
++	push ax
++	push 20h
++	call RegDosWrite
++	or ax,ax
++	jz rsfs_error
++rsfs_keys:
++	push word ptr [bp+6]
++	push si
++	push word ptr [bp-6]
++	push word ptr [bp-4]
++	call RegWriteKeyBlocks
++	mov [bp-8],ax
++	or ax,ax
++	jnz short rsfs_error
++	push word ptr [bp+6]
++	push si
++	push word ptr [bp-6]
++	push word ptr [bp-4]
++	call RegWriteDataBlock
++	mov [bp-8],ax
++	or ax,ax
++	jnz short rsfs_error
++	push word ptr [bp-4]
++	call RegDosClose
++	cmp word ptr [bp-6],-1
++	jz short rsfs_commit
++	push word ptr [bp-6]
++	call RegDosClose
++	mov word ptr [bp-8],3F8h
++	mov ax,si
++	mov dx,[bp+6]
++	add ax,58h
++	push dx
++	push ax
++	call RegDosDelete
++	or ax,ax
++	jz short rsfs_attributes
++	lea ax,[bp-10Ch]
++	push ss
++	push ax
++	mov ax,si
++	mov dx,[bp+6]
++	add ax,58h
++	push dx
++	push ax
++	call RegDosRename
++	or ax,ax
++	jz short rsfs_attributes
++rsfs_commit:
++	push word ptr [bp+6]
++	push si
++	call RegCommitDataCache
++	push word ptr [bp+6]
++	push si
++	call RegCommitKeyCache
++	mov es,word ptr [bp+6]
++	and word ptr es:[si+28h],0FFFEh
++	and word ptr es:[si+56h],0FFFAh
++	mov word ptr [bp-8],0
++	jmp short rsfs_attributes
++rsfs_error:
++	cmp word ptr [bp-6],-1
++	jz short rsfs_output
++	push word ptr [bp-6]
++	call RegDosClose
++rsfs_output:
++	cmp word ptr [bp-4],-1
++	jz short rsfs_attributes
++	cmp word ptr [bp-6],-1
++	jz short rsfs_restore
++	lea ax,[bp-10Ch]
++	push ss
++	push ax
++	call RegDosDelete
++rsfs_restore:
++	mov ax,si
++	mov dx,[bp+6]
++	add ax,58h
++	push dx
++	push ax
++	push 7
++	call RegDosSetAttr
++rsfs_attributes:
++	mov ax,si
++	mov dx,[bp+6]
++	add ax,58h
++	push dx
++	push ax
++	push 7
++	call RegDosSetAttr
++	mov es,word ptr [bp+6]
++	and byte ptr es:[si+56h],0EFh
++	mov ax,[bp-8]
++rsfs_done:
++	pop si
++	pop di
++	leave
++	ret 4
++RegSaveFile endp
++	even
++	assume	cs:REGFILE,ds:DGROUP
++	public	RegWriteDataBlock
++
++;** RegWriteDataBlock - Validate and write one cached block
++;
++; ENTRY: [BP+6] = WORD file handle, [BP+8] = FAR cache entry,
++;        [BP+0Ch] = WORD seek flag, [BP+0Eh] = FAR file descriptor.
++; EXIT: DX:AX = status. Unless the file's save flag bypasses validation,
++; validate and clear checksum validity before writing; clear dirty flags on success.
++;
++RegWriteDataBlock proc near
++	enter 0Eh,0
++	push di
++	push si
++	mov bx,[bp+8]
++	mov es,word ptr [bp+0Ah]
++	mov ax,es:[bx+10h]
++	mov dx,es:[bx+12h]
++	mov si,ax
++	mov [bp-0Ah],dx
++	db 66h
++	mov ax,es:[bx+1Eh]
++	mov [bp-8],eax
++	mov word ptr [bp-0Eh],0
++	cmp word ptr es:[bx+26h],0
++	jz rwdb_success
++rwdb_next:
++	mov es,word ptr [bp-0Ah]
++	test byte ptr es:[si+12h],1
++	jz short rwdb_copy
++	cmp word ptr [bp+6],-1
++	jnz short rwdb_cached
++	test byte ptr es:[si+12h],4
++	jz rwdb_advance
++rwdb_cached:
++	mov di,[bp+4]
++	db 66h
++	mov ax,es:[si]
++	mov dx,es:[si+2]
++	mov [bp-4],eax
++	mov cx,es:[si+8]
++	mov bx,ax
++	mov es,dx
++	mov es:[bx+4],cx
++	mov word ptr es:[bx+6],0
++	mov es,word ptr [bp-0Ah]
++	mov ax,es:[si+0Ah]
++	les bx,[bp-4]
++	mov es:[bx+8],ax
++	mov word ptr es:[bx+0Ah],0
++	mov es,word ptr [bp-0Ah]
++	mov ax,es:[si+0Ch]
++	les bx,[bp-4]
++	mov es:[bx+16h],ax
++	and byte ptr es:[bx+0Ch],0FBh
++	push di
++	push dword ptr [bp-8]
++	call RegDosSeek
++	or ax,ax
++	jz short rwdb_error
++	push di
++	push dword ptr [bp-4]
++	mov es,word ptr [bp-0Ah]
++	push word ptr es:[si+8]
++	call RegDosWrite
++	or ax,ax
++	jnz short rwdb_advance
++rwdb_error:
++	mov ax,3F8h
++	jmp short rwdb_done
++rwdb_copy:
++	cmp word ptr [bp+6],-1
++	jz short rwdb_advance
++	push word ptr [bp+6]
++	db 66h
++	push word ptr es:[si+0Eh]
++	push word ptr [bp+4]
++	push dword ptr [bp-8]
++	push 0
++	push word ptr es:[si+8]
++	call RegCopyFileRange
++	or ax,ax
++	jnz short rwdb_error
++rwdb_advance:
++	mov es,word ptr [bp-0Ah]
++	mov ax,es:[si+8]
++	sub dx,dx
++	add [bp-8],ax
++	adc [bp-6],dx
++	add si,14h
++	inc word ptr [bp-0Eh]
++	mov ax,[bp-0Eh]
++	les bx,[bp+8]
++	cmp es:[bx+26h],ax
++	ja rwdb_next
++rwdb_success:
++	xor ax,ax
++rwdb_done:
++	pop si
++	pop di
++	leave
++	ret 8
++RegWriteDataBlock endp
++	even
++	assume	cs:REGFILE,ds:DGROUP
++	public	RegLoadDataBlock
++
++;** RegLoadDataBlock - Read and index one data block
++;
++; ENTRY: [BP+6] = FAR file, [BP+0Ah] = WORD block index,
++;        [BP+0Ch] = WORD handle (-1 opens the file here).
++; EXIT: DX:AX = status. Close locally opened files and release
++; allocated buffers on the error cleanup path.
++;
++RegLoadDataBlock proc near
++	enter 6,0
++	push di
++	push si
++	mov bx,[bp+4]
++	mov word ptr [bp-2],-1
++	les si,[bp+6]
++	cmp es:[si+26h],bx
++	ja short rldc_entry
++	mov ax,3F1h
++	jmp rldc_done
++rldc_entry:
++	imul ax,bx,14h
++	mov di,si
++	les di,es:[di+10h]
++	add di,ax
++	mov si,di
++	mov [bp-4],es
++	test byte ptr es:[di+12h],1
++	jnz rldc_pin
++	push es
++	push di
++	call RegNewDataBlock
++	mov di,ax
++	or di,ax
++	jnz short rldc_error
++	mov eax,[bp+6]
++	add ax,58h
++	push eax
++	push 0
++	call RegDosOpen
++	mov [bp-2],ax
++	inc ax
++	jz short rldc_ioerror
++	push word ptr [bp-2]
++	mov es,word ptr [bp-4]
++	db 66h
++	push word ptr es:[si+0Eh]
++	call RegDosSeek
++	or ax,ax
++	jz short rldc_ioerror
++	push word ptr [bp-2]
++	mov es,word ptr [bp-4]
++	db 66h
++	push word ptr es:[si]
++	push word ptr es:[si+8]
++	call RegDosRead
++	or ax,ax
++	jz short rldc_ioerror
++	mov es,word ptr [bp-4]
++	db 66h
++	push word ptr es:[si]
++	call RegValidateDataBlock
++	or ax,ax
++	jnz short rldc_index
++	mov di,3F1h
++	jmp short rldc_error
++rldc_index:
++	push word ptr [bp-4]
++	push si
++	call RegIndexBlock
++	mov di,ax
++	or di,ax
++	jnz short rldc_error
++	push word ptr [bp-2]
++	call RegDosClose
++	jmp short rldc_pin
++rldc_ioerror:
++	mov di,3F8h
++rldc_error:
++	cmp word ptr [bp-2],-1
++	jz short rldc_release
++	push word ptr [bp-2]
++	call RegDosClose
++rldc_release:
++	push word ptr [bp-4]
++	push si
++	call RegFreeDataBlock
++	mov ax,di
++	jmp short rldc_done
++rldc_pin:
++	mov es,word ptr [bp-4]
++	or byte ptr es:[si+12h],3
++	inc byte ptr es:[si+13h]
++	xor ax,ax
++rldc_done:
++	pop si
++	pop di
++	leave
++	ret 6
++RegLoadDataBlock endp
+ 	even
+ 	assume	cs:REGFILE,ds:DGROUP
+ 	public	RegMaintainCache
+@@ -1927,101 +844,29 @@ RegLoadDataBlock	endp
+ ; ENTRY: [BP+6] = FAR file, [BP+0Ah] = FAR block to retain.
+ ; Save pending state before scanning eligible blocks.
+ ;
+-RegMaintainCache	proc	far
+-	push	bp
+-	mov	bp,sp
+-	sub	sp,04h
+-	cmp	word ptr RegIOInhibit,00h
+-	jz	short regmaint_maint_loc_010
+-	jmp	regmaint_maint_loc_0CD
+-regmaint_maint_loc_010:
+-	mov	ax,[bp+06h]
+-	mov	dx,[bp+08h]
+-	mov	[bp-04h],ax
+-	mov	[bp-02h],dx
+-	push	dx
+-	push	ax
+-	push	cs
+-	call	near ptr RegHasPendingState
+-	add	sp,04h
+-	or	ax,ax
+-	jz	short regmaint_maint_loc_036
+-	push	word ptr [bp+08h]
+-	push	word ptr [bp+06h]
+-regmaint_maint_loc_02F:
+-	push	cs
+-	call	near ptr RegSaveFile
+-	add	sp,04h
+-regmaint_maint_loc_036:
+-	push	word ptr [bp+0Ch]
+-	push	word ptr [bp+0Ah]
+-	push	word ptr [bp-02h]
+-	push	word ptr [bp-04h]
+-	push	cs
+-	call	near ptr RegScanDataBlocks
+-	add	sp,08h
+-	les	bx,[bp-04h]
+-	mov	ax,es:[bx+04h]
+-	mov	dx,es:[bx+06h]
+-	mov	[bp-04h],ax
+-	mov	[bp-02h],dx
+-	cmp	ax,0FFFFh
+-	jnz	short regmaint_maint_loc_063
+-	cmp	dx,ax
+-	jz	short regmaint_maint_loc_078
+-regmaint_maint_loc_063:
+-	push	dx
+-	push	ax
+-	push	cs
+-	call	near ptr RegHasPendingState
+-	add	sp,04h
+-	or	ax,ax
+-	jz	short regmaint_maint_loc_036
+-	push	word ptr [bp-02h]
+-	push	word ptr [bp-04h]
+-	jmp	short regmaint_maint_loc_02F
+-regmaint_maint_loc_078:
+-	mov	ax,[bp+06h]
+-	mov	dx,[bp+08h]
+-	mov	[bp-04h],ax
+-	mov	[bp-02h],dx
+-regmaint_maint_loc_084:
+-	les	bx,[bp-04h]
+-	mov	ax,es:[bx+08h]
+-	mov	dx,es:[bx+0Ah]
+-	mov	[bp-04h],ax
+-	mov	[bp-02h],dx
+-	cmp	ax,0FFFFh
+-	jnz	short regmaint_maint_loc_09E
+-	cmp	dx,ax
+-	jz	short regmaint_maint_loc_0CD
+-regmaint_maint_loc_09E:
+-	push	dx
+-	push	ax
+-	push	cs
+-	call	near ptr RegHasPendingState
+-	add	sp,04h
+-	or	ax,ax
+-	jz	short regmaint_maint_loc_0B8
+-	push	word ptr [bp-02h]
+-	push	word ptr [bp-04h]
+-	push	cs
+-	call	near ptr RegSaveFile
+-	add	sp,04h
+-regmaint_maint_loc_0B8:
+-	push	word ptr [bp+0Ch]
+-	push	word ptr [bp+0Ah]
+-	push	word ptr [bp-02h]
+-	push	word ptr [bp-04h]
+-	push	cs
+-	call	near ptr RegScanDataBlocks
+-	add	sp,08h
+-	jmp	short regmaint_maint_loc_084
+-regmaint_maint_loc_0CD:
+-	mov	sp,bp
+-	pop	bp
+-	ret
+-RegMaintainCache	endp
++RegMaintainCache proc near
++	push bp
++	mov bp,sp
++	push si
++	mov si,[bp+4]
++	mov es,word ptr [bp+6]
++	test byte ptr es:[si+56h],50h
++	jnz short rdc_exit
++	or byte ptr es:[si+56h],20h
++	push es
++	push si
++	call RegTrimKeyCache
++	push word ptr [bp+6]
++	push si
++	call RegScanDataBlocks
++	mov es,word ptr [bp+6]
++	and byte ptr es:[si+56h],0DFh
++rdc_exit:
++	xor ax,ax
++	pop si
++	leave
++	ret 4
++RegMaintainCache endp
+ 	even
+ 	assume	cs:REGFILE
+ 	public	RegScanDataBlocks
+@@ -2032,66 +877,45 @@ RegMaintainCache	endp
+ ; Skip pending-state files, unused entries and the retained block.
+ ; Compare each remaining block's reference word with its scan index.
+ ;
+-RegScanDataBlocks	proc	far
+-	push	bp
+-	mov	bp,sp
+-	sub	sp,6
+-	les	bx,[bp+6]
+-	mov	ax,es:[bx+28h]
+-	mov	dx,es:[bx+2Ah]
+-	mov	[bp-4],ax
+-	mov	[bp-2],dx
+-	cmp	ax,-1
+-	jnz	short regscan_rc_state
+-	cmp	dx,ax
+-	jz	short regscan_rc_exit
+-regscan_rc_state:
+-	push	es
+-	push	bx
+-	push	cs
+-	call	near ptr RegHasPendingState
+-	add	sp,4
+-	or	ax,ax
+-	jnz	short regscan_rc_exit
+-	mov	[bp-6],ax
+-	jmp	short regscan_rc_test
+-regscan_rc_entry:
+-	les	bx,[bp-4]
+-	cmp	word ptr es:[bx],-1
+-	jnz	short regscan_rc_retained
+-	cmp	word ptr es:[bx+2],-1
+-	jz	short regscan_rc_next
+-regscan_rc_retained:
+-	mov	cx,[bp+10]
+-	mov	dx,[bp+12]
+-	cmp	es:[bx],cx
+-	jnz	short regscan_rc_refs
+-	cmp	es:[bx+2],dx
+-	jz	short regscan_rc_next
+-regscan_rc_refs:
+-	les	bx,es:[bx]
+-	cmp	es:[bx+0Eh],ax
+-	jnz	short regscan_rc_next
+-	push	word ptr [bp-2]
+-	push	word ptr [bp-4]
+-	push	word ptr [bp+8]
+-	push	word ptr [bp+6]
+-	push	cs
+-	call	near ptr RegFlushDataBlock
+-	add	sp,8
+-regscan_rc_next:
+-	inc	word ptr [bp-6]
+-	add	word ptr [bp-4],12
+-regscan_rc_test:
+-	mov	ax,[bp-6]
+-	les	bx,[bp+6]
+-	cmp	es:[bx+0Eh],ax
+-	ja	short regscan_rc_entry
+-regscan_rc_exit:
+-	mov	sp,bp
+-	pop	bp
+-	ret
+-RegScanDataBlocks	endp
++RegScanDataBlocks proc near
++	enter 4,0
++	push di
++	push si
++	mov cx,[bp+4]
++	mov bx,cx
++	mov es,word ptr [bp+6]
++	mov di,es:[bx+26h]
++	mov ax,es:[bx+10h]
++	mov dx,es:[bx+12h]
++	mov si,ax
++	mov [bp-2],dx
++	cmp word ptr es:[bx+26h],0
++	jz short rtd_done
++rtd_next:
++	mov es,word ptr [bp-2]
++	mov al,es:[si+12h]
++	and al,7
++	dec al
++	jnz short rtd_clear
++	cmp byte ptr es:[si+13h],0
++	jnz short rtd_clear
++	push es
++	push si
++	call RegFreeDataBlock
++	mov es,word ptr [bp-2]
++	mov byte ptr es:[si+12h],0
++rtd_clear:
++	mov es,word ptr [bp-2]
++	and byte ptr es:[si+12h],0FDh
++	add si,14h
++	dec di
++	jnz short rtd_next
++rtd_done:
++	pop si
++	pop di
++	leave
++	ret 4
++RegScanDataBlocks endp
+ 	assume	cs:REGFILE
+ 	public	RegFlushDataBlock
+ 
+@@ -2157,155 +981,166 @@ regflush_rf_write:
+ 	add	sp,12
+ 	mov	[bp-6],ax
+ 	mov	[bp-4],dx
+-	mov	ax,1
+-	cwd
+-	push	dx
+-	push	ax
+-	sub	ax,ax
+-	push	ax
+-	push	ax
+-	push	word ptr [bp-2]
+-	les	bx,[bp+6]
+-	push	word ptr es:[bx+16h]
+-	push	word ptr es:[bx+14h]
+-	call	far ptr ConfigClose
+-	add	sp,14
+-	mov	ax,[bp-4]
+-	or	ax,[bp-6]
+-	jnz	short regflush_rf_error
+-regflush_rf_release:
+-	les	bx,[bp-10]
+-	cmp	word ptr es:[bx+18h],-1
+-	jnz	short regflush_rf_aux
+-	cmp	word ptr es:[bx+1Ah],-1
+-	jz	short regflush_rf_block
+-regflush_rf_aux:
+-	push	word ptr es:[bx+1Ah]
+-	push	word ptr es:[bx+18h]
+-	call	far ptr ConfigFree
+-	add	sp,4
+-regflush_rf_block:
+-	push	word ptr [bp-8]
+-	push	word ptr [bp-10]
+-	call	far ptr ConfigFree
+-	les	bx,[bp+10]
+-	mov	word ptr es:[bx],-1
+-	mov	word ptr es:[bx+2],-1
+-regflush_rf_exit:
+-	mov	sp,bp
+-	pop	bp
+-	ret
+-RegFlushDataBlock	endp
+-	assume	cs:REGFILE
+-	public	RegAppendDataBlock
+-
+-;** RegAppendDataBlock - Extend the cache table and append a block
+-;
+-; ENTRY: [BP+6] = FAR file, [BP+0Ah] = WORD minimum size.
+-; Uses RegNewDataBlock and updates the file header's block count.
+-;
+-RegAppendDataBlock	proc	far
+-	push	bp
+-	mov	bp,sp
+-	sub	sp,010h
+-	push	si
+-	les	bx,[bp+06h]
+-	mov	ax,es:[bx+0Eh]
+-	mov	[bp-02h],ax
+-	mov	ax,[bp+0Ah]
+-	add	ax,101Fh
+-	and	ax,0F000h
+-	mov	[bp-04h],ax
+-	mov	ax,0Ch
+-	mul	word ptr [bp-02h]
+-	sub	dx,dx
+-	push	dx
+-	push	ax
+-	mov	ax,[bp-02h]
+-	inc	ax
+-	mov	cx,018h
+-	mul	cx
+-	sub	dx,dx
+-	push	dx
+-	push	ax
+-	push	word ptr es:[bx+02Ah]
+-	push	word ptr es:[bx+028h]
+-	call	far ptr ConfigRealloc
+-	add	sp,0Ch
+-	mov	[bp-0Ch],ax
+-	mov	[bp-0Ah],dx
+-	or	dx,ax
+-	jnz	short regappend_append_loc_054
+-	mov	ax,0Eh
+-	cwd
+-	jmp	regappend_append_loc_0FD
+-regappend_append_loc_054:
+-	push	word ptr [bp-02h]
+-	push	word ptr [bp-04h]
+-	lea	ax,[bp-08h]
+-	push	ss
+-	push	ax
+-	push	word ptr [bp+08h]
+-	push	word ptr [bp+06h]
+-	push	cs
+-	call	near ptr RegNewDataBlock
+-	add	sp,0Ch
+-	mov	[bp-010h],ax
+-	mov	[bp-0Eh],dx
+-	or	dx,ax
+-	jz	short regappend_append_loc_07E
+-regappend_append_loc_076:
+-	mov	ax,[bp-010h]
+-	mov	dx,[bp-0Eh]
+-	jmp	short regappend_append_loc_0FD
+-regappend_append_loc_07E:
+-	mov	ax,[bp-0Ch]
+-	mov	dx,[bp-0Ah]
+-	les	bx,[bp+06h]
+-	mov	es:[bx+028h],ax
+-	mov	es:[bx+02Ah],dx
+-	mov	ax,0Ch
+-	mul	word ptr [bp-02h]
+-	mov	bx,ax
+-	les	si,[bp-0Ch]
+-	mov	ax,[bp-08h]
+-	mov	dx,[bp-06h]
+-	mov	es:[bx+si],ax
+-	mov	es:[bx+si+02h],dx
+-	mov	ax,[bp-02h]
+-	dec	ax
+-	push	ax
+-	push	word ptr [bp+08h]
+-	push	word ptr [bp+06h]
+-	mov	si,bx
+-	push	cs
+-	call	near ptr RegBlockEndOffset
+-	add	sp,06h
+-	les	bx,[bp+06h]
+-	les	bx,es:[bx+028h]
+-	mov	es:[bx+si+04h],ax
+-	mov	es:[bx+si+06h],dx
+-	mov	ax,[bp-04h]
+-	les	bx,[bp+06h]
+-	les	bx,es:[bx+028h]
+-	mov	es:[bx+si+08h],ax
+-	mov	word ptr es:[bx+si+0Ah],00h
+-	les	bx,[bp+06h]
+-	inc	word ptr es:[bx+0Eh]
+-	les	bx,es:[bx+020h]
+-	inc	word ptr es:[bx+010h]
+-	push	word ptr [bp+08h]
+-	push	word ptr [bp+06h]
+-	push	cs
+-	call	near ptr RegDirtyHeader
+-	add	sp,04h
+-	jmp	regappend_append_loc_076
+-regappend_append_loc_0FD:
+-	pop	si
++	mov	ax,1
++	cwd
++	push	dx
++	push	ax
++	sub	ax,ax
++	push	ax
++	push	ax
++	push	word ptr [bp-2]
++	les	bx,[bp+6]
++	push	word ptr es:[bx+16h]
++	push	word ptr es:[bx+14h]
++	call	far ptr ConfigClose
++	add	sp,14
++	mov	ax,[bp-4]
++	or	ax,[bp-6]
++	jnz	short regflush_rf_error
++regflush_rf_release:
++	les	bx,[bp-10]
++	cmp	word ptr es:[bx+18h],-1
++	jnz	short regflush_rf_aux
++	cmp	word ptr es:[bx+1Ah],-1
++	jz	short regflush_rf_block
++regflush_rf_aux:
++	push	word ptr es:[bx+1Ah]
++	push	word ptr es:[bx+18h]
++	call	far ptr ConfigFree
++	add	sp,4
++regflush_rf_block:
++	push	word ptr [bp-8]
++	push	word ptr [bp-10]
++	call	far ptr ConfigFree
++	les	bx,[bp+10]
++	mov	word ptr es:[bx],-1
++	mov	word ptr es:[bx+2],-1
++regflush_rf_exit:
+ 	mov	sp,bp
+ 	pop	bp
+ 	ret
+-RegAppendDataBlock	endp
++RegFlushDataBlock	endp
++	assume	cs:REGFILE
++	public	RegAppendDataBlock
++
++;** RegAppendDataBlock - Extend the cache table and append a block
++;
++; ENTRY: [BP+6] = FAR file, [BP+0Ah] = WORD minimum size.
++; Uses RegNewDataBlock and updates the file header's block count.
++;
++RegAppendDataBlock proc near
++	enter 0Ah,0
++	push di
++	push si
++	mov si,[bp+6]
++	mov es,word ptr [bp+8]
++	mov di,es:[si+26h]
++	cmp di,0FFFEh
++	jb short rcdb_room
++rcdb_error:
++	mov ax,0Eh
++	jmp rcdb_done
++rcdb_room:
++	mov [bp-0Ah],di
++	cmp es:[si+14h],di
++	ja short rcdb_entry
++	db 66h
++	push word ptr es:[si+10h]
++	lea ax,[di+4]
++	imul ax,ax,14h
++	push ax
++	call RegReallocRetry
++	mov [bp-8],ax
++	mov [bp-6],dx
++	or dx,ax
++	jz short rcdb_error
++	mov [bp-0Ah],di
++	mov dx,[bp-6]
++	mov es,word ptr [bp+8]
++	mov es:[si+10h],ax
++	mov es:[si+12h],dx
++	add word ptr es:[si+14h],4
++rcdb_entry:
++	mov es,word ptr [bp+8]
++	mov ax,es:[si+10h]
++	mov dx,es:[si+12h]
++	imul cx,[bp-0Ah],14h
++	add ax,cx
++	mov di,ax
++	mov [bp-6],dx
++	mov es,dx
++	mov bx,ax
++	mov ax,[bp+4]
++	add ax,101Fh
++	and ax,0F000h
++	mov [bp+4],ax
++	mov es:[bx+8],ax
++	push word ptr [bp-6]
++	push di
++	call RegNewDataBlock
++	or ax,ax
++	jnz short rcdb_error
++	mov [bp-8],di
++	mov ax,[bp+4]
++	sub ax,20h
++	les bx,[bp-8]
++	mov es:[bx+0Ah],ax
++	db 66h
++	mov word ptr es:[bx+0Ch],0
++	dw 0FFFFh
++	mov word ptr es:[bx+10h],-1
++	mov byte ptr es:[bx+12h],7
++	mov byte ptr es:[bx+13h],1
++	mov ax,es:[bx]
++	mov dx,es:[bx+2]
++	mov si,ax
++	mov [bp-2],dx
++	mov bx,ax
++	mov es,dx
++	db 66h
++	mov word ptr es:[bx],4752h
++	dw 4244h
++	mov ax,[bp+4]
++	mov es,word ptr [bp-2]
++	mov es:[si+4],ax
++	mov word ptr es:[si+6],0
++	mov ax,es
++	les bx,[bp-8]
++	mov cx,es:[bx+0Ah]
++	mov es,ax
++	mov es:[si+8],cx
++	db 66h
++	mov word ptr es:[si+0Ah],0
++	dw 8
++	mov cx,[bp-0Ah]
++	mov es:[si+0Eh],cx
++	db 66h
++	mov word ptr es:[si+10h],20h
++	dw 0
++	mov word ptr es:[si+14h],0
++	les bx,[bp-8]
++	mov cx,es:[bx+0Ah]
++	mov es,ax
++	mov es:[si+20h],cx
++	mov word ptr es:[si+22h],0
++	mov eax,-1
++	lea bx,[si+20h]
++	db 66h
++	mov es:[bx+4],ax
++	mov es:[bx+8],ax
++	mov es:[bx+0Ah],ax
++	les bx,[bp+6]
++	inc word ptr es:[bx+26h]
++	or word ptr es:[bx+28h],1
++	or word ptr es:[bx+56h],5
++	push dword ptr [bp-8]
++	call RegIndexBlock
++rcdb_done:
++	pop si
++	pop di
++	leave
++	ret 6
++RegAppendDataBlock endp
+ 	assume	cs:REGFILE
+ 	public	RegNewDataBlock
+ 
+@@ -2316,109 +1151,41 @@ RegAppendDataBlock	endp
+ ; Allocate both the block and its 255-entry index; release the block
+ ; if the index allocation fails.
+ ;
+-RegNewDataBlock	proc	far
+-	push	bp
+-	mov	bp,sp
+-	sub	sp,0Ch
+-	push	di
+-	push	si
+-	sub	ax,ax
+-	push	ax
+-	push	ax
+-	mov	ax,[bp+0Eh]
+-	sub	dx,dx
+-	push	dx
+-	push	ax
+-	call	far ptr ConfigAlloc
+-	add	sp,08h
+-	mov	[bp-04h],ax
+-	mov	[bp-02h],dx
+-	or	dx,ax
+-	jnz	short regnew_new_loc_02D
+-regnew_new_loc_025:
+-	mov	ax,0Eh
+-regnew_new_loc_028:
+-	xor	dx,dx
+-	jmp	regnew_new_loc_0FA
+-regnew_new_loc_02D:
+-	mov	ax,01h
+-	cwd
+-	push	dx
+-	push	ax
+-	mov	ax,01FEh
+-	cwd
+-	push	dx
+-	push	ax
+-	call	far ptr ConfigAlloc
+-	add	sp,08h
+-	mov	[bp-0Ch],ax
+-	mov	[bp-0Ah],dx
+-	or	dx,ax
+-	jnz	short regnew_new_loc_05B
+-	push	word ptr [bp-02h]
+-	push	word ptr [bp-04h]
+-	call	far ptr ConfigFree
+-	add	sp,04h
+-	jmp	short regnew_new_loc_025
+-regnew_new_loc_05B:
+-	les	bx,[bp+0Ah]
+-	mov	ax,[bp-04h]
+-	mov	dx,[bp-02h]
+-	mov	es:[bx],ax
+-	mov	es:[bx+02h],dx
+-	mov	bx,ax
+-	mov	es,dx
+-	mov	word ptr es:[bx],04752h
+-	mov	word ptr es:[bx+02h],04244h
+-	mov	cx,[bp+0Eh]
+-	sub	cx,020h
+-	sub	dx,dx
+-	mov	es:[bx+08h],cx
+-	mov	es:[bx+0Ah],dx
+-	mov	si,[bp+0Eh]
+-	mov	es:[bx+04h],si
+-	xor	si,si
+-	mov	es:[bx+06h],dx
+-	mov	es:[bx+016h],si
+-	mov	es:[bx+014h],dx
+-	mov	si,[bp-0Ch]
+-	mov	di,[bp-0Ah]
+-	mov	es:[bx+018h],si
+-	mov	es:[bx+01Ah],di
+-	mov	word ptr es:[bx+010h],020h
+-	mov	es:[bx+012h],dx
+-	mov	si,es
+-	add	ax,020h
+-	adc	si,dx
+-	mov	bx,ax
+-	mov	es,si
+-	mov	es:[bx],cx
+-	mov	es:[bx+02h],dx
+-	mov	dx,0FFFFh
+-	mov	es:[bx+04h],dx
+-	mov	es:[bx+06h],dx
+-	mov	es:[bx+08h],dx
+-	mov	es:[bx+0Ah],dx
+-	mov	ax,[bp+010h]
+-	les	bx,[bp-04h]
+-	mov	word ptr es:[bx+0Ch],09h
+-	mov	es:[bx+0Eh],ax
+-	push	word ptr es:[bx+1Ah]
+-	push	word ptr es:[bx+18h]
+-	push	es
+-	push	bx
+-	push	cs
+-	call	near ptr RegIndexBlock
+-	add	sp,8
+-	xor	ax,ax
+-	jmp	regnew_new_loc_028
+-regnew_new_loc_0FA:
+-	pop	si
+-	pop	di
+-	mov	sp,bp
+-	pop	bp
+-	ret
+-RegNewDataBlock	endp
++RegNewDataBlock proc near
++	push bp
++	mov bp,sp
++	push si
++	mov si,[bp+4]
++	mov es,word ptr [bp+6]
++	push word ptr es:[si+8]
++	call RegAllocate
++	mov es,word ptr [bp+6]
++	mov es:[si],ax
++	mov es:[si+2],dx
++	mov ax,dx
++	or ax,es:[si]
++	jz short radc_error
++	push 1FEh
++	call RegAllocate
++	mov es,word ptr [bp+6]
++	mov es:[si+4],ax
++	mov es:[si+6],dx
++	mov ax,dx
++	or ax,es:[si+4]
++	jz short radc_release
++	xor ax,ax
++	jmp short radc_done
++radc_release:
++	push word ptr [bp+6]
++	push si
++	call RegFreeDataBlock
++radc_error:
++	mov ax,0Eh
++radc_done:
++	pop si
++	leave
++	ret 4
++RegNewDataBlock endp
+ 	assume	cs:REGFILE,ds:DGROUP
+ 	public	RegFreeDataBlock
+ 
+@@ -2427,27 +1194,39 @@ RegNewDataBlock	endp
+ ; ENTRY: [BP+6] = FAR data block, or -1.
+ ; The caller supplies a block with allocated index storage.
+ ;
+-RegFreeDataBlock	proc	far
+-	push	bp
+-	mov	bp,sp
+-	cmp	word ptr [bp+06h],-1
+-	jnz	short regbfree_bfree_loc_00F
+-	cmp	word ptr [bp+08h],-1
+-	jz	short regbfree_bfree_loc_02C
+-regbfree_bfree_loc_00F:
+-	les	bx,[bp+06h]
+-	push	word ptr es:[bx+01Ah]
+-	push	word ptr es:[bx+018h]
+-	call	far ptr ConfigFree
+-	mov	sp,bp
+-	push	word ptr [bp+08h]
+-	push	word ptr [bp+06h]
+-	call	far ptr ConfigFree
+-regbfree_bfree_loc_02C:
+-	mov	sp,bp
+-	pop	bp
+-	ret
+-RegFreeDataBlock	endp
++RegFreeDataBlock proc near
++	push bp
++	mov bp,sp
++	push si
++	mov si,[bp+4]
++	mov es,word ptr [bp+6]
++	db 66h
++	cmp word ptr es:[si],0
++	jz short rrdb_second
++	db 66h
++	push word ptr es:[si]
++	call RegDosFree
++	mov es,word ptr [bp+6]
++	db 66h
++	mov word ptr es:[si],0
++	dw 0
++rrdb_second:
++	mov es,word ptr [bp+6]
++	db 66h
++	cmp word ptr es:[si+4],0
++	jz short rrdb_done
++	db 66h
++	push word ptr es:[si+4]
++	call RegDosFree
++	mov es,word ptr [bp+6]
++	db 66h
++	mov word ptr es:[si+4],0
++	dw 0
++rrdb_done:
++	pop si
++	leave
++	ret 4
++RegFreeDataBlock endp
+ 	assume	cs:REGFILE
+ 	public	RegBlockEndOffset
+ 
+@@ -2490,65 +1269,82 @@ RegBlockEndOffset	endp
+ ; ENTRY: [BP+6] = FAR block, [BP+0Ah] = FAR 255-WORD offset index.
+ ; EXIT: AX = 1 for an intact record walk, zero for malformed records.
+ ;
+-RegIndexBlock	proc	far
+-	push	bp
+-	mov	bp,sp
+-	push	si
+-	push	di
+-	les	bx,[bp+10]
+-	xor	ax,ax
+-	mov	cx,0FFh
+-regblock_clear:
+-	mov	es:[bx],ax
+-	add	bx,2
+-	loop	regblock_clear
+-	les	bx,[bp+6]
+-	mov	cx,es:[bx+4]
+-	sub	cx,20h
+-	jz	short regblock_ok
+-	mov	di,20h
+-regblock_next:
+-	les	bx,[bp+6]
+-	add	bx,di
+-	mov	ax,es:[bx]
+-	mov	dx,es:[bx+2]
+-	or	ax,dx
+-	jz	short regblock_bad
+-	or	dx,dx
+-	jnz	short regblock_bad
+-	cmp	ax,cx
+-	ja	short regblock_bad
+-	mov	ax,es:[bx+4]
+-	mov	dx,es:[bx+6]
+-	cmp	ax,-1
+-	jnz	short regblock_id
+-	cmp	dx,-1
+-	jz	short regblock_advance
+-regblock_id:
+-	cmp	ax,0FFh
+-	jae	short regblock_bad
+-	add	ax,ax
+-	les	si,[bp+10]
+-	add	si,ax
+-	mov	es:[si],di
+-regblock_advance:
+-	les	bx,[bp+6]
+-	add	bx,di
+-	mov	ax,es:[bx]
+-	add	di,ax
+-	sub	cx,ax
+-	jnz	short regblock_next
+-regblock_ok:
+-	mov	ax,1
+-	jmp	short regblock_exit
+-regblock_bad:
+-	xor	ax,ax
+-regblock_exit:
+-	pop	di
+-	pop	si
+-	pop	bp
+-	ret
+-RegIndexBlock	endp
++RegIndexBlock proc near
++	enter 10h,0
++	push di
++	push si
++	mov si,[bp+4]
++	mov es,word ptr [bp+6]
++	db 66h
++	push word ptr es:[si+4]
++	push 1FEh
++	call RegZeroMemory
++	mov es,word ptr [bp+6]
++	db 66h
++	mov ax,es:[si]
++	mov [bp-10h],eax
++	mov word ptr [bp-0Ah],20h
++	mov di,es:[si+8]
++	sub di,20h
++	jz short ridc_success
++	mov [bp-0Ch],di
++	mov di,[bp-0Ah]
++	mov cx,[bp-0Ch]
++ridc_next:
++	les si,[bp-10h]
++	add si,di
++	mov bx,si
++	mov [bp-6],es
++	mov ax,es:[si+4]
++	mov dx,es:[si+6]
++	mov [bp-4],ax
++	db 66h
++	cmp word ptr es:[si],0
++	jz short ridc_error
++	sub ax,ax
++	cmp es:[bx+2],ax
++	ja short ridc_error
++	jb short ridc_number
++	cmp es:[bx],cx
++	ja short ridc_error
++ridc_number:
++	cmp word ptr [bp-4],-1
++	jnz short ridc_limit
++	cmp dx,-1
++	jz short ridc_free
++ridc_limit:
++	cmp word ptr [bp-4],0FFh
++	jae short ridc_error
++ridc_free:
++	cmp word ptr [bp-4],-1
++	jnz short ridc_store
++	cmp dx,-1
++	jz short ridc_advance
++ridc_store:
++	mov ax,[bp-4]
++	add ax,ax
++	les si,[bp+4]
++	les si,es:[si+4]
++	add si,ax
++	mov es:[si],di
++ridc_advance:
++	mov es,word ptr [bp-6]
++	mov ax,es:[bx]
++	add di,ax
++	sub cx,ax
++	jnz short ridc_next
++	jmp short ridc_success
++ridc_error:
++	mov ax,3F1h
++	jmp short ridc_done
++ridc_success:
++	xor ax,ax
++ridc_done:
++	pop si
++	pop di
++	leave
++	ret 4
++RegIndexBlock endp
+ 	nop	; Original inter-function padding.
+ 	nop
+ 	assume	cs:REGFILE
+@@ -2561,166 +1357,100 @@ RegIndexBlock	endp
+ ; Round occupied bytes plus required space to 4K, limited to F000h.
+ ; Compact records and extend the free tail; retain block-relative indices.
+ ;
+-RegGrowDataBlock	proc	far
+-	push	bp
+-	mov	bp,sp
+-	sub	sp,0Ch
+-	push	di
+-	push	si
+-	mov	ax,0Ch
+-	mul	word ptr [bp+0Ah]
+-	mov	bx,ax
+-	les	si,[bp+06h]
+-	les	si,es:[si+028h]
+-	mov	ax,[bp+0Ch]
+-	cmp	word ptr [bp+0Eh],0
+-	jnz	short reggrow_grow_error
+-	les	di,es:[bx+si]
+-	cmp	es:[di+8],ax
+-	jb	short reggrow_grow_capacity
+-	xor	ax,ax
+-	jmp	reggrow_grow_loc_041
+-reggrow_grow_capacity:
+-; Round occupied bytes plus the required free extent to a page.
+-	xor	dx,dx
+-	add	ax,es:[di+4]
+-	adc	dx,0
+-	sub	ax,es:[di+8]
+-	sbb	dx,0
+-	add	ax,0FFFh
+-	adc	dx,0
+-	and	ax,0F000h
+-	or	dx,dx
+-	jnz	short reggrow_grow_error
+-	cmp	ax,0F000h
+-	ja	short reggrow_grow_error
+-	mov	[bp+0Ch],ax
+-	mov	[bp+0Eh],dx
+-	sub	ax,es:[di+4]
+-	mov	[bp-0Ch],ax
+-	mov	[bp-0Ah],dx
+-	jmp	short reggrow_grow_loc_046
+-reggrow_grow_error:
+-	mov	ax,0Eh
+-reggrow_grow_loc_041:
+-	xor	dx,dx
+-	jmp	reggrow_grow_loc_1A4
+-reggrow_grow_loc_046:
+-	mov	ax,0Ch
+-	mul	word ptr [bp+0Ah]
+-	les	bx,[bp+06h]
+-	les	bx,es:[bx+028h]
+-	add	bx,ax
+-	push	word ptr es:[bx+0Ah]
+-	push	word ptr es:[bx+08h]
+-	push	word ptr [bp+0Eh]
+-	push	word ptr [bp+0Ch]
+-	push	word ptr es:[bx+02h]
+-	push	word ptr es:[bx]
+-	call	far ptr ConfigRealloc
+-	add	sp,0Ch
+-	mov	[bp-08h],ax
+-	mov	[bp-06h],dx
+-	or	dx,ax
+-	jnz	short reggrow_grow_loc_081
+-	mov	ax,0Eh
+-	jmp	short reggrow_grow_loc_041
+-reggrow_grow_loc_081:
+-	mov	ax,0Ch
+-	mul	word ptr [bp+0Ah]
+-	mov	bx,ax
+-	les	si,[bp+06h]
+-	les	si,es:[si+028h]
+-	push	word ptr es:[bx+si+0Ah]
+-	push	word ptr es:[bx+si+08h]
+-	push	word ptr [bp-06h]
+-	push	word ptr [bp-08h]
+-	push	cs
+-	call	near ptr RegPackDataBlock
+-	add	sp,08h
+-	mov	ax,[bp-0Ch]
+-	mov	dx,[bp-0Ah]
+-	les	bx,[bp-08h]
+-	add	es:[bx+08h],ax
+-	adc	es:[bx+0Ah],dx
+-	mov	ax,es:[bx+010h]
+-	mov	dx,es:[bx+012h]
+-	mov	[bp-04h],ax
+-	mov	[bp-02h],dx
+-	cmp	ax,0FFFFh
+-	jnz	short reggrow_grow_loc_10A
+-	cmp	dx,ax
+-	jnz	short reggrow_grow_loc_10A
+-	mov	cx,bx
+-	add	cx,es:[bx+04h]
+-	mov	[bp-04h],cx
+-	mov	word ptr [bp-02h],es
+-	mov	si,cx
+-	sub	ax,ax
+-	mov	es:[si+02h],ax
+-	mov	es:[si],ax
+-	mov	ax,0FFFFh
+-	cwd
+-	mov	es:[si+04h],ax
+-	mov	es:[si+06h],dx
+-	mov	es:[si+08h],ax
+-	mov	es:[si+0Ah],ax
+-	mov	ax,es:[bx+04h]
+-	mov	dx,es:[bx+06h]
+-	mov	es:[bx+010h],ax
+-	mov	es:[bx+012h],dx
+-	jmp	short reggrow_grow_loc_11A
+-reggrow_grow_loc_10A:
+-	mov	ax,bx
+-	mov	dx,es
+-	add	ax,[bp-04h]
+-	adc	dx,[bp-02h]
+-	mov	[bp-04h],ax
+-	mov	[bp-02h],dx
+-reggrow_grow_loc_11A:
+-	mov	ax,[bp-0Ch]
+-	mov	dx,[bp-0Ah]
+-	les	bx,[bp-04h]
+-	add	es:[bx],ax
+-	adc	es:[bx+02h],dx
+-	mov	ax,0Ch
+-	mul	word ptr [bp+0Ah]
+-	mov	si,ax
+-	les	bx,[bp+06h]
+-	les	bx,es:[bx+028h]
+-	mov	ax,[bp-08h]
+-	mov	dx,[bp-06h]
+-	mov	es:[bx+si],ax
+-	mov	es:[bx+si+02h],dx
+-	mov	es,dx
+-	mov	bx,ax
+-	mov	cx,[bp+0Ch]
+-	mov	di,[bp+0Eh]
+-	mov	es:[bx+04h],cx
+-	mov	es:[bx+06h],di
+-	les	bx,[bp+06h]
+-	les	bx,es:[bx+028h]
+-	mov	es:[bx+si+08h],cx
+-	mov	es:[bx+si+0Ah],di
+-reggrow_grow_loc_188:
+-	les	bx,[bp-08h]
+-	or	byte ptr es:[bx+0Ch],02h
+-	push	es
+-	push	bx
+-	push	word ptr [bp+08h]
+-	push	word ptr [bp+06h]
+-	push	cs
+-	call	near ptr RegDirtyDataBlock
+-	add	sp,08h
+-	xor	ax,ax
+-	jmp	reggrow_grow_loc_041
+-reggrow_grow_loc_1A4:
+-	pop	si
+-	pop	di
+-	mov	sp,bp
+-	pop	bp
+-	ret
+-RegGrowDataBlock	endp
++RegGrowDataBlock proc near
++	enter 10h,0
++	push di
++	push si
++	mov ax,[bp+4]
++	imul cx,[bp+6],14h
++	les bx,[bp+8]
++	les bx,es:[bx+10h]
++	add bx,cx
++	mov si,bx
++	mov [bp-2],es
++	cmp es:[bx+0Ah],ax
++	jae rgdc_success
++	mov bx,ax
++	mov ax,es:[si+8]
++	sub ax,es:[si+0Ah]
++	add ax,bx
++	add ax,0FFFh
++	and ax,0F000h
++	sub dx,dx
++	mov [bp-0Ch],ax
++	cmp ax,0F000h
++	jbe short rgdc_resize
++rgdc_error:
++	mov ax,0Eh
++	jmp rgdc_done
++rgdc_resize:
++	db 66h
++	push word ptr es:[si]
++	push ax
++	call RegReallocRetry
++	mov di,ax
++	mov [bp-0Eh],dx
++	or dx,ax
++	jz short rgdc_error
++	mov ax,[bp-0Eh]
++	mov es,word ptr [bp-2]
++	mov es:[si],di
++	mov es:[si+2],ax
++	push es
++	push si
++	call RegPackDataBlock
++	mov es,word ptr [bp-0Eh]
++	db 66h
++	cmp word ptr es:[di+10h],-1
++	jnz short rgdc_existing
++	mov ax,es
++	mov es,word ptr [bp-2]
++	mov dx,es:[si+8]
++	sub bx,bx
++	mov es,ax
++	mov es:[di+10h],dx
++	mov es:[di+12h],bx
++	add dx,di
++	mov cx,dx
++	mov bx,dx
++	mov [bp-6],es
++	db 66h
++	mov word ptr es:[bx+4],-1
++	dw -1
++	mov es,word ptr [bp-6]
++	db 66h
++	mov word ptr es:[bx+8],-1
++	dw -1
++	jmp short rgdc_tail
++rgdc_existing:
++	mov ax,es:[di+10h]
++	add ax,di
++	mov cx,ax
++	mov [bp-6],es
++rgdc_tail:
++	mov ax,[bp-0Ch]
++	mov es,word ptr [bp-2]
++	sub ax,es:[si+8]
++	add es:[si+0Ah],ax
++	mov ax,es:[si+0Ah]
++	mov bx,cx
++	mov es,word ptr [bp-6]
++	mov es:[bx],ax
++	mov word ptr es:[bx+2],0
++	mov ax,[bp-0Ch]
++	mov es,word ptr [bp-2]
++	mov es:[si+8],ax
++	or byte ptr es:[si+12h],0Ch
++	les bx,[bp+8]
++	or byte ptr es:[bx+56h],5
++rgdc_success:
++	xor ax,ax
++rgdc_done:
++	pop si
++	pop di
++	leave
++	ret 8
++RegGrowDataBlock endp
+ 	assume	cs:REGFILE
+ 	public	RegGrowKeyBlock
+ 
+@@ -2883,155 +1613,149 @@ RegGrowKeyBlock	endp
+ ; ENTRY: [BP+6] = FAR block, [BP+0Ah] = DWORD block size.
+ ; Move occupied runs over holes and rebuild their block-relative indices.
+ ;
+-RegPackDataBlock	proc	far
+-	push	bp
+-	mov	bp,sp
+-	sub	sp,18h
+-	push	di
+-	push	si
+-	mov	word ptr [bp-12],-1
+-	mov	word ptr [bp-10],-1
+-	mov	ax,[bp+10]
+-	mov	dx,[bp+12]
+-	mov	cx,[bp+6]
+-	mov	bx,[bp+8]
+-	add	ax,cx
+-	adc	dx,bx
+-	mov	[bp-8],ax
+-	mov	[bp-6],dx
+-	add	cx,20h
+-	adc	bx,0
+-	mov	[bp-4],cx
+-	mov	[bp-2],bx
+-	jmp	regpack_rp_test
+-regpack_rp_run:
+-	sub	ax,ax
+-	mov	[bp-18],ax
+-	mov	[bp-20],ax
+-regpack_rp_find_hole:
+-	les	bx,[bp-4]
+-	cmp	word ptr es:[bx+4],-1
+-	jnz	short regpack_rp_skip_used
+-	cmp	word ptr es:[bx+6],-1
+-	jz	short regpack_rp_hole
+-regpack_rp_skip_used:
+-	mov	ax,es
+-	mov	cx,bx
+-	add	cx,es:[bx]
+-	adc	ax,es:[bx+2]
+-	mov	[bp-4],cx
+-	mov	[bp-2],ax
+-	cmp	cx,[bp-8]
+-	jc	short regpack_rp_find_hole
+-	xor	ax,ax
+-	jmp	regpack_rp_exit
+-regpack_rp_hole:
+-	cmp	word ptr [bp-12],-1
+-	jnz	short regpack_rp_skip_hole
+-	cmp	word ptr [bp-10],-1
+-	jnz	short regpack_rp_skip_hole
+-	mov	[bp-12],bx
+-	mov	[bp-10],es
+-regpack_rp_skip_hole:
+-	les	bx,[bp-4]
+-	cmp	word ptr es:[bx+4],-1
+-	jnz	short regpack_rp_used
+-	cmp	word ptr es:[bx+6],-1
+-	jnz	short regpack_rp_used
+-	mov	ax,es
+-	mov	cx,bx
+-	add	cx,es:[bx]
+-	adc	ax,es:[bx+2]
+-	mov	[bp-4],cx
+-	mov	[bp-2],ax
+-	cmp	cx,[bp-8]
+-	jc	short regpack_rp_skip_hole
+-regpack_rp_used:
+-	mov	ax,[bp-4]
+-	mov	dx,[bp-2]
+-	mov	[bp-16],ax
+-	mov	[bp-14],dx
+-	cmp	ax,[bp-8]
+-	jc	short regpack_rp_count
+-	jmp	regpack_rp_tail
+-regpack_rp_count:
+-	les	bx,[bp-4]
+-	cmp	word ptr es:[bx+4],-1
+-	jnz	short regpack_rp_add
+-	cmp	word ptr es:[bx+6],-1
+-	jz	short regpack_rp_move
+-regpack_rp_add:
+-	mov	ax,es:[bx]
+-	mov	dx,es:[bx+2]
+-	add	[bp-20],ax
+-	adc	[bp-18],dx
+-	mov	cx,es
+-	add	ax,bx
+-	adc	dx,cx
+-	mov	[bp-4],ax
+-	mov	[bp-2],dx
+-	cmp	ax,[bp-8]
+-	jc	short regpack_rp_count
+-regpack_rp_move:
+-	push	word ptr [bp-18]
+-	push	word ptr [bp-20]
+-	push	word ptr [bp-14]
+-	push	word ptr [bp-16]
+-	push	word ptr [bp-10]
+-	push	word ptr [bp-12]
+-	call	far ptr RegCopyBytes
+-	add	sp,12
+-	mov	ax,[bp-20]
+-	add	[bp-12],ax
+-regpack_rp_test:
+-	mov	ax,[bp-4]
+-	cmp	[bp-8],ax
+-	jbe	short regpack_rp_tail
+-	jmp	regpack_rp_run
+-regpack_rp_tail:
+-	mov	ax,[bp-8]
+-	mov	dx,[bp-6]
+-	mov	cx,[bp-12]
+-	mov	bx,[bp-10]
+-	sub	ax,cx
+-	sbb	dx,bx
+-	mov	si,cx
+-	mov	es,bx
+-	mov	es:[si],ax
+-	mov	es:[si+2],dx
+-	mov	ax,-1
+-	cwd
+-	mov	es:[si+4],ax
+-	mov	es:[si+6],dx
+-	mov	es:[si+8],ax
+-	mov	es:[si+10],ax
+-	sub	cx,[bp+6]
+-	sbb	bx,[bp+8]
+-	les	si,[bp+6]
+-	mov	es:[si+16],cx
+-	mov	es:[si+18],bx
+-	les	bx,[bp-12]
+-	mov	ax,es:[bx]
+-	mov	dx,es:[bx+2]
+-	les	bx,[bp+6]
+-	mov	es:[bx+8],ax
+-	mov	es:[bx+10],dx
+-; Rebuild WORD block-relative indices after all records have moved.
+-	push	word ptr es:[bx+1Ah]
+-	push	word ptr es:[bx+18h]
+-	push	word ptr [bp+8]
+-	push	word ptr [bp+6]
+-	push	cs
+-	call	near ptr RegIndexBlock
+-	add	sp,8
+-	mov	ax,1
+-regpack_rp_exit:
+-	pop	si
+-	pop	di
+-	mov	sp,bp
+-	pop	bp
+-	ret
+-RegPackDataBlock	endp
++RegPackDataBlock proc near
++	enter 18h,0
++	push di
++	push si
++	mov cx,[bp+4]
++	mov es,word ptr [bp+6]
++	mov si,cx
++	les si,es:[si]
++	mov bx,si
++	mov [bp-0Ah],es
++	db 66h
++	cmp word ptr es:[si+10h],-1
++	jnz short rcdc_check
++rcdc_none:
++	xor ax,ax
++	jmp rcdc_done
++rcdc_check:
++	mov ax,es:[bx+10h]
++	mov dx,ax
++	add ax,si
++	mov di,ax
++	mov [bp-2],es
++	mov [bp-0Ch],si
++	mov si,ax
++	add dx,es:[si]
++	mov si,cx
++	mov es,word ptr [bp+6]
++	cmp dx,es:[si+8]
++	jb short rcdc_begin
++	mov es,word ptr [bp-2]
++	db 66h
++	cmp word ptr es:[di+8],-1
++	jz short rcdc_none
++rcdc_begin:
++	sub eax,eax
++	mov [bp-14h],eax
++	mov [bp-10h],eax
++	mov bx,20h
++	mov es,word ptr [bp+6]
++	mov ax,es:[si+8]
++	mov [bp-8],ax
++	mov cx,ax
++rcdc_scan:
++	cmp cx,bx
++	jbe rcdc_tail
++	jmp short rcdc_locate
++rcdc_test_free:
++	mov es,word ptr [bp-2]
++	db 66h
++	cmp word ptr es:[di+4],-1
++	jz short rcdc_free
++	add bx,es:[di]
++rcdc_locate:
++	mov ax,[bp-0Ch]
++	mov dx,[bp-0Ah]
++	add ax,bx
++	mov di,ax
++	mov [bp-2],dx
++	cmp cx,bx
++	ja short rcdc_test_free
++rcdc_free:
++	mov [bp-4],ax
++	mov [bp-6],bx
++	mov si,[bp-14h]
++	mov ax,[bp-12h]
++	or ax,si
++	jz short rcdc_destination
++	push dword ptr [bp-10h]
++	push word ptr [bp-12h]
++	push si
++	mov ax,si
++	sub ax,[bp-4]
++	neg ax
++	push ax
++	mov di,ax
++	call RegMoveMemory
++	add [bp-10h],di
++rcdc_destination:
++	cmp dword ptr [bp-10h],0
++	jnz short rcdc_search
++	mov eax,[bp-4]
++	mov [bp-10h],eax
++rcdc_search:
++	mov ax,[bp-6]
++	cmp [bp-8],ax
++	jbe short rcdc_resume
++	mov bx,ax
++	mov cx,[bp-8]
++rcdc_skip_free:
++	les si,[bp-0Ch]
++	add si,bx
++	mov di,si
++	mov [bp-2],es
++	db 66h
++	cmp word ptr es:[si+4],-1
++	jnz short rcdc_found
++	add bx,es:[di]
++	cmp bx,cx
++	jb short rcdc_skip_free
++	jmp rcdc_scan
++rcdc_resume:
++	mov cx,[bp-8]
++rcdc_resume_bx:
++	mov bx,[bp-6]
++	jmp rcdc_scan
++rcdc_found:
++	mov [bp-6],bx
++	mov ax,[bp-2]
++	mov [bp-14h],si
++	mov [bp-12h],ax
++	jmp short rcdc_resume_bx
++rcdc_tail:
++	mov di,[bp-10h]
++	mov cx,[bp-0Eh]
++	mov [bp-18h],di
++	mov [bp-16h],cx
++	sub di,[bp-0Ch]
++	sbb cx,cx
++	les bx,[bp-0Ch]
++	mov es:[bx+10h],di
++	mov es:[bx+12h],cx
++	mov bx,[bp+4]
++	mov es,word ptr [bp+6]
++	mov ax,es:[bx+0Ah]
++	mov cx,es
++	les si,[bp-18h]
++	mov es:[si],ax
++	mov word ptr es:[si+2],0
++	mov eax,-1
++	db 66h
++	mov es:[si+4],ax
++	mov es:[si+8],ax
++	mov es:[si+0Ah],ax
++	push cx
++	push bx
++	call RegIndexBlock
++	mov ax,1
++rcdc_done:
++	pop si
++	pop di
++	leave
++	ret 4
++RegPackDataBlock endp
+ 	even
+ 	assume	cs:REGFILE
+ 	public	RegHasPendingState
+@@ -3448,58 +2172,43 @@ RegDirtyDataBlock	endp
+ ; EXIT: DX:AX = allocation pointer. On failure release the reserve,
+ ; reduce it by 40h bytes and retry with the smaller reserve.
+ ;
+-RegAllocate	proc	far
+-	push	bp
+-	mov	bp,sp
+-	sub	sp,4
+-regalloc_ra_retry:
+-	push	word ptr [bp+12]
+-	push	word ptr [bp+10]
+-	push	word ptr [bp+8]
+-	push	word ptr [bp+6]
+-	call	far ptr ConfigAlloc
+-	add	sp,8
+-	mov	[bp-4],ax
+-	mov	ax,dx
+-	or	ax,[bp-4]
+-	jnz	short regalloc_ra_exit
+-	mov	ax,word ptr RegReserveBlock+2
+-	or	ax,word ptr RegReserveBlock
+-	jz	short regalloc_ra_exit
+-	push	word ptr RegReserveBlock+2
+-	push	word ptr RegReserveBlock
+-	call	far ptr ConfigFree
+-	add	sp,4
+-	sub	ax,ax
+-	mov	word ptr RegReserveBlock+2,ax
+-	mov	word ptr RegReserveBlock,ax
+-	sub	word ptr RegReserveSize,40h
+-	sbb	word ptr RegReserveSize+2,ax
+-	cmp	word ptr RegReserveSize+2,ax
+-	jnz	short regalloc_ra_reserve
+-	cmp	word ptr RegReserveSize,ax
+-	jz	short regalloc_ra_retry
+-regalloc_ra_reserve:
+-	push	ax
+-	push	ax
+-	push	word ptr RegReserveSize+2
+-	push	word ptr RegReserveSize
+-	call	far ptr ConfigAlloc
+-	add	sp,8
+-	mov	word ptr RegReserveBlock,ax
+-	mov	word ptr RegReserveBlock+2,dx
+-	mov	ax,dx
+-	or	ax,word ptr RegReserveBlock
+-	jnz	short regalloc_ra_retry
+-	sub	ax,ax
+-	mov	word ptr RegReserveSize+2,ax
+-	mov	word ptr RegReserveSize,ax
+-	jmp	short regalloc_ra_retry
+-regalloc_ra_exit:
+-	mov	ax,[bp-4]
+-	mov	sp,bp
+-	pop	bp
+-	ret
+-RegAllocate	endp
++RegAllocate proc near
++	enter 6,0
++	push di
++	mov ax,[bp+4]
++	mov [bp-2],ax
++	push ax
++	call RegDosAlloc
++	mov [bp-4],dx
++	or dx,ax
++	jnz short rar_done
++	mov di,[bp-2]
++	push offset RegMaintainCache
++	call RegForEachFile
++	push di
++	call RegDosAlloc
++	mov [bp-4],dx
++	or dx,ax
++	jnz short rar_done
++	push offset RegMaintainCache
++	call RegForEachFile
++	push di
++	call RegDosAlloc
++	mov [bp-4],dx
++	or dx,ax
++	jnz short rar_done
++	push offset RegSaveFile
++	call RegForEachFile
++	push offset RegMaintainCache
++	call RegForEachFile
++	push di
++	call RegDosAlloc
++	mov [bp-4],dx
++rar_done:
++	mov dx,[bp-4]
++	pop di
++	leave
++	ret 2
++RegAllocate endp
+ REGFILE	ends
+ 	end

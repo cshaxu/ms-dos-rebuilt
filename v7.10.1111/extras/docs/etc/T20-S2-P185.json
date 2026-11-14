@@ -1,0 +1,9 @@
+{
+  "task": "M6 T20 S2 P185",
+  "change": "Restore original RegQueryValueEx symbol at target query entry and all cfg call sites. The old rqvalue implementation is not linked; cfgline.asm is restored byte-for-byte to 950 source.",
+  "source_blob_sha1": {"bios/cfgmain.asm":"d3c33dd4985da71a1c8f5b510e93d56edba6b3a3", "bios/cfgline.asm":"a526f168ae12624d123aa466c0192a3372a7b276", "bios/cfgmenu.asm":"38e73a4639ccef294040f71f5023d57aaea55f87", "bios/regfind.asm":"d1ce66609dec73618c9c42bd8a214ae295df253b"},
+  "build": {"commands": ["regfind-build.cmd (assembly succeeded, intermediate link failed before callers were rebuilt)", "cfg-switch.cmd (success)"], "io_bytes": 247328, "final_exit": 0},
+  "proof": {"baseline_source_comparison":"fc /b bios/cfgline.asm ../v7.00.950/bios/cfgline.asm: identical", "io_comparison":"final IO directly identical to P180 clean full-build IO", "registry_code_bytes":8623, "registry_equal":8211, "registry_verified_address_bytes":412, "registry_log":"extras/build/cmd-17188-26244/original-query.compare.log", "cfgname":"200 bytes;178 equal;22 symbol-address bytes checked", "cfgmain":"160 bytes;140 equal;12 call bytes checked;8 data bytes pending"},
+  "counts": {"modified_this_part":4, "newly_baseline_identical":1, "unchanged_complete_files_newly_certified_for_target":0, "modified_total":93, "baseline_identical":200, "in_progress":68},
+  "remaining": "cfgline is baseline-identical, but its entire target output is not certified. Old rqvalue source is retained but unlinked and must be consolidated in the original module. Final three-output identity remains open."
+}

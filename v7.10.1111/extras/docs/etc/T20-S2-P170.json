@@ -1,0 +1,9 @@
+{
+  "task": "M6 T20 S2 P170",
+  "change": "Restore target handle validation, predefined-root lazy opening and two root names; connect validation to the restored root-path open and key-release routines.",
+  "source_blob_sha1": {"bios/regfind.asm":"87d9172ab27b0ec5fd194921a79cc7dd84a609a3", "bios/regroot.asm":"c4dce6a6de92992e3c8fcef16f8b98ccbb070b94"},
+  "build": {"command": "extras/build/cmd-17188-26244/regfind-build.cmd", "exit": 0, "io_bytes": 245104},
+  "proof": {"target": "014E:3052", "new_code_bytes": 298, "new_exact": 278, "verified_address_bytes": 20, "root_string_bytes_exact": 26, "combined_code_bytes": 6002, "combined_exact": 5764, "combined_verified_addresses": 238, "verifier": "extras/build/cmd-17188-26244/datachaincheck.c", "log": "handle-target.compare.log", "exit": 0},
+  "counts": {"modified_this_part": 2, "unchanged_complete_files_newly_certified": 0, "modified_total": 90, "baseline_identical": 203},
+  "remaining": "File initialization, target public APIs and cfg consumer integration; staged legacy paths cannot yet be removed. Root strings have correct content but not final placement. Final three-output identity remains open."
+}

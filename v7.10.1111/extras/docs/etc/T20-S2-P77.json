@@ -1,0 +1,21 @@
+{
+  "task": "M6 T20 S2 P77",
+  "sources": {
+    "dos/msctrlc.asm": "a66f05f2318ced969f64e976033e2a8b97b256ec",
+    "dos/makefile": "441e9ca4fce6592213e3d2b1394e09fd50f81c14",
+    "inc/dosmac.inc": "1a37e116892d697a3c935a39d1687bb9dcabebd4"
+  },
+  "changes": "Restore HardErr retry-sector high-word carry, FAT32 area classification, FAT16 word/FAT32 dword free-count invalidation and DPB dirty marking. Reuse existing DPB and HIGH_SECTOR declarations. Use inherited Microsoft ML for msctrlc. ML INVOKE avoids redeclaring defined procedures; TRANSFER uses guarded EXTERNDEF. Original MASM5 branches retained.",
+  "builds": ["extras/build/cmd-17081-23949/kernel-incremental.cmd", "extras/build/cmd-17081-23949/incremental.cmd"],
+  "build_exits": [0, 0],
+  "check": "extras/build/cmd-17081-23949/p77check.cmd",
+  "check_exit": 0,
+  "exact_regions": [
+    {"built_offset": 96545, "target_offset": 98914, "built_runtime": "8EE1", "target_runtime": "9822", "bytes": 177, "purpose": "HardErr through fatal-device setup before FATALC", "excluded_bytes": 0},
+    {"built_offset": 512, "target_offset": 512, "bytes": 75616, "purpose": "Complete loader/BIOS regression after shared macro changes", "excluded_bytes": 0}
+  ],
+  "scope": "Complete linked-image comparisons at procedure boundaries. INT24 continuation, register preservation and external bindings remain unresolved; msctrlc is not accepted as a whole. No address padding, opcode substitution or target binary injection.",
+  "counts": {"core_modified_this_part": 3, "core_modified_total": 42, "core_identical_to_baseline": 251, "reviewed_modified": 26, "reviewed_unchanged": 38, "reviewed_total": 64, "in_progress": 16, "new_core_files": 0},
+  "full_identity": false,
+  "published": false
+}

@@ -1,0 +1,40 @@
+{
+  "task": "M6 T20 S2 P132",
+  "previous_turn": "progress: P131 restored lock and lockio",
+  "changes": [
+    "Restore legacy free-space 32-bit cluster counts and 16-bit interface scaling/clamping.",
+    "Restore 7303h 44-byte extended free-space result, overflow saturation and input validation.",
+    "Correct duplicate CurrentPDB code-segment declaration and unnecessary NlsBuffer SS overrides; RECSET immediate shift.",
+    "Use existing original ML tool for getset assembly to preserve target 386 prefix order."
+  ],
+  "source_blob_sha1": {
+    "getset": "37b4e0c738e109cdea7fa6270de4f9b04f6cd2d0",
+    "makefile": "364f248ff40614271eca986e003f1a4eba6db6ef"
+  },
+  "build": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+  "build_exit": 0,
+  "comparison": {
+    "scope": "Whole getset.asm",
+    "built": "4AEC..5033",
+    "target": "4AE3..502A",
+    "bytes": 1351,
+    "equal": 1306,
+    "different": 45,
+    "remaining": "External call/jump operands and UCASE_TAB, FILE_UCASE_TAB, DBCS_TAB addresses only."
+  },
+  "post_build": "Export FreeSpaceScale label for parse consumer; no emitted instruction change, rebuild deferred per owner instruction.",
+  "evidence": "extras/build/cmd-17081-23949/p132: full IO.SYS/map, final kernel log, module spans/disassembly/FC log",
+  "counts": {
+    "modified_asm_this_part": 1,
+    "modified_makefile_this_part": 1,
+    "unchanged_reviewed_this_part": 0,
+    "new_source_files": 0,
+    "modified_total": 78,
+    "baseline_identical": 215,
+    "reviewed_modified": 26,
+    "reviewed_unchanged": 42,
+    "in_progress": 52
+  },
+  "full_identity": false,
+  "published": false
+}

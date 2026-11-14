@@ -1,0 +1,38 @@
+{
+  "task":"M6 T20 S2 P151",
+  "previous_turn":"progress: restored cache-reclamation dependency group",
+  "change":"Restore six save-path dependencies in existing bios/regread.asm: record offset/index conversion, key/data cache commit, key block extent and page-aware record traversal. Reuse inherited CRT arithmetic routines and symbolic calls. No new source files.",
+  "source_blob_sha1":"bc6b96436cee959e6a9d15347fe9530ca6802893",
+  "build":{
+    "command":"extras/build/cmd-17188-26244/regread-build.cmd",
+    "exit":0,
+    "scope":"Changed production regread assembly; inherited OMF ordering; complete configuration link and IO packaging",
+    "io_bytes":235616,
+    "configuration_bytes":48224,
+    "diagnostics":"Existing seven A4057 warnings in legacy routines remain. ADD EAX immediate32 encoding made explicit where MASM shortened it, as required by direct target comparison."
+  },
+  "new_procedures":[
+    {"name":"RegKeyOffsetToIndex","built":"0916:0386","target":"014E:3362","bytes":35},
+    {"name":"RegKeyIndexToOffset","built":"0916:03AA","target":"014E:3386","bytes":118},
+    {"name":"RegCommitKeyCache","built":"0916:0420","target":"014E:3F28","bytes":68},
+    {"name":"RegCommitDataCache","built":"0916:0464","target":"014E:4AA2","bytes":88},
+    {"name":"RegKeyBlockExtent","built":"0916:04BC","target":"014E:3C46","bytes":202},
+    {"name":"RegWalkKeyRecords","built":"0916:0586","target":"014E:3628","bytes":188}
+  ],
+  "proof":{
+    "new_bytes":699,
+    "new_equal_bytes":685,
+    "new_resolved_call_operand_bytes":14,
+    "combined_procedures":10,
+    "combined_bytes":1010,
+    "combined_equal_bytes":984,
+    "combined_resolved_call_operand_bytes":26,
+    "method":"Compare complete procedures from whole linked IO against target. Each excluded relative/FAR call operand is decoded and checked against corresponding map symbols; all other bytes, including indirect callback instructions, compare exactly.",
+    "verifier":"extras/build/cmd-17188-26244/cachecheck.c",
+    "log":"extras/build/cmd-17188-26244/save-dependencies.compare.log"
+  },
+  "remaining":"File-copy staging buffer and key-record encoding callback remain prerequisites for block writers. Then restore key/data writers and save callback; allocation retry and initialization follow. Existing registry callers have not switched to this dependency group. Overall IO identity and final layout remain open.",
+  "counts":{"modified_this_part":1,"unchanged_complete_files_newly_certified":0,"new_source_files":0,"modified_total":87,"baseline_identical":206,"in_progress":61},
+  "full_identity":false,
+  "published":false
+}

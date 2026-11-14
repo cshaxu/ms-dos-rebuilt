@@ -1,0 +1,16 @@
+{
+  "task": "M6 T20 S2 P84",
+  "sources": {"dos/fat.asm": "2bfdbdb019445de900bc691d8b83541879e2bfc3"},
+  "changes": "Restore safe initial DPB geometry before first FAT read; clear cluster high word. Prepare extended SETDPB signature and reset32-bit next-free/free-count for FAT32 BPB. Restore buffer invalidation when FAT origin is not sector1 and32-bit FAT mirror stride selection.",
+  "build": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+  "build_exit": 0,
+  "exact_regions": [
+    {"built_offset": 109753, "target_offset": 113299, "bytes": 41, "purpose": "Extended BPB preparation before SETDPB call", "fc_exit": 0},
+    {"built_offset": 109819, "target_offset": 113553, "bytes": 45, "purpose": "FAT buffer invalidation/stride and successful return", "fc_exit": 0}
+  ],
+  "reproduction": "Use extras/build/s2-p1/span.exe with recorded decimal offsets/lengths on p84/IO.SYS and frozen target, then FC /B. Snapshot/map/kernel log retained in p84; dpb-built/target.bin and buffer-built/target.bin compare exactly without exclusions.",
+  "open": "FSInfo read, signature validation and free-count/next-free import between SETDPB and buffer tail are still absent. Restore that flow next; do not claim complete BPB or FAT acceptance. Bootstrap branch layout and external bindings also pending whole-region verification.",
+  "counts": {"core_modified_this_part": 1, "core_modified_total": 43, "core_identical_to_baseline": 250, "reviewed_modified": 26, "reviewed_unchanged": 38, "reviewed_total": 64, "in_progress": 17, "new_core_files": 0},
+  "full_identity": false,
+  "published": false
+}

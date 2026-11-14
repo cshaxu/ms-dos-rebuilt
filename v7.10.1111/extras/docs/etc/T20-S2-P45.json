@@ -1,0 +1,15 @@
+{
+  "task":"M6 T20 S2 P45",
+  "sources":[{"file":"bios/sysinit1.asm","blob":"26eb84850049fe40e29b581595fd15be752427af"}],
+  "changes":["Restore FAT32 root-cluster traversal in existing boot_find_file", "Restore target cluster search and next-FAT-entry helpers in same module", "Restore32-bit FAT area arithmetic and directory high cluster word in compressed-driver lookup", "Use saved boot drive at extended offset40h"],
+  "build":"extras/build/cmd-17081-23949/incremental.cmd",
+  "build_exit":0,
+  "check":"extras/build/cmd-17081-23949/p45check.cmd",
+  "check_exit":0,
+  "directory_chain":{"offset":31153,"length":348,"exact_bytes":310,"excluded_word_offsets":[6,13,27,43,51,89,127,131,176,192,197,202,209,241,288,304,312,322,327]},
+  "compressed_driver":{"offset":31501,"length":262,"exact_bytes":244,"excluded_word_offsets":[88,95,104,114,130,136,152,162,240]},
+  "remaining":"All28 excluded words refer to boot_copy_buffer; final provider placement unresolved. No full-chain acceptance.",
+  "counts":{"core_modified_this_part":1,"core_modified_total":26,"reviewed_unchanged":39,"new_core_files":0},
+  "output_sizes":{"IO.SYS":227756,"MSDOS.SYS":9,"COMMAND.COM":92870},
+  "published":false,"full_identity":false
+}

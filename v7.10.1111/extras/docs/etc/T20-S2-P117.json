@@ -1,0 +1,35 @@
+{
+  "task": "M6 T20 S2 P117",
+  "changes": "Restore FastInit CLC/RET entry and remove obsolete table installation implementation/imports. Preserve FastRet and other misc2 routines.",
+  "sources": {
+    "dos/misc2.asm": "f1f4ffdcd1341d5770dbeac8021d04d8a25de9af"
+  },
+  "build": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+  "build_exit": 0,
+  "comparison": {
+    "scope": "Whole misc2 module",
+    "built_runtime": "522B..535E exclusive",
+    "target_runtime": "5883..59B6 exclusive",
+    "built_offset": 81003,
+    "target_offset": 82627,
+    "bytes": 307,
+    "equal_bytes": 291,
+    "different_bytes": 16,
+    "remaining": "External call operands and USER_SP_2F address only; internal instructions, branches and FastInit/FastRet entries match."
+  },
+  "evidence": "extras/build/cmd-17081-23949/p117 contains whole spans, FC /B log, disassembly, linked IO.SYS, MSDOS.MAP and kernel.log.",
+  "counts": {
+    "core_modified_this_part": 1,
+    "unchanged_files_newly_accepted": 0,
+    "core_modified_total": 62,
+    "core_identical_to_baseline": 231,
+    "reviewed_modified": 26,
+    "reviewed_unchanged": 38,
+    "reviewed_total": 64,
+    "in_progress": 36,
+    "new_core_files": 0
+  },
+  "next": "Trace msinit patch_misc_segments target before removing FastOpen table relocation and shared storage. Search caller flag handling and shared-data layout remain open.",
+  "full_identity": false,
+  "published": false
+}

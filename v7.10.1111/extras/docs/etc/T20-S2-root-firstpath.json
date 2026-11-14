@@ -1,0 +1,32 @@
+{
+  "scope": "M6 T20 S2: migrate predefined registry roots on the 950 first path",
+  "baseline": "v7.00.950",
+  "target": "frozen v7.10.1111 IO.SYS",
+  "current_data": {
+    "file": "bios/regroot.asm",
+    "root_count": 7,
+    "record_bytes": 40,
+    "table": "RegRootTable",
+    "target_layout": "two 36-byte root records and a six-entry pointer table",
+    "target_evidence": "extras/docs/etc/T20-S2-P157.json",
+    "status": "target layout requires dependent consumers to move as one unit"
+  },
+  "direct_consumers": [
+    {"file":"bios/rapiopen.asm","procedures":["RegRemapKey","RegLoadKeyAPI","RegUnloadKey"]},
+    {"file":"bios/regfind.asm","procedures":["RegFindKey","RegValidateKeyHandle","RegInvalidateKey"],"note":"RegInvalidateKey uses the InvalidateRoot macro, which accesses RegRootTable."},
+    {"file":"bios/regstart.asm","procedures":["RegInitialize","RegReloadSystem","RegInitClassesRoot","RegInitUserRoot","RegTerminate","RegFlushAll"]}
+  ],
+  "dependencies": {
+    "allocator": "RegKeyCreate and RegKeyDestroy in bios/regfind.asm",
+    "target_allocator_evidence": "extras/docs/etc/T20-S2-P156.json",
+    "difference": "950 uses 40-byte records and a linear list; 1111 uses 36-byte records, a fixed pool and dynamic circular list",
+    "constraint": "Replace/adapt existing routines and caller relationships; no parallel root table or duplicate registry implementation."
+  },
+  "verification": {
+    "source_reference_search": "rg -n -uuu RegRootTable bios; inspect InvalidateRoot macro and invocations",
+    "scope": "Conservative static direct-consumer inventory; indirect reachability and 1111 functional equivalence remain unproven.",
+    "acceptance": "Compile affected original modules, link complete configuration and compare named code/data blocks to frozen target; final IO.SYS remains an exact byte comparison."
+  },
+  "file_counts": {"core_modified_this_part":0,"core_newly_identical_this_part":0,"core_different_total":87,"core_identical_total":206},
+  "status": "active, no root layout changes applied"
+}

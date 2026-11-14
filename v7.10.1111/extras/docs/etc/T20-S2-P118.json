@@ -1,0 +1,52 @@
+{
+  "task": "M6 T20 S2 P118",
+  "changes": "Remove msinit FastOpen relocation and22-byte dostab obsolete storage. Remove unused imports from eight modules; their instruction text is unchanged.",
+  "sources": {
+    "dos/msinit.asm": "8af36145a3400bed365079ce7c8c706868ac2355",
+    "dos/dostab.asm": "cea938b500c37856be7a94bb08f9eb2733ea6002",
+    "dos/idle.asm": "6ec17558803c95e7cc6f65c34518cef6cb3f0325",
+    "dos/delete.asm": "9b165edd077b1f36359c5f942bec6bfd6c421f09",
+    "dos/mknode.asm": "0ff48067d884f2d813f7f655ea9edac7721e9c40",
+    "dos/dir.asm": "5440e526833c660bfdea62d10626f4645f1f0b78",
+    "dos/dircall.asm": "2f7ba4267115ee1e769d7952a77d4e191fe46b65",
+    "dos/search.asm": "27af76d6897766ae2c0c53999b4158081f39a4e7",
+    "dos/file.asm": "4dc0a3accc71a6101b8aaba8318a19b101118796",
+    "dos/fcbio.asm": "668d1b97e3449c0731d4f6b2c522b973b22567ad"
+  },
+  "build": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+  "build_exit": 0,
+  "build_note": "Unused externs first prevented link and were removed. NMAKE then failed without diagnostics during fcbio/search assembly. Original MASM direct diagnostic runs passed; subsequent full link/package passed. Execution issue remains unresolved; errors not suppressed.",
+  "comparison": {
+    "scope": "patch_misc_segments only",
+    "built_runtime": "D5AD..D5E8 exclusive",
+    "target_runtime": "DCBA..DCF5 exclusive",
+    "built_offset": 114669,
+    "target_offset": 116474,
+    "bytes": 59,
+    "equal_bytes": 59,
+    "different_bytes": 0
+  },
+  "layout": {
+    "Dir_Info_Buff": "0D7C",
+    "USER_SP_2F": "0D9E",
+    "Packet_Temp": "0DA0",
+    "removed_bytes": 22
+  },
+  "counts": {
+    "core_modified_this_part": 10,
+    "instruction_or_data_modified": 2,
+    "unused_import_only": 8,
+    "unchanged_files_newly_accepted": 0,
+    "core_modified_total": 67,
+    "core_identical_to_baseline": 226,
+    "reviewed_modified": 26,
+    "reviewed_unchanged": 38,
+    "reviewed_total": 64,
+    "in_progress": 41,
+    "new_core_files": 0
+  },
+  "evidence": "extras/build/cmd-17081-23949/p118 holds spans, exact FC log, linked IO.SYS, map and kernel.log. Direct diagnostics retained in diagnose.cmd/bat and p118asm.log.",
+  "next": "Resolve remaining MARK2 overlap and search flags. Skip exact patch_misc_segments; full msinit recovery remains open.",
+  "full_identity": false,
+  "published": false
+}

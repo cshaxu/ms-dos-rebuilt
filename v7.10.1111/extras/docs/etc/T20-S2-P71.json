@@ -1,0 +1,15 @@
+{
+  "task":"M6 T20 S2 P71",
+  "source":"dos/dostab.asm",
+  "source_blob":"892284d9ae2a9487398123606a2a96cb89196603",
+  "changes":"MAP_CASE uses JB to its existing common far return rather than JAE plus a separate return, matching target instruction flow",
+  "build":"extras/build/cmd-17081-23949/kernel-incremental.cmd",
+  "build_exit":0,
+  "check":"extras/build/cmd-17081-23949/p71check.cmd",
+  "check_exit":0,
+  "tables":{"built_offset":114727,"target_offset":119386,"exact_bytes":536,"contents":"UCASE_TAB, FILE_UCASE_TAB, COLLATE_TAB and DBCS_TAB"},
+  "map_case":{"built_offset":115387,"target_offset":120011,"bytes":17,"excluded_word_offset":9,"exact_complement_bytes":15},
+  "next":"UCASE_TAB currently DOSDATA:0AD7, target0AFA. Restore real state fields preceding the table, not padding. FastOpen communications layout also remains unresolved.",
+  "counts":{"core_modified_this_part":1,"core_modified_total":35,"reviewed_modified":25,"reviewed_unchanged":39,"reviewed_total":64,"new_core_files":0},
+  "full_identity":false,"published":false
+}

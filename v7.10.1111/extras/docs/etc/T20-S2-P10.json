@@ -1,0 +1,94 @@
+{
+  "task": "M6 T20 S2 P10",
+  "unit": 23,
+  "file": "inc/ioctl.inc",
+  "status": "layout-verified-consumer-integration-pending",
+  "dependency": "inc/bpb.inc, already restored in P4",
+  "source_blob_sha1": "d3892398d90c2f2d62f51c49e849adb3b7296e3f",
+  "problem": "Expansion of SIZE A_BPB to53 would incorrectly move legacy DP_TRACKTABLEENTRIES from38 to60. Target supports legacy08h and extended48h separately.",
+  "changes": [
+    "Keep DP_BPB at31 bytes in existing A_DEVICEPARAMETERS.",
+    "Add extended category constants IOC_DC32/RAWIO32=48h.",
+    "Add A_DEVICEPARAMETERS32 in same include using original STRUC/DB/DW style;53-byte BPB and32-byte reserved area."
+  ],
+  "layout": {
+    "legacy": {
+      "bpb": 7,
+      "bpb_size": 31,
+      "track_count": 38,
+      "sector_table": 40,
+      "structure_size": 292
+    },
+    "extended": {
+      "bpb": 7,
+      "bpb_size": 53,
+      "reserved_offset": 60,
+      "reserved_size": 32,
+      "track_count": 92,
+      "sector_table": 94,
+      "structure_size": 346
+    }
+  },
+  "proof": {
+    "target": "extras/baselines/targets/IO.SYS",
+    "code_segment_file_base": 8704,
+    "spans": [
+      {
+        "probe_offset": 0,
+        "target_offset": 15241,
+        "length": 3
+      },
+      {
+        "probe_offset": 3,
+        "target_offset": 15254,
+        "length": 3
+      },
+      {
+        "probe_offset": 6,
+        "target_offset": 15257,
+        "length": 3
+      },
+      {
+        "probe_offset": 9,
+        "target_offset": 15464,
+        "length": 3
+      },
+      {
+        "probe_offset": 12,
+        "target_offset": 15475,
+        "length": 3
+      },
+      {
+        "probe_offset": 15,
+        "target_offset": 15513,
+        "length": 3
+      },
+      {
+        "probe_offset": 18,
+        "target_offset": 15524,
+        "length": 3
+      },
+      {
+        "probe_offset": 21,
+        "target_offset": 17007,
+        "length": 2
+      }
+    ],
+    "bytes": "B9 1F 00 B9 35 00 BA 20 00 8B 4F 26 8B 4F 5C 8D 77 28 8D 77 5E 3C 48",
+    "tools": "Original MASM5.10A/LINK5.10/RELOC in private desktop C runner",
+    "assembly": "0 warnings,0 errors; all eight size/offset assertions pass",
+    "comparison": "check.cmd: all eight target slices concatenated for verification only; FC /B probe.bin expected.bin exit0",
+    "scratch": "extras/build/s2-p10",
+    "target_diagnostic": "extras/build/s2-p8/bioscode.dis; bytes authoritative, disassembler incorrectly renders some D1 shift counts as0"
+  },
+  "scope": "Probe verifies field encoding and constants, not complete device code. New symbol names are reconstruction names, not claimed recovered original identifiers. No binary input is used to build probe; target slices are comparison inputs only.",
+  "pending": "msdioctl.asm needs extended-category dispatch, copy counts, reserved initialization and conditional offsets inside BIOS SCC. No consumer file edited ahead of prerequisites.",
+  "counts": {
+    "core_processed": 23,
+    "core_modified": 10,
+    "core_unchanged": 13,
+    "core_unreviewed": 270,
+    "tool_modified": 1,
+    "new_core_files": 0
+  }
+}

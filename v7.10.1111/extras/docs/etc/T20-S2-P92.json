@@ -1,0 +1,13 @@
+{
+  "task": "M6 T20 S2 P92",
+  "sources": {"dos/rom.asm": "42a08ea1e20ed00089e4ff705844601c2e314cc3"},
+  "changes": "Restore FNDCLUS/SKPCLP32-bit SFT cluster/position traversal and high-word transfer around UNPACK/IsEOF. Restore BUFSEC high-word save/setup/restore around FIGREC/GETBUFFR. Use explicit local carry-return branch matching target rather than macro-selected preceding return.",
+  "build": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+  "build_exit": 0,
+  "comparison": {"scope": "Complete contiguous FNDCLUS/SKPCLP/BUFSEC", "built_runtime": "BA8F..BB62 exclusive", "target_runtime": "C527..C5FA exclusive", "built_offset": 107727, "target_offset": 110439, "bytes": 211, "equal_bytes": 204, "different_bytes": 7, "remaining": "Four near-call operands: UNPACK, IsEOF, FIGREC, GETBUFFR. All internal bytes and layout match."},
+  "evidence": "extras/build/cmd-17081-23949/p92 retains final IO.SYS, MSDOS.MAP, kernel.log, complete comparison binaries and FC /B log. Reproduce with s2-p1/span.exe using recorded offsets/length. Final comment-only32-bit interface description did not require rebuild.",
+  "open": "Existing disk2/disk3 callers must still adopt32-bit ECX/EBX/EDX interface and interrupt contract. Remaining rom allocation and other file-I/O helpers not yet restored. Successful full link does not establish runtime correctness or final identity.",
+  "counts": {"core_modified_this_part": 1, "core_modified_total": 46, "core_identical_to_baseline": 247, "reviewed_modified": 26, "reviewed_unchanged": 38, "reviewed_total": 64, "in_progress": 20, "new_core_files": 0},
+  "full_identity": false,
+  "published": false
+}

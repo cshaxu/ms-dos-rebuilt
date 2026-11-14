@@ -1,0 +1,18 @@
+{
+  "task":"M6 T20 S2 P31",
+  "status":"floppy-geometry-restored-in-integrated-build",
+  "source":"bios/msinit.asm",
+  "source_blob":"b48932202a6508f0b57091da292cc715ba3f8a06",
+  "changes":["Word cylinder count and BDS writes", "INT13 AH48 geometry and change-line handling", "Register preservation", "Immediate shifts and DWORD ROM signatures"],
+  "build":"extras/build/cmd-17081-23949/incremental.cmd",
+  "build_exit":0,
+  "check":"extras/build/cmd-17081-23949/p31check.cmd",
+  "evidence_directory":"extras/build/cmd-17081-23949/p31",
+  "floppy_path":{"built_offset":5362,"target_offset":5362,"length":395,"exact_bytes":383,"excluded_bytes":12,"excluded_reason":"Six external eot word operands: current0DEF,target0DE5"},
+  "extended_helper":{"built_offset":8628,"target_offset":8628,"length":52,"exact":true},
+  "counts":{"core_modified_this_part":1,"core_modified_total":17,"reviewed_unchanged":39,"new_core_files":0},
+  "outputs":{"IO.SYS":226732,"MSDOS.SYS":9,"COMMAND.COM":92870},
+  "pending":"External bindings, remaining BIOS and COMMAND restoration; msinit and SCC remain open",
+  "published":false,
+  "full_identity":false
+}

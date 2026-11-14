@@ -1,0 +1,9 @@
+{
+  "task": "M6 T20 S2 P164",
+  "change": "Restore data-cache record compaction and index rebuilding in existing regread.asm.",
+  "source_blob_sha1": "ad62bfd3fc7036bce18acbbf8ef27c2232dca830",
+  "build": {"command": "extras/build/cmd-17188-26244/regread-build.cmd", "exit": 0, "io_bytes": 242048},
+  "proof": {"target": "014E:4372", "new_bytes": 347, "new_exact": 343, "verified_call_operands": 4, "combined_bytes": 2985, "combined_exact": 2859, "combined_verified_addresses": 126, "verifier": "extras/build/cmd-17188-26244/datachaincheck.c", "log": "compact.compare.log", "exit": 0},
+  "counts": {"modified_this_part": 1, "unchanged_complete_files_newly_certified": 0, "modified_total": 90, "baseline_identical": 203},
+  "remaining": "Data allocation, file initialization, root-path/API integration and removal of legacy paths. The staging size is not a convergence metric. Final three-output identity remains open."
+}

@@ -1,0 +1,22 @@
+{
+  "task":"M6 T20 S2 P157",
+  "previous_turn":"progress: restored key-handle allocation and release",
+  "changes":["Restore handle retain, lookup and invalidation in existing regfind.asm, including predefined-root, pool and circular-list scans.","Restore target machine/user root records and six predefined-key pointers in regroot.asm; use explicit DGROUP offsets and segment relocation."],
+  "source_blob_sha1":{"bios/regfind.asm":"371493dc780c6951ca070d27ede55b3b276dd2ea","bios/regroot.asm":"a6b61f464572de7aded086d13ada757cb4f52b5b"},
+  "build":{"command":"extras/build/cmd-17188-26244/regfind-build.cmd","exit":0,"io_bytes":238772,"configuration_bytes":51380,"scope":"Changed production modules, inherited OMF ordering, complete config relink and IO packaging"},
+  "new_procedures":[
+    {"name":"RegRetainKeyHandle","built":"0916:103C","target":"014E:317C","bytes":31},
+    {"name":"RegLookupKeyHandle","built":"0916:105C","target":"014E:319C","bytes":237},
+    {"name":"RegInvalidateKeyHandles","built":"0916:114A","target":"014E:328A","bytes":216}
+  ],
+  "proof":{
+    "new_code_bytes":484,"new_equal_code_bytes":452,"new_verified_address_bytes":32,
+    "combined_procedures":26,"combined_code_bytes":4043,"combined_equal_code_bytes":3777,"combined_verified_address_bytes":266,
+    "data":{"built":"0BCC:043C","target":"062E:02FA","bytes":96,"equal_bytes":88,"verified_far_pointer_bytes":8},
+    "method":"Complete linked procedures compared bytewise; all displaced data references checked against corresponding symbols. Entire96-byte root-data group compared, with the two FAR pointers independently checked for both offset and segment.",
+    "directory":"extras/build/cmd-17188-26244","log":"handle-lookup.compare.log","verifier":"cachecheck.c"
+  },
+  "remaining":"Full handle validation at target3052 calls root-path opening at2552, which must be restored first. Root path strings/file objects remain pending. Legacy root records/callers are still active and must be removed after API integration; final layout/identity are open.",
+  "counts":{"modified_this_part":2,"unchanged_complete_files_newly_certified":0,"new_source_files":0,"modified_total":89,"baseline_identical":204,"in_progress":63},
+  "full_identity":false,"published":false
+}

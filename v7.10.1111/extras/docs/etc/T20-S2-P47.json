@@ -1,0 +1,15 @@
+{
+  "task":"M6 T20 S2 P47",
+  "sources":[{"file":"bios/sysinit1.asm","blob":"db17e00a456f3b47b0aa6084bc370521caa5af19"},{"file":"bios/si2front.asm","blob":"12c9ec19a94328118a6827d742990d601a591912"}],
+  "changes":["Restore11-entry ARVFHSTDICN switch table, reserved/root/cluster state and BPB table count", "Restore initialization defaults and numeric option validation", "Propagate process_num carry instead of unconditionally clearing it", "Leave target BPB capacity calculation pending rather than claiming complete option support"],
+  "build":"extras/build/cmd-17081-23949/incremental.cmd",
+  "build_exit":0,
+  "check":"extras/build/cmd-17081-23949/p47verify.cmd",
+  "check_exit":0,
+  "check_note":"p47check.cmd saved snapshot but CMD failed to resolve its span label; p47verify.cmd uses direct commands against that snapshot and passes",
+  "switches":{"built_offset":37897,"target_offset":38550,"exact_bytes":12},
+  "numeric_options":{"built_offset":32113,"target_offset":32114,"length":152,"exact_bytes":134,"excluded_word_offsets":[2,16,32,73,88,99,115,124,142]},
+  "counts":{"core_modified_this_part":2,"core_modified_total":27,"reviewed_unchanged":39,"new_core_files":0},
+  "pending":"BPB option application, capacity/FAT/cluster calculation, BPB table expansion and provider placement",
+  "published":false,"full_identity":false
+}

@@ -1,0 +1,24 @@
+{
+  "task": "M6 T20 S2 P87",
+  "purpose": "Apply owner's build-first execution correction and establish a clean integrated baseline, without standalone probes.",
+  "stage": "extras/build/cmd-4777-23225",
+  "command": "extras\\build.cmd <nul",
+  "build": {
+    "compilation_link_packaging": "passed for all components",
+    "input_snapshots": "FC /B exact, inputs-compare.log",
+    "entry_exit": 1,
+    "exit_reason": "IO.SYS target identity gate; not a compile failure",
+    "published": false
+  },
+  "outputs": {
+    "IO.SYS": {"bytes": 229804, "target_bytes": 214836, "target_exact": false, "sha256": "ad9770c10765e930a79aa3bfa9c764ca1b0ba818f2b52f32937bf0fb84cc8d9b"},
+    "MSDOS.SYS": {"bytes": 9, "target_bytes": 9, "target_exact": true},
+    "COMMAND.COM": {"bytes": 92870, "target_bytes": 93812, "target_exact": false, "sha256": "45d1c0edfdfd9eea31d3cd21489698b4a9d3eedb6b1521f57a04b7ee36e2af4b"}
+  },
+  "verification": "Stage analyze.cmd runs FC /B for all3 and retains hashes and heuristic anchor logs. Clean IO.SYS and COMMAND.COM also FC /B equal cmd-17081-23949/out outputs. Anchors are localization aids, not source recovery percentages. Link maps retained under dos, bios and cmd/command.",
+  "implementation": "EXECUTION.md and CURRENT.md adopt linked dependency groups, skip proven bodies and restrict standalone probes to specific unresolved tool/encoding questions. extras/build.cmd now runs all3 comparisons before failing the publication gate and prints a failed-comparison log path.",
+  "script_validation": "Control-flow review; underlying all3 FC /B operations executed by analyze.cmd. Reporting-only build.cmd edit followed the clean run; no second full rebuild performed.",
+  "next": "Restore existing buf.asm FAT32 mirror/read-write provider group using full linked map and target block evidence; then dependent disk providers/shared data. Incremental assembly plus whole kernel relink, not per-instruction probes.",
+  "counts": {"core_modified_this_part": 0, "core_newly_reviewed_this_part": 0, "core_modified_total": 43, "core_baseline_identical": 250, "reviewed_modified": 26, "reviewed_unchanged": 38, "reviewed_total": 64, "build_entry_modified_this_part": 1},
+  "full_identity": false
+}

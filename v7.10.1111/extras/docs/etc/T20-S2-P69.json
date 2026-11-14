@@ -1,0 +1,17 @@
+{
+  "task": "M6 T20 S2 P69",
+  "source": "dos/msdisp.asm",
+  "source_blob": "63bbf81f5d210745341a8dfd108e114590eabe3c",
+  "changes": "Retain existing OEM_HANDLER declaration and legacy OEM handler body for the target build. Preserve existing conditional main entry routing. No new implementation or address padding.",
+  "build": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+  "build_exit": 0,
+  "check": "extras/build/cmd-17081-23949/p69check.cmd",
+  "check_exit": 0,
+  "exact_region": {"built_offset":77377,"target_offset":77377,"bytes":39},
+  "dispatcher": {"offset":76659,"bytes":757,"external_word_offsets":[72,393,461],"exact_complement_bytes":751,"actual_differing_bytes":5,"remaining_bindings":["DosHasHMA","LcritAll","DskStatChk"]},
+  "verification_scope": "Check script gates the39-byte OEM region and captures full dispatcher diff. The three binding disposition is based on manual inspection of retained diff and disassembly, not an automatic whole-module pass.",
+  "next": "Restore upstream DOSDATA layout (DosHasHMA currently0D07, target0D66) and disk/critical-section providers. MSC001S now4428 matches target.",
+  "counts": {"core_modified_this_part":1,"core_modified_total":35,"reviewed_modified":25,"reviewed_unchanged":39,"reviewed_total":64,"new_core_files":0},
+  "full_identity":false,
+  "published":false
+}

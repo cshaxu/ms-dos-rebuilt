@@ -1,0 +1,16 @@
+{
+  "task": "M6 T20 S2 P93",
+  "sources": {"dos/rom.asm": "eb0de69a221a25111040290f518b188eeab6c0ec"},
+  "changes": "Restore BUFWRT DWORD sector-limit comparison, NEXTSEC high-cluster propagation and32-bit last-position carry, and OPTIMIZE32-bit contiguous-cluster detection/stack state/last-position updates. Existing procedure structure and providers reused.",
+  "build": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+  "build_exit": 0,
+  "comparisons": [
+    {"scope": "Complete BUFWRT/NEXTSEC/OPTIMIZE", "built_offset": 107997, "target_offset": 110709, "bytes": 389, "equal": 381, "different": 8, "remaining": "Four external calls INC_DIRTY_COUNT, IsEOF, UNPACK twice"},
+    {"scope": "Integrated entire rom prefix FNDCLUS through FIGREC, including unchanged BUFRD", "built_runtime": "BA8F..BD65 exclusive", "target_runtime": "C527..C7FD exclusive", "built_offset": 107727, "target_offset": 110439, "bytes": 726, "equal": 710, "different": 16, "remaining": "Eight external near-call operands; all internal calls, branches, instructions and layout match. Supersedes overlapping P90/P92 prefix-region counts."}
+  ],
+  "evidence": "extras/build/cmd-17081-23949/p93 retains final IO.SYS/MSDOS.MAP/kernel.log, unmodified extracted region pairs and FC /B logs. Reproduce with s2-p1/span.exe at recorded offsets/lengths.",
+  "next": "Restore allocation middle of rom.asm between FIGREC and RELEASE, then integrate remaining disk2/disk3 callers. Do not repeat matching prefix/tail instruction audits.",
+  "counts": {"core_modified_this_part": 1, "core_modified_total": 46, "core_identical_to_baseline": 247, "reviewed_modified": 26, "reviewed_unchanged": 38, "reviewed_total": 64, "in_progress": 20, "new_core_files": 0},
+  "full_identity": false,
+  "published": false
+}

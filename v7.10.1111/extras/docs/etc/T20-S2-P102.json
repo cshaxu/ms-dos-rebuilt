@@ -1,0 +1,16 @@
+{
+  "task": "M6 T20 S2 P102",
+  "changes": "Restore DOS_ChDir DWORD invalidation and remove obsolete FastOpen flag wrapper; restore ValidateCDS DWORD validity test, high-cluster merge, failure clearing and CDS currency update. Reuse existing directory-search and FATREAD_CDS providers. Original ML recipe for dircall; explicitly compare Installed EQ FALSE to avoid NOT width change after386 scope. End386 scope before Leave macro to retain original MOV SP,BP / POP BP encoding.",
+  "sources": {"dos/dir2.asm": "72a1fe3250f61766d8111c6195ac767de1dcd496", "dos/dircall.asm": "58931f64d13d29c52564805f452d73d1ce02411b", "dos/makefile": "729d46ea436fb1bb78a557bc5bf5e92c2d69b69c"},
+  "build": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+  "build_exit": 0,
+  "comparisons": [
+    {"scope": "Whole ValidateCDS", "built_offset": 93178, "target_offset": 95461, "bytes": 236, "equal_bytes": 221, "different_bytes": 15, "remaining": "Eight external call words only; internal branches and all other bytes match."},
+    {"scope": "Whole DOS_ChDir", "built_offset": 89973, "target_offset": 92228, "bytes": 60, "equal_bytes": 52, "different_bytes": 8, "remaining": "Four external call words and NOTDIRPATH branch displacement only."}
+  ],
+  "evidence": "extras/build/cmd-17081-23949/p102: comparison spans and FC logs, final linked IO.SYS, MSDOS.MAP, kernel.log. Initial ML build exposed NET_RMDIR unresolved from IF NOT width behavior; explicit Boolean comparisons fix it, final full link passes.",
+  "counts": {"core_modified_this_part": 3, "unchanged_files_newly_accepted": 0, "core_modified_total": 51, "core_identical_to_baseline": 242, "reviewed_modified": 26, "reviewed_unchanged": 38, "reviewed_total": 64, "in_progress": 25, "new_core_files": 0},
+  "next": "Consolidate whole dir2 comparison and remove target-absent unreferenced LookupPath/InsertPath tail. Skip proved ValidateCDS and DOS_ChDir bodies; remaining mkdir/rmdir consumers, shared layout and image identity remain open.",
+  "full_identity": false,
+  "published": false
+}

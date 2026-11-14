@@ -1,0 +1,25 @@
+{
+  "task":"M6 T20 S2 P155",
+  "previous_turn":"progress: restored save callback and verified complete save dependencies",
+  "changes":["Restore active-file traversal, allocation/reallocation cache-reclamation retries and key-pool initialization/teardown in regread.asm. Calls bind to restored save/discard/DOS services.","Declare target active-file, fixed-key-pool and dynamic-key-list pointers in regroot.asm, initially zero; preserve explicit symbolic references."],
+  "source_blob_sha1":{"bios/regread.asm":"1e22037a399f940d37df77093c91dec4ebe2f0fa","bios/regroot.asm":"02630bea8b37357b27275dd32e002d8aa39aa0e3"},
+  "build":{"command":"extras/build/cmd-17188-26244/regread-build.cmd","exit":0,"io_bytes":237824,"configuration_bytes":50432,"scope":"Changed production modules, existing OMF ordering, complete config link and IO packaging; legacy seven warnings remain"},
+  "new_procedures":[
+    {"name":"RegForEachFile","built":"0916:0D30","target":"014E:2300","bytes":57},
+    {"name":"RegAllocRetry","built":"0916:0D6A","target":"014E:2D80","bytes":86},
+    {"name":"RegReallocRetry","built":"0916:0DC0","target":"014E:2DD6","bytes":108},
+    {"name":"RegInitKeyPool","built":"0916:0E2C","target":"014E:2E42","bytes":67},
+    {"name":"RegFreeKeyPool","built":"0916:0E70","target":"014E:2E86","bytes":98}
+  ],
+  "proof":{
+    "new_code_bytes":416,"new_equal_code_bytes":334,"new_verified_address_bytes":82,
+    "combined_procedures":21,"combined_code_bytes":3197,"combined_equal_code_bytes":2997,"combined_verified_address_bytes":200,
+    "data":[{"symbol":"RegActiveFiles","built":"0B97:042C","target":"062E:02EE","bytes":4,"exact":true},{"symbol":"RegKeyPool/RegDynamicKeys","built":"0B97:0434","target":"062E:035A","bytes":8,"exact":true}],
+    "method":"Compare complete procedures from linked IO; independently decode/validate relative and FAR calls, callback addresses and data operands. Separate FC /B confirms all12 new initialized data bytes.",
+    "directory":"extras/build/cmd-17188-26244","logs":["allocation.compare.log","active-files.compare.log","key-pool.compare.log"],
+    "correction":"Initial verifier assumed file-list traversal was55 bytes. Instruction/listing boundaries prove57 bytes; corrected the verifier before accepting. No production code was changed to fit that erroneous length."
+  },
+  "remaining":"Restore key-handle allocation/release/validation and root/file objects, then public initialization/termination. Existing legacy consumers remain active; new active-file list has no restored producers yet. Transfer-buffer allocation is not connected. No complete registry-runtime or binary-identity claim.",
+  "counts":{"modified_this_part":2,"unchanged_complete_files_newly_certified":0,"new_source_files":0,"modified_total":88,"baseline_identical":205,"in_progress":62},
+  "full_identity":false,"published":false
+}

@@ -1,0 +1,14 @@
+{
+  "task": "M6 T20 S2 P183",
+  "objective": "Map the first original registry source file to the corresponding staged target code before making a source-fidelity consolidation.",
+  "baseline": "v7.00.950/bios/regread.asm",
+  "measured_source_diff": {"bios/regread.asm": {"inserted_lines":3894,"deleted_lines":0}, "bios/regstr.asm":{"inserted_lines":143,"deleted_lines":0}, "bios/regfind.asm":{"inserted_lines":1630,"deleted_lines":0}, "command":"git diff --no-index --stat against v7.00.950"},
+  "checksum_comparison": {
+    "original": "regread.asm:RegChecksum; FAR call, FAR buffer, DWORD length, caller cleanup, adjusts segment on 64K wrap; four callers in original header/data validation.",
+    "target": "regstr.asm:RegBlockChecksum; NEAR call, WORD length, callee cleanup, single segment offset; caller is target header validation. Complete linked target body was directly compared in P158.",
+    "decision": "Do not alias the two interfaces or silently discard 64K wrap behavior. Preserve the original checksum in its original file until its original validation callers are migrated as a group. The target code should ultimately replace/adapt the corresponding original functionality in its original module, with target instruction encoding and layout verified."
+  },
+  "findings": "The three measured files retain all baseline lines and append large second implementations. This is direct evidence the present reconstruction is not yet optimized for the owner's source-diff objective. A shorter linked IO from removing the original sections would not establish source fidelity.",
+  "counts":{"modified_core_this_part":0,"unchanged_complete_files_newly_certified":0,"modified_total":94,"baseline_identical":199},
+  "remaining":"Perform a procedure-level mapping and adapt original validation/file lifecycle code to target using small reviewable diffs; preserve remaining active legacy behavior until caller group migration. Exact target binary gate remains unmet."
+}

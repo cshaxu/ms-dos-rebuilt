@@ -1,0 +1,49 @@
+{
+  "task": "M6 T20 S2 P133",
+  "previous_turn": "progress: P132 restored getset capacity interfaces",
+  "changes": [
+    "Skip unchanged parse FCB entry; correct earlier attribution of capacity consumer to misc.asm.",
+    "Restore media-byte query via FreeSpaceScale, preserving FATBYTE.",
+    "Restore 7302h DPB copy, FAT16 expanded fields, privacy fields and legacy FAT32 rejection.",
+    "Flush FSInfo for the DPB chain during disk reset."
+  ],
+  "source_blob_sha1": {
+    "misc": "65ba9f1e02b1c61a347eaefadc50cc7271f3daca",
+    "parse": "51d4e5020bf1f9268436ad63df093538b459131c"
+  },
+  "build_exit": 0,
+  "build": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+  "build_notes": "Two NMAKE runs ended after MASM command without diagnostics. Direct same MASM command reported zero severe errors, one pre-existing operand-size warning in pending SETDPB. Subsequent full link/package passed. Retained dos/make.log is actual guest build log; kernel-host.log is stale historical output and must not be treated as current build proof.",
+  "comparisons": [
+    {
+      "scope": "Whole parse.asm",
+      "built": "5033..503E",
+      "target": "502A..5035",
+      "bytes": 11,
+      "equal": 8,
+      "different": 3
+    },
+    {
+      "scope": "misc API prefix through Disk_Reset",
+      "built": "503E..51C8",
+      "target": "5035..51BF",
+      "bytes": 394,
+      "equal": 360,
+      "different": 34,
+      "remaining": "External code-address operands only; SETDPB and remainder not verified."
+    }
+  ],
+  "evidence": "extras/build/cmd-17081-23949/p133: wholeIO/map, guest make.log, initial failure, spans/disassembly/FC logs; p133asm.log direct assembler diagnosis",
+  "counts": {
+    "modified_this_part": 1,
+    "unchanged_reviewed_this_part": 1,
+    "new_source_files": 0,
+    "modified_total": 79,
+    "baseline_identical": 214,
+    "reviewed_modified": 26,
+    "reviewed_unchanged": 43,
+    "in_progress": 53
+  },
+  "full_identity": false,
+  "published": false
+}

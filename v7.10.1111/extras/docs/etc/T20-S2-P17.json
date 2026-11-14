@@ -1,0 +1,100 @@
+{
+  "task": "M6 T20 S2 P17",
+  "scope": "950-derived macro and definition context review",
+  "baseline": "v7.00.950 only",
+  "files": [
+    {
+      "path": "inc/dbcs.sw",
+      "unit": 39,
+      "baseline_equal": true,
+      "comparison": "FC /B exit0",
+      "depends_on": [],
+      "review": "DBCS listing switch only; no emitted code or external symbols."
+    },
+    {
+      "path": "inc/dosmac.inc",
+      "unit": 40,
+      "baseline_equal": true,
+      "comparison": "FC /B exit0",
+      "depends_on": [
+        "inc/dossym.inc (DEBUG/Installed caller context)"
+      ],
+      "review": "Macro definitions require caller DEBUG/Installed context; invocation-generated EXTRN edges belong to consumers. Preserve all branches and bind with dossym as a semantic context unit."
+    },
+    {
+      "path": "inc/dossym.inc",
+      "unit": 41,
+      "baseline_equal": true,
+      "comparison": "FC /B exit0",
+      "depends_on": [
+        "inc/dbcs.sw",
+        "inc/dosmac.inc",
+        "inc/versiona.inc",
+        "inc/version.inc",
+        "inc/buffer.inc",
+        "inc/dirent.inc",
+        "inc/error.inc"
+      ],
+      "review": "Defines DEBUG/Installed before dosmac, then invokes macros and includes already-reviewed structures. Textual include order is acyclic; semantic context is shared with dosmac."
+    },
+    {
+      "path": "inc/doscntry.inc",
+      "unit": 42,
+      "baseline_equal": true,
+      "comparison": "FC /B exit0",
+      "depends_on": [],
+      "review": "NLS constants and structures retained; consumer layouts remain to be checked against target."
+    },
+    {
+      "path": "inc/ds_vers.inc",
+      "unit": 43,
+      "baseline_equal": true,
+      "comparison": "FC /B exit0",
+      "depends_on": [],
+      "review": "DS_INTERNAL_REVISION remains12; selected target consumer behavior is not yet proven."
+    },
+    {
+      "path": "inc/umb.inc",
+      "unit": 44,
+      "baseline_equal": true,
+      "comparison": "FC /B exit0",
+      "depends_on": [],
+      "review": "UMB constants and separate arena context retained; do not merge with arena.inc without consumer evidence."
+    },
+    {
+      "path": "bios/msgroup.inc",
+      "unit": 45,
+      "baseline_equal": true,
+      "comparison": "FC /B exit0",
+      "depends_on": [
+        "bios/biosseg.inc"
+      ],
+      "review": "Segment-switch macros and initial Bios_Data declaration depend on biosseg segment context; emitted consumer layout remains pending."
+    }
+  ],
+  "source_changes": 0,
+  "rebuild": "Not run: source and instruction text unchanged.",
+  "acceptance": "Definition/context review only; no target consumer or whole-image acceptance.",
+  "semantic_unit": [
+    "inc/dosmac.inc",
+    "inc/dossym.inc"
+  ],
+  "remaining_bios_include_closure": [
+    "inc/copyrigh.inc",
+    "inc/win386.inc",
+    "inc/magicdrv.inc",
+    "inc/parse.asm",
+    "inc/highvar.inc",
+    "inc/highload.inc",
+    "inc/highexit.inc",
+    "bios/mrcf.inc",
+    "inc/psdata.inc"
+  ],
+  "counts": {
+    "processed_core": 45,
+    "modified_core": 14,
+    "reviewed_unchanged_core": 31,
+    "unreviewed_core": 248
+  },
+  "next": "Review remaining external include prerequisites, then restore the approved18-module BIOS SCC. Executable includes must be bound to their consumer context."
+}

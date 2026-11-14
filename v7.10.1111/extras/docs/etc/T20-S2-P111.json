@@ -1,0 +1,13 @@
+{
+  "task": "M6 T20 S2 P111",
+  "changes": "Restore SHARE_CHECK and ShareEnd as target CLC/RET entries. Restore SHARE_VIOLATION FAT32 first-data-sector high/low words and legacy root-sector HIGH_SECTOR clearing. Preserve the existing device error handling and retry loop.",
+  "sources": {"dos/share.asm": "5d2a48bc0c61e2c7b8895c44d9bbb638d4d09c0c"},
+  "build": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+  "build_exit": 0,
+  "comparison": {"scope": "Whole share module", "built_runtime": "AE9B..AF1C exclusive", "target_runtime": "B504..B585 exclusive", "built_offset": 104667, "target_offset": 106308, "bytes": 129, "equal_bytes": 127, "different_bytes": 2, "remaining": "Low operand bytes at offsets20h and52h belong to external CHARHARD and HARDERR calls. All other bytes, including Idle relative call, internal branches and data operands, match."},
+  "evidence": "extras/build/cmd-17081-23949/p111 retains whole spans, FC /B log, disassembly, linked IO.SYS, MSDOS.MAP and kernel.log.",
+  "counts": {"core_modified_this_part": 1, "unchanged_files_newly_accepted": 0, "core_modified_total": 56, "core_identical_to_baseline": 237, "reviewed_modified": 26, "reviewed_unchanged": 38, "reviewed_total": 64, "in_progress": 30, "new_core_files": 0},
+  "next": "Skip share/open/create/directory bodies. Restore close.asm caller cluster fields and target-proven obsolete cache paths using linked differences; keep CHARHARD/HARDERR bindings and shared-data placement tracked.",
+  "full_identity": false,
+  "published": false
+}

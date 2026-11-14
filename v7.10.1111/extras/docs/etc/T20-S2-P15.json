@@ -1,0 +1,29 @@
+{
+  "task": "M6 T20 S2 P15",
+  "reference_policy": "v7.00.950 baseline and frozen1111 target only",
+  "unit": 37,
+  "file": "inc/dirent.inc",
+  "modified": true,
+  "source_blob_sha1": "37c907d2fbf8a5aedbe41b4528ed536262f836d5",
+  "change": "Add DIR_FIRST_HI as WORD PTR DIR_PAD+3 (14h); preserve32-byte layout and all950 names.",
+  "dependencies": "No INCLUDE/EXTRN. Probe additionally uses sf.inc, already reviewedP13.",
+  "derivation": "950 dos/close.asm CloseSetFields updates first cluster,size,date,time from SFT. Corresponding1111 kernel3CC3..3CEC reads SFT2Bh/2Dh and writes directory1Ah/14h, followed by same size/date/time update sequence. This establishes field meaning, not just a matching displacement.",
+  "validation": {
+    "tools": "Inherited original ML/LINK/RELOC with private-desktop C runner",
+    "scratch": "extras/build/s2-p15",
+    "target_offset": 91683,
+    "length": 42,
+    "comparison": "FC /B probe.bin target.bin exit0; contiguous block exact",
+    "assertions": "Directory size32, high cluster14h, low cluster1Ah",
+    "log": "asm.log clean; BUILD.OK PASS"
+  },
+  "limits": "No production close.asm modification; complete close path still pending dependencies. Probe does not demonstrate integrated kernel identity. No binary substitution or added core module.",
+  "counts": {
+    "core_processed": 37,
+    "core_modified": 13,
+    "core_unchanged": 24,
+    "core_unreviewed": 256,
+    "tool_modified": 1,
+    "new_core_files": 0
+  }
+}

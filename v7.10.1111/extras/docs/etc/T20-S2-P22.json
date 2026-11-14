@@ -1,0 +1,33 @@
+{
+  "task": "M6 T20 S2 P22",
+  "file": "bios/msbio1.asm",
+  "status": "restoration-in-progress",
+  "source_blob": "0a31f2c6fcd2d187f18306253a8d25dcca0eb0d9",
+  "change": "Restore fourth BIOS error-message dispatch using existing bios_msg_4 provider; preserves module and procedure structure.",
+  "target_evidence": {
+    "procedure_offset": 10485,
+    "procedure_size": 68,
+    "inserted_code_bytes": 12,
+    "message_word": 12290,
+    "message_base": 12294
+  },
+  "verification": {
+    "full_module": "ML build PASS; inherited two ASSUME CS warnings",
+    "error_procedure": "Original ML/LINK/RELOC placement probe, complete68 bytes FC /B exact.",
+    "code_segment": {
+      "length": 1908,
+      "nonrelocation_present_bytes": 1739,
+      "differences": 0,
+      "relocation_bytes_not_validated_by_scan": 106,
+      "unemitted_bytes": 63
+    },
+    "scope": "OMF scan excludes relocation operands and absent bytes; it is a diagnostic, not whole-module acceptance. Error procedure probe separately binds its message addresses."
+  },
+  "scratch": "extras/build/s2-p21",
+  "counts": {
+    "modified_core": 15,
+    "reviewed_unchanged": 40,
+    "new_core_files": 0
+  },
+  "next": "Validate remaining106 relocation bytes and63 un-emitted positions, then Bios_Data and SYSINITSEG; keep msbio1 open."
+}

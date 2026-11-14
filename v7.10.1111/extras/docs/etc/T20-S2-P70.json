@@ -1,0 +1,16 @@
+{
+  "task": "M6 T20 S2 P70",
+  "source": "dos/dostab.asm",
+  "source_blob": "6aabe755632b329455893a1c11bd5a88d4087ecf",
+  "changes": "Move existing InterChar/InterCon/SaveCurFlg/TEMPSEG/redir_patch/DosHasHMA/fixexepatch/RationalPatchPtr definitions after SysInitTable, followed by existing MAP_CASE body. Preserve instruction text and data definitions; no padding or call-site constants.",
+  "evidence_basis": "Target DOSINIT copies DOSDATA from rounded DD1C = DD20; frozen IO data begins116576. Target data contents and code references establish DosHasHMA0D66 and MAP_CASE0D6B. Current link map now agrees.",
+  "build": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+  "build_exit": 0,
+  "check": "extras/build/cmd-17081-23949/p70check.cmd",
+  "check_exit": 0,
+  "dispatcher": {"offset":76659,"bytes":757,"excluded_word_offsets":[393,461],"exact_complement_bytes":753,"remaining_bindings":["LcritAll","DskStatChk"]},
+  "limitations": "DOSDATA and dostab remain in progress; UCASE_TAB and adjacent fields still need restoration. Overlapping dispatcher proofs are not additional unique coverage.",
+  "counts": {"core_modified_this_part":1,"core_modified_total":35,"reviewed_modified":25,"reviewed_unchanged":39,"reviewed_total":64,"new_core_files":0},
+  "full_identity":false,
+  "published":false
+}

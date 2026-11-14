@@ -1,0 +1,78 @@
+{
+  "task": "M6 T20 S2 P121",
+  "changes": [
+    "Restore FAT32 directory cluster high word handling in existing path.asm: preserve DirStartHigh across joined-path translation, invalidate full DWORD CDS ID, write DX:CX to CDS, preserve DX in Check_PathLen.",
+    "Use target shared directory success/error exits; original ML recipe for path.asm. No new source implementation."
+  ],
+  "sources": {
+    "dos/path.asm": "59c8cc8799285a4f27eabb123ac3894b0ff6407b",
+    "dos/makefile": "6f899eea2ff99eb0b078aa9dc67a3745d1e9401b"
+  },
+  "build": {
+    "command": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+    "exit": 0,
+    "scope": "Reassemble path, link whole kernel, repackage IO.SYS, compare three outputs"
+  },
+  "comparison": {
+    "scope": "Whole path.asm module",
+    "built_runtime": "6268..63DE",
+    "target_runtime": "68FB..6A71",
+    "built_file_offset": 85160,
+    "target_file_offset": 86843,
+    "bytes": 374,
+    "equal_bytes": 339,
+    "different_bytes": 35,
+    "diff_offsets_hex": [
+      "00000001",
+      "00000006",
+      "00000007",
+      "0000000B",
+      "00000018",
+      "00000019",
+      "0000002A",
+      "00000062",
+      "00000065",
+      "00000066",
+      "00000070",
+      "0000007A",
+      "0000007B",
+      "00000089",
+      "0000008A",
+      "0000008E",
+      "0000009F",
+      "000000A0",
+      "000000AA",
+      "000000C3",
+      "000000C4",
+      "000000DF",
+      "000000E0",
+      "000000F0",
+      "000000F1",
+      "00000112",
+      "00000130",
+      "00000135",
+      "00000136",
+      "00000138",
+      "00000139",
+      "00000141",
+      "00000149",
+      "0000014A",
+      "0000016E"
+    ],
+    "remaining": "External call/jump operand bytes and DOS_MkDir/DOS_RmDir immediate code addresses only. All internal branches and shared-data operands match."
+  },
+  "evidence": "extras/build/cmd-17081-23949/p121: IO.SYS, MSDOS.MAP, kernel.log, path spans, FC log and disassemblies",
+  "counts": {
+    "modified_this_part": 2,
+    "new_source_files": 0,
+    "newly_accepted_unchanged": 0,
+    "core_modified_total": 68,
+    "core_identical_to_baseline": 225,
+    "reviewed_modified": 26,
+    "reviewed_unchanged": 38,
+    "in_progress": 42
+  },
+  "next": "Skip proved path/search bodies. Continue full linked-image discrepancy localization at IOCTL and remaining providers; preserve dependency order. Unknown UCASE/SWAP_END five bytes remain open; no invented padding.",
+  "full_identity": false,
+  "published": false
+}

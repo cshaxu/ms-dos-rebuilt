@@ -1,0 +1,13 @@
+{
+  "task": "M6 T20 S2 P109",
+  "changes": "Restore existing create module: remove absent FastOpen_Delete and sharing notification calls; Set_Media_ID first uses IOCTL category48h and retries category08h on failure, preserving the successful category for the set request. No new core files or alternate implementation.",
+  "sources": {"dos/create.asm": "0f47e61931db8923e9e3f140c40dbdc2d3e4757c"},
+  "build": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+  "build_exit": 0,
+  "comparison": {"scope": "Whole create module", "built_runtime": "6D58..6E94 exclusive", "target_runtime": "73E3..751F exclusive", "built_offset": 87960, "target_offset": 89635, "bytes": 316, "equal_bytes": 298, "different_bytes": 18, "remaining": "External calls/jump operands, CRTERRTAB absolute address, Packet_Temp and NO_NAME_ID addresses. Packet_Temp and NO_NAME_ID remain22 bytes above target due to tracked shared-data layout. Internal instructions, relative control flow and retry semantics match."},
+  "evidence": "extras/build/cmd-17081-23949/p109 retains whole spans, FC /B log, disassembly, linked IO.SYS, MSDOS.MAP and kernel.log.",
+  "counts": {"core_modified_this_part": 1, "unchanged_files_newly_accepted": 0, "core_modified_total": 54, "core_identical_to_baseline": 239, "reviewed_modified": 26, "reviewed_unchanged": 38, "reviewed_total": 64, "in_progress": 28, "new_core_files": 0},
+  "next": "Skip create body. Follow SET_SFT_MODE into open.asm and its actual providers using complete linked differences; remove only target-proven obsolete FastOpen paths. Shared-data placement and final whole-image identity remain open.",
+  "full_identity": false,
+  "published": false
+}

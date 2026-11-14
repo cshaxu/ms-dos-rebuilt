@@ -1,0 +1,15 @@
+{
+  "task": "M6 T20 S2 P191",
+  "scope": "Skip already matching first-path configuration I/O and PnP code",
+  "build": "extras/build/cmd-20864-14811/out/IO.SYS",
+  "target": "extras/baselines/targets/IO.SYS",
+  "proof": [
+    {"built_offset":188114,"target_offset":188134,"bytes":54,"literal_equal":54,"scope":"Complete ConfigIOWrite and ConfigIORead."},
+    {"built_offset":188168,"target_offset":188188,"bytes":792,"literal_equal":792,"scope":"Five complete PnP procedures through ConfigMatchProfiles and the first 70 bytes of ConfigReadProfileName."}
+  ],
+  "verification": "Byte-for-byte comparison with spandiff.c; no operands masked.",
+  "limitations": "The second block includes only part of ConfigReadProfileName. This does not certify later PnP code or the complete IO.SYS.",
+  "counts": {"modified_this_part":0,"newly_baseline_identical_this_part":0,"modified_total":89,"baseline_identical":204},
+  "full_identity": false,
+  "published": false
+}

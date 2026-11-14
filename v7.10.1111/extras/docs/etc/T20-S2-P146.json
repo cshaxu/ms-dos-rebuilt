@@ -1,0 +1,61 @@
+{
+  "task": "M6 T20 S2 P146",
+  "previous_turn": "progress: config full-build workflow and whole-image localization",
+  "changes": [
+    "CPATH: supply two additional zero WORD arguments and clean16 bytes after ConfigOpen, as target. Whole329-byte procedure now differs only in external FAR call addresses."
+  ],
+  "correction": "P145 inferred ConfigOpen provider signature changed. Direct whole-body comparison now proves provider unchanged; CPATH caller alone differed.",
+  "source_blob_sha1": "544244ebf31cc707acab1e9c092ab95506cca8fc",
+  "build": {
+    "command": "extras/build/cmd-17081-23949/config-incremental.cmd",
+    "exit": 0,
+    "io_bytes": 233900
+  },
+  "comparisons": {
+    "cpath": {
+      "bytes": 329,
+      "equal": 304,
+      "different": 25,
+      "remaining": "8 FAR call operands only"
+    },
+    "exact_providers": [
+      {
+        "names": "ConfigOpen,ConfigClose",
+        "bytes": 167
+      },
+      {
+        "names": "ConfigRead",
+        "bytes": 43
+      },
+      {
+        "names": "ConfigWriteAll",
+        "bytes": 108
+      },
+      {
+        "names": "ConfigCreate",
+        "bytes": 55
+      },
+      {
+        "names": "ConfigGetAttr",
+        "bytes": 42
+      },
+      {
+        "names": "ConfigAlloc,ConfigFree",
+        "bytes": 100
+      }
+    ],
+    "exact_provider_total": 515
+  },
+  "counts": {
+    "modified_this_part": 1,
+    "unchanged_complete_files_newly_certified": 0,
+    "unchanged_provider_bodies": 8,
+    "modified_total": 84,
+    "baseline_identical": 209,
+    "in_progress": 58
+  },
+  "next": "Registry provider restoration, then remove unused baseline REGIO routines (ReadAll/Seek/Delete/Rename/Realloc) once callers removed; do not rewrite8 verified providers. Restore main API sequence after registry. Config header/layout and COMMAND remain.",
+  "evidence": "extras/build/cmd-17081-23949/p146 full IO/config map/guest logs and complete procedure spans",
+  "full_identity": false,
+  "published": false
+}

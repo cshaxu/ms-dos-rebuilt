@@ -1,0 +1,9 @@
+{
+  "task": "M6 T20 S2 P180",
+  "change": "Remove obsolete rqvalue.obj from original configuration makefile and its OMF-ordering step in extras/build.cmd; rqvalue source retained pending module consolidation.",
+  "source_blob_sha1": {"bios/config.mak":"3663143126fc992163c566994912f81c7fb5756e", "extras/build.cmd":"fb7725a819f118faf3d9674416bbf57094dad299"},
+  "clean_build": {"command": "extras/build.cmd <nul", "directory": "extras/build/cmd-8713-29719", "exit": 1, "compilation_and_link": "passed", "io_bytes": 247328, "msdos_bytes": 9, "command_bytes": 92870, "target_comparisons": {"IO.SYS":"failed", "MSDOS.SYS":"exact", "COMMAND.COM":"failed"}, "inputs_snapshot": "passed"},
+  "incremental_comparison": "Clean IO has same size as prior incremental IO but differs in bytes around offsets 0x3C274 and 0x3C2AA. OMF ordering differs between clean and incremental steps; cause and final layout are not yet proven. Do not claim clean and incremental images are identical.",
+  "counts": {"modified_core_this_part": 1, "modified_build_scripts_this_part": 1, "unchanged_complete_files_newly_certified": 0, "modified_total": 94, "baseline_identical": 199, "in_progress": 68},
+  "remaining": "Reconcile clean/incremental linking and target output; continue consolidation and remove remaining legacy paths. Final three-output identity remains open."
+}

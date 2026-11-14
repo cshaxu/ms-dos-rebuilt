@@ -1,0 +1,13 @@
+{
+  "task": "M6 T20 S2 P106",
+  "changes": "Restore existing BUILDDIR/NEWDIR allocation high words,2MiB directory growth bound, GETEOF/ALLOCATE/SETDIRSRCH interfaces and ClusNum high-word synchronization. Remove absent FastOpen_Update branch. Restore SETDOTENT high cluster field. Preserve matching directory buffer zero/fill loop. Original ML recipe for mknode, no new core files.",
+  "sources": {"dos/mknode.asm": "3b32fac36b4a49d16274dd7722deaf6fe096f35f", "dos/makefile": "d785fad814be71967ad9f36f78edb0b188369eaa"},
+  "build": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+  "build_exit": 0,
+  "comparison": {"scope": "Contiguous BUILDDIR/NEWDIR and SETDOTENT", "built_runtime": "8857..89B3 exclusive", "target_runtime": "8EFC..9058 exclusive", "built_offset": 94871, "target_offset": 96572, "bytes": 348, "equal_bytes": 338, "different_bytes": 10, "remaining": "Six external call words: GETEOF, ALLOCATE, IsEOF, FIGREC, GETBUFFR and INC_DIRTY_COUNT. Internal control flow and SETDIRSRCH binding match."},
+  "evidence": "extras/build/cmd-17081-23949/p106 retains whole group spans, FC /B log, final linked IO.SYS, MSDOS.MAP and kernel.log. No whole mknode acceptance yet.",
+  "counts": {"core_modified_this_part": 2, "unchanged_files_newly_accepted": 0, "core_modified_total": 53, "core_identical_to_baseline": 240, "reviewed_modified": 26, "reviewed_unchanged": 38, "reviewed_total": 64, "in_progress": 27, "new_core_files": 0},
+  "next": "Skip proved348-byte provider prefix. Restore MakeNode main flow and its actual dependencies before DOS_MKDIR caller integration. Shared-data layout and full-image identity remain open.",
+  "full_identity": false,
+  "published": false
+}

@@ -1,0 +1,27 @@
+{
+  "task":"M6 T20 S2 P152",
+  "previous_turn":"progress: save conversion, commit and key traversal dependencies restored",
+  "changes":[
+    "regroot.asm declares the target registry transfer-buffer pointer, initially zero. Allocation remains the responsibility of the not-yet-restored initialization path.",
+    "regread.asm restores cached-key encoding, file-range copying through the transfer buffer, and data-block writing. The data writer calls restored DOS seek/write and file-copy routines."
+  ],
+  "source_blob_sha1":{"bios/regread.asm":"84550068f2e861a5649995a5b7e170b6e9390f85","bios/regroot.asm":"2fffaa212899baa7e46ef3b5a2a59dcec32bb2d6"},
+  "build":{"command":"extras/build/cmd-17188-26244/regread-build.cmd","exit":0,"io_bytes":236272,"configuration_bytes":48880,"scope":"Both changed production modules assembled; full configuration relink and IO packaging; existing seven legacy A4057 warnings remain"},
+  "new_procedures":[
+    {"name":"RegEncodeKeyRecord","built":"0916:0642","target":"014E:3520","bytes":263},
+    {"name":"RegCopyFileRange","built":"0916:074A","target":"014E:4D5E","bytes":134},
+    {"name":"RegWriteDataBlocks","built":"0916:07D0","target":"014E:49A0","bytes":258}
+  ],
+  "proof":{
+    "new_code_bytes":655,"new_equal_code_bytes":629,"new_relocated_operand_bytes":26,
+    "combined_code_bytes":1665,"combined_equal_code_bytes":1613,"combined_relocated_operand_bytes":52,
+    "combined_call_operand_bytes":48,"combined_data_operand_bytes":4,
+    "data":{"symbol":"RegTransferBuffer","built":"0B37:0428","target":"062E:02EA","bytes":4,"exact":true},
+    "method":"Whole procedure comparison from complete linked IO. Every excluded near/FAR call or data-reference operand separately checked against corresponding map/target symbols; other bytes compare literally. Transfer-buffer initial value FC /B compared separately.",
+    "directory":"extras/build/cmd-17188-26244","logs":["save-writers.compare.log","transfer.compare.log"],
+    "note":"Verifier summary labels all52 relocated operand bytes as call operands; four are explicitly checked data-address bytes, distinguished here."
+  },
+  "remaining":"Key-block writing and upper save callback still missing. Transfer-buffer allocation, allocator retry, initialization and replacement of legacy consumers remain open. No claim of functional registry integration or overall target identity.",
+  "counts":{"modified_this_part":2,"unchanged_complete_files_newly_certified":0,"new_source_files":0,"modified_total":88,"baseline_identical":205,"in_progress":62},
+  "full_identity":false,"published":false
+}

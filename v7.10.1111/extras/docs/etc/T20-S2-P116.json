@@ -1,0 +1,35 @@
+{
+  "task": "M6 T20 S2 P116",
+  "changes": "Restore isearch search-state directory cluster high word, FAT32-aware continuation and direct path/name handling. Remove obsolete FastOpen flag and cached-entry branches. Preserve target CHECK_QUESTION call and empty conditional branch.",
+  "sources": {
+    "dos/isearch.asm": "09d1dd45510d74168cd75f0b0bbd11f20ca18ba8"
+  },
+  "build": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+  "build_exit": 0,
+  "comparison": {
+    "scope": "Whole isearch module",
+    "built_runtime": "7294..7404 exclusive",
+    "target_runtime": "7939..7AA9 exclusive",
+    "built_offset": 89300,
+    "target_offset": 91001,
+    "bytes": 368,
+    "equal_bytes": 353,
+    "different_bytes": 15,
+    "remaining": "External call operands only. Internal instructions, data operands, search-state layout and continuation logic match."
+  },
+  "evidence": "extras/build/cmd-17081-23949/p116 contains whole spans, FC /B log, linked IO.SYS, MSDOS.MAP and kernel.log.",
+  "counts": {
+    "core_modified_this_part": 1,
+    "unchanged_files_newly_accepted": 0,
+    "core_modified_total": 61,
+    "core_identical_to_baseline": 232,
+    "reviewed_modified": 26,
+    "reviewed_unchanged": 38,
+    "reviewed_total": 64,
+    "in_progress": 35,
+    "new_core_files": 0
+  },
+  "next": "Skip isearch body. Resolve misc2 FastInit and msinit FastOpen table references before removing obsolete shared storage. Search caller flag handling and final layout remain tracked.",
+  "full_identity": false,
+  "published": false
+}

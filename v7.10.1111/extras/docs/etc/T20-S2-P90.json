@@ -1,0 +1,17 @@
+{
+  "task": "M6 T20 S2 P90",
+  "changes": "Restore shared high-word providers first, then FIGREC, then DirRead. Three zero-initialized words at AEE/AF0/AF2 named ClusterWorkHigh/ClusterCountHigh/ClusterSaveHigh describe observed uses, not recovered original names. Target free-space, allocation and directory consumers substantiate each field. FIGREC uses32-bit cluster/sector arithmetic; DirRead propagates high cluster words across UNPACK/IsEOF/FIGREC.",
+  "sources": {"dos/diskio.asm": "dabe066519db4b346cc9f89c534fe6fbf9928814", "dos/rom.asm": "b357f69ac7a6e01c613ae8777258a4fe12efb084", "dos/makefile": "89d39f670982976b4115565b7351b44500dd8dfd", "inc/ms_data.asm": "bc3efaa5c66b484106cd3a5a77e082a74cb0998b"},
+  "build": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+  "build_exit": 0,
+  "comparisons": [
+    {"scope": "Entire diskio.asm from DirFromSFT to next module", "built_offset": 105452, "target_offset": 107798, "bytes": 392, "equal": 378, "different": 14, "remaining": "Seven external calls: FATREAD_SFT, GETBUFFR twice, UNPACK, IsEOF, FIGREC, HARDERRRW"},
+    {"scope": "Entire FIGREC", "built_offset": 108172, "target_offset": 111098, "bytes": 67, "equal": 67, "different": 0}
+  ],
+  "evidence": "extras/build/cmd-17081-23949/p90: final IO.SYS/MSDOS.MAP/kernel.log, full comparison binaries and FC logs. Span extraction at recorded offsets reproduces comparisons. Map places new fields at0AEE,0AF0,0AF2. Frozen target initialized bytes at119374 length6 are all zero.",
+  "build_notes": "Initial ML assembly rejected four legacy implicit DWORD free-count accesses; explicit WORD PTR retains their prior16-bit encodings pending allocation/release restoration. Original msdata diagnostics include incomplete IoState initialization and MARK2 offset-too-big; existing shared-data layout remains unresolved and is not certified by a successful link.",
+  "open": "Remaining rom allocation/release/file-I/O paths and shared-data layout. No whole-rom or whole-image acceptance. Skip matched diskio/FAT/buffer bodies; only bindings remain for those scopes.",
+  "counts": {"core_modified_this_part": 4, "core_modified_total": 46, "core_identical_to_baseline": 247, "reviewed_modified": 26, "reviewed_unchanged": 38, "reviewed_total": 64, "in_progress": 20, "new_core_files": 0},
+  "full_identity": false,
+  "published": false
+}

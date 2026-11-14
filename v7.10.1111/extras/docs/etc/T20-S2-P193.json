@@ -1,0 +1,22 @@
+{
+  "task": "M6 T20 S2 P193",
+  "scope": "Adapt the original 950 RegCompareN on its single existing path",
+  "source": "bios/regstr.asm",
+  "change": "Replace the comparison loop within the original RegCompareN procedure with the 1111 counted comparison logic. Keep the existing FAR, caller-cleanup interface and its parameter positions; do not add a second implementation.",
+  "build": {
+    "command": "extras/build/cmd-20864-14811/regstr-build.cmd",
+    "result": "assembly and complete configuration link succeeded",
+    "io_bytes": 234592
+  },
+  "verification": {
+    "target_code": "Among the 108 bytes preceding the return, 106 directly match the 1111 target; two parameter-displacement bytes reflect the current FAR interface. The current FAR return differs from the target NEAR callee-cleanup return.",
+    "linked_checker": "extras/build/cmd-20864-14811/cmp-linked.c",
+    "behavior": "An isolated DOS harness tested equality, case folding, both ordering directions, high-bit signed comparisons, zero count, and SI/DI preservation against explicit expected results.",
+    "harness": "extras/build/cmd-20864-14811/bios/cmptest.asm",
+    "regression": "RegNameSum interface harness passed again using the updated production source; P188 configuration table checks, P189 data checks, P190 publishing check, and 186880-byte IO core check all passed with current map-derived addresses.",
+    "limitation": "The original FAR interface remains; its consumer group must move to the 1111 NEAR interface before exact routine identity."
+  },
+  "counts": {"modified_this_part":1,"newly_baseline_identical_this_part":0,"modified_total":90,"baseline_identical":203},
+  "full_identity": false,
+  "published": false
+}

@@ -1,0 +1,30 @@
+{
+  "task": "M6 T20 S2 P188",
+  "scope": "Restore the eighth 1111 configuration argument in the 950 first path",
+  "source_files": ["bios/cfginit.asm", "bios/cfgmain.asm"],
+  "changes": [
+    "Add the FileSystem path pointer and GetDevParmsIoctl value to the existing configuration argument tables.",
+    "Change the existing argument-count clamp from seven to eight; retain the original registry API calls."
+  ],
+  "build": {
+    "command": "extras/build/cmd-20864-14811/eight.cmd",
+    "result": "affected sources assembled, full configuration linked and IO repackaged",
+    "io_bytes": 234640
+  },
+  "verification": {
+    "command": "eightcheck.exe",
+    "checker_source": "extras/build/cmd-20864-14811/eightcheck.c",
+    "argument_procedure": {"total": 237, "literal_equal": 225, "verified_address_bytes": 12},
+    "argument_data": {"total": 448, "literal_equal": 416, "verified_segment_bytes": 32, "far_pointers_checked": 16},
+    "io_core": "186880 bytes at file offsets 512..187391 directly match target",
+    "limitation": "Call addresses resolve to corresponding named current and target routines; this does not establish that the current registry providers match 1111."
+  },
+  "counts": {
+    "modified_this_part": 2,
+    "newly_baseline_identical_this_part": 0,
+    "modified_total": 89,
+    "baseline_identical": 204
+  },
+  "full_identity": false,
+  "published": false
+}

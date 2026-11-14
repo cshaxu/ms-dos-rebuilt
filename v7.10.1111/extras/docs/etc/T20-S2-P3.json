@@ -1,0 +1,66 @@
+{
+  "task": "M6 T20 S2 P3",
+  "status": "container-layout-verified-not-full-target",
+  "file": "extras/tools/ioimage.c",
+  "inventory_id": 247,
+  "source_blob_sha1": "bb94ff95902b36315100acd95c9a2eb2823c53e0",
+  "change": "Derive loader_size from validated MZ image length minus MZ header and 0200h origin. Require sector alignment and terminal MS signature. Use the derived length for placement and copying; no version-specific branch.",
+  "dependencies": [
+    "Validated relocation-free MZ input format",
+    "T20-S2-P2 linked loader extent"
+  ],
+  "verification": {
+    "host_compile": "gcc -std=c89 -Wall -Wextra -O2 ../../tools/ioimage.c -o ioimage.exe",
+    "compile_exit": 0,
+    "warning_count": 0,
+    "script": "extras/build/s2-p3/check.cmd",
+    "regression": {
+      "inputs": "v7.00.950/extras/build/native-all-source/extras/build/cmd-32762-20151",
+      "output_size": 223148,
+      "config_offset": 176640,
+      "comparison": "FC /B regression950.sys baseline/out/IO.SYS: exit 0"
+    },
+    "new_loader_layout": {
+      "input_loader": "extras/build/s2-p2/loader.exe",
+      "remaining_inputs": "Same 950 regression inputs",
+      "output": "extras/build/s2-p3/loader-layout-only.sys",
+      "output_size": 223660,
+      "config_offset": 177152,
+      "loader": {
+        "offset": 512,
+        "length": 1536,
+        "comparison": "FC /B against target loader slice: exit 0"
+      },
+      "bios": {
+        "offset": 2048,
+        "length": "entire baseline bios/msbio.bin",
+        "comparison": "FC /B against baseline BIOS: exit 0"
+      },
+      "limitation": "Mixed-version test fixture only, not reconstructed 1111 IO.SYS. Not published."
+    }
+  },
+  "counts": {
+    "core_processed": 3,
+    "core_modified": 3,
+    "core_unchanged": 0,
+    "tool_processed": 1,
+    "tool_modified": 1,
+    "tool_unchanged": 0,
+    "new_source_files": 0
+  },
+  "next": {
+    "consumer": "bios/msbio1.asm",
+    "unresolved_dependencies": [
+      "version.inc",
+      "biosseg.inc",
+      "devsym.inc",
+      "msequ.inc",
+      "bpb.inc",
+      "bootform.inc",
+      "msbds.inc",
+      "oemconf.inc",
+      "linked providers including msinit/init and int_2f"
+    ],
+    "observation": "Actual BIOS target begins at 2048 with E9 D0 08 46 B1 E9 66 04 16 12; do not edit this consumer until its dependency unit is established."
+  }
+}

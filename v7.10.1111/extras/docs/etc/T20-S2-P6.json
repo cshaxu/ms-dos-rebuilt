@@ -1,0 +1,113 @@
+{
+  "task": "M6 T20 S2 P6",
+  "status": "three-unchanged-provider-files-reviewed-integration-pending",
+  "units": [
+    {
+      "unit": 8,
+      "path": "bios/drivechk.asm",
+      "status": "unchanged-complete-module-relocations-verified",
+      "depends_on": [],
+      "blob_sha1": "a0b030a707e2075ca049d5bac5500724d05d3a21",
+      "old_file_offset": 61756,
+      "old_segment_offset": 41996,
+      "target_file_offset": 67294,
+      "target_segment_offset": 45118,
+      "length": 335,
+      "fixed_bytes": 301,
+      "internal_offset_words": [
+        5,
+        28,
+        45,
+        59,
+        67,
+        82,
+        90,
+        99,
+        117,
+        127,
+        133,
+        137,
+        149,
+        161,
+        180,
+        262,
+        282
+      ]
+    },
+    {
+      "unit": 9,
+      "path": "bios/logpart.asm",
+      "status": "unchanged-complete-module-relocations-verified",
+      "depends_on": [],
+      "blob_sha1": "81080596e170bd3d1d5765233d2965e7a2715673",
+      "old_file_offset": 60066,
+      "old_segment_offset": 40306,
+      "target_file_offset": 65572,
+      "target_segment_offset": 43396,
+      "length": 432,
+      "fixed_bytes": 416,
+      "internal_offset_words": [
+        338,
+        356,
+        374,
+        379,
+        391,
+        403,
+        416,
+        423
+      ]
+    },
+    {
+      "unit": 10,
+      "path": "bios/msend.asm",
+      "status": "unchanged-nonemitting-segment-definitions-integration-pending",
+      "depends_on": [],
+      "blob_sha1": "3d6c9838b374c4cb28a42b43f850dc5096acdc29",
+      "proof": "Full file and original-tool listing inspected. Three zero-length paragraph-aligned segments; BData_end/SI_end are local endpoint labels; no INCLUDE, EXTRN, instructions or data. Final linked offsets are not claimed."
+    }
+  ],
+  "verification": {
+    "source_identity": "FC /B for all3 current files against accepted950 source: exit0",
+    "baseline_binary": "v7.00.950/extras/assets/IO.SYS; accepted950 target",
+    "listing_map": "v7.00.950/extras/build/source-quality-p39/bios/*.lst and msbio.map",
+    "target": "extras/baselines/targets/IO.SYS",
+    "source_segment_file_base": {
+      "old": 19760,
+      "target": 22176
+    },
+    "method": "For each listed16-bit internal relocation, verify target_word = old_word - old_module_segment_offset + target_module_segment_offset. Verify every remaining byte exactly. Relative jumps/calls are not masked. Each complete module matches uniquely.",
+    "whole_image_claim": false,
+    "tool": "extras/build/s2-p6/localcmp.c",
+    "tool_compile": "gcc -std=c89 -Wall -Wextra -O2",
+    "checks": [
+      "drivechk: unique335-byte module at67294, all17 internal offsets resolved",
+      "logpart: unique432-byte module at65572, all8 internal offsets resolved",
+      "identity control:950 against itself matches61756",
+      "negative control: target segment base22177 instead of22176 yields zero matches, exit1"
+    ],
+    "rebuild": "Not run: no instruction/source changes. Existing original-tool listing/code evidence reused."
+  },
+  "ordering_correction": {
+    "path": "bios/pathsrc.asm",
+    "dependencies": [
+      "bios/sysconf.asm:config_envlen",
+      "bios/sysconf.asm:config_wrkseg"
+    ],
+    "reason": "A singleton component is not necessarily a prerequisite. Condensation graph places pathsrc after the18-module BIOS component.",
+    "remaining": [
+      "bios/ststate.asm",
+      "bios/sysimes.asm",
+      "18-module BIOS component",
+      "bios/pathsrc.asm"
+    ]
+  },
+  "counts": {
+    "processed_core": 10,
+    "modified": 7,
+    "unchanged": 3,
+    "tools_modified": 1,
+    "new_source_files": 0,
+    "baseline_identical_total": 286,
+    "baseline_identical_not_reviewed": 283
+  }
+}

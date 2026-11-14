@@ -1,0 +1,13 @@
+{
+  "task": "M6 T20 S2 P83",
+  "sources": {"dos/fat.asm": "ecbc22bc1ce544a6310a91e1fa62d3dfcf0f6552"},
+  "changes": "Restore DWORD CDS directory-cluster test and invalidate both words on media change. FATERR selects FAT16/FAT32 free-count width, avoids redundant invalidation and marks DPB dirty. FAT_GOT_DPB consumes first-access bit7 while retaining lower dirty/state bits and the target initial-FF handling.",
+  "build": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+  "build_exit": 0,
+  "comparison": {"built_offset": 109115, "target_offset": 112658, "bytes": 313, "equal_bytes": 303, "different_bytes": 10, "log": "extras/build/cmd-17081-23949/p83/media-diff.log", "scope": "FATREAD_SFT/FATREAD_CDS, FATERR and FAT_GOT_DPB through media-status return. Five external call operands differ: GOTDPB twice, CheckCDSDrive, FATAL1 and DEVIOCALL2. All303 complementary bytes match."},
+  "reproduction": "Extract313 bytes at recorded decimal offsets from p83/IO.SYS and frozen target using extras/build/s2-p1/span.exe, then FC /B. Final map/kernel log retained in p83.",
+  "open": "Subsequent changed-media/BPB/buffer paths and allocation providers remain unresolved. No whole-module or full-image acceptance.",
+  "counts": {"core_modified_this_part": 1, "core_modified_total": 43, "core_identical_to_baseline": 250, "reviewed_modified": 26, "reviewed_unchanged": 38, "reviewed_total": 64, "in_progress": 17, "new_core_files": 0},
+  "full_identity": false,
+  "published": false
+}

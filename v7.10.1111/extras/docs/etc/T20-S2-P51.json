@@ -1,0 +1,14 @@
+{
+  "task":"M6 T20 S2 P51",
+  "source":"bios/sysinit2.asm",
+  "source_blob":"d7d6844f1d1b8c606c15e2adaeeebb747e4a506d",
+  "changes":"Restore 63-byte extended DPB buffer and all three AX7302 startup queries, register preservation and expanded menu branch",
+  "build":"extras/build/cmd-17081-23949/incremental.cmd",
+  "build_exit":0,
+  "check":"extras/build/cmd-17081-23949/p51check.cmd",
+  "check_exit":0,
+  "exact_ranges":[{"offset":43271,"bytes":63},{"offset":43764,"bytes":125}],
+  "menu_check":{"built_offset":46306,"target_offset":46320,"bytes":198,"excluded_word_offsets":[25,29,95,105,109,188,192],"remaining_bytes_exact":184,"exclusions":"Seven external address operands; full procedure acceptance remains open"},
+  "counts":{"core_modified_this_part":1,"core_modified_total":28,"reviewed_unchanged":39,"new_core_files":0},
+  "published":false,"full_identity":false
+}

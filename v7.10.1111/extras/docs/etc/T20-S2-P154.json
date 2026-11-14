@@ -1,0 +1,18 @@
+{
+  "task":"M6 T20 S2 P154",
+  "previous_turn":"progress: completed key-block writer dependency chain",
+  "changes":["Restore RegSaveFileState in regread.asm, connecting temp-file creation, old-file copying, in-place writing, key/data writers, successful commit and error cleanup.","Add target default directory string to regroot.asm. Use explicit DGROUP-relative OFFSET for its address, correcting segment-relative relocation exposed by comparison."],
+  "source_blob_sha1":{"bios/regread.asm":"8b034edac3de256e44ce1d074e3873d42120fefd","bios/regroot.asm":"e2dd51734b3a720816b250b618fe25f96bc1363b"},
+  "build":{"command":"extras/build/cmd-17188-26244/regread-build.cmd","exit":0,"io_bytes":237408,"configuration_bytes":50016,"scope":"Changed production modules, existing OMF ordering, full configuration link and IO packaging. Existing seven legacy warnings remain."},
+  "proof":{
+    "procedure":"RegSaveFileState","built":"0916:0AEA","target":"014E:2088",
+    "new_code_bytes":581,"new_equal_code_bytes":545,"new_verified_address_bytes":36,"new_service_calls_verified":17,
+    "combined_procedures":16,"combined_code_bytes":2781,"combined_equal_code_bytes":2663,"combined_verified_address_bytes":118,
+    "directory_data":{"built":"0B7D:042C","target":"062E:02F2","bytes":3,"exact":true},
+    "method":"Complete procedure byte comparison; each displaced call or data address independently resolved to corresponding symbols. Default-directory bytes separately FC /B compared.",
+    "directory":"extras/build/cmd-17188-26244","logs":["save-callback.compare.log","directory.compare.log"]
+  },
+  "next":"Restore file-list traversal and allocation/reallocation retry using completed save/discard callbacks. Then restore handle-pool setup and public initialization; legacy consumer replacement and final layout remain open.",
+  "counts":{"modified_this_part":2,"unchanged_complete_files_newly_certified":0,"new_source_files":0,"modified_total":88,"baseline_identical":205,"in_progress":62},
+  "full_identity":false,"published":false
+}

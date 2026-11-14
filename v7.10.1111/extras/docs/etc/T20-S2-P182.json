@@ -1,0 +1,13 @@
+{
+  "task": "M6 T20 S2 P182",
+  "owner_correction": "Minimize source diff against v7.00.950 while preserving exact v7.10.1111 binaries. Prefer adapting corresponding original routines, structures, names and modules; linked size alone is not a valid reason to replace original code wholesale.",
+  "investigation": "A disposable experiment removed old registry modules and old source sections in the build staging directory. It linked a 215632-byte IO image, but did not prove source fidelity or target equality. The candidate must not be applied to production. The staging files and linked working IO were restored, and direct FC verified the restored IO equals the clean P180 image (247328 bytes).",
+  "initial_mapping": [
+    {"original":"bios/regread.asm:RegReadFile", "staged":"RegOpenFileTarget and RegCheckHeaderTarget", "assessment":"same file-open and header-validation domain, but old FAR interface and state differ; compare procedure and preserve original structure where target permits before replacing callers."},
+    {"original":"bios/regread.asm:RegSaveFile", "staged":"RegSaveFileState", "assessment":"both save registry file state; compare file and cache operations before selecting reusable blocks."},
+    {"original":"bios/regread.asm:RegChecksum", "staged":"bios/regstr.asm:RegBlockChecksum", "assessment":"both sum DWORDs; different call conventions and input layouts require explicit comparison and consumer migration."},
+    {"original":"bios/regstart.asm:RegCreateEmptyFile", "staged":"bios/regread.asm:RegCreateFileTarget", "assessment":"both initialize file records; reuse original module and logic where supported by target evidence, including caller adaptation."}
+  ],
+  "counts": {"modified_core_this_part":0, "unchanged_complete_files_newly_certified":0, "modified_total":94, "baseline_identical":199},
+  "remaining":"Evaluate corresponding procedures one file at a time; replace or adapt original source rather than delete old code wholesale; target exact binaries remain the acceptance gate."
+}

@@ -1,0 +1,16 @@
+{
+  "task": "M6 T20 S2 P105",
+  "changes": "Complete DISK_INFO32-bit count/high-word scan and cached-count interfaces, status flags and UpdateFSInfo call. Then restore DOS_RMDIR FAT32 root protection, DWORD sector stack, release high word and UpdateFSInfo call; remove target-absent FastOpen deletion calls. Reuse restored providers, no new core files.",
+  "sources": {"dos/dinfo.asm": "8837f84207529c6871588ea97284be67262a9c4d", "dos/dircall.asm": "fecebb9b4dc5aea8961c021182d2a71783c748bc"},
+  "build": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+  "build_exit": 0,
+  "comparisons": [
+    {"scope": "Whole dinfo.asm DISK_INFO and UpdateFSInfo", "built_offset": 88657, "target_offset": 90350, "bytes": 651, "equal_bytes": 630, "different_bytes": 21, "remaining": "External call words only. Internal branches and call to UpdateFSInfo match. Supersedes P104."},
+    {"scope": "Whole DOS_RMDIR", "built_offset": 90587, "target_offset": 92288, "bytes": 265, "equal_bytes": 248, "different_bytes": 17, "remaining": "External calls and shared error/flush branch bindings only. Directory-provider calls and all internal branches match."}
+  ],
+  "evidence": "extras/build/cmd-17081-23949/p105: complete spans and FC /B logs from final link, final IO.SYS, MSDOS.MAP, kernel.log. Final package231852 bytes/config185344 reflects actual build, not completion percentage. Three-output comparison still has only MSDOS.SYS exact.",
+  "counts": {"core_modified_this_part": 2, "unchanged_files_newly_accepted": 0, "core_modified_total": 52, "core_identical_to_baseline": 241, "reviewed_modified": 26, "reviewed_unchanged": 38, "reviewed_total": 64, "in_progress": 26, "new_core_files": 0},
+  "next": "Skip dinfo and DOS_RMDIR bodies. Restore directory creation dependencies (MAKENODE/NEWDIR/SETDOTENT) before DOS_MKDIR. Shared-data layout and external bindings remain open.",
+  "full_identity": false,
+  "published": false
+}

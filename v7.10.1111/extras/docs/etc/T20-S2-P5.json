@@ -1,0 +1,58 @@
+{
+  "task": "M6 T20 S2 P5",
+  "status": "bios-message-resource-exact-integration-pending",
+  "execution_units": [
+    {
+      "unit": 6,
+      "path": "lang/usa/messages/biosmsg.inc",
+      "depends_on": [],
+      "source_blob_sha1": "d5d723eb4f3b437a8bbc9339dfd7b6b477d3c6b5"
+    },
+    {
+      "unit": 7,
+      "path": "bios/biosmsg.asm",
+      "depends_on": [
+        "lang/usa/messages/biosmsg.inc"
+      ],
+      "source_blob_sha1": "f254d32e9a301fc375adc6114236f7083d48a642"
+    }
+  ],
+  "changes": [
+    "Sixth message describes incompatible MS-DOS/Windows startup versions; first five texts unchanged.",
+    "Header grows20 to22 bytes; resource grows418 to600 bytes; sixth message offset398, string resource end578.",
+    "MPAD reserve count changes99 to144, preserving exact target resource extent."
+  ],
+  "verification": {
+    "tools": "Original MASM/LINK/RELOC, private-desktop compilation only",
+    "commands": [
+      "MASM -Mx -t biosmsg.asm,biosmsg.obj,biosmsg.lst;",
+      "LINK /MAP biosmsg.obj,biosmsg.exe,biosmsg.map;",
+      "RELOC biosmsg.exe biosmsg.bin",
+      "FC /B bios/biosmsg.bin target-messages.bin"
+    ],
+    "target": "extras/baselines/targets/IO.SYS",
+    "offset": 20976,
+    "length": 1186,
+    "comparison_exit": 0,
+    "build_marker": "PASS",
+    "sha256": "4d128c2b9990dd68f65ab796ea273709bdfe826a0813c9c7cb5b467c8be69bdc",
+    "scratch": "extras/build/s2-p5"
+  },
+  "dependency_findings": {
+    "graph": "S2-bios-link-components.json",
+    "active_link_symbol_edges": 1509,
+    "unresolved": 0,
+    "cyclic_component_modules": 18,
+    "rejected_inputs": "Earlier native-all-source stage predates14 source mergers; its object set was not used for the final dependency graph.",
+    "why_boot_drive_templates_deferred": "The verified cyclic component still depends on standalone providers. Process providers first under owner topology rule."
+  },
+  "counts": {
+    "core_processed": 7,
+    "core_modified": 7,
+    "core_unchanged": 0,
+    "baseline_identical_not_certified": 286,
+    "tool_modified": 1,
+    "new_source_files": 0
+  },
+  "remaining": "Standalone providers then the 18-module BIOS component. Four boot-drive templates are pending. No full IO.SYS or COMMAND.COM build acceptance."
+}

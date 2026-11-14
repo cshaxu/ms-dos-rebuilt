@@ -1,0 +1,20 @@
+{
+  "task": "M6 T20 S2 P75",
+  "sources": {"dos/mscode.asm": "682c62b248276bed603fd5db549e2166d53d79c2"},
+  "changes": "Restore FAT32 rejection of old-style absolute-I/O parameters, retaining centralized AbsSetup error reporting. Remove unreferenced Fastxxx_Purge and its FastOpenFlg import. Restore Windows version/startup notification checks and clear only the Windows-present bit on exit. Reuse existing fatal-error handler; no address padding or binary patches.",
+  "build": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+  "build_exit": 0,
+  "build_scope": "Reassemble changed source with inherited Microsoft ML, relink complete kernel with original tools and repack IO.SYS; unchanged BIOS and COMMAND outputs retained.",
+  "check": "extras/build/cmd-17081-23949/p75check.cmd",
+  "check_exit": 0,
+  "exact_regions": [
+    {"offset": 78531, "bytes": 65, "purpose": "Complete RW32_CONVERT"},
+    {"offset": 78262, "bytes": 46, "purpose": "Windows startup version/notification check"},
+    {"offset": 78447, "bytes": 51, "purpose": "Windows notification/state control"}
+  ],
+  "enclosing_region": {"offset": 77428, "runtime_start": "4434", "runtime_end_exclusive": "48C4", "bytes": 1168, "equal_bytes": 1137, "different_bytes": 31, "log": "extras/build/cmd-17081-23949/p75/module-diff.log", "note": "Entry alignment now matches. Differences remain in external disk/provider call displacements and AbsDskErr data operands. Exact subregions overlap this enclosing comparison; do not add coverage totals."},
+  "similar_issue_sweep": "No remaining Fastxxx_Purge references in dos/inc. Other modules still consume FastOpenFlg; its shared definition must remain until those consumers are restored.",
+  "counts": {"core_modified_this_part": 1, "core_modified_total": 40, "core_identical_to_baseline": 253, "reviewed_modified": 26, "reviewed_unchanged": 38, "reviewed_total": 64, "new_core_files": 0},
+  "full_identity": false,
+  "published": false
+}

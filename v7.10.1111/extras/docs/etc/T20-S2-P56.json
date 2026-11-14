@@ -1,0 +1,13 @@
+{
+  "task":"M6 T20 S2 P56",
+  "source":"bios/sysconf.asm",
+  "source_blob":"778a06e37e051e9ee73d7b490a7998a493d0693e",
+  "changes":"Restore target immediate shifts in device-file size calculation and INT12 KB-to-paragraph conversion, with locally scoped .286",
+  "build":"extras/build/cmd-17081-23949/incremental.cmd",
+  "build_exit":0,
+  "check":"extras/build/cmd-17081-23949/p56check.cmd",
+  "check_exit":0,
+  "exact_ranges":[{"offset":58343,"bytes":136,"scope":"Complete SizeDevice procedure"},{"offset":59196,"bytes":8,"scope":"INT12 and KB-to-paragraph conversion"}],
+  "counts":{"core_modified_this_part":1,"core_modified_total":29,"reviewed_unchanged":39,"new_core_files":0},
+  "full_identity":false,"published":false
+}

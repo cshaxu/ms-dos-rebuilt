@@ -1,0 +1,63 @@
+{
+  "task": "M6 T20 S2 P120",
+  "method": "Use complete linked IO.SYS and map to restore whole modules; skip proved bodies, retain final whole-image identity checks. No standalone probe this part.",
+  "changes": [
+    "dos/search.asm: four DWORD DMA saves/restores, direct DOS_SEARCH_FIRST calls, remove obsolete GET_FAST_SEARCH flag wrapper, share target error exits",
+    "dos/makefile: original ML recipe for search.asm"
+  ],
+  "sources": {
+    "dos/search.asm": "1cc5b60209e67e7e93b24db8ef7c97633283152a",
+    "dos/makefile": "dcac29d6acf8c76c7d4441cea66325a1b655082f"
+  },
+  "build": {
+    "command": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+    "exit": 0,
+    "scope": "Reassemble changed module, relink entire kernel, package complete IO.SYS; compare all three outputs. COMMAND not rebuilt because its source is unchanged.",
+    "warnings": "ML A4006 in dosmac AsmVar; LINK L4021/L4038 retained in log"
+  },
+  "comparison": {
+    "scope": "Entire search module including four entry points and PackName",
+    "built_runtime": "60BA..6268",
+    "target_runtime": "674D..68FB",
+    "built_file_offset": 84730,
+    "target_file_offset": 86413,
+    "bytes": 430,
+    "equal_bytes": 412,
+    "different_bytes": 18,
+    "remaining": "External call/jump operands only: TransFCB, DOS_SEARCH_FIRST, DOS_SEARCH_NEXT, TransPathSet, FCB_Ret_Err/OK, Sys_Ret_Err/OK. Internal branches and PackName call match.",
+    "diff_offsets_hex": [
+      "1C",
+      "1D",
+      "22",
+      "23",
+      "36",
+      "8C",
+      "8D",
+      "DA",
+      "F9",
+      "FA",
+      "106",
+      "10D",
+      "10E",
+      "121",
+      "14B",
+      "14C",
+      "16E",
+      "16F"
+    ]
+  },
+  "evidence": "extras/build/cmd-17081-23949/p120: linked IO.SYS, MSDOS.MAP, kernel.log, whole search spans, FC log and disassemblies",
+  "counts": {
+    "modified_this_part": 2,
+    "newly_accepted_unchanged": 0,
+    "new_core_files": 0,
+    "core_modified_total": 67,
+    "core_identical_to_baseline": 226,
+    "reviewed_modified": 26,
+    "reviewed_unchanged": 38,
+    "in_progress": 41
+  },
+  "next": "Continue remaining module/layout differences from full linked image. Skip search body. UCASE/SWAP_END five-byte layout gap remains unresolved; do not invent padding. No repeat audit of proved bodies.",
+  "full_identity": false,
+  "published": false
+}

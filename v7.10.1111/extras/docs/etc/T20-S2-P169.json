@@ -1,0 +1,9 @@
+{
+  "task": "M6 T20 S2 P169",
+  "change": "Restore complete root-path open/create routine and link all 25 target calls to reconstructed key/data cache, path, handle and memory providers in existing regfind.asm.",
+  "source_blob_sha1": {"bios/regfind.asm":"736ef94d1e071fcf22a1a1d9cc69fca3ae767719"},
+  "build": {"command": "extras/build/cmd-17188-26244/regfind-build.cmd", "exit": 0, "io_bytes": 244784},
+  "proof": {"target": "014E:2552", "new_code_bytes": 1220, "new_exact": 1170, "verified_call_operand_bytes": 50, "combined_bytes": 5704, "combined_exact": 5486, "combined_verified_addresses": 218, "verifier": "extras/build/cmd-17188-26244/datachaincheck.c", "log": "rootpath.compare.log", "exit": 0},
+  "counts": {"modified_this_part": 1, "unchanged_complete_files_newly_certified": 0, "modified_total": 90, "baseline_identical": 203},
+  "remaining": "Handle validation, file initialization, API/cfg consumer integration and legacy removal. Root-path procedure is staged and not yet bound by public callers. Final three-output identity remains open."
+}

@@ -1,0 +1,17 @@
+{
+  "task":"M6 T20 S2 P38",
+  "status":"provider-restoration-closes-ioctl-bindings",
+  "sources":[{"file":"bios/msint13.asm","blob":"1ec0c9194d701ddb5eeb76442acb3a3127ad1bb1"},{"file":"bios/msbio2.asm","blob":"d39eaff4f1ea61478bee4cca0e9a71c057b04e0c"}],
+  "changes":["Immediate four-bit DMA segment conversion", "FAT32 extended signature and conventional-FAT checks in check_vid"],
+  "build":"extras/build/cmd-17081-23949/incremental.cmd",
+  "build_exit":0,
+  "check":"extras/build/cmd-17081-23949/p38check.cmd",
+  "check_exit":0,
+  "evidence_directory":"extras/build/cmd-17081-23949/p38",
+  "exact_ranges":[{"name":"whole IOCTL region","offset":14951,"bytes":2238},{"name":"GetBP and boot readers","offset":12739,"bytes":618},{"name":"DMA/ECC tail","offset":19075,"bytes":397}],
+  "msdisk_remaining":"2703-byte region differs only at two operand sites: config_init_segment and dskdrvs; module not accepted complete",
+  "counts":{"core_modified_this_part":2,"core_modified_total":22,"reviewed_unchanged":39,"new_core_files":0,"open_modified_scc_members":5},
+  "pending":"Remaining msint13/msbio2 and initialization providers; whole IO/CMD identity",
+  "published":false,
+  "full_identity":false
+}

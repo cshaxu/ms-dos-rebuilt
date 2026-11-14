@@ -1,0 +1,38 @@
+{
+  "task": "M6 T20 S2 P115",
+  "changes": "Restore rename FAT32 source/destination cluster high words, source lookup, DWORD DMA save/restore, DS restoration and FSInfo update. Remove all remaining FastOpen_Delete/Rename consumers and delete obsolete helper tail in delete.asm after reference sweep. Original ML recipe; no new implementation files.",
+  "sources": {
+    "dos/rename.asm": "d6ed653242d4821c82236e853703888942e725d6",
+    "dos/delete.asm": "3c3226e02da5892cafb896b38372e2f31ce8ce87",
+    "dos/makefile": "096f6097cebe3ba65a2534f169b32b919568fcd9"
+  },
+  "build": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+  "build_exit": 0,
+  "build_note": "First invocation passed this part. Final rename comment corrections do not change instructions; no redundant rebuild.",
+  "comparison": {
+    "scope": "Whole rename module",
+    "built_runtime": "69C8..6C43 exclusive",
+    "target_runtime": "706D..72E8 exclusive",
+    "built_offset": 87048,
+    "target_offset": 88749,
+    "bytes": 635,
+    "equal_bytes": 612,
+    "different_bytes": 23,
+    "remaining": "External call operands only; internal control flow, all data operands and FAT32 directory comparisons match."
+  },
+  "evidence": "extras/build/cmd-17081-23949/p115 retains whole spans, FC /B log, disassembly, linked IO.SYS, MSDOS.MAP and kernel.log. Reference sweep across dos/inc/bios/cmd found no remaining FastOpen_Delete/Update/Rename/Fast_Dispatch consumers before tail removal.",
+  "counts": {
+    "core_modified_this_part": 3,
+    "unchanged_files_newly_accepted": 0,
+    "core_modified_total": 60,
+    "core_identical_to_baseline": 233,
+    "reviewed_modified": 26,
+    "reviewed_unchanged": 38,
+    "reviewed_total": 64,
+    "in_progress": 34,
+    "new_core_files": 0
+  },
+  "next": "Skip rename body and proved delete body. Trace remaining FastOpen shared-data references before removing obsolete storage; continue whole-image layout convergence. Recurring stripz issue from P112/P114 remains unresolved despite this successful first run.",
+  "full_identity": false,
+  "published": false
+}

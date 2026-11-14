@@ -1,0 +1,10 @@
+{
+  "task": "M6 T20 S2 P177",
+  "change": "Remove Target-only aliases for already merged root names; both legacy and reconstructed callers now reference original RegClassesPath and RegDefaultUser symbols.",
+  "source_blob_sha1": {"bios/regroot.asm":"e7ad4a95dadc7a5388f50100328d21d68485eed9", "bios/regfind.asm":"7579b3ad292ac3ccd5984bfdafaf461665beddb5"},
+  "assessment": "Original RegNameSum is a FAR, NUL-terminated routine with caller cleanup; target RegNameChecksum is NEAR, counted and callee-cleanup. Existing FAR users remain in reginit/regopen/regread. They cannot be mechanically aliased while those callers are active. RegChecksum and RegBlockChecksum likewise require a caller/ABI conversion before eliminating either body. No global equivalence is asserted.",
+  "build": {"command": "extras/build/cmd-17188-26244/regfind-build.cmd", "exit": 0, "io_bytes": 247420},
+  "proof": {"linked_procedure_group_bytes": 8315, "literal_equal": 7921, "verified_address_bytes": 394, "log": "extras/build/cmd-17188-26244/merged-names.compare.log"},
+  "counts": {"modified_this_part": 2, "unchanged_complete_files_newly_certified": 0, "modified_total": 90, "baseline_identical": 203},
+  "remaining": "Migrate registry lifecycle callers and remove old FAR routines with their now-unneeded data. Root/file state representations and NUL-terminated versus counted string semantics must be reconciled as complete groups. Final three-output identity remains open."
+}

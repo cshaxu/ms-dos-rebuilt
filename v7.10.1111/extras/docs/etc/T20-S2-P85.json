@@ -1,0 +1,13 @@
+{
+  "task": "M6 T20 S2 P85",
+  "sources": {"dos/fat.asm": "e68b224d13de93a6da18c2f51a0fd928690dd7b1"},
+  "changes": "Restore FSInfo flow after SETDPB: dirty-bit gating, FAT32/sector availability checks, existing DREAD service, low-memory transfer when buffers are in HMA, signature checks, bounded free-count and next-free import, buffer invalidation and common completion. No new implementation file.",
+  "build": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+  "build_exit": 0,
+  "comparison": {"built_offset": 109805, "target_offset": 113348, "built_runtime": "C2AD", "target_runtime": "D084", "bytes": 250, "equal_bytes": 248, "different_bytes": 2, "log": "extras/build/cmd-17081-23949/p85/fsinfo-diff.log", "remaining_operand_offsets": [69,70], "note": "Only DREAD relative call differs. All248 other bytes, including buffer tail, match directly. Tail overlaps P84 proof; do not add coverage."},
+  "reproduction": "Extract250 bytes at recorded offsets from p85/IO.SYS and frozen target with extras/build/s2-p1/span.exe, then FC /B. Final listing-derived address and comparison supersede the initial incorrectly converted decimal extraction.",
+  "open": "Whole FAT module layout and external providers remain unresolved. Compare enclosing media/BPB region next, then advance to allocation consumers; no whole-image acceptance.",
+  "counts": {"core_modified_this_part": 1, "core_modified_total": 43, "core_identical_to_baseline": 250, "reviewed_modified": 26, "reviewed_unchanged": 38, "reviewed_total": 64, "in_progress": 17, "new_core_files": 0},
+  "full_identity": false,
+  "published": false
+}

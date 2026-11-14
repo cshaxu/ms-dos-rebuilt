@@ -1,0 +1,21 @@
+{
+  "task": "M6 T20 S1",
+  "status": "verified",
+  "checks": {
+    "raw_git_blob_comparison": "321/321 equal using --no-filters; initial relative-path command failed and was discarded; repeated with absolute paths and checked 321 valid hashes before acceptance.",
+    "source_counts": {
+      "core_files": 293,
+      "core_modified_from_baseline": 0,
+      "core_identical_to_baseline": 293,
+      "core_verified_for_1111": 0,
+      "tools": 25,
+      "resources": 3
+    },
+    "target_sha256": "All three equal frozen OSR2 media extraction",
+    "build_entry": "extras/build.cmd; unchanged recipes, three expected target hashes updated",
+    "excluded": "No copied old build outputs, published assets or historical docs",
+    "rebuild": false
+  },
+  "remaining": "S2 implementation and S3 full acceptance; no 1111 executable output has been built.",
+  "toolchain_script_files_modified": 1
+}

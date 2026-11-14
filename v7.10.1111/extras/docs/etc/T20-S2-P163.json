@@ -1,0 +1,9 @@
+{
+  "task": "M6 T20 S2 P163",
+  "change": "Restore full key-record allocation, free-chain splitting and key-cache growth in existing regread.asm.",
+  "source_blob_sha1": "d82d6efb1894f5a7a25e7b9c414a707b344ac363",
+  "build": {"command": "extras/build/cmd-17188-26244/regread-build.cmd", "exit": 0, "io_bytes": 241696},
+  "proof": {"target": "014E:391A", "new_bytes": 673, "new_exact": 647, "verified_call_operands": 26, "combined_bytes": 2638, "combined_exact": 2516, "combined_verified_addresses": 122, "verifier": "extras/build/cmd-17188-26244/datachaincheck.c", "log": "key-alloc.compare.log", "exit": 0},
+  "counts": {"modified_this_part": 1, "unchanged_complete_files_newly_certified": 0, "modified_total": 90, "baseline_identical": 203},
+  "remaining": "Data allocation and compaction, file initialization, root-path/API integration and removal of legacy paths. Final three-output identity remains open."
+}

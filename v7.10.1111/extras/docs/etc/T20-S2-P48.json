@@ -1,0 +1,14 @@
+{
+  "task":"M6 T20 S2 P48",
+  "sources":[{"file":"bios/sysinit1.asm","blob":"f51cb2a4c39d9e174ca02d0301836854cd5eba65"},{"file":"bios/si2front.asm","blob":"c914d3ace4f5f2e37e6abbe762b8c744b8dcbbdc"}],
+  "changes":["Expand all five recommended BPBs from25 to53 bytes with target FAT32 fields and FFFF FSInfo/backup values", "Preserve explicit nonzero cylinders; apply target default selection otherwise"],
+  "build":"extras/build/cmd-17081-23949/incremental.cmd",
+  "build_exit":0,
+  "check":"extras/build/cmd-17081-23949/p48check.cmd",
+  "check_exit":0,
+  "tables":{"built_offset":37772,"target_offset":38264,"exact_bytes":265,"scope":"All five complete recommended BPBs"},
+  "setup":{"built_offset":32265,"target_offset":32266,"length":57,"exact_bytes":53,"excluded_word_offsets":[11,45],"remaining":"switches and BPB table addresses"},
+  "counts":{"core_modified_this_part":2,"core_modified_total":27,"reviewed_unchanged":39,"new_core_files":0},
+  "pending":"BPB option application and target FAT/cluster capacity algorithm; complete module/provider placement",
+  "published":false,"full_identity":false
+}

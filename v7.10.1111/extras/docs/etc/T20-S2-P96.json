@@ -1,0 +1,13 @@
+{
+  "task": "M6 T20 S2 P96",
+  "sources": {"dos/disk3.asm": "8dbf785c94968a3fccbf21d129534cdac50031b3", "dos/makefile": "c3037ee80c2bded144acb637d5d000d767f3e183"},
+  "changes": "Restore complete WRTEOF length-setting/truncation branch:32-bit length guard, sector/cluster arithmetic, FNDCLUS/ALLOCATE interfaces, SFT high-word reset, RELBLKS/RELEASE high-word setup. Remove absent FastOpen deletion and JShare notification from this branch. Add original ML recipe.",
+  "build": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+  "build_exit": 0,
+  "comparison": {"scope": "WRTEOF through KILLFIL/RELEASE return, before DskWrtBufPurge", "built_runtime": "B7D1..B8F9 exclusive", "target_runtime": "C1DB..C303 exclusive", "built_offset": 107025, "target_offset": 109595, "bytes": 296, "equal_bytes": 285, "different_bytes": 11, "remaining": "Operands for calls to FNDCLUS/ALLOCATE/RELBLKS/RELEASE, transfer to ADDREC, and branches to shared SET_ACC_ERRW/WRTERR outside compared region. Internal region layout/instructions match."},
+  "evidence": "extras/build/cmd-17081-23949/p96 retains final IO.SYS/MSDOS.MAP/kernel.log, whole branch binaries and FC /B log. Reproduce with s2-p1/span.exe at recorded offsets/length.",
+  "open": "DISKWRITE main entry/expansion/extent-write and shared error handling still need restoration; do not accept whole disk3 from this branch proof. DIV32/SHR32 remain referenced by old main path pending conversion.",
+  "counts": {"core_modified_this_part": 2, "core_modified_total": 48, "core_identical_to_baseline": 245, "reviewed_modified": 26, "reviewed_unchanged": 38, "reviewed_total": 64, "in_progress": 22, "new_core_files": 0},
+  "full_identity": false,
+  "published": false
+}

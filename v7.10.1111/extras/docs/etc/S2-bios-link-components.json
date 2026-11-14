@@ -1,0 +1,2563 @@
+{
+  "task": "M6 T20 S2",
+  "scope": "950 final audited P39 object set; same link response file as 1111 seed. New symbols/conditional changes require refresh.",
+  "object_directory": "../v7.00.950/extras/build/source-quality-p39/bios",
+  "decoder": "extras/build/s2-p5/omfsym.c: checks OMF record lengths/checksums; reads PUBDEF16/32 and EXTDEF",
+  "linked_modules": [
+    "bios/stkinit.asm",
+    "bios/msbio1.asm",
+    "bios/ststate.asm",
+    "bios/sysinit1.asm",
+    "bios/si2front.asm",
+    "bios/si1tail.asm",
+    "bios/mschar.asm",
+    "bios/initclk.asm",
+    "bios/msdisk.asm",
+    "bios/msdioctl.asm",
+    "bios/msint13.asm",
+    "bios/msbio2.asm",
+    "bios/msinit.asm",
+    "bios/biostail.asm",
+    "bios/biosmsg.asm",
+    "bios/sysinit2.asm",
+    "bios/sysconf.asm",
+    "bios/syspre.asm",
+    "bios/logocode.asm",
+    "bios/logpart.asm",
+    "bios/pathsrc.asm",
+    "bios/mblate.asm",
+    "bios/drivechk.asm",
+    "bios/msend.asm",
+    "bios/sysimes.asm",
+    "bios/power.asm",
+    "bios/ptime.asm"
+  ],
+  "empty_symbol_modules": [
+    "bios/power.asm",
+    "bios/ptime.asm"
+  ],
+  "symbol_edge_count": 1509,
+  "unresolved": [],
+  "components": [
+    [
+      "bios/stkinit.asm",
+      "bios/msbio1.asm",
+      "bios/sysinit1.asm",
+      "bios/si2front.asm",
+      "bios/si1tail.asm",
+      "bios/mschar.asm",
+      "bios/initclk.asm",
+      "bios/msdisk.asm",
+      "bios/msdioctl.asm",
+      "bios/msint13.asm",
+      "bios/msbio2.asm",
+      "bios/msinit.asm",
+      "bios/biostail.asm",
+      "bios/sysinit2.asm",
+      "bios/sysconf.asm",
+      "bios/syspre.asm",
+      "bios/logocode.asm",
+      "bios/mblate.asm"
+    ],
+    [
+      "bios/ststate.asm"
+    ],
+    [
+      "bios/biosmsg.asm"
+    ],
+    [
+      "bios/logpart.asm"
+    ],
+    [
+      "bios/pathsrc.asm"
+    ],
+    [
+      "bios/drivechk.asm"
+    ],
+    [
+      "bios/msend.asm"
+    ],
+    [
+      "bios/sysimes.asm"
+    ]
+  ],
+  "edges": [
+    {
+      "from": "bios/stkinit.asm",
+      "to": "bios/sysinit2.asm",
+      "symbols": [
+        "command_line",
+        "boot_old_image_seg",
+        "boot_prepare_shell",
+        "command_line2",
+        "command_line3",
+        "boot_prepare_environment",
+        "boot_previous_menu_check",
+        "boot_start_old_dos",
+        "default_switch_char",
+        "boot_old_file_table",
+        "boot_dos_file_table",
+        "boot_process_drivers",
+        "boot_shell_main",
+        "boot_delay",
+        "boot_option_open",
+        "boot_load_old_dos",
+        "boot_windows_file_table",
+        "commnd"
+      ]
+    },
+    {
+      "from": "bios/stkinit.asm",
+      "to": "bios/sysconf.asm",
+      "symbols": [
+        "config_record_boot_int13",
+        "config_hook_active",
+        "p_files_high",
+        "config_access_table",
+        "config_record_interrupts",
+        "config_envlen",
+        "config_wrkseg",
+        "config_record_count",
+        "config_record_device",
+        "deventry",
+        "p_buffers_high",
+        "shrinkumb",
+        "unlinkumb",
+        "config_cmd",
+        "stack_high",
+        "error_line",
+        "multi_pass",
+        "check_low_memory",
+        "config_ebda_limit",
+        "p_fcbs_high",
+        "showlinenum",
+        "p_ldrv_high",
+        "config_record_ptr",
+        "doconf",
+        "alloc_marked_block"
+      ]
+    },
+    {
+      "from": "bios/stkinit.asm",
+      "to": "bios/si2front.asm",
+      "symbols": [
+        "auxdev",
+        "prndev",
+        "badload",
+        "boot_runtime_flags",
+        "query_result",
+        "kbd_read",
+        "pathstring",
+        "int24",
+        "query_mode_flags",
+        "query_check_skip",
+        "print",
+        "boot_config_flags",
+        "badfil",
+        "condev"
+      ]
+    },
+    {
+      "from": "bios/stkinit.asm",
+      "to": "bios/mblate.asm",
+      "symbols": [
+        "config_buffer_paragraphs",
+        "config_xms_init",
+        "boot_exec_system",
+        "config_copy"
+      ]
+    },
+    {
+      "from": "bios/stkinit.asm",
+      "to": "bios/msend.asm",
+      "symbols": [
+        "si_end"
+      ]
+    },
+    {
+      "from": "bios/stkinit.asm",
+      "to": "bios/msbio1.asm",
+      "symbols": [
+        "intret",
+        "fdrive1",
+        "bc_retf",
+        "dskdrvs",
+        "biosold4f",
+        "disksector_ptr",
+        "int19old02",
+        "int19old70",
+        "int19old08",
+        "int19old72",
+        "int19old09",
+        "int19old73",
+        "int19old74",
+        "int19old76",
+        "int19old77",
+        "int4f_old",
+        "int19old0a",
+        "int19old0b",
+        "int19old0c",
+        "int19old0d",
+        "int19old0e",
+        "xms",
+        "bds_count",
+        "start_bds",
+        "cdev",
+        "bios_flags",
+        "hma_initial_size",
+        "int16_count",
+        "bios_error_entry",
+        "bcode_start",
+        "bios_hook_1",
+        "int4f_entry"
+      ]
+    },
+    {
+      "from": "bios/stkinit.asm",
+      "to": "bios/sysimes.asm",
+      "symbols": [
+        "sysinit_stack_msg_index",
+        "toomanydrivesmsg",
+        "sysinit_msg_base",
+        "crlfm",
+        "badmem",
+        "sysinit_msg_table"
+      ]
+    },
+    {
+      "from": "bios/stkinit.asm",
+      "to": "bios/msint13.asm",
+      "symbols": [
+        "hma_init_ptr",
+        "win386_callback_table",
+        "ec35_flag",
+        "win386_stack_code_seg",
+        "win386_stack_seg",
+        "win386_nextstack",
+        "win386_stack_code_size",
+        "win386_info_flags",
+        "win386_stack_size",
+        "hma_allocate"
+      ]
+    },
+    {
+      "from": "bios/stkinit.asm",
+      "to": "bios/syspre.asm",
+      "symbols": [
+        "magicpostload",
+        "magicpreload",
+        "magicsetcdss"
+      ]
+    },
+    {
+      "from": "bios/stkinit.asm",
+      "to": "bios/sysinit1.asm",
+      "symbols": [
+        "print_indexed"
+      ]
+    },
+    {
+      "from": "bios/stkinit.asm",
+      "to": "bios/biostail.asm",
+      "symbols": [
+        "bootlog_device",
+        "exec_bios_word",
+        "sysinit_seg"
+      ]
+    },
+    {
+      "from": "bios/stkinit.asm",
+      "to": "bios/biosmsg.asm",
+      "symbols": [
+        "bcode_end"
+      ]
+    },
+    {
+      "from": "bios/stkinit.asm",
+      "to": "bios/msdisk.asm",
+      "symbols": [
+        "eot"
+      ]
+    },
+    {
+      "from": "bios/stkinit.asm",
+      "to": "bios/logocode.asm",
+      "symbols": [
+        "query_bios_call",
+        "query_keyboard_service",
+        "boot_logo_display"
+      ]
+    },
+    {
+      "from": "bios/msbio1.asm",
+      "to": "bios/msinit.asm",
+      "symbols": [
+        "init"
+      ]
+    },
+    {
+      "from": "bios/msbio1.asm",
+      "to": "bios/msdisk.asm",
+      "symbols": [
+        "dsktbl",
+        "start_sec_h"
+      ]
+    },
+    {
+      "from": "bios/msbio1.asm",
+      "to": "bios/mschar.asm",
+      "symbols": [
+        "con_table",
+        "tim_table",
+        "prn_table",
+        "aux_table",
+        "time_to_ticks",
+        "int6c_code",
+        "int6c_update"
+      ]
+    },
+    {
+      "from": "bios/msbio1.asm",
+      "to": "bios/initclk.asm",
+      "symbols": [
+        "read_real_date",
+        "read_real_time"
+      ]
+    },
+    {
+      "from": "bios/msbio1.asm",
+      "to": "bios/msint13.asm",
+      "symbols": [
+        "i2f_handler",
+        "i13z"
+      ]
+    },
+    {
+      "from": "bios/msbio1.asm",
+      "to": "bios/biostail.asm",
+      "symbols": [
+        "config_table",
+        "sysinit_seg",
+        "exec_bios_word"
+      ]
+    },
+    {
+      "from": "bios/msbio1.asm",
+      "to": "bios/biosmsg.asm",
+      "symbols": [
+        "bios_msg_base",
+        "bios_msg_1",
+        "bios_msg_2",
+        "bios_msg_3"
+      ]
+    },
+    {
+      "from": "bios/msbio1.asm",
+      "to": "bios/sysinit1.asm",
+      "symbols": [
+        "move_myself"
+      ]
+    },
+    {
+      "from": "bios/msbio1.asm",
+      "to": "bios/mblate.asm",
+      "symbols": [
+        "config_init_entry"
+      ]
+    },
+    {
+      "from": "bios/sysinit1.asm",
+      "to": "bios/msdisk.asm",
+      "symbols": [
+        "eot"
+      ]
+    },
+    {
+      "from": "bios/sysinit1.asm",
+      "to": "bios/msint13.asm",
+      "symbols": [
+        "ec35_flag",
+        "win386_stack_seg",
+        "win386_stack_size",
+        "win386_nextstack",
+        "win386_info_flags",
+        "win386_callback_table",
+        "hma_init_ptr",
+        "hma_allocate",
+        "win386_stack_code_seg",
+        "win386_stack_code_size"
+      ]
+    },
+    {
+      "from": "bios/sysinit1.asm",
+      "to": "bios/biostail.asm",
+      "symbols": [
+        "bootlog_device",
+        "exec_bios_word",
+        "sysinit_seg"
+      ]
+    },
+    {
+      "from": "bios/sysinit1.asm",
+      "to": "bios/msbio1.asm",
+      "symbols": [
+        "bc_retf",
+        "hma_initial_size",
+        "int19old02",
+        "int19old08",
+        "int19old09",
+        "int19old0a",
+        "int19old0b",
+        "int19old0c",
+        "int19old0d",
+        "int19old0e",
+        "int19old70",
+        "int19old72",
+        "int19old73",
+        "int19old74",
+        "int19old76",
+        "int19old77",
+        "bcode_start",
+        "bios_error_entry",
+        "bios_flags",
+        "int16_count",
+        "disksector_ptr",
+        "start_bds",
+        "cdev",
+        "bios_hook_1",
+        "biosold4f",
+        "int4f_old",
+        "int4f_entry",
+        "intret",
+        "xms",
+        "bds_count",
+        "fdrive1",
+        "dskdrvs"
+      ]
+    },
+    {
+      "from": "bios/sysinit1.asm",
+      "to": "bios/biosmsg.asm",
+      "symbols": [
+        "bcode_end"
+      ]
+    },
+    {
+      "from": "bios/sysinit1.asm",
+      "to": "bios/sysimes.asm",
+      "symbols": [
+        "sysinit_msg_base",
+        "sysinit_msg_table",
+        "sysinit_stack_msg_index",
+        "crlfm",
+        "badmem",
+        "toomanydrivesmsg"
+      ]
+    },
+    {
+      "from": "bios/sysinit1.asm",
+      "to": "bios/logocode.asm",
+      "symbols": [
+        "query_keyboard_service",
+        "boot_logo_display",
+        "query_bios_call"
+      ]
+    },
+    {
+      "from": "bios/sysinit1.asm",
+      "to": "bios/si2front.asm",
+      "symbols": [
+        "query_check_skip",
+        "query_result",
+        "boot_config_flags",
+        "kbd_read",
+        "boot_runtime_flags",
+        "query_mode_flags",
+        "condev",
+        "auxdev",
+        "prndev",
+        "pathstring",
+        "print",
+        "badfil",
+        "int24",
+        "badload",
+        "getnum",
+        "bpbtable",
+        "drive",
+        "switches",
+        "hlim",
+        "slim",
+        "switchlist"
+      ]
+    },
+    {
+      "from": "bios/sysinit1.asm",
+      "to": "bios/sysinit2.asm",
+      "symbols": [
+        "default_switch_char",
+        "command_line2",
+        "command_line3",
+        "boot_option_open",
+        "boot_process_drivers",
+        "boot_dos_file_table",
+        "boot_old_file_table",
+        "boot_load_old_dos",
+        "boot_start_old_dos",
+        "boot_old_image_seg",
+        "boot_previous_menu_check",
+        "boot_windows_file_table",
+        "boot_prepare_shell",
+        "boot_prepare_environment",
+        "boot_shell_main",
+        "boot_delay",
+        "commnd",
+        "command_line",
+        "boot_copy_buffer",
+        "comexe",
+        "boot_config_app",
+        "boot_config_wos",
+        "boot_msdos_status"
+      ]
+    },
+    {
+      "from": "bios/sysinit1.asm",
+      "to": "bios/mblate.asm",
+      "symbols": [
+        "boot_exec_system",
+        "config_xms_init",
+        "config_copy",
+        "config_buffer_paragraphs"
+      ]
+    },
+    {
+      "from": "bios/sysinit1.asm",
+      "to": "bios/sysconf.asm",
+      "symbols": [
+        "check_low_memory",
+        "config_record_ptr",
+        "config_record_count",
+        "config_hook_active",
+        "config_access_table",
+        "config_ebda_limit",
+        "config_record_interrupts",
+        "config_record_boot_int13",
+        "config_record_device",
+        "stack_high",
+        "alloc_marked_block",
+        "p_buffers_high",
+        "p_files_high",
+        "p_fcbs_high",
+        "p_ldrv_high",
+        "config_cmd",
+        "config_envlen",
+        "config_wrkseg",
+        "deventry",
+        "showlinenum",
+        "doconf",
+        "multi_pass",
+        "error_line",
+        "shrinkumb",
+        "unlinkumb",
+        "getchr"
+      ]
+    },
+    {
+      "from": "bios/sysinit1.asm",
+      "to": "bios/syspre.asm",
+      "symbols": [
+        "magicpreload",
+        "magicpostload",
+        "magicsetcdss",
+        "compressed_dest_segment",
+        "compressed_reserved_paras",
+        "compressed_reserve"
+      ]
+    },
+    {
+      "from": "bios/sysinit1.asm",
+      "to": "bios/msend.asm",
+      "symbols": [
+        "si_end"
+      ]
+    },
+    {
+      "from": "bios/sysinit1.asm",
+      "to": "bios/stkinit.asm",
+      "symbols": [
+        "deviceparameters",
+        "stackcount",
+        "stacksize",
+        "stackat",
+        "stacks",
+        "firstentry",
+        "lastentry",
+        "nextentry",
+        "stack_count",
+        "stack_size",
+        "stack_addr",
+        "endstackcode",
+        "int02",
+        "int08",
+        "int09",
+        "int70",
+        "old02",
+        "old08",
+        "old09",
+        "old70",
+        "int0a",
+        "old0a",
+        "firstflag0a",
+        "int0b",
+        "old0b",
+        "firstflag0b",
+        "int0c",
+        "old0c",
+        "firstflag0c",
+        "int0d",
+        "old0d",
+        "firstflag0d",
+        "int0e",
+        "old0e",
+        "firstflag0e",
+        "int72",
+        "old72",
+        "firstflag72",
+        "int73",
+        "old73",
+        "firstflag73",
+        "int74",
+        "old74",
+        "firstflag74",
+        "int76",
+        "old76",
+        "firstflag76",
+        "int77",
+        "old77",
+        "firstflag77"
+      ]
+    },
+    {
+      "from": "bios/sysinit1.asm",
+      "to": "bios/si1tail.asm",
+      "symbols": [
+        "do_install_exec",
+        "pararound",
+        "tempcds",
+        "endfile"
+      ]
+    },
+    {
+      "from": "bios/sysinit1.asm",
+      "to": "bios/ststate.asm",
+      "symbols": [
+        "dosinfo",
+        "dos_temp_location",
+        "dosinit",
+        "sysinit_reserve_count",
+        "current_dos_location",
+        "device_list",
+        "sysi_country",
+        "dos_segreinit",
+        "lo_doscod_size",
+        "hi_doscod_size",
+        "def_php",
+        "disksector_pending_size",
+        "temp_bcode_seg",
+        "no_floppy_report",
+        "fake_floppy_drv",
+        "runhigh",
+        "dos_low_message",
+        "dos_umb_flag",
+        "exec_boot_state",
+        "sysinit_bios_start",
+        "dos_image_size",
+        "sysinit_bios_paras",
+        "dos_image_paras",
+        "sysinit_memory_size",
+        "rpl_memory_size",
+        "rplmemtop",
+        "default_drive",
+        "buffers",
+        "h_buffers",
+        "singlebuffersize",
+        "files",
+        "fcbs",
+        "keep",
+        "num_cds",
+        "confbot",
+        "alloclim",
+        "top_of_cdss",
+        "dirstrng",
+        "zero",
+        "sepchr",
+        "linecount",
+        "showcount",
+        "buffer_linenum",
+        "sys_model_byte",
+        "sys_scnd_model_byte",
+        "buf_prev_off",
+        "default_num_cds",
+        "bios_data_segment",
+        "bcodeseg",
+        "boot_load_segment",
+        "boot_reloc_offset",
+        "boot_reloc_segment",
+        "memory_size",
+        "temp_buffer_segment",
+        "temp_buffer_size",
+        "boot_data_high",
+        "boot_data_low",
+        "multi_pass_id",
+        "install_flag",
+        "config_size",
+        "sysinit_base_ptr",
+        "sysinit_ptr",
+        "checksum",
+        "ldexec_fcb",
+        "ldexec_line",
+        "ldexec_start",
+        "ldexec_parm",
+        "instexe",
+        "com_level",
+        "cmmt",
+        "cmmt1",
+        "cmmt2",
+        "cmd_indicator",
+        "donotshownum",
+        "count",
+        "org_count",
+        "chrptr",
+        "cntryfilehandle",
+        "old_area",
+        "impossible_owner_size",
+        "area",
+        "bucketptr",
+        "bufptr",
+        "memlo",
+        "prmblk",
+        "memhi",
+        "ldoff",
+        "drivenumber",
+        "boot_mode",
+        "toomanydrivesflag",
+        "config_device_table_ptr",
+        "new_psp_segment",
+        "bios_extra_bytes",
+        "sysinit_extra_bytes"
+      ]
+    },
+    {
+      "from": "bios/si2front.asm",
+      "to": "bios/sysconf.asm",
+      "symbols": [
+        "devumb",
+        "config_multi",
+        "swit_f",
+        "swit_n",
+        "config_envlen",
+        "config_wrkseg",
+        "multdeviceflag",
+        "setdevmarkflag",
+        "deventry",
+        "config_cmd",
+        "stack_high",
+        "error_line",
+        "multi_pass_config_line",
+        "config_record_ptr",
+        "getchr"
+      ]
+    },
+    {
+      "from": "bios/si2front.asm",
+      "to": "bios/ststate.asm",
+      "symbols": [
+        "sepchr",
+        "prmblk",
+        "bufptr",
+        "chrptr",
+        "dos_umb_flag",
+        "donotshownum",
+        "boot_reloc_segment",
+        "confbot",
+        "cmd_indicator",
+        "buffers",
+        "dosinfo",
+        "default_drive",
+        "bcodeseg",
+        "multi_pass_id",
+        "alloclim",
+        "linecount",
+        "com_level",
+        "boot_mode",
+        "org_count",
+        "area",
+        "fcbs",
+        "keep",
+        "new_psp_segment",
+        "cmmt",
+        "zero",
+        "cmmt1",
+        "cmmt2",
+        "ldoff",
+        "memhi",
+        "files",
+        "memlo",
+        "drivenumber",
+        "count",
+        "bios_data_segment",
+        "boot_load_segment",
+        "memory_size"
+      ]
+    },
+    {
+      "from": "bios/si2front.asm",
+      "to": "bios/msint13.asm",
+      "symbols": [
+        "win386_text_buffer",
+        "win386_text_length",
+        "hma_init_ptr",
+        "win386_options_path",
+        "ec35_flag",
+        "win386_info_table",
+        "win386_info_flags",
+        "win386_info_buffer"
+      ]
+    },
+    {
+      "from": "bios/si2front.asm",
+      "to": "bios/sysinit1.asm",
+      "symbols": [
+        "insert_blank",
+        "config_swap_active",
+        "print_indexed",
+        "query_all_char",
+        "query_no",
+        "query_no_lower",
+        "query_yes",
+        "boot_record_compressed_boot",
+        "query_all_lower",
+        "query_yes_lower",
+        "onoff",
+        "isxmsloaded",
+        "stall",
+        "allocfreemem"
+      ]
+    },
+    {
+      "from": "bios/si2front.asm",
+      "to": "bios/sysinit2.asm",
+      "symbols": [
+        "boot_toupper",
+        "boot_safe",
+        "boot_menu",
+        "boot_build_menu",
+        "boot_delay",
+        "boot_config_name"
+      ]
+    },
+    {
+      "from": "bios/si2front.asm",
+      "to": "bios/syspre.asm",
+      "symbols": [
+        "magicmoveinfo",
+        "compression_skip"
+      ]
+    },
+    {
+      "from": "bios/si2front.asm",
+      "to": "bios/sysimes.asm",
+      "symbols": [
+        "sysinit_crlf_index",
+        "badblock",
+        "sysinit_badld_index",
+        "$timeout",
+        "$cleanmsg",
+        "$no",
+        "$pausemsg",
+        "$intermsg",
+        "badld_pre",
+        "sysinit_prompt_index",
+        "$yes",
+        "$menuprmpt",
+        "$menuheader",
+        "badsiz_pre",
+        "$statusline",
+        "sysinit_msg_base",
+        "crlfm",
+        "$interprmpt",
+        "badmem",
+        "badopm",
+        "sysinit_msg_table"
+      ]
+    },
+    {
+      "from": "bios/si2front.asm",
+      "to": "bios/msbio1.asm",
+      "symbols": [
+        "int19_restore",
+        "bc_retf",
+        "palette_index",
+        "palette_count",
+        "palette_config",
+        "int15_esc",
+        "bios_flags",
+        "keyboard_service",
+        "int16_limit",
+        "int16_limit2"
+      ]
+    },
+    {
+      "from": "bios/si2front.asm",
+      "to": "bios/stkinit.asm",
+      "symbols": [
+        "bpb_addr",
+        "unitcount",
+        "break_addr",
+        "deviceparameters",
+        "packet"
+      ]
+    },
+    {
+      "from": "bios/si2front.asm",
+      "to": "bios/biostail.asm",
+      "symbols": [
+        "bootlog_device",
+        "exec_bios_word"
+      ]
+    },
+    {
+      "from": "bios/si2front.asm",
+      "to": "bios/drivechk.asm",
+      "symbols": [
+        "boot_check_drive_map",
+        "boot_check_redirected_drive"
+      ]
+    },
+    {
+      "from": "bios/si2front.asm",
+      "to": "bios/mblate.asm",
+      "symbols": [
+        "exec_mode",
+        "config_buffer_segment",
+        "exec_value",
+        "exec_option"
+      ]
+    },
+    {
+      "from": "bios/si2front.asm",
+      "to": "bios/msdisk.asm",
+      "symbols": [
+        "eot"
+      ]
+    },
+    {
+      "from": "bios/si2front.asm",
+      "to": "bios/si1tail.asm",
+      "symbols": [
+        "pararound"
+      ]
+    },
+    {
+      "from": "bios/si2front.asm",
+      "to": "bios/logocode.asm",
+      "symbols": [
+        "query_keyboard_service",
+        "boot_logo_display"
+      ]
+    },
+    {
+      "from": "bios/si1tail.asm",
+      "to": "bios/msdisk.asm",
+      "symbols": [
+        "eot"
+      ]
+    },
+    {
+      "from": "bios/si1tail.asm",
+      "to": "bios/msint13.asm",
+      "symbols": [
+        "ec35_flag",
+        "win386_stack_seg",
+        "win386_stack_size",
+        "win386_nextstack",
+        "win386_info_flags",
+        "win386_callback_table",
+        "hma_init_ptr",
+        "hma_allocate",
+        "win386_stack_code_seg",
+        "win386_stack_code_size"
+      ]
+    },
+    {
+      "from": "bios/si1tail.asm",
+      "to": "bios/biostail.asm",
+      "symbols": [
+        "bootlog_device",
+        "exec_bios_word",
+        "sysinit_seg"
+      ]
+    },
+    {
+      "from": "bios/si1tail.asm",
+      "to": "bios/msbio1.asm",
+      "symbols": [
+        "bc_retf",
+        "hma_initial_size",
+        "int19old02",
+        "int19old08",
+        "int19old09",
+        "int19old0a",
+        "int19old0b",
+        "int19old0c",
+        "int19old0d",
+        "int19old0e",
+        "int19old70",
+        "int19old72",
+        "int19old73",
+        "int19old74",
+        "int19old76",
+        "int19old77",
+        "bcode_start",
+        "bios_error_entry",
+        "bios_flags",
+        "int16_count",
+        "disksector_ptr",
+        "start_bds",
+        "cdev",
+        "bios_hook_1",
+        "biosold4f",
+        "int4f_old",
+        "int4f_entry",
+        "intret",
+        "xms",
+        "bds_count",
+        "fdrive1",
+        "dskdrvs"
+      ]
+    },
+    {
+      "from": "bios/si1tail.asm",
+      "to": "bios/biosmsg.asm",
+      "symbols": [
+        "bcode_end"
+      ]
+    },
+    {
+      "from": "bios/si1tail.asm",
+      "to": "bios/sysimes.asm",
+      "symbols": [
+        "sysinit_msg_base",
+        "sysinit_msg_table",
+        "sysinit_stack_msg_index",
+        "crlfm",
+        "badmem",
+        "toomanydrivesmsg"
+      ]
+    },
+    {
+      "from": "bios/si1tail.asm",
+      "to": "bios/sysinit1.asm",
+      "symbols": [
+        "print_indexed",
+        "magicbackdoor",
+        "nullbackdoor",
+        "move_myself",
+        "sysinit_exec_start"
+      ]
+    },
+    {
+      "from": "bios/si1tail.asm",
+      "to": "bios/logocode.asm",
+      "symbols": [
+        "query_keyboard_service",
+        "boot_logo_display",
+        "query_bios_call"
+      ]
+    },
+    {
+      "from": "bios/si1tail.asm",
+      "to": "bios/si2front.asm",
+      "symbols": [
+        "query_check_skip",
+        "query_result",
+        "boot_config_flags",
+        "kbd_read",
+        "boot_runtime_flags",
+        "query_mode_flags",
+        "condev",
+        "auxdev",
+        "prndev",
+        "pathstring",
+        "print",
+        "badfil",
+        "int24",
+        "badload",
+        "open_dev"
+      ]
+    },
+    {
+      "from": "bios/si1tail.asm",
+      "to": "bios/sysinit2.asm",
+      "symbols": [
+        "default_switch_char",
+        "command_line2",
+        "command_line3",
+        "boot_option_open",
+        "boot_process_drivers",
+        "boot_dos_file_table",
+        "boot_old_file_table",
+        "boot_load_old_dos",
+        "boot_start_old_dos",
+        "boot_old_image_seg",
+        "boot_previous_menu_check",
+        "boot_windows_file_table",
+        "boot_prepare_shell",
+        "boot_prepare_environment",
+        "boot_shell_main",
+        "boot_delay",
+        "commnd",
+        "command_line",
+        "boot_copy_buffer",
+        "comexe",
+        "boot_config_app",
+        "boot_config_wos",
+        "boot_msdos_status"
+      ]
+    },
+    {
+      "from": "bios/si1tail.asm",
+      "to": "bios/mblate.asm",
+      "symbols": [
+        "boot_exec_system",
+        "config_xms_init",
+        "config_copy",
+        "config_buffer_paragraphs"
+      ]
+    },
+    {
+      "from": "bios/si1tail.asm",
+      "to": "bios/sysconf.asm",
+      "symbols": [
+        "check_low_memory",
+        "config_record_ptr",
+        "config_record_count",
+        "config_hook_active",
+        "config_access_table",
+        "config_ebda_limit",
+        "config_record_interrupts",
+        "config_record_boot_int13",
+        "config_record_device",
+        "stack_high",
+        "alloc_marked_block",
+        "p_buffers_high",
+        "p_files_high",
+        "p_fcbs_high",
+        "p_ldrv_high",
+        "config_cmd",
+        "config_envlen",
+        "config_wrkseg",
+        "deventry",
+        "showlinenum",
+        "doconf",
+        "multi_pass",
+        "error_line",
+        "shrinkumb",
+        "unlinkumb"
+      ]
+    },
+    {
+      "from": "bios/si1tail.asm",
+      "to": "bios/syspre.asm",
+      "symbols": [
+        "magicpreload",
+        "magicpostload",
+        "magicsetcdss",
+        "compressed_dest_segment",
+        "compressed_reserved_paras",
+        "compressed_reserve"
+      ]
+    },
+    {
+      "from": "bios/si1tail.asm",
+      "to": "bios/msend.asm",
+      "symbols": [
+        "si_end"
+      ]
+    },
+    {
+      "from": "bios/si1tail.asm",
+      "to": "bios/stkinit.asm",
+      "symbols": [
+        "deviceparameters",
+        "stackcount",
+        "stacksize",
+        "stackat",
+        "stacks",
+        "firstentry",
+        "lastentry",
+        "nextentry",
+        "stack_count",
+        "stack_size",
+        "stack_addr",
+        "endstackcode",
+        "int02",
+        "int08",
+        "int09",
+        "int70",
+        "old02",
+        "old08",
+        "old09",
+        "old70",
+        "int0a",
+        "old0a",
+        "firstflag0a",
+        "int0b",
+        "old0b",
+        "firstflag0b",
+        "int0c",
+        "old0c",
+        "firstflag0c",
+        "int0d",
+        "old0d",
+        "firstflag0d",
+        "int0e",
+        "old0e",
+        "firstflag0e",
+        "int72",
+        "old72",
+        "firstflag72",
+        "int73",
+        "old73",
+        "firstflag73",
+        "int74",
+        "old74",
+        "firstflag74",
+        "int76",
+        "old76",
+        "firstflag76",
+        "int77",
+        "old77",
+        "firstflag77"
+      ]
+    },
+    {
+      "from": "bios/si1tail.asm",
+      "to": "bios/ststate.asm",
+      "symbols": [
+        "dosinfo",
+        "dos_temp_location",
+        "dosinit",
+        "sysinit_reserve_count",
+        "current_dos_location",
+        "device_list",
+        "sysi_country",
+        "dos_segreinit",
+        "lo_doscod_size",
+        "hi_doscod_size",
+        "def_php",
+        "disksector_pending_size",
+        "temp_bcode_seg",
+        "no_floppy_report",
+        "fake_floppy_drv",
+        "runhigh",
+        "dos_low_message",
+        "dos_umb_flag",
+        "exec_boot_state",
+        "sysinit_bios_start",
+        "dos_image_size",
+        "sysinit_bios_paras",
+        "dos_image_paras",
+        "sysinit_memory_size",
+        "rpl_memory_size",
+        "rplmemtop",
+        "default_drive",
+        "buffers",
+        "h_buffers",
+        "singlebuffersize",
+        "files",
+        "fcbs",
+        "keep",
+        "num_cds",
+        "confbot",
+        "alloclim",
+        "top_of_cdss",
+        "dirstrng",
+        "zero",
+        "sepchr",
+        "linecount",
+        "showcount",
+        "buffer_linenum",
+        "sys_model_byte",
+        "sys_scnd_model_byte",
+        "buf_prev_off",
+        "default_num_cds",
+        "bios_data_segment",
+        "bcodeseg",
+        "boot_load_segment",
+        "boot_reloc_offset",
+        "boot_reloc_segment",
+        "memory_size",
+        "temp_buffer_segment",
+        "temp_buffer_size",
+        "boot_data_high",
+        "boot_data_low",
+        "multi_pass_id",
+        "install_flag",
+        "config_size",
+        "sysinit_base_ptr",
+        "sysinit_ptr",
+        "checksum",
+        "ldexec_fcb",
+        "ldexec_line",
+        "ldexec_start",
+        "ldexec_parm",
+        "instexe",
+        "com_level",
+        "cmmt",
+        "cmmt1",
+        "cmmt2",
+        "cmd_indicator",
+        "donotshownum",
+        "count",
+        "org_count",
+        "chrptr",
+        "cntryfilehandle",
+        "old_area",
+        "impossible_owner_size",
+        "area",
+        "bucketptr",
+        "bufptr",
+        "memlo",
+        "prmblk",
+        "memhi",
+        "ldoff",
+        "drivenumber",
+        "boot_mode",
+        "toomanydrivesflag",
+        "config_device_table_ptr",
+        "new_psp_segment",
+        "bios_extra_bytes",
+        "sysinit_extra_bytes"
+      ]
+    },
+    {
+      "from": "bios/mschar.asm",
+      "to": "bios/msbio1.asm",
+      "symbols": [
+        "daycnt",
+        "auxbuf",
+        "auxnum",
+        "ptrsav",
+        "printdev",
+        "bios_data_word",
+        "bc_cmderr",
+        "bios_flags",
+        "keyrd_func",
+        "bc_err_cnt",
+        "wait_count",
+        "altah",
+        "int16_count",
+        "keysts_func"
+      ]
+    },
+    {
+      "from": "bios/mschar.asm",
+      "to": "bios/initclk.asm",
+      "symbols": [
+        "daycnt_to_day_near",
+        "read_real_date",
+        "read_real_time",
+        "bin_to_bcd_near"
+      ]
+    },
+    {
+      "from": "bios/initclk.asm",
+      "to": "bios/msbio1.asm",
+      "symbols": [
+        "hdrv_pat",
+        "orig13",
+        "romvectors",
+        "numromvectors",
+        "harddrv",
+        "drvmax",
+        "daycnt",
+        "res_dev_list",
+        "start_bds",
+        "old13",
+        "keyrd_func",
+        "keysts_func",
+        "model_byte",
+        "secondary_model_byte",
+        "daycnt2",
+        "bios_flags",
+        "int6c_entry",
+        "call_orig13",
+        "int16_entry",
+        "int16_old",
+        "a20_message_ptr",
+        "disksector_ptr",
+        "dosdatasg",
+        "block13",
+        "int15",
+        "int19",
+        "intret",
+        "cbreak",
+        "outchr",
+        "bdss",
+        "dskdrvs",
+        "si_start",
+        "end96tpi",
+        "endfloppy",
+        "bc_retf",
+        "base_century",
+        "base_year",
+        "month_tab",
+        "bin_date_time",
+        "month_table",
+        "bios_data_word"
+      ]
+    },
+    {
+      "from": "bios/initclk.asm",
+      "to": "bios/msdisk.asm",
+      "symbols": [
+        "temp_h",
+        "start_sec_h",
+        "fat_12_id",
+        "fat_16_id",
+        "vol_no_name",
+        "errout",
+        "errin",
+        "setdrive",
+        "diskrd",
+        "getbp",
+        "mov_media_ids",
+        "clear_ids",
+        "eot",
+        "motorstartup"
+      ]
+    },
+    {
+      "from": "bios/initclk.asm",
+      "to": "bios/sysimes.asm",
+      "symbols": [
+        "sysinit_msg_base",
+        "sysinit_msg_table",
+        "startmsg"
+      ]
+    },
+    {
+      "from": "bios/initclk.asm",
+      "to": "bios/ststate.asm",
+      "symbols": [
+        "current_dos_location",
+        "device_list",
+        "memory_size",
+        "default_drive",
+        "boot_load_segment",
+        "boot_data_high",
+        "boot_data_low",
+        "no_floppy_report",
+        "sys_model_byte",
+        "sys_scnd_model_byte",
+        "rpl_memory_size",
+        "sysinit_bios_start",
+        "sysinit_bios_paras",
+        "sysinit_reserve_count",
+        "sysinit_reserve_size",
+        "boot_reloc_segment",
+        "buffers",
+        "temp_bcode_seg",
+        "toomanydrivesflag"
+      ]
+    },
+    {
+      "from": "bios/initclk.asm",
+      "to": "bios/sysinit2.asm",
+      "symbols": [
+        "boot_copy_buffer"
+      ]
+    },
+    {
+      "from": "bios/initclk.asm",
+      "to": "bios/msbio2.asm",
+      "symbols": [
+        "ibm_disk_io",
+        "endatrom",
+        "compaq_disk_io",
+        "end_compaq_i13hook"
+      ]
+    },
+    {
+      "from": "bios/initclk.asm",
+      "to": "bios/mschar.asm",
+      "symbols": [
+        "time_to_ticks"
+      ]
+    },
+    {
+      "from": "bios/msdisk.asm",
+      "to": "bios/msbio1.asm",
+      "symbols": [
+        "ptrsav",
+        "bios_flags",
+        "daycnt",
+        "auxnum",
+        "disksector_ptr",
+        "start_bds",
+        "orig13",
+        "model_byte",
+        "secondary_model_byte",
+        "drvmax",
+        "dskdrvs",
+        "bc_cmderr",
+        "bc_err_cnt",
+        "bios_data_word"
+      ]
+    },
+    {
+      "from": "bios/msdisk.asm",
+      "to": "bios/msint13.asm",
+      "symbols": [
+        "prevoper",
+        "number_of_sec",
+        "ec35_flag"
+      ]
+    },
+    {
+      "from": "bios/msdisk.asm",
+      "to": "bios/msdioctl.asm",
+      "symbols": [
+        "media_set_for_format",
+        "xfer_seg",
+        "do_generic_ioctl",
+        "ioctl_getown",
+        "ioctl_setown",
+        "resetdisk",
+        "ioctl_support_query"
+      ]
+    },
+    {
+      "from": "bios/msdisk.asm",
+      "to": "bios/biostail.asm",
+      "symbols": [
+        "config_init_segment"
+      ]
+    },
+    {
+      "from": "bios/msdisk.asm",
+      "to": "bios/msbio2.asm",
+      "symbols": [
+        "mediacheck",
+        "haschange",
+        "media_set_vid",
+        "hidensity",
+        "checklatchio",
+        "checkio",
+        "set_volume_id",
+        "swpdsk",
+        "resetchanged"
+      ]
+    },
+    {
+      "from": "bios/msdisk.asm",
+      "to": "bios/mschar.asm",
+      "symbols": [
+        "gettickcnt"
+      ]
+    },
+    {
+      "from": "bios/msdioctl.asm",
+      "to": "bios/msbio1.asm",
+      "symbols": [
+        "ptrsav",
+        "bios_flags",
+        "start_bds",
+        "disksector_ptr",
+        "tracktable",
+        "bc_cmderr",
+        "bios_data_word"
+      ]
+    },
+    {
+      "from": "bios/msdioctl.asm",
+      "to": "bios/msdisk.asm",
+      "symbols": [
+        "start_sec_h",
+        "dpt",
+        "rflag",
+        "curtrk",
+        "cursec",
+        "curhd",
+        "spsav",
+        "seccnt",
+        "eot",
+        "step_drv",
+        "tim_drv",
+        "checksingle",
+        "getbp",
+        "maperror",
+        "diskio",
+        "done",
+        "mov_media_ids",
+        "disk",
+        "iosetup",
+        "setdrive"
+      ]
+    },
+    {
+      "from": "bios/msdioctl.asm",
+      "to": "bios/msbio2.asm",
+      "symbols": [
+        "haschange",
+        "set_changed_dl"
+      ]
+    },
+    {
+      "from": "bios/msint13.asm",
+      "to": "bios/msbio1.asm",
+      "symbols": [
+        "call_orig13",
+        "i13_ds",
+        "bios_flags",
+        "int16_limit",
+        "int16_limit2",
+        "palette_index",
+        "palette_count",
+        "palette_config",
+        "palette_cycles",
+        "int10_stub",
+        "int10_vector",
+        "int10_old",
+        "disksector_ptr",
+        "secondary_model_byte",
+        "orig13",
+        "start_bds",
+        "model_byte",
+        "old13",
+        "i2f_dskentry",
+        "ptrsav",
+        "bios_data_word",
+        "keyboard_vector_install",
+        "keyboard_vector_setup",
+        "keyboard_service"
+      ]
+    },
+    {
+      "from": "bios/msint13.asm",
+      "to": "bios/msdioctl.asm",
+      "symbols": [
+        "media_set_for_format"
+      ]
+    },
+    {
+      "from": "bios/msint13.asm",
+      "to": "bios/msbio2.asm",
+      "symbols": [
+        "set_changed_dl",
+        "install_bds"
+      ]
+    },
+    {
+      "from": "bios/msint13.asm",
+      "to": "bios/biostail.asm",
+      "symbols": [
+        "mult_call16",
+        "mult_call17",
+        "mult_call18",
+        "mult_call21"
+      ]
+    },
+    {
+      "from": "bios/msbio2.asm",
+      "to": "bios/msdisk.asm",
+      "symbols": [
+        "medbyt",
+        "harderr",
+        "tim_drv",
+        "harderr2",
+        "maperror",
+        "check_time_of_access",
+        "eot",
+        "setptrsav",
+        "has1",
+        "checksingle",
+        "getbp",
+        "read_sector",
+        "has720k"
+      ]
+    },
+    {
+      "from": "bios/msbio2.asm",
+      "to": "bios/msbio1.asm",
+      "symbols": [
+        "drvmax",
+        "ptrsav",
+        "fdrive1",
+        "fdrive2",
+        "fdrive3",
+        "fdrive4",
+        "daycnt2",
+        "bin_date_time",
+        "dskdrvs",
+        "bios_data_word",
+        "disksector_ptr",
+        "start_bds",
+        "bios_flags",
+        "old13",
+        "month_table"
+      ]
+    },
+    {
+      "from": "bios/msbio2.asm",
+      "to": "bios/biosmsg.asm",
+      "symbols": [
+        "bios_msg_base",
+        "bios_swap_msg_first",
+        "bios_swap_msg_second"
+      ]
+    },
+    {
+      "from": "bios/msbio2.asm",
+      "to": "bios/biostail.asm",
+      "symbols": [
+        "config_init_segment"
+      ]
+    },
+    {
+      "from": "bios/msbio2.asm",
+      "to": "bios/mschar.asm",
+      "symbols": [
+        "con_flush"
+      ]
+    },
+    {
+      "from": "bios/msinit.asm",
+      "to": "bios/msbio1.asm",
+      "symbols": [
+        "hdrv_pat",
+        "orig13",
+        "romvectors",
+        "numromvectors",
+        "harddrv",
+        "drvmax",
+        "daycnt",
+        "res_dev_list",
+        "start_bds",
+        "old13",
+        "keyrd_func",
+        "keysts_func",
+        "model_byte",
+        "secondary_model_byte",
+        "daycnt2",
+        "bios_flags",
+        "int6c_entry",
+        "call_orig13",
+        "int16_entry",
+        "int16_old",
+        "a20_message_ptr",
+        "disksector_ptr",
+        "dosdatasg",
+        "block13",
+        "int15",
+        "int19",
+        "intret",
+        "cbreak",
+        "outchr",
+        "bdss",
+        "dskdrvs",
+        "si_start",
+        "end96tpi",
+        "endfloppy",
+        "bc_retf",
+        "base_century",
+        "base_year",
+        "month_tab",
+        "bin_date_time",
+        "month_table",
+        "bios_data_word",
+        "cdev"
+      ]
+    },
+    {
+      "from": "bios/msinit.asm",
+      "to": "bios/msdisk.asm",
+      "symbols": [
+        "temp_h",
+        "start_sec_h",
+        "fat_12_id",
+        "fat_16_id",
+        "vol_no_name",
+        "errout",
+        "errin",
+        "setdrive",
+        "diskrd",
+        "getbp",
+        "mov_media_ids",
+        "clear_ids",
+        "eot",
+        "motorstartup"
+      ]
+    },
+    {
+      "from": "bios/msinit.asm",
+      "to": "bios/sysimes.asm",
+      "symbols": [
+        "sysinit_msg_base",
+        "sysinit_msg_table",
+        "startmsg"
+      ]
+    },
+    {
+      "from": "bios/msinit.asm",
+      "to": "bios/ststate.asm",
+      "symbols": [
+        "current_dos_location",
+        "device_list",
+        "memory_size",
+        "default_drive",
+        "boot_load_segment",
+        "boot_data_high",
+        "boot_data_low",
+        "no_floppy_report",
+        "sys_model_byte",
+        "sys_scnd_model_byte",
+        "rpl_memory_size",
+        "sysinit_bios_start",
+        "sysinit_bios_paras",
+        "sysinit_reserve_count",
+        "sysinit_reserve_size",
+        "boot_reloc_segment",
+        "buffers",
+        "temp_bcode_seg",
+        "toomanydrivesflag"
+      ]
+    },
+    {
+      "from": "bios/msinit.asm",
+      "to": "bios/sysinit2.asm",
+      "symbols": [
+        "boot_copy_buffer"
+      ]
+    },
+    {
+      "from": "bios/msinit.asm",
+      "to": "bios/msbio2.asm",
+      "symbols": [
+        "ibm_disk_io",
+        "endatrom",
+        "compaq_disk_io",
+        "end_compaq_i13hook"
+      ]
+    },
+    {
+      "from": "bios/msinit.asm",
+      "to": "bios/mschar.asm",
+      "symbols": [
+        "time_to_ticks"
+      ]
+    },
+    {
+      "from": "bios/msinit.asm",
+      "to": "bios/initclk.asm",
+      "symbols": [
+        "read_real_date",
+        "read_real_time",
+        "daycnt_to_day",
+        "daycnt_to_day_near",
+        "bin_to_bcd",
+        "bin_to_bcd_near"
+      ]
+    },
+    {
+      "from": "bios/biostail.asm",
+      "to": "bios/msbio1.asm",
+      "symbols": [
+        "config_flags",
+        "config_value",
+        "bios_flags",
+        "bc_cmderr",
+        "bios_data_word"
+      ]
+    },
+    {
+      "from": "bios/biostail.asm",
+      "to": "bios/mblate.asm",
+      "symbols": [
+        "config_init_entry"
+      ]
+    },
+    {
+      "from": "bios/sysinit2.asm",
+      "to": "bios/msbio1.asm",
+      "symbols": [
+        "bios_flags",
+        "palette_index",
+        "palette_count",
+        "palette_config",
+        "int16_limit",
+        "int16_limit2",
+        "bc_retf",
+        "keyboard_service",
+        "int19_restore",
+        "int15_esc"
+      ]
+    },
+    {
+      "from": "bios/sysinit2.asm",
+      "to": "bios/msdisk.asm",
+      "symbols": [
+        "eot"
+      ]
+    },
+    {
+      "from": "bios/sysinit2.asm",
+      "to": "bios/msint13.asm",
+      "symbols": [
+        "ec35_flag",
+        "hma_init_ptr",
+        "win386_info_flags",
+        "win386_text_length",
+        "win386_text_buffer",
+        "win386_options_path",
+        "win386_info_buffer",
+        "win386_info_table"
+      ]
+    },
+    {
+      "from": "bios/sysinit2.asm",
+      "to": "bios/biostail.asm",
+      "symbols": [
+        "exec_bios_word",
+        "bootlog_device"
+      ]
+    },
+    {
+      "from": "bios/sysinit2.asm",
+      "to": "bios/sysimes.asm",
+      "symbols": [
+        "sysinit_msg_table",
+        "sysinit_msg_base",
+        "sysinit_prompt_index",
+        "sysinit_badld_index",
+        "sysinit_crlf_index",
+        "$pausemsg",
+        "$cleanmsg",
+        "$intermsg",
+        "$menuheader",
+        "$menuprmpt",
+        "$statusline",
+        "$interprmpt",
+        "$yes",
+        "$no",
+        "$timeout",
+        "badopm",
+        "badblock",
+        "badsiz_pre",
+        "badmem",
+        "crlfm",
+        "badld_pre"
+      ]
+    },
+    {
+      "from": "bios/sysinit2.asm",
+      "to": "bios/ststate.asm",
+      "symbols": [
+        "boot_reloc_segment",
+        "bcodeseg",
+        "bios_data_segment",
+        "boot_load_segment",
+        "multi_pass_id",
+        "dos_umb_flag",
+        "new_psp_segment",
+        "boot_mode",
+        "dosinfo",
+        "memory_size",
+        "fcbs",
+        "keep",
+        "default_drive",
+        "confbot",
+        "buffers",
+        "zero",
+        "sepchr",
+        "files",
+        "count",
+        "chrptr",
+        "bufptr",
+        "prmblk",
+        "ldoff",
+        "area",
+        "drivenumber",
+        "com_level",
+        "cmmt",
+        "cmmt1",
+        "cmmt2",
+        "cmd_indicator",
+        "org_count",
+        "memlo",
+        "memhi",
+        "alloclim",
+        "donotshownum",
+        "linecount"
+      ]
+    },
+    {
+      "from": "bios/sysinit2.asm",
+      "to": "bios/sysinit1.asm",
+      "symbols": [
+        "isxmsloaded",
+        "print_indexed",
+        "boot_record_compressed_boot",
+        "allocfreemem",
+        "stall",
+        "config_swap_active",
+        "onoff",
+        "insert_blank",
+        "query_yes",
+        "query_yes_lower",
+        "query_no",
+        "query_no_lower",
+        "query_all_char",
+        "query_all_lower"
+      ]
+    },
+    {
+      "from": "bios/sysinit2.asm",
+      "to": "bios/mblate.asm",
+      "symbols": [
+        "config_buffer_segment",
+        "exec_mode",
+        "exec_option",
+        "exec_value"
+      ]
+    },
+    {
+      "from": "bios/sysinit2.asm",
+      "to": "bios/syspre.asm",
+      "symbols": [
+        "compression_skip",
+        "magicmoveinfo"
+      ]
+    },
+    {
+      "from": "bios/sysinit2.asm",
+      "to": "bios/drivechk.asm",
+      "symbols": [
+        "boot_check_redirected_drive",
+        "boot_check_drive_map"
+      ]
+    },
+    {
+      "from": "bios/sysinit2.asm",
+      "to": "bios/sysconf.asm",
+      "symbols": [
+        "devumb",
+        "stack_high",
+        "multi_pass_config_line",
+        "config_envlen",
+        "config_wrkseg",
+        "config_cmd",
+        "config_multi",
+        "swit_n",
+        "swit_f",
+        "error_line",
+        "multdeviceflag",
+        "getchr",
+        "deventry",
+        "config_record_ptr",
+        "setdevmarkflag"
+      ]
+    },
+    {
+      "from": "bios/sysinit2.asm",
+      "to": "bios/stkinit.asm",
+      "symbols": [
+        "packet",
+        "unitcount",
+        "break_addr",
+        "bpb_addr"
+      ]
+    },
+    {
+      "from": "bios/sysinit2.asm",
+      "to": "bios/si1tail.asm",
+      "symbols": [
+        "pararound"
+      ]
+    },
+    {
+      "from": "bios/sysinit2.asm",
+      "to": "bios/si2front.asm",
+      "symbols": [
+        "int24",
+        "badfil",
+        "organize",
+        "delim",
+        "setdoscountryinfo",
+        "copy_envvar",
+        "display_menu",
+        "print",
+        "query_check_skip",
+        "query_user",
+        "config",
+        "cntry_drv",
+        "pathstring",
+        "boot_config_flags",
+        "boot_runtime_flags",
+        "bqueryopt",
+        "query_mode_flags",
+        "bdefblock",
+        "bmaxblock",
+        "sectimeout",
+        "aoffblockdesc"
+      ]
+    },
+    {
+      "from": "bios/sysinit2.asm",
+      "to": "bios/logocode.asm",
+      "symbols": [
+        "boot_logo_display",
+        "boot_bios_far_call",
+        "query_keyboard_service"
+      ]
+    },
+    {
+      "from": "bios/sysconf.asm",
+      "to": "bios/msbio1.asm",
+      "symbols": [
+        "int16_entry",
+        "int4f_entry",
+        "int16_old",
+        "int4f_old",
+        "bios_flags",
+        "keyrd_func",
+        "keysts_func",
+        "keyboard_vector_install",
+        "keyboard_vector_setup"
+      ]
+    },
+    {
+      "from": "bios/sysconf.asm",
+      "to": "bios/msint13.asm",
+      "symbols": [
+        "i2f_handler",
+        "win386_info_flags"
+      ]
+    },
+    {
+      "from": "bios/sysconf.asm",
+      "to": "bios/ststate.asm",
+      "symbols": [
+        "area",
+        "bios_data_segment",
+        "bcodeseg",
+        "dos_umb_flag",
+        "singlebuffersize",
+        "temp_buffer_segment",
+        "temp_buffer_size",
+        "memory_size",
+        "buffers",
+        "files",
+        "num_cds",
+        "dosinfo",
+        "fcbs",
+        "keep",
+        "confbot",
+        "alloclim",
+        "zero",
+        "sepchr",
+        "count",
+        "chrptr",
+        "cntryfilehandle",
+        "memlo",
+        "memhi",
+        "prmblk",
+        "ldoff",
+        "drivenumber",
+        "sysi_country",
+        "config_size",
+        "install_flag",
+        "linecount",
+        "showcount",
+        "buffer_linenum",
+        "h_buffers",
+        "org_count",
+        "multi_pass_id",
+        "runhigh"
+      ]
+    },
+    {
+      "from": "bios/sysconf.asm",
+      "to": "bios/sysinit1.asm",
+      "symbols": [
+        "magicbackdoor",
+        "print_indexed",
+        "stall",
+        "diddleback",
+        "parseline",
+        "setparms",
+        "isxmsloaded",
+        "trytomovdoshi"
+      ]
+    },
+    {
+      "from": "bios/sysconf.asm",
+      "to": "bios/si2front.asm",
+      "symbols": [
+        "query_mode_flags",
+        "boot_runtime_flags",
+        "condev",
+        "auxdev",
+        "prndev",
+        "config",
+        "cntry_drv",
+        "cntry_root",
+        "cntry_path",
+        "setdoscountryinfo",
+        "set_country_path",
+        "move_asciiz",
+        "delim",
+        "badfil",
+        "print",
+        "organize",
+        "newline",
+        "badload",
+        "calldev",
+        "prnerr",
+        "set_numlock",
+        "query_user",
+        "copy_envvar"
+      ]
+    },
+    {
+      "from": "bios/sysconf.asm",
+      "to": "bios/sysimes.asm",
+      "symbols": [
+        "sysinit_msg_base",
+        "sysinit_msg_table",
+        "badopm",
+        "crlfm",
+        "badmem",
+        "badsiz_pre",
+        "badld_pre",
+        "badstack",
+        "badcountrycom",
+        "badcountry",
+        "insufmemory",
+        "errorcmd",
+        "badparm"
+      ]
+    },
+    {
+      "from": "bios/sysconf.asm",
+      "to": "bios/sysinit2.asm",
+      "symbols": [
+        "boot_emm_name",
+        "commnd",
+        "command_line",
+        "boot_umb_driver_record",
+        "boot_process_driver_record",
+        "newcmd",
+        "aspi2dos_loaded",
+        "aspi2hlp_loaded",
+        "aspi2dos_name",
+        "aspi2hlp_name"
+      ]
+    },
+    {
+      "from": "bios/sysconf.asm",
+      "to": "bios/logocode.asm",
+      "symbols": [
+        "boot_logo_display",
+        "query_bios_call"
+      ]
+    },
+    {
+      "from": "bios/sysconf.asm",
+      "to": "bios/stkinit.asm",
+      "symbols": [
+        "deviceparameters",
+        "packet",
+        "unitcount",
+        "break_addr",
+        "bpb_addr",
+        "devdrivenum",
+        "configmsgflag",
+        "stack_count",
+        "stack_size",
+        "stack_addr"
+      ]
+    },
+    {
+      "from": "bios/sysconf.asm",
+      "to": "bios/si1tail.asm",
+      "symbols": [
+        "pararound",
+        "tempcds",
+        "do_install_exec"
+      ]
+    },
+    {
+      "from": "bios/sysconf.asm",
+      "to": "bios/logpart.asm",
+      "symbols": [
+        "config_log_device",
+        "log_device_result"
+      ]
+    },
+    {
+      "from": "bios/syspre.asm",
+      "to": "bios/sysinit1.asm",
+      "symbols": [
+        "magicbackdoor",
+        "print_indexed",
+        "nullbackdoor"
+      ]
+    },
+    {
+      "from": "bios/syspre.asm",
+      "to": "bios/si2front.asm",
+      "symbols": [
+        "boot_runtime_flags",
+        "query_check_done",
+        "query_mode_flags"
+      ]
+    },
+    {
+      "from": "bios/syspre.asm",
+      "to": "bios/sysconf.asm",
+      "symbols": [
+        "execdev",
+        "devsize",
+        "devsizeoption",
+        "devicehi",
+        "devbreak",
+        "roundbreakaddr",
+        "convload",
+        "deventry",
+        "checkdevicesectorsize",
+        "devloadend",
+        "devbrkaddr",
+        "devcmdline",
+        "config_cmd",
+        "sizedevice",
+        "devloadaddr",
+        "devsetbreak",
+        "initdevload"
+      ]
+    },
+    {
+      "from": "bios/syspre.asm",
+      "to": "bios/si1tail.asm",
+      "symbols": [
+        "tempcds"
+      ]
+    },
+    {
+      "from": "bios/syspre.asm",
+      "to": "bios/ststate.asm",
+      "symbols": [
+        "dosinfo",
+        "alloclim",
+        "drivenumber"
+      ]
+    },
+    {
+      "from": "bios/syspre.asm",
+      "to": "bios/stkinit.asm",
+      "symbols": [
+        "bpb_addr",
+        "unitcount",
+        "break_addr",
+        "devdrivenum",
+        "packet"
+      ]
+    },
+    {
+      "from": "bios/syspre.asm",
+      "to": "bios/sysimes.asm",
+      "symbols": [
+        "sysinit_msg_base",
+        "sysinit_msg_table"
+      ]
+    },
+    {
+      "from": "bios/logocode.asm",
+      "to": "bios/ststate.asm",
+      "symbols": [
+        "boot_reloc_segment",
+        "bcodeseg",
+        "boot_mode",
+        "memhi",
+        "bios_data_segment",
+        "boot_load_segment"
+      ]
+    },
+    {
+      "from": "bios/logocode.asm",
+      "to": "bios/msint13.asm",
+      "symbols": [
+        "hma_init_ptr"
+      ]
+    },
+    {
+      "from": "bios/logocode.asm",
+      "to": "bios/si2front.asm",
+      "symbols": [
+        "boot_runtime_flags",
+        "query_mode_flags",
+        "boot_config_flags"
+      ]
+    },
+    {
+      "from": "bios/logocode.asm",
+      "to": "bios/msbio1.asm",
+      "symbols": [
+        "bc_retf",
+        "palette_index",
+        "palette_count",
+        "palette_config",
+        "int15_esc",
+        "bios_flags",
+        "keyboard_service",
+        "int16_limit",
+        "int16_limit2"
+      ]
+    },
+    {
+      "from": "bios/pathsrc.asm",
+      "to": "bios/sysconf.asm",
+      "symbols": [
+        "config_envlen",
+        "config_wrkseg"
+      ]
+    },
+    {
+      "from": "bios/mblate.asm",
+      "to": "bios/msbio1.asm",
+      "symbols": [
+        "config_flags",
+        "config_count",
+        "config_value",
+        "config_xms"
+      ]
+    },
+    {
+      "from": "bios/mblate.asm",
+      "to": "bios/biostail.asm",
+      "symbols": [
+        "exec_bios_word"
+      ]
+    },
+    {
+      "from": "bios/mblate.asm",
+      "to": "bios/ststate.asm",
+      "symbols": [
+        "alloclim",
+        "bios_data_segment",
+        "exec_boot_state",
+        "memhi",
+        "bcodeseg",
+        "default_drive",
+        "num_cds",
+        "default_num_cds"
+      ]
+    },
+    {
+      "from": "bios/mblate.asm",
+      "to": "bios/sysinit2.asm",
+      "symbols": [
+        "exec_windows_path",
+        "boot_check_windows_path",
+        "boot_previous_status",
+        "boot_winboot_dir",
+        "boot_prepare_paths"
+      ]
+    },
+    {
+      "from": "bios/mblate.asm",
+      "to": "bios/si2front.asm",
+      "symbols": [
+        "boot_config_flags",
+        "bcrtpage",
+        "query_mode_flags",
+        "query_check_skip",
+        "print",
+        "bqueryopt"
+      ]
+    },
+    {
+      "from": "bios/mblate.asm",
+      "to": "bios/syspre.asm",
+      "symbols": [
+        "magicmoveinfo"
+      ]
+    },
+    {
+      "from": "bios/mblate.asm",
+      "to": "bios/sysconf.asm",
+      "symbols": [
+        "config_cmd",
+        "lastdrive_number"
+      ]
+    },
+    {
+      "from": "bios/mblate.asm",
+      "to": "bios/sysimes.asm",
+      "symbols": [
+        "sysinit_msg_base",
+        "sysinit_msg_table"
+      ]
+    }
+  ],
+  "ordering": "Resolve standalone providers and their source includes before the 18-module component. Internal component file progress remains explicit; do not mark its individual files complete on partial byte matches.",
+  "remaining_provider_order": [],
+  "limitation": "Object graph covers linker dependencies only. Source INCLUDE and conditional dependencies remain governed by S2-dependency-frontier.json. Graph must be updated when reconstruction introduces new imports/exports.",
+  "component_topological_order": [
+    [
+      "bios/biosmsg.asm"
+    ],
+    [
+      "bios/drivechk.asm"
+    ],
+    [
+      "bios/logpart.asm"
+    ],
+    [
+      "bios/msend.asm"
+    ],
+    [
+      "bios/ststate.asm"
+    ],
+    [
+      "bios/sysimes.asm"
+    ],
+    [
+      "bios/stkinit.asm",
+      "bios/msbio1.asm",
+      "bios/sysinit1.asm",
+      "bios/si2front.asm",
+      "bios/si1tail.asm",
+      "bios/mschar.asm",
+      "bios/initclk.asm",
+      "bios/msdisk.asm",
+      "bios/msdioctl.asm",
+      "bios/msint13.asm",
+      "bios/msbio2.asm",
+      "bios/msinit.asm",
+      "bios/biostail.asm",
+      "bios/sysinit2.asm",
+      "bios/sysconf.asm",
+      "bios/syspre.asm",
+      "bios/logocode.asm",
+      "bios/mblate.asm"
+    ],
+    [
+      "bios/pathsrc.asm"
+    ]
+  ],
+  "downstream_after_cyclic_component": [
+    "bios/pathsrc.asm"
+  ],
+  "order_correction": "P6: pathsrc imports sysconf config_envlen/config_wrkseg, so it follows the cyclic component. Initial singleton list was not a topological order."
+}

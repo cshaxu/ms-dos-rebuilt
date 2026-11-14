@@ -1,0 +1,19 @@
+{
+  "task":"M6 T20 S2 P44",
+  "sources":[
+    {"file":"bios/msinit.asm","blob":"35b4a292cfe93bdcc15249766cab63b30818381e"},
+    {"file":"bios/sysinit1.asm","blob":"ec8513e51f26a648efbebc67d4dbe4ee7f35a85c"},
+    {"file":"bios/sysinit2.asm","blob":"3634848f22c726fbdd0c54729093117ca5d538ed"}
+  ],
+  "changes":["Expand saved boot sector62 to90 bytes; copy49 words at capture and old-DOS handoff", "Restore existing boot_read_sector with stack DAP and INT13 AH42 for partition types0C/0E", "Use extended saved boot drive at offset40h for both read paths; restore leading bounds/error helper"],
+  "build":"extras/build/cmd-17081-23949/incremental.cmd",
+  "build_exit":0,
+  "build_note":"First run stopped at LINK with FAIL and no captured error. Diagnostic full LINK returned PASS; subsequent formal incremental build, RELOC and packaging passed. No source workaround for unexplained first failure.",
+  "check":"extras/build/cmd-17081-23949/p44check.cmd",
+  "check_exit":0,
+  "reader":{"offset":30947,"length":206,"exact_bytes":180,"excluded_word_offsets":[7,16,25,33,42,49,54,59,67,109,121,147,178],"remaining":"All13 words reference boot_copy_buffer, current48FE versus target4DD2; not whole-reader acceptance"},
+  "copy_exact":{"offset":5061,"length":12},
+  "counts":{"core_modified_this_part":3,"core_modified_total":26,"reviewed_unchanged":39,"new_core_files":0},
+  "pending":"FAT32 root traversal, compressed-driver FAT32 lookup and final saved-buffer placement",
+  "published":false,"full_identity":false
+}

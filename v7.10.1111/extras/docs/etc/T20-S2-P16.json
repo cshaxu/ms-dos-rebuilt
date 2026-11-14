@@ -1,0 +1,60 @@
+{
+  "task": "M6 T20 S2 P16",
+  "reference_policy": "950 baseline and frozen1111 target only",
+  "unit": 38,
+  "file": "inc/buffer.inc",
+  "source_blob_sha1": "6710642bf3350a4c30de1c4425a5895c2426c809",
+  "changes": [
+    "Widen buf_wrtcntinc from WORD to DWORD.",
+    "Retain subsequent950 fields and expand trailing reserved padding to3 bytes to preserve DWORD alignment and target24-byte size.",
+    "Update count/spacing comment; final comment-only edit requires no recompile."
+  ],
+  "dependencies": "No INCLUDE/EXTRN; caller supplies non-emitting BREAK macro.",
+  "layout": {
+    "BUFINSIZ": 24,
+    "buf_wrtcnt": 10,
+    "buf_wrtcntinc": 11,
+    "buf_DPB": 15,
+    "buf_fill": 19,
+    "buf_reserved": 21
+  },
+  "evidence": "950 dos/buf.asm GETBUFFR and BufWrite map to target kernel93AD..9407 and94B1 onward. Target stores DPB pointer at0Fh/11h, DWORD FAT spacing at0Bh, and locates data at18h. FAT metadata store9254 uses data-relative-0Dh for same spacing field. Trailing fields retained from950; their separate consumer behavior not fully verified.",
+  "probe": {
+    "tools": "Inherited original ML/LINK/RELOC through private desktop C runner",
+    "scratch": "extras/build/s2-p16",
+    "spans": [
+      {
+        "target_offset": 113939,
+        "length": 6
+      },
+      {
+        "target_offset": 114005,
+        "length": 4
+      },
+      {
+        "target_offset": 114193,
+        "length": 6
+      },
+      {
+        "target_offset": 114237,
+        "length": 4
+      },
+      {
+        "target_offset": 113588,
+        "length": 4
+      }
+    ],
+    "total_bytes": 24,
+    "result": "FC /B probe.bin target.bin exit0; clean asm.log",
+    "assertions": "BUFINSIZ18h,spacing0Bh,DPB0Fh,fill13h"
+  },
+  "limits": "Not integrated buffering functionality. Original consumers still need32-bit FAT spacing arithmetic and explicit widths as target requires. No binary substitution or new core file.",
+  "counts": {
+    "core_processed": 38,
+    "core_modified": 14,
+    "core_unchanged": 24,
+    "core_unreviewed": 255,
+    "tool_modified": 1,
+    "new_core_files": 0
+  }
+}

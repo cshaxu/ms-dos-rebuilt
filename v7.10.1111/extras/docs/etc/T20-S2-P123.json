@@ -1,0 +1,41 @@
+{
+  "task": "M6 T20 S2 P123",
+  "changes": "Remove target-absent SHARE process-close call and now-unused Installed/JSHARE declarations from abort.asm; existing cleanup retained. dup.asm unchanged and raw-byte identical to950 baseline.",
+  "build_exit": 0,
+  "build": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+  "comparisons": [
+    {
+      "module": "abort",
+      "built_runtime": "7416..7481",
+      "target_runtime": "7AA9..7B14",
+      "bytes": 107,
+      "equal": 105,
+      "remaining": "2 external call bytes at0F/45 ($close/SFFromSFN)"
+    },
+    {
+      "module": "dup",
+      "built_runtime": "6D3A..6D50",
+      "target_runtime": "73CD..73E3",
+      "bytes": 22,
+      "equal": 21,
+      "remaining": "1 IsSFTNet call byte at0B"
+    }
+  ],
+  "evidence": "extras/build/cmd-17081-23949/p123: complete IO.SYS, map, kernel log, spans and FC logs",
+  "hash_note": "Use git hash-object --no-filters for raw blob hashes. P120-P122 sources fields used filtered hashes; current ledger corrected for search/path/ioctl/makefile. This is a metadata correction, no source changes or rebuild needed.",
+  "sources": {
+    "dos/abort.asm": "99bc55583248a0cdc32ac045630e01915498c7a1",
+    "dos/dup.asm": "bfd39da0f1cb2f8ac74d02cbed893a6d0867206e"
+  },
+  "counts": {
+    "modified_this_part": 1,
+    "unchanged_reviewed_this_part": 1,
+    "modified_total": 70,
+    "baseline_identical": 223,
+    "reviewed_modified": 26,
+    "reviewed_unchanged": 39,
+    "in_progress": 44
+  },
+  "full_identity": false,
+  "published": false
+}

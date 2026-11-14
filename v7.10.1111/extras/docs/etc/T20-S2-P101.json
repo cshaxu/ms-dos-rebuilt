@@ -1,0 +1,14 @@
+{
+  "task": "M6 T20 S2 P101",
+  "changes": "Restore ROOTPATH/FINDPATH in existing dir2.asm: root buffer sentinel, DWORD CDS currency, directory-entry high cluster with legacy FAT clearing, DWORD buffer-sector stack preservation. Remove target-absent FastOpen shortcuts and insert/lookup calls from path traversal. Reuse restored dir.asm, diskio and buffer interfaces.",
+  "sources": {"dos/dir2.asm": "11dcc3554e3adca4ac17e20ae7564526156450c0"},
+  "build": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+  "build_exit": 0,
+  "comparison": {"scope": "Contiguous dir2 prefix: GetPath, ChkDev, ROOTPATH/FINDPATH, StartSrch and MatchAttributes", "built_runtime": "7EC3..8135 exclusive", "target_runtime": "87A5..8A17 exclusive", "built_offset": 92419, "target_offset": 94693, "bytes": 626, "equal_bytes": 619, "different_bytes": 7, "remaining": "Five external call words: GETLET, PATHCHRCMP (two sites), GETBUFFR and SET_BUF_AS_DIR. Three words differ by one byte and two by two bytes. Internal path branches and restored directory-provider calls match."},
+  "evidence": "extras/build/cmd-17081-23949/p101 contains whole comparison spans and FC /B log, final linked IO.SYS, MSDOS.MAP, kernel.log. Supersedes overlapping210-byte P100 prefix, not additive coverage.",
+  "reference_sweep": "rg in dos/*.asm finds LookupPath and InsertPath only at their definitions/documentation after removal of path calls. Their bodies remain pending module-tail verification and cleanup; no blanket FastOpen data deletion.",
+  "counts": {"core_modified_this_part": 1, "unchanged_files_newly_accepted": 0, "core_modified_total": 50, "core_identical_to_baseline": 243, "reviewed_modified": 26, "reviewed_unchanged": 38, "reviewed_total": 64, "in_progress": 24, "new_core_files": 0},
+  "next": "Continue remaining dir2 device/CDS tail; ValidateCDS depends on DOS_ChDir and FatRead_CDS caller/callee interfaces, verify dependencies before adaptation. Skip626-byte prefix. Remove unused FastOpen helpers only with full target-tail evidence. Shared-data layout and all-three identity remain open.",
+  "full_identity": false,
+  "published": false
+}

@@ -1,0 +1,25 @@
+{
+  "task": "M6 T20 S2 P88",
+  "changes": "Restore FAT32 active-FAT selection, mirror count/32-bit stride, and full-sector BufWrite carry propagation together in existing buf.asm. Use original ML recipe for the module, preserving 16-bit segments and scoped 386 instructions.",
+  "sources": {"dos/buf.asm": "da379f918267ed18e1fadae1a4bfac1f81c895e5", "dos/makefile": "7b4f3f0c5a19fdb57ab7a50bf5d659d350d63319"},
+  "build": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+  "build_exit": 0,
+  "diagnostics": "ML emits existing empty/debug macro argument warnings; LINK reports no stack/start address for this system image. No assembly/link errors. Full kernel linked, packaged IO size230316, configuration183808.",
+  "comparison": {
+    "scope": "Entire buf.asm output, GETCURHEAD through DEC_DIRTY_COUNT, before lockio",
+    "built_runtime": "C3D2..C6CD exclusive",
+    "target_runtime": "D18A..D485 exclusive",
+    "built_file_offset": 110098,
+    "target_file_offset": 113610,
+    "bytes": 763,
+    "equal_bytes": 745,
+    "different_bytes": 18,
+    "remaining_operands": {"FIRST_BUFF_ADDR": [8,197,485], "FATSECRD": [274], "DREAD": [281], "SC_DRIVE": [581,739], "DWRITE": [682], "SC_SECTOR_SIZE": [731]},
+    "interpretation": "Nine external address words account for all18 differing bytes. Internal branches, calls, instruction encodings and module length match. These external bindings and whole-image placement remain unresolved. No bytes masked or patched."
+  },
+  "evidence": "extras/build/cmd-17081-23949/p88 retains IO.SYS, MSDOS.MAP, kernel.log, extracted whole-module binaries and buf-diff.log. Use s2-p1/span.exe with recorded offsets/length then FC /B to reproduce.",
+  "counts": {"core_modified_this_part": 2, "core_modified_total": 44, "core_identical_to_baseline": 249, "reviewed_modified": 26, "reviewed_unchanged": 38, "reviewed_total": 64, "in_progress": 18, "new_core_files": 0},
+  "next": "Restore FATSECRD/DREAD/DWRITE provider dependencies from linked binary differences; skip matching buf and fat instruction bodies.",
+  "full_identity": false,
+  "published": false
+}

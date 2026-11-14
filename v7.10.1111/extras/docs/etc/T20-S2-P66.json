@@ -1,0 +1,16 @@
+{
+  "task": "M6 T20 S2 P66",
+  "source": "bios/msinit.asm",
+  "source_blob": "8e759430ef7cecbde43fb175f76d66c82dd13522",
+  "changes": "Restore NOP alignment byte before BPB table; linked target offset4039 was the sole differing byte in the loader/resident BIOS comparison",
+  "build": "extras/build/cmd-17081-23949/incremental.cmd",
+  "build_exit": 0,
+  "check": "extras/build/cmd-17081-23949/p66check.cmd",
+  "check_exit": 0,
+  "region": {"built_offset":512,"target_offset":512,"exact_bytes":75616,"excluded_bytes":0},
+  "coverage": "Entire loader and BIOS region through kernel start76128, including initialization/messages/reserve. Supersedes earlier overlapping proofs. Does not include outer MZ header or kernel/configuration program.",
+  "counts": {"core_modified_this_part":1,"core_modified_total":31,"reviewed_modified":25,"reviewed_unchanged":39,"reviewed_total":64,"new_core_files":0},
+  "next": "Kernel at76128 and configuration executable remain different; skip complete matching loader/BIOS region",
+  "full_identity":false,
+  "published":false
+}

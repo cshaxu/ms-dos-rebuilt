@@ -1,0 +1,16 @@
+{
+  "task": "M6 T20 S2 P159",
+  "previous_turn": "progress: pending production string group verified against linked image and execution rules updated",
+  "changes": ["Restore the complete data-cache allocation, indexing, header validation, loading/pinning, unlocking and record-fetch dependency chain in existing bios/regread.asm."],
+  "source_blob_sha1": {"bios/regread.asm": "06b29d801b67990cd01d53b07292afe51e9df5b3"},
+  "build": {"command": "extras/build/cmd-17188-26244/regread-build.cmd", "exit": 0, "io_bytes": 239732, "configuration_bytes": 52340, "diagnostics": "Seven pre-existing A4057 warnings in legacy section; missing RegZeroMemory declaration corrected before successful build."},
+  "proof": {
+    "procedures": 6, "bytes": 698, "exact_bytes": 668, "verified_call_operand_bytes": 30,
+    "target_entries": ["014E:4094", "014E:412A", "014E:4B56", "014E:41D8", "014E:42AA", "014E:42EE"],
+    "method": "Compare every complete procedure from full linked IO image. Resolve built addresses from config.map; verify all fifteen E8 call opcodes and both target/built destinations before excluding their operand bytes. All other bytes compare literally.",
+    "directory": "extras/build/cmd-17188-26244", "verifier": "datachaincheck.c", "log": "datachain.compare.log", "exit": 0
+  },
+  "counts": {"modified_this_part": 1, "unchanged_complete_files_newly_certified": 0, "new_source_files": 0, "modified_total": 90, "baseline_identical": 203},
+  "remaining": "Key-cache read and record allocation chain, data allocation/compaction, file initialization, root-path/public consumers and legacy removal. This group provides target42EE data retrieval and42AA release to root-path opening; does not complete root-path opening. IO size remains inflated by staged legacy implementations. COMMAND and final three-output identity remain open.",
+  "full_identity": false, "published": false
+}

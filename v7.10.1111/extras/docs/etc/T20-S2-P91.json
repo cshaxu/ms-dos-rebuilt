@@ -1,0 +1,13 @@
+{
+  "task": "M6 T20 S2 P91",
+  "sources": {"dos/rom.asm": "ddfbfce47550fcbc8c6d8ec7468984d868c68e91"},
+  "changes": "Restore RELEASE/RELBLKS high-word propagation, FAT16/32 free-count update and DPB dirty flag. Restore GETEOF high-word preservation and32-bit traversed-cluster count, documenting its output contract. Existing UNPACK/PACK/IsEOF and shared high-word providers are reused.",
+  "build": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+  "build_exit": 0,
+  "comparison": {"scope": "Complete contiguous RELEASE/RELBLKS/GETEOF through end of rom.asm", "built_runtime": "BD53..BDFF exclusive", "target_runtime": "CA10..CABC exclusive", "built_offset": 108435, "target_offset": 111696, "bytes": 172, "equal_bytes": 170, "different_bytes": 2, "remaining": "DeferredFlush near-call operand at relative66..67; all other bytes and internal layout match, including calls into following FAT module"},
+  "evidence": "extras/build/cmd-17081-23949/p91 retains IO.SYS, MSDOS.MAP, kernel.log, whole-tail binaries and FC /B log. Reproduce with s2-p1/span.exe at recorded offsets/length. Final comment-only interface documentation change followed the build and does not change instructions.",
+  "next": "Remaining rom.asm cluster allocation and file-I/O helpers. Skip proved FIGREC and release/end-of-chain bodies; DeferredFlush binding stays open.",
+  "counts": {"core_modified_this_part": 1, "core_modified_total": 46, "core_identical_to_baseline": 247, "reviewed_modified": 26, "reviewed_unchanged": 38, "reviewed_total": 64, "in_progress": 20, "new_core_files": 0},
+  "full_identity": false,
+  "published": false
+}

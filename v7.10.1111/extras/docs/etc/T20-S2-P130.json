@@ -1,0 +1,42 @@
+{
+  "task": "M6 T20 S2 P130",
+  "changes": [
+    "Skip baseline-identical macro2 whole module.",
+    "Replace obsolete SHARE SFT-collapse call with target CLC; remove unused declaration and obsolete comment in file.asm."
+  ],
+  "source_blob_sha1": "74915f2a5a13a6529f600579a7510cb5aaa5ef2d",
+  "build": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+  "build_exit": 0,
+  "comparisons": [
+    {
+      "module": "macro2.asm",
+      "built": "A63E..AA35",
+      "target": "ACD1..B0C8",
+      "bytes": 1015,
+      "equal": 991,
+      "different": 24
+    },
+    {
+      "module": "file.asm",
+      "built": "AA35..ADFD",
+      "target": "B0C8..B490",
+      "bytes": 968,
+      "equal": 928,
+      "different": 40
+    }
+  ],
+  "remaining": "All listed differing bytes are external code addresses (calls, jumps, DOS_Open/DOS_Create/DOS_Create_New procedure pointers); final linked binding equality still required.",
+  "evidence": "extras/build/cmd-17081-23949/p130: spans, disassembly, FC logs, full IO.SYS and map",
+  "counts": {
+    "modified_this_part": 1,
+    "unchanged_reviewed_this_part": 1,
+    "new_source_files": 0,
+    "modified_total": 75,
+    "baseline_identical": 218,
+    "reviewed_modified": 26,
+    "reviewed_unchanged": 42,
+    "in_progress": 49
+  },
+  "full_identity": false,
+  "published": false
+}

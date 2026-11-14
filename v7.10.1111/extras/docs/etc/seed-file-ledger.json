@@ -1,0 +1,3592 @@
+{
+  "task": "M6 T20 S1",
+  "baseline": "O:/repos.hobby/ms-dos-rebuilt/v7.00.950",
+  "root": "O:/repos.hobby/ms-dos-rebuilt/v7.10.1111",
+  "hash_format": "Git blob SHA1 with --no-filters: includes Git blob header; raw input bytes, no CRLF conversion.",
+  "order_note": "Stable inventory IDs, NOT execution order. S2 derives dependency-first order before source modifications.",
+  "counts": {
+    "core_files": 293,
+    "core_modified_from_baseline": 93,
+    "core_identical_to_baseline": 200,
+    "core_verified_for_1111": 1,
+    "tools": 25,
+    "resources": 3,
+    "core_locally_verified_pending_integration": 48,
+    "tools_modified_from_baseline": 1,
+    "tools_identical_to_baseline": 24,
+    "core_reviewed_unchanged": 46,
+    "core_definition_reviewed_pending_consumer_validation": 23,
+    "core_restoration_in_progress": 68
+  },
+  "files": [
+    {
+      "id": 1,
+      "path": "bios/apmequ.inc",
+      "role": "core",
+      "baseline_blob_sha1": "bd30507569269c779bea3124347f79a3565ddc48",
+      "current_blob_sha1": "bd30507569269c779bea3124347f79a3565ddc48",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 2,
+      "path": "bios/biosmsg.asm",
+      "role": "core",
+      "baseline_blob_sha1": "de1122be6f184c67392046d0f67cb4411b87e742",
+      "current_blob_sha1": "f254d32e9a301fc375adc6114236f7083d48a642",
+      "baseline_equal": false,
+      "target_status": "message-resource-exact-integration-pending",
+      "dependencies": [
+        "lang/usa/messages/biosmsg.inc"
+      ],
+      "evidence": "T20-S2-P5.json"
+    },
+    {
+      "id": 3,
+      "path": "bios/biosseg.inc",
+      "role": "core",
+      "baseline_blob_sha1": "a480b3efb0cb3832a8d73a46b271e6f4476dd352",
+      "current_blob_sha1": "a480b3efb0cb3832a8d73a46b271e6f4476dd352",
+      "baseline_equal": true,
+      "target_status": "unchanged-header-message-use-verified-integration-pending",
+      "dependencies": [],
+      "evidence": "T20-S2-P8.json"
+    },
+    {
+      "id": 4,
+      "path": "bios/biostail.asm",
+      "role": "core",
+      "baseline_blob_sha1": "42a40ca5cdc3ef12603d86eb2a19fc90a2fc38f1",
+      "current_blob_sha1": "42a40ca5cdc3ef12603d86eb2a19fc90a2fc38f1",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 5,
+      "path": "bios/biostruc.inc",
+      "role": "core",
+      "baseline_blob_sha1": "e0e2d054fa79b55990fa1e1d8be7a9937759141e",
+      "current_blob_sha1": "e0e2d054fa79b55990fa1e1d8be7a9937759141e",
+      "baseline_equal": true,
+      "target_status": "unchanged-dos6-definition-reviewed-consumer-validation-pending",
+      "dependencies": [],
+      "evidence": "T20-S2-P9.json"
+    },
+    {
+      "id": 6,
+      "path": "bios/cfgdata.asm",
+      "role": "core",
+      "baseline_blob_sha1": "db514bdbf61148ccb1ed05d1db888013df3d585d",
+      "current_blob_sha1": "db514bdbf61148ccb1ed05d1db888013df3d585d",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 7,
+      "path": "bios/cfginit.asm",
+      "role": "core",
+      "baseline_blob_sha1": "0c4ea107916c947cbb3702882922693102fdb8da",
+      "current_blob_sha1": "0c4ea107916c947cbb3702882922693102fdb8da",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 8,
+      "path": "bios/cfgioctl.asm",
+      "role": "core",
+      "baseline_blob_sha1": "91c77c9ff45c394bbc62391fa51bcb829fd884e0",
+      "current_blob_sha1": "91c77c9ff45c394bbc62391fa51bcb829fd884e0",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 9,
+      "path": "bios/cfgline.asm",
+      "role": "core",
+      "baseline_blob_sha1": "a526f168ae12624d123aa466c0192a3372a7b276",
+      "current_blob_sha1": "a526f168ae12624d123aa466c0192a3372a7b276",
+      "baseline_equal": true,
+      "target_status": "in-progress-baseline-identical-target-query-bound",
+      "dependencies": ["bios/regfind.asm:RegQueryValueEx"],
+      "evidence": "T20-S2-P184.json; T20-S2-P185.json"
+    },
+    {
+      "id": 10,
+      "path": "bios/cfgmain.asm",
+      "role": "core",
+      "baseline_blob_sha1": "a25bd75e772b036694921be29cb446354d4e59e5",
+      "current_blob_sha1": "d3c33dd4985da71a1c8f5b510e93d56edba6b3a3",
+      "baseline_equal": false,
+      "target_status": "in-progress-target-registry-lifecycle-bound",
+      "dependencies": ["bios/regread.asm:RegInitializeTarget/RegTerminateTarget", "bios/regfind.asm:RegMountRootTarget and target key APIs"],
+      "evidence": "T20-S2-P178.json"
+    },
+    {
+      "id": 11,
+      "path": "bios/cfgmatch.asm",
+      "role": "core",
+      "baseline_blob_sha1": "b71bba726d1ad1e36d3da97fb0c445ff32ef6c4e",
+      "current_blob_sha1": "b71bba726d1ad1e36d3da97fb0c445ff32ef6c4e",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 12,
+      "path": "bios/cfgmem.asm",
+      "role": "core",
+      "baseline_blob_sha1": "6caf1cb54e737744816c9b932d19c4e0af15cedb",
+      "current_blob_sha1": "6caf1cb54e737744816c9b932d19c4e0af15cedb",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null,
+      "evidence": "T20-S2-P146.json: target-used bodies exact, file-wide removal of extra baseline routines waits for registry consumers; NOT a complete-file certification."
+    },
+    {
+      "id": 13,
+      "path": "bios/cfgmenu.asm",
+      "role": "core",
+      "baseline_blob_sha1": "609c7f95115157f1fd6c053ad3145f1669f48fcd",
+      "current_blob_sha1": "38e73a4639ccef294040f71f5023d57aaea55f87",
+      "baseline_equal": false,
+      "target_status": "in-progress-target-key-API-bindings",
+      "dependencies": ["bios/regfind.asm:target key APIs"],
+      "evidence": "T20-S2-P178.json"
+    },
+    {
+      "id": 14,
+      "path": "bios/cfgmsg.asm",
+      "role": "core",
+      "baseline_blob_sha1": "7d9ded36661127b3f706f8805590dba9809fc8ce",
+      "current_blob_sha1": "7d9ded36661127b3f706f8805590dba9809fc8ce",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 15,
+      "path": "bios/cfgpub.asm",
+      "role": "core",
+      "baseline_blob_sha1": "c8b4bca2f5955191efc0c5cba87ff31301b84759",
+      "current_blob_sha1": "c8b4bca2f5955191efc0c5cba87ff31301b84759",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 16,
+      "path": "bios/cfgseg.asm",
+      "role": "core",
+      "baseline_blob_sha1": "07e0535584bf460f6f37401a6bfb87dfc94d3f55",
+      "current_blob_sha1": "07e0535584bf460f6f37401a6bfb87dfc94d3f55",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 17,
+      "path": "bios/cfgzero.asm",
+      "role": "core",
+      "baseline_blob_sha1": "6858c99db1d2fcf19c472ae8fe7a50c57b384367",
+      "current_blob_sha1": "6858c99db1d2fcf19c472ae8fe7a50c57b384367",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 18,
+      "path": "bios/config.inc",
+      "role": "core",
+      "baseline_blob_sha1": "5c80c348be102bf654c8ab33f6e3cc4b3f41b184",
+      "current_blob_sha1": "5c80c348be102bf654c8ab33f6e3cc4b3f41b184",
+      "baseline_equal": true,
+      "target_status": "unchanged-950-config-table-verified-consumer-integration-pending",
+      "dependencies": [],
+      "evidence": "T20-S2-P14.json"
+    },
+    {
+      "id": 19,
+      "path": "bios/config.lnk",
+      "role": "core",
+      "baseline_blob_sha1": "c0aba879fd26ae671b7cbe7ee649425643ef087e",
+      "current_blob_sha1": "7b3a8ab53f68eeb3b7411831248dccaa7582beb7",
+      "baseline_equal": false,
+      "target_status": "in-progress-legacy-query-wrapper-unlinked",
+      "dependencies": ["inherited CRT m0393.obj", "inherited CRT m0405.obj"],
+      "evidence": "T20-S2-P148.json; T20-S2-P179.json: obsolete rqvalue wrapper unlinked after callers migrated. Source and compile recipe retained pending file-level consolidation."
+    },
+    {
+      "id": 20,
+      "path": "bios/config.mak",
+      "role": "core",
+      "baseline_blob_sha1": "5acd473e5508be8bda96342e6fc45d90e9fffd22",
+      "current_blob_sha1": "3663143126fc992163c566994912f81c7fb5756e",
+      "baseline_equal": false,
+      "target_status": "in-progress-legacy-query-wrapper-build-removed",
+      "dependencies": [],
+      "evidence": "T20-S2-P180.json"
+    },
+    {
+      "id": 21,
+      "path": "bios/configio.asm",
+      "role": "core",
+      "baseline_blob_sha1": "56d1842553efe1c3cff47cfcd2963501fe465c8e",
+      "current_blob_sha1": "08173ff34e22b8dc76d289883881c03b898cc0b8",
+      "baseline_equal": false,
+      "target_status": "in-progress-near-registry-DOS-group-exact-consumers-pending",
+      "dependencies": ["DOS INT 21h", "internal RegDosAlloc/RegMoveMemory/RegDosFree"],
+      "evidence": "T20-S2-P149.json: 16 NEAR entries,557 bytes exact after whole config link. Existing FAR bodies from P146 retained; remove obsolete FAR services only after old registry consumers are replaced."
+    },
+    {
+      "id": 22,
+      "path": "bios/cpath.asm",
+      "role": "core",
+      "baseline_blob_sha1": "efcf2e3a01dcf0d06f84ee603e93849a1551fe80",
+      "current_blob_sha1": "544244ebf31cc707acab1e9c092ab95506cca8fc",
+      "baseline_equal": false,
+      "target_status": "restoration-in-progress-body-verified-external-bindings-pending",
+      "dependencies": [
+        "ConfigOpen/Close/Read/WriteAll/Create/Alloc/Free bodies exact; final REGIO layout pending"
+      ],
+      "evidence": "T20-S2-P146.json"
+    },
+    {
+      "id": 23,
+      "path": "bios/crtclose.asm",
+      "role": "core",
+      "baseline_blob_sha1": "6081dafaae124b2b215af2232d86b0191ab8eab3",
+      "current_blob_sha1": "6081dafaae124b2b215af2232d86b0191ab8eab3",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 24,
+      "path": "bios/crtcmp.asm",
+      "role": "core",
+      "baseline_blob_sha1": "a51486dac6a7d897ef84679cda9d6453c2668d84",
+      "current_blob_sha1": "a51486dac6a7d897ef84679cda9d6453c2668d84",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 25,
+      "path": "bios/crtcomit.asm",
+      "role": "core",
+      "baseline_blob_sha1": "91011334bd9b1a0b88381cf6a073780f0dbdc413",
+      "current_blob_sha1": "91011334bd9b1a0b88381cf6a073780f0dbdc413",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 26,
+      "path": "bios/crtend.asm",
+      "role": "core",
+      "baseline_blob_sha1": "cbd0fb08b65bdf826a7130f9d7fd990daa48898f",
+      "current_blob_sha1": "cbd0fb08b65bdf826a7130f9d7fd990daa48898f",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 27,
+      "path": "bios/crtflush.asm",
+      "role": "core",
+      "baseline_blob_sha1": "1ee54fa981e8e5053ec4e781d05d124d3d90841b",
+      "current_blob_sha1": "1ee54fa981e8e5053ec4e781d05d124d3d90841b",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 28,
+      "path": "bios/crtpaths.asm",
+      "role": "core",
+      "baseline_blob_sha1": "7e776e37f5367ca7555d26165a307ecb640f217b",
+      "current_blob_sha1": "7e776e37f5367ca7555d26165a307ecb640f217b",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 29,
+      "path": "bios/crtprint.asm",
+      "role": "core",
+      "baseline_blob_sha1": "25bb5b28066be85ce38655f47901025b81f76802",
+      "current_blob_sha1": "25bb5b28066be85ce38655f47901025b81f76802",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 30,
+      "path": "bios/crtread.asm",
+      "role": "core",
+      "baseline_blob_sha1": "20aac739289bed40e8ea0a0442de138556af5c68",
+      "current_blob_sha1": "20aac739289bed40e8ea0a0442de138556af5c68",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 31,
+      "path": "bios/devmark.inc",
+      "role": "core",
+      "baseline_blob_sha1": "62e7fbf9a652d4ca23a0b78294a01e910e9bf005",
+      "current_blob_sha1": "62e7fbf9a652d4ca23a0b78294a01e910e9bf005",
+      "baseline_equal": true,
+      "target_status": "unchanged-dos6-definition-reviewed-consumer-validation-pending",
+      "dependencies": [],
+      "evidence": "T20-S2-P12.json"
+    },
+    {
+      "id": 32,
+      "path": "bios/drivechk.asm",
+      "role": "core",
+      "baseline_blob_sha1": "a0b030a707e2075ca049d5bac5500724d05d3a21",
+      "current_blob_sha1": "a0b030a707e2075ca049d5bac5500724d05d3a21",
+      "baseline_equal": true,
+      "target_status": "unchanged-complete-module-relocations-verified",
+      "dependencies": [],
+      "evidence": "T20-S2-P6.json"
+    },
+    {
+      "id": 33,
+      "path": "bios/inc.asm",
+      "role": "core",
+      "baseline_blob_sha1": "dd73863f7aec01a28202b85e59f6725f37bd3ee7",
+      "current_blob_sha1": "dd73863f7aec01a28202b85e59f6725f37bd3ee7",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 34,
+      "path": "bios/initclk.asm",
+      "role": "core",
+      "baseline_blob_sha1": "c1a6d58cde3862aaf53a349f311929ccf23ec659",
+      "current_blob_sha1": "3fe80e9667c43bd8ae5a97c4377de4b649f8f814",
+      "baseline_equal": false,
+      "target_status": "modified-complete620-byte-linked-module-exact-integration-pending",
+      "dependencies": [
+        "S2-bios-link-components.json: existing 18-module BIOS SCC"
+      ],
+      "evidence": "T20-S2-P32.json"
+    },
+    {
+      "id": 35,
+      "path": "bios/logocode.asm",
+      "role": "core",
+      "baseline_blob_sha1": "f6ce0e53d876fe338d37a04390a1570b38530548",
+      "current_blob_sha1": "f6ce0e53d876fe338d37a04390a1570b38530548",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 36,
+      "path": "bios/logpart.asm",
+      "role": "core",
+      "baseline_blob_sha1": "81080596e170bd3d1d5765233d2965e7a2715673",
+      "current_blob_sha1": "81080596e170bd3d1d5765233d2965e7a2715673",
+      "baseline_equal": true,
+      "target_status": "unchanged-complete-module-relocations-verified",
+      "dependencies": [],
+      "evidence": "T20-S2-P6.json"
+    },
+    {
+      "id": 37,
+      "path": "bios/makefile",
+      "role": "core",
+      "baseline_blob_sha1": "09d8d3e3f81e7f7bc782ab440bad00f47c6cddc8",
+      "current_blob_sha1": "e820b8f4998d3abc21c328af0e6369baab4f094a",
+      "baseline_equal": false,
+      "target_status": "modified-original-ml-recipe-build-verified-final-integration-pending",
+      "dependencies": [
+        "bios/msbio2.asm",
+        "bios/sysinit1.asm",
+        "bios/si1tail.asm",
+        "inc/msbds.inc"
+      ],
+      "evidence": "T20-S2-P39.json; T20-S2-P41.json; T20-S2-P50.json"
+    },
+    {
+      "id": 38,
+      "path": "bios/mblate.asm",
+      "role": "core",
+      "baseline_blob_sha1": "548e209c3176c3e2332bdd968ce297b97c0f8416",
+      "current_blob_sha1": "08c046eb6285fff7673f9490927f00d126bf1282",
+      "baseline_equal": false,
+      "target_status": "restoration-in-progress-system-exec-fat32",
+      "dependencies": [
+        "S2-bios-link-components.json: existing BIOS SCC",
+        "bios/msdioctl.asm: Allow_Fat32_Bpb"
+      ],
+      "evidence": "T20-S2-P61.json"
+    },
+    {
+      "id": 39,
+      "path": "bios/mrcf.inc",
+      "role": "core",
+      "baseline_blob_sha1": "e085dee432bf7071bd43c59de21442469a3f39ac",
+      "current_blob_sha1": "e085dee432bf7071bd43c59de21442469a3f39ac",
+      "baseline_equal": true,
+      "target_status": "unchanged-950-bios-context-locally-verified-integration-pending",
+      "dependencies": [],
+      "evidence": "T20-S2-P19.json"
+    },
+    {
+      "id": 40,
+      "path": "bios/msbio.lnk",
+      "role": "core",
+      "baseline_blob_sha1": "990c359b44dabfc6a77b8bd9ef949793d5135619",
+      "current_blob_sha1": "990c359b44dabfc6a77b8bd9ef949793d5135619",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 41,
+      "path": "bios/msbio.skl",
+      "role": "core",
+      "baseline_blob_sha1": "7b2473e164c4051d857616e073b4ddc441e57eab",
+      "current_blob_sha1": "7b2473e164c4051d857616e073b4ddc441e57eab",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 42,
+      "path": "bios/msbio1.asm",
+      "role": "core",
+      "baseline_blob_sha1": "b7e510400ef8e67319d3c20dc766ff2b62e47f08",
+      "current_blob_sha1": "5e5c3aad1e5ec6f6c0c8a5f352adc978ba814bf4",
+      "baseline_equal": false,
+      "target_status": "modified-all-emitted-nonrelocation-spans-exact-relocation-validation-pending",
+      "dependencies": null,
+      "evidence": "T20-S2-P23.json"
+    },
+    {
+      "id": 43,
+      "path": "bios/msbio2.asm",
+      "role": "core",
+      "baseline_blob_sha1": "6e5e2f7dff24cb7b49d536386297578901fc69f6",
+      "current_blob_sha1": "7418d1bbf79da9d741a88198d2d59f9001b9461b",
+      "baseline_equal": false,
+      "target_status": "restoration-in-progress-fat32-media-detection-and-volume-chain-exact",
+      "dependencies": [
+        "S2-bios-link-components.json: existing 18-module BIOS SCC"
+      ],
+      "evidence": "T20-S2-P38.json; T20-S2-P39.json"
+    },
+    {
+      "id": 44,
+      "path": "bios/mschar.asm",
+      "role": "core",
+      "baseline_blob_sha1": "d45e321776178626ba541d991f205ecc2906961a",
+      "current_blob_sha1": "d45e321776178626ba541d991f205ecc2906961a",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 45,
+      "path": "bios/msdioctl.asm",
+      "role": "core",
+      "baseline_blob_sha1": "a2906e1b62134912707dfeb0a2036b149e7ad8c1",
+      "current_blob_sha1": "629afe9449068407b4daf329f8e7315f2064072c",
+      "baseline_equal": false,
+      "target_status": "modified-complete-linked-module-exact-final-integration-pending",
+      "dependencies": [
+        "S2-bios-link-components.json: existing 18-module BIOS SCC"
+      ],
+      "evidence": "T20-S2-P35.json; T20-S2-P36.json; T20-S2-P37.json; T20-S2-P38.json"
+    },
+    {
+      "id": 46,
+      "path": "bios/msdisk.asm",
+      "role": "core",
+      "baseline_blob_sha1": "97b1b047b0aac1e59de738e8fb24fee09ce453ee",
+      "current_blob_sha1": "f406ddb9ae3c5887dd403846d95e4fb6d8e51cea",
+      "baseline_equal": false,
+      "target_status": "modified-complete-linked-module-exact-final-integration-pending",
+      "dependencies": [
+        "S2-bios-link-components.json: existing 18-module BIOS SCC"
+      ],
+      "evidence": "T20-S2-P33.json; T20-S2-P34.json; T20-S2-P40.json"
+    },
+    {
+      "id": 47,
+      "path": "bios/msdskpr.inc",
+      "role": "core",
+      "baseline_blob_sha1": "e722b45ec480b3b54fba1fa628059997e11eca97",
+      "current_blob_sha1": "e722b45ec480b3b54fba1fa628059997e11eca97",
+      "baseline_equal": true,
+      "target_status": "unchanged-dos6-definition-reviewed-consumer-validation-pending",
+      "dependencies": [],
+      "evidence": "T20-S2-P9.json"
+    },
+    {
+      "id": 48,
+      "path": "bios/msend.asm",
+      "role": "core",
+      "baseline_blob_sha1": "3d6c9838b374c4cb28a42b43f850dc5096acdc29",
+      "current_blob_sha1": "3d6c9838b374c4cb28a42b43f850dc5096acdc29",
+      "baseline_equal": true,
+      "target_status": "unchanged-nonemitting-segment-definitions-integration-pending",
+      "dependencies": [],
+      "evidence": "T20-S2-P6.json"
+    },
+    {
+      "id": 49,
+      "path": "bios/msequ.inc",
+      "role": "core",
+      "baseline_blob_sha1": "f7053c4e0f224fe9d85afe507f843c98aee81254",
+      "current_blob_sha1": "f7053c4e0f224fe9d85afe507f843c98aee81254",
+      "baseline_equal": true,
+      "target_status": "unchanged-dos6-definition-selected-use-verified-integration-pending",
+      "dependencies": [],
+      "evidence": "T20-S2-P9.json"
+    },
+    {
+      "id": 50,
+      "path": "bios/msgroup.inc",
+      "role": "core",
+      "baseline_blob_sha1": "c000d0f82c4701f9a2b266e494f05f9ef6494711",
+      "current_blob_sha1": "c000d0f82c4701f9a2b266e494f05f9ef6494711",
+      "baseline_equal": true,
+      "target_status": "unchanged-950-definition-reviewed-consumer-validation-pending",
+      "dependencies": [
+        "bios/biosseg.inc"
+      ],
+      "evidence": "T20-S2-P17.json"
+    },
+    {
+      "id": 51,
+      "path": "bios/msinit.asm",
+      "role": "core",
+      "baseline_blob_sha1": "b48a2f12cdad225eb794c8270946bc608eb3668d",
+      "current_blob_sha1": "8e759430ef7cecbde43fb175f76d66c82dd13522",
+      "baseline_equal": false,
+      "target_status": "locally-verified-exact-pending-integration",
+      "dependencies": [
+        "S2-bios-link-components.json: existing 18-module BIOS SCC"
+      ],
+      "evidence": "T20-S2-P25.json; T20-S2-P26.json; T20-S2-P27.json; T20-S2-P28.json; T20-S2-P29.json; T20-S2-P30.json; T20-S2-P31.json; T20-S2-P66.json"
+    },
+    {
+      "id": 52,
+      "path": "bios/msint13.asm",
+      "role": "core",
+      "baseline_blob_sha1": "e8b2af2e14cd96a5835e626cc3b8b18c86916b1c",
+      "current_blob_sha1": "1ec0c9194d701ddb5eeb76442acb3a3127ad1bb1",
+      "baseline_equal": false,
+      "target_status": "restoration-in-progress-dma-ecc-tail-linked-exact",
+      "dependencies": [
+        "S2-bios-link-components.json: existing 18-module BIOS SCC"
+      ],
+      "evidence": "T20-S2-P38.json"
+    },
+    {
+      "id": 53,
+      "path": "bios/msload.asm",
+      "role": "core",
+      "baseline_blob_sha1": "7022e3ac497d522ccfdc0653271e28bddab6e4c0",
+      "current_blob_sha1": "e89929aa11a8fe522abe7b66f93c2828ae7879b9",
+      "baseline_equal": false,
+      "target_status": "modified-loader-span-exact-integration-pending",
+      "dependencies": [],
+      "dependency_scope": "DOS7_CONFIG selected by bios/makefile; all INCLUDE directives are in inactive branches",
+      "evidence": "T20-S2-P2.json"
+    },
+    {
+      "id": 54,
+      "path": "bios/pathsrc.asm",
+      "role": "core",
+      "baseline_blob_sha1": "1ffc4029a13affb40bb379daacd6d048b8126346",
+      "current_blob_sha1": "1ffc4029a13affb40bb379daacd6d048b8126346",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 55,
+      "path": "bios/pnpcaps.asm",
+      "role": "core",
+      "baseline_blob_sha1": "a2b9040438aec25f84a9ead5e2ec880eb6840190",
+      "current_blob_sha1": "a2b9040438aec25f84a9ead5e2ec880eb6840190",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 56,
+      "path": "bios/pnpcheck.asm",
+      "role": "core",
+      "baseline_blob_sha1": "f56ab4b35a9cd7c7441aa8c77bee4312b75b7d89",
+      "current_blob_sha1": "f56ab4b35a9cd7c7441aa8c77bee4312b75b7d89",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 57,
+      "path": "bios/pnpcpq.asm",
+      "role": "core",
+      "baseline_blob_sha1": "1c0fb3d0d6e2966d258e53780c516dae00bee24c",
+      "current_blob_sha1": "1c0fb3d0d6e2966d258e53780c516dae00bee24c",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 58,
+      "path": "bios/pnpfind.asm",
+      "role": "core",
+      "baseline_blob_sha1": "bd555d284c85ba3469d9ca58a553820c5107ce61",
+      "current_blob_sha1": "bd555d284c85ba3469d9ca58a553820c5107ce61",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 59,
+      "path": "bios/pnpibm.asm",
+      "role": "core",
+      "baseline_blob_sha1": "2821b617c890ac8be631926d6192888365ea315c",
+      "current_blob_sha1": "2821b617c890ac8be631926d6192888365ea315c",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 60,
+      "path": "bios/pnplf.asm",
+      "role": "core",
+      "baseline_blob_sha1": "f6986f669b43370a0d81276baa453ec4d726d3f3",
+      "current_blob_sha1": "f6986f669b43370a0d81276baa453ec4d726d3f3",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 61,
+      "path": "bios/pnpti.asm",
+      "role": "core",
+      "baseline_blob_sha1": "66904d161fb64b4f036630ed49ae8a9550f8652a",
+      "current_blob_sha1": "66904d161fb64b4f036630ed49ae8a9550f8652a",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 62,
+      "path": "bios/pnptosh.asm",
+      "role": "core",
+      "baseline_blob_sha1": "d6d3c07972caeb6f351dc64697b323fbf665e05f",
+      "current_blob_sha1": "d6d3c07972caeb6f351dc64697b323fbf665e05f",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 63,
+      "path": "bios/power.asm",
+      "role": "core",
+      "baseline_blob_sha1": "f25882c062c105193fd21e6f032457a1517bd1e9",
+      "current_blob_sha1": "f25882c062c105193fd21e6f032457a1517bd1e9",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 64,
+      "path": "bios/power.inc",
+      "role": "core",
+      "baseline_blob_sha1": "ee1d6596db39fb55708abfcad191ecc2cae3c021",
+      "current_blob_sha1": "ee1d6596db39fb55708abfcad191ecc2cae3c021",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 65,
+      "path": "bios/ptime.asm",
+      "role": "core",
+      "baseline_blob_sha1": "82ee50291121223116dda21d9de7341ab785e297",
+      "current_blob_sha1": "82ee50291121223116dda21d9de7341ab785e297",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 66,
+      "path": "bios/rapiopen.asm",
+      "role": "core",
+      "baseline_blob_sha1": "b392cec6ac0f18a82722e6f9377f14df1fa3621a",
+      "current_blob_sha1": "b392cec6ac0f18a82722e6f9377f14df1fa3621a",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 67,
+      "path": "bios/regfind.asm",
+      "role": "core",
+      "baseline_blob_sha1": "3bf08b2e92adfd0857be5c4913a6fca4b240ffec",
+      "current_blob_sha1": "d1ce66609dec73618c9c42bd8a214ae295df253b",
+      "baseline_equal": false,
+      "target_status": "in-progress-near-key-handle-lifecycle-lookup-verified",
+      "dependencies": ["bios/regread.asm:RegAllocRetry", "bios/configio.asm:RegDosFree", "bios/regroot.asm:RegKeyPool/RegDynamicKeys"],
+      "evidence": "T20-S2-P157.json: allocation/release plus retain/lookup/invalidation verified as complete procedures. New484 code bytes with452 literal matches and32 verified data operands. Full validation requires root-path open dependency; upper consumers remain open."
+    },
+    {
+      "id": 68,
+      "path": "bios/reginit.asm",
+      "role": "core",
+      "baseline_blob_sha1": "99653ebd4f901d8223a51c0b0589fe91c4669a20",
+      "current_blob_sha1": "99653ebd4f901d8223a51c0b0589fe91c4669a20",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 69,
+      "path": "bios/regopen.asm",
+      "role": "core",
+      "baseline_blob_sha1": "2d05e429b3869388ba4de0c1429d9e3114e60a2b",
+      "current_blob_sha1": "2d05e429b3869388ba4de0c1429d9e3114e60a2b",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 70,
+      "path": "bios/regpdiff.asm",
+      "role": "core",
+      "baseline_blob_sha1": "496a9d46c05f217b8d97889d9b254abf1c7273ba",
+      "current_blob_sha1": "496a9d46c05f217b8d97889d9b254abf1c7273ba",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 71,
+      "path": "bios/regread.asm",
+      "role": "core",
+      "baseline_blob_sha1": "d63db7d46602e36c811ecb8eac1626741c0d1bc0",
+      "current_blob_sha1": "9180d06ee9a93b0129d1dc8c8da83b1abc9f1f66",
+      "baseline_equal": false,
+      "target_status": "in-progress-key-and-data-cache-read-chains-verified",
+      "dependencies": ["bios/configio.asm:RegDosFree/RegDosSeek/RegDosRead/RegDosWrite", "bios/regroot.asm:RegTransferBuffer", "inherited CRT __aFuldiv/__aFlshl", "internal cache and record conversion routines"],
+      "evidence": "T20-S2-P167.json: nineteen key/data-cache procedures4216 bytes,4062 exact and154 verified address bytes. Data record allocation now connects creation, growth, compaction and index providers; lifecycle integration and legacy consumer replacement remain open."
+    },
+    {
+      "id": 72,
+      "path": "bios/regroot.asm",
+      "role": "core",
+      "baseline_blob_sha1": "0ff988b747727ed5194f8ae41f3c8866b4dab7b4",
+      "current_blob_sha1": "e7ad4a95dadc7a5388f50100328d21d68485eed9",
+      "baseline_equal": false,
+      "target_status": "in-progress-fixed-root-records-and-state-verified",
+      "dependencies": [],
+      "evidence": "T20-S2-P157.json adds two24h-byte root records and six-entry mapping:96 bytes,88 literal matches and8 correctly relocated FAR pointer bytes. Legacy root table remains required by legacy callers until API replacement."
+    },
+    {
+      "id": 73,
+      "path": "bios/regstart.asm",
+      "role": "core",
+      "baseline_blob_sha1": "bc4ac19277c40ab1052fa1c6c9eab3d37f781484",
+      "current_blob_sha1": "bc4ac19277c40ab1052fa1c6c9eab3d37f781484",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 74,
+      "path": "bios/regstr.asm",
+      "role": "core",
+      "baseline_blob_sha1": "5b14adcb2238e9a40a376c9289ebc08569d43914",
+      "current_blob_sha1": "3231b88c08304c53d41c4655549f1a2e9c535d3c",
+      "baseline_equal": false,
+      "target_status": "in-progress-near-string-group-exact-callers-pending",
+      "dependencies": [],
+      "evidence": "T20-S2-P158.json: complete linked checksum/name group261 bytes directly exact. Legacy callers and replacement remain open."
+    },
+    {
+      "id": 75,
+      "path": "bios/regvm.asm",
+      "role": "core",
+      "baseline_blob_sha1": "c15071c7033a33ce044dffa78249340db1de2424",
+      "current_blob_sha1": "c15071c7033a33ce044dffa78249340db1de2424",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 76,
+      "path": "bios/regvmcal.asm",
+      "role": "core",
+      "baseline_blob_sha1": "e3de1b44aa88f6af472b9829d6f12d5d72410873",
+      "current_blob_sha1": "e3de1b44aa88f6af472b9829d6f12d5d72410873",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 77,
+      "path": "bios/rom8k.inc",
+      "role": "core",
+      "baseline_blob_sha1": "899cbada968e9567ace1a17df5d9437cdf8d032f",
+      "current_blob_sha1": "899cbada968e9567ace1a17df5d9437cdf8d032f",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 78,
+      "path": "bios/romdinit.asm",
+      "role": "core",
+      "baseline_blob_sha1": "d33af9cd506ceb8d65f3cb54c3eb0f635b42cb8a",
+      "current_blob_sha1": "d33af9cd506ceb8d65f3cb54c3eb0f635b42cb8a",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 79,
+      "path": "bios/romdrive.asm",
+      "role": "core",
+      "baseline_blob_sha1": "c834d12c4b30307cf49c048a1d2719113f6c73bf",
+      "current_blob_sha1": "c834d12c4b30307cf49c048a1d2719113f6c73bf",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 80,
+      "path": "bios/romrd.asm",
+      "role": "core",
+      "baseline_blob_sha1": "99fc4b7088e0ee33bd367c5a11ab96de3e46218e",
+      "current_blob_sha1": "99fc4b7088e0ee33bd367c5a11ab96de3e46218e",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 81,
+      "path": "bios/romrdhi.asm",
+      "role": "core",
+      "baseline_blob_sha1": "82a9e940ec12b76f696f301465cd7381e4794517",
+      "current_blob_sha1": "82a9e940ec12b76f696f301465cd7381e4794517",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 82,
+      "path": "bios/romrdlo.asm",
+      "role": "core",
+      "baseline_blob_sha1": "6de52c1c63c081daa9e4bacf6c8ed73a9dc90ad8",
+      "current_blob_sha1": "6de52c1c63c081daa9e4bacf6c8ed73a9dc90ad8",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 83,
+      "path": "bios/rqvalue.asm",
+      "role": "core",
+      "baseline_blob_sha1": "caffe516c4e3ec488ee01da27ca12118c29ebd9e",
+      "current_blob_sha1": "caffe516c4e3ec488ee01da27ca12118c29ebd9e",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 84,
+      "path": "bios/si1tail.asm",
+      "role": "core",
+      "baseline_blob_sha1": "3622a625a2bb4721591546a92f8931131db160d9",
+      "current_blob_sha1": "037da725dc38f4f888c8d19c4b82ef964b928de3",
+      "baseline_equal": false,
+      "target_status": "locally-verified-exact-pending-integration",
+      "dependencies": [
+        "S2-bios-link-components.json: existing 18-module BIOS SCC",
+        "inc/msbds.inc"
+      ],
+      "evidence": "T20-S2-P50.json; T20-S2-P65.json"
+    },
+    {
+      "id": 85,
+      "path": "bios/si2front.asm",
+      "role": "core",
+      "baseline_blob_sha1": "be0db06c5a9115192ff3b6ceae8732f494488201",
+      "current_blob_sha1": "b0aa63fa4f5a4e3f017133be0aa4ad1b4b6b2368",
+      "baseline_equal": false,
+      "target_status": "locally-verified-exact-pending-integration",
+      "dependencies": [
+        "S2-bios-link-components.json: existing 18-module BIOS SCC"
+      ],
+      "evidence": "T20-S2-P47.json; T20-S2-P48.json; T20-S2-P49.json; T20-S2-P64.json; T20-S2-P65.json"
+    },
+    {
+      "id": 86,
+      "path": "bios/stkinit.asm",
+      "role": "core",
+      "baseline_blob_sha1": "9ef9f26a3da6d7741e744cb6638869ccf261f986",
+      "current_blob_sha1": "f375a746cc1dbdbcf433369b9c71550c99d5594c",
+      "baseline_equal": false,
+      "target_status": "restoration-in-progress-extended-device-parameters-linked",
+      "dependencies": [
+        "S2-bios-link-components.json: existing 18-module BIOS SCC"
+      ],
+      "evidence": "T20-S2-P40.json"
+    },
+    {
+      "id": 87,
+      "path": "bios/ststate.asm",
+      "role": "core",
+      "baseline_blob_sha1": "54a8b7f3724fe915d02ea0fdd36b25d689e90a2b",
+      "current_blob_sha1": "0c79de231ca8d5ad93a88a4eeebad686e6c28ca6",
+      "baseline_equal": false,
+      "target_status": "state-placement-probe-exact-integration-pending",
+      "dependencies": [
+        "inc/oemconf.inc",
+        "inc/exe.inc"
+      ],
+      "evidence": "T20-S2-P7.json"
+    },
+    {
+      "id": 88,
+      "path": "bios/sysconf.asm",
+      "role": "core",
+      "baseline_blob_sha1": "678126927b5644606ceeaf2f06c12584b25f6ff8",
+      "current_blob_sha1": "1bf16770411fda5b0a384c7848daf47efbc9f9d6",
+      "baseline_equal": false,
+      "target_status": "locally-verified-exact-pending-integration",
+      "dependencies": [
+        "S2-bios-link-components.json: existing 18-module BIOS SCC",
+        "inc/bpb.inc",
+        "inc/dpb.inc"
+      ],
+      "evidence": "T20-S2-P63.json; T20-S2-P64.json"
+    },
+    {
+      "id": 89,
+      "path": "bios/sysimes.asm",
+      "role": "core",
+      "baseline_blob_sha1": "e466f116581dd7bae61d33e8051818ac39961eac",
+      "current_blob_sha1": "91b53767aef874e1e5479fa976474248326da019",
+      "baseline_equal": false,
+      "target_status": "message-resource-exact-integration-pending",
+      "dependencies": [
+        "inc/version.inc",
+        "bios/biosseg.inc",
+        "lang/usa/messages/sysimsg.inc"
+      ],
+      "evidence": "T20-S2-P8.json; T20-S2-P30.json"
+    },
+    {
+      "id": 90,
+      "path": "bios/sysinit1.asm",
+      "role": "core",
+      "baseline_blob_sha1": "80f1a088994e2132e218214d477a28b77cd1ed4e",
+      "current_blob_sha1": "71f758426b8ae14dbe91e7fe5c5ead53482c0020",
+      "baseline_equal": false,
+      "target_status": "locally-verified-exact-pending-integration",
+      "dependencies": [
+        "S2-bios-link-components.json: existing 18-module BIOS SCC",
+        "inc/msbds.inc"
+      ],
+      "evidence": "T20-S2-P41.json; T20-S2-P42.json; T20-S2-P43.json; T20-S2-P44.json; T20-S2-P45.json; T20-S2-P46.json; T20-S2-P47.json; T20-S2-P48.json; T20-S2-P49.json; T20-S2-P64.json; T20-S2-P65.json"
+    },
+    {
+      "id": 91,
+      "path": "bios/sysinit2.asm",
+      "role": "core",
+      "baseline_blob_sha1": "460a5b3449c58e1814f81f9a7c1975d1e9e61475",
+      "current_blob_sha1": "15e63a0b2f1a7799c005c261114003442f2def81",
+      "baseline_equal": false,
+      "target_status": "locally-verified-exact-pending-integration",
+      "dependencies": [
+        "S2-bios-link-components.json: existing 18-module BIOS SCC"
+      ],
+      "evidence": "T20-S2-P62.json"
+    },
+    {
+      "id": 92,
+      "path": "bios/syspre.asm",
+      "role": "core",
+      "baseline_blob_sha1": "ef66229402a023d9c000a12bb6cb3f49b08f25ec",
+      "current_blob_sha1": "4ecb75136fa85014c030a4c0201e9aa4a85e8772",
+      "baseline_equal": false,
+      "target_status": "restoration-in-progress-compression-preload",
+      "dependencies": [
+        "S2-bios-link-components.json: existing BIOS SCC",
+        "inc/bpb.inc",
+        "inc/dpb.inc",
+        "inc/ds_vers.inc"
+      ],
+      "evidence": "T20-S2-P61.json"
+    },
+    {
+      "id": 93,
+      "path": "cmd/command/buildmsg.c",
+      "role": "core",
+      "baseline_blob_sha1": "059ae7b911bb5a0f4f60c16d80bb09cd6fa76402",
+      "current_blob_sha1": "059ae7b911bb5a0f4f60c16d80bb09cd6fa76402",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 94,
+      "path": "cmd/command/comequ.asm",
+      "role": "core",
+      "baseline_blob_sha1": "0996823620b147846ac923d663dff11c6d7d605c",
+      "current_blob_sha1": "0996823620b147846ac923d663dff11c6d7d605c",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 95,
+      "path": "cmd/command/command.lnk",
+      "role": "core",
+      "baseline_blob_sha1": "ee541b7d2fa2c2066f504446ec3fba98367b4323",
+      "current_blob_sha1": "ee541b7d2fa2c2066f504446ec3fba98367b4323",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 96,
+      "path": "cmd/command/command.skl",
+      "role": "core",
+      "baseline_blob_sha1": "9c6a2bfa26e6efda2680aa3084587d385edb9801",
+      "current_blob_sha1": "9c6a2bfa26e6efda2680aa3084587d385edb9801",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 97,
+      "path": "cmd/command/command1.asm",
+      "role": "core",
+      "baseline_blob_sha1": "86db88be8e2fcfa481b54563becb3a1ba99c3f1b",
+      "current_blob_sha1": "86db88be8e2fcfa481b54563becb3a1ba99c3f1b",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 98,
+      "path": "cmd/command/command2.asm",
+      "role": "core",
+      "baseline_blob_sha1": "3111fdc791707f87ab99c415cb69d45d1524fc63",
+      "current_blob_sha1": "3111fdc791707f87ab99c415cb69d45d1524fc63",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 99,
+      "path": "cmd/command/comseg.asm",
+      "role": "core",
+      "baseline_blob_sha1": "5e90a06f3bcf0ca89f80ab07fd1a4fe6ef2540be",
+      "current_blob_sha1": "5e90a06f3bcf0ca89f80ab07fd1a4fe6ef2540be",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 100,
+      "path": "cmd/command/comsw.asm",
+      "role": "core",
+      "baseline_blob_sha1": "500626e28d19c8cdd2203f1e8eb53221318e3bed",
+      "current_blob_sha1": "500626e28d19c8cdd2203f1e8eb53221318e3bed",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 101,
+      "path": "cmd/command/copy.asm",
+      "role": "core",
+      "baseline_blob_sha1": "380f26f3b21829eb87a0f8d2441cd3555fbc914d",
+      "current_blob_sha1": "380f26f3b21829eb87a0f8d2441cd3555fbc914d",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 102,
+      "path": "cmd/command/copypr1.asm",
+      "role": "core",
+      "baseline_blob_sha1": "73a1ba26ebd5632b0c4fcaa08405e92236be9148",
+      "current_blob_sha1": "73a1ba26ebd5632b0c4fcaa08405e92236be9148",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 103,
+      "path": "cmd/command/copypr2.asm",
+      "role": "core",
+      "baseline_blob_sha1": "8fb3a48a82fedbd6d19c1ab167af7fce5a316134",
+      "current_blob_sha1": "8fb3a48a82fedbd6d19c1ab167af7fce5a316134",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 104,
+      "path": "cmd/command/cparse.asm",
+      "role": "core",
+      "baseline_blob_sha1": "ac66a3bb3b26b7aab0fc4429d8a5382d44951d6d",
+      "current_blob_sha1": "ac66a3bb3b26b7aab0fc4429d8a5382d44951d6d",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 105,
+      "path": "cmd/command/cratio.asm",
+      "role": "core",
+      "baseline_blob_sha1": "3f34e28e48c48704916b47bc270cddfa6c0db69f",
+      "current_blob_sha1": "3f34e28e48c48704916b47bc270cddfa6c0db69f",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 106,
+      "path": "cmd/command/dir.asm",
+      "role": "core",
+      "baseline_blob_sha1": "1ddebfb9236050c9ffdd8abbd1b923334cf11ab5",
+      "current_blob_sha1": "1ddebfb9236050c9ffdd8abbd1b923334cf11ab5",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 107,
+      "path": "cmd/command/envdata.asm",
+      "role": "core",
+      "baseline_blob_sha1": "01fb9a0f52701be1fb599c9ddc8bfa48e4649882",
+      "current_blob_sha1": "01fb9a0f52701be1fb599c9ddc8bfa48e4649882",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 108,
+      "path": "cmd/command/fordata.asm",
+      "role": "core",
+      "baseline_blob_sha1": "e2c87d43eb2d2a75744252ad56c9ebf7091ec6a2",
+      "current_blob_sha1": "e2c87d43eb2d2a75744252ad56c9ebf7091ec6a2",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 109,
+      "path": "cmd/command/ifequ.asm",
+      "role": "core",
+      "baseline_blob_sha1": "a9fb248757ea652f28df1b3098b71aee9eea3363",
+      "current_blob_sha1": "a9fb248757ea652f28df1b3098b71aee9eea3363",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 110,
+      "path": "cmd/command/iniclass.asm",
+      "role": "core",
+      "baseline_blob_sha1": "7b850d7ba4d60630334ddd7f2d834a65e2887bf9",
+      "current_blob_sha1": "7b850d7ba4d60630334ddd7f2d834a65e2887bf9",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 111,
+      "path": "cmd/command/init.asm",
+      "role": "core",
+      "baseline_blob_sha1": "5b2b6d3452252b9938d0e6cb17e4c1d7a20aea86",
+      "current_blob_sha1": "5b2b6d3452252b9938d0e6cb17e4c1d7a20aea86",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 112,
+      "path": "cmd/command/iparse.asm",
+      "role": "core",
+      "baseline_blob_sha1": "d5d83f849caa306929b7dcf5d6ac589df1332b3f",
+      "current_blob_sha1": "d5d83f849caa306929b7dcf5d6ac589df1332b3f",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 113,
+      "path": "cmd/command/loadhi.asm",
+      "role": "core",
+      "baseline_blob_sha1": "beed07c40aaedc96ddbe7bf930ac3f2cc8f0251b",
+      "current_blob_sha1": "beed07c40aaedc96ddbe7bf930ac3f2cc8f0251b",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 114,
+      "path": "cmd/command/makefile",
+      "role": "core",
+      "baseline_blob_sha1": "914f2e3fc93c5828b407e20de2e5c57320725eb3",
+      "current_blob_sha1": "914f2e3fc93c5828b407e20de2e5c57320725eb3",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 115,
+      "path": "cmd/command/parse2.asm",
+      "role": "core",
+      "baseline_blob_sha1": "27e584ffc8a1039ce64aef26d108c0bfe7cc5fa7",
+      "current_blob_sha1": "27e584ffc8a1039ce64aef26d108c0bfe7cc5fa7",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 116,
+      "path": "cmd/command/path1.asm",
+      "role": "core",
+      "baseline_blob_sha1": "a20b2b2960e7e0d76a56b421864eaff17f24ca3c",
+      "current_blob_sha1": "a20b2b2960e7e0d76a56b421864eaff17f24ca3c",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 117,
+      "path": "cmd/command/path2.asm",
+      "role": "core",
+      "baseline_blob_sha1": "c45c2e8605c0da76918be6bbfb8fe0c7855535ae",
+      "current_blob_sha1": "c45c2e8605c0da76918be6bbfb8fe0c7855535ae",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 118,
+      "path": "cmd/command/rdata.asm",
+      "role": "core",
+      "baseline_blob_sha1": "fae1af7b13e321416388cbca4be4fd4fc26e3f44",
+      "current_blob_sha1": "fae1af7b13e321416388cbca4be4fd4fc26e3f44",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 119,
+      "path": "cmd/command/resclass.asm",
+      "role": "core",
+      "baseline_blob_sha1": "5aa336a98666ba2ab14276e7d8607f4bb8b7a92d",
+      "current_blob_sha1": "5aa336a98666ba2ab14276e7d8607f4bb8b7a92d",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 120,
+      "path": "cmd/command/resmsg.equ",
+      "role": "core",
+      "baseline_blob_sha1": "451096ef74de1c2750e709f516797118455757bb",
+      "current_blob_sha1": "451096ef74de1c2750e709f516797118455757bb",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 121,
+      "path": "cmd/command/rucode.asm",
+      "role": "core",
+      "baseline_blob_sha1": "259bafdc3388ba67e7607d7e5992409779de8e24",
+      "current_blob_sha1": "259bafdc3388ba67e7607d7e5992409779de8e24",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 122,
+      "path": "cmd/command/stub.asm",
+      "role": "core",
+      "baseline_blob_sha1": "a44315392ecddfa8d1228650a5a8f6303b202f86",
+      "current_blob_sha1": "a44315392ecddfa8d1228650a5a8f6303b202f86",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 123,
+      "path": "cmd/command/tbatch.asm",
+      "role": "core",
+      "baseline_blob_sha1": "5572331ecda13b42a41a45b961e803fb9a346308",
+      "current_blob_sha1": "5572331ecda13b42a41a45b961e803fb9a346308",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 124,
+      "path": "cmd/command/tbatch2.asm",
+      "role": "core",
+      "baseline_blob_sha1": "bb0f3011a9a4e59d821c5cf0a7d5b0beeb8323ac",
+      "current_blob_sha1": "bb0f3011a9a4e59d821c5cf0a7d5b0beeb8323ac",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 125,
+      "path": "cmd/command/tcmd1b.asm",
+      "role": "core",
+      "baseline_blob_sha1": "d1d7d5f30fc638bd18fd87e19e4a3ee31c34ef32",
+      "current_blob_sha1": "d1d7d5f30fc638bd18fd87e19e4a3ee31c34ef32",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 126,
+      "path": "cmd/command/tcmd2a.asm",
+      "role": "core",
+      "baseline_blob_sha1": "ca0936af542de28433b68bd5d380846bd472b510",
+      "current_blob_sha1": "ca0936af542de28433b68bd5d380846bd472b510",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 127,
+      "path": "cmd/command/tcmd2b.asm",
+      "role": "core",
+      "baseline_blob_sha1": "94fd073ff5c9d72ff1edefe7f6099c2835e7f039",
+      "current_blob_sha1": "94fd073ff5c9d72ff1edefe7f6099c2835e7f039",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 128,
+      "path": "cmd/command/tcode.asm",
+      "role": "core",
+      "baseline_blob_sha1": "a33762081c9d5e9eb3c6c50dbfae7388e86e4084",
+      "current_blob_sha1": "a33762081c9d5e9eb3c6c50dbfae7388e86e4084",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 129,
+      "path": "cmd/command/tdata.asm",
+      "role": "core",
+      "baseline_blob_sha1": "a925866637368aa81e112f0654af70c9bd5eba7e",
+      "current_blob_sha1": "a925866637368aa81e112f0654af70c9bd5eba7e",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 130,
+      "path": "cmd/command/tenv.asm",
+      "role": "core",
+      "baseline_blob_sha1": "afc634f8d17d48e728437cdeb9447029af801796",
+      "current_blob_sha1": "afc634f8d17d48e728437cdeb9447029af801796",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 131,
+      "path": "cmd/command/tenv2.asm",
+      "role": "core",
+      "baseline_blob_sha1": "64c5f88f3c677855da786dfd13c7e7c3bd2b7b88",
+      "current_blob_sha1": "64c5f88f3c677855da786dfd13c7e7c3bd2b7b88",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 132,
+      "path": "cmd/command/tfor.asm",
+      "role": "core",
+      "baseline_blob_sha1": "2b09ab1be7cb5694f654bd82d75eba08f810736d",
+      "current_blob_sha1": "2b09ab1be7cb5694f654bd82d75eba08f810736d",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 133,
+      "path": "cmd/command/tmisc1.asm",
+      "role": "core",
+      "baseline_blob_sha1": "690c59a6a1a8bb072aaa42e36bdd3b740715060f",
+      "current_blob_sha1": "690c59a6a1a8bb072aaa42e36bdd3b740715060f",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 134,
+      "path": "cmd/command/tmisc2.asm",
+      "role": "core",
+      "baseline_blob_sha1": "c64c94f7fe437fb150ce6eace99f748aa0b06f3a",
+      "current_blob_sha1": "c64c94f7fe437fb150ce6eace99f748aa0b06f3a",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 135,
+      "path": "cmd/command/tparse.asm",
+      "role": "core",
+      "baseline_blob_sha1": "5c039ea9de28d34beb0afaad99157c20c16bcd66",
+      "current_blob_sha1": "5c039ea9de28d34beb0afaad99157c20c16bcd66",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 136,
+      "path": "cmd/command/tpipe.asm",
+      "role": "core",
+      "baseline_blob_sha1": "9418c02763e8d5ba44987112e6fdbd052f17e141",
+      "current_blob_sha1": "9418c02763e8d5ba44987112e6fdbd052f17e141",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 137,
+      "path": "cmd/command/tprintf.asm",
+      "role": "core",
+      "baseline_blob_sha1": "514932c8e109b0a9d70d4d372d989f2d1762455e",
+      "current_blob_sha1": "514932c8e109b0a9d70d4d372d989f2d1762455e",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 138,
+      "path": "cmd/command/tranmsg.asm",
+      "role": "core",
+      "baseline_blob_sha1": "5276f91458c5f7bd96e35b28806165c9b6f66340",
+      "current_blob_sha1": "5276f91458c5f7bd96e35b28806165c9b6f66340",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 139,
+      "path": "cmd/command/tspc.asm",
+      "role": "core",
+      "baseline_blob_sha1": "2056cd849dc69e34eab9fc049b5f49bbcade6b0f",
+      "current_blob_sha1": "2056cd849dc69e34eab9fc049b5f49bbcade6b0f",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 140,
+      "path": "cmd/command/tucode.asm",
+      "role": "core",
+      "baseline_blob_sha1": "1d3e1504c46cbaae51d3e1bc64f63cfeb2a0b269",
+      "current_blob_sha1": "1d3e1504c46cbaae51d3e1bc64f63cfeb2a0b269",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 141,
+      "path": "cmd/command/uinit.asm",
+      "role": "core",
+      "baseline_blob_sha1": "e7c7bba8c67bb3792f0548b18019cffbbb102f83",
+      "current_blob_sha1": "e7c7bba8c67bb3792f0548b18019cffbbb102f83",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 142,
+      "path": "dos/abort.asm",
+      "role": "core",
+      "baseline_blob_sha1": "f04eb8b6f20dcb41dfe4b8cd15d1245000bc1cc9",
+      "current_blob_sha1": "99bc55583248a0cdc32ac045630e01915498c7a1",
+      "baseline_equal": false,
+      "target_status": "restoration-in-progress-external-bindings",
+      "dependencies": [
+        "Whole107-byte body matches except2 external call bytes"
+      ],
+      "evidence": "T20-S2-P123.json"
+    },
+    {
+      "id": 143,
+      "path": "dos/alloc.asm",
+      "role": "core",
+      "baseline_blob_sha1": "f4aadf22cecd94938573303c2a43663d4b03a695",
+      "current_blob_sha1": "f4aadf22cecd94938573303c2a43663d4b03a695",
+      "baseline_equal": true,
+      "target_status": "unchanged-950-locally-verified-integration-pending",
+      "dependencies": [
+        "Whole757-byte body matches except20 external code address bytes"
+      ],
+      "evidence": "T20-S2-P127.json"
+    },
+    {
+      "id": 144,
+      "path": "dos/buf.asm",
+      "role": "core",
+      "baseline_blob_sha1": "b2667af56b9a9a828e8468ba9cbfcd1893ce1ff1",
+      "current_blob_sha1": "da379f918267ed18e1fadae1a4bfac1f81c895e5",
+      "baseline_equal": false,
+      "target_status": "restoration-in-progress-provider-bindings",
+      "dependencies": [
+        "FATSECRD",
+        "DREAD",
+        "DWRITE",
+        "FIRST_BUFF_ADDR",
+        "SC_DRIVE",
+        "SC_SECTOR_SIZE"
+      ],
+      "evidence": "T20-S2-P88.json"
+    },
+    {
+      "id": 145,
+      "path": "dos/close.asm",
+      "role": "core",
+      "baseline_blob_sha1": "9d4b11d4c9a1120f28bb893fb08ecfbe2f116f32",
+      "current_blob_sha1": "7f77f3707dd3e2b3566f90ff0809dec5557f5a58",
+      "baseline_equal": false,
+      "target_status": "restoration-in-progress-external-bindings",
+      "dependencies": [
+        "Whole433-byte body matches except external call operands; final bindings pending"
+      ],
+      "evidence": "T20-S2-P112.json"
+    },
+    {
+      "id": 146,
+      "path": "dos/cpmio.asm",
+      "role": "core",
+      "baseline_blob_sha1": "dccd7785ebf5a889054ec5cb55d79c64f4217463",
+      "current_blob_sha1": "dccd7785ebf5a889054ec5cb55d79c64f4217463",
+      "baseline_equal": true,
+      "target_status": "unchanged-950-whole-module-body-verified-external-bindings-pending",
+      "dependencies": null,
+      "evidence": "T20-S2-P139.json"
+    },
+    {
+      "id": 147,
+      "path": "dos/cpmio2.asm",
+      "role": "core",
+      "baseline_blob_sha1": "7f49d76891c66218ea177144fb142a55aa564a3a",
+      "current_blob_sha1": "7f49d76891c66218ea177144fb142a55aa564a3a",
+      "baseline_equal": true,
+      "target_status": "unchanged-950-whole-module-body-verified-external-bindings-pending",
+      "dependencies": null,
+      "evidence": "T20-S2-P139.json"
+    },
+    {
+      "id": 148,
+      "path": "dos/create.asm",
+      "role": "core",
+      "baseline_blob_sha1": "cd7f5ea644b516dfa5b06bc7fc0afe09a3a81c2c",
+      "current_blob_sha1": "0f47e61931db8923e9e3f140c40dbdc2d3e4757c",
+      "baseline_equal": false,
+      "target_status": "restoration-in-progress-external-bindings",
+      "dependencies": [
+        "Whole316-byte body matches except symbol operands; SET_SFT_MODE, external calls and shared-data layout remain open"
+      ],
+      "evidence": "T20-S2-P109.json"
+    },
+    {
+      "id": 149,
+      "path": "dos/crit.asm",
+      "role": "core",
+      "baseline_blob_sha1": "b54ad5a40c7686defe55ded7b8c7c7956eab263e",
+      "current_blob_sha1": "b54ad5a40c7686defe55ded7b8c7c7956eab263e",
+      "baseline_equal": true,
+      "target_status": "unchanged-950-locally-verified-integration-pending",
+      "dependencies": [
+        "Whole220-byte module exactly equals target at59B6..5A92; baseline source also exactly equal."
+      ],
+      "evidence": "T20-S2-P138.json"
+    },
+    {
+      "id": 150,
+      "path": "dos/delete.asm",
+      "role": "core",
+      "baseline_blob_sha1": "21b07979c30388bd6a22a2848a038eb75831a953",
+      "current_blob_sha1": "9b165edd077b1f36359c5f942bec6bfd6c421f09",
+      "baseline_equal": false,
+      "target_status": "restoration-in-progress-external-bindings",
+      "dependencies": [
+        "DOS_DELETE and REN_DEL_Check475-byte body restored; obsolete helper tail removed after consumer restoration"
+      ],
+      "evidence": "T20-S2-P113.json; T20-S2-P115.json; T20-S2-P118.json"
+    },
+    {
+      "id": 151,
+      "path": "dos/dev.asm",
+      "role": "core",
+      "baseline_blob_sha1": "6dcf26b46e50c598af35f99d5d273fbf95af0645",
+      "current_blob_sha1": "00bf706d01e511f2bf23eda5c644a75f3298b2fe",
+      "baseline_equal": false,
+      "target_status": "restoration-in-progress-external-bindings",
+      "dependencies": [
+        "Upstream code placement and external call bindings"
+      ],
+      "evidence": "T20-S2-P98.json"
+    },
+    {
+      "id": 152,
+      "path": "dos/devcache.asm",
+      "role": "core",
+      "baseline_blob_sha1": "7165f71b28f26016e5a14fc4bd4de9fb06b09e6c",
+      "current_blob_sha1": "7165f71b28f26016e5a14fc4bd4de9fb06b09e6c",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": [
+        "dos/dev.asm cache data placement"
+      ],
+      "evidence": "T20-S2-P98.json: matching body; skip instruction audit, placement remains pending"
+    },
+    {
+      "id": 153,
+      "path": "dos/dinfo.asm",
+      "role": "core",
+      "baseline_blob_sha1": "e99952d0cf7b39efc3c1e192bf5f259fef6cb058",
+      "current_blob_sha1": "b2563acaec9d7d5ce477922cd4a01e0a9a41c894",
+      "baseline_equal": false,
+      "target_status": "restoration-in-progress-external-bindings",
+      "dependencies": [
+        "P140 full linked interval proves module exact, including external call bindings. Full file acceptance pending."
+      ],
+      "evidence": "T20-S2-P105.json whole651-byte module supersedes partial P104; T20-S2-P140.json"
+    },
+    {
+      "id": 154,
+      "path": "dos/dir.asm",
+      "role": "core",
+      "baseline_blob_sha1": "fb7e9e5a79f9a096ee8e77eaf629af0e0225f8db",
+      "current_blob_sha1": "5440e526833c660bfdea62d10626f4645f1f0b78",
+      "baseline_equal": false,
+      "target_status": "restoration-in-progress-fat32-directory-state",
+      "dependencies": [
+        "inc/ms_data.asm provider; dos/lfn.asm and dos/dir.asm record consumers"
+      ],
+      "evidence": "T20-S2-P100.json supersedes partial P99: whole958-byte module matches apart from46 symbol-address bytes; T20-S2-P118.json"
+    },
+    {
+      "id": 155,
+      "path": "dos/dir2.asm",
+      "role": "core",
+      "baseline_blob_sha1": "91c74ea285c25b489a5f04462f8ba076c432006b",
+      "current_blob_sha1": "3c47f6ee1bd04ce3ba425c9ce2f9cd0d9913b323",
+      "baseline_equal": false,
+      "target_status": "restoration-in-progress-external-bindings",
+      "dependencies": [
+        "External call bindings; whole path/device/CDS body restored"
+      ],
+      "evidence": "T20-S2-P103.json whole1073-byte module supersedes partial P100/P101/P102 dir2 proofs"
+    },
+    {
+      "id": 156,
+      "path": "dos/dircall.asm",
+      "role": "core",
+      "baseline_blob_sha1": "75da3c4035e51da85e96f246d397316392d5c5d2",
+      "current_blob_sha1": "2f7ba4267115ee1e769d7952a77d4e191fe46b65",
+      "baseline_equal": false,
+      "target_status": "restoration-in-progress-directory-callers",
+      "dependencies": [
+        "Whole 644-byte dircall body matches except external call/jump operands; shared-data layout and external bindings pending"
+      ],
+      "evidence": "T20-S2-P108.json; T20-S2-P118.json"
+    },
+    {
+      "id": 157,
+      "path": "dos/dircmp.asm",
+      "role": "core",
+      "baseline_blob_sha1": "162e9ad9394d12dff76c5750040a8ea1388ea163",
+      "current_blob_sha1": "162e9ad9394d12dff76c5750040a8ea1388ea163",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 158,
+      "path": "dos/disk.asm",
+      "role": "core",
+      "baseline_blob_sha1": "509307dfea9e2aa4c23ab316aaae54a393c65b15",
+      "current_blob_sha1": "509307dfea9e2aa4c23ab316aaae54a393c65b15",
+      "baseline_equal": true,
+      "target_status": "unchanged-950-locally-verified-integration-pending",
+      "dependencies": [
+        "Whole998-byte body matches except31 external call/jump address bytes; skip body"
+      ],
+      "evidence": "T20-S2-P124.json"
+    },
+    {
+      "id": 159,
+      "path": "dos/disk2.asm",
+      "role": "core",
+      "baseline_blob_sha1": "5c921ca75a5ef347d9bc9f4840e767bccadd63ad",
+      "current_blob_sha1": "167cd159e4865c1da218c6fc8f1f9135dfe4092d",
+      "baseline_equal": false,
+      "target_status": "restoration-in-progress-external-bindings",
+      "dependencies": [
+        "External disk/locking/error/rom/buffer calls and FIRST_BUFF_ADDR placement"
+      ],
+      "evidence": "T20-S2-P95.json"
+    },
+    {
+      "id": 160,
+      "path": "dos/disk3.asm",
+      "role": "core",
+      "baseline_blob_sha1": "a98ce3c5f9addd5781c420e6c4df721a83f9a95f",
+      "current_blob_sha1": "3099e7b6e4150d4d60039a562158c9e3f9556317",
+      "baseline_equal": false,
+      "target_status": "restoration-in-progress-external-bindings",
+      "dependencies": [
+        "HARDERRRW binding and secondary-cache data placement"
+      ],
+      "evidence": "T20-S2-P97.json supersedes partial P96 proof"
+    },
+    {
+      "id": 161,
+      "path": "dos/diskio.asm",
+      "role": "core",
+      "baseline_blob_sha1": "b2a0ef5e290ee26b089cfbd79c0cc07bc418abe1",
+      "current_blob_sha1": "dabe066519db4b346cc9f89c534fe6fbf9928814",
+      "baseline_equal": false,
+      "target_status": "restoration-in-progress-external-bindings",
+      "dependencies": [
+        "HARDERRRW/FATREAD/UNPACK/IsEOF/FIGREC/GETBUFFR bindings"
+      ],
+      "evidence": "T20-S2-P89.json; T20-S2-P90.json"
+    },
+    {
+      "id": 162,
+      "path": "dos/diskset.asm",
+      "role": "core",
+      "baseline_blob_sha1": "ddab4814f2729850412428abad370ddca0d9b165",
+      "current_blob_sha1": "236ef7592ad317e348e7cf45c71ee5fa10b4a7fc",
+      "baseline_equal": false,
+      "target_status": "restoration-in-progress-setup-exact-provider-binding-pending",
+      "dependencies": [
+        "inc/dpb.inc",
+        "inc/ms_data.asm: ClusNumHigh",
+        "dos/msctrlc.asm: HARDERR"
+      ],
+      "evidence": "T20-S2-P76.json"
+    },
+    {
+      "id": 163,
+      "path": "dos/divmes.inc",
+      "role": "core",
+      "baseline_blob_sha1": "89af9c261f17c84cc8d08a99f536f3976fbafff3",
+      "current_blob_sha1": "89af9c261f17c84cc8d08a99f536f3976fbafff3",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 164,
+      "path": "dos/dosmes.inc",
+      "role": "core",
+      "baseline_blob_sha1": "3f8065994559aa151a9c47b20541f19306f2df4f",
+      "current_blob_sha1": "3f8065994559aa151a9c47b20541f19306f2df4f",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 165,
+      "path": "dos/dosprint.asm",
+      "role": "core",
+      "baseline_blob_sha1": "40aeb8369e19535723c73e6d11609118d9715611",
+      "current_blob_sha1": "40aeb8369e19535723c73e6d11609118d9715611",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 166,
+      "path": "dos/dostab.asm",
+      "role": "core",
+      "baseline_blob_sha1": "989f19b35e4a1c3edb6837c8c3d642e090aae18e",
+      "current_blob_sha1": "bac4a34dd0094c31b03f8b78fea5f96bdcf0f641",
+      "baseline_equal": false,
+      "target_status": "restoration-in-progress-int2f-state-control",
+      "dependencies": [
+        "FastOpen storage and unused save areas removed; MARK2 overlap resolved P119; remaining DOSDATA layout pending"
+      ],
+      "evidence": "T20-S2-P68.json; T20-S2-P70.json; T20-S2-P71.json; T20-S2-P118.json"
+    },
+    {
+      "id": 167,
+      "path": "dos/dup.asm",
+      "role": "core",
+      "baseline_blob_sha1": "bfd39da0f1cb2f8ac74d02cbed893a6d0867206e",
+      "current_blob_sha1": "bfd39da0f1cb2f8ac74d02cbed893a6d0867206e",
+      "baseline_equal": true,
+      "target_status": "unchanged-950-locally-verified-integration-pending",
+      "dependencies": [
+        "Whole22-byte body matches except1 IsSFTNet call byte"
+      ],
+      "evidence": "T20-S2-P123.json"
+    },
+    {
+      "id": 168,
+      "path": "dos/exechot.asm",
+      "role": "core",
+      "baseline_blob_sha1": "1aaf4384de9aaf9d16f2d1bcb376f1c4b3d07977",
+      "current_blob_sha1": "1aaf4384de9aaf9d16f2d1bcb376f1c4b3d07977",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 169,
+      "path": "dos/exepatch.asm",
+      "role": "core",
+      "baseline_blob_sha1": "c213e54cf95aa7d07a5fc88999e1c3acdcdbd047",
+      "current_blob_sha1": "39875c13e450f7ebddc1f127d13bfe2bf2c5cba5",
+      "baseline_equal": false,
+      "target_status": "restoration-in-progress-body-verified-data-binding-pending",
+      "dependencies": [
+        "inc/lmstub.asm: RatBugCode binding"
+      ],
+      "evidence": "T20-S2-P141.json"
+    },
+    {
+      "id": 170,
+      "path": "dos/fat.asm",
+      "role": "core",
+      "baseline_blob_sha1": "efa99fcc6a0e9154a07b9e6098f4f11c3887deca",
+      "current_blob_sha1": "4c148724ea5ddb18be56e7bd104e762290f3ee7c",
+      "baseline_equal": false,
+      "target_status": "restoration-in-progress-fat32-unpack",
+      "dependencies": [
+        "inc/ms_data.asm high words",
+        "MAPCLUSTER/PACK and FAT buffer consumers",
+        "dos/msctrlc.asm CL0FATENTRY/FATAL"
+      ],
+      "evidence": "T20-S2-P80.json; T20-S2-P81.json; T20-S2-P82.json; T20-S2-P83.json; T20-S2-P84.json; T20-S2-P85.json; T20-S2-P86.json"
+    },
+    {
+      "id": 171,
+      "path": "dos/fcb.asm",
+      "role": "core",
+      "baseline_blob_sha1": "f87867bd30a803bed8edf1cbf494b82bd14416ed",
+      "current_blob_sha1": "4b5d3d51440f6d21a9e635a6d22e496743ac371a",
+      "baseline_equal": false,
+      "target_status": "restoration-in-progress-layout-integration",
+      "dependencies": [
+        "Whole412-byte body matches except4 operand bytes: GetVisDrv call, FILE_UCASE_TAB offset, CharType address. Shared five-byte UCASE layout gap remains open."
+      ],
+      "evidence": "T20-S2-P125.json"
+    },
+    {
+      "id": 172,
+      "path": "dos/fcbio.asm",
+      "role": "core",
+      "baseline_blob_sha1": "5d8c9df0b2e67d6f75a20b03481e49a7d92e8e72",
+      "current_blob_sha1": "c6f4d15d4519ba64ce83a0222027490bd27e14f8",
+      "baseline_equal": false,
+      "target_status": "restoration-in-progress-body-verified-external-bindings-pending",
+      "dependencies": null,
+      "evidence": "T20-S2-P118.json; T20-S2-P139.json"
+    },
+    {
+      "id": 173,
+      "path": "dos/fcbio2.asm",
+      "role": "core",
+      "baseline_blob_sha1": "4a1340037887fa9d58affbb9f85e6fc2a936bc43",
+      "current_blob_sha1": "7a99cbf453ae1e969f8a0501b9deb08137edc283",
+      "baseline_equal": false,
+      "target_status": "restoration-in-progress-whole-module-exact-full-image-pending",
+      "dependencies": [
+        "inc/dpb.inc"
+      ],
+      "evidence": "T20-S2-P140.json"
+    },
+    {
+      "id": 174,
+      "path": "dos/file.asm",
+      "role": "core",
+      "baseline_blob_sha1": "af54a513a390d29622d17780ecef3a3c1c2a460d",
+      "current_blob_sha1": "74915f2a5a13a6529f600579a7510cb5aaa5ef2d",
+      "baseline_equal": false,
+      "target_status": "restoration-in-progress-layout-integration",
+      "dependencies": [
+        "Whole968-byte body matches except40 external code address bytes; final integration pending"
+      ],
+      "evidence": "T20-S2-P130.json"
+    },
+    {
+      "id": 175,
+      "path": "dos/finfo.asm",
+      "role": "core",
+      "baseline_blob_sha1": "def8cee07ad86f862641c7bba7328b295162e607",
+      "current_blob_sha1": "9adbc83d7aba54db710fbfa068501f2f25b892fc",
+      "baseline_equal": false,
+      "target_status": "restoration-in-progress-external-bindings",
+      "dependencies": [
+        "Whole229-byte body matches except external call operands; final bindings pending"
+      ],
+      "evidence": "T20-S2-P114.json"
+    },
+    {
+      "id": 176,
+      "path": "dos/getset.asm",
+      "role": "core",
+      "baseline_blob_sha1": "455b83e1a539c106fdd4bf6d688f19bc93517d17",
+      "current_blob_sha1": "37b4e0c738e109cdea7fa6270de4f9b04f6cd2d0",
+      "baseline_equal": false,
+      "target_status": "restoration-in-progress-layout-integration",
+      "dependencies": [
+        "Whole1351-byte body:1306 equal;45 external code/data address bytes pending. UCASE/FILE_UCASE/DBCS retain shared five-byte layout gap.",
+        "FreeSpaceScale exported after verification for next parse consumer; symbol-only change, no instruction rebuild."
+      ],
+      "evidence": "T20-S2-P132.json"
+    },
+    {
+      "id": 177,
+      "path": "dos/handle.asm",
+      "role": "core",
+      "baseline_blob_sha1": "0f2b7fdfad242fd1d211c3bbec712ae8ac778d07",
+      "current_blob_sha1": "f673bce7eacb6b9aa1ce096d00792b5f3c79a069",
+      "baseline_equal": false,
+      "target_status": "restoration-in-progress-external-bindings",
+      "dependencies": [
+        "Whole763-byte body matches except31 external code address bytes; skip body"
+      ],
+      "evidence": "T20-S2-P128.json"
+    },
+    {
+      "id": 178,
+      "path": "dos/idle.asm",
+      "role": "core",
+      "baseline_blob_sha1": "d150024ed7c6174c992edd323273d0b74a3a4bfd",
+      "current_blob_sha1": "6ec17558803c95e7cc6f65c34518cef6cb3f0325",
+      "baseline_equal": false,
+      "target_status": "restoration-in-progress-layout-integration",
+      "dependencies": null,
+      "evidence": "T20-S2-P118.json"
+    },
+    {
+      "id": 179,
+      "path": "dos/ioctl.asm",
+      "role": "core",
+      "baseline_blob_sha1": "90904aa197402479bf4f25980b29af1a3b68d0d0",
+      "current_blob_sha1": "21f505b1028068493da4907887a75175ec4718e1",
+      "baseline_equal": false,
+      "target_status": "restoration-in-progress-external-bindings",
+      "dependencies": [
+        "Whole1057-byte module matches except code-address operands and dispatch-table entries; final bindings pending"
+      ],
+      "evidence": "T20-S2-P122.json"
+    },
+    {
+      "id": 180,
+      "path": "dos/isearch.asm",
+      "role": "core",
+      "baseline_blob_sha1": "1e7a7e769aedf0b894812377fda7f4489d135a1a",
+      "current_blob_sha1": "09d1dd45510d74168cd75f0b0bbd11f20ca18ba8",
+      "baseline_equal": false,
+      "target_status": "restoration-in-progress-external-bindings",
+      "dependencies": [
+        "Whole368-byte body matches except external call operands; final layout pending"
+      ],
+      "evidence": "T20-S2-P116.json"
+    },
+    {
+      "id": 181,
+      "path": "dos/kstrin.asm",
+      "role": "core",
+      "baseline_blob_sha1": "eb53bff07a41f1d9ceddee8aa2add5557866fbe8",
+      "current_blob_sha1": "eb53bff07a41f1d9ceddee8aa2add5557866fbe8",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 182,
+      "path": "dos/lfn.asm",
+      "role": "core",
+      "baseline_blob_sha1": "692a86b509bab9e2bd60493d955d06600dc3579f",
+      "current_blob_sha1": "01aa96cd0b308a1c55c52ba8f1f169ba3303a46d",
+      "baseline_equal": false,
+      "target_status": "restoration-in-progress-fat32-directory-state",
+      "dependencies": [
+        "inc/ms_data.asm provider; dos/lfn.asm and dos/dir.asm record consumers"
+      ],
+      "evidence": "T20-S2-P72.json"
+    },
+    {
+      "id": 183,
+      "path": "dos/lock.asm",
+      "role": "core",
+      "baseline_blob_sha1": "a131251c36c509268f7259557674a22d25a93434",
+      "current_blob_sha1": "4fec1b8ad3939c9f204f539205326e53241f8f9c",
+      "baseline_equal": false,
+      "target_status": "restoration-in-progress-layout-integration",
+      "dependencies": [
+        "Whole116-byte module:108 equal;8 external Sys_Ret_Err/SetBad/Sys_Ret_OK operand bytes pending."
+      ],
+      "evidence": "T20-S2-P131.json"
+    },
+    {
+      "id": 184,
+      "path": "dos/lockio.asm",
+      "role": "core",
+      "baseline_blob_sha1": "8564317ffddd1b0de04be7236a7f97869dc8c67d",
+      "current_blob_sha1": "a44d796b6a27dadbff234528d4b500078dffa5f6",
+      "baseline_equal": false,
+      "target_status": "restoration-in-progress-layout-integration",
+      "dependencies": [
+        "Whole84-byte module exactly equal at corresponding linked addresses; final image placement pending."
+      ],
+      "evidence": "T20-S2-P131.json"
+    },
+    {
+      "id": 185,
+      "path": "dos/macro.asm",
+      "role": "core",
+      "baseline_blob_sha1": "38e2515112828efbfd002f378a8ff2c66027188e",
+      "current_blob_sha1": "0134660614f4124f517e4c0b565794bfb7469466",
+      "baseline_equal": false,
+      "target_status": "restoration-in-progress-external-bindings",
+      "dependencies": [
+        "Whole471-byte body matches except10 external call/jump operand bytes; skip body"
+      ],
+      "evidence": "T20-S2-P129.json"
+    },
+    {
+      "id": 186,
+      "path": "dos/macro2.asm",
+      "role": "core",
+      "baseline_blob_sha1": "19964726142cf41791a4bb75ab493655e05b2c18",
+      "current_blob_sha1": "19964726142cf41791a4bb75ab493655e05b2c18",
+      "baseline_equal": true,
+      "target_status": "unchanged-950-locally-verified-integration-pending",
+      "dependencies": [
+        "Whole1015-byte body matches except24 external code address bytes"
+      ],
+      "evidence": "T20-S2-P130.json"
+    },
+    {
+      "id": 187,
+      "path": "dos/makefile",
+      "role": "core",
+      "baseline_blob_sha1": "5638e01d0ce65d93814d77a63ec7f9723530a067",
+      "current_blob_sha1": "49330c2ec63e31b28a6fefbcf03b041eae8cf8e8",
+      "baseline_equal": false,
+      "target_status": "restoration-in-progress-original-ml-kernel-recipe",
+      "dependencies": [
+        "dos/mscode.asm",
+        "dos/diskset.asm",
+        "dos/msctrlc.asm",
+        "inc/dosmac.inc",
+        "dos/getset.asm",
+        "dos/misc.asm",
+        "dos/fcbio.asm",
+        "dos/fcbio2.asm"
+      ],
+      "evidence": "T20-S2-P74.json; T20-S2-P76.json; T20-S2-P77.json; T20-S2-P80.json; T20-S2-P88.json; T20-S2-P89.json; T20-S2-P132.json; T20-S2-P134.json; T20-S2-P139.json; T20-S2-P140.json"
+    },
+    {
+      "id": 188,
+      "path": "dos/misc.asm",
+      "role": "core",
+      "baseline_blob_sha1": "183f111220e5efcae197884b4419c36879545a47",
+      "current_blob_sha1": "1ccff3917ab2195ec5a7694f7d3d7b08b6db749d",
+      "baseline_equal": false,
+      "target_status": "restoration-in-progress-layout-integration",
+      "dependencies": [
+        "P140 full linked interval proves module exact, including external call bindings. Full file acceptance pending."
+      ],
+      "evidence": "T20-S2-P133.json; T20-S2-P134.json; T20-S2-P135.json; T20-S2-P136.json; T20-S2-P137.json; T20-S2-P140.json"
+    },
+    {
+      "id": 189,
+      "path": "dos/misc2.asm",
+      "role": "core",
+      "baseline_blob_sha1": "236a4e20463a3420b1c3b3457995ed92f99b4a70",
+      "current_blob_sha1": "f1f4ffdcd1341d5770dbeac8021d04d8a25de9af",
+      "baseline_equal": false,
+      "target_status": "restoration-in-progress-external-bindings",
+      "dependencies": [
+        "Whole307-byte body matches except symbol operands; final bindings and USER_SP_2F layout pending"
+      ],
+      "evidence": "T20-S2-P117.json"
+    },
+    {
+      "id": 190,
+      "path": "dos/mknode.asm",
+      "role": "core",
+      "baseline_blob_sha1": "7ab18c9e904ceecde9e2d638be15c723ddc5c230",
+      "current_blob_sha1": "0ff48067d884f2d813f7f655ea9edac7721e9c40",
+      "baseline_equal": false,
+      "target_status": "restoration-in-progress-directory-creation",
+      "dependencies": [
+        "Whole 1200-byte body matches except external call operands; external bindings and shared-data layout pending"
+      ],
+      "evidence": "T20-S2-P107.json; T20-S2-P118.json"
+    },
+    {
+      "id": 191,
+      "path": "dos/mpatch.asm",
+      "role": "core",
+      "baseline_blob_sha1": "92374ca85dc10132b29288654faa9bc29aabfb5c",
+      "current_blob_sha1": "92374ca85dc10132b29288654faa9bc29aabfb5c",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 192,
+      "path": "dos/mscode.asm",
+      "role": "core",
+      "baseline_blob_sha1": "9265cd4fc2b7b7b377885bdfd132e2fb4b5e1323",
+      "current_blob_sha1": "f3f7558aed09445c6c4d7c64dfca0e09c520874d",
+      "baseline_equal": false,
+      "target_status": "restoration-in-progress-int2f-state-control",
+      "dependencies": [
+        "dos/dostab.asm: Win386_NotifyPending",
+        "AbsReadExtended/AbsWriteExtended exported existing near paths at44A1/4550; emitted instructions unchanged."
+      ],
+      "evidence": "T20-S2-P68.json; T20-S2-P73.json; T20-S2-P74.json; T20-S2-P75.json; T20-S2-P136.json"
+    },
+    {
+      "id": 193,
+      "path": "dos/msconst.asm",
+      "role": "core",
+      "baseline_blob_sha1": "1472d000b01a028d12e86f393df814a0fb51d9ee",
+      "current_blob_sha1": "1472d000b01a028d12e86f393df814a0fb51d9ee",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 194,
+      "path": "dos/msctrlc.asm",
+      "role": "core",
+      "baseline_blob_sha1": "34083c77dd2ced417b04698656998c6ad4a1a2e1",
+      "current_blob_sha1": "95d5b5fd337aa3784c1464884db32105dc549a1e",
+      "baseline_equal": false,
+      "target_status": "restoration-in-progress-fat32-error-classification",
+      "dependencies": [
+        "inc/dpb.inc",
+        "inc/dosmac.inc",
+        "INT24 register preservation and external bindings"
+      ],
+      "evidence": "T20-S2-P77.json; T20-S2-P78.json; T20-S2-P79.json"
+    },
+    {
+      "id": 195,
+      "path": "dos/msdata.asm",
+      "role": "core",
+      "baseline_blob_sha1": "ec75d38c7c189c0767386f1cedf43567c2253275",
+      "current_blob_sha1": "ec75d38c7c189c0767386f1cedf43567c2253275",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 196,
+      "path": "dos/msdisp.asm",
+      "role": "core",
+      "baseline_blob_sha1": "b155c881f47bb9894f2f40313106670b099ec1e6",
+      "current_blob_sha1": "63bbf81f5d210745341a8dfd108e114590eabe3c",
+      "baseline_equal": false,
+      "target_status": "restoration-in-progress-dispatch-register-preservation",
+      "dependencies": [
+        "Existing DOSDATA register/stack fields; unchanged declarations",
+        "Dispatch table and DskStatChk: final linked bindings remain pending"
+      ],
+      "evidence": "T20-S2-P67.json; T20-S2-P69.json"
+    },
+    {
+      "id": 197,
+      "path": "dos/msdos.cfg",
+      "role": "core",
+      "baseline_blob_sha1": "a05314277c29d6145bf6d850f04b4dfa162616d6",
+      "current_blob_sha1": "04b94c0e77f16e11399cb0814f54290ff28d8fda",
+      "baseline_equal": false,
+      "target_status": "verified-exact-configuration",
+      "dependencies": [],
+      "evidence": "T20-S2-P1.json"
+    },
+    {
+      "id": 198,
+      "path": "dos/msdos.lnk",
+      "role": "core",
+      "baseline_blob_sha1": "0e3f5f8eed56825607b84f55d6ffcff3be2b5d18",
+      "current_blob_sha1": "0e3f5f8eed56825607b84f55d6ffcff3be2b5d18",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 199,
+      "path": "dos/msdos.skl",
+      "role": "core",
+      "baseline_blob_sha1": "98eb9b55ad6716af2d53622be93cf6baea0f1de5",
+      "current_blob_sha1": "98eb9b55ad6716af2d53622be93cf6baea0f1de5",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 200,
+      "path": "dos/msdosme.asm",
+      "role": "core",
+      "baseline_blob_sha1": "d8da23c3a2afc335e8a29be1c5db66d77952e5cd",
+      "current_blob_sha1": "d8da23c3a2afc335e8a29be1c5db66d77952e5cd",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 201,
+      "path": "dos/mshalo.asm",
+      "role": "core",
+      "baseline_blob_sha1": "220eb1e4479e12f278791b9220bcbff52fc09e2b",
+      "current_blob_sha1": "220eb1e4479e12f278791b9220bcbff52fc09e2b",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 202,
+      "path": "dos/msinit.asm",
+      "role": "core",
+      "baseline_blob_sha1": "a5b246782e282c8d63c4694a4ebb4aabef1a6ed3",
+      "current_blob_sha1": "e80f9b8526b4f03a1902891cdaf5125cbdae3bff",
+      "baseline_equal": false,
+      "target_status": "restoration-in-progress-whole-module-exact-full-image-pending",
+      "dependencies": [
+        "Whole initialization D815..DD1C exact in P143 linked image; full IO acceptance pending."
+      ],
+      "evidence": "T20-S2-P118.json; T20-S2-P143.json"
+    },
+    {
+      "id": 203,
+      "path": "dos/msioctl.asm",
+      "role": "core",
+      "baseline_blob_sha1": "45864892f510f0dce262bddae7d1fbaebc52af40",
+      "current_blob_sha1": "45864892f510f0dce262bddae7d1fbaebc52af40",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 204,
+      "path": "dos/msproc.asm",
+      "role": "core",
+      "baseline_blob_sha1": "851d515e599ee19c2153d184dbba3fa415e1a7fd",
+      "current_blob_sha1": "3dcee6b8a5856519fbd8d761762405fb309523f3",
+      "baseline_equal": false,
+      "target_status": "restoration-in-progress-external-bindings",
+      "dependencies": [
+        "Whole2138-byte body matches except38 code-address operand bytes; skip body"
+      ],
+      "evidence": "T20-S2-P126.json"
+    },
+    {
+      "id": 205,
+      "path": "dos/mssw.asm",
+      "role": "core",
+      "baseline_blob_sha1": "35db58eb4843a2f7d74870a457be16d29324469b",
+      "current_blob_sha1": "35db58eb4843a2f7d74870a457be16d29324469b",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 206,
+      "path": "dos/mstable.asm",
+      "role": "core",
+      "baseline_blob_sha1": "dbacf15606138ddfdefd3061748e45b391b71da5",
+      "current_blob_sha1": "7d64925b401faa63cda1c75e0bb079ba6f633ad9",
+      "baseline_equal": false,
+      "target_status": "restoration-in-progress-int2f-state-control",
+      "dependencies": [
+        "dos/mscode.asm: Win386_Control"
+      ],
+      "evidence": "T20-S2-P68.json"
+    },
+    {
+      "id": 207,
+      "path": "dos/open.asm",
+      "role": "core",
+      "baseline_blob_sha1": "78e054378cc8a81e34d95cf68809c931b95cfb99",
+      "current_blob_sha1": "37ad59f3d4173ae6147e127e5799aba7b7f1dbdc",
+      "baseline_equal": false,
+      "target_status": "restoration-in-progress-external-bindings",
+      "dependencies": [
+        "Whole399-byte body matches except external call operands; sharing providers and final layout remain open"
+      ],
+      "evidence": "T20-S2-P110.json"
+    },
+    {
+      "id": 208,
+      "path": "dos/origin.asm",
+      "role": "core",
+      "baseline_blob_sha1": "4d96fb7818c615d616e96d8e5071bad8df03c52f",
+      "current_blob_sha1": "4d96fb7818c615d616e96d8e5071bad8df03c52f",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 209,
+      "path": "dos/parse.asm",
+      "role": "core",
+      "baseline_blob_sha1": "51d4e5020bf1f9268436ad63df093538b459131c",
+      "current_blob_sha1": "51d4e5020bf1f9268436ad63df093538b459131c",
+      "baseline_equal": true,
+      "target_status": "unchanged-950-locally-verified-integration-pending",
+      "dependencies": [
+        "Whole11-byte FCB parse entry:8 equal,3 external call operand bytes."
+      ],
+      "evidence": "T20-S2-P133.json"
+    },
+    {
+      "id": 210,
+      "path": "dos/path.asm",
+      "role": "core",
+      "baseline_blob_sha1": "f74dd77657fd756415d0596ec037ea211f273553",
+      "current_blob_sha1": "159302a8033a97f78dc5527e0d408d57a20ac120",
+      "baseline_equal": false,
+      "target_status": "restoration-in-progress-external-bindings",
+      "dependencies": [
+        "Whole374-byte body matches except external code addresses; skip body, retain final link verification"
+      ],
+      "evidence": "T20-S2-P121.json"
+    },
+    {
+      "id": 211,
+      "path": "dos/rename.asm",
+      "role": "core",
+      "baseline_blob_sha1": "410460f5101380b704ee52d6b656779fa1a2b48a",
+      "current_blob_sha1": "d6ed653242d4821c82236e853703888942e725d6",
+      "baseline_equal": false,
+      "target_status": "restoration-in-progress-external-bindings",
+      "dependencies": [
+        "Whole635-byte body matches except external call operands; final layout pending"
+      ],
+      "evidence": "T20-S2-P115.json"
+    },
+    {
+      "id": 212,
+      "path": "dos/restrict.inc",
+      "role": "core",
+      "baseline_blob_sha1": "e036e76351c372fe30e1fc9291c3ce6d8535f95f",
+      "current_blob_sha1": "e036e76351c372fe30e1fc9291c3ce6d8535f95f",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 213,
+      "path": "dos/rom.asm",
+      "role": "core",
+      "baseline_blob_sha1": "eddd11dc0471c0fd2dbaade51260ea410fd49b8f",
+      "current_blob_sha1": "fc7d9a38bb9784df6476500036229a68df4f4f17",
+      "baseline_equal": false,
+      "target_status": "restoration-in-progress-external-binding",
+      "dependencies": [
+        "DeferredFlush binding; disk2/disk3 file-I/O caller adaptation"
+      ],
+      "evidence": "T20-S2-P94.json supersedes partial P90..P93 rom comparisons"
+    },
+    {
+      "id": 214,
+      "path": "dos/romfind.asm",
+      "role": "core",
+      "baseline_blob_sha1": "4155c641b25a03aadc9d36fd527cc5df81b3ebc7",
+      "current_blob_sha1": "4155c641b25a03aadc9d36fd527cc5df81b3ebc7",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 215,
+      "path": "dos/scnam.inc",
+      "role": "core",
+      "baseline_blob_sha1": "db9f40dbb7bf0e933bcee7affbc2c4b3de9aa2ab",
+      "current_blob_sha1": "db9f40dbb7bf0e933bcee7affbc2c4b3de9aa2ab",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 216,
+      "path": "dos/search.asm",
+      "role": "core",
+      "baseline_blob_sha1": "338e20a524a6383d4d0fcd37d3fd9557ecad6cf8",
+      "current_blob_sha1": "dd7379a35787be6368aa44ad1d8d4670f6d7d4ad",
+      "baseline_equal": false,
+      "target_status": "restoration-in-progress-external-bindings",
+      "dependencies": [
+        "Whole430-byte body matches except18 external call/jump operand bytes; skip body, retain final link verification"
+      ],
+      "evidence": "T20-S2-P118.json; T20-S2-P120.json"
+    },
+    {
+      "id": 217,
+      "path": "dos/segcheck.asm",
+      "role": "core",
+      "baseline_blob_sha1": "0a1d1ed60caf9c1458d793355a0afdf67cee3ff8",
+      "current_blob_sha1": "0a1d1ed60caf9c1458d793355a0afdf67cee3ff8",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 218,
+      "path": "dos/share.asm",
+      "role": "core",
+      "baseline_blob_sha1": "b85751ffa511becd7dfd5bd40c2e9eb7d04cf222",
+      "current_blob_sha1": "5d2a48bc0c61e2c7b8895c44d9bbb638d4d09c0c",
+      "baseline_equal": false,
+      "target_status": "restoration-in-progress-external-bindings",
+      "dependencies": [
+        "Whole129-byte body matches except two CHARHARD/HARDERR operand bytes; final external binding pending"
+      ],
+      "evidence": "T20-S2-P111.json"
+    },
+    {
+      "id": 219,
+      "path": "dos/shrprint.asm",
+      "role": "core",
+      "baseline_blob_sha1": "e34beb4f7b4c13f243f913ca7e34cb39c7a84606",
+      "current_blob_sha1": "e34beb4f7b4c13f243f913ca7e34cb39c7a84606",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 220,
+      "path": "dos/srvcall.asm",
+      "role": "core",
+      "baseline_blob_sha1": "9e7479bce1240f97880199d1ca06e650a1227624",
+      "current_blob_sha1": "d33469638a8589289f4a75f3b7b8fa60d1ee0921",
+      "baseline_equal": false,
+      "target_status": "restoration-in-progress-layout-integration",
+      "dependencies": [
+        "Whole326 bytes: code-address operands and SWAP_END five-byte data layout gap pending"
+      ],
+      "evidence": "T20-S2-P127.json"
+    },
+    {
+      "id": 221,
+      "path": "dos/time.asm",
+      "role": "core",
+      "baseline_blob_sha1": "c79f1106b78dfa9f3ab0858ebce34b5333ef24d9",
+      "current_blob_sha1": "648a70da95249f02d5e76816977e3d04ae3ed9b7",
+      "baseline_equal": false,
+      "target_status": "restoration-in-progress-layout-integration",
+      "dependencies": [
+        "Whole474-byte module:461 equal;13 external SETREAD/SETWRITE/DEVIOCALL2 operand bytes."
+      ],
+      "evidence": "T20-S2-P138.json"
+    },
+    {
+      "id": 222,
+      "path": "dos/util.asm",
+      "role": "core",
+      "baseline_blob_sha1": "617321457936cae01f573911080f29dbf03de5a3",
+      "current_blob_sha1": "617321457936cae01f573911080f29dbf03de5a3",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 223,
+      "path": "extras/resources/boot-logo/logo.bmp",
+      "role": "resource",
+      "baseline_blob_sha1": "aa9a131560dd19eb4e1eeac5d6062dd75d25433e",
+      "current_blob_sha1": "aa9a131560dd19eb4e1eeac5d6062dd75d25433e",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 224,
+      "path": "extras/resources/boot-logo/logo.mrc",
+      "role": "resource",
+      "baseline_blob_sha1": "bfe5dbdbccadb1e13be3403b9dfa35f8347734c2",
+      "current_blob_sha1": "bfe5dbdbccadb1e13be3403b9dfa35f8347734c2",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 225,
+      "path": "extras/resources/boot-logo/manifest.json",
+      "role": "resource",
+      "baseline_blob_sha1": "dfe1f1c8ab12dd73a2f5a0d46eccb3e36f81adfd",
+      "current_blob_sha1": "dfe1f1c8ab12dd73a2f5a0d46eccb3e36f81adfd",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 226,
+      "path": "extras/tools/blockdiff.c",
+      "role": "tool",
+      "baseline_blob_sha1": "28d1e0ac3f1fcd455f70d5bbaeba4a5cad70f596",
+      "current_blob_sha1": "28d1e0ac3f1fcd455f70d5bbaeba4a5cad70f596",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 227,
+      "path": "extras/tools/cmdimage.c",
+      "role": "tool",
+      "baseline_blob_sha1": "de8aa9e19485137e0246c3b0b3aeb30803bd0c73",
+      "current_blob_sha1": "de8aa9e19485137e0246c3b0b3aeb30803bd0c73",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 228,
+      "path": "extras/tools/crtlib.c",
+      "role": "tool",
+      "baseline_blob_sha1": "1f977bd39d66732966934997d929d393606c81a5",
+      "current_blob_sha1": "1f977bd39d66732966934997d929d393606c81a5",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 229,
+      "path": "extras/tools/dosbuild/bios.bat",
+      "role": "tool",
+      "baseline_blob_sha1": "4393036ecfc1ef150b3b417811f4dcdda69c53d6",
+      "current_blob_sha1": "4393036ecfc1ef150b3b417811f4dcdda69c53d6",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 230,
+      "path": "extras/tools/dosbuild/cfgasm.bat",
+      "role": "tool",
+      "baseline_blob_sha1": "2a589363c8968a4e5d835a3057d9430b2c9c0433",
+      "current_blob_sha1": "2a589363c8968a4e5d835a3057d9430b2c9c0433",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 231,
+      "path": "extras/tools/dosbuild/cfglink.bat",
+      "role": "tool",
+      "baseline_blob_sha1": "b8db50f75d2fed309596f122de9d0d1a8459b1eb",
+      "current_blob_sha1": "b8db50f75d2fed309596f122de9d0d1a8459b1eb",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 232,
+      "path": "extras/tools/dosbuild/cmdres.bat",
+      "role": "tool",
+      "baseline_blob_sha1": "d68e178ad2b607a76c258760d091980f2a671d9d",
+      "current_blob_sha1": "d68e178ad2b607a76c258760d091980f2a671d9d",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 233,
+      "path": "extras/tools/dosbuild/command.bat",
+      "role": "tool",
+      "baseline_blob_sha1": "1b1c0d3e7094b41b58b05d0a6eccf3c1031b8058",
+      "current_blob_sha1": "1b1c0d3e7094b41b58b05d0a6eccf3c1031b8058",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 234,
+      "path": "extras/tools/dosbuild/crtlib.bat",
+      "role": "tool",
+      "baseline_blob_sha1": "34c9692f1352f7a000f1c92cc27866b87f43b489",
+      "current_blob_sha1": "34c9692f1352f7a000f1c92cc27866b87f43b489",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 235,
+      "path": "extras/tools/dosbuild/host-tools.cmd",
+      "role": "tool",
+      "baseline_blob_sha1": "b081634106748ad169ec91828b748ba372b74847",
+      "current_blob_sha1": "b081634106748ad169ec91828b748ba372b74847",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 236,
+      "path": "extras/tools/dosbuild/kernel.bat",
+      "role": "tool",
+      "baseline_blob_sha1": "c809119d1a5b62f256246b768adb8a8b431a9944",
+      "current_blob_sha1": "c809119d1a5b62f256246b768adb8a8b431a9944",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 237,
+      "path": "extras/tools/dosbuild/nosrv.bat",
+      "role": "tool",
+      "baseline_blob_sha1": "aa1141453199942c7daab08c214b18e4cb8704c6",
+      "current_blob_sha1": "aa1141453199942c7daab08c214b18e4cb8704c6",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 238,
+      "path": "extras/tools/dosbuild/regapi.omf",
+      "role": "tool",
+      "baseline_blob_sha1": "5143f25e37ff27538ddf17948af198d7767c1c8d",
+      "current_blob_sha1": "5143f25e37ff27538ddf17948af198d7767c1c8d",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 239,
+      "path": "extras/tools/dosbuild/regfile.omf",
+      "role": "tool",
+      "baseline_blob_sha1": "e6edaffc9342af6e4c205ee8970a599326094b0c",
+      "current_blob_sha1": "e6edaffc9342af6e4c205ee8970a599326094b0c",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 240,
+      "path": "extras/tools/dosbuild/regfinal.omf",
+      "role": "tool",
+      "baseline_blob_sha1": "62b25d8337bee4ef56085844c6505dda6a7ea94b",
+      "current_blob_sha1": "62b25d8337bee4ef56085844c6505dda6a7ea94b",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 241,
+      "path": "extras/tools/dosbuild/reghandl.omf",
+      "role": "tool",
+      "baseline_blob_sha1": "9fbb3692458e41dd96a0d8deaa6aa510f284f9a1",
+      "current_blob_sha1": "9fbb3692458e41dd96a0d8deaa6aa510f284f9a1",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 242,
+      "path": "extras/tools/dosbuild/regkeys.omf",
+      "role": "tool",
+      "baseline_blob_sha1": "e13cd7a500083fff1d976c738bdaf0258c7c909e",
+      "current_blob_sha1": "e13cd7a500083fff1d976c738bdaf0258c7c909e",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 243,
+      "path": "extras/tools/dosbuild/regstart.omf",
+      "role": "tool",
+      "baseline_blob_sha1": "8ee66d64d804a1950c2932fb13fe2b5182709eba",
+      "current_blob_sha1": "8ee66d64d804a1950c2932fb13fe2b5182709eba",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 244,
+      "path": "extras/tools/dosbuild/tools.ini",
+      "role": "tool",
+      "baseline_blob_sha1": "5a28549a634324c52bf54797f472d3a64b6376a9",
+      "current_blob_sha1": "5a28549a634324c52bf54797f472d3a64b6376a9",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 245,
+      "path": "extras/tools/dosbuild/tools.lst",
+      "role": "tool",
+      "baseline_blob_sha1": "cdb0cbf2885a8c9bafdaa4eef981b7ad202db5dc",
+      "current_blob_sha1": "cdb0cbf2885a8c9bafdaa4eef981b7ad202db5dc",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 246,
+      "path": "extras/tools/fatcore.c",
+      "role": "tool",
+      "baseline_blob_sha1": "d9135948f2698deacf3410dbc94d425d8d88cc9b",
+      "current_blob_sha1": "d9135948f2698deacf3410dbc94d425d8d88cc9b",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 247,
+      "path": "extras/tools/ioimage.c",
+      "role": "tool",
+      "baseline_blob_sha1": "b0c7184622f2b72c01c23d613e279d88db08edd2",
+      "current_blob_sha1": "05ff0c173bf80207e6644b8f4d752412ae0c9b66",
+      "baseline_equal": false,
+      "target_status": "integrated-diagnostic-packaging-verified-full-identity-pending",
+      "dependencies": [
+        "MZ loader extent; T20-S2-P2"
+      ],
+      "evidence": "T20-S2-P3.json; T20-S2-P24.json"
+    },
+    {
+      "id": 248,
+      "path": "extras/tools/isolated_tool_runner.c",
+      "role": "tool",
+      "baseline_blob_sha1": "2e37c8b55821c224d242baffc328bdbe04566f84",
+      "current_blob_sha1": "2e37c8b55821c224d242baffc328bdbe04566f84",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 249,
+      "path": "extras/tools/msgindex.c",
+      "role": "tool",
+      "baseline_blob_sha1": "fcf9eefcab68223bacd11d09a6e63dd225935cc8",
+      "current_blob_sha1": "fcf9eefcab68223bacd11d09a6e63dd225935cc8",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 250,
+      "path": "extras/tools/omforder.c",
+      "role": "tool",
+      "baseline_blob_sha1": "4e49f4f7fc26eb26e7ac60780b7da090c45e0799",
+      "current_blob_sha1": "4e49f4f7fc26eb26e7ac60780b7da090c45e0799",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 251,
+      "path": "inc/arena.inc",
+      "role": "core",
+      "baseline_blob_sha1": "4cef384da8aadd2baeeb7586bd7217eb6f0a5111",
+      "current_blob_sha1": "4cef384da8aadd2baeeb7586bd7217eb6f0a5111",
+      "baseline_equal": true,
+      "target_status": "unchanged-dos6-definition-reviewed-consumer-validation-pending",
+      "dependencies": [],
+      "evidence": "T20-S2-P12.json"
+    },
+    {
+      "id": 252,
+      "path": "inc/bdsize.inc",
+      "role": "core",
+      "baseline_blob_sha1": "bba5f7979cbbcadbacf7089a3049d41e96c022ef",
+      "current_blob_sha1": "bba5f7979cbbcadbacf7089a3049d41e96c022ef",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 253,
+      "path": "inc/bootform.inc",
+      "role": "core",
+      "baseline_blob_sha1": "23ee2bcb53dd0499d64a1e7abb0583355010c3f1",
+      "current_blob_sha1": "23ee2bcb53dd0499d64a1e7abb0583355010c3f1",
+      "baseline_equal": true,
+      "target_status": "unchanged-dos6-definition-reviewed-consumer-validation-pending",
+      "dependencies": [
+        "inc/bpb.inc"
+      ],
+      "evidence": "T20-S2-P9.json"
+    },
+    {
+      "id": 254,
+      "path": "inc/bpb.inc",
+      "role": "core",
+      "baseline_blob_sha1": "285d116b30ca4d79616a05a18ae8e54ea2c399ee",
+      "current_blob_sha1": "d81ab16ce7c95928decd17223ebfc67ef0085162",
+      "baseline_equal": false,
+      "target_status": "structure-template-exact-integration-pending",
+      "dependencies": [],
+      "evidence": "T20-S2-P4.json"
+    },
+    {
+      "id": 255,
+      "path": "inc/buffer.inc",
+      "role": "core",
+      "baseline_blob_sha1": "3024b47526f94ab3fbe43c96504c8364f35800e7",
+      "current_blob_sha1": "6710642bf3350a4c30de1c4425a5895c2426c809",
+      "baseline_equal": false,
+      "target_status": "fat32-buffer-layout-probe-exact-consumer-integration-pending",
+      "dependencies": [],
+      "evidence": "T20-S2-P16.json"
+    },
+    {
+      "id": 256,
+      "path": "inc/bugtyp.inc",
+      "role": "core",
+      "baseline_blob_sha1": "10c951042f59aa0badac872d56db0c56124467d4",
+      "current_blob_sha1": "10c951042f59aa0badac872d56db0c56124467d4",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 257,
+      "path": "inc/const2.asm",
+      "role": "core",
+      "baseline_blob_sha1": "cbede6cf95c1fb4483ef9f339f900bad462a7ba5",
+      "current_blob_sha1": "cbede6cf95c1fb4483ef9f339f900bad462a7ba5",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 258,
+      "path": "inc/copyrigh.inc",
+      "role": "core",
+      "baseline_blob_sha1": "deeec6f26b652d3cf9e268c42419f319e1022c68",
+      "current_blob_sha1": "deeec6f26b652d3cf9e268c42419f319e1022c68",
+      "baseline_equal": true,
+      "target_status": "unchanged-950-usa-copyright-exact-integration-pending",
+      "dependencies": [],
+      "evidence": "T20-S2-P18.json"
+    },
+    {
+      "id": 259,
+      "path": "inc/cpmfcb.inc",
+      "role": "core",
+      "baseline_blob_sha1": "d90d8203946378035dc09b23d03e90724a377fa5",
+      "current_blob_sha1": "d90d8203946378035dc09b23d03e90724a377fa5",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 260,
+      "path": "inc/cputype.inc",
+      "role": "core",
+      "baseline_blob_sha1": "fefb141968042b7f31f6e22e49787ec0150c550d",
+      "current_blob_sha1": "fefb141968042b7f31f6e22e49787ec0150c550d",
+      "baseline_equal": true,
+      "target_status": "unchanged-dos6-definition-reviewed-consumer-validation-pending",
+      "dependencies": [],
+      "evidence": "T20-S2-P12.json"
+    },
+    {
+      "id": 261,
+      "path": "inc/curdir.inc",
+      "role": "core",
+      "baseline_blob_sha1": "95e6a8a12a3a2152076d79922d9fa3673cadb977",
+      "current_blob_sha1": "95e6a8a12a3a2152076d79922d9fa3673cadb977",
+      "baseline_equal": true,
+      "target_status": "unchanged-dos6-definition-reviewed-consumer-validation-pending",
+      "dependencies": [],
+      "evidence": "T20-S2-P12.json"
+    },
+    {
+      "id": 262,
+      "path": "inc/dbcs.sw",
+      "role": "core",
+      "baseline_blob_sha1": "6086bd1d49b73f31b72cde26058e9beff05370fc",
+      "current_blob_sha1": "6086bd1d49b73f31b72cde26058e9beff05370fc",
+      "baseline_equal": true,
+      "target_status": "unchanged-950-definition-reviewed-consumer-validation-pending",
+      "dependencies": [],
+      "evidence": "T20-S2-P17.json"
+    },
+    {
+      "id": 263,
+      "path": "inc/devsym.inc",
+      "role": "core",
+      "baseline_blob_sha1": "9a4f8c1fb0e6e310508a7579c912d9c26d396e67",
+      "current_blob_sha1": "9a4f8c1fb0e6e310508a7579c912d9c26d396e67",
+      "baseline_equal": true,
+      "target_status": "unchanged-dos6-definition-selected-use-verified-integration-pending",
+      "dependencies": [],
+      "evidence": "T20-S2-P9.json"
+    },
+    {
+      "id": 264,
+      "path": "inc/dirent.inc",
+      "role": "core",
+      "baseline_blob_sha1": "17dcca0b1638b066bad29711623f286d514a37d5",
+      "current_blob_sha1": "37c907d2fbf8a5aedbe41b4528ed536262f836d5",
+      "baseline_equal": false,
+      "target_status": "fat32-directory-field-block-verified-consumer-integration-pending",
+      "dependencies": [],
+      "evidence": "T20-S2-P15.json"
+    },
+    {
+      "id": 265,
+      "path": "inc/doscntry.inc",
+      "role": "core",
+      "baseline_blob_sha1": "d5891a6a53ab443c2bf02d261702e87c155e55fa",
+      "current_blob_sha1": "d5891a6a53ab443c2bf02d261702e87c155e55fa",
+      "baseline_equal": true,
+      "target_status": "unchanged-950-definition-reviewed-consumer-validation-pending",
+      "dependencies": [],
+      "evidence": "T20-S2-P17.json"
+    },
+    {
+      "id": 266,
+      "path": "inc/dosmac.inc",
+      "role": "core",
+      "baseline_blob_sha1": "9650693cadfe075a2f4eca57f486977989d3ab3c",
+      "current_blob_sha1": "1a37e116892d697a3c935a39d1687bb9dcabebd4",
+      "baseline_equal": false,
+      "target_status": "modified-definition-reviewed-consumer-validation-pending",
+      "dependencies": [
+        "inc/dossym.inc (DEBUG/Installed caller context)"
+      ],
+      "evidence": "T20-S2-P17.json; T20-S2-P74.json; T20-S2-P77.json"
+    },
+    {
+      "id": 267,
+      "path": "inc/dosseg.inc",
+      "role": "core",
+      "baseline_blob_sha1": "2f6a7ccf793128e14983305c591902bfa682d29f",
+      "current_blob_sha1": "2f6a7ccf793128e14983305c591902bfa682d29f",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 268,
+      "path": "inc/dossym.inc",
+      "role": "core",
+      "baseline_blob_sha1": "5c5b3b235f9c638f8558d13966322b213dc9b25c",
+      "current_blob_sha1": "5c5b3b235f9c638f8558d13966322b213dc9b25c",
+      "baseline_equal": true,
+      "target_status": "unchanged-950-definition-reviewed-consumer-validation-pending",
+      "dependencies": [
+        "inc/dbcs.sw",
+        "inc/dosmac.inc",
+        "inc/versiona.inc",
+        "inc/version.inc",
+        "inc/buffer.inc",
+        "inc/dirent.inc",
+        "inc/error.inc"
+      ],
+      "evidence": "T20-S2-P17.json"
+    },
+    {
+      "id": 269,
+      "path": "inc/dpb.inc",
+      "role": "core",
+      "baseline_blob_sha1": "05387a4c3404e8952c94069abd253dd1229e2088",
+      "current_blob_sha1": "9c602e03d32a5526e40da58c46fd18de806c3ec8",
+      "baseline_equal": false,
+      "target_status": "fat32-dpb-layout-probe-exact-consumer-integration-pending",
+      "dependencies": [],
+      "evidence": "T20-S2-P11.json"
+    },
+    {
+      "id": 270,
+      "path": "inc/dpl.asm",
+      "role": "core",
+      "baseline_blob_sha1": "a999e6ca00855d6727fa6b2cbdd9aa338302dbc2",
+      "current_blob_sha1": "a999e6ca00855d6727fa6b2cbdd9aa338302dbc2",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 271,
+      "path": "inc/ds_vers.inc",
+      "role": "core",
+      "baseline_blob_sha1": "0bd3d5ef069a084880da570e6f95a241c999ee8b",
+      "current_blob_sha1": "0bd3d5ef069a084880da570e6f95a241c999ee8b",
+      "baseline_equal": true,
+      "target_status": "unchanged-950-definition-reviewed-consumer-validation-pending",
+      "dependencies": [],
+      "evidence": "T20-S2-P17.json"
+    },
+    {
+      "id": 272,
+      "path": "inc/ea.inc",
+      "role": "core",
+      "baseline_blob_sha1": "db579e6d4096eee2777100d3a3483d3a55670074",
+      "current_blob_sha1": "db579e6d4096eee2777100d3a3483d3a55670074",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 273,
+      "path": "inc/error.inc",
+      "role": "core",
+      "baseline_blob_sha1": "f56e46f25032e0fdc4bebf809e9f44ced3d34c76",
+      "current_blob_sha1": "f56e46f25032e0fdc4bebf809e9f44ced3d34c76",
+      "baseline_equal": true,
+      "target_status": "unchanged-950-definition-reviewed-consumer-validation-pending",
+      "dependencies": [],
+      "evidence": "T20-S2-P14.json"
+    },
+    {
+      "id": 274,
+      "path": "inc/exe.inc",
+      "role": "core",
+      "baseline_blob_sha1": "cfe38d26eeaa9f85ef715f54f5faf1c381c40aa8",
+      "current_blob_sha1": "cfe38d26eeaa9f85ef715f54f5faf1c381c40aa8",
+      "baseline_equal": true,
+      "target_status": "unchanged-dos6-header-state-use-verified-integration-pending",
+      "dependencies": [],
+      "evidence": "T20-S2-P7.json"
+    },
+    {
+      "id": 275,
+      "path": "inc/fastopen.inc",
+      "role": "core",
+      "baseline_blob_sha1": "a7d6850773f751f85967b4cef9210b0ffdf1cecf",
+      "current_blob_sha1": "a7d6850773f751f85967b4cef9210b0ffdf1cecf",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 276,
+      "path": "inc/fastxxxx.inc",
+      "role": "core",
+      "baseline_blob_sha1": "f0616cc16d65b8122e59142ae20d12c3a1fe7a5b",
+      "current_blob_sha1": "f0616cc16d65b8122e59142ae20d12c3a1fe7a5b",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 277,
+      "path": "inc/filemode.inc",
+      "role": "core",
+      "baseline_blob_sha1": "b635a49c9081fcd35a1192b4ee93a390054a473c",
+      "current_blob_sha1": "b635a49c9081fcd35a1192b4ee93a390054a473c",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 278,
+      "path": "inc/find.inc",
+      "role": "core",
+      "baseline_blob_sha1": "04de10a65acd3c2b363966c9cb7ac3e82cd5ace6",
+      "current_blob_sha1": "04de10a65acd3c2b363966c9cb7ac3e82cd5ace6",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 279,
+      "path": "inc/highexit.inc",
+      "role": "core",
+      "baseline_blob_sha1": "21db5e983c0a1691c89e81e67de05abcdb1b7305",
+      "current_blob_sha1": "21db5e983c0a1691c89e81e67de05abcdb1b7305",
+      "baseline_equal": true,
+      "target_status": "unchanged-950-bios-context-locally-verified-integration-pending",
+      "dependencies": [
+        "inc/highvar.inc",
+        "inc/arena.inc"
+      ],
+      "evidence": "T20-S2-P19.json"
+    },
+    {
+      "id": 280,
+      "path": "inc/highload.inc",
+      "role": "core",
+      "baseline_blob_sha1": "051f8f4770ca7c29596b7cf6f505a516dcf69633",
+      "current_blob_sha1": "051f8f4770ca7c29596b7cf6f505a516dcf69633",
+      "baseline_equal": true,
+      "target_status": "unchanged-950-bios-context-locally-verified-integration-pending",
+      "dependencies": [
+        "inc/highvar.inc",
+        "inc/arena.inc"
+      ],
+      "evidence": "T20-S2-P19.json"
+    },
+    {
+      "id": 281,
+      "path": "inc/highvar.inc",
+      "role": "core",
+      "baseline_blob_sha1": "cb6f7abd1d9defa6f8015c1b0eb377ab52a4788b",
+      "current_blob_sha1": "cb6f7abd1d9defa6f8015c1b0eb377ab52a4788b",
+      "baseline_equal": true,
+      "target_status": "unchanged-950-definition-reviewed-consumer-validation-pending",
+      "dependencies": [],
+      "evidence": "T20-S2-P18.json"
+    },
+    {
+      "id": 282,
+      "path": "inc/int2a.inc",
+      "role": "core",
+      "baseline_blob_sha1": "e3a81fcbefdba96c89fc66959eb23cfc9da55a17",
+      "current_blob_sha1": "e3a81fcbefdba96c89fc66959eb23cfc9da55a17",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 283,
+      "path": "inc/intnat.inc",
+      "role": "core",
+      "baseline_blob_sha1": "49e3fafedbc1f8fc5ef08317c95063bad0e80db2",
+      "current_blob_sha1": "49e3fafedbc1f8fc5ef08317c95063bad0e80db2",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 284,
+      "path": "inc/ioctl.inc",
+      "role": "core",
+      "baseline_blob_sha1": "fbac6690ee92dcdaaacafb5dc828a0aab2a740c2",
+      "current_blob_sha1": "d3892398d90c2f2d62f51c49e849adb3b7296e3f",
+      "baseline_equal": false,
+      "target_status": "ioctl-layout-instruction-probe-exact-consumer-integration-pending",
+      "dependencies": [
+        "inc/bpb.inc"
+      ],
+      "evidence": "T20-S2-P10.json"
+    },
+    {
+      "id": 285,
+      "path": "inc/lmstub.asm",
+      "role": "core",
+      "baseline_blob_sha1": "1c2b5174cd78556c1974cadaf205ba572dba1d92",
+      "current_blob_sha1": "f571d1e15ce427a254297ad9185792603d8be50e",
+      "baseline_equal": false,
+      "target_status": "restoration-in-progress-body-verified-data-bindings-pending",
+      "dependencies": [
+        "Shared NLS table layout:5-byte offset gap"
+      ],
+      "evidence": "T20-S2-P142.json"
+    },
+    {
+      "id": 286,
+      "path": "inc/lock.inc",
+      "role": "core",
+      "baseline_blob_sha1": "5ebeef76d10106c94db239ac82c478e81a94054e",
+      "current_blob_sha1": "5ebeef76d10106c94db239ac82c478e81a94054e",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 287,
+      "path": "inc/magicdrv.inc",
+      "role": "core",
+      "baseline_blob_sha1": "4aa64ba5b68c768374f041b9b2fa176e25e2d00f",
+      "current_blob_sha1": "4aa64ba5b68c768374f041b9b2fa176e25e2d00f",
+      "baseline_equal": true,
+      "target_status": "unchanged-950-definition-reviewed-consumer-validation-pending",
+      "dependencies": [],
+      "evidence": "T20-S2-P18.json"
+    },
+    {
+      "id": 288,
+      "path": "inc/mi.inc",
+      "role": "core",
+      "baseline_blob_sha1": "f20a06b7285f2fb916c59a1207d94b7b5690fd0c",
+      "current_blob_sha1": "f20a06b7285f2fb916c59a1207d94b7b5690fd0c",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 289,
+      "path": "inc/ms_data.asm",
+      "role": "core",
+      "baseline_blob_sha1": "45d5cdb6e8cb8043ead142e2e8f276123ae7054e",
+      "current_blob_sha1": "ccf34d11fefcdb048ed04da55bc06b157c7a391d",
+      "baseline_equal": false,
+      "target_status": "restoration-in-progress-bytes-exact-tail-semantics-unknown",
+      "dependencies": [
+        "SwapTail:5 target zero bytes at AF4..AF8 before SWAP_END AF9; field purpose unproven. Full data and linked references now exact."
+      ],
+      "evidence": "T20-S2-P72.json; T20-S2-P80.json; T20-S2-P90.json; T20-S2-P144.json"
+    },
+    {
+      "id": 290,
+      "path": "inc/msbdata.inc",
+      "role": "core",
+      "baseline_blob_sha1": "54612fee7214bbe27d8f61f7703fad673f5f7380",
+      "current_blob_sha1": "54612fee7214bbe27d8f61f7703fad673f5f7380",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 291,
+      "path": "inc/msbds.inc",
+      "role": "core",
+      "baseline_blob_sha1": "7b3dd84d225241213b2276865389d215add96f5b",
+      "current_blob_sha1": "00f6d9e8d103441b775b709e808a9b53130cad0e",
+      "baseline_equal": false,
+      "target_status": "structure-template-exact-integration-pending",
+      "dependencies": [
+        "inc/bpb.inc"
+      ],
+      "evidence": "T20-S2-P4.json"
+    },
+    {
+      "id": 292,
+      "path": "inc/msgdcl.inc",
+      "role": "core",
+      "baseline_blob_sha1": "efc4f26dca95dd467950d27363cd94b78dc55840",
+      "current_blob_sha1": "efc4f26dca95dd467950d27363cd94b78dc55840",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 293,
+      "path": "inc/msgserv.asm",
+      "role": "core",
+      "baseline_blob_sha1": "44f329eb56522b5c092eb8ea8fcb2a1f17e4a66b",
+      "current_blob_sha1": "44f329eb56522b5c092eb8ea8fcb2a1f17e4a66b",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 294,
+      "path": "inc/mshalo.asm",
+      "role": "core",
+      "baseline_blob_sha1": "7d5368cdca960802b142d85b33a893ba3c2120c4",
+      "current_blob_sha1": "7d5368cdca960802b142d85b33a893ba3c2120c4",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 295,
+      "path": "inc/mshead.asm",
+      "role": "core",
+      "baseline_blob_sha1": "5ed5893bbf50ba0f76f8f853d1bc40362d1782f8",
+      "current_blob_sha1": "5ed5893bbf50ba0f76f8f853d1bc40362d1782f8",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 296,
+      "path": "inc/mult.inc",
+      "role": "core",
+      "baseline_blob_sha1": "e202e46cb3af27c1da46df4ddc5f3fc7610c6b36",
+      "current_blob_sha1": "e202e46cb3af27c1da46df4ddc5f3fc7610c6b36",
+      "baseline_equal": true,
+      "target_status": "unchanged-950-definition-reviewed-consumer-validation-pending",
+      "dependencies": [],
+      "evidence": "T20-S2-P14.json"
+    },
+    {
+      "id": 297,
+      "path": "inc/oemconf.inc",
+      "role": "core",
+      "baseline_blob_sha1": "3e46e4340162cf612e3d364893fedd7453f8d8fe",
+      "current_blob_sha1": "3e46e4340162cf612e3d364893fedd7453f8d8fe",
+      "baseline_equal": true,
+      "target_status": "unchanged-dos6-header-state-use-verified-integration-pending",
+      "dependencies": [],
+      "evidence": "T20-S2-P7.json"
+    },
+    {
+      "id": 298,
+      "path": "inc/origin.inc",
+      "role": "core",
+      "baseline_blob_sha1": "2b18ae1bcdf5c1d46ce0c2d8f629a2bcca58b1ad",
+      "current_blob_sha1": "2b18ae1bcdf5c1d46ce0c2d8f629a2bcca58b1ad",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 299,
+      "path": "inc/parse.asm",
+      "role": "core",
+      "baseline_blob_sha1": "4fd504db472e4f44c907682f0db1c429b755ac02",
+      "current_blob_sha1": "4fd504db472e4f44c907682f0db1c429b755ac02",
+      "baseline_equal": true,
+      "target_status": "unchanged-950-bios-context-locally-verified-integration-pending",
+      "dependencies": [
+        "inc/psdata.inc"
+      ],
+      "evidence": "T20-S2-P19.json"
+    },
+    {
+      "id": 300,
+      "path": "inc/pdb.inc",
+      "role": "core",
+      "baseline_blob_sha1": "3bf3e52e26bb370edb24ffed06ecb3a6a5fc4249",
+      "current_blob_sha1": "3bf3e52e26bb370edb24ffed06ecb3a6a5fc4249",
+      "baseline_equal": true,
+      "target_status": "unchanged-950-definition-reviewed-consumer-validation-pending",
+      "dependencies": [],
+      "evidence": "T20-S2-P13.json"
+    },
+    {
+      "id": 301,
+      "path": "inc/psdata.inc",
+      "role": "core",
+      "baseline_blob_sha1": "e0c5f05fc98e9e3c049c1136758e7bf9a0c40045",
+      "current_blob_sha1": "e0c5f05fc98e9e3c049c1136758e7bf9a0c40045",
+      "baseline_equal": true,
+      "target_status": "unchanged-950-bios-context-locally-verified-integration-pending",
+      "dependencies": [
+        "inc/version.inc"
+      ],
+      "evidence": "T20-S2-P19.json"
+    },
+    {
+      "id": 302,
+      "path": "inc/rombios.inc",
+      "role": "core",
+      "baseline_blob_sha1": "0accf55dab7742efaeb82438c43699c9709ad80e",
+      "current_blob_sha1": "0accf55dab7742efaeb82438c43699c9709ad80e",
+      "baseline_equal": true,
+      "target_status": "unchanged-dos6-definition-reviewed-consumer-validation-pending",
+      "dependencies": [],
+      "evidence": "T20-S2-P12.json"
+    },
+    {
+      "id": 303,
+      "path": "inc/sf.inc",
+      "role": "core",
+      "baseline_blob_sha1": "0c1ba45732a558f9bcba0bf18ba82b7bacad0e2c",
+      "current_blob_sha1": "0be2a1b3eefe1e8125d55287e2c5c2092e192f29",
+      "baseline_equal": false,
+      "target_status": "fat32-sft-alias-probe-exact-consumer-integration-pending",
+      "dependencies": [],
+      "evidence": "T20-S2-P13.json"
+    },
+    {
+      "id": 304,
+      "path": "inc/smifssym.inc",
+      "role": "core",
+      "baseline_blob_sha1": "7f67ab598a042f444f8534be38b93bf09d801283",
+      "current_blob_sha1": "7f67ab598a042f444f8534be38b93bf09d801283",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 305,
+      "path": "inc/syscall.inc",
+      "role": "core",
+      "baseline_blob_sha1": "c6b973eac9cb3484f3deb5b2b564e4c04758d8fb",
+      "current_blob_sha1": "c6b973eac9cb3484f3deb5b2b564e4c04758d8fb",
+      "baseline_equal": true,
+      "target_status": "unchanged-950-definition-reviewed-consumer-validation-pending",
+      "dependencies": [],
+      "evidence": "T20-S2-P14.json"
+    },
+    {
+      "id": 306,
+      "path": "inc/sysmsg.inc",
+      "role": "core",
+      "baseline_blob_sha1": "9f6e7633eed17a61689b694b1db90bb9e29ddcf9",
+      "current_blob_sha1": "9f6e7633eed17a61689b694b1db90bb9e29ddcf9",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 307,
+      "path": "inc/sysvar.inc",
+      "role": "core",
+      "baseline_blob_sha1": "6d2cd63e5a14333282bdcd77ae70883d8a75de53",
+      "current_blob_sha1": "6d2cd63e5a14333282bdcd77ae70883d8a75de53",
+      "baseline_equal": true,
+      "target_status": "unchanged-dos6-definition-reviewed-consumer-validation-pending",
+      "dependencies": [],
+      "evidence": "T20-S2-P12.json"
+    },
+    {
+      "id": 308,
+      "path": "inc/umb.inc",
+      "role": "core",
+      "baseline_blob_sha1": "f7dbb8163ce1aae338622555ce058aa4af23af6e",
+      "current_blob_sha1": "f7dbb8163ce1aae338622555ce058aa4af23af6e",
+      "baseline_equal": true,
+      "target_status": "unchanged-950-definition-reviewed-consumer-validation-pending",
+      "dependencies": [],
+      "evidence": "T20-S2-P17.json"
+    },
+    {
+      "id": 309,
+      "path": "inc/vector.inc",
+      "role": "core",
+      "baseline_blob_sha1": "2e12cfc6d1e3012ae5961e0cec69a5d2dfdc3628",
+      "current_blob_sha1": "2e12cfc6d1e3012ae5961e0cec69a5d2dfdc3628",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 310,
+      "path": "inc/version.inc",
+      "role": "core",
+      "baseline_blob_sha1": "bc7663307b6055570135baa8179adbfc61b1f769",
+      "current_blob_sha1": "bc7663307b6055570135baa8179adbfc61b1f769",
+      "baseline_equal": true,
+      "target_status": "unchanged-header-message-use-verified-integration-pending",
+      "dependencies": [],
+      "evidence": "T20-S2-P8.json"
+    },
+    {
+      "id": 311,
+      "path": "inc/versiona.inc",
+      "role": "core",
+      "baseline_blob_sha1": "ea7d216edabb9807ca0c39d4013d85cdb1dad099",
+      "current_blob_sha1": "73ea8967386f83b6ba58b249075ff5fe330664e1",
+      "baseline_equal": false,
+      "target_status": "modified-version-field-probe-verified-integration-pending",
+      "dependencies": [],
+      "evidence": "T20-S2-P1.json"
+    },
+    {
+      "id": 312,
+      "path": "inc/win386.inc",
+      "role": "core",
+      "baseline_blob_sha1": "c6419e99b853a994d069ab694a1368de7c6ca688",
+      "current_blob_sha1": "c6419e99b853a994d069ab694a1368de7c6ca688",
+      "baseline_equal": true,
+      "target_status": "unchanged-950-definition-reviewed-consumer-validation-pending",
+      "dependencies": [],
+      "evidence": "T20-S2-P18.json"
+    },
+    {
+      "id": 313,
+      "path": "inc/wpatch.inc",
+      "role": "core",
+      "baseline_blob_sha1": "0662bf02cde96fa61190268446ce199e034c5b81",
+      "current_blob_sha1": "0662bf02cde96fa61190268446ce199e034c5b81",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 314,
+      "path": "inc/xmm.inc",
+      "role": "core",
+      "baseline_blob_sha1": "90f89ab5adbbc9483d7a277ff6c4abbb1d18cf8f",
+      "current_blob_sha1": "90f89ab5adbbc9483d7a277ff6c4abbb1d18cf8f",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 315,
+      "path": "inc/yesno.asm",
+      "role": "core",
+      "baseline_blob_sha1": "aa8a9f885ffb8bd0ec9a0354cb6d08e325f4f3d4",
+      "current_blob_sha1": "aa8a9f885ffb8bd0ec9a0354cb6d08e325f4f3d4",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 316,
+      "path": "lang/usa/messages/biosmsg.inc",
+      "role": "core",
+      "baseline_blob_sha1": "8fa63a0b6adf8e2347c106e179d291dc25101512",
+      "current_blob_sha1": "d5d723eb4f3b437a8bbc9339dfd7b6b477d3c6b5",
+      "baseline_equal": false,
+      "target_status": "message-resource-exact-integration-pending",
+      "dependencies": [],
+      "evidence": "T20-S2-P5.json"
+    },
+    {
+      "id": 317,
+      "path": "lang/usa/messages/comimsg.inc",
+      "role": "core",
+      "baseline_blob_sha1": "e8f602f563bda4d6390844e8b5a401caf1cdbe6f",
+      "current_blob_sha1": "e8f602f563bda4d6390844e8b5a401caf1cdbe6f",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 318,
+      "path": "lang/usa/messages/comrmsg.inc",
+      "role": "core",
+      "baseline_blob_sha1": "bde4c9c391660992984dd285b2c446934806535b",
+      "current_blob_sha1": "bde4c9c391660992984dd285b2c446934806535b",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 319,
+      "path": "lang/usa/messages/sysimsg.inc",
+      "role": "core",
+      "baseline_blob_sha1": "f37c34d92852b4b69bd7c701b612c63fb6eaa9c8",
+      "current_blob_sha1": "8cc678422723d4e48b551c7227281d872266d6fa",
+      "baseline_equal": false,
+      "target_status": "message-resource-exact-integration-pending",
+      "dependencies": [],
+      "evidence": "T20-S2-P8.json"
+    },
+    {
+      "id": 320,
+      "path": "lang/usa/messages/usa-ms-command.msg",
+      "role": "core",
+      "baseline_blob_sha1": "3277757ba68bd32227af36d28a60df66fdaa885e",
+      "current_blob_sha1": "3277757ba68bd32227af36d28a60df66fdaa885e",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    },
+    {
+      "id": 321,
+      "path": "lang/usa/messages/usa-ms-dos.msg",
+      "role": "core",
+      "baseline_blob_sha1": "09b4bfeb18e96120d021972d384ba029efaf15d1",
+      "current_blob_sha1": "09b4bfeb18e96120d021972d384ba029efaf15d1",
+      "baseline_equal": true,
+      "target_status": "pending",
+      "dependencies": null
+    }
+  ]
+}

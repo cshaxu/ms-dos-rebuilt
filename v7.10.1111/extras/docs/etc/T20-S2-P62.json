@@ -1,0 +1,14 @@
+{
+  "task":"M6 T20 S2 P62",
+  "source":"bios/sysinit2.asm",
+  "source_blob":"15e63a0b2f1a7799c005c261114003442f2def81",
+  "changes":"Correct 23 direct message-table operands and seven indexed-message arguments for target leading entries",
+  "build":"extras/build/cmd-17081-23949/incremental.cmd",
+  "build_exit":0,
+  "check":"extras/build/cmd-17081-23949/p62check.cmd",
+  "check_exit":0,
+  "exact_ranges":[{"offset":41458,"bytes":6984,"runtime_start":"4B52","runtime_end_exclusive":"669A","scope":"sysinit2 startup data and all code; no exclusions"}],
+  "disposition":"sysinit2 locally verified; only full-image integration remains, skip repeated block audits",
+  "counts":{"core_modified_this_part":1,"core_modified_total":31,"reviewed_unchanged":39,"reviewed_modified":20,"reviewed_total":59,"new_core_files":0},
+  "full_identity":false,"published":false
+}

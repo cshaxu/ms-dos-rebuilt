@@ -1,0 +1,39 @@
+{
+  "task": "M6 T20 S2 P134",
+  "previous_turn": "progress: P133 restored misc API prefix",
+  "changes": [
+    "Restore SETDPB using existing BPB and DPB symbols; extended-request signature, FAT32 version/FSInfo/backup validation, active FAT selection, 32-bit sector/cluster calculation and FAT-capacity limits.",
+    "Preserve interrupt state and legacy DPB output semantics; remove obsolete word3 constant and replaced 16-bit-only calculation.",
+    "Use inherited ML tool in existing misc make recipe for target 386 instruction/prefix forms."
+  ],
+  "source_blob_sha1": {
+    "misc": "baa8ed3fe1d549b05530761115b78057c1e5c867",
+    "makefile": "21159f847e47bcf29bbd89480b1fc15bf60f8f6c"
+  },
+  "build": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+  "build_exit": 0,
+  "build_notes": "Initial ML diagnostics required explicit DWORD PTR for BPB field-difference operands and WORD PTR for DSKSIZ; corrected before successful build.",
+  "comparison": {
+    "scope": "Whole SETDPB",
+    "built": "51C8..53C4",
+    "target": "51BF..53BB",
+    "bytes": 508,
+    "equal": 508,
+    "different": 0
+  },
+  "remaining": "Extended drive-call dispatch and remaining misc implementation; final whole-image layout and three-output equality.",
+  "evidence": "extras/build/cmd-17081-23949/p134: full IO.SYS/map, guest make.log, spans and FC log",
+  "counts": {
+    "modified_asm_this_part": 1,
+    "modified_makefile_this_part": 1,
+    "unchanged_reviewed_this_part": 0,
+    "new_source_files": 0,
+    "modified_total": 79,
+    "baseline_identical": 214,
+    "reviewed_modified": 26,
+    "reviewed_unchanged": 43,
+    "in_progress": 53
+  },
+  "full_identity": false,
+  "published": false
+}

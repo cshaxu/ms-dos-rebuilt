@@ -1,0 +1,14 @@
+{
+  "task": "M6 T20 S2 P40",
+  "sources": [{"file": "bios/stkinit.asm", "blob": "f375a746cc1dbdbcf433369b9c71550c99d5594c"}],
+  "changes": ["Use existing a_deviceparameters32 declaration for initialization storage; linker-derived BDS1 and DSKDRVS now match target placement"],
+  "build": "extras/build/cmd-17081-23949/incremental.cmd",
+  "build_exit": 0,
+  "check": "extras/build/cmd-17081-23949/p40check.cmd",
+  "check_exit": 0,
+  "exact_range": {"offset": 12248, "bytes": 2703, "scope": "Complete linked msdisk region; no relocation or operand exclusions"},
+  "counts": {"core_modified_this_part": 1, "core_modified_total": 24, "reviewed_unchanged": 39, "new_core_files": 0},
+  "pending": "stkinit whole-module validation, remaining BIOS SCC, kernel and COMMAND differences",
+  "published": false,
+  "full_identity": false
+}

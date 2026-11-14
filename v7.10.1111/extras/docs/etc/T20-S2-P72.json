@@ -1,0 +1,23 @@
+{
+  "task":"M6 T20 S2 P72",
+  "sources":{
+    "inc/ms_data.asm":"b610d78b46d5f1e0b00091cebaf1646c93ce9ee6",
+    "dos/lfn.asm":"01aa96cd0b308a1c55c52ba8f1f169ba3303a46d",
+    "dos/dir.asm":"16f0902cc7f0e2c17203889584d720a3017afef2"
+  },
+  "changes":"Remove four unused FastSeek declarations; expand three directory-state records14->18 bytes; declare target absolute-I/O flag and high directory/current-cluster words. Update LFN scan, swap, restore, nine-word copy and directory search saved last-entry offset.",
+  "dependency_order":["Data provider definitions","LFN record consumers","Search result record consumer"],
+  "target_addresses":{"TEMP_DOSLOC":"0AA3","IoState1":"0AA5","IoState2":"0AB7","IoState3":"0AC9","AbsIoMode":"0ADB","DirStartHigh":"0ADC","ClusNumHigh":"0ADE"},
+  "build":"extras/build/cmd-17081-23949/kernel-incremental.cmd",
+  "build_exit":0,
+  "check":"extras/build/cmd-17081-23949/p72check.cmd",
+  "check_exit":0,
+  "exact_regions":[
+    {"built_code":"AB5F","target_code":"B585","bytes":104,"purpose":"LFN scan and state capture"},
+    {"built_code":"ABC9","target_code":"B5EF","bytes":103,"purpose":"Saved state validation and swap"},
+    {"built_code":"ACCF","target_code":"B6F5","bytes":26,"purpose":"Nine-word state copy"}
+  ],
+  "limitations":"Remaining tail fields after ClusNumHigh and FAT32 consumers elsewhere are not restored. Whole modules remain in progress; no whole-kernel identity claim.",
+  "counts":{"core_modified_this_part":3,"core_modified_total":38,"reviewed_modified":25,"reviewed_unchanged":39,"reviewed_total":64,"new_core_files":0},
+  "full_identity":false,"published":false
+}

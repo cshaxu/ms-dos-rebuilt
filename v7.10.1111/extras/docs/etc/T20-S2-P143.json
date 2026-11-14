@@ -1,0 +1,43 @@
+{
+  "task": "M6 T20 S2 P143",
+  "previous_turn": "progress: low-memory LSS restored, shared layout gap isolated",
+  "changes": [
+    "MSINIT: target SHR AX,3 paragraph rounding; initialize 32-bit first cluster in console SFT; extended SETDPB signature CX=4558h DX=4152h; first-access flag80h; initialize initial SFT chain segment."
+  ],
+  "source_blob_sha1": "e80f9b8526b4f03a1902891cdaf5125cbdae3bff",
+  "build": {
+    "command": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+    "exit": 0,
+    "io_bytes": 233900,
+    "configuration_offset": 187392
+  },
+  "comparisons": [
+    {
+      "module": "dos/msinit.asm",
+      "runtime": "D815..DD1C",
+      "bytes": 1287,
+      "equal": 1287,
+      "different": 0
+    },
+    {
+      "runtime": "3F20..DD1C",
+      "file_offset": 76128,
+      "bytes": 40444,
+      "equal": 40438,
+      "different": 6,
+      "remaining": "UCASE/FILE_UCASE/DBCS/SWAP_END data references. Code body and initialization boundaries align."
+    }
+  ],
+  "counts": {
+    "modified_this_part": 1,
+    "unchanged_reviewed_this_part": 0,
+    "new_source_files": 0,
+    "modified_total": 83,
+    "baseline_identical": 210,
+    "in_progress": 57
+  },
+  "next": "Shared-data tail5-byte gap remains semantically unresolved. Do not stall on speculative field names; verify full DOSDATA layout and complete IO component sizes next, preserving actual declarations. COMMAND still pending.",
+  "evidence": "extras/build/cmd-17081-23949/p143",
+  "full_identity": false,
+  "published": false
+}

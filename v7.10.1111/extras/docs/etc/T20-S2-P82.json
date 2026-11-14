@@ -1,0 +1,14 @@
+{
+  "task": "M6 T20 S2 P82",
+  "sources": {"dos/fat.asm": "50c63d1c805d19d81e721ab70e50dfac22accea0"},
+  "changes": "Restore FAT32 PACK with28-bit masked replacement preserving reserved high nibble, full cluster-zero cache update, FAT12 nibble merge and high-cluster preservation across split-sector buffer acquisition. Reuse existing dirty-buffer accounting; correct DS assumption after restoring DOSDATA.",
+  "build": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+  "build_exit": 0,
+  "comparison": {"built_offset": 108386, "target_offset": 111929, "bytes": 729, "equal_bytes": 711, "different_bytes": 18, "log": "extras/build/cmd-17081-23949/p82/fat-diff.log", "scope": "Entire contiguous UNPACK/PACK/MAPCLUSTER region. Internal call offsets now match. Nine differing words are CL0FATENTRY absolute references and FATAL/INC_DIRTY_COUNT/GETBUFFRB external call displacements. No omitted bytes or binary edits."},
+  "pack_comparison": {"built_offset": 108625, "target_offset": 112168, "bytes": 239, "different_bytes": 10, "log": "extras/build/cmd-17081-23949/p82/pack-diff.log", "note": "Contained in729-byte region; do not sum overlapping coverage."},
+  "reproduction": "Use extras/build/s2-p1/span.exe with recorded decimal offsets/lengths on retained p82/IO.SYS and frozen target, then FC /B. Snapshot includes final map and kernel log.",
+  "open": "FAT media/allocation paths, other high-word consumers and external provider positions remain unresolved. No whole FAT module acceptance.",
+  "counts": {"core_modified_this_part": 1, "core_modified_total": 43, "core_identical_to_baseline": 250, "reviewed_modified": 26, "reviewed_unchanged": 38, "reviewed_total": 64, "in_progress": 17, "new_core_files": 0},
+  "full_identity": false,
+  "published": false
+}

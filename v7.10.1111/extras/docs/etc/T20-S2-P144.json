@@ -1,0 +1,49 @@
+{
+  "task": "M6 T20 S2 P144",
+  "previous_turn": "progress: MSINIT whole module exact and code boundaries aligned",
+  "changes": [
+    "Declare5 initial zero bytes as SwapTail before SWAP_END in existing ms_data module. Target bytes AF4..AF8 and SWAP_END AF9 are proven by data layout and linked references; semantic purpose and original symbol name are unknown and explicitly documented. This is a source data declaration, not post-link patching."
+  ],
+  "source_blob_sha1": "ccf34d11fefcdb048ed04da55bc06b157c7a391d",
+  "build": {
+    "command": "extras/build/cmd-17081-23949/kernel-incremental.cmd",
+    "exit": 0,
+    "io_bytes": 233900,
+    "configuration_offset": 187392
+  },
+  "comparisons": [
+    {
+      "file_offset": 76128,
+      "bytes": 45382,
+      "equal": 45382,
+      "different": 0,
+      "scope": "Kernel code, initialization, alignment and complete DOSDATA"
+    },
+    {
+      "file_offset": 512,
+      "end_exclusive": 187392,
+      "bytes": 186880,
+      "equal": 186880,
+      "different": 0,
+      "scope": "Complete IO core before configuration program"
+    }
+  ],
+  "remaining": {
+    "io": "Header plus configuration program",
+    "config_built_bytes": 46508,
+    "config_target_bytes": 27444,
+    "command": "Still differs; not rebuilt this turn",
+    "semantic_unknown": "SwapTail purpose and original symbol name"
+  },
+  "counts": {
+    "modified_this_part": 1,
+    "unchanged_reviewed_this_part": 0,
+    "new_source_files": 0,
+    "modified_total": 83,
+    "baseline_identical": 210,
+    "in_progress": 57
+  },
+  "evidence": "extras/build/cmd-17081-23949/p144 full image/map/make.log and complete comparison spans",
+  "full_identity": false,
+  "published": false
+}

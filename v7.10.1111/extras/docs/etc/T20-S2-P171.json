@@ -1,0 +1,9 @@
+{
+  "task": "M6 T20 S2 P171",
+  "change": "Restore target path validation, open core and FAR open/close APIs linked to target handle and path providers.",
+  "source_blob_sha1": {"bios/regfind.asm":"27c648e469b73e98ae7eddccd7a812c003444f09"},
+  "build": {"command": "extras/build/cmd-17188-26244/regfind-build.cmd", "exit": 0, "io_bytes": 245332},
+  "proof": {"target_entries": ["014E:2470", "014E:2A16", "014E:2A54", "014E:2A72"], "new_code_bytes": 228, "new_exact": 212, "verified_address_bytes": 16, "combined_code_bytes": 6230, "combined_exact": 5976, "combined_verified_addresses": 254, "verifier": "extras/build/cmd-17188-26244/datachaincheck.c", "log": "open-close.compare.log", "exit": 0},
+  "counts": {"modified_this_part": 1, "unchanged_complete_files_newly_certified": 0, "modified_total": 90, "baseline_identical": 203},
+  "remaining": "Target query API and file initialization remain absent; cfg consumers still bind legacy APIs, so no legacy path has yet been removed. Final three-output identity remains open."
+}

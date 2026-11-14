@@ -1,0 +1,81 @@
+{
+  "task": "M6 T20 S2 P7",
+  "status": "sysinit-state-verified-integration-pending",
+  "units": [
+    {
+      "unit": 11,
+      "path": "inc/oemconf.inc",
+      "modified": false,
+      "depends_on": [],
+      "blob_sha1": "3e46e4340162cf612e3d364893fedd7453f8d8fe",
+      "proof": "FC /B against original DOS6: exact. Non-ROM default values8/4/5 are verified in target state."
+    },
+    {
+      "unit": 12,
+      "path": "inc/exe.inc",
+      "modified": false,
+      "depends_on": [],
+      "blob_sha1": "cfe38d26eeaa9f85ef715f54f5faf1c381c40aa8",
+      "proof": "FC /B against original DOS6: exact. BREAK is locally defined as empty in ststate. EXEC0 layout and pointer initialization are verified by complete target state comparison; other consumers remain integration scope."
+    },
+    {
+      "unit": 13,
+      "path": "bios/ststate.asm",
+      "modified": true,
+      "depends_on": [
+        "inc/oemconf.inc",
+        "inc/exe.inc"
+      ],
+      "blob_sha1": "0c79de231ca8d5ad93a88a4eeebad686e6c28ca6",
+      "changes": [
+        "temp_buffer_size4014h ->4018h",
+        "sysinit_reserve_size114Ch ->1286h"
+      ],
+      "proof": "Whole272-byte state block and relocated pointers match; exported absolute equate is1286h."
+    }
+  ],
+  "verification": {
+    "target": "extras/baselines/targets/IO.SYS",
+    "offset": 27499,
+    "length": 272,
+    "sha256": "3d41cfbec436abb07ef5f5c7697bc2656132fa96d2bc74caef3bebda8ade1fe5",
+    "tools": "Original MASM5.10A/LINK/RELOC; verified isolated desktop; compile only",
+    "commands": [
+      "MASM -Mx -t place.asm,place.obj,place.lst;",
+      "MASM -Mx -t ststate.asm,ststate.obj,ststate.lst;",
+      "LINK /MAP place.obj+ststate.obj,state.exe,state.map;",
+      "RELOC state.exe state.bin 70",
+      "FC /B state-built.bin state-expected.bin"
+    ],
+    "comparison_exit": 0,
+    "build_marker": "PASS",
+    "placement_probe": {
+      "file": "extras/build/s2-p7/place.asm",
+      "purpose": "Verification-only padding establishes known target segment bases and module offset. Not production source or a reconstructed BIOS.",
+      "bios_data_segment": "0070",
+      "bios_code_segment": "0210",
+      "sysinit_segment": "055A",
+      "module_segment_offset": "14CB",
+      "limitations": "Full BIOS link is not complete. Passing this probe validates module content at given addresses, not recovery of the intervening code."
+    },
+    "constant_evidence": {
+      "target_instruction_file_offset": 5089,
+      "bytes": "B9 86 12",
+      "instruction": "mov cx,1286h",
+      "following": "mov [14D1h],cx; add word [1522h],70h; sub [1522h],cx",
+      "crosscheck": "(kernel file76128 - BIOS file2048)/16 +70h =1286h",
+      "map": "0000:1286 Abs sysinit_reserve_size"
+    },
+    "boundary": "Four zero bytes after this272-byte block belong to following MagicBackdoor in sysinit1.asm; no spurious fields were added to ststate."
+  },
+  "counts": {
+    "processed_core": 13,
+    "modified": 8,
+    "unchanged": 5,
+    "tools_modified": 1,
+    "new_source_files": 0,
+    "baseline_identical_total": 285,
+    "baseline_identical_not_reviewed": 280
+  },
+  "next": "sysimes and its message include dependencies, then cyclic BIOS component. Full three-output acceptance remains pending."
+}

@@ -1,0 +1,13 @@
+{
+  "task":"M6 T20 S2 P57",
+  "source":"bios/sysconf.asm",
+  "source_blob":"a0f3a7f38944fa767bb7e3c340dc3bbc205e1055",
+  "changes":"Restore PUSHA/POPA in device-record generation and drive snapshot; scope instruction mode locally",
+  "build":"extras/build/cmd-17081-23949/incremental.cmd",
+  "build_exit":0,
+  "check":"extras/build/cmd-17081-23949/p57check.cmd",
+  "check_exit":0,
+  "exact_ranges":[{"offset":59767,"bytes":699,"scope":"Complete contiguous device recording, vector records, SCSI lookup, drive change records, pathname extraction, drive snapshot and interrupt comparison region; no exclusions"}],
+  "counts":{"core_modified_this_part":1,"core_modified_total":29,"reviewed_unchanged":39,"new_core_files":0},
+  "full_identity":false,"published":false
+}
