@@ -1,0 +1,18 @@
+{
+  "source": "extras/research/bios-mschar-clock-call-trial.asm",
+  "source_sha256": "573678894962d3c5a17bf58454c9ee074cf93ecf3acaf7e5f14bce6c79f87259",
+  "object_sha256": "e82034f96cad4751fd9dc39e3c5e40a8d07512e9cfb0b156251d8d8e925a6617",
+  "linked_exe_sha256": "b25dceb72caaeed9fdef71f150ee4ce90384339d451e03faf67a9cee1d51d55d",
+  "target_file_start": "0x2430",
+  "length": 879,
+  "different_bytes": 0,
+  "dos6_object_byte_identical": true,
+  "observations": [
+    "The three BCD conversion calls resolve to the actual bin_to_bcd routine, and the date conversion call resolves to the actual daycnt_to_day routine.",
+    "Character routines from con_read through GetTickCnt match the target byte for byte in this diagnostic link after synthetic 0070h relocation."
+  ],
+  "limitations": [
+    "Linked diagnostic includes temporary stubs and inferred data providers; full IO.SYS identity remains unverified.",
+    "Formal mschar.asm has not been modified; source integration follows the dependency order."
+  ]
+}

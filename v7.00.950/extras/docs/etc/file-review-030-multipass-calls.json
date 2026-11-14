@@ -1,0 +1,33 @@
+{
+  "files": {
+    "bios/sysconf.asm": "a259dc2aa4df82704b627d83762b63961953a5a57ab9cdb0f45f6b86979ca342",
+    "bios/sysinit2.asm": "b0ec37b4bb505fb42393ad6345b22d731e5e01dec89a57944ab997c958867d77"
+  },
+  "change": "Diagnostic now links actual badfil, getchr and newline source instead of an anchored badfil and synthetic getcom target.",
+  "target": "extras/baselines/targets/IO.SYS",
+  "matched": {
+    "config_prescan_and_multi_pass": {
+      "start": "0x6848",
+      "end_exclusive": "0x69b9",
+      "bytes": 369
+    },
+    "getchr": {
+      "start": "0x75ec",
+      "bytes": 32
+    },
+    "newline": {
+      "start": "0x2eba",
+      "bytes": 13
+    },
+    "error_output": {
+      "start": "0x31d6",
+      "bytes": 75
+    }
+  },
+  "diagnostic": "extras/tools/verify_syspre_device_link.py",
+  "stage": "extras/build/syspre-object-link-1is7zkwh",
+  "limitations": [
+    "organize, badop, error_line and other addresses remain anchored in this diagnostic.",
+    "Final product link, target layout and three core files are not verified."
+  ]
+}

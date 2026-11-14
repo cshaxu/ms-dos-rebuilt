@@ -1,0 +1,49 @@
+{
+  "source": "dos/misc2.asm",
+  "object": "extras/build/misc2-context-c0bxl61l/misc2.obj",
+  "object_sha256": "cf1c7922c612ff6f7f779336527c4727fecdad3728e7b07690a95971eea4d4aa",
+  "external_fixups": [
+    "$ioctl",
+    "$lseek",
+    "$open",
+    "dosdseg",
+    "exterr",
+    "fastflg",
+    "fasttable",
+    "fsharing",
+    "pathchrcmp",
+    "retryloop",
+    "sysinittable",
+    "thiscds",
+    "ucase",
+    "user_sp",
+    "user_sp_2f",
+    "user_ss"
+  ],
+  "public": [
+    "dstrlen",
+    "fake_user_stack",
+    "fastinit",
+    "fastret",
+    "fstrcpy",
+    "getdevlist",
+    "idle",
+    "issftnet",
+    "msg_retrieval",
+    "nls_getext",
+    "nls_ioctl",
+    "nls_lseek",
+    "nls_open",
+    "strcmp",
+    "strcpy",
+    "strlen",
+    "tabledispatch",
+    "testnet",
+    "xchgp"
+  ],
+  "confirmed_cycle": {
+    "dostab_to_misc2": "dos/dostab.asm:496-503 uses FastRet, defined dos/misc2.asm:426",
+    "misc2_to_dostab": "DOS7_CONFIG object fixups fastflg, fasttable, sysinittable, user_sp_2f; corresponding public definitions dos/dostab.asm:481,495,509,543"
+  },
+  "limitations": "Other fixup providers and configuration still need verification."
+}

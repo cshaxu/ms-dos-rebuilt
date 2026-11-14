@@ -1,0 +1,15 @@
+{
+  "file": "bios/sysinit1.asm",
+  "source_sha256": "945dffb83fdd176b2cdc913d12106e5692c3feb213b02b5d9d683254790a1c5f",
+  "target_range": "IO.SYS 0x8633..0x864f",
+  "bytes": 28,
+  "different_bytes": 0,
+  "probe": "extras/research/stack-message-linked.asm",
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "The observed target initializes AX to zero, so the print branch is not entered on this path.",
+    "Fixed-offset probe does not execute the code or verify whole-image layout."
+  ]
+}

@@ -1,0 +1,154 @@
+{
+  "source": "bios/msbio1.asm",
+  "source_sha256": "92d01f6f83a3bd52e6dc97916432ad046d1412542c7ed1ce5357c983bd0071f6",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "routines": [
+    {
+      "name": "config_init_entry",
+      "length": 36,
+      "non_address_bytes_verified": 28,
+      "direct_matching_bytes": 30,
+      "layout_dependent_operands": [
+        {
+          "offset": 10,
+          "symbol": "alloclim",
+          "target_offset": 3875
+        },
+        {
+          "offset": 25,
+          "symbol": "config_buffer_segment",
+          "target_offset": 41120
+        },
+        {
+          "offset": 29,
+          "symbol": "config_buffer_paragraphs",
+          "target_offset": 41122
+        },
+        {
+          "offset": 32,
+          "symbol": "alloclim",
+          "target_offset": 3875
+        }
+      ]
+    },
+    {
+      "name": "config_xms_init",
+      "length": 173,
+      "non_address_bytes_verified": 159,
+      "direct_matching_bytes": 159,
+      "layout_dependent_operands": [
+        {
+          "offset": 5,
+          "symbol": "config_buffer_paragraphs",
+          "target_offset": 41122
+        },
+        {
+          "offset": 30,
+          "symbol": "bios_data_segment",
+          "target_offset": 3902
+        },
+        {
+          "offset": 45,
+          "symbol": "config_buffer_paragraphs",
+          "target_offset": 41122
+        },
+        {
+          "offset": 82,
+          "symbol": "config_buffer_segment",
+          "target_offset": 41120
+        },
+        {
+          "offset": 110,
+          "symbol": "config_buffer_segment",
+          "target_offset": 41120
+        },
+        {
+          "offset": 117,
+          "symbol": "config_buffer_paragraphs",
+          "target_offset": 41122
+        },
+        {
+          "offset": 167,
+          "symbol": "config_buffer_paragraphs",
+          "target_offset": 41122
+        }
+      ]
+    },
+    {
+      "name": "config_copy",
+      "length": 81,
+      "non_address_bytes_verified": 73,
+      "direct_matching_bytes": 73,
+      "layout_dependent_operands": [
+        {
+          "offset": 3,
+          "symbol": "config_buffer_paragraphs",
+          "target_offset": 41122
+        },
+        {
+          "offset": 35,
+          "symbol": "config_buffer_paragraphs",
+          "target_offset": 41122
+        },
+        {
+          "offset": 44,
+          "symbol": "config_buffer_segment",
+          "target_offset": 41120
+        },
+        {
+          "offset": 59,
+          "symbol": "bios_data_segment",
+          "target_offset": 3902
+        }
+      ]
+    },
+    {
+      "name": "config_restore",
+      "length": 102,
+      "non_address_bytes_verified": 88,
+      "direct_matching_bytes": 88,
+      "layout_dependent_operands": [
+        {
+          "offset": 4,
+          "symbol": "config_buffer_segment",
+          "target_offset": 41120
+        },
+        {
+          "offset": 9,
+          "symbol": "config_buffer_paragraphs",
+          "target_offset": 41122
+        },
+        {
+          "offset": 64,
+          "symbol": "config_buffer_count",
+          "target_offset": 41124
+        },
+        {
+          "offset": 69,
+          "symbol": "bios_data_segment",
+          "target_offset": 3902
+        },
+        {
+          "offset": 82,
+          "symbol": "config_buffer_segment",
+          "target_offset": 41120
+        },
+        {
+          "offset": 94,
+          "symbol": "config_buffer_paragraphs",
+          "target_offset": 41122
+        },
+        {
+          "offset": 98,
+          "symbol": "config_buffer_segment",
+          "target_offset": 41120
+        }
+      ]
+    }
+  ],
+  "total_bytes": 392,
+  "non_address_bytes_verified": 348,
+  "layout_dependent_word_operands": 22,
+  "diagnostic": "config-ml-all-routine-operands.json",
+  "limitations": "Operand checks bind diagnostic words to source symbols and target words to observed offsets. Some operand bytes happen to match, but final placement is unresolved and no routine is certified byte-identical. Diagnostic still uses legacy objects and stubs."
+}

@@ -1,0 +1,11 @@
+{
+  "source_sha256": "434408f214fee50dd4d7ef3176a6511b221820cca0b982721da9b91cfc760bd0",
+  "verification": "extras/tools/verify_menu_check_full.py",
+  "target_sysinit_offset": "0x6d52",
+  "bytes": 55,
+  "scope": "Target command-line equivalent far-pointer arithmetic, fallback on carry, and pointer stores restored; 6122h is preserved as observed target immediate. Full split SYSCONF assembles and existing linked-object checks pass.",
+  "limitations": [
+    "The historical symbolic origin of 6122h is not established; it is currently represented as a target-observed constant.",
+    "Surrounding device-load flow, actual full SYSINIT linking and three final binaries remain unverified."
+  ]
+}

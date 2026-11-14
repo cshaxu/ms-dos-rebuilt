@@ -1,0 +1,16 @@
+{
+  "file": "bios/sysinit2.asm",
+  "source_sha256": "ef412a72191cd87f5e5463658368e9a5b3b445437a536dd8e195e1c78d391dec",
+  "target_range": "IO.SYS 0xdf19..0xdfbe",
+  "length": 165,
+  "different_bytes": 0,
+  "tool": "MASM 6 ML isolated probe",
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link": "passed with diagnostic message stub",
+  "probe_source": "extras/research/boot-logo-planes-linked.asm",
+  "limitations": [
+    "Fixed-offset probe does not establish final layout or runtime.",
+    "Checksum initialization, logo processing and startup callers remain incomplete."
+  ]
+}

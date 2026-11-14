@@ -1,0 +1,19 @@
+{
+  "from_index": 10,
+  "from_file": "bios/msbio2.asm",
+  "source_sha256": "b965a3fce58870a840d411d701ba788f1f512e3935b4046b2e5b874fb307c66e",
+  "to_index": 11,
+  "to_file": "bios/mschar.asm",
+  "remaining": [
+    "target link order and separate dsk_init contribution",
+    "real DOS 7 message table and init-segment word instead of diagnostic stubs",
+    "all masked relocated operands and reference-object replacements",
+    "full target IO.SYS binary verification"
+  ],
+  "evidence": [
+    "file-review-010-media-volume-routines.json",
+    "file-review-010-rom-hook-regions.json",
+    "file-review-010-split-link.json"
+  ],
+  "limitations": "File 10 is not accepted as target-identical; subsequent integration must validate its unresolved dependencies."
+}

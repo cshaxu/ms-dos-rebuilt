@@ -1,0 +1,28 @@
+{
+  "file": "bios/msinit.asm",
+  "source_sha256": "56127029d5631337e981b8e683b3345430c286693153c3eaff8f9c29f3fcdfe7",
+  "change": "Replace two diagnostic BIOS-message data externals with target-derived DOS7 resource offsets.",
+  "target": {
+    "bios_message_base_file_offset": "0xF31A",
+    "bios_cpu_msg": {
+      "relative_offset": "0x0F2C",
+      "text_file_offset": "0x10246",
+      "text": "This version of Windows requires a 386 or better processor."
+    },
+    "bios_a20_msg": {
+      "relative_offset": "0x0F6B",
+      "text_file_offset": "0x10285",
+      "prefix": "0D 0A",
+      "text": "A20 hardware error.  Contact technical support to identify the problem."
+    }
+  },
+  "validation": {
+    "dos7_assembly": "PASS in the isolated ML-compatible diagnostic stage",
+    "mixed_link_without_initstub": "PASS",
+    "link_response_contains_initstub": false
+  },
+  "limitations": [
+    "The message resource itself remains supplied by the diagnostic msend object.",
+    "The mixed link uses source splitting and other diagnostic dependencies, and is not an IO.SYS build."
+  ]
+}

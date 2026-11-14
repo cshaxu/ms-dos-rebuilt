@@ -1,0 +1,16 @@
+{
+  "file": "bios/sysinit1.asm",
+  "source_sha256": "67bb54ee2c057135447d873091539a494dcf9b14c09d4532b99ecff71e9e5b84",
+  "target_range": "IO.SYS 0x63d7..0x63ec",
+  "length": 21,
+  "different_bytes": 0,
+  "tool": "MASM 6 ML isolated probe",
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link": "passed",
+  "probe_source": "extras/research/boot-notify-linked.asm",
+  "limitations": [
+    "Fixed-offset probe uses synthetic call destinations; full layout and runtime remain unverified.",
+    "Subsequent DOS7 UMB processing is not yet reconstructed; legacy cleanup remains provisional."
+  ]
+}

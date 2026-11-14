@@ -1,0 +1,25 @@
+{
+  "files": [
+    "bios/config.inc",
+    "bios/sysinit2.asm",
+    "bios/sysconf.asm"
+  ],
+  "source_hashes": [
+    "a984fbcb5246ff349a2c366bfe1c47d3226667342ac874d02cc39854346c9026",
+    "9cbb0a7b520c5f3d1b70ef7976ad37ab1a58a2e5489345ca889df1e18f3500da",
+    "d336392ee2be84227583b3eeb5b1bf0b2f8cd1cdc0625d4f04d3cf22d4b80d65"
+  ],
+  "target_range": "IO.SYS 0xb7b5..0xb7fb",
+  "bytes": 70,
+  "different_bytes": 0,
+  "target_comtab_record_offset": "0x80f7",
+  "probe": "extras/research/accdate7-linked.asm",
+  "default_objects_identical_to_prior": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "Fixed-offset probe stubs query, getchr and exits; full execution and placement are unverified.",
+    "Kernel-side DOSINIT return-table ABI has not been reconstructed or validated.",
+    "Mixed diagnostic link contains older objects and stubs."
+  ]
+}

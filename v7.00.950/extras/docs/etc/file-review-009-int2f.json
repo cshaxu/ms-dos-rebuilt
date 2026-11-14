@@ -1,0 +1,22 @@
+{
+  "file_index": 9,
+  "source": "bios/msbio1.asm",
+  "source_sha256": "3d01d0bf15b6dcfad836f909f6f39af44dfe0ed6e9f7184c48791973d9e87547",
+  "diagnostic_source_sha256": "c0c558b50764f52bdc5f5bad34d78cb2870cf042fd67dd7f9775ccfd1db8d214",
+  "post_build_change": "Comment only; executable assembly unchanged.",
+  "target_offset": 2542,
+  "diagnostic_offset": 2260,
+  "length": 8,
+  "matching_bytes": 4,
+  "different_offsets": [
+    1,
+    2,
+    6,
+    7
+  ],
+  "target_hex": "e895002eff2e4801",
+  "linked_hex": "e811ff2eff2ec706",
+  "default_reference_output_sha256": "a67d8733509f9baf94017389cc1c991d5ef1c66bdfb91b6cab3eef0fc35e9490",
+  "limitations": "Diagnostic depends on temporary stubs; final addresses and complete 7.0a output remain unresolved.",
+  "correction": "The earlier target 0x09EE attribution to INT 2F was wrong: target initialization installs it as INT 13h. Superseded by file-review-009-vector-correction.json; actual INT 2F forwarder is at 0x0A6E."
+}

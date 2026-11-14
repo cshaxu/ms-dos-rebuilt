@@ -1,0 +1,27 @@
+{
+  "source": "bios/msinit.asm",
+  "source_sha256": "70476727b37b99ba472f68dcb3ed21e93f71802cdcf441faff4d74ceca022e98",
+  "listing_sha256": "f2b67d97421e5a018211b10c2827fc9cd98cf8d3fc025cf9e7e7daa8d7ea5f53",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "regions": [
+    {
+      "name": "extended_and_chs",
+      "target_offset": "0x1698",
+      "length": 127,
+      "matched_nonrelocated_bytes": 110,
+      "relocation_bytes": 16,
+      "differences": [
+        21
+      ]
+    },
+    {
+      "name": "boot_record_validation",
+      "target_offset": "0x1717",
+      "length": 77,
+      "matched_nonrelocated_bytes": 71,
+      "relocation_bytes": 6,
+      "differences": []
+    }
+  ],
+  "limitations": "Relocation operands and helper/bridge displacements depend on later initialization reconstruction and final link."
+}

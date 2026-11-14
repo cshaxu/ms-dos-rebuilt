@@ -1,0 +1,46 @@
+{
+  "file_index": 9,
+  "source": "bios/msbio1.asm",
+  "source_sha256": "640d5ba300054fe4fa3d4241968a3823d25d2b487574bc6cefe808714e1c1d3f",
+  "int13": {
+    "target_offset": 2542,
+    "diagnostic_offset": 1907,
+    "length": 8,
+    "matching_bytes": 5,
+    "target_hex": "e895002eff2e4801",
+    "linked_hex": "e85b002eff2ec706"
+  },
+  "int2f": {
+    "target_offset": 2670,
+    "diagnostic_offset": 2237,
+    "length": 5,
+    "matching_bytes": 3,
+    "target_hex": "2eff2e6801",
+    "linked_hex": "2eff2ee706"
+  },
+  "table_entries": [
+    "cdev",
+    "ttticks",
+    "i13x",
+    "int15_reset_ptr",
+    "int15_esc_ptr",
+    "int16_check_ptr",
+    "int19_code_ptr",
+    "outchr_code_ptr",
+    "int1a_code_ptr",
+    "a20_retry_vector",
+    "bcode_i2f"
+  ],
+  "seg_reinit_entry_count": 11,
+  "diagnostic_stub_symbols": [
+    "bios_msg_base",
+    "bios_msg_1",
+    "bios_msg_2",
+    "bios_msg_3",
+    "keyboard_service",
+    "int1a_code"
+  ],
+  "default_reference_output_sha256": "a67d8733509f9baf94017389cc1c991d5ef1c66bdfb91b6cab3eef0fc35e9490",
+  "limitations": "The int1a callback is stubbed; the linked i13z is still the 6.22 object and must be reconstructed when its file is reached. Final addresses, entry installation and whole binaries remain incomplete.",
+  "correction": "The second table entry at target 0144h is a video callback, not the 6.22 time_to_ticks routine; see file-review-009-video-entry.json."
+}

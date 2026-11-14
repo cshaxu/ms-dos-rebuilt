@@ -1,0 +1,42 @@
+{
+  "file_index": 9,
+  "source": "bios/msbio1.asm",
+  "source_sha256": "59eaee7d649c3b7318c75e7ef9caa0e8aa8a7568fba4d580e6e24ddf5a8013b3",
+  "routines": [
+    {
+      "name": "outchr",
+      "diagnostic_offset": 1895,
+      "target_offset": 2662,
+      "length": 8,
+      "matching_bytes": 5,
+      "different_offsets": [
+        1,
+        6,
+        7
+      ],
+      "linked_hex": "e87e002eff2edf06",
+      "target_hex": "e81d002eff2e5c01"
+    },
+    {
+      "name": "outchr_code",
+      "diagnostic_offset": 10119,
+      "target_offset": 8870,
+      "length": 121,
+      "matching_bytes": 120,
+      "different_offsets": [
+        9
+      ],
+      "linked_hex": "50565755531e2e8e1e30008e1e0300f606860010b40ebb070074553c0d745133f68ede3c207242803e490403753b833e4a04507534803e620400752d803e50044f7426528ad88b3e4e048b165004fe065004b8a000f6e632f6d1e203c203f8b800b88ed8881d5aeb099cff1e4000eb02cd101f5b5d5f5e58cf",
+      "target_hex": "50565755531e2e8e1eda008e1e0300f606860010b40ebb070074553c0d745133f68ede3c207242803e490403753b833e4a04507534803e620400752d803e50044f7426528ad88b3e4e048b165004fe065004b8a000f6e632f6d1e203c203f8b800b88ed8881d5aeb099cff1e4000eb02cd101f5b5d5f5e58cf"
+    }
+  ],
+  "diagnostic_stub_symbols": [
+    "bios_msg_base",
+    "bios_msg_1",
+    "bios_msg_2",
+    "bios_msg_3",
+    "keyboard_service"
+  ],
+  "default_reference_output_sha256": "a67d8733509f9baf94017389cc1c991d5ef1c66bdfb91b6cab3eef0fc35e9490",
+  "limitations": "Target-wide placement and INT 29h installation remain unresolved; diagnostic uses incomplete baseline components and temporary stubs."
+}

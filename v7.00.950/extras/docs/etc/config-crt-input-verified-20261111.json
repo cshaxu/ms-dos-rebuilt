@@ -1,0 +1,422 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\config-crt-input-8_ds_38e",
+  "library_sha256": "b362c8454f1c2bc9dd46c686b1d86d8b4dfbb51fd337f2d918299e53f366df35",
+  "sources": {
+    "crtmem": "7a0be75d15349db39a467cabc94694c3c7199590a9991bffa4dbef31cac0fef7",
+    "crtcmp": "5bd6e2a7b1c90f932cbdf72347323e83ace4a600e45c89e75e54a25926b996f7",
+    "crtfile": "bd5711b4b0e285f61e20cfd76f7ec8a4b4aabc7b0025b77d1a7d3ff73a96e667",
+    "crtread": "ae8b91874d309d7228499c980512941aab85589ca7fcc8e18694b2d54ed1521a",
+    "crtstdio": "68d4cb3880e741ad2d73fed2bd78d424663870142be25c29fea66d3c88b2185c",
+    "cfgline": "9fb9974506b8f23075a609d28ca4d828309b441c95c22d2d78291b834a573ae9"
+  },
+  "verified": [
+    {
+      "member": "dos\\dosret.asm",
+      "source": null,
+      "kind": "data",
+      "target_offset": 45242,
+      "bytes": 20,
+      "fixups": []
+    },
+    {
+      "member": "dos\\dosret.asm",
+      "source": null,
+      "kind": "code",
+      "target_offset": 39122,
+      "bytes": 85,
+      "fixups": [
+        {
+          "offset": 41,
+          "symbol": "__doserrno"
+        },
+        {
+          "offset": 49,
+          "symbol": "__osmajor"
+        },
+        {
+          "offset": 73,
+          "symbol": "ConfigCRTErrorMap"
+        },
+        {
+          "offset": 78,
+          "symbol": "_errno"
+        }
+      ]
+    },
+    {
+      "member": "_filbuf.asm",
+      "source": null,
+      "kind": "code",
+      "target_offset": 37960,
+      "bytes": 156,
+      "fixups": [
+        {
+          "offset": 32,
+          "symbol": "__iob"
+        },
+        {
+          "offset": 36,
+          "symbol": "__iob2"
+        },
+        {
+          "offset": 50,
+          "symbol": "__getbuf"
+        },
+        {
+          "offset": 75,
+          "symbol": "__read"
+        },
+        {
+          "offset": 117,
+          "symbol": "__osfile"
+        }
+      ]
+    },
+    {
+      "member": "_getbuf.asm",
+      "source": null,
+      "kind": "code",
+      "target_offset": 39446,
+      "bytes": 75,
+      "fixups": [
+        {
+          "offset": 12,
+          "symbol": "__fmalloc"
+        },
+        {
+          "offset": 21,
+          "symbol": "__iob"
+        },
+        {
+          "offset": 25,
+          "symbol": "__iob2"
+        }
+      ]
+    },
+    {
+      "member": "dos\\lseek.asm",
+      "source": null,
+      "kind": "code",
+      "target_offset": 41628,
+      "bytes": 129,
+      "fixups": [
+        {
+          "offset": 11,
+          "symbol": "__nfile"
+        },
+        {
+          "offset": 22,
+          "symbol": "__lseekchk"
+        },
+        {
+          "offset": 123,
+          "symbol": "__osfile"
+        },
+        {
+          "offset": 127,
+          "symbol": "__dosretax"
+        }
+      ]
+    },
+    {
+      "member": "dos\\read.asm",
+      "source": "bios/crtread.asm",
+      "kind": "code",
+      "target_offset": 40996,
+      "bytes": 254,
+      "fixups": [
+        {
+          "offset": 11,
+          "symbol": "__nfile"
+        },
+        {
+          "offset": 30,
+          "symbol": "__osfile"
+        },
+        {
+          "offset": 37,
+          "symbol": "___aDBswpflg"
+        },
+        {
+          "offset": 39,
+          "symbol": "__aDBdoswp"
+        },
+        {
+          "offset": 45,
+          "symbol": "___aDBswpchk"
+        },
+        {
+          "offset": 67,
+          "symbol": "__osfile"
+        },
+        {
+          "offset": 74,
+          "symbol": "__osfile"
+        },
+        {
+          "offset": 103,
+          "symbol": "__osfile"
+        },
+        {
+          "offset": 118,
+          "symbol": "__osfile"
+        },
+        {
+          "offset": 137,
+          "symbol": "__dosretax"
+        },
+        {
+          "offset": 155,
+          "symbol": "__osfile"
+        }
+      ]
+    },
+    {
+      "member": "seekfast.asm",
+      "source": null,
+      "kind": "data",
+      "target_offset": 45416,
+      "bytes": 2,
+      "fixups": []
+    },
+    {
+      "member": "fmalloc.asm",
+      "source": null,
+      "kind": "data",
+      "target_offset": 45418,
+      "bytes": 4,
+      "fixups": []
+    },
+    {
+      "member": "fmalloc.asm",
+      "source": null,
+      "kind": "code",
+      "target_offset": 42130,
+      "bytes": 172,
+      "fixups": [
+        {
+          "offset": 34,
+          "symbol": "__fheap"
+        },
+        {
+          "offset": 41,
+          "symbol": "__searchseg"
+        },
+        {
+          "offset": 45,
+          "symbol": "__fheap"
+        },
+        {
+          "offset": 49,
+          "symbol": "__fheap"
+        },
+        {
+          "offset": 74,
+          "symbol": "__fheap"
+        },
+        {
+          "offset": 82,
+          "symbol": "__fheap"
+        },
+        {
+          "offset": 94,
+          "symbol": "__growseg"
+        },
+        {
+          "offset": 99,
+          "symbol": "__growseg"
+        },
+        {
+          "offset": 106,
+          "symbol": "__searchseg"
+        },
+        {
+          "offset": 115,
+          "symbol": "__fheap"
+        },
+        {
+          "offset": 118,
+          "symbol": "__newseg"
+        },
+        {
+          "offset": 123,
+          "symbol": "__searchseg"
+        },
+        {
+          "offset": 128,
+          "symbol": "__fheap"
+        },
+        {
+          "offset": 132,
+          "symbol": "__fheap"
+        },
+        {
+          "offset": 142,
+          "symbol": "__pnhFarHeap"
+        },
+        {
+          "offset": 146,
+          "symbol": "__pnhFarHeap"
+        },
+        {
+          "offset": 155,
+          "symbol": "__pnhFarHeap"
+        }
+      ]
+    },
+    {
+      "member": "fdata.asm",
+      "source": null,
+      "kind": "data",
+      "target_offset": 45426,
+      "bytes": 14,
+      "fixups": []
+    },
+    {
+      "member": "initseg.asm",
+      "source": null,
+      "kind": "code",
+      "target_offset": 43144,
+      "bytes": 52,
+      "fixups": []
+    },
+    {
+      "member": "linkseg.asm",
+      "source": null,
+      "kind": "code",
+      "target_offset": 43196,
+      "bytes": 54,
+      "fixups": []
+    },
+    {
+      "member": "searchsg.asm",
+      "source": null,
+      "kind": "code",
+      "target_offset": 42626,
+      "bytes": 124,
+      "fixups": []
+    },
+    {
+      "member": "growseg.asm",
+      "source": null,
+      "kind": "data",
+      "target_offset": 45440,
+      "bytes": 2,
+      "fixups": []
+    },
+    {
+      "member": "growseg.asm",
+      "source": null,
+      "kind": "code",
+      "target_offset": 42750,
+      "bytes": 256,
+      "fixups": [
+        {
+          "offset": 45,
+          "symbol": "DGROUP"
+        },
+        {
+          "offset": 51,
+          "symbol": "__amblksiz"
+        },
+        {
+          "offset": 191,
+          "symbol": "__psp"
+        }
+      ]
+    },
+    {
+      "member": "newseg.asm",
+      "source": null,
+      "kind": "code",
+      "target_offset": 43006,
+      "bytes": 68,
+      "fixups": [
+        {
+          "offset": 31,
+          "symbol": "__aseglo"
+        },
+        {
+          "offset": 37,
+          "symbol": "__aseghi"
+        },
+        {
+          "offset": 42,
+          "symbol": "__aseghi"
+        },
+        {
+          "offset": 58,
+          "symbol": "__initseg"
+        },
+        {
+          "offset": 61,
+          "symbol": "__linkseg"
+        }
+      ]
+    },
+    {
+      "member": "strcat.asm",
+      "source": null,
+      "kind": "code",
+      "target_offset": 43250,
+      "bytes": 84,
+      "fixups": []
+    },
+    {
+      "member": "strcpy.asm",
+      "source": null,
+      "kind": "code",
+      "target_offset": 43334,
+      "bytes": 60,
+      "fixups": []
+    },
+    {
+      "member": "strncpy.asm",
+      "source": null,
+      "kind": "code",
+      "target_offset": 38906,
+      "bytes": 42,
+      "fixups": []
+    },
+    {
+      "source": "bios/crtcmp.asm",
+      "kind": "code",
+      "target_offset": 38776,
+      "bytes": 69,
+      "fixups": []
+    },
+    {
+      "source": "bios/crtstdio.asm",
+      "kind": "code",
+      "target_offset": 37458,
+      "bytes": 1,
+      "fixups": []
+    },
+    {
+      "source": "bios/cfgline.asm",
+      "kind": "code",
+      "target_offset": 1886,
+      "bytes": 142,
+      "fixups": [
+        {
+          "offset": 61,
+          "symbol": "__filbuf"
+        }
+      ]
+    }
+  ],
+  "image_relocations": 6,
+  "linked_sha256": "c4d207add9b8da73fc50bebd8c34a3da8e27648b6e4930fdb8c13c9d7bd64555",
+  "scope": "Buffered input and positioning linked to real heap/file providers. Historical member bodies and restored read/line functions verified, including every fixup. Startup initialization and final placement pending.",
+  "tools": {
+    "O:\\repos.hobby\\ntvdm64\\tools\\opennt\\tools16\\masm.exe": "e54afaa9565e046cd862c29a015d685de43311acccf796469030e162ced6d00d",
+    "O:\\repos.hobby\\ntvdm64\\tools\\opennt\\tools16\\buildmsg.exe": "0d8ea59396a769e440549322a2ec9d1ab70423147e702ef1b1f42606cadd50cd",
+    "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\c6ers\\tools6\\bin\\buildidx.exe": "6a301eaee8ea8516e541da2a61a22f1db7d09b15c278a88a8d73083aac0f4d91",
+    "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\c6ers\\tools6\\bin\\link.exe": "163d8b86c18b93ccae9b2380d850cd42a9a5e1fd89a163b16170979afbbabb07",
+    "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\c6ers\\tools6\\bin\\reloc.exe": "300b58668d46c3281ef2c017409aa9300499155d6593a8a9552781d2d96cc2b3",
+    "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\isolated-tool-runner.exe": "ae195ddf68aedff2fab5130e1368cb5c585e5264b84d142d4f79dc9f973f85b9",
+    "C:\\Program Files (x86)\\DOSBox-0.74-3\\DOSBox.exe": "dcfd46fa521f5ce89dce3bf026056f3a1d15533f80321ee887403e30d7949f5e"
+  },
+  "build_script_sha256": "a577e56d6ffd02068a8e57fa2711ef387fd7899d68bb85affc9a7a9ac6f269ea",
+  "new_code_bytes": 757
+}

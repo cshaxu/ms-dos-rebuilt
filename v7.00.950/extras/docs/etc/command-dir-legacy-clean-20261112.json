@@ -1,0 +1,28 @@
+{
+  "build": "extras/docs/etc/command-dir-legacy-clean-final-v2-build-20261112.json",
+  "source": "cmd/command/dir.asm",
+  "change": "Removed uncalled DOS 6 DIR ParseLine/ParseSwitch chain, exclusive dispatch table and wrappers; retained target parser and shared handlers.",
+  "removed_routines": [
+    "ParseLine",
+    "ParseSwitch",
+    "CopyPathname",
+    "ParseAttr",
+    "ParseOrder",
+    "ParseOnOffSw",
+    "ParseRatio",
+    "SetupParamError"
+  ],
+  "target_probe": "extras/build/dir-clean-target-d_052wki",
+  "current_probe": "extras/build/dir-clean-direct-current-sun0r17s",
+  "matched_cases": [
+    "DIR /B",
+    "DIR /B /O:N",
+    "DIR /B /A:-D",
+    "RENAME wildcard then DIR",
+    "TYPE",
+    "batch continuation"
+  ],
+  "limitations": "Target isolated runner timed out after DONE and output files were written; the output comparison used those files. Final build is byte-identical to current probe build after comment-only cleanup. Other options and failures untested; complete binary not byte-identical.",
+  "output_bytes": 92845,
+  "target_bytes": 92870
+}

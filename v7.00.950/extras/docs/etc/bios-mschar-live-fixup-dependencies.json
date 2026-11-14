@@ -1,0 +1,78 @@
+{
+  "object_sha256": "e82034f96cad4751fd9dc39e3c5e40a8d07512e9cfb0b156251d8d8e925a6617",
+  "fixup_dependencies": [
+    {
+      "symbol": "altah",
+      "diagnostic_provider": "msbio1"
+    },
+    {
+      "symbol": "auxbuf",
+      "diagnostic_provider": "chardata"
+    },
+    {
+      "symbol": "auxnum",
+      "diagnostic_provider": "chardata"
+    },
+    {
+      "symbol": "bc_cmderr",
+      "diagnostic_provider": "msbio1"
+    },
+    {
+      "symbol": "bc_err_cnt",
+      "diagnostic_provider": "msbio1"
+    },
+    {
+      "symbol": "bin_to_bcd",
+      "diagnostic_provider": "msinit"
+    },
+    {
+      "symbol": "bios_data_word",
+      "diagnostic_provider": "msbio1"
+    },
+    {
+      "symbol": "bios_flags",
+      "diagnostic_provider": "msbio1"
+    },
+    {
+      "symbol": "daycnt",
+      "diagnostic_provider": "msbio1"
+    },
+    {
+      "symbol": "daycnt_to_day",
+      "diagnostic_provider": "msinit"
+    },
+    {
+      "symbol": "int16_count",
+      "diagnostic_provider": "msbio1"
+    },
+    {
+      "symbol": "int6c_update",
+      "diagnostic_provider": "clockent"
+    },
+    {
+      "symbol": "keyrd_func",
+      "diagnostic_provider": "msbio1"
+    },
+    {
+      "symbol": "keysts_func",
+      "diagnostic_provider": "msbio1"
+    },
+    {
+      "symbol": "printdev",
+      "diagnostic_provider": "chardata"
+    },
+    {
+      "symbol": "ptrsav",
+      "diagnostic_provider": "msbio1"
+    },
+    {
+      "symbol": "wait_count",
+      "diagnostic_provider": "chardata"
+    }
+  ],
+  "limitations": [
+    "OMF fixups are not a complete source dependency graph and do not establish source ownership.",
+    "chardata and clockent are reconstructed diagnostic objects, not final certified source files.",
+    "msbio1 and msinit retain unresolved integration work; mschar remains integration_pending."
+  ]
+}

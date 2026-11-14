@@ -1,0 +1,32 @@
+{
+  "build_report": "command-resident-resource-build-20261111.json",
+  "resource_bytes": 2213,
+  "padded_bytes": 2224,
+  "resource_sha256": "f34c551a108252283c2d82bbd08ad2d72eedc6de213305dd838d00fbc7f5d554",
+  "target_range": [
+    14496,
+    16709
+  ],
+  "padded_target_range": [
+    14496,
+    16720
+  ],
+  "record_count": 93,
+  "unchanged_messages": 88,
+  "changed_messages": [
+    "PutBackMsg",
+    "RBadNam"
+  ],
+  "new_messages": [
+    "MissingDllMsg",
+    "ExtErr14",
+    "ExtErr81"
+  ],
+  "omitted_legacy_resource_symbol": "Prompt",
+  "omission_scope": "Old prompt remains in current source until its legacy callers are replaced; excluded from class-6 resource.",
+  "source": "lang/usa/messages/comrmsg.inc",
+  "source_sha256": "d1fc7cab54c3115d841c43114342d641f36a638bcad87be09fee0adcf33e2cb3",
+  "target_used_only_for_verification": true,
+  "full_command_exact": false,
+  "remaining": "Resident runtime fixup and consumer references, resource load startup calls and final container layout."
+}

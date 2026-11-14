@@ -1,0 +1,30 @@
+{
+  "source_sha256": "8001acc156090d5f1ccb179c6da4a56390b6d9b1f0d9a8bd0a8c2faa7692b42e",
+  "listing_sha256": "b782d5ddc20bb4823c87901e3f38ba856b47f7a27449783ea5d9846f0afe76de",
+  "routines": [
+    {
+      "name": "read_real_date",
+      "target_offset": "0x27b0",
+      "length": 186,
+      "masked_relocation_bytes": 42,
+      "matched_nonrelocated_bytes": 138,
+      "differences": [
+        93,
+        94,
+        95,
+        96,
+        97,
+        98
+      ]
+    },
+    {
+      "name": "read_real_time",
+      "target_offset": "0x286a",
+      "length": 66,
+      "masked_relocation_bytes": 18,
+      "matched_nonrelocated_bytes": 48,
+      "differences": []
+    }
+  ],
+  "limitations": "MASM listing comparison only; target relocation operands, production link and segment ownership remain unverified."
+}

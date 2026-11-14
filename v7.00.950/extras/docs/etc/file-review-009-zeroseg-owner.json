@@ -1,0 +1,18 @@
+{
+  "source": "bios/msbio1.asm",
+  "source_sha256": "c12a017a56617d9a454f61e7a05742ceaae2b08d72f79ce7868ffd192a8ab026",
+  "target_zero_segment_instructions": [
+    {
+      "file_offset": 11970,
+      "hex": "2bdb8ec3"
+    },
+    {
+      "file_offset": 11996,
+      "hex": "2bdb8ec3"
+    }
+  ],
+  "reference_source": "bios/msdisk.asm",
+  "change": "Remove provisional DOS7 zeroseg field and supply a diagnostic-only compatibility stub to legacy objects.",
+  "diagnostic_tail_differences": [],
+  "limitations": "The observed target paths form a zero segment in registers. This does not rule out other zero storage or uses; 0537h-053Fh remains unproven because the linked diagnostic includes stubs."
+}

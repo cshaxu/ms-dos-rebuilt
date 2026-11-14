@@ -1,0 +1,17 @@
+{
+  "file": "bios/sysconf.asm",
+  "file_index": 30,
+  "source_sha256": "50f2dda33028cd526ba03ca9358c19ed5eaabca3eec1b4f964e8b2b39a9da904",
+  "target_range": "IO.SYS 0xd671..0xd6b5",
+  "bytes": 68,
+  "different_bytes": 0,
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link_exit_code": 0,
+  "call_site": "Before ExecDev, config_record_name_from_path then config_snapshot_drives, corresponding to IO.SYS 0xbb1f..0xbb29.",
+  "limitations": [
+    "Isolated snapshot comparison uses ORG; call site and final production layout are not byte-verified here.",
+    "Mixed diagnostic link includes older objects and stubs.",
+    "The device interrupt hook and ASPI flag consumers remain incomplete."
+  ]
+}

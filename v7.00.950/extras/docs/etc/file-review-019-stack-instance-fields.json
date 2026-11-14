@@ -1,0 +1,23 @@
+{
+  "file": "bios/msint13.asm",
+  "file_index": 19,
+  "source_sha256": "492a997b52e93e844b42852d28979c4c4a218705689514c20a36a3d36e56c9bb",
+  "target_bios_code_file_base": "0x1c50",
+  "fields": {
+    "win386_stack_seg": "0x1fa8",
+    "win386_stack_size": "0x1faa",
+    "win386_nextstack": "0x1fac",
+    "win386_stack_code_seg": "0x1fc4",
+    "win386_stack_code_size": "0x1fc6"
+  },
+  "verification": [
+    "DOS7 data records, expanded with zero-filled omitted areas, match before and after.",
+    "Default configuration object is byte-identical.",
+    "Field placement corresponds to target startup writes at 0x86d0..0x86f4."
+  ],
+  "limitations": [
+    "Final relocated segment and whole IO.SYS layout are not verified.",
+    "The new symbols are not yet consumed by the target stack initialization path.",
+    "Fixup records were not compared semantically; the checked data bytes contain unresolved fixup placeholders."
+  ]
+}

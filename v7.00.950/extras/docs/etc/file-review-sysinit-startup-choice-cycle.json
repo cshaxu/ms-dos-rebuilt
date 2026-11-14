@@ -1,0 +1,34 @@
+{
+  "files": {
+    "bios/sysinit1.asm": "9da767215e47871f9e4a0f949a9ccdd94eb24115f86812b056bf5a52751516c1",
+    "bios/sysinit2.asm": "6d2e10d5bb978d682b7039f54ebfaac6bad9056955f2e149bd9f329283987bec"
+  },
+  "cycle_basis": "SYSINIT1 calls SYSINIT2 startup routines; SYSINIT2 imports SYSINIT1 memory variables. Both entries remain unfinished.",
+  "target": "extras/baselines/targets/IO.SYS",
+  "startup_choice": {
+    "sysinit_start": "0x145a",
+    "sysinit_end_exclusive": "0x14f7",
+    "bytes": 157,
+    "verification": "extras/tools/verify_menu_check_full.py",
+    "scope": "Actual SYSINIT1 source and SYSINIT2 callee source are assembled in a single anchored diagnostic wrapper."
+  },
+  "limitations": [
+    "Full SYSINIT1 and SYSINIT2 objects are not linked in this diagnostic.",
+    "Other startup branches and complete IO.SYS remain unverified."
+  ],
+  "previous_dos_handoff": {
+    "sysinit_start": "0x1578",
+    "sysinit_end_exclusive": "0x159a",
+    "bytes": 34,
+    "verification": "extras/tools/verify_menu_check_full.py",
+    "scope": "Actual SYSINIT1 source calls actual SYSINIT2 source in target-anchored wrapper."
+  },
+  "preload_setup": {
+    "sysinit_start": "0x14f7",
+    "sysinit_end_exclusive": "0x150a",
+    "bytes": 19,
+    "backdoor_bytes": 5,
+    "verification": "extras/tools/verify_menu_check_full.py",
+    "scope": "SYSINIT1 setup and AllocFreeMem plus SYSCONF low-memory check are real source in an anchored diagnostic; MagicPreload is outside this compared range."
+  }
+}

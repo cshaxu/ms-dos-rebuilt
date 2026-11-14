@@ -1,0 +1,31 @@
+{
+  "files": {
+    "bios/sysinit1.asm": "a8045391ba231b8d9b4a0abd65134c86f06d4bdac3b14ad5f111651ba2906d1a",
+    "bios/sysinit2.asm": "7b3c268d6755bdbd29342c0662d374a200786a8cc1087fce29e1313d78440857",
+    "bios/sysconf.asm": "bdec9ebcb4bce745b6ecd299cab534cb266dbbc76cb304bba0940f27cf93b1a6",
+    "bios/syspre.asm": "81fc7b49ce91e329e74a868cb81f193a403d274d386dacc182190839f15e53d4"
+  },
+  "verification": "extras/tools/verify_menu_check_full.py",
+  "complete_magic_preload": {
+    "sysinit_start": "0x8aaf",
+    "bytes": 843
+  },
+  "temp_cds": {
+    "sysinit_start": "0x3594",
+    "bytes": 148
+  },
+  "dpb_lookup": {
+    "sysinit_start": "0x3628",
+    "bytes": 22
+  },
+  "device_break_helpers": {
+    "sysinit_start": "0x8207",
+    "bytes": 116
+  },
+  "scope": "Complete actual MagicPreload source including its actual TempCDS, get_dpb_for_drive_al, DevBreak and other previously integrated helper calls is assembled in a target-positioned joint diagnostic and compared to IO.SYS. TempCDS and these helpers already matched without source modification.",
+  "limitations": [
+    "Diagnostic places source fragments and some external data at fixed target offsets, including MagicMoveInfo, so whole-object layout and linkage remain unverified.",
+    "Four deeper UMB helper calls remain target-address anchors.",
+    "MagicPostload and remaining SYSINIT paths plus the final three binaries remain unverified."
+  ]
+}

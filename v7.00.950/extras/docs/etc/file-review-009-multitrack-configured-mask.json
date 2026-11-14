@@ -1,0 +1,24 @@
+{
+  "source": "bios/msbio1.asm",
+  "source_sha256": "293615b062f00e0b1f93538888869f1098920003d285c4071d0d8b285d1898ec",
+  "name": "multrk_configured_mask",
+  "mask": 1024,
+  "name_status": "descriptive; original name unknown",
+  "target_anchors": {
+    "parse_configured": {
+      "file_offset": 47349,
+      "hex": "810e08000004"
+    },
+    "parse_on": {
+      "file_offset": 47363,
+      "hex": "810e08000002"
+    },
+    "default_check": {
+      "file_offset": 33652,
+      "hex": "f6060900047505800e090002"
+    }
+  },
+  "reference": "bios/sysconf.asm multitrack parser",
+  "diagnostic_before_after_sha256": "c4aca850415a33dab182fee92c6c99beb293698380e2a7d684e199f2a1f705a7",
+  "limitations": "Target parser and initialization paths are static evidence for the configured/default relationship. The actual parser and initialization code are later files and remain unreconstructed."
+}

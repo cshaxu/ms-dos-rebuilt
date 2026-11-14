@@ -1,0 +1,41 @@
+{
+  "file_index": 9,
+  "source": "bios/msbio1.asm",
+  "source_sha256": "fadd92baf7bb3c18f1d6dbaf301fce00f043053440d800df5aaef5947eb8242a",
+  "routines": [
+    {
+      "name": "dos7_erase_vdisk",
+      "target_offset": 8991,
+      "linked_offset": 10071,
+      "length": 38,
+      "matching_bytes": 37,
+      "different_offsets": [
+        7
+      ],
+      "target_hex": "505157062e8e06da0026f6060800017410b8ffff8ec0bf1000b910002bc0fcf3ab075f5958c3",
+      "linked_hex": "505157062e8e06300026f6060800017410b8ffff8ec0bf1000b910002bc0fcf3ab075f5958c3"
+    },
+    {
+      "name": "int15_reset",
+      "target_offset": 7707,
+      "linked_offset": 10067,
+      "length": 4,
+      "matching_bytes": 3,
+      "different_offsets": [
+        2
+      ],
+      "target_hex": "e80105cf",
+      "linked_hex": "e80100cf"
+    }
+  ],
+  "diagnostic_stub_symbols": [
+    "bios_msg_base",
+    "bios_msg_1",
+    "bios_msg_2",
+    "bios_msg_3",
+    "int16_check",
+    "int15_esc"
+  ],
+  "default_reference_output_sha256": "a67d8733509f9baf94017389cc1c991d5ef1c66bdfb91b6cab3eef0fc35e9490",
+  "limitations": "Layout-dependent operands, other interrupt callbacks and target-wide binary equivalence remain unresolved."
+}

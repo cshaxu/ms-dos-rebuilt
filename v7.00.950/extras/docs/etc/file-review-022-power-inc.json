@@ -1,0 +1,11 @@
+{
+  "source_sha256": "7ba90c01066279b1dd7540226449e47b5d10cf0ecbf28ca06bbfb4100ec74f93",
+  "reference": "v6.0/bios/power.inc",
+  "reference_byte_equal": true,
+  "source_includes": [
+    "bios/power.asm",
+    "bios/ptime.asm"
+  ],
+  "configuration": "both includes are inside IFDEF POWER, which is disabled in current configuration",
+  "limitation": "Target POWER configuration and enabled behavior remain unverified."
+}

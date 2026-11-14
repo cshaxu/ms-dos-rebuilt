@@ -1,0 +1,16 @@
+{
+  "file": "bios/sysinit1.asm",
+  "source_sha256": "862e62894d389438b4819c2187f744fce2c51f1361fae3890212a9333e46436c",
+  "target_range": "IO.SYS 0x5d35..0x5d4d",
+  "bytes": 24,
+  "different_bytes": 0,
+  "target_initial_fields": "SYSINIT 0f12h=1, 0f14h=0, 0f48h=1",
+  "probe": "extras/research/boot-memory-linked.asm",
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "Target subsequently adjusts SYSINIT memory by an additional reservation; that helper and writer remain incomplete.",
+    "Full linked placement and execution are unverified."
+  ]
+}

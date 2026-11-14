@@ -1,0 +1,21 @@
+{
+  "build": "extras/docs/etc/command-lock-dispatch-build-20261112.json",
+  "source": "cmd/command/tdata.asm",
+  "target_probe": "extras/build/lock-dispatch-target-r1j5ryfx",
+  "current_probe": "extras/build/lock-dispatch-current-ivz_adcm",
+  "matched_cases": [
+    "LOCK /?",
+    "UNLOCK /?",
+    "VER",
+    "CLS",
+    "ECHO",
+    "COPY wildcard"
+  ],
+  "table_analysis": {
+    "experiment": "extras/build/command-reference-822xhnsp",
+    "names": "all 207 target bytes matched in prior split-table experiment",
+    "discrepancies": "VOL and CTTY flags and LOADHIGH help length differ; ordinary commands timed out under split-table experiment"
+  },
+  "limitations": "existing combined table retained; actual LOCK/UNLOCK device operation remains untested; final file not byte-identical",
+  "output_bytes": 94212
+}

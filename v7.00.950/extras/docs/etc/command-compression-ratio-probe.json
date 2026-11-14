@@ -1,0 +1,12 @@
+{
+  "stage": "extras\\build\\ratio-probe-so4casix",
+  "method": "Isolated DOS execution of current ComputeRatio and Div32 source",
+  "checks": [
+    "16-bit divisor 2.0 ratio",
+    "16-bit divisor 1.9 ratio",
+    "32-bit divisor 1.0 ratio"
+  ],
+  "limitations": [
+    "Does not exercise compressed-volume queries or integrated DIR execution."
+  ]
+}

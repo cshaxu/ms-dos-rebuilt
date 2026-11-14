@@ -1,0 +1,31 @@
+{
+  "file": "bios/sysconf.asm",
+  "file_index": 30,
+  "source_sha256": "c819f3f81789eaf7cea67bc314e093ea2090bebf8e021ee94df6ec50787552b0",
+  "matched_ranges": [
+    {
+      "target": "IO.SYS 0xbab9..0xbac1",
+      "bytes": 8,
+      "purpose": "start"
+    },
+    {
+      "target": "IO.SYS 0xbb08..0xbb0d",
+      "bytes": 5,
+      "purpose": "failure"
+    },
+    {
+      "target": "IO.SYS 0xbd8e..0xbd93",
+      "bytes": 5,
+      "purpose": "success"
+    }
+  ],
+  "different_bytes": 0,
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "The isolated comparison fixes target offsets and uses stub log functions; final production placement is not proven.",
+    "The mixed link uses older objects and stubs and is not a full production build.",
+    "Full device-load flow and resulting IO.SYS byte equality remain incomplete."
+  ]
+}

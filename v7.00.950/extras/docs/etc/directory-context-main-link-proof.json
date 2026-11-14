@@ -1,0 +1,18 @@
+{
+  "source": "extras/research/directory-context/dirmain.asm",
+  "source_sha256": "f955364f59cd5bb48887f6341f16561e1b7b3992f1116749c52bacc6bb1ab769",
+  "link_probe_source": "extras/build/directory-context-main-link/dirmain.asm",
+  "linked_exe_sha256": "1c56057b705dae5802bab0d85f59b5dceaa5885540f80e9ab5607a5dad636cc0",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_file_offset": "0x17f74",
+  "linked_exe_file_offset": "0xacd4",
+  "length": 232,
+  "all_bytes_equal_after_link": true,
+  "limitations": [
+    "External functions in the isolated link are one-byte stand-ins placed at observed target offsets; their behavior is not validated by this test.",
+    "Absolute DOSDATA addresses and ORG placement are trial scaffolding and must be replaced with real symbols and layout.",
+    "FlushBufGuarded is a provisional name; its guard semantics and original source ownership remain unverified.",
+    "The complete kernel and caller behavior are not verified."
+  ],
+  "source_note": "The external label was renamed from NextDirEntry to FlushBufGuarded after the linked trial; reassembly confirms identical code bytes."
+}

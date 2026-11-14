@@ -1,0 +1,22 @@
+{
+  "file": "bios/sysinit2.asm",
+  "file_index": 33,
+  "source_sha256": "d424ae7156baafa6475938de54f370826afa64f1c801b9d3ca070ed2549d4401",
+  "target_range": "IO.SYS 0x7808..0x79d9",
+  "bytes": 465,
+  "different_bytes": 0,
+  "coverage": [
+    "select_item",
+    "disp_input",
+    "disp_num",
+    "show_status"
+  ],
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "Isolated link uses ORG and a stub print_item; actual final placement and print_item implementation are unverified.",
+    "The mixed diagnostic includes older objects and stubs and is not a production build.",
+    "Startup key state initialization and full image equality remain incomplete."
+  ]
+}

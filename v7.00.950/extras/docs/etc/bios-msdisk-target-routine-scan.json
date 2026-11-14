@@ -1,0 +1,135 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "trial_listing_sha256": "0fb1bc9a72e93c84b0290c35fcfcb06b994289bdd6a24776a332ac5b9e500315",
+  "trial_object_sha256": "9ad5f8e137e4ce1a64517a458abe49e8e12a20497aef360b8c93c8460140f94b",
+  "source_trial_diff": "extras/research/bios-disk-order-trial.diff",
+  "method": "Parse contiguous MASM procedure listings, mark E/R operands, locate target by matching unmasked 12-byte windows and compare all remaining unmasked bytes.",
+  "routines": [
+    {
+      "routine": "Media_Chk",
+      "target_file_offset": "0x2ad8",
+      "length": 120,
+      "listing_relocation_bytes": 24,
+      "matching_12_byte_windows": 21,
+      "non_relocation_differences": []
+    },
+    {
+      "routine": "Check_Time_Of_Access",
+      "target_file_offset": "0x2b50",
+      "length": 51,
+      "listing_relocation_bytes": 8,
+      "matching_12_byte_windows": 10,
+      "non_relocation_differences": []
+    },
+    {
+      "routine": "clear_ids",
+      "target_file_offset": "0x2bcf",
+      "length": 45,
+      "listing_relocation_bytes": 6,
+      "matching_12_byte_windows": 4,
+      "non_relocation_differences": []
+    },
+    {
+      "routine": "readbootsec",
+      "target_file_offset": "0x2cba",
+      "length": 108,
+      "listing_relocation_bytes": 2,
+      "matching_12_byte_windows": 88,
+      "non_relocation_differences": []
+    },
+    {
+      "routine": "movbpb",
+      "target_file_offset": "0x2d26",
+      "length": 66,
+      "listing_relocation_bytes": 12,
+      "matching_12_byte_windows": 13,
+      "non_relocation_differences": []
+    },
+    {
+      "routine": "mov_media_ids",
+      "target_file_offset": "0x2d68",
+      "length": 52,
+      "listing_relocation_bytes": 0,
+      "matching_12_byte_windows": 41,
+      "non_relocation_differences": []
+    },
+    {
+      "routine": "read_sector",
+      "target_file_offset": "0x2dab",
+      "length": 126,
+      "listing_relocation_bytes": 22,
+      "matching_12_byte_windows": 10,
+      "non_relocation_differences": []
+    },
+    {
+      "routine": "diskio",
+      "target_file_offset": "0x2f0c",
+      "length": 279,
+      "listing_relocation_bytes": 62,
+      "matching_12_byte_windows": 39,
+      "non_relocation_differences": []
+    },
+    {
+      "routine": "iosetup",
+      "target_file_offset": "0x3023",
+      "length": 69,
+      "listing_relocation_bytes": 16,
+      "matching_12_byte_windows": 8,
+      "non_relocation_differences": []
+    },
+    {
+      "routine": "diddleback",
+      "target_file_offset": "0x3072",
+      "length": 50,
+      "listing_relocation_bytes": 10,
+      "matching_12_byte_windows": 6,
+      "non_relocation_differences": []
+    },
+    {
+      "routine": "block",
+      "target_file_offset": "0x30a4",
+      "length": 117,
+      "listing_relocation_bytes": 16,
+      "matching_12_byte_windows": 26,
+      "non_relocation_differences": []
+    },
+    {
+      "routine": "disk",
+      "target_file_offset": "0x311c",
+      "length": 210,
+      "listing_relocation_bytes": 34,
+      "matching_12_byte_windows": 38,
+      "non_relocation_differences": []
+    },
+    {
+      "routine": "dskerr",
+      "target_file_offset": "0x3224",
+      "length": 65,
+      "listing_relocation_bytes": 14,
+      "matching_12_byte_windows": 11,
+      "non_relocation_differences": []
+    },
+    {
+      "routine": "set_tim",
+      "target_file_offset": "0x32d8",
+      "length": 33,
+      "listing_relocation_bytes": 4,
+      "matching_12_byte_windows": 5,
+      "non_relocation_differences": []
+    },
+    {
+      "routine": "ext_disk_io",
+      "target_file_offset": "0x332c",
+      "length": 172,
+      "listing_relocation_bytes": 38,
+      "matching_12_byte_windows": 34,
+      "non_relocation_differences": []
+    }
+  ],
+  "limitations": [
+    "E/R listing mask is not a full linked comparison; operand values are not proven.",
+    "This is a candidate location scan, not an exhaustive inventory of all procedures.",
+    "Historical MSBIO.CL2 is reused in the trial and is not target verified.",
+    "No full BIOS integration or target-wide equivalence is established."
+  ]
+}

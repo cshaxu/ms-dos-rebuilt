@@ -1,0 +1,39 @@
+{
+  "source_sha256": "2a44c774dfedf7336f38fddedb0d2641b2f5f860566d959b8139ed5d33a48613",
+  "listing_sha256": "405cfba1d976bda26423a804023c4a2ed80649293e314cd6798d207d8e8355d3",
+  "routines": [
+    {
+      "name": "read_volume_id",
+      "target_offset": "0x46c3",
+      "length": 158,
+      "masked_relocation_bytes": 14,
+      "matched_nonrelocated_bytes": 144,
+      "differences": []
+    },
+    {
+      "name": "transfer_volume_id",
+      "target_offset": "0x4761",
+      "length": 23,
+      "masked_relocation_bytes": 2,
+      "matched_nonrelocated_bytes": 21,
+      "differences": []
+    },
+    {
+      "name": "check_volume_id",
+      "target_offset": "0x4778",
+      "length": 21,
+      "masked_relocation_bytes": 2,
+      "matched_nonrelocated_bytes": 19,
+      "differences": []
+    },
+    {
+      "name": "fat_check",
+      "target_offset": "0x478d",
+      "length": 16,
+      "masked_relocation_bytes": 2,
+      "matched_nonrelocated_bytes": 14,
+      "differences": []
+    }
+  ],
+  "limitations": "Relocation operands and complete linked output remain unverified."
+}

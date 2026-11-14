@@ -1,0 +1,29 @@
+{
+  "file": "bios/sysinit2.asm",
+  "source_sha256": "3fb0cdd27dd98335972b56b0ead476cb404193a8cc8854f146c317d9511f95c1",
+  "target_range": "IO.SYS 0xa0c7..0xa18d",
+  "length": 198,
+  "differences": [
+    [
+      "0x87",
+      "0x3a",
+      "0x38"
+    ],
+    [
+      "0x88",
+      "0xc3",
+      "0xd8"
+    ]
+  ],
+  "tool": "MASM 6 ML isolated probe",
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link": "passed with diagnostic message stub",
+  "probe_source": "extras/research/boot-menu-build-linked.asm",
+  "limitations": [
+    "CMP AL,BL uses an equivalent two-byte encoding that differs from the target.",
+    "Only the recovered prefix is compared; its temporary return is not in the target.",
+    "Previous-choice writer, menu selection handling and caller are incomplete.",
+    "Fixed offsets and synthetic messages do not establish final placement or runtime."
+  ]
+}

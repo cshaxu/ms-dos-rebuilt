@@ -1,0 +1,36 @@
+{
+  "generated_utc": "2026-11-12T11:11:09.711922+00:00",
+  "sources": [
+    "cmd/command/tenv.asm",
+    "cmd/command/tranmsg.asm"
+  ],
+  "build_report": "extras/docs/etc/command-env-direct-write-build-20261112.json",
+  "comparisons": [
+    {
+      "name": "value_copy",
+      "target_offset": "0xbbae",
+      "candidate_offset": "0xbd59",
+      "bytes": "ac3c0d7403aaebf833c0ab",
+      "byte_equal": true
+    },
+    {
+      "name": "environment_names",
+      "target_offset": "0x108b2",
+      "candidate_offset": "0x10934",
+      "bytes": "05504154483d0750524f4d50543d434f4d535045433d",
+      "byte_equal": true
+    }
+  ],
+  "probe": {
+    "stage": "extras/build/command-envwrite-3rjl921w",
+    "result": "PASS",
+    "coverage": "Actual value writer copied VALUE and two terminating zero bytes; environment allocation, complete SET and PROMPT integration not tested."
+  },
+  "remaining": "SET PATH special handling, MOVE_NAME migration, actual DOS environment updates and cmd_copy remain incomplete. ECHO/COPY not rerun.",
+  "file_counts": {
+    "linked": 35,
+    "modified_from_baseline": 30,
+    "unchanged_from_baseline": 5
+  },
+  "final_binary_exact": false
+}

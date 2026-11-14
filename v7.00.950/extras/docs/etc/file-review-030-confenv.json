@@ -1,0 +1,40 @@
+{
+  "file": "bios/sysconf.asm",
+  "source_sha256": "8b4dd9bbf7e0944cc9db834c16582c03031d6619d24b492ed5d2858d917a66d3",
+  "ranges": [
+    {
+      "range": "0xb585..0xb59f",
+      "bytes": 26,
+      "differences": [
+        [
+          "0x3",
+          "0x2d",
+          "0x83"
+        ],
+        [
+          "0x4",
+          "0x20",
+          "0xe8"
+        ],
+        [
+          "0x5",
+          "0x0",
+          "0x20"
+        ]
+      ]
+    },
+    {
+      "range": "0xb5e9..0xb5fc",
+      "bytes": 19,
+      "differences": []
+    }
+  ],
+  "probe": "extras/research/confenv7-linked.asm",
+  "default_object_identical_to_prior": true,
+  "dos7_assembly": "passed",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "Only the two allocation spans are verified with fixed target offsets; the surrounding DOS 7 CONFIG.SYS open and processing paths are incomplete.",
+    "Mixed link contains older objects and stubs."
+  ]
+}

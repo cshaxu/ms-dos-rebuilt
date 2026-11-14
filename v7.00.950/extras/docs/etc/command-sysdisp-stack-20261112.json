@@ -1,0 +1,39 @@
+{
+  "generated_utc": "2026-11-12T10:34:12.179497+00:00",
+  "source": "inc/msgserv.asm",
+  "build_report": "extras/docs/etc/command-sysdisp-stack-build-20261112.json",
+  "comparison": {
+    "target_offset": "0xfed6",
+    "candidate_offset": "0xf5ec",
+    "length": 66,
+    "ignored_operand_offsets": [
+      11,
+      12,
+      14,
+      15,
+      28,
+      29,
+      34,
+      35,
+      61,
+      62
+    ],
+    "note": "All remaining instruction bytes equal; five relocated address/call fields differ and have not been certified here."
+  },
+  "runtime": {
+    "echo": {
+      "stage": "extras/build/command-sysdisp-echo-6zas_krs",
+      "result": "timeout; empty output"
+    },
+    "copy": {
+      "stage": "extras/build/command-sysdisp-copy-6_w5775l",
+      "result": "timeout; destination bytes equal"
+    }
+  },
+  "file_counts": {
+    "linked": 35,
+    "modified_from_baseline": 30,
+    "unchanged_from_baseline": 5
+  },
+  "final_binary_exact": false
+}

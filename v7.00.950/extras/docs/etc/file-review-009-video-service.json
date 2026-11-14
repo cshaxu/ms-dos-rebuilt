@@ -1,0 +1,26 @@
+{
+  "file_index": 9,
+  "source": "bios/msbio1.asm",
+  "source_sha256": "7f2b3a06942a345b7ade6ba40dfa103484278ab61a9d4ca0a899a11ad0af2f43",
+  "target_offset": 7538,
+  "diagnostic_offset": 10041,
+  "length": 169,
+  "matching_bytes": 167,
+  "different_offsets": [
+    10,
+    11
+  ],
+  "target_hex": "fb0ae475083c7f7403e8b400cb80fc1174f780fc0e75f53c0774f13c0874ed601e063c0d747f2bd28eda8b1650043a36840475718a26490480fc07740a80fc02726380fc03775e833e4a04507557803e62040075503c0a740580fa4f7547be00b080fc077403be00b88ede8ec6bea0002bff0fb6ce0fafce8bd9c1e9023c0a740f02d2b60003da88072bdab80d0ecd10fcf366a5b0208a6701b95000f3ab071f6183c404cf071f61cb",
+  "linked_hex": "fb0ae475083c7f7403e8321ccb80fc1174f780fc0e75f53c0774f13c0874ed601e063c0d747f2bd28eda8b1650043a36840475718a26490480fc07740a80fc02726380fc03775e833e4a04507557803e62040075503c0a740580fa4f7547be00b080fc077403be00b88ede8ec6bea0002bff0fb6ce0fafce8bd9c1e9023c0a740f02d2b60003da88072bdab80d0ecd10fcf366a5b0208a6701b95000f3ab071f6183c404cf071f61cb",
+  "diagnostic_stub_symbols": [
+    "bios_msg_base",
+    "bios_msg_1",
+    "bios_msg_2",
+    "bios_msg_3",
+    "keyboard_service",
+    "int1a_code",
+    "ttticks"
+  ],
+  "default_reference_output_sha256": "a67d8733509f9baf94017389cc1c991d5ef1c66bdfb91b6cab3eef0fc35e9490",
+  "limitations": "The shared keyboard_service is a temporary near-call stub, and final layout, runtime integration and complete 7.0a output remain unresolved."
+}

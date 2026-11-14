@@ -1,0 +1,28 @@
+{
+  "target_sha256": "a74c700063cd6b1c91523952bfc80e9393c125d39ada0164d48b5098089fcef3",
+  "target_offset": 67065,
+  "target_length": 29,
+  "target_bytes": "1004000d0009d5000001a101000100200d000bd5000002a10200020030",
+  "preceding_no_subst_ids": [
+    1037,
+    1038,
+    1039
+  ],
+  "following_id": 1041,
+  "message_id": 1040,
+  "substitution_count": 0,
+  "retained_sublist_count": 2,
+  "sublist_length": 13,
+  "target_major_address": 54537,
+  "target_minor_address": 54539,
+  "probe": "extras/build/vermes-target-probe-bhjmabz9/probe.asm",
+  "probe_sha256": "acce262720ba2ac4504954f0057134638381023356b90c552cdb704286470927",
+  "object_sha256": "bd44d45233bcd612f5a34d68a727c8954eb23f47817d198663a462c7d73917d9",
+  "byte_equal": true,
+  "baseline_source": "cmd/command/tranmsg.asm:342-360",
+  "limitations": [
+    "The target zero count and retained bytes are demonstrated locally, not proof those blocks are used.",
+    "Probe supplies target numeric addresses as EQU, so relocation and source ownership remain unverified.",
+    "Other message blocks, callers and final binary equality remain unresolved."
+  ]
+}

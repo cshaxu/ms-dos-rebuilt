@@ -1,0 +1,18 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\bios-v7-build-8qtt095_",
+  "reference_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "linked_bios_segment_base": "0x540",
+  "target_file_segment_base": "0xb40",
+  "first_contribution": "msbio2 BIOS_DATA_INIT, 0x14f bytes",
+  "second_contribution": "msinit BIOS_DATA_INIT, word aligned",
+  "linked_padding_bios_offset": "0x68f",
+  "linked_padding_value": 0,
+  "target_next_contribution_file_offset": "0xc8f",
+  "verified_prefix_bytes": 335,
+  "verified_shifted_bytes": 64,
+  "limitations": [
+    "Only this boundary and the adjacent 64 bytes are checked.",
+    "The original linker settings and complete segment layout are unproven.",
+    "No source or linked binary was changed."
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "generated_utc": "2026-11-12T11:45:04.882753+00:00",
+  "source": "cmd/command/tcmd2b.asm",
+  "build_report": "extras/docs/etc/command-truename-dynamic-build-20261112.json",
+  "comparison": {
+    "target_offset": "0xb905",
+    "candidate_offset": "0xbca5",
+    "length": 48,
+    "different_byte_offsets": [
+      1,
+      2,
+      5,
+      6,
+      14,
+      18,
+      19,
+      20,
+      21,
+      24,
+      25,
+      28,
+      29,
+      32,
+      33,
+      36,
+      37,
+      39,
+      40,
+      42,
+      43,
+      45,
+      46
+    ],
+    "note": "Differences are linked operand fields not individually certified."
+  },
+  "probe": {
+    "stage": "extras/build/command-truename-koui4w22",
+    "result": "PASS",
+    "coverage": "Actual tn_doit uses DOS function 60h on C:\\.; verifies dynamic destination and output pointer; message printing stubbed."
+  },
+  "remaining": "COMBUF still used by pipe, date/time and cmd_copy; full TRUENAME, ECHO/COPY and target binary identity unverified.",
+  "file_counts": {
+    "linked": 35,
+    "modified_from_baseline": 30,
+    "unchanged_from_baseline": 5
+  },
+  "final_binary_exact": false
+}

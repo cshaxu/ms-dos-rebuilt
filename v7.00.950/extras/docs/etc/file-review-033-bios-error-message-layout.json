@@ -1,0 +1,25 @@
+{
+  "kind": "target layout constraint; resolved BIOS_CODE mapping",
+  "consumer": "bios/msbio1.asm:bios_error_report",
+  "target": "extras/baselines/targets/IO.SYS",
+  "target_code_file_offset": "0x2345",
+  "target_instruction_operands": {
+    "bios_msg_base": "0x2db4",
+    "bios_msg_1": "0x2dac",
+    "bios_msg_2": "0x2dae",
+    "bios_msg_3": "0x2db0"
+  },
+  "mapping": {
+    "bios_code_file_base": "0x1c50",
+    "evidence": "extras/docs/etc/bios-code-resource-mapping-evidence.json",
+    "resource_file_range": "0x49f0..0x4b91",
+    "resource_length": "0x01a2",
+    "resource_logical_range": "0x2da0..0x2f41"
+  },
+  "finding": "The recovered BIOS_CODE mapping places bios_msg_base at target file offset 0x4a04. The preceding table words at 0x49fc, 0x49fe and 0x4a00 are 0x003f, 0x00a8 and 0x0141, selecting the three dollar-terminated messages at 0x4a43, 0x4aac and 0x4b45.",
+  "decision": "biosmsg.inc provides the recovered localized resource in BIOS_CODE; bios_error_report consumes its existing exported base and selection words. See file-review-033-bios-message-resource.json for source and linked-byte verification.",
+  "limitations": [
+    "The resource block is target-byte-verified, but final module ordering and whole IO.SYS equality remain unverified.",
+    "No runtime or whole-image equivalence claim follows from this component evidence."
+  ]
+}

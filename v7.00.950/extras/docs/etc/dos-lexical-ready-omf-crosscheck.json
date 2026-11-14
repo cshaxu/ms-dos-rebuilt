@@ -1,0 +1,1759 @@
+{
+  "purpose": "Cross-check pending DOS lexical-ready candidates against existing OMF fixups before admitting a file to dependency-ordered work.",
+  "inputs": {
+    "file-dependency-scan-dos7.json": "b57121ae89e9c68b6e0581ef6d6c5c74cbd2ef2fc7ee5e21cf685e6f482cee40",
+    "file-ledger.json": "cda61d20d2156f364d5d2f3a31a0ddff037dd330704406c0c8bb066ecdc755e1",
+    "kernel-dos7-object-fixup-graph.json": "c87f49de83a53c5a79bba4d16e3dfc646b8173e1ced20de9a513dca87b75748c"
+  },
+  "qualification_states_used": [
+    "component_verified",
+    "reference_qualified"
+  ],
+  "candidate_count": 28,
+  "candidates_without_unqualified_omf_providers": 0,
+  "candidates": [
+    {
+      "file": "dos/abort.asm",
+      "object_fixup_dependencies_not_yet_qualified": [
+        {
+          "provider": "dos/handle.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "$close"
+          ]
+        },
+        {
+          "provider": "dos/msdata.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "currentpdb",
+            "jshare",
+            "proc_id",
+            "sftfcb",
+            "user_id"
+          ]
+        },
+        {
+          "provider": "dos/util.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "sffromsfn"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "dos/buf.asm",
+      "object_fixup_dependencies_not_yet_qualified": [
+        {
+          "provider": "dos/msdata.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "allowed",
+            "bufferqueue",
+            "buffinhma",
+            "curbuf",
+            "dirtybuffercount",
+            "dos34_flag",
+            "failerr",
+            "first_buff_addr",
+            "high_sector",
+            "lastbuffer",
+            "lomembuff",
+            "preread",
+            "sc_drive",
+            "sc_sector_size",
+            "wperr"
+          ]
+        },
+        {
+          "provider": "dos/disk.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "dread",
+            "fatsecrd"
+          ]
+        },
+        {
+          "provider": "dos/disk2.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "dwrite"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "dos/close.asm",
+      "object_fixup_dependencies_not_yet_qualified": [
+        {
+          "provider": "dos/msdata.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "allowed",
+            "attrib",
+            "curbuf",
+            "exterr_locus",
+            "high_sector",
+            "jshare",
+            "old_firstclus",
+            "thisdrv",
+            "thissft"
+          ]
+        },
+        {
+          "provider": "dos/time.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "date16"
+          ]
+        },
+        {
+          "provider": "dos/dev.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "dev_close_sft",
+            "dev_open_sft"
+          ]
+        },
+        {
+          "provider": "dos/crit.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "ecritdisk",
+            "lcritdisk"
+          ]
+        },
+        {
+          "provider": "dos/delete.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "fastopen_update"
+          ]
+        },
+        {
+          "provider": "dos/fat.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "fatread_sft"
+          ]
+        },
+        {
+          "provider": "dos/buf.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "flushbuf",
+            "getbuffr",
+            "inc_dirty_count"
+          ]
+        },
+        {
+          "provider": "dos/dir.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "metacompare"
+          ]
+        },
+        {
+          "provider": "dos/share.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "shareend"
+          ]
+        },
+        {
+          "provider": "dos/misc2.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "xchgp"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "dos/cpmio2.asm",
+      "object_fixup_dependencies_not_yet_qualified": [
+        {
+          "provider": "dos/cpmio.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "$std_con_input_no_echo",
+            "rawout",
+            "rawout2"
+          ]
+        },
+        {
+          "provider": "dos/msdata.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "carpos",
+            "charco",
+            "pflag"
+          ]
+        },
+        {
+          "provider": "dos/disk.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "get_io_sft"
+          ]
+        },
+        {
+          "provider": "dos/dev.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "iofunc"
+          ]
+        },
+        {
+          "provider": "dos/msdisp.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "redisp"
+          ]
+        },
+        {
+          "provider": "dos/msctrlc.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "spoolint",
+            "statchk"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "dos/create.asm",
+      "object_fixup_dependencies_not_yet_qualified": [
+        {
+          "provider": "dos/ioctl.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "$ioctl"
+          ]
+        },
+        {
+          "provider": "dos/msdata.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "dos34_flag",
+            "exterr_locus",
+            "extopen_on",
+            "jshare",
+            "name1",
+            "no_name_id",
+            "packet_temp",
+            "sattrib",
+            "save_bx",
+            "thiscds",
+            "thissft",
+            "volchng_flag"
+          ]
+        },
+        {
+          "provider": "dos/crit.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "ecritdisk",
+            "lcritdisk"
+          ]
+        },
+        {
+          "provider": "dos/delete.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "fastopen_delete"
+          ]
+        },
+        {
+          "provider": "dos/fat.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "fatread_cds"
+          ]
+        },
+        {
+          "provider": "dos/mknode.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "makenode"
+          ]
+        },
+        {
+          "provider": "dos/open.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "set_sft_mode"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "dos/delete.asm",
+      "object_fixup_dependencies_not_yet_qualified": [
+        {
+          "provider": "dos/msdata.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "attrib",
+            "auxstack",
+            "creating",
+            "curbuf",
+            "delall",
+            "fasttable",
+            "founddel",
+            "jshare",
+            "name1",
+            "nosetdir",
+            "ren_wfp",
+            "sattrib",
+            "save_bx",
+            "thiscds",
+            "thisdpb",
+            "thissft",
+            "volchng_flag",
+            "wfp_start"
+          ]
+        },
+        {
+          "provider": "dos/mknode.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "doopen"
+          ]
+        },
+        {
+          "provider": "dos/crit.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "ecritdisk",
+            "lcritdisk"
+          ]
+        },
+        {
+          "provider": "dos/fat.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "fatread_cds"
+          ]
+        },
+        {
+          "provider": "dos/buf.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "flushbuf",
+            "inc_dirty_count"
+          ]
+        },
+        {
+          "provider": "dos/dir.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "getentry",
+            "nextent"
+          ]
+        },
+        {
+          "provider": "dos/dir2.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "getpathnoset"
+          ]
+        },
+        {
+          "provider": "dos/search.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "packname"
+          ]
+        },
+        {
+          "provider": "dos/rom.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "release"
+          ]
+        },
+        {
+          "provider": "dos/create.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "set_media_id"
+          ]
+        },
+        {
+          "provider": "dos/share.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "shareend",
+            "shareenter"
+          ]
+        },
+        {
+          "provider": "dos/macro2.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "skipback"
+          ]
+        },
+        {
+          "provider": "dos/misc2.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "strlen",
+            "testnet"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "dos/dev.asm",
+      "object_fixup_dependencies_not_yet_qualified": [
+        {
+          "provider": "dos/msdata.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "calldevad",
+            "callnewsc",
+            "callscnt",
+            "callssec",
+            "callxad",
+            "cursc_drive",
+            "cursc_sector",
+            "ddmove",
+            "devcall",
+            "deviobuf",
+            "dmaadd",
+            "dos34_flag",
+            "fshare",
+            "high_sector",
+            "iocall",
+            "iomed",
+            "iorchr",
+            "ioscnt",
+            "iostatfail",
+            "ioxad",
+            "sc_cache_count",
+            "sc_cache_ptr",
+            "sc_drive",
+            "sc_flag",
+            "sc_sector_size",
+            "sc_status",
+            "seq_sector",
+            "temp_var",
+            "temp_var2",
+            "thissft",
+            "verflg"
+          ]
+        },
+        {
+          "provider": "dos/msctrlc.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "charhard"
+          ]
+        },
+        {
+          "provider": "dos/disk.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "dos_read",
+            "dos_write"
+          ]
+        },
+        {
+          "provider": "dos/crit.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "ecritdevice",
+            "lcritdevice"
+          ]
+        },
+        {
+          "provider": "dos/msdisp.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "restore_user_world",
+            "save_user_world"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "dos/dinfo.asm",
+      "object_fixup_dependencies_not_yet_qualified": [
+        {
+          "provider": "dos/msdata.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "curbuf",
+            "exterr_locus"
+          ]
+        },
+        {
+          "provider": "dos/crit.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "ecritdisk",
+            "lcritdisk"
+          ]
+        },
+        {
+          "provider": "dos/fat.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "fatread_cds",
+            "unpack"
+          ]
+        },
+        {
+          "provider": "dos/misc2.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "testnet"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "dos/dir.asm",
+      "object_fixup_dependencies_not_yet_qualified": [
+        {
+          "provider": "dos/msdata.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "attrib",
+            "clusfac",
+            "clusnum",
+            "creating",
+            "curbuf",
+            "delall",
+            "dirsec",
+            "dirstart",
+            "entfree",
+            "entlast",
+            "fastopenflg",
+            "high_sector",
+            "lastent",
+            "name1",
+            "nxtclusnum",
+            "seccluspos",
+            "thisdpb",
+            "volid"
+          ]
+        },
+        {
+          "provider": "dos/disk.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "dirread",
+            "firstcluster"
+          ]
+        },
+        {
+          "provider": "dos/rom.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "figrec"
+          ]
+        },
+        {
+          "provider": "dos/fat.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "iseof",
+            "unpack"
+          ]
+        },
+        {
+          "provider": "dos/dir2.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "matchattributes",
+            "startsrch"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "dos/dir2.asm",
+      "object_fixup_dependencies_not_yet_qualified": [
+        {
+          "provider": "dos/msdata.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "allowed",
+            "attrib",
+            "clusnum",
+            "creating",
+            "curbuf",
+            "curr_dir_end",
+            "devfcb",
+            "devpt",
+            "dir_info_buff",
+            "dirstart",
+            "entfree",
+            "entlast",
+            "exterr_locus",
+            "fastopen_ext_info",
+            "fastopenflg",
+            "fastopentable",
+            "high_sector",
+            "lastent",
+            "name1",
+            "next_element_start",
+            "nosetdir",
+            "nuldev",
+            "sattrib",
+            "thiscds",
+            "thisdpb",
+            "volid",
+            "wfp_start"
+          ]
+        },
+        {
+          "provider": "dos/time.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "date16"
+          ]
+        },
+        {
+          "provider": "dos/dircall.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "dos_chdir"
+          ]
+        },
+        {
+          "provider": "dos/crit.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "ecritdisk",
+            "lcritdisk"
+          ]
+        },
+        {
+          "provider": "dos/fat.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "fatread_cds"
+          ]
+        },
+        {
+          "provider": "dos/dir.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "findentry",
+            "setdirsrch",
+            "setrootsrch"
+          ]
+        },
+        {
+          "provider": "dos/misc2.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "fstrcpy"
+          ]
+        },
+        {
+          "provider": "dos/buf.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "getbuffr"
+          ]
+        },
+        {
+          "provider": "dos/fcb.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "getlet",
+            "nametrans",
+            "pathchrcmp"
+          ]
+        },
+        {
+          "provider": "dos/disk.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "set_buf_as_dir"
+          ]
+        },
+        {
+          "provider": "dos/macro2.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "splice"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "dos/dircall.asm",
+      "object_fixup_dependencies_not_yet_qualified": [
+        {
+          "provider": "dos/msdata.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "allowed",
+            "attrib",
+            "curbuf",
+            "dirstart",
+            "failerr",
+            "fastopenflg",
+            "high_sector",
+            "lastent",
+            "name1",
+            "nosetdir",
+            "renbuf",
+            "sattrib",
+            "thisdpb",
+            "thissft"
+          ]
+        },
+        {
+          "provider": "dos/crit.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "ecritdisk",
+            "lcritdisk"
+          ]
+        },
+        {
+          "provider": "dos/delete.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "fastopen_delete"
+          ]
+        },
+        {
+          "provider": "dos/buf.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "flushbuf",
+            "getbuffr",
+            "inc_dirty_count"
+          ]
+        },
+        {
+          "provider": "dos/dir.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "getent",
+            "getentry",
+            "srch"
+          ]
+        },
+        {
+          "provider": "dos/dir2.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "getpath",
+            "startsrch"
+          ]
+        },
+        {
+          "provider": "dos/mknode.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "makenode",
+            "newdir",
+            "setdotent"
+          ]
+        },
+        {
+          "provider": "dos/rom.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "release"
+          ]
+        },
+        {
+          "provider": "dos/create.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "set_mknd_err"
+          ]
+        },
+        {
+          "provider": "dos/misc2.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "testnet"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "dos/disk3.asm",
+      "object_fixup_dependencies_not_yet_qualified": [
+        {
+          "provider": "dos/disk2.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "addrec",
+            "breakdown",
+            "dskwrite",
+            "harderrrw",
+            "set_acc_err_ds",
+            "setclus"
+          ]
+        },
+        {
+          "provider": "dos/rom.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "allocate",
+            "bufwrt",
+            "fndclus",
+            "nextsec",
+            "optimize",
+            "relblks",
+            "release",
+            "skpclp"
+          ]
+        },
+        {
+          "provider": "dos/msdata.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "allowed",
+            "bytcnt1",
+            "bytcnt2",
+            "bytpos",
+            "bytsecpos",
+            "clusnum",
+            "cursc_drive",
+            "cursc_sector",
+            "disk_full",
+            "dmaadd",
+            "first_buff_addr",
+            "growcnt",
+            "high_sector",
+            "jshare",
+            "lastpos",
+            "readop",
+            "sc_cache_count",
+            "sc_status",
+            "seccluspos",
+            "seccnt",
+            "secpos",
+            "temp_var",
+            "temp_var2",
+            "thisdpb",
+            "thisdrv",
+            "thissft",
+            "trans",
+            "valsec"
+          ]
+        },
+        {
+          "provider": "dos/disk.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "check_write_lock"
+          ]
+        },
+        {
+          "provider": "dos/buf.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "dec_dirty_count",
+            "getcurhead",
+            "scanplace"
+          ]
+        },
+        {
+          "provider": "dos/delete.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "fastopen_update"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "dos/dup.asm",
+      "object_fixup_dependencies_not_yet_qualified": [
+        {
+          "provider": "dos/dev.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "dev_open_sft"
+          ]
+        },
+        {
+          "provider": "dos/msdata.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "dosdseg",
+            "thissft"
+          ]
+        },
+        {
+          "provider": "dos/misc2.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "issftnet"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "dos/fcb.asm",
+      "object_fixup_dependencies_not_yet_qualified": [
+        {
+          "provider": "dos/msdata.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "dos34_flag",
+            "dosdseg",
+            "drverr",
+            "file_ucase_tab",
+            "name1",
+            "spaceflag"
+          ]
+        },
+        {
+          "provider": "dos/macro.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "getvisdrv"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "dos/finfo.asm",
+      "object_fixup_dependencies_not_yet_qualified": [
+        {
+          "provider": "dos/msdata.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "curbuf",
+            "exterr_action",
+            "exterr_class",
+            "exterr_locus",
+            "fastopenflg",
+            "nosetdir",
+            "thisdrv"
+          ]
+        },
+        {
+          "provider": "dos/crit.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "ecritdisk",
+            "lcritdisk"
+          ]
+        },
+        {
+          "provider": "dos/delete.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "fastopen_update",
+            "ren_del_check"
+          ]
+        },
+        {
+          "provider": "dos/buf.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "flushbuf",
+            "inc_dirty_count"
+          ]
+        },
+        {
+          "provider": "dos/dir2.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "getpath"
+          ]
+        },
+        {
+          "provider": "dos/misc2.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "testnet"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "dos/isearch.asm",
+      "object_fixup_dependencies_not_yet_qualified": [
+        {
+          "provider": "dos/msdata.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "attrib",
+            "creating",
+            "curbuf",
+            "dirstart",
+            "dmaadd",
+            "dos34_flag",
+            "dummycds",
+            "exterr_locus",
+            "fastopenflg",
+            "found_dev",
+            "lastent",
+            "name1",
+            "nosetdir",
+            "thiscds",
+            "thisdpb",
+            "thisdrv",
+            "wfp_start"
+          ]
+        },
+        {
+          "provider": "dos/crit.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "ecritdisk",
+            "lcritdisk"
+          ]
+        },
+        {
+          "provider": "dos/dir.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "getent",
+            "nextent",
+            "setdirsrch"
+          ]
+        },
+        {
+          "provider": "dos/dir2.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "getpath",
+            "startsrch"
+          ]
+        },
+        {
+          "provider": "dos/mscode.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "gotdpb"
+          ]
+        },
+        {
+          "provider": "dos/macro.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "initcds"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "dos/lock.asm",
+      "object_fixup_dependencies_not_yet_qualified": [
+        {
+          "provider": "dos/msdata.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "allowed",
+            "dosdseg",
+            "exterr_locus",
+            "fshare",
+            "jshare",
+            "lock_buffer",
+            "retrycount",
+            "temp_var",
+            "thisdpb"
+          ]
+        },
+        {
+          "provider": "dos/msctrlc.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "harderr"
+          ]
+        },
+        {
+          "provider": "dos/misc2.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "idle"
+          ]
+        },
+        {
+          "provider": "dos/util.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "sffromhandle"
+          ]
+        },
+        {
+          "provider": "dos/mscode.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "sys_ret_err",
+            "sys_ret_ok"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "dos/macro.asm",
+      "object_fixup_dependencies_not_yet_qualified": [
+        {
+          "provider": "dos/msdata.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "cdsaddr",
+            "cdscount",
+            "curdrv",
+            "diffnam",
+            "dpbhead",
+            "drverr",
+            "dummycds",
+            "exterr_locus",
+            "fsharing",
+            "myname",
+            "mynum",
+            "numio",
+            "thiscds"
+          ]
+        },
+        {
+          "provider": "dos/msdisp.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "get_user_stack"
+          ]
+        },
+        {
+          "provider": "dos/mscode.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "sys_ret_err",
+            "sys_ret_ok"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "dos/misc.asm",
+      "object_fixup_dependencies_not_yet_qualified": [
+        {
+          "provider": "dos/ioctl.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "$ioctl"
+          ]
+        },
+        {
+          "provider": "dos/msdata.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "createpdb",
+            "currentpdb",
+            "dos34_flag",
+            "dosdseg",
+            "fatbyte",
+            "indos",
+            "lastbuffer",
+            "sc_status",
+            "sysinitvar",
+            "thiscds",
+            "thissft"
+          ]
+        },
+        {
+          "provider": "dos/dinfo.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "disk_info"
+          ]
+        },
+        {
+          "provider": "dos/dup.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "dos_dup"
+          ]
+        },
+        {
+          "provider": "dos/crit.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "ecritdisk",
+            "lcritdisk"
+          ]
+        },
+        {
+          "provider": "dos/fat.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "fatread_cds"
+          ]
+        },
+        {
+          "provider": "dos/mscode.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "fcb_ret_err",
+            "sys_ret_err"
+          ]
+        },
+        {
+          "provider": "dos/buf.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "flushbuf"
+          ]
+        },
+        {
+          "provider": "dos/msdisp.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "get_user_stack"
+          ]
+        },
+        {
+          "provider": "dos/macro.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "getthisdrv"
+          ]
+        },
+        {
+          "provider": "dos/util.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "pjfnfromhandle",
+            "sffromhandle"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "dos/mknode.asm",
+      "object_fixup_dependencies_not_yet_qualified": [
+        {
+          "provider": "dos/rom.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "allocate",
+            "figrec",
+            "geteof",
+            "release"
+          ]
+        },
+        {
+          "provider": "dos/msdata.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "allowed",
+            "attrib",
+            "clusnum",
+            "creating",
+            "curbuf",
+            "dirstart",
+            "entfree",
+            "extopen_flag",
+            "extopen_on",
+            "failerr",
+            "fastopen_ext_info",
+            "fastopenflg",
+            "high_sector",
+            "lastent",
+            "name1",
+            "nosetdir",
+            "sattrib",
+            "thisdpb",
+            "thissft",
+            "virtual_open",
+            "volid"
+          ]
+        },
+        {
+          "provider": "dos/time.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "date16"
+          ]
+        },
+        {
+          "provider": "dos/dev.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "dev_close_sft",
+            "dev_open_sft"
+          ]
+        },
+        {
+          "provider": "dos/crit.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "ecritsft",
+            "lcritsft"
+          ]
+        },
+        {
+          "provider": "dos/delete.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "fastopen_update"
+          ]
+        },
+        {
+          "provider": "dos/buf.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "flushbuf",
+            "getbuffr",
+            "inc_dirty_count"
+          ]
+        },
+        {
+          "provider": "dos/dir.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "getent",
+            "setdirsrch"
+          ]
+        },
+        {
+          "provider": "dos/dir2.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "getpathnoset",
+            "matchattributes"
+          ]
+        },
+        {
+          "provider": "dos/fat.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "iseof"
+          ]
+        },
+        {
+          "provider": "dos/disk.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "set_buf_as_dir"
+          ]
+        },
+        {
+          "provider": "dos/share.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "shareend",
+            "shareenter"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "dos/open.asm",
+      "object_fixup_dependencies_not_yet_qualified": [
+        {
+          "provider": "dos/msdata.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "curbuf",
+            "currentpdb",
+            "dos34_flag",
+            "dos_flag",
+            "extopen_on",
+            "fastopenflg",
+            "fsharing",
+            "jshare",
+            "nosetdir",
+            "open_access",
+            "retrycount",
+            "save_bx",
+            "thiscds",
+            "thissft"
+          ]
+        },
+        {
+          "provider": "dos/dev.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "dev_open_sft"
+          ]
+        },
+        {
+          "provider": "dos/mknode.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "doopen"
+          ]
+        },
+        {
+          "provider": "dos/crit.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "ecritdisk",
+            "lcritdisk"
+          ]
+        },
+        {
+          "provider": "dos/dir2.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "getpath"
+          ]
+        },
+        {
+          "provider": "dos/misc2.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "idle"
+          ]
+        },
+        {
+          "provider": "dos/share.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "share_check",
+            "share_violation"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "dos/parse.asm",
+      "object_fixup_dependencies_not_yet_qualified": [
+        {
+          "provider": "dos/msdisp.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "get_user_stack"
+          ]
+        },
+        {
+          "provider": "dos/fcb.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "makefcb"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "dos/rename.asm",
+      "object_fixup_dependencies_not_yet_qualified": [
+        {
+          "provider": "dos/msdata.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "attrib",
+            "auxstack",
+            "creating",
+            "curbuf",
+            "curr_dir_end",
+            "deststart",
+            "dirstart",
+            "dmaadd",
+            "exterr_locus",
+            "failerr",
+            "found_dev",
+            "name1",
+            "name2",
+            "ren_wfp",
+            "renamedma",
+            "thisdpb",
+            "thisdrv",
+            "thissft",
+            "wfp_start"
+          ]
+        },
+        {
+          "provider": "dos/path.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "check_pathlen2"
+          ]
+        },
+        {
+          "provider": "dos/dir2.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "devname",
+            "getpathnoset",
+            "startsrch"
+          ]
+        },
+        {
+          "provider": "dos/isearch.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "dos_search_first",
+            "rename_next"
+          ]
+        },
+        {
+          "provider": "dos/crit.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "ecritdisk",
+            "lcritdisk"
+          ]
+        },
+        {
+          "provider": "dos/delete.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "fastopen_delete",
+            "fastopen_rename",
+            "ren_del_check"
+          ]
+        },
+        {
+          "provider": "dos/dir.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "findentry",
+            "getent",
+            "setdirsrch"
+          ]
+        },
+        {
+          "provider": "dos/buf.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "flushbuf",
+            "inc_dirty_count"
+          ]
+        },
+        {
+          "provider": "dos/mknode.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "rename_make"
+          ]
+        },
+        {
+          "provider": "dos/share.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "shareend"
+          ]
+        },
+        {
+          "provider": "dos/misc2.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "testnet"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "dos/rom.asm",
+      "object_fixup_dependencies_not_yet_qualified": [
+        {
+          "provider": "dos/msdata.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "allowed",
+            "bufferqueue",
+            "bytcnt1",
+            "bytsecpos",
+            "clusnum",
+            "curbuf",
+            "disk_full",
+            "dmaadd",
+            "fatbyt",
+            "high_sector",
+            "lastpos",
+            "nextadd",
+            "offsetmagicpatch",
+            "seccluspos",
+            "secpos",
+            "thissft",
+            "trans",
+            "valsec"
+          ]
+        },
+        {
+          "provider": "dos/buf.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "flushbuf",
+            "getbuffr",
+            "inc_dirty_count",
+            "placebuf"
+          ]
+        },
+        {
+          "provider": "dos/fat.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "iseof",
+            "pack",
+            "unpack"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "dos/share.asm",
+      "object_fixup_dependencies_not_yet_qualified": [
+        {
+          "provider": "dos/msdata.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "allowed",
+            "jshare",
+            "readop",
+            "retrycount",
+            "thisdpb",
+            "thissft"
+          ]
+        },
+        {
+          "provider": "dos/msctrlc.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "harderr"
+          ]
+        },
+        {
+          "provider": "dos/misc2.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "idle"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "dos/srvcall.asm",
+      "object_fixup_dependencies_not_yet_qualified": [
+        {
+          "provider": "dos/close.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "dos_commit"
+          ]
+        },
+        {
+          "provider": "dos/crit.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "ecritsft",
+            "lcritsft"
+          ]
+        },
+        {
+          "provider": "dos/msdata.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "exterr",
+            "exterr_action",
+            "exterr_locus",
+            "exterrpt",
+            "fsharing",
+            "iswin386",
+            "jshare",
+            "proc_id",
+            "savebx",
+            "saveds",
+            "swap_always",
+            "swap_end",
+            "swap_start",
+            "thissft",
+            "user_id"
+          ]
+        },
+        {
+          "provider": "dos/msdisp.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "get_user_stack",
+            "redisp"
+          ]
+        },
+        {
+          "provider": "dos/util.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "sffromsfn"
+          ]
+        },
+        {
+          "provider": "dos/mscode.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "sys_ret_err",
+            "sys_ret_ok"
+          ]
+        },
+        {
+          "provider": "dos/misc2.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "tabledispatch",
+            "xchgp"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "dos/time.asm",
+      "object_fixup_dependencies_not_yet_qualified": [
+        {
+          "provider": "dos/msdata.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "bclock",
+            "date_flag",
+            "day",
+            "daycnt",
+            "dosdseg",
+            "montab",
+            "month",
+            "timebuf",
+            "weekday",
+            "year",
+            "yrtab"
+          ]
+        },
+        {
+          "provider": "dos/dev.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "deviocall2",
+            "setread",
+            "setwrite"
+          ]
+        },
+        {
+          "provider": "dos/msdisp.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "get_user_stack"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "dos/util.asm",
+      "object_fixup_dependencies_not_yet_qualified": [
+        {
+          "provider": "dos/msdata.asm",
+          "ledger_state": "pending",
+          "symbols": [
+            "currentpdb",
+            "dosdseg",
+            "proc_id",
+            "sft_addr",
+            "user_id"
+          ]
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Object graph represents the recorded DOS7_CONFIG trial, not a complete verified target dependency graph.",
+    "Reference-qualified means historical source match, not byte-verified target contribution.",
+    "Dependencies may form real cycles and must be verified as units; this cross-check alone does not establish cycles or rule out non-OMF dependencies."
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "probe_source": "extras/build/directory-capture-runtime/capture.asm",
+  "source_sha256": "9ad98cce0020283c7930b73bd5e84039b38c64dc10754af0da83feb5eafbaba2",
+  "exe_sha256": "94669972c86dc9607ebf8914a78b30391cd6745eace768917f6c6a8efbeb86fa",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_routine_matches": true,
+  "checks": [
+    "first long-name entry saves five directory position fields",
+    "subsequent long-name entry increments count without overwriting saved fields",
+    "deleted entry increments an active count and returns FFh",
+    "non-long-name entry returns FFh and leaves count unchanged"
+  ],
+  "isolated_probe_status": "PASS",
+  "limitations": [
+    "This is a standalone probe with reconstructed data offsets and test inputs, not the complete kernel or real application execution.",
+    "Other input cases and calls from the reconstructed kernel remain unverified."
+  ],
+  "preserved_probe_source": "extras/research/directory-context/capture-probe.asm",
+  "preserved_source_sha256": "9ad98cce0020283c7930b73bd5e84039b38c64dc10754af0da83feb5eafbaba2"
+}

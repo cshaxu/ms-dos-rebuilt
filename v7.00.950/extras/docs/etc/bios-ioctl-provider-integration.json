@@ -1,0 +1,90 @@
+{
+  "source_directory": "extras/research/bios-ioctl-provider-integration",
+  "baseline_stage": "extras/build/ioctl-link-s0goi1m5",
+  "sources": {
+    "a20stub.asm": "9135dfe8b8fd19282fe15c3f89000c889a08dab05b34b34802e86d123fb1f7ff",
+    "iodata.asm": "558ea87a8852faa22fa8971dd4f8450cde734e2bfb36a0b9cd71f040af0289cc"
+  },
+  "linked_exe_sha256": "0162ad78b08315ed01206663efe37c9fdbf2ed10a702ed1e4d8e3d4565d5f52d",
+  "symbols": [
+    {
+      "symbol": "tempdpt",
+      "provider": "iodata",
+      "fixup_users": [
+        "msdioctl"
+      ]
+    },
+    {
+      "symbol": "formt_eot",
+      "provider": "iodata",
+      "fixup_users": [
+        "msdioctl"
+      ]
+    },
+    {
+      "symbol": "hdnum",
+      "provider": "iodata",
+      "fixup_users": [
+        "msdioctl"
+      ]
+    },
+    {
+      "symbol": "trknum",
+      "provider": "iodata",
+      "fixup_users": [
+        "msdioctl"
+      ]
+    },
+    {
+      "symbol": "gap_patch",
+      "provider": "iodata",
+      "fixup_users": [
+        "msdioctl"
+      ]
+    },
+    {
+      "symbol": "xfer_seg",
+      "provider": "iodata",
+      "fixup_users": [
+        "msdioctl",
+        "msdisk"
+      ]
+    },
+    {
+      "symbol": "mediatype",
+      "provider": "iodata",
+      "fixup_users": [
+        "msdioctl"
+      ]
+    },
+    {
+      "symbol": "media_set_for_format",
+      "provider": "iodata",
+      "fixup_users": [
+        "msdioctl",
+        "msdisk",
+        "msint13"
+      ]
+    },
+    {
+      "symbol": "had_format_error",
+      "provider": "iodata",
+      "fixup_users": [
+        "msdioctl"
+      ]
+    },
+    {
+      "symbol": "sectorspertrack",
+      "provider": "iodata",
+      "fixup_users": [
+        "msdioctl"
+      ]
+    }
+  ],
+  "link_log": "Microsoft (R) Segmented-Executable Linker  Version 5.10    \nCopyright (C) Microsoft Corp 1984-1990.  All rights reserved.\n\nObject Modules [.OBJ]: /MAP msbio1 mschar msdisk msdioctl msint13 dskinit msbio2+\nObject Modules [.OBJ]: msinit+sysinit1+sysconf+syspre+sysinit2+sysimes+power+ptime+\nObject Modules [.OBJ]: msend+splitbds+splitp1+splitent+splitp2+splitlat+a20stub+m2stub+c7stub+iodata,msbio,msbio;\nLINK : warning L4021: no stack segment\nLINK : warning L4038: program has no starting address",
+  "limitations": [
+    "Diagnostic link retains other stubbed definitions, legacy objects and synthetic SYSINIT gaps.",
+    "The standalone provider is an integration experiment, not a claim about historical source-file ownership.",
+    "Layout is not target-matched and no full IO.SYS identity is claimed."
+  ]
+}

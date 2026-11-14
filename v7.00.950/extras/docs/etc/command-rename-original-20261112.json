@@ -1,0 +1,29 @@
+{
+  "build": "extras/docs/etc/command-rename-original-build-20261112.json",
+  "sources": [
+    "cmd/command/tdata.asm",
+    "cmd/command/tcmd1b.asm",
+    "cmd/command/tspc.asm",
+    "cmd/command/dir.asm",
+    "cmd/command/copypr2.asm"
+  ],
+  "change": "Restored target RENAME argument parser, filesystem selection, wildcard iteration, name construction and errors using shared COPY and DIR routines.",
+  "target_instruction_range": "0xaffd..0xb105",
+  "registered_instruction_bytes": 264,
+  "additional_dependency_instruction_bytes": 7,
+  "target_probe": "extras/build/rename-original-target-ikcpfz6n",
+  "current_probe": "extras/build/rename-original-current-g6alm5dk",
+  "target_error_probe": "extras/build/rename-error-target-lozn4tkl",
+  "current_error_probe": "extras/build/rename-error-current-zdrj8w0x",
+  "matched_cases": [
+    "single file",
+    "wildcard extension renames",
+    "missing source stderr",
+    "invalid destination path stderr",
+    "missing parameters stderr",
+    "batch continuation"
+  ],
+  "limitations": "Long filenames, UNC, cross-drive, filesystem device errors and all wildcard forms not tested; complete binary not byte-identical.",
+  "output_bytes": 93067,
+  "target_bytes": 92870
+}

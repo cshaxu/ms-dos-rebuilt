@@ -1,0 +1,14 @@
+{
+  "part": "M5 T12 S1 P5",
+  "ordinal": 14,
+  "path": "bios/cfgmem.asm",
+  "modified": 1,
+  "unchanged": 0,
+  "exact_dos6": 0,
+  "action": "Normalize DOS assembly declaration/instruction/PROC formatting; correct module heading to CFGMEM.ASM; relocate reconstruction provenance from source commentary to this record.",
+  "provenance": "ConfigAlloc/ConfigFree/ConfigRealloc are descriptive reconstruction names, not recovered original debug symbols. No DOS6 same-file identity is claimed.",
+  "necessity": "Retain one shared allocation-service module used by cpath, registry open/read/find/init/start and registry API modules. In-place resize followed by allocate/copy/free on failure is the required realloc implementation; merging into one caller would obscure the shared interface.",
+  "validation": "All 145 noncomment assembler statements are unchanged after whitespace normalization. No rebuild; prior exact three-output acceptance carried forward.",
+  "sha256": "49d72e3e17a1076ed9a57dce90673b35aa9f83de9d32fbdf38ed508fc839cc3e",
+  "next_ordinal": 15
+}

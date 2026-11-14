@@ -1,0 +1,20 @@
+{
+  "source_sha256": "474c349e05feb7621f0e52d651ffce98e4143f8b44e407641e00f72859c203ee",
+  "split_tool": "extras/tools/split_sysconf_device_data.py",
+  "verification": "extras/tools/verify_syspre_device_link.py",
+  "link_stage": "extras/build/syspre-object-link-g62jwvn5",
+  "device_object_sha256": "b741b3a7cfb80d29a58d05872f5d42618b988fd624bad4caaa67025c72b8795a",
+  "matched_bytes": {
+    "request_packet": 25,
+    "backdoor": 5,
+    "device_data": 37,
+    "syspre": 1166,
+    "sysimes_resource": 4307
+  },
+  "scope": "Restored target padding after DevUMB. First device-state contribution is generated from maintained SYSCONF and used as real provider in SYSPRE link; split SYSCONF assembles and its live external state fixups are checked.",
+  "limitations": [
+    "Later device state and target name tables are not part of the extracted 37-byte contribution.",
+    "Other external providers and target placement are synthetic; split SYSCONF remainder is not yet part of the full BIOS link.",
+    "Complete SYSINIT and final three binaries remain unverified."
+  ]
+}

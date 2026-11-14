@@ -1,0 +1,25 @@
+{
+  "file": "bios/sysconf.asm",
+  "file_index": 30,
+  "source_sha256": "102d0569d1dbb7be6c262b5e26cd8a0eaf01acbd4c8fac4873ddc763448506a5",
+  "matched_ranges": [
+    {
+      "target": "IO.SYS 0xb510..0xb550",
+      "bytes": 64,
+      "purpose": "16 interrupt snapshots"
+    },
+    {
+      "target": "IO.SYS 0xd6b5..0xd6f3",
+      "bytes": 62,
+      "purpose": "interrupt snapshot comparison"
+    }
+  ],
+  "different_bytes": 0,
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "limitations": [
+    "Isolated ORG linking fixes target addresses; full executable layout and source ownership are unverified.",
+    "The parent device-record routine and buffer lifecycle remain incomplete.",
+    "The explicit 66h prefix reproduces the target instruction encoding."
+  ]
+}

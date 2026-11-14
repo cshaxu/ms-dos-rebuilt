@@ -1,0 +1,31 @@
+{
+  "source_sha256": "fef5800dda18a7201f9ade44143f9df3245e10f29f611b62110f0df802904c3c",
+  "listing_sha256": "a1140a0abdece1f4afc3c1fc25abb376d502d387b666c5b43676aef049a8d644",
+  "routines": [
+    {
+      "name": "ext_disk_dispatch",
+      "target_offset": "0x3316",
+      "length": 22,
+      "masked_relocation_bytes": 2,
+      "matched_nonrelocated_bytes": 20,
+      "differences": []
+    },
+    {
+      "name": "ext_disk_io",
+      "target_offset": "0x332c",
+      "length": 172,
+      "masked_relocation_bytes": 34,
+      "matched_nonrelocated_bytes": 138,
+      "differences": []
+    },
+    {
+      "name": "ext_again",
+      "target_offset": "0x33d8",
+      "length": 13,
+      "masked_relocation_bytes": 2,
+      "matched_nonrelocated_bytes": 11,
+      "differences": []
+    }
+  ],
+  "limitations": "Relocation operands and complete linked output remain unverified."
+}

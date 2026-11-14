@@ -1,0 +1,48 @@
+{
+  "trial_source": "extras/research/bios-disk-order-trial.diff",
+  "link_ok": true,
+  "link_log": "\nMicrosoft (R) Segmented-Executable Linker  Version 5.10    \nCopyright (C) Microsoft Corp 1984-1990.  All rights reserved.\n\nObject Modules [.OBJ]: /MAP msbio1 mschar diskdata msdisk iodata msdioctl msint13 msbio2+\nObject Modules [.OBJ]: msinit+sysinit1+sysconf+syspre+sysinit2+sysimes+power+ptime+\nObject Modules [.OBJ]: msend+splitbds+splitp1+splitent+splitp2+splitlat+a20stub+m2stub+c7stub,msbio,msbio;\nLINK : warning L4021: no stack segment\nLINK : warning L4038: program has no starting address\n",
+  "source_sha256": "e228dd3465ead3f2feac1de902f365216b489d9822c6476f01cc86582ca9eaac",
+  "limitations": [
+    "Research integration retains other stubs and historical generated inputs.",
+    "Object order is a hypothesis, not proof of historical layout."
+  ],
+  "symbol_ownership": {
+    "dsk_init": [
+      "msdisk"
+    ],
+    "nul_vid": [
+      "msbio2"
+    ],
+    "tmp_vid": [
+      "msbio2"
+    ]
+  },
+  "linked_exe_sha256": "4e1adfedb17eb3ff962d831a3795b286208d4bb5fe830d25bbd65456dd52ae24",
+  "relative_layout": [
+    {
+      "from": "step_drv",
+      "to": "dsk_init",
+      "linked_distance": 144,
+      "target_distance": 143
+    },
+    {
+      "from": "dsk_init",
+      "to": "setdrive",
+      "linked_distance": 15,
+      "target_distance": 15
+    },
+    {
+      "from": "nul_vid",
+      "to": "tmp_vid",
+      "linked_distance": 12,
+      "target_distance": 12
+    },
+    {
+      "from": "tmp_vid",
+      "to": "install_bds",
+      "linked_distance": 12,
+      "target_distance": 12
+    }
+  ]
+}

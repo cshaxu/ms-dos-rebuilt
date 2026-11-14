@@ -1,0 +1,57 @@
+{
+  "note": "MZ header observations only; embedded MZ signatures are unverified candidates. MZ CS:IP is a header field, not the floppy boot entry; the chosen boot sector jumps to IO.SYS file offset 0x200 (see boot-entry-evidence.json).",
+  "files": {
+    "IO.SYS": {
+      "magic": 23117,
+      "bytes_last_page": 428,
+      "pages": 436,
+      "relocations": 0,
+      "header_paragraphs": 11040,
+      "min_extra_paragraphs": 826,
+      "max_extra_paragraphs": 65535,
+      "initial_ss": 2934,
+      "initial_sp": 128,
+      "checksum": 0,
+      "initial_ip": 16,
+      "initial_cs": 2830,
+      "relocation_table_offset": 30,
+      "overlay_number": 0,
+      "header_bytes": 176640,
+      "declared_exe_bytes": 223148,
+      "actual_file_bytes": 223148,
+      "file_cs_ip": 221936,
+      "trailing_bytes": 0,
+      "embedded_mz_offsets": [
+        27439,
+        38770,
+        91556,
+        122759
+      ]
+    },
+    "COMMAND.COM": {
+      "magic": 23117,
+      "bytes_last_page": 198,
+      "pages": 182,
+      "relocations": 0,
+      "header_paragraphs": 1045,
+      "min_extra_paragraphs": 1,
+      "max_extra_paragraphs": 65535,
+      "initial_ss": 0,
+      "initial_sp": 0,
+      "checksum": 0,
+      "initial_ip": 256,
+      "initial_cs": 0,
+      "relocation_table_offset": 30,
+      "overlay_number": 0,
+      "header_bytes": 16720,
+      "declared_exe_bytes": 92870,
+      "actual_file_bytes": 92870,
+      "file_cs_ip": 16976,
+      "trailing_bytes": 0,
+      "embedded_mz_offsets": [
+        22850,
+        31557
+      ]
+    }
+  }
+}

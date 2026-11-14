@@ -1,0 +1,23 @@
+{
+  "part": "M5 T12 S1 P30",
+  "ordinal": 49,
+  "modified": 1,
+  "unchanged": 0,
+  "exact_dos6": 0,
+  "retired_by_merge": 0,
+  "reference": "DOS6 bios/makefile title, aligned assignments and continued dependency lists; no CONFIG homolog.",
+  "changes": "Use original-style module heading, explain separation of assembly rules and link order, align assignments/dependency continuation, normalize CRLF.",
+  "necessity": "cfgasm.bat invokes this one NMAKE file. All 44 targets are unique and match local config.lnk objects. Inference rule covers ordinary modules; PRINTF_ONLY/SPRINTF_ONLY and CFGINIT_HEAD/CFGINIT_TAIL deliberately build distinct contributions from shared source. Preserve these selectors instead of creating duplicate source implementations. CRT extraction/linking remains separate existing build stages.",
+  "validation": {
+    "targetCount": 44,
+    "uniqueTargetCount": 44,
+    "preEditMatchesAcceptedT11": true,
+    "effectiveBuildRecordsEqual": true,
+    "readbackVerified": true,
+    "rebuilt": false,
+    "reason": "All targets, prerequisites, macros, command text and order unchanged; comments and non-recipe whitespace/line endings only.",
+    "binary_baseline": "Accepted T11 CONFIG and P27 IO.SYS; other core files unchanged."
+  },
+  "next_ordinal": 50,
+  "remaining": 17
+}

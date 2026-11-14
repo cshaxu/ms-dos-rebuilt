@@ -1,0 +1,19 @@
+{
+  "source_sha256": "8fa8ffa7f914498cebfea688433a355474ac69471192ddb175814b87d5b91830",
+  "listing_sha256": "db39828317f02cb27cf0f82b8cefccc8512b5fc85c40c2f8e8643287f3cd1803",
+  "routines": [
+    {
+      "name": "read_sector",
+      "target_offset": "0x2dab",
+      "length": 126,
+      "masked_relocation_bytes": 18,
+      "matched_nonrelocated_bytes": 105,
+      "differences": [
+        24,
+        25,
+        121
+      ]
+    }
+  ],
+  "limitations": "Relocation operands and complete linked output remain unverified."
+}

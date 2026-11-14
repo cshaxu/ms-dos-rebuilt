@@ -1,0 +1,18 @@
+{
+  "file_index": 9,
+  "source": "bios/msbio1.asm",
+  "source_sha256": "1fe04b391c0f58ac34d2fe51069e1c72d405004c96ca354d0492a5c31584fcd5",
+  "target_io_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_bios_code_offset": 11086,
+  "target_initial_file_offset": 18334,
+  "target_writer_file_offset": 24303,
+  "target_reader_file_offset": 18907,
+  "exported_symbol": "config_init_segment",
+  "probe_linked_symbol": [
+    606,
+    311
+  ],
+  "probe_initial_bytes": "0000",
+  "validation": "Target initializer writes CS through the BIOS_CODE segment to offset 2B4E; CONFIG initialization subsequently pushes the same CS-relative word. Its initial word is zero. The source symbol is now public, and the no-stub ML diagnostic confirms it is linked and has the same initial word. Default BIOS output is unchanged.",
+  "limitations": "The target writer in the other initialization module has not been reconstructed or connected; matching initial bytes and export alone do not prove runtime integration or target layout."
+}

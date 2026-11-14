@@ -1,0 +1,40 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "sysinit_file_base": 19760,
+  "method": "Scan for E8 rel16 resolving within the candidate SYSINIT segment. A byte scan alone cannot prove instruction alignment, reachability, or source ownership; surrounding code was separately inspected.",
+  "routines": {
+    "config_xms_init": {
+      "target_file_offset": 61026,
+      "near_call_candidates": [
+        {
+          "file_offset": 26167,
+          "instruction_hex": "e82888",
+          "context_offset": 26159,
+          "context_hex": "59e83f0026895df2e82888f8c3e85e008ec0e810"
+        }
+      ]
+    },
+    "config_copy": {
+      "target_file_offset": 61199,
+      "near_call_candidates": [
+        {
+          "file_offset": 26192,
+          "instruction_hex": "e8bc88",
+          "context_offset": 26184,
+          "context_hex": "0e51e825005903f9e8bc88c32e8e1e400fbe3000"
+        }
+      ]
+    },
+    "config_restore": {
+      "target_file_offset": 61280,
+      "near_call_candidates": [
+        {
+          "file_offset": 61751,
+          "instruction_hex": "e826fe",
+          "context_offset": 61743,
+          "context_hex": "007405800e743301e826fec300061e245fa2b0a4"
+        }
+      ]
+    }
+  }
+}

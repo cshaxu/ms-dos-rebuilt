@@ -1,0 +1,38 @@
+{
+  "kind": "target-backed DOS7 INT13 state leaf export",
+  "source": "bios/msint13.asm",
+  "source_sha256": "51fb40cb4d50448a984f9603f8d810cb6e6b0412410350c1151da1f8e64699c6",
+  "source_change": "Export the existing DOS7_CONFIG prevoper, number_of_sec and ec35_flag definitions as one contiguous INT13 state leaf.",
+  "target": {
+    "image": "extras/baselines/targets/IO.SYS",
+    "bios_code_file_base": "0x1c50",
+    "logical_offsets": {
+      "prevoper": "0x2468",
+      "number_of_sec": "0x246a",
+      "ec35_flag": "0x246b"
+    },
+    "file_range": "0x40b8..0x40bb",
+    "initial_hex": "00000000",
+    "following_move_sector_prefix": "fc51b90001"
+  },
+  "object_verification": {
+    "assembler": "ML 6 DOS7_CONFIG",
+    "result": "pass; existing warning A4004 cannot ASSUME CS",
+    "object_pattern": "00000000fc51b90001",
+    "object_pattern_occurrences": 1
+  },
+  "formal_mixed_link": {
+    "result": "pass; LINK 5.10 warnings L4021 no stack segment and L4038 no starting address",
+    "exports": {
+      "prevoper": "0189:2850",
+      "number_of_sec": "0189:2852",
+      "ec35_flag": "0189:2853"
+    },
+    "no_a20_relink_remaining_unresolved": 28,
+    "resolved_symbols": ["PREVOPER", "NUMBER_OF_SEC", "EC35_FLAG"]
+  },
+  "limitations": [
+    "The isolated mixed link retains unrelated diagnostic providers and lacks reloc.exe; it is not a final IO.SYS build.",
+    "Target final section placement, relocations and whole-image equality remain unverified."
+  ]
+}

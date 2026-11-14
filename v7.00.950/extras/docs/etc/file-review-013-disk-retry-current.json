@@ -1,0 +1,73 @@
+{
+  "source_sha256": "84b1a955fd25a9aba0e381b74a4772c8be0a654b199dfb2243aa66fdbff4eb8d",
+  "listing_sha256": "deca811e6286e7ccf4cbdaeda490a8c4a7b6c9f7dc5830e0a5cf39622d5de186",
+  "routines": [
+    {
+      "name": "disk",
+      "target_offset": "0x311c",
+      "length": 210,
+      "masked_relocation_bytes": 32,
+      "matched_nonrelocated_bytes": 178,
+      "differences": []
+    },
+    {
+      "name": "do_write",
+      "target_offset": "0x31ee",
+      "length": 18,
+      "masked_relocation_bytes": 2,
+      "matched_nonrelocated_bytes": 16,
+      "differences": []
+    },
+    {
+      "name": "doverify",
+      "target_offset": "0x3200",
+      "length": 36,
+      "masked_relocation_bytes": 8,
+      "matched_nonrelocated_bytes": 28,
+      "differences": []
+    },
+    {
+      "name": "dskerr",
+      "target_offset": "0x3224",
+      "length": 65,
+      "masked_relocation_bytes": 10,
+      "matched_nonrelocated_bytes": 54,
+      "differences": [
+        28
+      ]
+    },
+    {
+      "name": "harderr",
+      "target_offset": "0x3265",
+      "length": 3,
+      "masked_relocation_bytes": 0,
+      "matched_nonrelocated_bytes": 3,
+      "differences": []
+    },
+    {
+      "name": "harderr2",
+      "target_offset": "0x3268",
+      "length": 19,
+      "masked_relocation_bytes": 6,
+      "matched_nonrelocated_bytes": 13,
+      "differences": []
+    },
+    {
+      "name": "normspeed",
+      "target_offset": "0x327b",
+      "length": 41,
+      "masked_relocation_bytes": 8,
+      "matched_nonrelocated_bytes": 33,
+      "differences": []
+    },
+    {
+      "name": "fastspeed",
+      "target_offset": "0x32a4",
+      "length": 26,
+      "masked_relocation_bytes": 4,
+      "matched_nonrelocated_bytes": 22,
+      "differences": []
+    }
+  ],
+  "limitations": "Relocation operands and complete linked output remain unverified."
+}

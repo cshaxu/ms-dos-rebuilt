@@ -1,0 +1,44 @@
+{
+  "sources": {
+    "bios/sysconf.asm": "55e004d377eb21f480e70e678da137bc46cc2c6e92cbf0ca58fba26667adac63",
+    "bios/sysinit1.asm": "eb31893ad248844d4361835193960134f96512f56849243491f04c9d8d0c5551"
+  },
+  "change": "Expose existing EBDA recovery and UMB allocator dependencies, and link actual CONFIG EBDA limit, marked allocator and call path in the target diagnostic.",
+  "matched": [
+    {
+      "region": "SYSINIT EBDA call",
+      "start": "0x1697",
+      "end_exclusive": "0x16a7",
+      "bytes": 16
+    },
+    {
+      "region": "EBDA recovery",
+      "start": "0x175d",
+      "end_exclusive": "0x1846",
+      "bytes": 233
+    },
+    {
+      "region": "marked allocator and marker",
+      "start": "0x858a",
+      "end_exclusive": "0x85fd",
+      "bytes": 115
+    },
+    {
+      "region": "EBDA limit",
+      "start": "0x5ad7",
+      "end_exclusive": "0x5ad9",
+      "bytes": 2
+    }
+  ],
+  "verification": {
+    "tool": "extras/tools/verify_syspre_device_link.py",
+    "link_stage": "extras/build/syspre-object-link-wggkb5l9",
+    "module_stage": "extras/build/ml-sysinit-uqlm7wrr",
+    "scope": "All four regions match target. Actual EBDA recovery calls actual marked allocator, which links to actual UMB helper and low-memory checker source. No live EBDA manipulation was performed."
+  },
+  "limitations": [
+    "SYSINIT after 16A7h has not yet been connected.",
+    "BIOS location and other diagnostic gaps or anchors remain synthetic.",
+    "Complete IO.SYS and all three core binaries remain unverified."
+  ]
+}

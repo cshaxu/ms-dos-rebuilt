@@ -1,0 +1,53 @@
+{
+  "stage": "extras\\build\\command-reference-ly463iia",
+  "target_range": [
+    29030,
+    29057
+  ],
+  "routine_bytes": 27,
+  "linked_hex": "060653075b8bd7bf0401be512cb90b00ad03c2ab8bc3abe2f707c3",
+  "target_hex": "060653075b8bd7bf1f01beaa43b90d00ad03c2ab8bc3abe2f707c3",
+  "symbol_fields": [
+    {
+      "offset": 8,
+      "symbol": "Int2f_Entry",
+      "linked": 260,
+      "target": 287
+    },
+    {
+      "offset": 11,
+      "symbol": "Reloc_Table",
+      "linked": 11345,
+      "target": 17322
+    },
+    {
+      "offset": 14,
+      "symbol": "NUM_RELOC_ENTRIES",
+      "linked": 11,
+      "target": 13
+    }
+  ],
+  "non_symbol_bytes_exact": true,
+  "table_count_still_11_target_13": true,
+  "full_routine_byte_exact": false,
+  "source_hashes": {
+    "cmd/command/init.asm": "64ea3b583cc3ecc714eb4a4cd4ff6c490ee454d3263dedfd6a87d3e690c453de"
+  },
+  "caller_update": "Both existing source callers supply BX=DS. ROMDOS caller updated but inactive in current build.",
+  "target_additional_entries": [
+    {
+      "index": 11,
+      "relative_offset": 707,
+      "file_offset": 23139,
+      "role": "error exit"
+    },
+    {
+      "index": 12,
+      "relative_offset": 1799,
+      "file_offset": 24231,
+      "role": "initialization allocation release"
+    }
+  ],
+  "full_command_exact": false,
+  "remaining": "Restore two real entry implementations and original-data-segment state before increasing relocation count or completing GET_COMMAND_STATE."
+}

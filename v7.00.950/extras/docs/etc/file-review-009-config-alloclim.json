@@ -1,0 +1,30 @@
+{
+  "file_index": 9,
+  "source": "bios/msbio1.asm",
+  "source_sha256": "776cfaaa817142ab624bfc7fdf13f1a1fb8103e156a7f8dd2b5496918610afb9",
+  "target_io_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "reference_symbol": "alloclim",
+  "reference_module": "bios/sysinit1.asm",
+  "reference_link_offset": 677,
+  "reference_file_offset": 18555,
+  "target_sysinit_offset": 3875,
+  "target_file_offset": 23635,
+  "surrounding_reference_offset": 18544,
+  "surrounding_target_offset": 23624,
+  "surrounding_exact_bytes": 32,
+  "target_callback_operands": [
+    3875,
+    3875
+  ],
+  "probe_callback_operands": [
+    713,
+    713
+  ],
+  "validation": "The target and 6.22 data anchors match for 32 bytes surrounding alloclim. The reconstructed callback reads and writes this field; the real 6.22 alloclim is used by the memory allocation code. Stub-assisted historical link proves both operands resolve to the actual sysinit1 symbol; the default BIOS build matches the prior build. The final 7.0a segment layout remains pending.",
+  "remaining": [
+    "config_init_flags",
+    "config_buffer_segment",
+    "config_buffer_paragraphs",
+    "runtime assignment of config_init_segment"
+  ]
+}

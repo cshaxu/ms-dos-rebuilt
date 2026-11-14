@@ -1,0 +1,15 @@
+{
+  "file": "bios/sysinit1.asm",
+  "source_sha256": "7191c9619233e91020f88fb93a1e4d4402f71e658209884014c1acb80d49fa5a",
+  "target_range": "IO.SYS 0x8936..0x897f",
+  "bytes": 73,
+  "different_bytes": 0,
+  "probe": "extras/research/disksector-finish-linked.asm",
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "Fixed-offset probe stubs allocation and rounding; execution and whole-image placement remain unverified.",
+    "Other earlier allocation and relocation call sites remain incomplete."
+  ]
+}

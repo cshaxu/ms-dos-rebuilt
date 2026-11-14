@@ -1,0 +1,18 @@
+{
+  "source": "extras/build/directory-context-capture-symbol/dircapt.asm",
+  "source_sha256": "3cc2bfa858bd97836d47a9ec50010ed071fde43ebf8655d6067175f01f890d2a",
+  "object_sha256": "362199c7bad4b72c77f8f0121f34fe3e6c544368a098eef78af225804df14e53",
+  "linked_exe_sha256": "3f20c87edb5d438eae9614ec900b852c130b14a6b979e90f488c590a3cde10ff",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_file_offset": "0x17f1c",
+  "linked_exe_file_offset": "0xcc0",
+  "length": 88,
+  "all_bytes_equal_after_link": true,
+  "limitations": [
+    "Isolated data segment uses ORG solely to reproduce observed offsets; final source requires organically reconstructed layout.",
+    "Variable names and routine labels are descriptive or historical inferences.",
+    "Full kernel link and surrounding callers remain unverified."
+  ],
+  "preserved_research_source": "extras/research/directory-context/dircapt.asm",
+  "preserved_source_sha256": "3cc2bfa858bd97836d47a9ec50010ed071fde43ebf8655d6067175f01f890d2a"
+}

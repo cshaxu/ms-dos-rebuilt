@@ -1,0 +1,22 @@
+{
+  "source": "bios/msbio1.asm",
+  "sha256": "079d5e8ad33beba04db7d1ca6e5132806459c1c39751828fca19415e4f38af2b",
+  "change": "Restore compressed-drive mapping and write the resulting drive letter into both system file paths.",
+  "target_region": {
+    "start": "0xa308",
+    "end_exclusive": "0xa343",
+    "bytes": 59
+  },
+  "verification": {
+    "link": "extras/tools/verify_syspre_device_link.py",
+    "link_stage": "extras/build/syspre-object-link-875w5gxb",
+    "runtime": "extras/tools/verify_boot_exec_drive.py",
+    "runtime_stage": "extras/build/exec-drive-runtime-cjd0w1az",
+    "scope": "Actual 59-byte code matches target and links to the SYSPRE mapping pointer and actual path data. INT 2Fh stub covers direct mapping, absent map, table mapping and invalid mapping; BX preservation verified."
+  },
+  "limitations": [
+    "Earlier EXEC parameter setup and MCB resizing are not restored.",
+    "Diagnostic retains other synthetic addresses and gaps.",
+    "Complete IO.SYS and all three core files remain unverified."
+  ]
+}

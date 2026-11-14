@@ -1,0 +1,23 @@
+{
+  "source": "extras/build/directory-context-symbol-trial/dircopy.asm",
+  "source_sha256": "a9c8432a5d32f5690adeb44a6e218a6817a5f0d8bad616176c2be4e8928bdc9b",
+  "object_sha256": "8ed1299d71c6d0dcd546509086391e60f8b10d27f1a1aebbfb70560df9fb4869",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_file_offset": "0x1805c",
+  "length": 26,
+  "fixup_placeholder_offsets": [
+    2,
+    3,
+    15,
+    16
+  ],
+  "non_fixup_bytes_equal": true,
+  "fixup_records": [
+    "c402000101ac0ac40f000101ac0a"
+  ],
+  "limitations": [
+    "ORG 0AACh is used to reproduce the independently observed target data layout in the isolated probe; it is not proposed as a production layout fix.",
+    "Fixup bytes are zero before linking; this probe does not prove their linked values or target-wide equivalence.",
+    "The routine and symbol names are descriptive reconstructions."
+  ]
+}

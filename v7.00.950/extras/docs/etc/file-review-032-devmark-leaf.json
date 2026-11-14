@@ -1,0 +1,19 @@
+{
+  "file": "bios/sysinit1.asm",
+  "file_index": 32,
+  "source_sha256": "4cccf3f81c5d69b69f2e1d847350346a2da35507c9a7c76ab76ea8e268f4bd01",
+  "routine": "setdevmark7",
+  "target_file_range": "0xd2f9..0xd32d",
+  "length": 52,
+  "different_bytes": 0,
+  "verification": [
+    "The 52 target bytes occur once and exactly in the DOS7 MASM object.",
+    "DOS7 and default configurations assemble; the default object remains byte-identical."
+  ],
+  "limitations": [
+    "Routine ownership and eventual placement within the complete SYSINIT link are not proven.",
+    "The target allocator and its calls are not yet reconstructed; this new leaf is not yet called by production code.",
+    "Full IO.SYS is not verified."
+  ],
+  "superseded_by": "extras/docs/etc/file-review-030-devmark-owner.json"
+}

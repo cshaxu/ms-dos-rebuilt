@@ -1,0 +1,15 @@
+{
+  "target_offset": "0x463f",
+  "source": "bios/msbio2.asm",
+  "trial_object_sha256": "c47498116c74af035de071f027b83dd000b1b9e42ada2d4e15b243b6f584b377",
+  "listing_sha256": "44230bf11dc366bbcdd6f24c6df0a438548b8d785c97cbf66e2d757871000bac",
+  "length": 58,
+  "masked_relocation_bytes": 4,
+  "nonrelocation_differences": [],
+  "provider": "msbio2.obj",
+  "correction": "The earlier GetBP linked-differences report incorrectly described hidensity as a diagnostic stub. It is defined by the trial msbio2 object; its call displacement differs because module placement differs.",
+  "limitations": [
+    "Listing comparison masks relocation operands; linked jump targets and complete target layout remain unverified.",
+    "The trial msbio2 object uses historical generated input MSBIO.CL2."
+  ]
+}

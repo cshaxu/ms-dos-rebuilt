@@ -1,0 +1,88 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "source_sha256": "bb448bff64d4d9b10cc46191b143bc992a5135dc7b072bc955618e3c7e1722c4",
+  "source": "bios/msdioctl.asm",
+  "bios_code_target_file_base": "0x1c50",
+  "data_window": {
+    "target_file_offset": "0x33e5",
+    "bios_code_offset": "0x1795",
+    "hex": "00ffffffff080000005000000000002400"
+  },
+  "anchors": [
+    {
+      "symbol": "MediaType",
+      "target_file_offset": "0x3510",
+      "instruction_hex": "2ea2a117",
+      "source_instruction": "mov CS:MediaType,AL"
+    },
+    {
+      "symbol": "TempDpt",
+      "target_file_offset": "0x3864",
+      "instruction_hex": "2e89369617",
+      "source_instruction": "mov WORD PTR CS:[TempDpt],SI"
+    },
+    {
+      "symbol": "TempDpt+2",
+      "target_file_offset": "0x3869",
+      "instruction_hex": "2e8c069817",
+      "source_instruction": "mov WORD PTR CS:[TempDpt+2],ES"
+    },
+    {
+      "symbol": "Formt_EOT",
+      "target_file_offset": "0x37f8",
+      "instruction_hex": "2e88269a17",
+      "source_instruction": "mov CS:[Formt_EOT],AH"
+    },
+    {
+      "symbol": "HdNum",
+      "target_file_offset": "0x35d4",
+      "instruction_hex": "2e880e9b17",
+      "source_instruction": "mov BYTE PTR CS:[HdNum],CL"
+    },
+    {
+      "symbol": "TrkNum",
+      "target_file_offset": "0x35d0",
+      "instruction_hex": "2ea39c17",
+      "source_instruction": "mov CS:[TrkNum],AX"
+    },
+    {
+      "symbol": "Gap_Patch",
+      "target_file_offset": "0x37b0",
+      "instruction_hex": "2ec6069e1750",
+      "source_instruction": "mov CS:[Gap_Patch],50h"
+    },
+    {
+      "symbol": "Xfer_Seg",
+      "target_file_offset": "0x35fc",
+      "instruction_hex": "2e8c1e9f17",
+      "source_instruction": "mov CS:Xfer_Seg,DS"
+    },
+    {
+      "symbol": "Media_Set_For_Format",
+      "target_file_offset": "0x36fd",
+      "instruction_hex": "2e803ea21701",
+      "source_instruction": "cmp CS:[Media_Set_For_Format],1"
+    },
+    {
+      "symbol": "Had_Format_Error",
+      "target_file_offset": "0x3622",
+      "instruction_hex": "2ec606a31701",
+      "source_instruction": "mov CS:[Had_Format_Error],1"
+    },
+    {
+      "symbol": "SectorsPerTrack",
+      "target_file_offset": "0x354d",
+      "instruction_hex": "2e890ea417",
+      "source_instruction": "mov CS:SectorsPerTrack,CX"
+    }
+  ],
+  "observations": [
+    "References support symbol offsets in the target BIOS_CODE address frame; target instructions are aligned to independently scanned source routines.",
+    "SectorsPerTrack starts at BIOS_CODE offset 17A4h immediately before the IOCTL read dispatch table at 17A6h.",
+    "MediaType is at 17A1h; the byte at 1795h must not be labeled MediaType solely from neighboring initial data."
+  ],
+  "limitations": [
+    "Target source ownership, original initializer, complete provider order and full linked BIOS are not established.",
+    "Instructions are cross-checked against source and target bytes; this is not an end-to-end linked binary test."
+  ]
+}

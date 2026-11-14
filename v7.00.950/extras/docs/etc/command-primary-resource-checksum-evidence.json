@@ -1,0 +1,24 @@
+{
+  "build_report": "extras/docs/etc/command-primary-resource-checksum-build-20261112.json",
+  "payload_bytes": 12892,
+  "checksum": 18931,
+  "single_byte_change_checks": [
+    {
+      "offset": 100,
+      "result": 18930
+    },
+    {
+      "offset": 12891,
+      "result": 19187
+    }
+  ],
+  "initial_zero_checksum_forces_load": true,
+  "unchanged_checksum_reuses_resource": true,
+  "listing_confirms_checksum_and_reload_call_sites": true,
+  "payload_sha256": "20e0e79c0c3120357f0ec53d23c40bcc1c199d7a66643a3bf373864a69bfe185",
+  "limitations": [
+    "Checksum simulation and listing inspection only; no machine-code runtime execution.",
+    "This checks the primary payload only; the target also checks additional transient state.",
+    "Additive checksums can collide."
+  ]
+}

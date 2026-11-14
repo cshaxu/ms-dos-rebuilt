@@ -1,0 +1,21 @@
+{
+  "part": "M5 T12 S1 P35",
+  "ordinal": 54,
+  "modified": 1,
+  "unchanged": 0,
+  "exact_dos6": 0,
+  "retired_by_merge": 0,
+  "reference": "DOS6 bios/sysconf.asm; entire baseline diff reviewed, retaining original unchanged parser, country and UMB service bodies.",
+  "changes": "Restore doconf/devicehigh header placement, remove orphan incorrect_order header and stale SWITCHES pseudocode, correct configuration pass/workspace descriptions. Document device-record, vector snapshot, filename and allocation interfaces. Normalize indentation on added lines; retain original conditionals and shared parser macro.",
+  "duplication": "HIGH/ordinary options use shared parse labels; SWITCHES parsing and application are distinct phases, not two parsers. Marked UMB/conventional allocation shares setdevmark7; downward system-data arena growth is a distinct operation. Device recording and interrupt snapshots use common providers. Repeated STACKSHIGH dispatch remains required by the accepted instruction layout and is not replaced by padding or a second implementation.",
+  "collateral": "P6 CONFIG$ hook procedures fully reviewed with their state, pathname provider and install/remove callers in the original sysconf owner.",
+  "validation": {
+    "statementCount": 3875,
+    "effectiveStatementsEqual": true,
+    "readbackVerified": true,
+    "rebuilt": false,
+    "reason": "All ordered instructions, data, directives, macros and original empty branches unchanged; P27 remains latest BIOS/IO.SYS binary proof."
+  },
+  "next_ordinal": 55,
+  "remaining": 12
+}

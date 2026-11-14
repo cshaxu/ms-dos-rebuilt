@@ -1,0 +1,45 @@
+{
+  "stage": "extras\\build\\command-reference-im8bqt_e",
+  "target_range": [
+    25584,
+    25642
+  ],
+  "bytes": 58,
+  "linked_hex": "06b451cd218ec3268e062c0033c08bf84f4726390575fa474726833d017519472638057513478bf7bf21051e8cc01e078ed8acaa0ac075fa1f07",
+  "verified_field": {
+    "offset": 41,
+    "symbol": "OriginalComSpec",
+    "linked": 1313,
+    "target": 1775
+  },
+  "source_hashes": {
+    "cmd/command/init.asm": "87360e0ac2651be64ca27a6605a1938f1ee1d9c13c76aa1d6aee06ac7271282e"
+  },
+  "startup_inline": true,
+  "resource_gates_passed": true,
+  "full_command_exact": false,
+  "overlay_findings": {
+    "PipePtr_offset": 1251,
+    "PipePtr_segment": 1253,
+    "PipePtr_store_file_offset": 50696,
+    "PipePtr_segment_load_file_offsets": [
+      52386,
+      52435
+    ],
+    "Re_OutStr": 1255,
+    "Re_OutStr_store_file_offset": 50479,
+    "Re_OutStr_address_file_offset": 50490,
+    "execution_path_buffer_lead": 1515,
+    "execution_path_address_file_offsets": [
+      36891,
+      50195
+    ],
+    "OriginalComSpec": 1775,
+    "buffer_spacing": 260
+  },
+  "remaining": [
+    "Reconstruct far pipe-text ownership and its consumers before replacing old PipeStr overlay.",
+    "Confirm complete execution-path buffer consumer mapping, move the two real 260-byte buffers into target order, then replace full EndInit.",
+    "Post-move startup ordering and final binary layout remain pending."
+  ]
+}

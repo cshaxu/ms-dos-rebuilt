@@ -1,0 +1,13 @@
+{
+  "source_sha256": "e74793131368616b8e5d5fbaec73a6be855b2c0d90c1bb17790694677af9b8ea",
+  "verification": "extras/tools/verify_menu_check_full.py",
+  "target_sysinit_offset": "0x77ec",
+  "matched_bytes": 198,
+  "full_split_assembly_stage": "extras/build/syspre-object-link-c3okf7di",
+  "scope": "Restored keyboard-vector compatibility switch uses existing BIOS entry/vector symbols and SYSINIT2 BIOS-call bridge. Actual source in target-positioned diagnostic matches all 198 bytes; split SYSCONF assembles and seven external BIOS/bridge fixups are present.",
+  "limitations": [
+    "BIOS entry points and data are target-positioned symbols in the diagnostic; actual BIOS objects are not linked here.",
+    "Device-name dispatch caller and original command-line normalization remain incomplete.",
+    "Full SYSINIT and final three binaries remain unverified."
+  ]
+}

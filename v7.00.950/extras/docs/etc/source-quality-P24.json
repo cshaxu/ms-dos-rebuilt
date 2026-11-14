@@ -1,0 +1,43 @@
+{
+  "part": "M5 T12 S1 P24",
+  "ordinal": 43,
+  "modified": 1,
+  "unchanged": 0,
+  "exact_dos6": 0,
+  "retired_by_merge": 0,
+  "reference": "No DOS6 regopen homolog found. Apply Microsoft module, segment and procedure comment conventions.",
+  "changes": "Remove twenty-one orphan fragment headers, repeated no-private-data comments and generic verification prose. Document all twenty-one actual stack interfaces; correct CreatePath's last argument from options to recursion depth and ResizeRecord's size to additional size. Normalize tabs.",
+  "necessity": "Existing REGKEYS module already consolidates path/value operations with key cache and record storage. CreatePath reuses SearchPath; removal uses shared record/node freeing. SetValue forwards/backwards moves handle overlapping shrink/growth; ResizeRecord stages adjacent extension, free-space search, packing, block growth and relocation. These are required distinct cases using shared providers, not alternate implementations to discard. No extra source split needed.",
+  "validation": {
+    "effectiveStatementsEqual": true,
+    "statementCount": 3743,
+    "proceduresReviewed": [
+      "RegOpenPath",
+      "RegSearchPath",
+      "RegGetKeyRecord",
+      "RegFindValue",
+      "RegRemoveValue",
+      "RegDeleteKeyTree",
+      "RegCreatePath",
+      "RegSetValue",
+      "RegEnumerateKey",
+      "RegValueAtIndex",
+      "RegFreeRecordId",
+      "RegFreeRecord",
+      "RegFreeKeyNode",
+      "RegGetDataBlock",
+      "RegAllocateRecord",
+      "RegAssignRecordId",
+      "RegNextDataBlock",
+      "RegTakeFreeSpace",
+      "RegResizeRecord",
+      "RegExtendRecord",
+      "RegLoadKey"
+    ],
+    "rebuilt": false,
+    "reason": "All 3743 effective assembler statements unchanged; reread after write verified literals, call forms, control flow, declarations, empty segments and padding.",
+    "binary_baseline": "T11 CONFIG/IO.SYS acceptance carried through P11; COMMAND.COM/MSDOS.SYS unchanged."
+  },
+  "next_ordinal": 44,
+  "remaining": 23
+}

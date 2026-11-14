@@ -1,0 +1,22 @@
+{
+  "files": [
+    "bios/sysinit1.asm",
+    "bios/sysinit2.asm"
+  ],
+  "source_hashes": [
+    "a0d7645ca823c6451ba954fb0b4bfe73d81d0e2ed7185e942f6acfb98aa5f65f",
+    "2af6f675c4e87c9849bea4c3cacce634069d3eed8d88c24411d4b68c19826f69"
+  ],
+  "target_range": "IO.SYS 0x6183..0x61f1",
+  "length": 110,
+  "different_bytes": 0,
+  "tool": "MASM 6 ML isolated probe",
+  "default_objects_identical": true,
+  "dos7_assembly": "both passed without warnings",
+  "mixed_diagnostic_link": "passed with diagnostic message stub",
+  "probe_source": "extras/research/boot-intro-linked.asm",
+  "limitations": [
+    "Fixed-offset probe uses synthetic print and message table; full placement and runtime are unverified.",
+    "Following startup key handling and full three-file build remain incomplete."
+  ]
+}

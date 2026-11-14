@@ -1,0 +1,24 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_segment_base_file_offset": 19760,
+  "blocks": [
+    {
+      "file_offset": 23856,
+      "hex": "fc33f68bfe"
+    },
+    {
+      "file_offset": 23965,
+      "hex": "8ec1b960a5030ef90fd1e9f3a506b8801050cb"
+    },
+    {
+      "file_offset": 23984,
+      "hex": "570e1f0e07"
+    },
+    {
+      "file_offset": 24050,
+      "hex": "8e1e3e0f8c0efa005f893efc008c06fe00"
+    }
+  ],
+  "interpretation": "SYSINIT starts with SI=DI=0; it relocates a variable-length region using REP MOVSW into ES:DI, then far-returns into relocated SYSINIT offset 1080h. The relocated continuation saves the resulting DI, sets ES to CS while processing the drive list, and then stores the saved DI and ES into BIOS_DATA:00FC as the disk buffer far pointer. Thus the disk buffer starts at the end of the relocated region, rather than at a fixed embedded BIOS_DATA array.",
+  "limitations": "The relocated region size and maximum sector-buffer capacity are not yet established. Runtime address calculations and the full relocation path are not implemented; this is static evidence."
+}

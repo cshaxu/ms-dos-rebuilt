@@ -1,0 +1,79 @@
+{
+  "source_sha256": "26116628dbec0c96e2611c0a33f4c2efc11917cd58928274a03a82e80f2fe9fa",
+  "listing_sha256": "4aebe8979c8d6ec21be99b2f5d2a4795577e0d433252d19dfa61e47bf86fff4d",
+  "routines": [
+    {
+      "name": "read_real_date",
+      "target_offset": "0x27b0",
+      "length": 186,
+      "masked_relocation_bytes": 40,
+      "matched_nonrelocated_bytes": 146,
+      "differences": []
+    },
+    {
+      "name": "read_real_time",
+      "target_offset": "0x286a",
+      "length": 66,
+      "masked_relocation_bytes": 18,
+      "matched_nonrelocated_bytes": 48,
+      "differences": []
+    },
+    {
+      "name": "in_bin",
+      "target_offset": "0x28ac",
+      "length": 37,
+      "masked_relocation_bytes": 16,
+      "matched_nonrelocated_bytes": 21,
+      "differences": []
+    },
+    {
+      "name": "date_verify",
+      "target_offset": "0x28d1",
+      "length": 62,
+      "masked_relocation_bytes": 16,
+      "matched_nonrelocated_bytes": 46,
+      "differences": []
+    },
+    {
+      "name": "time_verify",
+      "target_offset": "0x290f",
+      "length": 25,
+      "masked_relocation_bytes": 6,
+      "matched_nonrelocated_bytes": 19,
+      "differences": []
+    },
+    {
+      "name": "bcd_verify",
+      "target_offset": "0x2928",
+      "length": 41,
+      "masked_relocation_bytes": 2,
+      "matched_nonrelocated_bytes": 39,
+      "differences": []
+    },
+    {
+      "name": "daycnt_to_day",
+      "target_offset": "0x2951",
+      "length": 190,
+      "masked_relocation_bytes": 48,
+      "matched_nonrelocated_bytes": 142,
+      "differences": []
+    },
+    {
+      "name": "bin_to_bcd",
+      "target_offset": "0x2a0f",
+      "length": 11,
+      "masked_relocation_bytes": 0,
+      "matched_nonrelocated_bytes": 11,
+      "differences": []
+    },
+    {
+      "name": "bcd_to_bin",
+      "target_offset": "0x2a1a",
+      "length": 11,
+      "masked_relocation_bytes": 0,
+      "matched_nonrelocated_bytes": 11,
+      "differences": []
+    }
+  ],
+  "limitations": "Relocation operands and complete linked output remain unverified."
+}

@@ -1,0 +1,52 @@
+{
+  "source": "inc/highload.inc",
+  "original_sha256": "019526349ea2dfdb2c00fbe3cf125334b535701186485052e28376028940689b",
+  "updated_sha256": "3505df9de417b58463b98d5568bbac17116badc4cf0e2f7339a22e296cb25606",
+  "change": "Remove the incArgc call immediately before parseL in the /L branch; retain the /S and argument-counting calls.",
+  "target_branch_offsets": {
+    "COMMAND.COM": "0xf60b",
+    "IO.SYS": "0xc6f3"
+  },
+  "command_context": {
+    "stage": "extras\\build\\highload-no-l-argc-qvt132rp",
+    "target_start": "0xf528",
+    "length": 1757,
+    "object_fixups": 124,
+    "non_fixup_byte_mismatches": 0
+  },
+  "bios_context": {
+    "stage": "extras/build/highload-bios-candidate-gmjv15q3",
+    "target_start": "0xc618",
+    "length": 1674,
+    "object_fixups": 99,
+    "non_fixup_byte_mismatches": 13,
+    "mismatch_instruction_offsets": [
+      "0x2a3",
+      "0x2b5",
+      "0x2ba",
+      "0x317",
+      "0x5b2"
+    ],
+    "interpretation": "Five CMP AX, immediate instructions use the MASM 6 encoding in target and MASM 5 encoding in the isolated reference; all other bytes match outside fixups.",
+    "masm6_encoding_probe": {
+      "stage": "extras\\build\\highload-cmp-ml-an9x8_kl",
+      "matched_target_instruction_offsets": [
+        "0xc8bb",
+        "0xc8cd",
+        "0xc8d2",
+        "0xc92f",
+        "0xcbca"
+      ],
+      "source_operands": [
+        "0ffffh",
+        "8",
+        "9"
+      ],
+      "actual_bytes": "83f8ff83f80883f809"
+    }
+  },
+  "limitations": [
+    "The complete BIOS context still has not been compiled with MASM 6, although all five mismatching instruction encodings now have direct MASM 6 probe evidence.",
+    "Final segment addresses, complete IO.SYS and COMMAND.COM builds remain unverified."
+  ]
+}

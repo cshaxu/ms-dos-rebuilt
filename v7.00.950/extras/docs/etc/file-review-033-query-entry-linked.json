@@ -1,0 +1,17 @@
+{
+  "files": [
+    "bios/sysinit1.asm",
+    "bios/sysinit2.asm"
+  ],
+  "target_query": "IO.SYS 0x7a4f..0x7b8c, 317 bytes",
+  "target_bridge": "IO.SYS 0xdfbe..0xdfde, 32 bytes",
+  "different_bytes": 0,
+  "default_objects_identical": true,
+  "dos7_assembly": "passed",
+  "existing_dependency": "bios/msbio1.asm keyboard_service and bc_retf",
+  "limitations": [
+    "The isolated link uses ORG and numeric BIOS_CODE entry/return offsets. Actual cross-module relocations and final image layout have not been validated.",
+    "Localized response characters still require startup initialization.",
+    "No complete IO.SYS link or full-image equality has been established."
+  ]
+}

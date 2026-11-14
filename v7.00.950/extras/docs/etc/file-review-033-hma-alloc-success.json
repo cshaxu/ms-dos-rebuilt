@@ -1,0 +1,19 @@
+{
+  "files": [
+    "bios/sysinit1.asm",
+    "bios/msbio1.asm"
+  ],
+  "source_sha256": [
+    "83a968c84e7839a3e50490e3cf20c28e867ed500ff5adb1c2f8998ba260e6942",
+    "8a5b5f32c9c07f3aa7cd5d2d847231fa0f29afbaa395fb9754f457c5feb9d2e9"
+  ],
+  "target_range": "IO.SYS 0x675e..0x6792",
+  "default_objects_identical": true,
+  "dos7_assembly": "sysinit1 native MASM passed; msbio1 transformed diagnostic ML passed with existing warnings",
+  "mixed_link": "not attempted: existing BIOS diagnostic stub lacks hma_initial_size",
+  "limitations": [
+    "Full DOS7 HMA move and memory-block chain are not yet reconstructed.",
+    "Fixed-offset byte comparison and complete linkage remain pending.",
+    "The BIOS assembly uses a previously transformed diagnostic source."
+  ]
+}

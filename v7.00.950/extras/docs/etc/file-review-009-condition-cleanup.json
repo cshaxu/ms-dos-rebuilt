@@ -1,0 +1,9 @@
+{
+  "source": "bios/msbio1.asm",
+  "source_sha256": "b6bb4a70ddc0070682005086dcd8069c70fb3717a8f8cf0833828f2cc85093fb",
+  "change": "Remove a redundant nested DOS7_CONFIG conditional and its unreachable clock_update_flag alternative inside the already DOS7-only region.",
+  "diagnostic_before_sha256": "c4aca850415a33dab182fee92c6c99beb293698380e2a7d684e199f2a1f705a7",
+  "diagnostic_after_sha256": "c4aca850415a33dab182fee92c6c99beb293698380e2a7d684e199f2a1f705a7",
+  "reference_output_sha256": "a67d8733509f9baf94017389cc1c991d5ef1c66bdfb91b6cab3eef0fc35e9490",
+  "limitations": "The unchanged diagnostic is stub-assisted and does not establish complete DOS 7 binary identity."
+}

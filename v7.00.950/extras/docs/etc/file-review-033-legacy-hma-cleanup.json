@@ -1,0 +1,13 @@
+{
+  "file": "bios/sysinit1.asm",
+  "source_sha256": "70c7000bdc4c94435800245338e2cc42ceb941a738398ffb5f96e0cea4a423c9",
+  "changes": [
+    "exclude unused DOS6 BIOS communication pointer from DOS7",
+    "exclude unused DOS6 FreeHMAPtr save procedure from DOS7"
+  ],
+  "default_object_identical": true,
+  "dos7_assembly": "passed",
+  "limitations": [
+    "Other DOS7 legacy references and full production link still require verification."
+  ]
+}

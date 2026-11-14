@@ -1,0 +1,36 @@
+{
+  "generated_utc": "2026-11-12T10:31:13.382429+00:00",
+  "source": "cmd/command/tranmsg.asm",
+  "build_report": "extras/docs/etc/command-string-width-build-20261112.json",
+  "proof": {
+    "target_offset": "0x1071a",
+    "candidate_offset": "0x106a1",
+    "target_bytes": "2a04010d00f7d400000110000000002000",
+    "candidate_bytes": "2a04010d0039d600000110000000002000",
+    "note": "17-byte control records match except for the relocated String_ptr_2 offset; maximum width 0 means unlimited."
+  },
+  "argument_comparison": {
+    "target_stage": "extras/build/command-doemes-target-c1po13us",
+    "candidate_stage": "extras/build/command-doemes-new-ako_l3g4",
+    "observation": "At ECHO display branch both captured PROBE followed by CR and CL=1.",
+    "message_entry_target_stage": "extras/build/command-msgargs-target-5tc1sg01",
+    "message_entry_candidate_stage": "extras/build/command-msgargs-new-a0j8j_p1",
+    "observation_message": "Target substitution max width was zero; candidate before correction was 128."
+  },
+  "runtime": {
+    "echo": {
+      "stage": "extras/build/command-width-echo-_tqnycst",
+      "result": "timeout; empty output"
+    },
+    "copy": {
+      "stage": "extras/build/command-width-copy-1kjflqup",
+      "result": "timeout; destination bytes equal"
+    }
+  },
+  "file_counts": {
+    "linked": 35,
+    "modified_from_baseline": 30,
+    "unchanged_from_baseline": 5
+  },
+  "final_binary_exact": false
+}

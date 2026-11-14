@@ -1,0 +1,32 @@
+{
+  "target_range": "0xbad7..0xbb13",
+  "build": "extras/docs/etc/command-long-command-env-fixed-build-20261112.json",
+  "source_files": [
+    "cmd/command/tenv.asm",
+    "cmd/command/tmisc1.asm",
+    "cmd/command/tpipe.asm",
+    "cmd/command/init.asm"
+  ],
+  "transient_end": "0xeacb",
+  "reserved_rounded_end": "0xffd9",
+  "isolated_probe": {
+    "stage": "extras\\build\\longcmd-probe-8u_75g76",
+    "result": "PASS",
+    "checks": [
+      "threshold 0x80",
+      "CMDLINE name, value pointer, reserved size",
+      "preservation of CX SI DI"
+    ],
+    "limitations": "SetEnvironmentValue and delimiter routines are stubs; actual environment mutation and integrated execution are not covered"
+  },
+  "known_difference": "FILE-prefix size is an immediate constant rather than original counted data reference; final byte identity not claimed",
+  "environment_write_probe": {
+    "stage": "extras\\build\\longcmd-env-probe-vh8iu4k4",
+    "result": "PASS",
+    "source_sha256": "65c6269e9ff7d5febe535962decd760a0f560939b1ab9e0363ae5410d956e58e",
+    "path": "PrepareLongCommand -> SetEnvironmentValue -> PrepareEnvironmentChange -> environment string writer",
+    "assertion": "existing FOO=BAR survives; CMDLINE=ECHO hi is appended with double NUL",
+    "stubbed": "FIND reports missing; capacity returns sufficient; SCAN_DOUBLE_NULL and MOVE_NAME simplified; resize/deletion deliberately fail if called; COMSPEC branch not exercised",
+    "scope": "not proof of real FIND, resizing, replacement, or whole COMMAND execution"
+  }
+}

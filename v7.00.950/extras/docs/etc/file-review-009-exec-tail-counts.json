@@ -1,0 +1,10 @@
+{
+  "source": "bios/msbio1.asm",
+  "source_sha256": "4c7da2d2b70fcd9f30701844a9a3ddd05c582d831f89990cdee2747652ad0c11",
+  "change": "Compute the binary command tail length and record count from source labels instead of repeating numeric constants.",
+  "target_length": 44,
+  "target_record_count": 7,
+  "diagnostic_before_after_sha256": "da6a6b4877d8cf77ce0b6ead2aa29283c4b0e3e6425042826bfc063d33ec87ca",
+  "reference_output_sha256": "a67d8733509f9baf94017389cc1c991d5ef1c66bdfb91b6cab3eef0fc35e9490",
+  "limitations": "Only source organization changed; target pointer addresses, environment alignment and complete build remain unresolved."
+}

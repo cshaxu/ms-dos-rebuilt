@@ -1,0 +1,41 @@
+{
+  "part": "M5 T12 S1 P8",
+  "ordinals": [
+    22,
+    23
+  ],
+  "modified": 2,
+  "unchanged": 0,
+  "exact_dos6": 0,
+  "retired_by_merge": 1,
+  "clock": {
+    "reference": "Original DOS6 bios/msinit.asm:219-662 clock conversion/date/time/BCD routines.",
+    "decision": "Retain substantive RTC service unit at DOS7 resident placement. Remove only DOS7_CONFIG conditional wrappers and unselected alternatives, retaining selected DOS7 implementation and all original unrelated POWER/ROMDOS conditionals.",
+    "formal_configuration": "bios/makefile extasw and mlasw both define DOS7_CONFIG; initclk uses mlasw",
+    "removed_lines": 308,
+    "checks": {
+      "equal": true,
+      "count": 419
+    },
+    "header": "Microsoft copyright and original revision/procedure comments preserved; BYTE_SYSINIT moved below header; TITLE corrected to initclk; result comment corrected to daycnt2.",
+    "rebuild": false
+  },
+  "instdata": {
+    "reference": "DOS6 bios/sysinit1.asm:762-803 INSTALL and configuration-command state, including original exec0 instance.",
+    "decision": "Merge entire data sequence into preceding ststate; preserve initialized and uninitialized values, types, original comments, public interfaces and byte alignment. Add EXE include dependency to makefile.",
+    "collateral_ordinals": [
+      53,
+      59,
+      60
+    ]
+  },
+  "validation": {
+    "stage": "extras/build/source-quality-p8",
+    "build": "Only ststate reassembled by original MASM; LINK /MAP and RELOC; PASS",
+    "bios": "fc /b against T11 msbio.bin: no differences",
+    "io": "ioimage with rebuilt BIOS/map and accepted unchanged loader/kernel/config/logo; fc /b complete 223148-byte IO.SYS against extras/assets/IO.SYS: no differences",
+    "other_components": "COMMAND.COM and MSDOS.SYS not rebuilt; previous exact acceptance retained"
+  },
+  "next_ordinal": 24,
+  "remaining": 43
+}

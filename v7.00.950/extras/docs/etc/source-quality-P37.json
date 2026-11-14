@@ -1,0 +1,26 @@
+{
+  "part": "M5 T12 S1 P37",
+  "ordinal": 56,
+  "modified": 1,
+  "unchanged": 0,
+  "exact_dos6": 0,
+  "retired_by_merge": 0,
+  "reference": "DOS6 bios/sysinit1.asm relocation, DOS initialization, HMA/VDISK, and original DRIVPARM services.",
+  "changes": "Expand single-use HmaSub40 encoding macro; remove orphan communication-block/equipment/SaveFreeHMAPtr headers. Correct pass-1 description, HMA callback reset, MovDOS return address and AllocHMA output contract. Document indexed print and relocation interfaces; normalize added indentation.",
+  "duplication": "P11 relocation/backdoor fragments remain consolidated into original sysinit1 with BYTE_SYSINIT unchanged. Shared boot sector reader serves directory lookup and compression header inspection; HMA/low relocation, boot relocation and pre-DOS raw reads have distinct lifetimes/interfaces. DRIVPARM parameter construction is distinct from resident generic IOCTL handling.",
+  "validation": {
+    "statementCount": 2232,
+    "effectiveStatementsEqualAfterSingleUseMacroExpansion": true,
+    "readbackVerified": true,
+    "canonicalDOS6Procedures": {
+      "IsXMSLoaded": true,
+      "CPMHack": true,
+      "ClrVDISKHeader": false,
+      "IsVDiskInstalled": true
+    },
+    "rebuilt": false,
+    "reason": "No effective instruction, storage, relocation or alignment change. P11/P27 binary acceptance remains applicable."
+  },
+  "next_ordinal": 57,
+  "remaining": 10
+}

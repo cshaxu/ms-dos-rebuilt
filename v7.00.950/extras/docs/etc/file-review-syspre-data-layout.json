@@ -1,0 +1,29 @@
+{
+  "files": {
+    "bios/sysinit1.asm": "fab50259118f46bba47b98a14f643300e0701108b88c4c076a12098ab760dc3a",
+    "bios/sysinit2.asm": "7b3c268d6755bdbd29342c0662d374a200786a8cc1087fce29e1313d78440857",
+    "bios/sysconf.asm": "bd494296f48fe4a50696f70de119b2c93db56a74116ca26b8f20cd2625a20796",
+    "bios/syspre.asm": "949275ae57a049de9aecdd314a7dcd78087e14dc047dffa869fe8b548c1850d4"
+  },
+  "verification": "extras/tools/verify_menu_check_full.py",
+  "object_verification": "extras/tools/verify_syspre_object.py",
+  "syspre_data_and_code": {
+    "sysinit_start": "0x8a64",
+    "bytes": 1166
+  },
+  "object_result": {
+    "object_sha256": "4f5eddeb99d63451d6c819f5340bc675cb7fbd207c83a3658a5d4f3d18a4bcfd",
+    "segment_index": 6,
+    "target_sysinit_offset": "0x8a64",
+    "bytes": 1166,
+    "fixup_bytes": 242,
+    "matching_nonfixup_bytes": 924,
+    "limitations": "OMF fixup bytes and final segment placement are not verified."
+  },
+  "scope": "Compression state definitions moved into SYSPRE in target order; complete four modules assembled, OMF export and live external references checked, actual SYSPRE object nonfixup bytes compared to target.",
+  "limitations": [
+    "Diagnostic still places SYSPRE contribution at target offset; actual whole-SYSINIT segment ordering and 242 fixup bytes have not been verified by final linking.",
+    "UMB highload helper calls remain fixed-address anchors in the joint diagnostic.",
+    "Final three binary matches remain unverified."
+  ]
+}

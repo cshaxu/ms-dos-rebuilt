@@ -1,0 +1,19 @@
+{
+  "file_index": 9,
+  "source": "bios/msbio1.asm",
+  "target_io_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_con_name_offset": 1568,
+  "target_con_device_header_offset": 1558,
+  "target_con_next_pointer": "28007000",
+  "target_bds1_offset": 20616,
+  "target_bds1_next_pointer": "bc03e304",
+  "built_con_name_offset": 1491,
+  "built_bds1_offset": 2292,
+  "finding": "The device header and BDS array have different relative placements and initial pointer segment values in the target. Contiguity of floppy and hard-drive structures in target bytes does not by itself prove both should move into the baseline BIOS_DATA segment. Runtime segment/loading mapping remains to be established.",
+  "action": "Reverted only the inferred move of bdss between segments; retained the separately verified FFFFFFFF descriptor initializations.",
+  "build_restored_to_prior_verified_sha256": "a67d8733509f9baf94017389cc1c991d5ef1c66bdfb91b6cab3eef0fc35e9490",
+  "previous_build_identical": true,
+  "bds4_target_equal": true,
+  "harddrive_25_target_equal": true,
+  "source_sha256": "538bbd38a8601facf01ec8d5241b974bbae23a8e6721c45efc0c1fbf86747246"
+}

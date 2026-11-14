@@ -1,0 +1,106 @@
+{
+  "stage": "extras\\build\\command-reference-bp1qrvh1",
+  "checks": [
+    {
+      "symbol": "EndCode",
+      "target_range": [
+        25315,
+        25498
+      ],
+      "bytes": 183,
+      "linked_hex": "e95ef772fb1eb800ea33dbcd2185db751306b8207a8ec3cd2f8cc0070bc375041fe96df7e81a00000000005b4f7074696f6e735d0d0a4c6f6164546f703d300d0a5f2ec515b80043cd2172d48bf133c9b80143cd2172c9b8123dcd21724d8bd833c933d2b80242cd21723cb916000e1f8d5504b440cd21b43ecd21c515b801438bcecd21b40dcd212bc98ec1268a0e7504b280b400cd1342e2f9fa26c70672043412ea0000ffffb43ecd21c515b801438bcecd21e969ff",
+      "target_hex": "e9c2f472fb1eb800ea33dbcd2185db751306b8207a8ec3cd2f8cc0070bc375041fe9d1f4e81a00000000005b4f7074696f6e735d0d0a4c6f6164546f703d300d0a5f2ec515b80043cd2172d48bf133c9b80143cd2172c9b8123dcd21724d8bd833c933d2b80242cd21723cb916000e1f8d5504b440cd21b43ecd21c515b801438bcecd21b40dcd212bc98ec1268a0e7504b280b400cd1342e2f9fa26c70672043412ea0000ffffb43ecd21c515b801438bcecd21e969ff",
+      "verified_data_fields": [],
+      "verified_relative_fields": [
+        [
+          1,
+          "Exec_Err"
+        ],
+        [
+          34,
+          "Exec_Wait"
+        ]
+      ]
+    },
+    {
+      "symbol": "StartCode",
+      "target_range": [
+        22432,
+        22498
+      ],
+      "bytes": 66,
+      "linked_hex": "434d4400000000008b1ec2063c02741f8b1eba063c0874178b1eb6063c0b740f8b1ec6063c0574078b1eb206be13038bd3e80307eb0972d0b44dcd21a37d03e9ae01",
+      "target_hex": "434d4400000000008b1e31093c02741f8b1e29093c0874178b1e25093c0b740f8b1e35093c0574078b1e2109be95038bd3e89f09eb0972d0b44dcd21a36907e95903",
+      "verified_data_fields": [
+        {
+          "offset": 10,
+          "symbol": "ResMsg126Ptr",
+          "linked": 1730,
+          "target": 2353
+        },
+        {
+          "offset": 18,
+          "symbol": "ResMsg124Ptr",
+          "linked": 1722,
+          "target": 2345
+        },
+        {
+          "offset": 26,
+          "symbol": "ResMsg123Ptr",
+          "linked": 1718,
+          "target": 2341
+        },
+        {
+          "offset": 34,
+          "symbol": "ResMsg127Ptr",
+          "linked": 1734,
+          "target": 2357
+        },
+        {
+          "offset": 42,
+          "symbol": "ResMsg122Ptr",
+          "linked": 1714,
+          "target": 2337
+        },
+        {
+          "offset": 45,
+          "symbol": "ExecErrSubst",
+          "linked": 787,
+          "target": 917
+        },
+        {
+          "offset": 61,
+          "symbol": "RetCode",
+          "linked": 893,
+          "target": 1897
+        }
+      ],
+      "verified_relative_fields": [
+        [
+          50,
+          "RPrint"
+        ],
+        [
+          64,
+          "LodCom"
+        ]
+      ]
+    }
+  ],
+  "resident_tail_bytes": 183,
+  "ExecTopRet_relative_to_EndCode": 3,
+  "ExecTopPath_relative_to_EndCode": 39,
+  "ResidentChecksum_relative_to_StartCode": 4,
+  "source_hashes": {
+    "cmd/command/command1.asm": "3380e0c8fe906514b51eef5b3c7e861cf895febb029069f7221c69288f6a6559",
+    "cmd/command/rucode.asm": "e6e723ea636efe8e11304a32fbad474300dd5ec327546f1d7ed0109baaf6420e"
+  },
+  "prior_handler_and_release_relocation_regression_passed": true,
+  "resource_gates_passed": true,
+  "full_command_exact": false,
+  "remaining": [
+    "ExecTopRet alternative relocation entry and ExecTopPath runtime value require actual resident data relocation initialization.",
+    "PROTMAN$ detection and full resident-data allocation/move chain pending.",
+    "Full startup and layout remain pending."
+  ]
+}

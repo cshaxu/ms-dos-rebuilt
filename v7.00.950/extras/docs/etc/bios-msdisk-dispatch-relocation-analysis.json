@@ -1,0 +1,228 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "listing_sha256": "0fb1bc9a72e93c84b0290c35fcfcb06b994289bdd6a24776a332ac5b9e500315",
+  "object_sha256": "9ad5f8e137e4ce1a64517a458abe49e8e12a20497aef360b8c93c8460140f94b",
+  "method": "Target dispatch table starts at file 0x2a80 = BIOS_CODE 0xe30; add local listing offsets to that base. External entries are not inferred from local offsets.",
+  "entries": [
+    {
+      "index": 0,
+      "symbol": "dsk_init",
+      "fixup": "R",
+      "target_offset": "0xe65",
+      "predicted_offset": "0xe65",
+      "difference": 0
+    },
+    {
+      "index": 1,
+      "symbol": "media_chk",
+      "fixup": "R",
+      "target_offset": "0xe88",
+      "predicted_offset": "0xe88",
+      "difference": 0
+    },
+    {
+      "index": 2,
+      "symbol": "get_bpb",
+      "fixup": "R",
+      "target_offset": "0xf35",
+      "predicted_offset": "0xf35",
+      "difference": 0
+    },
+    {
+      "index": 3,
+      "symbol": "bc_cmderr",
+      "fixup": "E",
+      "target_offset": "0xc1",
+      "predicted_offset": null,
+      "difference": null
+    },
+    {
+      "index": 4,
+      "symbol": "dsk_read",
+      "fixup": "R",
+      "target_offset": "0x1228",
+      "predicted_offset": "0x122d",
+      "difference": 5
+    },
+    {
+      "index": 5,
+      "symbol": "x_bus_exit",
+      "fixup": "R",
+      "target_offset": "0x120c",
+      "predicted_offset": "0x1211",
+      "difference": 5
+    },
+    {
+      "index": 6,
+      "symbol": "ret_carry_clear",
+      "fixup": "R",
+      "target_offset": "0xef8",
+      "predicted_offset": "0xef8",
+      "difference": 0
+    },
+    {
+      "index": 7,
+      "symbol": "ret_carry_clear",
+      "fixup": "R",
+      "target_offset": "0xef8",
+      "predicted_offset": "0xef8",
+      "difference": 0
+    },
+    {
+      "index": 8,
+      "symbol": "dsk_writ",
+      "fixup": "R",
+      "target_offset": "0x1219",
+      "predicted_offset": "0x121e",
+      "difference": 5
+    },
+    {
+      "index": 9,
+      "symbol": "dsk_writv",
+      "fixup": "R",
+      "target_offset": "0x1210",
+      "predicted_offset": "0x1215",
+      "difference": 5
+    },
+    {
+      "index": 10,
+      "symbol": "ret_carry_clear",
+      "fixup": "R",
+      "target_offset": "0xef8",
+      "predicted_offset": "0xef8",
+      "difference": 0
+    },
+    {
+      "index": 11,
+      "symbol": "ret_carry_clear",
+      "fixup": "R",
+      "target_offset": "0xef8",
+      "predicted_offset": "0xef8",
+      "difference": 0
+    },
+    {
+      "index": 12,
+      "symbol": "bc_cmderr",
+      "fixup": "E",
+      "target_offset": "0xc1",
+      "predicted_offset": null,
+      "difference": null
+    },
+    {
+      "index": 13,
+      "symbol": "dsk_open",
+      "fixup": "R",
+      "target_offset": "0x11d9",
+      "predicted_offset": "0x11de",
+      "difference": 5
+    },
+    {
+      "index": 14,
+      "symbol": "dsk_close",
+      "fixup": "R",
+      "target_offset": "0x11e9",
+      "predicted_offset": "0x11ee",
+      "difference": 5
+    },
+    {
+      "index": 15,
+      "symbol": "dsk_rem",
+      "fixup": "R",
+      "target_offset": "0x1200",
+      "predicted_offset": "0x1205",
+      "difference": 5
+    },
+    {
+      "index": 16,
+      "symbol": "ret_carry_clear",
+      "fixup": "R",
+      "target_offset": "0xef8",
+      "predicted_offset": "0xef8",
+      "difference": 0
+    },
+    {
+      "index": 17,
+      "symbol": "ret_carry_clear",
+      "fixup": "R",
+      "target_offset": "0xef8",
+      "predicted_offset": "0xef8",
+      "difference": 0
+    },
+    {
+      "index": 18,
+      "symbol": "ret_carry_clear",
+      "fixup": "R",
+      "target_offset": "0xef8",
+      "predicted_offset": "0xef8",
+      "difference": 0
+    },
+    {
+      "index": 19,
+      "symbol": "do_generic_ioctl",
+      "fixup": "E",
+      "target_offset": "0x17db",
+      "predicted_offset": null,
+      "difference": null
+    },
+    {
+      "index": 20,
+      "symbol": "ret_carry_clear",
+      "fixup": "R",
+      "target_offset": "0xef8",
+      "predicted_offset": "0xef8",
+      "difference": 0
+    },
+    {
+      "index": 21,
+      "symbol": "ret_carry_clear",
+      "fixup": "R",
+      "target_offset": "0xef8",
+      "predicted_offset": "0xef8",
+      "difference": 0
+    },
+    {
+      "index": 22,
+      "symbol": "ret_carry_clear",
+      "fixup": "R",
+      "target_offset": "0xef8",
+      "predicted_offset": "0xef8",
+      "difference": 0
+    },
+    {
+      "index": 23,
+      "symbol": "ioctl_getown",
+      "fixup": "E",
+      "target_offset": "0x1ccd",
+      "predicted_offset": null,
+      "difference": null
+    },
+    {
+      "index": 24,
+      "symbol": "ioctl_setown",
+      "fixup": "E",
+      "target_offset": "0x1ceb",
+      "predicted_offset": null,
+      "difference": null
+    },
+    {
+      "index": 25,
+      "symbol": "ioctl_support_query",
+      "fixup": "E",
+      "target_offset": "0x1e55",
+      "predicted_offset": null,
+      "difference": null
+    }
+  ],
+  "local_matching_entries": 13,
+  "local_five_bytes_late_entries": 7,
+  "external_entries": 6,
+  "localization": {
+    "last_known_aligned": "clear_ids target file 0x2bcf, length 45, ends 0x2bfc",
+    "first_known_five_bytes_late": "readbootsec target file 0x2cba, trial local offset 0x23f maps to file 0x2cbf",
+    "target_interval_to_investigate": "0x2bfc..0x2cba"
+  },
+  "limitations": [
+    "Offsets do not prove original source ownership or determine exact edit; compare intermediate routines and relocation-aware bytes.",
+    "Target table external values are recorded but have not been independently established for all handlers."
+  ]
+}

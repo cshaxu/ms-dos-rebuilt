@@ -1,0 +1,37 @@
+{
+  "generated_utc": "2026-11-12T10:49:19.677546+00:00",
+  "source": "cmd/command/tmisc1.asm",
+  "build_report": "extras/docs/etc/command-prescan-dynamic-build-20261112.json",
+  "comparison": {
+    "target_offset": "0xc4a4",
+    "candidate_offset": "0xc45b",
+    "length": 27,
+    "excluded_address_bytes": [
+      6,
+      7,
+      10,
+      11
+    ],
+    "note": "Initial PRESCAN instruction sequence matches outside two linked data operands, not separately certified."
+  },
+  "diagnosis": {
+    "old_error_stage": "extras/build/command-redir-path-r2wgg9zb",
+    "observation": "Previous candidate attempted input redirection, with error AX=3 and input buffer beginning 09 00. Old PRESCAN read fixed COMBUF while target uses ComBufPtr."
+  },
+  "runtime": {
+    "echo": {
+      "stage": "extras/build/command-prescan-echo-ai8a10f2",
+      "result": "timeout; output empty"
+    },
+    "copy": {
+      "stage": "extras/build/command-prescan-copy-yqkwx2ij",
+      "result": "process returned 0 and 24-byte destination matched source"
+    }
+  },
+  "file_counts": {
+    "linked": 35,
+    "modified_from_baseline": 30,
+    "unchanged_from_baseline": 5
+  },
+  "final_binary_exact": false
+}

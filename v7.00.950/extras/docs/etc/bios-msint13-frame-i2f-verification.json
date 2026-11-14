@@ -1,0 +1,170 @@
+{
+  "source_sha256": "45af47819e509b1f3abaa86569117067b16a6915819b8039049fa74ad6b8462b",
+  "listing_sha256": "2e844ed6174bd89e856850c7e626325eac1deb39740072002f2cc58d17d8620a",
+  "routines": [
+    {
+      "name": "i2f_dispatch",
+      "target_offset": "0x3d04",
+      "length": 132,
+      "masked_relocation_bytes": 40,
+      "matched_nonrelocated_bytes": 92,
+      "differences": []
+    },
+    {
+      "name": "win386_info",
+      "target_offset": "0x3d88",
+      "length": 21,
+      "masked_relocation_bytes": 8,
+      "matched_nonrelocated_bytes": 13,
+      "differences": []
+    },
+    {
+      "name": "win386_dispatch",
+      "target_offset": "0x3d9d",
+      "length": 157,
+      "masked_relocation_bytes": 32,
+      "matched_nonrelocated_bytes": 125,
+      "differences": []
+    },
+    {
+      "name": "win386_call13",
+      "target_offset": "0x3e3a",
+      "length": 26,
+      "masked_relocation_bytes": 4,
+      "matched_nonrelocated_bytes": 22,
+      "differences": []
+    },
+    {
+      "name": "win386_call14",
+      "target_offset": "0x3e54",
+      "length": 41,
+      "masked_relocation_bytes": 4,
+      "matched_nonrelocated_bytes": 37,
+      "differences": []
+    },
+    {
+      "name": "win_keyboard_entry",
+      "target_offset": "0x3e7d",
+      "length": 6,
+      "masked_relocation_bytes": 2,
+      "matched_nonrelocated_bytes": 4,
+      "differences": []
+    },
+    {
+      "name": "win386_call0e",
+      "target_offset": "0x3e83",
+      "length": 89,
+      "masked_relocation_bytes": 32,
+      "matched_nonrelocated_bytes": 57,
+      "differences": []
+    },
+    {
+      "name": "win386_call0f",
+      "target_offset": "0x3edc",
+      "length": 77,
+      "masked_relocation_bytes": 30,
+      "matched_nonrelocated_bytes": 47,
+      "differences": []
+    },
+    {
+      "name": "handle_multmult",
+      "target_offset": "0x3f29",
+      "length": 115,
+      "masked_relocation_bytes": 12,
+      "matched_nonrelocated_bytes": 103,
+      "differences": []
+    },
+    {
+      "name": "hma_largest",
+      "target_offset": "0x3f9c",
+      "length": 66,
+      "masked_relocation_bytes": 2,
+      "matched_nonrelocated_bytes": 64,
+      "differences": []
+    },
+    {
+      "name": "hma_allocate",
+      "target_offset": "0x3fde",
+      "length": 121,
+      "masked_relocation_bytes": 0,
+      "matched_nonrelocated_bytes": 121,
+      "differences": []
+    },
+    {
+      "name": "hma_resize",
+      "target_offset": "0x4057",
+      "length": 97,
+      "masked_relocation_bytes": 0,
+      "matched_nonrelocated_bytes": 91,
+      "differences": [
+        53,
+        54,
+        55,
+        80,
+        81,
+        82
+      ]
+    },
+    {
+      "name": "move_sector",
+      "target_offset": "0x40bc",
+      "length": 27,
+      "masked_relocation_bytes": 0,
+      "matched_nonrelocated_bytes": 27,
+      "differences": []
+    },
+    {
+      "name": "check_wrap",
+      "target_offset": "0x40d7",
+      "length": 119,
+      "masked_relocation_bytes": 0,
+      "matched_nonrelocated_bytes": 116,
+      "differences": [
+        23,
+        24,
+        25
+      ]
+    },
+    {
+      "name": "find_bds",
+      "target_offset": "0x414e",
+      "length": 20,
+      "masked_relocation_bytes": 2,
+      "matched_nonrelocated_bytes": 18,
+      "differences": []
+    },
+    {
+      "name": "doint",
+      "target_offset": "0x4162",
+      "length": 26,
+      "masked_relocation_bytes": 4,
+      "matched_nonrelocated_bytes": 22,
+      "differences": []
+    },
+    {
+      "name": "format_special",
+      "target_offset": "0x4180",
+      "length": 17,
+      "masked_relocation_bytes": 4,
+      "matched_nonrelocated_bytes": 13,
+      "differences": []
+    },
+    {
+      "name": "ec35_special",
+      "target_offset": "0x4191",
+      "length": 41,
+      "masked_relocation_bytes": 4,
+      "matched_nonrelocated_bytes": 37,
+      "differences": []
+    },
+    {
+      "name": "ps2_special",
+      "target_offset": "0x41ba",
+      "length": 27,
+      "masked_relocation_bytes": 8,
+      "matched_nonrelocated_bytes": 19,
+      "differences": []
+    }
+  ],
+  "limitations": "Relocation operands and complete linked output remain unverified."
+}

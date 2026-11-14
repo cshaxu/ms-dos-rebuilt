@@ -1,0 +1,18 @@
+{
+  "probe_source": "extras/research/directory-context/main-probe.asm",
+  "source_sha256": "a1cb01efc220d9aba209ffa01f2226d63d57f26053c9e79b48acc9f345b65a44",
+  "exe_sha256": "dd7e48ff7709cf4fefc55505aa8d7eb3301ea05e99bbda2426e021268567340e",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_routine_length": 232,
+  "target_routine_matches": true,
+  "isolated_probe_status": "PASS",
+  "checks": [
+    "marks a long-name entry and its following short-name entry deleted",
+    "increments dirty-buffer count once and sets buffer flags",
+    "clears context count and restores six prior directory-position words"
+  ],
+  "limitations": [
+    "The three callees are controlled test stubs, not actual reconstructed kernel implementations.",
+    "Tests one in-buffer success case, not all failures, sector transitions or full kernel integration."
+  ]
+}

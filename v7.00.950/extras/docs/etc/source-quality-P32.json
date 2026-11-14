@@ -1,0 +1,32 @@
+{
+  "part": "M5 T12 S1 P32",
+  "ordinal": 51,
+  "modified": 1,
+  "unchanged": 0,
+  "exact_dos6": 0,
+  "retired_by_merge": 0,
+  "reference": "DOS6 bios/sysinit2.asm CONFIG/menu parsing, environment, device-call and country services.",
+  "changes": "Remove repeated error_line external under the narrower CONFIGPROC/MULTI_CONFIG scope; expand two single-use byte-encoding macros, retaining shared CMP AL,AH macro. Reattach print_item/calldev/todigit headers; remove orphan shell/M047 comments. Correct startup-key, environment lookup/update, generic query prompt and menu result/register comments; preserve historical comments and original conditionals.",
+  "necessity": "Retain early CONFIG/menu/country contribution derived from DOS6 sysinit2. The original sysinit2 owner is separated by other emitted SYSINIT contributions in msbio.lnk; a direct append reorders target bytes. Shared parsers, block search and environment handling remain single implementations.",
+  "validation": {
+    "before": 2898,
+    "after": 2897,
+    "nonExtern": 2821,
+    "orderedNonExternEqual": true,
+    "externalSetEqual": true,
+    "removedDeclaration": "error_line:near inside CONFIGPROC/MULTI_CONFIG; broader CONFIGPROC declaration retained",
+    "singleUseMacrosExpanded": 2,
+    "readbackVerified": true,
+    "canonicalDOS6Procedures": {
+      "todigit": true,
+      "getnum": true,
+      "move_asciiz": true,
+      "getcountrydestination": true
+    },
+    "rebuilt": false,
+    "reason": "Ordered effective assembly stream identical after macro expansion and redundant EXTRN elimination; external availability unchanged in all original scopes.",
+    "binary_baseline": "P27 structural BIOS and IO.SYS acceptance; other two outputs retain T11 identity."
+  },
+  "next_ordinal": 52,
+  "remaining": 15
+}

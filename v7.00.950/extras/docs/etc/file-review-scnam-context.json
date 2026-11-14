@@ -1,0 +1,25 @@
+{
+  "file": "dos/scnam.inc",
+  "sha256": "45dc2dc00161d605fe96e1f4962e7ef6fb5af495359b46f9da3a167dfbe9b3e8",
+  "references": [
+    {
+      "name": "6.0",
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\scnam.inc",
+      "sha256": "45dc2dc00161d605fe96e1f4962e7ef6fb5af495359b46f9da3a167dfbe9b3e8"
+    },
+    {
+      "name": "Astro",
+      "path": "O:\\repos.external\\astro\\dos\\scnam.inc",
+      "sha256": "45dc2dc00161d605fe96e1f4962e7ef6fb5af495359b46f9da3a167dfbe9b3e8"
+    }
+  ],
+  "dependencies": [
+    "inc/dosseg.inc"
+  ],
+  "stage": "extras/build/scnam-context-x6zepl_f",
+  "object_sha256": "ae6d0b3140d25bc99ce4610041abafe6d1027dc06e3730e918a6b664d121d1c7",
+  "external": [],
+  "external_fixups": [],
+  "consumer": "dos/msdisp.asm:129-131",
+  "limitations": "Probe compiles data fragment directly; target inclusion and layout unverified."
+}

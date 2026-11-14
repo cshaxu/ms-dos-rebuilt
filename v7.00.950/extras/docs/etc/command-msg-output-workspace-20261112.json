@@ -1,0 +1,24 @@
+{
+  "build": "extras/docs/etc/command-msg-output-workspace-v2-build-20261112.json",
+  "sources": [
+    "inc/msgserv.asm",
+    "cmd/command/tdata.asm",
+    "cmd/command/tprintf.asm",
+    "cmd/command/dir.asm",
+    "cmd/command/tcode.asm"
+  ],
+  "change": "Moved existing DIR output pointer and active flag into the five-byte workspace between message resource header and primary directory, matching target relative layout; adjusted all segment declarations.",
+  "layout": "DirOutputPtr=$M_RT+0xb0, DirOutputActive=$M_RT+0xb4, PrimaryMsgDirectory=$M_RT+0xb5",
+  "target_probe": "extras/build/msg-workspace-target-97wkqqf0",
+  "current_probe": "extras/build/msg-workspace-current-s2fg8kwh",
+  "matched_cases": [
+    "DIR listing except separate parent timestamp",
+    "VER /R",
+    "VOL",
+    "DEL missing-file stderr",
+    "batch continuation"
+  ],
+  "limitations": "Non-US, device and other resource failure paths remain untested; complete binary not byte-identical.",
+  "output_bytes": 92930,
+  "target_bytes": 92870
+}

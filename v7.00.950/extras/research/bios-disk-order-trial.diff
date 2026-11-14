@@ -1,0 +1,91 @@
+--- bios/msdisk.asm
++++ trial/msdisk.asm
+@@ -175,6 +175,11 @@
+ 
+ ; close data segment, open Bios_Code segment
+ 
++IFDEF DOS7_CONFIG
++	extrn	drvmax:byte
++	extrn	dskdrvs:word
++ENDIF
++
+ 	tocode
+ 
+ ;--------------------------------------------------------------
+@@ -186,7 +191,11 @@
+ 
+ 	extrn	Bios_Data_Word:word
+ 
++IFNDEF DOS7_CONFIG
+ 	extrn	dsk_init:near
++ELSE
++	extrn	config_init_segment:word
++ENDIF
+ 	extrn	do_generic_ioctl:near
+ 	extrn	ioctl_getown:near
+ 	extrn	ioctl_setown:near
+@@ -247,6 +256,24 @@
+ ;  AL contains the logical drive number.
+ ;
+ ; ==========================================================================
++
++IFDEF DOS7_CONFIG
++	public	dsk_init
++dsk_init proc	near
++	assume	ds:Bios_Data,es:nothing
++
++	mov	ah,byte ptr drvmax
++IFDEF DOS7_CONFIG
++	mov	es,cs:config_init_segment
++	mov	di,offset dskdrvs
++ELSE
++	mov	di,offset dskdrvs
++	push	ds			; pass result in es:di
++	pop	es
++ENDIF
++	jmp	setptrsav
++dsk_init endp
++ENDIF
+ 
+ 	PUBLIC	SetDrive
+ SetDrive PROC NEAR
+--- bios/msbio2.asm
++++ trial/msbio2.asm
+@@ -95,8 +95,10 @@
+ 	extrn	daycnt2:word
+ 	extrn	feb29:byte
+ 
++IFNDEF DOS7_CONFIG
+ 	extrn	nul_vid:byte
+ 	extrn	tmp_vid:byte
++ENDIF
+ ;SR;
+ ; WIN386 presence flag
+ ;
+@@ -134,6 +136,7 @@
+ ENDIF
+ 
+ 
++IFNDEF DOS7_CONFIG
+ 	public	dsk_init
+ dsk_init proc	near
+ 	assume	ds:Bios_Data,es:nothing
+@@ -149,11 +152,18 @@
+ ENDIF
+ 	jmp	setptrsav
+ dsk_init endp
++ENDIF
+ 
+ 
+ ; install_bes installs a bds at location ds:di into the current linked list of
+ ; bds maintained by this device driver. it places the bds at the end of the
+ ; list.  Trashes (at least) ax, bx, di, si
++
++IFDEF DOS7_CONFIG
++	public	nul_vid,tmp_vid
++nul_vid db	"NO NAME    ",0
++tmp_vid db	"NO NAME    ",0
++ENDIF
+ 
+ 	public	install_bds
+ install_bds	proc	near

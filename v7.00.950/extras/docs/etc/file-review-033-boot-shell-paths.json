@@ -1,0 +1,24 @@
+{
+  "files": [
+    "bios/msint13.asm",
+    "bios/sysinit1.asm",
+    "bios/sysinit2.asm"
+  ],
+  "source_hashes": [
+    "4ed087fc0baf4a607bccf00b8d4448b5e0d1a061a193cd2ee02a515eb1699540",
+    "038d63a0c4a2caf96386fe63c47df912c44299c2f5c3bcce95f310686c06ed2a",
+    "2572cce66bb5bc2182f8dd2c6fd1ed18c45540482eacb60f93ec8d2ff42beaae"
+  ],
+  "target_range": "IO.SYS 0x9cca..0x9ddc",
+  "length": 274,
+  "different_bytes": 0,
+  "tool": "MASM 6 ML isolated probe",
+  "default_objects_identical": true,
+  "dos7_assembly": "all passed without warnings",
+  "mixed_diagnostic_link": "passed",
+  "probe_source": "extras/research/boot-shell-paths-linked.asm",
+  "limitations": [
+    "Fixed-offset probe uses synthetic helper destinations and BIOS buffers; full layout and runtime remain unverified.",
+    "The subsequent target shell preparation operation and complete startup order remain incomplete."
+  ]
+}

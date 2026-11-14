@@ -1,0 +1,48 @@
+{
+  "sources": {
+    "bios/sysinit1.asm": "ee132c861f58f2294f8bdc36224301c40d82b6e0d0d56f386609594875f07660",
+    "bios/sysinit2.asm": "b30de7b028b7cfd272235c4fea4c6f7bfdbfbc51a7759e6a594edbe607dd5fa9",
+    "bios/sysconf.asm": "25a456b17421909a899bbaffcaad9b7d3291a973b767103c6083a89fcef357c0"
+  },
+  "changes": [
+    "Correct two PSP segment references in boot_prepare_environment from def_php to new_psp_segment.",
+    "Connect existing shell preparation, environment preparation, UMB unlink and CONFIG completion source objects in the diagnostic."
+  ],
+  "matched": [
+    {
+      "region": "shell preparation and record rotation",
+      "start": "0x4f9a",
+      "end_exclusive": "0x50f4",
+      "bytes": 346
+    },
+    {
+      "region": "environment preparation",
+      "start": "0x50f4",
+      "end_exclusive": "0x5279",
+      "bytes": 389
+    },
+    {
+      "region": "UMB unlink",
+      "start": "0x855c",
+      "end_exclusive": "0x858a",
+      "bytes": 46
+    },
+    {
+      "region": "continuous CONFIG completion",
+      "start": "0x16bf",
+      "end_exclusive": "0x1745",
+      "bytes": 134
+    }
+  ],
+  "verification": {
+    "tool": "extras/tools/verify_syspre_device_link.py",
+    "link_stage": "extras/build/syspre-object-link-924l8uc_",
+    "module_stage": "extras/build/ml-sysinit-p7htno7g",
+    "scope": "Actual source objects and actual state providers linked; selected BIOS structure offsets and other positions remain diagnostic constants."
+  },
+  "limitations": [
+    "Actual full SYSINIT module order and final link remain unverified.",
+    "Shell and environment preparation runtime behavior was not exercised.",
+    "Three final core binary outputs remain unverified."
+  ]
+}

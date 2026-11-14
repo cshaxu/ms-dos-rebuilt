@@ -1,0 +1,42 @@
+{
+  "source": "bios/sysconf.asm",
+  "source_sha256": "4e90c155881a4a81c51ed2284b2954f4badc575ece56fe8091ee01bfe0ee2a7f",
+  "object_sha256": "9976ac3c41f240d9a70aa5e610504e1a2fedc952fd841db67f488ab163b1480a",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "routines": [
+    {
+      "routine": "SpaceInUMB?",
+      "target_file_range": "0xcdda..0xcdf5",
+      "length": 27,
+      "fixup_words": 4,
+      "different_bytes_after_manual_fixups": 0
+    },
+    {
+      "routine": "PrepareMark",
+      "target_file_range": "0xcdf5..0xce14",
+      "length": 31,
+      "fixup_words": 3,
+      "different_bytes_after_manual_fixups": 0
+    },
+    {
+      "routine": "GetUMBForDev",
+      "target_file_range": "0xce14..0xce46",
+      "length": 50,
+      "fixup_words": 5,
+      "different_bytes_after_manual_fixups": 0
+    },
+    {
+      "routine": "ShrinkUMB",
+      "target_file_range": "0xd25f..0xd28c",
+      "length": 45,
+      "fixup_words": 4,
+      "different_bytes_after_manual_fixups": 0
+    }
+  ],
+  "total_bytes": 153,
+  "limitations": [
+    "The field addresses and local call displacement are manually substituted for this comparison; final link and segment placement are unverified.",
+    "The target allocator also calls the low-memory boundary/error path, which depends on the unresolved indexed message dispatch and table.",
+    "This evidence covers only the four existing UMB helpers, not the allocator or the complete source file."
+  ]
+}

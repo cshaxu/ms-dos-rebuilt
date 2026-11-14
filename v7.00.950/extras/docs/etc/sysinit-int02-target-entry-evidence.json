@@ -1,0 +1,24 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "reference_msbio_sha256": "7802e9d61f097e15acdebde913a6b3c7456379630d268bd3f2bbdcbd560276c2",
+  "reference_source": "bios/sysinit1.asm",
+  "source_sha256": "36e9b2ce7f749899cabd7777ce4e14b4d55c0d8d2b4b10d69648cbc55d5c6fe4",
+  "target_sysinit_base": "0x4d30",
+  "target_int02_file": "0x4d46",
+  "target_int02_bytes": "e811011200",
+  "target_shared_handler": "0x4e5a",
+  "reference_int02_file": "0x4046",
+  "reference_common_path_file": "0x4063",
+  "reference_extra_prefix_length": 29,
+  "next_entry_offset_target": "0x1f",
+  "next_entry_offset_reference": "0x3c",
+  "observations": [
+    "The target INT 02h entry starts directly with the same call and inline old-vector offset used by the reference common path.",
+    "The reference executes a 29-byte PC Convertible NMI special-case path before that same common path; the target next interrupt entry is 29 bytes earlier.",
+    "Four target interrupt-entry calls independently resolve to the same shared stack handler."
+  ],
+  "limitations": [
+    "Static target evidence supports absence of this prefix at the identified entry, but does not establish whether equivalent behavior exists elsewhere.",
+    "No formal source file or production build was changed; sysinit1 dependencies and the remainder of the 856-byte prefix still require review."
+  ]
+}

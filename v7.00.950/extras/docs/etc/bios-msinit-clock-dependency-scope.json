@@ -1,0 +1,49 @@
+{
+  "trial_source": "extras/research/bios-msinit-clock-frame-trial.asm",
+  "source_sha256": "c72375c25b47126c408996e2029e18db01ccf50b55e1c64f887f556b95d0b1fc",
+  "object_sha256": "30b8c3cef6283d185d08db78a72fa7344c7a7982ef1ca7236f2e8fdccda1d460",
+  "method": "Intersect object-wide live external fixups with lexical names in the clock routine source range; resolve providers only from objects explicitly listed in the diagnostic link response.",
+  "clock_range_candidate_dependencies": [
+    {
+      "symbol": "base_century",
+      "provider": "chardata"
+    },
+    {
+      "symbol": "base_year",
+      "provider": "chardata"
+    },
+    {
+      "symbol": "bin_date_time",
+      "provider": "chardata"
+    },
+    {
+      "symbol": "bios_data_word",
+      "provider": "msbio1"
+    },
+    {
+      "symbol": "daycnt",
+      "provider": "msbio1"
+    },
+    {
+      "symbol": "daycnt2",
+      "provider": "msbio1"
+    },
+    {
+      "symbol": "month_tab",
+      "provider": "chardata"
+    },
+    {
+      "symbol": "month_table",
+      "provider": "chardata"
+    },
+    {
+      "symbol": "time_to_ticks",
+      "provider": "mschar"
+    }
+  ],
+  "limitations": [
+    "The OMF inspection reports fixups at object scope; lexical intersection is an upper bound, not per-routine relocation attribution.",
+    "Diagnostic chardata and msbio1 are provisional reconstructed providers; no production certification is implied.",
+    "The msinit object has additional live initialization dependencies, including initstub, outside this scoped analysis."
+  ]
+}

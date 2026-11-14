@@ -1,0 +1,20 @@
+{
+  "build": "extras/docs/etc/command-output-order-build-20261112.json",
+  "source": "inc/msgserv.asm",
+  "change": "Excluded unreferenced transient Ctrl-Z scanner and error helper and reordered existing handle and console string routines to match target.",
+  "target_instruction_range": "0xff18..0xfff5",
+  "verified_instruction_bytes": 221,
+  "new_registered_instruction_bytes": 178,
+  "target_probe": "extras/build/output-order-target-t5pp4d9p",
+  "current_probe": "extras/build/output-order-current-s5giy042",
+  "matched_cases": [
+    "DIR listing except separate parent timestamp",
+    "VER /R",
+    "VOL",
+    "DEL missing-file stderr",
+    "batch continuation"
+  ],
+  "limitations": "Other output failure, device and non-US cases untested; complete binary not byte-identical.",
+  "output_bytes": 92968,
+  "target_bytes": 92870
+}

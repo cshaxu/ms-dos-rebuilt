@@ -1,0 +1,12 @@
+{
+  "build": "extras/docs/etc/command-long-prep-original-build-20261112.json",
+  "source": "cmd/command/tenv.asm",
+  "change": "aligned argument lookup in long command preparation to target",
+  "target_instruction_range": "0xbad7..0xbb13",
+  "instruction_bytes": 60,
+  "target_probe": "extras/build/child-env-target-mgqaoe2e",
+  "current_probe": "extras/build/child-env-current-6x4lt0o_",
+  "result": "child environment and command completion match target for an external command with a 160-character argument",
+  "limitations": "other long-command, quoting, environment growth and error branches remain unverified; full binary not identical",
+  "output_bytes": 94222
+}

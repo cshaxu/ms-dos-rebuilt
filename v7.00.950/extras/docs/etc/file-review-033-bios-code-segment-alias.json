@@ -1,0 +1,11 @@
+{
+  "file": "bios/sysinit1.asm",
+  "source_sha256": "1cf4f96ab1ab6113aac5c6e8ec5fd21c99a00fac46ac85e0988dc61e1d146c24",
+  "change": "Alias DOS7 temp_bcode_seg and BCodeSeg to the same word; remove unused DOS6 seg_reinit_ptr in DOS7",
+  "evidence": "extras/research/sysinit-stackinit-linked.asm places temp_bcode_seg at target SYSINIT 0x0f40, matching BCodeSeg",
+  "default_object_identical": true,
+  "dos7_assembly": "passed",
+  "limitations": [
+    "Whole-image placement and final link unverified."
+  ]
+}

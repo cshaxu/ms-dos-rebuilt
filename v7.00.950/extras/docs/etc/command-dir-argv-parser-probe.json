@@ -1,0 +1,11 @@
+{
+  "stage": "extras\\build\\dir-argv-parser-probe-im4j0y40",
+  "checks": [
+    "shared argv /W enables wide option",
+    "pathname copied into search and legacy buffers",
+    "second pathname triggers one error"
+  ],
+  "limitations": [
+    "Synthetic argv and partial switch handler stubs; command-line tokenizer, environment defaults and full DIR not exercised."
+  ]
+}

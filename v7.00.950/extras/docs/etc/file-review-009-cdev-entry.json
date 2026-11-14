@@ -1,0 +1,20 @@
+{
+  "file_index": 9,
+  "source": "bios/msbio1.asm",
+  "source_sha256": "c593f966064ec532cd6c1e6831f0f4dc4afac906179460e60c221764a7315d1b",
+  "target_io_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_entry_offset": 2243,
+  "probe_entry_offset": 1883,
+  "length": 21,
+  "matching_bytes": 17,
+  "different_address_operand_positions": [
+    14,
+    15,
+    19,
+    20
+  ],
+  "target_bytes": "502ea103002e39061400587403e8b3012eff2e4001",
+  "probe_bytes": "502ea103002e39061400587403e86f002eff2ef006",
+  "validation": "The DOS7_CONFIG entry compares request and DOS data segments, conditionally calls the A20 helper, then dispatches. Unstubbed historical MASM link matches every non-address byte in this 21-byte target region. Default baseline BIOS output is unchanged; the ML diagnostic still builds and verifies the other CONFIG routines.",
+  "limitations": "A20 helper internals, runtime segment placement and full BIOS target remain unverified."
+}

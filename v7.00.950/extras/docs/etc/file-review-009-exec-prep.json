@@ -1,0 +1,22 @@
+{
+  "source": "bios/msbio1.asm",
+  "sha256": "99d6b32b12b90053fe999acb4367f9254aadd2fa3f9f2c995a8e3d7320f88bf1",
+  "change": "Restore preparation before system-file EXEC, including path check, path/mode stack save and query state.",
+  "target_region": {
+    "start": "0xa343",
+    "end_exclusive": "0xa35d",
+    "bytes": 26
+  },
+  "verification": {
+    "link": "extras/tools/verify_syspre_device_link.py",
+    "link_stage": "extras/build/syspre-object-link-v93ic8a4",
+    "runtime": "extras/tools/verify_boot_exec_prep.py",
+    "runtime_stage": "extras/build/exec-prep-runtime-rkxtvtwd",
+    "scope": "Actual 26 bytes match target and link to actual path-check source. Runtime uses a path-check stub and verifies stack word, path byte, flags and command value."
+  },
+  "limitations": [
+    "Earlier EXEC parameter preparation, drive mapping and MCB resizing remain to be restored.",
+    "Diagnostic still has BIOS segment anchors and other synthetic gaps.",
+    "Complete IO.SYS and all three core files remain unverified."
+  ]
+}

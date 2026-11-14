@@ -1,0 +1,27 @@
+{
+  "file": "bios/sysconf.asm",
+  "file_index": 30,
+  "source_sha256": "193054929b41f29ef853e99a5cde35b85f0444d2716a9e71a8564b6ecc50c344",
+  "routine": "check_low_memory",
+  "target_file_range": "0xcf1f..0xcf37",
+  "length": 24,
+  "different_bytes_after_manual_fixups": 0,
+  "fixups": [
+    "memhi",
+    "alloclim",
+    "print_indexed call displacement",
+    "stall jump displacement"
+  ],
+  "linked_dependencies": [
+    "extracted print_indexed from sysinit2.asm",
+    "real sysimsg.inc target message table",
+    "diagnostic memory-variable and stall definitions"
+  ],
+  "message_token": "0x800e",
+  "default_object_identical": true,
+  "dos7_assembly": "passed",
+  "limitations": [
+    "Memory variables and stall are test definitions, and the final addresses are not verified.",
+    "The allocator does not yet invoke this new routine; complete SYSINIT placement and IO.SYS remain unresolved."
+  ]
+}

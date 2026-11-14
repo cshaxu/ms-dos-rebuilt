@@ -1,0 +1,31 @@
+{
+  "build": "extras/docs/etc/command-dir-del-flags-build-20261112.json",
+  "changes": [
+    "DIR passes original bit flags to PATHCRUNCH",
+    "DIR restores original current directory before searching the supplied path",
+    "DEL clears pathname flags before PATHCRUNCH"
+  ],
+  "verified_instruction_ranges": [
+    "0x9d51..0x9d6a",
+    "0x9a33..0x9a41",
+    "0xafc3..0xafcb"
+  ],
+  "instruction_bytes": 47,
+  "target_probe": "extras/build/dir-path-final-target-vgarlobp",
+  "current_probe": "extras/build/dir-path-final-current-2lj61cd1",
+  "matched_cases": [
+    "DIR /B directory",
+    "DIR /B wildcard",
+    "COPY after DIR",
+    "current-directory restoration"
+  ],
+  "dir_c_target": "extras/build/dir-pathrestore-target-8y2ps15b",
+  "dir_c_current": "extras/build/dir-pathrestore-current-feb36bo1",
+  "dir_c_observation": "correct directory and entries now shown; volume serial and output spacing remain different",
+  "del_target": "extras/build/dir-del-final-target-w5_ut3hm",
+  "del_current": "extras/build/dir-del-final-current-m961msya",
+  "del_prior": "extras/build/del-prior-rd3g6ta1",
+  "del_observation": "DEL of SRC\\A.TXT fails in current and prior build, while target removes it; clearing original flags alone did not fix it",
+  "limitations": "LFN/UNC path flags, DIR /C presentation, DEL path, and full byte identity remain unverified or incomplete",
+  "output_bytes": 93205
+}

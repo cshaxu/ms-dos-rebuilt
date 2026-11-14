@@ -1,0 +1,36 @@
+{
+  "file": "bios/sysinit1.asm",
+  "file_index": 32,
+  "source_sha256": "0ec890cc16320ba9ebb11727d3d234d51c85d1a90f465f574470ef379ee34fa5",
+  "state": "waiting_dependencies",
+  "fields": [
+    {
+      "public": "stack_count",
+      "internal": "stackcount",
+      "offset": "0x0002",
+      "initial": 9
+    },
+    {
+      "public": "stack_size",
+      "internal": "stacksize",
+      "offset": "0x0006",
+      "initial": 256
+    },
+    {
+      "public": "stack_addr",
+      "internal": "stacks",
+      "offset": "0x0008",
+      "initial": 0
+    }
+  ],
+  "target_evidence": "Target configuration code at IO.SYS 0xc111..0xc144 resets and updates these same offsets; the stack installation path accesses them at 0x864f..0x86ac.",
+  "verification": {
+    "default_masm_object_unchanged": true,
+    "dos7_masm_assembly": "passed",
+    "relinked_539_byte_interrupt_unit_matches_target_after_simulated_relocation": true
+  },
+  "limitations": [
+    "The separate DOS 6 sysconf.asm defaultsize is 128 and still needs DOS 7 reconstruction; target reset code uses 256.",
+    "Message table, target allocation path, final segment layout and complete IO.SYS are unresolved."
+  ]
+}

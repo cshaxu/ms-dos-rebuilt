@@ -1,0 +1,27 @@
+{
+  "part": "M5 T12 S1 P28",
+  "ordinal": 47,
+  "modified": 1,
+  "unchanged": 0,
+  "exact_dos6": 0,
+  "retired_by_merge": 0,
+  "reference": "No DOS6 rqvalue homolog found; use Microsoft module/procedure/segment conventions.",
+  "changes": "Remove five repeated fragment headings and generic reconstruction prose. Document the four value APIs' actual stack slots and policy exchange return. Normalize tabs.",
+  "necessity": "REGWRAP already consolidates four value wrappers and policy exchange. Windows provider calls use opposite argument ordering to local FAR C cores, and basic versus extended forms supply different subkey/name/type arguments. Runtime provider choice is required DOS7 behavior. Core implementations are already shared; retain this cohesive wrapper unit rather than embed its ABI conversion in another module or add a generic layer.",
+  "validation": {
+    "effectiveStatementsEqual": true,
+    "statementCount": 201,
+    "proceduresReviewed": [
+      "RegQueryValue",
+      "RegQueryValueEx",
+      "RegSetValueAPI",
+      "RegSetValueEx",
+      "RegSetCheckPolicy"
+    ],
+    "rebuilt": false,
+    "reason": "All effective statements equal and reread verified; exact push order, calls, reserved-argument handling, segment layout and padding retained.",
+    "binary_baseline": "CONFIG accepted T11; IO.SYS identity last verified P27; COMMAND.COM/MSDOS.SYS unchanged."
+  },
+  "next_ordinal": 48,
+  "remaining": 19
+}

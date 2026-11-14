@@ -1,0 +1,26 @@
+{
+  "source_sha256": "a071c3c4d6e9bd653d48955f2e98a10ca347a4dac986b8c2fbe00c01b38ba018",
+  "verification": "extras/tools/verify_menu_check_full.py",
+  "device_load_initialization": {
+    "sysinit_start": "0x6d52",
+    "bytes": 342
+  },
+  "hook": {
+    "sysinit_start": "0x89c3",
+    "bytes": 98
+  },
+  "path_and_snapshot": {
+    "sysinit_start": "0x88c8",
+    "bytes": 189
+  },
+  "return_and_null": {
+    "sysinit_start": "0x81c8",
+    "bytes": 39
+  },
+  "scope": "Restored unitcount reset and character/block device count handling; actual load/error and initialization code plus real path, snapshot, hook, return and string helpers compared at target offsets. Split SYSCONF assembles.",
+  "limitations": [
+    "UnHideUMBs, badop, badnumblock and several UMB entries remain target-position anchors.",
+    "BIOS and other external data are target-positioned in diagnostic; full SYSINIT link remains unverified.",
+    "Final three binaries remain unverified."
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "historical_bios_map_sha256": "fee0bc1f9a7f3324aa3f54a8d9d585da61ddda70d7dbb1dfab0048786214fe38",
+  "historical_bios_code_length": "0x1a70",
+  "historical_bcode_start": "0x0030",
+  "historical_bcode_end": "0x1a70",
+  "target_copy_start": "0x0030",
+  "target_static_resource_boundary": "0x2da0",
+  "target_dosdata_copy_length": "0x1346",
+  "target_header_origin": "0x3f20",
+  "conditional_test": {
+    "assume_target_bios_code_size_at_least": "0x2da0",
+    "assume_legacy_origin_formula": true,
+    "assume_bios_data_size_zero_as_lower_bound": true,
+    "minimum_aligned_origin": "0x47f0",
+    "target_origin": "0x3f20",
+    "difference": "0x8d0"
+  },
+  "interpretation": "If the target 2da0h resource boundary is also the target BIOS_CODE segment length under the historical convention, the DOS 6 origin formula cannot produce the target header origin even with BIOS_DATA size zero. At least one assumption or mapping must differ.",
+  "limitations": [
+    "The target resource boundary has not been proved to equal the linker BIOS_CODE segment length.",
+    "The target header field and preserved DOS 6 formula are themselves not fully reconstructed.",
+    "This conditional contradiction does not determine the actual target BIOS segment sizes."
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "stage": "extras\\build\\message-substitution-probe-sua6h5er",
+  "method": "Isolated DOS probe using the current DOS7 $M_DISPLAY_MESSAGE source with instrumented output and replacement helpers.",
+  "checks": [
+    "two ordered character substitutions",
+    "plain message without substitutions",
+    "carry on output failure"
+  ],
+  "limitations": [
+    "Replacement helper internals are stubbed.",
+    "Does not execute full COMMAND startup or establish binary identity."
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "file": "cmd/command/comequ.asm",
+  "sha256": "603e4aaa70fa25ac486f4dc5ab3f462ad1c87eae4d6966b8577b710fe8abeecf",
+  "dependencies": [
+    "inc/dossym.inc",
+    "inc/curdir.inc"
+  ],
+  "references": [
+    "6.0",
+    "Astro"
+  ],
+  "probe": "extras/build/comequ-context-e8aetupp/probe.asm",
+  "object": "extras/build/comequ-context-e8aetupp/probe.obj",
+  "assembler_exit": 0,
+  "errors": 0,
+  "external": [],
+  "fixup_externals": [],
+  "target_status": "unverified",
+  "limitations": "Successful context probe does not prove downstream macro expansions or target byte identity."
+}

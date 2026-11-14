@@ -1,0 +1,17 @@
+{
+  "source": "bios/msinit.asm",
+  "source_sha256": "eabaf4cc766b17d25726771d4851134726e54198d41fb9d429400cfd6d4d2ed2",
+  "listing_sha256": "dbb8fae07ccf6ee74073394f03d894e70d62ca0378927995438a24166ad66b8d",
+  "target_offset": "0x1193",
+  "length": 77,
+  "matched_nonrelocated_bytes": 56,
+  "masked_relocation_bytes": 20,
+  "differences": [
+    {
+      "offset": 52,
+      "listing": "0xc1",
+      "target": "0xc6"
+    }
+  ],
+  "limitations": "Addresses and CPU/keyboard/clock integration depend on final segment layout; subsequent fixed-disk initialization remains in progress."
+}

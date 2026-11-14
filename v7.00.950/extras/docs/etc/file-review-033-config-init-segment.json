@@ -1,0 +1,25 @@
+{
+  "files": [
+    "bios/msbio1.asm",
+    "bios/sysinit1.asm"
+  ],
+  "source_sha256": [
+    "5da09ec62e934cc272344b62118c3918c25c3cc6955a8ee3ebb704ff4166180d",
+    "65829d9d4cca052e8eddd282676feb4186e260a9ea739be341ee04633fb67339"
+  ],
+  "target_writer": "IO.SYS 0x5eef",
+  "target_shared_field": "BIOS_CODE:0x2b4e",
+  "changes": [
+    "define sysinit_seg and config_init_segment as aliases",
+    "initialize shared BIOS field with relocated SYSINIT CS"
+  ],
+  "default_objects_identical": true,
+  "validation": "SYSINIT native MASM and transformed BIOS diagnostic ML passed",
+  "limitations": [
+    "Exact shared-field placement remains unverified.",
+    "Complete production link and target IO.SYS identity remain pending."
+  ],
+  "diagnostic_link": "LINK16 passed with updated MSINIT, SYSINIT, MSINT13 and transformed BIOS objects; other diagnostic stubs remain",
+  "diagnostic_shared_offset": "0189:073E (both aliases); target offset remains unverified",
+  "diagnostic_hma_size_offset": "0189:0034"
+}

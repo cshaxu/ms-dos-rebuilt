@@ -1,0 +1,40 @@
+{
+  "source": "bios/sysinit1.asm",
+  "sha256": "35bd1159509de5a389bc5156566ee8b31528ebc4bb28af662237823cf2870654",
+  "changes": [
+    "Restore target INSTALL filename and argument scan.",
+    "Allocate marked memory for relocated INSTALL base and its dynamically copied dollar-terminated error message.",
+    "Restore target memory-release sequence and the INSTALL return label."
+  ],
+  "matched": [
+    {
+      "region": "INSTALL allocation, message copy and memory release",
+      "start": "0x3a5c",
+      "end_exclusive": "0x3b0c",
+      "bytes": 176
+    },
+    {
+      "region": "INSTALL execution and return",
+      "start": "0x3b0c",
+      "end_exclusive": "0x3b88",
+      "bytes": 124
+    },
+    {
+      "region": "relocated INSTALL base",
+      "start": "0x3b94",
+      "end_exclusive": "0x3c06",
+      "bytes": 114
+    }
+  ],
+  "verification": {
+    "tool": "extras/tools/verify_syspre_device_link.py",
+    "link_stage": "extras/build/syspre-object-link-qxlohaak",
+    "module_stage": "extras/build/ml-sysinit-qrqr5nd6",
+    "scope": "Actual separated source objects and their dependencies linked at diagnostic target positions. Split diagnostic substitutes 72h for the source expression end_sysinit_base - sysinit_base, whose actual linked size is independently compared as 114 bytes."
+  },
+  "limitations": [
+    "Interrupt rearm preceding this chain remains synthetic in this diagnostic.",
+    "Runtime INSTALL execution and complete product linking remain unverified.",
+    "All three final core binaries remain unverified."
+  ]
+}

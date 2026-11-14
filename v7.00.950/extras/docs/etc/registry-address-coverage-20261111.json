@@ -1,0 +1,31 @@
+{
+  "target_sha256": "c46661f8295799e12f3bf16179d87ee2e313d7968a9779e79299966ece036dad",
+  "start": 4808,
+  "end": 37230,
+  "verified_instruction_bytes": 32413,
+  "uncovered_alignment_bytes": 9,
+  "gaps": [
+    {
+      "start": 9468,
+      "end": 9472,
+      "bytes_hex": "00000000"
+    },
+    {
+      "start": 10795,
+      "end": 10796,
+      "bytes_hex": "00"
+    },
+    {
+      "start": 30670,
+      "end": 30672,
+      "bytes_hex": "9090"
+    },
+    {
+      "start": 34750,
+      "end": 34752,
+      "bytes_hex": "9090"
+    }
+  ],
+  "evidence": "registry-complete-verified-20261111.json",
+  "scope": "Function bodies verified with symbolic operand normalization, not original segment placement. Remaining nine bytes are zero/NOP inter-module alignment; final linker placement must reproduce them."
+}

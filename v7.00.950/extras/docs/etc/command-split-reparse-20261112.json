@@ -1,0 +1,26 @@
+{
+  "build": "extras/docs/etc/command-split-reparse-build-20261112.json",
+  "changes": [
+    "split command name and descriptor tables to target layout",
+    "restored original internal command lookup and dispatch"
+  ],
+  "target_instruction_range": "0xc2a8..0xc3a9",
+  "instruction_bytes": 257,
+  "target_name_range": "0x10ad4..0x10ba3",
+  "target_descriptor_range": "0x10a0c..0x10ad4",
+  "table_verification": "all name bytes, descriptor flags, actual linked handler destinations and referenced help contents checked; handler offsets normalized",
+  "target_probe": "extras/build/split-final-target-swrhz4at",
+  "current_probe": "extras/build/split-final-current-a7ygmub5",
+  "matched_cases": [
+    "SET",
+    "wildcard COPY",
+    "CD..",
+    "ECHO.",
+    "LOCK /?",
+    "UNLOCK /?",
+    "LOADHIGH /?",
+    "external short tail"
+  ],
+  "limitations": "the precise cause of the earlier failed experiment was not independently isolated; external long tails and full file identity remain unverified",
+  "output_bytes": 94213
+}

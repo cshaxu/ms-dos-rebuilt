@@ -1,0 +1,37 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "bios_code_file_base": 7248,
+  "tables": {
+    "wait_count": {
+      "bios_code_offset": 1840,
+      "target_file_offset": 9088,
+      "length": 8,
+      "initial_hex": "5000500050005000"
+    },
+    "month_tab": {
+      "bios_code_offset": 1856,
+      "target_file_offset": 9104,
+      "length": 12,
+      "initial_hex": "1f1c1f1e1f1e1f1f1e1f1e1f"
+    },
+    "bin_date_time_initial": {
+      "bios_code_offset": 1868,
+      "target_file_offset": 9116,
+      "length": 4,
+      "initial_hex": "00000000"
+    },
+    "month_table": {
+      "bios_code_offset": 1872,
+      "target_file_offset": 9120,
+      "length": 24,
+      "initial_hex": "00001f003b005a0078009700b500d400f300110130014e01"
+    },
+    "errin_errout": {
+      "bios_code_offset": 3614,
+      "target_file_offset": 10862,
+      "length": 18,
+      "initial_hex": "cc80401008060403000a020604040f08000c"
+    }
+  },
+  "limitations": "Static table matches do not establish the owning source module or full layout. Existing BIOS_DATA declarations remain provisional until later driver source reconstruction."
+}

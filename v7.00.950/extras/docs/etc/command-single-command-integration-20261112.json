@@ -1,0 +1,34 @@
+{
+  "generated_utc": "2026-11-12T10:00:49.788122+00:00",
+  "build_report": "extras\\docs\\etc\\command-copy-read-flush-mode-build-20261112.json",
+  "candidate_sha256": "c79d839fe1a86d51a1171aeb486cf2155720399a8e08cccc87b91699a435b3d6",
+  "target_sha256": "a74c700063cd6b1c91523952bfc80e9393c125d39ada0164d48b5098089fcef3",
+  "environment": "isolated DOSBox probe, DOS version set to 7.0",
+  "candidate_copy": {
+    "stage": "extras/build/command-copy-integration-osfnkcgt",
+    "process_exit": "timeout (runner exit 124)",
+    "source_and_destination_equal": true,
+    "file_bytes": 24,
+    "file_sha256": "6ba416049b5ac17447271c02e8f30c3163495a8a061f4708b2a4993b38f7b2c9",
+    "full_command_success": false
+  },
+  "candidate_echo": {
+    "stage": "extras/build/command-single-control-fwb8ser0",
+    "process_exit": "timeout (runner exit 124)",
+    "output": "",
+    "full_command_success": false
+  },
+  "target_echo": {
+    "stage": "extras/build/command-target-control-11z0sadw",
+    "process_exit": "completed (exit 0)",
+    "output": "PROBE\r\n"
+  },
+  "target_copy": {
+    "stage": "extras/build/command-target-copy-control-ls6ig6mq",
+    "process_exit": "completed (exit 0)",
+    "source_and_destination_equal": true,
+    "file_bytes": 24,
+    "file_sha256": "6ba416049b5ac17447271c02e8f30c3163495a8a061f4708b2a4993b38f7b2c9"
+  },
+  "interpretation": "Candidate COPY wrote matching bytes but did not terminate; candidate ECHO also timed out. Original target completes both in same emulated DOS version. The cause and exact hang location are not established."
+}

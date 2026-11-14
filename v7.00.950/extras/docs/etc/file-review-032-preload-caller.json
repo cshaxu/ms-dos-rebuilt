@@ -1,0 +1,33 @@
+{
+  "source": "bios/sysinit1.asm",
+  "source_sha256": "d2f3b2f06a88acdfa385186830644dd93d739101abb371af76e9e909d9d409c8",
+  "target": "extras/baselines/targets/IO.SYS",
+  "change": "Restore complete compressed-drive preload caller success path: return flags, arena and free-memory update, low-memory check, conditional logo, old DOS file table and BIOS status flag.",
+  "verification": {
+    "actual_sysin_code": {
+      "sysinit_start": "0x1080",
+      "end_exclusive": "0x159a",
+      "matched_bytes": 1306
+    },
+    "alloc_free_mem": {
+      "sysinit_start": "0x1846",
+      "end_exclusive": "0x185f",
+      "matched_bytes": 25
+    },
+    "contiguous_bds_and_sysinit": {
+      "start": "0x0358",
+      "end_exclusive": "0x159a",
+      "bytes": 4674,
+      "nonrelocated_bytes_matched": 4656,
+      "excluded_relocation_bytes": 18
+    },
+    "diagnostic": "extras/tools/verify_syspre_device_link.py",
+    "diagnostic_stage": "extras/build/syspre-object-link-9eks72z1",
+    "full_source_assembly": "extras/tools/verify_sysinit_startup_split.py",
+    "assembly_stage": "extras/build/startup-split-jedobqpi"
+  },
+  "limitations": [
+    "The diagnostic uses target-positioned synthetic gaps and BIOS labels; it is not the production link.",
+    "The whole IO.SYS and all three target binaries are not yet verified."
+  ]
+}

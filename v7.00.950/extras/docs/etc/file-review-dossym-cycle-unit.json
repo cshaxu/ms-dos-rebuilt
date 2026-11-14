@@ -1,0 +1,97 @@
+{
+  "unit": "dossym-dosmac-buffer-error",
+  "user_authorized_cycle_unit": true,
+  "review_order": [
+    "inc/dosmac.inc",
+    "inc/buffer.inc",
+    "inc/error.inc",
+    "inc/dossym.inc"
+  ],
+  "external_prerequisites": [
+    "inc/dbcs.sw",
+    "inc/versiona.inc",
+    "inc/version.inc",
+    "inc/dirent.inc"
+  ],
+  "stage": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\dossym-unit-nn2s3akz",
+  "object_sha256": "e4738c3da031e5535ae8481c61ffa90a73589af1b4419ddc46dc118271509125",
+  "files": [
+    {
+      "file": "inc/dosmac.inc",
+      "sha256": "30acfd9ff4cfa69f2719bc61a4416c3c37fc4cb3ae2b5cdaed64096dfbc67675",
+      "matches": [
+        {
+          "name": "6.0",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\inc\\dosmac.inc",
+          "sha256": "30acfd9ff4cfa69f2719bc61a4416c3c37fc4cb3ae2b5cdaed64096dfbc67675"
+        },
+        {
+          "name": "Astro",
+          "path": "O:\\repos.external\\astro\\inc\\dosmac.inc",
+          "sha256": "30acfd9ff4cfa69f2719bc61a4416c3c37fc4cb3ae2b5cdaed64096dfbc67675"
+        }
+      ],
+      "target_status": "unverified"
+    },
+    {
+      "file": "inc/buffer.inc",
+      "sha256": "dd480d8e43f47d3ba741498ee67dae60716c3fe7fdba92afb73e14f302897b16",
+      "matches": [
+        {
+          "name": "6.0",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\inc\\buffer.inc",
+          "sha256": "dd480d8e43f47d3ba741498ee67dae60716c3fe7fdba92afb73e14f302897b16"
+        },
+        {
+          "name": "Astro",
+          "path": "O:\\repos.external\\astro\\inc\\buffer.inc",
+          "sha256": "dd480d8e43f47d3ba741498ee67dae60716c3fe7fdba92afb73e14f302897b16"
+        }
+      ],
+      "target_status": "unverified"
+    },
+    {
+      "file": "inc/error.inc",
+      "sha256": "f175053c01e3e4108cab8ac0cef34f5a53e70e050c93216f12182154a2a8968b",
+      "matches": [
+        {
+          "name": "6.0",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\inc\\error.inc",
+          "sha256": "f175053c01e3e4108cab8ac0cef34f5a53e70e050c93216f12182154a2a8968b"
+        },
+        {
+          "name": "Astro",
+          "path": "O:\\repos.external\\astro\\inc\\error.inc",
+          "sha256": "f175053c01e3e4108cab8ac0cef34f5a53e70e050c93216f12182154a2a8968b"
+        }
+      ],
+      "target_status": "unverified"
+    },
+    {
+      "file": "inc/dossym.inc",
+      "sha256": "7251b43759082b218b6216a267c69efe1adc46da7e5a8bdf75ddd94d366de6a9",
+      "matches": [
+        {
+          "name": "6.0",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\inc\\dossym.inc",
+          "sha256": "7251b43759082b218b6216a267c69efe1adc46da7e5a8bdf75ddd94d366de6a9"
+        },
+        {
+          "name": "Astro",
+          "path": "O:\\repos.external\\astro\\inc\\dossym.inc",
+          "sha256": "7251b43759082b218b6216a267c69efe1adc46da7e5a8bdf75ddd94d366de6a9"
+        }
+      ],
+      "target_status": "unverified"
+    }
+  ],
+  "deferred_macro_references": {
+    "inc/dosmac.inc": [
+      "DosDseg",
+      "DosDataSg",
+      "BioDataSeg",
+      "parameterized EXTRN symbols"
+    ]
+  },
+  "limitations": "The isolated group defines macros but does not expand every macro. External symbols in expanded macros remain dependencies of their actual callers; target configuration and complete binary equality remain unverified."
+}

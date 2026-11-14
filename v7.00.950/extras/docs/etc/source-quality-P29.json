@@ -1,0 +1,25 @@
+{
+  "part": "M5 T12 S1 P29",
+  "ordinal": 48,
+  "modified": 1,
+  "unchanged": 0,
+  "exact_dos6": 0,
+  "retired_by_merge": 0,
+  "reference": "DOS6 cmd/command/command.lnk and cmd/mem/mem.lnk demonstrate continued object input and LINK response records. No original CONFIG homolog exists.",
+  "changes": "Normalize all 90 LF line endings to DOS CRLF. Keep every input, order, output/map record and terminator unchanged.",
+  "necessity": "Sole explicit CONFIG link response file; cfglink.bat invokes LINK /EXEPACK /STACK:8192 /MAP @config.lnk. A separate response file is original-tool practice, not a second build path. The 87 unique objects include 44 local objects with source/rules and 43 CRT members extracted into build-stage crt by extras/build.cmd and crtlib.c. cfginit/cfgtail and crtprint/crtsprnt are named separate contributions built from shared sources.",
+  "validation": {
+    "duplicateObjects": 0,
+    "localObjects": 44,
+    "crtObjects": 43,
+    "allLocalSourcesOrSharedSourceRulesExist": true,
+    "allCrtInputsExistInAcceptedStage": true,
+    "preEditByteIdenticalToAcceptedT11Response": true,
+    "postEditOnlyLineEndingsChanged": true,
+    "rebuilt": false,
+    "reason": "LINK tokens and ordering unchanged; no assembly/link semantics change.",
+    "binary_baseline": "Accepted T11 CONFIG and P27 IO.SYS; other core files unchanged."
+  },
+  "next_ordinal": 49,
+  "remaining": 18
+}

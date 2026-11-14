@@ -1,0 +1,2042 @@
+{
+  "source": "dos/mstable.asm",
+  "source_sha256": "a21d8332e3ae890095231455fe281a02e7d3330b4d7f3422164bdd382b5b6949",
+  "object": "extras/build/mstable-context-wm9xuyg0/mstable.obj",
+  "object_sha256": "22af59f0abec69a4e17a7aaf27d244bac0169b12a6f5ddcaa69c85284119604e",
+  "fixup_externals": [
+    "$abort",
+    "$alloc",
+    "$allocoper",
+    "$assignoper",
+    "$char_oper",
+    "$chdir",
+    "$chmod",
+    "$close",
+    "$commit",
+    "$creat",
+    "$create_process_data_block",
+    "$createnewfile",
+    "$createtempfile",
+    "$current_dir",
+    "$dealloc",
+    "$dir_search_first",
+    "$dir_search_next",
+    "$disk_reset",
+    "$dup",
+    "$dup2",
+    "$dup_pdb",
+    "$ecs_call",
+    "$exec",
+    "$exit",
+    "$extended_open",
+    "$exthandle",
+    "$fcb_close",
+    "$fcb_create",
+    "$fcb_delete",
+    "$fcb_open",
+    "$fcb_random_read",
+    "$fcb_random_read_block",
+    "$fcb_random_write",
+    "$fcb_random_write_block",
+    "$fcb_rename",
+    "$fcb_seq_read",
+    "$fcb_seq_write",
+    "$file_times",
+    "$find_first",
+    "$find_next",
+    "$get_current_pdb",
+    "$get_date",
+    "$get_default_dpb",
+    "$get_default_drive",
+    "$get_dma",
+    "$get_dpb",
+    "$get_drive_freespace",
+    "$get_fcb_file_length",
+    "$get_fcb_position",
+    "$get_in_vars",
+    "$get_indos_flag",
+    "$get_interrupt_vector",
+    "$get_time",
+    "$get_verify_on_write",
+    "$get_version",
+    "$getextcntry",
+    "$getextendederror",
+    "$getsetcdpg",
+    "$gsetmediaid",
+    "$international",
+    "$ioctl",
+    "$keep_process",
+    "$lockoper",
+    "$lseek",
+    "$mkdir",
+    "$nametrans",
+    "$open",
+    "$parse_file_descriptor",
+    "$raw_con_input",
+    "$raw_con_io",
+    "$read",
+    "$rename",
+    "$rmdir",
+    "$servercall",
+    "$set_ctrl_c_trapping",
+    "$set_current_pdb",
+    "$set_date",
+    "$set_default_drive",
+    "$set_dma",
+    "$set_interrupt_vector",
+    "$set_printer_flag",
+    "$set_time",
+    "$set_verify_on_write",
+    "$setblock",
+    "$setdpb",
+    "$sleazefunc",
+    "$sleazefuncdl",
+    "$std_aux_input",
+    "$std_aux_output",
+    "$std_con_input",
+    "$std_con_input_flush",
+    "$std_con_input_no_echo",
+    "$std_con_input_status",
+    "$std_con_output",
+    "$std_con_string_input",
+    "$std_con_string_output",
+    "$std_printer_output",
+    "$unlink",
+    "$useroper",
+    "$wait",
+    "$write",
+    "bufwrite",
+    "cal_lk",
+    "checkflush",
+    "date16",
+    "devname",
+    "dos_close",
+    "dosgetgroup",
+    "dosinstall",
+    "drivefromtext",
+    "dslide",
+    "dstrlen",
+    "dsum",
+    "fastinit",
+    "free_sft",
+    "get_user_stack",
+    "getcdsfromdrv",
+    "getdevlist",
+    "getthisdrv",
+    "idle",
+    "initcds",
+    "leave2f",
+    "msg_retrieval",
+    "net_i24_entry",
+    "nls_getext",
+    "nls_ioctl",
+    "nls_lseek",
+    "nls_open",
+    "no_op",
+    "outt",
+    "pathchrcmp",
+    "pjfnfromhandle",
+    "placebuf",
+    "pointcomp",
+    "recset",
+    "scanplace",
+    "set_sft_mode",
+    "setyear",
+    "sffromsfn",
+    "share_error",
+    "share_violation",
+    "strcmp",
+    "strcpy",
+    "strlen",
+    "ucase"
+  ],
+  "confirmed_examples": {
+    "$abort": "dos/msproc.asm:1922",
+    "$alloc": "dos/alloc.asm:264",
+    "$open": "dos/file.asm:115"
+  },
+  "limitations": "Configuration-specific candidate providers; remaining definitions, actual linkage and target correspondence unverified.",
+  "lexical_candidates": {
+    "$abort": [
+      {
+        "path": "dos/msproc.asm",
+        "line": 1922,
+        "definition": "PROCEDURE   $Abort ,NEAR"
+      }
+    ],
+    "$alloc": [
+      {
+        "path": "dos/alloc.asm",
+        "line": 264,
+        "definition": "procedure   $ALLOC,NEAR"
+      }
+    ],
+    "$allocoper": [
+      {
+        "path": "dos/alloc.asm",
+        "line": 619,
+        "definition": "procedure   $AllocOper,NEAR"
+      }
+    ],
+    "$assignoper": [
+      {
+        "path": "dos/macro.asm",
+        "line": 128,
+        "definition": "procedure   $AssignOper,NEAR"
+      }
+    ],
+    "$char_oper": [
+      {
+        "path": "dos/getset.asm",
+        "line": 959,
+        "definition": "procedure   $CHAR_OPER,NEAR"
+      }
+    ],
+    "$chdir": [
+      {
+        "path": "dos/path.asm",
+        "line": 267,
+        "definition": "procedure $CHDIR,NEAR"
+      }
+    ],
+    "$chmod": [
+      {
+        "path": "dos/file.asm",
+        "line": 332,
+        "definition": "procedure $CHMOD,NEAR"
+      }
+    ],
+    "$close": [
+      {
+        "path": "dos/handle.asm",
+        "line": 100,
+        "definition": "Procedure   $Close,NEAR"
+      }
+    ],
+    "$commit": [
+      {
+        "path": "dos/handle.asm",
+        "line": 170,
+        "definition": "Procedure   $Commit,NEAR"
+      }
+    ],
+    "$creat": [
+      {
+        "path": "dos/file.asm",
+        "line": 302,
+        "definition": "Procedure   $Creat,NEAR"
+      }
+    ],
+    "$create_process_data_block": [
+      {
+        "path": "dos/misc.asm",
+        "line": 558,
+        "definition": "procedure   $CREATE_PROCESS_DATA_BLOCK,NEAR"
+      }
+    ],
+    "$createnewfile": [
+      {
+        "path": "dos/file.asm",
+        "line": 495,
+        "definition": "Procedure $CreateNewFile,NEAR"
+      }
+    ],
+    "$createtempfile": [
+      {
+        "path": "dos/file.asm",
+        "line": 548,
+        "definition": "Procedure $CreateTempFile,NEAR"
+      }
+    ],
+    "$current_dir": [
+      {
+        "path": "dos/path.asm",
+        "line": 78,
+        "definition": "procedure $CURRENT_DIR,NEAR"
+      }
+    ],
+    "$dealloc": [
+      {
+        "path": "dos/alloc.asm",
+        "line": 535,
+        "definition": "procedure   $DEALLOC,NEAR"
+      }
+    ],
+    "$dir_search_first": [
+      {
+        "path": "dos/search.asm",
+        "line": 71,
+        "definition": "procedure $DIR_SEARCH_FIRST,NEAR"
+      }
+    ],
+    "$dir_search_next": [
+      {
+        "path": "dos/search.asm",
+        "line": 186,
+        "definition": "procedure $DIR_SEARCH_NEXT,NEAR"
+      }
+    ],
+    "$disk_reset": [
+      {
+        "path": "dos/misc.asm",
+        "line": 297,
+        "definition": "procedure   $DISK_RESET,NEAR"
+      }
+    ],
+    "$dup": [
+      {
+        "path": "dos/handle.asm",
+        "line": 612,
+        "definition": "Procedure   $DUP,NEAR"
+      }
+    ],
+    "$dup2": [
+      {
+        "path": "dos/handle.asm",
+        "line": 642,
+        "definition": "Procedure   $Dup2,NEAR"
+      }
+    ],
+    "$dup_pdb": [
+      {
+        "path": "dos/misc.asm",
+        "line": 529,
+        "definition": "procedure   $Dup_PDB,NEAR"
+      }
+    ],
+    "$ecs_call": [
+      {
+        "path": "dos/getset.asm",
+        "line": 1056,
+        "definition": "procedure   $ECS_call,NEAR"
+      }
+    ],
+    "$exec": [
+      {
+        "path": "dos/msproc.asm",
+        "line": 460,
+        "definition": "procedure\t$Exec,NEAR"
+      }
+    ],
+    "$exit": [
+      {
+        "path": "dos/msproc.asm",
+        "line": 1889,
+        "definition": "PROCEDURE   $Exit ,NEAR"
+      }
+    ],
+    "$extended_open": [
+      {
+        "path": "dos/file.asm",
+        "line": 725,
+        "definition": "procedure   $Extended_Open,NEAR \t\t\t       ;AN000;"
+      }
+    ],
+    "$exthandle": [
+      {
+        "path": "dos/handle.asm",
+        "line": 213,
+        "definition": "Procedure   $ExtHandle,NEAR"
+      }
+    ],
+    "$fcb_close": [
+      {
+        "path": "dos/fcbio.asm",
+        "line": 244,
+        "definition": "Procedure $FCB_Close,NEAR"
+      }
+    ],
+    "$fcb_create": [
+      {
+        "path": "dos/fcbio2.asm",
+        "line": 618,
+        "definition": "Procedure $FCB_Create,NEAR"
+      }
+    ],
+    "$fcb_delete": [
+      {
+        "path": "dos/fcbio.asm",
+        "line": 141,
+        "definition": "Procedure $FCB_Delete,NEAR"
+      }
+    ],
+    "$fcb_open": [
+      {
+        "path": "dos/fcbio2.asm",
+        "line": 430,
+        "definition": "Procedure $FCB_Open,NEAR"
+      }
+    ],
+    "$fcb_random_read": [
+      {
+        "path": "dos/fcbio2.asm",
+        "line": 715,
+        "definition": "Procedure $FCB_Random_Read,NEAR"
+      }
+    ],
+    "$fcb_random_read_block": [
+      {
+        "path": "dos/fcbio2.asm",
+        "line": 662,
+        "definition": "Procedure $FCB_Random_Read_Block,NEAR"
+      }
+    ],
+    "$fcb_random_write": [
+      {
+        "path": "dos/fcbio2.asm",
+        "line": 732,
+        "definition": "Procedure $FCB_Random_Write,NEAR"
+      }
+    ],
+    "$fcb_random_write_block": [
+      {
+        "path": "dos/fcbio2.asm",
+        "line": 643,
+        "definition": "Procedure $FCB_Random_Write_Block,NEAR"
+      }
+    ],
+    "$fcb_rename": [
+      {
+        "path": "dos/fcbio.asm",
+        "line": 336,
+        "definition": "Procedure $FCB_Rename,NEAR"
+      }
+    ],
+    "$fcb_seq_read": [
+      {
+        "path": "dos/fcbio2.asm",
+        "line": 679,
+        "definition": "Procedure $FCB_Seq_Read,NEAR"
+      }
+    ],
+    "$fcb_seq_write": [
+      {
+        "path": "dos/fcbio2.asm",
+        "line": 696,
+        "definition": "Procedure $FCB_Seq_Write,NEAR"
+      }
+    ],
+    "$file_times": [
+      {
+        "path": "dos/handle.asm",
+        "line": 548,
+        "definition": "procedure   $File_Times,NEAR"
+      }
+    ],
+    "$find_first": [
+      {
+        "path": "dos/search.asm",
+        "line": 263,
+        "definition": "procedure $FIND_FIRST,NEAR"
+      }
+    ],
+    "$find_next": [
+      {
+        "path": "dos/search.asm",
+        "line": 340,
+        "definition": "procedure $FIND_NEXT,NEAR"
+      }
+    ],
+    "$get_current_pdb": [],
+    "$get_date": [
+      {
+        "path": "dos/time.asm",
+        "line": 69,
+        "definition": "procedure   $GET_DATE,NEAR"
+      }
+    ],
+    "$get_default_dpb": [
+      {
+        "path": "dos/misc.asm",
+        "line": 246,
+        "definition": "procedure   $GET_DEFAULT_DPB,NEAR"
+      }
+    ],
+    "$get_default_drive": [
+      {
+        "path": "dos/getset.asm",
+        "line": 785,
+        "definition": "procedure   $GET_DEFAULT_DRIVE,NEAR"
+      }
+    ],
+    "$get_dma": [
+      {
+        "path": "dos/getset.asm",
+        "line": 748,
+        "definition": "procedure   $GET_DMA,NEAR"
+      }
+    ],
+    "$get_dpb": [
+      {
+        "path": "dos/misc.asm",
+        "line": 250,
+        "definition": "entry\t$GET_DPB"
+      }
+    ],
+    "$get_drive_freespace": [
+      {
+        "path": "dos/getset.asm",
+        "line": 711,
+        "definition": "procedure   $GET_DRIVE_FREESPACE,NEAR"
+      }
+    ],
+    "$get_fcb_file_length": [
+      {
+        "path": "dos/fcbio.asm",
+        "line": 181,
+        "definition": "Procedure   $Get_FCB_File_Length,NEAR"
+      }
+    ],
+    "$get_fcb_position": [
+      {
+        "path": "dos/fcbio.asm",
+        "line": 109,
+        "definition": "Procedure $Get_FCB_Position,NEAR"
+      }
+    ],
+    "$get_in_vars": [
+      {
+        "path": "dos/misc.asm",
+        "line": 208,
+        "definition": "procedure   $GET_IN_VARS,NEAR"
+      }
+    ],
+    "$get_indos_flag": [
+      {
+        "path": "dos/misc.asm",
+        "line": 177,
+        "definition": "procedure   $GET_INDOS_FLAG,NEAR"
+      }
+    ],
+    "$get_interrupt_vector": [
+      {
+        "path": "dos/getset.asm",
+        "line": 833,
+        "definition": "procedure   $GET_INTERRUPT_VECTOR,NEAR"
+      }
+    ],
+    "$get_time": [
+      {
+        "path": "dos/time.asm",
+        "line": 127,
+        "definition": "procedure   $GET_TIME,NEAR\t; System call 44"
+      }
+    ],
+    "$get_verify_on_write": [
+      {
+        "path": "dos/getset.asm",
+        "line": 202,
+        "definition": "procedure   $GET_VERIFY_ON_WRITE,NEAR"
+      }
+    ],
+    "$get_version": [
+      {
+        "path": "dos/getset.asm",
+        "line": 149,
+        "definition": "PROCEDURE $Get_Version ,NEAR"
+      }
+    ],
+    "$getextcntry": [
+      {
+        "path": "dos/getset.asm",
+        "line": 428,
+        "definition": "procedure   $GetExtCntry,NEAR\t; DOS 3.3"
+      }
+    ],
+    "$getextendederror": [
+      {
+        "path": "dos/getset.asm",
+        "line": 997,
+        "definition": "procedure   $GetExtendedError,NEAR"
+      }
+    ],
+    "$getsetcdpg": [
+      {
+        "path": "dos/getset.asm",
+        "line": 642,
+        "definition": "procedure   $GetSetCdPg,NEAR   ; DOS 3.3"
+      }
+    ],
+    "$gsetmediaid": [
+      {
+        "path": "dos/misc.asm",
+        "line": 777,
+        "definition": "procedure   $GSetMediaID,NEAR ;AN000;"
+      }
+    ],
+    "$international": [
+      {
+        "path": "dos/getset.asm",
+        "line": 283,
+        "definition": "procedure   $INTERNATIONAL,NEAR   ; DOS 3.3"
+      }
+    ],
+    "$ioctl": [
+      {
+        "path": "dos/ioctl.asm",
+        "line": 285,
+        "definition": "procedure   $IOCTL,NEAR"
+      }
+    ],
+    "$keep_process": [
+      {
+        "path": "dos/msproc.asm",
+        "line": 1829,
+        "definition": "PROCEDURE $Keep_process ,NEAR"
+      }
+    ],
+    "$lockoper": [
+      {
+        "path": "dos/lock.asm",
+        "line": 92,
+        "definition": "procedure   $LockOper,NEAR"
+      }
+    ],
+    "$lseek": [
+      {
+        "path": "dos/handle.asm",
+        "line": 456,
+        "definition": "procedure   $LSEEK,NEAR"
+      }
+    ],
+    "$mkdir": [
+      {
+        "path": "dos/path.asm",
+        "line": 380,
+        "definition": "procedure $MKDIR,NEAR"
+      }
+    ],
+    "$nametrans": [
+      {
+        "path": "dos/macro2.asm",
+        "line": 1134,
+        "definition": "Procedure   $NameTrans,Near"
+      }
+    ],
+    "$open": [
+      {
+        "path": "dos/file.asm",
+        "line": 115,
+        "definition": "Procedure   $Open,NEAR"
+      }
+    ],
+    "$parse_file_descriptor": [
+      {
+        "path": "dos/parse.asm",
+        "line": 54,
+        "definition": "procedure   $PARSE_FILE_DESCRIPTOR,NEAR"
+      }
+    ],
+    "$raw_con_input": [
+      {
+        "path": "dos/cpmio.asm",
+        "line": 773,
+        "definition": "entry\t$RAW_CON_INPUT\t      ; System call 7"
+      }
+    ],
+    "$raw_con_io": [
+      {
+        "path": "dos/cpmio.asm",
+        "line": 714,
+        "definition": "procedure   $RAW_CON_IO,NEAR   ; System call 6"
+      }
+    ],
+    "$read": [
+      {
+        "path": "dos/handle.asm",
+        "line": 351,
+        "definition": "procedure   $READ,NEAR"
+      }
+    ],
+    "$rename": [
+      {
+        "path": "dos/file.asm",
+        "line": 426,
+        "definition": "procedure $RENAME,NEAR"
+      }
+    ],
+    "$rmdir": [
+      {
+        "path": "dos/path.asm",
+        "line": 193,
+        "definition": "procedure $RMDIR,NEAR"
+      }
+    ],
+    "$servercall": [
+      {
+        "path": "dos/srvcall.asm",
+        "line": 117,
+        "definition": "procedure   $ServerCall,NEAR"
+      }
+    ],
+    "$set_ctrl_c_trapping": [],
+    "$set_current_pdb": [],
+    "$set_date": [
+      {
+        "path": "dos/time.asm",
+        "line": 99,
+        "definition": "procedure   $SET_DATE,NEAR\t;System call 43"
+      }
+    ],
+    "$set_default_drive": [
+      {
+        "path": "dos/getset.asm",
+        "line": 801,
+        "definition": "procedure   $SET_DEFAULT_DRIVE,NEAR"
+      }
+    ],
+    "$set_dma": [
+      {
+        "path": "dos/getset.asm",
+        "line": 769,
+        "definition": "procedure   $SET_DMA,NEAR"
+      }
+    ],
+    "$set_interrupt_vector": [
+      {
+        "path": "dos/getset.asm",
+        "line": 860,
+        "definition": "procedure   $SET_INTERRUPT_VECTOR,NEAR"
+      }
+    ],
+    "$set_printer_flag": [],
+    "$set_time": [
+      {
+        "path": "dos/time.asm",
+        "line": 149,
+        "definition": "procedure   $SET_TIME,NEAR\t;System call 45"
+      }
+    ],
+    "$set_verify_on_write": [
+      {
+        "path": "dos/getset.asm",
+        "line": 218,
+        "definition": "procedure   $SET_VERIFY_ON_WRITE,NEAR"
+      }
+    ],
+    "$setblock": [
+      {
+        "path": "dos/alloc.asm",
+        "line": 500,
+        "definition": "procedure   $SETBLOCK,NEAR"
+      }
+    ],
+    "$setdpb": [
+      {
+        "path": "dos/misc.asm",
+        "line": 345,
+        "definition": "procedure   $SETDPB,NEAR"
+      }
+    ],
+    "$sleazefunc": [
+      {
+        "path": "dos/misc.asm",
+        "line": 121,
+        "definition": "procedure   $SLEAZEFUNC,NEAR"
+      }
+    ],
+    "$sleazefuncdl": [
+      {
+        "path": "dos/misc.asm",
+        "line": 125,
+        "definition": "entry\t$SLEAZEFUNCDL"
+      }
+    ],
+    "$std_aux_input": [
+      {
+        "path": "dos/cpmio2.asm",
+        "line": 259,
+        "definition": "procedure   $STD_AUX_INPUT,NEAR   ;System call 3"
+      }
+    ],
+    "$std_aux_output": [
+      {
+        "path": "dos/cpmio2.asm",
+        "line": 291,
+        "definition": "procedure   $STD_AUX_OUTPUT,NEAR   ;System call 4"
+      }
+    ],
+    "$std_con_input": [
+      {
+        "path": "dos/cpmio2.asm",
+        "line": 73,
+        "definition": "procedure   $STD_CON_INPUT,NEAR   ;System call 1"
+      }
+    ],
+    "$std_con_input_flush": [
+      {
+        "path": "dos/cpmio2.asm",
+        "line": 373,
+        "definition": "procedure   $STD_CON_INPUT_FLUSH,NEAR\t;System call 12"
+      }
+    ],
+    "$std_con_input_no_echo": [
+      {
+        "path": "dos/cpmio.asm",
+        "line": 87,
+        "definition": "procedure   $STD_CON_INPUT_NO_ECHO,NEAR   ;System call 8  ;AN000;"
+      },
+      {
+        "path": "dos/cpmio.asm",
+        "line": 122,
+        "definition": "procedure   $STD_CON_INPUT_NO_ECHO,NEAR   ;System call 8"
+      }
+    ],
+    "$std_con_input_status": [
+      {
+        "path": "dos/cpmio2.asm",
+        "line": 348,
+        "definition": "procedure   $STD_CON_INPUT_STATUS,NEAR\t ;System call 11"
+      }
+    ],
+    "$std_con_output": [
+      {
+        "path": "dos/cpmio2.asm",
+        "line": 116,
+        "definition": "procedure   $STD_CON_OUTPUT,NEAR   ;System call 2"
+      }
+    ],
+    "$std_con_string_input": [
+      {
+        "path": "dos/cpmio.asm",
+        "line": 276,
+        "definition": "procedure\t $STD_CON_STRING_INPUT,NEAR\t;System call 10"
+      },
+      {
+        "path": "dos/kstrin.asm",
+        "line": 22,
+        "definition": "procedure   $STD_CON_STRING_INPUT,NEAR\t ;System call 10"
+      }
+    ],
+    "$std_con_string_output": [
+      {
+        "path": "dos/cpmio.asm",
+        "line": 224,
+        "definition": "procedure   $STD_CON_STRING_OUTPUT,NEAR   ;System call 9"
+      }
+    ],
+    "$std_printer_output": [
+      {
+        "path": "dos/cpmio2.asm",
+        "line": 312,
+        "definition": "procedure   $STD_PRINTER_OUTPUT,NEAR   ;System call 5"
+      }
+    ],
+    "$unlink": [
+      {
+        "path": "dos/file.asm",
+        "line": 387,
+        "definition": "procedure $UNLINK,NEAR"
+      }
+    ],
+    "$useroper": [
+      {
+        "path": "dos/macro.asm",
+        "line": 265,
+        "definition": "Procedure   $UserOper,NEAR"
+      }
+    ],
+    "$wait": [
+      {
+        "path": "dos/msproc.asm",
+        "line": 240,
+        "definition": "PROCEDURE $Wait ,NEAR"
+      }
+    ],
+    "$write": [
+      {
+        "path": "dos/handle.asm",
+        "line": 433,
+        "definition": "procedure   $WRITE,NEAR"
+      }
+    ],
+    "bufwrite": [
+      {
+        "path": "dos/buf.asm",
+        "line": 528,
+        "definition": "procedure   BufWrite,NEAR"
+      }
+    ],
+    "cal_lk": [
+      {
+        "path": "dos/mscode.asm",
+        "line": 671,
+        "definition": "procedure   CAL_LK,NEAR"
+      }
+    ],
+    "checkflush": [
+      {
+        "path": "dos/buf.asm",
+        "line": 486,
+        "definition": "procedure CHECKFLUSH,NEAR"
+      }
+    ],
+    "date16": [
+      {
+        "path": "dos/time.asm",
+        "line": 209,
+        "definition": "procedure   DATE16,NEAR"
+      }
+    ],
+    "devname": [
+      {
+        "path": "dos/dir2.asm",
+        "line": 891,
+        "definition": "procedure   DEVNAME,NEAR"
+      }
+    ],
+    "dos_close": [
+      {
+        "path": "dos/close.asm",
+        "line": 74,
+        "definition": "procedure   DOS_CLOSE,NEAR"
+      }
+    ],
+    "dosgetgroup": [
+      {
+        "path": "dos/mscode.asm",
+        "line": 1400,
+        "definition": "entry\tDosGetGroup"
+      }
+    ],
+    "dosinstall": [
+      {
+        "path": "dos/mscode.asm",
+        "line": 1410,
+        "definition": "entry\tDOSInstall"
+      }
+    ],
+    "drivefromtext": [
+      {
+        "path": "dos/macro2.asm",
+        "line": 1176,
+        "definition": "Procedure   DriveFromText,NEAR"
+      }
+    ],
+    "dslide": [
+      {
+        "path": "dos/time.asm",
+        "line": 322,
+        "definition": "procedure   DSLIDE,NEAR"
+      }
+    ],
+    "dstrlen": [
+      {
+        "path": "dos/misc2.asm",
+        "line": 201,
+        "definition": "Procedure   DStrLen,NEAR\t; BUGBUG - this guy is a pig, who uses him?"
+      }
+    ],
+    "dsum": [
+      {
+        "path": "dos/time.asm",
+        "line": 466,
+        "definition": "procedure   DSUM,NEAR"
+      }
+    ],
+    "fastinit": [
+      {
+        "path": "dos/misc2.asm",
+        "line": 373,
+        "definition": "Procedure   FastInit,NEAR"
+      }
+    ],
+    "free_sft": [
+      {
+        "path": "dos/close.asm",
+        "line": 278,
+        "definition": "Procedure   FREE_SFT,NEAR"
+      }
+    ],
+    "get_user_stack": [
+      {
+        "path": "dos/msdisp.asm",
+        "line": 734,
+        "definition": "procedure Get_User_Stack,NEAR"
+      }
+    ],
+    "getcdsfromdrv": [
+      {
+        "path": "dos/macro.asm",
+        "line": 413,
+        "definition": "Procedure   GetCDSFromDrv,NEAR"
+      }
+    ],
+    "getdevlist": [
+      {
+        "path": "dos/misc2.asm",
+        "line": 517,
+        "definition": "Procedure   GetDevList,NEAR"
+      }
+    ],
+    "getthisdrv": [
+      {
+        "path": "dos/macro.asm",
+        "line": 365,
+        "definition": "Procedure   GetThisDrv,NEAR"
+      }
+    ],
+    "idle": [
+      {
+        "path": "dos/misc2.asm",
+        "line": 239,
+        "definition": "Procedure   Idle,NEAR"
+      }
+    ],
+    "initcds": [
+      {
+        "path": "dos/macro.asm",
+        "line": 212,
+        "definition": "Procedure InitCDS,NEAR"
+      }
+    ],
+    "leave2f": [
+      {
+        "path": "dos/mscode.asm",
+        "line": 867,
+        "definition": "entry\tLeave2F"
+      }
+    ],
+    "msg_retrieval": [
+      {
+        "path": "dos/misc2.asm",
+        "line": 592,
+        "definition": "Procedure   MSG_RETRIEVAL,NEAR"
+      }
+    ],
+    "net_i24_entry": [
+      {
+        "path": "dos/msctrlc.asm",
+        "line": 771,
+        "definition": "entry\tNET_I24_ENTRY"
+      }
+    ],
+    "nls_getext": [
+      {
+        "path": "dos/misc2.asm",
+        "line": 566,
+        "definition": "Procedure   NLS_GETEXT,NEAR"
+      }
+    ],
+    "nls_ioctl": [
+      {
+        "path": "dos/misc2.asm",
+        "line": 543,
+        "definition": "Procedure   NLS_IOCTL,NEAR"
+      }
+    ],
+    "nls_lseek": [
+      {
+        "path": "dos/misc2.asm",
+        "line": 471,
+        "definition": "Procedure   NLS_LSEEK,NEAR"
+      }
+    ],
+    "nls_open": [
+      {
+        "path": "dos/misc2.asm",
+        "line": 446,
+        "definition": "Procedure   NLS_OPEN,NEAR"
+      }
+    ],
+    "no_op": [
+      {
+        "path": "dos/mscode.asm",
+        "line": 625,
+        "definition": "entry\tNO_OP\t\t\t; obsolete system calls dispatch to here"
+      }
+    ],
+    "outt": [
+      {
+        "path": "dos/cpmio2.asm",
+        "line": 120,
+        "definition": "entry\tOUTT"
+      }
+    ],
+    "pathchrcmp": [
+      {
+        "path": "dos/fcb.asm",
+        "line": 645,
+        "definition": "Procedure   PATHCHRCMP,NEAR"
+      }
+    ],
+    "pjfnfromhandle": [
+      {
+        "path": "dos/util.asm",
+        "line": 65,
+        "definition": "procedure   pJFNFromHandle,NEAR"
+      }
+    ],
+    "placebuf": [
+      {
+        "path": "dos/buf.asm",
+        "line": 123,
+        "definition": "procedure   PLACEBUF,NEAR"
+      }
+    ],
+    "pointcomp": [
+      {
+        "path": "dos/buf.asm",
+        "line": 193,
+        "definition": "procedure   PointComp,NEAR"
+      }
+    ],
+    "recset": [
+      {
+        "path": "dos/getset.asm",
+        "line": 911,
+        "definition": "procedure   RECSET,NEAR"
+      }
+    ],
+    "scanplace": [
+      {
+        "path": "dos/buf.asm",
+        "line": 105,
+        "definition": "procedure   ScanPlace,near"
+      }
+    ],
+    "set_sft_mode": [
+      {
+        "path": "dos/open.asm",
+        "line": 364,
+        "definition": "PROCEDURE Set_SFT_Mode,NEAR"
+      }
+    ],
+    "setyear": [
+      {
+        "path": "dos/time.asm",
+        "line": 346,
+        "definition": "procedure   SETYEAR,NEAR"
+      }
+    ],
+    "sffromsfn": [
+      {
+        "path": "dos/util.asm",
+        "line": 145,
+        "definition": "procedure   SFFromSFN,NEAR"
+      }
+    ],
+    "share_error": [
+      {
+        "path": "dos/open.asm",
+        "line": 390,
+        "definition": "procedure SHARE_ERROR,NEAR"
+      }
+    ],
+    "share_violation": [
+      {
+        "path": "dos/share.asm",
+        "line": 82,
+        "definition": "procedure   SHARE_VIOLATION,NEAR"
+      }
+    ],
+    "strcmp": [
+      {
+        "path": "dos/misc2.asm",
+        "line": 82,
+        "definition": "Procedure   StrCmp,NEAR"
+      }
+    ],
+    "strcpy": [
+      {
+        "path": "dos/misc2.asm",
+        "line": 130,
+        "definition": "Procedure   StrCpy,NEAR"
+      }
+    ],
+    "strlen": [
+      {
+        "path": "dos/misc2.asm",
+        "line": 181,
+        "definition": "Procedure   StrLen,NEAR"
+      }
+    ],
+    "ucase": [
+      {
+        "path": "dos/fcb.asm",
+        "line": 458,
+        "definition": "entry UCase"
+      }
+    ]
+  },
+  "candidate_note": "Lexical procedure, entry or I_am matches only; declarations, conditionals, actual public symbols and link ownership must be verified. Empty and multiple matches remain unresolved.",
+  "historical_reference_object_providers": {
+    "stage": "extras/build/kernel-reference-ejt64617",
+    "symbols": {
+      "$alloc": [
+        {
+          "object": "alloc.obj",
+          "sha256": "63f6bbff68a61d5885921e8b190f369831a7c3bb9fcd4e062a627adf46af0ff7"
+        }
+      ],
+      "$allocoper": [
+        {
+          "object": "alloc.obj",
+          "sha256": "63f6bbff68a61d5885921e8b190f369831a7c3bb9fcd4e062a627adf46af0ff7"
+        }
+      ],
+      "$dealloc": [
+        {
+          "object": "alloc.obj",
+          "sha256": "63f6bbff68a61d5885921e8b190f369831a7c3bb9fcd4e062a627adf46af0ff7"
+        }
+      ],
+      "$setblock": [
+        {
+          "object": "alloc.obj",
+          "sha256": "63f6bbff68a61d5885921e8b190f369831a7c3bb9fcd4e062a627adf46af0ff7"
+        }
+      ],
+      "bufwrite": [
+        {
+          "object": "buf.obj",
+          "sha256": "674106c12dcab33f45e021234c53086e74b2d535c3b09293242e9a445127c374"
+        }
+      ],
+      "checkflush": [
+        {
+          "object": "buf.obj",
+          "sha256": "674106c12dcab33f45e021234c53086e74b2d535c3b09293242e9a445127c374"
+        }
+      ],
+      "placebuf": [
+        {
+          "object": "buf.obj",
+          "sha256": "674106c12dcab33f45e021234c53086e74b2d535c3b09293242e9a445127c374"
+        }
+      ],
+      "pointcomp": [
+        {
+          "object": "buf.obj",
+          "sha256": "674106c12dcab33f45e021234c53086e74b2d535c3b09293242e9a445127c374"
+        }
+      ],
+      "scanplace": [
+        {
+          "object": "buf.obj",
+          "sha256": "674106c12dcab33f45e021234c53086e74b2d535c3b09293242e9a445127c374"
+        }
+      ],
+      "dos_close": [
+        {
+          "object": "close.obj",
+          "sha256": "6c336d843c809d0739637565920c1e68169904744b254df78abaf41dadd87013"
+        }
+      ],
+      "free_sft": [
+        {
+          "object": "close.obj",
+          "sha256": "6c336d843c809d0739637565920c1e68169904744b254df78abaf41dadd87013"
+        }
+      ],
+      "$raw_con_input": [
+        {
+          "object": "cpmio.obj",
+          "sha256": "90c02e64c484cca08a703dfb47f25143ad41372a2205adbbc2daab7ac6696dc4"
+        }
+      ],
+      "$raw_con_io": [
+        {
+          "object": "cpmio.obj",
+          "sha256": "90c02e64c484cca08a703dfb47f25143ad41372a2205adbbc2daab7ac6696dc4"
+        }
+      ],
+      "$std_con_input_no_echo": [
+        {
+          "object": "cpmio.obj",
+          "sha256": "90c02e64c484cca08a703dfb47f25143ad41372a2205adbbc2daab7ac6696dc4"
+        }
+      ],
+      "$std_con_string_input": [
+        {
+          "object": "cpmio.obj",
+          "sha256": "90c02e64c484cca08a703dfb47f25143ad41372a2205adbbc2daab7ac6696dc4"
+        }
+      ],
+      "$std_con_string_output": [
+        {
+          "object": "cpmio.obj",
+          "sha256": "90c02e64c484cca08a703dfb47f25143ad41372a2205adbbc2daab7ac6696dc4"
+        }
+      ],
+      "$std_aux_input": [
+        {
+          "object": "cpmio2.obj",
+          "sha256": "c2c9191ebae46ba7f8dcbfac0f70b61fbe72f42163a8cff5f81dc9927fad0203"
+        }
+      ],
+      "$std_aux_output": [
+        {
+          "object": "cpmio2.obj",
+          "sha256": "c2c9191ebae46ba7f8dcbfac0f70b61fbe72f42163a8cff5f81dc9927fad0203"
+        }
+      ],
+      "$std_con_input": [
+        {
+          "object": "cpmio2.obj",
+          "sha256": "c2c9191ebae46ba7f8dcbfac0f70b61fbe72f42163a8cff5f81dc9927fad0203"
+        }
+      ],
+      "$std_con_input_flush": [
+        {
+          "object": "cpmio2.obj",
+          "sha256": "c2c9191ebae46ba7f8dcbfac0f70b61fbe72f42163a8cff5f81dc9927fad0203"
+        }
+      ],
+      "$std_con_input_status": [
+        {
+          "object": "cpmio2.obj",
+          "sha256": "c2c9191ebae46ba7f8dcbfac0f70b61fbe72f42163a8cff5f81dc9927fad0203"
+        }
+      ],
+      "$std_con_output": [
+        {
+          "object": "cpmio2.obj",
+          "sha256": "c2c9191ebae46ba7f8dcbfac0f70b61fbe72f42163a8cff5f81dc9927fad0203"
+        }
+      ],
+      "$std_printer_output": [
+        {
+          "object": "cpmio2.obj",
+          "sha256": "c2c9191ebae46ba7f8dcbfac0f70b61fbe72f42163a8cff5f81dc9927fad0203"
+        }
+      ],
+      "outt": [
+        {
+          "object": "cpmio2.obj",
+          "sha256": "c2c9191ebae46ba7f8dcbfac0f70b61fbe72f42163a8cff5f81dc9927fad0203"
+        }
+      ],
+      "devname": [
+        {
+          "object": "dir2.obj",
+          "sha256": "97b9a66c3a53e719dfdfe1520aed6cdad3a4cd758d31774c79a90620cb0a1964"
+        }
+      ],
+      "pathchrcmp": [
+        {
+          "object": "fcb.obj",
+          "sha256": "53d695eb3ba05d02663572be33d1c34382122459eb0df67e378f15cfae525be8"
+        }
+      ],
+      "ucase": [
+        {
+          "object": "fcb.obj",
+          "sha256": "53d695eb3ba05d02663572be33d1c34382122459eb0df67e378f15cfae525be8"
+        }
+      ],
+      "$fcb_close": [
+        {
+          "object": "fcbio.obj",
+          "sha256": "3886de1eee5888c8afb62d9dfa6cd710f84632d7fb5732d19eb5fe9d89f0da9a"
+        }
+      ],
+      "$fcb_delete": [
+        {
+          "object": "fcbio.obj",
+          "sha256": "3886de1eee5888c8afb62d9dfa6cd710f84632d7fb5732d19eb5fe9d89f0da9a"
+        }
+      ],
+      "$fcb_rename": [
+        {
+          "object": "fcbio.obj",
+          "sha256": "3886de1eee5888c8afb62d9dfa6cd710f84632d7fb5732d19eb5fe9d89f0da9a"
+        }
+      ],
+      "$get_fcb_file_length": [
+        {
+          "object": "fcbio.obj",
+          "sha256": "3886de1eee5888c8afb62d9dfa6cd710f84632d7fb5732d19eb5fe9d89f0da9a"
+        }
+      ],
+      "$get_fcb_position": [
+        {
+          "object": "fcbio.obj",
+          "sha256": "3886de1eee5888c8afb62d9dfa6cd710f84632d7fb5732d19eb5fe9d89f0da9a"
+        }
+      ],
+      "$fcb_create": [
+        {
+          "object": "fcbio2.obj",
+          "sha256": "c8924312396ebcc3dfcf361642b4937a04cbc4eba194288d65fdd156881844e5"
+        }
+      ],
+      "$fcb_open": [
+        {
+          "object": "fcbio2.obj",
+          "sha256": "c8924312396ebcc3dfcf361642b4937a04cbc4eba194288d65fdd156881844e5"
+        }
+      ],
+      "$fcb_random_read": [
+        {
+          "object": "fcbio2.obj",
+          "sha256": "c8924312396ebcc3dfcf361642b4937a04cbc4eba194288d65fdd156881844e5"
+        }
+      ],
+      "$fcb_random_read_block": [
+        {
+          "object": "fcbio2.obj",
+          "sha256": "c8924312396ebcc3dfcf361642b4937a04cbc4eba194288d65fdd156881844e5"
+        }
+      ],
+      "$fcb_random_write": [
+        {
+          "object": "fcbio2.obj",
+          "sha256": "c8924312396ebcc3dfcf361642b4937a04cbc4eba194288d65fdd156881844e5"
+        }
+      ],
+      "$fcb_random_write_block": [
+        {
+          "object": "fcbio2.obj",
+          "sha256": "c8924312396ebcc3dfcf361642b4937a04cbc4eba194288d65fdd156881844e5"
+        }
+      ],
+      "$fcb_seq_read": [
+        {
+          "object": "fcbio2.obj",
+          "sha256": "c8924312396ebcc3dfcf361642b4937a04cbc4eba194288d65fdd156881844e5"
+        }
+      ],
+      "$fcb_seq_write": [
+        {
+          "object": "fcbio2.obj",
+          "sha256": "c8924312396ebcc3dfcf361642b4937a04cbc4eba194288d65fdd156881844e5"
+        }
+      ],
+      "$chmod": [
+        {
+          "object": "file.obj",
+          "sha256": "58121dc242c884c95fb64d9d6d642c91768cfc224c77f8923d4e65380a490124"
+        }
+      ],
+      "$creat": [
+        {
+          "object": "file.obj",
+          "sha256": "58121dc242c884c95fb64d9d6d642c91768cfc224c77f8923d4e65380a490124"
+        }
+      ],
+      "$createnewfile": [
+        {
+          "object": "file.obj",
+          "sha256": "58121dc242c884c95fb64d9d6d642c91768cfc224c77f8923d4e65380a490124"
+        }
+      ],
+      "$createtempfile": [
+        {
+          "object": "file.obj",
+          "sha256": "58121dc242c884c95fb64d9d6d642c91768cfc224c77f8923d4e65380a490124"
+        }
+      ],
+      "$extended_open": [
+        {
+          "object": "file.obj",
+          "sha256": "58121dc242c884c95fb64d9d6d642c91768cfc224c77f8923d4e65380a490124"
+        }
+      ],
+      "$open": [
+        {
+          "object": "file.obj",
+          "sha256": "58121dc242c884c95fb64d9d6d642c91768cfc224c77f8923d4e65380a490124"
+        }
+      ],
+      "$rename": [
+        {
+          "object": "file.obj",
+          "sha256": "58121dc242c884c95fb64d9d6d642c91768cfc224c77f8923d4e65380a490124"
+        }
+      ],
+      "$unlink": [
+        {
+          "object": "file.obj",
+          "sha256": "58121dc242c884c95fb64d9d6d642c91768cfc224c77f8923d4e65380a490124"
+        }
+      ],
+      "$char_oper": [
+        {
+          "object": "getset.obj",
+          "sha256": "e353a52372ed6fa90b32ae2895e45527391397ccfcb012f2bd3413e80610a64e"
+        }
+      ],
+      "$ecs_call": [
+        {
+          "object": "getset.obj",
+          "sha256": "e353a52372ed6fa90b32ae2895e45527391397ccfcb012f2bd3413e80610a64e"
+        }
+      ],
+      "$get_default_drive": [
+        {
+          "object": "getset.obj",
+          "sha256": "e353a52372ed6fa90b32ae2895e45527391397ccfcb012f2bd3413e80610a64e"
+        }
+      ],
+      "$get_dma": [
+        {
+          "object": "getset.obj",
+          "sha256": "e353a52372ed6fa90b32ae2895e45527391397ccfcb012f2bd3413e80610a64e"
+        }
+      ],
+      "$get_drive_freespace": [
+        {
+          "object": "getset.obj",
+          "sha256": "e353a52372ed6fa90b32ae2895e45527391397ccfcb012f2bd3413e80610a64e"
+        }
+      ],
+      "$get_interrupt_vector": [
+        {
+          "object": "getset.obj",
+          "sha256": "e353a52372ed6fa90b32ae2895e45527391397ccfcb012f2bd3413e80610a64e"
+        }
+      ],
+      "$get_verify_on_write": [
+        {
+          "object": "getset.obj",
+          "sha256": "e353a52372ed6fa90b32ae2895e45527391397ccfcb012f2bd3413e80610a64e"
+        }
+      ],
+      "$get_version": [
+        {
+          "object": "getset.obj",
+          "sha256": "e353a52372ed6fa90b32ae2895e45527391397ccfcb012f2bd3413e80610a64e"
+        }
+      ],
+      "$getextcntry": [
+        {
+          "object": "getset.obj",
+          "sha256": "e353a52372ed6fa90b32ae2895e45527391397ccfcb012f2bd3413e80610a64e"
+        }
+      ],
+      "$getextendederror": [
+        {
+          "object": "getset.obj",
+          "sha256": "e353a52372ed6fa90b32ae2895e45527391397ccfcb012f2bd3413e80610a64e"
+        }
+      ],
+      "$getsetcdpg": [
+        {
+          "object": "getset.obj",
+          "sha256": "e353a52372ed6fa90b32ae2895e45527391397ccfcb012f2bd3413e80610a64e"
+        }
+      ],
+      "$international": [
+        {
+          "object": "getset.obj",
+          "sha256": "e353a52372ed6fa90b32ae2895e45527391397ccfcb012f2bd3413e80610a64e"
+        }
+      ],
+      "$set_default_drive": [
+        {
+          "object": "getset.obj",
+          "sha256": "e353a52372ed6fa90b32ae2895e45527391397ccfcb012f2bd3413e80610a64e"
+        }
+      ],
+      "$set_dma": [
+        {
+          "object": "getset.obj",
+          "sha256": "e353a52372ed6fa90b32ae2895e45527391397ccfcb012f2bd3413e80610a64e"
+        }
+      ],
+      "$set_interrupt_vector": [
+        {
+          "object": "getset.obj",
+          "sha256": "e353a52372ed6fa90b32ae2895e45527391397ccfcb012f2bd3413e80610a64e"
+        }
+      ],
+      "$set_verify_on_write": [
+        {
+          "object": "getset.obj",
+          "sha256": "e353a52372ed6fa90b32ae2895e45527391397ccfcb012f2bd3413e80610a64e"
+        }
+      ],
+      "recset": [
+        {
+          "object": "getset.obj",
+          "sha256": "e353a52372ed6fa90b32ae2895e45527391397ccfcb012f2bd3413e80610a64e"
+        }
+      ],
+      "$close": [
+        {
+          "object": "handle.obj",
+          "sha256": "e92d48b2e74f42d86aa1290026370eb17072c61da27a11e0d3d8927ef89c01a2"
+        }
+      ],
+      "$commit": [
+        {
+          "object": "handle.obj",
+          "sha256": "e92d48b2e74f42d86aa1290026370eb17072c61da27a11e0d3d8927ef89c01a2"
+        }
+      ],
+      "$dup": [
+        {
+          "object": "handle.obj",
+          "sha256": "e92d48b2e74f42d86aa1290026370eb17072c61da27a11e0d3d8927ef89c01a2"
+        }
+      ],
+      "$dup2": [
+        {
+          "object": "handle.obj",
+          "sha256": "e92d48b2e74f42d86aa1290026370eb17072c61da27a11e0d3d8927ef89c01a2"
+        }
+      ],
+      "$exthandle": [
+        {
+          "object": "handle.obj",
+          "sha256": "e92d48b2e74f42d86aa1290026370eb17072c61da27a11e0d3d8927ef89c01a2"
+        }
+      ],
+      "$file_times": [
+        {
+          "object": "handle.obj",
+          "sha256": "e92d48b2e74f42d86aa1290026370eb17072c61da27a11e0d3d8927ef89c01a2"
+        }
+      ],
+      "$lseek": [
+        {
+          "object": "handle.obj",
+          "sha256": "e92d48b2e74f42d86aa1290026370eb17072c61da27a11e0d3d8927ef89c01a2"
+        }
+      ],
+      "$read": [
+        {
+          "object": "handle.obj",
+          "sha256": "e92d48b2e74f42d86aa1290026370eb17072c61da27a11e0d3d8927ef89c01a2"
+        }
+      ],
+      "$write": [
+        {
+          "object": "handle.obj",
+          "sha256": "e92d48b2e74f42d86aa1290026370eb17072c61da27a11e0d3d8927ef89c01a2"
+        }
+      ],
+      "$ioctl": [
+        {
+          "object": "ioctl.obj",
+          "sha256": "e5605ae485d26eb90aceceb0b1d8942191a5fd08ce23d630fc5b4d4d5bb33c3f"
+        }
+      ],
+      "$lockoper": [
+        {
+          "object": "lock.obj",
+          "sha256": "6c0d400b962e453ff17a78a531f5222378c157c245fb89883bd4cc10c01ec5fd"
+        }
+      ],
+      "$assignoper": [
+        {
+          "object": "macro.obj",
+          "sha256": "2f03d7144c937d893c1b9c526f46b32002ad42cf6758753fe5176a5e52990e2a"
+        }
+      ],
+      "$useroper": [
+        {
+          "object": "macro.obj",
+          "sha256": "2f03d7144c937d893c1b9c526f46b32002ad42cf6758753fe5176a5e52990e2a"
+        }
+      ],
+      "getcdsfromdrv": [
+        {
+          "object": "macro.obj",
+          "sha256": "2f03d7144c937d893c1b9c526f46b32002ad42cf6758753fe5176a5e52990e2a"
+        }
+      ],
+      "getthisdrv": [
+        {
+          "object": "macro.obj",
+          "sha256": "2f03d7144c937d893c1b9c526f46b32002ad42cf6758753fe5176a5e52990e2a"
+        }
+      ],
+      "initcds": [
+        {
+          "object": "macro.obj",
+          "sha256": "2f03d7144c937d893c1b9c526f46b32002ad42cf6758753fe5176a5e52990e2a"
+        }
+      ],
+      "$nametrans": [
+        {
+          "object": "macro2.obj",
+          "sha256": "180884dabb106ade2a60e559f8b4ef1dd2713961e2cfd9624ce775d82d76f6cf"
+        }
+      ],
+      "drivefromtext": [
+        {
+          "object": "macro2.obj",
+          "sha256": "180884dabb106ade2a60e559f8b4ef1dd2713961e2cfd9624ce775d82d76f6cf"
+        }
+      ],
+      "$create_process_data_block": [
+        {
+          "object": "misc.obj",
+          "sha256": "db22d43992bc732a07cf63358dfefed9fba87a786e8899973c25c9d9dc7acdbd"
+        }
+      ],
+      "$disk_reset": [
+        {
+          "object": "misc.obj",
+          "sha256": "db22d43992bc732a07cf63358dfefed9fba87a786e8899973c25c9d9dc7acdbd"
+        }
+      ],
+      "$dup_pdb": [
+        {
+          "object": "misc.obj",
+          "sha256": "db22d43992bc732a07cf63358dfefed9fba87a786e8899973c25c9d9dc7acdbd"
+        }
+      ],
+      "$get_default_dpb": [
+        {
+          "object": "misc.obj",
+          "sha256": "db22d43992bc732a07cf63358dfefed9fba87a786e8899973c25c9d9dc7acdbd"
+        }
+      ],
+      "$get_dpb": [
+        {
+          "object": "misc.obj",
+          "sha256": "db22d43992bc732a07cf63358dfefed9fba87a786e8899973c25c9d9dc7acdbd"
+        }
+      ],
+      "$get_in_vars": [
+        {
+          "object": "misc.obj",
+          "sha256": "db22d43992bc732a07cf63358dfefed9fba87a786e8899973c25c9d9dc7acdbd"
+        }
+      ],
+      "$get_indos_flag": [
+        {
+          "object": "misc.obj",
+          "sha256": "db22d43992bc732a07cf63358dfefed9fba87a786e8899973c25c9d9dc7acdbd"
+        }
+      ],
+      "$gsetmediaid": [
+        {
+          "object": "misc.obj",
+          "sha256": "db22d43992bc732a07cf63358dfefed9fba87a786e8899973c25c9d9dc7acdbd"
+        }
+      ],
+      "$setdpb": [
+        {
+          "object": "misc.obj",
+          "sha256": "db22d43992bc732a07cf63358dfefed9fba87a786e8899973c25c9d9dc7acdbd"
+        }
+      ],
+      "$sleazefunc": [
+        {
+          "object": "misc.obj",
+          "sha256": "db22d43992bc732a07cf63358dfefed9fba87a786e8899973c25c9d9dc7acdbd"
+        }
+      ],
+      "$sleazefuncdl": [
+        {
+          "object": "misc.obj",
+          "sha256": "db22d43992bc732a07cf63358dfefed9fba87a786e8899973c25c9d9dc7acdbd"
+        }
+      ],
+      "dstrlen": [
+        {
+          "object": "misc2.obj",
+          "sha256": "cf1c7922c612ff6f7f779336527c4727fecdad3728e7b07690a95971eea4d4aa"
+        }
+      ],
+      "fastinit": [
+        {
+          "object": "misc2.obj",
+          "sha256": "cf1c7922c612ff6f7f779336527c4727fecdad3728e7b07690a95971eea4d4aa"
+        }
+      ],
+      "getdevlist": [
+        {
+          "object": "misc2.obj",
+          "sha256": "cf1c7922c612ff6f7f779336527c4727fecdad3728e7b07690a95971eea4d4aa"
+        }
+      ],
+      "idle": [
+        {
+          "object": "misc2.obj",
+          "sha256": "cf1c7922c612ff6f7f779336527c4727fecdad3728e7b07690a95971eea4d4aa"
+        }
+      ],
+      "msg_retrieval": [
+        {
+          "object": "misc2.obj",
+          "sha256": "cf1c7922c612ff6f7f779336527c4727fecdad3728e7b07690a95971eea4d4aa"
+        }
+      ],
+      "nls_getext": [
+        {
+          "object": "misc2.obj",
+          "sha256": "cf1c7922c612ff6f7f779336527c4727fecdad3728e7b07690a95971eea4d4aa"
+        }
+      ],
+      "nls_ioctl": [
+        {
+          "object": "misc2.obj",
+          "sha256": "cf1c7922c612ff6f7f779336527c4727fecdad3728e7b07690a95971eea4d4aa"
+        }
+      ],
+      "nls_lseek": [
+        {
+          "object": "misc2.obj",
+          "sha256": "cf1c7922c612ff6f7f779336527c4727fecdad3728e7b07690a95971eea4d4aa"
+        }
+      ],
+      "nls_open": [
+        {
+          "object": "misc2.obj",
+          "sha256": "cf1c7922c612ff6f7f779336527c4727fecdad3728e7b07690a95971eea4d4aa"
+        }
+      ],
+      "strcmp": [
+        {
+          "object": "misc2.obj",
+          "sha256": "cf1c7922c612ff6f7f779336527c4727fecdad3728e7b07690a95971eea4d4aa"
+        }
+      ],
+      "strcpy": [
+        {
+          "object": "misc2.obj",
+          "sha256": "cf1c7922c612ff6f7f779336527c4727fecdad3728e7b07690a95971eea4d4aa"
+        }
+      ],
+      "strlen": [
+        {
+          "object": "misc2.obj",
+          "sha256": "cf1c7922c612ff6f7f779336527c4727fecdad3728e7b07690a95971eea4d4aa"
+        }
+      ],
+      "cal_lk": [
+        {
+          "object": "mscode.obj",
+          "sha256": "aa6d030aa904f59d213190c93931e273bd2ac1caee0c082b2f20c4193e6e9de0"
+        }
+      ],
+      "dosgetgroup": [
+        {
+          "object": "mscode.obj",
+          "sha256": "aa6d030aa904f59d213190c93931e273bd2ac1caee0c082b2f20c4193e6e9de0"
+        }
+      ],
+      "dosinstall": [
+        {
+          "object": "mscode.obj",
+          "sha256": "aa6d030aa904f59d213190c93931e273bd2ac1caee0c082b2f20c4193e6e9de0"
+        }
+      ],
+      "leave2f": [
+        {
+          "object": "mscode.obj",
+          "sha256": "aa6d030aa904f59d213190c93931e273bd2ac1caee0c082b2f20c4193e6e9de0"
+        }
+      ],
+      "no_op": [
+        {
+          "object": "mscode.obj",
+          "sha256": "aa6d030aa904f59d213190c93931e273bd2ac1caee0c082b2f20c4193e6e9de0"
+        }
+      ],
+      "net_i24_entry": [
+        {
+          "object": "msctrlc.obj",
+          "sha256": "d31848e4a45fa4ea623ce64bb56e0c5fee07fe4da927dbae5cd08c6793743235"
+        }
+      ],
+      "$get_current_pdb": [
+        {
+          "object": "msdisp.obj",
+          "sha256": "b46ccac9fe11caa0c36b6ed44104ebec1ab81e542a5c610131b3d7da6db488da"
+        }
+      ],
+      "$set_ctrl_c_trapping": [
+        {
+          "object": "msdisp.obj",
+          "sha256": "b46ccac9fe11caa0c36b6ed44104ebec1ab81e542a5c610131b3d7da6db488da"
+        }
+      ],
+      "$set_current_pdb": [
+        {
+          "object": "msdisp.obj",
+          "sha256": "b46ccac9fe11caa0c36b6ed44104ebec1ab81e542a5c610131b3d7da6db488da"
+        }
+      ],
+      "$set_printer_flag": [
+        {
+          "object": "msdisp.obj",
+          "sha256": "b46ccac9fe11caa0c36b6ed44104ebec1ab81e542a5c610131b3d7da6db488da"
+        }
+      ],
+      "get_user_stack": [
+        {
+          "object": "msdisp.obj",
+          "sha256": "b46ccac9fe11caa0c36b6ed44104ebec1ab81e542a5c610131b3d7da6db488da"
+        }
+      ],
+      "$abort": [
+        {
+          "object": "msproc.obj",
+          "sha256": "b84de678ec10d7bc799dcee41e80e3da8ee070ccf151beab8ec98c5e9d5826c4"
+        }
+      ],
+      "$exec": [
+        {
+          "object": "msproc.obj",
+          "sha256": "b84de678ec10d7bc799dcee41e80e3da8ee070ccf151beab8ec98c5e9d5826c4"
+        }
+      ],
+      "$exit": [
+        {
+          "object": "msproc.obj",
+          "sha256": "b84de678ec10d7bc799dcee41e80e3da8ee070ccf151beab8ec98c5e9d5826c4"
+        }
+      ],
+      "$keep_process": [
+        {
+          "object": "msproc.obj",
+          "sha256": "b84de678ec10d7bc799dcee41e80e3da8ee070ccf151beab8ec98c5e9d5826c4"
+        }
+      ],
+      "$wait": [
+        {
+          "object": "msproc.obj",
+          "sha256": "b84de678ec10d7bc799dcee41e80e3da8ee070ccf151beab8ec98c5e9d5826c4"
+        }
+      ],
+      "set_sft_mode": [
+        {
+          "object": "open.obj",
+          "sha256": "1b1fd9eea4332ea1f7dfcadafce4565730c6fab2ee417edf5ecaecd93738fcd6"
+        }
+      ],
+      "share_error": [
+        {
+          "object": "open.obj",
+          "sha256": "1b1fd9eea4332ea1f7dfcadafce4565730c6fab2ee417edf5ecaecd93738fcd6"
+        }
+      ],
+      "$parse_file_descriptor": [
+        {
+          "object": "parse.obj",
+          "sha256": "30da54fce071d12f2342525099942c0e4b6a1fd9ce5aacef6616225b34d11002"
+        }
+      ],
+      "$chdir": [
+        {
+          "object": "path.obj",
+          "sha256": "176ee72d1ad15f6fe2407c3250cbca138f576a81357306093164ddfcc12078bc"
+        }
+      ],
+      "$current_dir": [
+        {
+          "object": "path.obj",
+          "sha256": "176ee72d1ad15f6fe2407c3250cbca138f576a81357306093164ddfcc12078bc"
+        }
+      ],
+      "$mkdir": [
+        {
+          "object": "path.obj",
+          "sha256": "176ee72d1ad15f6fe2407c3250cbca138f576a81357306093164ddfcc12078bc"
+        }
+      ],
+      "$rmdir": [
+        {
+          "object": "path.obj",
+          "sha256": "176ee72d1ad15f6fe2407c3250cbca138f576a81357306093164ddfcc12078bc"
+        }
+      ],
+      "$dir_search_first": [
+        {
+          "object": "search.obj",
+          "sha256": "c3c8288358a1ff80b872dcbec89456cf63b6ccda6bc2af0edf85a57222b8c554"
+        }
+      ],
+      "$dir_search_next": [
+        {
+          "object": "search.obj",
+          "sha256": "c3c8288358a1ff80b872dcbec89456cf63b6ccda6bc2af0edf85a57222b8c554"
+        }
+      ],
+      "$find_first": [
+        {
+          "object": "search.obj",
+          "sha256": "c3c8288358a1ff80b872dcbec89456cf63b6ccda6bc2af0edf85a57222b8c554"
+        }
+      ],
+      "$find_next": [
+        {
+          "object": "search.obj",
+          "sha256": "c3c8288358a1ff80b872dcbec89456cf63b6ccda6bc2af0edf85a57222b8c554"
+        }
+      ],
+      "share_violation": [
+        {
+          "object": "share.obj",
+          "sha256": "16e36bf4758e222a18f83b656172e1165e74fb107175af51dc7ca52c31f8c08f"
+        }
+      ],
+      "$servercall": [
+        {
+          "object": "srvcall.obj",
+          "sha256": "5f469e72a1b53d1db7540c79d6b128a54b69c6d75140dd604b8ce15663d637ed"
+        }
+      ],
+      "$get_date": [
+        {
+          "object": "time.obj",
+          "sha256": "773bc435dfe4bddc86b0b6e4bfab1ffc6855e0568b6000e27766c98a62d10f5f"
+        }
+      ],
+      "$get_time": [
+        {
+          "object": "time.obj",
+          "sha256": "773bc435dfe4bddc86b0b6e4bfab1ffc6855e0568b6000e27766c98a62d10f5f"
+        }
+      ],
+      "$set_date": [
+        {
+          "object": "time.obj",
+          "sha256": "773bc435dfe4bddc86b0b6e4bfab1ffc6855e0568b6000e27766c98a62d10f5f"
+        }
+      ],
+      "$set_time": [
+        {
+          "object": "time.obj",
+          "sha256": "773bc435dfe4bddc86b0b6e4bfab1ffc6855e0568b6000e27766c98a62d10f5f"
+        }
+      ],
+      "date16": [
+        {
+          "object": "time.obj",
+          "sha256": "773bc435dfe4bddc86b0b6e4bfab1ffc6855e0568b6000e27766c98a62d10f5f"
+        }
+      ],
+      "dslide": [
+        {
+          "object": "time.obj",
+          "sha256": "773bc435dfe4bddc86b0b6e4bfab1ffc6855e0568b6000e27766c98a62d10f5f"
+        }
+      ],
+      "dsum": [
+        {
+          "object": "time.obj",
+          "sha256": "773bc435dfe4bddc86b0b6e4bfab1ffc6855e0568b6000e27766c98a62d10f5f"
+        }
+      ],
+      "setyear": [
+        {
+          "object": "time.obj",
+          "sha256": "773bc435dfe4bddc86b0b6e4bfab1ffc6855e0568b6000e27766c98a62d10f5f"
+        }
+      ],
+      "pjfnfromhandle": [
+        {
+          "object": "util.obj",
+          "sha256": "df0b8657376236fc3825b81cdb4105da402d345182099de0561f7602a353b982"
+        }
+      ],
+      "sffromsfn": [
+        {
+          "object": "util.obj",
+          "sha256": "df0b8657376236fc3825b81cdb4105da402d345182099de0561f7602a353b982"
+        }
+      ]
+    },
+    "object_count": 57,
+    "all_unique": true,
+    "versiona_matches_current": false,
+    "limitations": "The 57 objects come from an existing historical reference build; version configuration differs from current 7.0a and object symbols are not target-build proof. Compilation configuration and transitive dependencies must be verified."
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "near_calls": {
+    "bcd_hour": {
+      "call_file_offset": 9857,
+      "target_file_offset": 10767,
+      "call_hex": "e88b03"
+    },
+    "bcd_minute": {
+      "call_file_offset": 9870,
+      "target_file_offset": 10767,
+      "call_hex": "e87e03"
+    },
+    "bcd_second": {
+      "call_file_offset": 9883,
+      "target_file_offset": 10767,
+      "call_hex": "e87103"
+    },
+    "date_convert": {
+      "call_file_offset": 9933,
+      "target_file_offset": 10577,
+      "call_hex": "e88102"
+    }
+  },
+  "reference_sources": [
+    "bios/mschar.asm",
+    "bios/msinit.asm"
+  ],
+  "diagnostic_report": "config-ml-clock-helper-pointers.json",
+  "limitations": "Direct target calls and corresponding conversion code are verified statically. Reference object pointers are diagnostic stubs until later clock module reconstruction."
+}

@@ -1,0 +1,10 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "harddrv_bios_offset": 319,
+  "target_initial_value": 128,
+  "target_init_file_offset": 4559,
+  "target_init_hex": "c70600003f01",
+  "reference_source": "bios/msinit.asm",
+  "diagnostic_report": "config-ml-harddrv-placement.json",
+  "limitations": "Static initialization and initial byte establish the target pointer relation. Full startup and target-wide layout remain unverified."
+}

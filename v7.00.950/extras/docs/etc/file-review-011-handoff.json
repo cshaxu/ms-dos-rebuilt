@@ -1,0 +1,19 @@
+{
+  "from_index": 11,
+  "from_file": "bios/mschar.asm",
+  "source_sha256": "64b5915fcaa891abd2bf2105c25b3d1e7399831ae9e99570dafab54e2d89b164",
+  "to_index": 12,
+  "to_file": "bios/msdioctl.asm",
+  "remaining": [
+    "provide actual DOS 7 near clock helper implementations and int6c_update export",
+    "integrate prepared target clock procedure order into a real build",
+    "resolve all external addresses and device dispatch table links",
+    "perform whole IO.SYS clean build and byte verification"
+  ],
+  "evidence": [
+    "file-review-011-near-call-interfaces.json",
+    "file-review-011-dispatch-tables.json",
+    "file-review-011-diagnostic-link.json"
+  ],
+  "limitations": "File 11 is not target-accepted; diagnostic near helper bodies are stubs."
+}

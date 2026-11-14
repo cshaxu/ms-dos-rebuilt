@@ -1,0 +1,16 @@
+{
+  "file": "bios/sysinit2.asm",
+  "source_sha256": "2a3456a3227571a87261ad1114ba4a217d0d0393122ea84f5814e61ac8daec2f",
+  "target_range": "IO.SYS 0xa5cd..0xa64b",
+  "length": 126,
+  "different_bytes": 0,
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link": "passed",
+  "probe_source": "extras/research/boot-prepare-paths-linked.asm",
+  "limitations": [
+    "Probe compares only the recovered prefix; its temporary return is not in the target.",
+    "BIOS path propagation and option-reader caller are incomplete.",
+    "Fixed offsets do not prove full image layout or execution."
+  ]
+}

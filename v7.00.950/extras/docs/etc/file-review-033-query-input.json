@@ -1,0 +1,17 @@
+{
+  "file": "bios/sysinit2.asm",
+  "file_index": 33,
+  "source_sha256": "aafa15c1500bfa6caef0ed4ff85e8a2cf4869ea5c310196c81e3ba4ba8051fcb",
+  "target_range": "IO.SYS 0x7aea..0x7b8c",
+  "length": 162,
+  "different_bytes": 0,
+  "default_object_identical": true,
+  "dos7_assembly": "passed",
+  "probe_source": "extras/research/query-input-linked.asm",
+  "limitations": [
+    "The isolated link uses ORG and a stub disp_input; final link layout and display behavior remain unverified.",
+    "The DOS7 query entry still follows the older path and does not yet initialize the new flags.",
+    "The six localized response characters still require startup initialization.",
+    "The full image and complete query execution have not been verified."
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "ec35_flag_bios_code_offset": 9323,
+  "target_initial_value": 0,
+  "instruction_anchors": {
+    "any_drive": {
+      "target_file_offset": 16872,
+      "hex": "2e803e6b2400"
+    },
+    "drive_mask": {
+      "target_file_offset": 16797,
+      "hex": "2e84066b24"
+    }
+  },
+  "reference_source": "bios/msint13.asm",
+  "diagnostic_report": "config-ml-ec35-owner.json",
+  "limitations": "Target tests match the reference ec35 drive mask path. The final definition remains pending INT13 reconstruction; diagnostic uses a stub."
+}

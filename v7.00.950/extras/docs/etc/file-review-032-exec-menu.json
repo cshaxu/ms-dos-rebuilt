@@ -1,0 +1,32 @@
+{
+  "sources": {
+    "bios/sysinit1.asm": "b24c55f9f1576626cac546577f8d48bf7ceab7addb0ea98c59c84322e352f28a",
+    "bios/sysinit2.asm": "1f28c9c2bef13d9aed3994c6b0cbb0b1bbcd0164ddba9c708bc833bce1cf7e0a"
+  },
+  "change": "Restore DOS startup state handling and previous-menu call after system-file EXEC; expose existing path insertion and data dependencies.",
+  "matched": [
+    {
+      "region": "SYSINIT caller continuation",
+      "start": "0x15d7",
+      "end_exclusive": "0x15f6",
+      "bytes": 31
+    },
+    {
+      "region": "path insertion and previous-menu check",
+      "start": "0x52c9",
+      "end_exclusive": "0x5397",
+      "bytes": 206
+    }
+  ],
+  "verification": {
+    "tool": "extras/tools/verify_syspre_device_link.py",
+    "link_stage": "extras/build/syspre-object-link-o_7k8b47",
+    "module_stage": "extras/build/ml-sysinit-0yth6rot",
+    "scope": "Both regions match the target and the SYSINIT near call links to actual previous-menu code, which links to actual path insertion, menu builder and source-defined data."
+  },
+  "limitations": [
+    "Next target SYSINIT logic from 15F6h remains to be reconciled.",
+    "BIOS location and other diagnostic gaps or anchors are synthetic.",
+    "Complete IO.SYS and all three core files remain unverified."
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "file": "inc/parse.asm",
+  "target_sha256": "a74c700063cd6b1c91523952bfc80e9393c125d39ada0164d48b5098089fcef3",
+  "reference_stage": "extras\\build\\sysparse-short-trial-0jqcpb5r",
+  "target_parser_range": [
+    "0xea12",
+    "0xf520"
+  ],
+  "parser_bytes": 2830,
+  "target_wrapper_range": [
+    "0xf520",
+    "0xf528"
+  ],
+  "wrapper_bytes_equal": true,
+  "difference_count": 142,
+  "difference_all_omf_fixup_locations": true,
+  "fixup_difference_deltas": {
+    "0x2c75": 97,
+    "0x2cf9": 45
+  },
+  "other_parser_bytes_equal": true,
+  "two_short_jumps": [
+    "$P_Bridge to $P_Match_Exit",
+    "$P_Value01 to $P_Value_Exit"
+  ],
+  "limitations": [
+    "Reference is a provisional DOS 6 build; the two target address deltas are observed, not proof of final segment layout.",
+    "All changed fields correspond to OMF fixups, but the complete DOS 7 COMMAND link remains unverified."
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "build": "extras/docs/etc/command-country-original-build-20261112.json",
+  "source": "inc/msgserv.asm",
+  "change": "Removed non-target transient country query and helpers; original target initializes the message country fields in its image.",
+  "target_date_range": "0x102b8..0x1031e",
+  "registered_instruction_bytes": 102,
+  "target_country_range": "0x10d05..0x10d10",
+  "exact_country_data_bytes": 11,
+  "target_probe": "extras/build/country-original-target-hm2xhnc0",
+  "current_probe": "extras/build/country-original-current-ixs7gfoi",
+  "matched_cases": [
+    "DIR date and summary output except separate parent directory timestamp",
+    "VER /R",
+    "VOL"
+  ],
+  "probe_maintenance": "primary resource probe updated to remove deleted transient helper; passes against its earlier selected build",
+  "limitations": "No claim for non-US locales or complete time implementation; whole file not byte-identical.",
+  "output_bytes": 93100,
+  "target_bytes": 92870
+}

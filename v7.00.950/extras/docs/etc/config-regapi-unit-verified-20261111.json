@@ -1,0 +1,132 @@
+{
+  "source_build_report": "extras/build/config-source-0jmna6h7/verified.json",
+  "stage": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\crt-explicit-hka_l6lc",
+  "packing": {
+    "artifact": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\crt-explicit-hka_l6lc\\config-packed.bin",
+    "sha256": "9cb1ae46523d8f13b2338dd5329ef9000faf8528e230cc9458eb89ed8a85292a",
+    "bytes": 46508,
+    "exact_unpacked_bytes": 45712,
+    "exact_prefix_bytes": 45586,
+    "relocation_locations": 445,
+    "exact_frontend_relocation_order": 67,
+    "exact_crt_relocation_order": 42,
+    "relocation_order_equal": false,
+    "byte_equal": false,
+    "differing_bytes": 576,
+    "scope": "Original LINK EXEPACK output. Only relocation table serialization differs; not target-identical yet."
+  },
+  "unit_sources": [
+    "rapiopen",
+    "rapiclos",
+    "rapiqry",
+    "rapicrea",
+    "rapidelk",
+    "rapidelv",
+    "rapiset",
+    "rapienmk",
+    "rapienmv",
+    "rapinos",
+    "rapiflus",
+    "rapiremp",
+    "rapiload",
+    "rapiunld",
+    "rapisave"
+  ],
+  "masm_data_records": [
+    {
+      "segment": 3,
+      "offset": 0,
+      "bytes": 1020
+    },
+    {
+      "segment": 3,
+      "offset": 1020,
+      "bytes": 1020
+    },
+    {
+      "segment": 3,
+      "offset": 2040,
+      "bytes": 1020
+    },
+    {
+      "segment": 3,
+      "offset": 3060,
+      "bytes": 1020
+    },
+    {
+      "segment": 3,
+      "offset": 4080,
+      "bytes": 580
+    }
+  ],
+  "fixupp_record_bytes": [
+    160,
+    213,
+    168,
+    402,
+    158
+  ],
+  "actual_api_relocation_runs": [
+    {
+      "count": 16,
+      "lowest": 4844,
+      "highest": 5740
+    },
+    {
+      "count": 20,
+      "lowest": 5874,
+      "highest": 6805
+    },
+    {
+      "count": 16,
+      "lowest": 6883,
+      "highest": 7815
+    },
+    {
+      "count": 19,
+      "lowest": 7870,
+      "highest": 8878
+    },
+    {
+      "count": 12,
+      "lowest": 8897,
+      "highest": 9451
+    }
+  ],
+  "target_api_relocation_runs": [
+    {
+      "count": 15,
+      "lowest": 4844,
+      "highest": 5502
+    },
+    {
+      "count": 14,
+      "lowest": 5740,
+      "highest": 6463
+    },
+    {
+      "count": 18,
+      "lowest": 6506,
+      "highest": 7323
+    },
+    {
+      "count": 9,
+      "lowest": 7533,
+      "highest": 8068
+    },
+    {
+      "count": 18,
+      "lowest": 8174,
+      "highest": 8930
+    },
+    {
+      "count": 9,
+      "lowest": 9017,
+      "highest": 9451
+    }
+  ],
+  "core_files_modified": 0,
+  "core_files_added": 0,
+  "scope": "Unified REGAPI source compilation preserves full decoded bytes, every public entry and all relocation locations. Target descending relocation runs only constrain original record boundaries; they do not identify exact original LEDATA lengths. No guessed boundary or target relocation data is inserted into production output.",
+  "rejected_simple_record_budget": "1024-byte combined code/FIXUPP budget with zero or 11-byte header allowance does not reproduce all six target runs; not adopted."
+}

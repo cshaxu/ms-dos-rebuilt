@@ -1,0 +1,14 @@
+{
+  "source_sha256": "e65a4f78336aaf6a8e7dd156fe6f1a0dd20d1eacb11c50c847ae92a0068749ee",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "tool": "DOS 6 ML 6",
+  "production_source_attempt": "fails: A2107 near call to time_to_ticks across Bios_Data_Init and Bios_Code",
+  "temporary_probe": "declaration moved to Bios_Data_Init in disposable source copy only",
+  "temporary_probe_result": "full file assembles",
+  "matching_instruction_forms": {
+    "cmp ax,2": "83 F8 02\\s+cmp\\s+ax,2",
+    "sub ax,1": "83 E8 01\\s+sub\\s+ax,1",
+    "cmp ax,64": "83 F8 40\\s+cmp\\s+ax,64"
+  },
+  "limitation": "The temporary segment declaration is not validated for runtime or link correctness. This is not a production build or proof of target equivalence."
+}

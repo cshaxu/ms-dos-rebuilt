@@ -1,0 +1,30 @@
+{
+  "kind": "isolated mixed link; not a production BIOS or IO.SYS build",
+  "file": "bios/msbio1.asm",
+  "source_sha256": "c9cdb0447c5bdc740d30d8ad7521b8e54006f74f5b5b2a6f85ca4df48beb437b",
+  "stage": "extras/build/bios-bootlog-formal-link",
+  "preparation": [
+    "split the formal msbio1 source into its established SYSINIT contributions",
+    "assemble the generated formal main contribution and three split contributions with DOS7_CONFIG",
+    "remove the obsolete multunit diagnostic object from the link response"
+  ],
+  "result": {
+    "link_exit_code": 0,
+    "output": "msbio.exe",
+    "output_bytes": 57304,
+    "formal_exports": {
+      "mult_call16": "0189:0780",
+      "mult_call18": "0189:080F",
+      "mult_call17": "0189:0831",
+      "mult_call21": "0189:08B8"
+    },
+    "obsolete_multunit_in_response": false
+  },
+  "calendar_dependency_resolution": "The two former RET-only calendar stubs are no longer in the response. Formal msinit aliases now resolve mschar's near calls; see file-review-033-msinit-calendar-aliases.json.",
+  "later_link_update": "The same isolated response was subsequently relinked without clockent, m2stub, c7stub or initstub after their formal source dependencies were restored; see file-review-033-bios-disk-order-formal-link.json.",
+  "limitations": [
+    "This link retains synthetic gaps, other dependency stubs and a generated source split.",
+    "The output is not relocated into the target layout and is not an IO.SYS candidate.",
+    "It proves that the actual msbio1 exports satisfy msint13's four boot-log externals, not final binary equality."
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "build_report": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\docs\\etc\\command-sysgetmsg-resource-segment-final-build-20261112.json",
+  "resources": [
+    {
+      "class_id": 5,
+      "resource_file_range": [
+        12976,
+        14487
+      ],
+      "destination": "InitMsgBuffer",
+      "bytes_read": 1495,
+      "entry_count": 21,
+      "source_linked_class_matches": true,
+      "all_fixed_pointers_in_bounds": true
+    },
+    {
+      "class_id": 6,
+      "resource_file_range": [
+        14496,
+        16709
+      ],
+      "destination": "ResidentMsgBuffer",
+      "bytes_read": 2197,
+      "entry_count": 93,
+      "source_linked_class_matches": true,
+      "all_fixed_pointers_in_bounds": true
+    }
+  ],
+  "limitations": [
+    "Models successful file reads and fixups; no machine-code execution or error-path validation.",
+    "Class 0 transient loader remains integrated with legacy in-image tables."
+  ]
+}

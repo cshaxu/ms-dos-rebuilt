@@ -1,0 +1,25 @@
+{
+  "file": "bios/sysconf.asm",
+  "file_index": 30,
+  "source_sha256": "dc6b1e2cfbcd8c3a92af84ab35dcdb44e19f179923c276da4517dcc68ecad9a1",
+  "matched_ranges": [
+    {
+      "target": "IO.SYS 0xb550..0xb55d",
+      "bytes": 13,
+      "purpose": "SCSIMGR name and result data"
+    },
+    {
+      "target": "IO.SYS 0xd52e..0xd575",
+      "bytes": 71,
+      "purpose": "SCSIMGR entry query"
+    }
+  ],
+  "different_bytes": 0,
+  "default_object_identical": true,
+  "dos7_assembly": "passed",
+  "limitations": [
+    "ORG reproduces target offsets only in isolation; full link placement and cross-module source ownership are unverified.",
+    "The containing config_record_device routine has not yet been restored or connected.",
+    "The target does not check the IOCTL result before loading the returned entry; this reconstruction follows that behavior."
+  ]
+}

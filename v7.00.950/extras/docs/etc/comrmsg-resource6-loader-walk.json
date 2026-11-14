@@ -1,0 +1,32 @@
+{
+  "target_sha256": "a74c700063cd6b1c91523952bfc80e9393c125d39ada0164d48b5098089fcef3",
+  "resource_walk": [
+    {
+      "file_offset": "0x40",
+      "length": 12908,
+      "resource_byte": 0
+    },
+    {
+      "file_offset": "0x32b0",
+      "length": 1511,
+      "resource_byte": 5
+    },
+    {
+      "file_offset": "0x38a0",
+      "length": 2213,
+      "resource_byte": 6
+    }
+  ],
+  "initial_mz_calculation": "MZ relocation table offset plus four times relocation count, rounded up to 16 bytes and with minimum 0x40.",
+  "code_evidence": {
+    "0x7abe": "a3db38b451cd21",
+    "0x7bc9": "8a0ebe38a1db383bc17419",
+    "0x7bd6": "0316af3883d10083c20f83d10080e2f0",
+    "0x7bef": "83c21483d100"
+  },
+  "logic": "The routine stores caller AX as the requested resource number, opens a program path, scans NSCO headers, compares their resource byte with the requested value, and advances by each resource length rounded up to 16 bytes. Applying that walk to the target finds resource 6 at 0x38a0 after resources 0 and 5.",
+  "limits": [
+    "The routine accepts a caller-supplied file path; a particular call passing resource 6 and its buffer has not yet been established.",
+    "This analysis does not prove the complete final source or link."
+  ]
+}

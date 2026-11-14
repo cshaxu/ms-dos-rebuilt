@@ -1,0 +1,43 @@
+{
+  "file": "inc/highvar.inc",
+  "sha256": "79c6e82987d716b33e73e956b0b1a11689dfaad60a8b55e8c39238cf09c5892d",
+  "references": [
+    {
+      "name": "6.0",
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\inc\\highvar.inc",
+      "sha256": "79c6e82987d716b33e73e956b0b1a11689dfaad60a8b55e8c39238cf09c5892d"
+    },
+    {
+      "name": "Astro",
+      "path": "O:\\repos.external\\astro\\inc\\highvar.inc",
+      "sha256": "79c6e82987d716b33e73e956b0b1a11689dfaad60a8b55e8c39238cf09c5892d"
+    }
+  ],
+  "stage": "extras/build/highvar-context-ei26xl9p",
+  "contexts": {
+    "device": {
+      "exit": 0,
+      "external": []
+    },
+    "load_resident": {
+      "exit": 0,
+      "external": []
+    },
+    "load_external": {
+      "exit": 0,
+      "external": [
+        "finhigh",
+        "fm_argc",
+        "fm_strat",
+        "fm_umb",
+        "fumbtiny",
+        "segload",
+        "umbload",
+        "umbsize",
+        "umbused"
+      ]
+    }
+  },
+  "limitations": "The probe tests declarations only, not all later macro expansions, final linking or 7.0a target equivalence.",
+  "target_status": "unverified"
+}

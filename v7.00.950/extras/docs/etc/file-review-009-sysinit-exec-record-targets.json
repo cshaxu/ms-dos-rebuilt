@@ -1,0 +1,58 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_sysinit_segment": 1251,
+  "target_bios_code_segment_word": 469,
+  "records": [
+    {
+      "index": 1,
+      "resolved_file_offset": 36280,
+      "size": 64,
+      "initial_hex": "003a5c57494e444f5753000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "runtime_segment_source": "SYSINIT CS"
+    },
+    {
+      "index": 2,
+      "resolved_file_offset": 18374,
+      "size": 2,
+      "initial_hex": "3000",
+      "runtime_segment_source": "SYSINIT 0F40h"
+    },
+    {
+      "index": 3,
+      "resolved_file_offset": 60872,
+      "size": 3,
+      "initial_hex": "000000",
+      "runtime_segment_source": "SYSINIT CS"
+    },
+    {
+      "index": 4,
+      "resolved_file_offset": 60875,
+      "size": 1,
+      "initial_hex": "00",
+      "runtime_segment_source": "SYSINIT CS"
+    },
+    {
+      "index": 5,
+      "resolved_file_offset": 23613,
+      "size": 1,
+      "initial_hex": "00",
+      "runtime_segment_source": "SYSINIT CS"
+    },
+    {
+      "index": 6,
+      "resolved_file_offset": 60876,
+      "size": 1,
+      "initial_hex": "00",
+      "runtime_segment_source": "SYSINIT CS"
+    },
+    {
+      "index": 7,
+      "resolved_file_offset": 60877,
+      "size": 2,
+      "initial_hex": "3000",
+      "runtime_segment_source": "SYSINIT CS"
+    }
+  ],
+  "interpretation": "The first record points to a 64-byte buffer whose initial bytes contain a drive-letter slot followed by :\\WINDOWS. The second points into BIOS_CODE and the rest into SYSINIT.",
+  "limitations": "Pointer-to-file mapping is static for this frozen image. The names and semantics of the other records remain unverified, as does behavior after relocation."
+}

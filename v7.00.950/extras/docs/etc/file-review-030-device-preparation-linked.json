@@ -1,0 +1,34 @@
+{
+  "source": "bios/sysconf.asm",
+  "sha256": "0523f142066ea9d839667436cccec73d207078cef2715b2c5799d4f3d5a3e8a6",
+  "change": "Link actual DEVICE load preparation, failure path, low-memory handling, driver unit counter and log chain.",
+  "matched": [
+    {
+      "region": "DEVICE load preparation and failure",
+      "start": "0x6d52",
+      "end_exclusive": "0x6def",
+      "bytes": 157
+    },
+    {
+      "region": "device log data and code",
+      "start": "0x9d72",
+      "end_exclusive": "0x9f22",
+      "bytes": 432
+    },
+    {
+      "region": "continuous CONFIG entry through device preparation",
+      "start": "0x6848",
+      "end_exclusive": "0x6def",
+      "bytes": 1447
+    }
+  ],
+  "verification": {
+    "tool": "extras/tools/verify_syspre_device_link.py",
+    "link_stage": "extras/build/syspre-object-link-xlrczvtw",
+    "scope": "Actual CONFIG, DEVICE preparation, log and error providers linked; following driver execution and other layout positions remain anchored."
+  },
+  "limitations": [
+    "No core source modified in this step.",
+    "Driver execution, runtime behavior, full product link and final three core binaries remain unverified."
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "file": "bios/sysinit1.asm",
+  "source_sha256": "3be465bd64e38a3577434a1d4c2006bf04d6bece40603e06df4904182a45906a",
+  "target_range": "IO.SYS 0x6998..0x6a23",
+  "bytes": 139,
+  "different_bytes": 0,
+  "probe": "extras/research/boot-read-linked.asm",
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "Directory lookup and compressed-drive memory reservation callers remain incomplete.",
+    "Fixed-offset probe does not verify real disk I/O, complete layout or execution."
+  ]
+}

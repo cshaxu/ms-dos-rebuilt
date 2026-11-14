@@ -1,0 +1,18 @@
+{
+  "source_sha256": "64b5915fcaa891abd2bf2105c25b3d1e7399831ae9e99570dafab54e2d89b164",
+  "prepared_source_sha256": "fe07db0e8c0cbaaa6221018edf9dbb18c48c11f0d91e894e991b318213b3286c",
+  "diagnostic_stage": "extras\\build\\mschar-link-co4j3ekf",
+  "diagnostic_binary_sha256": "0a5ff51a396a0e52b487b222152b50c4341403c51c8b8ae91a635a8f694eeecc",
+  "symbols": {
+    "int6c_update": "01A5:2272",
+    "bin_to_bcd_near": "01A5:2273",
+    "daycnt_to_day_near": "01A5:2274",
+    "bin_to_bcd": "0000:099D",
+    "daycnt_to_day": "0000:08CC"
+  },
+  "linker_warnings": [
+    "L4021 no stack segment",
+    "L4038 no starting address"
+  ],
+  "limitations": "The three DOS 7 near helper definitions are RET-only diagnostic stubs. Legacy DOS 6 far functions remain separately linked; final helper implementations, placement, all target addresses and clean build remain unverified."
+}

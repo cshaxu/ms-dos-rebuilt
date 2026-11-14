@@ -1,0 +1,18 @@
+{
+  "source": "bios/msbio1.asm",
+  "source_before_sha256": "4c7da2d2b70fcd9f30701844a9a3ddd05c582d831f89990cdee2747652ad0c11",
+  "source_after_sha256": "f948bfac71ebe818364211feb9708c285349c5bf4a266c20681ca2c01371f95b",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_offset": 1539,
+  "target_bytes": "469e",
+  "change": "DOS7_CONFIG DosDataSg initial word changed to the observed target word; initialization overwrites it.",
+  "diagnostic_object_before_sha256": "f2aa33ca8f10356634039b3a5fa7d027ec5d7bab95f1aa0a05b1b6076789b0b7",
+  "diagnostic_object_after_sha256": "19979a02caad02b3285fa57c43dc28f65bfc07b5f80db9d03b1b98481c62ab8b",
+  "object_differences": [
+    2773,
+    2774,
+    3296
+  ],
+  "object_difference_explanation": "Two LEDATA bytes and their OMF record checksum.",
+  "limitations": "The origin and original source spelling of the target initial word remain unknown. The isolated assembler probe used generated split source; full IO.SYS layout and build remain unverified."
+}

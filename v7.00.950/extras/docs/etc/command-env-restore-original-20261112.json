@@ -1,0 +1,29 @@
+{
+  "build": "extras/docs/etc/command-env-restore-original-build-20261112.json",
+  "source": "cmd/command/tenv.asm",
+  "changes": [
+    "removed unreferenced STORE_CHAR implementation",
+    "RestUDir uses selected PathChdirFunction"
+  ],
+  "verified_target_ranges": [
+    "0xbda7..0xbdbf",
+    "0xbe2e..0xbea5"
+  ],
+  "verified_instruction_bytes": 143,
+  "target_probe": "extras/build/env-restore-final-target-k9szhnk0",
+  "current_probe": "extras/build/env-restore-final-current-8oyoyij9",
+  "prior_build_control": "extras/build/env-restore-control-i04c4hy5",
+  "matched_cases": [
+    "wildcard COPY",
+    "current directory after COPY",
+    "CD into subdirectory",
+    "CD back",
+    "environment value assigned"
+  ],
+  "known_difference": "SET output contains extra CMDLINE=set in both current and previous build, absent in target",
+  "trace_correction": "startup instrumentation also stalls the known-good control; earlier inference that split-table runtime stalled before scan is unproven",
+  "split_probe": "extras/build/resident-trace-split-zl_7lmti",
+  "instrumented_control": "extras/build/resident-trace-control-lppykf8m",
+  "limitations": "environment growth and long filename restoration not separately runtime tested; final binary not identical",
+  "output_bytes": 94113
+}

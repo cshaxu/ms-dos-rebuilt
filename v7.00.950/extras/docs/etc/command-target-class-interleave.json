@@ -1,0 +1,79 @@
+{
+  "target": "extras/baselines/targets/COMMAND.COM",
+  "target_sha256": "a74c700063cd6b1c91523952bfc80e9393c125d39ada0164d48b5098089fcef3",
+  "f_index_start": 113,
+  "f_index_end_exclusive": 905,
+  "f_first_message": 988,
+  "gap_bytes": 87,
+  "other_class_message_bytes": 83,
+  "other_class_messages": [
+    {
+      "name": "extended_default",
+      "offset": 905,
+      "length": 17,
+      "text": "Extended Error %1"
+    },
+    {
+      "name": "file_not_found",
+      "offset": 923,
+      "length": 14,
+      "text": "File not found"
+    },
+    {
+      "name": "path_not_found",
+      "offset": 938,
+      "length": 14,
+      "text": "Path not found"
+    },
+    {
+      "name": "insufficient_memory",
+      "offset": 953,
+      "length": 19,
+      "text": "Insufficient memory"
+    },
+    {
+      "name": "parse_default",
+      "offset": 973,
+      "length": 14,
+      "text": "Parse Error %1"
+    }
+  ],
+  "extended_class_index_evidence": [
+    {
+      "offset": 89,
+      "id": 65535,
+      "message_offset": 905
+    },
+    {
+      "offset": 93,
+      "id": 2,
+      "message_offset": 923
+    },
+    {
+      "offset": 97,
+      "id": 3,
+      "message_offset": 938
+    },
+    {
+      "offset": 101,
+      "id": 8,
+      "message_offset": 953
+    }
+  ],
+  "probe": "extras/docs/etc/command-target-class-probe.json",
+  "reference_probe_order": "Current generated F class data begins immediately after F index; subsequent class 1 and 2 structures and data are assembled later in tdata.asm.",
+  "limitations": [
+    "The exact target source or generator mechanism that interleaves classes is unknown.",
+    "The target parse-default text is recognized by bytes and position; its index record still needs verification.",
+    "Final target layout, relocations and executable equality remain unverified.",
+    "ID 9900 points at a 52-byte binary payload; its runtime purpose is unverified."
+  ],
+  "last_f_index": {
+    "offset": 901,
+    "id": 9900,
+    "relative_offset": 12018,
+    "message_offset": 12919,
+    "payload_length": 52
+  },
+  "explanation": "The 87-byte difference in relative offsets consists of one additional four-byte F-class index record (ID 9900) plus 83 bytes of other classes' length-prefixed messages. The gap between the complete F index and the first F message is 83 bytes."
+}

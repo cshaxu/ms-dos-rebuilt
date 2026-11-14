@@ -1,0 +1,28 @@
+{
+  "target_sha256": "a74c700063cd6b1c91523952bfc80e9393c125d39ada0164d48b5098089fcef3",
+  "mz_header_paragraphs": 1045,
+  "mz_header_end": "0x4150",
+  "mz_entry_file_offset": "0x4250",
+  "mz_relocation_count": 0,
+  "message_file_offsets": {
+    "ExtErr19": "0x3c88",
+    "ExtErr20": "0x3c9c",
+    "ExtErr21": "0x3ca9",
+    "ExtErr22": "0x3cb3",
+    "ExtErr23": "0x3cca"
+  },
+  "search": "Searched every 5-word sequence in the full file for pointers to these five target messages with a common additive 16-bit base; found none.",
+  "matches": [],
+  "implications": [
+    "These message bytes occur in the large MZ header, before the normal load-image boundary. Their file offsets cannot be treated as direct loaded-memory offsets.",
+    "The baseline consecutive pointer-table representation is not directly present under a single additive base for these five messages; a changed representation, initialization or other encoding remains possible."
+  ],
+  "limitations": [
+    "Only the specified five consecutive messages and direct 16-bit additive pointer representation were tested.",
+    "This does not prove how the program reads or constructs message tables, whether other encodings exist, or actual runtime addresses."
+  ],
+  "subsequent_discovery": {
+    "evidence": "extras/docs/etc/comrmsg-target-class6-index.json",
+    "finding": "The target has a 93-entry class 6 resource whose index words use offsets relative to each index entry, explaining why a direct absolute pointer array was not found."
+  }
+}

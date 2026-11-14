@@ -1,0 +1,11 @@
+{
+  "source_sha256": "b965a3fce58870a840d411d701ba788f1f512e3935b4046b2e5b874fb307c66e",
+  "target_offset": "0x2ab5",
+  "target_hex": "8a2668002e8e064e2bbfae0ee9f700",
+  "target_init_segment_word": "BIOS_CODE:2B4E",
+  "target_drive_table_offset": "SYSINIT:0EAE",
+  "dos7_and_reference_assembled": true,
+  "reference_object_identical": true,
+  "layout_constraint": "The dsk_init target is at 2AB5h while the next source procedure install_bds is at 4468h; the intervening target bytes belong to other contributions. A single contiguous BIOS_CODE contribution cannot directly achieve that layout without splitting/reordering or equivalent source/build integration.",
+  "limitations": "External addresses and final ownership/order not resolved."
+}

@@ -1,0 +1,24 @@
+{
+  "kind": "rejected integration hypothesis and isolated link diagnostic; no source restoration",
+  "file": "lang/usa/messages/sysimsg.inc",
+  "file_index": 221,
+  "source_sha256_after_revert": "f05c7696b0fad473fe4eedd5726c8677dcc4aaaf944d6031d89acb3098ab1892",
+  "hypothesis": "bios_msg_base aliases sysinit_msg_base because the SYSINIT table contains the CPU and A20 texts consumed by MSINIT.",
+  "target_evidence": {
+    "target": "extras/baselines/targets/IO.SYS",
+    "sysinit_message_base_file_offset": "0xf31a",
+    "message_base_prefix_ascii": "Starting Windows 95...",
+    "msinit_cpu_message_relative_offset": "0x0f2c",
+    "msinit_a20_message_relative_offset": "0x0f6b"
+  },
+  "rejection": {
+    "target_bios_error_report_file_offset": "0x2345",
+    "target_bios_msg_base_logical_offset": "0x2db4",
+    "reason": "The target error-report instruction uses BIOS_CODE offset 2db4h, while the identified SYSINIT message table begins at file offset f31ah. No final segment/layout proof equates those addresses. A same-address source alias would therefore assert an unsupported and likely false segment ownership.",
+    "diagnostic_observation": "The temporary alias reduced the no-a20stub external set from 35 to 34, but link satisfaction alone is not target-layout proof. The project source and diagnostic placeholder were both reverted."
+  },
+  "limitations": [
+    "bios_msg_base, bios_msg_1, bios_msg_2, bios_msg_3, EC35_FLAG and the other shared-provider symbols remain unrecovered.",
+    "No final IO.SYS layout, relocation, or whole-file byte equality is claimed."
+  ]
+}

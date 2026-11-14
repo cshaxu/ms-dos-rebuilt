@@ -1,0 +1,12 @@
+{
+  "source": "bios/msbio1.asm",
+  "source_sha256": "a8f70987e1c9fd6ea8c783d703adc8b076ba30c16ccf9f94eac861261bb9dd72",
+  "target_file_offset": 2880,
+  "target_bios_offset": 1344,
+  "target_hex": "80fa80720a80fc02740a80fc0a74052eff2e0601",
+  "reference_source": "bios/msbio2.asm",
+  "reference_symbol": "ibm_disk_io",
+  "observation": "Target code compares DL with 80h, intercepts AH 02h and 0Ah, and otherwise jumps through an existing far vector, corresponding to the reference disk I/O interception path. The old diagnostic data definitions reached BIOS offsets 0540h-0542h.",
+  "change": "Exclude legacy padding, dsktnum and nextspeed from DOS7_CONFIG. Keep dsktnum as an explicit compatibility stub for the unchanged reference msinit object.",
+  "limitations": "This identifies executable target bytes at the old diagnostic positions, not the final location or existence of every corresponding disk-state variable. The target handler and whole segment layout remain unreconstructed."
+}

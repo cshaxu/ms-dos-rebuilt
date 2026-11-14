@@ -1,0 +1,15 @@
+{
+  "status": "verified-component",
+  "source": "extras/tools/msgindex.c",
+  "stage": "extras/build/native-buildmsg-fnkobn8f",
+  "inputs": "COMMAND.CL1, COMMAND.CL2 and COMMAND.CLF from the original Microsoft C 6.00 BUILDMSG build",
+  "host_compile": "gcc -O2 -Wall -Wextra -Werror",
+  "resource_compile": "Original DOS MASM and LINK on a private desktop",
+  "message_counts": [4, 1, 198],
+  "output": "res0.exe",
+  "comparison": "fc /b against extras/build/command-reference-0losuhac/res0.exe",
+  "byte_equal": true,
+  "target_read_by_tool": false,
+  "runtime_source_patch": false,
+  "full_chain_migrated": false
+}

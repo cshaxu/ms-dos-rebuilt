@@ -1,0 +1,35 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "candidate_dosdata_file_base": "0x19ec0",
+  "checks": {
+    "xms_control_pointer": {
+      "dosdata_offset": "0x107c",
+      "file_offset": "0x1af3c",
+      "bytes": "00000000"
+    },
+    "low_high_memory_descriptors": {
+      "dosdata_offset": "0x1080",
+      "file_offset": "0x1af40",
+      "bytes": "800000009000ffff"
+    },
+    "error_far_pointer": {
+      "dosdata_offset": "0x133a",
+      "file_offset": "0x1b1fa",
+      "bytes": "00000000"
+    },
+    "four_offset_list": {
+      "dosdata_offset": "0x132c",
+      "file_offset": "0x1b1ec",
+      "bytes": "0400b812081336133a13"
+    }
+  },
+  "interpretation": [
+    "The two consecutive low/high-memory descriptors agree with the source declarations and the target instructions addressing DOSDATA:1080 and DOSDATA:1084.",
+    "The four bytes at DOSDATA:133a are zero in the disk image; this is consistent with runtime initialization, but does not establish the initializer or runtime destination.",
+    "The four-offset list includes 133a; its purpose and any role in initializing the pointer are not established."
+  ],
+  "limitations": [
+    "DOSDATA base is supported by the matching descriptor layout and references, not by a full executable layout reconstruction.",
+    "The candidate BIOS error handler and the indirect pointer are not yet proven connected."
+  ]
+}

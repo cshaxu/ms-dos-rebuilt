@@ -1,0 +1,33 @@
+{
+  "source": "bios/sysinit1.asm",
+  "sha256": "d88152c19e7add21472e3c6b1b6df076b52f8a5a4f0b371fc4077472a831aa0c",
+  "changes": [
+    "Restore boot_exec_shell parameter setup and DOS EXEC call using the actual comexe and CONFIG environment state.",
+    "Connect existing AUTOEXEC switch helpers to the source-object diagnostic."
+  ],
+  "matched": [
+    {
+      "region": "shell EXEC helper",
+      "start": "0x49c4",
+      "end_exclusive": "0x49ea",
+      "bytes": 38
+    },
+    {
+      "region": "AUTOEXEC switch helpers",
+      "start": "0x5279",
+      "end_exclusive": "0x52c9",
+      "bytes": 80
+    }
+  ],
+  "verification": {
+    "tool": "extras/tools/verify_syspre_device_link.py",
+    "link_stage": "extras/build/syspre-object-link-w91lky35",
+    "module_stage": "extras/build/ml-sysinit-x8l_y3nh",
+    "scope": "Actual source linked to comexe, CONFIG environment data, and existing startup switch providers; other diagnostic layout anchors remain."
+  },
+  "limitations": [
+    "Shell main control flow and executable-size checking are not yet restored or connected.",
+    "The target size checker uses scratch bytes within shell main, a circular placement dependency.",
+    "Full SYSINIT link, runtime shell behavior, and final three core binaries remain unverified."
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "file": "bios/sysinit1.asm",
+  "source_sha256": "95441a17bbe32047ef08577729c0541b43dc8edf93ac1530bce802b205cb52bc",
+  "target_range": "IO.SYS 0x6a23..0x6a8b",
+  "bytes": 104,
+  "differences": [
+    [
+      "0x3d",
+      "0x5",
+      "0x83"
+    ],
+    [
+      "0x3e",
+      "0x1",
+      "0xc0"
+    ],
+    [
+      "0x3f",
+      "0x0",
+      "0x1"
+    ]
+  ],
+  "probe": "extras/research/boot-find-linked.asm",
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "ADD AX,1 may use an equivalent encoding and must be reconciled for final byte equality.",
+    "The caller and compressed-drive startup reservation remain incomplete.",
+    "Fixed-offset probe uses a sector-read stub and does not verify real disk I/O or full layout."
+  ]
+}

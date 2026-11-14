@@ -1,0 +1,21 @@
+{
+  "source": "bios/msbio1.asm",
+  "source_sha256": "92d01f6f83a3bd52e6dc97916432ad046d1412542c7ed1ce5357c983bd0071f6",
+  "symbol": "bios_data_segment",
+  "previous_name": "config_bios_segment",
+  "name_status": "descriptive, not recovered original symbol",
+  "target_sysinit_offset": 3902,
+  "target_initial_word": "7000",
+  "target_readers": {
+    "disk_pointer_initialization": {
+      "file_offset": 24050,
+      "hex": "8e1e3e0f"
+    },
+    "config_restore": {
+      "file_offset": 61346,
+      "hex": "2e8e1e3e0f"
+    }
+  },
+  "diagnostic_before_after_sha256": "c4aca850415a33dab182fee92c6c99beb293698380e2a7d684e199f2a1f705a7",
+  "limitations": "The shared SYSINIT word is a diagnostic stub until its defining source and final placement are reconstructed. Symbol name is inferred; other uses require further analysis."
+}

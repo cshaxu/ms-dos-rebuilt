@@ -1,0 +1,24 @@
+{
+  "file": "bios/sysconf.asm",
+  "file_index": 30,
+  "source_sha256": "a006882b8cdfc6a02b7359041b06a2c1f64ac8c0f9d64740f5e482dc14c8ec23",
+  "state": "integration_pending",
+  "target_default_stack_size": 256,
+  "default_configuration_stack_size": 128,
+  "target_file_range": "0xc110..0xc125",
+  "length": 21,
+  "different_bytes_after_manual_symbol_fixups": 0,
+  "symbol_fixups": {
+    "stack_count": "0x0002",
+    "stack_size": "0x0006",
+    "stack_addr": "0x0008"
+  },
+  "validation": [
+    "DOS7 and default configurations assemble with MASM.",
+    "Default configuration object is byte-identical before and after this change."
+  ],
+  "limitations": [
+    "Only the three reset instructions were compared; the complete parser and final integration remain unverified.",
+    "Offsets were substituted manually, so the final linked addresses are not yet verified."
+  ]
+}

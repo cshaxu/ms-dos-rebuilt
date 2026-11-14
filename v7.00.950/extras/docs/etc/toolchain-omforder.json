@@ -1,0 +1,21 @@
+{
+  "task": "M5 T11 S1",
+  "status": "verified-component",
+  "source": "extras/tools/omforder.c",
+  "stage": "extras/build/native-omf-order",
+  "assembler": "Original DOS MASM",
+  "source_input": "Previously accepted compilation units from extras/build/crt-explicit-cawhw9gh; no cached object input",
+  "comparison_baseline": "Previously accepted normalized objects in extras/build/crt-explicit-cawhw9gh",
+  "procedure_objects": ["crtprint", "crtsprnt", "crtflush", "crtclose", "crtcomit", "cfgpub"],
+  "whole_segment_objects": ["cfgmain", "cfgline", "cfgmenu"],
+  "data_objects": {
+    "cfginit": ["ConfigArgPaths", "ConfigArgValues"],
+    "cfgtail": ["PnPProbeTable"]
+  },
+  "objects_verified": 11,
+  "all_objects_byte_equal": true,
+  "success_marker": "extras/build/native-omf-order/VERIFIED.OK",
+  "code_data_symbol_records": "Copied verbatim; only permutation of independent FIXUPP subrecords",
+  "target_image_read_by_tool": false,
+  "remaining": "Registry OMF reblocking, static configuration source layout, full LINK /EXEPACK build"
+}

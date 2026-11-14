@@ -1,0 +1,47 @@
+{
+  "source": "bios/msinit.asm",
+  "source_sha256": "7b9543b13f61d739a00112ad99446a924c2b25b37a425138e20d9d1a5a671870",
+  "listing_sha256": "70ca364c60d1ce12fd14ab25bfa5c044f9812f13f08a3396e4761c4f283fc5fe",
+  "target_offset": "0x1052",
+  "length": 104,
+  "matched_nonrelocated_bytes": 89,
+  "masked_relocation_bytes": 8,
+  "differences": [
+    {
+      "offset": 72,
+      "listing": "0x42",
+      "target": "0xa1"
+    },
+    {
+      "offset": 77,
+      "listing": "0x3d",
+      "target": "0x9c"
+    },
+    {
+      "offset": 82,
+      "listing": "0x38",
+      "target": "0x97"
+    },
+    {
+      "offset": 87,
+      "listing": "0x33",
+      "target": "0x92"
+    },
+    {
+      "offset": 92,
+      "listing": "0x26",
+      "target": "0x85"
+    },
+    {
+      "offset": 97,
+      "listing": "0x21",
+      "target": "0x80"
+    },
+    {
+      "offset": 102,
+      "listing": "0x1c",
+      "target": "0x7b"
+    }
+  ],
+  "limitations": "Calls and relocation addresses require remaining startup reconstruction and complete link."
+}

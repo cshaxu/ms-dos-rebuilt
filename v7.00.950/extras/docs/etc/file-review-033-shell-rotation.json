@@ -1,0 +1,22 @@
+{
+  "file": "bios/sysinit2.asm",
+  "file_index": 33,
+  "source_sha256": "7662232f259cd9f08ef5cd539cda1f6ee6b213c1ccc4b950f0250b77f306eb98",
+  "target_routine_range": "0x9ddc..0x9e24",
+  "routine_length": 72,
+  "routine_different_bytes": 0,
+  "target_command_data_length": 703,
+  "command_data_different_bytes": 0,
+  "target_boot_flags_initial_bytes": "01 80",
+  "default_object_identical": true,
+  "dos7_assembly": "passed",
+  "probe_source": "extras/research/shell-rotation-linked.asm",
+  "probe_sha256": "10c41692eb67aba674285e521d2dd538b6bc9140bc42e16d8c4e4a57bfe057f0",
+  "linked_exe_sha256": "cb880f050321a2fb32704af98645d2753a5de8b28e35e31be75f2006fa57da65",
+  "limitations": [
+    "The isolated link uses ORG to reproduce target offsets; final layout is unverified.",
+    "Boot flag names are descriptive and their full meanings and writers are not established.",
+    "The routine is not yet called by the reconstructed startup path.",
+    "The third 206-byte copy reads beyond the currently named WIN.COM path; the runtime contents of that source range are not yet established."
+  ]
+}

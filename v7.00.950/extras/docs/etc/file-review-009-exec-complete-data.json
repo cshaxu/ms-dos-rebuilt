@@ -1,0 +1,24 @@
+{
+  "source": "bios/msbio1.asm",
+  "source_sha256": "7fb77d82075ec88a7d65a1ee251f1b1d98934b292e6390549550d5d7a371fc04",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_data_range": {
+    "start_file_offset": 60872,
+    "end_file_offset_exclusive": 60990,
+    "length": 118
+  },
+  "non_pointer_bytes_verified": 102,
+  "layout_dependent_word_operands": 8,
+  "environment_layout": {
+    "diagnostic_offset": 3045,
+    "diagnostic_paragraph_aligned": false,
+    "target_offset": 41200,
+    "target_paragraph_aligned": true
+  },
+  "target_env_segment_calculation": {
+    "file_offset": 61450,
+    "hex": "b8fea0d3e8"
+  },
+  "diagnostic": "config-ml-exec-data-layout.json",
+  "limitations": "Eight word pointers and all absolute SYSINIT placement remain unresolved; three record targets are diagnostic stubs. The original source-file ownership and exact variable names are inferred. Runtime environment setup and EXEC path remain to be reconstructed."
+}

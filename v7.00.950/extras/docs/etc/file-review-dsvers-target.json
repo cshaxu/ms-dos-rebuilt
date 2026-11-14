@@ -1,0 +1,28 @@
+{
+  "file": "inc/ds_vers.inc",
+  "before_sha256": "f06ac61a0f4bf2dc72ed1f8b79b1aefe1125c1e92978381068d7a49d5bf6eeed",
+  "after_sha256": "2ff90d605f11ff956bfc05136576978b1a912fc022bc4529af138cc92022a0f1",
+  "change": "DS_INTERNAL_REVISION 10 to 12",
+  "stage": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\dsvers-probe-92ewtj7v",
+  "probe": [
+    {
+      "configuration": "before",
+      "source_sha256": "f06ac61a0f4bf2dc72ed1f8b79b1aefe1125c1e92978381068d7a49d5bf6eeed",
+      "object_sha256": "58e12fcc0489008c4bb588611f1c27b093488440d9ec25512acf29f2e292fd02"
+    },
+    {
+      "configuration": "after",
+      "source_sha256": "2ff90d605f11ff956bfc05136576978b1a912fc022bc4529af138cc92022a0f1",
+      "object_sha256": "f7dc147e46e1e741edf7baacbb72b95abebbe9a8fb4debcbf7f03ee2cf236b0e"
+    }
+  ],
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_sysinit_file_base": 19760,
+  "field_sysinit_offset": 35487,
+  "field_file_offset": 55247,
+  "field_initial_hex": "0c00",
+  "comparison_file_offset": 55632,
+  "comparison_hex": "3b069f8a7734a39f8a",
+  "source_consumer": "bios/syspre.asm:138",
+  "limitations": "Target field mapping is based on corresponding comparison/store behavior. Other preloader logic, compression-driver compatibility and full IO.SYS equality are not verified."
+}

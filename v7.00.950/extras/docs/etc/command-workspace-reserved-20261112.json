@@ -1,0 +1,27 @@
+{
+  "build": "extras/docs/etc/command-workspace-reserved-build-20261112.json",
+  "modified_source_files": [
+    "cmd/command/tspc.asm"
+  ],
+  "target_probe": "extras\\build\\workspace-reserved-target-nlqw_r4m",
+  "current_probe": "extras\\build\\workspace-reserved-current-pnetba3o",
+  "matched_outputs": [
+    "DATE.TXT",
+    "TIME.TXT",
+    "DIR.TXT",
+    "TYPE.TXT",
+    "REN.TXT",
+    "EXE.TXT",
+    "ATTR.TXT",
+    "FOR.TXT",
+    "DONE.TXT"
+  ],
+  "changes": [
+    "ForTokenFound and ForVariable restored around parse_last",
+    "DirAttributeText six-byte storage shares terminator with file_size_low",
+    "DirSortOverflow restored before ScanBuf",
+    "DOS6 search_curdir_buf 64-byte storage restored between search_best_buf and search_error"
+  ],
+  "tail_displacement": -104,
+  "final_byte_exact": false
+}

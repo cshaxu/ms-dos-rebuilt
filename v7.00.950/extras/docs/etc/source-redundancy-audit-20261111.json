@@ -1,0 +1,20 @@
+{
+  "trigger": "Owner challenges repeated source-file additions and possible duplicate implementations.",
+  "added_for_dos7_ledger_entries": 133,
+  "final_link_evidence": "extras/build/crt-explicit-g3qdw4kb/closure.json",
+  "manual_crt_not_in_final_link": [
+    "bios/crtexit.asm",
+    "bios/crtfile.asm",
+    "bios/crtmem.asm",
+    "bios/crtmsg.asm",
+    "bios/crtstdio.asm",
+    "bios/crtwrite.asm"
+  ],
+  "qualification": "These six sources remain in the intermediate regression path, but final original-CRT linkage excludes them. They must not be represented as necessary final implementations. Removal requires transferring their verification coverage to the final original-CRT link.",
+  "recent_data_owner_audit": {
+    "cfginit": "Moved existing initialized declarations; checked key symbols have one active definition. Not a new implementation of functionality.",
+    "cfgdata": "Moved existing communal declarations and retained inferred original storage. Checked key symbols have one active definition. Original file naming/structure is not known."
+  },
+  "reference_search": "Focused source-text search for Win31FileSystem, Original Configuration and IDConfigDB in v6.2, v5.0, archaeology v6.0 and OpenNT/base found OpenNT NT kernel/profile matches, not a proven matching DOS implementation. This is not an exhaustive no-match claim.",
+  "next_policy": "No further core file additions until actual final-source ownership and intermediate-only manual CRT implementations are reconciled. Reuse existing source/CRT providers first; do not create one file per recovered function. Keep per-file counts as bookkeeping, not percent completion."
+}

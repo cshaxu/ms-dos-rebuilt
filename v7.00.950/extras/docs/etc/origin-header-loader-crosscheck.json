@@ -1,0 +1,19 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "header_file_offset": "0x113c0",
+  "origin_word": "0x3f20",
+  "candidate_code_file_base": "0xd4a0",
+  "initial_jump_target_file_offset": "0x199bf",
+  "target_loader_instruction_file_offset": "0x5e57",
+  "observations": [
+    "Subtracting the target header origin 3f20h from the header file location gives the same d4a0h code base independently used to resolve the INT 21h dispatch table.",
+    "The header relative jump, interpreted in that segment, lands at file 199bfh, which begins with CLI and CLD and matches the DOS initialization entry.",
+    "The BIOS initialization sequence reads word offset 3 from the current DOS image, stores it, shifts it by four and subtracts it from the DOS segment.",
+    "The corresponding historical BIOS source describes offset 3 as the DOS origin and adjusts the DOS segment in the same manner."
+  ],
+  "limitations": [
+    "The code-base calculation relies on the target image having the established uncompressed resident-code mapping.",
+    "This establishes the header field role more strongly but does not prove the 6.x formula for deriving it remains in use.",
+    "Full BIOS and kernel linkage remain unverified."
+  ]
+}

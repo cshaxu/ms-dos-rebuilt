@@ -1,0 +1,53 @@
+{
+  "files": {
+    "bios/sysimes.asm": "d97dff5122caaf5c09428fc124a58a866f2d40d1c3544dbe1f1a88d9eafb803e",
+    "lang/usa/messages/sysimsg.inc": "4447d67a981a53d2dc0a8557f58275756d98cddaa97c474a42fbb1fd1a4ddf4b"
+  },
+  "target_table_file_range": "0xf298..0x10363",
+  "target_table_length": 4299,
+  "table_different_bytes": 0,
+  "legacy_aliases": {
+    "StartMsg": 0,
+    "badopm": 4,
+    "crlfm": 5,
+    "badparm": 6,
+    "badsiz_pre": 7,
+    "badld_pre": 8,
+    "badcountry": 11,
+    "badcountrycom": 12,
+    "insufmemory": 13,
+    "badmem": 14,
+    "badblock": 15,
+    "badstack": 16,
+    "errorcmd": 17,
+    "toomanydrivesmsg": 18,
+    "$MenuHeader": 19,
+    "$MenuPrmpt": 20,
+    "$StatusLine": 21,
+    "$InterPrmpt": 22,
+    "$TimeOut": 24,
+    "BadComPrmpt": 25,
+    "$PauseMsg": 26,
+    "$CleanMsg": 27,
+    "$InterMsg": 30
+  },
+  "legacy_only_symbols_not_exported": [
+    "badcom",
+    "badorder",
+    "OnOff",
+    "$YES",
+    "$NO",
+    "$AutoPrmpt",
+    "baddblspace"
+  ],
+  "default_object_identical": true,
+  "validation": [
+    "Historical generated message text matches each corresponding target message, allowing the target NUL terminator.",
+    "Isolated link resolves all 23 alias addresses to target message records.",
+    "The complete target table remains byte-identical."
+  ],
+  "limitations": [
+    "Consumers of seven removed legacy-only symbols are not yet reconstructed; full DOS7 linking may report unresolved symbols.",
+    "Original target symbol names and complete SYSINIT placement remain unverified."
+  ]
+}

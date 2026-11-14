@@ -1,0 +1,58 @@
+{
+  "source": "bios/sysconf.asm",
+  "sha256": "0523f142066ea9d839667436cccec73d207078cef2715b2c5799d4f3d5a3e8a6",
+  "change": "Link device header check, compatibility setup, driver strategy/interrupt calls and their actual providers.",
+  "matched": [
+    {
+      "region": "device header check",
+      "start": "0x6e02",
+      "end_exclusive": "0x6e2e",
+      "bytes": 44
+    },
+    {
+      "region": "device initialization preparation",
+      "start": "0x6e2e",
+      "end_exclusive": "0x6e81",
+      "bytes": 83
+    },
+    {
+      "region": "device initialization call",
+      "start": "0x6e81",
+      "end_exclusive": "0x6ed0",
+      "bytes": 79
+    },
+    {
+      "region": "driver entry helper",
+      "start": "0x2ef3",
+      "end_exclusive": "0x2fa2",
+      "bytes": 175
+    },
+    {
+      "region": "device compatibility",
+      "start": "0x76de",
+      "end_exclusive": "0x78e8",
+      "bytes": 522
+    },
+    {
+      "region": "device hook",
+      "start": "0x89c3",
+      "end_exclusive": "0x8a25",
+      "bytes": 98
+    },
+    {
+      "region": "continuous CONFIG entry through device initialization",
+      "start": "0x6848",
+      "end_exclusive": "0x6ed0",
+      "bytes": 1672
+    }
+  ],
+  "verification": {
+    "tool": "extras/tools/verify_syspre_device_link.py",
+    "link_stage": "extras/build/syspre-object-link-o3oh0l37",
+    "scope": "Actual CONFIG, initialization, driver-entry, compatibility and hook providers linked. BIOS entry offsets and other layout positions remain diagnostic anchors."
+  },
+  "limitations": [
+    "No core source changed in this step.",
+    "Actual hardware/runtime, full product link and final three core binaries remain unverified."
+  ]
+}

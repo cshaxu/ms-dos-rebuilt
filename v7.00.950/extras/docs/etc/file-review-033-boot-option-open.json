@@ -1,0 +1,25 @@
+{
+  "files": [
+    "bios/msint13.asm",
+    "bios/sysinit1.asm",
+    "bios/sysinit2.asm"
+  ],
+  "source_hashes": [
+    "8f722b69801b3ced1ace7c0a574545d4719f8a68b77739c25ac844ab2be3a097",
+    "d499c2599ea102a7048b69ae671b45f34b05ab891018df46c1c7dcd6506adfc3",
+    "19833c2fc25d7712fe1d4cc5341f6077651127696a84e352ff9bc52aa91c18eb"
+  ],
+  "target_range": "IO.SYS 0xa48f..0xa50a",
+  "length": 123,
+  "different_bytes": 0,
+  "tool": "MASM 6 ML isolated probe",
+  "default_objects_identical": true,
+  "dos7_assembly": "all passed without warnings",
+  "mixed_diagnostic_link": "passed with diagnostic BIOS stub",
+  "probe_source": "extras/research/boot-option-open-linked.asm",
+  "limitations": [
+    "Isolated fixed-offset probe uses synthetic destinations; full linked layout and runtime remain unverified.",
+    "The production BIOS field referenced by DISABLELOG remains provided by a diagnostic stub.",
+    "Downstream startup processing and complete three-file build remain incomplete."
+  ]
+}

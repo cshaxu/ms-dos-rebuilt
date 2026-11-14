@@ -1,0 +1,67 @@
+{
+  "stage": "extras/build/tranmsg-source-trial-d_mwh0y5",
+  "trial_source_sha256": "01fae2fcbc53677acbc5cf4b627d5643289c536819edfb0a441fc8bfb38161dd",
+  "formal_source_sha256": "afbe89f42762de33ad60c124419611108c37fcb17fecc06602c840fc5816d36d",
+  "trial_object_sha256": "f98664078430a6b29b9441758f54de1019bc028ea27326651adc1542d00b73e8",
+  "target_sha256": "a74c700063cd6b1c91523952bfc80e9393c125d39ada0164d48b5098089fcef3",
+  "target_range": [
+    67065,
+    67168
+  ],
+  "object_segment": 7,
+  "object_range": [
+    250,
+    353
+  ],
+  "length": 103,
+  "fixed_bytes_equal": true,
+  "compared_fixed_bytes": 89,
+  "masked_relocatable_bytes": 14,
+  "masked_fixups": [
+    {
+      "offset": 255,
+      "symbol": "Major_Ver_Num",
+      "source": "00FF  0000 E                C\\\t\t\tdw\tOFFSET\tTranGroup:Major_Ver_Num ;AN000;offset of arg"
+    },
+    {
+      "offset": 268,
+      "symbol": "Minor_Ver_Num",
+      "source": "010C  0000 E                C\\\t\t\tdw\tOFFSET\tTranGroup:Minor_Ver_Num ;AN000;offset of arg"
+    },
+    {
+      "offset": 284,
+      "symbol": "vol_drv",
+      "source": "011C  0000 E                C\\\t\t\tdw\tOFFSET\tTranGroup:vol_drv\t;AN000;offset of drive"
+    },
+    {
+      "offset": 300,
+      "symbol": "vol_drv",
+      "source": "012C  0000 E                C\\\t\t\tdw\tOFFSET\tTranGroup:vol_drv\t;AN000;offset of drive"
+    },
+    {
+      "offset": 313,
+      "symbol": "CHARBUF",
+      "source": "0139  0000 E                C\\\t\t\tdw\tOFFSET\tTranGroup:CHARBUF\t;AN000;offset of string"
+    },
+    {
+      "offset": 329,
+      "symbol": "vol_serial",
+      "source": "0149  0002 E                C\\\t\t\tdw\tOFFSET\tTranGroup:vol_serial+2\t;AN000;offset of serial"
+    },
+    {
+      "offset": 342,
+      "symbol": "vol_serial",
+      "source": "0156  0000 E                C\\\t\t\tdw\tOFFSET\tTranGroup:vol_serial\t;AN000;offset of serial"
+    }
+  ],
+  "trial_changes": [
+    "Widen existing maximum and minimum width declarations to DW in isolated copy.",
+    "Set 1040 substitution count to zero while retaining two 13-byte blocks.",
+    "Set 1042 volume-label maximum width to 260."
+  ],
+  "limitations": [
+    "The seven relocatable offsets are masked based on assembler listing; actual final link addresses remain unverified.",
+    "Only four contiguous control records are checked; other TRANMSG changes and conditional branches remain unresolved.",
+    "Trial also depends on isolated COMEQU, MSGSERV, and generated-message modifications; formal files were not changed."
+  ]
+}

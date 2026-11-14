@@ -1,0 +1,28 @@
+{
+  "files": [
+    "bios/msint13.asm",
+    "bios/sysinit2.asm"
+  ],
+  "source_hashes": [
+    "fcdb73882a2c0be4a01cbd535150ac8d898ac4e7de05a58c5f9fe125eafd9c06",
+    "96f18810cbc657c5fdd2a32b355177c27ab2d204286104773eaee8e7259b7f61"
+  ],
+  "target_range": "IO.SYS 0xa731..0xa7b0",
+  "length": 127,
+  "different_bytes": 0,
+  "tool": "MASM 6 ML isolated probe",
+  "default_objects_identical": true,
+  "dos7_assembly": "both passed without warnings",
+  "mixed_diagnostic_link": "passed",
+  "cycle": [
+    "msint13 -> msbio1 (bios_flags)",
+    "msbio1 -> sysinit1 (alloclim)",
+    "sysinit1 -> sysinit2 (winboot_shell_pending)",
+    "sysinit2 -> msint13 (win386_info_flags)"
+  ],
+  "probe_source": "extras/research/boot-option-sync-linked.asm",
+  "limitations": [
+    "Fixed offsets and synthetic external destinations do not prove final layout or execution.",
+    "Option table and dispatcher caller remain incomplete."
+  ]
+}

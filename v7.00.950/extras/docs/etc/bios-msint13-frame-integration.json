@@ -1,0 +1,42 @@
+{
+  "msint13_object_sha256": "980b306dd2c339d77e27ebe158bda1a0b05ef8416db503ab224221731c41c8b7",
+  "linked_exe_sha256": "5abdbff2830bfbff26c256cd11307c89dfd3cac0fae7d72493e72f03d8005e3f",
+  "calls": [
+    {
+      "symbol": "mult_call16",
+      "linked_call": "0x2081",
+      "linked_destination": "0x29c4",
+      "target_call_file": "0x3f2d"
+    },
+    {
+      "symbol": "mult_call17",
+      "linked_call": "0x2089",
+      "linked_destination": "0x2a53",
+      "target_call_file": "0x3f35"
+    },
+    {
+      "symbol": "mult_call18",
+      "linked_call": "0x2091",
+      "linked_destination": "0x2ada",
+      "target_call_file": "0x3f3d"
+    },
+    {
+      "symbol": "mult_call21",
+      "linked_call": "0x2099",
+      "linked_destination": "0x2afc",
+      "target_call_file": "0x3f45"
+    }
+  ],
+  "i13z_to_install_bds_distance": 659,
+  "target_distance": 659,
+  "doint_differences": [
+    19
+  ],
+  "observations": [
+    "After moving the frame declaration, target-relative positions of all four caller instructions agree with i13z and their linked destinations resolve to the intended four symbols."
+  ],
+  "limitations": [
+    "The diagnostic link retains stubs and other non-final objects; no full IO.SYS comparison or acceptance is claimed.",
+    "The far call operand in doint still requires target-level validation."
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "source": "cmd/command/tspc.asm",
+  "previous_sha256": "6072dbaf59ac4ead3da739dcbc00afc2cb10c2a6945d9ee38777951042561f34",
+  "current_sha256": "8f7fe96ff0e089b6d31672c074543e37b7c867eceb17ce61707d7cacfb46ad2c",
+  "object_sha256": "4d95c8191ba2c6636b8c66d69784c4374e680863a25101fc108bd9a3d4edf69e",
+  "probe": "extras/build/tspc-layout-4f6rps45",
+  "layout_check": "extras/build/tspc-layout-4f6rps45/layout-check.json",
+  "implied_transient_segment_base": 53002,
+  "matched_relative_positions": {
+    "SCANBUF": 54545,
+    "DESTVARS": 54805,
+    "DESTBUF": 54810,
+    "DESTHAND": 55070,
+    "DESTISDEV": 55072,
+    "FIRSTDEST": 55073,
+    "SRCVARS": 55074,
+    "SRCINFO": 55078,
+    "SRCBUF": 55079,
+    "SRCHAND": 55339,
+    "SRCISDEV": 55341,
+    "COPY_NUM": 55342,
+    "COMMA": 55344,
+    "PLUS_COMMA": 55345,
+    "MELCOPY": 55346,
+    "MELSTART": 55347,
+    "SRCPT": 55349,
+    "INEXACT": 55351,
+    "NOWRITE": 55352,
+    "BINARY": 55353,
+    "WRITTEN": 55354,
+    "ASCII": 55357,
+    "PLUS": 55358,
+    "OBJCNT": 55359,
+    "OCTRLZ": 55368,
+    "PROMPT_SUBLIST": 55369,
+    "CONFIRM_OVERWRITE": 55382,
+    "DEST_EXISTS": 55383,
+    "COPY_STATE": 55384
+  },
+  "changes": [
+    "Move SCANBUF before DESTVARS and size SCANBUF, DESTBUF, SRCBUF to 104h each.",
+    "Move COPY_NUM, comma, plus_comma and MELCOPY/MELSTART after SRCISDEV; preserve flag initializers.",
+    "Retain the previously evidenced 13-byte prompt substitution block."
+  ],
+  "direct_target_evidence": {
+    "buffer_initialization_offset": 55899,
+    "buffer_initialization": "a311d5a31ad6a327d7",
+    "copy_count_offset": 56463,
+    "copy_count": "ba15808b366cd089362ed8",
+    "comma_branch_offset": 56598,
+    "comma_branch": "803e30d8017508c60631d801",
+    "source_correspondence": [
+      "cmd/command/copy.asm:EndCopy2",
+      "cmd/command/copy.asm:MoreCp/NoStamp"
+    ],
+    "anchors": "extras/docs/etc/tspc-target-variable-anchors.json"
+  },
+  "limitations": [
+    "Some entries in the 29-position comparison are inferred by adjacency, not separately observed in target instructions.",
+    "The absolute segment base is inferred from matched locations.",
+    "Other TRANSPACE fields, COPY integration, target configuration and final byte equality are not validated."
+  ],
+  "status": "integration_pending"
+}

@@ -1,0 +1,36 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_sysinit_offsets": {
+    "dskdrvs": 3758,
+    "dskdrvs_end": 3810,
+    "config_buffer_segment": 41120,
+    "config_buffer_paragraphs": 41122,
+    "config_buffer_count": 41124
+  },
+  "target_config_read_file_offset": 61282,
+  "target_config_count_write_file_offset": 61341,
+  "diagnostic_bds_count_symbol": [
+    970,
+    2900
+  ],
+  "diagnostic_dskdrvs_symbol": [
+    970,
+    2902
+  ],
+  "diagnostic_config_symbols": {
+    "config_buffer_segment": [
+      970,
+      2954
+    ],
+    "config_buffer_paragraphs": [
+      970,
+      2956
+    ],
+    "config_buffer_count": [
+      970,
+      2958
+    ]
+  },
+  "diagnostic_report": "config-ml-sysinit-seg-unified.json",
+  "limitations": "The diagnostic places the CONFIG fields immediately after dskdrvs; target references place them elsewhere in the SYSINIT segment. Target bytes immediately after dskdrvs are zero, but their identity is not established. Final section ownership and ordering remain unresolved."
+}

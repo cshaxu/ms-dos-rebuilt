@@ -1,0 +1,26 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_kernel_abort_entry_file_offset": "0x161a8",
+  "target_kernel_candidate_divide_handler_file_offset": "0x161b9",
+  "candidate_handler_bytes": "2e8e1e273fb80100ff1e3a13ebe1",
+  "historical_listing": "extras/build/kernel-dos7-symbols-du61j8us/msctrlc.lst",
+  "observations": [
+    "The target exit path starts with mov ax,4c00 and the following candidate handler sets AX=1, calls DOSDATA:133a and jumps back to that exit path.",
+    "In the historical listing, DIVOV likewise immediately follows the matching ctrlc_abort sequence and ends by jumping to ctrlc_abort.",
+    "The target BIOS message routine selects BIOS code-segment relative offset 2dac for AX=1; with the established file base 0x1c50, the offset value 003f selects the divide overflow message at file 0x4a43."
+  ],
+  "bios_message_selection": {
+    "routine_file_offset": "0x234a",
+    "bios_code_file_base": "0x1c50",
+    "table_file_offset": "0x4a04",
+    "selector_1_offset_field_file_offset": "0x49fc",
+    "selector_1_relative_offset": "0x3f",
+    "message_file_offset": "0x4a43",
+    "message_sha256": "f9adb96a130954c215e9885e952ab0fc895698eb7f29e7d163214632b94c96e3"
+  },
+  "limitations": [
+    "Adjacency and matching control-flow strongly support the candidate as DIVOV but are not an independent interrupt-vector initialization proof.",
+    "DOSDATA:133a initializes to zero in the image; its runtime connection to the BIOS message dispatcher is not yet proven.",
+    "No source change or full binary equivalence follows from these observations."
+  ]
+}

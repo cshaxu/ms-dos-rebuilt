@@ -1,0 +1,56 @@
+{
+  "part": "M5 T12 S1 P6",
+  "ordinals": [
+    15,
+    16,
+    17,
+    18
+  ],
+  "modified": 4,
+  "unchanged": 0,
+  "exact_dos6": 0,
+  "retired_by_merge": 2,
+  "checks": [
+    {
+      "path": "bios\\cfgmenu.asm",
+      "equal": true,
+      "statements": 370
+    },
+    {
+      "path": "bios\\cfgseg.asm",
+      "equal": true,
+      "statements": 61
+    }
+  ],
+  "changes": {
+    "cfgmenu": "Replace duplicated compilation-unit prose with procedure descriptions, normalize formatting, remove redundant unchanged .286 declarations. Two procedures keep distinct selection and registry orchestration roles.",
+    "cfgseg": "Correct stale CFGINIT module heading to CFGSEG, describe actual segment-order responsibility, normalize segment/ends formatting. No emitted data; segment ordering/alignment remains necessary.",
+    "clockbr": "Merge int6c_code/int6c_update at end of original mschar in the same code order. Delete standalone source and object.",
+    "confhook": "Merge configuration install/remove, multiplex hook and QEMM check into original sysconf; existing local state and path callback replace cross-object dependencies. Delete standalone source and object."
+  },
+  "reference": "Original DOS6 BIOSSEG segment declarations and MSCHAR/SYSCONF module responsibilities; DOS7-specific bodies retained where DOS6 has no equivalent. No whole-file identity claimed.",
+  "collateral_ordinals": [
+    33,
+    54,
+    59,
+    60
+  ],
+  "validation": {
+    "stage": "extras/build/source-quality-p6",
+    "steps": [
+      "Original MASM -Mx -t -W1 reassembled mschar; LINK/RELOC BIOS compared identical to T11",
+      "Original ML /c /nologo /Zm reassembled sysconf, reusing verified mschar; LINK/RELOC BIOS compared identical",
+      "ioimage repacked complete IO.SYS using rebuilt BIOS/map and unchanged accepted loader/kernel/config/logo; fc /b against extras/assets/IO.SYS reports no differences"
+    ],
+    "diagnostics": "ML cannot open its ML.err message catalog and emits A4006 warnings from existing BREAK/AsmVar macros. Guest build completed PASS; new listing confirms config_hook_install is a local public procedure, not an unresolved external; final byte comparison passes.",
+    "source_listing": "extras/build/source-quality-p6/bios/sysconf.lst:8435 and symbol table:8977",
+    "map": {
+      "int6c_update": "0165:0B55",
+      "config_hook_install": "0473:89C3"
+    },
+    "unchanged_components": "No COMMAND.COM/MSDOS.SYS rebuild; prior T11 acceptance retained. cfgmenu/cfgseg changes have identical effective statements.",
+    "final_size": 223148
+  },
+  "next_ordinal": 19,
+  "remaining": 48
+}

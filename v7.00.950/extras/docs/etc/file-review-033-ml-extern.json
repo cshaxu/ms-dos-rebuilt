@@ -1,0 +1,12 @@
+{
+  "file": "bios/sysinit2.asm",
+  "file_index": 33,
+  "source_sha256": "9909b7fad35fa2b4dad0b392dc75ccc6e6909d7df467036d196bcbfc045f6070",
+  "change": "Removed two trailing commas from EXTRN declarations.",
+  "default_object_identical": true,
+  "dos7_object_identical": true,
+  "ml_effect": "The two ML syntax errors and subsequent packet undefined-symbol error disappear in the compatibility probe; three IF2 errors remain.",
+  "limitations": [
+    "ML compilation still needs IF2 compatibility; no full production build has been established."
+  ]
+}

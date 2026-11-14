@@ -1,0 +1,101 @@
+{
+  "task": "M5 T11 S1",
+  "status": "complete",
+  "entry": "extras/build.cmd",
+  "entry_sha256": "bdff4062a3bb9c79d2cfc38f844a6942cc0cac7da9a350ee671f7c83c4420b75",
+  "build_stage": "extras/build/cmd-2319-5304",
+  "build_result": "PASS",
+  "fresh_stage": true,
+  "input_snapshots": {
+    "files": 334,
+    "byte_equal": true,
+    "before": "extras/build/cmd-2319-5304/inputs-before.txt",
+    "after": "extras/build/cmd-2319-5304/inputs-after.txt"
+  },
+  "outputs": [
+    {
+      "name": "IO.SYS",
+      "bytes": 223148,
+      "sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+      "asset": "extras/assets/IO.SYS",
+      "byte_equal_to_fixed_target": true
+    },
+    {
+      "name": "MSDOS.SYS",
+      "bytes": 6,
+      "sha256": "d28c3a421236bb61081f706193f51f32b9f8b957598d94b6b3b143ae52b1ea03",
+      "asset": "extras/assets/MSDOS.SYS",
+      "byte_equal_to_fixed_target": true
+    },
+    {
+      "name": "COMMAND.COM",
+      "bytes": 92870,
+      "sha256": "a74c700063cd6b1c91523952bfc80e9393c125d39ada0164d48b5098089fcef3",
+      "asset": "extras/assets/COMMAND.COM",
+      "byte_equal_to_fixed_target": true
+    }
+  ],
+  "toolchain": "CMD/BAT, original DOS NMAKE/MASM/ML/C6/LINK/LIB/message tools, GCC-built native C utilities",
+  "native_sources": [
+    "isolated_tool_runner.c",
+    "msgindex.c",
+    "cmdimage.c",
+    "ioimage.c",
+    "crtlib.c",
+    "omforder.c"
+  ],
+  "no_runtime_source_rewrite": true,
+  "no_target_executable_substitution": true,
+  "visibility": {
+    "phases": 8,
+    "compile_heartbeat_seconds": 5,
+    "success_pause_observed": true,
+    "failure_pause_observed": true,
+    "exit_codes_observed": [
+      0,
+      1
+    ],
+    "lock_removed_after_completion": true
+  },
+  "publication_failure_test": {
+    "fixture": "extras/build/publication-failure-test",
+    "production_publication_code_verbatim": true,
+    "read_only_second_asset": true,
+    "all_old_assets_restored": true,
+    "result": "PASS"
+  },
+  "retirement": {
+    "forbidden_script_and_cache_files_deleted": 390,
+    "forbidden_files_remaining": 0,
+    "pycache_directories_remaining": 0,
+    "scan_includes_hidden_and_ignored": true,
+    "archive_files_found": 0,
+    "unique_build_cmd": [
+      "extras/build.cmd"
+    ],
+    "old_message_data_provider_removed": true
+  },
+  "file_counts": {
+    "source": {
+      "unchanged": 241,
+      "modified": 29,
+      "retired": 88,
+      "added": 37
+    },
+    "tool": {
+      "retired": 389,
+      "modified": 2,
+      "added": 22
+    },
+    "resource": {
+      "unchanged": 3
+    }
+  },
+  "file_ledger": "toolchain-file-dispositions.json",
+  "baseline_note": "Identity statistics compare maintained DOS 7 files before this migration, not original DOS 6 text. The already-existing root build entry uses its earlier recorded hash as a supplemental baseline.",
+  "git_build_directory_ignored": true,
+  "computer_use": false,
+  "vm_boot_test": false,
+  "completion_audit": "../history/M5-T11-completion-audit.md",
+  "outstanding_work": []
+}

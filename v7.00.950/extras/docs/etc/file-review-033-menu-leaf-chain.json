@@ -1,0 +1,20 @@
+{
+  "source": "bios/sysinit2.asm",
+  "source_sha256": "b0ec37b4bb505fb42393ad6345b22d731e5e01dec89a57944ab997c958867d77",
+  "change": "Link actual token scanner, NumLock handler, any_delim, environment copier, block-copy/search/name/line routines and print_error, including their source-defined state and names.",
+  "matched_bytes": {
+    "token_scanner": 118,
+    "numlock": 39,
+    "any_delim": 16,
+    "environment_copy": 157,
+    "block_and_search": 257,
+    "print_error": 50,
+    "block_names": 12
+  },
+  "verification": "extras/tools/verify_syspre_device_link.py",
+  "stage": "extras/build/syspre-object-link-bs1kylqw",
+  "limitations": [
+    "menu_check, badop, error_line and other addresses remain anchored.",
+    "Synthetic gaps and BIOS positions remain; complete IO.SYS and the three core files remain unverified."
+  ]
+}

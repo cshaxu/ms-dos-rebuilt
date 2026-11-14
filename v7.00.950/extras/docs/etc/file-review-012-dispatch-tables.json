@@ -1,0 +1,41 @@
+{
+  "source_sha256": "bb448bff64d4d9b10cc46191b143bc992a5135dc7b072bc955618e3c7e1722c4",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "tables": [
+    {
+      "name": "read",
+      "offset": "0x33f6",
+      "entries": 9,
+      "target_handlers": [
+        "0x3467",
+        "0x36bc",
+        "0x3651",
+        "0x3463",
+        "0x3463",
+        "0x3463",
+        "0x3990",
+        "0x3a74",
+        "0x3acc"
+      ]
+    },
+    {
+      "name": "write",
+      "offset": "0x3409",
+      "entries": 10,
+      "target_handlers": [
+        "0x34c2",
+        "0x36c4",
+        "0x3584",
+        "0x3463",
+        "0x3463",
+        "0x3463",
+        "0x39ce",
+        "0x3a8b",
+        "0x3b0c",
+        "0x3b31"
+      ]
+    }
+  ],
+  "support_query_hex": "60406141624266466747684849",
+  "limitations": "Target table entries mapped to identified procedures; actual linked table relocation values and production build remain unverified."
+}

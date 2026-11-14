@@ -1,0 +1,21 @@
+{
+  "source": "bios/sysinit2.asm",
+  "source_sha256": "6d2e10d5bb978d682b7039f54ebfaac6bad9056955f2e149bd9f329283987bec",
+  "state": "integration_pending",
+  "resolved_dos7_conditions": 96,
+  "dos7_masm_object_sha256_before_and_after": "5521d7ee7c60d700db7e5526f6a0480c5a2390c5c6b18d6db71d17f1565825b4",
+  "validation": [
+    "extras/tools/verify_menu_check_full.py",
+    "extras/tools/verify_boot_keyboard.py",
+    "extras/tools/verify_menu_switch_scan.py",
+    "extras/tools/verify_menu_default_selection.py",
+    "extras/tools/verify_boot_previous_menu.py",
+    "extras/tools/verify_boot_option_parser_runtime.py",
+    "extras/tools/verify_sysinit_startup_split.py"
+  ],
+  "limitations": [
+    "Other feature conditionals are retained.",
+    "Other files still require ordered DOS6 branch cleanup.",
+    "Full product link and all three target binaries remain unverified."
+  ]
+}

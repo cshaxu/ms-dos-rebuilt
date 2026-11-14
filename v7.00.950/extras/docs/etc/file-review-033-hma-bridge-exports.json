@@ -1,0 +1,18 @@
+{
+  "files": [
+    "bios/msint13.asm",
+    "bios/sysinit2.asm"
+  ],
+  "source_sha256": [
+    "7cf348d2f7ec43d41eea7bc29d3382aa1ac1e31accec11fdb9cc6831b5d48363",
+    "3f99bbc968f89fd9d96b3eded70a6fc7fa6ade095eaf5c5b5127e856ff7aabf9"
+  ],
+  "change": "Export existing HMA allocation entry and near-to-BIOS_CODE bridge for DOS7 startup callers",
+  "existing_target_evidence": "extras/docs/etc/bios-msint13-frame-i2f-verification.json: hma_allocate 121 bytes match",
+  "default_objects_identical": true,
+  "dos7_assembly": "passed",
+  "limitations": [
+    "MovDOSHi caller is not yet replaced: extended-memory move dependency remains unresolved.",
+    "The full source build and final byte identity remain pending."
+  ]
+}

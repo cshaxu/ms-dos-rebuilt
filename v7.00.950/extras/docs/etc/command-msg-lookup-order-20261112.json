@@ -1,0 +1,30 @@
+{
+  "build": "extras/docs/etc/command-msg-lookup-order-build-20261112.json",
+  "sources": [
+    "inc/msgserv.asm",
+    "cmd/command/tprintf.asm"
+  ],
+  "change": "Deferred the existing common message lookup implementation to follow transient display/time services; other service configurations use the original common implementation path.",
+  "verified_order": [
+    "SYSLOADMSG",
+    "loader error epilogue",
+    "TSYSGETMSG",
+    "SYSGETMSG",
+    "SYSDISPMSG and formatting",
+    "time conversion",
+    "message lookup",
+    "message find"
+  ],
+  "target_probe": "extras/build/lookup-order-target-e0po_a33",
+  "current_probe": "extras/build/lookup-order-current-9uesfugh",
+  "matched_cases": [
+    "DIR listing except separate parent timestamp",
+    "VER /R",
+    "VOL",
+    "DEL missing-file stderr",
+    "batch continuation"
+  ],
+  "limitations": "Layout order and existing registered code checks pass; non-US and all resource failure cases not runtime tested, full binary not byte-identical.",
+  "output_bytes": 92935,
+  "target_bytes": 92870
+}

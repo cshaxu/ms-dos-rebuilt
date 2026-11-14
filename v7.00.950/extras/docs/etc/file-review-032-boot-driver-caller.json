@@ -1,0 +1,16 @@
+{
+  "file": "bios/sysinit1.asm",
+  "source_sha256": "33d257b416aeda3b92d050b7134722b855e9e77f92d6529b076ed779385f9226",
+  "target_range": "IO.SYS 0x63d7..0x63e7",
+  "length": 16,
+  "different_bytes": 0,
+  "tool": "MASM 6 ML isolated probe",
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link": "passed",
+  "probe_source": "extras/research/boot-driver-caller-linked.asm",
+  "limitations": [
+    "Fixed-offset probe uses synthetic call destinations; full production layout and execution are unverified.",
+    "Legacy UMB cleanup remains provisionally after the driver loop pending reconstruction of the following DOS7 startup sequence."
+  ]
+}

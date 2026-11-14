@@ -1,0 +1,18 @@
+{
+  "file": "bios/sysinit1.asm",
+  "source_sha256": "6feee0bad4140697b4cd211917024e1488cfdc96ced4ba2025b0a22f88821125",
+  "target_ranges": [
+    "IO.SYS 0x6654..0x669d"
+  ],
+  "changes": [
+    "MovBIOS copies the BIOS message tail and reinitializes code pointers",
+    "MovDOS copies words and trailing byte and checks paragraph alignment",
+    "MovDOS preserves its destination offset in DI for the HMA caller"
+  ],
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "limitations": [
+    "Target fixed-offset byte comparison not yet completed.",
+    "The callers and HMA block allocation remain incomplete; no final link claimed."
+  ]
+}

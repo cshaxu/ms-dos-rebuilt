@@ -1,0 +1,77 @@
+{
+  "source": "bios/msinit.asm",
+  "source_sha256": "489924cfbb1ec14503711db9240d8f31cd02cb73f2619dfaaa12647ae9360aa0",
+  "listing_sha256": "1e3fd58bab96a3842783069ddcccd32b8f85cf7c35f676827590942902a71f1f",
+  "target_offset": "0x13c4",
+  "length": 103,
+  "matched_nonrelocated_bytes": 76,
+  "masked_relocation_bytes": 14,
+  "differences": [
+    {
+      "offset": 26,
+      "listing": "0x43",
+      "target": "0xcd"
+    },
+    {
+      "offset": 27,
+      "listing": "0x2",
+      "target": "0x1"
+    },
+    {
+      "offset": 31,
+      "listing": "0x82",
+      "target": "0xc"
+    },
+    {
+      "offset": 36,
+      "listing": "0x93",
+      "target": "0x1d"
+    },
+    {
+      "offset": 46,
+      "listing": "0xbe",
+      "target": "0x48"
+    },
+    {
+      "offset": 67,
+      "listing": "0x1a",
+      "target": "0xa4"
+    },
+    {
+      "offset": 68,
+      "listing": "0x2",
+      "target": "0x1"
+    },
+    {
+      "offset": 72,
+      "listing": "0x59",
+      "target": "0xe3"
+    },
+    {
+      "offset": 73,
+      "listing": "0x8",
+      "target": "0x7"
+    },
+    {
+      "offset": 77,
+      "listing": "0x6a",
+      "target": "0xf4"
+    },
+    {
+      "offset": 78,
+      "listing": "0x8",
+      "target": "0x7"
+    },
+    {
+      "offset": 101,
+      "listing": "0x72",
+      "target": "0xfc"
+    },
+    {
+      "offset": 102,
+      "listing": "0x1",
+      "target": "0x0"
+    }
+  ],
+  "limitations": "Relocated addresses and target layout for preceding/following segments remain unverified."
+}

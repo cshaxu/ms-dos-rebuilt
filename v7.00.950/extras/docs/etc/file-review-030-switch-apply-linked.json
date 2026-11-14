@@ -1,0 +1,23 @@
+{
+  "source": "bios/sysconf.asm",
+  "sha256": "053109defbf9879d6e2ca48341583bc7d33861db41a1236d3d9bd3d7f54e4584",
+  "change": "Move first-pass SWITCHES parsing adjacent to DOS option parsing; restore application path completion through coff.",
+  "matched": [
+    {
+      "region": "SWITCHES dispatch and application",
+      "start": "0x74d4",
+      "end_exclusive": "0x7521",
+      "bytes": 77
+    }
+  ],
+  "verification": {
+    "tool": "extras/tools/verify_syspre_device_link.py",
+    "link_stage": "extras/build/syspre-object-link-xs0k2gpu",
+    "module_stage": "extras/build/ml-sysinit-0sbb86ga",
+    "scope": "Application uses actual flags and CONFIG continuation; BIOS field positions and other layout positions remain diagnostic anchors."
+  },
+  "limitations": [
+    "First-pass parser relocation and complete control flow have not yet been matched in the product layout.",
+    "Runtime and complete product link and final three core binaries remain unverified."
+  ]
+}

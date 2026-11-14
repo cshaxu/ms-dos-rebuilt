@@ -1,0 +1,46 @@
+{
+  "part": "M5 T12 S1 P3",
+  "reviewed_ordinals": [
+    7,
+    8,
+    9
+  ],
+  "modified": 3,
+  "unchanged": 0,
+  "exact_dos6": 0,
+  "retired_by_merge": 2,
+  "source_references": {
+    "backdata": "v6.0/bios/sysinit1.asm:839-847, MagicBackdoor data and NullBackdoor proc retained verbatim",
+    "bcend": "v6.0/bios/msend.asm, BCode_end paragraph boundary",
+    "biosmsg": "v6.0/bios/sysimes.asm: separate message compilation unit with public labels and include"
+  },
+  "collateral_ordinals": [
+    30,
+    59,
+    60
+  ],
+  "validation": {
+    "stage": "extras/build/source-quality-p3",
+    "execution": "Existing isolated_tool_runner; private-desktop DOS5Build_37868_138619859, owned PID 34436; child-exit=0 timeout=0",
+    "assembled": [
+      "movstart.asm",
+      "biosmsg.asm"
+    ],
+    "tools": "Pinned ML /c /nologo /Zm; Microsoft Segmented-Executable Linker 5.10 /MAP; RELOC msbio.exe msbio.bin 70",
+    "build_marker": "PASS",
+    "bios_compare": "fc /b against extras/build/cmd-2319-5304/bios/msbio.bin: no differences",
+    "io_compare": "ioimage using rebuilt BIOS and new map, unchanged accepted loader/kernel/config/logo; fc /b against extras/assets/IO.SYS: no differences",
+    "IO_SYS_size": 223148,
+    "IO_SYS_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+    "addresses": {
+      "BCode_end": "0165:2DA0",
+      "MagicBackdoor": "0473:0FFB",
+      "NullBackdoor": "0473:0FFF"
+    },
+    "link_warnings": "Existing BIOS image has no stack segment or entry point (L4021/L4038); binary unchanged",
+    "unchanged_components": "COMMAND.COM and MSDOS.SYS not rebuilt; P2 emitted statements unchanged and existing T11 acceptance retained",
+    "source_reference_scan": "No backdata, bcend or biosmt references remain in bios/cmd/dos/inc, extras/build.cmd or extras/tools"
+  },
+  "necessity": "Keep biosmsg as a coherent paragraph-aligned message resource owner. Do not merge into late msend, which would move the resource relative to intermediate BIOS code contributors.",
+  "remaining": 57
+}

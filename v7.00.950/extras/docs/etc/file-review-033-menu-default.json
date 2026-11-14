@@ -1,0 +1,31 @@
+{
+  "file": "bios/sysinit2.asm",
+  "file_index": 33,
+  "source_sha256": "929bbd049a80555b6131efeb56ee0528f270ea528b04d22a1ae79e9924f0035a",
+  "ranges": [
+    {
+      "start": "0x7257",
+      "end": "0x7273",
+      "bytes": 28,
+      "differences": 0,
+      "details": []
+    },
+    {
+      "start": "0x72ad",
+      "end": "0x72e4",
+      "bytes": 55,
+      "differences": 0,
+      "details": []
+    }
+  ],
+  "probe": "extras/research/menu-default7-linked.asm",
+  "limitations": [
+    "The isolated link uses fixed target offsets and stubs.",
+    "The previous-selection consumer and startup key handling are not yet reconstructed.",
+    "Final IO.SYS layout and whole-file equality remain unverified."
+  ],
+  "dos7_assembly": "passed",
+  "default_assembly": "passed",
+  "default_object_identical_to_prior": true,
+  "mixed_diagnostic_link_exit_code": 0
+}

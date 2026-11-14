@@ -1,0 +1,92 @@
+{
+  "msinit_source_sha256": "26116628dbec0c96e2611c0a33f4c2efc11917cd58928274a03a82e80f2fe9fa",
+  "msinit_object_sha256": "1b226806929f36706416502e3d66cc919447d31f1280200e6081e6a0ab5b4b9a",
+  "temporary_stub_source": "extras/research/bios-msinit-current-diagnostic/initstub.asm",
+  "link_exit": 0,
+  "link_log": "\r\nMicrosoft (R) Segmented Executable Linker NTGroup Version 5.60.220 Dec 28 1999\r\nCopyright (C) Microsoft Corp 1984-1993.  All rights reserved.\r\n\r\nObject Modules [.obj]: /MAP msbio1 mschar msinit diskdata msdisk iodata msdioctl msint13 msbio2 multunit+\r\nObject Modules [.obj]: sysinit1+sysconf+syspre+sysinit2+sysimes+power+ptime+\r\nObject Modules [.obj]: msend+splitbds+splitp1+splitent+splitp2+splitlat+a20stub+m2stub+c7stub+initstub,msbio,msbio;\r\n",
+  "limitations": [
+    "Diagnostic placeholders do not implement initialization behavior and the link is not production-ready.",
+    "Clock entry wrappers and absolute layout remain to be reconstructed."
+  ],
+  "linked_exe_sha256": "1894142e636e2d3ab4605158fb95356481b506ed06251149a4c9971cce28ea7d",
+  "positions": {
+    "GetTickCnt": {
+      "segment": "0x189",
+      "offset": "0xb4c",
+      "target_file": "0x2772"
+    },
+    "read_real_date": {
+      "segment": "0x189",
+      "offset": "0xb7a",
+      "target_file": "0x27b0"
+    },
+    "read_real_time": {
+      "segment": "0x189",
+      "offset": "0xc34",
+      "target_file": "0x286a"
+    },
+    "step_drv": {
+      "segment": "0x189",
+      "offset": "0xdf0",
+      "target_file": "0x2a26"
+    },
+    "dsktbl": {
+      "segment": "0x189",
+      "offset": "0xe4a",
+      "target_file": "0x2a80"
+    },
+    "i13z": {
+      "segment": "0x189",
+      "offset": "0x259f",
+      "target_file": "0x41d5"
+    }
+  },
+  "spans": [
+    {
+      "from": "GetTickCnt",
+      "to": "read_real_date",
+      "linked_distance": 46,
+      "target_distance": 62,
+      "difference": -16
+    },
+    {
+      "from": "read_real_date",
+      "to": "read_real_time",
+      "linked_distance": 186,
+      "target_distance": 186,
+      "difference": 0
+    },
+    {
+      "from": "read_real_time",
+      "to": "step_drv",
+      "linked_distance": 444,
+      "target_distance": 444,
+      "difference": 0
+    },
+    {
+      "from": "GetTickCnt",
+      "to": "step_drv",
+      "linked_distance": 676,
+      "target_distance": 692,
+      "difference": -16
+    },
+    {
+      "from": "step_drv",
+      "to": "dsktbl",
+      "linked_distance": 90,
+      "target_distance": 90,
+      "difference": 0
+    },
+    {
+      "from": "dsktbl",
+      "to": "i13z",
+      "linked_distance": 5973,
+      "target_distance": 5973,
+      "difference": 0
+    }
+  ],
+  "observations": [
+    "Real msinit clock procedures replace diagnostic stubs; explicit initialization placeholders remain.",
+    "The comparison measures relative linked positions and does not assert the values or behavior of those placeholders."
+  ]
+}

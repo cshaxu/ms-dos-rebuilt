@@ -1,0 +1,33 @@
+{
+  "source": "bios/sysinit1.asm",
+  "sha256": "ee132c861f58f2294f8bdc36224301c40d82b6e0d0d56f386609594875f07660",
+  "changes": [
+    "Use CS for current_dos_location and runhigh in LoadDOSHiOrLo.",
+    "Use CS for the final CONFIG install flag test.",
+    "Expose LoadDOSHiOrLo for source-object linkage."
+  ],
+  "matched": [
+    {
+      "region": "CONFIG final pass and DOS relocation call",
+      "start": "0x16ed",
+      "end_exclusive": "0x1700",
+      "bytes": 19
+    },
+    {
+      "region": "DOS high/low finalization",
+      "start": "0x185f",
+      "end_exclusive": "0x1895",
+      "bytes": 54
+    }
+  ],
+  "verification": {
+    "tool": "extras/tools/verify_syspre_device_link.py",
+    "link_stage": "extras/build/syspre-object-link-w2webtno",
+    "module_stage": "extras/build/ml-sysinit-pbjwpn5m",
+    "scope": "Actual source objects link to multi_pass, DOS relocation and their state providers. After verification only a Python assertion spelling was simplified without changing its value."
+  },
+  "limitations": [
+    "The earlier shell and environment preparation chain remains to be linked.",
+    "The complete SYSINIT product and final three core binaries remain unverified."
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "stage": "extras\\build\\command-reference-c8yp0hum",
+  "routine_checks": [
+    {
+      "symbol": "MsgInt2fHandler",
+      "target_range": [
+        25113,
+        25206
+      ],
+      "bytes": 93,
+      "linked_hex": "1f3d2e1274443d0516750b81ff0004750580264505fb3d0055741c505055508bec8b4608894604a19b05894608a19905894606585d1fcb581ebe0401a1a90385c07418bf340133c0eb11f6c201750c538bda32ffd1e3c4bf0e0f5b1fcf",
+      "target_hex": "1f3d2e1274443d0516750b81ff0004750580266707fb3d0055741c505055508bec8b4608894604a17807894608a17607894606585d1fcb581ebe1f01a13f0485c07418bf4f0133c0eb11f6c201750c538bda32ffd1e3c4bf47155b1fcf",
+      "verified_address_fields": [
+        {
+          "offset": 19,
+          "symbol": "YSwitchFlags",
+          "addend": 0,
+          "linked": 1349,
+          "target": 1895
+        },
+        {
+          "offset": 40,
+          "symbol": "Int2fHandler",
+          "addend": 2,
+          "linked": 1435,
+          "target": 1912
+        },
+        {
+          "offset": 46,
+          "symbol": "Int2fHandler",
+          "addend": 0,
+          "linked": 1433,
+          "target": 1910
+        },
+        {
+          "offset": 58,
+          "symbol": "Int2f_Entry",
+          "addend": 0,
+          "linked": 260,
+          "target": 287
+        },
+        {
+          "offset": 61,
+          "symbol": "OriginalDataSeg",
+          "addend": 0,
+          "linked": 937,
+          "target": 1087
+        },
+        {
+          "offset": 68,
+          "symbol": "ReleaseInit_Entry",
+          "addend": 0,
+          "linked": 308,
+          "target": 335
+        },
+        {
+          "offset": 88,
+          "symbol": "MsgPtrLists",
+          "addend": 0,
+          "linked": 3854,
+          "target": 5447
+        }
+      ]
+    },
+    {
+      "symbol": "ReleaseInit",
+      "target_range": [
+        24231,
+        24291
+      ],
+      "bytes": 60,
+      "linked_hex": "0e1f8b1ea90385db7431064b53065b0726891e0100bb100026c607cf83c306a19905268907a19b05268947028e062305b449cd211e07b449cd2107cb",
+      "target_hex": "0e1f8b1e3f0485db7431064b53065b0726891e0100bb100026c607cf83c306a17607268907a17807268947028e064507b449cd211e07b449cd2107cb",
+      "verified_address_fields": [
+        {
+          "offset": 4,
+          "symbol": "OriginalDataSeg",
+          "addend": 0,
+          "linked": 937,
+          "target": 1087
+        },
+        {
+          "offset": 32,
+          "symbol": "Int2fHandler",
+          "addend": 0,
+          "linked": 1433,
+          "target": 1910
+        },
+        {
+          "offset": 38,
+          "symbol": "Int2fHandler",
+          "addend": 2,
+          "linked": 1435,
+          "target": 1912
+        },
+        {
+          "offset": 46,
+          "symbol": "EnvirSeg",
+          "addend": 0,
+          "linked": 1315,
+          "target": 1861
+        }
+      ]
+    }
+  ],
+  "error_stub_prefix_bytes_verified": 2,
+  "error_body_verified": false,
+  "relocation_entries": {
+    "MsgInt2fHandler": 1949,
+    "Int_2e": 377,
+    "ContC": 53,
+    "DskErr": 1160,
+    "Exec_Ret": 41,
+    "TRemCheck": 677,
+    "TrnLodCom1": 1060,
+    "LodCom": 432,
+    "MsgRetriever": 2042,
+    "THeadFix": 708,
+    "Lh_OffUnlink": 2113,
+    "BadMemEntry": 267,
+    "ReleaseInit": 1067
+  },
+  "relocation_entries_verified": 13,
+  "original_data_segment_initial_bytes_verified": 2,
+  "source_hashes": {
+    "cmd/command/command2.asm": "33bf2f89d85a790bb81bb21295fe5ccbe5707abe6e6850f9dac9118e753bed1a",
+    "cmd/command/rdata.asm": "ca574645c53183b72ae178b9bc906bd9e592badafc4c040c6894dd86a582f851",
+    "cmd/command/rucode.asm": "49676b72d0229b4422cfbbd30c74363e22aad79a56db9c716156ddc5abf75c45",
+    "cmd/command/stub.asm": "f12d215477dfb541df5355aa52730558594d780d30da76222268c05a228484ce",
+    "cmd/command/uinit.asm": "76740b05c8d1cc73124add77836d1486d520162f8e2f8fb7b358637fa3c238c4"
+  },
+  "resource_gates_passed": true,
+  "full_command_exact": false,
+  "remaining": [
+    "OriginalDataSeg initialization and relocation lifecycle not yet restored or wired.",
+    "Existing fatal-error body still DOS6-derived; only actual two-byte stub entry restored.",
+    "Resource startup and complete code/data layout remain unfinished."
+  ],
+  "original_data_segment_target_evidence": "71E7h/71EBh store relocated/original DS separately; 72ACh changes relocated DS only; 474Eh exchanges original DS; release/query read 043Fh. New variable name is reconstructed."
+}

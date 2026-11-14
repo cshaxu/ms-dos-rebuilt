@@ -1,0 +1,16 @@
+{
+  "file": "bios/sysinit2.asm",
+  "file_index": 33,
+  "source_sha256": "d66e8f949b2bdc28c65ed0b653c7f4c5612e26df1861c94ceac58d63a919a02a",
+  "target_range": "IO.SYS 0x799a..0x79d9",
+  "bytes": 63,
+  "different_bytes": 0,
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "Isolated ORG link does not establish final executable placement.",
+    "DOS7 menu special-key handling and startup query-mode setup are not yet fully recovered.",
+    "Mixed diagnostic uses older objects and stubs; full IO.SYS equality is unverified."
+  ]
+}

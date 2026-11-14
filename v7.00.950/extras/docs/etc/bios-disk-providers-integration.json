@@ -1,0 +1,258 @@
+{
+  "source_directory": "extras/research/bios-disk-providers-integration",
+  "sources": {
+    "a20stub.asm": "2b67866a480ac934160f94aaf153d24d336ba8524cf30193d409fc4097455143",
+    "diskdata.asm": "8ce9f39a6be8e121cb736f37c82e1e30344c657c4adfe9bf4781dc796ee1e6f8"
+  },
+  "linked_exe_sha256": "ee852884c04b1ed8110640a0008e8b7617b2ce7343de597ec2b976504faa6772",
+  "symbols": [
+    {
+      "symbol": "step_drv",
+      "provider": "diskdata",
+      "fixup_users": [
+        "msdioctl",
+        "msdisk"
+      ]
+    },
+    {
+      "symbol": "accesscount",
+      "provider": "diskdata",
+      "fixup_users": [
+        "msdisk"
+      ]
+    },
+    {
+      "symbol": "tim_drv",
+      "provider": "diskdata",
+      "fixup_users": [
+        "msbio2",
+        "msdioctl",
+        "msdisk"
+      ]
+    },
+    {
+      "symbol": "medbyt",
+      "provider": "diskdata",
+      "fixup_users": [
+        "msbio2",
+        "msdisk"
+      ]
+    },
+    {
+      "symbol": "wrtverify",
+      "provider": "diskdata",
+      "fixup_users": [
+        "msdisk"
+      ]
+    },
+    {
+      "symbol": "rflag",
+      "provider": "diskdata",
+      "fixup_users": [
+        "msdioctl",
+        "msdisk"
+      ]
+    },
+    {
+      "symbol": "seccnt",
+      "provider": "diskdata",
+      "fixup_users": [
+        "msdioctl",
+        "msdisk"
+      ]
+    },
+    {
+      "symbol": "motorstartup",
+      "provider": "diskdata",
+      "fixup_users": [
+        "msdisk",
+        "msinit"
+      ]
+    },
+    {
+      "symbol": "settlecurrent",
+      "provider": "diskdata",
+      "fixup_users": [
+        "msdisk"
+      ]
+    },
+    {
+      "symbol": "settleslow",
+      "provider": "diskdata",
+      "fixup_users": [
+        "msdisk"
+      ]
+    },
+    {
+      "symbol": "save_head_sttl",
+      "provider": "diskdata",
+      "fixup_users": [
+        "msdisk"
+      ]
+    },
+    {
+      "symbol": "save_eot",
+      "provider": "diskdata",
+      "fixup_users": [
+        "msdisk"
+      ]
+    },
+    {
+      "symbol": "eot",
+      "provider": "diskdata",
+      "fixup_users": [
+        "msbio2",
+        "msdioctl",
+        "msdisk",
+        "msinit",
+        "sysinit2"
+      ]
+    },
+    {
+      "symbol": "dpt",
+      "provider": "diskdata",
+      "fixup_users": [
+        "msdioctl",
+        "msdisk"
+      ]
+    },
+    {
+      "symbol": "cursec",
+      "provider": "diskdata",
+      "fixup_users": [
+        "msdioctl",
+        "msdisk"
+      ]
+    },
+    {
+      "symbol": "curhd",
+      "provider": "diskdata",
+      "fixup_users": [
+        "msdioctl",
+        "msdisk"
+      ]
+    },
+    {
+      "symbol": "curtrk",
+      "provider": "diskdata",
+      "fixup_users": [
+        "msdioctl",
+        "msdisk"
+      ]
+    },
+    {
+      "symbol": "spsav",
+      "provider": "diskdata",
+      "fixup_users": [
+        "msdioctl",
+        "msdisk"
+      ]
+    },
+    {
+      "symbol": "temp_h",
+      "provider": "diskdata",
+      "fixup_users": [
+        "msdisk",
+        "msinit"
+      ]
+    },
+    {
+      "symbol": "start_sec_h",
+      "provider": "diskdata",
+      "fixup_users": [
+        "msbio1",
+        "msdioctl",
+        "msdisk",
+        "msinit"
+      ]
+    },
+    {
+      "symbol": "saved_word",
+      "provider": "diskdata",
+      "fixup_users": [
+        "msdisk"
+      ]
+    },
+    {
+      "symbol": "vretry_cnt",
+      "provider": "diskdata",
+      "fixup_users": [
+        "msdisk"
+      ]
+    },
+    {
+      "symbol": "soft_ecc_cnt",
+      "provider": "diskdata",
+      "fixup_users": [
+        "msdisk"
+      ]
+    },
+    {
+      "symbol": "set_id_flag",
+      "provider": "diskdata",
+      "fixup_users": [
+        "msdisk"
+      ]
+    },
+    {
+      "symbol": "fat_12_id",
+      "provider": "diskdata",
+      "fixup_users": [
+        "msdisk"
+      ]
+    },
+    {
+      "symbol": "fat_16_id",
+      "provider": "diskdata",
+      "fixup_users": [
+        "msdisk"
+      ]
+    },
+    {
+      "symbol": "vol_no_name",
+      "provider": "diskdata",
+      "fixup_users": [
+        "msdisk"
+      ]
+    },
+    {
+      "symbol": "sm92",
+      "provider": "diskdata",
+      "fixup_users": [
+        "msdisk"
+      ]
+    },
+    {
+      "symbol": "errin",
+      "provider": "diskdata",
+      "fixup_users": [
+        "msdisk"
+      ]
+    },
+    {
+      "symbol": "lsterr",
+      "provider": "diskdata",
+      "fixup_users": [
+        "msdisk"
+      ]
+    },
+    {
+      "symbol": "errout",
+      "provider": "diskdata",
+      "fixup_users": []
+    },
+    {
+      "symbol": "numerr",
+      "provider": "diskdata",
+      "fixup_users": [
+        "msdisk"
+      ]
+    }
+  ],
+  "link_log": "Microsoft (R) Segmented-Executable Linker  Version 5.10    \nCopyright (C) Microsoft Corp 1984-1990.  All rights reserved.\n\nObject Modules [.OBJ]: /MAP msbio1 mschar msdisk msdioctl msint13 dskinit msbio2+\nObject Modules [.OBJ]: msinit+sysinit1+sysconf+syspre+sysinit2+sysimes+power+ptime+\nObject Modules [.OBJ]: msend+splitbds+splitp1+splitent+splitp2+splitlat+a20stub+m2stub+c7stub+iodata+diskdata,msbio,msbio;\nLINK : warning L4021: no stack segment\nLINK : warning L4038: program has no starting address",
+  "limitations": [
+    "Diagnostic link retains other stubbed definitions, legacy objects and synthetic SYSINIT gaps.",
+    "Provider placement and historical source ownership are not established; no full IO.SYS identity is claimed.",
+    "Uninitialized declarations matching target zeros do not prove original initializer semantics."
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "stage": "extras\\build\\command-reference-z82ywy1z",
+  "target_range": [
+    52852,
+    52894
+  ],
+  "bytes": 42,
+  "linked_hex": "1e502e8e1e12a333c08706a0040bc07408068ec0b449cd210732c08606fe030ac07404d02e8003581fc3",
+  "verified_fields": [
+    {
+      "offset": 5,
+      "symbol": "ResSeg",
+      "addend": 0,
+      "linked": 41746,
+      "target": 53306
+    },
+    {
+      "offset": 11,
+      "symbol": "PipePtr",
+      "addend": 2,
+      "linked": 1184,
+      "target": 1253
+    },
+    {
+      "offset": 29,
+      "symbol": "PipeFlag",
+      "addend": 0,
+      "linked": 1022,
+      "target": 1091
+    },
+    {
+      "offset": 37,
+      "symbol": "EchoFlag",
+      "addend": 0,
+      "linked": 896,
+      "target": 1043
+    }
+  ],
+  "source_hashes": {
+    "cmd/command/rdata.asm": "927d9021bb12fb6c7df52b5c2333fc024f0159bc9c651c1086b3c7c01aa20db0",
+    "cmd/command/tpipe.asm": "a37427ec38d5cb3c7a14a7a7bd6869b24c7c4dbf55b35948dc6ae551e0c1a3bf"
+  },
+  "resource_gates_passed": true,
+  "full_command_exact": false,
+  "remaining": [
+    "PipePtr is now a DWORD declaration but its initial emitted bytes are overlaid by EndInit; zero runtime ownership must be established by startup, not assumed from DD 0.",
+    "Pipe allocation/error-message producer and far-pointer consumers are still pending; old static PipeStr remains until replacement.",
+    "Complete startup and pipeline lifecycle not verified."
+  ]
+}

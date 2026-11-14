@@ -1,0 +1,24 @@
+{
+  "source": "bios/sysconf.asm",
+  "sha256": "51db5b182823c088d56f11b5e871bf1d9971593217c031ee21307035a28337e8",
+  "change": "Execute the restored system-data allocator and its actual marker writer against a private test arena.",
+  "verification": {
+    "tool": "extras/tools/probe_system_data_arena.py",
+    "stage": "extras/build/system-arena-probe-tuzlhbm0",
+    "result": "pass",
+    "cases": [
+      "initial allocation creates system data arena and D marker",
+      "subsequent allocation grows the existing arena and creates internal H marker",
+      "DX, SI and DI preserved on initial allocation"
+    ],
+    "observations": [
+      "arena sizes 20 -> 16 -> 14 paragraphs",
+      "allocated system arena sizes 3 -> 5 paragraphs",
+      "returned segment and marker segment/size verified"
+    ]
+  },
+  "limitations": [
+    "Isolated synthetic arena, no real DOS arena modified.",
+    "Callers, full production link and final three core binaries remain unverified."
+  ]
+}

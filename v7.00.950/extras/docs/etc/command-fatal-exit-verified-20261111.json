@@ -1,0 +1,168 @@
+{
+  "stage": "extras\\build\\command-reference-kope_m8g",
+  "fatal_target_range": [
+    23139,
+    23300
+  ],
+  "fatal_bytes": 161,
+  "verified_data_fields": [
+    {
+      "offset": 4,
+      "symbol": "ResMsg128Ptr",
+      "addend": 0,
+      "linked": 1738,
+      "target": 2361
+    },
+    {
+      "offset": 11,
+      "symbol": "PermCom",
+      "addend": 0,
+      "linked": 901,
+      "target": 1048
+    },
+    {
+      "offset": 18,
+      "symbol": "SingleCom",
+      "addend": 0,
+      "linked": 904,
+      "target": 1050
+    },
+    {
+      "offset": 25,
+      "symbol": "ResMsg129Ptr",
+      "addend": 0,
+      "linked": 1742,
+      "target": 2365
+    },
+    {
+      "offset": 36,
+      "symbol": "ResMsg130Ptr",
+      "addend": 0,
+      "linked": 1746,
+      "target": 2369
+    },
+    {
+      "offset": 43,
+      "symbol": "Int_2e_Ret",
+      "addend": 2,
+      "linked": 797,
+      "target": 927
+    },
+    {
+      "offset": 49,
+      "symbol": "Parent",
+      "addend": 0,
+      "linked": 801,
+      "target": 931
+    },
+    {
+      "offset": 55,
+      "symbol": "OldTerm",
+      "addend": 0,
+      "linked": 803,
+      "target": 933
+    },
+    {
+      "offset": 61,
+      "symbol": "OldTerm",
+      "addend": 2,
+      "linked": 805,
+      "target": 935
+    },
+    {
+      "offset": 75,
+      "symbol": "Int2eHandler",
+      "addend": 0,
+      "linked": 1433,
+      "target": 1906
+    },
+    {
+      "offset": 91,
+      "symbol": "Int2fHandler",
+      "addend": 0,
+      "linked": 1437,
+      "target": 1910
+    },
+    {
+      "offset": 112,
+      "symbol": "SingleCom",
+      "addend": 0,
+      "linked": 904,
+      "target": 1050
+    },
+    {
+      "offset": 118,
+      "symbol": "Res_Tpa",
+      "addend": 0,
+      "linked": 1347,
+      "target": 1893
+    },
+    {
+      "offset": 126,
+      "symbol": "Save_Pdb",
+      "addend": 0,
+      "linked": 799,
+      "target": 929
+    },
+    {
+      "offset": 133,
+      "symbol": "RetCode",
+      "addend": 0,
+      "linked": 893,
+      "target": 1897
+    },
+    {
+      "offset": 137,
+      "symbol": "ExtCom",
+      "addend": 0,
+      "linked": 892,
+      "target": 1041
+    },
+    {
+      "offset": 146,
+      "symbol": "ExtCom",
+      "addend": 0,
+      "linked": 892,
+      "target": 1041
+    },
+    {
+      "offset": 153,
+      "symbol": "Int_2e_Ret",
+      "addend": 2,
+      "linked": 797,
+      "target": 927
+    },
+    {
+      "offset": 158,
+      "symbol": "Int_2e_Ret",
+      "addend": 0,
+      "linked": 795,
+      "target": 925
+    }
+  ],
+  "verified_RPrint_calls": [
+    7,
+    28,
+    39
+  ],
+  "linked_fatal_hex": "1f5a8b16ca06e81606803e8503007412833e880300750b8b16ce06e80106fbf4ebfd8b16d206e8f605833e1d0300753ea12103a31600a12303a30a00a12503a30c00b8004c1e07501ec51699058cd80bc27405b82e25cd2126c5169d058cd80bc27405b82f25cd211f58b44ccd21c706880300008e064305b449cd218b1e1f03b450cd21a17d03803e7c0300750233c0c6067c030133c087061d0350ff361b03cb",
+  "target_fatal_hex": "1f5a8b163909e80707803e1804007412833e1a0400750b8b163d09e8f206fbf4ebfd8b164109e8e706833e9f0300753ea1a303a31600a1a503a30a00a1a703a30c00b8004c1e07501ec51672078cd80bc27405b82e25cd2126c51676078cd80bc27405b82f25cd211f58b44ccd21c7061a0400008e066507b449cd218b1ea103b450cd21a16907803e110400750233c0c60611040133c087069f0350ff369d03cb",
+  "vector_save_install_bytes": 23,
+  "vector_save_target_range": [
+    27740,
+    27763
+  ],
+  "vector_save_linked_hex": "06b82e35cd21891e99058c069b0507ba4701b82e25cd21",
+  "vector_state_zero_bytes": 4,
+  "source_hashes": {
+    "cmd/command/command2.asm": "22ca990d088780ad2e906b156e2eec79a2595510c98fe3473b4bf5904103addd",
+    "cmd/command/rdata.asm": "fafd9de32e1db73d0dd409b80f48995735ab009b3271c21497fd3c40e7a13e51",
+    "cmd/command/init.asm": "90dda2aac868e2283ecf679308bf40e15c2a43f4fb93068afca89f5eeda7ac11"
+  },
+  "full_command_exact": false,
+  "remaining": [
+    "Vector save/install is integrated at existing DOS6 permanent-shell hook site. Final DOS7 startup placement and FirstCom-or-PermCom gating still pending.",
+    "OriginalDataSeg relocation lifecycle and complete module/layout pending."
+  ],
+  "resource_gates_passed": true
+}

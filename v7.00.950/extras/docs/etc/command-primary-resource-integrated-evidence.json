@@ -1,0 +1,34 @@
+{
+  "build_report": "extras/docs/etc/command-primary-resource-integrated-link-build-20261112.json",
+  "payload_bytes": 12892,
+  "resource_sha256": "20e0e79c0c3120357f0ec53d23c40bcc1c199d7a66643a3bf373864a69bfe185",
+  "classes": [
+    {
+      "id": 1,
+      "count": 4,
+      "payload_offset": 7
+    },
+    {
+      "id": 2,
+      "count": 1,
+      "payload_offset": 25
+    },
+    {
+      "id": 3,
+      "count": 198,
+      "payload_offset": 31
+    }
+  ],
+  "initial_buffer_zero": true,
+  "embedded_help_text_copies": 1,
+  "compiled_calls": [
+    "HavCom -> LoadPrimaryMessages",
+    "LoadPrimaryMessages -> ReadPrimaryResource",
+    "ReadPrimaryResource -> ReadPrimaryClass"
+  ],
+  "limitations": [
+    "Static simulation of successful read and directory decoding; machine code and error paths not executed.",
+    "Full resource corruption detection and target-equivalent checksum behavior are not established.",
+    "Final executable is not byte-identical."
+  ]
+}

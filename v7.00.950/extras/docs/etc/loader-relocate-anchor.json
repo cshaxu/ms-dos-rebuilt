@@ -1,0 +1,14 @@
+{
+  "source": "bios/msload.asm",
+  "procedure": "Relocate",
+  "subsection": "system memory size and RPL top-of-memory check, before SkipRPL",
+  "reference_msload_sha256": "ea8bb3b9c7a22bc141a3d887a66fda6aacd945e6763b23d003399ea2df71c8c0",
+  "target_io_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "reference_file_offset": 489,
+  "target_file_offset": 553,
+  "exact_length": 40,
+  "hex": "cd12b106d3e033db8edb8b1ebc008e1ebe00817f035250750f807f054c75098bd0b8064acd2f8bc2",
+  "reference_following_hex": "b1042e8b161b01d3ea422bc22ea33501",
+  "target_following_hex": "fa2500f02d00108ec02bf62bffb90006",
+  "finding": "An exact 40-byte instruction sequence is shared. At the following instruction the relocation logic differs; those bytes must be reconstructed from the target in file order. This is not a complete source-file equivalence."
+}

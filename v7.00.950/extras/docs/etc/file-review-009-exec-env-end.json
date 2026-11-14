@@ -1,0 +1,17 @@
+{
+  "source": "bios/msbio1.asm",
+  "source_sha256": "1e4d7a9acf33e4ed404a53ed47ca38f738fbd27e9bb3b518120f371056a5fd00",
+  "symbol": "system_exec_env_end",
+  "target_sysinit_offset": 41214,
+  "offset_from_environment": 14,
+  "target_instruction_file_offset": 61450,
+  "target_instruction_hex": "b8fea0d3e8",
+  "diagnostic_before_after_sha256": "da6a6b4877d8cf77ce0b6ead2aa29283c4b0e3e6425042826bfc063d33ec87ca",
+  "diagnostic_environment_layout": {
+    "diagnostic_offset": 3045,
+    "diagnostic_paragraph_aligned": false,
+    "target_offset": 41200,
+    "target_paragraph_aligned": true
+  },
+  "limitations": "Name is descriptive; target source ownership and absolute address remain unresolved. The diagnostic environment is not paragraph-aligned and does not exercise the eventual runtime consumer."
+}

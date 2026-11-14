@@ -1,0 +1,50 @@
+{
+  "file_index": 9,
+  "source": "bios/msbio1.asm",
+  "source_sha256": "42d8bc63a2ebc798e9fbafbb489bf1acbd3cd9e0fbaeaa45b714bfa44fc0e562",
+  "target_vector_install_offset": 5349,
+  "interrupt_number": 108,
+  "routines": [
+    {
+      "name": "int6c_entry",
+      "diagnostic_offset": 2535,
+      "target_offset": 2678,
+      "length": 8,
+      "matching_bytes": 4,
+      "different_offsets": [
+        1,
+        2,
+        6,
+        7
+      ],
+      "linked_hex": "e809ff2eff2edf06",
+      "target_hex": "e80d002eff2e6001"
+    },
+    {
+      "name": "int6c_code",
+      "diagnostic_offset": 10694,
+      "target_offset": 10143,
+      "length": 17,
+      "matching_bytes": 13,
+      "different_offsets": [
+        7,
+        8,
+        10,
+        11
+      ],
+      "linked_hex": "e80300ca0200e8781ee8761eb401cd1ac3",
+      "target_hex": "e80300ca0200e80800e8bf00b401cd1ac3"
+    }
+  ],
+  "diagnostic_stub_symbols": [
+    "bios_msg_base",
+    "bios_msg_1",
+    "bios_msg_2",
+    "bios_msg_3",
+    "int6c_read_date",
+    "int6c_read_time",
+    "ttticks"
+  ],
+  "default_reference_output_sha256": "a67d8733509f9baf94017389cc1c991d5ef1c66bdfb91b6cab3eef0fc35e9490",
+  "limitations": "Date/time helper implementations and initialization are still pending; they are diagnostic stubs. Full target builds remain incomplete."
+}

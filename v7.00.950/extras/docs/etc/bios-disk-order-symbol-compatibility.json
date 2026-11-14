@@ -1,0 +1,31 @@
+{
+  "trial_diff": "extras/research/bios-disk-order-trial.diff",
+  "dos7_objects": {
+    "msdisk": {
+      "sha256": "9ad5f8e137e4ce1a64517a458abe49e8e12a20497aef360b8c93c8460140f94b",
+      "public_dsk_init": true
+    },
+    "msbio2": {
+      "sha256": "c47498116c74af035de071f027b83dd000b1b9e42ada2d4e15b243b6f584b377",
+      "public_dsk_init": false,
+      "public_volume_symbols": [
+        "nul_vid",
+        "tmp_vid"
+      ],
+      "volume_symbols_external": false
+    }
+  },
+  "dos6_trial_object_equality": {
+    "msdisk": "83699866d4997c2bd56193d3c8183717fd64b7b62e4d1a00467e34ee9b483f84",
+    "msbio2": "dc286af1ddc5f32893c8003e3da2e2f47aebc3213cdc34b1141a2e6d0e6b0bff"
+  },
+  "observations": [
+    "The two DOS7_CONFIG trial objects have one dsk_init public provider, in msdisk, and msbio2 defines both volume-label symbols locally.",
+    "Reassembling both unmodified and trial source without DOS7_CONFIG yields byte-identical object files for each module."
+  ],
+  "limitations": [
+    "This checks the two objects and these specific symbols only; other BIOS objects or generated providers may still introduce conflicts.",
+    "Object equality is an isolated DOS6 compatibility check, not proof of a complete DOS6 link.",
+    "Final target BIOS layout, all relocations and original source ownership remain unverified."
+  ]
+}

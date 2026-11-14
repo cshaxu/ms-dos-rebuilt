@@ -1,0 +1,52 @@
+{
+  "generated_utc": "2026-11-12T10:42:01.589551+00:00",
+  "source": "inc/msgserv.asm",
+  "build_report": "extras/docs/etc/command-console-output-build-20261112.json",
+  "comparison": {
+    "target_offset": "0xffa1",
+    "candidate_offset": "0xf66a",
+    "length": 61,
+    "excluded_address_bytes": [
+      6,
+      7,
+      18,
+      19,
+      26,
+      27
+    ],
+    "note": "Instruction sequence matches outside three linked data-address fields; their operands are not separately certified."
+  },
+  "runtime": {
+    "echo": {
+      "stage": "extras/build/command-console-echo-cb34kfvx",
+      "result": "process exit 0 but output empty, test fails"
+    },
+    "copy": {
+      "stage": "extras/build/command-console-copy-3mhjx7ad",
+      "result": "process exit 0 but destination absent, test fails"
+    }
+  },
+  "checkpoints": {
+    "method": "isolated instrumented executable returns errorlevel 42, followed by explicit HIT.TXT marker; candidate PSP parent and termination vector restored for post-migration points",
+    "reached": [
+      "SaveSingleCommand",
+      "CopySingleCommand",
+      "ConsumeSingleCommand",
+      "DOCOM1",
+      "ECHO"
+    ],
+    "stages": [
+      "extras/build/command-reach-save-9bek_2ro",
+      "extras/build/command-reach-copysingle-5eozb0ol",
+      "extras/build/command-reach-consume-i75ppifu",
+      "extras/build/command-reach-docom-dujqj1ty",
+      "extras/build/command-reach-echo-sfxoec13"
+    ]
+  },
+  "file_counts": {
+    "linked": 35,
+    "modified_from_baseline": 30,
+    "unchanged_from_baseline": 5
+  },
+  "final_binary_exact": false
+}

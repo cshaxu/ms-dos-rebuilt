@@ -1,0 +1,20 @@
+{
+  "file": "bios/sysimes.asm",
+  "file_index": 31,
+  "source_sha256": "895386d408f60b6315deada7739eb800429b57438ae1c532fe8aa127284b35c5",
+  "resource_sha256": "f9332f3ae4da62b42d67e70980e8f9c3827fda759a6f1f144e6c3de4a45d9743",
+  "linked_probe_sha256": "0f5e1635ccb399578fc1dbfc574a5921bae5ee8205c2c9948ac8e4640710c8c8",
+  "target_table_bytes": 4299,
+  "target_table_occurrences_in_linked_probe": 1,
+  "default_object_identical": true,
+  "dos7_assembly": "passed",
+  "resolved_symbols": [
+    "sysinit_msg_base",
+    "sysinit_stack_msg_index"
+  ],
+  "limitations": [
+    "Legacy generated MSBIO.CL3 remains alongside the target table; its extra data and old consumers must be reconciled before target binary matching.",
+    "The probe uses a small caller, not the full sysinit1 object or complete IO.SYS.",
+    "Final message table location, original names and complete target integration remain unverified."
+  ]
+}

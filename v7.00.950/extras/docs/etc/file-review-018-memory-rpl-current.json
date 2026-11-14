@@ -1,0 +1,42 @@
+{
+  "source": "bios/msinit.asm",
+  "source_sha256": "d6059655ab11105657dbbca30c0f351494d629854c9725f185b25ab041360b39",
+  "listing_sha256": "49caf6fdd005a73f67408daad18604469808e0f5b4bbb5a2662001c6983ef0e4",
+  "target_offset": "0x10ba",
+  "length": 87,
+  "matched_nonrelocated_bytes": 71,
+  "masked_relocation_bytes": 10,
+  "differences": [
+    {
+      "offset": 72,
+      "listing": "0x2d",
+      "target": "0x83"
+    },
+    {
+      "offset": 73,
+      "listing": "0x20",
+      "target": "0xe8"
+    },
+    {
+      "offset": 74,
+      "listing": "0x0",
+      "target": "0x20"
+    },
+    {
+      "offset": 79,
+      "listing": "0x2d",
+      "target": "0x83"
+    },
+    {
+      "offset": 80,
+      "listing": "0x40",
+      "target": "0xe8"
+    },
+    {
+      "offset": 81,
+      "listing": "0x0",
+      "target": "0x40"
+    }
+  ],
+  "limitations": "The six differing bytes are MASM sub ax immediate encodings; code segment pointer and final SYSINIT link remain unverified."
+}

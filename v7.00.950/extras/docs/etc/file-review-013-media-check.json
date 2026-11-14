@@ -1,0 +1,26 @@
+{
+  "source_sha256": "237ae0bb63b0eb653724607050bd7277c27f3abe82f3609c1db98060ba823573",
+  "listing_sha256": "65ecfd42d80589530f09d2f259197a6d655429eedd5680f1f1d6b3f0b27c3bcb",
+  "routines": [
+    {
+      "name": "SetDrive",
+      "target_offset": "0x2ac4",
+      "length": 20,
+      "masked_relocation_bytes": 2,
+      "matched_nonrelocated_bytes": 18,
+      "differences": []
+    },
+    {
+      "name": "Media_Chk",
+      "target_offset": "0x2ad8",
+      "length": 120,
+      "masked_relocation_bytes": 18,
+      "matched_nonrelocated_bytes": 100,
+      "differences": [
+        115,
+        116
+      ]
+    }
+  ],
+  "limitations": "Relocation operands and complete linked output remain unverified."
+}

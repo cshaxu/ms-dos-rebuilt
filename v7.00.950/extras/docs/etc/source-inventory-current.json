@@ -1,0 +1,2518 @@
+{
+  "active_files": 358,
+  "counts": {
+    "unchanged": 95,
+    "modified": 125,
+    "added": 138
+  },
+  "files": [
+    {
+      "index": 1,
+      "path": "bios/apmequ.inc",
+      "sha256": "6ea83b5c2ad1a1bc2f95d9a1b2f84762cb305f589cd06b2c6a9bf37e1aa23258",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 2,
+      "path": "bios/biosseg.inc",
+      "sha256": "d81bdc2ca6e1638c581e21afb6d4aaa59e5ba65fc02bb15df2d9c22208e5d335",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 3,
+      "path": "bios/biostruc.inc",
+      "sha256": "df66a5bce6e1d8f3fa5101cdf5a4901ea060a3aa8f919e1a9a92b347c135b7f1",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 4,
+      "path": "bios/config.inc",
+      "sha256": "a984fbcb5246ff349a2c366bfe1c47d3226667342ac874d02cc39854346c9026",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 5,
+      "path": "bios/devmark.inc",
+      "sha256": "d6f3dfbcb520b51e6a3b1d0a4bb5b7a2aa5fa268eca22dda1f23f8347f4c7c22",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 6,
+      "path": "bios/inc.asm",
+      "sha256": "e6c87373edd2407dce762f47b09b187572fc77c0071f81f19da74a3954307b20",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "pending"
+    },
+    {
+      "index": 7,
+      "path": "bios/msbio.lnk",
+      "sha256": "0f6159cd77ca1f8d62040c44192a42c2ccddf376ee63ad17e97bcf3c8031df9f",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "pending"
+    },
+    {
+      "index": 8,
+      "path": "bios/msbio.skl",
+      "sha256": "6a0b44c877ad3e7edc3c3e324bcbf3afa50d44f08abc7809dff80ec4deea35d0",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "pending"
+    },
+    {
+      "index": 9,
+      "path": "bios/msbio1.asm",
+      "sha256": "e36f36b3060e4891b09be823a54546f3e721358943e4d98808f1ec635d1ae130",
+      "baseline_disposition": "modified",
+      "prior_review_state": "waiting_dependencies"
+    },
+    {
+      "index": 10,
+      "path": "bios/msbio2.asm",
+      "sha256": "36c00f00925ff1dce9f60ad15bab6625709664ccd1752bb341cf123ebf623319",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 11,
+      "path": "bios/mschar.asm",
+      "sha256": "9e133ddd12d0abd83ec833969b34b2af58e238126aa7936c86a01c2571dfae9f",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 12,
+      "path": "bios/msdioctl.asm",
+      "sha256": "39dd3406b492fe0ab9b4d9c0029c5630bad52deef317af89848ff8959754635f",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 13,
+      "path": "bios/msdisk.asm",
+      "sha256": "3c1c2b80a19048a3f5ce7db3e26d519b38e4217a2c793fbcd06be2ccaa374f1f",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 14,
+      "path": "bios/msdskpr.inc",
+      "sha256": "e8dd92dced3a3c098cddefa5ca73804cae9dac8cd0870d6ba51ef10b7c1ebd59",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 15,
+      "path": "bios/msend.asm",
+      "sha256": "ceb3f2072658c8dc153e2274c42b75d8578426ebe84078779209ba62bce00e34",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 16,
+      "path": "bios/msequ.inc",
+      "sha256": "ce05581d636a79dbb1429fae1375adecd83afee6881bc22527df054aece8ec8b",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 17,
+      "path": "bios/msgroup.inc",
+      "sha256": "e3784b1333bf98e632ce3ee94b41dc7ffa7b8da3ed6c7e27b8eaf0f2dee8fe34",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 18,
+      "path": "bios/msinit.asm",
+      "sha256": "a4751d457cb9fc5a74b406bd17c53fa72453022fd72271eb4155dbcd7c9cd8b1",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 19,
+      "path": "bios/msint13.asm",
+      "sha256": "262f9868eca810d46d25bcec0ee61d5f962f5f93c368e67ec81e59ec8ad9f37e",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 20,
+      "path": "bios/msload.asm",
+      "sha256": "23f61732695925da5444b6765c45a9bcb357792d85944b98fe6efc50c9a6d247",
+      "baseline_disposition": "modified",
+      "prior_review_state": "component_verified"
+    },
+    {
+      "index": 21,
+      "path": "bios/power.asm",
+      "sha256": "d3090363616ba41069834f7796b7f719c8c40ee82c1ec48ecfb5ee3aa373f95d",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 22,
+      "path": "bios/power.inc",
+      "sha256": "7ba90c01066279b1dd7540226449e47b5d10cf0ecbf28ca06bbfb4100ec74f93",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 23,
+      "path": "bios/ptime.asm",
+      "sha256": "dc40f17b2330fd64ce85d9b4d2a35c8f0d716790762a99f3ed64089652e255ee",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 24,
+      "path": "bios/rom8k.inc",
+      "sha256": "a59c6fd2ce8ef9e9499300946e4885d2b0bccbea278b987e57b822dc94061ecd",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 25,
+      "path": "bios/romdinit.asm",
+      "sha256": "15045b982405f4f1b30cdfce760751ae306d4dc2211671a87d5f96c249e7fe38",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 26,
+      "path": "bios/romdrive.asm",
+      "sha256": "7900155468a5aa13a7fe24b401e0ffc9774a2446fb62663179620b74e43a1f62",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 27,
+      "path": "bios/romrd.asm",
+      "sha256": "6873dba81f979c322dbaea758090c2765b3f84e00ee4772053d255f895456426",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 28,
+      "path": "bios/romrdhi.asm",
+      "sha256": "437bc818effd18711fb2550c72cc6678cc8cfcbd1217fabfe994e032e09f38d6",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 29,
+      "path": "bios/romrdlo.asm",
+      "sha256": "6c69f056db340a22dee6aaecfa1a5714420b7ef3a6073ea799a2e3342581b413",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 30,
+      "path": "bios/sysconf.asm",
+      "sha256": "aeaabe48caf92aca2bcd9b61904af7aa4f19e0a199dee002276a88398ff1cbee",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 31,
+      "path": "bios/sysimes.asm",
+      "sha256": "612c08143c45d7bf0004b2ec241fe43a73394b4e3c1744e06c1f429ce7a31658",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 32,
+      "path": "bios/sysinit1.asm",
+      "sha256": "de9cce4145f5363314e101c1e7a2db740f98e0f080cc4e5ef58b75d01174fce8",
+      "baseline_disposition": "modified",
+      "prior_review_state": "waiting_dependencies"
+    },
+    {
+      "index": 33,
+      "path": "bios/sysinit2.asm",
+      "sha256": "60037cbfff97fa6debae36a36fbf79a4e1fa7b53d267c5c3ddcbb2d9b3d03eec",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 34,
+      "path": "bios/syspre.asm",
+      "sha256": "e8b9454595cdc829527ced527e4b500f7948a1061fb241921333c17b85c6d018",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 35,
+      "path": "dos/abort.asm",
+      "sha256": "8c4f699a49855a31957032475840dc9c3fa90d4f14604e8a54f4b80f71b0ca82",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 36,
+      "path": "dos/alloc.asm",
+      "sha256": "d6135bc4a1b361c094ee6f9dcb9f59b29d95369f0d46038f440340dd333526ce",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 37,
+      "path": "dos/buf.asm",
+      "sha256": "7005f2b20ad7a4f8ee896cac1444607f69068ece87a9db8dd9a1582763861f15",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 38,
+      "path": "dos/close.asm",
+      "sha256": "43c4fac54ba6f5c77d8551352f49cf79c13bb50c85f8777bba4701edcad92d2d",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 39,
+      "path": "dos/cpmio.asm",
+      "sha256": "e4084894e66cdc1eb86c95e729f1d88c85d47b4260fa81a04ec1b024ad77d7a6",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 40,
+      "path": "dos/cpmio2.asm",
+      "sha256": "6e8d97087a13780b05274dc58f02744af6d269a8e939ca5586962a4f5c833dbe",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 41,
+      "path": "dos/create.asm",
+      "sha256": "eccf50b8b6b04f27ca41a125420b5e764d9dc6c8b640716dbba79fcce40eedb9",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 42,
+      "path": "dos/crit.asm",
+      "sha256": "f073bea084421071a2473367bf3323053f0f84b3f41fa9675c70cf3cccdec361",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 43,
+      "path": "dos/delete.asm",
+      "sha256": "9abdaadd0559ef01444efdd9dff11c1cf0d739a4f59993ba96bcf5e6bcecbc43",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 44,
+      "path": "dos/dev.asm",
+      "sha256": "0955d113723d1c68bf3536b05984bc7ae2e5bd1f515060ac359fd87f77d98c93",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 45,
+      "path": "dos/dinfo.asm",
+      "sha256": "3bc73774ddcecfc61214336f65449da0331edfd9513c5752100fcfd6fd481c51",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 46,
+      "path": "dos/dir.asm",
+      "sha256": "06b8ef4b5b1d42385fce750fe96c34970faa20d6219b8012070f3cef4d297be8",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 47,
+      "path": "dos/dir2.asm",
+      "sha256": "67e9ea6344ce9f1db8f878cdf970fd60f048d68caa6b538c15630934d43916b2",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 48,
+      "path": "dos/dircall.asm",
+      "sha256": "2e0b554cc5e2f96d94c56ab74cebcbbb888a053c17bdb08b47e395c02ce337df",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 49,
+      "path": "dos/disk.asm",
+      "sha256": "6140eea26297b5a82cad633c513183bdc4aace9cb14942607ca13f11e9b5ab6e",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 50,
+      "path": "dos/disk2.asm",
+      "sha256": "5851a80feda28690ace8d2abbe1ebc73169a6c2529b38f012b7def9561c1b92c",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 51,
+      "path": "dos/disk3.asm",
+      "sha256": "df6ce4c1bc220131ba8524b031e6df199502b3b8ff488c2b8780b0a0e6b9b397",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 52,
+      "path": "dos/divmes.inc",
+      "sha256": "7c97a1fd07befd5d0861306e0573369d33caf84ea3190bdbae65889b7e816192",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "waiting_dependencies"
+    },
+    {
+      "index": 53,
+      "path": "dos/dosmes.inc",
+      "sha256": "5e05e202b53edcef3556f8307a6ac7713d345fa6074430eab57e25584ab82961",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 54,
+      "path": "dos/dosprint.asm",
+      "sha256": "96412d605a3e19ccfaa9a4fdd57a8949eca7fce3950cf81bc4e3c6bf491b05ba",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 55,
+      "path": "dos/dostab.asm",
+      "sha256": "953566087e47c2f9b513c412e54fd3fb92f988bf76f5e97ed9fd7711ed5b53ad",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 56,
+      "path": "dos/dup.asm",
+      "sha256": "e12500722670edd6faa184679039b09225c9f6756c2a2fc644dfabb5e2536b09",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 57,
+      "path": "dos/exepatch.asm",
+      "sha256": "3b83905e1bc9fa591843f683e5b10fd0482bbedc3bca7eafa1ce8acfe7055e66",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 58,
+      "path": "dos/fat.asm",
+      "sha256": "b3e509efda50eead4648ac19eac63266d845533d5a416205239f0a85ffdb7b9d",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 59,
+      "path": "dos/fcb.asm",
+      "sha256": "dd7c6d6b85d08585be900b91f329821a81c6ee9b5f1cb71268382af4fb39a01c",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 60,
+      "path": "dos/fcbio.asm",
+      "sha256": "17d591ab3f39c18188c064de30baf3cfcc48b388274b73af0c628b422cda5afc",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 61,
+      "path": "dos/fcbio2.asm",
+      "sha256": "8f9e59d1676861e1a0817729caaccea4d2e422264a190f9842397f79dd6fe77a",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 62,
+      "path": "dos/file.asm",
+      "sha256": "27c06ac167352d02c1d273787b54cc2a18d52e3fa7c8fdffce8be1e958b0403c",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 63,
+      "path": "dos/finfo.asm",
+      "sha256": "78d3a33fe4d649598956baed835716f0236381905f0247527016cc628dc1a2bc",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 64,
+      "path": "dos/getset.asm",
+      "sha256": "6cb6a803505ebe65a2548e10a791758c4f7b53949edb7bf9b8e94ac9336e73f6",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 65,
+      "path": "dos/handle.asm",
+      "sha256": "bd96f38f073539b9871dde005a5aa3bb7a286f9f5e9ceb72a4e4b947bf448d7f",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 66,
+      "path": "dos/ioctl.asm",
+      "sha256": "184fd8508389b13e2c8fb4511fdbad94bdf767086cc79a9c873e30c56957da24",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 67,
+      "path": "dos/isearch.asm",
+      "sha256": "36c776144e4e42f5cdad31ac3f05d021fa937b5f0d01832792216e2c2277f3b8",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 68,
+      "path": "dos/kstrin.asm",
+      "sha256": "973c9453988f7d2148fca526a478069b6a34a197715321f20624aee615928e51",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "pending"
+    },
+    {
+      "index": 69,
+      "path": "dos/lock.asm",
+      "sha256": "ac4de989ba44a8352a450c1d4cd219d3ca0ef5a6da2c2f689cdfbb759c8f3ce4",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 70,
+      "path": "dos/macro.asm",
+      "sha256": "d9c62e49181b97a9139de66bb27ae800b577a29e963da0ce86d6ae3a7a2496c8",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 71,
+      "path": "dos/macro2.asm",
+      "sha256": "89a4671e12e91eb64e824a68c750a5c493a100c603835b242c07514342b2f0f4",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 72,
+      "path": "dos/misc.asm",
+      "sha256": "6e63958ddfd8b6d126bf2dee3a8e3cbdf17b0ad8a210202eb9f9cd83cef9097b",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 73,
+      "path": "dos/misc2.asm",
+      "sha256": "b892e0c3e18b7aca9d1e018d0d9137e5e3abb3760ce211b8515f5ea0f407a9b3",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 74,
+      "path": "dos/mknode.asm",
+      "sha256": "318652f82bdaaff3b7cdb67313d92159195e953133de65ff8e89b7d53dac454d",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 75,
+      "path": "dos/mpatch.asm",
+      "sha256": "8af243919b9d2044c6ccc4341233065ccf3a441e6bae8881f9d1065e1cd74d40",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 76,
+      "path": "dos/mscode.asm",
+      "sha256": "bedd01ee81449dadd51a26aad9439ce09c0cf68426944130247eaf93289fb733",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 77,
+      "path": "dos/msconst.asm",
+      "sha256": "372e49f55576de00b4b77eddbe826f7c5f4b00818613a23bc1a1c292fe615c10",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 78,
+      "path": "dos/msctrlc.asm",
+      "sha256": "c0c8e49780b42774b23b40e7195bff592407d416699e2d90c67039607a2b8634",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 79,
+      "path": "dos/msdata.asm",
+      "sha256": "5eb324b3811876065f3831a343f165091a82a3399a13fbadfea558cc349e34b0",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 80,
+      "path": "dos/msdisp.asm",
+      "sha256": "f5fc7aa7f76f58ecaa8b5ded8fd6de0f81ffa975733f6c23c9ec5f914e7dd340",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 81,
+      "path": "dos/msdos.lnk",
+      "sha256": "65cde9abffb3be4a4fbd753034d5152201b74693c11510debe423df59ee61070",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 82,
+      "path": "dos/msdos.skl",
+      "sha256": "a5605f538cce0c44d6eee650a50cc82b991e4f5743d804e9abe17e12c6e27a9a",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "pending"
+    },
+    {
+      "index": 83,
+      "path": "dos/msdosme.asm",
+      "sha256": "9a1c7e0320fb80626151eab55fc628aa377768490bb1e415b65dbaae3393f099",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 84,
+      "path": "dos/mshalo.asm",
+      "sha256": "89dbe90c55b755472d8f2834b9ac4e415fce6e9f0376e50b3da0821f9c964250",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "pending"
+    },
+    {
+      "index": 85,
+      "path": "dos/msinit.asm",
+      "sha256": "5601bb67f88d636764fbf5d4417db627828393ed81ec4255ff66a9dcecd3bb44",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 86,
+      "path": "dos/msioctl.asm",
+      "sha256": "39228d3934d865562191950ef45a9347c9d998a6d59a2f323c5c2f0d8e35a65b",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 87,
+      "path": "dos/msproc.asm",
+      "sha256": "c3b9eb3795ff503f5d94f6e95919ba9da207b16e88eafa8192681c4e9cf1cacc",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 88,
+      "path": "dos/mssw.asm",
+      "sha256": "e0490c29ff1a0415385516faeb3172e13b7e3eec546bbf02cce8ae4d752728ab",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 89,
+      "path": "dos/mstable.asm",
+      "sha256": "02c446c259740187cff25689f6e711b4ee30c6dc37db15b5af514b6c0ceb836f",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 90,
+      "path": "dos/open.asm",
+      "sha256": "ce123428c2824049eca51d458216e85da8365fafb8e68c6f326007d4b386881f",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 91,
+      "path": "dos/origin.asm",
+      "sha256": "9e02ec81b78bd3249c55cb46fa7aa3693e64bdd4ef57bc2ef7566f754d4b03b6",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "pending"
+    },
+    {
+      "index": 92,
+      "path": "dos/parse.asm",
+      "sha256": "0d8ff2285e63f56c2f5c0064199a9b54cafed39d1a064ed2d0739c5b2efabba1",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 93,
+      "path": "dos/path.asm",
+      "sha256": "0f8bec38569c2afe843f09fde245418a1a4173373992c78cd89560159f66dcf3",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 94,
+      "path": "dos/rename.asm",
+      "sha256": "69aa31b1d5736f41e76a6185901fbb499c38c9d0d00fdd6c64181a1adc9ef909",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 95,
+      "path": "dos/restrict.inc",
+      "sha256": "a5f68b20aba15a124f3e6f9af99638505e0112edd94a72f8aac7db9160560a76",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 96,
+      "path": "dos/rom.asm",
+      "sha256": "fefa257ff005a02ff1206bab7bb3ddded4c398e18d6f12978d45b8080cf03e34",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 97,
+      "path": "dos/romfind.asm",
+      "sha256": "f334bb028ed5ab0ae924865ce21be8b98c43ea2ab59d8624ff5bb51b99d4fb51",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 98,
+      "path": "dos/scnam.inc",
+      "sha256": "45dc2dc00161d605fe96e1f4962e7ef6fb5af495359b46f9da3a167dfbe9b3e8",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 99,
+      "path": "dos/search.asm",
+      "sha256": "13196cd660edcafb10477fab1a6d807649e7be86f6f4a9c6e436161f0e60d82c",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 100,
+      "path": "dos/segcheck.asm",
+      "sha256": "b5bbcf41397409b980277292477b75cca01212ba20909767273ffb9a34956da7",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 101,
+      "path": "dos/share.asm",
+      "sha256": "76a487b5433c7d1944074e0c08b137f8d3c6358adca103e5a54bd7199bc9e945",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 102,
+      "path": "dos/shrprint.asm",
+      "sha256": "2262e4a31bd4a2e5f4a4e71d62377068ab0956811691b7c84399ca2b1221cd6d",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "pending"
+    },
+    {
+      "index": 103,
+      "path": "dos/srvcall.asm",
+      "sha256": "7ae4293c4d5417bb2cc65e32f6172a27204bedb79738e30f28623350092796b4",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 104,
+      "path": "dos/time.asm",
+      "sha256": "15e297836c3ad30849fc32cfa731e53b26508d69bd3635155afaf7f9499bc5e3",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 105,
+      "path": "dos/util.asm",
+      "sha256": "0538c2aad96c1cf0dea9e70f1bb1b331371e5862b6dcfafa8a2955c44af7fcd3",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 106,
+      "path": "cmd/command/buildmsg.c",
+      "sha256": "0d6fdd1b3db60b166d7f2f5a98ff2b63dad981f0adede17d3012cfce7197f2b9",
+      "baseline_disposition": "modified",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 107,
+      "path": "cmd/command/comequ.asm",
+      "sha256": "da38c0206db1882442adf89289d8f5bfce65b8bdb3dc43dbd4a575cdc5a6a4ff",
+      "baseline_disposition": "modified",
+      "prior_review_state": "waiting_dependencies"
+    },
+    {
+      "index": 108,
+      "path": "cmd/command/command.lnk",
+      "sha256": "701c7b7e2573d5aec33945650490052d483ad49ecc6a876752b359af8875d1c7",
+      "baseline_disposition": "modified",
+      "prior_review_state": "pending"
+    },
+    {
+      "index": 109,
+      "path": "cmd/command/command.skl",
+      "sha256": "f422d7da8970c2d624c519b8163c5944a91f7ccc9ca33d3a85ac0b7759bb3b34",
+      "baseline_disposition": "modified",
+      "prior_review_state": "pending"
+    },
+    {
+      "index": 110,
+      "path": "cmd/command/command1.asm",
+      "sha256": "9f5cc745338f228dc4f23ab8c722186ee8d55affce7eff72f3b248ffbed4a2ff",
+      "baseline_disposition": "modified",
+      "prior_review_state": "pending"
+    },
+    {
+      "index": 111,
+      "path": "cmd/command/command2.asm",
+      "sha256": "56881af43efe88c041661c644a7252a0c6a0fafad92f7c50884e99410c3313a9",
+      "baseline_disposition": "modified",
+      "prior_review_state": "pending"
+    },
+    {
+      "index": 112,
+      "path": "cmd/command/comseg.asm",
+      "sha256": "14ede618cfbcba077bb368574af6a1fc56bb07535980d95d8ba146c9bce9e4e3",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 113,
+      "path": "cmd/command/comsw.asm",
+      "sha256": "0d6b25b288050152824e911c8bc6c7c431e0d9af5d6513d63b286bcbea9dc751",
+      "baseline_disposition": "modified",
+      "prior_review_state": "pending"
+    },
+    {
+      "index": 114,
+      "path": "cmd/command/copy.asm",
+      "sha256": "f75fdb7c3918541bdabf1faac7da8100af6f210b35a3e5488f71199a0caed377",
+      "baseline_disposition": "modified",
+      "prior_review_state": "pending"
+    },
+    {
+      "index": 115,
+      "path": "cmd/command/copypr1.asm",
+      "sha256": "6adfd185cf60e37357acb59441c24e21334c7298b4ffa2a8c34c45fef0a39873",
+      "baseline_disposition": "modified",
+      "prior_review_state": "pending"
+    },
+    {
+      "index": 116,
+      "path": "cmd/command/copypr2.asm",
+      "sha256": "c3281666ca49e0deea879f392463ee9425a5e56d15b781f320a685bdb5dbcb18",
+      "baseline_disposition": "modified",
+      "prior_review_state": "pending"
+    },
+    {
+      "index": 117,
+      "path": "cmd/command/cparse.asm",
+      "sha256": "b818bc8d2eb3d49fda73abbc06ab1f66d60a06641e7333c60477aa4942cfb855",
+      "baseline_disposition": "modified",
+      "prior_review_state": "pending"
+    },
+    {
+      "index": 118,
+      "path": "cmd/command/cratio.asm",
+      "sha256": "3ef000235553f67684676f92128dc169c8f2d5b7257b8d80792a50217cef5ad3",
+      "baseline_disposition": "modified",
+      "prior_review_state": "pending"
+    },
+    {
+      "index": 119,
+      "path": "cmd/command/dir.asm",
+      "sha256": "e887b795139c5e076d9c65328a4ef7ea1bb0918332dc43c0a49dd78d97b78381",
+      "baseline_disposition": "modified",
+      "prior_review_state": "pending"
+    },
+    {
+      "index": 120,
+      "path": "cmd/command/envdata.asm",
+      "sha256": "a2eb2a333b6dd681b017a546f11e9fca5ca85295038b62fc3fb4ab5358b2b24b",
+      "baseline_disposition": "modified",
+      "prior_review_state": "waiting_dependencies"
+    },
+    {
+      "index": 121,
+      "path": "cmd/command/fordata.asm",
+      "sha256": "934a1b616deaf9f85b44694ac0eac7cf88dceeed0f1a04202d088d2f72060067",
+      "baseline_disposition": "modified",
+      "prior_review_state": "waiting_dependencies"
+    },
+    {
+      "index": 122,
+      "path": "cmd/command/ifequ.asm",
+      "sha256": "658d692385d05f90d21f5212a4e3f4dd95717eefa9c6a2bd44ca2e97a4cda3be",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 123,
+      "path": "cmd/command/init.asm",
+      "sha256": "b1f43061000ef9048eaec837ec7505474239c0595efca4cd4707af92b140c916",
+      "baseline_disposition": "modified",
+      "prior_review_state": "pending"
+    },
+    {
+      "index": 124,
+      "path": "cmd/command/iparse.asm",
+      "sha256": "212d981c0338012fe96849a7ea569bea2172d267beeb57415d702d603e7d2e7e",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 125,
+      "path": "cmd/command/loadhi.asm",
+      "sha256": "4039800b9d7ff040e8e01af965020738439ccd912e19036296c82fb936cd01e1",
+      "baseline_disposition": "modified",
+      "prior_review_state": "pending"
+    },
+    {
+      "index": 126,
+      "path": "cmd/command/parse2.asm",
+      "sha256": "a5e107dd84e1f551850ed675a111573ced1e4bd6f849cc9741d44d598b77269d",
+      "baseline_disposition": "modified",
+      "prior_review_state": "pending"
+    },
+    {
+      "index": 127,
+      "path": "cmd/command/path1.asm",
+      "sha256": "7a35aba846da58d703e3b85d9ddec7af823052f98fe77d2f719d101524e3c66a",
+      "baseline_disposition": "modified",
+      "prior_review_state": "pending"
+    },
+    {
+      "index": 128,
+      "path": "cmd/command/path2.asm",
+      "sha256": "70582287279ba1c3f2f5d4e42642cd90a35fb105b81579d82496ed7cd33c2247",
+      "baseline_disposition": "modified",
+      "prior_review_state": "pending"
+    },
+    {
+      "index": 129,
+      "path": "cmd/command/rdata.asm",
+      "sha256": "e0d77fe4833ddb791f513a71f02745b9c77f15e5542330244c69cdef57ee103f",
+      "baseline_disposition": "modified",
+      "prior_review_state": "pending"
+    },
+    {
+      "index": 130,
+      "path": "cmd/command/resmsg.equ",
+      "sha256": "e9944d068ccdc0d10b6fea4a387aa3a127388082ef05d07a146741eb2babb49a",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 131,
+      "path": "cmd/command/rucode.asm",
+      "sha256": "5192ab25a26eb8b73bec6c498c7511ed20fdd01a9b81424ad5d1c61bb43cc470",
+      "baseline_disposition": "modified",
+      "prior_review_state": "pending"
+    },
+    {
+      "index": 132,
+      "path": "cmd/command/stub.asm",
+      "sha256": "04a5a32dff30abd7ddb7bb64656eec8cd8a68b453a3d519c6030c3d92c922aa4",
+      "baseline_disposition": "modified",
+      "prior_review_state": "pending"
+    },
+    {
+      "index": 133,
+      "path": "cmd/command/tbatch.asm",
+      "sha256": "f6f5076a1f3b9cc0ec61051c6d70c8d85699abc3da761fcfbfa3e98e4326e581",
+      "baseline_disposition": "modified",
+      "prior_review_state": "pending"
+    },
+    {
+      "index": 134,
+      "path": "cmd/command/tbatch2.asm",
+      "sha256": "7fe0873525ce68469fdc63a000a29438fd92dda83b9cfc72768fce2b3edfcbcb",
+      "baseline_disposition": "modified",
+      "prior_review_state": "pending"
+    },
+    {
+      "index": 135,
+      "path": "cmd/command/tcmd1b.asm",
+      "sha256": "4e538e222ab5e04ec27d7353c00255088f55a33d9e3c549846dc30c55be3b8d3",
+      "baseline_disposition": "modified",
+      "prior_review_state": "pending"
+    },
+    {
+      "index": 136,
+      "path": "cmd/command/tcmd2a.asm",
+      "sha256": "93ae7b4ce8367f3cf08dae747633d03a433f29cb394b44d6f374023903357716",
+      "baseline_disposition": "modified",
+      "prior_review_state": "pending"
+    },
+    {
+      "index": 137,
+      "path": "cmd/command/tcmd2b.asm",
+      "sha256": "11e1e08d606b841075243b32e70bd83297c901e51f15dc98691a42ca62737221",
+      "baseline_disposition": "modified",
+      "prior_review_state": "pending"
+    },
+    {
+      "index": 138,
+      "path": "cmd/command/tcode.asm",
+      "sha256": "4a3d3efca86e996e5a7ad79db98d7a1126e129a0922010388fe939918a1841b3",
+      "baseline_disposition": "modified",
+      "prior_review_state": "pending"
+    },
+    {
+      "index": 139,
+      "path": "cmd/command/tdata.asm",
+      "sha256": "58e5f8802fe010011f570f77ba3cf8aadda479264b5c8a86ba59d33568c2adf5",
+      "baseline_disposition": "modified",
+      "prior_review_state": "pending"
+    },
+    {
+      "index": 140,
+      "path": "cmd/command/tenv.asm",
+      "sha256": "b5dfdfc9ed708d1d375777b2359cb979db4ed8a28eb2fa18d2bd17293d17beda",
+      "baseline_disposition": "modified",
+      "prior_review_state": "pending"
+    },
+    {
+      "index": 141,
+      "path": "cmd/command/tenv2.asm",
+      "sha256": "7322219e6f37b0a55a402204fd6daf9467c13631a2e478627702cc31a27c9253",
+      "baseline_disposition": "modified",
+      "prior_review_state": "pending"
+    },
+    {
+      "index": 142,
+      "path": "cmd/command/tfor.asm",
+      "sha256": "d5d93aadfcfda37eb4a8d62784ee1799157b86be8d033e0afbe6600c055185ce",
+      "baseline_disposition": "modified",
+      "prior_review_state": "pending"
+    },
+    {
+      "index": 143,
+      "path": "cmd/command/tmisc1.asm",
+      "sha256": "df0d9d1ed0716dd11021d391ae65ac45f1666e0dd94d63718991adc40bd95a79",
+      "baseline_disposition": "modified",
+      "prior_review_state": "pending"
+    },
+    {
+      "index": 144,
+      "path": "cmd/command/tmisc2.asm",
+      "sha256": "8134bf3e164240489569c86137aba3e5f0a9038197562c38898fa5a059e5a2dd",
+      "baseline_disposition": "modified",
+      "prior_review_state": "pending"
+    },
+    {
+      "index": 145,
+      "path": "cmd/command/tparse.asm",
+      "sha256": "d3f14a6fd57fed3c373dba0b12ba560871dc8f8481b97e8b1c981e7d85237ef5",
+      "baseline_disposition": "modified",
+      "prior_review_state": "waiting_dependencies"
+    },
+    {
+      "index": 146,
+      "path": "cmd/command/tpipe.asm",
+      "sha256": "5c584b8f1b36dc0fd587c508e1463a9193894596965ff11b9be5c28fd2972029",
+      "baseline_disposition": "modified",
+      "prior_review_state": "pending"
+    },
+    {
+      "index": 147,
+      "path": "cmd/command/tprintf.asm",
+      "sha256": "42dcddaa854910b67648297fec672b441722859b568068687f057b07acaaa939",
+      "baseline_disposition": "modified",
+      "prior_review_state": "pending"
+    },
+    {
+      "index": 148,
+      "path": "cmd/command/tranmsg.asm",
+      "sha256": "61a6306621c4065052dae9cd1af2de9f0c0d3147577ce20df4a696612c5ef498",
+      "baseline_disposition": "modified",
+      "prior_review_state": "pending"
+    },
+    {
+      "index": 149,
+      "path": "cmd/command/tspc.asm",
+      "sha256": "33e68b1234d2fd198945d9f181a3dfc82592ef257600207a955ca01c3d7a2508",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 150,
+      "path": "cmd/command/tucode.asm",
+      "sha256": "59ead0f5d89c057870c9e3b4dcffc0c3a90244a087cf36806eba836e24d54582",
+      "baseline_disposition": "modified",
+      "prior_review_state": "pending"
+    },
+    {
+      "index": 151,
+      "path": "cmd/command/uinit.asm",
+      "sha256": "32d66275cf136742e1f3ba000dc28a34fe8d5f81895d27d2b056f49963aa8634",
+      "baseline_disposition": "modified",
+      "prior_review_state": "pending"
+    },
+    {
+      "index": 152,
+      "path": "inc/arena.inc",
+      "sha256": "8b7e1038bdde542ff71fe320fd666788a3f517bed0ba90d3cad146e001933589",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 153,
+      "path": "inc/bdsize.inc",
+      "sha256": "33a862fb4b05d71a2f8307f231dcb08491fed700343db8c9e56efcae00455ca2",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "waiting_dependencies"
+    },
+    {
+      "index": 154,
+      "path": "inc/bootform.inc",
+      "sha256": "4b965419b9fb2c035961b8042f7a494a6a8baeb1df63c270bb068658e2f1bea9",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 155,
+      "path": "inc/bpb.inc",
+      "sha256": "43452ad264b7242d892634f19bfcd036f8a2f1c926745466b27039e8c5f960a8",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 156,
+      "path": "inc/buffer.inc",
+      "sha256": "dd480d8e43f47d3ba741498ee67dae60716c3fe7fdba92afb73e14f302897b16",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 157,
+      "path": "inc/bugtyp.inc",
+      "sha256": "5ca6cab9f8de58819470837484d8da1a1f044356f5dbb4d3206dbcfebc92ac87",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 158,
+      "path": "inc/const2.asm",
+      "sha256": "0dbaffe9d6fb8ef98433e1409d92763a241600b85a97c22fa6a9b18746d88866",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 159,
+      "path": "inc/copyrigh.inc",
+      "sha256": "1e4ac80d8a6923d5070840d7de469e156c17d385164963fb3e08afe0acff408a",
+      "baseline_disposition": "modified",
+      "prior_review_state": "component_verified"
+    },
+    {
+      "index": 160,
+      "path": "inc/cpmfcb.inc",
+      "sha256": "ca2cb0e7a884aca307590d3eb9f4620a5ce3455ccb862d4e19fbd5a4c1e3501f",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 161,
+      "path": "inc/cputype.inc",
+      "sha256": "e9bf8b0a5ee0e10936d5403cddadacc898ce1f8b6807ab955b2d0639e5b50cb0",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 162,
+      "path": "inc/curdir.inc",
+      "sha256": "35ce4c7f4511ccd82b0080f769f1efee90853f42c93a1c9d98a7ab930e618aaf",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 163,
+      "path": "inc/dbcs.sw",
+      "sha256": "ca8e10fb6de72593568aa21cb1e24b36a180c64fff0a49ceb8194c75e79737dd",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 164,
+      "path": "inc/devsym.inc",
+      "sha256": "fc490d94869f327034ac3224f7f3bad918ee643041e3f939b4b65693f24e3071",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 165,
+      "path": "inc/dirent.inc",
+      "sha256": "72797ae77d98550ea6ad11aa4a9d46d8ddd88d3dfbb1872aca0c1cd6a52adaa9",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 166,
+      "path": "inc/doscntry.inc",
+      "sha256": "0afc8359d8e51c0da06b15cf725c15a1600b8a4a44f68a74964c78c1b4864a33",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 167,
+      "path": "inc/dosmac.inc",
+      "sha256": "30acfd9ff4cfa69f2719bc61a4416c3c37fc4cb3ae2b5cdaed64096dfbc67675",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 168,
+      "path": "inc/dosseg.inc",
+      "sha256": "b57bb8fe4cdbd0e215a0fb4c34dd21aff2f300ab6228788a3e3912144f86b0ef",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 169,
+      "path": "inc/dossym.inc",
+      "sha256": "7251b43759082b218b6216a267c69efe1adc46da7e5a8bdf75ddd94d366de6a9",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 170,
+      "path": "inc/dpb.inc",
+      "sha256": "78a9717b8fe123d31651d6351adeb6789501ef273ce2476316f5d4ec7c450ec0",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 171,
+      "path": "inc/dpl.asm",
+      "sha256": "3c05ff68a98c953d5cba320d81aecd0e813db044477fef11ac38fd599520f9da",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 172,
+      "path": "inc/ds_vers.inc",
+      "sha256": "2ff90d605f11ff956bfc05136576978b1a912fc022bc4529af138cc92022a0f1",
+      "baseline_disposition": "modified",
+      "prior_review_state": "component_verified"
+    },
+    {
+      "index": 173,
+      "path": "inc/ea.inc",
+      "sha256": "b18162e19f3c81a5982740cc7a5285e0c89d386507b567da61df0e3dddf2549b",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 174,
+      "path": "inc/error.inc",
+      "sha256": "f175053c01e3e4108cab8ac0cef34f5a53e70e050c93216f12182154a2a8968b",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 175,
+      "path": "inc/exe.inc",
+      "sha256": "9823aec6d6bf327ca248ae828bf213aa053f1a466e5d27ffaad455758fd05b36",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 176,
+      "path": "inc/fastopen.inc",
+      "sha256": "64f83d23612ac77f7f1a40e4b5c2dbbb93e6daf65d96106f1d45c8ee6e2cbea3",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 177,
+      "path": "inc/fastxxxx.inc",
+      "sha256": "6e89fb864fb75b1e89bf3c049ead0167d481377ce6fa6986f9e53b30a30331f6",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 178,
+      "path": "inc/filemode.inc",
+      "sha256": "1ed4f86e30874fd29bbf1db7d8d7bf541b3e29f9b52e3eb9cf62b007f6c88a05",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 179,
+      "path": "inc/find.inc",
+      "sha256": "9ffe3c32ba76131086cf11465ac666ff369382bd89193202b2ab1a998e8f2bef",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 180,
+      "path": "inc/highexit.inc",
+      "sha256": "e1df06058140691c7e5fdcc0da2d536d56368aa2331737a15e10ad06c17d7ddc",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 181,
+      "path": "inc/highload.inc",
+      "sha256": "3505df9de417b58463b98d5568bbac17116badc4cf0e2f7339a22e296cb25606",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 182,
+      "path": "inc/highvar.inc",
+      "sha256": "79c6e82987d716b33e73e956b0b1a11689dfaad60a8b55e8c39238cf09c5892d",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 183,
+      "path": "inc/int2a.inc",
+      "sha256": "6af97498ea576a05abb7e58183c2daa8d494e231d931c141bc7fc4c7e756c896",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 184,
+      "path": "inc/intnat.inc",
+      "sha256": "2e198e650d88204dcb6b94dfbb8ed7a9abe629b23e5a9313a8cbd21a0738a809",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 185,
+      "path": "inc/ioctl.inc",
+      "sha256": "3578ed8c51c3856a05bb9dabac438feb9e4bf3ddacd98befa0d90b96e244464c",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 186,
+      "path": "inc/lmstub.asm",
+      "sha256": "16993e6a5d9a9d12a42cca4d89907020d25447900e8e172db8dc304919a82eb7",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 187,
+      "path": "inc/lock.inc",
+      "sha256": "798fc526d01fb124e6b459a034500a2b214f03c32184d4de7b023d8d51fe8841",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 188,
+      "path": "inc/magicdrv.inc",
+      "sha256": "3df074a18ae69121c0f691a0880c4b94d245bc3e25839a30a987cd343e336e0a",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 189,
+      "path": "inc/mi.inc",
+      "sha256": "dc9226da8ca79d71ac339ef92d8deeeae8b0b7414ab671b2075419432fb63f9d",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 190,
+      "path": "inc/ms_data.asm",
+      "sha256": "6ebefa952a6ebb9ab11f7eb635afa5e0e0041607dbe2e60efd7fedd85dc4843a",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 191,
+      "path": "inc/msbdata.inc",
+      "sha256": "9e324c8a49c1487c2dff0dccbe1350f5bbc82dc3aa1843b0e71d4b71ad6dc827",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "waiting_dependencies"
+    },
+    {
+      "index": 192,
+      "path": "inc/msbds.inc",
+      "sha256": "641a8c8ad5a1d611d72342fdf40e20f91ce4a02f89cd83b47d041cebc4265e75",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 193,
+      "path": "inc/msgdcl.inc",
+      "sha256": "d29f9eb66450cbc13cb0a4a109a05b7fe0a827ac0f9d7c399cc8824f2de012a4",
+      "baseline_disposition": "modified",
+      "prior_review_state": "pending"
+    },
+    {
+      "index": 194,
+      "path": "inc/msgserv.asm",
+      "sha256": "d6bdc6e7d4a058faef00a5d30ec736cfbb819c09a4a923c1824086ef8b4a23c7",
+      "baseline_disposition": "modified",
+      "prior_review_state": "pending"
+    },
+    {
+      "index": 195,
+      "path": "inc/mshalo.asm",
+      "sha256": "ea61a90d0190128ee5dfcb9a6f2a07f3fed11d37a510896b0e1865c258de0694",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "pending"
+    },
+    {
+      "index": 196,
+      "path": "inc/mshead.asm",
+      "sha256": "a1572e2b8b0b2b840df0c6317d7072901f381ce2c1fe793cd5966a2e07309d29",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "pending"
+    },
+    {
+      "index": 197,
+      "path": "inc/mult.inc",
+      "sha256": "73037418e659c1eab2d3e67fc7e29eebed8fc6f1fe5790848ee22f9870ef89a6",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 198,
+      "path": "inc/oemconf.inc",
+      "sha256": "aff9b69a014044feb6f8261a1bb7fd5a453a5aa85c10633e0d8c707ddf1cc46d",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 199,
+      "path": "inc/origin.inc",
+      "sha256": "95cf02ce5ff4e097b4ba03484fefd52b146fbbec6442d19889b49b19ef2e83ea",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 200,
+      "path": "inc/parse.asm",
+      "sha256": "89acf7c8c819cd9afa8e44a50ad3e16d5b69e2eed192e01acb020886078238c9",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 201,
+      "path": "inc/pdb.inc",
+      "sha256": "e5d7f79a89904b334b869292e28596adbdac23e26d953d12bc0a6cb46a1e4b29",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 202,
+      "path": "inc/psdata.inc",
+      "sha256": "40794a189adbfb40d947fe78c2c18529931a8eb1ca0274fac3a3910141d15bac",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 203,
+      "path": "inc/rombios.inc",
+      "sha256": "14aa46d7fdbefc03488bf91eb69815d292c61042580419a033622ed367aa564f",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 204,
+      "path": "inc/sf.inc",
+      "sha256": "98f38dad3562b516b4232ceb309a16f6b3ec8f4a899f99a7e433380f466df98d",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 205,
+      "path": "inc/smifssym.inc",
+      "sha256": "bfd832bcd928d692b1b7250b98680ae2dd3b1864a55018ed0e4852631b8bc13b",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 206,
+      "path": "inc/syscall.inc",
+      "sha256": "6c48280825687958d53d845e42cf9abbc7a35231108b59787da902160bc955be",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 207,
+      "path": "inc/sysmsg.inc",
+      "sha256": "16c41e159648a39ec2d965e5377d9c4c626ac313d8e68cd0a1953eed1b91317d",
+      "baseline_disposition": "modified",
+      "prior_review_state": "pending"
+    },
+    {
+      "index": 208,
+      "path": "inc/sysvar.inc",
+      "sha256": "e10451b7564ef7f5fe100cfd85d2f873a076ad9ad37ab09a53f95acc42577f2e",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 209,
+      "path": "inc/umb.inc",
+      "sha256": "c53551ce1da16fff455029aea3e38ce029db4d4bb1e61c971c63d7ea8f338c73",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 210,
+      "path": "inc/vector.inc",
+      "sha256": "f254af16d59d41e7f4862c2c21f5ac75fbcdd6022df2f42d9c88d5f3c8b028b0",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 211,
+      "path": "inc/version.inc",
+      "sha256": "b9ce9a6d7b82c2203ac9c5643d8b255c2d3cf7363defa1220ea8c15f3f1cdb61",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 212,
+      "path": "inc/versiona.inc",
+      "sha256": "eaea7e5c2ae3fb043eaf62e9fcc923afe9c8a3fec955eaa62c5c5c63d97caf6f",
+      "baseline_disposition": "modified",
+      "prior_review_state": "component_verified"
+    },
+    {
+      "index": 213,
+      "path": "inc/win386.inc",
+      "sha256": "f93d2bd1d1c4be0bb0474a4e0ed8796e0f10fdc8e424fc0ffcd64890e599219c",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 214,
+      "path": "inc/wpatch.inc",
+      "sha256": "5195c65222fd02b5f462e058ddbef9eaaebe577907563e1171863c19c583b1d3",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 215,
+      "path": "inc/xmm.inc",
+      "sha256": "166f5796fa0122255f2ef7013b89de089db4dff1c61e9a6c107838e73c5b7acb",
+      "baseline_disposition": "unchanged",
+      "prior_review_state": "reference_qualified"
+    },
+    {
+      "index": 216,
+      "path": "inc/yesno.asm",
+      "sha256": "1b9e6c6116c2de8171e7d637edef102ce7bf11019e5cd1af3f3da70d42404516",
+      "baseline_disposition": "modified",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 217,
+      "path": "lang/usa/messages/comimsg.inc",
+      "sha256": "abe356562522bf0e2d1f87b8ee224b9e927cd8f4b170594f743d9ab404704bcd",
+      "baseline_disposition": "modified",
+      "prior_review_state": "component_verified"
+    },
+    {
+      "index": 218,
+      "path": "lang/usa/messages/comrmsg.inc",
+      "sha256": "87a3ec47241c2c733111ffb066bff73bfd5d9ed04adc62010d9e0c7180e28fd0",
+      "baseline_disposition": "modified",
+      "prior_review_state": "waiting_dependencies"
+    },
+    {
+      "index": 219,
+      "path": "lang/usa/messages/usa-ms-command.msg",
+      "sha256": "d9d6905f711ca350030e98206c9a94bd6917a78c5b904d91fd3eca3631f4028b",
+      "baseline_disposition": "modified",
+      "prior_review_state": "waiting_dependencies"
+    },
+    {
+      "index": 220,
+      "path": "lang/usa/messages/usa-ms-dos.msg",
+      "sha256": "a41c59db3b3bf4fa1a08b83fc9e12b8db558c5673569bac66dec735df4203951",
+      "baseline_disposition": "modified",
+      "prior_review_state": "waiting_dependencies"
+    },
+    {
+      "index": 221,
+      "path": "lang/usa/messages/sysimsg.inc",
+      "sha256": "f05c7696b0fad473fe4eedd5726c8677dcc4aaaf944d6031d89acb3098ab1892",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 222,
+      "path": "lang/usa/messages/biosmsg.inc",
+      "sha256": "ad247642a392a272c7a98bb4290c777162ea85acd576fc5dd6828a32ef71e4d8",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 223,
+      "path": "bios/mrcf.inc",
+      "sha256": "a644294ebf09765eeb9996a1c86395ec69b9b36d0aa6319e135ab2ad5a5804c8",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 224,
+      "path": "dos/diskio.asm",
+      "sha256": "d060e1d7071da00258ae1fea0a1016b506fa33429fec7726d7f8f8f01429b843",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 225,
+      "path": "dos/diskset.asm",
+      "sha256": "f14bb47522f66924e0ab56e811e5555827a25603e7a602a81ce5fe73fcc5748b",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 226,
+      "path": "dos/exechot.asm",
+      "sha256": "a90da1f82011cb6baebdf4cf2b6aa4924ea1508b3f07ad82cc2ad3ed18188314",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 227,
+      "path": "dos/lfn.asm",
+      "sha256": "22d2500724061bc4054f863371ab8eb2b4ea81d6ec7382d0c7d724665a3694f9",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 228,
+      "path": "dos/devcache.asm",
+      "sha256": "95078ec33b0268fa90317d999b1aa804bef6fda553e3890bdeb7adb36f0df094",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 229,
+      "path": "dos/dircmp.asm",
+      "sha256": "dbfb3684ea2f6b4aece52a50d901b92861575064ace58d80a26b273f7b25e8c5",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 230,
+      "path": "dos/lockio.asm",
+      "sha256": "5aabbcb4bfcc01bf49cae65b5842aae3334c29f08a8042c41ead33e6e9a90b9c",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 231,
+      "path": "dos/idle.asm",
+      "sha256": "dfb1d2bc1995bac8cd50fada45c07d82830de2c187f9db0f89b0fd494d9031a5",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 232,
+      "path": "bios/configenv.asm",
+      "sha256": "7a25fcfff216b3af145388d92eae853cadad2480d21f78b7b2fffdb5aaf1f3ee",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 233,
+      "path": "bios/configmem.asm",
+      "sha256": "81a8c02f33955b28e44180f27f51f351d75b4f0bb5802c36e52fca1205ec4063",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 234,
+      "path": "bios/configio.asm",
+      "sha256": "73c49240f8e7ef5b2e1bbfaa366920638311e027f55534b2a0ee2b2b7c594213",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 235,
+      "path": "bios/configpath.asm",
+      "sha256": "90dc81278d1bd45b9e82c1486a1c4753c69d1512cbfed2fb4e1ceb68c46ebe5a",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 236,
+      "path": "bios/reginit.asm",
+      "sha256": "cd764a5bb4a6c6842f8653d63523a510497a6994eb7015cf83310b38338c404f",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 237,
+      "path": "bios/regcheck.asm",
+      "sha256": "9034ab02bb74cc18cb8269b22c0d38c7844d8368cd1a42e938f3daab8bcf8c71",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 238,
+      "path": "bios/regvalid.asm",
+      "sha256": "4bc77b0a7de69cd94eb60190ac3583cf7e3bc581a8cc22611786100a8553e064",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 239,
+      "path": "bios/regupdate.asm",
+      "sha256": "6ee78a6c26ae53f6ac746bfa5a77ad4ab9c7c1ea5a94d329fc516f6ed2fb3a83",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 240,
+      "path": "bios/regalloc.asm",
+      "sha256": "8a8e657374c9b676c76830da237c0678fc878318e5d323e6a8f2bfcf5fdf12f7",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 241,
+      "path": "bios/regobject.asm",
+      "sha256": "e27585d144ec1c550e59790490edd52b103cf34bebe476d7683fef07a6989a77",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 242,
+      "path": "bios/reghandle.asm",
+      "sha256": "9a5f868858c180bc032f9acca7c54a65ed33be882757ed2801d36b4e10e15855",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 243,
+      "path": "bios/regkey.asm",
+      "sha256": "23b58b1c8f6f80539b80c944ea6eaba906c58651dff8b27d97c76c8e36998cbf",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 244,
+      "path": "bios/regroot.asm",
+      "sha256": "aacdb0434c38f05ce09cab7d99c51e88a0d6b7655c6b27beb5d29c1ee1b38b69",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 245,
+      "path": "bios/regfind.asm",
+      "sha256": "da5863da6ec21c9f800ee9033473919b08681201dd36946a6508e08e7faa0ae0",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 246,
+      "path": "bios/reginval.asm",
+      "sha256": "7110bed0aaccd48792a6ed05371a74c9026b6e3a5d2eed3920c1ac414f7637c6",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 247,
+      "path": "bios/regcache.asm",
+      "sha256": "1bff97371baa572919aa56189620fdf4e3b0c33621ca5a70e9d6ff021fd3d99d",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 248,
+      "path": "bios/regstr.asm",
+      "sha256": "f15f35ecb22dd65656d49d1625e401d47415eb7fd05c1297782ae40e7b92ca80",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 249,
+      "path": "bios/regblock.asm",
+      "sha256": "a2a10d700190cc0cfe05e870a0b09d1926bf9770fd86eece4ec0a42e578f0cd3",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 250,
+      "path": "bios/regstate.asm",
+      "sha256": "fc8aeb03d86ee8d348b95adac3693c7d283704bf650bf9a16431a7e72d2eb086",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 251,
+      "path": "bios/regwrite.asm",
+      "sha256": "ba041a6e7a5b6cd6bfa2f631c3b515ed6a111e161f30ac1d9a2665129b6b54ae",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 252,
+      "path": "bios/regflush.asm",
+      "sha256": "b875a10dc70cd9d0a331579d730ade0ca530a4b6667a4fd05088c5415130b229",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 253,
+      "path": "bios/regscan.asm",
+      "sha256": "5f25a6537588b2de4ce61d858d6ce59139ba55b68cbd379249d6dcbdea2dc1ee",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 254,
+      "path": "bios/regname.asm",
+      "sha256": "d1b727299c36de321baa468bdf9a6fdda1db4a5c7c240a8f6cf593c43fb64d94",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 255,
+      "path": "bios/regreloc.asm",
+      "sha256": "ab36273a76dc763679b6391f104e697d8a897c73cd7812133e7d7c98ba026484",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 256,
+      "path": "bios/regpack.asm",
+      "sha256": "0a1cc18884e78e23e29741d3473009699ac91d7eebee8897fe9786648e4577ee",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 257,
+      "path": "bios/regsave.asm",
+      "sha256": "8cd27f2db64112b862dc1792793015f3f80b4f53d8099b1d119df80a845d1544",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 258,
+      "path": "bios/regload.asm",
+      "sha256": "20008395d6892c51d158364143625e18d5dbc0e7b72141c40a55b07c304158fd",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 259,
+      "path": "bios/regmaint.asm",
+      "sha256": "b6ef986e0e7553f4adf639a99576c925da529e8343ca5d0dcb42a5bf5bc3771f",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 260,
+      "path": "bios/regget.asm",
+      "sha256": "94656f133948b90c5cfd57736675e51a54082ad4433743b0e161f82755d3fe04",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 261,
+      "path": "bios/regspace.asm",
+      "sha256": "2aefadf30deac242f4b99dc9283a08fa634ce2682ea802b32dd32af678c8ae61",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 262,
+      "path": "bios/regnext.asm",
+      "sha256": "215b7addfe45a8fbb3f294795b6247c73d938711d7feace63460b2a531cbed1c",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 263,
+      "path": "bios/regid.asm",
+      "sha256": "829faf5c5b31d7ce45ebf44a5300db5cb4c2a1e7e7a88c65c1943041f592dae8",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 264,
+      "path": "bios/regend.asm",
+      "sha256": "861e57268e966d6b9855676139cb3c1b63728699ce04462cac4f0ff125fd651c",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 265,
+      "path": "bios/regnew.asm",
+      "sha256": "1a137a9d17a3b43d26c54a7ed576115edcfb8d3ab9ec8bda77f67455f98a9f6c",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 266,
+      "path": "bios/regappend.asm",
+      "sha256": "b3f4505a565b7c40cab603e2687b6bf87f0f1638b764ed7bc4512c1771e18484",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 267,
+      "path": "bios/reggrow.asm",
+      "sha256": "0f9359ee4e881302361acb686994656ab0e49b69ea41baf2a70d82b67f2f6d53",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 268,
+      "path": "bios/regrecord.asm",
+      "sha256": "148f61ef52cbd7b949ab78d5a8fd5deca3c0a17a895b00a5e7d8993741b28e78",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 269,
+      "path": "bios/regaccess.asm",
+      "sha256": "11138ae6ae44c821b80903b35f1e35ae90c2fc5df85b897eedfcde800ce6a182",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 270,
+      "path": "bios/regsearch.asm",
+      "sha256": "9b7fa1d8e2182394f7f4d5b05f65c63acbf777972a138fed1ba52b2f45305d17",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 271,
+      "path": "bios/regfree.asm",
+      "sha256": "70815aa3d91b7262e47d0c04b1c87d8fb745e34314c6a21b717ecaf16c9903b8",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 272,
+      "path": "bios/regfreeid.asm",
+      "sha256": "a744b79397e1842203c40e3075d710320b0f27c55bc2eaebca8924185b740707",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 273,
+      "path": "bios/regkeyfree.asm",
+      "sha256": "9e1715439c9394fca03d6283ebf3da0122b3a953f852d2e073c69907b8e9ad78",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 274,
+      "path": "bios/regkeygrow.asm",
+      "sha256": "d1d2a9193a6afa9a0846a43d0a582ed83c9ce44740172037bf6de43228344637",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 275,
+      "path": "bios/regdelete.asm",
+      "sha256": "5162d079981b9ab890d6f9b49886f3432ac2d937c302f4864a10dc48b79da8a9",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 276,
+      "path": "bios/regcreate.asm",
+      "sha256": "bc86c25a7c6059ea343a3f3ad727738b7c7b744b977f9424a731ad2dd32ab070",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 277,
+      "path": "bios/regalias.asm",
+      "sha256": "0134cbfb2b81436f140ccc0ccc2db2b3947b03bb94c59cc13efedf66ae48c762",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 278,
+      "path": "bios/regopen.asm",
+      "sha256": "011dd3127aa715bde1c91baca7ab0ca7cb7e064708417d3b4386097ed68527c3",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 279,
+      "path": "bios/regclasses.asm",
+      "sha256": "3a0ab9cbd608b5ec989946edc08c09300e4ea3bc26f64874a4cc4e4de6a001f3",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 280,
+      "path": "bios/reguserroot.asm",
+      "sha256": "289a76bc4c967a22290e180772c8771d5d11bc4dfa9b753e1afffddee798a094",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 281,
+      "path": "bios/regvalidate.asm",
+      "sha256": "efbf6fd0dd1ad8ffb30f124bf48bbba4143ece31451de81d3a20bb471bfa768b",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 282,
+      "path": "bios/regrecov.asm",
+      "sha256": "4cbee82190b6a3e056b9d35be4df8f1eee9b5319094bbbff2cc69844459436f3",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 283,
+      "path": "bios/regclean.asm",
+      "sha256": "f97f26f953e7faed2f50320ee8000b5c2e374a841b2f38573d5e95db283f2edf",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 284,
+      "path": "bios/regempty.asm",
+      "sha256": "7d9b63eb1e5ca4060e741acdc8864577e61f67af6f5245c5cfbdddddfbdd6eda",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 285,
+      "path": "bios/reghash.asm",
+      "sha256": "3f2340d7cfcc77f0ba5e837d2f45f3db42c5235a3e13c62b883ae4546baeffc1",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 286,
+      "path": "bios/regread.asm",
+      "sha256": "a67142bd902d13086281ca5192a603b4359e572fe42aa7597f23fb91b5366001",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 287,
+      "path": "bios/regmount.asm",
+      "sha256": "74af8486e431001f6f9fa264e823c13c33b0677fe383e5fce25a4eac1db9fe2b",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 288,
+      "path": "bios/regterm.asm",
+      "sha256": "130b66720604cb9db95e0dfe3209e2b71c46193942c4dba63ebcece51e0b9429",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 289,
+      "path": "bios/regvm.asm",
+      "sha256": "f1cb07067077a9827895b0ba9dc54faafad85668065dab8a15ab7cd56a3f4877",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 290,
+      "path": "bios/regstart.asm",
+      "sha256": "5e3c9d1b833adb351280ba30f3f3f3ddc65f3b7cf0531b7fca8e27555203ec28",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 291,
+      "path": "bios/regreload.asm",
+      "sha256": "439d5e5dec45386df8d03ef4f612f08e399e2c761c82fcf83fe428a17631a378",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 292,
+      "path": "bios/regextend.asm",
+      "sha256": "138a37093d3c39490bd8d1ec75257bbb5b802f1e9f80b361f64b85b182228057",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 293,
+      "path": "bios/regresize.asm",
+      "sha256": "dc5498fbecabee1b16a291a55503241adfe4c615d3ddccf290d008c1da69d8a0",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 294,
+      "path": "bios/regvfind.asm",
+      "sha256": "2f6ac5edddd43d1b5360842a6ab017ec241e68840c0d27a1cc61d196fc701578",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 295,
+      "path": "bios/regvdel.asm",
+      "sha256": "5975452c9f9dc2e1a061eeb857c58b659fae87a238df484206c2540ee061d921",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 296,
+      "path": "bios/regpdiff.asm",
+      "sha256": "ec6a48de8be1100cb4d356bf26dafc4689eb310b9331815d1609fc1668d0ed18",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 297,
+      "path": "bios/regvset.asm",
+      "sha256": "adb083e1a7ed76fbe7f25c097e346096bacdc105bb930a4ab7fe90608ff09a88",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 298,
+      "path": "bios/regkenum.asm",
+      "sha256": "8f2c45c6c373d402435d160b3c9e66e884be9617fef3f81a13278485deb80773",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 299,
+      "path": "bios/regvenum.asm",
+      "sha256": "27e72f01139f13ed3e41c70166cd66d7b07f7d11b91e28ba319bb82ee7afdc14",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 300,
+      "path": "bios/regvmcal.asm",
+      "sha256": "a92172b7959fa18fef95f170defe9618af3c81758c31c569a580614533538705",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 301,
+      "path": "bios/rapiopen.asm",
+      "sha256": "9a9913105e110296dabef0364375c7c444049565d5e6886e8f3cacd037c6cb88",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 302,
+      "path": "bios/rapiclos.asm",
+      "sha256": "a850da53ef071656c8a92050b7d86a1996224f314ee2c94d4c1827a86909ec70",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 303,
+      "path": "bios/rapiqry.asm",
+      "sha256": "b38251b181f66ca31456b9579ce5fb900665dd418b734d7a712d5cb21d93bfc5",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 304,
+      "path": "bios/rapicrea.asm",
+      "sha256": "9199486563203f9e61eaa87e6e04eb418ee4ac8aded7f0b9525a44732571a25f",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 305,
+      "path": "bios/rapidelk.asm",
+      "sha256": "6315d731969515e278b63a4e0252b5ffadbb447c38a36ec09466b782d0d05ea9",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 306,
+      "path": "bios/rapidelv.asm",
+      "sha256": "3b0beb43e89aaf2ecf3bdcce39bb6e743cdb6394e1cfc8d174e3233f5cabded4",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 307,
+      "path": "bios/rapiset.asm",
+      "sha256": "c92d05ed9bf984c9ee1ccdd24e99f672e89ece13a5df7cbb58c6f269b8b0bf66",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 308,
+      "path": "bios/rapienmk.asm",
+      "sha256": "c58c8070476cb267ae4de06c9fee6a8fa4ed0707dba4bb8a8b4ff12704450fd5",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 309,
+      "path": "bios/rapienmv.asm",
+      "sha256": "f1dee9fd086a87060d15037b70b8cd5d64db09d6547fe238d326d314d1fa85d2",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 310,
+      "path": "bios/rapiflus.asm",
+      "sha256": "1faa7799962e8c92eddfe65bfa3a75c09650f1ea5dc851571767910b72a501c5",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 311,
+      "path": "bios/rqvalue.asm",
+      "sha256": "c75b4382667ad5507843f3cc3b4a901f5e4cf0e5275a93cdbef9c49aa15ce0ec",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 312,
+      "path": "bios/rqvalex.asm",
+      "sha256": "0d759a79f4f16ad9f8c77c50cd54f6f46d235fe2bacfbc207335e5caf8ac644b",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 313,
+      "path": "bios/rsvalue.asm",
+      "sha256": "4d7a3d78d709cc1edc283776af0fe808bea56a7e411fa6b53d2a3b98a3875673",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 314,
+      "path": "bios/rsvalex.asm",
+      "sha256": "1953d89a491662bd6a7fcf74944abb416f7af49eff43b7f14a24ed85a3196ea6",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 315,
+      "path": "bios/regpol.asm",
+      "sha256": "4d927430c0e2630a453a884eb8d42d34fbb7b2d475dc8dcfdc2a69877bec4cf8",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 316,
+      "path": "bios/regmntad.asm",
+      "sha256": "1d4a1cb9b11b8386d1d2c629f81cea48e5af48df4a1eb83db2086ed8361116ad",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 317,
+      "path": "bios/regmntun.asm",
+      "sha256": "0ebea8578a8c096dcb0c4a6740c4d205dd637f9c81efd031150dd6a3d302e1f8",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 318,
+      "path": "bios/regprep.asm",
+      "sha256": "0d0d6d5f20117249655071b813f4772e59b9229177d3e52932cef47b34ee5b84",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 319,
+      "path": "bios/regcopy.asm",
+      "sha256": "33afc5724864c15ab6df2dae821ffe8f478c251985167fdad25d5e046a779c4a",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 320,
+      "path": "bios/rapiremp.asm",
+      "sha256": "db9acc291faa0218be33ae986c3c0563fb7a578f6bcc5d1d76feb4b029812485",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 321,
+      "path": "bios/rapiload.asm",
+      "sha256": "ddafdaa519b16c489b08bffdc7d81aff820eb5a19f7f5ca1ce5172c178ce1f02",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 322,
+      "path": "bios/rapiunld.asm",
+      "sha256": "23b901cdf7deb230d13673b6938f4156de98959f08190f6cca547d390753d00b",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 323,
+      "path": "bios/rapisave.asm",
+      "sha256": "4d899748c03624da95c61c0cfb8dc5697b21ded8fa51c5e2165ac8d4b0134a8d",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 324,
+      "path": "bios/regall.asm",
+      "sha256": "c8c8f779039fd0b64ef84e0ee7399e93415a51fb624808b6c5580b3cb864305c",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 325,
+      "path": "bios/rapinos.asm",
+      "sha256": "5863fbb10c776eaeaccb406d4bbcacb984934d02745be3686275e05fc938cfaa",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 326,
+      "path": "bios/regbfree.asm",
+      "sha256": "838e5028454a833b5d9ddaca046fd642f2ed7e04a66aebee6a56ec81e1e1e6ec",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 327,
+      "path": "bios/pnpcheck.asm",
+      "sha256": "14488b51981b60dc11f6f4fbd7426d691bb102ee6e91e651e07c3952d091073b",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 328,
+      "path": "bios/pnpfind.asm",
+      "sha256": "57ca665a5346f2b4ebe03d1aa89775e4741122d0d5c95001a17e7d1fa9e25a64",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 329,
+      "path": "bios/pnpcpq.asm",
+      "sha256": "e3398da2f8a14d8b11ccfd8e50cf4b071fd7029be114bd63747221bd9e988646",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 330,
+      "path": "bios/pnplf.asm",
+      "sha256": "ed995c53dbfb679ca46f98d17a1f7dd1c8b1daf800e99332e092587d759ff70b",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 331,
+      "path": "bios/pnpti.asm",
+      "sha256": "2aca8aea247b936c52eb0c3d2f7db5bb372478f34443b7f415f11cc0c1464021",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 332,
+      "path": "bios/pnpibm.asm",
+      "sha256": "14c337bb4f8cc843e4a5a195db0c4c7fc3bbde7f2176285723a0e6d3e680b7d5",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 333,
+      "path": "bios/pnptosh.asm",
+      "sha256": "a46c951818393051bd22763fd431465f76ed6f2251f92bfd944e7993b8aec3e6",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 334,
+      "path": "bios/pnpcaps.asm",
+      "sha256": "923a5dd60f114c3cc55f60dc9080c1a80c62a3a6bd0109d93b38ce05db583ad2",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 335,
+      "path": "bios/cfgmsg.asm",
+      "sha256": "f50e358ffdc7c89a9a59103c8acd2c949def5f0e36a2e939f3ecf2c434b81dc5",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 336,
+      "path": "bios/cfgmatch.asm",
+      "sha256": "d8fedd7fb5a537615cfbe33264c817b15807b0d998a53ec17823178c01d04906",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 337,
+      "path": "bios/cfgzero.asm",
+      "sha256": "8c74887ab461cada701e160e3cbb2d960cf3ad080393fc26cdeb90d77be09902",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 338,
+      "path": "bios/cfgerror.asm",
+      "sha256": "49433e1054c571b4d8f8cc2b22fd55f60a1a244b4f46930f2b69d5a7b69f9a5c",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 339,
+      "path": "bios/cfgargs.asm",
+      "sha256": "cb5d9677b0946abe445355ddbd4846ffa9de2a436f7a5899f6134d3848e5b9a3",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 340,
+      "path": "bios/cfgioctl.asm",
+      "sha256": "cc23f8ca4f50def2d158b45d5ad18a20111934db164744f0d7fbc7526d8bbc9f",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 342,
+      "path": "bios/cfgpub.asm",
+      "sha256": "752322f5738d48d2a778bccea8abac158bf819dc7e6397af3bb3fb0f7f33b0bd",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 344,
+      "path": "bios/crtcmp.asm",
+      "sha256": "5bd6e2a7b1c90f932cbdf72347323e83ace4a600e45c89e75e54a25926b996f7",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 346,
+      "path": "bios/crtread.asm",
+      "sha256": "57fa877988ab8a932a5a3d5fe8fab2c61de768c1605254e886742d73bb9e198d",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 347,
+      "path": "bios/cfgline.asm",
+      "sha256": "10878bfc61a09f40e009a482414e22cb9ce6de1c43033673844916a8f08ee79e",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 349,
+      "path": "bios/crtcomit.asm",
+      "sha256": "4b39c5fb0999dc7525ec360d8546908a2c2db9451c084f4c9f580704a44ec3ae",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 350,
+      "path": "bios/crtflush.asm",
+      "sha256": "9e73c1a635eb1ea00966209f613a3a6f781cc5c39d6f047cd8acfdcf394e3ea7",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 351,
+      "path": "bios/crtclose.asm",
+      "sha256": "5758ba01ef11e2a2d51592df644d19011ba9d327066081f1627d8d7ff643f6ae",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 354,
+      "path": "bios/crtprint.asm",
+      "sha256": "fd7a5a2a8065305bfd92dc21ab1942de32eca80c51e45dd6fb8f591f9422b578",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 355,
+      "path": "bios/cfgname.asm",
+      "sha256": "0e441bde05e54a171e0dff0c70238ff39fabd43a3f9afc103f20f168dbafb524",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 356,
+      "path": "bios/cfgsame.asm",
+      "sha256": "029537a79d7c35935591a8846959635ecc956f187f52640ded032df8f54d324b",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 357,
+      "path": "bios/cfgpick.asm",
+      "sha256": "1042784549ff32d0006a0b7dc9ed77dc2b9fdde6dc70455faabca054fd5bbb46",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 358,
+      "path": "bios/cfgmenu.asm",
+      "sha256": "ae92c2404db7b133b3495b63823b63a6ca6e801bdb7d9f0eb71c877d2229541b",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 359,
+      "path": "bios/cfgui.asm",
+      "sha256": "d458a29a6fafad8629134864d1e0a083b5557226957319b8d45341048aab8fce",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 360,
+      "path": "bios/cfgmain.asm",
+      "sha256": "8e574bc281afd44b344c96d8b7b3969a962c743a6bcc73bd7c6916a367d37602",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 361,
+      "path": "bios/crtpaths.asm",
+      "sha256": "9597ed2a64485d6e4dbb682ef19abfe3bd3490c14f5e313b2acb78325902d815",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 362,
+      "path": "bios/crtend.asm",
+      "sha256": "5217ed499ee7125ea48821b9e3ed0511280eec7a831841ecf82dfdd33bcd8ab8",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 363,
+      "path": "bios/cfgdata.asm",
+      "sha256": "7a967645b7e15a8d2d149ce55487c2e56c19c4cf3314fdba99e4b27fa4c10996",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    },
+    {
+      "index": 364,
+      "path": "bios/cfginit.asm",
+      "sha256": "4cf4e44af156c68c6a3335ca53891542f5ebad47e919e7b0947d4f68897e7f79",
+      "baseline_disposition": "added",
+      "prior_review_state": "integration_pending"
+    }
+  ],
+  "scope": "Current complete source inventory; hash classification does not individually certify original Microsoft text or dormant build branches.",
+  "binary_evidence": "three-core-exact-20261112.json"
+}

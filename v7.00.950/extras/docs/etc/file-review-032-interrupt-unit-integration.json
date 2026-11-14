@@ -1,0 +1,21 @@
+{
+  "file": "bios/sysinit1.asm",
+  "file_index": 32,
+  "source_sha256": "cbc7f65b64a49343881f586819fdf7a8c5d3057b3ff484cef20bbb271e0368bf",
+  "baseline_source_sha256": "36e9b2ce7f749899cabd7777ce4e14b4d55c0d8d2b4b10d69648cbc55d5c6fe4",
+  "state": "waiting_dependencies",
+  "verification": {
+    "default_masm_object_byte_identical": true,
+    "dos7_masm_assembly": "passed",
+    "extracted_dos7_unit_target_range": "0x4d30..0x4f4b",
+    "unit_bytes": 539,
+    "different_bytes_after_simulated_relocation": 0,
+    "unit_linked_exe_sha256": "32d9a9e130e8216d778e67b62c6a81aea6e23ff163efa72095da1e441f19d3bc",
+    "simulated_load_segment": "0x70"
+  },
+  "remaining": [
+    "Reconstruct target stack-code allocation and message append in sysinit initialization.",
+    "Resolve message source and generated table integration.",
+    "Integrate actual BIOS and SYSINIT segment placement and verify complete IO.SYS."
+  ]
+}

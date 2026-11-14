@@ -1,0 +1,30 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "bios_code_offsets": {
+    "save_head_sttl": 3553,
+    "formt_eot": 6042,
+    "hdnum": 6043,
+    "trknum": 6044,
+    "gap_patch": 6046
+  },
+  "instruction_anchors": {
+    "save_head_sttl": {
+      "target_file_offset": 11741,
+      "hex": "8a4409c644090f1f2ea2e10d"
+    },
+    "trknum_hdnum": {
+      "target_file_offset": 13774,
+      "hex": "8bc22ea39c172e880e9b178ae1"
+    },
+    "gap_patch": {
+      "target_file_offset": 14256,
+      "hex": "2ec6069e1750"
+    },
+    "formt_eot": {
+      "target_file_offset": 14324,
+      "hex": "268a65132e88269a17"
+    }
+  },
+  "diagnostic_report": "config-ml-format-state-owner.json",
+  "limitations": "Final declarations and linkage await the disk and IOCTL source modules; the diagnostic uses explicit stubs."
+}

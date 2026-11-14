@@ -1,0 +1,19 @@
+{
+  "build": "extras/docs/etc/command-chdir-truename-aligned-build-20261112.json",
+  "verified_target_ranges": {
+    "SETPATH": "0xc6d5..0xc748",
+    "MOVE_TO_SRCBUF": "0xc8bf..0xc8e6",
+    "CD": "0xbea5..0xbf1d",
+    "TRUENAME": "0xb8b0..0xb935"
+  },
+  "target_probe": "extras\\build\\cdtrue-target-6455u7b0",
+  "current_probe": "extras\\build\\cdtrue-aligned-u9a_637m",
+  "target_matching_outputs": [
+    "initial.txt",
+    "back.txt",
+    "sub/after.txt",
+    "sub/true.txt"
+  ],
+  "regression": "extras/build/cd-path-regress-srg897kx",
+  "limitations": "LFN integration, invalid/error paths and full binary identity remain unverified"
+}

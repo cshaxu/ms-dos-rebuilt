@@ -1,0 +1,19 @@
+{
+  "file": "bios/sysinit1.asm",
+  "source_sha256": "ba73681fd2609b8fc428c1af80929d4c8f1efbf4ff33c25e51583d4610cd2971",
+  "target_writes": "IO.SYS 0x1153..0x116a",
+  "linked_symbol_addresses": {
+    "sysinit_bios_start": "0466:0223",
+    "sysinit_bios_paras": "0466:0225",
+    "sysinit_reserve_count": "0466:022D",
+    "current_dos_location": "0466:022D"
+  },
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link_exit_code": 0,
+  "diagnostic_stub": "Three shadow fields removed for this link; other stubs including sysinit_reserve_size remain.",
+  "limitations": [
+    "sysinit_reserve_size still resolves to a diagnostic placeholder; actual DOS load address and full startup are not proven.",
+    "The mixed link contains other older and stub objects and is not a production IO.SYS."
+  ]
+}

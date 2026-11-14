@@ -1,0 +1,33 @@
+{
+  "source_sha256": "ab0c04f1ec945ef7647ce9c25e210493aad473af591ddb70dd4af4829460a431",
+  "listing_sha256": "032da20b9f7eedb631a4912835c32fb251627b603bcb29dc0554f64c451880d7",
+  "routines": [
+    {
+      "name": "iosetup",
+      "target_offset": "0x3023",
+      "length": 69,
+      "masked_relocation_bytes": 16,
+      "matched_nonrelocated_bytes": 53,
+      "differences": []
+    },
+    {
+      "name": "done",
+      "target_offset": "0x3068",
+      "length": 10,
+      "masked_relocation_bytes": 0,
+      "matched_nonrelocated_bytes": 9,
+      "differences": [
+        8
+      ]
+    },
+    {
+      "name": "diddleback",
+      "target_offset": "0x3072",
+      "length": 50,
+      "masked_relocation_bytes": 10,
+      "matched_nonrelocated_bytes": 40,
+      "differences": []
+    }
+  ],
+  "limitations": "Relocation operands and complete linked output remain unverified."
+}

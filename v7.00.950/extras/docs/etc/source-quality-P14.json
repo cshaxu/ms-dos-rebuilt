@@ -1,0 +1,23 @@
+{
+  "part": "M5 T12 S1 P14",
+  "ordinal": 33,
+  "modified": 1,
+  "unchanged": 0,
+  "exact_dos6": 0,
+  "retired_by_merge": 0,
+  "reference": "Original DOS6 bios/mschar.asm, full module including previously merged P6 clock procedures.",
+  "changes": "Remove 23 DOS7_CONFIG selectors and inactive DOS6 paths. Put BYTE_SYSINIT below original header; restore conversion comment immediately before time_to_ticks. Update GetTickCnt comment to actual bios_flags selection and RTC refresh.",
+  "preserved": "Original console/serial/printer code, including verbatim COMMENTEDOUT auxin branch and DBCS/KOREA conditions. Selected POWER structures retained. DOS7 CS-relative resident state, printer word index, near clock calls, time validation and rollover refresh are necessary target differences. Clock conversion remains in target order; no second module or alternate DOS6 implementation.",
+  "validation": {
+    "effectiveStatementsEqual": true,
+    "statementCount": 694,
+    "selectedGuards": 23,
+    "originalCommentedOutAlternativeIdentical": true,
+    "removedLines": 155,
+    "rebuilt": false,
+    "reason": "All 694 effective assembler statements remain in order, with identical literals. Original two Ctrl-Z markers retained.",
+    "binary_baseline": "P6 clock module merger was compiled and byte-verified, carried through P11 accepted BIOS/IO.SYS. Other two accepted T11 outputs unchanged."
+  },
+  "next_ordinal": 34,
+  "remaining": 33
+}

@@ -1,0 +1,31 @@
+{
+  "part": "M5 T12 S1 P26",
+  "ordinal": 45,
+  "modified": 1,
+  "unchanged": 0,
+  "exact_dos6": 0,
+  "retired_by_merge": 0,
+  "reference": "No DOS6 regstart homolog found. Use Microsoft module/procedure conventions.",
+  "changes": "Replace nine stale fragment headers and repeated empty-data comments with one root-lifetime module contract and actual interfaces. Correct ReloadSystem to no arguments, document retained descriptor ownership and FlushAll's Boolean return. Normalize indentation.",
+  "necessity": "REGSTART already consolidates initialization, lazy roots, teardown and flushing. System/user recovery branches differ (including the user out-of-memory exclusion); Windows-provider selection is real DOS7 functionality. ReleaseFileBuffers keeps a reusable descriptor; ReleaseMounts/Terminate additionally unlink/free it. Empty-file creation writes initial records using shared initializers, whereas export preparation copies a chosen key with different header options and payload. Keep distinct interfaces and target-emitted root walks; no additional files or runtime abstraction needed.",
+  "validation": {
+    "effectiveStatementsEqual": true,
+    "statementCount": 1265,
+    "proceduresReviewed": [
+      "RegInitialize",
+      "RegReloadSystem",
+      "RegInitClassesRoot",
+      "RegInitUserRoot",
+      "RegReleaseFileBuffers",
+      "RegReleaseMounts",
+      "RegTerminate",
+      "RegCreateEmptyFile",
+      "RegFlushAll"
+    ],
+    "rebuilt": false,
+    "reason": "All effective assembler statements unchanged; readback verified literals, root offsets, error selection, calls, segment declarations and padding.",
+    "binary_baseline": "T11 CONFIG/IO.SYS acceptance carried through P11; COMMAND.COM/MSDOS.SYS unchanged."
+  },
+  "next_ordinal": 46,
+  "remaining": 21
+}

@@ -1,0 +1,32 @@
+{
+  "files": {
+    "bios/sysinit2.asm": "b0ec37b4bb505fb42393ad6345b22d731e5e01dec89a57944ab997c958867d77",
+    "bios/sysconf.asm": "a259dc2aa4df82704b627d83762b63961953a5a57ab9cdb0f45f6b86979ca342"
+  },
+  "change": "Replaced synthetic menu_check with actual menu source linked to actual scanner, block/search, environment, display, logo, switch data and boot state objects.",
+  "matched": {
+    "menu": {
+      "start": "0x2452",
+      "end_exclusive": "0x27dd",
+      "bytes": 907
+    },
+    "continuous_menu": {
+      "start": "0x2452",
+      "end_exclusive": "0x2e8e",
+      "bytes": 2620
+    },
+    "continuous_organize_to_error": {
+      "start": "0x2034",
+      "end_exclusive": "0x2e8e",
+      "bytes": 3674
+    },
+    "switch_names_bytes": 6,
+    "menu_previous_state_bytes": 1
+  },
+  "verification": "extras/tools/verify_syspre_device_link.py",
+  "stage": "extras/build/syspre-object-link-9sn5t7mi",
+  "limitations": [
+    "The linked diagnostic still uses synthetic gaps and BIOS locations, and error_line and badop are anchored.",
+    "The full product link and three target core files remain unverified."
+  ]
+}

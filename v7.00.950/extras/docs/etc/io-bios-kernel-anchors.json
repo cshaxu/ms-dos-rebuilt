@@ -1,0 +1,3108 @@
+{
+  "method": "Sample every 8 bytes in each baseline image; match an exact 24-byte high-diversity window appearing once in the 7.0a target. Results are location leads, not proof of matching whole routines or modules.",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "window": 24,
+  "stride": 8,
+  "references": {
+    "bios": {
+      "sha256": "e443d6fb7303cd341d59a260262ae2aa20029a54d8e8daac83c1d4efa9042d75",
+      "matched_samples": 534,
+      "target_4k_buckets": {
+        "0": 62,
+        "4096": 8,
+        "8192": 36,
+        "12288": 22,
+        "16384": 34,
+        "20480": 2,
+        "24576": 26,
+        "28672": 47,
+        "32768": 48,
+        "40960": 50,
+        "45056": 17,
+        "49152": 134,
+        "53248": 45,
+        "61440": 3
+      },
+      "runs": [
+        {
+          "reference_start": 496,
+          "reference_end": 528,
+          "target_start": 560,
+          "target_end": 592,
+          "samples": 2
+        },
+        {
+          "reference_start": 1416,
+          "reference_end": 1440,
+          "target_start": 18979,
+          "target_end": 19003,
+          "samples": 1
+        },
+        {
+          "reference_start": 2736,
+          "reference_end": 2760,
+          "target_start": 10824,
+          "target_end": 10848,
+          "samples": 1
+        },
+        {
+          "reference_start": 3176,
+          "reference_end": 3200,
+          "target_start": 9119,
+          "target_end": 9143,
+          "samples": 1
+        },
+        {
+          "reference_start": 6280,
+          "reference_end": 6608,
+          "target_start": 2884,
+          "target_end": 3212,
+          "samples": 39
+        },
+        {
+          "reference_start": 7256,
+          "reference_end": 7288,
+          "target_start": 10542,
+          "target_end": 10574,
+          "samples": 2
+        },
+        {
+          "reference_start": 7320,
+          "reference_end": 7368,
+          "target_start": 3392,
+          "target_end": 3440,
+          "samples": 4
+        },
+        {
+          "reference_start": 7432,
+          "reference_end": 7544,
+          "target_start": 3504,
+          "target_end": 3616,
+          "samples": 8
+        },
+        {
+          "reference_start": 8016,
+          "reference_end": 8040,
+          "target_start": 565,
+          "target_end": 589,
+          "samples": 1
+        },
+        {
+          "reference_start": 8712,
+          "reference_end": 8776,
+          "target_start": 5243,
+          "target_end": 5307,
+          "samples": 6
+        },
+        {
+          "reference_start": 10144,
+          "reference_end": 10176,
+          "target_start": 6551,
+          "target_end": 6583,
+          "samples": 2
+        },
+        {
+          "reference_start": 10728,
+          "reference_end": 10808,
+          "target_start": 3281,
+          "target_end": 3361,
+          "samples": 8
+        },
+        {
+          "reference_start": 11544,
+          "reference_end": 11576,
+          "target_start": 9351,
+          "target_end": 9383,
+          "samples": 2
+        },
+        {
+          "reference_start": 11600,
+          "reference_end": 11632,
+          "target_start": 9407,
+          "target_end": 9439,
+          "samples": 2
+        },
+        {
+          "reference_start": 11656,
+          "reference_end": 11680,
+          "target_start": 9463,
+          "target_end": 9487,
+          "samples": 1
+        },
+        {
+          "reference_start": 11728,
+          "reference_end": 11760,
+          "target_start": 9536,
+          "target_end": 9568,
+          "samples": 2
+        },
+        {
+          "reference_start": 11864,
+          "reference_end": 11888,
+          "target_start": 9673,
+          "target_end": 9697,
+          "samples": 1
+        },
+        {
+          "reference_start": 11896,
+          "reference_end": 11928,
+          "target_start": 9705,
+          "target_end": 9737,
+          "samples": 2
+        },
+        {
+          "reference_start": 12032,
+          "reference_end": 12096,
+          "target_start": 9951,
+          "target_end": 10015,
+          "samples": 6
+        },
+        {
+          "reference_start": 12200,
+          "reference_end": 12256,
+          "target_start": 10029,
+          "target_end": 10085,
+          "samples": 5
+        },
+        {
+          "reference_start": 12584,
+          "reference_end": 12616,
+          "target_start": 11192,
+          "target_end": 11224,
+          "samples": 2
+        },
+        {
+          "reference_start": 12736,
+          "reference_end": 12816,
+          "target_start": 11343,
+          "target_end": 11423,
+          "samples": 8
+        },
+        {
+          "reference_start": 13248,
+          "reference_end": 13272,
+          "target_start": 11899,
+          "target_end": 11923,
+          "samples": 1
+        },
+        {
+          "reference_start": 13720,
+          "reference_end": 13744,
+          "target_start": 12441,
+          "target_end": 12465,
+          "samples": 1
+        },
+        {
+          "reference_start": 14416,
+          "reference_end": 14440,
+          "target_start": 13497,
+          "target_end": 13521,
+          "samples": 1
+        },
+        {
+          "reference_start": 14512,
+          "reference_end": 14552,
+          "target_start": 13594,
+          "target_end": 13634,
+          "samples": 3
+        },
+        {
+          "reference_start": 15272,
+          "reference_end": 15304,
+          "target_start": 14381,
+          "target_end": 14413,
+          "samples": 2
+        },
+        {
+          "reference_start": 15360,
+          "reference_end": 15384,
+          "target_start": 14472,
+          "target_end": 14496,
+          "samples": 1
+        },
+        {
+          "reference_start": 15544,
+          "reference_end": 15568,
+          "target_start": 14667,
+          "target_end": 14691,
+          "samples": 1
+        },
+        {
+          "reference_start": 15824,
+          "reference_end": 15888,
+          "target_start": 14965,
+          "target_end": 15029,
+          "samples": 6
+        },
+        {
+          "reference_start": 15912,
+          "reference_end": 15968,
+          "target_start": 15053,
+          "target_end": 15109,
+          "samples": 5
+        },
+        {
+          "reference_start": 16008,
+          "reference_end": 16040,
+          "target_start": 15655,
+          "target_end": 15687,
+          "samples": 2
+        },
+        {
+          "reference_start": 16280,
+          "reference_end": 16328,
+          "target_start": 16573,
+          "target_end": 16621,
+          "samples": 4
+        },
+        {
+          "reference_start": 16336,
+          "reference_end": 16424,
+          "target_start": 16629,
+          "target_end": 16717,
+          "samples": 9
+        },
+        {
+          "reference_start": 16784,
+          "reference_end": 16808,
+          "target_start": 17108,
+          "target_end": 17132,
+          "samples": 1
+        },
+        {
+          "reference_start": 17080,
+          "reference_end": 17128,
+          "target_start": 17516,
+          "target_end": 17564,
+          "samples": 4
+        },
+        {
+          "reference_start": 17248,
+          "reference_end": 17272,
+          "target_start": 18984,
+          "target_end": 19008,
+          "samples": 1
+        },
+        {
+          "reference_start": 17512,
+          "reference_end": 17584,
+          "target_start": 17959,
+          "target_end": 18031,
+          "samples": 7
+        },
+        {
+          "reference_start": 17600,
+          "reference_end": 17648,
+          "target_start": 18047,
+          "target_end": 18095,
+          "samples": 4
+        },
+        {
+          "reference_start": 18264,
+          "reference_end": 18304,
+          "target_start": 20118,
+          "target_end": 20158,
+          "samples": 3
+        },
+        {
+          "reference_start": 18544,
+          "reference_end": 18576,
+          "target_start": 23624,
+          "target_end": 23656,
+          "samples": 2
+        },
+        {
+          "reference_start": 19304,
+          "reference_end": 19368,
+          "target_start": 24594,
+          "target_end": 24658,
+          "samples": 6
+        },
+        {
+          "reference_start": 19688,
+          "reference_end": 19720,
+          "target_start": 25167,
+          "target_end": 25199,
+          "samples": 2
+        },
+        {
+          "reference_start": 20680,
+          "reference_end": 20720,
+          "target_start": 26342,
+          "target_end": 26382,
+          "samples": 3
+        },
+        {
+          "reference_start": 20752,
+          "reference_end": 20776,
+          "target_start": 26415,
+          "target_end": 26439,
+          "samples": 1
+        },
+        {
+          "reference_start": 20864,
+          "reference_end": 20952,
+          "target_start": 26527,
+          "target_end": 26615,
+          "samples": 7
+        },
+        {
+          "reference_start": 20968,
+          "reference_end": 21000,
+          "target_start": 26631,
+          "target_end": 26663,
+          "samples": 2
+        },
+        {
+          "reference_start": 21256,
+          "reference_end": 21280,
+          "target_start": 26882,
+          "target_end": 26906,
+          "samples": 1
+        },
+        {
+          "reference_start": 21376,
+          "reference_end": 21432,
+          "target_start": 33560,
+          "target_end": 33616,
+          "samples": 5
+        },
+        {
+          "reference_start": 21680,
+          "reference_end": 21704,
+          "target_start": 34077,
+          "target_end": 34101,
+          "samples": 1
+        },
+        {
+          "reference_start": 22256,
+          "reference_end": 22320,
+          "target_start": 34636,
+          "target_end": 34700,
+          "samples": 6
+        },
+        {
+          "reference_start": 22408,
+          "reference_end": 22440,
+          "target_start": 34802,
+          "target_end": 34834,
+          "samples": 2
+        },
+        {
+          "reference_start": 23216,
+          "reference_end": 23240,
+          "target_start": 35616,
+          "target_end": 35640,
+          "samples": 1
+        },
+        {
+          "reference_start": 23280,
+          "reference_end": 23304,
+          "target_start": 35680,
+          "target_end": 35704,
+          "samples": 1
+        },
+        {
+          "reference_start": 23344,
+          "reference_end": 23368,
+          "target_start": 35744,
+          "target_end": 35768,
+          "samples": 1
+        },
+        {
+          "reference_start": 23408,
+          "reference_end": 23432,
+          "target_start": 35808,
+          "target_end": 35832,
+          "samples": 1
+        },
+        {
+          "reference_start": 23472,
+          "reference_end": 23496,
+          "target_start": 35872,
+          "target_end": 35896,
+          "samples": 1
+        },
+        {
+          "reference_start": 23536,
+          "reference_end": 23560,
+          "target_start": 35936,
+          "target_end": 35960,
+          "samples": 1
+        },
+        {
+          "reference_start": 23600,
+          "reference_end": 23624,
+          "target_start": 36000,
+          "target_end": 36024,
+          "samples": 1
+        },
+        {
+          "reference_start": 23664,
+          "reference_end": 23688,
+          "target_start": 36064,
+          "target_end": 36088,
+          "samples": 1
+        },
+        {
+          "reference_start": 23728,
+          "reference_end": 23752,
+          "target_start": 36128,
+          "target_end": 36152,
+          "samples": 1
+        },
+        {
+          "reference_start": 24064,
+          "reference_end": 24088,
+          "target_start": 43295,
+          "target_end": 43319,
+          "samples": 1
+        },
+        {
+          "reference_start": 24152,
+          "reference_end": 24176,
+          "target_start": 43383,
+          "target_end": 43407,
+          "samples": 1
+        },
+        {
+          "reference_start": 24344,
+          "reference_end": 24376,
+          "target_start": 43575,
+          "target_end": 43607,
+          "samples": 2
+        },
+        {
+          "reference_start": 24384,
+          "reference_end": 24432,
+          "target_start": 43615,
+          "target_end": 43663,
+          "samples": 4
+        },
+        {
+          "reference_start": 24504,
+          "reference_end": 24528,
+          "target_start": 43735,
+          "target_end": 43759,
+          "samples": 1
+        },
+        {
+          "reference_start": 24648,
+          "reference_end": 24672,
+          "target_start": 43879,
+          "target_end": 43903,
+          "samples": 1
+        },
+        {
+          "reference_start": 24696,
+          "reference_end": 24736,
+          "target_start": 43927,
+          "target_end": 43967,
+          "samples": 3
+        },
+        {
+          "reference_start": 24744,
+          "reference_end": 24784,
+          "target_start": 43975,
+          "target_end": 44015,
+          "samples": 3
+        },
+        {
+          "reference_start": 24976,
+          "reference_end": 25000,
+          "target_start": 44206,
+          "target_end": 44230,
+          "samples": 1
+        },
+        {
+          "reference_start": 25032,
+          "reference_end": 25064,
+          "target_start": 44262,
+          "target_end": 44294,
+          "samples": 2
+        },
+        {
+          "reference_start": 25072,
+          "reference_end": 25120,
+          "target_start": 44302,
+          "target_end": 44350,
+          "samples": 4
+        },
+        {
+          "reference_start": 25288,
+          "reference_end": 25352,
+          "target_start": 44517,
+          "target_end": 44581,
+          "samples": 6
+        },
+        {
+          "reference_start": 25400,
+          "reference_end": 25488,
+          "target_start": 44629,
+          "target_end": 44717,
+          "samples": 9
+        },
+        {
+          "reference_start": 25576,
+          "reference_end": 25624,
+          "target_start": 44805,
+          "target_end": 44853,
+          "samples": 4
+        },
+        {
+          "reference_start": 25632,
+          "reference_end": 25680,
+          "target_start": 44861,
+          "target_end": 44909,
+          "samples": 4
+        },
+        {
+          "reference_start": 25720,
+          "reference_end": 25744,
+          "target_start": 44949,
+          "target_end": 44973,
+          "samples": 1
+        },
+        {
+          "reference_start": 25752,
+          "reference_end": 25776,
+          "target_start": 44981,
+          "target_end": 45005,
+          "samples": 1
+        },
+        {
+          "reference_start": 25816,
+          "reference_end": 25880,
+          "target_start": 45045,
+          "target_end": 45109,
+          "samples": 6
+        },
+        {
+          "reference_start": 25920,
+          "reference_end": 25992,
+          "target_start": 45149,
+          "target_end": 45221,
+          "samples": 7
+        },
+        {
+          "reference_start": 26032,
+          "reference_end": 26064,
+          "target_start": 45261,
+          "target_end": 45293,
+          "samples": 2
+        },
+        {
+          "reference_start": 26128,
+          "reference_end": 26152,
+          "target_start": 45357,
+          "target_end": 45381,
+          "samples": 1
+        },
+        {
+          "reference_start": 26176,
+          "reference_end": 26200,
+          "target_start": 45405,
+          "target_end": 45429,
+          "samples": 1
+        },
+        {
+          "reference_start": 26928,
+          "reference_end": 26952,
+          "target_start": 46617,
+          "target_end": 46641,
+          "samples": 1
+        },
+        {
+          "reference_start": 27208,
+          "reference_end": 27232,
+          "target_start": 46952,
+          "target_end": 46976,
+          "samples": 1
+        },
+        {
+          "reference_start": 29960,
+          "reference_end": 30040,
+          "target_start": 50780,
+          "target_end": 50860,
+          "samples": 8
+        },
+        {
+          "reference_start": 30128,
+          "reference_end": 30232,
+          "target_start": 50945,
+          "target_end": 51049,
+          "samples": 11
+        },
+        {
+          "reference_start": 30248,
+          "reference_end": 30280,
+          "target_start": 51065,
+          "target_end": 51097,
+          "samples": 2
+        },
+        {
+          "reference_start": 30384,
+          "reference_end": 30440,
+          "target_start": 51201,
+          "target_end": 51257,
+          "samples": 5
+        },
+        {
+          "reference_start": 30448,
+          "reference_end": 30472,
+          "target_start": 51265,
+          "target_end": 51289,
+          "samples": 1
+        },
+        {
+          "reference_start": 30488,
+          "reference_end": 30520,
+          "target_start": 51305,
+          "target_end": 51337,
+          "samples": 2
+        },
+        {
+          "reference_start": 30536,
+          "reference_end": 30568,
+          "target_start": 51353,
+          "target_end": 51385,
+          "samples": 2
+        },
+        {
+          "reference_start": 30600,
+          "reference_end": 30672,
+          "target_start": 51417,
+          "target_end": 51489,
+          "samples": 7
+        },
+        {
+          "reference_start": 30752,
+          "reference_end": 30792,
+          "target_start": 51569,
+          "target_end": 51609,
+          "samples": 3
+        },
+        {
+          "reference_start": 30864,
+          "reference_end": 30920,
+          "target_start": 51681,
+          "target_end": 51737,
+          "samples": 5
+        },
+        {
+          "reference_start": 30928,
+          "reference_end": 31128,
+          "target_start": 51745,
+          "target_end": 51945,
+          "samples": 22
+        },
+        {
+          "reference_start": 31136,
+          "reference_end": 31352,
+          "target_start": 51953,
+          "target_end": 52169,
+          "samples": 25
+        },
+        {
+          "reference_start": 31360,
+          "reference_end": 31496,
+          "target_start": 52177,
+          "target_end": 52313,
+          "samples": 15
+        },
+        {
+          "reference_start": 31504,
+          "reference_end": 31560,
+          "target_start": 52321,
+          "target_end": 52377,
+          "samples": 5
+        },
+        {
+          "reference_start": 31616,
+          "reference_end": 31744,
+          "target_start": 52433,
+          "target_end": 52561,
+          "samples": 12
+        },
+        {
+          "reference_start": 31752,
+          "reference_end": 31776,
+          "target_start": 52569,
+          "target_end": 52593,
+          "samples": 1
+        },
+        {
+          "reference_start": 32016,
+          "reference_end": 32088,
+          "target_start": 52833,
+          "target_end": 52905,
+          "samples": 7
+        },
+        {
+          "reference_start": 32408,
+          "reference_end": 32432,
+          "target_start": 53244,
+          "target_end": 53268,
+          "samples": 1
+        },
+        {
+          "reference_start": 32464,
+          "reference_end": 32512,
+          "target_start": 53300,
+          "target_end": 53348,
+          "samples": 4
+        },
+        {
+          "reference_start": 32624,
+          "reference_end": 32776,
+          "target_start": 53472,
+          "target_end": 53624,
+          "samples": 17
+        },
+        {
+          "reference_start": 32784,
+          "reference_end": 32808,
+          "target_start": 53632,
+          "target_end": 53656,
+          "samples": 1
+        },
+        {
+          "reference_start": 32816,
+          "reference_end": 32928,
+          "target_start": 53664,
+          "target_end": 53776,
+          "samples": 12
+        },
+        {
+          "reference_start": 32960,
+          "reference_end": 33008,
+          "target_start": 53808,
+          "target_end": 53856,
+          "samples": 4
+        },
+        {
+          "reference_start": 33032,
+          "reference_end": 33056,
+          "target_start": 53880,
+          "target_end": 53904,
+          "samples": 1
+        },
+        {
+          "reference_start": 33072,
+          "reference_end": 33096,
+          "target_start": 53920,
+          "target_end": 53944,
+          "samples": 1
+        },
+        {
+          "reference_start": 33120,
+          "reference_end": 33144,
+          "target_start": 55192,
+          "target_end": 55216,
+          "samples": 1
+        },
+        {
+          "reference_start": 33664,
+          "reference_end": 33688,
+          "target_start": 55927,
+          "target_end": 55951,
+          "samples": 1
+        },
+        {
+          "reference_start": 34008,
+          "reference_end": 34032,
+          "target_start": 56288,
+          "target_end": 56312,
+          "samples": 1
+        },
+        {
+          "reference_start": 34040,
+          "reference_end": 34072,
+          "target_start": 56320,
+          "target_end": 56352,
+          "samples": 2
+        },
+        {
+          "reference_start": 34176,
+          "reference_end": 34200,
+          "target_start": 27611,
+          "target_end": 27635,
+          "samples": 1
+        },
+        {
+          "reference_start": 34872,
+          "reference_end": 34904,
+          "target_start": 28311,
+          "target_end": 28343,
+          "samples": 2
+        },
+        {
+          "reference_start": 34960,
+          "reference_end": 34984,
+          "target_start": 28399,
+          "target_end": 28423,
+          "samples": 1
+        },
+        {
+          "reference_start": 36680,
+          "reference_end": 36744,
+          "target_start": 30656,
+          "target_end": 30720,
+          "samples": 6
+        },
+        {
+          "reference_start": 36832,
+          "reference_end": 36864,
+          "target_start": 30803,
+          "target_end": 30835,
+          "samples": 2
+        },
+        {
+          "reference_start": 37312,
+          "reference_end": 37376,
+          "target_start": 31392,
+          "target_end": 31456,
+          "samples": 6
+        },
+        {
+          "reference_start": 37608,
+          "reference_end": 37648,
+          "target_start": 31679,
+          "target_end": 31719,
+          "samples": 3
+        },
+        {
+          "reference_start": 37664,
+          "reference_end": 37704,
+          "target_start": 31735,
+          "target_end": 31775,
+          "samples": 3
+        },
+        {
+          "reference_start": 37824,
+          "reference_end": 37856,
+          "target_start": 31958,
+          "target_end": 31990,
+          "samples": 2
+        },
+        {
+          "reference_start": 37976,
+          "reference_end": 38024,
+          "target_start": 32110,
+          "target_end": 32158,
+          "samples": 4
+        },
+        {
+          "reference_start": 38168,
+          "reference_end": 38192,
+          "target_start": 32308,
+          "target_end": 32332,
+          "samples": 1
+        },
+        {
+          "reference_start": 38200,
+          "reference_end": 38312,
+          "target_start": 32340,
+          "target_end": 32452,
+          "samples": 12
+        },
+        {
+          "reference_start": 38344,
+          "reference_end": 38376,
+          "target_start": 32484,
+          "target_end": 32516,
+          "samples": 2
+        },
+        {
+          "reference_start": 38440,
+          "reference_end": 38464,
+          "target_start": 32604,
+          "target_end": 32628,
+          "samples": 1
+        },
+        {
+          "reference_start": 38568,
+          "reference_end": 38632,
+          "target_start": 32732,
+          "target_end": 32796,
+          "samples": 6
+        },
+        {
+          "reference_start": 39080,
+          "reference_end": 39112,
+          "target_start": 32977,
+          "target_end": 33009,
+          "samples": 2
+        },
+        {
+          "reference_start": 39136,
+          "reference_end": 39192,
+          "target_start": 33055,
+          "target_end": 33111,
+          "samples": 5
+        },
+        {
+          "reference_start": 39200,
+          "reference_end": 39240,
+          "target_start": 33140,
+          "target_end": 33180,
+          "samples": 3
+        },
+        {
+          "reference_start": 39248,
+          "reference_end": 39328,
+          "target_start": 33209,
+          "target_end": 33289,
+          "samples": 8
+        },
+        {
+          "reference_start": 39656,
+          "reference_end": 39736,
+          "target_start": 33337,
+          "target_end": 33417,
+          "samples": 6
+        },
+        {
+          "reference_start": 39944,
+          "reference_end": 39968,
+          "target_start": 62697,
+          "target_end": 62721,
+          "samples": 1
+        },
+        {
+          "reference_start": 40240,
+          "reference_end": 40264,
+          "target_start": 63749,
+          "target_end": 63773,
+          "samples": 1
+        },
+        {
+          "reference_start": 40344,
+          "reference_end": 40368,
+          "target_start": 63989,
+          "target_end": 64013,
+          "samples": 1
+        }
+      ]
+    },
+    "kernel": {
+      "sha256": "6db133420bf04ddbafe310a720fab934db3e7dc9f5a53fc6692d5a01cbbc0d4e",
+      "matched_samples": 1207,
+      "target_4k_buckets": {
+        "69632": 86,
+        "73728": 96,
+        "77824": 150,
+        "81920": 82,
+        "86016": 166,
+        "90112": 138,
+        "94208": 137,
+        "98304": 141,
+        "102400": 137,
+        "106496": 71,
+        "110592": 3
+      },
+      "runs": [
+        {
+          "reference_start": 16,
+          "reference_end": 184,
+          "target_start": 70608,
+          "target_end": 70776,
+          "samples": 19
+        },
+        {
+          "reference_start": 768,
+          "reference_end": 792,
+          "target_start": 71279,
+          "target_end": 71303,
+          "samples": 1
+        },
+        {
+          "reference_start": 1096,
+          "reference_end": 1120,
+          "target_start": 71604,
+          "target_end": 71628,
+          "samples": 1
+        },
+        {
+          "reference_start": 1160,
+          "reference_end": 1184,
+          "target_start": 71668,
+          "target_end": 71692,
+          "samples": 1
+        },
+        {
+          "reference_start": 1248,
+          "reference_end": 1288,
+          "target_start": 71761,
+          "target_end": 71801,
+          "samples": 3
+        },
+        {
+          "reference_start": 1520,
+          "reference_end": 1544,
+          "target_start": 72133,
+          "target_end": 72157,
+          "samples": 1
+        },
+        {
+          "reference_start": 1576,
+          "reference_end": 1624,
+          "target_start": 72197,
+          "target_end": 72245,
+          "samples": 4
+        },
+        {
+          "reference_start": 1640,
+          "reference_end": 1680,
+          "target_start": 72261,
+          "target_end": 72301,
+          "samples": 3
+        },
+        {
+          "reference_start": 1744,
+          "reference_end": 1784,
+          "target_start": 72365,
+          "target_end": 72405,
+          "samples": 3
+        },
+        {
+          "reference_start": 2144,
+          "reference_end": 2224,
+          "target_start": 72521,
+          "target_end": 72601,
+          "samples": 8
+        },
+        {
+          "reference_start": 2352,
+          "reference_end": 2384,
+          "target_start": 72640,
+          "target_end": 72672,
+          "samples": 2
+        },
+        {
+          "reference_start": 2664,
+          "reference_end": 2712,
+          "target_start": 72828,
+          "target_end": 72876,
+          "samples": 4
+        },
+        {
+          "reference_start": 2720,
+          "reference_end": 2760,
+          "target_start": 72884,
+          "target_end": 72924,
+          "samples": 3
+        },
+        {
+          "reference_start": 2808,
+          "reference_end": 2840,
+          "target_start": 72972,
+          "target_end": 73004,
+          "samples": 2
+        },
+        {
+          "reference_start": 2872,
+          "reference_end": 2968,
+          "target_start": 73036,
+          "target_end": 73132,
+          "samples": 10
+        },
+        {
+          "reference_start": 3008,
+          "reference_end": 3072,
+          "target_start": 73172,
+          "target_end": 73236,
+          "samples": 6
+        },
+        {
+          "reference_start": 3104,
+          "reference_end": 3152,
+          "target_start": 73268,
+          "target_end": 73316,
+          "samples": 4
+        },
+        {
+          "reference_start": 3160,
+          "reference_end": 3264,
+          "target_start": 73324,
+          "target_end": 73428,
+          "samples": 11
+        },
+        {
+          "reference_start": 3600,
+          "reference_end": 3624,
+          "target_start": 73907,
+          "target_end": 73931,
+          "samples": 1
+        },
+        {
+          "reference_start": 3712,
+          "reference_end": 3736,
+          "target_start": 74111,
+          "target_end": 74135,
+          "samples": 1
+        },
+        {
+          "reference_start": 3768,
+          "reference_end": 3824,
+          "target_start": 74167,
+          "target_end": 74223,
+          "samples": 5
+        },
+        {
+          "reference_start": 4088,
+          "reference_end": 4264,
+          "target_start": 74512,
+          "target_end": 74688,
+          "samples": 20
+        },
+        {
+          "reference_start": 4312,
+          "reference_end": 4344,
+          "target_start": 74852,
+          "target_end": 74884,
+          "samples": 2
+        },
+        {
+          "reference_start": 4376,
+          "reference_end": 4400,
+          "target_start": 74928,
+          "target_end": 74952,
+          "samples": 1
+        },
+        {
+          "reference_start": 4440,
+          "reference_end": 4472,
+          "target_start": 74992,
+          "target_end": 75024,
+          "samples": 2
+        },
+        {
+          "reference_start": 4488,
+          "reference_end": 4568,
+          "target_start": 75040,
+          "target_end": 75120,
+          "samples": 8
+        },
+        {
+          "reference_start": 4648,
+          "reference_end": 4688,
+          "target_start": 75224,
+          "target_end": 75264,
+          "samples": 3
+        },
+        {
+          "reference_start": 4720,
+          "reference_end": 4760,
+          "target_start": 75270,
+          "target_end": 75310,
+          "samples": 3
+        },
+        {
+          "reference_start": 4800,
+          "reference_end": 4832,
+          "target_start": 75362,
+          "target_end": 75394,
+          "samples": 2
+        },
+        {
+          "reference_start": 5208,
+          "reference_end": 5232,
+          "target_start": 75894,
+          "target_end": 75918,
+          "samples": 1
+        },
+        {
+          "reference_start": 5368,
+          "reference_end": 5392,
+          "target_start": 76080,
+          "target_end": 76104,
+          "samples": 1
+        },
+        {
+          "reference_start": 5464,
+          "reference_end": 5504,
+          "target_start": 76177,
+          "target_end": 76217,
+          "samples": 3
+        },
+        {
+          "reference_start": 5616,
+          "reference_end": 5640,
+          "target_start": 76329,
+          "target_end": 76353,
+          "samples": 1
+        },
+        {
+          "reference_start": 6160,
+          "reference_end": 6184,
+          "target_start": 76891,
+          "target_end": 76915,
+          "samples": 1
+        },
+        {
+          "reference_start": 6256,
+          "reference_end": 6288,
+          "target_start": 76987,
+          "target_end": 77019,
+          "samples": 2
+        },
+        {
+          "reference_start": 6344,
+          "reference_end": 6384,
+          "target_start": 77075,
+          "target_end": 77115,
+          "samples": 3
+        },
+        {
+          "reference_start": 6512,
+          "reference_end": 6688,
+          "target_start": 77243,
+          "target_end": 77419,
+          "samples": 20
+        },
+        {
+          "reference_start": 6720,
+          "reference_end": 6768,
+          "target_start": 77451,
+          "target_end": 77499,
+          "samples": 4
+        },
+        {
+          "reference_start": 6792,
+          "reference_end": 6840,
+          "target_start": 77523,
+          "target_end": 77571,
+          "samples": 4
+        },
+        {
+          "reference_start": 6984,
+          "reference_end": 7048,
+          "target_start": 77715,
+          "target_end": 77779,
+          "samples": 6
+        },
+        {
+          "reference_start": 7056,
+          "reference_end": 7088,
+          "target_start": 77787,
+          "target_end": 77819,
+          "samples": 2
+        },
+        {
+          "reference_start": 7104,
+          "reference_end": 7168,
+          "target_start": 77835,
+          "target_end": 77899,
+          "samples": 6
+        },
+        {
+          "reference_start": 7200,
+          "reference_end": 7280,
+          "target_start": 77939,
+          "target_end": 78019,
+          "samples": 8
+        },
+        {
+          "reference_start": 7288,
+          "reference_end": 7344,
+          "target_start": 78027,
+          "target_end": 78083,
+          "samples": 5
+        },
+        {
+          "reference_start": 7416,
+          "reference_end": 7640,
+          "target_start": 78155,
+          "target_end": 78379,
+          "samples": 26
+        },
+        {
+          "reference_start": 7648,
+          "reference_end": 7688,
+          "target_start": 78387,
+          "target_end": 78427,
+          "samples": 3
+        },
+        {
+          "reference_start": 7704,
+          "reference_end": 7728,
+          "target_start": 78443,
+          "target_end": 78467,
+          "samples": 1
+        },
+        {
+          "reference_start": 7736,
+          "reference_end": 7880,
+          "target_start": 78475,
+          "target_end": 78619,
+          "samples": 16
+        },
+        {
+          "reference_start": 7952,
+          "reference_end": 7976,
+          "target_start": 78691,
+          "target_end": 78715,
+          "samples": 1
+        },
+        {
+          "reference_start": 8040,
+          "reference_end": 8096,
+          "target_start": 78782,
+          "target_end": 78838,
+          "samples": 5
+        },
+        {
+          "reference_start": 8192,
+          "reference_end": 8216,
+          "target_start": 78937,
+          "target_end": 78961,
+          "samples": 1
+        },
+        {
+          "reference_start": 8232,
+          "reference_end": 8336,
+          "target_start": 78977,
+          "target_end": 79081,
+          "samples": 11
+        },
+        {
+          "reference_start": 8344,
+          "reference_end": 8416,
+          "target_start": 79089,
+          "target_end": 79161,
+          "samples": 7
+        },
+        {
+          "reference_start": 8424,
+          "reference_end": 8448,
+          "target_start": 79169,
+          "target_end": 79193,
+          "samples": 1
+        },
+        {
+          "reference_start": 8480,
+          "reference_end": 8536,
+          "target_start": 79225,
+          "target_end": 79281,
+          "samples": 5
+        },
+        {
+          "reference_start": 8544,
+          "reference_end": 8576,
+          "target_start": 79289,
+          "target_end": 79321,
+          "samples": 2
+        },
+        {
+          "reference_start": 8584,
+          "reference_end": 8648,
+          "target_start": 79329,
+          "target_end": 79393,
+          "samples": 6
+        },
+        {
+          "reference_start": 8728,
+          "reference_end": 8768,
+          "target_start": 79455,
+          "target_end": 79495,
+          "samples": 3
+        },
+        {
+          "reference_start": 8984,
+          "reference_end": 9008,
+          "target_start": 79717,
+          "target_end": 79741,
+          "samples": 1
+        },
+        {
+          "reference_start": 9096,
+          "reference_end": 9120,
+          "target_start": 79829,
+          "target_end": 79853,
+          "samples": 1
+        },
+        {
+          "reference_start": 9272,
+          "reference_end": 9336,
+          "target_start": 80090,
+          "target_end": 80154,
+          "samples": 6
+        },
+        {
+          "reference_start": 9368,
+          "reference_end": 9392,
+          "target_start": 80258,
+          "target_end": 80282,
+          "samples": 1
+        },
+        {
+          "reference_start": 9456,
+          "reference_end": 9480,
+          "target_start": 80348,
+          "target_end": 80372,
+          "samples": 1
+        },
+        {
+          "reference_start": 9528,
+          "reference_end": 9576,
+          "target_start": 80490,
+          "target_end": 80538,
+          "samples": 4
+        },
+        {
+          "reference_start": 9696,
+          "reference_end": 9736,
+          "target_start": 80660,
+          "target_end": 80700,
+          "samples": 3
+        },
+        {
+          "reference_start": 9776,
+          "reference_end": 9856,
+          "target_start": 80740,
+          "target_end": 80820,
+          "samples": 8
+        },
+        {
+          "reference_start": 9880,
+          "reference_end": 9928,
+          "target_start": 80844,
+          "target_end": 80892,
+          "samples": 4
+        },
+        {
+          "reference_start": 10008,
+          "reference_end": 10040,
+          "target_start": 80978,
+          "target_end": 81010,
+          "samples": 2
+        },
+        {
+          "reference_start": 10064,
+          "reference_end": 10088,
+          "target_start": 81034,
+          "target_end": 81058,
+          "samples": 1
+        },
+        {
+          "reference_start": 10240,
+          "reference_end": 10264,
+          "target_start": 81210,
+          "target_end": 81234,
+          "samples": 1
+        },
+        {
+          "reference_start": 10272,
+          "reference_end": 10296,
+          "target_start": 81242,
+          "target_end": 81266,
+          "samples": 1
+        },
+        {
+          "reference_start": 10400,
+          "reference_end": 10424,
+          "target_start": 81380,
+          "target_end": 81404,
+          "samples": 1
+        },
+        {
+          "reference_start": 10488,
+          "reference_end": 10512,
+          "target_start": 81468,
+          "target_end": 81492,
+          "samples": 1
+        },
+        {
+          "reference_start": 10848,
+          "reference_end": 10928,
+          "target_start": 81864,
+          "target_end": 81944,
+          "samples": 8
+        },
+        {
+          "reference_start": 10984,
+          "reference_end": 11016,
+          "target_start": 82000,
+          "target_end": 82032,
+          "samples": 2
+        },
+        {
+          "reference_start": 11088,
+          "reference_end": 11120,
+          "target_start": 82104,
+          "target_end": 82136,
+          "samples": 2
+        },
+        {
+          "reference_start": 11128,
+          "reference_end": 11168,
+          "target_start": 82144,
+          "target_end": 82184,
+          "samples": 3
+        },
+        {
+          "reference_start": 11248,
+          "reference_end": 11272,
+          "target_start": 82274,
+          "target_end": 82298,
+          "samples": 1
+        },
+        {
+          "reference_start": 11368,
+          "reference_end": 11392,
+          "target_start": 82394,
+          "target_end": 82418,
+          "samples": 1
+        },
+        {
+          "reference_start": 11400,
+          "reference_end": 11472,
+          "target_start": 82426,
+          "target_end": 82498,
+          "samples": 7
+        },
+        {
+          "reference_start": 11520,
+          "reference_end": 11576,
+          "target_start": 82556,
+          "target_end": 82612,
+          "samples": 5
+        },
+        {
+          "reference_start": 11648,
+          "reference_end": 11672,
+          "target_start": 82684,
+          "target_end": 82708,
+          "samples": 1
+        },
+        {
+          "reference_start": 11720,
+          "reference_end": 11744,
+          "target_start": 82756,
+          "target_end": 82780,
+          "samples": 1
+        },
+        {
+          "reference_start": 11800,
+          "reference_end": 11824,
+          "target_start": 82840,
+          "target_end": 82864,
+          "samples": 1
+        },
+        {
+          "reference_start": 11864,
+          "reference_end": 11888,
+          "target_start": 82904,
+          "target_end": 82928,
+          "samples": 1
+        },
+        {
+          "reference_start": 11952,
+          "reference_end": 11984,
+          "target_start": 82997,
+          "target_end": 83029,
+          "samples": 2
+        },
+        {
+          "reference_start": 11992,
+          "reference_end": 12048,
+          "target_start": 83037,
+          "target_end": 83093,
+          "samples": 5
+        },
+        {
+          "reference_start": 12056,
+          "reference_end": 12088,
+          "target_start": 83101,
+          "target_end": 83133,
+          "samples": 2
+        },
+        {
+          "reference_start": 12160,
+          "reference_end": 12208,
+          "target_start": 83205,
+          "target_end": 83253,
+          "samples": 4
+        },
+        {
+          "reference_start": 12232,
+          "reference_end": 12272,
+          "target_start": 83277,
+          "target_end": 83317,
+          "samples": 3
+        },
+        {
+          "reference_start": 12496,
+          "reference_end": 12536,
+          "target_start": 83622,
+          "target_end": 83662,
+          "samples": 3
+        },
+        {
+          "reference_start": 12544,
+          "reference_end": 12576,
+          "target_start": 83670,
+          "target_end": 83702,
+          "samples": 2
+        },
+        {
+          "reference_start": 12680,
+          "reference_end": 12704,
+          "target_start": 99433,
+          "target_end": 99457,
+          "samples": 1
+        },
+        {
+          "reference_start": 12848,
+          "reference_end": 12872,
+          "target_start": 83919,
+          "target_end": 83943,
+          "samples": 1
+        },
+        {
+          "reference_start": 12952,
+          "reference_end": 12976,
+          "target_start": 84023,
+          "target_end": 84047,
+          "samples": 1
+        },
+        {
+          "reference_start": 13024,
+          "reference_end": 13048,
+          "target_start": 84095,
+          "target_end": 84119,
+          "samples": 1
+        },
+        {
+          "reference_start": 13064,
+          "reference_end": 13088,
+          "target_start": 84135,
+          "target_end": 84159,
+          "samples": 1
+        },
+        {
+          "reference_start": 13176,
+          "reference_end": 13200,
+          "target_start": 84253,
+          "target_end": 84277,
+          "samples": 1
+        },
+        {
+          "reference_start": 13320,
+          "reference_end": 13344,
+          "target_start": 84432,
+          "target_end": 84456,
+          "samples": 1
+        },
+        {
+          "reference_start": 13400,
+          "reference_end": 13424,
+          "target_start": 84512,
+          "target_end": 84536,
+          "samples": 1
+        },
+        {
+          "reference_start": 13496,
+          "reference_end": 13520,
+          "target_start": 84608,
+          "target_end": 84632,
+          "samples": 1
+        },
+        {
+          "reference_start": 13600,
+          "reference_end": 13632,
+          "target_start": 84714,
+          "target_end": 84746,
+          "samples": 2
+        },
+        {
+          "reference_start": 13688,
+          "reference_end": 13720,
+          "target_start": 84802,
+          "target_end": 84834,
+          "samples": 2
+        },
+        {
+          "reference_start": 13744,
+          "reference_end": 13768,
+          "target_start": 84858,
+          "target_end": 84882,
+          "samples": 1
+        },
+        {
+          "reference_start": 13848,
+          "reference_end": 13872,
+          "target_start": 84962,
+          "target_end": 84986,
+          "samples": 1
+        },
+        {
+          "reference_start": 14016,
+          "reference_end": 14040,
+          "target_start": 85130,
+          "target_end": 85154,
+          "samples": 1
+        },
+        {
+          "reference_start": 14064,
+          "reference_end": 14096,
+          "target_start": 85178,
+          "target_end": 85210,
+          "samples": 2
+        },
+        {
+          "reference_start": 14280,
+          "reference_end": 14344,
+          "target_start": 99462,
+          "target_end": 99526,
+          "samples": 6
+        },
+        {
+          "reference_start": 14384,
+          "reference_end": 14448,
+          "target_start": 99566,
+          "target_end": 99630,
+          "samples": 6
+        },
+        {
+          "reference_start": 14608,
+          "reference_end": 14632,
+          "target_start": 85424,
+          "target_end": 85448,
+          "samples": 1
+        },
+        {
+          "reference_start": 14640,
+          "reference_end": 14704,
+          "target_start": 85456,
+          "target_end": 85520,
+          "samples": 6
+        },
+        {
+          "reference_start": 14736,
+          "reference_end": 14768,
+          "target_start": 85552,
+          "target_end": 85584,
+          "samples": 2
+        },
+        {
+          "reference_start": 14776,
+          "reference_end": 14840,
+          "target_start": 99794,
+          "target_end": 99858,
+          "samples": 6
+        },
+        {
+          "reference_start": 14848,
+          "reference_end": 14872,
+          "target_start": 99866,
+          "target_end": 99890,
+          "samples": 1
+        },
+        {
+          "reference_start": 15080,
+          "reference_end": 15136,
+          "target_start": 100092,
+          "target_end": 100148,
+          "samples": 5
+        },
+        {
+          "reference_start": 15152,
+          "reference_end": 15176,
+          "target_start": 100164,
+          "target_end": 100188,
+          "samples": 1
+        },
+        {
+          "reference_start": 15200,
+          "reference_end": 15232,
+          "target_start": 100212,
+          "target_end": 100244,
+          "samples": 2
+        },
+        {
+          "reference_start": 15264,
+          "reference_end": 15288,
+          "target_start": 100275,
+          "target_end": 100299,
+          "samples": 1
+        },
+        {
+          "reference_start": 15296,
+          "reference_end": 15328,
+          "target_start": 100307,
+          "target_end": 100339,
+          "samples": 2
+        },
+        {
+          "reference_start": 15336,
+          "reference_end": 15360,
+          "target_start": 100347,
+          "target_end": 100371,
+          "samples": 1
+        },
+        {
+          "reference_start": 15376,
+          "reference_end": 15456,
+          "target_start": 100387,
+          "target_end": 100467,
+          "samples": 8
+        },
+        {
+          "reference_start": 15472,
+          "reference_end": 15504,
+          "target_start": 100483,
+          "target_end": 100515,
+          "samples": 2
+        },
+        {
+          "reference_start": 15648,
+          "reference_end": 15680,
+          "target_start": 100659,
+          "target_end": 100691,
+          "samples": 2
+        },
+        {
+          "reference_start": 15712,
+          "reference_end": 15744,
+          "target_start": 100723,
+          "target_end": 100755,
+          "samples": 2
+        },
+        {
+          "reference_start": 15792,
+          "reference_end": 15816,
+          "target_start": 100803,
+          "target_end": 100827,
+          "samples": 1
+        },
+        {
+          "reference_start": 15824,
+          "reference_end": 15856,
+          "target_start": 100835,
+          "target_end": 100867,
+          "samples": 2
+        },
+        {
+          "reference_start": 15864,
+          "reference_end": 15904,
+          "target_start": 100875,
+          "target_end": 100915,
+          "samples": 3
+        },
+        {
+          "reference_start": 15920,
+          "reference_end": 15944,
+          "target_start": 100931,
+          "target_end": 100955,
+          "samples": 1
+        },
+        {
+          "reference_start": 16000,
+          "reference_end": 16024,
+          "target_start": 101011,
+          "target_end": 101035,
+          "samples": 1
+        },
+        {
+          "reference_start": 16048,
+          "reference_end": 16104,
+          "target_start": 101059,
+          "target_end": 101115,
+          "samples": 5
+        },
+        {
+          "reference_start": 16136,
+          "reference_end": 16176,
+          "target_start": 85633,
+          "target_end": 85673,
+          "samples": 3
+        },
+        {
+          "reference_start": 16224,
+          "reference_end": 16248,
+          "target_start": 85733,
+          "target_end": 85757,
+          "samples": 1
+        },
+        {
+          "reference_start": 16296,
+          "reference_end": 16328,
+          "target_start": 85806,
+          "target_end": 85838,
+          "samples": 2
+        },
+        {
+          "reference_start": 16336,
+          "reference_end": 16376,
+          "target_start": 85846,
+          "target_end": 85886,
+          "samples": 3
+        },
+        {
+          "reference_start": 16512,
+          "reference_end": 16536,
+          "target_start": 86034,
+          "target_end": 86058,
+          "samples": 1
+        },
+        {
+          "reference_start": 16544,
+          "reference_end": 16568,
+          "target_start": 86355,
+          "target_end": 86379,
+          "samples": 1
+        },
+        {
+          "reference_start": 16576,
+          "reference_end": 16616,
+          "target_start": 86387,
+          "target_end": 86427,
+          "samples": 3
+        },
+        {
+          "reference_start": 16640,
+          "reference_end": 16664,
+          "target_start": 86439,
+          "target_end": 86463,
+          "samples": 1
+        },
+        {
+          "reference_start": 16704,
+          "reference_end": 16744,
+          "target_start": 86503,
+          "target_end": 86543,
+          "samples": 3
+        },
+        {
+          "reference_start": 16776,
+          "reference_end": 16800,
+          "target_start": 86575,
+          "target_end": 86599,
+          "samples": 1
+        },
+        {
+          "reference_start": 16808,
+          "reference_end": 16960,
+          "target_start": 86607,
+          "target_end": 86759,
+          "samples": 17
+        },
+        {
+          "reference_start": 16992,
+          "reference_end": 17024,
+          "target_start": 86791,
+          "target_end": 86823,
+          "samples": 2
+        },
+        {
+          "reference_start": 17080,
+          "reference_end": 17104,
+          "target_start": 86879,
+          "target_end": 86903,
+          "samples": 1
+        },
+        {
+          "reference_start": 17208,
+          "reference_end": 17368,
+          "target_start": 87007,
+          "target_end": 87167,
+          "samples": 18
+        },
+        {
+          "reference_start": 17376,
+          "reference_end": 17416,
+          "target_start": 87175,
+          "target_end": 87215,
+          "samples": 3
+        },
+        {
+          "reference_start": 17472,
+          "reference_end": 17496,
+          "target_start": 87296,
+          "target_end": 87320,
+          "samples": 1
+        },
+        {
+          "reference_start": 17512,
+          "reference_end": 17576,
+          "target_start": 87336,
+          "target_end": 87400,
+          "samples": 6
+        },
+        {
+          "reference_start": 17696,
+          "reference_end": 17728,
+          "target_start": 87520,
+          "target_end": 87552,
+          "samples": 2
+        },
+        {
+          "reference_start": 17744,
+          "reference_end": 17792,
+          "target_start": 87568,
+          "target_end": 87616,
+          "samples": 4
+        },
+        {
+          "reference_start": 17872,
+          "reference_end": 17928,
+          "target_start": 87696,
+          "target_end": 87752,
+          "samples": 5
+        },
+        {
+          "reference_start": 17960,
+          "reference_end": 18008,
+          "target_start": 87799,
+          "target_end": 87847,
+          "samples": 4
+        },
+        {
+          "reference_start": 18016,
+          "reference_end": 18048,
+          "target_start": 87855,
+          "target_end": 87887,
+          "samples": 2
+        },
+        {
+          "reference_start": 18080,
+          "reference_end": 18104,
+          "target_start": 87919,
+          "target_end": 87943,
+          "samples": 1
+        },
+        {
+          "reference_start": 18256,
+          "reference_end": 18304,
+          "target_start": 88152,
+          "target_end": 88200,
+          "samples": 4
+        },
+        {
+          "reference_start": 18352,
+          "reference_end": 18424,
+          "target_start": 88258,
+          "target_end": 88330,
+          "samples": 7
+        },
+        {
+          "reference_start": 18448,
+          "reference_end": 18472,
+          "target_start": 88373,
+          "target_end": 88397,
+          "samples": 1
+        },
+        {
+          "reference_start": 18480,
+          "reference_end": 18528,
+          "target_start": 88405,
+          "target_end": 88453,
+          "samples": 4
+        },
+        {
+          "reference_start": 18536,
+          "reference_end": 18560,
+          "target_start": 88466,
+          "target_end": 88490,
+          "samples": 1
+        },
+        {
+          "reference_start": 18568,
+          "reference_end": 18632,
+          "target_start": 88530,
+          "target_end": 88594,
+          "samples": 6
+        },
+        {
+          "reference_start": 18632,
+          "reference_end": 18664,
+          "target_start": 101132,
+          "target_end": 101164,
+          "samples": 2
+        },
+        {
+          "reference_start": 18728,
+          "reference_end": 18760,
+          "target_start": 101225,
+          "target_end": 101257,
+          "samples": 2
+        },
+        {
+          "reference_start": 18920,
+          "reference_end": 18952,
+          "target_start": 101406,
+          "target_end": 101438,
+          "samples": 2
+        },
+        {
+          "reference_start": 19168,
+          "reference_end": 19208,
+          "target_start": 88717,
+          "target_end": 88757,
+          "samples": 3
+        },
+        {
+          "reference_start": 19216,
+          "reference_end": 19248,
+          "target_start": 88765,
+          "target_end": 88797,
+          "samples": 2
+        },
+        {
+          "reference_start": 19288,
+          "reference_end": 19336,
+          "target_start": 88866,
+          "target_end": 88914,
+          "samples": 4
+        },
+        {
+          "reference_start": 19344,
+          "reference_end": 19368,
+          "target_start": 88922,
+          "target_end": 88946,
+          "samples": 1
+        },
+        {
+          "reference_start": 19584,
+          "reference_end": 19616,
+          "target_start": 89163,
+          "target_end": 89195,
+          "samples": 2
+        },
+        {
+          "reference_start": 19648,
+          "reference_end": 19688,
+          "target_start": 89258,
+          "target_end": 89298,
+          "samples": 3
+        },
+        {
+          "reference_start": 19712,
+          "reference_end": 19808,
+          "target_start": 89322,
+          "target_end": 89418,
+          "samples": 10
+        },
+        {
+          "reference_start": 19824,
+          "reference_end": 19920,
+          "target_start": 89434,
+          "target_end": 89530,
+          "samples": 10
+        },
+        {
+          "reference_start": 19952,
+          "reference_end": 19976,
+          "target_start": 89562,
+          "target_end": 89586,
+          "samples": 1
+        },
+        {
+          "reference_start": 19992,
+          "reference_end": 20016,
+          "target_start": 101537,
+          "target_end": 101561,
+          "samples": 1
+        },
+        {
+          "reference_start": 20032,
+          "reference_end": 20056,
+          "target_start": 101577,
+          "target_end": 101601,
+          "samples": 1
+        },
+        {
+          "reference_start": 20064,
+          "reference_end": 20144,
+          "target_start": 101609,
+          "target_end": 101689,
+          "samples": 8
+        },
+        {
+          "reference_start": 20240,
+          "reference_end": 20280,
+          "target_start": 101810,
+          "target_end": 101850,
+          "samples": 3
+        },
+        {
+          "reference_start": 20296,
+          "reference_end": 20328,
+          "target_start": 101866,
+          "target_end": 101898,
+          "samples": 2
+        },
+        {
+          "reference_start": 20336,
+          "reference_end": 20464,
+          "target_start": 101906,
+          "target_end": 102034,
+          "samples": 14
+        },
+        {
+          "reference_start": 20480,
+          "reference_end": 20504,
+          "target_start": 102050,
+          "target_end": 102074,
+          "samples": 1
+        },
+        {
+          "reference_start": 20576,
+          "reference_end": 20640,
+          "target_start": 102146,
+          "target_end": 102210,
+          "samples": 6
+        },
+        {
+          "reference_start": 20728,
+          "reference_end": 20808,
+          "target_start": 89601,
+          "target_end": 89681,
+          "samples": 8
+        },
+        {
+          "reference_start": 20816,
+          "reference_end": 20992,
+          "target_start": 89689,
+          "target_end": 89865,
+          "samples": 20
+        },
+        {
+          "reference_start": 21072,
+          "reference_end": 21104,
+          "target_start": 89945,
+          "target_end": 89977,
+          "samples": 2
+        },
+        {
+          "reference_start": 21112,
+          "reference_end": 21136,
+          "target_start": 89985,
+          "target_end": 90009,
+          "samples": 1
+        },
+        {
+          "reference_start": 21392,
+          "reference_end": 21432,
+          "target_start": 90341,
+          "target_end": 90381,
+          "samples": 3
+        },
+        {
+          "reference_start": 21648,
+          "reference_end": 21680,
+          "target_start": 90571,
+          "target_end": 90603,
+          "samples": 2
+        },
+        {
+          "reference_start": 21688,
+          "reference_end": 21848,
+          "target_start": 90611,
+          "target_end": 90771,
+          "samples": 18
+        },
+        {
+          "reference_start": 21872,
+          "reference_end": 21904,
+          "target_start": 90795,
+          "target_end": 90827,
+          "samples": 2
+        },
+        {
+          "reference_start": 21976,
+          "reference_end": 22080,
+          "target_start": 90909,
+          "target_end": 91013,
+          "samples": 11
+        },
+        {
+          "reference_start": 22120,
+          "reference_end": 22144,
+          "target_start": 91052,
+          "target_end": 91076,
+          "samples": 1
+        },
+        {
+          "reference_start": 22184,
+          "reference_end": 22208,
+          "target_start": 91121,
+          "target_end": 91145,
+          "samples": 1
+        },
+        {
+          "reference_start": 22232,
+          "reference_end": 22256,
+          "target_start": 91169,
+          "target_end": 91193,
+          "samples": 1
+        },
+        {
+          "reference_start": 22344,
+          "reference_end": 22392,
+          "target_start": 102347,
+          "target_end": 102395,
+          "samples": 4
+        },
+        {
+          "reference_start": 22424,
+          "reference_end": 22464,
+          "target_start": 102428,
+          "target_end": 102468,
+          "samples": 3
+        },
+        {
+          "reference_start": 22488,
+          "reference_end": 22520,
+          "target_start": 102493,
+          "target_end": 102525,
+          "samples": 2
+        },
+        {
+          "reference_start": 22544,
+          "reference_end": 22640,
+          "target_start": 102549,
+          "target_end": 102645,
+          "samples": 10
+        },
+        {
+          "reference_start": 22648,
+          "reference_end": 22688,
+          "target_start": 102653,
+          "target_end": 102693,
+          "samples": 3
+        },
+        {
+          "reference_start": 22696,
+          "reference_end": 22744,
+          "target_start": 102701,
+          "target_end": 102749,
+          "samples": 4
+        },
+        {
+          "reference_start": 22808,
+          "reference_end": 22832,
+          "target_start": 102825,
+          "target_end": 102849,
+          "samples": 1
+        },
+        {
+          "reference_start": 22840,
+          "reference_end": 22864,
+          "target_start": 102857,
+          "target_end": 102881,
+          "samples": 1
+        },
+        {
+          "reference_start": 22880,
+          "reference_end": 22912,
+          "target_start": 102903,
+          "target_end": 102935,
+          "samples": 2
+        },
+        {
+          "reference_start": 22968,
+          "reference_end": 23008,
+          "target_start": 102991,
+          "target_end": 103031,
+          "samples": 3
+        },
+        {
+          "reference_start": 23168,
+          "reference_end": 23224,
+          "target_start": 103203,
+          "target_end": 103259,
+          "samples": 5
+        },
+        {
+          "reference_start": 23304,
+          "reference_end": 23392,
+          "target_start": 103349,
+          "target_end": 103437,
+          "samples": 9
+        },
+        {
+          "reference_start": 23480,
+          "reference_end": 23512,
+          "target_start": 103519,
+          "target_end": 103551,
+          "samples": 2
+        },
+        {
+          "reference_start": 23528,
+          "reference_end": 23560,
+          "target_start": 103567,
+          "target_end": 103599,
+          "samples": 2
+        },
+        {
+          "reference_start": 23568,
+          "reference_end": 23608,
+          "target_start": 103607,
+          "target_end": 103647,
+          "samples": 3
+        },
+        {
+          "reference_start": 23728,
+          "reference_end": 23760,
+          "target_start": 103787,
+          "target_end": 103819,
+          "samples": 2
+        },
+        {
+          "reference_start": 23776,
+          "reference_end": 23816,
+          "target_start": 103835,
+          "target_end": 103875,
+          "samples": 3
+        },
+        {
+          "reference_start": 23824,
+          "reference_end": 23856,
+          "target_start": 103884,
+          "target_end": 103916,
+          "samples": 2
+        },
+        {
+          "reference_start": 24080,
+          "reference_end": 24120,
+          "target_start": 91417,
+          "target_end": 91457,
+          "samples": 3
+        },
+        {
+          "reference_start": 24152,
+          "reference_end": 24176,
+          "target_start": 91489,
+          "target_end": 91513,
+          "samples": 1
+        },
+        {
+          "reference_start": 24296,
+          "reference_end": 24320,
+          "target_start": 91633,
+          "target_end": 91657,
+          "samples": 1
+        },
+        {
+          "reference_start": 24536,
+          "reference_end": 24560,
+          "target_start": 91874,
+          "target_end": 91898,
+          "samples": 1
+        },
+        {
+          "reference_start": 24664,
+          "reference_end": 24696,
+          "target_start": 92008,
+          "target_end": 92040,
+          "samples": 2
+        },
+        {
+          "reference_start": 24736,
+          "reference_end": 24776,
+          "target_start": 92080,
+          "target_end": 92120,
+          "samples": 3
+        },
+        {
+          "reference_start": 24824,
+          "reference_end": 24856,
+          "target_start": 92168,
+          "target_end": 92200,
+          "samples": 2
+        },
+        {
+          "reference_start": 24880,
+          "reference_end": 24904,
+          "target_start": 92224,
+          "target_end": 92248,
+          "samples": 1
+        },
+        {
+          "reference_start": 25032,
+          "reference_end": 25056,
+          "target_start": 92364,
+          "target_end": 92388,
+          "samples": 1
+        },
+        {
+          "reference_start": 25064,
+          "reference_end": 25088,
+          "target_start": 92396,
+          "target_end": 92420,
+          "samples": 1
+        },
+        {
+          "reference_start": 25120,
+          "reference_end": 25176,
+          "target_start": 92452,
+          "target_end": 92508,
+          "samples": 5
+        },
+        {
+          "reference_start": 25200,
+          "reference_end": 25256,
+          "target_start": 92532,
+          "target_end": 92588,
+          "samples": 5
+        },
+        {
+          "reference_start": 25400,
+          "reference_end": 25456,
+          "target_start": 92741,
+          "target_end": 92797,
+          "samples": 5
+        },
+        {
+          "reference_start": 25512,
+          "reference_end": 25552,
+          "target_start": 92853,
+          "target_end": 92893,
+          "samples": 3
+        },
+        {
+          "reference_start": 25616,
+          "reference_end": 25640,
+          "target_start": 92968,
+          "target_end": 92992,
+          "samples": 1
+        },
+        {
+          "reference_start": 25672,
+          "reference_end": 25704,
+          "target_start": 93413,
+          "target_end": 93445,
+          "samples": 2
+        },
+        {
+          "reference_start": 25712,
+          "reference_end": 25768,
+          "target_start": 93453,
+          "target_end": 93509,
+          "samples": 5
+        },
+        {
+          "reference_start": 25784,
+          "reference_end": 25888,
+          "target_start": 93525,
+          "target_end": 93629,
+          "samples": 11
+        },
+        {
+          "reference_start": 25904,
+          "reference_end": 25928,
+          "target_start": 93645,
+          "target_end": 93669,
+          "samples": 1
+        },
+        {
+          "reference_start": 25944,
+          "reference_end": 26120,
+          "target_start": 93685,
+          "target_end": 93861,
+          "samples": 20
+        },
+        {
+          "reference_start": 26136,
+          "reference_end": 26160,
+          "target_start": 93877,
+          "target_end": 93901,
+          "samples": 1
+        },
+        {
+          "reference_start": 26168,
+          "reference_end": 26200,
+          "target_start": 93909,
+          "target_end": 93941,
+          "samples": 2
+        },
+        {
+          "reference_start": 26224,
+          "reference_end": 26416,
+          "target_start": 93965,
+          "target_end": 94157,
+          "samples": 22
+        },
+        {
+          "reference_start": 26520,
+          "reference_end": 26552,
+          "target_start": 94261,
+          "target_end": 94293,
+          "samples": 2
+        },
+        {
+          "reference_start": 26568,
+          "reference_end": 26592,
+          "target_start": 94309,
+          "target_end": 94333,
+          "samples": 1
+        },
+        {
+          "reference_start": 26632,
+          "reference_end": 26672,
+          "target_start": 94373,
+          "target_end": 94413,
+          "samples": 3
+        },
+        {
+          "reference_start": 26736,
+          "reference_end": 26768,
+          "target_start": 94477,
+          "target_end": 94509,
+          "samples": 2
+        },
+        {
+          "reference_start": 26832,
+          "reference_end": 26952,
+          "target_start": 94573,
+          "target_end": 94693,
+          "samples": 13
+        },
+        {
+          "reference_start": 26960,
+          "reference_end": 26992,
+          "target_start": 94701,
+          "target_end": 94733,
+          "samples": 2
+        },
+        {
+          "reference_start": 27024,
+          "reference_end": 27072,
+          "target_start": 94765,
+          "target_end": 94813,
+          "samples": 4
+        },
+        {
+          "reference_start": 27144,
+          "reference_end": 27176,
+          "target_start": 94887,
+          "target_end": 94919,
+          "samples": 2
+        },
+        {
+          "reference_start": 27184,
+          "reference_end": 27216,
+          "target_start": 94927,
+          "target_end": 94959,
+          "samples": 2
+        },
+        {
+          "reference_start": 27240,
+          "reference_end": 27328,
+          "target_start": 94983,
+          "target_end": 95071,
+          "samples": 9
+        },
+        {
+          "reference_start": 27392,
+          "reference_end": 27416,
+          "target_start": 95136,
+          "target_end": 95160,
+          "samples": 1
+        },
+        {
+          "reference_start": 27592,
+          "reference_end": 27648,
+          "target_start": 95464,
+          "target_end": 95520,
+          "samples": 5
+        },
+        {
+          "reference_start": 27656,
+          "reference_end": 27752,
+          "target_start": 95528,
+          "target_end": 95624,
+          "samples": 10
+        },
+        {
+          "reference_start": 27808,
+          "reference_end": 27832,
+          "target_start": 95679,
+          "target_end": 95703,
+          "samples": 1
+        },
+        {
+          "reference_start": 27864,
+          "reference_end": 28016,
+          "target_start": 95736,
+          "target_end": 95888,
+          "samples": 17
+        },
+        {
+          "reference_start": 28064,
+          "reference_end": 28136,
+          "target_start": 95936,
+          "target_end": 96008,
+          "samples": 7
+        },
+        {
+          "reference_start": 28408,
+          "reference_end": 28432,
+          "target_start": 96305,
+          "target_end": 96329,
+          "samples": 1
+        },
+        {
+          "reference_start": 28472,
+          "reference_end": 28544,
+          "target_start": 96374,
+          "target_end": 96446,
+          "samples": 7
+        },
+        {
+          "reference_start": 28648,
+          "reference_end": 28680,
+          "target_start": 96550,
+          "target_end": 96582,
+          "samples": 2
+        },
+        {
+          "reference_start": 28736,
+          "reference_end": 28760,
+          "target_start": 96638,
+          "target_end": 96662,
+          "samples": 1
+        },
+        {
+          "reference_start": 28768,
+          "reference_end": 28832,
+          "target_start": 96670,
+          "target_end": 96734,
+          "samples": 6
+        },
+        {
+          "reference_start": 28840,
+          "reference_end": 28880,
+          "target_start": 96742,
+          "target_end": 96782,
+          "samples": 3
+        },
+        {
+          "reference_start": 28912,
+          "reference_end": 28936,
+          "target_start": 96814,
+          "target_end": 96838,
+          "samples": 1
+        },
+        {
+          "reference_start": 29016,
+          "reference_end": 29048,
+          "target_start": 96918,
+          "target_end": 96950,
+          "samples": 2
+        },
+        {
+          "reference_start": 29056,
+          "reference_end": 29080,
+          "target_start": 96958,
+          "target_end": 96982,
+          "samples": 1
+        },
+        {
+          "reference_start": 29160,
+          "reference_end": 29184,
+          "target_start": 97062,
+          "target_end": 97086,
+          "samples": 1
+        },
+        {
+          "reference_start": 29328,
+          "reference_end": 29352,
+          "target_start": 97231,
+          "target_end": 97255,
+          "samples": 1
+        },
+        {
+          "reference_start": 29392,
+          "reference_end": 29416,
+          "target_start": 97295,
+          "target_end": 97319,
+          "samples": 1
+        },
+        {
+          "reference_start": 29432,
+          "reference_end": 29504,
+          "target_start": 97336,
+          "target_end": 97408,
+          "samples": 7
+        },
+        {
+          "reference_start": 29520,
+          "reference_end": 29544,
+          "target_start": 97424,
+          "target_end": 97448,
+          "samples": 1
+        },
+        {
+          "reference_start": 29592,
+          "reference_end": 29688,
+          "target_start": 97496,
+          "target_end": 97592,
+          "samples": 10
+        },
+        {
+          "reference_start": 29704,
+          "reference_end": 29736,
+          "target_start": 97609,
+          "target_end": 97641,
+          "samples": 2
+        },
+        {
+          "reference_start": 29776,
+          "reference_end": 29816,
+          "target_start": 97681,
+          "target_end": 97721,
+          "samples": 3
+        },
+        {
+          "reference_start": 29864,
+          "reference_end": 29888,
+          "target_start": 97769,
+          "target_end": 97793,
+          "samples": 1
+        },
+        {
+          "reference_start": 29968,
+          "reference_end": 30024,
+          "target_start": 97873,
+          "target_end": 97929,
+          "samples": 5
+        },
+        {
+          "reference_start": 30072,
+          "reference_end": 30096,
+          "target_start": 104005,
+          "target_end": 104029,
+          "samples": 1
+        },
+        {
+          "reference_start": 30312,
+          "reference_end": 30440,
+          "target_start": 98546,
+          "target_end": 98674,
+          "samples": 14
+        },
+        {
+          "reference_start": 30480,
+          "reference_end": 30544,
+          "target_start": 98714,
+          "target_end": 98778,
+          "samples": 6
+        },
+        {
+          "reference_start": 30840,
+          "reference_end": 30936,
+          "target_start": 99076,
+          "target_end": 99172,
+          "samples": 10
+        },
+        {
+          "reference_start": 30944,
+          "reference_end": 31008,
+          "target_start": 99180,
+          "target_end": 99244,
+          "samples": 6
+        },
+        {
+          "reference_start": 31016,
+          "reference_end": 31352,
+          "target_start": 104049,
+          "target_end": 104385,
+          "samples": 32
+        },
+        {
+          "reference_start": 31360,
+          "reference_end": 31408,
+          "target_start": 104393,
+          "target_end": 104441,
+          "samples": 4
+        },
+        {
+          "reference_start": 31496,
+          "reference_end": 31528,
+          "target_start": 104529,
+          "target_end": 104561,
+          "samples": 2
+        },
+        {
+          "reference_start": 31552,
+          "reference_end": 31584,
+          "target_start": 104585,
+          "target_end": 104617,
+          "samples": 2
+        },
+        {
+          "reference_start": 31592,
+          "reference_end": 31672,
+          "target_start": 104625,
+          "target_end": 104705,
+          "samples": 8
+        },
+        {
+          "reference_start": 31752,
+          "reference_end": 31824,
+          "target_start": 104785,
+          "target_end": 104857,
+          "samples": 7
+        },
+        {
+          "reference_start": 32064,
+          "reference_end": 32128,
+          "target_start": 105075,
+          "target_end": 105139,
+          "samples": 6
+        },
+        {
+          "reference_start": 32384,
+          "reference_end": 32416,
+          "target_start": 105407,
+          "target_end": 105439,
+          "samples": 2
+        },
+        {
+          "reference_start": 32536,
+          "reference_end": 32592,
+          "target_start": 105562,
+          "target_end": 105618,
+          "samples": 5
+        },
+        {
+          "reference_start": 32664,
+          "reference_end": 32688,
+          "target_start": 105693,
+          "target_end": 105717,
+          "samples": 1
+        },
+        {
+          "reference_start": 32864,
+          "reference_end": 32896,
+          "target_start": 105898,
+          "target_end": 105930,
+          "samples": 2
+        },
+        {
+          "reference_start": 32880,
+          "reference_end": 32904,
+          "target_start": 105408,
+          "target_end": 105432,
+          "samples": 1
+        },
+        {
+          "reference_start": 32920,
+          "reference_end": 32968,
+          "target_start": 106058,
+          "target_end": 106106,
+          "samples": 4
+        },
+        {
+          "reference_start": 33016,
+          "reference_end": 33048,
+          "target_start": 105896,
+          "target_end": 105928,
+          "samples": 2
+        },
+        {
+          "reference_start": 33040,
+          "reference_end": 33064,
+          "target_start": 105414,
+          "target_end": 105438,
+          "samples": 1
+        },
+        {
+          "reference_start": 35904,
+          "reference_end": 35960,
+          "target_start": 108954,
+          "target_end": 109010,
+          "samples": 5
+        },
+        {
+          "reference_start": 36008,
+          "reference_end": 36032,
+          "target_start": 109058,
+          "target_end": 109082,
+          "samples": 1
+        },
+        {
+          "reference_start": 36032,
+          "reference_end": 36088,
+          "target_start": 108952,
+          "target_end": 109008,
+          "samples": 5
+        },
+        {
+          "reference_start": 36168,
+          "reference_end": 36200,
+          "target_start": 109551,
+          "target_end": 109583,
+          "samples": 2
+        },
+        {
+          "reference_start": 36216,
+          "reference_end": 36408,
+          "target_start": 109218,
+          "target_end": 109410,
+          "samples": 20
+        },
+        {
+          "reference_start": 36416,
+          "reference_end": 36480,
+          "target_start": 109418,
+          "target_end": 109482,
+          "samples": 5
+        },
+        {
+          "reference_start": 36680,
+          "reference_end": 36712,
+          "target_start": 109689,
+          "target_end": 109721,
+          "samples": 2
+        },
+        {
+          "reference_start": 36712,
+          "reference_end": 36952,
+          "target_start": 109720,
+          "target_end": 109960,
+          "samples": 28
+        },
+        {
+          "reference_start": 37336,
+          "reference_end": 37360,
+          "target_start": 110112,
+          "target_end": 110136,
+          "samples": 1
+        },
+        {
+          "reference_start": 37584,
+          "reference_end": 37608,
+          "target_start": 110361,
+          "target_end": 110385,
+          "samples": 1
+        },
+        {
+          "reference_start": 37616,
+          "reference_end": 37640,
+          "target_start": 110393,
+          "target_end": 110417,
+          "samples": 1
+        },
+        {
+          "reference_start": 37816,
+          "reference_end": 37848,
+          "target_start": 110824,
+          "target_end": 110856,
+          "samples": 2
+        },
+        {
+          "reference_start": 37920,
+          "reference_end": 37944,
+          "target_start": 110928,
+          "target_end": 110952,
+          "samples": 1
+        }
+      ]
+    }
+  }
+}

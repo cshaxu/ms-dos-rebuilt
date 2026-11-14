@@ -1,0 +1,76 @@
+{
+  "part": "M5 T12 S1 P4",
+  "ordinals": [
+    10,
+    11,
+    12,
+    13
+  ],
+  "modified": 4,
+  "unchanged": 0,
+  "exact_dos6": 0,
+  "retired_by_merge": 1,
+  "format_checks": [
+    {
+      "path": "bios\\biostail.asm",
+      "statements": 298,
+      "equal": true
+    },
+    {
+      "path": "bios\\cfgline.asm",
+      "statements": 478,
+      "equal": true
+    },
+    {
+      "path": "bios\\cfgmain.asm",
+      "statements": 235,
+      "equal": true
+    }
+  ],
+  "comparison_note": "Statement comparison preserves quoted literals and ignores only whitespace/comments and repeated unchanged CPU-mode directives. No instructions/data changed in biostail/cfgline/cfgmain.",
+  "files": [
+    {
+      "path": "bios/biostail.asm",
+      "decision": "Keep unique boot-log and CONFIG$ services; normalize declarations, PROC/ENDP and explanatory timer comment.",
+      "consumers": [
+        "bios/msint13.asm:590-605",
+        "bios/msbio1.asm:507"
+      ],
+      "reference": "DOS6 bios/msint13.asm procedure and EXTRN style; no equivalent boot-log/CONFIG$ body in DOS6",
+      "raw_encoding": "67 66 8B 15 6C 04 00 00 preserved; source comment now describes instruction rather than an inaccurate MASM5 build rationale."
+    },
+    {
+      "path": "bios/bootdata.asm",
+      "decision": "Merge contiguous startup-state fragment into preceding bios/ststate.asm; keep segment declaration ordering, public symbols, ten words and values.",
+      "reference": "DOS6 bios/sysinit1.asm contains BCodeSeg and centralized initialization state."
+    },
+    {
+      "path": "bios/cfgline.asm",
+      "decision": "Keep existing profile/input module; replace stale CFGNAME/CFGSAME/CFGPICK compilation-unit headings with procedure comments, normalize format; remove redundant .286 directives.",
+      "scope": "Complete module read; four procedures retain all control flow and calls. Existing query/matching/selection functions have distinct interfaces, not duplicate alternate implementations.",
+      "reference": "No same-name file in DOS6 reference tree; follows DOS6 assembly PROC/comment format. Original target C implementation has not been recovered, so no exact-original-source claim."
+    },
+    {
+      "path": "bios/cfgmain.asm",
+      "decision": "Keep configuration entry; replace stale CFGERROR/CFGARGS/CONFIGENV headings with procedure comments, normalize formatting; remove redundant .286 directive.",
+      "scope": "First-error storage, bounded bootstrap parsing, C-runtime stubs and entry each have a separate role. Stubs required because main processes PSP directly.",
+      "reference": "No same-name file in DOS6 reference tree; no exact-original-source claim."
+    }
+  ],
+  "validation": {
+    "stage": "extras/build/source-quality-p4",
+    "build": "Original MASM -Mx -t -W1; LINK /MAP; RELOC msbio.exe msbio.bin 70; only ststate reassembled",
+    "runner": "private-desktop DOS5Build_38456_138983640, PID 32240, exit=0 timeout=0",
+    "result": "PASS; BIOS fc /b matches T11; packed IO.SYS fc /b matches accepted extras/assets/IO.SYS",
+    "IO_SYS_SHA256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+    "unchanged": "No COMMAND.COM or MSDOS.SYS rebuild. Accepted T11 identity carried forward.",
+    "reference_scan": "No active references to biosmt/backdata/bcend/bootdata in bios/cmd/dos/inc/extras/tools/extras/build.cmd."
+  },
+  "collateral_ordinals": [
+    53,
+    59,
+    60
+  ],
+  "next_ordinal": 14,
+  "remaining": 53
+}

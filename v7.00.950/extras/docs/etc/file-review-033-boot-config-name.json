@@ -1,0 +1,27 @@
+{
+  "file": "bios/sysinit2.asm",
+  "source_sha256": "db8a8a87e94667c99d90af74a0f3b42ee4421b694394299ae27b1a0d0827fd08",
+  "target_range": "IO.SYS 0x7463..0x74aa",
+  "bytes": 71,
+  "differences": [
+    [
+      "0x30",
+      "0x3a",
+      "0x38"
+    ],
+    [
+      "0x31",
+      "0xc4",
+      "0xe0"
+    ]
+  ],
+  "probe": "extras/research/bootname7-linked.asm",
+  "default_object_identical_to_prior": true,
+  "dos7_assembly": "passed",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "Boot option parser that populates boot_config_name remains incomplete.",
+    "Fixed-offset probe and mixed diagnostic link do not establish full binary layout."
+  ],
+  "copy_loop_fix": "DOS7 loop returns to character read after the one-time CX initialization, matching target 0x74a7."
+}

@@ -1,0 +1,20 @@
+{
+  "file_index": 9,
+  "source": "bios/msbio1.asm",
+  "source_sha256": "a1f31dd4da5282a6181797d7c5e057e259d08131f3062bdfce0b6ec07f5bdcdf",
+  "target_io_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_altah_offset": 2654,
+  "target_cbreak_offset": 2655,
+  "target_bytes": "002ec6065e0403cf",
+  "linked_altah": [
+    0,
+    1793
+  ],
+  "linked_cbreak": [
+    0,
+    1794
+  ],
+  "linked_bytes": "002ec606010703cf",
+  "validation": "Both MASM and no-stub ML diagnostics link the target conditional branch. AltAH precedes cbreak by one byte, is initially zero, and cbreak writes 3 to it using the target instruction pattern followed by IRET. Only the address operand differs due to unfinished layout. Orig13 and off_d0 retain their historical offset assertions; default BIOS build is unchanged.",
+  "limitations": "The inferred field position is established locally; remaining device-chain order and target-wide BIOS layout are incomplete."
+}

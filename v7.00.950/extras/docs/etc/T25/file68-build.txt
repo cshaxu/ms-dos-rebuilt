@@ -1,0 +1,23 @@
+PASS 293 current source inputs equal the verified stage.
+private-desktop=DOS5Build_13268_244907234 owned-pid=36192
+[compile 0s] Compiling reginit
+child-exit=0 timeout=0
+OMF layout: 2098 code bytes, 52 fixups, 3 data records; code/operands unchanged
+private-desktop=DOS5Build_3224_244909703 owned-pid=27964
+[compile 0s] Linking configuration
+child-exit=0 timeout=0
+Comparing files O:\REPOS.HOBBY\MS-DOS-REBUILT\V7.00.950\EXTRAS\BUILD\T25-REGINIT-29702-30830\BIOS\CONFIG.EXE and O:\REPOS.HOBBY\MS-DOS-REBUILT\V7.00.950\EXTRAS\BUILD\T25-REGFIND-29536-6949\BIOS\CONFIG.EXE
+FC: no differences encountered
+
+IO image: 223148 bytes; configuration at 176640
+PASS 293 current source inputs equal the verified stage.
+Comparing files O:\REPOS.HOBBY\MS-DOS-REBUILT\V7.00.950\EXTRAS\BUILD\T25-REGINIT-29702-30830\OUT\IO.SYS and O:\REPOS.HOBBY\MS-DOS-REBUILT\V7.00.950\EXTRAS\BASELINES\TARGETS\IO.SYS
+FC: no differences encountered
+
+Comparing files O:\REPOS.HOBBY\MS-DOS-REBUILT\V7.00.950\EXTRAS\BUILD\T25-REGINIT-29702-30830\OUT\MSDOS.SYS and O:\REPOS.HOBBY\MS-DOS-REBUILT\V7.00.950\EXTRAS\BASELINES\TARGETS\MSDOS.SYS
+FC: no differences encountered
+
+Comparing files O:\REPOS.HOBBY\MS-DOS-REBUILT\V7.00.950\EXTRAS\BUILD\T25-REGINIT-29702-30830\OUT\COMMAND.COM and O:\REPOS.HOBBY\MS-DOS-REBUILT\V7.00.950\EXTRAS\BASELINES\TARGETS\COMMAND.COM
+FC: no differences encountered
+
+PASS: reginit compiled; configuration freshly linked unchanged; IO.SYS repacked exact; two inherited outputs exact; 293 source inputs checked.

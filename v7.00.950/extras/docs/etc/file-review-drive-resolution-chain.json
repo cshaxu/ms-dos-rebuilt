@@ -1,0 +1,40 @@
+{
+  "sources": {
+    "bios/msbio1.asm": "346b48ced062a6638f59a537d54f2c35863b3192c93a4b198093dde1769b5004",
+    "bios/sysinit2.asm": "c3140d963904038ead9448ed672a5c04074ed6c972c61c2e209a5b60fd4346f3",
+    "bios/syspre.asm": "e8b9454595cdc829527ced527e4b500f7948a1061fb241921333c17b85c6d018"
+  },
+  "matched": {
+    "redirected_drive": {
+      "start": "0xa40c",
+      "end_exclusive": "0xa4be",
+      "bytes": 178
+    },
+    "drive_map": {
+      "start": "0xa4be",
+      "end_exclusive": "0xa55b",
+      "bytes": 157
+    },
+    "drive_resolver": {
+      "start": "0x497d",
+      "end_exclusive": "0x49c4",
+      "bytes": 71
+    }
+  },
+  "verification": {
+    "link": "extras/tools/verify_syspre_device_link.py",
+    "link_stage": "extras/build/syspre-object-link-2k4djx7z",
+    "ioctl_probe": "extras/tools/verify_boot_drive_ioctl.py",
+    "ioctl_stage": "extras/build/drive-ioctl-runtime-swmw5onl",
+    "resolver_probe": "extras/tools/verify_boot_drive_resolver.py",
+    "resolver_stage": "extras/build/drive-resolve-runtime-5t7pharo",
+    "syspre_assembly": "extras/build/syspre-data-ttfq6z3d",
+    "sysinit_assembly": "extras/build/ml-sysinit-v4ed_sgw"
+  },
+  "scope": "Link diagnostic uses actual source for both leaves and SYSPRE MagicMoveInfo; runtime probes substitute interrupts and, for the resolver, both leaves. The complete MSBIO1 SYSINIT contribution and four SYSINIT modules assembled separately.",
+  "limitations": [
+    "Upstream system-file execution at A296h remains unresolved.",
+    "Five bytes after the drive-map data, other gaps, BIOS anchors and two parameter bytes remain synthetic in diagnostics.",
+    "Complete IO.SYS, MSDOS.SYS and COMMAND.COM are not yet proven byte-identical."
+  ]
+}

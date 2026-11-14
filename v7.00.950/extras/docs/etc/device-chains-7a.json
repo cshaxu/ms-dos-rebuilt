@@ -1,0 +1,157 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "mapping": "For these frozen-image static chains, file_offset = (segment << 4) + offset - 0x100. This relation is verified against all listed links, but its runtime loading interpretation is not yet proven.",
+  "device_chain": [
+    {
+      "file_offset": 1558,
+      "next_offset": 40,
+      "next_segment": 112,
+      "attributes": 32787,
+      "strategy": 634,
+      "interrupt": 645,
+      "raw_name_hex": "434f4e2020202020"
+    },
+    {
+      "file_offset": 1576,
+      "next_offset": 58,
+      "next_segment": 112,
+      "attributes": 32768,
+      "strategy": 634,
+      "interrupt": 678,
+      "raw_name_hex": "4155582020202020"
+    },
+    {
+      "file_offset": 1594,
+      "next_offset": 76,
+      "next_segment": 112,
+      "attributes": 41152,
+      "strategy": 634,
+      "interrupt": 650,
+      "raw_name_hex": "50524e2020202020"
+    },
+    {
+      "file_offset": 1612,
+      "next_offset": 94,
+      "next_segment": 112,
+      "attributes": 32776,
+      "strategy": 634,
+      "interrupt": 238,
+      "raw_name_hex": "434c4f434b242020"
+    },
+    {
+      "file_offset": 1630,
+      "next_offset": 106,
+      "next_segment": 112,
+      "attributes": 2242,
+      "strategy": 634,
+      "interrupt": 243,
+      "raw_name_hex": "04007c0070000080"
+    },
+    {
+      "file_offset": 1642,
+      "next_offset": 124,
+      "next_segment": 112,
+      "attributes": 32768,
+      "strategy": 634,
+      "interrupt": 678,
+      "raw_name_hex": "434f4d3120202020"
+    },
+    {
+      "file_offset": 1660,
+      "next_offset": 142,
+      "next_segment": 112,
+      "attributes": 41152,
+      "strategy": 634,
+      "interrupt": 657,
+      "raw_name_hex": "4c50543120202020"
+    },
+    {
+      "file_offset": 1678,
+      "next_offset": 160,
+      "next_segment": 112,
+      "attributes": 41152,
+      "strategy": 634,
+      "interrupt": 664,
+      "raw_name_hex": "4c50543220202020"
+    },
+    {
+      "file_offset": 1696,
+      "next_offset": 301,
+      "next_segment": 112,
+      "attributes": 41152,
+      "strategy": 634,
+      "interrupt": 671,
+      "raw_name_hex": "4c50543320202020"
+    },
+    {
+      "file_offset": 1837,
+      "next_offset": 184,
+      "next_segment": 112,
+      "attributes": 49152,
+      "strategy": 634,
+      "interrupt": 702,
+      "raw_name_hex": "434f4e4649472420"
+    },
+    {
+      "file_offset": 1720,
+      "next_offset": 202,
+      "next_segment": 112,
+      "attributes": 32768,
+      "strategy": 634,
+      "interrupt": 684,
+      "raw_name_hex": "434f4d3220202020"
+    },
+    {
+      "file_offset": 1738,
+      "next_offset": 220,
+      "next_segment": 112,
+      "attributes": 32768,
+      "strategy": 634,
+      "interrupt": 690,
+      "raw_name_hex": "434f4d3320202020"
+    },
+    {
+      "file_offset": 1756,
+      "next_offset": 65535,
+      "next_segment": 112,
+      "attributes": 32768,
+      "strategy": 634,
+      "interrupt": 696,
+      "raw_name_hex": "434f4d3420202020"
+    }
+  ],
+  "floppy_bds_chain": [
+    {
+      "file_offset": 20616,
+      "next_offset": 956,
+      "next_segment": 1251
+    },
+    {
+      "file_offset": 20716,
+      "next_offset": 1056,
+      "next_segment": 1251
+    },
+    {
+      "file_offset": 20816,
+      "next_offset": 1156,
+      "next_segment": 1251
+    },
+    {
+      "file_offset": 20916,
+      "next_offset": 65535,
+      "next_segment": 65535
+    }
+  ],
+  "config_device": {
+    "header_offset": 1837,
+    "entry_offset": 2238,
+    "entry_bytes": "e80200402d",
+    "inline_dispatch_offset": 11584,
+    "shared_dispatch_far_pointer_offset": 1856,
+    "shared_dispatch_segment": 469,
+    "dispatch_table_file_offset": 18832,
+    "dispatch_entries": 13,
+    "dispatch_table_hex": "0d792d792d792d5b2dc100c100792d792dc100c100c100c1007b2d"
+  },
+  "limitations": "Static binary mapping; no source identity or whole-structure completeness implied."
+}

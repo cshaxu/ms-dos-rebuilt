@@ -1,0 +1,103 @@
+{
+  "target_sha256": "a74c700063cd6b1c91523952bfc80e9393c125d39ada0164d48b5098089fcef3",
+  "source_trial": "extras/build/tranmsg-source-trial-d_mwh0y5",
+  "object_sha256": "f98664078430a6b29b9441758f54de1019bc028ea27326651adc1542d00b73e8",
+  "target_range": [
+    67065,
+    67168
+  ],
+  "length": 103,
+  "mode": "Explicitly substitute the seven assembler-listed relocations in an isolated comparison using independently identified target addresses and source expression addends. This is not a final link or full OMF relocation implementation.",
+  "resolved_fixups": [
+    {
+      "relative_offset": 5,
+      "symbol": "Major_Ver_Num",
+      "base": 54537,
+      "source_expression_addend": 0,
+      "resolved": 54537
+    },
+    {
+      "relative_offset": 18,
+      "symbol": "Minor_Ver_Num",
+      "base": 54539,
+      "source_expression_addend": 0,
+      "resolved": 54539
+    },
+    {
+      "relative_offset": 34,
+      "symbol": "vol_drv",
+      "base": 54543,
+      "source_expression_addend": 0,
+      "resolved": 54543
+    },
+    {
+      "relative_offset": 50,
+      "symbol": "vol_drv",
+      "base": 54543,
+      "source_expression_addend": 0,
+      "resolved": 54543
+    },
+    {
+      "relative_offset": 63,
+      "symbol": "CHARBUF",
+      "base": 53446,
+      "source_expression_addend": 0,
+      "resolved": 53446
+    },
+    {
+      "relative_offset": 79,
+      "symbol": "vol_serial",
+      "base": 55425,
+      "source_expression_addend": 2,
+      "resolved": 55427
+    },
+    {
+      "relative_offset": 92,
+      "symbol": "vol_serial",
+      "base": 55425,
+      "source_expression_addend": 0,
+      "resolved": 55425
+    }
+  ],
+  "target_instruction_evidence": [
+    {
+      "offset": 46049,
+      "bytes": "a309d5"
+    },
+    {
+      "offset": 46057,
+      "bytes": "a30bd5"
+    },
+    {
+      "offset": 45833,
+      "bytes": "a20fd5"
+    },
+    {
+      "offset": 45846,
+      "bytes": "bfc6d0"
+    },
+    {
+      "offset": 45878,
+      "bytes": "ba7fd8"
+    },
+    {
+      "offset": 45841,
+      "bytes": "baf680"
+    },
+    {
+      "offset": 45862,
+      "bytes": "ba0681"
+    },
+    {
+      "offset": 45894,
+      "bytes": "ba2381"
+    }
+  ],
+  "ioctl_layout_evidence": "cmd/command/tspc.asm defines vol_ioctl_buf then DW info level followed by DD vol_serial; target passes 0xd87f as IOCTL buffer, yielding vol_serial at 0xd881.",
+  "resolved_bytes_equal_target": true,
+  "limitations": [
+    "Target symbol names are inferred by matching corresponding target code to baseline behavior; final source and actual linker addresses remain unverified.",
+    "Manual substitutions do not validate OMF fixup semantics or replace a real link.",
+    "No complete target COMMAND.COM or remaining TRANMSG controls are verified."
+  ]
+}

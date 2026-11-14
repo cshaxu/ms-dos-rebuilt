@@ -1,0 +1,39 @@
+{
+  "source": "bios/msbio1.asm",
+  "source_sha256": "293615b062f00e0b1f93538888869f1098920003d285c4071d0d8b285d1898ec",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "operands": [
+    {
+      "target_file_offset": 7329,
+      "symbol": "con_table",
+      "target_offset": 1896
+    },
+    {
+      "target_file_offset": 7338,
+      "symbol": "auxnum",
+      "target_offset": 1848
+    },
+    {
+      "target_file_offset": 7343,
+      "symbol": "printdev",
+      "target_offset": 1838
+    },
+    {
+      "target_file_offset": 7367,
+      "symbol": "dsktbl",
+      "target_offset": 3632
+    },
+    {
+      "target_file_offset": 7374,
+      "symbol": "start_sec_h",
+      "target_offset": 3568
+    },
+    {
+      "target_file_offset": 7390,
+      "symbol": "start_sec_h",
+      "target_offset": 3568
+    }
+  ],
+  "diagnostic": "config-ml-device-entry-operands.json",
+  "limitations": "The diagnostic binds references to linked symbols, but auxnum, printdev and start_sec_h remain explicit stubs; con_table and dsktbl come from reference objects. Their final target addresses and later implementations remain unresolved."
+}

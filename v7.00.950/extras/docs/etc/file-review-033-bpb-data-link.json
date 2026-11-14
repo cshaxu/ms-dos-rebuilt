@@ -1,0 +1,21 @@
+{
+  "source": "bios/sysinit2.asm",
+  "sha256": "2ce22bc018fcb9e37bc9dc370a8586f5cb42f425dbe3845c960ab09ec001ecb6",
+  "change": "Replace diagnostic placeholder with assembled existing drive geometry, floppy BPBs, BPB pointer table and switch list.",
+  "matched": {
+    "region": "drive geometry, BPB records and switch list",
+    "start": "0x34f3",
+    "end_exclusive": "0x3594",
+    "bytes": 161
+  },
+  "verification": {
+    "tool": "extras/tools/verify_syspre_device_link.py",
+    "link_stage": "extras/build/syspre-object-link-lxaotxzb",
+    "scope": "Actual source object linked at diagnostic target position; relocated table pointers and all data bytes match target."
+  },
+  "line_number_wrapper_audit": "A byte-pattern scan for near calls and literal offset 1748h in SYSINIT target region found none; this is not proof of no indirect caller.",
+  "limitations": [
+    "BPB and switch consumers are not yet connected to this object in the complete product link.",
+    "Remaining target position anchors exist; final three core binaries remain unverified."
+  ]
+}

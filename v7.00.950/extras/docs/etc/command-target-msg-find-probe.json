@@ -1,0 +1,24 @@
+{
+  "target": "extras/baselines/targets/COMMAND.COM",
+  "target_sha256": "a74c700063cd6b1c91523952bfc80e9393c125d39ada0164d48b5098089fcef3",
+  "target_start": 66722,
+  "target_end_exclusive": 66808,
+  "probe_source": "extras/build/msg-find-probe-wfs3rtz2/probe.asm",
+  "probe_source_sha256": "27e8aeaae9eee5fb5514bc3bb4573674ff60a0b9a0e266a78fa7042f97d38705",
+  "probe_object_sha256": "d89e032b9c1a948633d777ab2438091586515db78fc14b91d8c8ebace5951ff9",
+  "assembled_code_sha256": "05a0c61edc1358f0e58d890163ce16522f2988051ce4488ba7cdaf096f264cc2",
+  "length": 86,
+  "byte_equal": true,
+  "assembler_warnings": 0,
+  "behavior": [
+    "If a disk provider is available, call it; otherwise read class ID and one-byte count through ES.",
+    "Skip the two-byte header and scan four-byte message ID/relative-offset entries.",
+    "Resolve text pointer, read length, clear the runtime value and return."
+  ],
+  "source_comparison": "inc/msgserv.asm:$M_FIND_SPECIFIED_MSG uses a four-byte class header in the DOS 6 baseline.",
+  "limitations": [
+    "The probe hardcodes three target data addresses; formal source must restore symbols and correct relocation.",
+    "This is one lookup routine, not the complete message service or the calling environment.",
+    "Input, data generation, ownership, other configurations and full executable identity remain unverified."
+  ]
+}

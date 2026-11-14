@@ -1,0 +1,150 @@
+{
+  "kind": "diagnostic only; temporary message-resource and interrupt callback stubs; not a full 7.0a build",
+  "source_sha256": "9e06d174bf010e49c995dba31b9bbe3bec157cee6e439e39b8f43456d2edf242",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "ml_sha256": "711ac49652a85e5a3cd83ee522abf9aed38f8e5059e4f267b420cb17ff88147b",
+  "baseline_report": "extras\\build\\msbio1-config-state-placement-baseline.json",
+  "baseline_object_sha256": {
+    "msload": "97104b5e1c711ec46c73e412428840978c52bdfcf2124f27b43f834db69f9b3f",
+    "msbio1": "f8931886d361bca048a11bebb3ca4a8da8cb11074c8407b7a17150782106968b",
+    "mschar": "afc86f7c4a0f81dde2bb019a7f55c6d6ba2131556bdabc539608c4b7413eb051",
+    "msdisk": "83699866d4997c2bd56193d3c8183717fd64b7b62e4d1a00467e34ee9b483f84",
+    "msdioctl": "70b6579ad1f7fb9b493787fde59ba4f620984b057c1846b150f8c84876806180",
+    "msint13": "05eee01fc17b43d2c7dc7a9808b06ea436ae12166deb1ec613284c8421521849",
+    "msbio2": "dc286af1ddc5f32893c8003e3da2e2f47aebc3213cdc34b1141a2e6d0e6b0bff",
+    "msinit": "01f2d3c999f813015a724a8768e73da3d5173076d3675438adb40779ed77518a",
+    "sysinit1": "8269d8be9813c54af37931b18dde90daf1e413c75a576324acddeb55439aa120",
+    "sysconf": "377001941b5e4e7e273ab13ad0549bc8b923b1b563ab1501129d0eb7e8d46853",
+    "syspre": "397d0317a01282aa8f74ee4bbfa1dde624c91e6dea3a6b903c99931e39baa930",
+    "sysinit2": "4a35404da31c051338ffdb8476baa938e2715c8ce55c37bfee0e30e32ff8974b",
+    "sysimes": "3c49069307c818c8a669d2d370b1dceef0ec2cc9fcc33f9f76219b2a0aef0548",
+    "power": "8f343f1a7e161196f0aaefe817b15aa03670fba9e3920d1a71d6a82d9a7e55b6",
+    "ptime": "81c2131534d607d8393a5a14edce15728de9971d6e355059a6a66d94ce01dab3",
+    "msend": "20d3d0cf8806053ba2368adc34305e134dfa9afb3a6e6eceb076da0d9ed25044"
+  },
+  "config_restore_target_offset": 61280,
+  "routine_length": 102,
+  "matching_bytes": 88,
+  "different_offsets": [
+    4,
+    5,
+    9,
+    10,
+    64,
+    65,
+    69,
+    70,
+    82,
+    83,
+    94,
+    95,
+    98,
+    99
+  ],
+  "orig13_offset": 180,
+  "off_d0_offset": 208,
+  "stubbed_symbols": [
+    "bios_msg_base",
+    "bios_msg_1",
+    "bios_msg_2",
+    "bios_msg_3",
+    "int6c_read_date",
+    "int6c_read_time",
+    "ttticks",
+    "char_auxnum",
+    "char_printdev",
+    "disk_start_high"
+  ],
+  "config_init_segment_symbol": [
+    626,
+    1955
+  ],
+  "config_init_segment_initial_bytes": "0000",
+  "routines": [
+    {
+      "name": "config_init_entry",
+      "segment": 1158,
+      "offset": 8,
+      "target_offset": 60990,
+      "length": 36,
+      "matching_bytes": 28,
+      "different_offsets": [
+        10,
+        11,
+        25,
+        26,
+        29,
+        30,
+        32,
+        33
+      ]
+    },
+    {
+      "name": "config_xms_init",
+      "segment": 1158,
+      "offset": 44,
+      "target_offset": 61026,
+      "length": 173,
+      "matching_bytes": 159,
+      "different_offsets": [
+        5,
+        6,
+        30,
+        31,
+        45,
+        46,
+        82,
+        83,
+        110,
+        111,
+        117,
+        118,
+        167,
+        168
+      ]
+    },
+    {
+      "name": "config_copy",
+      "segment": 1158,
+      "offset": 217,
+      "target_offset": 61199,
+      "length": 81,
+      "matching_bytes": 73,
+      "different_offsets": [
+        3,
+        4,
+        35,
+        36,
+        44,
+        45,
+        59,
+        60
+      ]
+    },
+    {
+      "name": "config_restore",
+      "segment": 1158,
+      "offset": 298,
+      "target_offset": 61280,
+      "length": 102,
+      "matching_bytes": 88,
+      "different_offsets": [
+        4,
+        5,
+        9,
+        10,
+        64,
+        65,
+        69,
+        70,
+        82,
+        83,
+        94,
+        95,
+        98,
+        99
+      ]
+    }
+  ],
+  "stage": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\config-ml-probe-b3jklw2w"
+}

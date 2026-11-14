@@ -1,0 +1,20 @@
+{
+  "part": "M5 T12 S1 P34",
+  "ordinal": 53,
+  "modified": 1,
+  "unchanged": 0,
+  "exact_dos6": 0,
+  "retired_by_merge": 0,
+  "reference": "DOS6 bios/sysinit1.asm DOS initialization state, defaults, INSTALL and memory allocation storage.",
+  "changes": "Remove orphan seg_reinit pointer header, correct CDS heading and stale multi_pass_id descriptions against current sysconf dispatch. Normalize added PUBLIC indentation and introduce module purpose comment. Preserve original empty STACKSW conditional, all labels/aliases, ordering and default values.",
+  "necessity": "Keep consolidated early SYSINIT storage at its target link position. P4/P8/P10 already absorbed boot, INSTALL/configuration and memory-state fragments. Original sysinit1 owner occurs after intervening tailstat bytes; direct merge would reorder output. Aliases share storage intentionally, not duplicate state.",
+  "validation": {
+    "statementCount": 193,
+    "effectiveStatementsEqual": true,
+    "readbackVerified": true,
+    "rebuilt": false,
+    "reason": "Only comments and whitespace changed; merged storage has already passed original-tool binary comparison in P10."
+  },
+  "next_ordinal": 54,
+  "remaining": 13
+}

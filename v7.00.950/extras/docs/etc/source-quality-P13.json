@@ -1,0 +1,24 @@
+{
+  "part": "M5 T12 S1 P13",
+  "ordinal": 32,
+  "modified": 1,
+  "unchanged": 0,
+  "exact_dos6": 0,
+  "retired_by_merge": 0,
+  "reference": "Original DOS6 bios/msbio2.asm, full module comparison; AT/COMPAQ ROM workaround section remains text-identical ignoring EOF newline.",
+  "changes": "Remove 34 DOS7_CONFIG selectors and their unselected DOS6 alternatives. Put BYTE_SYSINIT below original header before includes; move install_bds comment past intervening volume-label data. Remove orphan V86_Crit_SetFocus comment and update boot-sector comments to disksector_ptr. No new file or alternate implementation.",
+  "selection_basis": "bios/makefile lines 7-8 define DOS7_CONFIG for both original assemblers. Current dsk_init is owned by msdisk.asm; discarded msbio2 definition was inactive.",
+  "preserved": "DOS7 VM-focus API, CS-relative resident state, far boot-sector pointer and volume-label register handling differ from DOS6 and remain required. Original common media-change routines and complete IBM/COMPAQ ROM patch retained.",
+  "validation": {
+    "effectiveStatementsEqual": true,
+    "statementCount": 776,
+    "atAndCompaqSectionDos6Identical": true,
+    "selectedGuards": 34,
+    "removedLines": 195,
+    "rebuilt": false,
+    "reason": "All 776 effective assembler statements retain their order and literal values. PAGE/TITLE movement and comments are non-emitting. No instruction/data/segment/link change.",
+    "binary_baseline": "P11 BIOS/IO.SYS accepted; T11 COMMAND.COM and MSDOS.SYS untouched."
+  },
+  "next_ordinal": 33,
+  "remaining": 34
+}

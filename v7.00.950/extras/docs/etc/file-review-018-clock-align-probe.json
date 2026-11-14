@@ -1,0 +1,27 @@
+{
+  "source_sha256": "e65a4f78336aaf6a8e7dd156fe6f1a0dd20d1eacb11c50c847ae92a0068749ee",
+  "diagnostic_source_sha256": "672f0e3a0ff6aa72f5295a1eec8f3034dc580b7c06881844f0b9067a7015e5a3",
+  "change": "clock routines moved into BIOS_CODE; nine temporary align directives adjusted for odd target base",
+  "diagnostic_builds": {
+    "dos7_masm": "pass",
+    "dos7_ml": "pass",
+    "reference_masm": "pass and object byte-identical"
+  },
+  "target_anchor": "IO.SYS 0xc8f",
+  "checked_spans": [
+    {
+      "target": "0xd28",
+      "matching_nonrelocated": 146,
+      "masked_relocations": 4
+    },
+    {
+      "target": "0xdbe",
+      "matching_bytes": 103
+    },
+    {
+      "five_init_gaps_matching_nonrelocated": 37,
+      "masked_relocations": 2
+    }
+  ],
+  "limitations": "Disposable source contains experimental conditional alignment. Final segment placement, resulting relocation values and full build are unverified; source is not yet adopted."
+}

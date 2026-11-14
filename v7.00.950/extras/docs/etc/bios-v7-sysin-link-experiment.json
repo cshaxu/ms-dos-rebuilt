@@ -1,0 +1,15 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\bios-sysin-link-xc12poxm",
+  "bios_sha256": "0f26fc3993e80aab6567252b1d81a782bdfa6aad211e7e643f21d0c5fd2a70c7",
+  "scope": "Real SYSIN object linked with real remaining BIOS providers.",
+  "sysin_initial": {
+    "bios_offset": "0x5610",
+    "target_range": "0x5db0..0x5df5",
+    "bytes": 70,
+    "exact_match": true
+  },
+  "limitations": [
+    "Contains an explicit experimental continuation jump; not a target-exact build.",
+    "Other object order, execution behavior and complete IO.SYS are unverified."
+  ]
+}

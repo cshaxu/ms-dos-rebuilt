@@ -1,0 +1,18 @@
+{
+  "file": "lang/usa/messages/sysimsg.inc",
+  "source_sha256": "a93dbc0da7de20c4b72798f63ecf16678afd503bbd1f8364b9793983e483d0a8",
+  "target_record_index": 23,
+  "target_record_file_offset": "0xf89c",
+  "record_bytes": "YNAyna\\0",
+  "exports": {
+    "$YES": "first byte (Y)",
+    "$NO": "second byte (N)"
+  },
+  "table_length": 4299,
+  "table_different_bytes": 0,
+  "validation": "Historical assembler and linker resolve both symbols to the corresponding bytes; complete linked target table matches.",
+  "limitations": [
+    "Existing DOS6 consumers use these symbols as single bytes; the full DOS7 consumer control flow is not verified.",
+    "Five legacy-only labels remain unresolved and the complete SYSINIT link is incomplete."
+  ]
+}

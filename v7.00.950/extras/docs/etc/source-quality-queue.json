@@ -1,0 +1,1309 @@
+{
+  "task": "M5 T12 S1",
+  "status": "closed",
+  "root": "O:/repos.hobby/ms-dos-rebuilt/v7.0",
+  "scope": "Exactly 29 modified and 37 added source entries from T11; historical target remains Win95 A / DOS 7.0a",
+  "reference": "O:/repos.hobby/ms-dos-archaeology/v6.0",
+  "dependency_basis": "Transitive include dependencies and make/link inputs. Public-symbol dependencies must be resolved before any semantic restructuring; verified cycles may be handled as one unit.",
+  "order_policy": "Frozen dependency-first order; no out-of-order source edits. Merges retain both original ledger numbers and record consumer/build changes as a dependency unit.",
+  "validation_policy": "No rebuild for comment/format-only changes when ordered assembler statements are unchanged. Changed assembly, data, macros, segments, link order or object organization requires affected build and byte comparison; object mergers require final linked/container verification.",
+  "counts": {
+    "total": 66,
+    "completed": 66,
+    "modified_this_audit": 62,
+    "unchanged_this_audit": 4,
+    "exact_dos6": 0,
+    "retired_by_merge": 14
+  },
+  "files": [
+    {
+      "ordinal": 1,
+      "baseline_number": 257,
+      "path": "inc/dosmac.inc",
+      "origin": "modified",
+      "baseline_sha256": "f32f597598125f27bb6d7adad0fa68164688748e8593d034d4136be7b76adcef",
+      "status": "verified",
+      "dependencies": [],
+      "dos6_exact": false,
+      "new_file_necessity": null,
+      "action": "modified-format-and-comment-only",
+      "current_sha256": "7d08d73fe45bf1536f939cab818cf13dad9c3644e9d82b9993522405f2109d17",
+      "evidence": "source-quality-P1.json"
+    },
+    {
+      "ordinal": 2,
+      "baseline_number": 246,
+      "path": "inc/buffer.inc",
+      "origin": "modified",
+      "baseline_sha256": "ba90345a736a70ca623078fc2f5ac0a92d541263a86d0aca492c9e02a5e89941",
+      "status": "verified",
+      "dependencies": [],
+      "dos6_exact": false,
+      "new_file_necessity": null,
+      "action": "unchanged",
+      "current_sha256": "ba90345a736a70ca623078fc2f5ac0a92d541263a86d0aca492c9e02a5e89941",
+      "evidence": "source-quality-P1.json"
+    },
+    {
+      "ordinal": 3,
+      "baseline_number": 2,
+      "path": "bios/biosseg.inc",
+      "origin": "modified",
+      "baseline_sha256": "d8330a633df39ec4f95f89b25f2870d339805ab1dc627c67538490fdb6ea599a",
+      "status": "verified",
+      "dependencies": [],
+      "dos6_exact": false,
+      "new_file_necessity": null,
+      "action": "unchanged",
+      "current_sha256": "d8330a633df39ec4f95f89b25f2870d339805ab1dc627c67538490fdb6ea599a",
+      "evidence": "source-quality-P1.json"
+    },
+    {
+      "ordinal": 4,
+      "baseline_number": 755,
+      "path": "bios/biosmt.inc",
+      "origin": "added",
+      "baseline_sha256": "52587530b21e7511d3e8abda7ac57de22edd13763955b432de2797cabb5caf52",
+      "status": "verified",
+      "dependencies": [],
+      "dos6_exact": false,
+      "new_file_necessity": "Unnecessary single-consumer include; inlined in bios/biosmsg.asm with identical expanded statements.",
+      "action": "merged-into-biosmsg",
+      "current_sha256": null,
+      "evidence": "source-quality-P2.json"
+    },
+    {
+      "ordinal": 5,
+      "baseline_number": 290,
+      "path": "inc/parse.asm",
+      "origin": "modified",
+      "baseline_sha256": "60bd294d770afc03ed98c585aa470d2928278e377cba7819e1791f449d0f5770",
+      "status": "verified",
+      "dependencies": [],
+      "dos6_exact": false,
+      "new_file_necessity": null,
+      "action": "modified-format-only",
+      "current_sha256": "25c51e6ec3732e7ae5c43cbc6989a6853fcfa2c3c9225caf5f7e15c936262325",
+      "evidence": "source-quality-P2.json"
+    },
+    {
+      "ordinal": 6,
+      "baseline_number": 355,
+      "path": "lang/usa/messages/comrmsg.inc",
+      "origin": "modified",
+      "baseline_sha256": "3d656e9685a99467a86218d86724220ea0e58a8374fe96214872654255df3e3b",
+      "status": "verified",
+      "dependencies": [],
+      "dos6_exact": false,
+      "new_file_necessity": null,
+      "action": "deduplicated-public-declarations",
+      "current_sha256": "0b13ad3797302914b3f939c6aadeaf1f19b6bbca0293c2f2551cdfc3fe20af48",
+      "evidence": "source-quality-P2.json"
+    },
+    {
+      "ordinal": 7,
+      "baseline_number": 752,
+      "path": "bios/backdata.asm",
+      "origin": "added",
+      "baseline_sha256": "f2483dd8a098e385d6b24df60367b8b03fe0c5ecd38dade6f7d122285c8d25eb",
+      "status": "verified",
+      "dependencies": [],
+      "dos6_exact": false,
+      "new_file_necessity": "Unnecessary extraction of DOS6 sysinit1 backdoor data/stub. Merged into adjacent movstart initialization module, preserving byte alignment and addresses.",
+      "evidence": "source-quality-P3.json",
+      "action": "retired-by-merge",
+      "current_sha256": null,
+      "final_owner": "bios/sysinit1.asm (via movstart in P3, restored to original owner in P11)"
+    },
+    {
+      "ordinal": 8,
+      "baseline_number": 753,
+      "path": "bios/bcend.asm",
+      "origin": "added",
+      "baseline_sha256": "b8bde7825c57860d02a697592b01ca96a342b3da60192e82dbe2e76ec2138ac1",
+      "status": "verified",
+      "dependencies": [],
+      "dos6_exact": false,
+      "new_file_necessity": "Unnecessary standalone boundary marker. Merged into paragraph-aligned biosmsg at the same link position.",
+      "evidence": "source-quality-P3.json",
+      "action": "retired-by-merge",
+      "current_sha256": null
+    },
+    {
+      "ordinal": 9,
+      "baseline_number": 754,
+      "path": "bios/biosmsg.asm",
+      "origin": "added",
+      "baseline_sha256": "a26541ea051fa0887881c2bd5ca35a0f23654728ab43a271caa95e5dee18a6eb",
+      "status": "verified",
+      "dependencies": [],
+      "dos6_exact": false,
+      "new_file_necessity": "Retained as the BIOS message-resource compilation unit, analogous to original DOS6 sysimes.asm. Owns BCode_end and message trailer; explicit paragraph boundary required by loader.",
+      "evidence": "source-quality-P3.json",
+      "action": "merged-resource-and-boundary",
+      "current_sha256": "0e8f1f17c6bb4af03fba405729426ff8b7567a302eebe26d2a5d1bfcf60ea841"
+    },
+    {
+      "ordinal": 10,
+      "baseline_number": 756,
+      "path": "bios/biostail.asm",
+      "origin": "added",
+      "baseline_sha256": "32ffee594331cca784cb4e1947936694126223203107e836fdbdaca1d744b6e0",
+      "status": "verified",
+      "dependencies": [],
+      "dos6_exact": false,
+      "new_file_necessity": "Retained coherent boot-log and CONFIG$ service module. Unique implementations called from msint13 and msbio1, with code placed after msinit and before message boundary. DOS6 has no boot-log/CONFIG$ equivalent implementation.",
+      "action": "modified-format-and-comment-only",
+      "current_sha256": "73da96d0c483a547cf87d20893e05e07b42eb5fc92bd36b737c76b208ab59ede",
+      "evidence": "source-quality-P4.json"
+    },
+    {
+      "ordinal": 11,
+      "baseline_number": 757,
+      "path": "bios/bootdata.asm",
+      "origin": "added",
+      "baseline_sha256": "8d25947b846fad92ece23d49ae04decacc59c57329cb0dd3d1edf37fa59226a0",
+      "status": "verified",
+      "dependencies": [],
+      "dos6_exact": false,
+      "new_file_necessity": "Unnecessary separate startup-state data fragment; merged into preceding ststate module preserving order, alignment and final binary.",
+      "action": "retired-by-merge",
+      "current_sha256": null,
+      "evidence": "source-quality-P4.json"
+    },
+    {
+      "ordinal": 12,
+      "baseline_number": 9,
+      "path": "bios/cfgline.asm",
+      "origin": "modified",
+      "baseline_sha256": "f183f91c68a08193ef67477b8cf7db7da28e809a9a5c57bced4681c3b7e133fb",
+      "status": "verified",
+      "dependencies": [],
+      "dos6_exact": false,
+      "new_file_necessity": null,
+      "action": "normalized-procedure-comments-and-format",
+      "current_sha256": "4783f1b24a95116b787c4eb5bc95784b80f24b84f89d11a0114ad801bba717e0",
+      "evidence": "source-quality-P4.json"
+    },
+    {
+      "ordinal": 13,
+      "baseline_number": 10,
+      "path": "bios/cfgmain.asm",
+      "origin": "modified",
+      "baseline_sha256": "54473d82256cec2cc3972c410553e067bb1542ba60e8461bd4f2554998bf1d39",
+      "status": "verified",
+      "dependencies": [],
+      "dos6_exact": false,
+      "new_file_necessity": null,
+      "action": "normalized-procedure-comments-and-format",
+      "current_sha256": "7246851602035d91c0fd686f0c3acacb0194610864c4910ae8c73f26c696142c",
+      "evidence": "source-quality-P4.json"
+    },
+    {
+      "ordinal": 14,
+      "baseline_number": 758,
+      "path": "bios/cfgmem.asm",
+      "origin": "added",
+      "baseline_sha256": "81a8c02f33955b28e44180f27f51f351d75b4f0bb5802c36e52fca1205ec4063",
+      "status": "verified",
+      "dependencies": [],
+      "dos6_exact": false,
+      "new_file_necessity": "Retained shared DOS memory service module (allocate/free/reallocate), used by path and registry modules. The in-place resize and allocate-copy-free fallback implement one realloc contract, not redundant alternatives.",
+      "action": "modified-format-and-comment-only",
+      "current_sha256": "49d72e3e17a1076ed9a57dce90673b35aa9f83de9d32fbdf38ed508fc839cc3e",
+      "evidence": "source-quality-P5.json"
+    },
+    {
+      "ordinal": 15,
+      "baseline_number": 12,
+      "path": "bios/cfgmenu.asm",
+      "origin": "modified",
+      "baseline_sha256": "05ef9f2e8fc700ba6673d9aa373b7a2fae2aedf3126d4e62697befab1704c232",
+      "status": "verified",
+      "dependencies": [],
+      "dos6_exact": false,
+      "new_file_necessity": null,
+      "action": "normalized-procedure-comments-and-format",
+      "current_sha256": "ec152b36b93b39de79812e1afb64ad028beafcb12db2819f7d999ebbf7174412",
+      "evidence": "source-quality-P6.json"
+    },
+    {
+      "ordinal": 16,
+      "baseline_number": 759,
+      "path": "bios/cfgseg.asm",
+      "origin": "added",
+      "baseline_sha256": "a40e26eacf096756de33f6814e0c5da35b94f9de497c91d4a3708f9efe589920",
+      "status": "verified",
+      "dependencies": [],
+      "dos6_exact": false,
+      "new_file_necessity": "Retained single segment-order owner: sets CRT/BSS sequence and configuration/registry CODE ordering and alignments independently of procedure link order. Analogous purpose to DOS6 BIOSSEG declarations; no second implementation.",
+      "action": "normalized-segment-order-header-and-format",
+      "current_sha256": "72208f42403c20fc6ec8e0a69d85b670376b8064d3061420e600d272bdda85f4",
+      "evidence": "source-quality-P6.json"
+    },
+    {
+      "ordinal": 17,
+      "baseline_number": 760,
+      "path": "bios/clockbr.asm",
+      "origin": "added",
+      "baseline_sha256": "51e74bad43ce79e764073b30d0c3e8596746e0f9512502f080a2638fb83dbf38",
+      "status": "verified",
+      "dependencies": [],
+      "dos6_exact": false,
+      "new_file_necessity": "Unnecessary bridge-only module; two clock procedures merged into preceding original mschar module.",
+      "action": "retired-by-merge",
+      "current_sha256": null,
+      "evidence": "source-quality-P6.json"
+    },
+    {
+      "ordinal": 18,
+      "baseline_number": 761,
+      "path": "bios/confhook.asm",
+      "origin": "added",
+      "baseline_sha256": "a9cc2472b5a25532929ab706924d6dd49d5411a386bfd813b7a3f4df187ecb31",
+      "status": "verified",
+      "dependencies": [],
+      "dos6_exact": false,
+      "new_file_necessity": "Unnecessary extraction from configuration owner; procedures merged into adjacent original sysconf module where state and callback already reside.",
+      "action": "retired-by-merge",
+      "current_sha256": null,
+      "evidence": "source-quality-P6.json"
+    },
+    {
+      "ordinal": 19,
+      "baseline_number": 764,
+      "path": "bios/cpath.asm",
+      "origin": "added",
+      "baseline_sha256": "90dc81278d1bd45b9e82c1486a1c4753c69d1512cbfed2fb4e1ceb68c46ebe5a",
+      "status": "verified",
+      "dependencies": [],
+      "dos6_exact": false,
+      "new_file_necessity": "Retained configuration path preparation service: INT 2Fh lookup, path check and alternate-file copy form one operation; not parallel implementations.",
+      "action": "modified-format-and-comment-only",
+      "current_sha256": "58014993f1f00233ddfc7c36f3a1626343cf0520aadf1f34ff8e4b317c969180",
+      "evidence": "source-quality-P7.json"
+    },
+    {
+      "ordinal": 20,
+      "baseline_number": 765,
+      "path": "bios/devparm.asm",
+      "origin": "added",
+      "baseline_sha256": "5488afa667cab077d820ba652a84ad8037df2a372fcd760dff9e7ff8e088081e",
+      "status": "verified",
+      "dependencies": [],
+      "dos6_exact": false,
+      "new_file_necessity": "Unnecessary one-structure object; merged with adjacent request-packet storage preserving data order. P27 moves the combined storage into stkinit.",
+      "action": "retired-by-merge",
+      "current_sha256": null,
+      "evidence": "source-quality-P7.json",
+      "final_owner": "bios/stkinit.asm"
+    },
+    {
+      "ordinal": 21,
+      "baseline_number": 766,
+      "path": "bios/drivechk.asm",
+      "origin": "added",
+      "baseline_sha256": "a4a76c627a85ccf747131c17ff5a4a72f59de1a24e97b6085a9f7c49770b872c",
+      "status": "verified",
+      "dependencies": [],
+      "dos6_exact": false,
+      "new_file_necessity": "Retained cohesive host-drive/mapping probe module with two different protocol entry points used by sysinit2; no duplicate implementation.",
+      "action": "normalized-format-and-inlined-single-use-macro",
+      "current_sha256": "1aa0bdcf92d1e9134df6a125357e75d8c8df53173b1f22ed2fa61be955c18403",
+      "evidence": "source-quality-P7.json"
+    },
+    {
+      "ordinal": 22,
+      "baseline_number": 767,
+      "path": "bios/initclk.asm",
+      "origin": "added",
+      "baseline_sha256": "a4998b8ca74183a8a9769c3312edd6a116e0310e1e07fbb4c01e24cd3185a0ae",
+      "status": "verified",
+      "dependencies": [
+        "bios/biosseg.inc",
+        "inc/buffer.inc",
+        "inc/dosmac.inc"
+      ],
+      "dos6_exact": false,
+      "new_file_necessity": "Retain substantive RTC conversion/validation support derived from DOS6 msinit. DOS7 resident Bios_Code placement differs from initialization code; original POWER/ROMDOS structure retained. Removed unselected DOS6 alternatives under DOS7_CONFIG guards rather than maintaining a second implementation.",
+      "action": "removed-unselected-dos6-implementation-branches",
+      "current_sha256": "0b7256f33e6099f96cfb34a4e2b95841a73d4e50c27bf1a0d4bcdc4b06c2c402",
+      "evidence": "source-quality-P8.json"
+    },
+    {
+      "ordinal": 23,
+      "baseline_number": 768,
+      "path": "bios/instdata.asm",
+      "origin": "added",
+      "baseline_sha256": "ed0d3d2d8f890f8c8bd09c054f6ebff6af970f8433ed820856b5c0c6ed54106d",
+      "status": "verified",
+      "dependencies": [],
+      "dos6_exact": false,
+      "new_file_necessity": "Unnecessary standalone INSTALL/configuration-state fragment; merged into adjacent ststate with original EXEC0 structure and identical layout.",
+      "action": "retired-by-merge",
+      "current_sha256": null,
+      "evidence": "source-quality-P8.json"
+    },
+    {
+      "ordinal": 24,
+      "baseline_number": 769,
+      "path": "bios/logocode.asm",
+      "origin": "added",
+      "baseline_sha256": "7ef4e846078d7a792857f2868552766219abb05ff69ad5dea32fb76383e5e04d",
+      "status": "verified",
+      "dependencies": [
+        "bios/biosseg.inc"
+      ],
+      "dos6_exact": false,
+      "new_file_necessity": "Retain substantive bitmap/VGA and compressed boot-image service. File/saved-image paths feed one shared display implementation; four plane loops are target unrolling, not alternate implementations.",
+      "action": "normalized-format-and-inlined-single-use-macro",
+      "current_sha256": "a738fc8def298df364c34d762756ddced9411d0d673b50332bfd5044433c9eb8",
+      "evidence": "source-quality-P9.json"
+    },
+    {
+      "ordinal": 25,
+      "baseline_number": 770,
+      "path": "bios/logpart.asm",
+      "origin": "added",
+      "baseline_sha256": "a7db1d7fd8759f1236b4f9b51da327b2793444da522e9ab7dd8b01b46b66e970",
+      "status": "verified",
+      "dependencies": [],
+      "dos6_exact": false,
+      "new_file_necessity": "Retain initialization-only device-log formatting service, distinct from resident BIOS logging transport and from startup graphics. Config log consumers share one send procedure.",
+      "action": "normalized-format-and-removed-redundant-cpu-directive",
+      "current_sha256": "c96bef4111f6dfb1f6d9a1c6289d5568a524dfd8085581a5f7af7eeab4bff9b2",
+      "evidence": "source-quality-P9.json"
+    },
+    {
+      "ordinal": 26,
+      "baseline_number": 772,
+      "path": "bios/mbbds.asm",
+      "origin": "added",
+      "baseline_sha256": "1551710ab25ca8c800ee5245665d3fad22e0beb18f9dac1951450a6f6c11d937",
+      "status": "verified",
+      "dependencies": [
+        "bios/biosseg.inc"
+      ],
+      "dos6_exact": false,
+      "new_file_necessity": "BDS schema already exists in original msbio1 with identical field statements. Instances returned to msbio1 SysInitSeg; duplicate schema/module removed.",
+      "action": "retired-by-merge",
+      "current_sha256": null,
+      "evidence": "source-quality-P9.json"
+    },
+    {
+      "ordinal": 27,
+      "baseline_number": 773,
+      "path": "bios/mbentry.asm",
+      "origin": "added",
+      "baseline_sha256": "141c34b58ab6aafb7a14cc2c547f5c6efe669207b418c2f32d7437a33b436dc2",
+      "status": "verified",
+      "dependencies": [
+        "bios/biosseg.inc"
+      ],
+      "dos6_exact": false,
+      "new_file_necessity": "Single-jump SYSINIT entry merged after BDS instances in original msbio1; word boundary preserved with EVEN.",
+      "action": "retired-by-merge",
+      "current_sha256": null,
+      "evidence": "source-quality-P9.json"
+    },
+    {
+      "ordinal": 28,
+      "baseline_number": 774,
+      "path": "bios/mblate.asm",
+      "origin": "added",
+      "baseline_sha256": "2c4ea308f7f7b1e1609e535b07a97f27c3829635cef6cd2b16575df9586ed322",
+      "status": "verified",
+      "dependencies": [
+        "bios/biosseg.inc"
+      ],
+      "dos6_exact": false,
+      "new_file_necessity": "Retain coherent late configuration-buffer and system-file execution services. Seven artificial middle PROC exports collapsed into local labels inside the sole actual EXEC entry; no duplicate implementation.",
+      "action": "consolidated-fall-through-exec-procedure",
+      "current_sha256": "5eafc19b12c9e67a2f9e77b9c82d98c174be55a0e9162b4f891815b1b5cc1a83",
+      "evidence": "source-quality-P10.json"
+    },
+    {
+      "ordinal": 29,
+      "baseline_number": 775,
+      "path": "bios/memstate.asm",
+      "origin": "added",
+      "baseline_sha256": "73c9f8fa1189aa97a9bbc55c99ea0fbe593dace93025f1df59d956cbc1c7ab81",
+      "status": "verified",
+      "dependencies": [],
+      "dos6_exact": false,
+      "new_file_necessity": "Unnecessary memory-state fragment; merged into adjacent ststate while preserving field aliases, order and alignment.",
+      "action": "retired-by-merge",
+      "current_sha256": null,
+      "evidence": "source-quality-P10.json"
+    },
+    {
+      "ordinal": 30,
+      "baseline_number": 776,
+      "path": "bios/movstart.asm",
+      "origin": "added",
+      "baseline_sha256": "5aa99fa66c6710523c01b53d8830b387270a9efbacfa6bd1c4534c37d418bcdd",
+      "status": "verified",
+      "dependencies": [],
+      "dos6_exact": false,
+      "new_file_necessity": "Unnecessary relocation prelude extracted from original sysinit1. Merged back with previously absorbed backdoor state, preserving byte alignment and exact labels.",
+      "collateral_changes": [
+        {
+          "part": "P3",
+          "sha256": "ee6b7d044964c3b5e53a0c5e4ce2b9d3786d4c75cfa5b61087829660b0600337",
+          "reason": "Absorb ordinal 7 data/stub before move_myself",
+          "complete_file_audit": "resolved by P11; entire file merged into original sysinit1"
+        }
+      ],
+      "action": "retired-by-merge",
+      "current_sha256": null,
+      "evidence": "source-quality-P11.json",
+      "final_owner": "bios/sysinit1.asm"
+    },
+    {
+      "ordinal": 31,
+      "baseline_number": 38,
+      "path": "bios/msbio1.asm",
+      "origin": "modified",
+      "baseline_sha256": "902d1f1b819e72860c15a1da1c7e0d27228354c74fcbf3cdfd658bdaec91873f",
+      "status": "verified",
+      "dependencies": [
+        "bios/biosseg.inc"
+      ],
+      "dos6_exact": false,
+      "new_file_necessity": null,
+      "collateral_changes": [
+        {
+          "part": "P9",
+          "sha256": "e150b2028628ce92d92f370dd1acc2feaa656e7cdb4e6f59bd95297ca05ca4aa",
+          "reason": "Restore BDS instances and SYSINIT entry; replace bds1 external with definition",
+          "complete_file_audit": "resolved by full ordinal 31 review in P12"
+        }
+      ],
+      "action": "modified-comments-and-duplicate-declarations",
+      "current_sha256": "f1e3f3ecfc704b86652760ea9e8f1e4019a01ffdbf10d293e7b8cd8322b78bf7",
+      "evidence": "source-quality-P12.json"
+    },
+    {
+      "ordinal": 32,
+      "baseline_number": 39,
+      "path": "bios/msbio2.asm",
+      "origin": "modified",
+      "baseline_sha256": "c18baa72b9682b3d6e214a93ea144039773b28c2cea14097bf3eb49cfaf3a981",
+      "status": "verified",
+      "dependencies": [
+        "bios/biosseg.inc"
+      ],
+      "dos6_exact": false,
+      "new_file_necessity": null,
+      "action": "modified-remove-inactive-DOS6-alternatives",
+      "current_sha256": "35054425595b0745dc04fac52094d0b0614b83caf2f013b887a853d899c76871",
+      "evidence": "source-quality-P13.json"
+    },
+    {
+      "ordinal": 33,
+      "baseline_number": 40,
+      "path": "bios/mschar.asm",
+      "origin": "modified",
+      "baseline_sha256": "d959f24ddde91abd6b623df8e1c4931b4e9944a999bf57586fd06987cce1e32b",
+      "status": "verified",
+      "dependencies": [
+        "bios/biosseg.inc"
+      ],
+      "dos6_exact": false,
+      "new_file_necessity": null,
+      "collateral_changes": [
+        {
+          "part": "P6",
+          "sha256": "949d7fb1ee255c0f9679390fb1306db90f960255172466813a7d0d49f084324c",
+          "reason": "Absorb clockbr procedures and replace int6c_update external with local definition",
+          "complete_file_audit": "resolved by full ordinal 33 review in P14"
+        }
+      ],
+      "action": "modified-remove-inactive-DOS6-alternatives",
+      "current_sha256": "e1cfd1b509dbeb1020e1743718b8cb4e766aba0f2bd0e0b0ad21731935b3660e",
+      "evidence": "source-quality-P14.json"
+    },
+    {
+      "ordinal": 34,
+      "baseline_number": 41,
+      "path": "bios/msdioctl.asm",
+      "origin": "modified",
+      "baseline_sha256": "ad1f37bc9c6343f97f1547d9fea9af48b8437af32595e65af11a9376106d947d",
+      "status": "verified",
+      "dependencies": [
+        "bios/biosseg.inc"
+      ],
+      "dos6_exact": false,
+      "new_file_necessity": null,
+      "action": "modified-remove-inactive-DOS6-alternatives-and-document-extensions",
+      "current_sha256": "9d3f4e8d469a2c56bb0f6c1845091c7445af23c43335527a41086af6985340e4",
+      "evidence": "source-quality-P15.json"
+    },
+    {
+      "ordinal": 35,
+      "baseline_number": 42,
+      "path": "bios/msdisk.asm",
+      "origin": "modified",
+      "baseline_sha256": "df9e3dafdb704b06585d9f7478dccf0083db9045d4d3004cc5b99ea6f97b1cbc",
+      "status": "verified",
+      "dependencies": [
+        "bios/biosseg.inc",
+        "inc/buffer.inc",
+        "inc/dosmac.inc"
+      ],
+      "dos6_exact": false,
+      "new_file_necessity": null,
+      "action": "modified-remove-inactive-DOS6-alternatives-and-align-comments",
+      "current_sha256": "5481c874bf63405f7bbe55729e264eeaf43cf6b3dd636819dc36232f5157dbb6",
+      "evidence": "source-quality-P16.json"
+    },
+    {
+      "ordinal": 36,
+      "baseline_number": 44,
+      "path": "bios/msend.asm",
+      "origin": "modified",
+      "baseline_sha256": "d754029a431582b0bfec9b8b02d47c293547b549f19d3c6cf8416ae599947956",
+      "status": "verified",
+      "dependencies": [],
+      "dos6_exact": false,
+      "new_file_necessity": null,
+      "action": "modified-comment-and-spacing-only",
+      "current_sha256": "1bfa78878eae28aad1e06abb5e8c38ed7a455a2dc2d13cf9b6e6ab4705d09634",
+      "evidence": "source-quality-P17.json"
+    },
+    {
+      "ordinal": 37,
+      "baseline_number": 47,
+      "path": "bios/msinit.asm",
+      "origin": "modified",
+      "baseline_sha256": "3cd7d5fb6a9de3f984178cfeb9c152e5f210bfa5526715dad53da497cbcaa643",
+      "status": "verified",
+      "dependencies": [
+        "bios/biosseg.inc",
+        "inc/buffer.inc",
+        "inc/dosmac.inc"
+      ],
+      "dos6_exact": false,
+      "new_file_necessity": null,
+      "action": "modified-remove-inactive-DOS6-alternatives-and-stale-interface-comments",
+      "current_sha256": "db1532c5aea05470e4f793441472e6b92f3b080f9edb9e270a55e07dac4a9503",
+      "evidence": "source-quality-P18.json"
+    },
+    {
+      "ordinal": 38,
+      "baseline_number": 48,
+      "path": "bios/msint13.asm",
+      "origin": "modified",
+      "baseline_sha256": "22e4c1e03bc64a3b8c75cf00c99906238402007056baed07363717d288e13c2b",
+      "status": "verified",
+      "dependencies": [
+        "bios/biosseg.inc"
+      ],
+      "dos6_exact": false,
+      "new_file_necessity": null,
+      "action": "modified-remove-inactive-DOS6-alternatives-and-align-comments",
+      "current_sha256": "8b2d00de667ded4c9d5b77d15244a583626ff21b1d6c5fffd9c5405c8f8338c2",
+      "evidence": "source-quality-P19.json"
+    },
+    {
+      "ordinal": 39,
+      "baseline_number": 777,
+      "path": "bios/pathsrc.asm",
+      "origin": "added",
+      "baseline_sha256": "cb7b46808fb718c0300c661cfc394b18332aa87a680009257c1aeac31850a917",
+      "status": "verified",
+      "dependencies": [],
+      "dos6_exact": false,
+      "new_file_necessity": "Retain coherent PATH helper module, corresponding to original DOS6 inc/path.asm. Four related procedures share local buffers/extension strings; merging into unrelated log/EXEC neighbours would reduce original functional separation without eliminating a second implementation.",
+      "action": "modified-format-and-interface-comments",
+      "current_sha256": "4a719eecd38404c49ab3c5f7d079aa846ad209527a1d2db9d636c9247e6f7785",
+      "evidence": "source-quality-P20.json"
+    },
+    {
+      "ordinal": 40,
+      "baseline_number": 70,
+      "path": "bios/rapiopen.asm",
+      "origin": "modified",
+      "baseline_sha256": "619cacf3e5e4f834c9cc3c075a85b5b2277f0fdcea9ee76643a062ad008fbc51",
+      "status": "verified",
+      "dependencies": [],
+      "dos6_exact": false,
+      "new_file_necessity": null,
+      "action": "modified-module-and-procedure-comments-and-format",
+      "current_sha256": "7f34349bc03216e42d0310ff66aaf3ade060203fc1977a06496fdabc8c4d7058",
+      "evidence": "source-quality-P21.json"
+    },
+    {
+      "ordinal": 41,
+      "baseline_number": 93,
+      "path": "bios/regfind.asm",
+      "origin": "modified",
+      "baseline_sha256": "af7c3ce110af10c00050a4f3d086388c04c971afa5d04f36220489afaa773857",
+      "status": "verified",
+      "dependencies": [],
+      "dos6_exact": false,
+      "new_file_necessity": null,
+      "action": "modified-module-and-procedure-comments-and-format",
+      "current_sha256": "176a77e4d4b4436684333c649975980be0292ba5fe5b53c74af6f81d053e722d",
+      "evidence": "source-quality-P22.json"
+    },
+    {
+      "ordinal": 42,
+      "baseline_number": 102,
+      "path": "bios/reginit.asm",
+      "origin": "modified",
+      "baseline_sha256": "f02984525ef223c1bcc8b40e586dd73246065a4ddad2df001c524b7200becdc6",
+      "status": "verified",
+      "dependencies": [],
+      "dos6_exact": false,
+      "new_file_necessity": null,
+      "action": "modified-module-and-procedure-comments-and-format",
+      "current_sha256": "9b7ee7f81203c93088a635b5234c472ba2b89a57427fdc667c625ce24dfd233d",
+      "evidence": "source-quality-P23.json"
+    },
+    {
+      "ordinal": 43,
+      "baseline_number": 117,
+      "path": "bios/regopen.asm",
+      "origin": "modified",
+      "baseline_sha256": "8ac5908387a65ef41dde238042cdf3f489197d3531d1c56d4b6558d515c5c857",
+      "status": "verified",
+      "dependencies": [],
+      "dos6_exact": false,
+      "new_file_necessity": null,
+      "action": "modified-module-and-procedure-comments-and-format",
+      "current_sha256": "41649ea271fca78477dded275bdf6faf102e236673fdd182b592deb7c8baad17",
+      "evidence": "source-quality-P24.json"
+    },
+    {
+      "ordinal": 44,
+      "baseline_number": 122,
+      "path": "bios/regread.asm",
+      "origin": "modified",
+      "baseline_sha256": "6f740d8e5e4f666c82bf65379741b639b257130ab961d4d375c490bea4f9f1c8",
+      "status": "verified",
+      "dependencies": [],
+      "dos6_exact": false,
+      "new_file_necessity": null,
+      "action": "modified-module-and-procedure-comments-and-format",
+      "current_sha256": "4903c8182e61eaf01b61464126bae45e9e11187c82a55605c9747d4deacafc92",
+      "evidence": "source-quality-P25.json"
+    },
+    {
+      "ordinal": 45,
+      "baseline_number": 133,
+      "path": "bios/regstart.asm",
+      "origin": "modified",
+      "baseline_sha256": "b08f38e354e4b86b516e94869c2039d164b9be7f5e0be1cd61a4c59df808ca29",
+      "status": "verified",
+      "dependencies": [],
+      "dos6_exact": false,
+      "new_file_necessity": null,
+      "action": "modified-module-and-procedure-comments-and-format",
+      "current_sha256": "66f5075e07309941a360eb60fa300a1b8a172de24ddd3f12fbb1915108047a77",
+      "evidence": "source-quality-P26.json"
+    },
+    {
+      "ordinal": 46,
+      "baseline_number": 778,
+      "path": "bios/reqpkt.asm",
+      "origin": "added",
+      "baseline_sha256": "6843c77468273ebeed6863fdb54cec4e5b4abb6b40ca4043d95d3fcad8bec459",
+      "status": "verified",
+      "dependencies": [],
+      "dos6_exact": false,
+      "new_file_necessity": "Unnecessary small SYSINIT data object. Merged into preceding stkinit contribution, preserving contiguous packet fields and absorbed deviceparameters.",
+      "collateral_changes": [
+        {
+          "part": "P7",
+          "sha256": "0b1b168b9379d4b80b2f05d140d2469c0f35a381ab1ebf32c3e16fbc89ab6aab",
+          "reason": "Append deviceparameters structure and include BPB/IOCTL definitions",
+          "complete_file_audit": "resolved by P27; full data reviewed and merged into stkinit"
+        }
+      ],
+      "action": "retired-by-merge",
+      "current_sha256": null,
+      "evidence": "source-quality-P27.json",
+      "final_owner": "bios/stkinit.asm"
+    },
+    {
+      "ordinal": 47,
+      "baseline_number": 155,
+      "path": "bios/rqvalue.asm",
+      "origin": "modified",
+      "baseline_sha256": "318f70b60c1b543bd722d664a2a65d0b3e3e56e000a650c0f17e6d59472530bd",
+      "status": "verified",
+      "dependencies": [],
+      "dos6_exact": false,
+      "new_file_necessity": null,
+      "action": "modified-module-and-procedure-comments-and-format",
+      "current_sha256": "c6c1dc9f925479875c20d7f3f81cb743e839d5af68bf50c6252597eb84fa87c5",
+      "evidence": "source-quality-P28.json"
+    },
+    {
+      "ordinal": 48,
+      "baseline_number": 762,
+      "path": "bios/config.lnk",
+      "origin": "added",
+      "baseline_sha256": "96c665086d4078e3bc56a3bba8b6345c782106522aec9bce5a9631879b1c7d10",
+      "status": "verified",
+      "dependencies": [
+        "bios/cfgline.asm",
+        "bios/cfgmain.asm",
+        "bios/cfgmem.asm",
+        "bios/cfgmenu.asm",
+        "bios/cfgseg.asm",
+        "bios/cpath.asm",
+        "bios/rapiopen.asm",
+        "bios/regfind.asm",
+        "bios/reginit.asm",
+        "bios/regopen.asm",
+        "bios/regread.asm",
+        "bios/regstart.asm",
+        "bios/rqvalue.asm"
+      ],
+      "dos6_exact": false,
+      "new_file_necessity": "Retain the sole CONFIG link response file. Standard DOS6-style LINK object continuation and output/map records; target-specific ordered object placement is required.",
+      "action": "normalized-dos-line-endings",
+      "current_sha256": "6bef3e054a73872f5fae62f4eecc1d42e77930963ef3f629f6a8359b82ddad14",
+      "evidence": "source-quality-P29.json"
+    },
+    {
+      "ordinal": 49,
+      "baseline_number": 763,
+      "path": "bios/config.mak",
+      "origin": "added",
+      "baseline_sha256": "90d5616befa379546206be2d9989cfacf2b48b121aa2cca4f70179d272a04dc4",
+      "status": "verified",
+      "dependencies": [
+        "bios/cfgline.asm",
+        "bios/cfgmain.asm",
+        "bios/cfgmem.asm",
+        "bios/cfgmenu.asm",
+        "bios/cfgseg.asm",
+        "bios/cpath.asm",
+        "bios/rapiopen.asm",
+        "bios/regfind.asm",
+        "bios/reginit.asm",
+        "bios/regopen.asm",
+        "bios/regread.asm",
+        "bios/regstart.asm",
+        "bios/rqvalue.asm"
+      ],
+      "dos6_exact": false,
+      "new_file_necessity": "Retain sole CONFIG assembly makefile invoked by cfgasm.bat; native NMAKE inference rule and four explicit shared-source variants avoid duplicated source/build paths.",
+      "action": "normalized-original-makefile-format",
+      "current_sha256": "e93b4b1c4a7ec9320a75415cda0bbf9daf0ef0ea1dd554c580b43635a28e0a4d",
+      "evidence": "source-quality-P30.json"
+    },
+    {
+      "ordinal": 50,
+      "baseline_number": 779,
+      "path": "bios/si1tail.asm",
+      "origin": "added",
+      "baseline_sha256": "7a8a65d935cffd53b806858833f9230ebb6087d5ec37b595f8686d82c6926e7a",
+      "status": "verified",
+      "dependencies": [
+        "bios/biosseg.inc",
+        "inc/buffer.inc",
+        "inc/dosmac.inc"
+      ],
+      "dos6_exact": false,
+      "new_file_necessity": "Retain late SYSINIT contribution: original sysinit1 owner is separated from this body by emitted si2front CONFIG processing. Direct append would reorder target code; merging unrelated CONFIG logic into one file would not restore DOS6 ownership. This is one implementation, not a second path.",
+      "action": "corrected-displaced-comments-and-normalized-added-code-format",
+      "current_sha256": "4ad5fbcb5ab59e0b76ed61d70d119259cf172cb0bc638d9973b76f827ad19b23",
+      "evidence": "source-quality-P31.json"
+    },
+    {
+      "ordinal": 51,
+      "baseline_number": 780,
+      "path": "bios/si2front.asm",
+      "origin": "added",
+      "baseline_sha256": "b6f135f5856bd868f7e9d661845a4c9e4258861409520e47897c229a93bce9e5",
+      "status": "verified",
+      "dependencies": [
+        "bios/biosseg.inc"
+      ],
+      "dos6_exact": false,
+      "new_file_necessity": "Retain early CONFIG/menu/country contribution derived from DOS6 sysinit2. The original sysinit2 owner is separated by other emitted SYSINIT contributions in msbio.lnk; a direct append reorders target bytes. Shared parsers, block search and environment handling remain single implementations.",
+      "action": "corrected-displaced-interface-comments-and-removed-redundant-declaration-and-single-use-macros",
+      "current_sha256": "f129b8457d743eeb3ffaf5a99f608d6e6399d2f19f2c9f8e5b4f511c1b6b16f5",
+      "evidence": "source-quality-P32.json"
+    },
+    {
+      "ordinal": 52,
+      "baseline_number": 781,
+      "path": "bios/stkinit.asm",
+      "origin": "added",
+      "baseline_sha256": "fd3700b2b734e1ff46a842bb1e811c1c1eeef6ec5c337d996d86c9558f84ae97",
+      "status": "verified",
+      "dependencies": [
+        "bios/biosseg.inc",
+        "inc/buffer.inc",
+        "inc/dosmac.inc"
+      ],
+      "dos6_exact": false,
+      "new_file_necessity": "Retain stack handlers at the first SYSINIT link contribution, separate from later sysinit1/si1tail initialization. Per-vector entries share one do_int_stacks implementation and IRP for the standard interrupt headers. P27 already merged adjacent request packet/deviceparameters here; direct merger into original later owner changes target order.",
+      "collateral_changes": [
+        {
+          "part": "P27",
+          "sha256": "e5ac72a4d816905cdbe6f68e966d09e1f61fcb5719a9f7d37fc05ae2cbbe4cc1",
+          "reason": "Append request packet/deviceparameters; remove now-local external",
+          "complete_file_audit": "verified at ordinal 52, P33"
+        }
+      ],
+      "action": "removed-unused-external-declarations-and-unrelated-module-history",
+      "current_sha256": "6b1e09f585cb2db8b41e2aefc103a4d53df4d6d265d070c0a478fddcf418f8f9",
+      "evidence": "source-quality-P33.json"
+    },
+    {
+      "ordinal": 53,
+      "baseline_number": 782,
+      "path": "bios/ststate.asm",
+      "origin": "added",
+      "baseline_sha256": "5291251a847aa330a0f3f1cfcf5097b06c9d4db790c388b0c769ad78cdfdd5e4",
+      "status": "verified",
+      "dependencies": [],
+      "dos6_exact": false,
+      "new_file_necessity": "Retain a cohesive SYSINIT state owner consolidating startup, configuration and memory state formerly spread across fragments. P39 absorbs tailstat too; the earlier claim of intervening tailstat bytes is superseded. Further merging into sysinit1 is not ruled out by adjacency, but would mix consolidated cross-module storage with executable initialization and requires another object-layout change. Retention is an organizational decision, not a claim that a separate object is required by target bytes.",
+      "collateral_changes": [
+        {
+          "part": "P4",
+          "sha256": "c8066fb0ab0aeff12593a586e369fca3a801142a66d9dd69f46c3adcc4907a50",
+          "reason": "Absorb adjacent bootdata state; full ststate review remains pending",
+          "complete_file_audit": "verified at ordinal 53, P34"
+        },
+        {
+          "part": "P8",
+          "sha256": "d7d95ade3dc87d45e604779c82011f5f6958386a952dc5564dd4ecee3e4581d4",
+          "reason": "Append INSTALL/configuration state and EXE structure include",
+          "complete_file_audit": "verified at ordinal 53, P34"
+        },
+        {
+          "part": "P10",
+          "sha256": "c616ca5adf6ab5271b36b02d0ccf65a8d34610281923896323096979f91cf5da",
+          "reason": "Merge memory state and remove duplicate boot_mode PUBLIC plus orphan packet comments",
+          "complete_file_audit": "verified at ordinal 53, P34"
+        },
+        {
+          "part": "P39",
+          "sha256": "38821a0f7d5d3c2429a82d3ad583d333a2e0f68be29a0561b808d61b24f06768",
+          "reason": "Absorb adjacent tailstat fields",
+          "complete_file_audit": "prior P34 full review retained; bounded addition and binary identity verified P39"
+        }
+      ],
+      "action": "corrected-obsolete-state-comments-and-normalized-format",
+      "current_sha256": "38821a0f7d5d3c2429a82d3ad583d333a2e0f68be29a0561b808d61b24f06768",
+      "evidence": "source-quality-P34.json"
+    },
+    {
+      "ordinal": 54,
+      "baseline_number": 158,
+      "path": "bios/sysconf.asm",
+      "origin": "modified",
+      "baseline_sha256": "a98b9c996dd7590f5d8f419ec829c2a8899afc2d86aefcf007e6d0f3264bd0dd",
+      "status": "verified",
+      "dependencies": [
+        "bios/biosseg.inc",
+        "inc/buffer.inc",
+        "inc/dosmac.inc",
+        "inc/parse.asm"
+      ],
+      "dos6_exact": false,
+      "new_file_necessity": null,
+      "collateral_changes": [
+        {
+          "part": "P6",
+          "sha256": "5b379b32af8d43b25ecf28987fd95f1fe1b81f05c81fc41a4205ad58cb0a80d7",
+          "reason": "Absorb confhook procedures and replace three externals with local definitions",
+          "complete_file_audit": "verified at ordinal 54, P35"
+        }
+      ],
+      "action": "corrected-displaced-and-stale-comments-and-documented-shared-device-services",
+      "current_sha256": "8dc47dbee7c70c7fc355a923eb142ce20cd11369be3cd050734ed4159fb4cf87",
+      "evidence": "source-quality-P35.json"
+    },
+    {
+      "ordinal": 55,
+      "baseline_number": 159,
+      "path": "bios/sysimes.asm",
+      "origin": "modified",
+      "baseline_sha256": "c8aa7545eef816ad2bc0847292bb46e4d147fc8b71618ecc698b5a39126573a8",
+      "status": "verified",
+      "dependencies": [
+        "bios/biosseg.inc"
+      ],
+      "dos6_exact": false,
+      "new_file_necessity": null,
+      "action": "removed-inactive-DOS6-message-path",
+      "current_sha256": "06e334b09e022e30231976bb1f0338527df4de6f7dfc366ea77ce6dba4803be5",
+      "evidence": "source-quality-P36.json"
+    },
+    {
+      "ordinal": 56,
+      "baseline_number": 160,
+      "path": "bios/sysinit1.asm",
+      "origin": "modified",
+      "baseline_sha256": "b4898d41f0a44b0fcd15ad7d10a69fb0fe8f8434a96f2668cc315682042c5807",
+      "status": "verified",
+      "dependencies": [
+        "bios/biosseg.inc",
+        "inc/buffer.inc",
+        "inc/dosmac.inc"
+      ],
+      "dos6_exact": false,
+      "new_file_necessity": null,
+      "collateral_changes": [
+        {
+          "part": "P11",
+          "sha256": "96b8c18d125a4045fc6b3e57dcfa705a7c54939693cd5d90f9da51d4cf7393b5",
+          "reason": "Restore relocation prelude/backdoor state; BYTE_SYSINIT keeps original odd starting offset; local references replace externals",
+          "complete_file_audit": "verified at ordinal 56, P37"
+        }
+      ],
+      "action": "removed-single-use-macro-and-orphan-headers-corrected-interfaces",
+      "current_sha256": "4b814b40f6725a989e0bf320fabc4ef90e647d85886738ffaf7b0b87f0ee1f97",
+      "evidence": "source-quality-P37.json"
+    },
+    {
+      "ordinal": 57,
+      "baseline_number": 161,
+      "path": "bios/sysinit2.asm",
+      "origin": "modified",
+      "baseline_sha256": "1ec395b3cd3be8ace1c6e034d71338704aaa44add9f1f6e66497c2caf9da1a5b",
+      "status": "verified",
+      "dependencies": [
+        "bios/biosseg.inc"
+      ],
+      "dos6_exact": false,
+      "new_file_necessity": null,
+      "action": "removed-unused-externals-single-use-macro-and-stale-fragment-headers",
+      "current_sha256": "b431376facbecb35f327f08327594fdca2a12530bc80ed48b2e6d3f6b6d1ac10",
+      "evidence": "source-quality-P38.json"
+    },
+    {
+      "ordinal": 58,
+      "baseline_number": 783,
+      "path": "bios/tailstat.asm",
+      "origin": "added",
+      "baseline_sha256": "38d74b71444c079ceeae63a263374c0ab88e1066789f0e54a58f090566cf672e",
+      "status": "verified",
+      "dependencies": [],
+      "dos6_exact": false,
+      "new_file_necessity": "Unnecessary five-field state object. Merge into immediately preceding byte-aligned ststate contribution; original order and symbol names preserved.",
+      "action": "retired-by-merge",
+      "current_sha256": null,
+      "evidence": "source-quality-P39.json",
+      "final_owner": "bios/ststate.asm"
+    },
+    {
+      "ordinal": 59,
+      "baseline_number": 36,
+      "path": "bios/msbio.lnk",
+      "origin": "modified",
+      "baseline_sha256": "791adb4f73754f1d6d0a130e308f672fb6fb44482615f634e47ac79cb6f1b6c4",
+      "status": "verified",
+      "dependencies": [
+        "bios/biosmsg.asm",
+        "bios/biostail.asm",
+        "bios/drivechk.asm",
+        "bios/initclk.asm",
+        "bios/logocode.asm",
+        "bios/logpart.asm",
+        "bios/mblate.asm",
+        "bios/msbio1.asm",
+        "bios/msbio2.asm",
+        "bios/mschar.asm",
+        "bios/msdioctl.asm",
+        "bios/msdisk.asm",
+        "bios/msend.asm",
+        "bios/msinit.asm",
+        "bios/msint13.asm",
+        "bios/pathsrc.asm",
+        "bios/reqpkt.asm",
+        "bios/si1tail.asm",
+        "bios/si2front.asm",
+        "bios/stkinit.asm",
+        "bios/ststate.asm",
+        "bios/sysconf.asm",
+        "bios/sysimes.asm",
+        "bios/sysinit1.asm",
+        "bios/sysinit2.asm",
+        "bios/tailstat.asm"
+      ],
+      "dos6_exact": false,
+      "new_file_necessity": null,
+      "collateral_changes": [
+        {
+          "part": "P3",
+          "sha256": "164568c5e3dc595cd9f9b7abf03ec8776ba4a48ec36d3e89bc7005bb4fc8e82c",
+          "reason": "Remove backdata and bcend link inputs",
+          "complete_file_audit": "verified at ordinal 59, P39"
+        },
+        {
+          "part": "P4",
+          "sha256": "781ed08d4721ebc79964fc78d7632ae7c6880274c5a4cbe29870349dc8f44fe8",
+          "reason": "Remove bootdata link input",
+          "complete_file_audit": "verified at ordinal 59, P39"
+        },
+        {
+          "part": "P6",
+          "sha256": "dfd89dbabe85d934a1f3b40244a242caf56b42c5a768b401d7392275650f2329",
+          "reason": "Remove clockbr and confhook objects",
+          "complete_file_audit": "verified at ordinal 59, P39"
+        },
+        {
+          "part": "P7",
+          "sha256": "249e13f411d88cb7f596af817dca14efc189af86165fc33176ccf8a512d03ab4",
+          "reason": "Remove devparm link input",
+          "complete_file_audit": "verified at ordinal 59, P39"
+        },
+        {
+          "part": "P8",
+          "sha256": "e9f983464ece9c30eeb7b01fb5111379b733fd4c9799f2fd53ba2f213bf569de",
+          "reason": "Remove instdata object",
+          "complete_file_audit": "verified at ordinal 59, P39"
+        },
+        {
+          "part": "P9",
+          "sha256": "c23e1bcae431a5b82ee02e7edada78ebcfe1decfbdadc67b28b6614387898847",
+          "reason": "Remove mbbds and mbentry object inputs",
+          "complete_file_audit": "verified at ordinal 59, P39"
+        },
+        {
+          "part": "P10",
+          "sha256": "9966622c51f89de818ed1a79e02a55f6e6559fb115e59a1cee7a1526378f27d7",
+          "reason": "Remove memstate object input",
+          "complete_file_audit": "verified at ordinal 59, P39"
+        },
+        {
+          "part": "P11",
+          "sha256": "118d2a05d066165da29869bf911a9585d885abbcc6e324d333e2a7ab2a3d165a",
+          "reason": "Remove movstart object input",
+          "complete_file_audit": "verified at ordinal 59, P39"
+        },
+        {
+          "part": "P27",
+          "sha256": "c997318bc4e9a56cae19af8fed4d81c13b2b587c316eed9b0b9a685c415e571f",
+          "reason": "Remove reqpkt object",
+          "complete_file_audit": "verified at ordinal 59, P39"
+        },
+        {
+          "part": "P39",
+          "sha256": "176b1f0143e845a6afdf7d9932f35b87f91482e371fb2d609b51f38070e38c34",
+          "reason": "Remove tailstat link/rule input",
+          "complete_file_audit": "verified at ordinal 59, P39"
+        }
+      ],
+      "action": "removed-retired-link-inputs-and-verified-native-response",
+      "current_sha256": "176b1f0143e845a6afdf7d9932f35b87f91482e371fb2d609b51f38070e38c34",
+      "evidence": "source-quality-P39.json"
+    },
+    {
+      "ordinal": 60,
+      "baseline_number": 771,
+      "path": "bios/makefile",
+      "origin": "added",
+      "baseline_sha256": "ff8b8b96126ffe5b433c870ebc42e75aac8f724b24d8a201b5eed60d51f12ad9",
+      "status": "verified",
+      "dependencies": [
+        "bios/biosmsg.asm",
+        "bios/biosseg.inc",
+        "bios/biostail.asm",
+        "bios/drivechk.asm",
+        "bios/initclk.asm",
+        "bios/logocode.asm",
+        "bios/logpart.asm",
+        "bios/mblate.asm",
+        "bios/msbio1.asm",
+        "bios/msbio2.asm",
+        "bios/mschar.asm",
+        "bios/msdioctl.asm",
+        "bios/msdisk.asm",
+        "bios/msend.asm",
+        "bios/msinit.asm",
+        "bios/msint13.asm",
+        "bios/pathsrc.asm",
+        "bios/reqpkt.asm",
+        "bios/si1tail.asm",
+        "bios/si2front.asm",
+        "bios/stkinit.asm",
+        "bios/ststate.asm",
+        "bios/sysconf.asm",
+        "bios/sysimes.asm",
+        "bios/sysinit1.asm",
+        "bios/sysinit2.asm",
+        "bios/tailstat.asm",
+        "inc/buffer.inc",
+        "inc/dosmac.inc",
+        "inc/parse.asm"
+      ],
+      "dos6_exact": false,
+      "new_file_necessity": "Necessary original BIOS makefile role, replacing generic incomplete reconstructed dependency lists with actual per-object INCLUDE closure in DOS6 NMAKE form. One native MASM inference rule, explicit ML recipes where required, one linker/relocator path.",
+      "collateral_changes": [
+        {
+          "part": "P3",
+          "sha256": "56c7f567405600dff3045f4df69618d0d38ef5e413e46c3b8eab44b57561658d",
+          "reason": "Remove retired object rules and dependencies",
+          "complete_file_audit": "verified at ordinal 60, P40"
+        },
+        {
+          "part": "P4",
+          "sha256": "8d5bf7abfb753142a75b24fbc549799d96a4ad76a8d3bbca9d92603df79b2c5f",
+          "reason": "Remove bootdata object rule/dependency",
+          "complete_file_audit": "verified at ordinal 60, P40"
+        },
+        {
+          "part": "P6",
+          "sha256": "39f9f21d680c28fac2da5b448c13610c57eee1910d46b01575453ddeeea2f87f",
+          "reason": "Remove retired object rules and prerequisites",
+          "complete_file_audit": "verified at ordinal 60, P40"
+        },
+        {
+          "part": "P7",
+          "sha256": "89ef18b3538cff9a9bb56e753dcaeb46c2125311fdd35005d351347e424ea1a3",
+          "reason": "Remove devparm rule and add reqpkt BPB/IOCTL dependencies",
+          "complete_file_audit": "verified at ordinal 60, P40"
+        },
+        {
+          "part": "P8",
+          "sha256": "1c02aa5045f72449d51a5f5eb8e2174ddd749d7467b6c569f022d47717a4266f",
+          "reason": "Remove instdata rule and add ststate exe.inc dependency",
+          "complete_file_audit": "verified at ordinal 60, P40"
+        },
+        {
+          "part": "P9",
+          "sha256": "bf7e2ac6797ccc1d3b3a01356548fb023dd6538a20d11cc4df21d0d972ab7bec",
+          "reason": "Remove retired object rules and prerequisites",
+          "complete_file_audit": "verified at ordinal 60, P40"
+        },
+        {
+          "part": "P10",
+          "sha256": "72cbceb56fc0a1063ad5afa0ae4ccb4ddfb11dafaeebc5c67f5cfa47a4ecae60",
+          "reason": "Remove retired memstate object rule/prerequisite",
+          "complete_file_audit": "verified at ordinal 60, P40"
+        },
+        {
+          "part": "P11",
+          "sha256": "7caf2a632c3359b61e3fe1a8d73138ee22b2c0886edd175ea77d7f7654bd22cc",
+          "reason": "Remove retired movstart object rule/prerequisite",
+          "complete_file_audit": "verified at ordinal 60, P40"
+        },
+        {
+          "part": "P27",
+          "sha256": "4320ad31e8b0f7b94e88d84f7c8270f2f88d227dad624ca306738e41f1d737b3",
+          "reason": "Remove reqpkt rule/input; track BPB and IOCTL includes on stkinit",
+          "complete_file_audit": "verified at ordinal 60, P40"
+        },
+        {
+          "part": "P39",
+          "sha256": "a9c9867ddffa061ed2aadf88b84afde1baa5e4bb61c3a80429b7e89b9686eb3c",
+          "reason": "Remove tailstat link/rule input",
+          "complete_file_audit": "verified at ordinal 60, P40"
+        }
+      ],
+      "action": "restored-original-style-complete-source-dependencies",
+      "current_sha256": "1bfe00ecfdd38bd5c5ca84598777173eaa6de58e31c5c78a9d41fd4a3e7c78e6",
+      "evidence": "source-quality-P40.json"
+    },
+    {
+      "ordinal": 61,
+      "baseline_number": 307,
+      "path": "cmd/command/buildmsg.c",
+      "origin": "modified",
+      "baseline_sha256": "5b994b88e43ea93f63e86b3ac8081beff6458677a332d2ed972f376f52b48c31",
+      "status": "verified",
+      "dependencies": [],
+      "dos6_exact": false,
+      "new_file_necessity": null,
+      "action": "retained-without-edits",
+      "current_sha256": "5b994b88e43ea93f63e86b3ac8081beff6458677a332d2ed972f376f52b48c31",
+      "evidence": "source-quality-P41.json"
+    },
+    {
+      "ordinal": 62,
+      "baseline_number": 784,
+      "path": "cmd/command/iniclass.asm",
+      "origin": "added",
+      "baseline_sha256": "05aeb014324fd83de3ad1ae5ca3d1789eb0dced6e42dcf9582256dae12eb189f",
+      "status": "verified",
+      "dependencies": [],
+      "dos6_exact": false,
+      "new_file_necessity": "Retain a minimal separately assembled message-resource entry using the existing shared language INCLUDE and resmsg.equ. Initialization/resident resource classes require their own zero-based DATARES contribution/map; combining them into one object would concatenate resources or introduce artificial conditional variants. No message body is duplicated.",
+      "action": "normalized-resource-wrapper-format",
+      "current_sha256": "8001987102d9dc580156719127c022a8c9007679132c45f88bafb45499be91a9",
+      "evidence": "source-quality-P41.json"
+    },
+    {
+      "ordinal": 63,
+      "baseline_number": 786,
+      "path": "cmd/command/resclass.asm",
+      "origin": "added",
+      "baseline_sha256": "9dc54a0331088362ce557d53047a93e13c86db981855e1f74d2f3f7a4e5bb0b4",
+      "status": "verified",
+      "dependencies": [
+        "lang/usa/messages/comrmsg.inc"
+      ],
+      "dos6_exact": false,
+      "new_file_necessity": "Retain a minimal separately assembled message-resource entry using the existing shared language INCLUDE and resmsg.equ. Initialization/resident resource classes require their own zero-based DATARES contribution/map; combining them into one object would concatenate resources or introduce artificial conditional variants. No message body is duplicated.",
+      "action": "normalized-resource-wrapper-format",
+      "current_sha256": "bd7a2ed89be105558ee70372e88cf548542665ed0713cdef0a997e257eb93431",
+      "evidence": "source-quality-P41.json"
+    },
+    {
+      "ordinal": 64,
+      "baseline_number": 785,
+      "path": "cmd/command/makefile",
+      "origin": "added",
+      "baseline_sha256": "2748667ec5637dbfc24b8554843a9e703621cb58e7cb6bb0cfe06dc0ceb35311",
+      "status": "verified",
+      "dependencies": [
+        "cmd/command/iniclass.asm",
+        "cmd/command/resclass.asm",
+        "inc/buffer.inc",
+        "inc/dosmac.inc",
+        "inc/parse.asm",
+        "lang/usa/messages/comrmsg.inc"
+      ],
+      "dos6_exact": false,
+      "new_file_necessity": "Retain original COMMAND native makefile role. Shared MASM inference and original C message generator; separate zero-origin resource classes use common includes, not duplicate implementations.",
+      "action": "restored-original-style-complete-source-dependencies",
+      "current_sha256": "6417245a64505ccc7bcedf7d53caecabc1fcf093075aa134b69e616033b932e6",
+      "evidence": "source-quality-P42.json"
+    },
+    {
+      "ordinal": 65,
+      "baseline_number": 787,
+      "path": "dos/makefile",
+      "origin": "added",
+      "baseline_sha256": "f1687402fa50f76103ffb46ac1757b4d55805a1ff5f0154e55a5c3ca34c8ca7d",
+      "status": "verified",
+      "dependencies": [
+        "inc/buffer.inc",
+        "inc/dosmac.inc"
+      ],
+      "dos6_exact": false,
+      "new_file_necessity": "Retain original DOS kernel makefile role. Original DOS6 recipes and conditional branches retained; target object sequence and eight DOS7 objects are required by kernel link layout.",
+      "action": "normalized-eight-added-dependency-rules",
+      "current_sha256": "23c4b76030581091737b01ff2d63a25617b62ae2a5ffedf9365e0aaea1aa2721",
+      "evidence": "source-quality-P43.json"
+    },
+    {
+      "ordinal": 66,
+      "baseline_number": 788,
+      "path": "dos/msdos.cfg",
+      "origin": "added",
+      "baseline_sha256": "d28c3a421236bb61081f706193f51f32b9f8b957598d94b6b3b143ae52b1ea03",
+      "status": "verified",
+      "dependencies": [],
+      "dos6_exact": false,
+      "new_file_necessity": "Required DOS7 text MSDOS.SYS configuration artifact. The executable kernel is embedded in IO.SYS; six-byte ;SYS CRLF text is the target default configuration, not a second kernel implementation.",
+      "action": "retained-without-edits",
+      "current_sha256": "d28c3a421236bb61081f706193f51f32b9f8b957598d94b6b3b143ae52b1ea03",
+      "evidence": "source-quality-P43.json"
+    }
+  ],
+  "current_ordinal": null,
+  "completion_evidence": "source-quality-completion.json",
+  "dependency_note": "dependencies retain the frozen admission graph, including retired entries; current build inputs were separately checked at closure."
+}

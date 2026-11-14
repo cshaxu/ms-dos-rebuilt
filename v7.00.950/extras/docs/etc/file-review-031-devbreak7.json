@@ -1,0 +1,16 @@
+{
+  "file": "bios/sysconf.asm",
+  "source_sha256": "f7406c9ba843fba71776b9bf2fa5ee587963cb959c7bb784eaa83e66bcd81c1e",
+  "target_range": "IO.SYS 0xcf58..0xcfab",
+  "length": 83,
+  "different_bytes": 0,
+  "tool": "MASM 6 ML isolated probe",
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link": "passed",
+  "probe_source": "extras/research/devbreak7-linked.asm",
+  "limitations": [
+    "Fixed-offset probe uses synthetic RoundBreakAddr and low-memory-check destinations; full layout and runtime remain unverified.",
+    "The surrounding DOS7 UMB finalization and startup sequence remain incomplete."
+  ]
+}

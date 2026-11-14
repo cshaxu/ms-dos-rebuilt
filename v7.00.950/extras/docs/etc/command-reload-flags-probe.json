@@ -1,0 +1,13 @@
+{
+  "build_report": "extras/docs/etc/command-reload-status-flags-build-20261112.json",
+  "probe_stage": "extras/build/reload-flags-probe-9eot_n5_",
+  "checks": [
+    "success preserves checksum status despite preparation changing flags",
+    "checksum mismatch calls the error path after closing the handle",
+    "read failure calls the error path after closing the handle"
+  ],
+  "limitations": [
+    "checksum and resource preparation are stubbed",
+    "the whole COMMAND reload search and startup were not executed"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "files": {
+    "bios/sysinit1.asm": "a8045391ba231b8d9b4a0abd65134c86f06d4bdac3b14ad5f111651ba2906d1a",
+    "bios/sysinit2.asm": "7b3c268d6755bdbd29342c0662d374a200786a8cc1087fce29e1313d78440857",
+    "bios/sysconf.asm": "bdec9ebcb4bce745b6ecd299cab534cb266dbbc76cb304bba0940f27cf93b1a6",
+    "bios/syspre.asm": "82b516872964dbc50c9b342f29b5523f9204b094176d621124a2296485a0a6bf"
+  },
+  "verification": "extras/tools/verify_menu_check_full.py",
+  "contiguous_syspre_code": {
+    "sysinit_start": "0x8aaf",
+    "bytes": 1091
+  },
+  "scope": "Actual MagicPreload, MagicPostload, MagicSetCdss and tiny stub, assembled in natural code order with actual linked helper fragments, match the target IO.SYS. Full SYSPRE source assembles separately.",
+  "limitations": [
+    "Diagnostic places code fragments and external data, including MagicMoveInfo, at target positions; the actual complete object layout remains unverified.",
+    "Four deeper UMB helper calls remain target-address anchors.",
+    "Complete SYSINIT linking and final three binary matches remain unverified."
+  ]
+}

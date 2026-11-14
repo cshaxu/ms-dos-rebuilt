@@ -1,0 +1,17 @@
+{
+  "probe_source": "extras/research/directory-context/search-reset-probe.asm",
+  "source_sha256": "9a230889528da77b1a331bdc2654241466d86439b03af3a257668e0807302b11",
+  "exe_sha256": "d9cd1f8af6a560177c7cf41a257d135b47c338df3d557d11298ba7d707e774ec",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_routines_match": true,
+  "isolated_probe_status": "PASS",
+  "checks": [
+    "a long-name run followed by a nonmatching short entry is discarded",
+    "the following two long-name entries are counted as a fresh run",
+    "the saved position starts at entry 5 and the matching short entry is at entry 7"
+  ],
+  "limitations": [
+    "Name comparison, directory traversal and other callees are controlled stubs.",
+    "Cross-sector behavior and complete kernel integration remain unverified."
+  ]
+}

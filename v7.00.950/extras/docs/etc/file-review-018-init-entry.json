@@ -1,0 +1,27 @@
+{
+  "source": "bios/msinit.asm",
+  "source_sha256": "bb97958beebcef1905ad8acc43ef1e826c14bb10da895e3b6a43df8e9fa6b42d",
+  "listing_sha256": "71110b84383f489c72df130fccf721ae6aad016d0c98053670e8a7fdb8923e0a",
+  "target_offset": "0xe59",
+  "length": 132,
+  "matched_nonrelocated_bytes": 107,
+  "masked_relocation_bytes": 22,
+  "differences": [
+    {
+      "offset": 113,
+      "listing": "0x3d",
+      "target": "0x83"
+    },
+    {
+      "offset": 114,
+      "listing": "0x2",
+      "target": "0xf8"
+    },
+    {
+      "offset": 115,
+      "listing": "0x0",
+      "target": "0x2"
+    }
+  ],
+  "limitations": "SYSINIT parameter symbols and message-table ownership inferred; remainder of entry and full production link unverified."
+}

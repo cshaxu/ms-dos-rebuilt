@@ -1,0 +1,60 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\command-reference-_bveotdu",
+  "source_root": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a",
+  "configuration": [
+    "USA",
+    "DBLSPACE_HOOKS"
+  ],
+  "reference": "DOS 6.0 baseline",
+  "messages": "project-owned reconstructed USA messages",
+  "tools": {
+    "O:\\repos.hobby\\ntvdm64\\tools\\opennt\\tools16\\masm.exe": "e54afaa9565e046cd862c29a015d685de43311acccf796469030e162ced6d00d",
+    "O:\\repos.hobby\\ntvdm64\\tools\\opennt\\tools16\\buildmsg.exe": "0d8ea59396a769e440549322a2ec9d1ab70423147e702ef1b1f42606cadd50cd",
+    "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\c6ers\\tools6\\bin\\buildidx.exe": "6a301eaee8ea8516e541da2a61a22f1db7d09b15c278a88a8d73083aac0f4d91",
+    "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\c6ers\\tools6\\bin\\link.exe": "163d8b86c18b93ccae9b2380d850cd42a9a5e1fd89a163b16170979afbbabb07",
+    "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\c6ers\\tools6\\bin\\reloc.exe": "300b58668d46c3281ef2c017409aa9300499155d6593a8a9552781d2d96cc2b3",
+    "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\isolated-tool-runner.exe": "ae195ddf68aedff2fab5130e1368cb5c585e5264b84d142d4f79dc9f973f85b9",
+    "C:\\Program Files (x86)\\DOSBox-0.74-3\\DOSBox.exe": "dcfd46fa521f5ce89dce3bf026056f3a1d15533f80321ee887403e30d7949f5e"
+  },
+  "objects": [
+    {
+      "name": "command1",
+      "sha256": "e6028ba2d34adb5e8efddb2eae2f1c855063a35d8d60487032c42a6091da5b90"
+    },
+    {
+      "name": "command2",
+      "sha256": "dabf8f41c8491efc176ac701de66b775aee61e939f4f34db795b563b00882abd"
+    },
+    {
+      "name": "rucode",
+      "sha256": "8ae98aae09d3aad9d59c35fe1b452d72824ad69f44d002e40629084bc93f20ab"
+    },
+    {
+      "name": "stub",
+      "sha256": "a8e13f5039385b4973dd443158a779d767f85bc28aacc826481066ea0fcd967d"
+    },
+    {
+      "name": "rdata",
+      "sha256": "201ef352746e29716fc68fec47d5c210d6bb0c4c9fbf5765543ef2ed76328a73"
+    },
+    {
+      "name": "init",
+      "sha256": "eb527c8e0396f6c181a9c2303ab170d98542a960a02c7477bafe7171e9386d19"
+    },
+    {
+      "name": "iparse",
+      "sha256": "2429abca5f5af5f8b9e035693bb98dafc37e232f94b5f75e2a1d41cbeaad64d6"
+    },
+    {
+      "name": "uinit",
+      "sha256": "011534b434bb5ead30dd7156dc7ff788c6a06c1eb7c458a616c2488f0fa6ddec"
+    }
+  ],
+  "status": "incomplete",
+  "message_source_sha256": "611d9bac881e9c563a3efcefa38bb14e260a887be3494b2f682be9b33524fe04",
+  "message_headers": {
+    "comrmsg.inc": "6e37937de76b4828abb013e6964141b1ff87434dc97768a1e769cfb4a5bd6532",
+    "comimsg.inc": "12db4440e42e97a2915db10eaa49d518b4ce57289e90529eee485599033ec2fd"
+  },
+  "error": "RuntimeError('assembly failed: tcode; see O:\\\\repos.hobby\\\\ms-dos-rebuilt\\\\v7.0a\\\\extras\\\\build\\\\command-reference-_bveotdu\\\\tcode.log')"
+}

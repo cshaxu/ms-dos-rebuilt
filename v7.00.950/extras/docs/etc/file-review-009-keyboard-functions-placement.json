@@ -1,0 +1,30 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "keyrd_func_bios_offset": 105,
+  "keysts_func_bios_offset": 178,
+  "step_drv_bios_code_offset": 3542,
+  "instruction_anchors": {
+    "keyrd_init": {
+      "target_file_offset": 4540,
+      "hex": "c606690010"
+    },
+    "keysts_init": {
+      "target_file_offset": 4545,
+      "hex": "c606b20011"
+    },
+    "keyrd_read": {
+      "target_file_offset": 9274,
+      "hex": "8a266900"
+    },
+    "keysts_read": {
+      "target_file_offset": 9338,
+      "hex": "8a26b200"
+    },
+    "step_drv_and_tim_drv": {
+      "target_file_offset": 11796,
+      "hex": "2e8816d60d2e8816d80d"
+    }
+  },
+  "diagnostic_report": "config-ml-keyboard-functions-placement.json",
+  "limitations": "Target keyboard fields are source-defined at verified offsets. step_drv is an explicit diagnostic stub until the disk driver is reconstructed."
+}

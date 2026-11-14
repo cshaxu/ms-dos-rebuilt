@@ -1,0 +1,18 @@
+{
+  "files": [
+    "bios/sysinit1.asm",
+    "bios/sysconf.asm"
+  ],
+  "target_range": "IO.SYS 0xd6f3..0xd755",
+  "bytes": 98,
+  "different_bytes": 0,
+  "default_objects_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link_exit_code": 0,
+  "diagnostic_stub_removed": "bios_data_segment",
+  "limitations": [
+    "Isolated ORG probe fixes target BIOS segment and uses a parser stub; actual final layout is not established.",
+    "Mixed diagnostic retains other older objects and stubs and is not a production build.",
+    "Hook installation calls and device-load path have not been independently verified as a complete runtime sequence."
+  ]
+}

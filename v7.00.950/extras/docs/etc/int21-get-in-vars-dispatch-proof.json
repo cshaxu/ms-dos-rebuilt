@@ -1,0 +1,60 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "candidate_doscode_file_base": "0xd4a0",
+  "table_file_offset": "0x11482",
+  "table_doscode_offset": "0x3fe2",
+  "entries": {
+    "34": {
+      "table_file_offset": "0x114ea",
+      "segment_offset": "0x4dd8",
+      "entry_file_offset": "0x12278"
+    },
+    "50": {
+      "table_file_offset": "0x11522",
+      "segment_offset": "0x4198",
+      "entry_file_offset": "0x11638"
+    },
+    "51": {
+      "table_file_offset": "0x11524",
+      "segment_offset": "0x41a4",
+      "entry_file_offset": "0x11644"
+    },
+    "52": {
+      "table_file_offset": "0x11526",
+      "segment_offset": "0x4de4",
+      "entry_file_offset": "0x12284"
+    }
+  },
+  "checks": {
+    "index_from_ah": {
+      "file_offset": "0x11727",
+      "bytes": "938adcd1e3"
+    },
+    "dispatch_lookup": {
+      "file_offset": "0x11772",
+      "bytes": "2e8b9fe23f36871eea05368e1eec0536ff16ea05"
+    },
+    "set_psp": {
+      "file_offset": "0x11638",
+      "bytes": "1e2e8e1e273f891e30031fcf"
+    },
+    "get_psp": {
+      "file_offset": "0x11644",
+      "bytes": "1e2e8e1e273f8b1e30031fcf"
+    },
+    "get_vars": {
+      "file_offset": "0x12284",
+      "bytes": "e887f5c7440226008c5410c3"
+    }
+  },
+  "observations": [
+    "Dispatcher copies AH into BL, doubles BX, and reads a near-call target from CS:[BX+3fe2h].",
+    "For AH=52h the indexed table entry is 4de4h; adding the candidate DOSCODE file base yields the GET_IN_VARS-shaped routine at file 0x12284.",
+    "AH=50h and AH=51h table entries point to adjacent routines that respectively write BX to and read BX from the same DOSDATA word, consistent with setting and getting the current PSP.",
+    "AH=34h points to the neighboring GET_INDOS-shaped routine, providing another independent index cross-check."
+  ],
+  "limitations": [
+    "This is a static code and table reconstruction, not a live runtime trace.",
+    "The proof does not exclude later modification of interface table contents."
+  ]
+}

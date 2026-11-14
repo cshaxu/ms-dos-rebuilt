@@ -1,0 +1,29 @@
+{
+  "source": "bios/sysconf.asm",
+  "sha256": "0523f142066ea9d839667436cccec73d207078cef2715b2c5799d4f3d5a3e8a6",
+  "change": "Restore BUFFERS parameter loop branching and SYSINIT segment assumption; link ACCDATE and BUFFERS actual code and providers.",
+  "matched": [
+    {
+      "region": "ACCDATE",
+      "start": "0x6a85",
+      "end_exclusive": "0x6acb",
+      "bytes": 70
+    },
+    {
+      "region": "BUFFERS/BUFFERSHIGH",
+      "start": "0x6acb",
+      "end_exclusive": "0x6b42",
+      "bytes": 119
+    }
+  ],
+  "verification": {
+    "tool": "extras/tools/verify_syspre_device_link.py",
+    "link_stage": "extras/build/syspre-object-link-5badhcnx",
+    "module_stage": "extras/build/ml-sysinit-_oi863hv",
+    "scope": "Actual CONFIG command code linked to parser, data, character reader and error providers; other layout positions remain anchored."
+  },
+  "limitations": [
+    "Runtime behavior is not tested.",
+    "Complete product link and final three core binaries remain unverified."
+  ]
+}

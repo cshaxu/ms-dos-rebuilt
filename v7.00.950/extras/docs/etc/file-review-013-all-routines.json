@@ -1,0 +1,314 @@
+{
+  "source_sha256": "fef5800dda18a7201f9ade44143f9df3245e10f29f611b62110f0df802904c3c",
+  "listing_sha256": "a1140a0abdece1f4afc3c1fc25abb376d502d387b666c5b43676aef049a8d644",
+  "routines": [
+    {
+      "name": "SetDrive",
+      "target_offset": "0x2ac4",
+      "length": 20,
+      "masked_relocation_bytes": 2,
+      "matched_nonrelocated_bytes": 18,
+      "differences": []
+    },
+    {
+      "name": "Media_Chk",
+      "target_offset": "0x2ad8",
+      "length": 120,
+      "masked_relocation_bytes": 18,
+      "matched_nonrelocated_bytes": 102,
+      "differences": []
+    },
+    {
+      "name": "Check_Time_Of_Access",
+      "target_offset": "0x2b50",
+      "length": 51,
+      "masked_relocation_bytes": 8,
+      "matched_nonrelocated_bytes": 43,
+      "differences": []
+    },
+    {
+      "name": "Get_Bpb",
+      "target_offset": "0x2b85",
+      "length": 54,
+      "masked_relocation_bytes": 10,
+      "matched_nonrelocated_bytes": 44,
+      "differences": []
+    },
+    {
+      "name": "SetPtrSav",
+      "target_offset": "0x2bbb",
+      "length": 20,
+      "masked_relocation_bytes": 2,
+      "matched_nonrelocated_bytes": 18,
+      "differences": []
+    },
+    {
+      "name": "clear_ids",
+      "target_offset": "0x2bcf",
+      "length": 45,
+      "masked_relocation_bytes": 6,
+      "matched_nonrelocated_bytes": 39,
+      "differences": []
+    },
+    {
+      "name": "GetBP",
+      "target_offset": "0x2bfc",
+      "length": 190,
+      "masked_relocation_bytes": 10,
+      "matched_nonrelocated_bytes": 180,
+      "differences": []
+    },
+    {
+      "name": "readbootsec",
+      "target_offset": "0x2cba",
+      "length": 108,
+      "masked_relocation_bytes": 0,
+      "matched_nonrelocated_bytes": 108,
+      "differences": []
+    },
+    {
+      "name": "movbpb",
+      "target_offset": "0x2d26",
+      "length": 66,
+      "masked_relocation_bytes": 10,
+      "matched_nonrelocated_bytes": 56,
+      "differences": []
+    },
+    {
+      "name": "mov_media_ids",
+      "target_offset": "0x2d68",
+      "length": 52,
+      "masked_relocation_bytes": 0,
+      "matched_nonrelocated_bytes": 52,
+      "differences": []
+    },
+    {
+      "name": "readfat",
+      "target_offset": "0x2d9c",
+      "length": 15,
+      "masked_relocation_bytes": 0,
+      "matched_nonrelocated_bytes": 15,
+      "differences": []
+    },
+    {
+      "name": "read_sector",
+      "target_offset": "0x2dab",
+      "length": 126,
+      "masked_relocation_bytes": 18,
+      "matched_nonrelocated_bytes": 108,
+      "differences": []
+    },
+    {
+      "name": "dsk_open",
+      "target_offset": "0x2e29",
+      "length": 16,
+      "masked_relocation_bytes": 2,
+      "matched_nonrelocated_bytes": 14,
+      "differences": []
+    },
+    {
+      "name": "dsk_close",
+      "target_offset": "0x2e39",
+      "length": 23,
+      "masked_relocation_bytes": 2,
+      "matched_nonrelocated_bytes": 21,
+      "differences": []
+    },
+    {
+      "name": "dsk_rem",
+      "target_offset": "0x2e50",
+      "length": 16,
+      "masked_relocation_bytes": 0,
+      "matched_nonrelocated_bytes": 16,
+      "differences": []
+    },
+    {
+      "name": "dsk_writv",
+      "target_offset": "0x2e60",
+      "length": 24,
+      "masked_relocation_bytes": 6,
+      "matched_nonrelocated_bytes": 18,
+      "differences": []
+    },
+    {
+      "name": "dsk_read",
+      "target_offset": "0x2e78",
+      "length": 5,
+      "masked_relocation_bytes": 0,
+      "matched_nonrelocated_bytes": 5,
+      "differences": []
+    },
+    {
+      "name": "checksingle",
+      "target_offset": "0x2e7d",
+      "length": 129,
+      "masked_relocation_bytes": 8,
+      "matched_nonrelocated_bytes": 119,
+      "differences": [
+        105,
+        106
+      ]
+    },
+    {
+      "name": "diskrd",
+      "target_offset": "0x2f06",
+      "length": 6,
+      "masked_relocation_bytes": 2,
+      "matched_nonrelocated_bytes": 4,
+      "differences": []
+    },
+    {
+      "name": "diskio",
+      "target_offset": "0x2f0c",
+      "length": 279,
+      "masked_relocation_bytes": 44,
+      "matched_nonrelocated_bytes": 235,
+      "differences": []
+    },
+    {
+      "name": "iosetup",
+      "target_offset": "0x3023",
+      "length": 69,
+      "masked_relocation_bytes": 16,
+      "matched_nonrelocated_bytes": 53,
+      "differences": []
+    },
+    {
+      "name": "done",
+      "target_offset": "0x3068",
+      "length": 10,
+      "masked_relocation_bytes": 0,
+      "matched_nonrelocated_bytes": 10,
+      "differences": []
+    },
+    {
+      "name": "diddleback",
+      "target_offset": "0x3072",
+      "length": 50,
+      "masked_relocation_bytes": 10,
+      "matched_nonrelocated_bytes": 40,
+      "differences": []
+    },
+    {
+      "name": "block",
+      "target_offset": "0x30a4",
+      "length": 117,
+      "masked_relocation_bytes": 12,
+      "matched_nonrelocated_bytes": 105,
+      "differences": []
+    },
+    {
+      "name": "disk",
+      "target_offset": "0x311c",
+      "length": 210,
+      "masked_relocation_bytes": 32,
+      "matched_nonrelocated_bytes": 178,
+      "differences": []
+    },
+    {
+      "name": "do_write",
+      "target_offset": "0x31ee",
+      "length": 18,
+      "masked_relocation_bytes": 2,
+      "matched_nonrelocated_bytes": 16,
+      "differences": []
+    },
+    {
+      "name": "doverify",
+      "target_offset": "0x3200",
+      "length": 36,
+      "masked_relocation_bytes": 8,
+      "matched_nonrelocated_bytes": 28,
+      "differences": []
+    },
+    {
+      "name": "dskerr",
+      "target_offset": "0x3224",
+      "length": 65,
+      "masked_relocation_bytes": 10,
+      "matched_nonrelocated_bytes": 55,
+      "differences": []
+    },
+    {
+      "name": "harderr",
+      "target_offset": "0x3265",
+      "length": 3,
+      "masked_relocation_bytes": 0,
+      "matched_nonrelocated_bytes": 3,
+      "differences": []
+    },
+    {
+      "name": "harderr2",
+      "target_offset": "0x3268",
+      "length": 19,
+      "masked_relocation_bytes": 6,
+      "matched_nonrelocated_bytes": 13,
+      "differences": []
+    },
+    {
+      "name": "normspeed",
+      "target_offset": "0x327b",
+      "length": 41,
+      "masked_relocation_bytes": 8,
+      "matched_nonrelocated_bytes": 33,
+      "differences": []
+    },
+    {
+      "name": "fastspeed",
+      "target_offset": "0x32a4",
+      "length": 26,
+      "masked_relocation_bytes": 4,
+      "matched_nonrelocated_bytes": 22,
+      "differences": []
+    },
+    {
+      "name": "maperror",
+      "target_offset": "0x32be",
+      "length": 26,
+      "masked_relocation_bytes": 4,
+      "matched_nonrelocated_bytes": 22,
+      "differences": []
+    },
+    {
+      "name": "set_tim",
+      "target_offset": "0x32d8",
+      "length": 33,
+      "masked_relocation_bytes": 4,
+      "matched_nonrelocated_bytes": 29,
+      "differences": []
+    },
+    {
+      "name": "again",
+      "target_offset": "0x32f9",
+      "length": 13,
+      "masked_relocation_bytes": 2,
+      "matched_nonrelocated_bytes": 11,
+      "differences": []
+    },
+    {
+      "name": "ext_disk_dispatch",
+      "target_offset": "0x3316",
+      "length": 22,
+      "masked_relocation_bytes": 2,
+      "matched_nonrelocated_bytes": 20,
+      "differences": []
+    },
+    {
+      "name": "ext_disk_io",
+      "target_offset": "0x332c",
+      "length": 172,
+      "masked_relocation_bytes": 34,
+      "matched_nonrelocated_bytes": 138,
+      "differences": []
+    },
+    {
+      "name": "ext_again",
+      "target_offset": "0x33d8",
+      "length": 13,
+      "masked_relocation_bytes": 2,
+      "matched_nonrelocated_bytes": 11,
+      "differences": []
+    }
+  ],
+  "limitations": "Relocation operands and complete linked output remain unverified."
+}

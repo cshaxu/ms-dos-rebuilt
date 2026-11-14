@@ -1,0 +1,47 @@
+{
+  "source": "dos/restrict.inc",
+  "source_sha256": "a5f68b20aba15a124f3e6f9af99638505e0112edd94a72f8aac7db9160560a76",
+  "historical_reference_matches": [
+    "6.0",
+    "Astro"
+  ],
+  "caller": "dos/msproc.asm",
+  "condition": "RESTRICTED_BUILD",
+  "trial_configuration": [
+    "USA",
+    "DOS7_CONFIG"
+  ],
+  "trial_listing_sha256": "bdae01bad18ac879e469efd866bb97490fd1d4272c71eeb599e2f8d0b2bee16c",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "names_searched": [
+    "INSTALL.EXE",
+    "CLEANUP.EXE",
+    "NAVSETUP.EXE",
+    "NSETUP.OVL",
+    "NAV.EXE",
+    "RESCUE.EXE",
+    "NRESTORE.EXE",
+    "NRESTORE.OVL",
+    "NBCONFIG.OVL",
+    "CALIBRAT.EXE",
+    "DISKTOOL.EXE",
+    "NDD.EXE",
+    "UNFORMAT.EXE",
+    "DISKEDIT.EXE",
+    "UNERASE.EXE",
+    "NDIAG.EXE",
+    "NORTON.EXE",
+    "NORTON.OVL",
+    "STARTUP.EXE",
+    "STARTUP.OVL"
+  ],
+  "observations": [
+    "The source is included inside the RESTRICTED_BUILD conditional; its rstfile macro is defined in that same conditional before the include.",
+    "The trial listing does not contain the aszRestrict symbol.",
+    "None of the 20 exact ASCII names occur in the target IO.SYS."
+  ],
+  "limitations": [
+    "Absence of these strings is supporting evidence, not a complete proof of original target build options.",
+    "Target-wide binary identity and final integration remain unverified."
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "source_sha256": "b965a3fce58870a840d411d701ba788f1f512e3935b4046b2e5b874fb307c66e",
+  "trial_object_sha256": "426b5565e39677ebccb95c4c280144433ebcc6372562bf1adc7b09e31e3cfc4b",
+  "trial_message_input": "historical MSBIO.CL2, not target verified",
+  "routine_comparison": [
+    {
+      "routine": "dsk_init",
+      "target_file_offset": "0x2ab5",
+      "length": 15,
+      "relocation_bytes": 8,
+      "non_relocation_differences": []
+    },
+    {
+      "routine": "install_bds",
+      "target_file_offset": "0x4468",
+      "length": 71,
+      "relocation_bytes": 6,
+      "non_relocation_differences": []
+    }
+  ],
+  "observations": [
+    "Target dsk_init matches the provisional DOS7 source at file 2ab5 outside its relocation operands.",
+    "Target install_bds matches the provisional DOS7 source at file 4468 outside its relocation operands.",
+    "Two referenced volume-label strings appear immediately before install_bds at file 4450.",
+    "The two routines are adjacent in the existing source but appear at separated target offsets; source/link ordering therefore needs reconstruction."
+  ],
+  "limitations": [
+    "Listing E/R markers identify masked operands; their final target values are not validated here.",
+    "The data being adjacent to install_bds does not uniquely prove original source ownership.",
+    "The full BIOS build and historical generated message input remain unverified."
+  ]
+}

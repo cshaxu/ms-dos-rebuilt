@@ -1,0 +1,26 @@
+{
+  "source_sha256": "09d182f760538a8eae9f9346a333420b43bacc29f42595f1f7b15b81a3d87a32",
+  "listing_sha256": "0166e675e60e45047494c4e96a871c41ee6d74b0d71835299bd7bb40f25a2d84",
+  "routines": [
+    {
+      "name": "setdrvparms",
+      "target_offset": "0x197f",
+      "length": 189,
+      "masked_relocation_bytes": 16,
+      "matched_nonrelocated_bytes": 173,
+      "differences": []
+    },
+    {
+      "name": "domini",
+      "target_offset": "0x1a3c",
+      "length": 59,
+      "masked_relocation_bytes": 10,
+      "matched_nonrelocated_bytes": 47,
+      "differences": [
+        43,
+        48
+      ]
+    }
+  ],
+  "limitations": "Relocations and calls depending on later source placement, as well as final BIOS link, remain unverified."
+}

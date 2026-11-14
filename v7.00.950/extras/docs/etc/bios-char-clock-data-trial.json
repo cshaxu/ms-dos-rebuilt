@@ -1,0 +1,70 @@
+{
+  "source": "extras/research/bios-char-clock-data-trial.asm",
+  "source_sha256": "c642f159c824e3a2b4d1e96cb93764bda4d7c48d4cb8077200c561b5ac85d770",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "linked_exe_sha256": "15be73c319f007053e56c44bb806459cfa7c3d55ff4561b6fa3076b4bea48ae5",
+  "target_file_offset": "0x237e",
+  "length": 58,
+  "all_bytes_equal": true,
+  "anchors": [
+    {
+      "symbol": "printdev",
+      "target_bios_code": "0x72e",
+      "instruction_file": "0x2565",
+      "instruction_hex": "2e8b1e2e07"
+    },
+    {
+      "symbol": "wait_count",
+      "target_bios_code": "0x730",
+      "instruction_file": "0x256c",
+      "instruction_hex": "2e8b8f3007"
+    },
+    {
+      "symbol": "auxnum",
+      "target_bios_code": "0x738",
+      "instruction_file": "0x263c",
+      "instruction_hex": "2e8b163807"
+    },
+    {
+      "symbol": "auxbuf",
+      "target_bios_code": "0x73a",
+      "instruction_file": "0x266b",
+      "instruction_hex": "81c33a07"
+    },
+    {
+      "symbol": "bin_date_time",
+      "target_bios_code": "0x74c",
+      "instruction_file": "0x27d0",
+      "instruction_hex": "882e4c07"
+    },
+    {
+      "symbol": "month_table",
+      "target_bios_code": "0x750",
+      "instruction_file": "0x2857",
+      "instruction_hex": "bb5007"
+    },
+    {
+      "symbol": "base_century",
+      "target_bios_code": "0x73e",
+      "instruction_file": "0x295d",
+      "instruction_hex": "2ec6063e0713"
+    },
+    {
+      "symbol": "base_year",
+      "target_bios_code": "0x73f",
+      "instruction_file": "0x2963",
+      "instruction_hex": "2ec6063f0750"
+    },
+    {
+      "symbol": "month_tab",
+      "target_bios_code": "0x740",
+      "instruction_file": "0x29d0",
+      "instruction_hex": "be4007"
+    }
+  ],
+  "limitations": [
+    "The preceding byte at 237Dh is excluded because its role is unconfirmed.",
+    "ORG is an isolated target-layout experiment and does not establish source ownership or the final build order.",
+    "Zero initial bytes do not prove whether the original declarations were explicitly initialized."
+  ]
+}

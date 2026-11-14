@@ -1,0 +1,106 @@
+{
+  "scan_sha256": "cc8b3c3af273972848a90374d95c7620a3c8ee0c27a169c65d4f2c349dd428a8",
+  "cycle_member_count": 37,
+  "external_dependency_count": 35,
+  "external_state_counts": {
+    "reference_qualified": 28,
+    "pending": 5,
+    "component_verified": 2
+  },
+  "unresolved_external": [
+    {
+      "path": "cmd/command/tparse.asm",
+      "state": "pending",
+      "dependencies": [
+        "cmd/command/comseg.asm",
+        "cmd/command/comsw.asm",
+        "inc/psdata.inc"
+      ],
+      "unknown": [],
+      "ambiguous": [
+        {
+          "kind": "include",
+          "name": "parse.asm",
+          "candidates": [
+            "dos/parse.asm",
+            "inc/parse.asm"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "inc/highexit.inc",
+      "state": "pending",
+      "dependencies": [
+        "inc/arena.inc",
+        "inc/highvar.inc"
+      ],
+      "unknown": [
+        {
+          "kind": "caller_context",
+          "name": "complete segment and external environment",
+          "evidence": "inc/highexit.inc:96; cmd/command/stub.asm:285-286; bios/sysconf.asm:3422",
+          "detail": "getdata and putdata expand against caller-provided segment context; remaining providers and target configuration require verification."
+        }
+      ],
+      "ambiguous": []
+    },
+    {
+      "path": "inc/highload.inc",
+      "state": "pending",
+      "dependencies": [
+        "inc/arena.inc",
+        "inc/highvar.inc"
+      ],
+      "unknown": [
+        {
+          "kind": "caller_context",
+          "name": "remaining implicit symbols and build contexts",
+          "evidence": "cmd/command/loadhi.asm:127; bios/sysconf.asm:3421",
+          "detail": "Code fragment depends on including modules; complete macro, symbol, segment and conditional dependencies require verification before processing."
+        }
+      ],
+      "ambiguous": []
+    },
+    {
+      "path": "inc/msbdata.inc",
+      "state": "pending",
+      "dependencies": [
+        "inc/oemconf.inc"
+      ],
+      "unknown": [
+        {
+          "kind": "bios_caller",
+          "name": "int_2f forward reference and BIOS data placement",
+          "evidence": "bios/msbio1.asm:87,128,870; inc/msbdata.inc:39-42",
+          "detail": "In_Bios branch embeds a far pointer to int_2f supplied by BIOS caller; non-BIOS branch instead defines a dummy. Resolve each required configuration as a potential cycle."
+        }
+      ],
+      "ambiguous": []
+    },
+    {
+      "path": "lang/usa/messages/comimsg.inc",
+      "state": "pending",
+      "dependencies": [
+        "cmd/command/comseg.asm",
+        "cmd/command/resmsg.equ"
+      ],
+      "unknown": [
+        {
+          "kind": "target_consumer_contract",
+          "name": "HelpMsgs table layout and COMMAND init consumers",
+          "evidence": "cmd/command/uinit.asm:357; lang/usa/messages/comimsg.inc:24; target COMMAND.COM:0x3319-0x3897",
+          "detail": "Target has 16 help texts instead of 13, and source emits a pointer table that has not yet been located in target. Determine target consumer and placement before editing the fragment."
+        }
+      ],
+      "ambiguous": []
+    }
+  ],
+  "cycle_unknown_count": 46,
+  "cycle_ambiguous_count": 11,
+  "update": "The verified comrmsg caller relationship puts comrmsg in the same conservative 37-file cycle, rather than outside the 36-file cycle. Five pending external files remain.",
+  "limits": [
+    "Graph is conservative; ambiguous edges and caller-specific context require validation.",
+    "Reference qualification establishes historical identity rather than DOS 7 target identity."
+  ]
+}

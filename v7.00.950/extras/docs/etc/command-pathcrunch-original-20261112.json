@@ -1,0 +1,17 @@
+{
+  "build": "extras/docs/etc/command-pathcrunch-final-build-20261112.json",
+  "source": "cmd/command/tenv2.asm",
+  "target_instruction_range": "0xc101..0xc267",
+  "instruction_bytes": 358,
+  "verification": "all instructions and actual linked data, external call, and internal branch operands checked",
+  "probes": {
+    "target": "extras/build/pathcrunch-final-target-l9i_5p18",
+    "current": "extras/build/pathcrunch-final-current-xzpcbdaw",
+    "cases": [
+      "wildcard copy from subdirectory",
+      "copy to subdirectory with renamed file"
+    ],
+    "result": "output and copied contents match"
+  },
+  "limitations": "network path, long file name and error branches not runtime tested; complete COMMAND.COM is not byte identical"
+}

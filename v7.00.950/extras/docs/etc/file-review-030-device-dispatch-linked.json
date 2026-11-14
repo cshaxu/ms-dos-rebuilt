@@ -1,0 +1,28 @@
+{
+  "source": "bios/sysconf.asm",
+  "sha256": "0523f142066ea9d839667436cccec73d207078cef2715b2c5799d4f3d5a3e8a6",
+  "change": "Link DEVICE and DEVICEHIGH dispatch to actual parser, driver record, UMB checks, error handlers and COUNTRY continuation.",
+  "matched": [
+    {
+      "region": "DEVICE/DEVICEHIGH dispatch",
+      "start": "0x6ca8",
+      "end_exclusive": "0x6d52",
+      "bytes": 170
+    },
+    {
+      "region": "continuous CONFIG entry through DEVICE dispatch",
+      "start": "0x6848",
+      "end_exclusive": "0x6d52",
+      "bytes": 1290
+    }
+  ],
+  "verification": {
+    "tool": "extras/tools/verify_syspre_device_link.py",
+    "link_stage": "extras/build/syspre-object-link-joq773u5",
+    "scope": "Actual command dispatch and listed providers linked, with the subsequent LoadDevice location and other layout positions anchored."
+  },
+  "limitations": [
+    "No core source modified in this step.",
+    "LoadDevice body, runtime, full product link and final three binaries remain unverified in this diagnostic."
+  ]
+}

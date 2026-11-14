@@ -1,0 +1,16 @@
+{
+  "file": "bios/sysinit2.asm",
+  "source_sha256": "34acb4fee5d05e009fc8157bb7f42b0855c0f55349d28768584ae63769914c51",
+  "target_range": "IO.SYS 0x9c01..0x9c68",
+  "length": 103,
+  "different_bytes": 0,
+  "tool": "MASM 6 ML isolated probe",
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link": "passed",
+  "probe_source": "extras/research/boot-driver-record-linked.asm",
+  "limitations": [
+    "Fixed-offset probe uses a synthetic CONFIG line destination; final layout and execution are unverified.",
+    "Outer driver-record loop and startup caller remain incomplete."
+  ]
+}

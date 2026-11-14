@@ -1,0 +1,40 @@
+{
+  "source": "extras/research/bios-disk-word-align-trial/diskdata.asm",
+  "source_sha256": "209b0ac02ea00262b4a4eb1c4f99f499aae224f70ddf03f05bba03eb15013974",
+  "linked_exe_sha256": "064dc7cedcfc23a893665bd736c258a219c7bed490bad883a4b23e3a42b663cc",
+  "data_block_length": 90,
+  "data_block_matches_target": true,
+  "relative_layout": [
+    {
+      "from": "step_drv",
+      "to": "dsk_init",
+      "linked_distance": 143,
+      "target_distance": 143
+    },
+    {
+      "from": "dsk_init",
+      "to": "setdrive",
+      "linked_distance": 15,
+      "target_distance": 15
+    },
+    {
+      "from": "nul_vid",
+      "to": "tmp_vid",
+      "linked_distance": 12,
+      "target_distance": 12
+    },
+    {
+      "from": "tmp_vid",
+      "to": "install_bds",
+      "linked_distance": 12,
+      "target_distance": 12
+    }
+  ],
+  "observations": [
+    "Word alignment moves the provider start from an odd to an even BIOS_CODE offset; the additional alignment byte moves before the 90-byte data block instead of appearing between it and the following msdisk object."
+  ],
+  "limitations": [
+    "WORD alignment and provider ownership remain hypotheses; the preceding alignment byte and complete target layout are not validated.",
+    "The linked BIOS still contains diagnostic stubs and historical inputs; no full IO.SYS identity is claimed."
+  ]
+}

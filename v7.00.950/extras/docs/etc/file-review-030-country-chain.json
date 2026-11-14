@@ -1,0 +1,41 @@
+{
+  "source": "bios/sysconf.asm",
+  "sha256": "aa3fc2fb2cc85b1aae22f0eceac5e4e161f57e928d3d8705f1d977be697b99aa",
+  "change": "Restore COUNTRY invalid-code and insufficient-memory messages through DOS 7 message offsets. Link actual COUNTRY dispatch, loader, helpers, path and signature data.",
+  "matched": [
+    {
+      "region": "COUNTRY command",
+      "start": "0x7122",
+      "end_exclusive": "0x7248",
+      "bytes": 294
+    },
+    {
+      "region": "country loader",
+      "start": "0x300b",
+      "end_exclusive": "0x3140",
+      "bytes": 309
+    },
+    {
+      "region": "country path and file helpers",
+      "start": "0x3140",
+      "end_exclusive": "0x31d6",
+      "bytes": 150
+    },
+    {
+      "region": "country path and signature data",
+      "start": "0x32da",
+      "end_exclusive": "0x3327",
+      "bytes": 77
+    }
+  ],
+  "verification": {
+    "tool": "extras/tools/verify_syspre_device_link.py",
+    "link_stage": "extras/build/syspre-object-link-bk_7_ef7",
+    "module_stage": "extras/build/ml-sysinit-p6w6h4wd",
+    "scope": "Actual COUNTRY source linked with its actual loader, parameter, message, path and error providers; diagnostic structure offsets and other target positions remain."
+  },
+  "limitations": [
+    "COUNTRY runtime with external country data not exercised.",
+    "Complete product link and final three core binaries remain unverified."
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "build": "extras/docs/etc/command-del-original-build-20261112.json",
+  "changes": [
+    "Restore DOS 7 DEL argument parsing, path handling and per-entry deletion using existing search and path helpers",
+    "Restore all-files and per-file confirmation routines and original workspace overlay"
+  ],
+  "verified_target_instruction_ranges": [
+    "0xaf36..0xaffd",
+    "0xd709..0xd7b0",
+    "0xd987..0xd9d9",
+    "0xd9d9..0xda0c"
+  ],
+  "new_registered_instruction_bytes": 491,
+  "target_probe": "extras/build/del-rebuilt-target-kum01b8i",
+  "current_probe": "extras/build/del-rebuilt-current-6a9w627s",
+  "matched_cases": [
+    "DEL specified file in subdirectory",
+    "DEL extension wildcard in subdirectory",
+    "preservation of other files and current directory"
+  ],
+  "limitations": "Confirmation, other errors, long filename and network branches not runtime verified; output not byte-identical. Linked operands are checked semantically, not necessarily byte-identical.",
+  "output_bytes": 93278,
+  "target_bytes": 92870,
+  "error_probe": {
+    "target": "extras/build/del-error-target-a2nv6vc3",
+    "current": "extras/build/del-error-current-49xh3c8z",
+    "case": "DEL SRC\\NONE.TXT",
+    "matched_stderr": "File not found\\r\\n",
+    "batch_continues": true
+  }
+}

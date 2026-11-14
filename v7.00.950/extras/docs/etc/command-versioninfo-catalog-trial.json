@@ -1,0 +1,14 @@
+{
+  "stage": "extras/build/message-version-catalog-9kgtjs8a",
+  "result": "failed_to_preserve_field_continuation_through_buildidx",
+  "observations": [
+    "In this historical BUILDIDX configuration, numeric continuation lines indented with spaces or tabs were rewritten without indentation; BUILDMSG generated only the first field for message 9900.",
+    "A trial of continuation lines beginning with unary plus was also removed by BUILDIDX.",
+    "Both BUILDMSG invocations completed successfully despite producing an incomplete 9900 payload, so exit status alone is insufficient."
+  ],
+  "next_action": "Preserve the existing known-good single-line catalog record unless a supported continuation form is demonstrated; validate the full generated payload.",
+  "limitations": [
+    "Failure describes these tested forms, not proof that all continuation formats are unsupported.",
+    "No production catalog was modified."
+  ]
+}

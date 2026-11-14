@@ -1,0 +1,29 @@
+{
+  "source": "bios/sysconf.asm",
+  "sha256": "f22b3e7bdc411aba1a836c8ce7c0a95d6a5545398d3f2d902fb98099c1a4e661",
+  "change": "Restore first-pass DOS, SWITCHES and LOGO routing, connect the existing logo display provider and skip LOGO on the later pass.",
+  "matched": [
+    {
+      "region": "first-pass DOS/SWITCHES/LOGO",
+      "start": "0x6bdd",
+      "end_exclusive": "0x6ca8",
+      "bytes": 203
+    },
+    {
+      "region": "multi-pass filter",
+      "start": "0x6a6b",
+      "end_exclusive": "0x6a85",
+      "bytes": 26
+    }
+  ],
+  "verification": {
+    "tool": "extras/tools/verify_syspre_device_link.py",
+    "link_stage": "extras/build/syspre-object-link-w1bvzux8",
+    "module_stage": "extras/build/ml-sysinit-6ns12r0e",
+    "scope": "Actual parser, option data, filtering, error handling and logo display objects linked; unrelated layout remains synthetic or anchored."
+  },
+  "limitations": [
+    "First-pass caller and later-pass LOGO skip not yet linked to this comparison.",
+    "LOGO file runtime and full product link and three final binaries remain unverified."
+  ]
+}

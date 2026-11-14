@@ -1,0 +1,16 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_file_offset": 26909,
+  "sequence_hex": "57062ea3400fb970008ec1bf4001b96c012bcfc1e9022e803e4168007401494747abe2fb075fc3",
+  "sequence_length": 39,
+  "vector_table_start": 320,
+  "vector_table_end": 364,
+  "vector_stride": 4,
+  "target_behavior": "Saves AX via CS, sets ES to 0070h, computes the number of four-byte entries, conditionally decrements it, then writes AX to each entry's segment word; preserves DI and ES and returns near.",
+  "target_call_offsets": [
+    24203,
+    26222
+  ],
+  "current_dependency": "Baseline sysinit1.asm still uses a far-call pointer; diagnostic links supply an explicit seg_reinit stub until the DOS 7 initialization path is reconstructed.",
+  "limitations": "Target call sites and code match the BIOS relocation path, but conditional flag meaning, exact source ownership and runtime behavior remain unresolved. The diagnostic stub is not a target implementation."
+}

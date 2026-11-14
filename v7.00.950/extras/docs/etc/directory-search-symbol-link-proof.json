@@ -1,0 +1,16 @@
+{
+  "source": "extras/research/directory-context/search-symbol-link-probe.asm",
+  "source_sha256": "3efb2d904a95ac421eb5f658ae0e43f95f71ca4c9829cf036fc1c4e70dae68e5",
+  "object_sha256": "170b960f35a44d163b6dcd125d981312077690df7ba17ca567b055e3b96ab81d",
+  "linked_exe_sha256": "14eb0d00ddd2c00b80b753b3fd0767be3bd704184861d5e999de23d74af54ea4",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_file_offset": "0x14e55",
+  "linked_exe_file_offset": "0x8675",
+  "length": 217,
+  "all_bytes_equal_after_link": true,
+  "limitations": [
+    "ORG layout and callee stubs reproduce observed target addresses only for this isolated link.",
+    "No actual implementations of called routines are exercised by this link test.",
+    "This does not prove full kernel layout, target-wide binary equality, or original symbol names."
+  ]
+}

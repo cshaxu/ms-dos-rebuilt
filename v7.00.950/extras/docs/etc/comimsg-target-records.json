@@ -1,0 +1,115 @@
+{
+  "target": "extras/baselines/targets/COMMAND.COM",
+  "target_sha256": "a74c700063cd6b1c91523952bfc80e9393c125d39ada0164d48b5098089fcef3",
+  "source": "lang/usa/messages/comimsg.inc",
+  "record_start": 13081,
+  "record_end_exclusive": 14487,
+  "records": [
+    {
+      "offset": 13081,
+      "length": 26,
+      "text": "Incorrect MS-DOS version\r\n"
+    },
+    {
+      "offset": 13108,
+      "length": 26,
+      "text": "Out of environment space\r\n"
+    },
+    {
+      "offset": 13135,
+      "length": 72,
+      "text": "\r\n\r\nMicrosoft(R) Windows 95\r\n   (C)Copyright Microsoft Corp 1981-1995.\r\n"
+    },
+    {
+      "offset": 13208,
+      "length": 40,
+      "text": "Specified COMMAND search directory bad\r\n"
+    },
+    {
+      "offset": 13249,
+      "length": 55,
+      "text": "Specified COMMAND search directory bad, access denied\r\n"
+    },
+    {
+      "offset": 13305,
+      "length": 57,
+      "text": "Starts a new copy of the Windows Command Interpreter.\r\n\r\n"
+    },
+    {
+      "offset": 13363,
+      "length": 128,
+      "text": "COMMAND [[drive:]path] [device] [/E:nnnnn] [/L:nnnn] [/U:nnn] [/P] [/MSG]\r\n                       [/LOW] [/Y [/[C|K] command]]\r\n"
+    },
+    {
+      "offset": 13492,
+      "length": 67,
+      "text": "  [drive:]path    Specifies the directory containing COMMAND.COM.\r\n"
+    },
+    {
+      "offset": 13560,
+      "length": 77,
+      "text": "  device          Specifies the device to use for command input and output.\r\n"
+    },
+    {
+      "offset": 13638,
+      "length": 69,
+      "text": "  /E:nnnnn        Sets the initial environment size to nnnnn bytes.\r\n"
+    },
+    {
+      "offset": 13708,
+      "length": 61,
+      "text": "                  (nnnnn should be between 256 and 32,768).\r\n"
+    },
+    {
+      "offset": 13770,
+      "length": 76,
+      "text": "  /L:nnnn         Specifies internal buffers length (requires /P as well).\r\n"
+    },
+    {
+      "offset": 13847,
+      "length": 59,
+      "text": "                  (nnnn should be between 128 and 1,024).\r\n"
+    },
+    {
+      "offset": 13907,
+      "length": 76,
+      "text": "  /U:nnn          Specifies the input buffer length (requires /P as well).\r\n"
+    },
+    {
+      "offset": 13984,
+      "length": 56,
+      "text": "                  (nnn should be between 128 and 255).\r\n"
+    },
+    {
+      "offset": 14041,
+      "length": 77,
+      "text": "  /P              Makes the new Command Interpreter permanent (can't exit).\r\n"
+    },
+    {
+      "offset": 14119,
+      "length": 78,
+      "text": "  /MSG            Stores all error messages in memory (requires /P as well).\r\n"
+    },
+    {
+      "offset": 14198,
+      "length": 75,
+      "text": "  /LOW            Forces COMMAND to keep its resident data in low memory.\r\n"
+    },
+    {
+      "offset": 14274,
+      "length": 74,
+      "text": "  /Y              Steps through the batch program specified by /C or /K.\r\n"
+    },
+    {
+      "offset": 14349,
+      "length": 63,
+      "text": "  /C command      Executes the specified command and returns.\r\n"
+    },
+    {
+      "offset": 14413,
+      "length": 73,
+      "text": "  /K command      Executes the specified command and continues running.\r\n"
+    }
+  ],
+  "status": "dependency investigation only; target HelpMsgs representation and consumer still unverified"
+}

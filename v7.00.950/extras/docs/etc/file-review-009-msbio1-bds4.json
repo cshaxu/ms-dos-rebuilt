@@ -1,0 +1,28 @@
+{
+  "file_index": 9,
+  "source": "bios/msbio1.asm",
+  "status": "in_progress",
+  "finding": "Fourth drive descriptor end-of-list far pointer is FFFF:FFFF in target. Target descriptor directly matches the full 100-byte rebuilt reference descriptor after replacing the segment component; the other three descriptors match apart from address/segment fixups. This confirms the data item, not the entire file.",
+  "target_io_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_bds4_offset": 20916,
+  "target_bds4_length": 100,
+  "baseline_io_offset": 2592,
+  "before_bytes": "ffff7000",
+  "after_bytes": "ffffffff",
+  "target_bytes": "ffffffff",
+  "full_descriptor_equal": true,
+  "build_output_sha256": "ec3c87ed5dc52772e9bcd50c4f6bc4ca9d026a2a29d24af5ea3474831f14040c",
+  "output_changes": [
+    {
+      "offset": 2594,
+      "before": 112,
+      "after": 255
+    },
+    {
+      "offset": 2595,
+      "before": 0,
+      "after": 255
+    }
+  ],
+  "source_sha256": "3e80869c857c442ef5f68041b2e121e3be4066a47b27a118df4cc2cf8fa0c61c"
+}

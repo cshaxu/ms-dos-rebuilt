@@ -1,0 +1,24 @@
+{
+  "source_sha256": "b365a7e90033ae86b34242e9f81e13ffb427edb6630cf4ec600fda1cdc702f71",
+  "listing_sha256": "a4653ba905093a6aa28e2db99608e021ef1738d0c8b8037855060949d97b8b56",
+  "routines": [
+    {
+      "name": "sethard_fallback_and_return",
+      "target_offset": "0x1862",
+      "length": 221,
+      "masked_relocation_bytes": 12,
+      "matched_nonrelocated_bytes": 201,
+      "differences": [
+        122,
+        123,
+        124,
+        139,
+        140,
+        141,
+        164,
+        165
+      ]
+    }
+  ],
+  "limitations": "Masked addresses, called helper positions, assembler encoding and final IO.SYS remain unverified."
+}

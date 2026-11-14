@@ -1,0 +1,17 @@
+{
+  "build": "extras/docs/etc/command-date-replace-original-build-20261112.json",
+  "source": "inc/msgserv.asm",
+  "change": "Restored target shared date ordering and 16-bit date-component conversion counter; retained existing country-data acquisition until target initialization is reconstructed.",
+  "target_helper_range": "0x1031e..0x1034d",
+  "registered_instruction_bytes": 47,
+  "target_probe": "extras/build/date-replace-target-j6n9h3ov",
+  "current_probe": "extras/build/date-replace-current-lm_jg69t",
+  "matched_cases": [
+    "DIR /C date and summary output",
+    "VER /R",
+    "VOL"
+  ],
+  "limitations": "Full date replacement retains extra country acquisition call absent from target; non-US country orders not runtime tested; complete binary not byte-identical.",
+  "output_bytes": 93192,
+  "target_bytes": 92870
+}

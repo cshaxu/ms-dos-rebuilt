@@ -1,0 +1,20 @@
+{
+  "build": "extras/docs/etc/command-dynamic-arg-layout-build-20261112.json",
+  "binary_sha256": "bec3c341d49d791f36a834218c5471c94759b69e95ae6b17d48950f462afe92e",
+  "probe_stage": "extras\\build\\command-current-echo-5gusx79q",
+  "cases": [
+    {
+      "command": "COMMAND.COM /C ECHO PROBE > ECHO.LOG",
+      "exit": "success",
+      "output_hex": "50524f42450d0a"
+    },
+    {
+      "command": "COMMAND.COM /C COPY SOURCE.DAT DEST.DAT > COPY.LOG",
+      "exit": "success",
+      "source_size": 25,
+      "source_equals_destination": true,
+      "message_hex": "2020202020202020312066696c6528732920636f706965640d0a"
+    }
+  ],
+  "scope": "isolated DOSBox probe, short 8.3 names only; does not prove long-name paths, pipelines, environment changes, source accuracy, or final binary identity"
+}

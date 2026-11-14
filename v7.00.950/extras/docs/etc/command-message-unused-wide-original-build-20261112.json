@@ -1,0 +1,885 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\command-reference-390f1nnu",
+  "source_root": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a",
+  "configuration": [
+    "USA",
+    "DBLSPACE_HOOKS"
+  ],
+  "reference": "DOS 6.0 baseline",
+  "messages": "project-owned reconstructed USA messages",
+  "tools": {
+    "O:\\repos.hobby\\ntvdm64\\tools\\opennt\\tools16\\masm.exe": "e54afaa9565e046cd862c29a015d685de43311acccf796469030e162ced6d00d",
+    "O:\\repos.hobby\\ntvdm64\\tools\\opennt\\tools16\\buildmsg.exe": "0d8ea59396a769e440549322a2ec9d1ab70423147e702ef1b1f42606cadd50cd",
+    "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\c6ers\\tools6\\bin\\buildidx.exe": "6a301eaee8ea8516e541da2a61a22f1db7d09b15c278a88a8d73083aac0f4d91",
+    "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\c6ers\\tools6\\bin\\link.exe": "163d8b86c18b93ccae9b2380d850cd42a9a5e1fd89a163b16170979afbbabb07",
+    "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\c6ers\\tools6\\bin\\reloc.exe": "300b58668d46c3281ef2c017409aa9300499155d6593a8a9552781d2d96cc2b3",
+    "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\isolated-tool-runner.exe": "ae195ddf68aedff2fab5130e1368cb5c585e5264b84d142d4f79dc9f973f85b9",
+    "C:\\Program Files (x86)\\DOSBox-0.74-3\\DOSBox.exe": "dcfd46fa521f5ce89dce3bf026056f3a1d15533f80321ee887403e30d7949f5e"
+  },
+  "objects": [
+    {
+      "name": "command1",
+      "sha256": "3a9bfde9b3cf358869cd0ef730c0a86c6da8195599189ed9453ec2c372dff198"
+    },
+    {
+      "name": "command2",
+      "sha256": "c40bd8db74a6dae57e041e7e88cdb4a5e001424ddbed91537c9dacdb1ef2e403"
+    },
+    {
+      "name": "rucode",
+      "sha256": "8ae98aae09d3aad9d59c35fe1b452d72824ad69f44d002e40629084bc93f20ab"
+    },
+    {
+      "name": "stub",
+      "sha256": "854d9c4cbe959a43325346beffaaf0a4ef038ad34679e9837ecd8113936119af"
+    },
+    {
+      "name": "rdata",
+      "sha256": "7e3c920f55cf15506eb01ce07791821b80ab168a2131e3f854decef95ee1d8e2"
+    },
+    {
+      "name": "init",
+      "sha256": "4d7264940f6578bca68f16302a50a2260c081ce22e97e24878420626cc0ff712"
+    },
+    {
+      "name": "iparse",
+      "sha256": "2429abca5f5af5f8b9e035693bb98dafc37e232f94b5f75e2a1d41cbeaad64d6"
+    },
+    {
+      "name": "uinit",
+      "sha256": "277f2963bbb4b68a45d5ca35e3346b5cbe554eae9e3488a4a4d541857fbc28c9"
+    },
+    {
+      "name": "tcode",
+      "sha256": "2b48597703b68ba2b06b64bbf1894a06012acd48f59df7f390eff6f7c4d0ae36"
+    },
+    {
+      "name": "tbatch",
+      "sha256": "711586cbf5c37c529c31e81479089dc88ac1a516a27956a18dfa8e8f64b05e0e"
+    },
+    {
+      "name": "tbatch2",
+      "sha256": "37f6f9aa89a6c95e7f0516e8e0827054382c5ecbdb67cdf792faf1e9e42125b7"
+    },
+    {
+      "name": "tfor",
+      "sha256": "eff9414d6862e7c0c69f2e3816bd6aeed7f218b92cbce1764ee507b4adac842a"
+    },
+    {
+      "name": "dir",
+      "sha256": "6aec4d2981d506e58fcf1810041f9110c03bcbee51a1103f02336652d8500638"
+    },
+    {
+      "name": "cratio",
+      "sha256": "b1b8a4ff4c8d28014c7ffff7268570bd89d0501d085a0e99d0c20f30faf43c91"
+    },
+    {
+      "name": "tcmd1b",
+      "sha256": "2860b7bd220b70964a5a9d25017da6c1679b6693505cb6238f0f4c90c77f2c6b"
+    },
+    {
+      "name": "tcmd2a",
+      "sha256": "0e0a27524053d05fcb1b2b7879fb734b6173c7743a25787a64f8e9f6498ad971"
+    },
+    {
+      "name": "tcmd2b",
+      "sha256": "fb85cf13db102473f10be6c924e5294bb50851fc3a825e12f3944577e8804565"
+    },
+    {
+      "name": "tenv",
+      "sha256": "1345eb316c23650a66908725c90e264f1bc497e05860159beab11b3f13c0e199"
+    },
+    {
+      "name": "tenv2",
+      "sha256": "32cfc65f884038c9427d729c04425b51d30583634d1e768b26db4e9e76489fe4"
+    },
+    {
+      "name": "tmisc1",
+      "sha256": "ec51af3c06af8f8f27040690716b26abeced4df330746fd40d5ca4e417fd870c"
+    },
+    {
+      "name": "tmisc2",
+      "sha256": "b5e3b7dd216155ac00236ebf34813a5986845136ada3df1d86ef45003bb800ee"
+    },
+    {
+      "name": "tpipe",
+      "sha256": "1e58e82ad1991980ac2bb6d627976e78aa1cd9ea0f87e67a71d1fea29fab7fa1"
+    },
+    {
+      "name": "parse2",
+      "sha256": "e2fa1e58d01bcc40021e674e8eddb6ee2e011d396c5eff63d6062563269f14eb"
+    },
+    {
+      "name": "path1",
+      "sha256": "469119160a0320ef532c1e078b5592ee60fbfeb13bb3202b1d1890cb7963fd55"
+    },
+    {
+      "name": "path2",
+      "sha256": "f9e8d684b7091bbe1952eef786e5c46cc3a722b282e354be7ad4995f291ca39d"
+    },
+    {
+      "name": "tucode",
+      "sha256": "735645b04967e1f1b7da2ece1c34265b5bb3990fbaad87dcfab24ff6d1dd2e65"
+    },
+    {
+      "name": "copy",
+      "sha256": "bf04649528518bad135c1a7e564382994d7c66af11b4426fd33df2b6ce0dfe64"
+    },
+    {
+      "name": "copypr1",
+      "sha256": "05e3959791bacca63eee06e416605df5f14d43d9edf83d6f0ee9ae2104ec076b"
+    },
+    {
+      "name": "copypr2",
+      "sha256": "4ed4333b1c31cc5a311bedd6f4939c936d11c1e05abda2cb360c61a5c18678c3"
+    },
+    {
+      "name": "cparse",
+      "sha256": "5ce9050361158321ffa26907b95ebaea3777a3771c98d064d840096b2d3db6ea"
+    },
+    {
+      "name": "tparse",
+      "sha256": "925b4dcccc5ef89bcb4e6c11126b5342a2120d1346394fa04d881c4fce70969f"
+    },
+    {
+      "name": "tprintf",
+      "sha256": "b8107f5af906cd71de77aa73d5961c8a77974bf3a5dded2a73238abeca0b6706"
+    },
+    {
+      "name": "loadhi",
+      "sha256": "d0dc8a86eb697b1f5c4ff8f24767bfb1f1026341cbef97f518917b1b7617d2ad"
+    },
+    {
+      "name": "tdata",
+      "sha256": "5d645a094645c2953f30f99aa8c06b44952ac10603ee5c3fd3471e2687a2ee4e"
+    },
+    {
+      "name": "tspc",
+      "sha256": "d8e1926c7f1dada1bb232c3b05e0117dc30216502aa059fabd164050c436ab63"
+    }
+  ],
+  "status": "built",
+  "message_source_sha256": "d9d6905f711ca350030e98206c9a94bd6917a78c5b904d91fd3eca3631f4028b",
+  "message_headers": {
+    "comrmsg.inc": "87a3ec47241c2c733111ffb066bff73bfd5d9ed04adc62010d9e0c7180e28fd0",
+    "comimsg.inc": "abe356562522bf0e2d1f87b8ee224b9e927cd8f4b170594f743d9ab404704bcd"
+  },
+  "utility_class_header": 3,
+  "initialization_resource": {
+    "artifact": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\command-reference-390f1nnu\\init-resource.bin",
+    "bytes": 1511,
+    "padded_bytes": 1520,
+    "sha256": "89083743e58217bef1d5a3d62638c801186b11d6422d157a05efbdef51f5316a",
+    "byte_equal": true,
+    "source": "Independently assembled initialization message source; generated NSCO envelope",
+    "full_command_exact": false
+  },
+  "resident_resource": {
+    "artifact": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\command-reference-390f1nnu\\resident-resource.bin",
+    "bytes": 2213,
+    "padded_bytes": 2224,
+    "sha256": "f34c551a108252283c2d82bbd08ad2d72eedc6de213305dd838d00fbc7f5d554",
+    "byte_equal": true,
+    "records": [
+      {
+        "id": 101,
+        "symbol": "Abort_Char",
+        "linked_address": 375,
+        "character": true,
+        "length": 1
+      },
+      {
+        "id": 102,
+        "symbol": "Retry_Char",
+        "linked_address": 377,
+        "character": true,
+        "length": 1
+      },
+      {
+        "id": 103,
+        "symbol": "Ignore_Char",
+        "linked_address": 379,
+        "character": true,
+        "length": 1
+      },
+      {
+        "id": 104,
+        "symbol": "Fail_Char",
+        "linked_address": 381,
+        "character": true,
+        "length": 1
+      },
+      {
+        "id": 105,
+        "symbol": "Yes_Char",
+        "linked_address": 383,
+        "character": true,
+        "length": 1
+      },
+      {
+        "id": 106,
+        "symbol": "No_Char",
+        "linked_address": 385,
+        "character": true,
+        "length": 1
+      },
+      {
+        "id": 107,
+        "symbol": "Req_Abort",
+        "linked_address": 386,
+        "character": false,
+        "length": 5
+      },
+      {
+        "id": 108,
+        "symbol": "Req_Retry",
+        "linked_address": 392,
+        "character": false,
+        "length": 7
+      },
+      {
+        "id": 109,
+        "symbol": "Req_Ignore",
+        "linked_address": 400,
+        "character": false,
+        "length": 8
+      },
+      {
+        "id": 110,
+        "symbol": "Req_Fail",
+        "linked_address": 409,
+        "character": false,
+        "length": 6
+      },
+      {
+        "id": 111,
+        "symbol": "Req_End",
+        "linked_address": 416,
+        "character": false,
+        "length": 1
+      },
+      {
+        "id": 112,
+        "symbol": "MRead",
+        "linked_address": 418,
+        "character": false,
+        "length": 8
+      },
+      {
+        "id": 113,
+        "symbol": "MWrite",
+        "linked_address": 427,
+        "character": false,
+        "length": 8
+      },
+      {
+        "id": 114,
+        "symbol": "BlkDevErr",
+        "linked_address": 436,
+        "character": false,
+        "length": 14
+      },
+      {
+        "id": 115,
+        "symbol": "CharDevErr",
+        "linked_address": 451,
+        "character": false,
+        "length": 15
+      },
+      {
+        "id": 116,
+        "symbol": "NeedVolMsg",
+        "linked_address": 467,
+        "character": false,
+        "length": 38
+      },
+      {
+        "id": 117,
+        "symbol": "BadFatMsg",
+        "linked_address": 506,
+        "character": false,
+        "length": 37
+      },
+      {
+        "id": 118,
+        "symbol": "ComBad",
+        "linked_address": 544,
+        "character": false,
+        "length": 21
+      },
+      {
+        "id": 119,
+        "symbol": "PutBackMsg",
+        "linked_address": 566,
+        "character": false,
+        "length": 66
+      },
+      {
+        "id": 121,
+        "symbol": "EndBatMes",
+        "linked_address": 633,
+        "character": false,
+        "length": 28
+      },
+      {
+        "id": 122,
+        "symbol": "ExecEMes",
+        "linked_address": 662,
+        "character": false,
+        "length": 19
+      },
+      {
+        "id": 123,
+        "symbol": "ExeBad",
+        "linked_address": 682,
+        "character": false,
+        "length": 19
+      },
+      {
+        "id": 124,
+        "symbol": "TooBig",
+        "linked_address": 702,
+        "character": false,
+        "length": 34
+      },
+      {
+        "id": 125,
+        "symbol": "NoHandMes",
+        "linked_address": 737,
+        "character": false,
+        "length": 22
+      },
+      {
+        "id": 126,
+        "symbol": "RBadNam",
+        "linked_address": 760,
+        "character": false,
+        "length": 26
+      },
+      {
+        "id": 127,
+        "symbol": "AccDen",
+        "linked_address": 787,
+        "character": false,
+        "length": 14
+      },
+      {
+        "id": 128,
+        "symbol": "BMemMes",
+        "linked_address": 802,
+        "character": false,
+        "length": 25
+      },
+      {
+        "id": 129,
+        "symbol": "HaltMes",
+        "linked_address": 828,
+        "character": false,
+        "length": 38
+      },
+      {
+        "id": 130,
+        "symbol": "FRetMes",
+        "linked_address": 867,
+        "character": false,
+        "length": 33
+      },
+      {
+        "id": 131,
+        "symbol": "Patricide",
+        "linked_address": 901,
+        "character": false,
+        "length": 46
+      },
+      {
+        "id": 132,
+        "symbol": "MissingDllMsg",
+        "linked_address": 948,
+        "character": false,
+        "length": 29
+      },
+      {
+        "id": 133,
+        "symbol": "Newlin",
+        "linked_address": 978,
+        "character": false,
+        "length": 2
+      },
+      {
+        "id": 219,
+        "symbol": "ExtErr19",
+        "linked_address": 981,
+        "character": false,
+        "length": 19
+      },
+      {
+        "id": 220,
+        "symbol": "ExtErr20",
+        "linked_address": 1001,
+        "character": false,
+        "length": 12
+      },
+      {
+        "id": 221,
+        "symbol": "ExtErr21",
+        "linked_address": 1014,
+        "character": false,
+        "length": 9
+      },
+      {
+        "id": 222,
+        "symbol": "ExtErr22",
+        "linked_address": 1024,
+        "character": false,
+        "length": 22
+      },
+      {
+        "id": 223,
+        "symbol": "ExtErr23",
+        "linked_address": 1047,
+        "character": false,
+        "length": 10
+      },
+      {
+        "id": 224,
+        "symbol": "ExtErr24",
+        "linked_address": 1058,
+        "character": false,
+        "length": 33
+      },
+      {
+        "id": 225,
+        "symbol": "ExtErr25",
+        "linked_address": 1092,
+        "character": false,
+        "length": 10
+      },
+      {
+        "id": 226,
+        "symbol": "ExtErr26",
+        "linked_address": 1103,
+        "character": false,
+        "length": 18
+      },
+      {
+        "id": 227,
+        "symbol": "ExtErr27",
+        "linked_address": 1122,
+        "character": false,
+        "length": 16
+      },
+      {
+        "id": 228,
+        "symbol": "ExtErr28",
+        "linked_address": 1139,
+        "character": false,
+        "length": 26
+      },
+      {
+        "id": 229,
+        "symbol": "ExtErr29",
+        "linked_address": 1166,
+        "character": false,
+        "length": 17
+      },
+      {
+        "id": 230,
+        "symbol": "ExtErr30",
+        "linked_address": 1184,
+        "character": false,
+        "length": 16
+      },
+      {
+        "id": 231,
+        "symbol": "ExtErr31",
+        "linked_address": 1201,
+        "character": false,
+        "length": 15
+      },
+      {
+        "id": 232,
+        "symbol": "ExtErr32",
+        "linked_address": 1217,
+        "character": false,
+        "length": 17
+      },
+      {
+        "id": 233,
+        "symbol": "ExtErr33",
+        "linked_address": 1235,
+        "character": false,
+        "length": 14
+      },
+      {
+        "id": 234,
+        "symbol": "ExtErr34",
+        "linked_address": 1250,
+        "character": false,
+        "length": 19
+      },
+      {
+        "id": 235,
+        "symbol": "ExtErr35",
+        "linked_address": 1270,
+        "character": false,
+        "length": 15
+      },
+      {
+        "id": 236,
+        "symbol": "ExtErr36",
+        "linked_address": 1286,
+        "character": false,
+        "length": 25
+      },
+      {
+        "id": 237,
+        "symbol": "ExtErr37",
+        "linked_address": 1312,
+        "character": false,
+        "length": 18
+      },
+      {
+        "id": 238,
+        "symbol": "ExtErr38",
+        "linked_address": 1331,
+        "character": false,
+        "length": 12
+      },
+      {
+        "id": 239,
+        "symbol": "ExtErr39",
+        "linked_address": 1344,
+        "character": false,
+        "length": 23
+      },
+      {
+        "id": 301,
+        "symbol": "ParsErr01",
+        "linked_address": 1368,
+        "character": false,
+        "length": 19
+      },
+      {
+        "id": 302,
+        "symbol": "ParsErr02",
+        "linked_address": 1388,
+        "character": false,
+        "length": 26
+      },
+      {
+        "id": 303,
+        "symbol": "ParsErr03",
+        "linked_address": 1415,
+        "character": false,
+        "length": 14
+      },
+      {
+        "id": 304,
+        "symbol": "ParsErr04",
+        "linked_address": 1430,
+        "character": false,
+        "length": 15
+      },
+      {
+        "id": 305,
+        "symbol": "ParsErr05",
+        "linked_address": 1446,
+        "character": false,
+        "length": 1
+      },
+      {
+        "id": 306,
+        "symbol": "ParsErr06",
+        "linked_address": 1448,
+        "character": false,
+        "length": 36
+      },
+      {
+        "id": 307,
+        "symbol": "ParsErr07",
+        "linked_address": 1485,
+        "character": false,
+        "length": 27
+      },
+      {
+        "id": 308,
+        "symbol": "ParsErr08",
+        "linked_address": 1513,
+        "character": false,
+        "length": 27
+      },
+      {
+        "id": 309,
+        "symbol": "ParsErr09",
+        "linked_address": 1541,
+        "character": false,
+        "length": 28
+      },
+      {
+        "id": 310,
+        "symbol": "ParsErr10",
+        "linked_address": 1570,
+        "character": false,
+        "length": 17
+      },
+      {
+        "id": 311,
+        "symbol": "ParsErr11",
+        "linked_address": 1588,
+        "character": false,
+        "length": 29
+      },
+      {
+        "id": 201,
+        "symbol": "ExtErr01",
+        "linked_address": 1618,
+        "character": false,
+        "length": 16
+      },
+      {
+        "id": 202,
+        "symbol": "ExtErr02",
+        "linked_address": 1635,
+        "character": false,
+        "length": 14
+      },
+      {
+        "id": 203,
+        "symbol": "ExtErr03",
+        "linked_address": 1650,
+        "character": false,
+        "length": 14
+      },
+      {
+        "id": 204,
+        "symbol": "ExtErr04",
+        "linked_address": 1665,
+        "character": false,
+        "length": 19
+      },
+      {
+        "id": 205,
+        "symbol": "ExtErr05",
+        "linked_address": 1685,
+        "character": false,
+        "length": 14
+      },
+      {
+        "id": 206,
+        "symbol": "ExtErr06",
+        "linked_address": 1700,
+        "character": false,
+        "length": 14
+      },
+      {
+        "id": 207,
+        "symbol": "ExtErr07",
+        "linked_address": 1715,
+        "character": false,
+        "length": 31
+      },
+      {
+        "id": 208,
+        "symbol": "ExtErr08",
+        "linked_address": 1747,
+        "character": false,
+        "length": 19
+      },
+      {
+        "id": 209,
+        "symbol": "ExtErr09",
+        "linked_address": 1767,
+        "character": false,
+        "length": 28
+      },
+      {
+        "id": 210,
+        "symbol": "ExtErr10",
+        "linked_address": 1796,
+        "character": false,
+        "length": 19
+      },
+      {
+        "id": 211,
+        "symbol": "ExtErr11",
+        "linked_address": 1816,
+        "character": false,
+        "length": 14
+      },
+      {
+        "id": 212,
+        "symbol": "ExtErr12",
+        "linked_address": 1831,
+        "character": false,
+        "length": 26
+      },
+      {
+        "id": 213,
+        "symbol": "ExtErr13",
+        "linked_address": 1858,
+        "character": false,
+        "length": 12
+      },
+      {
+        "id": 214,
+        "symbol": "ExtErr14",
+        "linked_address": 1871,
+        "character": false,
+        "length": 0
+      },
+      {
+        "id": 215,
+        "symbol": "ExtErr15",
+        "linked_address": 1872,
+        "character": false,
+        "length": 27
+      },
+      {
+        "id": 216,
+        "symbol": "ExtErr16",
+        "linked_address": 1900,
+        "character": false,
+        "length": 35
+      },
+      {
+        "id": 217,
+        "symbol": "ExtErr17",
+        "linked_address": 1936,
+        "character": false,
+        "length": 15
+      },
+      {
+        "id": 218,
+        "symbol": "ExtErr18",
+        "linked_address": 1952,
+        "character": false,
+        "length": 13
+      },
+      {
+        "id": 280,
+        "symbol": "ExtErr80",
+        "linked_address": 1966,
+        "character": false,
+        "length": 11
+      },
+      {
+        "id": 281,
+        "symbol": "ExtErr81",
+        "linked_address": 1978,
+        "character": false,
+        "length": 0
+      },
+      {
+        "id": 282,
+        "symbol": "ExtErr82",
+        "linked_address": 1979,
+        "character": false,
+        "length": 27
+      },
+      {
+        "id": 283,
+        "symbol": "ExtErr83",
+        "linked_address": 2007,
+        "character": false,
+        "length": 14
+      },
+      {
+        "id": 284,
+        "symbol": "ExtErr84",
+        "linked_address": 2022,
+        "character": false,
+        "length": 21
+      },
+      {
+        "id": 285,
+        "symbol": "ExtErr85",
+        "linked_address": 2044,
+        "character": false,
+        "length": 21
+      },
+      {
+        "id": 286,
+        "symbol": "ExtErr86",
+        "linked_address": 2066,
+        "character": false,
+        "length": 16
+      },
+      {
+        "id": 287,
+        "symbol": "ExtErr87",
+        "linked_address": 2083,
+        "character": false,
+        "length": 17
+      },
+      {
+        "id": 288,
+        "symbol": "ExtErr88",
+        "linked_address": 2101,
+        "character": false,
+        "length": 18
+      },
+      {
+        "id": 289,
+        "symbol": "ExtErr89",
+        "linked_address": 2120,
+        "character": false,
+        "length": 33
+      },
+      {
+        "id": 290,
+        "symbol": "ExtErr90",
+        "linked_address": 2154,
+        "character": false,
+        "length": 39
+      }
+    ],
+    "source": "Independently assembled resident message source; generated class-6 index and NSCO envelope",
+    "full_command_exact": false
+  },
+  "mz_packing": {
+    "class_counts": [
+      4,
+      1,
+      198
+    ],
+    "class_offsets": [
+      0,
+      18,
+      24
+    ],
+    "resource_extents": [
+      [
+        64,
+        12972,
+        12976
+      ],
+      [
+        12976,
+        14487,
+        14496
+      ],
+      [
+        14496,
+        16709,
+        16720
+      ]
+    ],
+    "linked_image_bytes": 76026,
+    "header_bytes": 16720,
+    "packer_sha256": "da8042d06586ee8213c4905ed2cc320b8ee3bee633f96d74445c87a77e86bdd8",
+    "primary_source": "generated message classes from project source",
+    "full_command_exact": false
+  },
+  "startup_workspace": {
+    "transient_end": 58666,
+    "default_buffer_bytes": 1024,
+    "rounded_arithmetic_end": 64056,
+    "valid": true
+  },
+  "output_bytes": 92746,
+  "output_sha256": "7923c2104e24234bbd44d08470e9073e2797069e2a07d29c69c0a7c12e198448",
+  "target_bytes": 92870,
+  "target_sha256": "a74c700063cd6b1c91523952bfc80e9393c125d39ada0164d48b5098089fcef3",
+  "byte_equal": false,
+  "first_difference": 2
+}

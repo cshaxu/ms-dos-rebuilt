@@ -1,0 +1,72 @@
+{
+  "source_sha256": "26116628dbec0c96e2611c0a33f4c2efc11917cd58928274a03a82e80f2fe9fa",
+  "object_sha256": "1b226806929f36706416502e3d66cc919447d31f1280200e6081e6a0ab5b4b9a",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "previously_unchecked_gaps": {
+    "ranges": [
+      {
+        "target_offset": "0xfea",
+        "length": 3,
+        "masked_relocation_bytes": 0
+      },
+      {
+        "target_offset": "0x1279",
+        "length": 5,
+        "masked_relocation_bytes": 2
+      },
+      {
+        "target_offset": "0x1979",
+        "length": 6,
+        "masked_relocation_bytes": 0
+      },
+      {
+        "target_offset": "0x1a77",
+        "length": 9,
+        "masked_relocation_bytes": 0
+      },
+      {
+        "target_offset": "0x1b94",
+        "length": 16,
+        "masked_relocation_bytes": 0
+      }
+    ],
+    "matching_nonrelocated_bytes": 37,
+    "unverified_relocation_bytes": 2
+  },
+  "initialized_data": {
+    "target_offset": "0xd28",
+    "bytes": 150,
+    "matching_nonrelocated_bytes": 146,
+    "unverified_relocation_bytes": 4
+  },
+  "bpb_templates": {
+    "target_offset": "0xdbe",
+    "matching_bytes": 103
+  },
+  "bpb_table": {
+    "target_offset": "0xe26",
+    "entries": 10,
+    "matching_entries_with_inferred_bias": 10,
+    "inferred_segment_bias": "0x68f"
+  },
+  "bios_call_bridge": {
+    "target_data_offset": "0xe3a",
+    "target_return_offset": "0x00c0",
+    "target_segment": "0x01d5",
+    "matching_operand_words_with_inferred_bias": 4,
+    "limitation": "Absolute segment and return values agree with independent target mapping; final link is not verified."
+  },
+  "dsktnum": {
+    "object_offset": "0x0a7",
+    "target_file_offset": "0xd36",
+    "target_segment_offset": "0x0736",
+    "initial_value": 1,
+    "target_instruction_offsets": {
+      "store": "0x11d8",
+      "count_check": "0x1421",
+      "remap_read": "0x1553",
+      "remap_subtract": "0x156e"
+    }
+  },
+  "limitations": "The OMF segment index and data offsets are from the current MASM listing. Relocations and final linked placement remain unverified."
+}

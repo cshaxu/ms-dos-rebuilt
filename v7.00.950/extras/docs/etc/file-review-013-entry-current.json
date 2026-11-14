@@ -1,0 +1,66 @@
+{
+  "source_sha256": "e0029933b3e3378b5331e0f8df8a5f962f99d049cb74b1f84504171276eb5a39",
+  "listing_sha256": "5ff9751ea99ec6fcd4e22005d92a2817d8d03e4bd2a4aa60577e7cf7d1844317",
+  "routines": [
+    {
+      "name": "SetDrive",
+      "target_offset": "0x2ac4",
+      "length": 20,
+      "masked_relocation_bytes": 2,
+      "matched_nonrelocated_bytes": 18,
+      "differences": []
+    },
+    {
+      "name": "Media_Chk",
+      "target_offset": "0x2ad8",
+      "length": 120,
+      "masked_relocation_bytes": 18,
+      "matched_nonrelocated_bytes": 100,
+      "differences": [
+        115,
+        116
+      ]
+    },
+    {
+      "name": "Check_Time_Of_Access",
+      "target_offset": "0x2b50",
+      "length": 51,
+      "masked_relocation_bytes": 8,
+      "matched_nonrelocated_bytes": 43,
+      "differences": []
+    },
+    {
+      "name": "Get_Bpb",
+      "target_offset": "0x2b85",
+      "length": 54,
+      "masked_relocation_bytes": 10,
+      "matched_nonrelocated_bytes": 44,
+      "differences": []
+    },
+    {
+      "name": "SetPtrSav",
+      "target_offset": "0x2bbb",
+      "length": 20,
+      "masked_relocation_bytes": 2,
+      "matched_nonrelocated_bytes": 18,
+      "differences": []
+    },
+    {
+      "name": "clear_ids",
+      "target_offset": "0x2bcf",
+      "length": 45,
+      "masked_relocation_bytes": 6,
+      "matched_nonrelocated_bytes": 39,
+      "differences": []
+    },
+    {
+      "name": "readbootsec",
+      "target_offset": "0x2cba",
+      "length": 108,
+      "masked_relocation_bytes": 0,
+      "matched_nonrelocated_bytes": 108,
+      "differences": []
+    }
+  ],
+  "limitations": "Relocation operands and complete linked output remain unverified."
+}

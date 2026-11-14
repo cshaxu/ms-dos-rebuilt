@@ -1,0 +1,24 @@
+{
+  "source": "extras/research/directory-context/dirswap.asm",
+  "source_sha256": "9ece6dd46a8036a3eee9c4b51fbebaba734a50527b8b82ae7afeec8551264400",
+  "object_sha256": "dd6eda8e47945e0192ab1c5bcee5fee3ea7fd8485a6d85ee3abf5631978898c7",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_file_offset": "0x17f74",
+  "length": 78,
+  "branch_fixup_operand_offsets": [
+    16,
+    17
+  ],
+  "byte_difference_offsets": [
+    16
+  ],
+  "non_fixup_bytes_equal": true,
+  "fixup_records": [
+    "8410060101"
+  ],
+  "limitations": [
+    "This is only the entry and state-exchange portion; the rest of the routine and its callers remain to be reconstructed.",
+    "Absolute data offsets are trial placeholders, not final symbol declarations.",
+    "The branch to SaveDirError is an unresolved near external; its full target has not been linked in this trial."
+  ]
+}

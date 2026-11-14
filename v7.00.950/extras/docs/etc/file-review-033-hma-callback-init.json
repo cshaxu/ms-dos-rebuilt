@@ -1,0 +1,22 @@
+{
+  "files": [
+    "bios/sysinit1.asm",
+    "bios/msint13.asm"
+  ],
+  "source_sha256": [
+    "22ca00bb4006e24d477998aa1dc364996af8ca5929c8ae115f6e51dca64fe31e",
+    "2cf173ea4762b31baf1de4ddaf7de19a856f9652ff758c6f688865ea82cca37d"
+  ],
+  "change": "install HMA initialization callback and set config allocation flag; restore BIOS far-return callback and clear flag after initialization",
+  "default_objects_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_link": "LINK16 passed with diagnostic stubs",
+  "target_ranges": [
+    "IO.SYS 0x5ef3..0x5f07",
+    "IO.SYS 0x6401..0x641d"
+  ],
+  "limitations": [
+    "Final code offsets and full IO.SYS byte identity unverified.",
+    "DOS7 legacy BIOS communication block and other initialization dependencies remain to be resolved."
+  ]
+}

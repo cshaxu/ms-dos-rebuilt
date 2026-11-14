@@ -1,0 +1,15 @@
+{
+  "file": "bios/sysinit2.asm",
+  "file_index": 33,
+  "source_sha256": "4961fe2c19e22e51fbfaab33b7a5c2d190f400131f5a7176b9f5470afd28a368",
+  "target_range": "IO.SYS 0x8098..0x80f4",
+  "length": 92,
+  "different_bytes": 0,
+  "default_object_identical": true,
+  "dos7_assembly": "passed",
+  "probe_source": "extras/research/query-state-linked.asm",
+  "limitations": [
+    "Isolated state layout only; final image layout and query control flow remain unverified.",
+    "The three new symbol names describe observed usage, not confirmed Microsoft names."
+  ]
+}

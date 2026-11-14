@@ -1,0 +1,37 @@
+{
+  "task": "M5 T11 S1",
+  "status": "staged-source-build-verified",
+  "stage": "extras/build/native-omf-order",
+  "input_hash_check": {
+    "baseline": "extras/build/crt-explicit-cawhw9gh/closure.json",
+    "current_source_files": 127,
+    "all_match": true,
+    "marker": "extras/build/native-omf-order/INPUTS.OK"
+  },
+  "source_units_reassembled": 44,
+  "assembly": "Original DOS NMAKE /a and MASM; no cached object inputs",
+  "native_tools": ["extras/tools/crtlib.c", "extras/tools/omforder.c"],
+  "normalization": {
+    "procedure_data_whole_segment_objects": 12,
+    "registry_reblocked_objects": 6,
+    "registry_code_bytes": 30084,
+    "registry_fixups": 1046,
+    "all_normalized_objects_byte_equal_to_accepted_objects": true,
+    "code_and_fixup_operands_preserved": true
+  },
+  "crt_objects": 43,
+  "link": "Original LINK /EXEPACK /STACK:8192 /MAP @packed.rsp",
+  "output": "extras/build/native-omf-order/link/packed.exe",
+  "baseline_output": "extras/build/crt-explicit-cawhw9gh/packed.exe",
+  "full_executable_byte_equal": true,
+  "comparison": "fc /b: no differences encountered",
+  "python_used_in_this_build": false,
+  "source_materialization_promoted": false,
+  "remaining": "Install the verified static units as sole maintained implementations; connect host entry; full clean three-core acceptance and script retirement",
+  "batch_file_counts": {
+    "modified_tool_source": 1,
+    "new_declarative_layout_files": 6,
+    "existing_core_sources_modified": 0,
+    "existing_configuration_inputs_hash_identical": 127
+  }
+}

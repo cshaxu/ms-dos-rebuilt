@@ -1,0 +1,44 @@
+{
+  "kind": "target-backed DOS7 BIOS message resource recovery",
+  "target": "extras/baselines/targets/IO.SYS",
+  "target_file_range": "0x49f0..0x4b91",
+  "target_length": 418,
+  "bios_code_mapping": {
+    "file_base": "0x1c50",
+    "resource_logical_start": "0x2da0",
+    "bios_msg_base_logical": "0x2db4",
+    "evidence": "extras/docs/etc/bios-code-resource-mapping-evidence.json"
+  },
+  "resource_header": {
+    "bios_msg_count": "0x0005",
+    "bios_msg_header_size": "0x0014",
+    "bios_msg_version": "0x0100",
+    "bios_msg_resource_size": "0x01a2",
+    "bios_swap_msg_first": "0x0000",
+    "bios_swap_msg_second": "0x001d",
+    "bios_msg_1": "0x003f",
+    "bios_msg_2": "0x00a8",
+    "bios_msg_3": "0x0141",
+    "bios_msg_resource_end": "0x018e"
+  },
+  "source": {
+    "provider": "lang/usa/messages/biosmsg.inc",
+    "provider_sha256": "ad247642a392a272c7a98bb4290c777162ea85acd576fc5dd6828a32ef71e4d8",
+    "owner": "bios/msbio1.asm BIOS_CODE",
+    "owner_sha256": "a4132e49bc795fad010757432bcbc3dcf0d32d63fe13ca17c4071c1396074510",
+    "consumer": "bios/msbio2.asm",
+    "consumer_sha256": "2f9030c991c89ff8920a31d9ca7ca70b68c9214f3953a8cc7707143488501933",
+    "consumer_change": "The disk-swap path now adds the two target-backed BIOS_CODE table words instead of using immediate EQU values."
+  },
+  "verification": {
+    "formal_mixed_link": "ML6-compatible generated msbio1 source and current mixed BIOS objects compile and link under LINK 5.10; the linker reports only L4021/L4038 diagnostic warnings.",
+    "linked_output_sha256": "ac4c9d77dfe8e278f17b9d2a445d24638db2bb3811ae34223019d05ae83834a99",
+    "linked_resource_occurrences": 1,
+    "linked_resource_exact_match": true,
+    "no_a20_relink": "The post-integration Link16 audit has 31 unresolved externals; bios_msg_base and bios_msg_1..3 are absent from that set."
+  },
+  "limitations": [
+    "The formal batch lacks reloc.exe, so it is compilation/link reachability evidence rather than a final production-image build.",
+    "Final module ordering, relocation and whole IO.SYS byte equality remain unverified."
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "source": "extras/research/bios-bootlog-hex-trial.asm",
+  "source_sha256": "3065b948dd1da5e6b0ed463b6a7e34c205d46898ec400d83e2f44bb40d5bc2b2",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "linked_exe_sha256": "f4ad77c9bdcc9095d0342d90c3cee858ab182b46b7f557db1988cc861804a805",
+  "target_file_offset": "0x4966",
+  "table_length": 16,
+  "routine_length": 25,
+  "all_bytes_equal": true,
+  "limitations": [
+    "ORG reproduces target offset in an isolated link; original source ownership and overall layout are unproven.",
+    "Runtime interaction with the boot logging caller is not verified."
+  ]
+}

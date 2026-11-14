@@ -1,0 +1,12 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "query_entry": "IO.SYS 0x7a4f",
+  "entry_call_site": "IO.SYS 0x7a88",
+  "wrapper": "IO.SYS 0xdfd5 / SYSINIT 0x92a5; saves BP, loads BP=0x01e2 and calls shared bridge",
+  "bridge": "IO.SYS 0xdfc0 / SYSINIT 0x9290; uses CS:[0x0f40] as BIOS_CODE segment and 0x00c0 as BIOS_CODE near return address",
+  "source_precedent": "bios/msinit.asm call_bios_code implements the same near-to-BIOS_CODE transfer; bios/sysinit1.asm BCodeSeg stores the BIOS_CODE segment and bios/msbio1.asm exports bc_retf",
+  "target_bios_entry": "BIOS_CODE:01e2, target file offset 0x1e32 under existing image segment mapping",
+  "target_bios_observation": "Entry tests and resets a state bit, saves/restores screen-related state and issues INT 10h through a saved vector. Full function and source ownership not yet recovered.",
+  "conclusion": "Recover BIOS_CODE routine and shared SYSINIT bridge before connecting the DOS7 query entry. The query entry and localized response initializer remain unresolved.",
+  "constraints": "Static target inspection only; segment mapping follows file-review-009-sysinit-exec-record-targets.json and needs relocation validation."
+}

@@ -1,0 +1,26 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "observations": [
+    "A20 enable failure leaves AX zero and calls an indirect far pointer at DOSDATA offset 0x133a.",
+    "Other target kernel call sites use the same pointer with AX values 1, 2 and 3.",
+    "The BIOS error entry at file 0xac2 branches on AX nonzero: AX zero takes the A20 video-print-and-halt path; nonzero proceeds through the BIOS error vector.",
+    "The BIOS message routine at 0x2345 recognizes selectors 1, 2 and 3."
+  ],
+  "inference": "The shared selector conventions strongly suggest DOSDATA:133a is connected to the BIOS error entry. The actual pointer initialization has not been proven, so this is not yet a verified direct link.",
+  "instruction_bytes": {
+    "0xac2": "0bc0752d",
+    "0xaf3": "e890ff2eff1e6401cb",
+    "0x1af7b": "b4052eff1e7c100bc0740f",
+    "0x1af95": "2eff1e3a13",
+    "0x11944": "b80200ff1e3a13b80300ff1e3a13",
+    "0x161be": "b80100ff1e3a13",
+    "0x234a": "487509",
+    "0x2356": "487509",
+    "0x2362": "487515"
+  },
+  "limitations": [
+    "No actual target far-pointer value or initialization store has been verified.",
+    "Potential intervening handlers or transformations cannot yet be excluded.",
+    "Full DOS/BIOS link and error path are not verified."
+  ]
+}

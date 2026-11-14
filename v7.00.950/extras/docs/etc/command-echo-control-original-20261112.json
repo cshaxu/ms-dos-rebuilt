@@ -1,0 +1,24 @@
+{
+  "build": "extras/docs/etc/command-echo-control-original-build-20261112.json",
+  "sources": [
+    "cmd/command/tdata.asm",
+    "cmd/command/tucode.asm"
+  ],
+  "change": "Restored ECHO-specific ON/OFF parse descriptor and shared parser entry, ordered CTTY, CHDIR, ON/OFF, ECHO and ERASE controls as in target.",
+  "target_instruction_range": "0xd7b0..0xd7ec",
+  "registered_instruction_bytes": 60,
+  "target_data_range": "0x10c1c..0x10c35",
+  "matched_data_bytes": 25,
+  "target_probe": "extras/build/echo-control-target-tzp4lpto",
+  "current_probe": "extras/build/echo-control-current-jjfn3msg",
+  "matched_cases": [
+    "ECHO ON and OFF",
+    "ECHO text and blank line",
+    "VERIFY ON",
+    "CHCP query",
+    "batch continuation"
+  ],
+  "limitations": "Additional ECHO quoting, wildcard and malformed argument cases untested; complete binary not byte-identical.",
+  "output_bytes": 92942,
+  "target_bytes": 92870
+}

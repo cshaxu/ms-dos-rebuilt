@@ -1,0 +1,940 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "listing_sha256": "0fb1bc9a72e93c84b0290c35fcfcb06b994289bdd6a24776a332ac5b9e500315",
+  "source_evidence": "extras/docs/etc/bios-msdisk-target-routine-scan.json",
+  "method": "Read listing-marked external word operands in previously aligned routines and map named source operands to target little-endian values, normalizing explicit decimal addends.",
+  "symbols": [
+    {
+      "symbol": "accesscount",
+      "candidate_offsets": [
+        "0xdd7"
+      ],
+      "reference_count": 4,
+      "references": [
+        {
+          "candidate_base_offset": "0xdd7",
+          "operand_offset": "0x2b6b",
+          "encoded_value": "0xdd7",
+          "addend": 0,
+          "routine": "Check_Time_Of_Access",
+          "instruction": "inc\tbyte ptr cs:accesscount"
+        },
+        {
+          "candidate_base_offset": "0xdd7",
+          "operand_offset": "0x2b70",
+          "encoded_value": "0xdd7",
+          "addend": 0,
+          "routine": "Check_Time_Of_Access",
+          "instruction": "cmp\tbyte ptr cs:accesscount,accessmax"
+        },
+        {
+          "candidate_base_offset": "0xdd7",
+          "operand_offset": "0x2b78",
+          "encoded_value": "0xdd7",
+          "addend": 0,
+          "routine": "Check_Time_Of_Access",
+          "instruction": "dec\tbyte ptr cs:accesscount"
+        },
+        {
+          "candidate_base_offset": "0xdd7",
+          "operand_offset": "0x32eb",
+          "encoded_value": "0xdd7",
+          "addend": 0,
+          "routine": "set_tim",
+          "instruction": "mov\tbyte ptr cs:[accesscount],0"
+        }
+      ]
+    },
+    {
+      "symbol": "curhd",
+      "candidate_offsets": [
+        "0xde9"
+      ],
+      "reference_count": 4,
+      "references": [
+        {
+          "candidate_base_offset": "0xde9",
+          "operand_offset": "0x300f",
+          "encoded_value": "0xde9",
+          "addend": 0,
+          "routine": "diskio",
+          "instruction": "mov\tcs:[curhd],dl"
+        },
+        {
+          "candidate_base_offset": "0xde9",
+          "operand_offset": "0x3165",
+          "encoded_value": "0xde9",
+          "addend": 0,
+          "routine": "disk",
+          "instruction": "mov\tdh,byte ptr cs:[curhd]"
+        },
+        {
+          "candidate_base_offset": "0xde9",
+          "operand_offset": "0x31d6",
+          "encoded_value": "0xde9",
+          "addend": 0,
+          "routine": "disk",
+          "instruction": "mov\tdh,cs:[curhd]"
+        },
+        {
+          "candidate_base_offset": "0xde9",
+          "operand_offset": "0x31ea",
+          "encoded_value": "0xde9",
+          "addend": 0,
+          "routine": "disk",
+          "instruction": "mov\tcs:[curhd],dh"
+        }
+      ]
+    },
+    {
+      "symbol": "cursec",
+      "candidate_offsets": [
+        "0xde8"
+      ],
+      "reference_count": 8,
+      "references": [
+        {
+          "candidate_base_offset": "0xde8",
+          "operand_offset": "0x2fe9",
+          "encoded_value": "0xde8",
+          "addend": 0,
+          "routine": "diskio",
+          "instruction": "mov\tcs:[cursec],dl"
+        },
+        {
+          "candidate_base_offset": "0xde8",
+          "operand_offset": "0x30c6",
+          "encoded_value": "0xde8",
+          "addend": 0,
+          "routine": "block",
+          "instruction": "mov\tcl,cs:[cursec]"
+        },
+        {
+          "candidate_base_offset": "0xde8",
+          "operand_offset": "0x30de",
+          "encoded_value": "0xde8",
+          "addend": 0,
+          "routine": "block",
+          "instruction": "sub\tcl,cs:cursec"
+        },
+        {
+          "candidate_base_offset": "0xde8",
+          "operand_offset": "0x30f3",
+          "encoded_value": "0xde8",
+          "addend": 0,
+          "routine": "block",
+          "instruction": "mov\tal,cs:[cursec]"
+        },
+        {
+          "candidate_base_offset": "0xde8",
+          "operand_offset": "0x3105",
+          "encoded_value": "0xde8",
+          "addend": 0,
+          "routine": "block",
+          "instruction": "sub\tcl,cs:[cursec]"
+        },
+        {
+          "candidate_base_offset": "0xde8",
+          "operand_offset": "0x315c",
+          "encoded_value": "0xde8",
+          "addend": 0,
+          "routine": "disk",
+          "instruction": "or\tdh,cs:[cursec]"
+        },
+        {
+          "candidate_base_offset": "0xde8",
+          "operand_offset": "0x31c5",
+          "encoded_value": "0xde8",
+          "addend": 0,
+          "routine": "disk",
+          "instruction": "mov\tcs:[cursec],cl"
+        },
+        {
+          "candidate_base_offset": "0xde8",
+          "operand_offset": "0x31d0",
+          "encoded_value": "0xde8",
+          "addend": 0,
+          "routine": "disk",
+          "instruction": "mov\tcs:[cursec],1"
+        }
+      ]
+    },
+    {
+      "symbol": "curtrk",
+      "candidate_offsets": [
+        "0xdea"
+      ],
+      "reference_count": 3,
+      "references": [
+        {
+          "candidate_base_offset": "0xdea",
+          "operand_offset": "0x3013",
+          "encoded_value": "0xdea",
+          "addend": 0,
+          "routine": "diskio",
+          "instruction": "mov\tcs:[curtrk],ax"
+        },
+        {
+          "candidate_base_offset": "0xdea",
+          "operand_offset": "0x3141",
+          "encoded_value": "0xdea",
+          "addend": 0,
+          "routine": "disk",
+          "instruction": "mov\tdx,cs:[curtrk]"
+        },
+        {
+          "candidate_base_offset": "0xdea",
+          "operand_offset": "0x31e5",
+          "encoded_value": "0xdea",
+          "addend": 0,
+          "routine": "disk",
+          "instruction": "inc\tcs:[curtrk]"
+        }
+      ]
+    },
+    {
+      "symbol": "dpt",
+      "candidate_offsets": [
+        "0xde4"
+      ],
+      "reference_count": 7,
+      "references": [
+        {
+          "candidate_base_offset": "0xde4",
+          "operand_offset": "0x2ddb",
+          "encoded_value": "0xde4",
+          "addend": 0,
+          "routine": "read_sector",
+          "instruction": "lds\tsi,cs:dpt"
+        },
+        {
+          "candidate_base_offset": "0xde4",
+          "operand_offset": "0x2e05",
+          "encoded_value": "0xde4",
+          "addend": 0,
+          "routine": "read_sector",
+          "instruction": "lds\tsi,cs:dpt"
+        },
+        {
+          "candidate_base_offset": "0xde4",
+          "operand_offset": "0x2fae",
+          "encoded_value": "0xde4",
+          "addend": 0,
+          "routine": "diskio",
+          "instruction": "mov\tword ptr cs:dpt,si"
+        },
+        {
+          "candidate_base_offset": "0xde4",
+          "operand_offset": "0x2fb3",
+          "encoded_value": "0xde6",
+          "addend": 2,
+          "routine": "diskio",
+          "instruction": "mov\tword ptr cs:dpt+2,es"
+        },
+        {
+          "candidate_base_offset": "0xde4",
+          "operand_offset": "0x303b",
+          "encoded_value": "0xde4",
+          "addend": 0,
+          "routine": "iosetup",
+          "instruction": "lds\tsi,cs:[dpt]"
+        },
+        {
+          "candidate_base_offset": "0xde4",
+          "operand_offset": "0x3080",
+          "encoded_value": "0xde4",
+          "addend": 0,
+          "routine": "diddleback",
+          "instruction": "les\tsi,cs:dpt"
+        },
+        {
+          "candidate_base_offset": "0xde4",
+          "operand_offset": "0x30c1",
+          "encoded_value": "0xde4",
+          "addend": 0,
+          "routine": "block",
+          "instruction": "lds\tsi,cs:[dpt]"
+        }
+      ]
+    },
+    {
+      "symbol": "eot",
+      "candidate_offsets": [
+        "0xde3"
+      ],
+      "reference_count": 1,
+      "references": [
+        {
+          "candidate_base_offset": "0xde3",
+          "operand_offset": "0x3035",
+          "encoded_value": "0xde3",
+          "addend": 0,
+          "routine": "iosetup",
+          "instruction": "mov\tal,cs:[eot]"
+        }
+      ]
+    },
+    {
+      "symbol": "fat_12_id",
+      "candidate_offsets": [
+        "0xdf9"
+      ],
+      "reference_count": 1,
+      "references": [
+        {
+          "candidate_base_offset": "0xdf9",
+          "operand_offset": "0x2bf0",
+          "encoded_value": "0xdf9",
+          "addend": 0,
+          "routine": "clear_ids",
+          "instruction": "mov\tsi,offset fat_12_id"
+        }
+      ]
+    },
+    {
+      "symbol": "fat_16_id",
+      "candidate_offsets": [
+        "0xe02"
+      ],
+      "reference_count": 1,
+      "references": [
+        {
+          "candidate_base_offset": "0xe02",
+          "operand_offset": "0x2beb",
+          "encoded_value": "0xe02",
+          "addend": 0,
+          "routine": "clear_ids",
+          "instruction": "mov\tsi,offset fat_16_id"
+        }
+      ]
+    },
+    {
+      "symbol": "medbyt",
+      "candidate_offsets": [
+        "0xdd9"
+      ],
+      "reference_count": 1,
+      "references": [
+        {
+          "candidate_base_offset": "0xdd9",
+          "operand_offset": "0x2f1c",
+          "encoded_value": "0xdd9",
+          "addend": 0,
+          "routine": "diskio",
+          "instruction": "mov\tcs:medbyt,al"
+        }
+      ]
+    },
+    {
+      "symbol": "media_set_for_format",
+      "candidate_offsets": [
+        "0x17a2"
+      ],
+      "reference_count": 4,
+      "references": [
+        {
+          "candidate_base_offset": "0x17a2",
+          "operand_offset": "0x2dd1",
+          "encoded_value": "0x17a2",
+          "addend": 0,
+          "routine": "read_sector",
+          "instruction": "cmp\tcs:[media_set_for_format],0"
+        },
+        {
+          "candidate_base_offset": "0x17a2",
+          "operand_offset": "0x2df7",
+          "encoded_value": "0x17a2",
+          "addend": 0,
+          "routine": "read_sector",
+          "instruction": "cmp\tcs:[media_set_for_format],0"
+        },
+        {
+          "candidate_base_offset": "0x17a2",
+          "operand_offset": "0x302e",
+          "encoded_value": "0x17a2",
+          "addend": 0,
+          "routine": "iosetup",
+          "instruction": "cmp\tcs:[media_set_for_format],0"
+        },
+        {
+          "candidate_base_offset": "0x17a2",
+          "operand_offset": "0x3076",
+          "encoded_value": "0x17a2",
+          "addend": 0,
+          "routine": "diddleback",
+          "instruction": "cmp\tcs:[media_set_for_format],0"
+        }
+      ]
+    },
+    {
+      "symbol": "motorstartup",
+      "candidate_offsets": [
+        "0xdde"
+      ],
+      "reference_count": 2,
+      "references": [
+        {
+          "candidate_base_offset": "0xdde",
+          "operand_offset": "0x304a",
+          "encoded_value": "0xdde",
+          "addend": 0,
+          "routine": "iosetup",
+          "instruction": "mov\tcs:motorstartup,ah"
+        },
+        {
+          "candidate_base_offset": "0xdde",
+          "operand_offset": "0x3091",
+          "encoded_value": "0xdde",
+          "addend": 0,
+          "routine": "diddleback",
+          "instruction": "mov\tah,cs:motorstartup"
+        }
+      ]
+    },
+    {
+      "symbol": "rflag",
+      "candidate_offsets": [
+        "0xdda"
+      ],
+      "reference_count": 3,
+      "references": [
+        {
+          "candidate_base_offset": "0xdda",
+          "operand_offset": "0x2f44",
+          "encoded_value": "0xdda",
+          "addend": 0,
+          "routine": "diskio",
+          "instruction": "cmp\tcs:[rflag],romwrite"
+        },
+        {
+          "candidate_base_offset": "0xdda",
+          "operand_offset": "0x3122",
+          "encoded_value": "0xdda",
+          "addend": 0,
+          "routine": "disk",
+          "instruction": "mov\tah,cs:rflag"
+        },
+        {
+          "candidate_base_offset": "0xdda",
+          "operand_offset": "0x3370",
+          "encoded_value": "0xdda",
+          "addend": 0,
+          "routine": "ext_disk_io",
+          "instruction": "mov\tah,cs:rflag"
+        }
+      ]
+    },
+    {
+      "symbol": "save_eot",
+      "candidate_offsets": [
+        "0xde2"
+      ],
+      "reference_count": 2,
+      "references": [
+        {
+          "candidate_base_offset": "0xde2",
+          "operand_offset": "0x3045",
+          "encoded_value": "0xde2",
+          "addend": 0,
+          "routine": "iosetup",
+          "instruction": "mov\tcs:save_eot,al"
+        },
+        {
+          "candidate_base_offset": "0xde2",
+          "operand_offset": "0x3084",
+          "encoded_value": "0xde2",
+          "addend": 0,
+          "routine": "diddleback",
+          "instruction": "mov\tal, cs:save_eot"
+        }
+      ]
+    },
+    {
+      "symbol": "save_head_sttl",
+      "candidate_offsets": [
+        "0xde1"
+      ],
+      "reference_count": 2,
+      "references": [
+        {
+          "candidate_base_offset": "0xde1",
+          "operand_offset": "0x2de7",
+          "encoded_value": "0xde1",
+          "addend": 0,
+          "routine": "read_sector",
+          "instruction": "mov\tcs:[save_head_sttl],al"
+        },
+        {
+          "candidate_base_offset": "0xde1",
+          "operand_offset": "0x2dff",
+          "encoded_value": "0xde1",
+          "addend": 0,
+          "routine": "read_sector",
+          "instruction": "mov\tal,cs:[save_head_sttl]"
+        }
+      ]
+    },
+    {
+      "symbol": "saved_word",
+      "candidate_offsets": [
+        "0xdf2"
+      ],
+      "reference_count": 3,
+      "references": [
+        {
+          "candidate_base_offset": "0xdf2",
+          "operand_offset": "0x2f9f",
+          "encoded_value": "0xdf2",
+          "addend": 0,
+          "routine": "diskio",
+          "instruction": "mov\tcs:[saved_word],ax"
+        },
+        {
+          "candidate_base_offset": "0xdf2",
+          "operand_offset": "0x2fde",
+          "encoded_value": "0xdf2",
+          "addend": 0,
+          "routine": "diskio",
+          "instruction": "mov\tax,cs:[saved_word]"
+        },
+        {
+          "candidate_base_offset": "0xdf2",
+          "operand_offset": "0x3332",
+          "encoded_value": "0xdf2",
+          "addend": 0,
+          "routine": "ext_disk_io",
+          "instruction": "mov\tax,cs:[saved_word]"
+        }
+      ]
+    },
+    {
+      "symbol": "seccnt",
+      "candidate_offsets": [
+        "0xddc"
+      ],
+      "reference_count": 3,
+      "references": [
+        {
+          "candidate_base_offset": "0xddc",
+          "operand_offset": "0x2f53",
+          "encoded_value": "0xddc",
+          "addend": 0,
+          "routine": "diskio",
+          "instruction": "mov\tcs:[seccnt],cx"
+        },
+        {
+          "candidate_base_offset": "0xddc",
+          "operand_offset": "0x3017",
+          "encoded_value": "0xddc",
+          "addend": 0,
+          "routine": "diskio",
+          "instruction": "mov\tax,cs:[seccnt]"
+        },
+        {
+          "candidate_base_offset": "0xddc",
+          "operand_offset": "0x31be",
+          "encoded_value": "0xddc",
+          "addend": 0,
+          "routine": "disk",
+          "instruction": "sub\tcs:[seccnt],ax"
+        }
+      ]
+    },
+    {
+      "symbol": "set_id_flag",
+      "candidate_offsets": [
+        "0xdf8"
+      ],
+      "reference_count": 2,
+      "references": [
+        {
+          "candidate_base_offset": "0xdf8",
+          "operand_offset": "0x2d44",
+          "encoded_value": "0xdf8",
+          "addend": 0,
+          "routine": "movbpb",
+          "instruction": "cmp\tcs:[set_id_flag],1"
+        },
+        {
+          "candidate_base_offset": "0xdf8",
+          "operand_offset": "0x2d55",
+          "encoded_value": "0xdf8",
+          "addend": 0,
+          "routine": "movbpb",
+          "instruction": "mov\tcs:[set_id_flag],2"
+        }
+      ]
+    },
+    {
+      "symbol": "settlecurrent",
+      "candidate_offsets": [
+        "0xddf"
+      ],
+      "reference_count": 2,
+      "references": [
+        {
+          "candidate_base_offset": "0xddf",
+          "operand_offset": "0x305f",
+          "encoded_value": "0xddf",
+          "addend": 0,
+          "routine": "iosetup",
+          "instruction": "mov\tcs:settlecurrent,al"
+        },
+        {
+          "candidate_base_offset": "0xddf",
+          "operand_offset": "0x308c",
+          "encoded_value": "0xddf",
+          "addend": 0,
+          "routine": "diddleback",
+          "instruction": "mov\tal,cs:settlecurrent"
+        }
+      ]
+    },
+    {
+      "symbol": "settleslow",
+      "candidate_offsets": [
+        "0xde0"
+      ],
+      "reference_count": 1,
+      "references": [
+        {
+          "candidate_base_offset": "0xde0",
+          "operand_offset": "0x3065",
+          "encoded_value": "0xde0",
+          "addend": 0,
+          "routine": "iosetup",
+          "instruction": "mov\tcs:settleslow,al"
+        }
+      ]
+    },
+    {
+      "symbol": "soft_ecc_cnt",
+      "candidate_offsets": [
+        "0xdf6"
+      ],
+      "reference_count": 5,
+      "references": [
+        {
+          "candidate_base_offset": "0xdf6",
+          "operand_offset": "0x313b",
+          "encoded_value": "0xdf6",
+          "addend": 0,
+          "routine": "disk",
+          "instruction": "mov\tcs:soft_ecc_cnt,bp"
+        },
+        {
+          "candidate_base_offset": "0xdf6",
+          "operand_offset": "0x3258",
+          "encoded_value": "0xdf6",
+          "addend": 0,
+          "routine": "dskerr",
+          "instruction": "mov\tcs:soft_ecc_cnt,maxerr"
+        },
+        {
+          "candidate_base_offset": "0xdf6",
+          "operand_offset": "0x336b",
+          "encoded_value": "0xdf6",
+          "addend": 0,
+          "routine": "ext_disk_io",
+          "instruction": "mov\tcs:soft_ecc_cnt,bp"
+        },
+        {
+          "candidate_base_offset": "0xdf6",
+          "operand_offset": "0x33a9",
+          "encoded_value": "0xdf6",
+          "addend": 0,
+          "routine": "ext_disk_io",
+          "instruction": "dec\tcs:soft_ecc_cnt"
+        },
+        {
+          "candidate_base_offset": "0xdf6",
+          "operand_offset": "0x33c9",
+          "encoded_value": "0xdf6",
+          "addend": 0,
+          "routine": "ext_disk_io",
+          "instruction": "mov\tcs:soft_ecc_cnt,maxerr"
+        }
+      ]
+    },
+    {
+      "symbol": "spsav",
+      "candidate_offsets": [
+        "0xdec"
+      ],
+      "reference_count": 1,
+      "references": [
+        {
+          "candidate_base_offset": "0xdec",
+          "operand_offset": "0x2f58",
+          "encoded_value": "0xdec",
+          "addend": 0,
+          "routine": "diskio",
+          "instruction": "mov\tcs:[spsav],sp"
+        }
+      ]
+    },
+    {
+      "symbol": "start_sec_h",
+      "candidate_offsets": [
+        "0xdf0"
+      ],
+      "reference_count": 3,
+      "references": [
+        {
+          "candidate_base_offset": "0xdf0",
+          "operand_offset": "0x2f31",
+          "encoded_value": "0xdf0",
+          "addend": 0,
+          "routine": "diskio",
+          "instruction": "cmp\tcs:[start_sec_h],0"
+        },
+        {
+          "candidate_base_offset": "0xdf0",
+          "operand_offset": "0x2f7a",
+          "encoded_value": "0xdf0",
+          "addend": 0,
+          "routine": "diskio",
+          "instruction": "add\tsi,cs:[start_sec_h]"
+        },
+        {
+          "candidate_base_offset": "0xdf0",
+          "operand_offset": "0x2f93",
+          "encoded_value": "0xdf0",
+          "addend": 0,
+          "routine": "diskio",
+          "instruction": "mov\tdx,cs:[start_sec_h]"
+        }
+      ]
+    },
+    {
+      "symbol": "step_drv",
+      "candidate_offsets": [
+        "0xdd6"
+      ],
+      "reference_count": 3,
+      "references": [
+        {
+          "candidate_base_offset": "0xdd6",
+          "operand_offset": "0x2e17",
+          "encoded_value": "0xdd6",
+          "addend": 0,
+          "routine": "read_sector",
+          "instruction": "mov\tcs:[step_drv],dl"
+        },
+        {
+          "candidate_base_offset": "0xdd6",
+          "operand_offset": "0x3175",
+          "encoded_value": "0xdd6",
+          "addend": 0,
+          "routine": "disk",
+          "instruction": "cmp\tcs:[step_drv],-1"
+        },
+        {
+          "candidate_base_offset": "0xdd6",
+          "operand_offset": "0x3198",
+          "encoded_value": "0xdd6",
+          "addend": 0,
+          "routine": "disk",
+          "instruction": "mov\tcs:[step_drv],dl"
+        }
+      ]
+    },
+    {
+      "symbol": "temp_h",
+      "candidate_offsets": [
+        "0xdee"
+      ],
+      "reference_count": 4,
+      "references": [
+        {
+          "candidate_base_offset": "0xdee",
+          "operand_offset": "0x2fda",
+          "encoded_value": "0xdee",
+          "addend": 0,
+          "routine": "diskio",
+          "instruction": "mov\tcs:[temp_h],ax"
+        },
+        {
+          "candidate_base_offset": "0xdee",
+          "operand_offset": "0x2ff4",
+          "encoded_value": "0xdee",
+          "addend": 0,
+          "routine": "diskio",
+          "instruction": "mov\tax,cs:[temp_h]"
+        },
+        {
+          "candidate_base_offset": "0xdee",
+          "operand_offset": "0x2ffa",
+          "encoded_value": "0xdee",
+          "addend": 0,
+          "routine": "diskio",
+          "instruction": "mov\tcs:[temp_h],ax"
+        },
+        {
+          "candidate_base_offset": "0xdee",
+          "operand_offset": "0x3002",
+          "encoded_value": "0xdee",
+          "addend": 0,
+          "routine": "diskio",
+          "instruction": "cmp\tcs:[temp_h],0"
+        }
+      ]
+    },
+    {
+      "symbol": "tim_drv",
+      "candidate_offsets": [
+        "0xdd8"
+      ],
+      "reference_count": 5,
+      "references": [
+        {
+          "candidate_base_offset": "0xdd8",
+          "operand_offset": "0x2aee",
+          "encoded_value": "0xdd8",
+          "addend": 0,
+          "routine": "Media_Chk",
+          "instruction": "mov\tcs:[Tim_Drv],-1"
+        },
+        {
+          "candidate_base_offset": "0xdd8",
+          "operand_offset": "0x2b1c",
+          "encoded_value": "0xdd8",
+          "addend": 0,
+          "routine": "Media_Chk",
+          "instruction": "mov\tAL,cs:[Tim_Drv]"
+        },
+        {
+          "candidate_base_offset": "0xdd8",
+          "operand_offset": "0x2b45",
+          "encoded_value": "0xdd8",
+          "addend": 0,
+          "routine": "Media_Chk",
+          "instruction": "mov\tcs:[tim_drv],-1"
+        },
+        {
+          "candidate_base_offset": "0xdd8",
+          "operand_offset": "0x2e1c",
+          "encoded_value": "0xdd8",
+          "addend": 0,
+          "routine": "read_sector",
+          "instruction": "mov\tcs:[tim_drv],dl"
+        },
+        {
+          "candidate_base_offset": "0xdd8",
+          "operand_offset": "0x3029",
+          "encoded_value": "0xdd8",
+          "addend": 0,
+          "routine": "iosetup",
+          "instruction": "mov\tcs:[tim_drv],al"
+        }
+      ]
+    },
+    {
+      "symbol": "vol_no_name",
+      "candidate_offsets": [
+        "0xe0b"
+      ],
+      "reference_count": 1,
+      "references": [
+        {
+          "candidate_base_offset": "0xe0b",
+          "operand_offset": "0x2bde",
+          "encoded_value": "0xe0b",
+          "addend": 0,
+          "routine": "clear_ids",
+          "instruction": "mov\tsi,offset vol_no_name"
+        }
+      ]
+    },
+    {
+      "symbol": "vretry_cnt",
+      "candidate_offsets": [
+        "0xdf4"
+      ],
+      "reference_count": 3,
+      "references": [
+        {
+          "candidate_base_offset": "0xdf4",
+          "operand_offset": "0x3136",
+          "encoded_value": "0xdf4",
+          "addend": 0,
+          "routine": "disk",
+          "instruction": "mov\tcs:vretry_cnt,bp"
+        },
+        {
+          "candidate_base_offset": "0xdf4",
+          "operand_offset": "0x3366",
+          "encoded_value": "0xdf4",
+          "addend": 0,
+          "routine": "ext_disk_io",
+          "instruction": "mov\tcs:vretry_cnt,bp"
+        },
+        {
+          "candidate_base_offset": "0xdf4",
+          "operand_offset": "0x33b8",
+          "encoded_value": "0xdf4",
+          "addend": 0,
+          "routine": "ext_disk_io",
+          "instruction": "dec\tcs:vretry_cnt"
+        }
+      ]
+    },
+    {
+      "symbol": "wrtverify",
+      "candidate_offsets": [
+        "0xdda"
+      ],
+      "reference_count": 2,
+      "references": [
+        {
+          "candidate_base_offset": "0xdda",
+          "operand_offset": "0x31a1",
+          "encoded_value": "0xdda",
+          "addend": 0,
+          "routine": "disk",
+          "instruction": "cmp\tcs:wrtverify,103h"
+        },
+        {
+          "candidate_base_offset": "0xdda",
+          "operand_offset": "0x338a",
+          "encoded_value": "0xdda",
+          "addend": 0,
+          "routine": "ext_disk_io",
+          "instruction": "cmp\tcs:wrtverify,103h"
+        }
+      ]
+    },
+    {
+      "symbol": "xfer_seg",
+      "candidate_offsets": [
+        "0x179f"
+      ],
+      "reference_count": 2,
+      "references": [
+        {
+          "candidate_base_offset": "0x179f",
+          "operand_offset": "0x2f11",
+          "encoded_value": "0x179f",
+          "addend": 0,
+          "routine": "diskio",
+          "instruction": "mov\tcs:xfer_seg,es"
+        },
+        {
+          "candidate_base_offset": "0x179f",
+          "operand_offset": "0x335a",
+          "encoded_value": "0x179f",
+          "addend": 0,
+          "routine": "ext_disk_io",
+          "instruction": "mov\tax,cs:xfer_seg"
+        }
+      ]
+    }
+  ],
+  "conflicting_candidates": [],
+  "limitations": [
+    "A unique offset is an inference from aligned code, not proof of a defining source file or final linked segment.",
+    "Each source instruction and inferred segment must still be checked; default-segment assumptions cannot be inferred from a bare numeric offset alone.",
+    "Parser covers only simple named operands, decimal addends, and the previously matched routine set.",
+    "No target-wide link or original symbol names are proven."
+  ]
+}

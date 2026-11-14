@@ -1,0 +1,24 @@
+{
+  "target": "extras/baselines/targets/COMMAND.COM",
+  "target_sha256": "a74c700063cd6b1c91523952bfc80e9393c125d39ada0164d48b5098089fcef3",
+  "target_range": {
+    "start": 87,
+    "end_exclusive": 12972,
+    "length": 12885
+  },
+  "probe_source": "extras/build/msg-interleave-asm-6cpplu9g/probe.asm",
+  "probe_source_sha256": "626ea9f402cf61f6c9729968902327cdcb7d206af7458a3d4e0f3be1e39cc69c",
+  "probe_object_sha256": "197d8a87d0bfdc8676a10dbddbbca28898f00f2a4bf7c78b4d4fdd0e2b337d54",
+  "object_segment": 1,
+  "decoded_segment_sha256": "e783f97ce60159bebb0d46247adf20684ca4eb0b57629c6e8f38f300ce5a90de",
+  "target_range_sha256": "e783f97ce60159bebb0d46247adf20684ca4eb0b57629c6e8f38f300ce5a90de",
+  "byte_equal": true,
+  "assembler_warnings": 0,
+  "structure": "Class 1 header and four indices; class 2 header and one index; class 3 header and 198 indices; five other-class messages; 198 class-3 messages including 9900.",
+  "limitations": [
+    "The isolated assembly source was mechanically constructed from target binary records and is not claimed to be original Microsoft source.",
+    "The role and mutability of message 9900 remain unknown.",
+    "No final COMMAND executable, generated formal resources, source consumers, relocations or other components were verified.",
+    "ID 9900 points exactly at the end of message 1927; independently allocated message versus overlap with following structured data remains unresolved."
+  ]
+}

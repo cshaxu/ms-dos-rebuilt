@@ -1,0 +1,31 @@
+{
+  "build_report": "extras/docs/etc/command-transient-transfer-size-build-20261112.json",
+  "fields": [
+    {
+      "resident": "Res_Tpa",
+      "transient": "TRAN_TPA",
+      "offset": 18
+    },
+    {
+      "resident": "YSwitchFlags",
+      "transient": "fTest",
+      "offset": 20
+    },
+    {
+      "resident": "RetCode",
+      "transient": "TraceReturnCode",
+      "offset": 22
+    }
+  ],
+  "verified_transient_offsets": {
+    "TracePrinted": 23,
+    "CmdBufferLength": 24,
+    "InputBufferLength": 26
+  },
+  "current_transfer_bytes": 29,
+  "target_transfer_bytes": 29,
+  "remaining": "One zero-valued byte between return code and buffer sizes has not been assigned a verified semantic meaning.",
+  "limits": [
+    "field offsets and linked symbols checked; whole reload not executed"
+  ]
+}

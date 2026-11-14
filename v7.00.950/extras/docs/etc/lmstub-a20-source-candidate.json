@@ -1,0 +1,18 @@
+{
+  "stage": "extras\\build\\lmstub-a20-candidate-cbxujaqt",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "candidate_source_sha256": "c801e569ecd687350494dca1eba95037449472d4470abf77d0e69307f9e875ce",
+  "target_range": [
+    "0x1af48",
+    "0x1af9a"
+  ],
+  "length": 82,
+  "object_fixup_count": 9,
+  "non_fixup_differences": 0,
+  "candidate": "DOS7_CONFIG branch replaces the local display-and-halt body with an indirect far call through a temporary external symbol; legacy branch remains in the candidate.",
+  "limitations": [
+    "The symbol is provisional: target pointer initialization and source ownership have not been established.",
+    "The candidate was compiled in a provisional kernel context with an unresolved external; no complete target link was performed.",
+    "The target fall-through after the far call and other changes in lmstub.asm require further reconstruction."
+  ]
+}

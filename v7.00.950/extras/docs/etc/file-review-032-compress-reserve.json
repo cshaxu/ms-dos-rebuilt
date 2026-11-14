@@ -1,0 +1,15 @@
+{
+  "file": "bios/sysinit1.asm",
+  "source_sha256": "6cc7195c438689b8a447a2883602a788632a513ff273bcacc90b4392b97cc29f",
+  "target_range": "IO.SYS 0x6a8b..0x6b69",
+  "bytes": 222,
+  "different_bytes": 0,
+  "probe": "extras/research/compress-reserve-linked.asm",
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "The probe uses stubbed directory and sector reads; disk behavior and full linked layout remain unverified.",
+    "The compressed reserve consumer and overall startup image relocation remain incomplete."
+  ]
+}

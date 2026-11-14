@@ -1,0 +1,49 @@
+{
+  "source": "bios/msbio1.asm",
+  "source_sha256": "b6bb4a70ddc0070682005086dcd8069c70fb3717a8f8cf0833828f2cc85093fb",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "routine": "config_restore",
+  "target_file_offset": 61280,
+  "routine_length": 102,
+  "non_address_bytes_verified": 88,
+  "layout_dependent_operand_fields": [
+    {
+      "offset": 4,
+      "symbol": "config_buffer_segment",
+      "target_offset": 41120
+    },
+    {
+      "offset": 9,
+      "symbol": "config_buffer_paragraphs",
+      "target_offset": 41122
+    },
+    {
+      "offset": 64,
+      "symbol": "config_buffer_count",
+      "target_offset": 41124
+    },
+    {
+      "offset": 69,
+      "symbol": "config_bios_segment",
+      "target_offset": 3902
+    },
+    {
+      "offset": 82,
+      "symbol": "config_buffer_segment",
+      "target_offset": 41120
+    },
+    {
+      "offset": 94,
+      "symbol": "config_buffer_paragraphs",
+      "target_offset": 41122
+    },
+    {
+      "offset": 98,
+      "symbol": "config_buffer_segment",
+      "target_offset": 41120
+    }
+  ],
+  "direct_byte_matches": 88,
+  "diagnostic": "config-ml-restore-operands.json",
+  "limitations": "The seven diagnostic operand values are unresolved SYSINIT placement differences; checking their source symbols and target offsets does not make the routine byte-identical. This is a stub-assisted diagnostic, not a production build."
+}

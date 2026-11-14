@@ -1,0 +1,51 @@
+{
+  "status": "confirmed_conditional_cycle_to_restore_as_one_unit",
+  "owner_authorization": "Previously approved genuine dependency cycles as a single unit with per-file progress.",
+  "exit_dispatch": {
+    "initial": "DS:042A = 0200 -> __exit at 9360 (quick exit)",
+    "divide_handler": "925C stores 01F9 to DS:042A -> _exit at 9359 (normal cleanup)"
+  },
+  "edges": [
+    [
+      "__write",
+      "__chkstk",
+      "historical write.asm external"
+    ],
+    [
+      "__chkstk",
+      "__amsg_exit",
+      "A13F near jump to 9262"
+    ],
+    [
+      "__amsg_exit",
+      "_exit or __exit",
+      "928A indirect call through DS:042A; mutable by divide handler"
+    ],
+    [
+      "_exit",
+      "__endstdio",
+      "cleanup table DS:076E points to A146; dispatcher 93F9"
+    ],
+    [
+      "__endstdio",
+      "__flushall",
+      "A149 FAR call to A22E"
+    ],
+    [
+      "__flushall",
+      "_fflush",
+      "A279 FAR call to A15C"
+    ],
+    [
+      "_fflush",
+      "__flush",
+      "A176 near call to A1B2"
+    ],
+    [
+      "__flush",
+      "__write",
+      "A1F7 FAR call to A31E"
+    ]
+  ],
+  "scope": "Conditional runtime dependency evidence, not completion. Include startup/divide and normal/quick exit ownership in integration."
+}

@@ -1,0 +1,22 @@
+{
+  "source": "extras/research/bios-mult-unit-integration/multunit.asm",
+  "source_sha256": "902893838ca8d504d350e12a0ee326548a6a83e8e3f652b53cf90efa0926b979",
+  "linked_exe_sha256": "d200af29787e9cfea9561c5df21e6f084064d9da0f04a65f9063895fff614896",
+  "linker_sha256": "910ed26e6c8d72d64faa82a7eeabb6d5c002b347024c8f1d778fddbbb8ac1b00",
+  "map_offsets": {
+    "i13z": "0x232d",
+    "install_bds": "0x25c0",
+    "hidensity": "0x27d6",
+    "mult_call16": "0x29d4",
+    "mult_call17": "0x2a63",
+    "mult_call18": "0x2aea",
+    "mult_call21": "0x2b0c"
+  },
+  "i13z_to_install_bds_distance": 659,
+  "target_i13z_to_install_bds_distance": 659,
+  "correction": "Earlier diagnostic integration accidentally retained ORG 2B78h, inserting 0x2B51 bytes of artificial gap inside the unit. This version removes it and uses EVEN for the observed one-byte alignment; the previous diagnostic map and executable hash are invalidated.",
+  "limitations": [
+    "EVEN is an integration hypothesis, not proof of original declaration semantics.",
+    "Other stubs and generated inputs remain; full target identity is unproven."
+  ]
+}

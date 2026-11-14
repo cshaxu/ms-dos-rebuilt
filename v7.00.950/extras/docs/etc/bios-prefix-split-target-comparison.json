@@ -1,0 +1,833 @@
+{
+  "linked_exe_sha256": "94429fb10e64b6ed219d3085b41aab507a35fd4f189358f941667becc8d237d5",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "source_probe": "extras/research/bios-prefix-split-trial/msbio1.asm",
+  "synthetic_load_segment": "0x70",
+  "applied_mz_relocations": 75,
+  "anchors": [
+    {
+      "symbol": "con_table",
+      "target_file_offset": "0x23b8",
+      "bios_code_offset": "0x768"
+    },
+    {
+      "symbol": "GetTickCnt",
+      "target_file_offset": "0x2772",
+      "bios_code_offset": "0xb22"
+    },
+    {
+      "symbol": "int6c_code",
+      "target_file_offset": "0x279f",
+      "bios_code_offset": "0xb4f"
+    },
+    {
+      "symbol": "read_real_date",
+      "target_file_offset": "0x27b0",
+      "bios_code_offset": "0xb60"
+    },
+    {
+      "symbol": "step_drv",
+      "target_file_offset": "0x2a26",
+      "bios_code_offset": "0xdd6"
+    },
+    {
+      "symbol": "dsktbl",
+      "target_file_offset": "0x2a80",
+      "bios_code_offset": "0xe30"
+    },
+    {
+      "symbol": "do_generic_ioctl",
+      "target_file_offset": "0x342b",
+      "bios_code_offset": "0x17db"
+    },
+    {
+      "symbol": "i13z",
+      "target_file_offset": "0x41d5",
+      "bios_code_offset": "0x2585"
+    },
+    {
+      "symbol": "install_bds",
+      "target_file_offset": "0x4468",
+      "bios_code_offset": "0x2818"
+    },
+    {
+      "symbol": "hidensity",
+      "target_file_offset": "0x463f",
+      "bios_code_offset": "0x29ef"
+    },
+    {
+      "symbol": "mult_call16",
+      "target_file_offset": "0x47e0",
+      "bios_code_offset": "0x2b90"
+    },
+    {
+      "symbol": "config_table",
+      "target_file_offset": "0x4990",
+      "bios_code_offset": "0x2d40"
+    }
+  ],
+  "comparison": {
+    "target_start": "0x237e",
+    "target_end_exclusive": "0x49e4",
+    "length": 9830,
+    "matching_bytes": 9631,
+    "different_bytes": 199,
+    "difference_runs": [
+      {
+        "target_file_start": "0x2669",
+        "length": 2,
+        "linked_hex": "c81f",
+        "target_hex": "3807"
+      },
+      {
+        "target_file_start": "0x266d",
+        "length": 2,
+        "linked_hex": "ca1f",
+        "target_hex": "3a07"
+      },
+      {
+        "target_file_start": "0x2682",
+        "length": 2,
+        "linked_hex": "8023",
+        "target_hex": "8b03"
+      },
+      {
+        "target_file_start": "0x268f",
+        "length": 2,
+        "linked_hex": "7323",
+        "target_hex": "7e03"
+      },
+      {
+        "target_file_start": "0x269c",
+        "length": 2,
+        "linked_hex": "6623",
+        "target_hex": "7103"
+      },
+      {
+        "target_file_start": "0x26ce",
+        "length": 2,
+        "linked_hex": "3523",
+        "target_hex": "8102"
+      },
+      {
+        "target_file_start": "0x27ba",
+        "length": 2,
+        "linked_hex": "97ad",
+        "target_hex": "da00"
+      },
+      {
+        "target_file_start": "0x27d2",
+        "length": 2,
+        "linked_hex": "dc1f",
+        "target_hex": "4c07"
+      },
+      {
+        "target_file_start": "0x27d6",
+        "length": 2,
+        "linked_hex": "dd1f",
+        "target_hex": "4d07"
+      },
+      {
+        "target_file_start": "0x27da",
+        "length": 2,
+        "linked_hex": "de1f",
+        "target_hex": "4e07"
+      },
+      {
+        "target_file_start": "0x27de",
+        "length": 2,
+        "linked_hex": "df1f",
+        "target_hex": "4f07"
+      },
+      {
+        "target_file_start": "0x2803",
+        "length": 2,
+        "linked_hex": "dd1f",
+        "target_hex": "4d07"
+      },
+      {
+        "target_file_start": "0x2808",
+        "length": 2,
+        "linked_hex": "dc1f",
+        "target_hex": "4c07"
+      },
+      {
+        "target_file_start": "0x280d",
+        "length": 6,
+        "linked_hex": "0564002d5000",
+        "target_hex": "83c06483e850"
+      },
+      {
+        "target_file_start": "0x2838",
+        "length": 2,
+        "linked_hex": "de1f",
+        "target_hex": "4e07"
+      },
+      {
+        "target_file_start": "0x2844",
+        "length": 2,
+        "linked_hex": "df1f",
+        "target_hex": "4f07"
+      },
+      {
+        "target_file_start": "0x2850",
+        "length": 2,
+        "linked_hex": "de1f",
+        "target_hex": "4e07"
+      },
+      {
+        "target_file_start": "0x2858",
+        "length": 2,
+        "linked_hex": "e01f",
+        "target_hex": "5007"
+      },
+      {
+        "target_file_start": "0x2875",
+        "length": 2,
+        "linked_hex": "dc1f",
+        "target_hex": "4c07"
+      },
+      {
+        "target_file_start": "0x2879",
+        "length": 2,
+        "linked_hex": "dd1f",
+        "target_hex": "4d07"
+      },
+      {
+        "target_file_start": "0x287d",
+        "length": 2,
+        "linked_hex": "de1f",
+        "target_hex": "4e07"
+      },
+      {
+        "target_file_start": "0x2881",
+        "length": 2,
+        "linked_hex": "df1f",
+        "target_hex": "4f07"
+      },
+      {
+        "target_file_start": "0x2893",
+        "length": 2,
+        "linked_hex": "dc1f",
+        "target_hex": "4c07"
+      },
+      {
+        "target_file_start": "0x2897",
+        "length": 2,
+        "linked_hex": "dd1f",
+        "target_hex": "4d07"
+      },
+      {
+        "target_file_start": "0x289b",
+        "length": 2,
+        "linked_hex": "de1f",
+        "target_hex": "4e07"
+      },
+      {
+        "target_file_start": "0x289f",
+        "length": 2,
+        "linked_hex": "df1f",
+        "target_hex": "4f07"
+      },
+      {
+        "target_file_start": "0x28ad",
+        "length": 2,
+        "linked_hex": "dc1f",
+        "target_hex": "4c07"
+      },
+      {
+        "target_file_start": "0x28b3",
+        "length": 2,
+        "linked_hex": "dc1f",
+        "target_hex": "4c07"
+      },
+      {
+        "target_file_start": "0x28b6",
+        "length": 2,
+        "linked_hex": "dd1f",
+        "target_hex": "4d07"
+      },
+      {
+        "target_file_start": "0x28bc",
+        "length": 2,
+        "linked_hex": "dd1f",
+        "target_hex": "4d07"
+      },
+      {
+        "target_file_start": "0x28bf",
+        "length": 2,
+        "linked_hex": "de1f",
+        "target_hex": "4e07"
+      },
+      {
+        "target_file_start": "0x28c5",
+        "length": 2,
+        "linked_hex": "de1f",
+        "target_hex": "4e07"
+      },
+      {
+        "target_file_start": "0x28c8",
+        "length": 2,
+        "linked_hex": "df1f",
+        "target_hex": "4f07"
+      },
+      {
+        "target_file_start": "0x28ce",
+        "length": 2,
+        "linked_hex": "df1f",
+        "target_hex": "4f07"
+      },
+      {
+        "target_file_start": "0x28d3",
+        "length": 2,
+        "linked_hex": "dc1f",
+        "target_hex": "4c07"
+      },
+      {
+        "target_file_start": "0x28dc",
+        "length": 2,
+        "linked_hex": "dc1f",
+        "target_hex": "4c07"
+      },
+      {
+        "target_file_start": "0x28e3",
+        "length": 2,
+        "linked_hex": "dd1f",
+        "target_hex": "4d07"
+      },
+      {
+        "target_file_start": "0x28ea",
+        "length": 2,
+        "linked_hex": "dd1f",
+        "target_hex": "4d07"
+      },
+      {
+        "target_file_start": "0x28f1",
+        "length": 2,
+        "linked_hex": "de1f",
+        "target_hex": "4e07"
+      },
+      {
+        "target_file_start": "0x28f8",
+        "length": 2,
+        "linked_hex": "de1f",
+        "target_hex": "4e07"
+      },
+      {
+        "target_file_start": "0x28ff",
+        "length": 2,
+        "linked_hex": "df1f",
+        "target_hex": "4f07"
+      },
+      {
+        "target_file_start": "0x2906",
+        "length": 2,
+        "linked_hex": "df1f",
+        "target_hex": "4f07"
+      },
+      {
+        "target_file_start": "0x2911",
+        "length": 2,
+        "linked_hex": "dc1f",
+        "target_hex": "4c07"
+      },
+      {
+        "target_file_start": "0x2918",
+        "length": 2,
+        "linked_hex": "dd1f",
+        "target_hex": "4d07"
+      },
+      {
+        "target_file_start": "0x291f",
+        "length": 2,
+        "linked_hex": "de1f",
+        "target_hex": "4e07"
+      },
+      {
+        "target_file_start": "0x292c",
+        "length": 2,
+        "linked_hex": "dc1f",
+        "target_hex": "4c07"
+      },
+      {
+        "target_file_start": "0x2abc",
+        "length": 2,
+        "linked_hex": "b22d",
+        "target_hex": "4e2b"
+      },
+      {
+        "target_file_start": "0x2abf",
+        "length": 2,
+        "linked_hex": "16ab",
+        "target_hex": "ae0e"
+      },
+      {
+        "target_file_start": "0x2bde",
+        "length": 2,
+        "linked_hex": "9b26",
+        "target_hex": "0b0e"
+      },
+      {
+        "target_file_start": "0x2beb",
+        "length": 2,
+        "linked_hex": "9226",
+        "target_hex": "020e"
+      },
+      {
+        "target_file_start": "0x2bf0",
+        "length": 2,
+        "linked_hex": "8926",
+        "target_hex": "f90d"
+      },
+      {
+        "target_file_start": "0x2dd1",
+        "length": 1,
+        "linked_hex": "a1",
+        "target_hex": "a2"
+      },
+      {
+        "target_file_start": "0x2df7",
+        "length": 1,
+        "linked_hex": "a1",
+        "target_hex": "a2"
+      },
+      {
+        "target_file_start": "0x2ee6",
+        "length": 2,
+        "linked_hex": "3ae0",
+        "target_hex": "38c4"
+      },
+      {
+        "target_file_start": "0x2f11",
+        "length": 1,
+        "linked_hex": "9e",
+        "target_hex": "9f"
+      },
+      {
+        "target_file_start": "0x302e",
+        "length": 1,
+        "linked_hex": "a1",
+        "target_hex": "a2"
+      },
+      {
+        "target_file_start": "0x3076",
+        "length": 1,
+        "linked_hex": "a1",
+        "target_hex": "a2"
+      },
+      {
+        "target_file_start": "0x327e",
+        "length": 1,
+        "linked_hex": "a1",
+        "target_hex": "a2"
+      },
+      {
+        "target_file_start": "0x32af",
+        "length": 1,
+        "linked_hex": "9e",
+        "target_hex": "9f"
+      },
+      {
+        "target_file_start": "0x32b6",
+        "length": 1,
+        "linked_hex": "9e",
+        "target_hex": "9f"
+      },
+      {
+        "target_file_start": "0x32c6",
+        "length": 2,
+        "linked_hex": "b626",
+        "target_hex": "260e"
+      },
+      {
+        "target_file_start": "0x32cc",
+        "length": 2,
+        "linked_hex": "ae26",
+        "target_hex": "1e0e"
+      },
+      {
+        "target_file_start": "0x335a",
+        "length": 1,
+        "linked_hex": "9e",
+        "target_hex": "9f"
+      },
+      {
+        "target_file_start": "0x33e5",
+        "length": 1,
+        "linked_hex": "ff",
+        "target_hex": "00"
+      },
+      {
+        "target_file_start": "0x33e9",
+        "length": 2,
+        "linked_hex": "0800",
+        "target_hex": "ff08"
+      },
+      {
+        "target_file_start": "0x33ed",
+        "length": 2,
+        "linked_hex": "5000",
+        "target_hex": "0050"
+      },
+      {
+        "target_file_start": "0x33f3",
+        "length": 2,
+        "linked_hex": "2400",
+        "target_hex": "0024"
+      },
+      {
+        "target_file_start": "0x3512",
+        "length": 1,
+        "linked_hex": "a0",
+        "target_hex": "a1"
+      },
+      {
+        "target_file_start": "0x3550",
+        "length": 1,
+        "linked_hex": "a3",
+        "target_hex": "a4"
+      },
+      {
+        "target_file_start": "0x35d2",
+        "length": 1,
+        "linked_hex": "9b",
+        "target_hex": "9c"
+      },
+      {
+        "target_file_start": "0x35d7",
+        "length": 1,
+        "linked_hex": "9a",
+        "target_hex": "9b"
+      },
+      {
+        "target_file_start": "0x35e6",
+        "length": 1,
+        "linked_hex": "a3",
+        "target_hex": "a4"
+      },
+      {
+        "target_file_start": "0x35f8",
+        "length": 1,
+        "linked_hex": "a3",
+        "target_hex": "a4"
+      },
+      {
+        "target_file_start": "0x35ff",
+        "length": 1,
+        "linked_hex": "9e",
+        "target_hex": "9f"
+      },
+      {
+        "target_file_start": "0x360e",
+        "length": 1,
+        "linked_hex": "9e",
+        "target_hex": "9f"
+      },
+      {
+        "target_file_start": "0x3612",
+        "length": 1,
+        "linked_hex": "a3",
+        "target_hex": "a4"
+      },
+      {
+        "target_file_start": "0x3625",
+        "length": 1,
+        "linked_hex": "a2",
+        "target_hex": "a3"
+      },
+      {
+        "target_file_start": "0x363d",
+        "length": 1,
+        "linked_hex": "a2",
+        "target_hex": "a3"
+      },
+      {
+        "target_file_start": "0x364d",
+        "length": 1,
+        "linked_hex": "a2",
+        "target_hex": "a3"
+      },
+      {
+        "target_file_start": "0x3677",
+        "length": 1,
+        "linked_hex": "a3",
+        "target_hex": "a4"
+      },
+      {
+        "target_file_start": "0x36a9",
+        "length": 1,
+        "linked_hex": "9e",
+        "target_hex": "9f"
+      },
+      {
+        "target_file_start": "0x36f2",
+        "length": 1,
+        "linked_hex": "9e",
+        "target_hex": "9f"
+      },
+      {
+        "target_file_start": "0x3700",
+        "length": 1,
+        "linked_hex": "a1",
+        "target_hex": "a2"
+      },
+      {
+        "target_file_start": "0x3777",
+        "length": 1,
+        "linked_hex": "a1",
+        "target_hex": "a2"
+      },
+      {
+        "target_file_start": "0x3797",
+        "length": 1,
+        "linked_hex": "a2",
+        "target_hex": "a3"
+      },
+      {
+        "target_file_start": "0x37ad",
+        "length": 1,
+        "linked_hex": "a2",
+        "target_hex": "a3"
+      },
+      {
+        "target_file_start": "0x37b3",
+        "length": 1,
+        "linked_hex": "9d",
+        "target_hex": "9e"
+      },
+      {
+        "target_file_start": "0x37cf",
+        "length": 1,
+        "linked_hex": "a0",
+        "target_hex": "a1"
+      },
+      {
+        "target_file_start": "0x37d9",
+        "length": 1,
+        "linked_hex": "9d",
+        "target_hex": "9e"
+      },
+      {
+        "target_file_start": "0x37fb",
+        "length": 1,
+        "linked_hex": "99",
+        "target_hex": "9a"
+      },
+      {
+        "target_file_start": "0x3803",
+        "length": 1,
+        "linked_hex": "a2",
+        "target_hex": "a3"
+      },
+      {
+        "target_file_start": "0x380d",
+        "length": 1,
+        "linked_hex": "a1",
+        "target_hex": "a2"
+      },
+      {
+        "target_file_start": "0x3854",
+        "length": 1,
+        "linked_hex": "a2",
+        "target_hex": "a3"
+      },
+      {
+        "target_file_start": "0x3867",
+        "length": 1,
+        "linked_hex": "95",
+        "target_hex": "96"
+      },
+      {
+        "target_file_start": "0x386c",
+        "length": 1,
+        "linked_hex": "97",
+        "target_hex": "98"
+      },
+      {
+        "target_file_start": "0x387c",
+        "length": 1,
+        "linked_hex": "a1",
+        "target_hex": "a2"
+      },
+      {
+        "target_file_start": "0x3883",
+        "length": 1,
+        "linked_hex": "a2",
+        "target_hex": "a3"
+      },
+      {
+        "target_file_start": "0x38a6",
+        "length": 1,
+        "linked_hex": "a1",
+        "target_hex": "a2"
+      },
+      {
+        "target_file_start": "0x38ae",
+        "length": 1,
+        "linked_hex": "a2",
+        "target_hex": "a3"
+      },
+      {
+        "target_file_start": "0x38c2",
+        "length": 1,
+        "linked_hex": "a1",
+        "target_hex": "a2"
+      },
+      {
+        "target_file_start": "0x38e4",
+        "length": 1,
+        "linked_hex": "99",
+        "target_hex": "9a"
+      },
+      {
+        "target_file_start": "0x38ec",
+        "length": 1,
+        "linked_hex": "9d",
+        "target_hex": "9e"
+      },
+      {
+        "target_file_start": "0x3904",
+        "length": 1,
+        "linked_hex": "9b",
+        "target_hex": "9c"
+      },
+      {
+        "target_file_start": "0x390f",
+        "length": 1,
+        "linked_hex": "9a",
+        "target_hex": "9b"
+      },
+      {
+        "target_file_start": "0x3915",
+        "length": 1,
+        "linked_hex": "9e",
+        "target_hex": "9f"
+      },
+      {
+        "target_file_start": "0x3969",
+        "length": 1,
+        "linked_hex": "a2",
+        "target_hex": "a3"
+      },
+      {
+        "target_file_start": "0x396e",
+        "length": 1,
+        "linked_hex": "a1",
+        "target_hex": "a2"
+      },
+      {
+        "target_file_start": "0x397a",
+        "length": 1,
+        "linked_hex": "95",
+        "target_hex": "96"
+      },
+      {
+        "target_file_start": "0x3bcc",
+        "length": 1,
+        "linked_hex": "f9",
+        "target_hex": "d5"
+      },
+      {
+        "target_file_start": "0x3bd0",
+        "length": 1,
+        "linked_hex": "f9",
+        "target_hex": "d5"
+      },
+      {
+        "target_file_start": "0x408c",
+        "length": 3,
+        "linked_hex": "051000",
+        "target_hex": "83c010"
+      },
+      {
+        "target_file_start": "0x40a7",
+        "length": 3,
+        "linked_hex": "051000",
+        "target_hex": "83c010"
+      },
+      {
+        "target_file_start": "0x40ee",
+        "length": 3,
+        "linked_hex": "253f00",
+        "target_hex": "83e03f"
+      },
+      {
+        "target_file_start": "0x4234",
+        "length": 1,
+        "linked_hex": "a1",
+        "target_hex": "a2"
+      },
+      {
+        "target_file_start": "0x42f5",
+        "length": 2,
+        "linked_hex": "3ae0",
+        "target_hex": "38c4"
+      },
+      {
+        "target_file_start": "0x434b",
+        "length": 2,
+        "linked_hex": "3ae0",
+        "target_hex": "38c4"
+      },
+      {
+        "target_file_start": "0x4366",
+        "length": 2,
+        "linked_hex": "3ae0",
+        "target_hex": "38c4"
+      },
+      {
+        "target_file_start": "0x43f8",
+        "length": 3,
+        "linked_hex": "3d0100",
+        "target_hex": "83f801"
+      },
+      {
+        "target_file_start": "0x44f1",
+        "length": 1,
+        "linked_hex": "a6",
+        "target_hex": "b4"
+      },
+      {
+        "target_file_start": "0x44f6",
+        "length": 1,
+        "linked_hex": "ae",
+        "target_hex": "a8"
+      },
+      {
+        "target_file_start": "0x4504",
+        "length": 1,
+        "linked_hex": "a6",
+        "target_hex": "b4"
+      },
+      {
+        "target_file_start": "0x4509",
+        "length": 1,
+        "linked_hex": "b0",
+        "target_hex": "aa"
+      },
+      {
+        "target_file_start": "0x47c7",
+        "length": 1,
+        "linked_hex": "90",
+        "target_hex": "00"
+      },
+      {
+        "target_file_start": "0x49de",
+        "length": 2,
+        "linked_hex": "aa2d",
+        "target_hex": "4e2b"
+      },
+      {
+        "target_file_start": "0x49e1",
+        "length": 2,
+        "linked_hex": "7e65",
+        "target_hex": "0ea1"
+      }
+    ]
+  },
+  "limitations": [
+    "Comparison uses a synthetic load segment and transformed diagnostic sources; this is not a full IO.SYS build.",
+    "Diagnostic stubs, placeholder initialization data, inferred source ownership and unresolved semantics remain.",
+    "Equal bytes in this interval do not prove source provenance or functional correctness."
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "source": "bios/msbio1.asm",
+  "source_sha256": "df4ec4aecf66726e43ac011bd7240bf86dc379aa9718317eff7459d7ba7530d8",
+  "target_entry_file_offset": 23576,
+  "target_entry_hex": "e91501",
+  "target_entry_offset": 3816,
+  "target_destination_offset": 4096,
+  "diagnostic_entry_segment": 969,
+  "diagnostic_entry_offset": 2954,
+  "diagnostic_entry_hex": "e9055b",
+  "diagnostic_target_offset": 26258,
+  "diagnostic_entry_after_drive_table_bytes": 0,
+  "target_entry_after_drive_table_bytes": 6,
+  "diagnostic_target_is_stub": true,
+  "limitations": "The diagnostic near jump reaches an explicit stub; target destination code has not been restored. Six bytes between the target drive table and entry have not been identified, so placement and displacement are unresolved."
+}

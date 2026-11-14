@@ -1,0 +1,16 @@
+{
+  "stage": "extras\\build\\rprintcrit-target-jfmqta6p",
+  "target_sha256": "a74c700063cd6b1c91523952bfc80e9393c125d39ada0164d48b5098089fcef3",
+  "target_range": [
+    "0x618c",
+    "0x61a1"
+  ],
+  "length": 21,
+  "linked_byte_equal": true,
+  "source_correspondence": "cmd/command/rucode.asm RPrintCrit plus MOV BX,[BX] after CritMsgPtrs lookup.",
+  "observed_fixup": "The assembler object contains a relocation for the same-segment RPrint call; only the linked output contains the correct relative displacement.",
+  "limitations": [
+    "The table uses a fixed target equate and RPrint is an isolated stub placed at a target-derived relative offset.",
+    "Full source placement and complete COMMAND link are not proven."
+  ]
+}

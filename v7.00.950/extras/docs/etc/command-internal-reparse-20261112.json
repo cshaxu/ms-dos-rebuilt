@@ -1,0 +1,25 @@
+{
+  "build": "extras/docs/etc/command-internal-reparse-build-20261112.json",
+  "changes": [
+    "restored target internal command argument reparse in parse2.asm",
+    "moved external command tail preparation to the external execution path"
+  ],
+  "target_instruction_range": "0xcfb3..0xcfff",
+  "instruction_bytes": 76,
+  "target_probe": "extras/build/internal-reparse-target-v0otepfr",
+  "current_probe": "extras/build/internal-reparse-current-wggy1e54",
+  "external_target": "extras/build/external-tail-target-3gyebpwj",
+  "external_current": "extras/build/external-tail-current-4qvepdid",
+  "joined_target": "extras/build/joined-command-target-_7f76xmb",
+  "joined_current": "extras/build/joined-command-current-kp7e7301",
+  "matched_cases": [
+    "SET output without spurious CMDLINE",
+    "wildcard COPY",
+    "CD and directory restoration",
+    "LOCK /?",
+    "external short command tail",
+    "ECHO. and CD.."
+  ],
+  "limitations": "external long-command and error paths remain unverified; final binary not identical",
+  "output_bytes": 94192
+}

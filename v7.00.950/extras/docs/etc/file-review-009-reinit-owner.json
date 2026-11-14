@@ -1,0 +1,11 @@
+{
+  "source": "bios/msbio1.asm",
+  "source_sha256": "b97d960b0b32a3acfdc615168984461cdd482e1b9d12ae19d3efc8f12f111403",
+  "old_diagnostic_re_init_bios_offset": 1337,
+  "target_data_hex": "00000000000000",
+  "change": "Exclude the DOS 6 re_init no-op far return from its old BIOS_DATA position for DOS7_CONFIG; provide a diagnostic-only compatibility stub.",
+  "remaining_diagnostic_bios_differences": [
+    "0x539"
+  ],
+  "limitations": "The target byte mismatch disproves this placement but does not prove that an equivalent entry is absent elsewhere. The following Win386 structure, its ownership and final BIOS layout remain unresolved."
+}

@@ -1,0 +1,19 @@
+{
+  "file": "bios/syspre.asm",
+  "file_index": 34,
+  "source_sha256": "051e6f5f290c514f235b3efc69f89fc454bec5e763de2a31165e56c59e9b7d84",
+  "target_file_range": "0xd999..0xd9a4",
+  "length": 11,
+  "different_bytes": 0,
+  "message_token": "0x8021",
+  "removed_external": "baddblspace",
+  "default_object_identical": true,
+  "dos7_assembly": "passed",
+  "probe_source": "extras/research/dblspace-error-linked.asm",
+  "probe_sha256": "82e22d9b75c9a03d7d3227584fef4f983f84888e1929d3e71c8713b8272e0840",
+  "linked_exe_sha256": "52c35d517b7aeb33afb8892c4ecbfe48bcaf0745194ba3a31aa0c885b836505d",
+  "limitations": [
+    "The isolated test uses ORG target positions and a diagnostic continuation after the compared branch.",
+    "The complete compression-driver setup and full SYSINIT are not validated."
+  ]
+}

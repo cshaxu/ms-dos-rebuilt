@@ -1,0 +1,69 @@
+{
+  "files": [
+    "bios/sysinit1.asm",
+    "bios/sysconf.asm"
+  ],
+  "source_hashes": [
+    "9202493eb2c6e200e52cfe285f76efb5a554ce5d4d395c9f03df0f1a19727192",
+    "888e5758911e45d4af6b31fd09190cba46de028702b2dfe2674d0430e14bd002"
+  ],
+  "target_references": [
+    "IO.SYS 0x85c3..0x85f9",
+    "IO.SYS 0x897f..0x89de",
+    "IO.SYS 0xc3a4..0xc3cb"
+  ],
+  "default_objects_identical_to_prior": true,
+  "dos7_assembly": "passed",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "Fixed-offset probes use stubbed calls; execution and cross-module placement are not established.",
+    "DOS=UMB initialization, the buffer structure field at offset 1fh, and full IO.SYS layout remain unverified.",
+    "The diagnostic link uses stubs and older objects."
+  ],
+  "set_buffer_probe": {
+    "target_range": "IO.SYS 0x897f..0x89de",
+    "bytes": 95,
+    "differences": [
+      [
+        "0x3a",
+        "0x2d",
+        "0x83"
+      ],
+      [
+        "0x3b",
+        "0x14",
+        "0xe8"
+      ],
+      [
+        "0x3c",
+        "0x0",
+        "0x14"
+      ]
+    ],
+    "source": "extras/research/setbuffer7-linked.asm"
+  },
+  "caller_probe": {
+    "target_range": "IO.SYS 0x85c3..0x85f9",
+    "bytes": 54,
+    "differences": [
+      [
+        "0x11",
+        "0x2d",
+        "0x83"
+      ],
+      [
+        "0x12",
+        "0x14",
+        "0xe8"
+      ],
+      [
+        "0x13",
+        "0x0",
+        "0x14"
+      ]
+    ],
+    "source": "extras/research/bufcaller7-linked.asm"
+  },
+  "umb_initial_data": "Target SYSINIT 0f0a..0f0d is ff 00 01; relative bytes restored, absolute placement remains unverified.",
+  "legacy_allocator": "Excluded from DOS7_CONFIG; preserved in the DOS6 branch."
+}

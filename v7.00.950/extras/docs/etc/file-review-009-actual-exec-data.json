@@ -1,0 +1,35 @@
+{
+  "source": "bios/msbio1.asm",
+  "source_sha256": "4b5fbf4a113f5fafc91937ee4297f3e2fdd73690a18ac5779233b69e08782456",
+  "change": "Replace four EXEC data address anchors and the synthetic EXEC command tail and CONFIG initialization entry with objects assembled from existing source.",
+  "matched": [
+    {
+      "region": "EXEC data and command tail",
+      "start": "0xa098",
+      "end_exclusive": "0xa10e",
+      "bytes": 118
+    },
+    {
+      "region": "CONFIG initialization entry",
+      "start": "0xa10e",
+      "end_exclusive": "0xa132",
+      "bytes": 36
+    },
+    {
+      "region": "system-file result handling",
+      "start": "0xa3e1",
+      "end_exclusive": "0xa40b",
+      "bytes": 42
+    }
+  ],
+  "verification": {
+    "tool": "extras/tools/verify_syspre_device_link.py",
+    "stage": "extras/build/syspre-object-link-ixid9pnu",
+    "scope": "Link-time comparison includes actual data and actual CONFIG entry. OMF external fixups confirm their referenced symbols; BIOS address and other gaps still use diagnostic anchors."
+  },
+  "limitations": [
+    "Upstream system-file execution code remains absent.",
+    "BIOS segment target address is synthetic in this diagnostic.",
+    "Full IO.SYS and all three core files remain unverified."
+  ]
+}

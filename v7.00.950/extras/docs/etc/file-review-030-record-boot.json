@@ -1,0 +1,32 @@
+{
+  "files": [
+    "bios/sysinit1.asm",
+    "bios/sysconf.asm"
+  ],
+  "matched_ranges": [
+    {
+      "target": "IO.SYS 0xb561..0xb571",
+      "bytes": 16,
+      "purpose": "MBRINT13 record template"
+    },
+    {
+      "target": "IO.SYS 0xd3a8..0xd428",
+      "bytes": 128,
+      "purpose": "boot INT 13 handler record"
+    },
+    {
+      "target": "IO.SYS 0x60fa..0x6111",
+      "bytes": 23,
+      "purpose": "initial recording call chain"
+    }
+  ],
+  "different_bytes": 0,
+  "default_objects_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "Probe uses target ORG addresses and stub calls for the initial-record call chain; final production placement is not established.",
+    "The mixed diagnostic uses older objects and stubs and does not establish complete runtime behavior.",
+    "Other device-load paths and the full record buffer lifecycle remain incomplete."
+  ]
+}

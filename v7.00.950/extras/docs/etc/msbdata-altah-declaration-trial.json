@@ -1,0 +1,14 @@
+{
+  "stage": "extras\\build\\msbdata-altah-candidate-sdjh3_7b",
+  "candidate_source_sha256": "002c0630bd05c61b1e6fd2bcd5760be9e605a493e3abc076ba8ea0324e842f9c",
+  "dos7_altah_offset": "0x045e",
+  "dos6_altah_offset": "0x000c",
+  "kernel_old_table_dos7_operand": "0x045e",
+  "kernel_old_table_dos6_operand": "0x000c",
+  "result": "Both provisional kernel MSData contexts assemble; symbol and old-instance-table operand use the proper version-specific offsets.",
+  "limitations": [
+    "The target appears not to contain the old WIN386 2.x table; retaining or removing it remains a separate kernel-source decision.",
+    "This fixes an absolute-segment declaration in a synthetic candidate, not the BIOS producer or complete final build.",
+    "The file remains pending because the BIOS producer and dependent kernel instance handling are not completed."
+  ]
+}

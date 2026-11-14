@@ -1,0 +1,31 @@
+{
+  "target": "extras/baselines/targets/IO.SYS",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "kernel_header_offset": 70592,
+  "kernel_header_bytes": "e9fc85203f7000000007003802010239",
+  "source": "inc/mshead.asm:151-168",
+  "target_header_offset_word": 16160,
+  "baseline_constants": {
+    "BIODATASTART": 1792,
+    "BIODATASIZ": 2304,
+    "BIOCODESIZ": 6768,
+    "DOSDATASIZ": 4970,
+    "BYTSTART": 15834,
+    "PARASTART": 15840
+  },
+  "conditional_inference": {
+    "formula": "PARASTART = (BIODATASTART + BIODATASIZ + BIOCODESIZ + DOSDATASIZ + 15) & ~15",
+    "target_sum_min": 16145,
+    "target_sum_max": 16160,
+    "three_sizes_sum_min": 14353,
+    "three_sizes_sum_max": 14368,
+    "status": "hypothesis_only_conflicts_with_candidate_bios_code_boundary",
+    "followup_evidence": "extras/docs/etc/origin-bios-size-assumption-conflict.json"
+  },
+  "limitations": [
+    "The kernel header candidate and equivalent field layout are strongly supported by the 6.22 comparison, but complete target reconstruction is not yet established.",
+    "Three individual size constants cannot be determined from one aligned aggregate.",
+    "The inference assumes the DOS 6 formula remains applicable in 7.0a; actual target build layout must be independently verified."
+  ],
+  "status": "target_constraint_only"
+}

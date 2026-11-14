@@ -1,0 +1,31 @@
+{
+  "part": "M5 T12 S1 P23",
+  "ordinal": 42,
+  "modified": 1,
+  "unchanged": 0,
+  "exact_dos6": 0,
+  "retired_by_merge": 0,
+  "reference": "No DOS6 reginit homolog found. Apply Microsoft module/segment/procedure conventions without claiming original provenance.",
+  "changes": "Remove seven obsolete fragment headings and generic reconstruction/verification prose, including the unrelated changed-block description. Document all nine entry contracts and allocation/cleanup ownership; normalize tabs.",
+  "necessity": "REGFINAL already consolidates block initialization, mount-list maintenance and tree export. Initializers share caller buffers; export calls them directly. Mount unlink updates the parent head and neighbours without freeing storage, unlike handle/file teardown. Recursive tree copy shares caller buffers. Retain the cohesive existing module and distinct interfaces; no extra split or duplicate implementation is needed.",
+  "validation": {
+    "effectiveStatementsEqual": true,
+    "statementCount": 858,
+    "proceduresReviewed": [
+      "RegInitHeader",
+      "RegInitKeyBlock",
+      "RegInitKeyRecords",
+      "RegInitDataBlock",
+      "RegFindAlias",
+      "RegAddMount",
+      "RegUnlinkMount",
+      "RegPrepareSaveFile",
+      "RegCopyKeyTree"
+    ],
+    "rebuilt": false,
+    "reason": "All ordered assembler statements unchanged, including literals, segment declarations, FAR/NEAR calls, pointer arithmetic, error branches and padding; reread verified after write.",
+    "binary_baseline": "T11 CONFIG/IO.SYS acceptance carried through P11; COMMAND.COM/MSDOS.SYS unchanged."
+  },
+  "next_ordinal": 43,
+  "remaining": 24
+}

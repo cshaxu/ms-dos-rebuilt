@@ -1,0 +1,40 @@
+{
+  "build": "extras/docs/etc/command-link-parser-layout-build-20261112.json",
+  "modified_source_files": [
+    "cmd/command/tdata.asm",
+    "cmd/command/tspc.asm"
+  ],
+  "modified_link_input": "cmd/command/command.lnk",
+  "target_probe": "extras\\build\\parser-final-target-0f0lmns2",
+  "current_probe": "extras\\build\\link-parser-layout-current-kpk_k71o",
+  "matched_outputs": [
+    "DATE.TXT",
+    "TIME.TXT",
+    "DIR.TXT",
+    "TYPE.TXT",
+    "REN.TXT",
+    "EXE.TXT",
+    "ATTR.TXT",
+    "FOR.TXT",
+    "DONE.TXT"
+  ],
+  "workspace_anchor_deltas": {
+    "RenErr_Ptr": 34,
+    "comspec_flag": 34,
+    "BatBufLen": 34,
+    "Parse_Ver": 34,
+    "$M_RT": 34,
+    "SRCXNAME": 34,
+    "ArgBufferEnd": 34,
+    "argbufptr": 34,
+    "DirBasePath": 34,
+    "DirOutputBuffer": 34,
+    "TranSpaceEnd": 34
+  },
+  "notes": [
+    "Unreferenced parser words retain unknown purpose; reserved storage inferred from target address boundaries, no invented behavior.",
+    "Target five-byte VER descriptor and explicit blank byte before BatBufLen restored.",
+    "LOADHIGH precedes message services in target and current link order."
+  ],
+  "final_byte_exact": false
+}

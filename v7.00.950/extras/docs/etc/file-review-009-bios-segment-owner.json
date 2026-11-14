@@ -1,0 +1,22 @@
+{
+  "file_index": 9,
+  "source": "bios/msbio1.asm",
+  "source_sha256": "44f403e1d7aa92690d85d9c3adf6273a4ec98b8e087841401557e1bd60c14c6f",
+  "target_sysinit_alloclim_offset": 3875,
+  "target_bios_segment_offset": 3902,
+  "target_config_buffer_offset": 41120,
+  "target_bios_segment_initial_value": 112,
+  "baseline_sysinit_anchor_file_offset": 17097,
+  "target_sysinit_anchor_file_offset": 23623,
+  "anchor_length": 32,
+  "diagnostic_stub_symbol": "config_bios_segment",
+  "diagnostic_symbol": [
+    977,
+    26192
+  ],
+  "diagnostic_initial_value": 112,
+  "interrupt_region_exact": true,
+  "config_restore_matching_bytes": 88,
+  "default_reference_output_sha256": "a67d8733509f9baf94017389cc1c991d5ef1c66bdfb91b6cab3eef0fc35e9490",
+  "limitations": "The target BIOS segment field has not been proven to be a specific named 6.22 variable. It remains a diagnostic stub until later SYSINIT source is reconstructed; the complete target build is not available."
+}

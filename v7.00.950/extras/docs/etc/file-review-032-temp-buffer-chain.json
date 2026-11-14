@@ -1,0 +1,16 @@
+{
+  "file": "bios/sysinit1.asm",
+  "source_sha256": "f98996b78aa75f08b7f2d9443b53718c489fa960d479fa0e106696c9c2ce0d98",
+  "target_range": "IO.SYS 0x608f..0x60f5",
+  "bytes": 102,
+  "different_bytes": 0,
+  "initial_temp_buffer_bytes": 16404,
+  "probe": "extras/research/temp-buffer-chain-linked.asm",
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "The later buffer resize consumer and stack lifetime of saved DOS information remain to be verified.",
+    "Fixed-offset probe does not execute allocation or prove final layout."
+  ]
+}

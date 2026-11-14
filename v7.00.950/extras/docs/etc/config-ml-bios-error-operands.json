@@ -1,0 +1,588 @@
+{
+  "kind": "diagnostic only; temporary message-resource and interrupt callback stubs; not a full 7.0a build",
+  "source_sha256": "bda69e171d346a85eda8c6ead7096f4f05347e8414b2e238378b1b22e4246d84",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "ml_sha256": "711ac49652a85e5a3cd83ee522abf9aed38f8e5059e4f267b420cb17ff88147b",
+  "baseline_report": "extras\\build\\msbio1-char-state-unification-baseline.json",
+  "baseline_object_sha256": {
+    "msload": "97104b5e1c711ec46c73e412428840978c52bdfcf2124f27b43f834db69f9b3f",
+    "msbio1": "f8931886d361bca048a11bebb3ca4a8da8cb11074c8407b7a17150782106968b",
+    "mschar": "afc86f7c4a0f81dde2bb019a7f55c6d6ba2131556bdabc539608c4b7413eb051",
+    "msdisk": "83699866d4997c2bd56193d3c8183717fd64b7b62e4d1a00467e34ee9b483f84",
+    "msdioctl": "70b6579ad1f7fb9b493787fde59ba4f620984b057c1846b150f8c84876806180",
+    "msint13": "05eee01fc17b43d2c7dc7a9808b06ea436ae12166deb1ec613284c8421521849",
+    "msbio2": "dc286af1ddc5f32893c8003e3da2e2f47aebc3213cdc34b1141a2e6d0e6b0bff",
+    "msinit": "01f2d3c999f813015a724a8768e73da3d5173076d3675438adb40779ed77518a",
+    "sysinit1": "8269d8be9813c54af37931b18dde90daf1e413c75a576324acddeb55439aa120",
+    "sysconf": "377001941b5e4e7e273ab13ad0549bc8b923b1b563ab1501129d0eb7e8d46853",
+    "syspre": "397d0317a01282aa8f74ee4bbfa1dde624c91e6dea3a6b903c99931e39baa930",
+    "sysinit2": "4a35404da31c051338ffdb8476baa938e2715c8ce55c37bfee0e30e32ff8974b",
+    "sysimes": "3c49069307c818c8a669d2d370b1dceef0ec2cc9fcc33f9f76219b2a0aef0548",
+    "power": "8f343f1a7e161196f0aaefe817b15aa03670fba9e3920d1a71d6a82d9a7e55b6",
+    "ptime": "81c2131534d607d8393a5a14edce15728de9971d6e355059a6a66d94ce01dab3",
+    "msend": "20d3d0cf8806053ba2368adc34305e134dfa9afb3a6e6eceb076da0d9ed25044"
+  },
+  "config_restore_target_offset": 61280,
+  "routine_length": 102,
+  "matching_bytes": 88,
+  "different_offsets": [
+    4,
+    5,
+    9,
+    10,
+    64,
+    65,
+    69,
+    70,
+    82,
+    83,
+    94,
+    95,
+    98,
+    99
+  ],
+  "orig13_offset": 180,
+  "off_d0_offset": 208,
+  "config_restore_operand_fields": [
+    {
+      "offset": 4,
+      "symbol": "config_buffer_segment",
+      "target_offset": 41120
+    },
+    {
+      "offset": 9,
+      "symbol": "config_buffer_paragraphs",
+      "target_offset": 41122
+    },
+    {
+      "offset": 64,
+      "symbol": "config_buffer_count",
+      "target_offset": 41124
+    },
+    {
+      "offset": 69,
+      "symbol": "bios_data_segment",
+      "target_offset": 3902
+    },
+    {
+      "offset": 82,
+      "symbol": "config_buffer_segment",
+      "target_offset": 41120
+    },
+    {
+      "offset": 94,
+      "symbol": "config_buffer_paragraphs",
+      "target_offset": 41122
+    },
+    {
+      "offset": 98,
+      "symbol": "config_buffer_segment",
+      "target_offset": 41120
+    }
+  ],
+  "config_restore_non_address_bytes_verified": 88,
+  "stubbed_symbols": [
+    "bios_msg_base",
+    "bios_msg_1",
+    "bios_msg_2",
+    "bios_msg_3",
+    "read_real_date",
+    "read_real_time",
+    "seg_reinit",
+    "ttticks",
+    "inHMA",
+    "int19sem",
+    "t_switch",
+    "havecmosclock",
+    "bintobcd",
+    "daycnttoday",
+    "int6c_ret_addr",
+    "dsktnum",
+    "disksector",
+    "feb29",
+    "re_init",
+    "zeroseg",
+    "Win386_SI",
+    "SI_Version",
+    "SI_Next",
+    "NextStack",
+    "IT_StackLoc",
+    "IT_StackSize",
+    "IsWin386",
+    "V86_Crit_SetFocus",
+    "FreeHMAPtr",
+    "MoveDOSIntoHMA",
+    "SysinitPresent",
+    "prevoper",
+    "number_of_sec",
+    "fhave96",
+    "single",
+    "fhavek09",
+    "fsetowner",
+    "move_myself",
+    "multrk_flag",
+    "multitrk_format_flag",
+    "auxnum",
+    "auxbuf",
+    "wait_count",
+    "base_century",
+    "base_year",
+    "month_tab",
+    "bin_date_time",
+    "month_table",
+    "errin",
+    "errout",
+    "lsterr",
+    "numerr",
+    "fat_12_id",
+    "fat_16_id",
+    "vol_no_name",
+    "sm92",
+    "accesscount",
+    "tim_drv",
+    "step_drv",
+    "vretry_cnt",
+    "soft_ecc_cnt",
+    "ec35_flag",
+    "set_id_flag",
+    "medbyt",
+    "wrtverify",
+    "rflag",
+    "seccnt",
+    "spsav",
+    "xfer_seg",
+    "dpt",
+    "cursec",
+    "curhd",
+    "curtrk",
+    "temp_h",
+    "saved_word",
+    "motorstartup",
+    "settlecurrent",
+    "settleslow",
+    "save_eot",
+    "eot",
+    "save_head_sttl",
+    "formt_eot",
+    "hdnum",
+    "trknum",
+    "gap_patch",
+    "mediatype",
+    "media_set_for_format",
+    "had_format_error",
+    "tempdpt",
+    "nul_vid",
+    "tmp_vid",
+    "sectorspertrack",
+    "printdev",
+    "start_sec_h",
+    "bios_data_segment",
+    "sysinit_seg"
+  ],
+  "sysinit_seg_symbol": [
+    421,
+    8676
+  ],
+  "sysinit_seg_initial_bytes": "0000",
+  "error_message_operands": [
+    {
+      "offset": 9,
+      "symbol": "bios_msg_base",
+      "target_offset": 11700
+    },
+    {
+      "offset": 13,
+      "symbol": "bios_msg_1",
+      "target_offset": 11692
+    },
+    {
+      "offset": 21,
+      "symbol": "bios_msg_base",
+      "target_offset": 11700
+    },
+    {
+      "offset": 25,
+      "symbol": "bios_msg_2",
+      "target_offset": 11694
+    },
+    {
+      "offset": 33,
+      "symbol": "bios_msg_base",
+      "target_offset": 11700
+    },
+    {
+      "offset": 37,
+      "symbol": "bios_msg_3",
+      "target_offset": 11696
+    }
+  ],
+  "keyboard_state_offsets": {
+    "int16_tick": 1283,
+    "int16_count": 1285,
+    "int16_limit": 1287,
+    "int16_limit2": 1289,
+    "int16_active": 1291
+  },
+  "config_bios_data_offsets": {
+    "config_flags": 1326,
+    "config_count": 1327,
+    "config_value": 1329,
+    "config_xms": 1331
+  },
+  "endfloppy_layout": {
+    "diagnostic_segment": 0,
+    "diagnostic_offset": 1335,
+    "target_dynamic_start_offset": 1344,
+    "same_offset_as_target_dynamic_start": false,
+    "target_symbol_identity_proven": false
+  },
+  "unresolved_bios_tail_differences": [],
+  "sysinit_field_layout": [
+    {
+      "name": "bds_count",
+      "diagnostic_segment": 964,
+      "diagnostic_offset": 2900,
+      "target_offset": 3756,
+      "offset_equal": false
+    },
+    {
+      "name": "dskdrvs",
+      "diagnostic_segment": 964,
+      "diagnostic_offset": 2902,
+      "target_offset": 3758,
+      "offset_equal": false
+    },
+    {
+      "name": "config_buffer_segment",
+      "diagnostic_segment": 964,
+      "diagnostic_offset": 2957,
+      "target_offset": 41120,
+      "offset_equal": false
+    },
+    {
+      "name": "config_buffer_paragraphs",
+      "diagnostic_segment": 964,
+      "diagnostic_offset": 2959,
+      "target_offset": 41122,
+      "offset_equal": false
+    },
+    {
+      "name": "config_buffer_count",
+      "diagnostic_segment": 964,
+      "diagnostic_offset": 2961,
+      "target_offset": 41124,
+      "offset_equal": false
+    }
+  ],
+  "routines": [
+    {
+      "name": "config_init_entry",
+      "segment": 964,
+      "offset": 2963,
+      "target_offset": 60990,
+      "length": 36,
+      "matching_bytes": 30,
+      "different_offsets": [
+        10,
+        25,
+        26,
+        29,
+        30,
+        32
+      ],
+      "verified_non_address_bytes": 28,
+      "layout_dependent_operands": [
+        {
+          "offset": 10,
+          "symbol": "alloclim",
+          "target_offset": 3875
+        },
+        {
+          "offset": 25,
+          "symbol": "config_buffer_segment",
+          "target_offset": 41120
+        },
+        {
+          "offset": 29,
+          "symbol": "config_buffer_paragraphs",
+          "target_offset": 41122
+        },
+        {
+          "offset": 32,
+          "symbol": "alloclim",
+          "target_offset": 3875
+        }
+      ]
+    },
+    {
+      "name": "config_xms_init",
+      "segment": 964,
+      "offset": 2999,
+      "target_offset": 61026,
+      "length": 173,
+      "matching_bytes": 159,
+      "different_offsets": [
+        5,
+        6,
+        30,
+        31,
+        45,
+        46,
+        82,
+        83,
+        110,
+        111,
+        117,
+        118,
+        167,
+        168
+      ],
+      "verified_non_address_bytes": 159,
+      "layout_dependent_operands": [
+        {
+          "offset": 5,
+          "symbol": "config_buffer_paragraphs",
+          "target_offset": 41122
+        },
+        {
+          "offset": 30,
+          "symbol": "bios_data_segment",
+          "target_offset": 3902
+        },
+        {
+          "offset": 45,
+          "symbol": "config_buffer_paragraphs",
+          "target_offset": 41122
+        },
+        {
+          "offset": 82,
+          "symbol": "config_buffer_segment",
+          "target_offset": 41120
+        },
+        {
+          "offset": 110,
+          "symbol": "config_buffer_segment",
+          "target_offset": 41120
+        },
+        {
+          "offset": 117,
+          "symbol": "config_buffer_paragraphs",
+          "target_offset": 41122
+        },
+        {
+          "offset": 167,
+          "symbol": "config_buffer_paragraphs",
+          "target_offset": 41122
+        }
+      ]
+    },
+    {
+      "name": "config_copy",
+      "segment": 964,
+      "offset": 3172,
+      "target_offset": 61199,
+      "length": 81,
+      "matching_bytes": 73,
+      "different_offsets": [
+        3,
+        4,
+        35,
+        36,
+        44,
+        45,
+        59,
+        60
+      ],
+      "verified_non_address_bytes": 73,
+      "layout_dependent_operands": [
+        {
+          "offset": 3,
+          "symbol": "config_buffer_paragraphs",
+          "target_offset": 41122
+        },
+        {
+          "offset": 35,
+          "symbol": "config_buffer_paragraphs",
+          "target_offset": 41122
+        },
+        {
+          "offset": 44,
+          "symbol": "config_buffer_segment",
+          "target_offset": 41120
+        },
+        {
+          "offset": 59,
+          "symbol": "bios_data_segment",
+          "target_offset": 3902
+        }
+      ]
+    },
+    {
+      "name": "config_restore",
+      "segment": 964,
+      "offset": 3253,
+      "target_offset": 61280,
+      "length": 102,
+      "matching_bytes": 88,
+      "different_offsets": [
+        4,
+        5,
+        9,
+        10,
+        64,
+        65,
+        69,
+        70,
+        82,
+        83,
+        94,
+        95,
+        98,
+        99
+      ]
+    }
+  ],
+  "verified_exact_regions": [
+    {
+      "name": "rom_vectors",
+      "diagnostic_offset": 256,
+      "target_offset": 1792,
+      "length": 45
+    },
+    {
+      "name": "track_table",
+      "diagnostic_offset": 382,
+      "target_offset": 1918,
+      "length": 252
+    },
+    {
+      "name": "device_strategy",
+      "diagnostic_offset": 634,
+      "target_offset": 2170,
+      "length": 11
+    },
+    {
+      "name": "int08_palette",
+      "diagnostic_offset": 739,
+      "target_offset": 2275,
+      "length": 249
+    },
+    {
+      "name": "interrupt_and_a20",
+      "diagnostic_offset": 1006,
+      "target_offset": 2542,
+      "length": 320
+    },
+    {
+      "name": "post_interrupt_initial_data",
+      "diagnostic_offset": 1326,
+      "target_offset": 2862,
+      "length": 9
+    },
+    {
+      "name": "video_service",
+      "diagnostic_offset": 7026,
+      "target_offset": 7538,
+      "length": 169
+    },
+    {
+      "name": "int15_reset",
+      "diagnostic_offset": 7195,
+      "target_offset": 7707,
+      "length": 4
+    },
+    {
+      "name": "int15_esc",
+      "diagnostic_offset": 7200,
+      "target_offset": 7712,
+      "length": 18
+    },
+    {
+      "name": "keyboard_service",
+      "diagnostic_offset": 7218,
+      "target_offset": 7730,
+      "length": 169
+    },
+    {
+      "name": "video_state_save",
+      "diagnostic_offset": 7599,
+      "target_offset": 8111,
+      "length": 26
+    },
+    {
+      "name": "video_state_restore",
+      "diagnostic_offset": 8143,
+      "target_offset": 8655,
+      "length": 28
+    },
+    {
+      "name": "int19_restore",
+      "diagnostic_offset": 8246,
+      "target_offset": 8758,
+      "length": 112
+    },
+    {
+      "name": "outchr_code",
+      "diagnostic_offset": 8358,
+      "target_offset": 8870,
+      "length": 121
+    },
+    {
+      "name": "EraseVDiskHead",
+      "diagnostic_offset": 8479,
+      "target_offset": 8991,
+      "length": 38
+    },
+    {
+      "name": "keyboard_save_stack",
+      "diagnostic_offset": 7625,
+      "target_offset": 8137,
+      "length": 518
+    },
+    {
+      "name": "config_read",
+      "diagnostic_offset": 8617,
+      "target_offset": 18859,
+      "length": 32
+    },
+    {
+      "name": "hard_disk_bds",
+      "diagnostic_offset": 15824,
+      "target_offset": 21016,
+      "length": 2500
+    },
+    {
+      "name": "bds_count_and_drive_table",
+      "diagnostic_offset": 18324,
+      "target_offset": 23516,
+      "length": 54
+    }
+  ],
+  "floppy_bpb_symbols": [
+    {
+      "name": "fdrive1",
+      "diagnostic_offset": 6,
+      "target_offset": 862
+    },
+    {
+      "name": "fdrive2",
+      "diagnostic_offset": 106,
+      "target_offset": 962
+    },
+    {
+      "name": "fdrive3",
+      "diagnostic_offset": 206,
+      "target_offset": 1062
+    },
+    {
+      "name": "fdrive4",
+      "diagnostic_offset": 306,
+      "target_offset": 1162
+    }
+  ],
+  "bds_start_pointer": [
+    0,
+    1076
+  ],
+  "stage": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\config-ml-probe-lvrz0syr"
+}

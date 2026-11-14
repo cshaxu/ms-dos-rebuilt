@@ -1,0 +1,17 @@
+{
+  "generated_utc": "2026-11-12T11:07:55.700898+00:00",
+  "source": "cmd/command/tenv.asm",
+  "build_report": "extras/docs/etc/command-set-env-prepare-build-20261112.json",
+  "probe": {
+    "stage": "extras/build/command-setprepare-n7720uqw",
+    "result": "PASS",
+    "coverage": "Actual SET entry portion supplies size 0 for an empty value and 8 bytes for FOO=BAR; environment preparation is stubbed. No real environment modification is tested."
+  },
+  "remaining": "Target PATH special case and direct environment write are not restored. cmd_copy is not connected. ECHO/COPY not rerun.",
+  "file_counts": {
+    "linked": 35,
+    "modified_from_baseline": 30,
+    "unchanged_from_baseline": 5
+  },
+  "final_binary_exact": false
+}

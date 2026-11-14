@@ -1,0 +1,17 @@
+{
+  "source_sha256": "103479aa77f16a15a7ac25cf3b88d6a46bb01650d20fcc79e2651583fb845e1e",
+  "split_tool": "extras/tools/split_sysconf_device_data.py",
+  "verification": "extras/tools/verify_syspre_device_link.py",
+  "link_stage": "extras/build/syspre-object-link-o8hcj30v",
+  "device_object_sha256": "72bb4da5e3f970f56beba04638ba066445ab934c53ff62af6038b0fd0be5bd45",
+  "device_data": {
+    "sysinit_start": "0x66d0",
+    "bytes": 98
+  },
+  "scope": "Device name table, original command-line pointer and device-state definitions are arranged in target order; real generated device object provides DevCmdLine and other state to linked SYSPRE. Split SYSCONF compiles and its actual external references checked.",
+  "limitations": [
+    "Restored device-name entries and original-command-line pointer have not yet been connected to all corresponding normal-device code paths.",
+    "Other external providers and contribution positions remain synthetic; split SYSCONF remainder and full SYSINIT have not been linked.",
+    "Final three binaries remain unverified."
+  ]
+}

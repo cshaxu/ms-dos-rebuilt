@@ -1,0 +1,52 @@
+{
+  "target": "extras/baselines/targets/COMMAND.COM",
+  "target_sha256": "a74c700063cd6b1c91523952bfc80e9393c125d39ada0164d48b5098089fcef3",
+  "target_class_entries": [
+    {
+      "id": 1083,
+      "index_offset": 437,
+      "string_offset": 2776,
+      "text": "YNA"
+    },
+    {
+      "id": 1103,
+      "index_offset": 509,
+      "string_offset": 3261,
+      "text": "Overwrite %1 (Yes/No/All)?"
+    },
+    {
+      "id": 1104,
+      "index_offset": 513,
+      "string_offset": 3288,
+      "text": "Invalid path\r\n"
+    },
+    {
+      "id": 1105,
+      "index_offset": 517,
+      "string_offset": 3303,
+      "text": "  %1.%2 to 1.0"
+    }
+  ],
+  "current_skeleton": "cmd/command/command.skl:101,117-118",
+  "current_catalog": "lang/usa/messages/usa-ms-command.msg:207,222-223",
+  "target_copy_reader": "COMMAND.COM:0xe1dd, AX=0x043b",
+  "generator_test": {
+    "skeleton_only_stage": "extras/build/msgclass-probe-e0no5pv0",
+    "skeleton_only_result": {
+      "1083": "YN",
+      "1104": "YNA"
+    },
+    "skeleton_plus_catalog_stage": "extras/build/msgclass-catalog-l0z1bfzh",
+    "skeleton_plus_catalog_result": {
+      "1083": "YNA",
+      "1104": "Invalid path\r\n"
+    },
+    "interpretation": "In this generator configuration, same-ID catalog text supersedes :def skeleton text."
+  },
+  "dependency_conflict": "tdata.asm currently aliases answer_yes/no/all to bytes of message 1104. Restoring target text for 1104 without moving those symbols would turn the answer characters into I/n/v rather than Y/N/A and bind answer_buffer to message length byte. Target COPY fetches localized answer characters from message 1083 and uses a separate byte for echo.",
+  "limitations": [
+    "Probe generator and input configuration are historical and may differ from target toolchain.",
+    "Final placement, TDATA/TSPC symbol ownership and full message table remain unverified.",
+    "No project source changed in this probe."
+  ]
+}

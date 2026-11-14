@@ -1,0 +1,20 @@
+{
+  "source": "bios/msinit.asm",
+  "source_sha256": "245d1a2a7594af5fdea0c3ab88aa900b9081c9e7c75c3eccbd1b918f4586252b",
+  "listing_sha256": "2add726fe37fd2560e1995912c4f63cb854cce06160bebc3d71f3435c4806444",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_offset": "0x164b",
+  "length": 77,
+  "matched_nonrelocated_bytes": 67,
+  "relocation_bytes": 4,
+  "masm_differences": [
+    11,
+    12,
+    13,
+    64,
+    65,
+    66
+  ],
+  "isolated_ml_test": "sub ax,1 => 83 e8 01; cmp ax,64 => 83 f8 40, matching target",
+  "limitations": "ML comparison is an isolated two-instruction probe, not a production build; external addresses and later boot read paths remain unverified."
+}

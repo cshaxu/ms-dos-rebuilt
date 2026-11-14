@@ -1,0 +1,23 @@
+{
+  "part": "M5 T12 S1 P16",
+  "ordinal": 35,
+  "modified": 1,
+  "unchanged": 0,
+  "exact_dos6": 0,
+  "retired_by_merge": 0,
+  "reference": "Original DOS6 bios/msdisk.asm and complete current module. Formal makefile defines DOS7_CONFIG for both assemblers.",
+  "changes": "Remove 139 DOS7_CONFIG selectors and inactive DOS6 alternatives. Move SetDrive header past intervening dsk_init and BYTE_SYSINIT below file header. Correct moved-owner, boot-result, buffer and set-owner flag comments. Document media-ID copy and extended dispatch/transfer/retry interfaces in the surrounding Microsoft style.",
+  "necessity": "Extended disk addressing and its packet remain in original msdisk owner. CHS and extended INT 13h flows serve different drive capabilities and are required paths. Do not merge again/ext_again into one emitted routine: their existing call targets and two code bodies are part of the accepted layout. A new macro merely to share this short body would add abstraction without removing either emitted copy.",
+  "preserved": "All original common disk routines, error mapping, data order, retry behavior, far-buffer handling, DOS7 media constraints and stack-unwinding dispatch retained. Explicit long-branch bridges and raw cmp encoding remain unchanged for binary identity.",
+  "validation": {
+    "effectiveStatementsEqual": true,
+    "statementCount": 1252,
+    "selectedGuards": 139,
+    "removedLines": 715,
+    "rebuilt": false,
+    "reason": "All 1252 selected assembler statements including literals and directives remain in the same order; comments and known-build branch wrappers only.",
+    "binary_baseline": "P11 accepted BIOS/IO.SYS and T11 accepted COMMAND.COM/MSDOS.SYS unchanged."
+  },
+  "next_ordinal": 36,
+  "remaining": 31
+}

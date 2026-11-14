@@ -1,0 +1,19 @@
+{
+  "probe_source": "extras/research/directory-context/search-capture-probe.asm",
+  "source_sha256": "e45b9e96a4c89a6a81862f62e03119fbd5cee2fe957bd6733ed0434957673ddd",
+  "exe_sha256": "6aafc7b284d2f611c4a00cab713a9ddde2b715fe92e6a7124bae7cb63a95a0f9",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "search_target_bytes": 217,
+  "capture_target_bytes": 88,
+  "both_routines_match_target": true,
+  "isolated_probe_status": "PASS",
+  "checks": [
+    "two long-name entries increment the context without resetting it",
+    "following short-name entry matches",
+    "saved directory position and end marker remain correct"
+  ],
+  "limitations": [
+    "Other search and buffer operations are controlled test stubs.",
+    "This covers one successful contiguous-entry scenario, not disk, cross-sector or full kernel behavior."
+  ]
+}

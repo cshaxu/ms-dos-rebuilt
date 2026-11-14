@@ -1,0 +1,15 @@
+{
+  "file": "bios/sysinit1.asm",
+  "source_sha256": "85136b1b4ec3d629b4df0e1c20e6fb61a25c6d9637542a796279d00fd9621760",
+  "target_range": "IO.SYS 0x5f80..0x5f90",
+  "bytes": 16,
+  "different_bytes": 0,
+  "probe": "extras/research/device-table-ptr-linked.asm",
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "The pointer segment writer and downstream device table allocation are not yet restored.",
+    "DOSINIT return ABI and complete IO.SYS layout remain unverified."
+  ]
+}

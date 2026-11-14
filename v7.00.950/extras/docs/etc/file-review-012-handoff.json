@@ -1,0 +1,19 @@
+{
+  "from_index": 12,
+  "from_file": "bios/msdioctl.asm",
+  "source_sha256": "bb448bff64d4d9b10cc46191b143bc992a5135dc7b072bc955618e3c7e1722c4",
+  "to_index": 13,
+  "to_file": "bios/msdisk.asm",
+  "remaining": [
+    "254 relocation bytes and both jump tables require final linked address validation",
+    "target IOCTL 48h and 49h handler names and semantics are inferred",
+    "replace cross-module diagnostic stubs and establish actual object layout",
+    "perform clean full IO.SYS build and compare target"
+  ],
+  "evidence": [
+    "file-review-012-all-procedures.json",
+    "file-review-012-dispatch-tables.json",
+    "file-review-012-diagnostic-link.json"
+  ],
+  "limitations": "File 12 is not target-accepted; its diagnostic link contains stubs and unverified references."
+}

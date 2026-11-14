@@ -1,0 +1,16 @@
+{
+  "file": "bios/sysinit1.asm",
+  "source_sha256": "bdf0d1abf8f3c4cf567591f4bdb193cb1b9be4a39baaf47aaf2847d3b8af6024",
+  "target_range": "IO.SYS 0x894b..0x897f",
+  "bytes": 52,
+  "different_bytes": 0,
+  "probe": "extras/research/disktemp7-linked.asm",
+  "default_object_identical_to_prior": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "Only the first target call is connected; later allocation call sites and full endfile order remain incomplete.",
+    "Fixed-offset probe stubs allocation and rounding; final layout and behavior are unverified.",
+    "Mixed link contains older objects and stubs."
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "file": "bios/sysinit2.asm",
+  "source_sha256": "496872af3930a2fc7ce4ff5770c352afae30644daf97a984ff8f19b39144a4fe",
+  "target_range": "IO.SYS 0xe046..0xe04f",
+  "length": 9,
+  "different_bytes": 0,
+  "tool": "MASM 6 ML isolated probe",
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link": "passed with diagnostic message stub",
+  "probe_source": "extras/research/boot-logo-raw-read-linked.asm",
+  "decoder_reference": {
+    "rdcomp": "O:\\repos.external\\opennt\\base\\boot\\lib\\x86\\rdcomp.asm",
+    "rdcomp_sha256": "16a27bf79aaf4cc194102d59e0f2c1908eef800874ab0e4d954e0fdd7992cfc6",
+    "decode": "O:\\repos.external\\opennt\\base\\boot\\lib\\x86\\decode.inc",
+    "decode_sha256": "4f2941410c4c5a6ec85a149b1a1d158048e36a5be6025a052c33b01510b6eaaf",
+    "finding": "MRCF standard-compression signature and state-machine approach match target leads; reference is 32-bit and is not proven byte-identical to the 16-bit target."
+  },
+  "limitations": [
+    "Raw file path is restored as a standalone leaf; enclosing target routine also handles compressed data.",
+    "Fixed-offset probe does not establish final layout or runtime.",
+    "Compressed block decoder and startup callers remain incomplete."
+  ]
+}

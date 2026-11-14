@@ -1,0 +1,18 @@
+{
+  "build": "extras/docs/etc/command-onoff-chcp-order-build-20261112.json",
+  "source": "cmd/command/tdata.asm",
+  "change": "Moved existing ON/OFF token and CHCP descriptor definitions immediately after FILE_REQUIRED, matching target order while retaining other referenced parse blocks.",
+  "target_data_range": "0x10bf2..0x10bfe",
+  "matched_data_bytes": 12,
+  "target_probe": "extras/build/onoff-order-target-1fcmo691",
+  "current_probe": "extras/build/onoff-order-current-f1h6awv6",
+  "matched_cases": [
+    "VERIFY ON",
+    "VERIFY OFF",
+    "CHCP query",
+    "batch continuation"
+  ],
+  "limitations": "Other argument, invalid switch and locale paths untested; complete binary not byte-identical.",
+  "output_bytes": 92930,
+  "target_bytes": 92870
+}

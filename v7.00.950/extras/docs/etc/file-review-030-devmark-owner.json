@@ -1,0 +1,23 @@
+{
+  "routine": "setdevmark7",
+  "current_file": "bios/sysconf.asm",
+  "previous_provisional_file": "bios/sysinit1.asm",
+  "sysconf_sha256": "4e90c155881a4a81c51ed2284b2954f4badc575ece56fe8091ee01bfe0ee2a7f",
+  "sysinit1_sha256": "e04ad3165b3fb8356d81075f3fe05189b0725d775ca5011df2c116671eb3d1e8",
+  "target_file_range": "0xd2f9..0xd32d",
+  "length": 52,
+  "different_bytes": 0,
+  "ownership_evidence": [
+    "Target allocator at 0xd2ba calls SpaceInUMB?, GetUMBForDev and ShrinkUMB; corresponding implementations and UMB state fields already reside in sysconf.asm.",
+    "The target marker routine follows the allocator and is called by both its UMB and conventional-memory paths."
+  ],
+  "verification": [
+    "DOS7 and default configurations assemble for both files.",
+    "Both default configuration objects are byte-identical to the prior baselines.",
+    "The 52 target bytes occur exactly once in the DOS7 sysconf object."
+  ],
+  "limitations": [
+    "Placement inferred from correlated routines, not original Microsoft source.",
+    "The allocator is not yet reconstructed or calling this routine; the final SYSINIT link remains unresolved."
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "bios_code_candidate_file_base": "0x1c50",
+  "null_label_offset": "0x2800",
+  "scratch_label_offset": "0x280c",
+  "target_string_file_offsets": [
+    "0x4450",
+    "0x445c"
+  ],
+  "target_copy_file_offset": "0x46ca",
+  "target_copy_bytes": "0e07bf0c28be0028b90c00f32ea45f",
+  "observations": [
+    "The target image contains two adjacent NUL-terminated NO NAME volume strings in the code-mapped region.",
+    "Target code loads DI=280ch, SI=2800h and copies twelve bytes from CS to ES, matching the names and operation in the historical msbio2 source.",
+    "The only formal source declarations found in the BIOS directory are inside an IFNDEF DOS7_CONFIG block in msbio1; the DOS7 msbio2 source still declares both symbols external."
+  ],
+  "limitations": [
+    "The candidate code mapping and symbol association are supported by references and contents but do not prove original source file ownership.",
+    "Other generated providers or source outside the scanned BIOS directory have not been ruled out.",
+    "A full BIOS link is needed before declaring the symbols resolved."
+  ]
+}

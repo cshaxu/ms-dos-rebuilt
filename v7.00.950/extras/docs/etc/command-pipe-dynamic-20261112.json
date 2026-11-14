@@ -1,0 +1,33 @@
+{
+  "generated_utc": "2026-11-12T11:47:49.627891+00:00",
+  "source": "cmd/command/tpipe.asm",
+  "build_report": "extras/docs/etc/command-pipe-dynamic-build-20261112.json",
+  "comparisons": [
+    {
+      "target_offset": "0xcd37",
+      "candidate_offset": "0xcb95",
+      "length": 11,
+      "target_operand": "0xdb86",
+      "candidate_operand": "0xe11f"
+    },
+    {
+      "target_offset": "0xcd6d",
+      "candidate_offset": "0xcbcb",
+      "length": 11,
+      "target_operand": "0xdb86",
+      "candidate_operand": "0xe11f"
+    }
+  ],
+  "probe": {
+    "stage": "extras/build/command-pipelen-_td4pgpj",
+    "result": "PASS",
+    "coverage": "Actual length-save snippet with distinct DS and ES wrote 0x123 and preserved DI; full pipe handling not covered."
+  },
+  "remaining": "Date/time and cmd_copy still use COMBUF. Full pipeline, ECHO/COPY and final identity unverified.",
+  "file_counts": {
+    "linked": 35,
+    "modified_from_baseline": 30,
+    "unchanged_from_baseline": 5
+  },
+  "final_binary_exact": false
+}

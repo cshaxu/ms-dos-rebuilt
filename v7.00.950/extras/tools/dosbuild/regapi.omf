@@ -1,0 +1,7 @@
+; Symbolic OMF boundaries; no code bytes or relocation addresses.
+anchor RegOpenKey
+cut RegQueryValueCore 216
+cut RegDeleteKey 321
+cut RegEnumValue 209
+cut RegRemapKey 240
+cut RegUnloadKey 306

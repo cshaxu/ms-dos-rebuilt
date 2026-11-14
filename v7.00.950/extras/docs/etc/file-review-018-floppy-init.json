@@ -1,0 +1,27 @@
+{
+  "source": "bios/msinit.asm",
+  "source_sha256": "36a9fcd8bc8e3216a304dbef6068dd5854eb76fc78876715acc9cb96fc5f4b68",
+  "listing_sha256": "777d1a10de9d8efcc2aaf437a68c46c398d10d617fbbf6cfd505c02c027b5f46",
+  "target_offset": "0xfed",
+  "length": 101,
+  "matched_nonrelocated_bytes": 78,
+  "masked_relocation_bytes": 20,
+  "differences": [
+    {
+      "offset": 71,
+      "listing": "0x25",
+      "target": "0x83"
+    },
+    {
+      "offset": 72,
+      "listing": "0x3",
+      "target": "0xe0"
+    },
+    {
+      "offset": 73,
+      "listing": "0x0",
+      "target": "0x3"
+    }
+  ],
+  "limitations": "SYSINIT flag symbol inferred; link addresses and complete startup behavior are unverified."
+}

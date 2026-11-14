@@ -1,0 +1,84 @@
+{
+  "reference_target_comparison": "extras/docs/etc/command-message-class-complete.json",
+  "tranmsg_sha256": "afbe89f42762de33ad60c124419611108c37fcb17fecc06602c840fc5816d36d",
+  "parameter_changes": [
+    {
+      "id": 1040,
+      "old_parameters": [
+        "1",
+        "2"
+      ],
+      "target_parameters": [],
+      "old_text": "MS-DOS Version %1.%2",
+      "target_text": "Windows 95. [Version 4.00.950]",
+      "consumer_definitions": [
+        {
+          "line": 342,
+          "source": "VerMes_Ptr\tdw\t1040\t\t\t\t;AN000;message number"
+        }
+      ]
+    },
+    {
+      "id": 1077,
+      "old_parameters": [
+        "1",
+        "2"
+      ],
+      "target_parameters": [
+        "1"
+      ],
+      "old_text": " %1  %2",
+      "target_text": " %1",
+      "consumer_definitions": [
+        {
+          "line": 732,
+          "source": "DirDatTim_Ptr\tdw\t1077\t\t\t\t;AN000;message number"
+        }
+      ]
+    },
+    {
+      "id": 1101,
+      "old_parameters": [
+        "1",
+        "2"
+      ],
+      "target_parameters": [],
+      "old_text": "  %1.%2 to 1.0",
+      "target_text": "A bad UMB number has been specified\r\n",
+      "consumer_definitions": [
+        {
+          "line": 876,
+          "source": "DirCompRatio_Ptr dw\t1101\t\t\t\t; message number"
+        }
+      ]
+    },
+    {
+      "id": 1105,
+      "old_parameters": [],
+      "target_parameters": [
+        "1",
+        "2"
+      ],
+      "old_text": "    ",
+      "target_text": "  %1.%2 to 1.0",
+      "consumer_definitions": [
+        {
+          "line": 618,
+          "source": "DMesWide_Ptr\tdw\t1105\t\t\t\t; wide directory padding"
+        }
+      ]
+    }
+  ],
+  "additional_semantic_reassignment": {
+    "id": 1100,
+    "old_text": "A bad UMB number has been specified\r\n",
+    "target_text": "RHSVDA",
+    "old_consumer": "cmd/command/tranmsg.asm:LhBadUMB_Ptr",
+    "target_bad_umb_id": 1101
+  },
+  "limitations": [
+    "Static %digit count only; formatting type, message-class references and target instruction consumers still require validation.",
+    "Numbered message reassignment can change semantics even when parameter counts remain equal.",
+    "No source changes; affected structures require dependency-unit processing."
+  ]
+}

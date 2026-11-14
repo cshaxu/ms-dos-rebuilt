@@ -1,0 +1,81 @@
+{
+  "kind": "file-9 BDS contribution diagnostic; not complete IO.SYS acceptance",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "binary_sha256": "cc0161e7f0d14a1d17613873e30acc7fd98e8b2a51c6d060a58588473c203a9c",
+  "map": "extras\\build\\sysinit-split-60isgeox\\msbio.map",
+  "binary": "extras\\build\\sysinit-split-60isgeox\\msbio.bin",
+  "checks": [
+    {
+      "name": "bds1_pointer",
+      "actual": [
+        22996,
+        1076
+      ],
+      "expected": [
+        22996,
+        1076
+      ],
+      "target": [
+        956,
+        1251
+      ],
+      "passed": true
+    },
+    {
+      "name": "bds2_pointer",
+      "actual": [
+        23096,
+        1076
+      ],
+      "expected": [
+        23096,
+        1076
+      ],
+      "target": [
+        1056,
+        1251
+      ],
+      "passed": true
+    },
+    {
+      "name": "bds3_pointer",
+      "actual": [
+        23196,
+        1076
+      ],
+      "expected": [
+        23196,
+        1076
+      ],
+      "target": [
+        1156,
+        1251
+      ],
+      "passed": true
+    },
+    {
+      "name": "bds4_pointer",
+      "actual": [
+        65535,
+        65535
+      ],
+      "expected": [
+        65535,
+        65535
+      ],
+      "target": [
+        65535,
+        65535
+      ],
+      "passed": true
+    },
+    {
+      "name": "descriptor_non_pointer_bytes",
+      "length": 2888,
+      "different_offsets": [],
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "limitations": "Relative pointers and non-pointer contents only; segment placement, other source, and complete output are not verified."
+}

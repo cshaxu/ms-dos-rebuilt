@@ -1,0 +1,19 @@
+{
+  "build": "extras/docs/etc/command-display-replace-original-v2-build-20261112.json",
+  "source": "inc/msgserv.asm",
+  "change": "Restored target JCXZ and ASCIIZ stack cleanup branch in transient message replacement output.",
+  "target_instruction_range": "0x10149..0x101fe",
+  "verified_instruction_bytes": 181,
+  "new_registered_instruction_bytes": 164,
+  "target_probe": "extras/build/display-replace-target-l0e0emyg",
+  "current_probe": "extras/build/display-replace-current-_kopn387",
+  "matched_cases": [
+    "DIR /C summaries",
+    "VER /R",
+    "VOL",
+    "MKDIR and RMDIR complete without errors"
+  ],
+  "limitations": "Other message padding and truncation cases and all locales not runtime tested; full output not byte-identical.",
+  "output_bytes": 93212,
+  "target_bytes": 92870
+}

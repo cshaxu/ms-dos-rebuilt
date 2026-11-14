@@ -1,0 +1,17 @@
+{
+  "build": "extras/docs/etc/command-time-replace-original-build-20261112.json",
+  "source": "inc/msgserv.asm",
+  "change": "Restored target 16-bit time component count and verified complete time formatting control flow.",
+  "target_instruction_range": "0x1034d..0x103eb",
+  "registered_instruction_bytes": 158,
+  "target_probe": "extras/build/time-replace-target-04_6ln4z",
+  "current_probe": "extras/build/time-replace-current-hgmc2d17",
+  "matched_cases": [
+    "DIR file timestamps at midnight, noon and late evening",
+    "DIR summary",
+    "VER /R"
+  ],
+  "limitations": "Other country settings and time substitutions not directly tested; whole file not byte-identical.",
+  "output_bytes": 93100,
+  "target_bytes": 92870
+}

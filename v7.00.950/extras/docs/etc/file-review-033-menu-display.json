@@ -1,0 +1,21 @@
+{
+  "file": "bios/sysinit2.asm",
+  "file_index": 33,
+  "source_sha256": "f0eefdc21f8119d4c7de71139c3217b6c37bf2a18886e75caee188edbcc5efd0",
+  "display_range": "IO.SYS 0x76ab..0x7778",
+  "display_bytes": 205,
+  "display_different_bytes": 0,
+  "linked_menu_range": "IO.SYS 0x76ab..0x79d9",
+  "linked_menu_bytes": 814,
+  "linked_menu_different_bytes": 2,
+  "difference": "CMP CH,AH uses 3a ec rather than target 38 e5.",
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "The isolated link fixes target offsets and uses the actual print_item, select_item and display routines, but target layout is not proven for the full executable.",
+    "In DOS7 the saved video page shares the legacy bDisableUI byte; remaining old DOS6 consumers of that byte have not yet all been adapted.",
+    "The separate startup-menu caller and full boot flow remain incomplete.",
+    "The mixed link contains older objects and stubs."
+  ]
+}

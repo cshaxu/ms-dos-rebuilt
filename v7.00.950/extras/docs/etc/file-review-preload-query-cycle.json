@@ -1,0 +1,18 @@
+{
+  "files": {
+    "bios/syspre.asm": "78ef7c7aa6df49c10599ce1b403d50490e60b260f1ca010c8b3083527fa41267",
+    "bios/sysinit2.asm": "7b3c268d6755bdbd29342c0662d374a200786a8cc1087fce29e1313d78440857",
+    "bios/sysconf.asm": "5794b5bde9b8863daf07e1dcc567c56409746b4db1679f25e3652484e5bab9b7"
+  },
+  "verification": "extras/tools/verify_menu_check_full.py",
+  "syspre_preload_prefix": {
+    "sysinit_start": "0x8aaf",
+    "bytes": 378
+  },
+  "scope": "SYSPRE actual prefix calls the actual SYSINIT2 query_check_done and SYSCONF device helpers in a single diagnostic. SYSINIT2 and SYSPRE complete source files assembled separately.",
+  "limitations": [
+    "pre_revision_done and pre_exit_3 are anchored at target offsets, not actual later SYSPRE code.",
+    "Four UMB helper calls remain target-address anchors.",
+    "The later driver initialization and MagicPostload and complete SYSINIT object layout are unverified."
+  ]
+}

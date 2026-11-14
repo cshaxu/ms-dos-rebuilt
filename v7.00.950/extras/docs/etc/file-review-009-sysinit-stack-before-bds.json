@@ -1,0 +1,28 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "reference_bios_sha256": "7802e9d61f097e15acdebde913a6b3c7456379630d268bd3f2bbdcbd560276c2",
+  "reference_source": "bios/sysinit1.asm",
+  "reference_symbol_context": "nextentry, entrysize, savedsp, savedss",
+  "target_sysinit_base_file_offset": 19760,
+  "target_bds1_file_offset": 20616,
+  "target_bds1_sysinit_offset": 856,
+  "unique_reference_instruction_anchors": [
+    {
+      "target_file_offset": 20082,
+      "target_sysinit_offset": 322,
+      "reference_file_offset": 16782,
+      "length": 24,
+      "hex": "2e832e10000826896602268c56048bc5268b6e0626394600"
+    },
+    {
+      "target_file_offset": 20117,
+      "target_sysinit_offset": 357,
+      "reference_file_offset": 16817,
+      "length": 24,
+      "hex": "8ed08cc48ec02e8b6e009c2eff5e008bec268b6e00268e56"
+    }
+  ],
+  "reference_link_order": "msbio1 before sysinit1",
+  "interpretation": "Target SYSINIT contains code corresponding to the reference SYSINIT hardware stack routines before BDS1. The present msbio1 contribution places BDS1 before the unchanged reference sysinit1 contribution. Target order requires investigation of source ownership, module splitting, or segment/link arrangement; a fixed zero padding in msbio1 would not restore this code.",
+  "limitations": "Matching anchors establish shared code but not complete target source ownership or the correct final link order. No later source file or link response was modified."
+}

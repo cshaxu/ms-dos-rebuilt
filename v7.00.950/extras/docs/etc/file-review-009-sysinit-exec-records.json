@@ -1,0 +1,102 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_sysinit_offset": 41128,
+  "command_length": 44,
+  "marker": 255,
+  "record_count": 7,
+  "records": [
+    {
+      "index": 1,
+      "entry_offset": 41131,
+      "size": 64,
+      "pointer_offset": 16520,
+      "initial_segment": 61440,
+      "segment_field_offset": 41135
+    },
+    {
+      "index": 2,
+      "entry_offset": 41137,
+      "size": 2,
+      "pointer_offset": 11126,
+      "initial_segment": 61440,
+      "segment_field_offset": 41141
+    },
+    {
+      "index": 3,
+      "entry_offset": 41143,
+      "size": 3,
+      "pointer_offset": 41112,
+      "initial_segment": 61440,
+      "segment_field_offset": 41147
+    },
+    {
+      "index": 4,
+      "entry_offset": 41149,
+      "size": 1,
+      "pointer_offset": 41115,
+      "initial_segment": 61440,
+      "segment_field_offset": 41153
+    },
+    {
+      "index": 5,
+      "entry_offset": 41155,
+      "size": 1,
+      "pointer_offset": 3853,
+      "initial_segment": 61440,
+      "segment_field_offset": 41159
+    },
+    {
+      "index": 6,
+      "entry_offset": 41161,
+      "size": 1,
+      "pointer_offset": 41116,
+      "initial_segment": 61440,
+      "segment_field_offset": 41165
+    },
+    {
+      "index": 7,
+      "entry_offset": 41167,
+      "size": 2,
+      "pointer_offset": 41117,
+      "initial_segment": 61440,
+      "segment_field_offset": 41171
+    }
+  ],
+  "terminator": 13,
+  "segment_write_instructions": [
+    {
+      "file_offset": 61466,
+      "hex": "890eafa0"
+    },
+    {
+      "file_offset": 61473,
+      "hex": "a3b5a0"
+    },
+    {
+      "file_offset": 61476,
+      "hex": "890ec7a0"
+    },
+    {
+      "file_offset": 61480,
+      "hex": "890ebba0"
+    },
+    {
+      "file_offset": 61484,
+      "hex": "890ec1a0"
+    },
+    {
+      "file_offset": 61488,
+      "hex": "890ecda0"
+    },
+    {
+      "file_offset": 61492,
+      "hex": "890ed3a0"
+    }
+  ],
+  "interpretation": "The EXEC0 command pointer addresses a length-prefixed 44-byte binary payload: FFh, a count of seven, then seven six-byte length/offset/segment records, followed by CR. The target execution path overwrites each segment field before EXEC. Six receive SYSINIT CS; the second receives the word at SYSINIT 0F40h.",
+  "limitations": "Record semantics, pointer ownership, and original source structure are not established. The word sizes and runtime segment writes are observed, not a claim of a documented Microsoft protocol.",
+  "second_segment_source_instruction": {
+    "file_offset": 61470,
+    "hex": "a1400fa3b5a0"
+  }
+}

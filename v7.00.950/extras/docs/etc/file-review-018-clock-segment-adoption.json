@@ -1,0 +1,10 @@
+{
+  "source_sha256": "2bc55ef7c917efe0a0f3c78b133598dc915fae52d9d6f92c53966ba6ce44a506",
+  "masm_dos7": "pass",
+  "ml6_dos7": "pass",
+  "masm_reference": "pass and byte-identical",
+  "clock_functions": "BIOS_CODE; read_real_date and read_real_time public; legacy int6c excluded in DOS7_CONFIG",
+  "align": "segment relative to odd initialization origin",
+  "data_check": "file-review-018-init-data-omf.json",
+  "limitations": "Clock helper external relocations, module placement and complete IO.SYS build remain unverified."
+}

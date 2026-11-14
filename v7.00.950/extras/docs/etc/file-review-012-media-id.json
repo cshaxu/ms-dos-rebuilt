@@ -1,0 +1,39 @@
+{
+  "source_sha256": "7d66337d6818ab458ce81294790c935ff6b31318125896e41963c2cd5713b719",
+  "listing_sha256": "d98e39f7333372d0bdfdb7989113463fb05266d0462ccefecde4c0287c29f574",
+  "routines": [
+    {
+      "name": "GetMediaId",
+      "target_offset": "0x3990",
+      "length": 62,
+      "masked_relocation_bytes": 6,
+      "matched_nonrelocated_bytes": 56,
+      "differences": []
+    },
+    {
+      "name": "SetMediaId",
+      "target_offset": "0x39ce",
+      "length": 97,
+      "masked_relocation_bytes": 14,
+      "matched_nonrelocated_bytes": 83,
+      "differences": []
+    },
+    {
+      "name": "BootIo",
+      "target_offset": "0x3a2f",
+      "length": 26,
+      "masked_relocation_bytes": 6,
+      "matched_nonrelocated_bytes": 20,
+      "differences": []
+    },
+    {
+      "name": "ChangeLineChk",
+      "target_offset": "0x3a49",
+      "length": 43,
+      "masked_relocation_bytes": 6,
+      "matched_nonrelocated_bytes": 37,
+      "differences": []
+    }
+  ],
+  "limitations": "Relocation operands and complete linked output remain unverified."
+}

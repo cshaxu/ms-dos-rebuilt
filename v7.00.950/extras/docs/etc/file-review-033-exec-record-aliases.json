@@ -1,0 +1,22 @@
+{
+  "files": [
+    "bios/sysinit1.asm",
+    "bios/sysinit2.asm"
+  ],
+  "source_sha256": [
+    "c2b042d864c46f70fd6f819ac8e4399b3382f793f2b3ebf10dab6887d0c48553",
+    "fd7f1abca6fb6a14009702b449ac910fb18a26cf88a77c73fb5fd378083b5775"
+  ],
+  "changes": [
+    "define EXEC boot-state byte beside DOS boot flags",
+    "alias EXEC Windows path to the existing Windows directory buffer"
+  ],
+  "target_evidence": "IO.SYS EXEC records at 0xeddb name SYSINIT offsets 0x4088 and 0x0f0d",
+  "default_objects_identical": true,
+  "dos7_assembly": "passed",
+  "limitations": [
+    "Placement of disksector_pending_size relative to the target is not verified.",
+    "System EXEC flow and final layout remain incomplete."
+  ],
+  "diagnostic_link": "passed after removing exec_windows_path and exec_boot_state stubs; other diagnostic stubs remain"
+}

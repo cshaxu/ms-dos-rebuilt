@@ -1,0 +1,14 @@
+{
+  "file": "lang/usa/messages/usa-ms-dos.msg",
+  "source_sha256": "fb3c861b357783257ea83f72aaa92c09bcece67df9b8f59ed188f5870a759a29",
+  "state": "waiting_dependencies",
+  "dependency": "bios/sysinit1.asm",
+  "legacy_consumer": "bios/sysinit1.asm:625",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_output_loop_offset": 20278,
+  "target_output_loop_hex": "0e1fbe1b02ac0ac07408b307b40ecd10ebf3f4ebfd",
+  "target_stack_message_offset": 66258,
+  "target_stack_message_end": 66402,
+  "observation": "Legacy FATAL_MSG consumer checks for dollar; target candidate output loop checks zero and target stack-overflow text is NUL-terminated.",
+  "limitations": "Direct runtime pointer from this loop to the identified target stack message has not been established. Do not infer the full target implementation or change either source solely from this evidence."
+}

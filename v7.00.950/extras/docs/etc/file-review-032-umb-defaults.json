@@ -1,0 +1,22 @@
+{
+  "files": [
+    "bios/sysinit1.asm",
+    "bios/sysconf.asm"
+  ],
+  "source_hashes": [
+    "43db305ced72593c6222808cce8c0f6a93c091303869de821680edf83b9ddb11",
+    "0c876d2bb718b1be0d26eda4a9f6fd690e9b4514b802a7306de6197e04beaf0d"
+  ],
+  "target_range": "IO.SYS 0x6369..0x6394",
+  "bytes": 43,
+  "different_bytes": 0,
+  "probe": "extras/research/umbdefaults7-linked.asm",
+  "default_objects_identical_to_prior": true,
+  "dos7_assembly": "passed",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "Fixed-offset probe establishes only this initialization sequence; final field placement and full runtime flow remain unverified.",
+    "Consumers of FILESHIGH, FCBSHIGH and LASTDRIVEHIGH flags remain incomplete.",
+    "Mixed diagnostic link contains older objects and stubs."
+  ]
+}

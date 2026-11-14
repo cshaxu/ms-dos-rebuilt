@@ -1,0 +1,30 @@
+{
+  "file_index": 1,
+  "file": "bios/apmequ.inc",
+  "status": "investigated_pending",
+  "source_sha256": "6ea83b5c2ad1a1bc2f95d9a1b2f84762cb305f589cd06b2c6a9bf37e1aa23258",
+  "baseline_references": [
+    "bios/power.asm",
+    "bios/ptime.asm"
+  ],
+  "baseline_config": "inc/version.inc leaves POWER undefined; power.asm contents are conditional on POWER",
+  "baseline_objects_bytes": {
+    "power.obj": 26,
+    "ptime.obj": 26
+  },
+  "target_search": "The unprefixed mov ax,0x53xx byte pattern for APM calls, 5300/01/04/05/06/07/08/09/0a/0b, was searched across the complete IO.SYS; negative results do not exclude other encodings, compressed regions, or separately loaded components.",
+  "literal_mov_ax_offsets": {
+    "0x5300": [],
+    "0x5301": [],
+    "0x5304": [],
+    "0x5305": [],
+    "0x5306": [],
+    "0x5307": [],
+    "0x5308": [],
+    "0x5309": [],
+    "0x530a": [],
+    "0x530b": []
+  },
+  "decision": "Keep the original include unchanged and pending; target evidence is insufficient to certify every relevant target use or source provenance.",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5"
+}

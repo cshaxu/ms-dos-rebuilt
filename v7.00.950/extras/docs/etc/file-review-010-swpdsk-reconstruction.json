@@ -1,0 +1,26 @@
+{
+  "source_sha256": "29e8926e06e28ea391ce9c897e361d7a5cf7fd29e4b0c9ab9865e598fb874be2",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_start": "0x44af",
+  "target_end_exclusive": "0x4524",
+  "target_length": 117,
+  "assembled_listing_start": "0x53",
+  "assembled_listing_end_exclusive": "0xc8",
+  "selected_control_flow_checks": [
+    "0053  53",
+    "005B  74 21",
+    "006F  74 0B",
+    "008F  74 28",
+    "00B5  2A E4",
+    "00C1  74 04",
+    "00C5  EB F6"
+  ],
+  "target_message_base_bios_code_offset": "0x2db4",
+  "target_message_word_offsets": [
+    "0x2da8",
+    "0x2daa"
+  ],
+  "dos7_and_reference_assembled": true,
+  "reference_object_identical_to_previous": true,
+  "limitations": "Selected instructions and control flow were checked in the assembler listing; relocated message fields, call operands and full linked bytes have not been verified. Message-table names are inferred and remain external."
+}

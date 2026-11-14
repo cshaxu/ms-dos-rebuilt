@@ -1,0 +1,16 @@
+{
+  "file": "bios/sysinit2.asm",
+  "source_sha256": "00007346663298a3d587864b5430a165b3a515b994fdd599d472f305d1ede152",
+  "target_range": "IO.SYS 0x9ff9..0xa01e",
+  "length": 37,
+  "different_bytes": 0,
+  "tool": "MASM 6 ML isolated probe",
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link": "passed",
+  "probe_source": "extras/research/boot-path-insert-linked.asm",
+  "limitations": [
+    "Fixed-offset probe does not establish full layout or runtime.",
+    "Shell and startup path callers remain incomplete."
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "probe_source": "extras/research/bios-dskinit-setptr-runtime.asm",
+  "source_sha256": "3b4e5e112305623d68cfd5b32c7369eb1d1b919f8477069bee75d71f76a0c2af",
+  "exe_sha256": "1915d25f6de4a124d848d2f659723c3b6423b241de876b21123fdcc9071aaa6d",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_routines_match": true,
+  "isolated_probe_status": "PASS",
+  "checks": [
+    "dsk_init returns carry clear",
+    "request media byte receives drvmax",
+    "request pointer receives dskdrvs offset and SYSINIT segment"
+  ],
+  "limitations": [
+    "Uses synthetic request packet and standalone segment layout.",
+    "Does not exercise actual device driver initialization or complete boot."
+  ]
+}

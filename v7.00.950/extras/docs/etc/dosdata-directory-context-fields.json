@@ -1,0 +1,84 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "reference_listing_sha256": "e3516d9dff0d9d82760c523663a5d304a1b4401ec0722f8ee60943cd2a1027dd",
+  "fields": [
+    {
+      "offset": "0x00",
+      "role": "count decremented while marking entries deleted"
+    },
+    {
+      "offset": "0x02",
+      "historical_data_symbol": "DIRSTART",
+      "dosdata_offset": "0x05c2"
+    },
+    {
+      "offset": "0x04",
+      "historical_data_symbol": "DIRSEC low word",
+      "dosdata_offset": "0x05be"
+    },
+    {
+      "offset": "0x06",
+      "historical_data_symbol": "DIRSEC high word",
+      "dosdata_offset": "0x05c0"
+    },
+    {
+      "offset": "0x08",
+      "historical_data_symbol": "CLUSNUM",
+      "dosdata_offset": "0x05bc"
+    },
+    {
+      "offset": "0x0a",
+      "historical_data_symbol": "LASTENT",
+      "dosdata_offset": "0x0348"
+    },
+    {
+      "offset": "0x0c",
+      "historical_data_symbol": "ENTLAST",
+      "dosdata_offset": "0x05da"
+    }
+  ],
+  "checks": {
+    "field_2_swap": {
+      "file_offset": "0x17f86",
+      "bytes": "8b45028706c205894502"
+    },
+    "field_4_swap": {
+      "file_offset": "0x17f90",
+      "bytes": "8b45048706be05894504"
+    },
+    "field_6_swap": {
+      "file_offset": "0x17f9a",
+      "bytes": "8b45068706c005894506"
+    },
+    "field_8_swap": {
+      "file_offset": "0x17fa4",
+      "bytes": "8b45088706bc05894508"
+    },
+    "field_a_swap": {
+      "file_offset": "0x17fae",
+      "bytes": "8b450a8706480389450a"
+    },
+    "field_c_swap": {
+      "file_offset": "0x17fb8",
+      "bytes": "8b450c8706da0589450c"
+    },
+    "mark_deleted": {
+      "file_offset": "0x17fef",
+      "bytes": "26c607e580cc40ff064803ff0d"
+    },
+    "copy_14_bytes": {
+      "file_offset": "0x1805c",
+      "bytes": "8b0eac0a890de31156068cd98ec1beac0ab90700fcf3a5075ec3"
+    }
+  },
+  "observations": [
+    "The target routine exchanges six words between each context and DOSDATA directory-position fields; afterward it restores those fields.",
+    "It writes E5h to directory entry byte zero, increments LASTENT and decrements the context count.",
+    "A related routine copies seven words from the first context when its count is nonzero, independently confirming 14-byte context size."
+  ],
+  "limitations": [
+    "Data symbol names are matched using same offsets in the trial historical listing; complete target symbol ownership is not established.",
+    "These are static instruction-level findings, not a runtime execution test.",
+    "No reconstructed source has yet been validated for the full routine or its callers."
+  ]
+}

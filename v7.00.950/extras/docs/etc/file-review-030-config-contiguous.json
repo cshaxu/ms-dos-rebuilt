@@ -1,0 +1,34 @@
+{
+  "source": "bios/sysconf.asm",
+  "sha256": "0523f142066ea9d839667436cccec73d207078cef2715b2c5799d4f3d5a3e8a6",
+  "change": "Link existing BREAK and MULTITRACK code and their actual parameter providers into CONFIG command diagnostic.",
+  "matched": [
+    {
+      "region": "BREAK",
+      "start": "0x6b42",
+      "end_exclusive": "0x6b84",
+      "bytes": 66
+    },
+    {
+      "region": "MULTITRACK",
+      "start": "0x6b84",
+      "end_exclusive": "0x6bdd",
+      "bytes": 89
+    },
+    {
+      "region": "continuous CONFIG entry through first pass",
+      "start": "0x6848",
+      "end_exclusive": "0x6ca8",
+      "bytes": 1120
+    }
+  ],
+  "verification": {
+    "tool": "extras/tools/verify_syspre_device_link.py",
+    "link_stage": "extras/build/syspre-object-link-srz663oh",
+    "scope": "Actual CONFIG code and parameter providers linked; BIOS and other target positions retain diagnostic anchors."
+  },
+  "limitations": [
+    "No core source changed in this step.",
+    "Runtime, full product link and the three final binaries remain unverified."
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "probe_source": "extras/research/bios-maperror-provider-link/runtime-probe.asm",
+  "source_sha256": "6320cb18d4f21b1862674acda4412cb300fcf34912f57816420bfaaa72980c54",
+  "exe_sha256": "9bd1b3efc61bea82e8464680d035a6f068f69669f6647d60d1dba4fe9cc23633",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_data_bytes": 90,
+  "target_maperror_bytes": 26,
+  "both_blocks_match_target": true,
+  "isolated_probe_status": "PASS",
+  "checks": [
+    "all eight historical ROM disk error mappings",
+    "an unknown ROM error maps to general error 12",
+    "carry is set for each result"
+  ],
+  "limitations": [
+    "The probe exercises the translation routine with synthetic inputs, not actual BIOS disk interrupts.",
+    "Target-wide BIOS integration and complete binary equivalence remain unverified."
+  ]
+}

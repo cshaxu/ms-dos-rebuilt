@@ -1,0 +1,27 @@
+{
+  "probe_source": "extras/research/bios-dskinit-setptr-probe.asm",
+  "source_sha256": "2eb9c1dcfdb8acb6063e51905f300bd4b25254f3589b253a1ca6540622fa1f21",
+  "exe_sha256": "cd83e58220661e44fec404fde2b75621e160fbf3b5d59c63ed1d48fb117a8b49",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "linked_routines": [
+    {
+      "routine": "dsk_init",
+      "target_file_offset": "0x2ab5",
+      "linked_exe_file_offset": "0x1f85",
+      "length": 15,
+      "all_bytes_equal": true
+    },
+    {
+      "routine": "setptrsav",
+      "target_file_offset": "0x2bbb",
+      "linked_exe_file_offset": "0x208b",
+      "length": 20,
+      "all_bytes_equal": true
+    }
+  ],
+  "limitations": [
+    "The test uses ORG-based isolated segment placement, not a complete BIOS link.",
+    "Request packet structure offsets are inferred from existing source and target bytes.",
+    "No hardware or full boot path is exercised."
+  ]
+}

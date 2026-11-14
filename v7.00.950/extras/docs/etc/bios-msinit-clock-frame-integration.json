@@ -1,0 +1,22 @@
+{
+  "source": "extras/research/bios-msinit-clock-frame-trial.asm",
+  "source_sha256": "c72375c25b47126c408996e2029e18db01ccf50b55e1c64f887f556b95d0b1fc",
+  "linked_exe_sha256": "17afc84e35861ce04392e01bebb9ba2e7cb885f70f49d4edf0c7241180042b8a",
+  "dos6_object_byte_identical": true,
+  "clock_target_range": "0x27b0..0x2a25",
+  "length": 629,
+  "difference_count": 6,
+  "difference_offsets": [
+    "0x280d",
+    "0x280e",
+    "0x280f",
+    "0x2810",
+    "0x2811",
+    "0x2812"
+  ],
+  "limitations": [
+    "Diagnostic link uses temporary providers and synthetic 0070h MZ relocation.",
+    "MASM 5.NT is used in this experiment; ML 6 compatibility setup is unresolved.",
+    "Formal source ownership and full target build remain unverified."
+  ]
+}

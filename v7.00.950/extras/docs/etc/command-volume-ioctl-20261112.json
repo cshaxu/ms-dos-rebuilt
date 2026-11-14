@@ -1,0 +1,16 @@
+{
+  "build": "extras/docs/etc/command-volume-ioctl-build-20261112.json",
+  "source": "cmd/command/tcmd1b.asm",
+  "change": "Restored target disk generic IOCTL 440Dh/0866h for volume serial in place of DOS 6 INT 21h/6900h.",
+  "target_instruction_range": "0xb329..0xb33c",
+  "registered_instruction_bytes": 19,
+  "target_probe": "extras/build/volume-ioctl-target-75j_ow80",
+  "current_probe": "extras/build/volume-ioctl-current-tcknvdin",
+  "matched_cases": [
+    "VOL volume label and serial",
+    "DIR /C volume label, serial, directory entries"
+  ],
+  "limitations": "DIR /C summary spacing still differs; IOCTL failure and other drive cases unverified; whole output not byte-identical.",
+  "output_bytes": 93310,
+  "target_bytes": 92870
+}

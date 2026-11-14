@@ -1,0 +1,27 @@
+{
+  "generated_utc": "2026-11-12T11:34:22.654763+00:00",
+  "source": "cmd/command/tcmd2a.asm",
+  "build_report": "extras/docs/etc/command-path-delimiter-build-20261112.json",
+  "comparison": {
+    "target_offset": "0xb622",
+    "candidate_offset": "0xb9ca",
+    "length": 9,
+    "excluded_address_bytes": [
+      6,
+      7
+    ],
+    "note": "Target delimiter-call displacement not separately certified."
+  },
+  "probe": {
+    "stage": "extras/build/command-pathdelim-ex28030e",
+    "result": "PASS",
+    "coverage": "Actual helper with delimiter stub checks quoted and unquoted flags. Upper parser does not yet update quote state."
+  },
+  "remaining": "Full PATH parser and long-input buffer layout incomplete. ECHO/COPY not rerun.",
+  "file_counts": {
+    "linked": 35,
+    "modified_from_baseline": 30,
+    "unchanged_from_baseline": 5
+  },
+  "final_binary_exact": false
+}

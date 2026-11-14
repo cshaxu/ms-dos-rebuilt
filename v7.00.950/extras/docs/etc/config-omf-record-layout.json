@@ -1,0 +1,173 @@
+{
+  "scope": "Source-symbol-based OMF serialization reconstruction. These are equivalent record boundaries chosen from observed relocation ordering constraints, not claimed original compiler record lengths. No code bytes or relocation addresses are stored.",
+  "units": {
+    "REGAPI": {
+      "anchor": "RegOpenKey",
+      "cuts": [
+        {
+          "symbol": "RegQueryValueCore",
+          "addend": 216
+        },
+        {
+          "symbol": "RegDeleteKey",
+          "addend": 321
+        },
+        {
+          "symbol": "RegEnumValue",
+          "addend": 209
+        },
+        {
+          "symbol": "RegRemapKey",
+          "addend": 240
+        },
+        {
+          "symbol": "RegUnloadKey",
+          "addend": 306
+        }
+      ],
+      "within_record": "descending fixup location"
+    },
+    "REGSTART": {
+      "anchor": "RegInitialize",
+      "cuts": [
+        {
+          "symbol": "RegInitialize",
+          "addend": 821
+        },
+        {
+          "symbol": "RegInitUserRoot",
+          "addend": 149
+        },
+        {
+          "symbol": "RegTerminate",
+          "addend": 126
+        },
+        {
+          "symbol": "RegFlushAll",
+          "addend": 102
+        }
+      ],
+      "within_record": "descending fixup location"
+    },
+    "REGKEYS": {
+      "anchor": "RegOpenPath",
+      "cuts": [
+        {
+          "symbol": "RegSearchPath",
+          "addend": 420
+        },
+        {
+          "symbol": "RegRemoveValue",
+          "addend": 245
+        },
+        {
+          "symbol": "RegCreatePath",
+          "addend": 546
+        },
+        {
+          "symbol": "RegSetValue",
+          "addend": 32
+        },
+        {
+          "symbol": "RegSetValue",
+          "addend": 1040
+        },
+        {
+          "symbol": "RegFreeRecord",
+          "addend": 201
+        },
+        {
+          "symbol": "RegAllocateRecord",
+          "addend": 439
+        },
+        {
+          "symbol": "RegNextDataBlock",
+          "addend": 127
+        },
+        {
+          "symbol": "RegResizeRecord",
+          "addend": 783
+        }
+      ],
+      "within_record": "descending fixup location"
+    },
+    "REGFILE": {
+      "anchor": "RegReadFile",
+      "cuts": [
+        {
+          "symbol": "RegReadFile",
+          "addend": 701
+        },
+        {
+          "symbol": "RegRebuildNameHashes",
+          "addend": 182
+        },
+        {
+          "symbol": "RegSaveFile",
+          "addend": 730
+        },
+        {
+          "symbol": "RegSaveFile",
+          "addend": 1606
+        },
+        {
+          "symbol": "RegLoadDataBlock",
+          "addend": 250
+        },
+        {
+          "symbol": "RegLoadDataBlock",
+          "addend": 808
+        },
+        {
+          "symbol": "RegNewDataBlock",
+          "addend": 86
+        },
+        {
+          "symbol": "RegIndexBlock",
+          "addend": 128
+        },
+        {
+          "symbol": "RegGrowKeyBlock",
+          "addend": 296
+        },
+        {
+          "symbol": "RegMakeTempName",
+          "addend": 46
+        },
+        {
+          "symbol": "RegValidateDataBlock",
+          "addend": 26
+        }
+      ],
+      "within_record": "descending fixup location"
+    },
+    "REGHANDLE": {
+      "anchor": "RegFindKey",
+      "cuts": [
+        {
+          "symbol": "RegKeyCreate",
+          "addend": 24
+        },
+        {
+          "symbol": "RegFileCreate",
+          "addend": 22
+        }
+      ],
+      "within_record": "descending fixup location"
+    },
+    "REGFINAL": {
+      "anchor": "RegInitHeader",
+      "cuts": [
+        {
+          "symbol": "RegFindAlias",
+          "addend": 175
+        },
+        {
+          "symbol": "RegPrepareSaveFile",
+          "addend": 508
+        }
+      ],
+      "within_record": "descending fixup location"
+    }
+  }
+}

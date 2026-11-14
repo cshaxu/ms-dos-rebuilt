@@ -1,0 +1,19 @@
+{
+  "build_report": "extras\\docs\\etc\\command-primary-message-error-entry-build-20261112.json",
+  "stage": "extras\\build\\primary-resource-probe-2lkijgm9",
+  "checks": [
+    "an open file handle is passed to the resident resource preparation and actual MZ reader",
+    "resident directory fixup initializes extended, critical, parse and utility class pointers",
+    "message service default fields are initialized; callback request executes",
+    "class 3 message 1083 resolves to YNA",
+    "resident and EXEC stub checksums agree and preserve specified registers",
+    "changes in pointer table, message payload and copyright region change checksum",
+    "resource reader rejects an invalid NSCO signature",
+    "resident country initialization copies all six DOS country fields"
+  ],
+  "method": "Isolated DOS probe assembled from current command2.asm routines; no graphical computer use.",
+  "limitations": [
+    "Does not execute the complete COMMAND startup or reload paths.",
+    "Does not prove final byte identity or all error cases."
+  ]
+}

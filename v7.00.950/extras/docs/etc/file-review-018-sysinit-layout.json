@@ -1,0 +1,27 @@
+{
+  "source": "bios/msinit.asm",
+  "source_sha256": "e79a27aeaed820ff94b670a8a3fdf5b49c676a64195df0c5e976311ec958d65a",
+  "listing_sha256": "fc19ecded88e94c5bf7e14809d6832e1dec4cb323ca357b40592538828a7998e",
+  "target_offset": "0x1153",
+  "length": 64,
+  "matched_nonrelocated_bytes": 37,
+  "masked_relocation_bytes": 24,
+  "differences": [
+    {
+      "offset": 7,
+      "listing": "0x5",
+      "target": "0x83"
+    },
+    {
+      "offset": 8,
+      "listing": "0xf",
+      "target": "0xc0"
+    },
+    {
+      "offset": 9,
+      "listing": "0x0",
+      "target": "0xf"
+    }
+  ],
+  "limitations": "SYSINIT field names and ownership are inferred; relocation addresses and full target link remain unverified."
+}

@@ -1,0 +1,19 @@
+{
+  "probe_source": "extras/research/bios-install-bds-runtime-probe.asm",
+  "source_sha256": "602198a2a90ac51a05280a5c294bfe2b591ff169519cf24404a17def182ed889",
+  "exe_sha256": "822207a686892990940a1060b69d82897c1dca9ab5457adc288ed4c6b9314c03",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_block_length": 95,
+  "target_block_matches": true,
+  "isolated_probe_status": "PASS",
+  "checks": [
+    "links a new BDS to an existing one and terminates its link",
+    "same physical drive merges shared/change flags and clears ownership",
+    "higher sectors-per-track updates EOT",
+    "different physical drive preserves flags and a lower EOT does not reduce the maximum"
+  ],
+  "limitations": [
+    "This uses synthetic in-memory BDS entries, not real hardware or device initialization.",
+    "Only two one-element-chain cases are covered; full BIOS integration remains unverified."
+  ]
+}

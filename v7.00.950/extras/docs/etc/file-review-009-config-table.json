@@ -1,0 +1,38 @@
+{
+  "file_index": 9,
+  "source": "bios/msbio1.asm",
+  "source_sha256": "5ae07a24170cd89044079df2d761f94e22edfd91b6c723ecc011e26355aeb527",
+  "target_io_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_table_offset": 18832,
+  "target_read_offset": 18859,
+  "dispatch_count": 13,
+  "dispatch_categories": [
+    "done",
+    "done",
+    "done",
+    "read",
+    "error",
+    "error",
+    "done",
+    "done",
+    "error",
+    "error",
+    "error",
+    "error",
+    "init"
+  ],
+  "read_code_length": 32,
+  "matching_instruction_bytes": 26,
+  "address_fixup_bytes": [
+    15,
+    16,
+    21,
+    22,
+    25,
+    26
+  ],
+  "target_read_bytes": "e31c83f9057217065733c0fcabf6062e05017403a13105aba02e05aa5f07f8c3",
+  "probe_read_bytes": "e31c83f9057217065733c0fcabf6062009017403a12109aba02009aa5f07f8c3",
+  "validation": "MASM -DDOS7_CONFIG and historic link with temporary external symbol stubs; 13 table entries resolve to equivalent categories and 32-byte read routine differs only at three 16-bit data address operands. Baseline non-DOS7_CONFIG BIOS output is byte-identical to the preceding build.",
+  "outstanding": "config_flags and config_value target semantics/location and config_init implementation remain unresolved. Stubs are in ignored build only and do not constitute target reconstruction."
+}

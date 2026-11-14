@@ -1,0 +1,38 @@
+{
+  "stage": "extras\\build\\command-reference-qx61bwbw",
+  "checks": [
+    {
+      "symbol": "FreeInitEnv",
+      "target_range": [
+        18307,
+        18343
+      ],
+      "bytes": 36,
+      "hex": "063b062c00751550488ec02603060300408ec05826833e01000075068ec0b449cd2107c3",
+      "byte_exact_without_normalization": true
+    },
+    {
+      "symbol": "CopyInitVector",
+      "target_range": [
+        18343,
+        18355
+      ],
+      "bytes": 12,
+      "hex": "8bdfaaa5a5895cfc8c44fec3",
+      "byte_exact_without_normalization": true
+    }
+  ],
+  "overlay_end": 549,
+  "overlay_limit": 586,
+  "overlay_remaining_bytes": 37,
+  "source_hashes": {
+    "cmd/command/rdata.asm": "1f48da661317ce125f680bb9f39fc1c81d378a1204d9198eff5b1ff410f441ab"
+  },
+  "resource_gates_passed": true,
+  "full_command_exact": false,
+  "remaining": [
+    "EndInit remains primarily DOS6-derived; current old-environment release calls the restored helper within its existing AllocedEnv condition.",
+    "CopyInitVector has no startup caller until actual high-load vector-stub allocation is restored.",
+    "Complete EndInit storage extent, path source, environment-size placement and startup integration remain pending."
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "file_index": 9,
+  "source": "bios/msbio1.asm",
+  "source_sha256": "a3db82a3536488f9dee0ed903f0a2bd3b9190fc4d9ccd89f5adfbe56f1559d71",
+  "target_io_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_sysinit_offset": 3902,
+  "target_file_offset": 23662,
+  "target_segment_word": 112,
+  "source_definition": "config_bios_segment dw Bios_Data",
+  "validation": "MASM conditional assembly and historical link resolve the source-defined Bios_Data segment to 0070, matching the target word; the CONFIG restore code reads that source symbol. The repeatable ML diagnostic links with only config_init_flags stubbed. Default non-DOS7_CONFIG output is unchanged.",
+  "limitations": "The final target SYSINIT layout and runtime segment relocation are not established; matching an initial segment value alone does not prove final variable position."
+}

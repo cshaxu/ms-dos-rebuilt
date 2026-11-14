@@ -1,0 +1,21 @@
+{
+  "file_index": 10,
+  "file": "bios/msbio2.asm",
+  "source_sha256": "8defab0e0d512284119cb44a933664315d3c5745ced1e826eb5e5ca7edf5fd32",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "reference_diagnostic_binary": "extras/build/sysinit-split-60isgeox/msbio.bin",
+  "reference_binary_sha256": "cc0161e7f0d14a1d17613873e30acc7fd98e8b2a51c6d060a58588473c203a9c",
+  "symbol": "install_bds",
+  "reference_map": "extras/build/sysinit-split-60isgeox/msbio.map",
+  "reference_segment": "01A5",
+  "reference_offset": "1DFC",
+  "reference_length": 69,
+  "exact_prefix_length": 59,
+  "target_file_offset": 17512,
+  "target_prefix_occurrences": [
+    17512
+  ],
+  "reference_remaining_hex": "3a060a3c7603a20a3cc3",
+  "target_remaining_hex": "2e3a06e30d76042ea2e3",
+  "limitations": "Exact prefix is an anchor only; trailing differences and branch targets require disassembly. Diagnostic uses stubs and is not a complete DOS 7 build."
+}

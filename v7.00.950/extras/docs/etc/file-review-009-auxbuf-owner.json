@@ -1,0 +1,10 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_character_helper_file_offset": 9829,
+  "sequence_hex": "0e1f8b1e380781c33a07c3",
+  "auxnum_bios_code_offset": 1848,
+  "auxbuf_bios_code_offset": 1850,
+  "reference_source": "bios/mschar.asm",
+  "diagnostic_report": "config-ml-auxbuf-owner-corrected.json",
+  "limitations": "Target instruction computes an indexed BIOS_CODE address at 073Ah; reference character code uses auxbuf similarly. The new diagnostic symbol is a stub; final definition, segment assumptions, and linking await mschar reconstruction."
+}

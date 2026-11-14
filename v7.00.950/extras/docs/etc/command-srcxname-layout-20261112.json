@@ -1,0 +1,34 @@
+{
+  "generated_utc": "2026-11-12T11:41:54.051652+00:00",
+  "source": "cmd/command/tspc.asm",
+  "build_report": "extras/docs/etc/command-srcxname-layout-build-20261112.json",
+  "layout": {
+    "target_source_offset": "0xcc28",
+    "target_next_offset": "0xcd2c",
+    "candidate_source_offset": "0xcd97",
+    "candidate_next_offset": "0xce9b",
+    "source_capacity": 260,
+    "target_evidence": "SrcXName and TrgXName addresses independently mapped in registered instruction checks.",
+    "removed": "UCOMBUF had no source references outside its own declaration.",
+    "transpaceend": "0xeab6",
+    "resize_sum_with_alignment": "0xffc4",
+    "resize_fits_16_bits": true
+  },
+  "runtime": {
+    "echo": {
+      "stage": "extras/build/command-srcbuf-echo-z4kgsroa",
+      "result": "timeout, empty output"
+    },
+    "copy": {
+      "stage": "extras/build/command-srcbuf-copy-n9mq8414",
+      "result": "timeout, destination matches source"
+    }
+  },
+  "remaining": "Target ordering and sizes of remaining buffers and complete PATH parser still incomplete.",
+  "file_counts": {
+    "linked": 35,
+    "modified_from_baseline": 30,
+    "unchanged_from_baseline": 5
+  },
+  "final_binary_exact": false
+}

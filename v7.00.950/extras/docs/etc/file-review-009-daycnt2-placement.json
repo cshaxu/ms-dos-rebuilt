@@ -1,0 +1,15 @@
+{
+  "file_index": 9,
+  "source_sha256": "4060de1b02ae579916b98971a1b2793c5a90bf21b745610b0daa05229492de79",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "daycnt2_target_bios_data_offset": 1281,
+  "target_clock_buffer_bios_code_offset": 1868,
+  "target_month_table_bios_code_offset": 1872,
+  "target_counter_write_file_offsets": [
+    10176,
+    10208,
+    10220
+  ],
+  "diagnostic_report": "config-ml-daycnt2-regression.json",
+  "limitations": "Target month table and date buffer use BIOS_CODE, while their current source declarations remain in the legacy data location; ownership and placement require later module reconstruction. The target clock helpers are diagnostic stubs."
+}

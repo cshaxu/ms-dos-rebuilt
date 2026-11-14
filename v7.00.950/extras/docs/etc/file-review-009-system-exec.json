@@ -1,0 +1,25 @@
+{
+  "sources": {
+    "bios/msbio1.asm": "8c9fb0e85fdf8180a4717a03a47e3fa8648f0f79bfa9404cea1f5f3386d35097",
+    "bios/sysinit2.asm": "2bbb06b820f249d3636bfdf06477f1ea83d9109f67ff5e89223c9e733ea4a34a"
+  },
+  "change": "Restore query, WINBOOT.SYS then IO.SYS EXEC, termination status and fallthrough to MCB restoration; export the existing query entry.",
+  "target_region": {
+    "start": "0xa35d",
+    "end_exclusive": "0xa38e",
+    "bytes": 49
+  },
+  "verification": {
+    "tool": "extras/tools/verify_syspre_device_link.py",
+    "link_stage": "extras/build/syspre-object-link-t8e9g0tz",
+    "module_stage": "extras/build/ml-sysinit-knhpyu2q",
+    "runtime": "extras/tools/verify_boot_system_exec.py",
+    "runtime_stage": "extras/build/system-exec-runtime-l9rbktrq",
+    "scope": "49 code bytes match target. INT 21h is intercepted in runtime probe; five cases cover skip, first success, fallback success, both failures and abnormal exit, with file paths checked."
+  },
+  "limitations": [
+    "Earlier EXEC setup and MCB resizing remain synthetic.",
+    "The complete upstream caller is not yet connected.",
+    "Complete IO.SYS and all three core files remain unverified."
+  ]
+}

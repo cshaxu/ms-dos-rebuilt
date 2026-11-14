@@ -1,0 +1,30 @@
+{
+  "target_sha256": "a74c700063cd6b1c91523952bfc80e9393c125d39ada0164d48b5098089fcef3",
+  "runtime_address_rule": "Control block runtime address = file offset - 0x8520, independently confirmed for adjacent volume and version controls.",
+  "target_code_offset": "0xa7e1",
+  "target_code_hex": "ba5c81803e99e5007406e8ed0cba4c81e82055e862",
+  "blocks": [
+    {
+      "file_offset": "0x1066c",
+      "runtime_address": "0x814c",
+      "message": 1048,
+      "argument_address": "0xd195"
+    },
+    {
+      "file_offset": "0x1067c",
+      "runtime_address": "0x815c",
+      "message": 1048,
+      "argument_address": "0xdec7"
+    }
+  ],
+  "selection": "The code initially selects 0x815c, tests byte at 0xe599, and when it is nonzero calls a routine and selects 0x814c before the common print call.",
+  "baseline": "cmd/command/dir.asm DisplayHeader uses Build_Dir_String and one DirHead_Ptr; cmd/command/tranmsg.asm has one 1048 block pointing at BWDBUF.",
+  "related_target_code": [
+    "At file 0xa61f, target copies a zero-terminated string from 0xdec7 to 0xd195 when byte 0xe599 is nonzero.",
+    "Target references the same buffer addresses in later message controls; their names and full ownership are not yet established."
+  ],
+  "limitations": [
+    "The conditional flag and the historical names, buffer ownership, full logic and relocations remain unverified.",
+    "This is an isolated target analysis, not an assembled or linked production source change."
+  ]
+}

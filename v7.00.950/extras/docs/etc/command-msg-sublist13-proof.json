@@ -1,0 +1,81 @@
+{
+  "target_sha256": "a74c700063cd6b1c91523952bfc80e9393c125d39ada0164d48b5098089fcef3",
+  "source_baseline": "inc/msgserv.asm:90-101; cmd/command/comequ.asm:70",
+  "baseline_size": 11,
+  "target_size": 13,
+  "fields": {
+    "size": [
+      0,
+      1
+    ],
+    "reserved": [
+      1,
+      1
+    ],
+    "value": [
+      2,
+      4
+    ],
+    "id": [
+      6,
+      1
+    ],
+    "flag": [
+      7,
+      1
+    ],
+    "max_width": [
+      8,
+      2
+    ],
+    "min_width": [
+      10,
+      2
+    ],
+    "pad": [
+      12,
+      1
+    ]
+  },
+  "target_instructions": [
+    {
+      "offset": 57753,
+      "bytes": "c6040d"
+    },
+    {
+      "offset": 57772,
+      "bytes": "c744080000"
+    },
+    {
+      "offset": 57777,
+      "bytes": "c7440a0000"
+    },
+    {
+      "offset": 57782,
+      "bytes": "c6440c00"
+    },
+    {
+      "offset": 65899,
+      "bytes": "8b440a"
+    },
+    {
+      "offset": 65935,
+      "bytes": "837c0800"
+    },
+    {
+      "offset": 65941,
+      "bytes": "394c08"
+    },
+    {
+      "offset": 65916,
+      "bytes": "8a440c"
+    }
+  ],
+  "probe": "extras/build/msg-sublist13-q4v8kxld/probe.asm",
+  "probe_sha256": "b9b627c7f7b0928f4180fb91e2252bfa8d9fc8ed8992e76900d404f4e4fb591d",
+  "probe_object_sha256": "43462ef10aecc6b79509d31ece1469dba26b67c6a17e80e17b1de2a08eff3f53",
+  "limitations": [
+    "The demonstrated structure covers the transient target paths observed; other configurations and all initialization semantics remain unverified.",
+    "COPY consumer, COMEQU, MSGSERV and message generation require coordinated changes; none were edited in this probe."
+  ]
+}

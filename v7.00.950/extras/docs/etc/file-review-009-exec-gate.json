@@ -1,0 +1,30 @@
+{
+  "sources": {
+    "bios/msbio1.asm": "cba72a151220e3daf8e5e15bd16cb5592ba312e41b08b3824e6d380a2c4e9549",
+    "bios/sysinit2.asm": "7d4c6bcfea2aae3a7828ff81ec94928602817d12205bc348bde7a93da92e7ace"
+  },
+  "change": "Restore system-file EXEC entry conditions, MCB last-block check and temporary size adjustment, exporting the existing state field and real exit label.",
+  "target_region": {
+    "start": "0xa296",
+    "end_exclusive": "0xa2d2",
+    "bytes": 60
+  },
+  "continuous_exec_chain": {
+    "start": "0xa296",
+    "end_exclusive": "0xa40b",
+    "bytes": 373
+  },
+  "verification": {
+    "link": "extras/tools/verify_syspre_device_link.py",
+    "link_stage": "extras/build/syspre-object-link-4imnfduu",
+    "module_stage": "extras/build/ml-sysinit-fyctmbqp",
+    "runtime": "extras/tools/verify_boot_exec_gate.py",
+    "runtime_stage": "extras/build/exec-gate-runtime-m9jvm__v",
+    "scope": "Source-generated continuous 373-byte EXEC chain matches target in the anchored link. Runtime probe uses a private memory block and covers both skip flags, invalid marker and valid block resize."
+  },
+  "limitations": [
+    "The upstream caller has not yet been connected to the entry.",
+    "The diagnostic uses other synthetic addresses and gaps, including BIOS placement.",
+    "Complete IO.SYS and all three core files remain unverified."
+  ]
+}

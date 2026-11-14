@@ -1,0 +1,22 @@
+{
+  "source": "bios/sysconf.asm",
+  "sha256": "a53410ebb01a3db8ec65813c5ecc286e30f1824693ea8068dc4a5644ba274001",
+  "change": "Initialize DRIVPARM special function, default type, attributes and cylinders before parsing, as in the target.",
+  "matched": {
+    "region": "DRIVPARM command dispatch",
+    "start": "0x7329",
+    "end_exclusive": "0x735e",
+    "bytes": 53
+  },
+  "verification": {
+    "tool": "extras/tools/verify_syspre_device_link.py",
+    "link_stage": "extras/build/syspre-object-link-5ryp9v0a",
+    "module_stage": "extras/build/ml-sysinit-n95z5a7k",
+    "scope": "Actual command branch links to actual query, device parameter structure, parser, parameter writer and reset objects."
+  },
+  "limitations": [
+    "Other diagnostic positions and BIOS field offsets are anchored.",
+    "DRIVPARM runtime and complete product link are unverified.",
+    "All three final core binaries remain unverified."
+  ]
+}

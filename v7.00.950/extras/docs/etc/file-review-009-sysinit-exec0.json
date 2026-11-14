@@ -1,0 +1,40 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_sysinit_offset": 41216,
+  "target_file_offset": 60976,
+  "size": 14,
+  "initial_hex": "0000a8a000000000000000000000",
+  "fields": {
+    "environment_segment": 0,
+    "command_line_offset": 41128,
+    "command_line_segment": 0,
+    "fcb1_offset": 0,
+    "fcb1_segment": 0,
+    "fcb2_offset": 0,
+    "fcb2_segment": 0
+  },
+  "reference_structure": "inc/exe.inc:EXEC0",
+  "target_instruction_anchors": {
+    "load_exec_block": {
+      "file_offset": 61442,
+      "hex": "bb00a10e07"
+    },
+    "set_environment": {
+      "file_offset": 61459,
+      "hex": "268907"
+    },
+    "set_command_segment": {
+      "file_offset": 61462,
+      "hex": "26894f04"
+    },
+    "execute_winboot": {
+      "file_offset": 61599,
+      "hex": "bae1a0b8004bcd21"
+    },
+    "execute_io": {
+      "file_offset": 61609,
+      "hex": "bad7a0b8004bcd21"
+    }
+  },
+  "limitations": "The initial layout and selected execution-path references match EXEC0. Original source ownership and runtime reconstruction remain unresolved; the earlier A0A8 command data has not been fully decoded."
+}

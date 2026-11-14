@@ -1,0 +1,81 @@
+{
+  "file_index": 9,
+  "source": "bios/msbio1.asm",
+  "source_sha256": "b47f7d857eadd8535c7aa8580984c42b524dbf65897082d8558c5bf3dc10a4fd",
+  "target_sysinit_jump_file_offset": 5410,
+  "target_start_bds_pointer": [
+    856,
+    1251
+  ],
+  "diagnostic_start_bds_pointer": [
+    0,
+    1089
+  ],
+  "diagnostic_sysinit_segment": 977,
+  "descriptors": [
+    {
+      "index": 1,
+      "matching_bytes": 97,
+      "different_offsets": [
+        0,
+        1,
+        2
+      ],
+      "next_pointer": [
+        100,
+        1089
+      ]
+    },
+    {
+      "index": 2,
+      "matching_bytes": 97,
+      "different_offsets": [
+        0,
+        1,
+        2
+      ],
+      "next_pointer": [
+        200,
+        1089
+      ]
+    },
+    {
+      "index": 3,
+      "matching_bytes": 97,
+      "different_offsets": [
+        0,
+        1,
+        2
+      ],
+      "next_pointer": [
+        300,
+        1089
+      ]
+    },
+    {
+      "index": 4,
+      "matching_bytes": 100,
+      "different_offsets": [],
+      "next_pointer": [
+        65535,
+        65535
+      ]
+    }
+  ],
+  "hard_array_length": 2500,
+  "hard_array_exact": true,
+  "diagnostic_stub_symbols": [
+    "bios_msg_base",
+    "bios_msg_1",
+    "bios_msg_2",
+    "bios_msg_3",
+    "int6c_read_date",
+    "int6c_read_time",
+    "ttticks",
+    "char_auxnum",
+    "char_printdev",
+    "disk_start_high"
+  ],
+  "default_reference_output_sha256": "a67d8733509f9baf94017389cc1c991d5ef1c66bdfb91b6cab3eef0fc35e9490",
+  "limitations": "The target BDS begins at SYSINIT offset 0358h, but the diagnostic begins at 0000h. Existing 6.22 initialization objects use old placement assumptions; target initialization and runtime integration remain unverified."
+}

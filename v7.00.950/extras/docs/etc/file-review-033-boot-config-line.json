@@ -1,0 +1,23 @@
+{
+  "files": [
+    "bios/sysconf.asm",
+    "bios/sysinit2.asm"
+  ],
+  "source_hashes": [
+    "ef7b6b0e3941a648da99fc0196f87d07f5ff7ccb4672accc67132b7ccb4d4e48",
+    "1637c2c99ac18572beaff8a21e76150113119f1602fd0bc74ae085b036817042"
+  ],
+  "target_range": "IO.SYS 0x9c68..0x9cca",
+  "length": 98,
+  "different_bytes": 0,
+  "tool": "MASM 6 ML isolated probe",
+  "default_objects_identical": true,
+  "dos7_assembly": "both passed without warnings",
+  "mixed_diagnostic_link": "passed",
+  "probe_source": "extras/research/boot-config-line-linked.asm",
+  "limitations": [
+    "Fixed-offset probe uses a synthetic multi-pass destination; final layout and execution remain unverified.",
+    "Word access to config_multi relies on its adjacent byte; that complete data layout remains unverified.",
+    "Driver record processing and caller remain incomplete."
+  ]
+}

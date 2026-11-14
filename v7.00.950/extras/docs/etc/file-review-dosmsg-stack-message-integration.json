@@ -1,0 +1,15 @@
+{
+  "file": "lang/usa/messages/usa-ms-dos.msg",
+  "message_id": "0017",
+  "source_sha256": "6b7289ab9001760ca37d7bc791e681f930295d7735efcb63105232ed6fad2d26",
+  "target_io_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_file_range": "0x102d2..0x10362",
+  "length": 144,
+  "different_bytes": 0,
+  "verification": "BUILDIDX and NOSRVBLD generated MSBIO.CL5; its assembled and linked bytes match the target message.",
+  "limitations": [
+    "The target message table and binding of sysinit_msg_base and sysinit_stack_msg_index are not yet reconstructed.",
+    "This project-owned message now contains the DOS 7 text and NUL terminator; a historical DOS 6 reference build using it will not reproduce its prior DOS 6 message.",
+    "Other messages and complete IO.SYS remain unverified."
+  ]
+}

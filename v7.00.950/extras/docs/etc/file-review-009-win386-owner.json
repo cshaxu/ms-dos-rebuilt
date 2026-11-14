@@ -1,0 +1,19 @@
+{
+  "source": "bios/msbio1.asm",
+  "source_sha256": "3d2d571f45d272d1d883f132c13204793cc772f3f11549b801770f1c498917cb",
+  "old_diagnostic_win386_offset": 1337,
+  "target_bytes_at_old_location": "00000000000000",
+  "target_inline_focus_offset": 17586,
+  "target_inline_focus_hex": "f606080040742157062bff8ec7bb1500b88416cd2f8cc00bc7740b0eb88828500657b80100cb075f",
+  "target_status_mask": 64,
+  "change": "Exclude the DOS 6 Win386 startup/instance table and focus helper from their provisional BIOS_DATA placement in the DOS 7 branch. Explicit stubs satisfy old diagnostic objects.",
+  "diagnostic_unresolved_bios_offsets": [
+    "0x539",
+    "0x53a",
+    "0x53b",
+    "0x53c",
+    "0x53d",
+    "0x53e"
+  ],
+  "limitations": "The target mismatch excludes this placement; it does not prove no equivalent Win386 structure exists elsewhere. Later disk/INT13 and initialization code need reconstruction. The next legacy HMA variables now occupy the region, producing six diagnostic differences."
+}

@@ -1,0 +1,31 @@
+{
+  "target_sha256": "a74c700063cd6b1c91523952bfc80e9393c125d39ada0164d48b5098089fcef3",
+  "index_id": 9900,
+  "length_byte_offset": "0x3277",
+  "payload_offset": "0x3278",
+  "payload_length": 52,
+  "payload_end_exclusive": "0x32ac",
+  "microsoft_reference_header": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\c6ers\\tools6\\include\\ver.h",
+  "header_sha256": "520ae227c109951870c4945e7f5a5c9e725f9a4fe31f5e3b41b2bde2758f5b69",
+  "interpretation": "The 52-byte payload matches the layout and signature of the 13-DWORD VS_FIXEDFILEINFO structure defined in the DOS 6 reference toolchain header. Its length prefix equals the entire structure size.",
+  "fields": {
+    "dwSignature": "0xfeef04bd",
+    "dwStrucVersion": "0x00010000",
+    "dwFileVersionMS": "0x00040000",
+    "dwFileVersionLS": "0x00000100",
+    "dwProductVersionMS": "0x00040000",
+    "dwProductVersionLS": "0x00000100",
+    "dwFileFlagsMask": "0x0000003f",
+    "dwFileFlags": "0x00000001",
+    "dwFileOS": "0x0000000a",
+    "dwFileType": "0x00000000",
+    "dwFileSubtype": "0x00000000",
+    "dwFileDateMS": "0x00000000",
+    "dwFileDateLS": "0x00000000"
+  },
+  "limits": [
+    "Structure identity is strongly supported by signature, size and fields, but its original source declaration and callers are not yet recovered.",
+    "The trailing file OS value 0x0000000a is recorded as-is; the referenced header does not assign it a named value.",
+    "The index pointer and length do not alone prove physical allocation ownership or whether consumers request ID 9900."
+  ]
+}

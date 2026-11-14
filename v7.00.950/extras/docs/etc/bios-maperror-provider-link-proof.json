@@ -1,0 +1,30 @@
+{
+  "probe_directory": "extras/research/bios-maperror-provider-link",
+  "source_sha256": {
+    "provider": "1b64dbd2fe6212b235dfba21032c885bc4ec258e63c7b79c229a31d415313577",
+    "consumer": "d70a7c0784e8a4db41ae53d0d667b1dc921284bac7fdf7b4d2616eb53bcc3b67"
+  },
+  "exe_sha256": "7a65aedd818973cd61be75f2007fadd9ab978f08cc686e17a9dfa47d5a2185c5",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "linked_blocks": [
+    {
+      "name": "disk_data",
+      "target_file_offset": "0x2a26",
+      "linked_exe_file_offset": "0xfd6",
+      "length": 90,
+      "all_bytes_equal": true
+    },
+    {
+      "name": "maperror",
+      "target_file_offset": "0x32be",
+      "linked_exe_file_offset": "0x186e",
+      "length": 26,
+      "all_bytes_equal": true
+    }
+  ],
+  "limitations": [
+    "The isolated link uses ORG and object order to emulate observed target addresses, not the final BIOS layout.",
+    "The full BIOS and actual disk error handling path remain unverified.",
+    "Some source data declarations are uninitialized, so the target zero bytes do not establish their original initialization semantics."
+  ]
+}

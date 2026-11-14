@@ -1,0 +1,31 @@
+{
+  "source_sha256": "85c52dcb750afc1e0669fc80c32bc7eb36cc3ccd191dda6dc2c92a4e130b4eee",
+  "listing_sha256": "84a45b7ce6621ddd29eef1b9fd165bcb49f891c21cc3b7913e2889ebb39eb9e3",
+  "routines": [
+    {
+      "name": "Get_Bpb",
+      "target_offset": "0x2b85",
+      "length": 54,
+      "masked_relocation_bytes": 10,
+      "matched_nonrelocated_bytes": 44,
+      "differences": []
+    },
+    {
+      "name": "SetPtrSav",
+      "target_offset": "0x2bbb",
+      "length": 20,
+      "masked_relocation_bytes": 2,
+      "matched_nonrelocated_bytes": 18,
+      "differences": []
+    },
+    {
+      "name": "clear_ids",
+      "target_offset": "0x2bcf",
+      "length": 45,
+      "masked_relocation_bytes": 6,
+      "matched_nonrelocated_bytes": 39,
+      "differences": []
+    }
+  ],
+  "limitations": "Relocation operands and complete linked output remain unverified."
+}

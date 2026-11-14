@@ -1,0 +1,28 @@
+{
+  "file": "bios/biosseg.inc",
+  "sha256": "d81bdc2ca6e1638c581e21afb6d4aaa59e5ba65fc02bb15df2d9c22208e5d335",
+  "status": "reference_qualified",
+  "dependencies": [],
+  "condition": "ROMDOS build flag controls ordering",
+  "statement_count": 28,
+  "matches": [
+    {
+      "name": "6.0",
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\biosseg.inc",
+      "sha256": "d81bdc2ca6e1638c581e21afb6d4aaa59e5ba65fc02bb15df2d9c22208e5d335"
+    },
+    {
+      "name": "5.0",
+      "path": "O:\\repos.hobby\\ms-dos-rebuilt\\v5.0\\bios\\biosseg.inc",
+      "sha256": "d81bdc2ca6e1638c581e21afb6d4aaa59e5ba65fc02bb15df2d9c22208e5d335"
+    },
+    {
+      "name": "Astro",
+      "path": "O:\\repos.external\\astro\\bios\\biosseg.inc",
+      "sha256": "d81bdc2ca6e1638c581e21afb6d4aaa59e5ba65fc02bb15df2d9c22208e5d335"
+    }
+  ],
+  "host_marker_check": "No BOP, NTVDM, NTDOS or NTIO token found.",
+  "target_status": "unverified",
+  "limitations": "Segment placement is determined by build/link configuration; historical source identity does not establish DOS 7 layout or binary equality."
+}

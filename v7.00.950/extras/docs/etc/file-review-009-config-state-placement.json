@@ -1,0 +1,118 @@
+{
+  "file_index": 9,
+  "source": "bios/msbio1.asm",
+  "source_sha256": "d641403dc6ba2d3ca70016d58e6c5f200af7f949dc547f5908276cb83a6bba1e",
+  "bios_data_offsets": {
+    "CONFIG_FLAGS": 1326,
+    "CONFIG_COUNT": 1327,
+    "CONFIG_VALUE": 1329,
+    "CONFIG_XMS": 1331
+  },
+  "target_state_file_offset": 2862,
+  "state_length": 9,
+  "state_exact": true,
+  "target_read_file_offset": 18859,
+  "diagnostic_read_offset": 11914,
+  "read_length": 32,
+  "read_exact": true,
+  "diagnostic_routines": [
+    {
+      "name": "config_init_entry",
+      "segment": 1158,
+      "offset": 8,
+      "target_offset": 60990,
+      "length": 36,
+      "matching_bytes": 28,
+      "different_offsets": [
+        10,
+        11,
+        25,
+        26,
+        29,
+        30,
+        32,
+        33
+      ]
+    },
+    {
+      "name": "config_xms_init",
+      "segment": 1158,
+      "offset": 44,
+      "target_offset": 61026,
+      "length": 173,
+      "matching_bytes": 159,
+      "different_offsets": [
+        5,
+        6,
+        30,
+        31,
+        45,
+        46,
+        82,
+        83,
+        110,
+        111,
+        117,
+        118,
+        167,
+        168
+      ]
+    },
+    {
+      "name": "config_copy",
+      "segment": 1158,
+      "offset": 217,
+      "target_offset": 61199,
+      "length": 81,
+      "matching_bytes": 73,
+      "different_offsets": [
+        3,
+        4,
+        35,
+        36,
+        44,
+        45,
+        59,
+        60
+      ]
+    },
+    {
+      "name": "config_restore",
+      "segment": 1158,
+      "offset": 298,
+      "target_offset": 61280,
+      "length": 102,
+      "matching_bytes": 88,
+      "different_offsets": [
+        4,
+        5,
+        9,
+        10,
+        64,
+        65,
+        69,
+        70,
+        82,
+        83,
+        94,
+        95,
+        98,
+        99
+      ]
+    }
+  ],
+  "diagnostic_stub_symbols": [
+    "bios_msg_base",
+    "bios_msg_1",
+    "bios_msg_2",
+    "bios_msg_3",
+    "int6c_read_date",
+    "int6c_read_time",
+    "ttticks",
+    "char_auxnum",
+    "char_printdev",
+    "disk_start_high"
+  ],
+  "default_reference_output_sha256": "a67d8733509f9baf94017389cc1c991d5ef1c66bdfb91b6cab3eef0fc35e9490",
+  "limitations": "CONFIG initialization, remaining addresses, runtime integration and complete target binaries remain incomplete. Diagnostic links baseline objects and stubs."
+}

@@ -1,0 +1,47 @@
+{
+  "source_sha256": "f41c80368ac24fdd6dcff7c280ca18d6526c200b3ab1a137c8f4c754d169b828",
+  "listing_sha256": "e5f3dc626ff705fe603dce96d03d6fb49f83927409bea23a294cff3030e90080",
+  "routines": [
+    {
+      "name": "cmos_clock_read",
+      "target_offset": "0xc8f",
+      "length": 47,
+      "masked_relocation_bytes": 2,
+      "matched_nonrelocated_bytes": 45,
+      "differences": []
+    },
+    {
+      "name": "cmosck",
+      "target_offset": "0xcbe",
+      "length": 45,
+      "masked_relocation_bytes": 6,
+      "matched_nonrelocated_bytes": 39,
+      "differences": []
+    },
+    {
+      "name": "cmos_read",
+      "target_offset": "0xceb",
+      "length": 31,
+      "masked_relocation_bytes": 0,
+      "matched_nonrelocated_bytes": 31,
+      "differences": []
+    },
+    {
+      "name": "cmos_popf",
+      "target_offset": "0xd0a",
+      "length": 1,
+      "masked_relocation_bytes": 0,
+      "matched_nonrelocated_bytes": 1,
+      "differences": []
+    },
+    {
+      "name": "cmos_write",
+      "target_offset": "0xd0b",
+      "length": 29,
+      "masked_relocation_bytes": 0,
+      "matched_nonrelocated_bytes": 29,
+      "differences": []
+    }
+  ],
+  "limitations": "Eight relocation bytes and production segment/link placement remain unverified."
+}

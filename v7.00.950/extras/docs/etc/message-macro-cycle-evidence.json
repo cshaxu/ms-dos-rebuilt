@@ -1,0 +1,56 @@
+{
+  "files": [
+    "inc/sysmsg.inc",
+    "inc/msgserv.asm"
+  ],
+  "sysmsg_sha256": "e5cf275e81b07172232b6a8fbfe7214aa32d0e5a754a999fc7a423a674d81b49",
+  "msgserv_sha256": "627b204f2e96fbd84c8a8b6513fd8a56ae3b2fa56c8a5bc736b5cdf0181cbbf4",
+  "dos6_msgserv_sha256": "d9000eb03ce2b96821555b10df0975a5da1b83967e17e2a2d6378b41e1dfdfeb",
+  "source_order": "SYSMSG defines symbols and switches; MSG_UTILNAME expands generated CTL and includes MSGSERV for structures; MSG_SERVICES includes selected classes and MSGSERV for procedures.",
+  "msgserv_vs_dos6_changes": [
+    {
+      "kind": "insert",
+      "reference_lines": [
+        1224,
+        1223
+      ],
+      "current_lines": [
+        1224,
+        1226
+      ]
+    },
+    {
+      "kind": "insert",
+      "reference_lines": [
+        2891,
+        2890
+      ],
+      "current_lines": [
+        2894,
+        2917
+      ]
+    },
+    {
+      "kind": "insert",
+      "reference_lines": [
+        2892,
+        2891
+      ],
+      "current_lines": [
+        2919,
+        2921
+      ]
+    }
+  ],
+  "additional_prerequisites": [
+    "cmd/command/command.skl",
+    "cmd/command/buildmsg.c",
+    "lang/usa/messages/usa-ms-command.msg",
+    "generated COMMAND.CTL and class files"
+  ],
+  "limitations": [
+    "Conditional macro dependencies and generated resources differ by caller.",
+    "Added COMT input and numeric grouping code is not yet verified against target.",
+    "No final target link or byte equivalence established."
+  ]
+}

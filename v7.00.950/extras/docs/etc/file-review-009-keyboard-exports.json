@@ -1,0 +1,69 @@
+{
+  "file_index": 9,
+  "source": "bios/msbio1.asm",
+  "source_sha256": "305406bcf0ac4f10f1bdefd9eb6aa7310236d93327a6a6ed051afd29c011b309",
+  "later_caller_source": "bios/msint13.asm",
+  "target_int2f_entry_offset": 15620,
+  "target_calls": [
+    {
+      "caller_file_offset": 16067,
+      "callee_file_offset": 7913,
+      "source_symbol": "keyboard_vector_install"
+    },
+    {
+      "caller_file_offset": 16080,
+      "callee_file_offset": 8016,
+      "source_symbol": "keyboard_vector_setup"
+    },
+    {
+      "caller_file_offset": 16086,
+      "callee_file_offset": 7730,
+      "source_symbol": "keyboard_service"
+    }
+  ],
+  "exported_symbols": {
+    "PALETTE_INDEX": [
+      0,
+      1901
+    ],
+    "PALETTE_COUNT": [
+      0,
+      1902
+    ],
+    "PALETTE_CONFIG": [
+      0,
+      1903
+    ],
+    "PALETTE_CYCLES": [
+      0,
+      1905
+    ],
+    "PALETTE_STEP": [
+      0,
+      1906
+    ],
+    "INT16_LIMIT": [
+      0,
+      2238
+    ],
+    "INT16_LIMIT2": [
+      0,
+      2240
+    ],
+    "KEYBOARD_VECTOR_INSTALL": [
+      626,
+      311
+    ],
+    "KEYBOARD_VECTOR_SETUP": [
+      626,
+      414
+    ],
+    "KEYBOARD_SERVICE": [
+      626,
+      509
+    ]
+  },
+  "palette_initial_bytes": "000000010001",
+  "default_reference_output_sha256": "a67d8733509f9baf94017389cc1c991d5ef1c66bdfb91b6cab3eef0fc35e9490",
+  "limitations": "Call site ownership follows the INT 2Fh handler entry and reference source; the later msint13.asm target code and runtime integration remain unreconstructed. Full target outputs remain incomplete."
+}

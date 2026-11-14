@@ -1,0 +1,16 @@
+{
+  "stage": "extras\\build\\reload-decision-probe-36uf9l7a",
+  "method": "Isolated DOS execution of current NoSng/HavCom control flow with controlled checksum and reload stubs.",
+  "checks": [
+    "matching checksums reuse transient",
+    "zero message checksum triggers reload",
+    "changed transient checksum triggers reload",
+    "changed message checksum triggers reload",
+    "loading flag is cleared on exit",
+    "transient stack boundary word is initialized"
+  ],
+  "limitations": [
+    "The reload and checksum functions are stubbed; complete COMMAND integration is not executed.",
+    "Does not prove final binary identity."
+  ]
+}

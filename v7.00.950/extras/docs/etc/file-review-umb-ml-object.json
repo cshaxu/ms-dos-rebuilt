@@ -1,0 +1,47 @@
+{
+  "object_sha256": "a5952f60439373231bc246e6d6ea0bc9fd533edb366fb17bfc7d9273d307dd1a",
+  "procedures": {
+    "UmbHead": {
+      "object_offset": "0x1cbc",
+      "segment_index": 6,
+      "target_sysinit_offset": "0x7b80",
+      "bytes": 24,
+      "fixup_byte_offsets": [],
+      "matching_nonfixup_bytes": 24
+    },
+    "HideUMBs": {
+      "object_offset": "0x1d62",
+      "segment_index": 6,
+      "target_sysinit_offset": "0x7c26",
+      "bytes": 69,
+      "fixup_byte_offsets": [
+        21,
+        22
+      ],
+      "matching_nonfixup_bytes": 67
+    },
+    "UnFreeze": {
+      "object_offset": "0x1fa9",
+      "segment_index": 6,
+      "target_sysinit_offset": "0x7e6d",
+      "bytes": 40,
+      "fixup_byte_offsets": [],
+      "matching_nonfixup_bytes": 40
+    },
+    "FreezeUM": {
+      "object_offset": "0x2023",
+      "segment_index": 6,
+      "target_sysinit_offset": "0x7ee7",
+      "bytes": 61,
+      "fixup_byte_offsets": [],
+      "matching_nonfixup_bytes": 61
+    }
+  },
+  "limitations": "OMF fixup bytes are not verified; assembled object addresses and final SYSINIT link remain unverified. ML object uses documented build-stage compatibility adaptations, and HideUMBs fixup has not been resolved against the final link.",
+  "files": {
+    "bios/sysconf.asm": "bdec9ebcb4bce745b6ecd299cab534cb266dbbc76cb304bba0940f27cf93b1a6",
+    "inc/highload.inc": "3505df9de417b58463b98d5568bbac17116badc4cf0e2f7339a22e296cb25606"
+  },
+  "assembly": "extras/tools/assemble_ml_sysinit.py",
+  "verification": "extras/tools/verify_ml_umb_object.py"
+}

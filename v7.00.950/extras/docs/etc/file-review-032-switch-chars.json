@@ -1,0 +1,21 @@
+{
+  "files": [
+    "bios/sysinit1.asm",
+    "bios/sysinit2.asm"
+  ],
+  "source_hashes": [
+    "babd4b1a7222f15ef779815b89f66a7fad48fd5a16d5a4725f400eb23da67c8a",
+    "a0e562d2e33d1d60dba0a06bc7ede4b8bb2e43f7748dd8e9b98165c21d8fe75d"
+  ],
+  "target_range": "IO.SYS 0x6169..0x617e",
+  "bytes": 21,
+  "different_bytes": 0,
+  "probe": "extras/research/switch-chars-linked.asm",
+  "default_objects_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "Fixed-offset probe does not execute DOS calls or prove final layout.",
+    "Following MSDOS.SYS options reader and complete startup remain incomplete."
+  ]
+}

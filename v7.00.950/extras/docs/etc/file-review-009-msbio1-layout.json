@@ -1,0 +1,64 @@
+{
+  "file_index": 9,
+  "file": "bios/msbio1.asm",
+  "finding": "Target has four floppy descriptors immediately followed by 25 hard-drive descriptors; relocation moved the array into BIOS_DATA to reproduce their order. The old msinit memory-retention boundary assumptions need a target-backed update later; the target mapping of the array alone does not validate the whole initializer. Subsequent device-header and segment analysis showed that contiguity alone did not justify moving the array to BIOS_DATA; that move was reverted.",
+  "source_sha256": "dad6c496de1d0700f4139c4622914dd33cd12b1cb0803b319824bbacd73cb450",
+  "reference_output_sha256": "8a9308eda7e88c477c179bb0ea3316294493cf122431f3c26b81ce70d5a00e0b",
+  "target_io_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_offset": 20616,
+  "build_offset": 2292,
+  "length": 2900,
+  "byte_matches": 2891,
+  "differences": [
+    {
+      "offset": 0,
+      "current": 178,
+      "target": 188
+    },
+    {
+      "offset": 2,
+      "current": 112,
+      "target": 227
+    },
+    {
+      "offset": 3,
+      "current": 0,
+      "target": 4
+    },
+    {
+      "offset": 100,
+      "current": 22,
+      "target": 32
+    },
+    {
+      "offset": 102,
+      "current": 112,
+      "target": 227
+    },
+    {
+      "offset": 103,
+      "current": 0,
+      "target": 4
+    },
+    {
+      "offset": 200,
+      "current": 122,
+      "target": 132
+    },
+    {
+      "offset": 202,
+      "current": 112,
+      "target": 227
+    },
+    {
+      "offset": 203,
+      "current": 0,
+      "target": 4
+    }
+  ],
+  "link_fields": "The nine differences occupy three relocated far pointers; their offsets and segment values depend on pending target-wide layout.",
+  "memory_boundary_dependency": "bios/msinit.asm static_configure and endfloppy/end96tpi/end_of_bdss logic must be reconstructed before treating BIOS initialization as complete.",
+  "scratch_and_real_build_equal": true,
+  "status": "superseded",
+  "superseded_by": "file-review-009-segment-correction.json"
+}

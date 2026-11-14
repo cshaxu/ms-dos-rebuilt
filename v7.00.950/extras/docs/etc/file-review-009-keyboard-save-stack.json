@@ -1,0 +1,24 @@
+{
+  "source": "bios/msbio1.asm",
+  "source_sha256": "b6bb4a70ddc0070682005086dcd8069c70fb3717a8f8cf0833828f2cc85093fb",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_file_offset": 8137,
+  "size": 518,
+  "layout": [
+    {
+      "description": "nop",
+      "length": 1
+    },
+    {
+      "description": "stack, saved SP and SS initial bytes",
+      "length": 516
+    },
+    {
+      "description": "depth initial byte",
+      "length": 1
+    }
+  ],
+  "sha256": "4c68480866e66479769707b0b99cc1f95c042ee2f03c417e4415c69bd0380853",
+  "diagnostic": "config-ml-keyboard-stack.json",
+  "limitations": "Exact initialized contents and relative placement between the two matched functions are verified; the keyboard subsystem as a whole and final DOS 7 image are not."
+}

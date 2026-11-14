@@ -1,0 +1,1634 @@
+{
+  "source": "cmd/command/tspc.asm",
+  "source_sha256": "8f7fe96ff0e089b6d31672c074543e37b7c867eceb17ce61707d7cacfb46ad2c",
+  "reference_sha256": "65fa71b0a34e91feffc31297fb5e24d40767c72fb513e46aaac721bda7836110",
+  "target_sha256": "a74c700063cd6b1c91523952bfc80e9393c125d39ada0164d48b5098089fcef3",
+  "local_copy_base": 53002,
+  "method": "Unique target match of 5 surrounding bytes on each side of a reference displacement. Reference listing includes 13-byte prompt change so symbol offsets after prompt adjusted by -2. Ambiguous matches omitted; aliases may yield same addresses.",
+  "anchors": {
+    "ARG2S": {
+      "current_offset": 749,
+      "reference_offset": 749,
+      "candidate_target_address": 53341,
+      "matching_contexts": 1,
+      "other_target_values": {
+        "53341": 1
+      },
+      "delta_from_copy_local_base": -410,
+      "evidence": [
+        {
+          "target_value": 53341,
+          "reference_offset": 27920,
+          "target_offset": 58229,
+          "reference_context": "c2807433a020a3240c7509a0",
+          "target_context": "c2807433a05dd0240c7509a0"
+        }
+      ]
+    },
+    "ARGBUFPTR": {
+      "current_offset": 3823,
+      "reference_offset": 3302,
+      "candidate_target_address": 56196,
+      "matching_contexts": 1,
+      "other_target_values": {
+        "56196": 1
+      },
+      "delta_from_copy_local_base": -629,
+      "evidence": [
+        {
+          "target_value": 56196,
+          "reference_offset": 24070,
+          "target_offset": 53545,
+          "reference_context": "b000aa893e19ad9df8eb0ab8",
+          "target_context": "b000aa893e84db9df8eb0ab8"
+        }
+      ]
+    },
+    "ARGC": {
+      "current_offset": 744,
+      "reference_offset": 744,
+      "candidate_target_address": 53336,
+      "matching_contexts": 1,
+      "other_target_values": {
+        "53336": 1
+      },
+      "delta_from_copy_local_base": -410,
+      "evidence": [
+        {
+          "target_value": 53336,
+          "reference_offset": 26080,
+          "target_offset": 56187,
+          "reference_context": "017514803e1ba301750d803e",
+          "target_context": "017514803e58d001750d803e"
+        }
+      ]
+    },
+    "ASCII": {
+      "current_offset": 2355,
+      "reference_offset": 1836,
+      "candidate_target_address": 55357,
+      "matching_contexts": 2,
+      "other_target_values": {
+        "55357": 2
+      },
+      "delta_from_copy_local_base": 0,
+      "evidence": [
+        {
+          "target_value": 55357,
+          "reference_offset": 27082,
+          "target_offset": 57188,
+          "reference_context": "007507803e5fa700741b8bd1",
+          "target_context": "007507803e3dd800741b8bd1"
+        },
+        {
+          "target_value": 55357,
+          "reference_offset": 28309,
+          "target_offset": 58610,
+          "reference_context": "02b0408a0e5fa70c202c60a2",
+          "target_context": "02b0408a0e3dd80c202c60a2"
+        }
+      ]
+    },
+    "BATBUFPOS": {
+      "current_offset": 4387,
+      "reference_offset": 3866,
+      "candidate_target_address": 56893,
+      "matching_contexts": 2,
+      "other_target_values": {
+        "56893": 2
+      },
+      "delta_from_copy_local_base": -496,
+      "evidence": [
+        {
+          "target_value": 56893,
+          "reference_offset": 11424,
+          "target_offset": 36072,
+          "reference_context": "cd2126c7064dafffff33c9eb",
+          "target_context": "cd2126c7063ddeffff33c9eb"
+        },
+        {
+          "target_value": 56893,
+          "reference_offset": 13349,
+          "target_offset": 38383,
+          "reference_context": "cd2126c7064dafffffc38bda",
+          "target_context": "cd2126c7063ddeffffc38bda"
+        }
+      ]
+    },
+    "BATHAND": {
+      "current_offset": 2383,
+      "reference_offset": 1862,
+      "candidate_target_address": 55386,
+      "matching_contexts": 2,
+      "other_target_values": {
+        "55386": 2
+      },
+      "delta_from_copy_local_base": 1,
+      "evidence": [
+        {
+          "target_value": 55386,
+          "reference_offset": 13294,
+          "target_offset": 38328,
+          "reference_context": "00c32e8b1e79a783fb057204",
+          "target_context": "00c32e8b1e5ad883fb057204"
+        },
+        {
+          "target_value": 55386,
+          "reference_offset": 13337,
+          "target_offset": 38371,
+          "reference_context": "0a001f26a379a78bd8b80042",
+          "target_context": "0a001f26a35ad88bd8b80042"
+        }
+      ]
+    },
+    "BWDBUF": {
+      "current_offset": 1291,
+      "reference_offset": 1291,
+      "candidate_target_address": 53913,
+      "matching_contexts": 2,
+      "other_target_values": {
+        "53913": 2
+      },
+      "delta_from_copy_local_base": -380,
+      "evidence": [
+        {
+          "target_value": 53913,
+          "reference_offset": 16019,
+          "target_offset": 42372,
+          "reference_context": "0ac075faba3ea5b43bcd21c3",
+          "target_context": "0ac075faba99d2b43bcd21c3"
+        },
+        {
+          "target_value": 53913,
+          "reference_offset": 18624,
+          "target_offset": 45805,
+          "reference_context": "b03ff3aaba3ea5b41acd21ba",
+          "target_context": "b03ff3aaba99d2b41acd21ba"
+        }
+      ]
+    },
+    "CHARBUF": {
+      "current_offset": 1084,
+      "reference_offset": 1084,
+      "candidate_target_address": 53446,
+      "matching_contexts": 1,
+      "other_target_values": {
+        "53446": 1
+      },
+      "delta_from_copy_local_base": -640,
+      "evidence": [
+        {
+          "target_value": 53446,
+          "reference_offset": 16390,
+          "target_offset": 43054,
+          "reference_context": "f383c601bf6fa4b90800fcf3",
+          "target_context": "f383c601bfc6d0b90800fcf3"
+        }
+      ]
+    },
+    "CHKDRV": {
+      "current_offset": 740,
+      "reference_offset": 740,
+      "candidate_target_address": 53332,
+      "matching_contexts": 1,
+      "other_target_values": {
+        "53332": 1
+      },
+      "delta_from_copy_local_base": -410,
+      "evidence": [
+        {
+          "target_value": 53332,
+          "reference_offset": 21669,
+          "target_offset": 49962,
+          "reference_context": "007426f60617a3047407833e",
+          "target_context": "007426f60654d0047407833e"
+        }
+      ]
+    },
+    "COMPTR": {
+      "current_offset": 3955,
+      "reference_offset": 3434,
+      "candidate_target_address": 56202,
+      "matching_contexts": 1,
+      "other_target_values": {
+        "56202": 1
+      },
+      "delta_from_copy_local_base": -755,
+      "evidence": [
+        {
+          "target_value": 56202,
+          "reference_offset": 24041,
+          "target_offset": 53516,
+          "reference_context": "8977038b369dad8977098bf7",
+          "target_context": "8977038b368adb8977098bf7"
+        }
+      ]
+    },
+    "COMSW": {
+      "current_offset": 745,
+      "reference_offset": 745,
+      "candidate_target_address": 53337,
+      "matching_contexts": 2,
+      "other_target_values": {
+        "53337": 2
+      },
+      "delta_from_copy_local_base": -410,
+      "evidence": [
+        {
+          "target_value": 53337,
+          "reference_offset": 14656,
+          "target_offset": 40331,
+          "reference_context": "007407830e1ca302eb25807c",
+          "target_context": "007407830e59d002eb25807c"
+        },
+        {
+          "target_value": 53337,
+          "reference_offset": 14682,
+          "target_offset": 40357,
+          "reference_context": "007507830e1ca302eb0bbf5c",
+          "target_context": "007507830e59d002eb0bbf5c"
+        }
+      ]
+    },
+    "CONCAT": {
+      "current_offset": 743,
+      "reference_offset": 743,
+      "candidate_target_address": 53335,
+      "matching_contexts": 4,
+      "other_target_values": {
+        "53335": 4
+      },
+      "delta_from_copy_local_base": -410,
+      "evidence": [
+        {
+          "target_value": 53335,
+          "reference_offset": 26304,
+          "target_offset": 56427,
+          "reference_context": "00750c803e1aa3007405c606",
+          "target_context": "00750c803e57d0007405c606"
+        },
+        {
+          "target_value": 53335,
+          "reference_offset": 26616,
+          "target_offset": 56734,
+          "reference_context": "037210803e1aa3007536803e",
+          "target_context": "037210803e57d0007536803e"
+        },
+        {
+          "target_value": 53335,
+          "reference_offset": 26639,
+          "target_offset": 56757,
+          "reference_context": "007507803e1aa3007408c606",
+          "target_context": "007507803e57d0007408c606"
+        },
+        {
+          "target_value": 53335,
+          "reference_offset": 27790,
+          "target_offset": 58089,
+          "reference_context": "eb01f9c3a01aa350e8060058",
+          "target_context": "eb01f9c3a057d050e8060058"
+        }
+      ]
+    },
+    "CONFIRM_OVERWRITE": {
+      "current_offset": 2380,
+      "reference_offset": 1859,
+      "candidate_target_address": 55382,
+      "matching_contexts": 1,
+      "other_target_values": {
+        "55382": 1
+      },
+      "delta_from_copy_local_base": 0,
+      "evidence": [
+        {
+          "target_value": 55382,
+          "reference_offset": 27718,
+          "target_offset": 58017,
+          "reference_context": "597505c60676a70007c38e06",
+          "target_context": "597505c60656d80007c38e06"
+        }
+      ]
+    },
+    "COUNTRYPTR": {
+      "current_offset": 4379,
+      "reference_offset": 3858,
+      "candidate_target_address": 56885,
+      "matching_contexts": 1,
+      "other_target_values": {
+        "56885": 1
+      },
+      "delta_from_copy_local_base": -496,
+      "evidence": [
+        {
+          "target_value": 56885,
+          "reference_offset": 14946,
+          "target_offset": 40623,
+          "reference_context": "55531ec51e45af8b2f434333",
+          "target_context": "55531ec51e35de8b2f434333"
+        }
+      ]
+    },
+    "COUNTRYPTRID": {
+      "current_offset": 4378,
+      "reference_offset": 3857,
+      "candidate_target_address": 56884,
+      "matching_contexts": 2,
+      "other_target_values": {
+        "56884": 2
+      },
+      "delta_from_copy_local_base": -496,
+      "evidence": [
+        {
+          "target_value": 56884,
+          "reference_offset": 14482,
+          "target_offset": 40107,
+          "reference_context": "05008bd3bf44afcd217305c6",
+          "target_context": "05008bd3bf34decd217305c6"
+        },
+        {
+          "target_value": 56884,
+          "reference_offset": 14936,
+          "target_offset": 40613,
+          "reference_context": "b90300803e44af0675275553",
+          "target_context": "b90300803e34de0675275553"
+        }
+      ]
+    },
+    "COUNTRYPTRINFO": {
+      "current_offset": 4378,
+      "reference_offset": 3857,
+      "candidate_target_address": 56884,
+      "matching_contexts": 2,
+      "other_target_values": {
+        "56884": 2
+      },
+      "delta_from_copy_local_base": -496,
+      "evidence": [
+        {
+          "target_value": 56884,
+          "reference_offset": 14482,
+          "target_offset": 40107,
+          "reference_context": "05008bd3bf44afcd217305c6",
+          "target_context": "05008bd3bf34decd217305c6"
+        },
+        {
+          "target_value": 56884,
+          "reference_offset": 14936,
+          "target_offset": 40613,
+          "reference_context": "b90300803e44af0675275553",
+          "target_context": "b90300803e34de0675275553"
+        }
+      ]
+    },
+    "CSECPERCLUSTER": {
+      "current_offset": 880,
+      "reference_offset": 880,
+      "candidate_target_address": 53444,
+      "matching_contexts": 1,
+      "other_target_values": {
+        "53444": 1
+      },
+      "delta_from_copy_local_base": -438,
+      "evidence": [
+        {
+          "target_value": 53444,
+          "reference_offset": 17506,
+          "target_offset": 44680,
+          "reference_context": "f38bf98a1ea3a332fff7e38b",
+          "target_context": "f38bf98a1ec4d032fff7e38b"
+        }
+      ]
+    },
+    "CURDRV": {
+      "current_offset": 742,
+      "reference_offset": 742,
+      "candidate_target_address": 53334,
+      "matching_contexts": 3,
+      "other_target_values": {
+        "53334": 3
+      },
+      "delta_from_copy_local_base": -410,
+      "evidence": [
+        {
+          "target_value": 53334,
+          "reference_offset": 16821,
+          "target_offset": 43830,
+          "reference_context": "0ac07505a019a3fec00440b4",
+          "target_context": "0ac07505a056d0fec00440b4"
+        },
+        {
+          "target_value": 53334,
+          "reference_offset": 21032,
+          "target_offset": 49199,
+          "reference_context": "407506020619a3fec0aa8a26",
+          "target_context": "407506020656d0fec0aa8a26"
+        },
+        {
+          "target_value": 53334,
+          "reference_offset": 26158,
+          "target_offset": 56265,
+          "reference_context": "3c017520a019a30441b43ac6",
+          "target_context": "3c017520a056d00441b43ac6"
+        }
+      ]
+    },
+    "DESTBUF": {
+      "current_offset": 1808,
+      "reference_offset": 1552,
+      "candidate_target_address": 54810,
+      "matching_contexts": 1,
+      "other_target_values": {
+        "54810": 1
+      },
+      "delta_from_copy_local_base": 0,
+      "evidence": [
+        {
+          "target_value": 54810,
+          "reference_offset": 14855,
+          "target_offset": 40530,
+          "reference_context": "00f3a4c3be43a633c08a040a",
+          "target_context": "00f3a4c3be1ad633c08a040a"
+        }
+      ]
+    },
+    "DESTINFO": {
+      "current_offset": 1807,
+      "reference_offset": 1551,
+      "candidate_target_address": 54809,
+      "matching_contexts": 1,
+      "other_target_values": {
+        "54809": 1
+      },
+      "delta_from_copy_local_base": 0,
+      "evidence": [
+        {
+          "target_value": 54809,
+          "reference_offset": 22475,
+          "target_offset": 50977,
+          "reference_context": "3f7505800e42a6023c2a7505",
+          "target_context": "3f7505800e19d6023c2a7505"
+        }
+      ]
+    },
+    "DESTISDEV": {
+      "current_offset": 2070,
+      "reference_offset": 1641,
+      "candidate_target_address": 55072,
+      "matching_contexts": 4,
+      "other_target_values": {
+        "55072": 4
+      },
+      "delta_from_copy_local_base": 0,
+      "evidence": [
+        {
+          "target_value": 55072,
+          "reference_offset": 27912,
+          "target_offset": 58221,
+          "reference_context": "44cd2188169ca6f6c2807433",
+          "target_context": "44cd21881620d7f6c2807433"
+        },
+        {
+          "target_value": 55072,
+          "reference_offset": 27951,
+          "target_offset": 58260,
+          "reference_context": "80ca2088169ca6cd21eb0de9",
+          "target_context": "80ca20881620d7cd21eb0de9"
+        },
+        {
+          "target_value": 55072,
+          "reference_offset": 28062,
+          "target_offset": 58371,
+          "reference_context": "c874d0f6069ca6807439f606",
+          "target_context": "c874d0f60620d7807439f606"
+        },
+        {
+          "target_value": 55072,
+          "reference_offset": 28069,
+          "target_offset": 58378,
+          "reference_context": "807439f6069ca620750a803e",
+          "target_context": "807439f60620d720750a803e"
+        }
+      ]
+    },
+    "DESTISDIR": {
+      "current_offset": 1803,
+      "reference_offset": 1547,
+      "candidate_target_address": 54805,
+      "matching_contexts": 1,
+      "other_target_values": {
+        "54805": 1
+      },
+      "delta_from_copy_local_base": 0,
+      "evidence": [
+        {
+          "target_value": 54805,
+          "reference_offset": 14649,
+          "target_offset": 40324,
+          "reference_context": "c07533803e3ea6007407830e",
+          "target_context": "c07533803e15d6007407830e"
+        }
+      ]
+    },
+    "DESTSWITCH": {
+      "current_offset": 749,
+      "reference_offset": 749,
+      "candidate_target_address": 53341,
+      "matching_contexts": 1,
+      "other_target_values": {
+        "53341": 1
+      },
+      "delta_from_copy_local_base": -410,
+      "evidence": [
+        {
+          "target_value": 53341,
+          "reference_offset": 27920,
+          "target_offset": 58229,
+          "reference_context": "c2807433a020a3240c7509a0",
+          "target_context": "c2807433a05dd0240c7509a0"
+        }
+      ]
+    },
+    "DESTVARS": {
+      "current_offset": 1803,
+      "reference_offset": 1547,
+      "candidate_target_address": 54805,
+      "matching_contexts": 1,
+      "other_target_values": {
+        "54805": 1
+      },
+      "delta_from_copy_local_base": 0,
+      "evidence": [
+        {
+          "target_value": 54805,
+          "reference_offset": 14649,
+          "target_offset": 40324,
+          "reference_context": "c07533803e3ea6007407830e",
+          "target_context": "c07533803e15d6007407830e"
+        }
+      ]
+    },
+    "DEST_EXISTS": {
+      "current_offset": 2381,
+      "reference_offset": 1860,
+      "candidate_target_address": 55383,
+      "matching_contexts": 1,
+      "other_target_values": {
+        "55383": 1
+      },
+      "delta_from_copy_local_base": 0,
+      "evidence": [
+        {
+          "target_value": 55383,
+          "reference_offset": 26623,
+          "target_offset": 56741,
+          "reference_context": "007536803e77a7007546eb2d",
+          "target_context": "007536803e57d8007546eb2d"
+        }
+      ]
+    },
+    "DIRBUF": {
+      "current_offset": 1291,
+      "reference_offset": 1291,
+      "candidate_target_address": 53913,
+      "matching_contexts": 2,
+      "other_target_values": {
+        "53913": 2
+      },
+      "delta_from_copy_local_base": -380,
+      "evidence": [
+        {
+          "target_value": 53913,
+          "reference_offset": 16019,
+          "target_offset": 42372,
+          "reference_context": "0ac075faba3ea5b43bcd21c3",
+          "target_context": "0ac075faba99d2b43bcd21c3"
+        },
+        {
+          "target_value": 53913,
+          "reference_offset": 18624,
+          "target_offset": 45805,
+          "reference_context": "b03ff3aaba3ea5b41acd21ba",
+          "target_context": "b03ff3aaba99d2b41acd21ba"
+        }
+      ]
+    },
+    "DIRCHAR": {
+      "current_offset": 727,
+      "reference_offset": 727,
+      "candidate_target_address": 53311,
+      "matching_contexts": 2,
+      "other_target_values": {
+        "53311": 2
+      },
+      "delta_from_copy_local_base": -418,
+      "evidence": [
+        {
+          "target_value": 53311,
+          "reference_offset": 21039,
+          "target_offset": 49206,
+          "reference_context": "fec0aa8a260aa3b03aab061f",
+          "target_context": "fec0aa8a263fd0b03aab061f"
+        },
+        {
+          "target_value": 53311,
+          "reference_offset": 28676,
+          "target_offset": 59052,
+          "reference_context": "c4ebec4fa00aa3c64600020a",
+          "target_context": "c4ebec4fa03fd0c64600020a"
+        }
+      ]
+    },
+    "DISPLAY_IOCTL": {
+      "current_offset": 2402,
+      "reference_offset": 1881,
+      "candidate_target_address": 55405,
+      "matching_contexts": 1,
+      "other_target_values": {
+        "55405": 1
+      },
+      "delta_from_copy_local_base": 1,
+      "evidence": [
+        {
+          "target_value": 55405,
+          "reference_offset": 19306,
+          "target_offset": 46824,
+          "reference_context": "b503b17fba8ca7cd21720ca1",
+          "target_context": "b503b17fba6dd8cd21720ca1"
+        }
+      ]
+    },
+    "EXECPATH": {
+      "current_offset": 506,
+      "reference_offset": 506,
+      "candidate_target_address": 53044,
+      "matching_contexts": 1,
+      "other_target_values": {
+        "53044": 1
+      },
+      "delta_from_copy_local_base": -464,
+      "evidence": [
+        {
+          "target_value": 53044,
+          "reference_offset": 36450,
+          "target_offset": 64595,
+          "reference_context": "e80100c3bf2da2b90000ac3c",
+          "target_context": "e80100c3bf34cfb90000ac3c"
+        }
+      ]
+    },
+    "EXEFCB": {
+      "current_offset": 1291,
+      "reference_offset": 1291,
+      "candidate_target_address": 53913,
+      "matching_contexts": 2,
+      "other_target_values": {
+        "53913": 2
+      },
+      "delta_from_copy_local_base": -380,
+      "evidence": [
+        {
+          "target_value": 53913,
+          "reference_offset": 16019,
+          "target_offset": 42372,
+          "reference_context": "0ac075faba3ea5b43bcd21c3",
+          "target_context": "0ac075faba99d2b43bcd21c3"
+        },
+        {
+          "target_value": 53913,
+          "reference_offset": 18624,
+          "target_offset": 45805,
+          "reference_context": "b03ff3aaba3ea5b41acd21ba",
+          "target_context": "b03ff3aaba99d2b41acd21ba"
+        }
+      ]
+    },
+    "EXPAND_STAR": {
+      "current_offset": 2445,
+      "reference_offset": 1924,
+      "candidate_target_address": 55448,
+      "matching_contexts": 1,
+      "other_target_values": {
+        "55448": 1
+      },
+      "delta_from_copy_local_base": 1,
+      "evidence": [
+        {
+          "target_value": 55448,
+          "reference_offset": 29132,
+          "target_offset": 59531,
+          "reference_context": "80cf04803eb7a7007405f6c7",
+          "target_context": "80cf04803e98d8007405f6c7"
+        }
+      ]
+    },
+    "EXT_ENTERED": {
+      "current_offset": 2401,
+      "reference_offset": 1880,
+      "candidate_target_address": 55404,
+      "matching_contexts": 4,
+      "other_target_values": {
+        "55404": 4
+      },
+      "delta_from_copy_local_base": 1,
+      "evidence": [
+        {
+          "target_value": 55404,
+          "reference_offset": 24858,
+          "target_offset": 54932,
+          "reference_context": "b80000803e8ba701740b3d00",
+          "target_context": "b80000803e6cd801740b3d00"
+        },
+        {
+          "target_value": 55404,
+          "reference_offset": 24869,
+          "target_offset": 54943,
+          "reference_context": "00007406a28ba7b808005e5f",
+          "target_context": "00007406a26cd8b808005e5f"
+        },
+        {
+          "target_value": 55404,
+          "reference_offset": 24920,
+          "target_offset": 54994,
+          "reference_context": "aee309c6068ba700b000f2ae",
+          "target_context": "aee309c6066cd800b000f2ae"
+        },
+        {
+          "target_value": 55404,
+          "reference_offset": 24947,
+          "target_offset": 55021,
+          "reference_context": "fcf3a4803e8ba701750a4faa",
+          "target_context": "fcf3a4803e6cd801750a4faa"
+        }
+      ]
+    },
+    "FILTYP": {
+      "current_offset": 741,
+      "reference_offset": 741,
+      "candidate_target_address": 53333,
+      "matching_contexts": 1,
+      "other_target_values": {
+        "53333": 1
+      },
+      "delta_from_copy_local_base": -410,
+      "evidence": [
+        {
+          "target_value": 53333,
+          "reference_offset": 27107,
+          "target_offset": 57213,
+          "reference_context": "077505fe0618a3412bd18bca",
+          "target_context": "077505fe0655d0412bd18bca"
+        }
+      ]
+    },
+    "GOTOLEN": {
+      "current_offset": 1291,
+      "reference_offset": 1291,
+      "candidate_target_address": 53913,
+      "matching_contexts": 2,
+      "other_target_values": {
+        "53913": 2
+      },
+      "delta_from_copy_local_base": -380,
+      "evidence": [
+        {
+          "target_value": 53913,
+          "reference_offset": 16019,
+          "target_offset": 42372,
+          "reference_context": "0ac075faba3ea5b43bcd21c3",
+          "target_context": "0ac075faba99d2b43bcd21c3"
+        },
+        {
+          "target_value": 53913,
+          "reference_offset": 18624,
+          "target_offset": 45805,
+          "reference_context": "b03ff3aaba3ea5b41acd21ba",
+          "target_context": "b03ff3aaba99d2b41acd21ba"
+        }
+      ]
+    },
+    "IFNOTFLAG": {
+      "current_offset": 741,
+      "reference_offset": 741,
+      "candidate_target_address": 53333,
+      "matching_contexts": 1,
+      "other_target_values": {
+        "53333": 1
+      },
+      "delta_from_copy_local_base": -410,
+      "evidence": [
+        {
+          "target_value": 53333,
+          "reference_offset": 27107,
+          "target_offset": 57213,
+          "reference_context": "077505fe0618a3412bd18bca",
+          "target_context": "077505fe0655d0412bd18bca"
+        }
+      ]
+    },
+    "INEXACT": {
+      "current_offset": 2349,
+      "reference_offset": 1830,
+      "candidate_target_address": 55351,
+      "matching_contexts": 1,
+      "other_target_values": {
+        "55351": 1
+      },
+      "delta_from_copy_local_base": 0,
+      "evidence": [
+        {
+          "target_value": 55351,
+          "reference_offset": 28076,
+          "target_offset": 58385,
+          "reference_context": "20750a803e59a70075bb4974",
+          "target_context": "20750a803e37d80075bb4974"
+        }
+      ]
+    },
+    "KPARSE": {
+      "current_offset": 2474,
+      "reference_offset": 1953,
+      "candidate_target_address": 55481,
+      "matching_contexts": 1,
+      "other_target_values": {
+        "55481": 1
+      },
+      "delta_from_copy_local_base": 5,
+      "evidence": [
+        {
+          "target_value": 55481,
+          "reference_offset": 21379,
+          "target_offset": 49584,
+          "reference_context": "74f146fe06d4a7ebea50b02e",
+          "target_context": "74f146fe06b9d8ebea50b02e"
+        }
+      ]
+    },
+    "LINPERPAG": {
+      "current_offset": 2418,
+      "reference_offset": 1897,
+      "candidate_target_address": 55421,
+      "matching_contexts": 1,
+      "other_target_values": {
+        "55421": 1
+      },
+      "delta_from_copy_local_base": 1,
+      "evidence": [
+        {
+          "target_value": 55421,
+          "reference_offset": 14541,
+          "target_offset": 40171,
+          "reference_context": "32e4fec0a39ca7b80c44bb01",
+          "target_context": "32e4fec0a37dd8b80c44bb01"
+        }
+      ]
+    },
+    "MAJOR_VER_NUM": {
+      "current_offset": 1531,
+      "reference_offset": 1535,
+      "candidate_target_address": 54537,
+      "matching_contexts": 1,
+      "other_target_values": {
+        "54537": 1
+      },
+      "delta_from_copy_local_base": 4,
+      "evidence": [
+        {
+          "target_value": 54537,
+          "reference_offset": 18859,
+          "target_offset": 46050,
+          "reference_context": "215032e4a332a65886e032e4",
+          "target_context": "215032e4a309d55886e032e4"
+        }
+      ]
+    },
+    "MELCOPY": {
+      "current_offset": 2344,
+      "reference_offset": 1643,
+      "candidate_target_address": 55346,
+      "matching_contexts": 2,
+      "other_target_values": {
+        "55346": 2
+      },
+      "delta_from_copy_local_base": 0,
+      "evidence": [
+        {
+          "target_value": 55346,
+          "reference_offset": 26632,
+          "target_offset": 56750,
+          "reference_context": "46eb2d803e9ea6007507803e",
+          "target_context": "46eb2d803e32d8007507803e"
+        },
+        {
+          "target_value": 55346,
+          "reference_offset": 28345,
+          "target_offset": 58646,
+          "reference_context": "007408fe069ea632c0eb0634",
+          "target_context": "007408fe0632d832c0eb0634"
+        }
+      ]
+    },
+    "NOWRITE": {
+      "current_offset": 2350,
+      "reference_offset": 1831,
+      "candidate_target_address": 55352,
+      "matching_contexts": 1,
+      "other_target_values": {
+        "55352": 1
+      },
+      "delta_from_copy_local_base": 0,
+      "evidence": [
+        {
+          "target_value": 55352,
+          "reference_offset": 27866,
+          "target_offset": 58165,
+          "reference_context": "ba0101803e5aa7007503ba12",
+          "target_context": "ba0101803e38d8007503ba12"
+        }
+      ]
+    },
+    "NXTADD": {
+      "current_offset": 759,
+      "reference_offset": 759,
+      "candidate_target_address": 53349,
+      "matching_contexts": 2,
+      "other_target_values": {
+        "53349": 2
+      },
+      "delta_from_copy_local_base": -412,
+      "evidence": [
+        {
+          "target_value": 53349,
+          "reference_offset": 27091,
+          "target_offset": 57197,
+          "reference_context": "1b8bd18b3e2aa3b01a068e06",
+          "target_context": "1b8bd18b3e65d0b01a068e06"
+        },
+        {
+          "target_value": 53349,
+          "reference_offset": 28392,
+          "target_offset": 58692,
+          "reference_context": "c074198b0e2aa3e313b01a06",
+          "target_context": "c074198b0e65d0e313b01a06"
+        }
+      ]
+    },
+    "OCTRLZ": {
+      "current_offset": 2366,
+      "reference_offset": 1847,
+      "candidate_target_address": 55368,
+      "matching_contexts": 2,
+      "other_target_values": {
+        "55368": 2
+      },
+      "delta_from_copy_local_base": 0,
+      "evidence": [
+        {
+          "target_value": 55368,
+          "reference_offset": 28174,
+          "target_offset": 58483,
+          "reference_context": "40cd21803e6aa700740841ba",
+          "target_context": "40cd21803e48d800740841ba"
+        },
+        {
+          "target_value": 55368,
+          "reference_offset": 28181,
+          "target_offset": 58490,
+          "reference_context": "00740841ba6aa7b440cd21b4",
+          "target_context": "00740841ba48d8b440cd21b4"
+        }
+      ]
+    },
+    "OLDCTRLCHANDLER": {
+      "current_offset": 4383,
+      "reference_offset": 3862,
+      "candidate_target_address": 56889,
+      "matching_contexts": 1,
+      "other_target_values": {
+        "56889": 1
+      },
+      "delta_from_copy_local_base": -496,
+      "evidence": [
+        {
+          "target_value": 56889,
+          "reference_offset": 16902,
+          "target_offset": 43939,
+          "reference_context": "581f2eff2e49af3c4172063c",
+          "target_context": "581f2eff2e39de3c4172063c"
+        }
+      ]
+    },
+    "ONE_CHAR_VAL": {
+      "current_offset": 1535,
+      "reference_offset": 1539,
+      "candidate_target_address": 54541,
+      "matching_contexts": 1,
+      "other_target_values": {
+        "54541": 1
+      },
+      "delta_from_copy_local_base": 4,
+      "evidence": [
+        {
+          "target_value": 54541,
+          "reference_offset": 22713,
+          "target_offset": 51240,
+          "reference_context": "3fb90100ba36a6cd21722b3b",
+          "target_context": "3fb90100ba0dd5cd21722b3b"
+        }
+      ]
+    },
+    "PARM1": {
+      "current_offset": 743,
+      "reference_offset": 743,
+      "candidate_target_address": 53335,
+      "matching_contexts": 4,
+      "other_target_values": {
+        "53335": 4
+      },
+      "delta_from_copy_local_base": -410,
+      "evidence": [
+        {
+          "target_value": 53335,
+          "reference_offset": 26304,
+          "target_offset": 56427,
+          "reference_context": "00750c803e1aa3007405c606",
+          "target_context": "00750c803e57d0007405c606"
+        },
+        {
+          "target_value": 53335,
+          "reference_offset": 26616,
+          "target_offset": 56734,
+          "reference_context": "037210803e1aa3007536803e",
+          "target_context": "037210803e57d0007536803e"
+        },
+        {
+          "target_value": 53335,
+          "reference_offset": 26639,
+          "target_offset": 56757,
+          "reference_context": "007507803e1aa3007408c606",
+          "target_context": "007507803e57d0007408c606"
+        },
+        {
+          "target_value": 53335,
+          "reference_offset": 27790,
+          "target_offset": 58089,
+          "reference_context": "eb01f9c3a01aa350e8060058",
+          "target_context": "eb01f9c3a057d050e8060058"
+        }
+      ]
+    },
+    "PARM2": {
+      "current_offset": 744,
+      "reference_offset": 744,
+      "candidate_target_address": 53336,
+      "matching_contexts": 1,
+      "other_target_values": {
+        "53336": 1
+      },
+      "delta_from_copy_local_base": -410,
+      "evidence": [
+        {
+          "target_value": 53336,
+          "reference_offset": 26080,
+          "target_offset": 56187,
+          "reference_context": "017514803e1ba301750d803e",
+          "target_context": "017514803e58d001750d803e"
+        }
+      ]
+    },
+    "PATHCNT": {
+      "current_offset": 1375,
+      "reference_offset": 1375,
+      "candidate_target_address": 54493,
+      "matching_contexts": 1,
+      "other_target_values": {
+        "54493": 1
+      },
+      "delta_from_copy_local_base": 116,
+      "evidence": [
+        {
+          "target_value": 54493,
+          "reference_offset": 15190,
+          "target_offset": 41056,
+          "reference_context": "4fb03a8b0e92a549490bc978",
+          "target_context": "4fb03a8b0eddd449490bc978"
+        }
+      ]
+    },
+    "PATHINFO": {
+      "current_offset": 4000,
+      "reference_offset": 3479,
+      "candidate_target_address": 56247,
+      "matching_contexts": 1,
+      "other_target_values": {
+        "56247": 1
+      },
+      "delta_from_copy_local_base": -755,
+      "evidence": [
+        {
+          "target_value": 56247,
+          "reference_offset": 24461,
+          "target_offset": 54511,
+          "reference_context": "2bce1eff36caad1ffcacaae8",
+          "target_context": "2bce1eff36b7db1ffcacaae8"
+        }
+      ]
+    },
+    "PLUS": {
+      "current_offset": 2356,
+      "reference_offset": 1837,
+      "candidate_target_address": 55358,
+      "matching_contexts": 2,
+      "other_target_values": {
+        "55358": 2
+      },
+      "delta_from_copy_local_base": 0,
+      "evidence": [
+        {
+          "target_value": 55358,
+          "reference_offset": 25880,
+          "target_offset": 55981,
+          "reference_context": "807405c60660a701f6c70175",
+          "target_context": "807405c6063ed801f6c70175"
+        },
+        {
+          "target_value": 55358,
+          "reference_offset": 28338,
+          "target_offset": 58639,
+          "reference_context": "c4750f803e60a7007408fe06",
+          "target_context": "c4750f803e3ed8007408fe06"
+        }
+      ]
+    },
+    "PRINT_ERR_FLAG": {
+      "current_offset": 2450,
+      "reference_offset": 1929,
+      "candidate_target_address": 55453,
+      "matching_contexts": 2,
+      "other_target_values": {
+        "55453": 2
+      },
+      "delta_from_copy_local_base": 1,
+      "evidence": [
+        {
+          "target_value": 55453,
+          "reference_offset": 32199,
+          "target_offset": 64805,
+          "reference_context": "575652c706bca700008bf2ad",
+          "target_context": "575652c7069dd800008bf2ad"
+        },
+        {
+          "target_value": 55453,
+          "reference_offset": 32358,
+          "target_offset": 64966,
+          "reference_context": "595b58833ebca7007501c30e",
+          "target_context": "595b58833e9dd8007501c30e"
+        }
+      ]
+    },
+    "PSEP_CHAR": {
+      "current_offset": 4006,
+      "reference_offset": 3485,
+      "candidate_target_address": 56253,
+      "matching_contexts": 6,
+      "other_target_values": {
+        "56253": 6
+      },
+      "delta_from_copy_local_base": -755,
+      "evidence": [
+        {
+          "target_value": 56253,
+          "reference_offset": 24274,
+          "target_offset": 54317,
+          "reference_context": "d080ea60a0d0adaa83f90172",
+          "target_context": "d080ea60a0bddbaa83f90172"
+        },
+        {
+          "target_value": 56253,
+          "reference_offset": 24286,
+          "target_offset": 54329,
+          "reference_context": "0aac493a06d0ad741e414e56",
+          "target_context": "0aac493a06bddb741e414e56"
+        },
+        {
+          "target_value": 56253,
+          "reference_offset": 24304,
+          "target_offset": 54347,
+          "reference_context": "218bfe5ea0d0ad803d007409",
+          "target_context": "218bfe5ea0bddb803d007409"
+        },
+        {
+          "target_value": 56253,
+          "reference_offset": 24417,
+          "target_offset": 54467,
+          "reference_context": "01884501a0d0ad8845025626",
+          "target_context": "01884501a0bddb8845025626"
+        },
+        {
+          "target_value": 56253,
+          "reference_offset": 24484,
+          "target_offset": 54534,
+          "reference_context": "0177ef1fa0d0adeb0ce2e71f",
+          "target_context": "0177ef1fa0bddbeb0ce2e71f"
+        },
+        {
+          "target_value": 56253,
+          "reference_offset": 24493,
+          "target_offset": 54543,
+          "reference_context": "e2e71f4fa0d0ad3a45ff7401",
+          "target_context": "e2e71f4fa0bddb3a45ff7401"
+        }
+      ]
+    },
+    "RDEOF": {
+      "current_offset": 741,
+      "reference_offset": 741,
+      "candidate_target_address": 53333,
+      "matching_contexts": 1,
+      "other_target_values": {
+        "53333": 1
+      },
+      "delta_from_copy_local_base": -410,
+      "evidence": [
+        {
+          "target_value": 53333,
+          "reference_offset": 27107,
+          "target_offset": 57213,
+          "reference_context": "077505fe0618a3412bd18bca",
+          "target_context": "077505fe0655d0412bd18bca"
+        }
+      ]
+    },
+    "RESSEG": {
+      "current_offset": 722,
+      "reference_offset": 722,
+      "candidate_target_address": 53306,
+      "matching_contexts": 5,
+      "other_target_values": {
+        "53306": 5
+      },
+      "delta_from_copy_local_base": -418,
+      "evidence": [
+        {
+          "target_value": 53306,
+          "reference_offset": 9959,
+          "target_offset": 34343,
+          "reference_context": "cd212e8e1e05a3b8ffff8706",
+          "target_context": "cd212e8e1e3ad0b8ffff8706"
+        },
+        {
+          "target_value": 53306,
+          "reference_offset": 11733,
+          "target_offset": 36609,
+          "reference_context": "07c3068e0605a3bbffffb448",
+          "target_context": "07c3068e063ad0bbffffb448"
+        },
+        {
+          "target_value": 53306,
+          "reference_offset": 19595,
+          "target_offset": 47115,
+          "reference_context": "3ecd218e1e05a31ea11800a3",
+          "target_context": "3ecd218e1e3ad01ea11800a3"
+        },
+        {
+          "target_value": 53306,
+          "reference_offset": 35020,
+          "target_offset": 63154,
+          "reference_context": "5357068e0605a332e48bd826",
+          "target_context": "5357068e063ad032e48bd826"
+        },
+        {
+          "target_value": 53306,
+          "reference_offset": 35111,
+          "target_offset": 63245,
+          "reference_context": "5357068e0605a38ad9b700d0",
+          "target_context": "5357068e063ad08ad9b700d0"
+        }
+      ]
+    },
+    "RE_INSTR": {
+      "current_offset": 637,
+      "reference_offset": 637,
+      "candidate_target_address": 57299,
+      "matching_contexts": 1,
+      "other_target_values": {
+        "57299": 1
+      },
+      "delta_from_copy_local_base": 3660,
+      "evidence": [
+        {
+          "target_value": 57299,
+          "reference_offset": 22584,
+          "target_offset": 51091,
+          "reference_context": "1fc32e803eb0a20074f71e0e",
+          "target_context": "1fc32e803ed3df0074f71e0e"
+        }
+      ]
+    },
+    "SCANBUF": {
+      "current_offset": 1543,
+      "reference_offset": 1741,
+      "candidate_target_address": 54545,
+      "matching_contexts": 1,
+      "other_target_values": {
+        "54545": 1
+      },
+      "delta_from_copy_local_base": 0,
+      "evidence": [
+        {
+          "target_value": 54545,
+          "reference_offset": 15409,
+          "target_offset": 41292,
+          "reference_context": "1f078bf7bf00a7ac0ac0aae0",
+          "target_context": "1f078bf7bf11d5ac0ac0aae0"
+        }
+      ]
+    },
+    "SEARCH_BEST_BUF": {
+      "current_offset": 4008,
+      "reference_offset": 3487,
+      "candidate_target_address": 56256,
+      "matching_contexts": 1,
+      "other_target_values": {
+        "56256": 1
+      },
+      "delta_from_copy_local_base": -754,
+      "evidence": [
+        {
+          "target_value": 56256,
+          "reference_offset": 24502,
+          "target_offset": 54552,
+          "reference_context": "ff7401aabed2ad33c9acaa0a",
+          "target_context": "ff7401aabec0db33c9acaa0a"
+        }
+      ]
+    },
+    "SKPDEL": {
+      "current_offset": 2389,
+      "reference_offset": 1868,
+      "candidate_target_address": 55392,
+      "matching_contexts": 1,
+      "other_target_values": {
+        "55392": 1
+      },
+      "delta_from_copy_local_base": 1,
+      "evidence": [
+        {
+          "target_value": 55392,
+          "reference_offset": 28905,
+          "target_offset": 59287,
+          "reference_context": "0974f286067fa70ac074eaf6",
+          "target_context": "0974f2860660d80ac074eaf6"
+        }
+      ]
+    },
+    "SRCBUF": {
+      "current_offset": 2077,
+      "reference_offset": 1651,
+      "candidate_target_address": 55079,
+      "matching_contexts": 2,
+      "other_target_values": {
+        "55079": 2
+      },
+      "delta_from_copy_local_base": 0,
+      "evidence": [
+        {
+          "target_value": 55079,
+          "reference_offset": 18265,
+          "target_offset": 45350,
+          "reference_context": "c9ba0101bea6a6cd2173130e",
+          "target_context": "c9ba0101be27d7cd2173130e"
+        },
+        {
+          "target_value": 55079,
+          "reference_offset": 22859,
+          "target_offset": 51395,
+          "reference_context": "cb565751bfa6a633c98bc157",
+          "target_context": "cb565751bf27d733c98bc157"
+        }
+      ]
+    },
+    "SRCHAND": {
+      "current_offset": 2337,
+      "reference_offset": 1738,
+      "candidate_target_address": 55339,
+      "matching_contexts": 1,
+      "other_target_values": {
+        "55339": 1
+      },
+      "delta_from_copy_local_base": 0,
+      "evidence": [
+        {
+          "target_value": 55339,
+          "reference_offset": 26937,
+          "target_offset": 57035,
+          "reference_context": "178bd8891efda6b80057cd21",
+          "target_context": "178bd8891e2bd8b80057cd21"
+        }
+      ]
+    },
+    "SRCISDEV": {
+      "current_offset": 2339,
+      "reference_offset": 1740,
+      "candidate_target_address": 55341,
+      "matching_contexts": 1,
+      "other_target_values": {
+        "55341": 1
+      },
+      "delta_from_copy_local_base": 0,
+      "evidence": [
+        {
+          "target_value": 55341,
+          "reference_offset": 27827,
+          "target_offset": 58126,
+          "reference_context": "047519803effa6007512803e",
+          "target_context": "047519803e2dd8007512803e"
+        }
+      ]
+    },
+    "STACK": {
+      "current_offset": 4346,
+      "reference_offset": 3825,
+      "candidate_target_address": 56852,
+      "matching_contexts": 2,
+      "other_target_values": {
+        "56852": 2
+      },
+      "delta_from_copy_local_base": -496,
+      "evidence": [
+        {
+          "target_value": 56852,
+          "reference_offset": 10003,
+          "target_offset": 34390,
+          "reference_context": "c8fa8ed0bc24affb8ec08ed8",
+          "target_context": "c8fa8ed0bc14defb8ec08ed8"
+        },
+        {
+          "target_value": 56852,
+          "reference_offset": 10098,
+          "target_offset": 34476,
+          "reference_context": "c88ed850ba24afb80038cd21",
+          "target_context": "c88ed850ba14deb80038cd21"
+        }
+      ]
+    },
+    "SWITCHAR": {
+      "current_offset": 726,
+      "reference_offset": 726,
+      "candidate_target_address": 53310,
+      "matching_contexts": 1,
+      "other_target_values": {
+        "53310": 1
+      },
+      "delta_from_copy_local_base": -418,
+      "evidence": [
+        {
+          "target_value": 53310,
+          "reference_offset": 21221,
+          "target_offset": 49397,
+          "reference_context": "50b42f382609a374043c2f74",
+          "target_context": "50b42f38263ed074043c2f74"
+        }
+      ]
+    },
+    "TPA": {
+      "current_offset": 724,
+      "reference_offset": 724,
+      "candidate_target_address": 53308,
+      "matching_contexts": 8,
+      "other_target_values": {
+        "53308": 8
+      },
+      "delta_from_copy_local_base": -418,
+      "evidence": [
+        {
+          "target_value": 53308,
+          "reference_offset": 10108,
+          "target_offset": 34486,
+          "reference_context": "cd21582b0607a353bb1000f7",
+          "target_context": "cd21582b063cd053bb1000f7"
+        },
+        {
+          "target_value": 53308,
+          "reference_offset": 15253,
+          "target_offset": 41131,
+          "reference_context": "f907c38e0607a333dbfce870",
+          "target_context": "f907c38e063cd033dbfce870"
+        },
+        {
+          "target_value": 53308,
+          "reference_offset": 16100,
+          "target_offset": 42501,
+          "reference_context": "c38cd98e1e07a3807f012e8e",
+          "target_context": "c38cd98e1e3cd0807f012e8e"
+        },
+        {
+          "target_value": 53308,
+          "reference_offset": 16183,
+          "target_offset": 42640,
+          "reference_context": "c31e062ea107a38ed88ec08b",
+          "target_context": "c31e062ea13cd08ed88ec08b"
+        },
+        {
+          "target_value": 53308,
+          "reference_offset": 27098,
+          "target_offset": 57204,
+          "reference_context": "b01a068e0607a3f2ae077505",
+          "target_context": "b01a068e063cd0f2ae077505"
+        },
+        {
+          "target_value": 53308,
+          "reference_offset": 27194,
+          "target_offset": 57312,
+          "reference_context": "33db1e8e1e07a3c7071a001f",
+          "target_context": "33db1e8e1e3cd0c7071a001f"
+        },
+        {
+          "target_value": 53308,
+          "reference_offset": 28041,
+          "target_offset": 58350,
+          "reference_context": "33d21e8e1e07a3b440cd211f",
+          "target_context": "33d21e8e1e3cd0b440cd211f"
+        },
+        {
+          "target_value": 53308,
+          "reference_offset": 28403,
+          "target_offset": 58703,
+          "reference_context": "0633ff8e0607a3f2ae077505",
+          "target_context": "0633ff8e063cd0f2ae077505"
+        }
+      ]
+    },
+    "TYPEFILSIZ": {
+      "current_offset": 4423,
+      "reference_offset": 3902,
+      "candidate_target_address": 56929,
+      "matching_contexts": 4,
+      "other_target_values": {
+        "56929": 4
+      },
+      "delta_from_copy_local_base": -496,
+      "evidence": [
+        {
+          "target_value": 56929,
+          "reference_offset": 18390,
+          "target_offset": 45475,
+          "reference_context": "eb1c2e3b0e71af76102e8b0e",
+          "target_context": "eb1c2e3b0e61de76102e8b0e"
+        },
+        {
+          "target_value": 56929,
+          "reference_offset": 18397,
+          "target_offset": 45482,
+          "reference_context": "76102e8b0e71afe3632ec706",
+          "target_context": "76102e8b0e61dee3632ec706"
+        },
+        {
+          "target_value": 56929,
+          "reference_offset": 18404,
+          "target_offset": 45489,
+          "reference_context": "e3632ec70671af0000eb052e",
+          "target_context": "e3632ec70661de0000eb052e"
+        },
+        {
+          "target_value": 56929,
+          "reference_offset": 18413,
+          "target_offset": 45498,
+          "reference_context": "eb052e290e71afb43fcd2173",
+          "target_context": "eb052e290e61deb43fcd2173"
+        }
+      ]
+    },
+    "ZFLAG": {
+      "current_offset": 4089,
+      "reference_offset": 3568,
+      "candidate_target_address": 56337,
+      "matching_contexts": 2,
+      "other_target_values": {
+        "56337": 2
+      },
+      "delta_from_copy_local_base": -754,
+      "evidence": [
+        {
+          "target_value": 56337,
+          "reference_offset": 18347,
+          "target_offset": 45432,
+          "reference_context": "33d22e803e23ae007401c32e",
+          "target_context": "33d22e803e11dc007401c32e"
+        },
+        {
+          "target_value": 56337,
+          "reference_offset": 18458,
+          "target_offset": 45543,
+          "reference_context": "0e0726f61623ae53bb0100b4",
+          "target_context": "0e0726f61611dc53bb0100b4"
+        }
+      ]
+    }
+  },
+  "limitations": [
+    "Candidate instruction-context matches may still be false positives or refer to aliases.",
+    "Different position deltas demonstrate local COPY base cannot be assumed for earlier or later fields.",
+    "No basis yet to select or delete ROM fields or change other structures.",
+    "No target full segment base or whole-file match proven."
+  ]
+}

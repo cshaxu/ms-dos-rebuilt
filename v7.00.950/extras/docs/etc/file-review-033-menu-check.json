@@ -1,0 +1,19 @@
+{
+  "file": "bios/sysinit2.asm",
+  "file_index": 33,
+  "source_sha256": "9719e00089d33a304fbf1ad4197d1721467b1c6f38a9492348162f23d624d2fc",
+  "target_range": "IO.SYS 0x7182..0x7208",
+  "linked_bytes": 134,
+  "different_bytes": 0,
+  "dos7_assembly": "passed",
+  "default_assembly": "passed",
+  "default_object_identical_to_prior": true,
+  "mixed_diagnostic_link_exit_code": 0,
+  "probe": "extras/research/menu-check-prefix-linked.asm",
+  "limitations": [
+    "Probe fixes target offsets and uses stubs for called routines; it does not establish full executable layout or behavior.",
+    "boot_delay storage placement and other writers remain unverified.",
+    "Early startup key processing and no-config path remain incomplete.",
+    "Mixed link contains older objects and stubs."
+  ]
+}

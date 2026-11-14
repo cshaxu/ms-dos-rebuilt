@@ -1,0 +1,14 @@
+{
+  "file": "bios/msend.asm",
+  "source_sha256": "ceb3f2072658c8dc153e2274c42b75d8578426ebe84078779209ba62bce00e34",
+  "exact_reference_matches": {
+    "5.0": true,
+    "6.0": true,
+    "6.2": true
+  },
+  "assembler": "OpenNT MASM 5.NT.02",
+  "object_sha256": "20d3d0cf8806053ba2368adc34305e134dfa9afb3a6e6eceb076da0d9ed25044",
+  "object_equals_prior_reference": true,
+  "contribution": "zero-length segment end labels BData_end, BCode_end, SI_end, and paragraph-aligned dos_load_seg",
+  "limitations": "Symbol placement and actual segment order depend on the complete target link, which remains unverified; object equivalence does not establish DOS 7 target equivalence."
+}

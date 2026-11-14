@@ -1,0 +1,24 @@
+{
+  "generated_utc": "2026-11-12T11:38:20.120770+00:00",
+  "source": "cmd/command/tcmd2a.asm",
+  "build_report": "extras/docs/etc/command-path-shared-workspace-build-20261112.json",
+  "workspace": {
+    "symbol": "DirSearchPath",
+    "target_value": "0xe0d7",
+    "candidate_value": "0xe71f",
+    "evidence": "Target value also mapped to DirSearchPath by registered DIR instruction checks; both PATH helper operand positions match this mapping.",
+    "prior_correction": "Prior EXECPATH identification was incorrect."
+  },
+  "probe": {
+    "stage": "extras/build/command-pathshared-6qw820ma",
+    "result": "PASS",
+    "coverage": "Updated actual helper with renamed local scratch and stubs; quoted and non-LFN fallback cases only."
+  },
+  "remaining": "PATH parser is not connected to helper; long-input layout, LFN conversion and full environment integration remain incomplete. ECHO/COPY not rerun.",
+  "file_counts": {
+    "linked": 35,
+    "modified_from_baseline": 30,
+    "unchanged_from_baseline": 5
+  },
+  "final_binary_exact": false
+}

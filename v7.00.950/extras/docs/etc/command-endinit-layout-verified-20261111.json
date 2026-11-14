@@ -1,0 +1,43 @@
+{
+  "stage": "extras\\build\\command-reference-_ou1j7l4",
+  "target_range": [
+    17815,
+    17837
+  ],
+  "prefix_bytes": 22,
+  "verified_fields": [
+    {
+      "offset": 3,
+      "symbol": "OriginalComSpec",
+      "linked": 1313,
+      "target": 1775
+    },
+    {
+      "offset": 12,
+      "symbol": "ComSpec",
+      "linked": 814,
+      "target": 944
+    }
+  ],
+  "linked_hex": "0e07bf210526803d00750bbe2e030e1facaa0ac075fa",
+  "pathname_state_bytes": 80,
+  "pipe_reference_target_instructions": {
+    "0xcf90": "mov di,0445h",
+    "0xcf9e": "mov di,0494h"
+  },
+  "pipe_pointer_target_bytes": "45049404",
+  "pipe_bytes_each": 79,
+  "EndInit_offset_from_Pipe1": 2,
+  "InitStubSegment_alias": "Pipe1",
+  "overlay_remaining_bytes": 13,
+  "source_hashes": {
+    "cmd/command/rdata.asm": "e408fd0967b0d34d6dabaa0961c82eac9919af3804bfeec23aa6cfa98ff6a348"
+  },
+  "resource_gates_passed": true,
+  "full_command_exact": false,
+  "remaining": [
+    "Full EndInit still DOS6-derived after restored prefix.",
+    "Target initialization overlay extends beyond original pipe buffers; additional shared storage through original pathname area must be mapped before full replacement.",
+    "Original pathname environment capture, relocation lifecycle and final startup ordering pending."
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "instruction": "cmp ah,al",
+  "target_encoding": "38c4",
+  "experiments": [
+    {
+      "tool": "masm400.exe",
+      "sha256": "6a32bdafb3a79ad9bfa8bfc92762bd7f450baaca242ef0e1c87951ae83df4c52",
+      "success": true,
+      "listing_lines": [
+        "0000  3A E0                    cmp ah,al"
+      ],
+      "log": "Microsoft (R) Macro Assembler  Version 4.00\nCopyright (C) Microsoft Corp 1981, 1983, 1984, 1985.  All rights reserved.\n\n\n  50534 Bytes symbol space free\n\n      0 Warning Errors\n      0 Severe  Errors\n"
+    },
+    {
+      "tool": "masm500.exe",
+      "sha256": "085e0758fa776182da1281e0d75bac8a651e38a40191b5d865ba7a2b443e84b7",
+      "success": true,
+      "listing_lines": [
+        "0000  3A E0\t\t\tcmp ah,al"
+      ],
+      "log": "Microsoft (R) Macro Assembler Version 5.00 \nCopyright (C) Microsoft Corp 1981-1985, 1987.  All rights reserved.\n\n\n  51262 + 465282 Bytes symbol space free\n\n      0 Warning Errors\n      0 Severe  Errors\n"
+    }
+  ],
+  "limitations": [
+    "Standalone instruction probe only; compiler suitability for the complete project is not established."
+  ],
+  "nasm_probe": {
+    "syntax": "cmp ah,al",
+    "output_hex": "38c4",
+    "observation": "NASM emits the target encoding, but its source dialect and OMF integration with this MASM project have not been qualified."
+  }
+}

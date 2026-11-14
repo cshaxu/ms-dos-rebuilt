@@ -1,0 +1,43 @@
+{
+  "image_sha256": "c46661f8295799e12f3bf16179d87ee2e313d7968a9779e79299966ece036dad",
+  "boundaries": [
+    {
+      "entry": "70AA",
+      "dependencies": [
+        "7D12",
+        "658A",
+        "717C",
+        "DS:041E"
+      ]
+    },
+    {
+      "entry": "717C",
+      "dependencies": [
+        "7D12",
+        "7202"
+      ]
+    },
+    {
+      "entry": "7202",
+      "dependencies": [
+        "ConfigOpen",
+        "RegInvalidBlock",
+        "6CB8"
+      ],
+      "scope": "partial body inspected; remaining dependencies not yet enumerated"
+    },
+    {
+      "entry": "6CB8",
+      "end_exclusive": "6D72",
+      "dependencies": [
+        "RegValidateDataBlock at 7F64",
+        "ConfigSeek",
+        "ConfigWriteAll",
+        "DS:041E"
+      ],
+      "next_action": "Restore shared DS:041E state and this complete write helper before eviction callers."
+    }
+  ],
+  "state_initial_bytes": "0000",
+  "note": "70AA is broader file/cache maintenance; provisional eviction label must not imply body already restored."
+}

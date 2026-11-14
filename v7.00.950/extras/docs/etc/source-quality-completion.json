@@ -1,0 +1,53 @@
+{
+  "task": "M5 T12 S1",
+  "status": "closed",
+  "scope": "Frozen 29 modified and 37 added files only; no whole-repository original-source identity claim.",
+  "counts": {
+    "total": 66,
+    "completed": 66,
+    "modified_this_audit": 62,
+    "unchanged_this_audit": 4,
+    "exact_dos6": 0,
+    "retired_by_merge": 14
+  },
+  "new_files": {
+    "original": 37,
+    "merged_removed": 14,
+    "retained": 23,
+    "qualification": "Retained modules have per-file functional, resource or layout/ownership reasons. A retained file is not necessarily impossible to merge; target bytes alone do not prove original source file boundaries."
+  },
+  "checks": {
+    "all_66_verified": true,
+    "all_37_necessity_decisions": true,
+    "all_43_evidence_documents_parse": true,
+    "current_file_hashes": "52/52 match",
+    "retired_files": "14/14 absent",
+    "pending_collateral_full_reviews": 0,
+    "retired_build_inputs": "none in live BIOS make/link",
+    "git_diff_check": "PASS",
+    "final_makefiles_readback": "PASS",
+    "native_nmake_dry_runs": [
+      "bios: PASS P40",
+      "COMMAND: PASS P42",
+      "DOS kernel: PASS P43"
+    ],
+    "final_makefile_recipes_unchanged": true
+  },
+  "binary_evidence": {
+    "direct_fc_b": "Three extras/assets outputs equal extras/baselines/targets; latest P39 IO.SYS also equals target.",
+    "IO_SYS": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+    "MSDOS_SYS": "d28c3a421236bb61081f706193f51f32b9f8b957598d94b6b3b143ae52b1ea03",
+    "COMMAND_COM": "a74c700063cd6b1c91523952bfc80e9393c125d39ada0164d48b5098089fcef3",
+    "proof_chain": "T11 full acceptance; affected object mergers assembled/linked and packed with direct comparisons in P3/P4/P6/P7/P8/P9/P10/P11/P27/P39. Subsequent changes preserve effective statements or build recipes; no redundant full rebuild.",
+    "stage_note": "P39 stage preserves final BIOS build/IO output. Later NMAKE /N checks use separate dryrun files and logs in same stage; they do not compile."
+  },
+  "request_mapping": {
+    "style": "Per-file original DOS6 comparison and procedure/register comment normalization recorded in P1-P43.",
+    "duplication": "14 unnecessary files removed; redundant external/public declarations, single-use wrappers/macros and inactive reconstructed DOS6 alternatives removed as individually proven. Original empty conditionals retained.",
+    "necessity": "Every added file has recorded disposition; ststate final rationale corrected after tailstat merger.",
+    "progress": "Fixed queue complete with changed/unchanged/exact counts separated.",
+    "verification": "Affected binary changes verified; instruction-preserving changes checked without rebuild."
+  },
+  "open_transfers": [],
+  "completion_predicate": "All 66 dispositions verified, current hashes agree, all added-file decisions recorded, no pending collateral reviews, exact target acceptance preserved."
+}

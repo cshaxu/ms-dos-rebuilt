@@ -1,0 +1,48 @@
+{
+  "file_index": 9,
+  "source": "bios/msbio1.asm",
+  "source_sha256": "fb3fa2d6c1adbc1f2dcff0fd187eb9bade13eabb78c7285424d0789fbcfedafb",
+  "bios_data_offsets": {
+    "ORIG13": 180,
+    "ROMVECTORS": 256,
+    "START_BDS": 248,
+    "CDEV": 320,
+    "TRACKTABLE": 382,
+    "STRATEGY": 634,
+    "DSK_ENTRY": 243,
+    "INT08_STUB": 734,
+    "INT08_ENTRY": 739,
+    "INT10_STUB": 988,
+    "INT10_ENTRY": 993
+  },
+  "device_chain_target_offset": 1558,
+  "device_chain_length": 234,
+  "device_chain_matching_bytes": 226,
+  "device_chain_different_bios_offsets": [
+    241,
+    242,
+    246,
+    247,
+    248,
+    249,
+    250,
+    251
+  ],
+  "int08_target_offset": 2275,
+  "int08_length": 249,
+  "int08_matching_bytes": 249,
+  "diagnostic_stub_symbols": [
+    "bios_msg_base",
+    "bios_msg_1",
+    "bios_msg_2",
+    "bios_msg_3",
+    "int6c_read_date",
+    "int6c_read_time",
+    "ttticks",
+    "char_auxnum",
+    "char_printdev",
+    "disk_start_high"
+  ],
+  "default_reference_output_sha256": "a67d8733509f9baf94017389cc1c991d5ef1c66bdfb91b6cab3eef0fc35e9490",
+  "limitations": "Remaining device-chain differences are two table offsets and the BDS far pointer; later driver sources and final segment layout remain incomplete. The DOS7 binary is diagnostic and not the target."
+}

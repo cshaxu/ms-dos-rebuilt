@@ -1,0 +1,77 @@
+{
+  "source_directory": "extras/research/bios-char-clock-data-integration",
+  "linked_exe_sha256": "705d6d37d4e75cf9e65b7f80232ebb5354866aa15b3e9e19b640d6bd3b8e4155",
+  "symbols": [
+    {
+      "symbol": "printdev",
+      "provider": "chardata",
+      "fixup_users": [
+        "msbio1",
+        "mschar"
+      ]
+    },
+    {
+      "symbol": "wait_count",
+      "provider": "chardata",
+      "fixup_users": [
+        "mschar"
+      ]
+    },
+    {
+      "symbol": "auxnum",
+      "provider": "chardata",
+      "fixup_users": [
+        "msbio1",
+        "mschar"
+      ]
+    },
+    {
+      "symbol": "auxbuf",
+      "provider": "chardata",
+      "fixup_users": [
+        "mschar"
+      ]
+    },
+    {
+      "symbol": "base_century",
+      "provider": "chardata",
+      "fixup_users": [
+        "msinit"
+      ]
+    },
+    {
+      "symbol": "base_year",
+      "provider": "chardata",
+      "fixup_users": [
+        "msinit"
+      ]
+    },
+    {
+      "symbol": "month_tab",
+      "provider": "chardata",
+      "fixup_users": [
+        "msinit"
+      ]
+    },
+    {
+      "symbol": "bin_date_time",
+      "provider": "chardata",
+      "fixup_users": [
+        "msinit"
+      ]
+    },
+    {
+      "symbol": "month_table",
+      "provider": "chardata",
+      "fixup_users": [
+        "msinit"
+      ]
+    }
+  ],
+  "data_bytes_equal_target": true,
+  "data_length": 58,
+  "limitations": [
+    "The provider is a diagnostic object; its original source ownership and overall absolute position are unproven.",
+    "Other temporary stubs and unresolved production dependencies remain."
+  ]
+}

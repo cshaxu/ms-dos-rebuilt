@@ -1,0 +1,13 @@
+{
+  "source": "bios/msinit.asm",
+  "source_sha256": "ae0600269044e01cdd3caac041797096765d7626c6a3cccb1d5be182f3380216",
+  "listing_sha256": "0fda96da98ed7ce32b23f67e2721edfba3f12d393c3564a7bb35208337abe412",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_offset": "0x144b",
+  "length": 45,
+  "matched_nonrelocated_bytes": 33,
+  "relocation_bytes": 12,
+  "differences": [],
+  "dynamic_start_symbol": "ibm_disk_io",
+  "limitations": "Target uses the same dynamic-start offset and IBM patch source; assigning both to ibm_disk_io is an integration hypothesis. Address operands and preceding CPU detection remain unverified."
+}

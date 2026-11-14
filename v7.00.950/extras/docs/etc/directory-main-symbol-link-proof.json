@@ -1,0 +1,25 @@
+{
+  "probe_source": "extras/research/directory-context/dirmain-symbol-probe.asm",
+  "source_sha256": "f34987836f2cca9f38e7269ff19b8aa21a2c711201c79859d4abb30da97b4511",
+  "object_sha256": "6ab119ca1fd7ce16f4ee46a7d2a57cb9907a51107bb28b897c666368c0d1e25a",
+  "linked_exe_sha256": "ff3ef9e57f285f85cedae7e2e2382568f2f7f5b47e98265fa825b5c7e0df6025",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_file_offset": "0x17f74",
+  "linked_exe_file_offset": "0xb2c4",
+  "length": 232,
+  "all_bytes_equal_after_link": true,
+  "symbolized_data": [
+    "LastEnt",
+    "ThisDPB",
+    "ClusNum",
+    "DirSec",
+    "DirStart",
+    "EntLast",
+    "CurBuf"
+  ],
+  "limitations": [
+    "Data and callee ORGs are isolated target-layout scaffolding; production layout must emerge from complete source.",
+    "Callee implementations are stubs; semantics and end-to-end execution are unverified.",
+    "Routine name and guarded flush label remain descriptive reconstructions."
+  ]
+}

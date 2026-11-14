@@ -1,0 +1,30 @@
+{
+  "source": "bios/sysinit2.asm",
+  "sha256": "4f22e9cf744624fa0c58f50cbd17fa2ff1f2ddc12b2ae76bc0877c077f4a3461",
+  "change": "Use relocated BIOS code segment for DRIVPARM EOT and EC35 fields, and declare both in their actual BIOS code segment.",
+  "matched": [
+    {
+      "region": "DRIVPARM setup, parsing and parameter initialization",
+      "start": "0x1e47",
+      "end_exclusive": "0x2034",
+      "bytes": 493
+    },
+    {
+      "region": "numeric parser dependency",
+      "start": "0x2fa2",
+      "end_exclusive": "0x300b",
+      "bytes": 105
+    }
+  ],
+  "verification": {
+    "tool": "extras/tools/verify_syspre_device_link.py",
+    "link_stage": "extras/build/syspre-object-link-awj9ibst",
+    "module_stage": "extras/build/ml-sysinit-1_h6ci88",
+    "scope": "Actual source objects linked to parameter data, BPBs and numeric parser. Two BIOS field offsets are target-positioned diagnostic declarations; extracted structure references are converted to equivalent offsets."
+  },
+  "limitations": [
+    "BIOS field positions and other portions of the diagnostic remain anchored.",
+    "DRIVPARM runtime and complete product linkage are unverified.",
+    "All three final core binaries remain unverified."
+  ]
+}

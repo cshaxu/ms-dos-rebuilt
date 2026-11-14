@@ -1,0 +1,56 @@
+{
+  "source_sha256": "f4e0d1489474840c88bfa48340a271cc0c9cfa04df8a58002d0de97959664cfd",
+  "listing_sha256": "27509ca887e665d02f9653f29a3c7002265a4d5cf25c531ba8383c416d8495ec",
+  "routines": [
+    {
+      "name": "in_bin",
+      "target_offset": "0x28ac",
+      "length": 37,
+      "masked_relocation_bytes": 16,
+      "matched_nonrelocated_bytes": 13,
+      "differences": [
+        4,
+        5,
+        13,
+        14,
+        22,
+        23,
+        31,
+        32
+      ]
+    },
+    {
+      "name": "date_verify",
+      "target_offset": "0x28d1",
+      "length": 62,
+      "masked_relocation_bytes": 16,
+      "matched_nonrelocated_bytes": 46,
+      "differences": []
+    },
+    {
+      "name": "time_verify",
+      "target_offset": "0x290f",
+      "length": 25,
+      "masked_relocation_bytes": 6,
+      "matched_nonrelocated_bytes": 19,
+      "differences": []
+    },
+    {
+      "name": "bcd_verify",
+      "target_offset": "0x2928",
+      "length": 41,
+      "masked_relocation_bytes": 2,
+      "matched_nonrelocated_bytes": 39,
+      "differences": []
+    },
+    {
+      "name": "bcd_to_bin",
+      "target_offset": "0x2a1a",
+      "length": 11,
+      "masked_relocation_bytes": 0,
+      "matched_nonrelocated_bytes": 11,
+      "differences": []
+    }
+  ],
+  "limitations": "Source listing predates a comment-only correction. Relocation operands and final segment/order not verified; in_bin calls point to the reference-order bcd_to_bin and must be re-laid out."
+}

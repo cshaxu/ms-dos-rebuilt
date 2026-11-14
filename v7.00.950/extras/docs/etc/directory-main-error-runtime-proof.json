@@ -1,0 +1,18 @@
+{
+  "probe_source": "extras/research/directory-context/error-probe.asm",
+  "source_sha256": "a015c9f060266814364256d3e3485e7a85d039a255e1d2f8f5004ecaa5481eb8",
+  "exe_sha256": "6fb31d62b1aa8624f6b93d1c4e6fdbf2a7081866b4f207604fda9f45774507e8",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_routine_length": 232,
+  "target_routine_matches": true,
+  "isolated_probe_status": "PASS",
+  "additional_checks": [
+    "empty context clears carry and leaves directory state unchanged",
+    "out-of-range count sets carry without changing context or directory state",
+    "unexpected short entry sets carry, leaves entry intact, clears context and restores six directory position words"
+  ],
+  "limitations": [
+    "Controlled callee stubs do not exercise real buffer or disk operations.",
+    "Sector transitions and actual kernel integration are unverified."
+  ]
+}

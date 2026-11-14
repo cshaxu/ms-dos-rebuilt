@@ -1,0 +1,18 @@
+{
+  "trial_source": "extras/research/bios-msint13-frame-trial.asm",
+  "source_sha256": "45af47819e509b1f3abaa86569117067b16a6915819b8039049fa74ad6b8462b",
+  "trial7_object_sha256": "980b306dd2c339d77e27ebe158bda1a0b05ef8416db503ab224221731c41c8b7",
+  "dos6_objects_identical": true,
+  "doint_target_file_offset": "0x4162",
+  "doint_length": 26,
+  "masked_relocation_bytes": 4,
+  "nonrelocation_differences": [],
+  "observations": [
+    "Defining int13frame before doint in DOS7_CONFIG shortens four BP-relative displacements by one byte each.",
+    "The prior four-byte caller-position difference is eliminated in the trial listing."
+  ],
+  "limitations": [
+    "Four bytes of the external far-call operand are masked; its linked target and whole BIOS link remain unverified.",
+    "Formal msint13 source remains unchanged pending its dependencies."
+  ]
+}

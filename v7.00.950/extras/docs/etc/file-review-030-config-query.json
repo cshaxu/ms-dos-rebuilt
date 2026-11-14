@@ -1,0 +1,41 @@
+{
+  "file": "bios/sysconf.asm",
+  "source_sha256": "df9925aabfb1ea86fca8450a433bc3e6fa4bad8bdb97a1e034674886470ab357",
+  "target_range": "IO.SYS 0xb578..0xb5d3",
+  "bytes": 91,
+  "differences": [
+    [
+      "0x10",
+      "0x2d",
+      "0x83"
+    ],
+    [
+      "0x11",
+      "0x20",
+      "0xe8"
+    ],
+    [
+      "0x12",
+      "0x0",
+      "0x20"
+    ],
+    [
+      "0x35",
+      "0xd",
+      "0x83"
+    ],
+    [
+      "0x36",
+      "0xff",
+      "0xc8"
+    ]
+  ],
+  "probe": "extras/research/confquery7-linked.asm",
+  "default_object_identical_to_prior": true,
+  "dos7_assembly": "passed",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "Probe uses fixed target offsets and a query_user stub; full image and interactive behavior remain unverified.",
+    "DOS7 CONFIG.SYS file-read and startup initialization remain incomplete."
+  ]
+}

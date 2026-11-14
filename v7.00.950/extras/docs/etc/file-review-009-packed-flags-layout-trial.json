@@ -1,0 +1,10 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "reverted_source_sha256": "6aade3396b73a94fc5477a7114a223470ec2aa912f748a17173869562d5247b7",
+  "trial_stage": "extras/build/config-ml-probe-tph1ys05",
+  "first_regression_bios_offset": 1342,
+  "trial_byte": 144,
+  "target_byte": 0,
+  "diagnostic_report": "config-ml-packed-flags-reverted-verified.json",
+  "limitations": "Trial removed four legacy flag bytes and dsktnum; alignment subsequently introduced 90h at 053Eh. Target bytes do not establish the actual missing fields or final module order; do not force alignment with padding."
+}

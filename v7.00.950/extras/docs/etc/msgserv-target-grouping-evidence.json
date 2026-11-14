@@ -1,0 +1,36 @@
+{
+  "source": "inc/msgserv.asm",
+  "source_sha256": "627b204f2e96fbd84c8a8b6513fd8a56ae3b2fa56c8a5bc736b5cdf0181cbbf4",
+  "dos6_source": "O:/repos.hobby/ms-dos-archaeology/v6.0/inc/msgserv.asm",
+  "target_sha256": "a74c700063cd6b1c91523952bfc80e9393c125d39ada0164d48b5098089fcef3",
+  "reference_sha256": "65fa71b0a34e91feffc31297fb5e24d40767c72fb513e46aaac721bda7836110",
+  "reference_grouping_start": 34116,
+  "reference_bytes": "f644074074295052b43832c08d167b9fcd217305c606829f2c8a440a8bf85a58c6440a2ce8b3fc8bc788440aeb0490e8a8fc0bdb740533d2b22d5255",
+  "target_matching_tail": 66221,
+  "target_bytes": "f644070e7506c706e3870a00e848fd0bdb740533d2b22d5255c3",
+  "target_unique_tail": "0bdb740533d2b22d5255c3",
+  "key_reference_instruction": "test byte ptr [si+7],40h",
+  "key_pattern_in_target": false,
+  "interpretation": "The target and reference share the immediately following signed-number return sequence; in the target, the preceding instruction is a direct near call. The added reference grouping branch immediately precedes that same tail and its key TEST encoding is absent across the target. This is strong evidence the baseline-added grouping implementation differs, but equivalent code may exist elsewhere or use another encoding.",
+  "dependency_status": "Message macro cycle and generated resources remain unresolved; no source modifications made.",
+  "limitations": [
+    "A unique local match does not prove the whole message service or DOS7 configuration.",
+    "Instruction encoding absence does not rule out semantically equivalent grouping elsewhere."
+  ],
+  "callee_crosscheck": {
+    "reference_offset": 33310,
+    "target_offset": 65525,
+    "length": 36,
+    "reference_bytes": "8f06759f33db9392f736799f93f736799f83fa09760580c237eb0380c23052410bc07504",
+    "target_bytes": "8f06dd8733db9392f736e38793f736e38783fa09760580c237eb0380c23052410bc07504",
+    "masked_data_address_byte_positions": [
+      2,
+      3,
+      10,
+      11,
+      15,
+      16
+    ],
+    "interpretation": "Call destinations share 36 identical instruction bytes after masking three data addresses, reinforcing that both tails invoke the corresponding conversion routine."
+  }
+}

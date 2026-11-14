@@ -1,0 +1,67 @@
+{
+  "file": "bios/msdskpr.inc",
+  "source_sha256": "e8dd92dced3a3c098cddefa5ca73804cae9dac8cd0870d6ba51ef10b7c1ebd59",
+  "reference_matches": {
+    "6.0": {
+      "sha256": "e8dd92dced3a3c098cddefa5ca73804cae9dac8cd0870d6ba51ef10b7c1ebd59",
+      "exact": true
+    },
+    "5.0": {
+      "sha256": "e8dd92dced3a3c098cddefa5ca73804cae9dac8cd0870d6ba51ef10b7c1ebd59",
+      "exact": true
+    },
+    "6.2": {
+      "sha256": "e8dd92dced3a3c098cddefa5ca73804cae9dac8cd0870d6ba51ef10b7c1ebd59",
+      "exact": true
+    },
+    "4.0": {
+      "sha256": "ab5501ec39caadf35b73ddff6c4f6aa537a220203af46c3db5135f05a065b3f8",
+      "exact": false
+    }
+  },
+  "target_instruction_checks": [
+    {
+      "name": "disk_head_sttl",
+      "target_offset": "0x2ddd",
+      "bytes": "8a4409",
+      "instruction": "mov\tal,ds:[si].disk_head_sttl"
+    },
+    {
+      "name": "disk_eot",
+      "target_offset": "0x303d",
+      "bytes": "864404",
+      "instruction": "xchg\tal,[si].disk_eot"
+    },
+    {
+      "name": "disk_motor_strt",
+      "target_offset": "0x3040",
+      "bytes": "8a640a",
+      "instruction": "mov\tah,[si].disk_motor_strt"
+    },
+    {
+      "name": "disk_sector_siz",
+      "target_offset": "0x3097",
+      "bytes": "26c6440302",
+      "instruction": "mov\tes:[si].disk_sector_siz,2"
+    },
+    {
+      "name": "romverify",
+      "target_offset": "0x312b",
+      "bytes": "80fc04",
+      "instruction": "cmp\tah,romverify"
+    },
+    {
+      "name": "romread",
+      "target_offset": "0x317a",
+      "bytes": "80fc02",
+      "instruction": "cmp\tah,romread"
+    },
+    {
+      "name": "romverify",
+      "target_offset": "0x317f",
+      "bytes": "80fc04",
+      "instruction": "cmp\tah,romverify"
+    }
+  ],
+  "limitations": "Seven uses cover four structure fields and two operation constants; the remaining declarations and integration across all users are not proven against DOS 7."
+}

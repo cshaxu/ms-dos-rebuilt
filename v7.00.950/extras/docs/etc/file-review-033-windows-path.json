@@ -1,0 +1,23 @@
+{
+  "source": "bios/sysinit2.asm",
+  "sha256": "2f0fd9514033750c2a9ce325df702f1e295020b511f6074025acd1f1c6da1052",
+  "change": "Restore Windows path check and mapped/host/other drive search before system-file EXEC.",
+  "target_region": {
+    "start": "0x4907",
+    "end_exclusive": "0x497d",
+    "bytes": 118
+  },
+  "verification": {
+    "link": "extras/tools/verify_syspre_device_link.py",
+    "link_stage": "extras/build/syspre-object-link-l1rvjgcr",
+    "module_stage": "extras/build/ml-sysinit-ada0t451",
+    "runtime": "extras/tools/verify_boot_windows_path.py",
+    "runtime_stage": "extras/build/windows-path-runtime-9hdhloqm",
+    "scope": "Source-generated 118 bytes match target and link to actual drive resolver; BIOS buffer offset remains anchored in diagnostic. The runtime harness substitutes mapping and INT 21h, uses a single-segment test buffer, and covers mapped success, alternate path, drive scan, complete failure, and host fallback."
+  },
+  "limitations": [
+    "EXEC caller and earlier setup remain to be restored.",
+    "BIOS buffer placement and other diagnostic addresses remain synthetic.",
+    "Full IO.SYS and all three core files remain unverified."
+  ]
+}

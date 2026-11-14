@@ -1,0 +1,33 @@
+{
+  "generated_utc": "2026-11-12T11:26:57.354903+00:00",
+  "sources": [
+    "cmd/command/tenv.asm",
+    "cmd/command/tcmd2a.asm"
+  ],
+  "build_report": "extras/docs/etc/command-set-path-fixed-build-20261112.json",
+  "comparison": {
+    "target_offset": "0xbb4d",
+    "candidate_offset": "0xbd41",
+    "length": 44,
+    "excluded_address_bytes": [
+      31,
+      32,
+      40,
+      41
+    ],
+    "note": "Instruction sequence matches outside linked buffer and branch targets; target PATH parser remains transitional."
+  },
+  "probe": {
+    "stage": "extras/build/command-setpath-correct-cq_6u_od",
+    "result": "PASS",
+    "coverage": "Actual dispatch source with stubs checks mixed-case PATH and ordinary variable; no real PATH parsing or environment update."
+  },
+  "correction": "First test exposed an endian error in the TH comparison; source and probe were corrected. Earlier invalid probe also lacked a test-only continuation.",
+  "remaining": "PATH parser, real environment integration and cmd_copy incomplete. ECHO/COPY not rerun.",
+  "file_counts": {
+    "linked": 35,
+    "modified_from_baseline": 30,
+    "unchanged_from_baseline": 5
+  },
+  "final_binary_exact": false
+}

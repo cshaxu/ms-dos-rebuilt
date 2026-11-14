@@ -1,0 +1,25 @@
+{
+  "script": "extras/tools/assemble_ml_sysinit.py",
+  "modules": [
+    "sysconf",
+    "sysinit1",
+    "sysinit2",
+    "sysimes"
+  ],
+  "original_masm_checks": "passed for all four modules before isolated ML compatibility changes",
+  "ml_assembly": "passed; non-fatal warnings in historical macro/include processing",
+  "diagnostic_stage": "extras/build/ml-sysinit-m_58s280",
+  "object_sha256": {
+    "sysconf": "e76d950ec9748a7071ecad22a65bd1eea6099f2b0849dfde63035d63d62c15f2",
+    "sysinit1": "ea6854fcb8c4270b72a9f6e573d50eb40ad48b7d3724e30960d9ea5bc73eec52",
+    "sysinit2": "f3853b70f9dd2d31bb073eba186705d5e07d8f3472bee7b2734d42e5991843a5",
+    "sysimes": "d9bd63dd13ad708d079b651008d07a592c1c51eaeb250a8c2c4233f1ed01ce41"
+  },
+  "generated_message_cl6_sha256": "636a8b21fe03d9fc70e3a3a3d01c6afd69be2d13a049c7a00e0342a47547eb21",
+  "mixed_link_exit_code": 0,
+  "limitations": [
+    "The script modifies only isolated copies: ML keyword compatibility, distinct duplicate structure name, and removal of pass-two assertions after unmodified MASM validates them.",
+    "The mixed link includes older objects and diagnostic stubs; no production IO.SYS is built.",
+    "ML outputs are not yet compared against target full modules or complete IO.SYS."
+  ]
+}

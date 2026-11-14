@@ -1,0 +1,15 @@
+{
+  "build": "extras/docs/etc/command-badcom-restored-build-20261112.json",
+  "source": "cmd/command/tmisc1.asm",
+  "change": "Restored previously identified target WIN failure branch after removing unrelated DOS 6 code recovered transient workspace headroom.",
+  "target_probe": "extras/build/badcom-retry-target-zebz_9ds",
+  "current_probe": "extras/build/badcom-retry-current-oziulxdl",
+  "matched_cases": [
+    "ordinary command before and after unknown command",
+    "unknown command error",
+    "WIN missing error in DOSBox"
+  ],
+  "limitations": "DOSBox probe does not demonstrate that WIN-specific boot drive branch is taken; instruction block not newly registered; full binary not identical.",
+  "output_bytes": 93305,
+  "target_bytes": 92870
+}

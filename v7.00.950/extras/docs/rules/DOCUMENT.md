@@ -1,0 +1,3 @@
+# Documentation rules
+
+Adapted from SoftPC `docs/rules/DOCUMENT.md`. `extras/docs/README.md` is the entry point. Direct documentation directories are `rules`, `design`, `states`, `proposals`, `history`, `etc`; each topic has one authoritative home. Root pointer documents do not duplicate rules or status. `CURRENT` contains at most one active packet and a compact baseline; proposals are not active work; history never overrides current authority. `etc/README.md` indexes retained evidence. Record input hashes, provenance, uncertainty and test conditions; do not commit raw restricted binaries, guest data, generated media or logs merely as evidence.

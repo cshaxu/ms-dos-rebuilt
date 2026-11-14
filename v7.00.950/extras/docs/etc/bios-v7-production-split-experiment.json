@@ -1,0 +1,21 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\bios-sysconf-split-j7uuenq6",
+  "bios_sha256": "25542803983ae73ad180dff5cbee942672b7b730b8e6967b7076ca593728af73",
+  "split_objects": [
+    "devdata.obj",
+    "cfgdata.obj",
+    "sysconf.obj"
+  ],
+  "device_state": {
+    "linked_bios_offset": "0x730c",
+    "target_file_offset": "0xb400",
+    "bytes": 98,
+    "exact_match": true
+  },
+  "scope": "Exploratory link of actual objects; target layout and final product remain unverified.",
+  "sysconf_assembler": "MASM 5 checks, ML 6 /Zm output",
+  "limitations": [
+    "The order is provisional and does not place SYSINIT at target offsets.",
+    "No runtime behavior or complete target binary is verified."
+  ]
+}

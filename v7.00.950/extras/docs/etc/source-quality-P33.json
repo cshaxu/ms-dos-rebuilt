@@ -1,0 +1,26 @@
+{
+  "part": "M5 T12 S1 P33",
+  "ordinal": 52,
+  "modified": 1,
+  "unchanged": 0,
+  "exact_dos6": 0,
+  "retired_by_merge": 0,
+  "reference": "DOS6 bios/sysinit1.asm interrupt stack pool, interrupt-sharing headers, fatal handler; DOS6 sysinit2 request packet already restored in P27.",
+  "changes": "Remove unrelated copied revision history and 77 unused EXTRN lines; reduce bios_flags declaration to its one referenced symbol. Normalize added indentation and document common handler's inline vector argument. Original include/equate/conditional scaffolding retained, including now-empty original conditions and IRP.",
+  "necessity": "Retain stack handlers at the first SYSINIT link contribution, separate from later sysinit1/si1tail initialization. Per-vector entries share one do_int_stacks implementation and IRP for the standard interrupt headers. P27 already merged adjacent request packet/deviceparameters here; direct merger into original later owner changes target order.",
+  "validation": {
+    "before": 369,
+    "after": 292,
+    "nonExtern": 291,
+    "orderedNonExternEqual": true,
+    "removedUnusedNames": 113,
+    "originalEmptyConditionalsRetained": true,
+    "removedUnusedNamesMeaning": "113 source declaration names, including one IRP-generated int19old&aa pattern; only bios_flags occurs in non-EXTRN statements.",
+    "readbackVerified": true,
+    "rebuilt": false,
+    "reason": "All ordered non-EXTRN statements identical; removed external declarations have no references in module body or invoked IRP body. Includes precede these declarations; retained BPB/IOCTL definitions supply merged storage.",
+    "binary_baseline": "P27 originally assembled this merged object and compared BIOS/IO.SYS. P33 changes no emitted statement."
+  },
+  "next_ordinal": 53,
+  "remaining": 14
+}

@@ -1,0 +1,18 @@
+{
+  "build_report": "extras/docs/etc/command-dynamic-transient-verified-build-20261112.json",
+  "probe_stage": "extras/build/dynamic-size-probe-q5uniikm",
+  "buffer_sizes": [
+    0,
+    128,
+    255,
+    256,
+    1024
+  ],
+  "checks": [
+    "SetSize formula executed with target branch boundary at 255"
+  ],
+  "limitations": [
+    "relocation and memory allocation not executed by this probe",
+    "does not establish full COMMAND runtime or final byte identity"
+  ]
+}

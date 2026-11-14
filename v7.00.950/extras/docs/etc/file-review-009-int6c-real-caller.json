@@ -1,0 +1,17 @@
+{
+  "source": "bios/msbio1.asm",
+  "source_sha256": "9b7c6ce81e2239472e4a253fb724ceb89eae1ae6ec1f1fc2d1982235b8c18b9c",
+  "change": "Export the existing DOS7_CONFIG int6c_update near procedure to allow mschar to call it.",
+  "stage": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\real-mschar-link-tgei851a",
+  "before_unresolved": [
+    "daycnt_to_day_near",
+    "int6c_update",
+    "bin_to_bcd_near"
+  ],
+  "after_unresolved": [
+    "daycnt_to_day_near",
+    "bin_to_bcd_near"
+  ],
+  "result": "Real DOS7 mschar object now resolves int6c_update against msbio1; two calendar conversion dependencies remain unresolved.",
+  "limitations": "The link is incomplete and still uses other reference objects and diagnostic stubs; it does not establish complete target binary equality."
+}

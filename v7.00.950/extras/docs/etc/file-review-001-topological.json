@@ -1,0 +1,163 @@
+{
+  "file": "bios/apmequ.inc",
+  "sha256": "6ea83b5c2ad1a1bc2f95d9a1b2f84762cb305f589cd06b2c6a9bf37e1aa23258",
+  "status": "reference_qualified",
+  "dependencies": [],
+  "literal_definitions": [
+    {
+      "line": 18,
+      "symbol": "APM_INSTALLCHK_FUNC",
+      "value": "5300h"
+    },
+    {
+      "line": 20,
+      "symbol": "APM_CONNECT_FUNC",
+      "value": "5301h"
+    },
+    {
+      "line": 21,
+      "symbol": "APM_DISCONNECT_FUNC",
+      "value": "5304h"
+    },
+    {
+      "line": 23,
+      "symbol": "APM_CPUIDLE_FUNC",
+      "value": "5305h"
+    },
+    {
+      "line": 24,
+      "symbol": "APM_CPUBUSY_FUNC",
+      "value": "5306h"
+    },
+    {
+      "line": 25,
+      "symbol": "APM_SETPWSTATE_FUNC",
+      "value": "5307h"
+    },
+    {
+      "line": 26,
+      "symbol": "APM_ENABLE_DISABLE_FUNC",
+      "value": "5308h"
+    },
+    {
+      "line": 27,
+      "symbol": "APM_REST_DEFLT_FUNC",
+      "value": "5309h"
+    },
+    {
+      "line": 28,
+      "symbol": "APM_GETPWSTATE_FUNC",
+      "value": "530ah"
+    },
+    {
+      "line": 29,
+      "symbol": "APM_GETPMEVENT_FUNC",
+      "value": "530bh"
+    },
+    {
+      "line": 37,
+      "symbol": "APM_SYSTEM_BIOS",
+      "value": "0000h"
+    },
+    {
+      "line": 38,
+      "symbol": "APM_SYSTEM_DEV",
+      "value": "0001h"
+    },
+    {
+      "line": 39,
+      "symbol": "APM_SYSTEM_CPU",
+      "value": "0002h"
+    },
+    {
+      "line": 41,
+      "symbol": "APM_DISPLAY_ALL",
+      "value": "0100h"
+    },
+    {
+      "line": 43,
+      "symbol": "APM_PARALLEL_ALL",
+      "value": "0200h"
+    },
+    {
+      "line": 45,
+      "symbol": "APM_SERIAL_ALL",
+      "value": "0300h"
+    },
+    {
+      "line": 48,
+      "symbol": "APM_ALL_DEVICES",
+      "value": "0ffffh"
+    },
+    {
+      "line": 55,
+      "symbol": "APM_ENABLE_FUNC",
+      "value": "1"
+    },
+    {
+      "line": 56,
+      "symbol": "APM_DISABLE_FUNC",
+      "value": "0"
+    },
+    {
+      "line": 64,
+      "symbol": "APM_SIGNATURE",
+      "value": "\"PM\""
+    },
+    {
+      "line": 69,
+      "symbol": "APM_STANDBY_REQ",
+      "value": "01"
+    },
+    {
+      "line": 70,
+      "symbol": "APM_SUSPEND_REQ",
+      "value": "02"
+    },
+    {
+      "line": 71,
+      "symbol": "APM_NORM_RESUME",
+      "value": "03"
+    },
+    {
+      "line": 72,
+      "symbol": "APM_CRIT_RESUME",
+      "value": "04"
+    },
+    {
+      "line": 73,
+      "symbol": "APM_BATT_LOW",
+      "value": "05"
+    },
+    {
+      "line": 77,
+      "symbol": "APM_SLOW_CLOCK",
+      "value": "0100B"
+    },
+    {
+      "line": 78,
+      "symbol": "APM_PWMGMT_DISABLED",
+      "value": "1000b"
+    }
+  ],
+  "matches": [
+    {
+      "name": "6.0",
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\apmequ.inc",
+      "sha256": "6ea83b5c2ad1a1bc2f95d9a1b2f84762cb305f589cd06b2c6a9bf37e1aa23258"
+    },
+    {
+      "name": "5.0",
+      "path": "O:\\repos.hobby\\ms-dos-rebuilt\\v5.0\\bios\\apmequ.inc",
+      "sha256": "6ea83b5c2ad1a1bc2f95d9a1b2f84762cb305f589cd06b2c6a9bf37e1aa23258"
+    },
+    {
+      "name": "Astro",
+      "path": "O:\\repos.external\\astro\\bios\\apmequ.inc",
+      "sha256": "6ea83b5c2ad1a1bc2f95d9a1b2f84762cb305f589cd06b2c6a9bf37e1aa23258"
+    }
+  ],
+  "host_marker_check": "No BOP, NTVDM, NTDOS or NTIO token found.",
+  "target_status": "unverified",
+  "limitations": "Historical source identity and absence of file-internal dependencies do not prove this include participates in the target 7.0a build or prove whole-binary identity."
+}

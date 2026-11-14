@@ -1,0 +1,39 @@
+{
+  "file": "dos/dosprint.asm",
+  "sha256": "96412d605a3e19ccfaa9a4fdd57a8949eca7fce3950cf81bc4e3c6bf491b05ba",
+  "references": [
+    {
+      "name": "6.0",
+      "sha256": "96412d605a3e19ccfaa9a4fdd57a8949eca7fce3950cf81bc4e3c6bf491b05ba",
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dosprint.asm"
+    },
+    {
+      "name": "5.0",
+      "sha256": "96412d605a3e19ccfaa9a4fdd57a8949eca7fce3950cf81bc4e3c6bf491b05ba",
+      "path": "O:\\repos.hobby\\ms-dos-rebuilt\\v5.0\\dos\\dosprint.asm"
+    },
+    {
+      "name": "Astro",
+      "sha256": "96412d605a3e19ccfaa9a4fdd57a8949eca7fce3950cf81bc4e3c6bf491b05ba",
+      "path": "O:\\repos.external\\astro\\dos\\dosprint.asm"
+    }
+  ],
+  "dependencies": [
+    "inc/version.inc",
+    "inc/dosseg.inc",
+    "inc/dossym.inc",
+    "inc/devsym.inc"
+  ],
+  "stage": "extras/build/dosprint-context-0r3hsk5c",
+  "debug": 0,
+  "doscode_size": 0,
+  "external": [
+    "dosdseg",
+    "proc_id",
+    "user_id"
+  ],
+  "fixup_externals": [],
+  "object_sha256": "fb39409fc73bda68cc609c38db03867d3a4da40e248a09b31d6ab71072f06713",
+  "limitations": "No debug build, final linker validation or target configuration evidence.",
+  "target_status": "unverified"
+}

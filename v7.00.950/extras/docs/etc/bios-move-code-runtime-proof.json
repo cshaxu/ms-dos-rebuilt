@@ -1,0 +1,18 @@
+{
+  "probe_source": "extras/research/bios-move-code-runtime-probe.asm",
+  "source_sha256": "6fdf7b20e971f94b2b1aecd5ee58a98ae6f0b4e66704a3bfad6267bc52925bd1",
+  "exe_sha256": "044c24c318bf0d0fd3e6e966ff415d4ef0fe4af59d19f7b40153d77081bd09d1",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_routine_length": 30,
+  "target_routine_matches": true,
+  "isolated_probe_status": "PASS",
+  "checks": [
+    "with a 01c0h increment, copies starting at 0030h through 2f5fh",
+    "bytes at 002fh and 2f60h remain unchanged",
+    "destination segment is passed in AX to the controlled reinitialization stub"
+  ],
+  "limitations": [
+    "The 01c0h value is supplied to the probe; this does not prove how target boot obtains it.",
+    "Reinitialization is a controlled stub; real BIOS relocation and full kernel behavior are unverified."
+  ]
+}

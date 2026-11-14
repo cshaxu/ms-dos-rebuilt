@@ -1,0 +1,17 @@
+{
+  "stage": "extras\\build\\resident-resource-tables-integrated-tbpc48l2",
+  "target_sha256": "a74c700063cd6b1c91523952bfc80e9393c125d39ada0164d48b5098089fcef3",
+  "resource_bytes": 2194,
+  "resource_match_offsets": [
+    2765
+  ],
+  "table_bytes": 244,
+  "table_match_offsets": [
+    4959
+  ],
+  "method": "Link class 6 candidate containing original-style message declarations to original tables with message references changed to actual pointer-field labels.",
+  "limitations": [
+    "ORG places the resource at an inferred runtime offset; resource bytes are not proof of actual runtime initialization.",
+    "The candidate combines on-disk relative index values and runtime table references for link verification; complete loading, caller source and final executable remain unverified."
+  ]
+}

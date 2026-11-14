@@ -1,0 +1,14 @@
+{
+  "source_sha256": "e65a4f78336aaf6a8e7dd156fe6f1a0dd20d1eacb11c50c847ae92a0068749ee",
+  "diagnostic_source_sha256": "f8e926d3b130a7682c0ec56d974607c2e6c8e7cda96a2240dffc46ece410ffeb",
+  "diagnostic_change": "DOS7_CONFIG clock procedures moved from BIOS_DATA_INIT to BIOS_CODE; redundant legacy int6c excluded; near procedures exported",
+  "masm_result": "pass",
+  "ml6_result": "pass",
+  "target_clock_location": "IO.SYS 0x27b0, mapped BIOS_CODE",
+  "target_cmos_location": "IO.SYS 0x0c8f",
+  "target_drvfat_location": "IO.SYS 0x0d28",
+  "target_cmos_to_drvfat_bytes": 153,
+  "probe_cmos_to_drvfat_bytes": 154,
+  "alignment_difference_bytes": 1,
+  "limitations": "Temporary source only. One-byte alignment discrepancy and final link must be resolved before adoption. Runtime relocation has not been tested."
+}

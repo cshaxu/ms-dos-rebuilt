@@ -1,0 +1,15 @@
+{
+  "build": "extras/docs/etc/command-fcb-delim-original-build-20261112.json",
+  "target_instruction_range": "0xc05c..0xc0ae",
+  "instruction_bytes": 82,
+  "evidence": "linked bytes equal the original target block; internal entrypoints checked",
+  "fcb_probe": "extras/build/fcb-name-probe-g0g97wzu",
+  "fcb_cases": [
+    "trailing space trimming",
+    "internal spaces retained",
+    "no extension",
+    "BX preserved"
+  ],
+  "regression": "extras/build/fcb-command-regress-8enaiceb",
+  "limitations": "full FCB workflow and final file identity not established"
+}

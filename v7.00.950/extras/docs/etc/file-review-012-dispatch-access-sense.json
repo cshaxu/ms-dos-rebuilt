@@ -1,0 +1,47 @@
+{
+  "source_sha256": "bb448bff64d4d9b10cc46191b143bc992a5135dc7b072bc955618e3c7e1722c4",
+  "listing_sha256": "a17ec94c92c4f1878f8ed0e3be36254d73cf35d68b46aa5be6c40e6b2409da8a",
+  "routines": [
+    {
+      "name": "Do_Generic_IOCtl",
+      "target_offset": "0x342b",
+      "length": 60,
+      "masked_relocation_bytes": 12,
+      "matched_nonrelocated_bytes": 48,
+      "differences": []
+    },
+    {
+      "name": "GetAccessFlag",
+      "target_offset": "0x3a74",
+      "length": 23,
+      "masked_relocation_bytes": 2,
+      "matched_nonrelocated_bytes": 21,
+      "differences": []
+    },
+    {
+      "name": "SetAccessFlag",
+      "target_offset": "0x3a8b",
+      "length": 26,
+      "masked_relocation_bytes": 2,
+      "matched_nonrelocated_bytes": 24,
+      "differences": []
+    },
+    {
+      "name": "Ioctl_Support_Query",
+      "target_offset": "0x3aa5",
+      "length": 39,
+      "masked_relocation_bytes": 6,
+      "matched_nonrelocated_bytes": 33,
+      "differences": []
+    },
+    {
+      "name": "SenseMediaType",
+      "target_offset": "0x3acc",
+      "length": 64,
+      "masked_relocation_bytes": 2,
+      "matched_nonrelocated_bytes": 62,
+      "differences": []
+    }
+  ],
+  "limitations": "Relocation operands and complete linked output remain unverified."
+}

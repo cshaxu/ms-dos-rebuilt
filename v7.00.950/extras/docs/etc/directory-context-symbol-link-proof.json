@@ -1,0 +1,17 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "source": "extras/build/directory-context-symbol-trial/dircopy.asm",
+  "object_sha256": "8ed1299d71c6d0dcd546509086391e60f8b10d27f1a1aebbfb70560df9fb4869",
+  "linked_exe_sha256": "291dcd5a15cc2c5ee469cdfbf999f2d8f9a9537e67fa8ad5bcb6cd2f90254994",
+  "target_file_offset": "0x1805c",
+  "linked_exe_file_offset": "0xcc0",
+  "length": 26,
+  "all_bytes_equal_after_link": true,
+  "limitations": [
+    "The layout uses an isolated ORG 0AACh to place the data symbol; this is not the full DOS kernel linker configuration.",
+    "This proves this routine and its two symbolic address fixups only.",
+    "No target-wide build, runtime execution or original symbol-name recovery has been verified."
+  ],
+  "preserved_research_source": "extras/research/directory-context/dircopy.asm",
+  "preserved_source_sha256": "a9c8432a5d32f5690adeb44a6e218a6817a5f0d8bad616176c2be4e8928bdc9b"
+}

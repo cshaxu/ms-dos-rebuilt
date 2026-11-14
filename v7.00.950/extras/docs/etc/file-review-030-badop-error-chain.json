@@ -1,0 +1,22 @@
+{
+  "source": "bios/sysconf.asm",
+  "source_sha256": "b263821d4e4908b5f740a8bef868ff5c237de1c161465da6671effeb64344e16",
+  "change": "Restore target badop indexed message 8004h and shared error-line branch; link actual error_line and showlinenum instead of synthetic target labels.",
+  "matched": {
+    "badop": {
+      "start": "0x75ba",
+      "bytes": 8
+    },
+    "error_line_and_showlinenum": {
+      "start": "0x760c",
+      "bytes": 64
+    }
+  },
+  "verification": "extras/tools/verify_syspre_device_link.py",
+  "stage": "extras/build/syspre-object-link-tnz43p2r",
+  "assembly": "Full SYSCONF after device data split assembled in the same diagnostic.",
+  "limitations": [
+    "The shared err label at 7533h remains target-anchored; its source and full CONFIG parser layout are not linked.",
+    "Other synthetic gaps and BIOS locations remain; complete IO.SYS and all three target binaries remain unverified."
+  ]
+}

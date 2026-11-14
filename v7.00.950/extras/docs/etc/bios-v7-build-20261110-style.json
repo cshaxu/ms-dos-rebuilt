@@ -1,0 +1,109 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\bios-v7-build-6l7d3qzq",
+  "source_root": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a",
+  "configuration": [
+    "USA",
+    "DBLSPACE_HOOKS",
+    "DOS7_CONFIG"
+  ],
+  "reference": "DOS 7.0a",
+  "messages": "project-owned reconstructed USA messages",
+  "message_sha256": "a41c59db3b3bf4fa1a08b83fc9e12b8db558c5673569bac66dec735df4203951",
+  "objects": [
+    {
+      "name": "msload",
+      "sha256": "cd81270cfde17f7acaa05355eca74eb34cb79decf488d73341ec77597022f847"
+    },
+    {
+      "name": "msbio1",
+      "sha256": "8209afb08236bdf5baca83888a811cd0515b92a372c765026d2d94cb76c55ca3"
+    },
+    {
+      "name": "mschar",
+      "sha256": "022f512c35e712264c76eb20324285767206de0aede650f5d88d18ea3225ed91"
+    },
+    {
+      "name": "msdisk",
+      "sha256": "ce5b8cbabb1e27fae1d0dcffbbe019a30ed1c83ffb6d5b26f3cc8e4b8d112c56"
+    },
+    {
+      "name": "msdioctl",
+      "sha256": "1cf8de12e5116542e34e4c302c78430cedfc78ee503242326d539a68286a3101"
+    },
+    {
+      "name": "msint13",
+      "sha256": "145a38d23d446936c76ad8ef929150a79863573f746df18a3dbe67557295da87"
+    },
+    {
+      "name": "msbio2",
+      "sha256": "5da702458585ae3d7ab0736e7fc90d60ca656eeda5c0c2e397a2a08c59fb48de"
+    },
+    {
+      "name": "msinit",
+      "sha256": "37087747326dc0bc7adad3f62af5d169b04add30399078780887a203ceb2a461"
+    },
+    {
+      "name": "sysinit1",
+      "sha256": "02c85227c6ac427e29acd4ae5bdc81ead5337d6da59a9b41fdf936f454f7b707"
+    },
+    {
+      "name": "sysconf",
+      "sha256": "74969bc8d9b34f5b6a7ca017eb9795faa1a5c70da26ca422a0da16d3bb48c416",
+      "masm_check_sha256": "d98482d2adac389dec564f36e59e51c9c960268dbfe650ed4f1aa99e18ee7940"
+    },
+    {
+      "name": "syspre",
+      "sha256": "9abde2a2822a2080e37bc0096a612dd0c460e182fb7430a231317573a996504b"
+    },
+    {
+      "name": "sysinit2",
+      "sha256": "41f0f9bf987172f9e0d83b5baaeb23748391b25c2e32e2301119f02dcd6638a3"
+    },
+    {
+      "name": "sysimes",
+      "sha256": "18393d231205288db6faf81bd518a43d9feb91c4c006bddeab0810702d0f92b2"
+    },
+    {
+      "name": "power",
+      "sha256": "8f343f1a7e161196f0aaefe817b15aa03670fba9e3920d1a71d6a82d9a7e55b6"
+    },
+    {
+      "name": "ptime",
+      "sha256": "81c2131534d607d8393a5a14edce15728de9971d6e355059a6a66d94ce01dab3"
+    },
+    {
+      "name": "msend",
+      "sha256": "20d3d0cf8806053ba2368adc34305e134dfa9afb3a6e6eceb076da0d9ed25044"
+    }
+  ],
+  "status": "incomplete",
+  "msbio1_assembler": "ML 6.00 /Zm; temporary IF2 assertions checked from listing",
+  "msload_assembler": "ML 6.00 /Zm",
+  "msbio1_offsets": {
+    "orig13": "00B4",
+    "off_d0": "00D0"
+  },
+  "sysconf_assembler": "MASM 5 checks; ML 6.00 /Zm output",
+  "loader_entry": {
+    "cs": 0,
+    "ip": 512
+  },
+  "loader_conversion": "linked MZ image at 0000:0200; no relocations",
+  "loader_bytes": 1024,
+  "loader_sha256": "86ca929c243c3378e979b076ce658d3bf75aaed842813f499982544968df7254",
+  "loader_target_range": "IO.SYS 0x200..0x5ff, exact match",
+  "bios_link_status": "linked; no unresolved symbols reported",
+  "bios_image_bytes": 64320,
+  "bios_image_sha256": "22c32270fd972b384f6220a2cbe122927a019dd6ead1fa02c18f7f23f909d279",
+  "bios_init_comparison": {
+    "bios_range": "0x540..0x1646",
+    "target_range": "0xb40..0x1c46",
+    "bytes": 4359,
+    "different_bytes": 3886,
+    "first_difference": "0x68f",
+    "boundary_offset": "0x68f",
+    "one_byte_shift_after_boundary": true,
+    "scope": "fixed reference mapping for BIOS_DATA_INIT only; does not verify relocations or complete layout"
+  },
+  "error": "RuntimeError('IO.SYS target is MZ; final container/loader construction has not been established')"
+}

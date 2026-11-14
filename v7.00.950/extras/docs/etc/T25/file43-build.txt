@@ -1,0 +1,25 @@
+PASS 293 current source inputs equal the verified stage.
+private-desktop=DOS5Build_19280_243436109 owned-pid=10588
+[compile 0s] Rebuilding BIOS and loader
+[compile 5s] Rebuilding BIOS and loader
+[compile 10s] Rebuilding BIOS and loader
+[compile 15s] Rebuilding BIOS and loader
+child-exit=0 timeout=0
+Comparing files O:\REPOS.HOBBY\MS-DOS-REBUILT\V7.00.950\EXTRAS\BUILD\T25-MSBIO2-24899-14100\BIOS\MSLOAD.EXE and O:\REPOS.HOBBY\MS-DOS-REBUILT\V7.00.950\EXTRAS\BUILD\T25-MSBIO1-24696-3059\BIOS\MSLOAD.EXE
+FC: no differences encountered
+
+Comparing files O:\REPOS.HOBBY\MS-DOS-REBUILT\V7.00.950\EXTRAS\BUILD\T25-MSBIO2-24899-14100\BIOS\MSBIO.BIN and O:\REPOS.HOBBY\MS-DOS-REBUILT\V7.00.950\EXTRAS\BUILD\T25-MSBIO1-24696-3059\BIOS\MSBIO.BIN
+FC: no differences encountered
+
+IO image: 223148 bytes; configuration at 176640
+PASS 293 current source inputs equal the verified stage.
+Comparing files O:\REPOS.HOBBY\MS-DOS-REBUILT\V7.00.950\EXTRAS\BUILD\T25-MSBIO2-24899-14100\OUT\IO.SYS and O:\REPOS.HOBBY\MS-DOS-REBUILT\V7.00.950\EXTRAS\BASELINES\TARGETS\IO.SYS
+FC: no differences encountered
+
+Comparing files O:\REPOS.HOBBY\MS-DOS-REBUILT\V7.00.950\EXTRAS\BUILD\T25-MSBIO2-24899-14100\OUT\MSDOS.SYS and O:\REPOS.HOBBY\MS-DOS-REBUILT\V7.00.950\EXTRAS\BASELINES\TARGETS\MSDOS.SYS
+FC: no differences encountered
+
+Comparing files O:\REPOS.HOBBY\MS-DOS-REBUILT\V7.00.950\EXTRAS\BUILD\T25-MSBIO2-24899-14100\OUT\COMMAND.COM and O:\REPOS.HOBBY\MS-DOS-REBUILT\V7.00.950\EXTRAS\BASELINES\TARGETS\COMMAND.COM
+FC: no differences encountered
+
+PASS: BIOS and loader rebuilt unchanged; IO.SYS repacked and exact; other two images inherited and exact; 293 current inputs verified.

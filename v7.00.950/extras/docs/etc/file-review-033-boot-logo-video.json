@@ -1,0 +1,16 @@
+{
+  "file": "bios/sysinit2.asm",
+  "source_sha256": "9b563693bc4e0b55abb64c849ac93fae3c61826b6eabd4fd9dc929b01e50547a",
+  "target_range": "IO.SYS 0xde6a..0xdecb",
+  "length": 97,
+  "different_bytes": 0,
+  "tool": "MASM 6 ML isolated probe",
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link": "passed with diagnostic message stub",
+  "probe_source": "extras/research/boot-logo-video-linked.asm",
+  "limitations": [
+    "Fixed-offset probe does not establish final layout or runtime behavior.",
+    "Logo display and its startup menu callers remain incomplete."
+  ]
+}

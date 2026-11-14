@@ -1,0 +1,40 @@
+{
+  "source": "bios/sysconf.asm",
+  "sha256": "0523f142066ea9d839667436cccec73d207078cef2715b2c5799d4f3d5a3e8a6",
+  "change": "Link device error/success handling, DPB/device chain and DoubleSpace check to actual providers.",
+  "matched": [
+    {
+      "region": "device error path",
+      "start": "0x6ed0",
+      "end_exclusive": "0x6f15",
+      "bytes": 69
+    },
+    {
+      "region": "device success path",
+      "start": "0x6f15",
+      "end_exclusive": "0x7066",
+      "bytes": 337
+    },
+    {
+      "region": "DoubleSpace check",
+      "start": "0x7066",
+      "end_exclusive": "0x70ac",
+      "bytes": 70
+    },
+    {
+      "region": "CONFIG entry through parser",
+      "start": "0x6848",
+      "end_exclusive": "0x76de",
+      "bytes": 3734
+    }
+  ],
+  "verification": {
+    "tool": "extras/tools/verify_syspre_device_link.py",
+    "link_stage": "extras/build/syspre-object-link-5dh4f_1j",
+    "scope": "Actual command, device, parameter and parser sources linked; some structure offsets, BIOS entries and other layout positions remain diagnostic anchors."
+  },
+  "limitations": [
+    "No core source changed in this step.",
+    "Runtime, full product link and final three core binaries remain unverified."
+  ]
+}

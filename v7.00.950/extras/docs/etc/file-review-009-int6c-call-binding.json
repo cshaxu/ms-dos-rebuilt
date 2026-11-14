@@ -1,0 +1,24 @@
+{
+  "source": "bios/msbio1.asm",
+  "source_sha256": "293615b062f00e0b1f93538888869f1098920003d285c4071d0d8b285d1898ec",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "routine": "int6c_code",
+  "target_file_offset": 10143,
+  "length": 17,
+  "non_address_bytes_verified": 13,
+  "calls": [
+    {
+      "call_offset": 6,
+      "symbol": "read_real_date",
+      "target_file_offset": 10160
+    },
+    {
+      "call_offset": 9,
+      "symbol": "read_real_time",
+      "target_file_offset": 10346
+    }
+  ],
+  "reference_source": "bios/msinit.asm",
+  "diagnostic": "config-ml-int6c-call-binding.json",
+  "limitations": "The target call destinations and partial entry behavior are verified. Diagnostic destinations are stubs; full helper bodies, runtime integration, and target-exact displacements remain unresolved."
+}

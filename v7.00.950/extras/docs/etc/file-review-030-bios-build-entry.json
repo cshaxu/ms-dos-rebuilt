@@ -1,0 +1,25 @@
+{
+  "source": "bios/sysconf.asm",
+  "sha256": "309c586334ed2ba2dd1522d1b6fbeb05f2409b9d3a22d0d031bb937413f63207",
+  "change": "Add a DOS7_CONFIG BIOS build entry, include both maintained message headers, and run it against the formal v7.0a source root.",
+  "verification": {
+    "tool": "extras/tools/build_bios_v7.py",
+    "report": "extras/docs/etc/bios-v7-build-20261110-c.json",
+    "stage": "extras/build/bios-v7-build-2li_kthn",
+    "configuration": [
+      "USA",
+      "DBLSPACE_HOOKS",
+      "DOS7_CONFIG"
+    ],
+    "result": "incomplete",
+    "assembled": [
+      "msload"
+    ],
+    "first_failure": "msbio1: MASM pass-phase errors at lines 732 and 1379; off_d0 is 00CDh, violating required 00D0h."
+  },
+  "limitations": [
+    "The build stops before SYSCONF and cannot establish product-wide matching.",
+    "The pre-existing MSBIO1 dependency remains integration_pending; it was not modified in this step.",
+    "Full production link and final three core binaries remain unverified."
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "date": "2026-11-12",
+  "build_report": "extras/docs/etc/command-date-time-original-build-20261112.json",
+  "target_probe": "extras\\build\\date-original-final-target-bk0we7mo",
+  "current_probe": "extras\\build\\time-fixed-verified-btxuqzy0",
+  "commands": [
+    "date 01-02-2024",
+    "time 12:34:56",
+    "echo AFTER",
+    "ver /r"
+  ],
+  "comparison": {
+    "DATEOUT.TXT": {
+      "target": "",
+      "current": "",
+      "equal": true
+    },
+    "TIMEOUT.TXT": {
+      "target": "",
+      "current": "",
+      "equal": true
+    },
+    "DONE.TXT": {
+      "target": "4146544552200d0a",
+      "current": "4146544552200d0a",
+      "equal": true
+    },
+    "VER.TXT": {
+      "target": "0d0a57696e646f77732039352e205b56657273696f6e20342e30302e3935305d0d0a5265766973696f6e20410d0a444f5320697320696e20484d410d0a",
+      "current": "0d0a57696e646f77732039352e205b56657273696f6e20342e30302e3935305d0d0a5265766973696f6e20410d0a444f5320697320696e20484d410d0a",
+      "equal": true
+    }
+  },
+  "scope": "Valid parameter noninteractive smoke test; invalid and interactive input not covered."
+}

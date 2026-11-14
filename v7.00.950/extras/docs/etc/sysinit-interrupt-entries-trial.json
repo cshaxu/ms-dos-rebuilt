@@ -1,0 +1,15 @@
+{
+  "source": "extras/research/sysinit-interrupt-entries-trial.asm",
+  "source_sha256": "449697ca707cd67eb6f7e7c7461d463e4ae057c35546e39daa9219a49d929289",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "linked_exe_sha256": "e1c8546446acb1e3587e660bd33ed0c963ae668b3ed6e1ba31bdd1d7833b0c38",
+  "target_file_range": "0x4d42..0x4e5a",
+  "length": 280,
+  "different_bytes": 0,
+  "entries": 14,
+  "limitations": [
+    "ORG is used only in an isolated link to reproduce the target addresses.",
+    "The shared stack handler is a one-byte placeholder after the compared range; it has not been restored by this test.",
+    "No formal sysinit1 source or full SYSINIT image has been changed."
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "target_sha256": "a74c700063cd6b1c91523952bfc80e9393c125d39ada0164d48b5098089fcef3",
+  "critical_table_file_offset": "0x56ab",
+  "critical_table_runtime_offset_assuming_image_base": "0x155b",
+  "critical_table_values": [
+    "0x951",
+    "0x955",
+    "0x959",
+    "0x95d",
+    "0x961",
+    "0x965",
+    "0x969",
+    "0x96d",
+    "0x971",
+    "0x975",
+    "0x979",
+    "0x97d",
+    "0x981",
+    "0x985",
+    "0x989",
+    "0x98d",
+    "0x991",
+    "0x995",
+    "0x999",
+    "0x99d",
+    "0x9a1"
+  ],
+  "critical_message_ids": [
+    219,
+    220,
+    221,
+    222,
+    223,
+    224,
+    225,
+    226,
+    227,
+    228,
+    229,
+    230,
+    231,
+    232,
+    233,
+    234,
+    235,
+    236,
+    237,
+    238,
+    239
+  ],
+  "findings": [
+    "At 0x618c, the critical-error routine subtracts 19, indexes the 21-word table at runtime offset 0x155b, dereferences its result, and passes the resulting message pointer to the print routine.",
+    "The table values address the pointer fields of class 6 entries 219 through 239, providing the missing second level of indirection.",
+    "The input routine compares characters through the relocated class 6 pointer fields for No and Yes.",
+    "The command reload error path reads the class 6 pointers for IDs 118 and 119 and prints both; the execution-error path reads the pointer for ID 126."
+  ],
+  "instruction_bytes": {
+    "0x618c": "5287da83eb13d1e38b9f5b158b1f87da",
+    "0x5ef2": "8b3ee5083a0574098b3ee1083a05",
+    "0x5dbb": "8b161509e8b1038b161909e8aa03",
+    "0x57a8": "8b1e31093c02741f"
+  },
+  "limitations": [
+    "Runtime offsets assume the segment layout and successful resource loading described in the separate fixup evidence.",
+    "Full routine source, all consumers and final binary link remain unverified."
+  ]
+}

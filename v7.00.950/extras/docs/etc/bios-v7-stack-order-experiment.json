@@ -1,0 +1,41 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\bios-stack-order-byp5u3ff",
+  "before": {
+    "int02_bios_offset": "0x55fc",
+    "endstackcode_bios_offset": "0x5801",
+    "top_unique_12_byte_offsets": [
+      [
+        "-0x8b6",
+        136
+      ]
+    ]
+  },
+  "after": {
+    "int02_bios_offset": "0x45a6",
+    "endstackcode_bios_offset": "0x47ab",
+    "top_unique_12_byte_offsets": [
+      [
+        "0x7a0",
+        389
+      ]
+    ]
+  },
+  "bios_sha256": "cd05744977ea417b26d8fc8cf03be5c4ab0ff8d61e978bd96e8d7147fe58dd3b",
+  "limitations": [
+    "Unique windows overlap and do not prove complete target equality.",
+    "Actual SYSINIT base and all other segment placements remain unverified.",
+    "This is a diagnostic link; complete IO.SYS is not built."
+  ],
+  "interrupt_stack_code": {
+    "bios_range": [
+      "0x45a6",
+      "0x47ab"
+    ],
+    "target_range": [
+      "0x4d46",
+      "0x4f4b"
+    ],
+    "bytes": 517,
+    "exact_match": true
+  }
+}

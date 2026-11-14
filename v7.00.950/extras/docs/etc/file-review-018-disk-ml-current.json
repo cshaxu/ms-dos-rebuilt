@@ -1,0 +1,111 @@
+{
+  "source_sha256": "26116628dbec0c96e2611c0a33f4c2efc11917cd58928274a03a82e80f2fe9fa",
+  "listing_sha256": "4aebe8979c8d6ec21be99b2f5d2a4795577e0d433252d19dfa61e47bf86fff4d",
+  "routines": [
+    {
+      "name": "remap",
+      "target_offset": "0x1527",
+      "length": 99,
+      "masked_relocation_bytes": 18,
+      "matched_nonrelocated_bytes": 81,
+      "differences": []
+    },
+    {
+      "name": "getboot",
+      "target_offset": "0x158a",
+      "length": 35,
+      "masked_relocation_bytes": 2,
+      "matched_nonrelocated_bytes": 33,
+      "differences": []
+    },
+    {
+      "name": "sethard",
+      "target_offset": "0x15ad",
+      "length": 914,
+      "masked_relocation_bytes": 46,
+      "matched_nonrelocated_bytes": 868,
+      "differences": []
+    },
+    {
+      "name": "cover_fdisk_bug",
+      "target_offset": "0x193f",
+      "length": 58,
+      "masked_relocation_bytes": 0,
+      "matched_nonrelocated_bytes": 58,
+      "differences": []
+    },
+    {
+      "name": "setdrvparms",
+      "target_offset": "0x197f",
+      "length": 189,
+      "masked_relocation_bytes": 14,
+      "matched_nonrelocated_bytes": 175,
+      "differences": []
+    },
+    {
+      "name": "domini",
+      "target_offset": "0x1a3c",
+      "length": 59,
+      "masked_relocation_bytes": 10,
+      "matched_nonrelocated_bytes": 49,
+      "differences": []
+    },
+    {
+      "name": "find_mini_partition",
+      "target_offset": "0x1a80",
+      "length": 276,
+      "masked_relocation_bytes": 42,
+      "matched_nonrelocated_bytes": 234,
+      "differences": []
+    },
+    {
+      "name": "init_ext_read",
+      "target_offset": "0x1ba4",
+      "length": 40,
+      "masked_relocation_bytes": 12,
+      "matched_nonrelocated_bytes": 28,
+      "differences": []
+    },
+    {
+      "name": "setmini",
+      "target_offset": "0x1bcc",
+      "length": 37,
+      "masked_relocation_bytes": 0,
+      "matched_nonrelocated_bytes": 37,
+      "differences": []
+    },
+    {
+      "name": "dmax_check",
+      "target_offset": "0x1bf1",
+      "length": 22,
+      "masked_relocation_bytes": 6,
+      "matched_nonrelocated_bytes": 16,
+      "differences": []
+    },
+    {
+      "name": "xinstall_bds",
+      "target_offset": "0x1c07",
+      "length": 46,
+      "masked_relocation_bytes": 6,
+      "matched_nonrelocated_bytes": 40,
+      "differences": []
+    },
+    {
+      "name": "print_init",
+      "target_offset": "0x1c35",
+      "length": 8,
+      "masked_relocation_bytes": 0,
+      "matched_nonrelocated_bytes": 8,
+      "differences": []
+    },
+    {
+      "name": "aux_init",
+      "target_offset": "0x1c3d",
+      "length": 10,
+      "masked_relocation_bytes": 0,
+      "matched_nonrelocated_bytes": 10,
+      "differences": []
+    }
+  ],
+  "limitations": "Relocation operands and complete linked output remain unverified."
+}

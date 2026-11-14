@@ -1,0 +1,81 @@
+{
+  "kind": "file-9 BDS contribution diagnostic; not complete IO.SYS acceptance",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "binary_sha256": "ce692a90a554acee155685a626995cea85eb92a305cca4193a0d8cdc226c5688",
+  "map": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\dosdatasg-ml-ei4emgzq\\msbio.map",
+  "binary": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\dosdatasg-ml-ei4emgzq\\msbio.bin",
+  "checks": [
+    {
+      "name": "bds1_pointer",
+      "actual": [
+        22996,
+        1076
+      ],
+      "expected": [
+        22996,
+        1076
+      ],
+      "target": [
+        956,
+        1251
+      ],
+      "passed": true
+    },
+    {
+      "name": "bds2_pointer",
+      "actual": [
+        23096,
+        1076
+      ],
+      "expected": [
+        23096,
+        1076
+      ],
+      "target": [
+        1056,
+        1251
+      ],
+      "passed": true
+    },
+    {
+      "name": "bds3_pointer",
+      "actual": [
+        23196,
+        1076
+      ],
+      "expected": [
+        23196,
+        1076
+      ],
+      "target": [
+        1156,
+        1251
+      ],
+      "passed": true
+    },
+    {
+      "name": "bds4_pointer",
+      "actual": [
+        65535,
+        65535
+      ],
+      "expected": [
+        65535,
+        65535
+      ],
+      "target": [
+        65535,
+        65535
+      ],
+      "passed": true
+    },
+    {
+      "name": "descriptor_non_pointer_bytes",
+      "length": 2888,
+      "different_offsets": [],
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "limitations": "Relative pointers and non-pointer contents only; segment placement, other source, and complete output are not verified."
+}

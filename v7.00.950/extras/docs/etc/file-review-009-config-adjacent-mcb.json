@@ -1,0 +1,22 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "sysinit_base_file_offset": 19760,
+  "config_field_end_offset": 41126,
+  "next_word_offset": 41126,
+  "instruction_anchors": [
+    {
+      "file_offset": 61415,
+      "hex": "6726a103000000a3a6a0"
+    },
+    {
+      "file_offset": 61637,
+      "hex": "2e8b0ea6a06726890d03000000"
+    }
+  ],
+  "path_offsets": {
+    "io_sys": 41175,
+    "winboot_sys": 41185
+  },
+  "interpretation": "The word immediately after the three CONFIG fields temporarily saves and restores the word at offset 3 of the selected MCB during the subsequent system-file execution path. Target path strings and other data intervene before config_init_entry at A10Eh.",
+  "limitations": "This identifies selected field uses and data between regions, not their original source-file ownership, complete structure, or final placement. No bytes were added to the source as unexplained padding."
+}

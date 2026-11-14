@@ -1,0 +1,33 @@
+{
+  "generated_utc": "2026-11-12T10:27:01.464587+00:00",
+  "source": "cmd/command/tprintf.asm",
+  "build_report": "extras/docs/etc/command-printf-cleanup-build-20261112.json",
+  "branch": {
+    "target_offset": "0xfd2c",
+    "candidate_offset": "0xf30e",
+    "identical_bytes": "50ac8ac832ed58e361"
+  },
+  "reset": {
+    "target_offset": "0xfdb8",
+    "candidate_offset": "0xf39a",
+    "target_bytes": "33c0a367de",
+    "candidate_bytes": "33c0a3b9e2",
+    "note": "Same XOR AX,AX and MOV [Extend_buf_ptr],AX; addresses differ with layout."
+  },
+  "runtime": {
+    "echo": {
+      "stage": "extras/build/command-printf-echo-txly6fq9",
+      "result": "timeout, empty output"
+    },
+    "copy": {
+      "stage": "extras/build/command-printf-copy-gc1cyfbm",
+      "result": "copied destination matches source; emulator stopped with Illegal GRP4 Call 3; batch did not complete"
+    }
+  },
+  "final_binary_exact": false,
+  "file_counts": {
+    "linked": 35,
+    "modified_from_baseline": 30,
+    "unchanged_from_baseline": 5
+  }
+}

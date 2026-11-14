@@ -1,0 +1,20 @@
+{
+  "build": "extras/docs/etc/command-msg-wrapper-order-build-20261112.json",
+  "sources": [
+    "inc/msgserv.asm",
+    "cmd/command/tprintf.asm"
+  ],
+  "change": "Excluded uncalled transient DBCS-vector helper and moved the existing GET wrapper between LOAD and GET macro expansions, matching target entry order.",
+  "target_probe": "extras/build/msg-wrapper-target-2qvoy0in",
+  "current_probe": "extras/build/msg-wrapper-current-avkdyoa4",
+  "matched_cases": [
+    "DIR listing except separate parent timestamp",
+    "VER /R",
+    "VOL",
+    "DEL missing-file stderr",
+    "batch continuation"
+  ],
+  "limitations": "GET address and find helpers still linked before display rather than after time formatting; other error and DBCS paths untested; complete binary not byte-identical.",
+  "output_bytes": 92929,
+  "target_bytes": 92870
+}

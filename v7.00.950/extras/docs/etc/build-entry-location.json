@@ -1,0 +1,38 @@
+{
+  "status": "verified",
+  "entry": "extras/build.cmd",
+  "entry_sha256": "28e7a29f54a3629572b53ffc3ba0e6bb23a01855dad51bad1254944eb6e6ffce",
+  "existing_build_chain": "extras/tools/build_all.py",
+  "build_chain_sha256": "173e46c4c4651a148c04cfa7ab135ec04343541e589be9b186940318f3dc272f",
+  "build_chain_unchanged": true,
+  "python_still_required": true,
+  "new_entry_files": 1,
+  "core_source_changes": 0,
+  "dos_rebuild": false,
+  "tests": [
+    {
+      "case": "build exit 0",
+      "exit_code": 0,
+      "pause": true,
+      "lock_removed": true,
+      "working_directory_correct": true
+    },
+    {
+      "case": "build exit 7",
+      "exit_code": 7,
+      "pause": true,
+      "lock_removed": true,
+      "working_directory_correct": true
+    },
+    {
+      "case": "existing lock",
+      "exit_code": 1,
+      "pause": true,
+      "existing_lock_preserved": true
+    }
+  ],
+  "fixture": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\entry-location-3jvpdqsm",
+  "unique_build_cmd": [
+    "extras/build.cmd"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "trial": "Remove provisional BIOS_DATA fields zeroseg, prevoper, number_of_sec and four legacy flags; provide compatibility stubs",
+  "diagnostic_hex": "000000000000000000cb0300000000000000",
+  "target_hex": "000000000000000000000000000000000000",
+  "different_bios_offsets": [
+    1335,
+    1336
+  ],
+  "outcome": "reverted",
+  "limitations": "Difference proves the diagnostic segment layout depends on these bytes, not that legacy fields are valid in the target. No replacement padding was invented."
+}

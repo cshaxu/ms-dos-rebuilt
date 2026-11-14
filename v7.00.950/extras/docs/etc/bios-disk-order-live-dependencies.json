@@ -1,0 +1,85 @@
+{
+  "trial_configuration": [
+    "USA",
+    "DOS7_CONFIG"
+  ],
+  "trial_diff": "extras/research/bios-disk-order-trial.diff",
+  "modules": {
+    "msdisk": {
+      "object_sha256": "9ad5f8e137e4ce1a64517a458abe49e8e12a20497aef360b8c93c8460140f94b",
+      "lexically_unknown_live_fixups": [
+        "accesscount",
+        "curhd",
+        "cursec",
+        "curtrk",
+        "dpt",
+        "eot",
+        "errin",
+        "fat_12_id",
+        "fat_16_id",
+        "lsterr",
+        "medbyt",
+        "media_set_for_format",
+        "motorstartup",
+        "rflag",
+        "save_eot",
+        "save_head_sttl",
+        "saved_word",
+        "seccnt",
+        "set_id_flag",
+        "settlecurrent",
+        "settleslow",
+        "sm92",
+        "soft_ecc_cnt",
+        "spsav",
+        "start_sec_h",
+        "step_drv",
+        "temp_h",
+        "tim_drv",
+        "vol_no_name",
+        "vretry_cnt",
+        "wrtverify",
+        "xfer_seg"
+      ],
+      "lexically_unknown_without_live_fixups": [
+        "auxnum",
+        "disksector",
+        "ec35_flag",
+        "errout",
+        "fhave96",
+        "fsetowner",
+        "multitrk_format_flag",
+        "multrk_flag",
+        "number_of_sec",
+        "prevoper",
+        "single",
+        "zeroseg"
+      ]
+    },
+    "msbio2": {
+      "object_sha256": "c47498116c74af035de071f027b83dd000b1b9e42ada2d4e15b243b6f584b377",
+      "lexically_unknown_live_fixups": [
+        "bios_msg_base",
+        "bios_swap_msg_first",
+        "bios_swap_msg_second",
+        "eot",
+        "medbyt",
+        "tim_drv"
+      ],
+      "lexically_unknown_without_live_fixups": [
+        "config_init_segment",
+        "feb29",
+        "fhave96",
+        "nul_vid",
+        "tmp_vid",
+        "v86_crit_setfocus"
+      ]
+    }
+  },
+  "limitations": [
+    "The unknown sets come from a lexical scanner that is not a complete dependency graph.",
+    "A declaration without an observed fixup in these trial objects is not proof that the symbol is unnecessary in every configuration or other caller.",
+    "Live unknown names still require provider, ownership and target-layout verification; no file is marked complete.",
+    "The trial uses historical generated MSBIO.CL2."
+  ]
+}

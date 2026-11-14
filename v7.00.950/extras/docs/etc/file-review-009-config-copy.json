@@ -1,0 +1,27 @@
+{
+  "file_index": 9,
+  "source": "bios/msbio1.asm",
+  "source_sha256": "609edfa29afa24fd13a28275be78ea86137106334304508bef42922e92808dff",
+  "target_io_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_file_offset": 61199,
+  "routine_length": 81,
+  "matching_bytes": 69,
+  "different_address_operand_positions": [
+    3,
+    4,
+    35,
+    36,
+    44,
+    45,
+    59,
+    60,
+    62,
+    63,
+    66,
+    67
+  ],
+  "target_bytes": "2e833ea2a00074485183c70fb90400d3efd3e706578bc7d3e88cc103c11e56502e8b0ea2a0d1e1d1e1512ea1a0a08ed833f6fcf366a559582e8e1e3e0fa33105800e2e05015e1fd1e1d1e15f0703f959c3",
+  "probe_bytes": "2e833e04000074485183c70fb90400d3efd3e706578bc7d3e88cc103c11e56502e8b0e0400d1e1d1e1512ea102008ed833f6fcf366a559582e8e1e0000a3d507800ed207015e1fd1e1d1e15f0703f959c3",
+  "validation": "MASM DOS7_CONFIG assembly and historical link with only config_init_flags test-stubbed; all non-address bytes match. The non-DOS7_CONFIG BIOS build matches the prior output. The reproducible ML diagnostic confirms that the existing CONFIG restore routine and offset assertions still pass.",
+  "limitations": "The routine name is inferred; runtime calling integration, target address placement, flag symbol, and complete 7.0a IO.SYS remain unverified."
+}

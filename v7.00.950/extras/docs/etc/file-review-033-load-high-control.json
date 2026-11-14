@@ -1,0 +1,19 @@
+{
+  "file": "bios/sysinit1.asm",
+  "source_sha256": "048f99cd56971eeeec03a3a3096a7ca0dfe2349fd71328a4429b54b470a40c67",
+  "target_ranges": [
+    "IO.SYS 0x642d..0x6430",
+    "IO.SYS 0x658f..0x65c5"
+  ],
+  "changes": [
+    "call LoadDOSHiOrLo unconditionally after CONFIG processing",
+    "DOS7 routine checks runhigh and conditionally prints indexed low-memory message 8036h",
+    "avoid redundant CPMHack call after successful HMA move"
+  ],
+  "default_object_identical": true,
+  "dos7_assembly": "passed",
+  "limitations": [
+    "Target bytes and final production link remain unverified.",
+    "The origin and update path of the low-message flag remain under investigation."
+  ]
+}

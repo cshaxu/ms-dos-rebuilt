@@ -1,0 +1,29 @@
+{
+  "part": "M5 T12 S1 P27",
+  "ordinal": 46,
+  "modified": 1,
+  "unchanged": 0,
+  "exact_dos6": 0,
+  "retired_by_merge": 1,
+  "reference": "DOS6 bios/sysinit1.asm request-packet fields and original contiguous-field comment; bios/sysinit2.asm deviceparameters structure. DOS7 packet length 25 and zero structure defaults retained.",
+  "changes": "Merge reqpkt and its previously absorbed deviceparameters into adjacent stkinit SYSINITSEG. Remove local deviceparameters EXTRN, separate object and rule. Restore original request-packet comment. No new padding or alternate implementation.",
+  "necessity": "Separate 24-line data fragment is unnecessary. Both slices belong to SYSINIT; adjacent linker placement permits a direct merge without byte rearrangement. Full stkinit audit remains ordinal 52.",
+  "validation": {
+    "stage": "extras/build/source-quality-p27",
+    "rebuilt": true,
+    "scope": "Only stkinit reassembled with original MASM; LINK 5.10 /MAP and RELOC; BUILD.OK PASS.",
+    "comparison": "Linked BIOS equals P11; packed 223148-byte IO.SYS equals extras/assets/IO.SYS via fc /b.",
+    "warnings": [
+      "L4021 no stack segment",
+      "L4038 no starting address"
+    ],
+    "other_components": "COMMAND.COM and MSDOS.SYS unchanged; accepted T11 identity retained.",
+    "collateral_ordinals": [
+      52,
+      59,
+      60
+    ]
+  },
+  "next_ordinal": 47,
+  "remaining": 20
+}

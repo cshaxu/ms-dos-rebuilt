@@ -1,0 +1,16 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "bios_data_file_offset": 1536,
+  "field_file_offset": 1539,
+  "initial_word": "0x9e46",
+  "mz_relocation_count": 0,
+  "mz_header_paragraphs": 11040,
+  "mz_relocation_table_offset": 30,
+  "character_read_file_offset": 2244,
+  "initialization_write_file_offset": 5378,
+  "findings": [
+    "The outer MZ header has zero relocation entries, so an ordinary MZ relocation entry cannot account for the on-disk word.",
+    "Initialization later computes and writes the BIOS data offset 0003h; the provenance of its on-disk initial value remains unproven."
+  ],
+  "limitations": "Static header inspection does not rule out custom processing or prove the original source initializer; no source value was inferred."
+}

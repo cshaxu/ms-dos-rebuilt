@@ -1,0 +1,29 @@
+{
+  "source": "bios/sysinit1.asm",
+  "source_sha256": "5f9684623f7a331163c27dcf90f25d6d9b351c95006b6941eeaff1ddd8640337",
+  "target_range": "IO.SYS 0x6998..0x6b69",
+  "length": 465,
+  "differences": [
+    [
+      "0xc8",
+      "0x5",
+      "0x83"
+    ],
+    [
+      "0xc9",
+      "0x1",
+      "0xc0"
+    ],
+    [
+      "0xca",
+      "0x0",
+      "0x1"
+    ]
+  ],
+  "probe_source": "extras/build/boot-compress-chain/chain.asm",
+  "linked_sha256": "f8f27c4e5627ea20e1565b7cd6828fe2aa2552a9c6c14067e98b3032d8522e93",
+  "limitations": [
+    "Fixed offsets and BIOS data are synthetic; this is not execution or a complete IO.SYS build.",
+    "ADD AX,1 has an equivalent three-byte encoding that still differs from the target."
+  ]
+}

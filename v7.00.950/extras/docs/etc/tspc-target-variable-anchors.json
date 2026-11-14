@@ -1,0 +1,245 @@
+{
+  "source": "cmd/command/tspc.asm",
+  "source_sha256": "6072dbaf59ac4ead3da739dcbc00afc2cb10c2a6945d9ee38777951042561f34",
+  "reference_executable": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\command-reference-hlt9c1st\\COMMAND.COM",
+  "reference_sha256": "65fa71b0a34e91feffc31297fb5e24d40767c72fb513e46aaac721bda7836110",
+  "target_executable": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\baselines\\targets\\COMMAND.COM",
+  "target_sha256": "a74c700063cd6b1c91523952bfc80e9393c125d39ada0164d48b5098089fcef3",
+  "method": "Match exact five bytes on each side of a reference variable displacement, requiring unique target match; offsets are 16-bit within the same transient data group. Candidate meaning comes from source/listing and must be confirmed in target instruction context.",
+  "prompt_target_offset": 55369,
+  "anchors": {
+    "ASCII": {
+      "source_offset": 1836,
+      "matches": [
+        {
+          "reference_offset": 27082,
+          "target_offset": 57188,
+          "target_word": 55357,
+          "reference_context": "007507803e5fa700741b8bd1",
+          "target_context": "007507803e3dd800741b8bd1"
+        },
+        {
+          "reference_offset": 28309,
+          "target_offset": 58610,
+          "target_word": 55357,
+          "reference_context": "02b0408a0e5fa70c202c60a2",
+          "target_context": "02b0408a0e3dd80c202c60a2"
+        }
+      ]
+    },
+    "DESTBUF": {
+      "source_offset": 1552,
+      "matches": [
+        {
+          "reference_offset": 14855,
+          "target_offset": 40530,
+          "target_word": 54810,
+          "reference_context": "00f3a4c3be43a633c08a040a",
+          "target_context": "00f3a4c3be1ad633c08a040a"
+        }
+      ]
+    },
+    "DESTISDEV": {
+      "source_offset": 1641,
+      "matches": [
+        {
+          "reference_offset": 27912,
+          "target_offset": 58221,
+          "target_word": 55072,
+          "reference_context": "44cd2188169ca6f6c2807433",
+          "target_context": "44cd21881620d7f6c2807433"
+        },
+        {
+          "reference_offset": 27951,
+          "target_offset": 58260,
+          "target_word": 55072,
+          "reference_context": "80ca2088169ca6cd21eb0de9",
+          "target_context": "80ca20881620d7cd21eb0de9"
+        },
+        {
+          "reference_offset": 28062,
+          "target_offset": 58371,
+          "target_word": 55072,
+          "reference_context": "c874d0f6069ca6807439f606",
+          "target_context": "c874d0f60620d7807439f606"
+        },
+        {
+          "reference_offset": 28069,
+          "target_offset": 58378,
+          "target_word": 55072,
+          "reference_context": "807439f6069ca620750a803e",
+          "target_context": "807439f60620d720750a803e"
+        }
+      ]
+    },
+    "INEXACT": {
+      "source_offset": 1830,
+      "matches": [
+        {
+          "reference_offset": 28076,
+          "target_offset": 58385,
+          "target_word": 55351,
+          "reference_context": "20750a803e59a70075bb4974",
+          "target_context": "20750a803e37d80075bb4974"
+        }
+      ]
+    },
+    "MELCOPY": {
+      "source_offset": 1643,
+      "matches": [
+        {
+          "reference_offset": 26632,
+          "target_offset": 56750,
+          "target_word": 55346,
+          "reference_context": "46eb2d803e9ea6007507803e",
+          "target_context": "46eb2d803e32d8007507803e"
+        },
+        {
+          "reference_offset": 28345,
+          "target_offset": 58646,
+          "target_word": 55346,
+          "reference_context": "007408fe069ea632c0eb0634",
+          "target_context": "007408fe0632d832c0eb0634"
+        }
+      ]
+    },
+    "NOWRITE": {
+      "source_offset": 1831,
+      "matches": [
+        {
+          "reference_offset": 27866,
+          "target_offset": 58165,
+          "target_word": 55352,
+          "reference_context": "ba0101803e5aa7007503ba12",
+          "target_context": "ba0101803e38d8007503ba12"
+        }
+      ]
+    },
+    "OCTRLZ": {
+      "source_offset": 1847,
+      "matches": [
+        {
+          "reference_offset": 28174,
+          "target_offset": 58483,
+          "target_word": 55368,
+          "reference_context": "40cd21803e6aa700740841ba",
+          "target_context": "40cd21803e48d800740841ba"
+        },
+        {
+          "reference_offset": 28181,
+          "target_offset": 58490,
+          "target_word": 55368,
+          "reference_context": "00740841ba6aa7b440cd21b4",
+          "target_context": "00740841ba48d8b440cd21b4"
+        }
+      ]
+    },
+    "PLUS": {
+      "source_offset": 1837,
+      "matches": [
+        {
+          "reference_offset": 25880,
+          "target_offset": 55981,
+          "target_word": 55358,
+          "reference_context": "807405c60660a701f6c70175",
+          "target_context": "807405c6063ed801f6c70175"
+        },
+        {
+          "reference_offset": 28338,
+          "target_offset": 58639,
+          "target_word": 55358,
+          "reference_context": "c4750f803e60a7007408fe06",
+          "target_context": "c4750f803e3ed8007408fe06"
+        }
+      ]
+    },
+    "SRCBUF": {
+      "source_offset": 1651,
+      "matches": [
+        {
+          "reference_offset": 18265,
+          "target_offset": 45350,
+          "target_word": 55079,
+          "reference_context": "c9ba0101bea6a6cd2173130e",
+          "target_context": "c9ba0101be27d7cd2173130e"
+        },
+        {
+          "reference_offset": 22859,
+          "target_offset": 51395,
+          "target_word": 55079,
+          "reference_context": "cb565751bfa6a633c98bc157",
+          "target_context": "cb565751bf27d733c98bc157"
+        }
+      ]
+    },
+    "SRCHAND": {
+      "source_offset": 1738,
+      "matches": [
+        {
+          "reference_offset": 26937,
+          "target_offset": 57035,
+          "target_word": 55339,
+          "reference_context": "178bd8891efda6b80057cd21",
+          "target_context": "178bd8891e2bd8b80057cd21"
+        }
+      ]
+    },
+    "SRCISDEV": {
+      "source_offset": 1740,
+      "matches": [
+        {
+          "reference_offset": 27827,
+          "target_offset": 58126,
+          "target_word": 55341,
+          "reference_context": "047519803effa6007512803e",
+          "target_context": "047519803e2dd8007512803e"
+        }
+      ]
+    }
+  },
+  "observations": {
+    "target_destbuf_to_destisdev": 262,
+    "source_destbuf_to_destisdev": 89,
+    "target_srcbuf_to_srchand": 260,
+    "source_srcbuf_to_srchand": 87,
+    "target_prompt_to_destbuf": 559,
+    "source_prompt_to_destbuf": 296
+  },
+  "limitations": [
+    "Unique matching of local code contexts is evidence, not complete disassembly or proof of whole-file layout.",
+    "Target MELCOPY address occurs after SRCISDEV, unlike source ordering; unmapped symbols and any added data remain to be established.",
+    "Target segment base and all symbols outside these matched references remain unverified."
+  ],
+  "copy_initialization_alignment": {
+    "reference_initialization_offset": 25805,
+    "reference_initialization_bytes": "a300a7a343a6a3a6a6",
+    "target_initialization_offset": 55899,
+    "target_initialization_bytes": "a311d5a31ad6a327d7",
+    "matched_scanbuf_offset": 54545,
+    "matched_destbuf_offset": 54810,
+    "matched_srcbuf_offset": 55079,
+    "inferred_scanbuf_extent": {
+      "start": 54545,
+      "next_matched_destvars": 54805,
+      "difference": 260
+    },
+    "inferred_destbuf_extent": {
+      "start": 54810,
+      "next_matched_desthand": 55070,
+      "difference": 260
+    },
+    "inferred_srcbuf_extent": {
+      "start": 55079,
+      "next_matched_srchand": 55339,
+      "difference": 260
+    },
+    "unidentified_target_data": {
+      "start": 55342,
+      "end_exclusive": 55346,
+      "size": 4,
+      "observed_as": "word at d82e, byte references at d830 and d831; identities and origin not established"
+    },
+    "ordering": "SCANBUF precedes DESTVARS, SRCVARS follows FIRSTDEST, MELCOPY follows SRCISDEV and four unidentified bytes",
+    "limitations": "Offsets are matched by instruction context and linked target addresses; symbolic identities and full allocation/target usage must be verified before a complete source rewrite."
+  }
+}

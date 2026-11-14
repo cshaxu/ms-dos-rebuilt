@@ -1,0 +1,76 @@
+{
+  "kind": "isolated link probe; synthetic gaps and dependency stubs, not a target build",
+  "source_sha256": "f948bfac71ebe818364211feb9708c285349c5bf4a266c20681ca2c01371f95b",
+  "baseline_report": "extras\\docs\\etc\\config-ml-009-current.json",
+  "stage": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\sysinit-split-a6reu10v",
+  "symbols": {
+    "bds1": [
+      2,
+      70
+    ],
+    "dskdrvs": [
+      2,
+      2972
+    ],
+    "probe_gap_one": [
+      2,
+      3024
+    ],
+    "SI_start": [
+      2,
+      3030
+    ],
+    "probe_gap_two": [
+      2,
+      3034
+    ],
+    "exec_data": [
+      2,
+      3038
+    ],
+    "config_init_entry": [
+      2,
+      3156
+    ]
+  },
+  "main_link": {
+    "status": "linked_with_reference_objects_and_stubs",
+    "output_sha256": "ce692a90a554acee155685a626995cea85eb92a305cca4193a0d8cdc226c5688",
+    "start_bds": [
+      964,
+      22896
+    ],
+    "exec_data": [
+      964,
+      25864
+    ],
+    "config_init_entry": [
+      964,
+      25982
+    ],
+    "floppy_bds_body_bytes_verified": 384,
+    "hard_bds_bytes_verified": 2500,
+    "exec_non_pointer_bytes_verified": 102
+  },
+  "generated_source_manifest": {
+    "source": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\bios\\msbio1.asm",
+    "source_sha256": "f948bfac71ebe818364211feb9708c285349c5bf4a266c20681ca2c01371f95b",
+    "ml6_compat": true,
+    "files": {
+      "msbio1.asm": "b9f48b380f6625cda8d85f3b143ad0a6de4264267ac6c5534fb9b2654173f79c",
+      "splitbds.asm": "52cd37e9639017f75b5452d2fff65a80aa0a4d11045683d45608e859aa9edef3",
+      "splitent.asm": "a869859cb0820fab5ffd9d0ab235a9dfc7b9f2ae3fd334020deac8bb4eed0365",
+      "splitlat.asm": "9f9bd78eb3378ccf9cb6934978546056f7edd42aba5e9fd03366d5dafafa38ad"
+    },
+    "limitations": "Generated source contributions only; target SYSINIT ordering, external definitions and final linking remain incomplete."
+  },
+  "objects": {
+    "splitbds": "9e387450539afb1ec41befa57d097fcec681794368e1bd20b0b4f2aa2dd218b7",
+    "splitent": "2da10b6089807886f2414c56ec9570199379d4cf0c70054e9a19d7fb057f6002",
+    "splitlat": "49e0bcf3af9cedce5719717c60606c4471bc7252a19e3eda167d8b3d19eb9534",
+    "splitstk": "5ca92c55d72233c5ac3403372f8e4458695acde1be479243918440bc5f407fe1",
+    "splitp1": "7988a2335755f45997f6d23edd6eb2ea9cb094a4c0305b3294b4f5213c536952",
+    "splitp2": "b40e0241d5bf6cc04071a30ac65e902370affda2c78681a7b2dc543e7f85261e"
+  },
+  "limitations": "Main source is transformed only in the isolated stage. The link uses reference objects, synthetic gaps and dependency stubs; production build integration, target stack contribution and real link order remain incomplete."
+}

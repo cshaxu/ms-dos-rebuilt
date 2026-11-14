@@ -1,0 +1,30 @@
+{
+  "source": "bios/msbio1.asm",
+  "source_sha256": "697967b463c30eed2c64694dc4415aa02bfd149794121709f1ee32a8f22aa17b",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_data_offset": 41112,
+  "target_exec_tail_offset": 41128,
+  "data_bytes_verified": 8,
+  "tail_total_bytes": 47,
+  "tail_non_pointer_bytes_verified": 33,
+  "record_symbols": [
+    "exec_windows_path",
+    "exec_bios_word",
+    "exec_data",
+    "exec_mode",
+    "exec_boot_state",
+    "exec_option",
+    "exec_value"
+  ],
+  "target_paths_verified": [
+    "C:\\IO.SYS",
+    "C:\\WINBOOT.SYS"
+  ],
+  "diagnostic_stubs": [
+    "exec_windows_path",
+    "exec_bios_word",
+    "exec_boot_state"
+  ],
+  "diagnostic": "config-ml-exec-records-verified.json",
+  "limitations": "Names and original source ownership are inferred. Three external targets remain diagnostic stubs, all pointer offsets and final SYSINIT placement differ, and intervening environment/EXEC0 data and execution code are not yet reconstructed."
+}

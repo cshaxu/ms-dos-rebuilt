@@ -1,0 +1,20 @@
+{
+  "files": [
+    "bios/sysinit1.asm",
+    "bios/sysconf.asm"
+  ],
+  "target_range": "IO.SYS 0x6068..0x608f",
+  "diagnostic_bytes": 39,
+  "matching_bytes": 33,
+  "different_bytes": 6,
+  "differences": "Two instructions use equivalent 16-bit accumulator-immediate encodings instead of target sign-extended imm8 forms.",
+  "default_objects_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link_exit_code": 0,
+  "probe_source": "extras/research/device-record-init-linked.asm",
+  "limitations": [
+    "The isolated comparison uses target addresses and data, not a final production layout.",
+    "The buffer offset is initially zero in the target and project; subsequent writes and full reserved-memory lifecycle remain unverified.",
+    "Diagnostic link uses older objects and stubs, and target byte equality is not achieved."
+  ]
+}

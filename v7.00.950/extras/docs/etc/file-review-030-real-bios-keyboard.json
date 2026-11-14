@@ -1,0 +1,25 @@
+{
+  "source": "bios/sysconf.asm",
+  "sha256": "51db5b182823c088d56f11b5e871bf1d9971593217c031ee21307035a28337e8",
+  "dependency_source": "bios/msbio1.asm",
+  "change": "Replace keyboard-vector entry address placeholders with actual BIOS vector table and handlers in the diagnostic link.",
+  "comparison": {
+    "region": "keyboard vector table and handlers",
+    "bios_offset_start": "0x28b",
+    "bios_offset_end_exclusive": "0x35f",
+    "bytes": 212,
+    "matching_bytes": 206,
+    "different_bytes": 6,
+    "differences": "Three 32-bit instructions have 26 66 prefixes in actual assembly and 66 26 in the target; semantics are equivalent but bytes do not match."
+  },
+  "verification": {
+    "tool": "extras/tools/verify_syspre_device_link.py",
+    "link_stage": "extras/build/syspre-object-link-iiy8ggsv",
+    "scope": "Actual keyboard sources assembled; four BIOS-data table offsets and two data fields are diagnostic constants. Existing INT 2Fh handler remains an address anchor."
+  },
+  "limitations": [
+    "BIOS keyboard vector code remains byte-different and is not accepted as target-identical.",
+    "No core source modified in this step.",
+    "Full product link and final three core binaries remain unverified."
+  ]
+}

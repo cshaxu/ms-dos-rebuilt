@@ -1,0 +1,38 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "daycnt_bios_offset": 1281,
+  "cmos_mask": 32,
+  "rollover_mask": 128,
+  "instruction_anchors": {
+    "clock_write": {
+      "target_file_offset": 9920,
+      "hex": "8f060105"
+    },
+    "clock_read": {
+      "target_file_offset": 10087,
+      "hex": "a10105ab"
+    },
+    "rollover_add": {
+      "target_file_offset": 10117,
+      "hex": "01060105"
+    },
+    "rollover_inc": {
+      "target_file_offset": 10127,
+      "hex": "ff060105"
+    },
+    "cmos_flag": {
+      "target_file_offset": 9890,
+      "hex": "f70608002000"
+    },
+    "rollover_flag": {
+      "target_file_offset": 10108,
+      "hex": "f606080080"
+    },
+    "rtc_date_init": {
+      "target_file_offset": 10176,
+      "hex": "26c70601050100"
+    }
+  },
+  "diagnostic_report": "config-ml-daycnt-unified.json",
+  "limitations": "Target operations share BIOS 0501h. The daycnt2 alias is a source compatibility label; later clock code must use target flag semantics instead of diagnostic t_switch and havecmosclock stubs."
+}

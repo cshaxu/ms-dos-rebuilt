@@ -1,0 +1,25 @@
+{
+  "target_sha256": "a74c700063cd6b1c91523952bfc80e9393c125d39ada0164d48b5098089fcef3",
+  "inference": "The target address 0xd195 corresponds to baseline BWDBUF in the build_dir_string / build_dir_for_chdir path; the correspondence is behavioral and not direct evidence of the original DOS 7 symbol name.",
+  "evidence": [
+    "The target reads the drive from the same PSP FCB byte 0x5c, selects a default drive when needed, and writes drive/colon and a directory separator at 0xd195.",
+    "The target passes 0xd198 (buffer + 3) as SI to an indirect INT 21h function, matching the baseline current-directory output position.",
+    "The target caller assigns 0xd195 to a string substitution pointer and invokes a message control, matching baseline build_dir_for_chdir using BWDBUF and string_ptr_2.",
+    "In DIR DisplayHeader, control 0x814c uses 0xd195 as its substitution argument, matching baseline DirHead_Ptr using BWDBUF.",
+    "The target also conditionally invokes AX=7160h for the 0xd195 path; the baseline routine differs and cannot be declared identical."
+  ],
+  "validated_bytes": {
+    "0xb4ca": "e80e00ba95d18916f7d4bafa81",
+    "0xb4db": "8a165c008ac204403c407506020656d0fec0bf95d1",
+    "0xb4f1": "b43aaba03fd0aa",
+    "0xb4fd": "be98d1a127e4cd21",
+    "0xb511": "be95d18bfeb86071b90280cd21ba95d1",
+    "0xa7e1": "ba5c81803e99e5007406e8ed0cba4c81"
+  },
+  "source": "cmd/command/tcmd2a.asm build_dir_string and build_dir_for_chdir; cmd/command/tranmsg.asm DirHead_Ptr",
+  "limitations": [
+    "Historical symbol name and exact buffer size are not established.",
+    "The function selected by indirect AX is not established by these bytes alone.",
+    "The other target buffer 0xdec7 and target-only branch still require full ownership and dependency analysis."
+  ]
+}

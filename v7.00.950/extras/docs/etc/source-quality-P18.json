@@ -1,0 +1,26 @@
+{
+  "part": "M5 T12 S1 P18",
+  "ordinal": 37,
+  "modified": 1,
+  "unchanged": 0,
+  "exact_dos6": 0,
+  "retired_by_merge": 0,
+  "reference": "Original DOS6 bios/msinit.asm and full current selected module: CMOS, loader entry, interrupt vectors, device probes, drive enumeration, relocation, primary/extended partitions and BDS initialization.",
+  "changes": "Resolve 243 project DOS7_CONFIG selectors to the formal build. Remove one duplicate outchr EXTRN in the same segment/conditional context. Place byte-alignment switches below original header. Replace orphan clock/system-init headings and stale far-call, entry-register, boot-buffer, partition-type and BDS-link comments with descriptions of actual code.",
+  "necessity": "Keep initialization-only extended disk packet/read and partition enumeration in original msinit owner. Resident msdisk packet/retry service has different lifetime, segment and interface; combining them would couple disposable initialization to resident code and alter layout. Retain original shared CMOS/COMPAQ/FAT/BDS routines instead of adding replacement modules.",
+  "preserved": "Original POWER, ROMDOS, IBM and locale-related structures remain where selected, including empty ROMDOS branches and existing disabled IBM block. No segment declaration, data, padding, macro expansion, CPU directive, label, instruction, link order or external symbol set changed. Historical original prose retained unless stale after reconstruction.",
+  "validation": {
+    "nonExternalStatementsEqual": true,
+    "externalDeclarationSetEqual": true,
+    "statementsBefore": 1929,
+    "statementsAfter": 1928,
+    "removedDuplicateExternalLines": 1,
+    "selectedGuards": 243,
+    "removedLines": 2656,
+    "rebuilt": false,
+    "reason": "All ordered non-EXTRN statements unchanged; unique typed external declarations unchanged. The one removed declaration duplicates outchr:near in the same scope. No emitted-byte change.",
+    "binary_baseline": "P11 accepted BIOS/IO.SYS and T11 accepted COMMAND.COM/MSDOS.SYS remain applicable."
+  },
+  "next_ordinal": 38,
+  "remaining": 29
+}

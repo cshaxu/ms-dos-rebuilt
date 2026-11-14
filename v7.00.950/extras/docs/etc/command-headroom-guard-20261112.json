@@ -1,0 +1,17 @@
+{
+  "build": "extras/docs/etc/command-headroom-guard-build-20261112.json",
+  "tool": "extras/tools/build_command_reference.py",
+  "calculation": "TranSpaceEnd + 5 * 0x400 + 0xff + 15 must fit in 16 bits for ResizeCommand and paragraph rounding",
+  "current_transient_end": "0xeaee",
+  "current_sum": "0xfffc",
+  "current_remaining_bytes": 3,
+  "rejected_comspec_experiment": "extras/docs/etc/command-comspec-original-build-20261112.json",
+  "comspec_transient_end": "0xeb01",
+  "comspec_sum": "0x1000f",
+  "rejected_badcom_experiment": "extras/docs/etc/command-badcom-original-build-20261112.json",
+  "badcom_transient_end": "0xeb07",
+  "badcom_sum": "0x10015",
+  "stable_probe": "extras/build/headroom-guard-wzzktp9f",
+  "result": "normal and unknown command continue in current build; both earlier failed experiment maps exceed bound",
+  "limitations": "COMSPEC filename-pointer restoration and WIN diagnostic are not retained; further faithful source size reduction required; binary identity incomplete"
+}

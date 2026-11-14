@@ -1,0 +1,17 @@
+{
+  "files": [
+    "bios/sysinit1.asm",
+    "bios/sysinit2.asm"
+  ],
+  "target_range": "IO.SYS 0x648d..0x6576",
+  "bytes": 233,
+  "different_bytes": 0,
+  "default_objects_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "The isolated link fixes target offsets and substitutes an allocator stub; full production layout and actual allocator interaction are not proven.",
+    "The call-site context and full query-mode flag writers are not yet byte-verified.",
+    "Mixed link retains older objects and stubs and is not a production build."
+  ]
+}

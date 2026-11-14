@@ -1,0 +1,67 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\bios-v7-build-rxnfuoja",
+  "temporary_directory": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\temp",
+  "source_root": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a",
+  "configuration": [
+    "USA",
+    "DBLSPACE_HOOKS",
+    "DOS7_CONFIG"
+  ],
+  "reference": "DOS 7.0a",
+  "messages": "project-owned reconstructed USA messages",
+  "message_sha256": "a41c59db3b3bf4fa1a08b83fc9e12b8db558c5673569bac66dec735df4203951",
+  "objects": [
+    {
+      "name": "msload",
+      "sha256": "cd81270cfde17f7acaa05355eca74eb34cb79decf488d73341ec77597022f847"
+    },
+    {
+      "name": "msbio1",
+      "sha256": "8209afb08236bdf5baca83888a811cd0515b92a372c765026d2d94cb76c55ca3"
+    },
+    {
+      "name": "mschar",
+      "sha256": "022f512c35e712264c76eb20324285767206de0aede650f5d88d18ea3225ed91"
+    },
+    {
+      "name": "msdisk",
+      "sha256": "ce5b8cbabb1e27fae1d0dcffbbe019a30ed1c83ffb6d5b26f3cc8e4b8d112c56"
+    },
+    {
+      "name": "msdioctl",
+      "sha256": "1cf8de12e5116542e34e4c302c78430cedfc78ee503242326d539a68286a3101"
+    },
+    {
+      "name": "msint13",
+      "sha256": "145a38d23d446936c76ad8ef929150a79863573f746df18a3dbe67557295da87"
+    },
+    {
+      "name": "msbio2",
+      "sha256": "5da702458585ae3d7ab0736e7fc90d60ca656eeda5c0c2e397a2a08c59fb48de"
+    },
+    {
+      "name": "msinit",
+      "sha256": "37087747326dc0bc7adad3f62af5d169b04add30399078780887a203ceb2a461"
+    },
+    {
+      "name": "sysinit1",
+      "sha256": "20ff36f4c5c95faff35d5cdde20c6e21096a135f16585c90814aa4e9522c7c70"
+    },
+    {
+      "name": "sysconf",
+      "sha256": "9757efb34c436ca3fe133652995d807d7b34416ae9c8aab9dc8ab1b897bfdeb9"
+    },
+    {
+      "name": "syspre",
+      "sha256": "9abde2a2822a2080e37bc0096a612dd0c460e182fb7430a231317573a996504b"
+    }
+  ],
+  "status": "incomplete",
+  "msbio1_assembler": "ML 6.00 /Zm; temporary IF2 assertions checked from listing",
+  "msload_assembler": "ML 6.00 /Zm",
+  "msbio1_offsets": {
+    "orig13": "00B4",
+    "off_d0": "00D0"
+  },
+  "error": "RuntimeError('assembly failed: sysinit2; see O:\\\\repos.hobby\\\\ms-dos-rebuilt\\\\v7.0a\\\\extras\\\\build\\\\bios-v7-build-rxnfuoja\\\\sysinit2.log')"
+}

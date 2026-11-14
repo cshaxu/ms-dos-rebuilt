@@ -1,0 +1,56 @@
+{
+  "file_index": 9,
+  "source": "bios/msbio1.asm",
+  "source_sha256": "1b978502c74ed3cdcf8244c50e719e576d08ea8fc8edd50d220b40798a407d15",
+  "routines": [
+    {
+      "name": "int19",
+      "diagnostic_offset": 2166,
+      "target_offset": 2644,
+      "length": 10,
+      "matching_bytes": 6,
+      "different_offsets": [
+        1,
+        2,
+        6,
+        7
+      ],
+      "linked_hex": "e86dff2eff1edb06cd19",
+      "target_hex": "e82f002eff1e5801cd19"
+    },
+    {
+      "name": "int19_restore",
+      "diagnostic_offset": 10025,
+      "target_offset": 8758,
+      "length": 112,
+      "matching_bytes": 109,
+      "different_offsets": [
+        3,
+        83,
+        109
+      ],
+      "linked_hex": "2e8e1e3000fc2bd28ec2260b160e047428b800002629061304c1e009741b268b0e1304c1e1061e068ec18eda912bf62bfff3a5071f26a30e04b90900be0001ac98c1e00297a5a5e2f6f606090001741c0e1fbee300b90e00ac9897ad93ad83fbff7407c1e70293ab93abe2ece80500cb",
+      "target_hex": "2e8e1eda00fc2bd28ec2260b160e047428b800002629061304c1e009741b268b0e1304c1e1061e068ec18eda912bf62bfff3a5071f26a30e04b90900be0001ac98c1e00297a5a5e2f6f606090001741c0e1fbedc00b90e00ac9897ad93ad83fbff7407c1e70293ab93abe2ece87a00cb"
+    },
+    {
+      "name": "i19_lst",
+      "diagnostic_offset": 9955,
+      "target_offset": 7468,
+      "length": 70,
+      "matching_bytes": 70,
+      "different_offsets": [],
+      "linked_hex": "02ffffffff08ffffffff09ffffffff0affffffff0bffffffff0cffffffff0dffffffff0effffffff70ffffffff72ffffffff73ffffffff74ffffffff76ffffffff77ffffffff",
+      "target_hex": "02ffffffff08ffffffff09ffffffff0affffffff0bffffffff0cffffffff0dffffffff0effffffff70ffffffff72ffffffff73ffffffff74ffffffff76ffffffff77ffffffff"
+    }
+  ],
+  "diagnostic_stub_symbols": [
+    "bios_msg_base",
+    "bios_msg_1",
+    "bios_msg_2",
+    "bios_msg_3",
+    "int16_check",
+    "int15_esc"
+  ],
+  "default_reference_output_sha256": "a67d8733509f9baf94017389cc1c991d5ef1c66bdfb91b6cab3eef0fc35e9490",
+  "limitations": "The 7.0 table is now in BIOS_CODE but 6.22 SYSINIT still assumes BIOS_DATA when writing int19old entries; SYSINIT must be reconstructed later. Startup installation and target-wide layout remain incomplete. The diagnostic links baseline objects and is not a functional 7.0 build."
+}

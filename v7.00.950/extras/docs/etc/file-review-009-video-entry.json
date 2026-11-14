@@ -1,0 +1,66 @@
+{
+  "file_index": 9,
+  "source": "bios/msbio1.asm",
+  "source_sha256": "1b77b2c2cd1e52520e14e71ce44df2ae32030bfc6088253f852a00eb27a45906",
+  "routines": [
+    {
+      "name": "int10_vector",
+      "diagnostic_offset": 1901,
+      "target_offset": 2525,
+      "length": 4,
+      "matching_bytes": 2,
+      "different_offsets": [
+        0,
+        1
+      ],
+      "linked_hex": "71077000",
+      "target_hex": "e1037000"
+    },
+    {
+      "name": "int10_entry",
+      "diagnostic_offset": 1905,
+      "target_offset": 2529,
+      "length": 13,
+      "matching_bytes": 8,
+      "different_offsets": [
+        1,
+        6,
+        7,
+        11,
+        12
+      ],
+      "linked_hex": "e87a002eff1ec3062eff2eef06",
+      "target_hex": "e8a2002eff1e44012eff2e7001"
+    },
+    {
+      "name": "clock_entry",
+      "diagnostic_offset": 2274,
+      "target_offset": 2678,
+      "length": 8,
+      "matching_bytes": 4,
+      "different_offsets": [
+        1,
+        2,
+        6,
+        7
+      ],
+      "linked_hex": "e809ff2eff2edf06",
+      "target_hex": "e80d002eff2e6001"
+    }
+  ],
+  "target_video_callback_offset": 7538,
+  "target_video_callback_prefix": "fb0ae475083c7f7403e8b400",
+  "diagnostic_stub_symbols": [
+    "bios_msg_base",
+    "bios_msg_1",
+    "bios_msg_2",
+    "bios_msg_3",
+    "keyboard_service",
+    "int1a_code",
+    "video_service",
+    "ttticks"
+  ],
+  "default_reference_output_sha256": "a67d8733509f9baf94017389cc1c991d5ef1c66bdfb91b6cab3eef0fc35e9490",
+  "limitations": "video_service, ttticks and int1a_code remain diagnostic stubs. Target interrupt installation and full functionality remain unresolved. ttticks was separated from the video callback after binary evidence showed different behavior.",
+  "correction": "clock_entry is the INT 6Ch entry installed via vector table offset 01B0h, not an INT 1Ah handler. int1a_code was replaced by source-defined int6c_code; see file-review-009-int6c.json."
+}

@@ -1,0 +1,25 @@
+{
+  "file": "bios/sysinit2.asm",
+  "source_sha256": "fefedde0bacecf7e44f349950249371ff7b570b485b4d00e2913212167bb6b47",
+  "spans": [
+    {
+      "target_offset": "0x6795",
+      "length": 8,
+      "different_bytes": 0
+    },
+    {
+      "target_offset": "0x9931",
+      "length": 47,
+      "different_bytes": 0
+    }
+  ],
+  "tool": "MASM 6 ML isolated probe",
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link": "passed",
+  "probe_source": "extras/research/boot-driver-leaves-linked.asm",
+  "limitations": [
+    "Fixed offsets and synthetic data do not prove final layout or execution.",
+    "Driver record table and callers remain incomplete."
+  ]
+}

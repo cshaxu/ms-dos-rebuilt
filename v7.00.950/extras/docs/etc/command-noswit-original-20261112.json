@@ -1,0 +1,18 @@
+{
+  "build": "extras/docs/etc/command-noswit-original-build-20261112.json",
+  "source": "cmd/command/tmisc1.asm",
+  "target_instruction_range": "0xc3a9..0xc3b2",
+  "instruction_bytes": 9,
+  "verification": "instruction bytes and aggregate parsed switch word reference checked",
+  "probes": {
+    "target": "extras/build/noswit-target-yrio_tns",
+    "current": "extras/build/noswit-current-rag4z2p_",
+    "cases": [
+      "CLS without switch",
+      "CLS with invalid switch",
+      "subsequent command"
+    ],
+    "result": "redirected output matches target"
+  },
+  "limitations": "error text on console not captured; complete command-dispatch table remains to be reconstructed; final COMMAND.COM is not byte identical"
+}

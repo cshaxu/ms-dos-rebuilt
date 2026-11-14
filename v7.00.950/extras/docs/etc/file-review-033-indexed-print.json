@@ -1,0 +1,22 @@
+{
+  "file": "bios/sysinit2.asm",
+  "file_index": 33,
+  "source_sha256": "5e489401c519080893d0e7978a3441522837150106dd68d8e3a27e277001000a",
+  "routine": "print_indexed",
+  "target_file_range": "0x6944..0x6963",
+  "length": 31,
+  "different_bytes_after_manual_symbol_fixups": 0,
+  "resolved_symbols": [
+    "sysinit_msg_table",
+    "sysinit_msg_base"
+  ],
+  "index14_message_length": 124,
+  "index14_message_matches_target": true,
+  "default_masm_object_identical": true,
+  "dos7_masm_assembly": "passed",
+  "limitations": [
+    "Two target operand addresses are substituted for the isolated instruction comparison; the final link addresses remain unverified.",
+    "The real table is linked with an extracted routine and test caller, not complete SYSINIT.",
+    "Call sites, the extra legacy message block, and original source ownership remain unresolved."
+  ]
+}

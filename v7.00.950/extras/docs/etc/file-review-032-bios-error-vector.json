@@ -1,0 +1,15 @@
+{
+  "file": "bios/sysinit1.asm",
+  "file_index": 32,
+  "source_sha256": "fff4b191a17a7dcd5a7cd848dd106ce501c3d054ae5ec96ffaab02a670a973e2",
+  "target_range": "IO.SYS 0x5f90..0x5ff7",
+  "bytes": 103,
+  "different_bytes": 0,
+  "default_object_identical": true,
+  "dos7_assembly": "passed",
+  "previous_dependency_evidence": "extras/docs/etc/bios-error-vector-initialization-chain.json",
+  "limitations": [
+    "The probe defines the BIOS segment and entry at target addresses; actual full-image segment relocation is not established.",
+    "The DOS kernel and full IO.SYS integration remain incomplete."
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "dosdata_file_base": "0x19ec0",
+  "historical_fragment": "dos/dostab.asm",
+  "historical_fragment_sha256": "6b9c684c2096e5e1c1b2c8e94a3a41d9fba7fe85289f8d0ce6e03ac2dd9f397d",
+  "target_map_case": {
+    "offset": "0x0cef",
+    "length": 18,
+    "bytes": "3c807301cb2c801e53bbd90a0e1fd75b1fcb"
+  },
+  "historical_map_case_offset": "0x0cf5",
+  "historical_map_case_end": "0x0d07",
+  "historical_mark1": "0x0d0d",
+  "target_vars": {
+    "DosHasHMA": "0x0d07",
+    "fixexepatch": "0x0d08",
+    "RationalPatchPtr": "0x0d0a"
+  },
+  "target_msversion": {
+    "offset": "0x0d12",
+    "bytes": "0700"
+  },
+  "observations": [
+    "The target MAP_CASE matches the historical instruction sequence apart from the relocated upper-case table immediate and starts six bytes earlier.",
+    "In the historical listing, six bytes of interim-character, temporary segment and redirector data occur between MAP_CASE end and Mark1.",
+    "The three inferred target variables occupy five bytes starting six bytes after the target MAP_CASE end and ending before the unchanged 0d12 version boundary.",
+    "Putting those declarations before Mark1 in the dostab fragment is a layout-consistent reconstruction candidate."
+  ],
+  "limitations": [
+    "The six target bytes after MAP_CASE are zero in the image; their names and exact identity are not proven by byte values alone.",
+    "The target starting address difference reflects earlier layout changes that still require reconstruction.",
+    "This does not prove the original source file ownership or permit merging a source move before its dependencies are resolved."
+  ]
+}

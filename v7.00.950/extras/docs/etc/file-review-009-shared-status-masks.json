@@ -1,0 +1,31 @@
+{
+  "source": "bios/msbio1.asm",
+  "source_sha256": "5e9fc4a925958bfccc4ee3b9f3743189d77401a3abe2d8e2469a9f7fe32d28b0",
+  "descriptive_masks": {
+    "win386_mask": 64,
+    "keyboard_hook_mask": 8192,
+    "keyboard_hook_bit": 13,
+    "config_alloc_mask": 32768
+  },
+  "target_anchors": {
+    "keyboard_test": {
+      "file_offset": 2608,
+      "hex": "f606090020"
+    },
+    "keyboard_clear_bit": {
+      "file_offset": 7736,
+      "hex": "0fba3608000d"
+    },
+    "config_test": {
+      "file_offset": 18891,
+      "hex": "f70608000080"
+    },
+    "win386_test": {
+      "file_offset": 17586,
+      "hex": "f606080040"
+    }
+  },
+  "diagnostic_before_after_sha256": "c4aca850415a33dab182fee92c6c99beb293698380e2a7d684e199f2a1f705a7",
+  "reference_output_sha256": "a67d8733509f9baf94017389cc1c991d5ef1c66bdfb91b6cab3eef0fc35e9490",
+  "limitations": "Mask names are inferred from observed paths. The Win386 mask is exported for later integration; the corresponding later-module implementation remains incomplete."
+}

@@ -1,0 +1,17 @@
+{
+  "build": "extras/docs/etc/command-char-original-build-20261112.json",
+  "source": "inc/msgserv.asm",
+  "change": "Restored target transient single-character and ASCIIZ substitution control flow while preserving resident conditional behavior.",
+  "target_instruction_range": "0x1021a..0x10237",
+  "registered_instruction_bytes": 29,
+  "target_probe": "extras/build/char-original-target-lzp6_78n",
+  "current_probe": "extras/build/char-original-current-8fb36l7t",
+  "matched_cases": [
+    "DIR /C file and free-space summary",
+    "VER /R output",
+    "VOL output"
+  ],
+  "limitations": "DBCS and non-US message cases not directly tested; complete COMMAND output not byte-identical.",
+  "output_bytes": 93216,
+  "target_bytes": 92870
+}

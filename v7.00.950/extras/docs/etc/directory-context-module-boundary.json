@@ -1,0 +1,28 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "historical_link_order": "dos/msdos.lnk",
+  "historical_sequence": [
+    "lock.obj",
+    "romfind.obj",
+    "share.obj",
+    "exepatch.obj"
+  ],
+  "target_offsets": {
+    "historical_share_enter_start": "0x17efa",
+    "historical_share_enter_end_exclusive": "0x17f1c",
+    "new_capture_start": "0x17f1c",
+    "new_main_start": "0x17f74",
+    "new_copy_start": "0x1805c",
+    "exepatch_anchor": "0x18084"
+  },
+  "observations": [
+    "The historical ShareEnter-shaped routine ends immediately before the new capture routine.",
+    "The new routines and two small entry wrappers precede an EXE patch routine matching the historical exepatch object.",
+    "The historical link order places share.obj immediately before exepatch.obj after romfind.obj, whose recorded trial contains no code."
+  ],
+  "limitations": [
+    "The target could have inserted an additional object or reordered routines; adjacency does not prove the original source file owner.",
+    "The identities and exact boundaries of all intervening code are not fully verified.",
+    "No change is made to the formal source or link order based solely on this evidence."
+  ]
+}

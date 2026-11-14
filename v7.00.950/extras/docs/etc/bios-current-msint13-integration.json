@@ -1,0 +1,11 @@
+{
+  "source_sha256": "9b4b6c5d937aa4782ddc2fe4982492f4aea3223f3b6177a8f247912d66dd0ffc",
+  "object_sha256": "2e53b45e249ea8c44eaa1e98c403967efcb6df312aff3b4a4e03510fe4027528",
+  "previous_object_sha256": "05eee01fc17b43d2c7dc7a9808b06ea436ae12166deb1ec613284c8421521849",
+  "link_ok": false,
+  "link_log": "\nMicrosoft (R) Segmented-Executable Linker  Version 5.10    \nCopyright (C) Microsoft Corp 1984-1990.  All rights reserved.\n\nObject Modules [.OBJ]: /MAP msbio1 mschar diskdata msdisk iodata msdioctl msint13 msbio2+\nObject Modules [.OBJ]: msinit+sysinit1+sysconf+syspre+sysinit2+sysimes+power+ptime+\nObject Modules [.OBJ]: msend+splitbds+splitp1+splitent+splitp2+splitlat+a20stub+m2stub+c7stub,msbio,msbio;\nLINK : warning L4021: no stack segment\n\nmsint13.obj(msint13.asm) : error L2029: 'mult_call21' : unresolved external\nmsint13.obj(msint13.asm) : error L2029: 'mult_call16' : unresolved external\nmsint13.obj(msint13.asm) : error L2029: 'mult_call17' : unresolved external\nmsint13.obj(msint13.asm) : error L2029: 'mult_call18' : unresolved external\n\nLINK : warning L4038: program has no starting address\n\nThere were 4 errors detected\n",
+  "limitations": [
+    "Current object alone does not establish target byte identity; previous checks found six unmasked differences in i13z.",
+    "The diagnostic link retains stubs and other legacy inputs."
+  ]
+}

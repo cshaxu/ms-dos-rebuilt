@@ -1,0 +1,14 @@
+{
+  "build_report": "extras/docs/etc/command-resident-zero-buffer-build-20261112.json",
+  "probe_stage": "extras/build/resident-buffer-probe-ng100fhb",
+  "checks": [
+    "runtime buffer begins zero-filled",
+    "independently generated resident resource is read through DOS file APIs",
+    "actual FixResidentMessages resolves class records",
+    "resolved abort/retry characters and invalid-command message checked"
+  ],
+  "limitations": [
+    "probe performs the file read directly instead of executing full ReadMessageClass or startup",
+    "does not prove final executable identity"
+  ]
+}

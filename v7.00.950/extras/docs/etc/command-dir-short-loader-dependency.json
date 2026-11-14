@@ -1,0 +1,24 @@
+{
+  "target_sha256": "a74c700063cd6b1c91523952bfc80e9393c125d39ada0164d48b5098089fcef3",
+  "target_ranges": {
+    "short_entry_loader_access_date": [
+      "0xa2eb",
+      "0xa33b"
+    ],
+    "name_append_helper": [
+      "0xc964",
+      "0xc971"
+    ]
+  },
+  "findings": [
+    "Access date is requested only when the DIR information flag is set.",
+    "For non-directories, target appends the returned filename to the current entry path, opens using 6C00h and calls 5704h; it closes the handle and falls back to the search-result modification date on failure.",
+    "The append helper writes the ASCIIZ name at a saved current-entry path position; this position must follow directory traversal.",
+    "The target search result layout uses an ASCIIZ name at D2B7h; the current legacy FCB path does not supply that layout."
+  ],
+  "next_dependency": "Restore target short-name search result and entry-path position lifecycle before connecting the access-date loader.",
+  "limitations": [
+    "Static target disassembly; no runtime validation.",
+    "Offsets are target addresses, not a complete source or binary match."
+  ]
+}

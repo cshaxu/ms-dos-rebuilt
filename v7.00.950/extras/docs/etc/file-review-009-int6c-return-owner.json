@@ -1,0 +1,12 @@
+{
+  "file_index": 9,
+  "source": "bios/msbio1.asm",
+  "source_sha256": "d2eb909ed622829cd42e321a2aec73802772b871d5e8b156da1ea1a45293902b",
+  "target_offset": 10143,
+  "target_bytes": "e80300ca0200e80800e8bf00b401cd1ac3",
+  "observation": "Target INT 6Ch handler calls its update routine and returns with RETF 2; this path does not save the interrupt return address in a separate field. The DOS 6 reference handler in bios/msinit.asm pops the return address into int6c_ret_addr and jumps via that field.",
+  "change": "Keep the legacy int6c_ret_addr field only when DOS7_CONFIG is undefined; a diagnostic stub satisfies the unchanged reference msinit object.",
+  "diagnostic": "extras/docs/etc/config-ml-int6c-return-owner.json",
+  "reference_build": "extras/build/msbio1-int6c-return-owner.json",
+  "limitations": "This establishes the observed handler path, not the absence of every possible other use of such a field. The linked diagnostic uses legacy objects and stubs; it is not a complete DOS 7 build."
+}

@@ -1,0 +1,29 @@
+{
+  "file": "bios/sysinit2.asm",
+  "source_sha256": "24c0a69a2b2d4c88dfe691d69ebcbadbd7059a180f48a549ef49c846431e07f1",
+  "spans": [
+    {
+      "target_offset": "0xa52b",
+      "length": 11,
+      "different_bytes": 0
+    },
+    {
+      "target_offset": "0xa556",
+      "length": 19,
+      "different_bytes": 0
+    },
+    {
+      "target_offset": "0xa57d",
+      "length": 13,
+      "different_bytes": 0
+    }
+  ],
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link": "passed",
+  "probe_source": "extras/research/boot-option-values-linked.asm",
+  "limitations": [
+    "Fixed-offset isolated probes; execution and final layout are unverified.",
+    "Option table and caller are not yet restored."
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "trial_source": "extras/research/bios-msbio2-message-placement.asm",
+  "source_sha256": "7344c8aa6a35dd135642b6a449f0dc15d671cc60a9e74b97406e20b8bed1a541",
+  "trial7_object_sha256": "d51e841b9490f6fea2ba0f0690b06ec171f3dcbaf5e3fb45cab9e6c41bf206c1",
+  "dos6_object_byte_identical": true,
+  "routines": [
+    {
+      "name": "mediacheck",
+      "target_file_offset": "0x452a",
+      "relative_offset_difference": 0
+    },
+    {
+      "name": "checklatchio",
+      "target_file_offset": "0x4572",
+      "relative_offset_difference": 0
+    },
+    {
+      "name": "checkfatvid",
+      "target_file_offset": "0x4593",
+      "relative_offset_difference": 0
+    },
+    {
+      "name": "check_vid",
+      "target_file_offset": "0x459a",
+      "relative_offset_difference": 0
+    },
+    {
+      "name": "checkio",
+      "target_file_offset": "0x45fc",
+      "relative_offset_difference": 0
+    },
+    {
+      "name": "returnvid",
+      "target_file_offset": "0x4620",
+      "relative_offset_difference": 0
+    },
+    {
+      "name": "vid_into_packet",
+      "target_file_offset": "0x462d",
+      "relative_offset_difference": 0
+    },
+    {
+      "name": "hidensity",
+      "target_file_offset": "0x463f",
+      "relative_offset_difference": 0
+    },
+    {
+      "name": "set_changed_dl",
+      "target_file_offset": "0x4679",
+      "relative_offset_difference": 0
+    },
+    {
+      "name": "checkromchange",
+      "target_file_offset": "0x4694",
+      "relative_offset_difference": 0
+    },
+    {
+      "name": "resetchanged",
+      "target_file_offset": "0x469b",
+      "relative_offset_difference": 0
+    },
+    {
+      "name": "haschange",
+      "target_file_offset": "0x46a1",
+      "relative_offset_difference": 0
+    },
+    {
+      "name": "set_volume_id",
+      "target_file_offset": "0x46a8",
+      "relative_offset_difference": 0
+    },
+    {
+      "name": "read_volume_id",
+      "target_file_offset": "0x46c3",
+      "relative_offset_difference": 0
+    },
+    {
+      "name": "transfer_volume_id",
+      "target_file_offset": "0x4761",
+      "relative_offset_difference": 0
+    },
+    {
+      "name": "check_volume_id",
+      "target_file_offset": "0x4778",
+      "relative_offset_difference": 0
+    },
+    {
+      "name": "fat_check",
+      "target_file_offset": "0x478d",
+      "relative_offset_difference": 0
+    }
+  ],
+  "observations": [
+    "Suppressing the legacy generated MSBIO.CL2 include under DOS7_CONFIG removes exactly 63 bytes and aligns all 17 measured routine starts relative to install_bds.",
+    "Target still contains the prompt text elsewhere, so message resource ownership and target encoding require separate reconstruction."
+  ],
+  "limitations": [
+    "Uses existing trial source that relocates dsk_init and volume buffers; source ownership is not proven.",
+    "Routine bytes, relocations, and target message providers require independent validation."
+  ]
+}

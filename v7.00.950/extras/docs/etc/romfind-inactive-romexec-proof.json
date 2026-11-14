@@ -1,0 +1,63 @@
+{
+  "source": "dos/romfind.asm",
+  "source_sha256": "f334bb028ed5ab0ae924865ce21be8b98c43ea2ab59d8624ff5bb51b99d4fb51",
+  "historical_reference_matches": [
+    "6.0",
+    "Astro"
+  ],
+  "trial_configuration": [
+    "USA",
+    "DOS7_CONFIG"
+  ],
+  "object": "extras/build/kernel-dos7-symbols-du61j8us/romfind.obj",
+  "object_sha256": "df113fc005c7ca8625071bbba38afb7ec8a091195cc2452a0bd0eff5be8f5ace",
+  "object_records": [
+    {
+      "type": "80",
+      "length": 13
+    },
+    {
+      "type": "96",
+      "length": 51
+    },
+    {
+      "type": "98",
+      "length": 7
+    },
+    {
+      "type": "98",
+      "length": 7
+    },
+    {
+      "type": "98",
+      "length": 7
+    },
+    {
+      "type": "98",
+      "length": 7
+    },
+    {
+      "type": "9a",
+      "length": 6
+    },
+    {
+      "type": "88",
+      "length": 4
+    },
+    {
+      "type": "8a",
+      "length": 2
+    }
+  ],
+  "observations": [
+    "ROMEXEC is defined by version.inc only when ROMDOS is defined.",
+    "ROM-specific code and ROMSTARTADDR/BioDataSeg references are within the ROMEXEC conditional.",
+    "The existing trial object contains no external, public, fixup, or data records; all records pass OMF checksum validation.",
+    "The scanner listing inc/mshead.asm and ROMSTARTADDR providers as dependencies is conservative for the inactive ROMEXEC branch."
+  ],
+  "limitations": [
+    "The trial configuration is not proof that the original target has the same ROM setting.",
+    "No full target binary link or comparison is established.",
+    "Segment definitions are still present in the object and their integration effects remain to be verified."
+  ]
+}

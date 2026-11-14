@@ -1,0 +1,25 @@
+{
+  "sources": {
+    "bios/sysconf.asm": "309c586334ed2ba2dd1522d1b6fbeb05f2409b9d3a22d0d031bb937413f63207",
+    "bios/sysinit1.asm": "d79b2d56235ef1284c1a61d413f532f445a3920816af5057a086e75a476b405b"
+  },
+  "change": "Within the confirmed SYSCONF/SYSINIT1/SYSINIT2 dependency cycle, export the existing new_psp_segment and AllocFreeMem symbols. Use ML for a temporary MSBIO1 assembly copy and independently check asserted offsets.",
+  "verification": {
+    "build_tool": "extras/tools/build_bios_v7.py",
+    "build_report": "extras/docs/etc/bios-v7-build-20261110-h.json",
+    "build_stage": "extras/build/bios-v7-build-zr5jkkkg",
+    "module_stage": "extras/build/ml-sysinit-1w3xkzj6",
+    "result": "All 16 source modules assembled; BIOS link completed with no unresolved symbols. Linker warns no stack segment and no starting address.",
+    "sysinit1_data_records": "44 LEDATA/LIDATA records identical before and after export changes",
+    "msbio1_offsets": {
+      "orig13": "00B4",
+      "off_d0": "00D0"
+    },
+    "bios_image_bytes": 64320
+  },
+  "limitations": [
+    "MSBIO1 IF2 checks were translated in a temporary build copy and checked from the assembler listing; full final layout remains unverified.",
+    "The loader has entry 0000:0200, not supported by the old COM converter.",
+    "Target IO.SYS MZ container and final construction have not been recovered; no byte-identical product claimed."
+  ]
+}

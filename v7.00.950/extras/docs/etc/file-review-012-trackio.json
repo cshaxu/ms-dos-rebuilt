@@ -1,0 +1,31 @@
+{
+  "source_sha256": "090f42a78c4e593b24111e2e1ab2fe7d947b5ebe744e1f986d6a315aeda6a6db",
+  "listing_sha256": "b0a433a1a8fe1fc2d5bc5e9ccc27bf3d669080c76d31d8e4c24d00b90e8fdf6f",
+  "routines": [
+    {
+      "name": "TrackIo",
+      "target_offset": "0x36f5",
+      "length": 140,
+      "masked_relocation_bytes": 30,
+      "matched_nonrelocated_bytes": 110,
+      "differences": []
+    },
+    {
+      "name": "SectSizeToSectIndex",
+      "target_offset": "0x3781",
+      "length": 11,
+      "masked_relocation_bytes": 0,
+      "matched_nonrelocated_bytes": 11,
+      "differences": []
+    },
+    {
+      "name": "SectorSizeIndexToSectorSize",
+      "target_offset": "0x378c",
+      "length": 8,
+      "masked_relocation_bytes": 0,
+      "matched_nonrelocated_bytes": 8,
+      "differences": []
+    }
+  ],
+  "limitations": "Relocation operands and complete linked output remain unverified."
+}

@@ -1,0 +1,13 @@
+{
+  "source": "bios/msinit.asm",
+  "source_sha256": "72888ce1b10c4524bdd229b5f781180ae18e5d0476843c355b875f48c95d492f",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "listing_sha256": "8d54e4c156d027d60814e9f713c175241034655d61056b5c4930d9331c59b03e",
+  "target_offset": "0x14f1",
+  "length": 17,
+  "nonrelocated_bytes_matching": 11,
+  "masked_relocation_bytes": 6,
+  "differences": [],
+  "message_offset_source": "bios_msg_base + bios_a20_msg",
+  "limitations": "Message symbol definitions and segment placement are not yet integrated; predecessor initialization flow and complete IO.SYS remain unverified."
+}

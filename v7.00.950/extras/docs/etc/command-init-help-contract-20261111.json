@@ -1,0 +1,151 @@
+{
+  "target_sha256": "a74c700063cd6b1c91523952bfc80e9393c125d39ada0164d48b5098089fcef3",
+  "source": "lang/usa/messages/comimsg.inc",
+  "source_index": 217,
+  "dependent": "cmd/command/init.asm",
+  "existing_help_count": 13,
+  "target_help_count": 16,
+  "messages": [
+    {
+      "index": 0,
+      "file_offset": 13081,
+      "length": 26,
+      "text": "Incorrect MS-DOS version\r\n"
+    },
+    {
+      "index": 1,
+      "file_offset": 13108,
+      "length": 26,
+      "text": "Out of environment space\r\n"
+    },
+    {
+      "index": 2,
+      "file_offset": 13135,
+      "length": 72,
+      "text": "\r\n\r\nMicrosoft(R) Windows 95\r\n   (C)Copyright Microsoft Corp 1981-1995.\r\n"
+    },
+    {
+      "index": 3,
+      "file_offset": 13208,
+      "length": 40,
+      "text": "Specified COMMAND search directory bad\r\n"
+    },
+    {
+      "index": 4,
+      "file_offset": 13249,
+      "length": 55,
+      "text": "Specified COMMAND search directory bad, access denied\r\n"
+    },
+    {
+      "index": 5,
+      "file_offset": 13305,
+      "length": 57,
+      "text": "Starts a new copy of the Windows Command Interpreter.\r\n\r\n"
+    },
+    {
+      "index": 6,
+      "file_offset": 13363,
+      "length": 128,
+      "text": "COMMAND [[drive:]path] [device] [/E:nnnnn] [/L:nnnn] [/U:nnn] [/P] [/MSG]\r\n                       [/LOW] [/Y [/[C|K] command]]\r\n"
+    },
+    {
+      "index": 7,
+      "file_offset": 13492,
+      "length": 67,
+      "text": "  [drive:]path    Specifies the directory containing COMMAND.COM.\r\n"
+    },
+    {
+      "index": 8,
+      "file_offset": 13560,
+      "length": 77,
+      "text": "  device          Specifies the device to use for command input and output.\r\n"
+    },
+    {
+      "index": 9,
+      "file_offset": 13638,
+      "length": 69,
+      "text": "  /E:nnnnn        Sets the initial environment size to nnnnn bytes.\r\n"
+    },
+    {
+      "index": 10,
+      "file_offset": 13708,
+      "length": 61,
+      "text": "                  (nnnnn should be between 256 and 32,768).\r\n"
+    },
+    {
+      "index": 11,
+      "file_offset": 13770,
+      "length": 76,
+      "text": "  /L:nnnn         Specifies internal buffers length (requires /P as well).\r\n"
+    },
+    {
+      "index": 12,
+      "file_offset": 13847,
+      "length": 59,
+      "text": "                  (nnnn should be between 128 and 1,024).\r\n"
+    },
+    {
+      "index": 13,
+      "file_offset": 13907,
+      "length": 76,
+      "text": "  /U:nnn          Specifies the input buffer length (requires /P as well).\r\n"
+    },
+    {
+      "index": 14,
+      "file_offset": 13984,
+      "length": 56,
+      "text": "                  (nnn should be between 128 and 255).\r\n"
+    },
+    {
+      "index": 15,
+      "file_offset": 14041,
+      "length": 77,
+      "text": "  /P              Makes the new Command Interpreter permanent (can't exit).\r\n"
+    },
+    {
+      "index": 16,
+      "file_offset": 14119,
+      "length": 78,
+      "text": "  /MSG            Stores all error messages in memory (requires /P as well).\r\n"
+    },
+    {
+      "index": 17,
+      "file_offset": 14198,
+      "length": 75,
+      "text": "  /LOW            Forces COMMAND to keep its resident data in low memory.\r\n"
+    },
+    {
+      "index": 18,
+      "file_offset": 14274,
+      "length": 74,
+      "text": "  /Y              Steps through the batch program specified by /C or /K.\r\n"
+    },
+    {
+      "index": 19,
+      "file_offset": 14349,
+      "length": 63,
+      "text": "  /C command      Executes the specified command and returns.\r\n"
+    },
+    {
+      "index": 20,
+      "file_offset": 14413,
+      "length": 73,
+      "text": "  /K command      Executes the specified command and continues running.\r\n"
+    }
+  ],
+  "target_help_loop": {
+    "file_start": 28237,
+    "file_end": 28261,
+    "hex": "8d1e6a3bb9100083c3028b17e817f383c3044975f5cd20c3",
+    "table_offset_operand": 15210,
+    "count": 16,
+    "first_pointer_displacement": 2,
+    "record_stride": 4,
+    "print_call_file_destination": 24947
+  },
+  "source_table": "zero-terminated array of word pointers",
+  "target_table_file_location": null,
+  "conclusion": "Target consumer is a counted 4-byte record walk, not the source zero-terminated 2-byte pointer walk. Resolve runtime table placement and record ownership before changing comimsg/init together.",
+  "baseline_build": "command-current-build-20261111.json",
+  "core_files_changed": 0
+}

@@ -1,0 +1,29 @@
+{
+  "batch": "kernel-original-tools",
+  "status": "verified",
+  "files": [
+    "dos/makefile",
+    "dos/msdos.cfg",
+    "extras/tools/dosbuild/kernel.bat"
+  ],
+  "reference": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\makefile",
+  "added_object_rules": [
+    "diskset.obj: diskset.asm $(inc)\\version.inc $(inc)\\dosseg.inc $(inc)\\DOSSYM.INC $(inc)\\DEVSYM.INC $(inc)\\sf.inc $(inc)\\dpb.inc $(inc)\\filemode.inc $(inc)\\dosmac.inc",
+    "lfn.obj: lfn.asm $(inc)\\version.inc $(inc)\\dosseg.inc $(inc)\\dossym.inc $(inc)\\dpb.inc",
+    "exechot.obj: exechot.asm $(inc)\\version.inc $(inc)\\dosseg.inc $(inc)\\DOSSYM.INC $(inc)\\exe.inc $(inc)\\PDB.INC",
+    "idle.obj: idle.asm $(inc)\\version.inc $(inc)\\dosseg.inc $(inc)\\dossym.inc $(inc)\\sysvar.inc $(inc)\\sf.inc $(inc)\\curdir.inc $(inc)\\fastxxxx.inc $(inc)\\bugtyp.inc",
+    "diskio.obj: diskio.asm $(inc)\\version.inc $(inc)\\dosseg.inc $(inc)\\fastxxxx.inc $(inc)\\DOSSYM.INC $(inc)\\DEVSYM.INC $(inc)\\sf.inc $(inc)\\dpb.inc $(inc)\\mult.inc $(inc)\\filemode.inc",
+    "dircmp.obj: dircmp.asm $(inc)\\version.inc $(inc)\\dosseg.inc $(inc)\\fastopen.inc $(inc)\\dossym.inc $(inc)\\dpb.inc",
+    "devcache.obj: devcache.asm $(inc)\\version.inc $(inc)\\dosseg.inc $(inc)\\DOSSYM.INC $(inc)\\DEVSYM.INC $(inc)\\dpb.inc $(inc)\\sf.inc",
+    "lockio.obj: lockio.asm $(inc)\\version.inc $(inc)\\dosseg.inc $(inc)\\DOSSYM.INC $(inc)\\DEVSYM.INC $(inc)\\lock.inc $(inc)\\mult.inc $(inc)\\dpb.inc $(inc)\\sf.inc"
+  ],
+  "stage": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\native-kernel-vk7ghcj_",
+  "source_instruction_changes": 0,
+  "kernel_bytes": 40518,
+  "kernel_sha256": "bb23403a1521244450f0adbc37b46adcfc4c06b99d737921acbaf1e3623b761f",
+  "target_offset": 70592,
+  "whole_kernel_equal": true,
+  "original_dos_masm_and_nmake": true,
+  "assembly_instruction_changes": 0,
+  "msdos_configuration_equal": true
+}

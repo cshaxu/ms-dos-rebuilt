@@ -1,0 +1,21 @@
+{
+  "target_sha256": "a74c700063cd6b1c91523952bfc80e9393c125d39ada0164d48b5098089fcef3",
+  "selector": "At 0xe13b, the target sets word 0xe427 to 0x7147 when AL is nonzero, or 0x4700 when AL is zero.",
+  "call_sites": [
+    "At 0xb4fd, SI=0xd198 and AX is loaded from 0xe427 before INT 21h.",
+    "At 0xac45, SI=0xdeca and AX is loaded from 0xe427 before INT 21h."
+  ],
+  "additional_evidence": "At 0xca60 the code uses INT 21h AX=71a0, checks carry and bit 0x4000 in BX, then assigns AX=7147 to the same selector on the success path.",
+  "baseline": "inc/syscall.inc defines Current_Dir as AH=47h; cmd/command/tcmd2a.asm invokes this traditional function with BWDBUF+3.",
+  "conclusion": "Both target path-building routines use a runtime-selected traditional or 0x71xx current-directory call. This confirms the previously indirect selector assignments, but does not establish all paths or historical names.",
+  "validated_bytes": {
+    "0xe13b": "c70625e43b71c70627e44771c70631e443710ac07512c70625e4003bc70627e40047c70631e40043c3",
+    "0xca60": "33dbb8a07133c9f9cd211f5e7268f7c300407462b0012ec70625e43b712ec70627e44771",
+    "0xb4fd": "be98d1a127e4cd21",
+    "0xac45": "becade36a127e4cd21"
+  },
+  "limitations": [
+    "Selector writes elsewhere may also affect the active value.",
+    "No source edit or final link is verified."
+  ]
+}

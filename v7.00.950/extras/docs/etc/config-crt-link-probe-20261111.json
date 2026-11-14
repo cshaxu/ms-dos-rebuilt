@@ -1,0 +1,17 @@
+{
+  "source_library_sha256": "6dd7fdf103a71d0cec3433aa3bd7d05b73f90c3e9f24e667c29d5f3c0f9a9389",
+  "compatible_library_sha256": "b362c8454f1c2bc9dd46c686b1d86d8b4dfbb51fd337f2d918299e53f366df35",
+  "original_link_log": "\nMicrosoft (R) Segmented-Executable Linker  Version 5.10    \nCopyright (C) Microsoft Corp 1984-1990.  All rights reserved.\n\ncrt.lib(malloc.asm) : fatal error L1101: invalid object module\n",
+  "compatible_link_log": "\nMicrosoft (R) Segmented-Executable Linker  Version 5.10    \nCopyright (C) Microsoft Corp 1984-1990.  All rights reserved.\n\n\ncrt.lib(dos\\crt0.asm) : error L2029: '_main' : unresolved external\ncrt.lib(dos\\crt0.asm) : error L2052: '__edata' : unresolved external - possible calling convention mismatch\ncrt.lib(chkstk.asm) : error L2052: '__end' : unresolved external - possible calling convention mismatch\ncrt.lib(dos\\crt0.asm) : error L2052: '__end' : unresolved external - possible calling convention mismatch\n\n\nThere were 3 errors detected\n",
+  "status": "format_blocker_resolved_real_program_entry_and_boundaries_pending",
+  "unresolved": [
+    "_main",
+    "__edata",
+    "__end"
+  ],
+  "members": 741,
+  "aliases": 19,
+  "rewritten_members": 22,
+  "all_repacked_code_data_records_identical": true,
+  "scope": "Read-only library-service request object for link diagnosis. No executable qualification or stub main; final program integration remains pending."
+}

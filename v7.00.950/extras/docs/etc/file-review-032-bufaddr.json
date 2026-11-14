@@ -1,0 +1,47 @@
+{
+  "file": "bios/sysinit1.asm",
+  "source_sha256": "065a0add3c0486c5e268bd8ed1f1131dc1efb764e4f673a42c46eb5ed52de788",
+  "target_range": "IO.SYS 0x89de..0x8a16",
+  "bytes": 56,
+  "differences": [
+    [
+      "0xa",
+      "0x5",
+      "0x83"
+    ],
+    [
+      "0xb",
+      "0xf",
+      "0xc0"
+    ],
+    [
+      "0xc",
+      "0x0",
+      "0xf"
+    ],
+    [
+      "0xd",
+      "0x25",
+      "0x83"
+    ],
+    [
+      "0xe",
+      "0xf0",
+      "0xe0"
+    ],
+    [
+      "0xf",
+      "0xff",
+      "0xf0"
+    ]
+  ],
+  "probe": "extras/research/bufaddr7-linked.asm",
+  "default_object_identical_to_prior": true,
+  "dos7_assembly": "passed",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "GetBufferAddr7 is not yet called: DOS7 set_buffer and its caller need coordinated restoration before integration.",
+    "Fixed-offset probe stubs alloc_marked_block; full image and allocator behavior remain unverified.",
+    "Mixed link contains older objects and stubs."
+  ]
+}

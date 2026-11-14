@@ -1,0 +1,34 @@
+{
+  "file": "inc/bugtyp.inc",
+  "sha256": "5ca6cab9f8de58819470837484d8da1a1f044356f5dbb4d3206dbcfebc92ac87",
+  "references": [
+    {
+      "name": "6.0",
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\inc\\bugtyp.inc",
+      "sha256": "5ca6cab9f8de58819470837484d8da1a1f044356f5dbb4d3206dbcfebc92ac87"
+    },
+    {
+      "name": "Astro",
+      "path": "O:\\repos.external\\astro\\inc\\bugtyp.inc",
+      "sha256": "5ca6cab9f8de58819470837484d8da1a1f044356f5dbb4d3206dbcfebc92ac87"
+    }
+  ],
+  "stage": "extras/build/bugtyp-context-0w7pn54i",
+  "contexts": {
+    "external": {
+      "external": [
+        "buglev",
+        "bugtyp"
+      ],
+      "fixup_externals": [],
+      "object_sha256": "f5612c48c004497193e44131b23a205844d6148700c7150d49194a96598b13e3"
+    },
+    "defined": {
+      "external": [],
+      "fixup_externals": [],
+      "object_sha256": "98c0652fcb8e51dd99bbf82e7cfc3fd8b17c67f95c32d65b4dc4d490f3a97871"
+    }
+  },
+  "candidate_provider": "dos/msconst.asm:36-46",
+  "limitations": "Declaration-only test; debug macro expansions, provider link and target equivalence unverified."
+}

@@ -1,0 +1,22 @@
+{
+  "source": "bios/msbio1.asm",
+  "sha256": "430d8947861eeb49abf2897a4e0fa77589abcdf5661213c616bea94b4e764205",
+  "change": "Restore the EXEC return memory block size and last-block marker using the target 32-bit absolute address encodings.",
+  "target_region": {
+    "start": "0xa38e",
+    "end_exclusive": "0xa3ab",
+    "bytes": 29
+  },
+  "verification": {
+    "link": "extras/tools/verify_syspre_device_link.py",
+    "link_stage": "extras/build/syspre-object-link-ojk4vzxx",
+    "runtime": "extras/tools/verify_boot_exec_mcb.py",
+    "runtime_stage": "extras/build/exec-mcb-runtime-q9av52wc",
+    "scope": "Actual 29-byte code, 54-byte cleanup and 42-byte option handling match target and are placed contiguously. Runtime probe invokes the actual source on a private 16-byte simulated block and checks its size and marker."
+  },
+  "limitations": [
+    "Upstream EXEC and MCB size-changing paths remain to be restored.",
+    "The diagnostic retains unrelated synthetic offsets and gaps.",
+    "Complete IO.SYS and all three core files are not yet verified."
+  ]
+}

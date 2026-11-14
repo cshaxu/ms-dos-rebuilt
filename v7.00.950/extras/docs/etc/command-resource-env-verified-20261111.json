@@ -1,0 +1,33 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\command-reference-hr98q_oc",
+  "routine": "FindMessageFile",
+  "target_range": [
+    31784,
+    31887
+  ],
+  "code_bytes": 103,
+  "linked_start": 8442,
+  "all_code_equal_except_verified_symbol_addresses": true,
+  "fixups": [
+    {
+      "target_field": 31825,
+      "symbol": "MsgEnvName",
+      "linked_address": 8919
+    },
+    {
+      "target_field": 31852,
+      "symbol": "MsgEnvPath",
+      "linked_address": 8915
+    }
+  ],
+  "state_bytes_exact": 12,
+  "existing_class_bytes_still_exact": 1492,
+  "entry": "ES:DI environment, DS:RESGROUP",
+  "exit": "CF clear: ES:DI executable path; CF set: failure; COMSPEC hit saved as far pointer",
+  "source_hashes": {
+    "cmd/command/init.asm": "6abdfae5560021314387035290d6600c6643018e294667b792d3370ea8e7fb39",
+    "cmd/command/uinit.asm": "dfa37478da982f732f9871387038c226e0ca52fac38a0bfd23d71150e14a8ac1"
+  },
+  "remaining": "Upper resource file-open/header/scan/read routines 7AAEh..7C27h (378 bytes), startup loading and final image layout remain incomplete.",
+  "full_command_exact": false
+}

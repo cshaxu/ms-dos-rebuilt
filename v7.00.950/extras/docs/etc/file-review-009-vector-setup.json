@@ -1,0 +1,38 @@
+{
+  "file_index": 9,
+  "source": "bios/msbio1.asm",
+  "source_sha256": "bd74a8165c5502b44ac2e73ce88dd1868ce397aee4532a31e81a319e9e22ba5d",
+  "target_offset": 8016,
+  "diagnostic_offset": 10071,
+  "length": 95,
+  "matching_bytes": 91,
+  "different_offsets": [
+    23,
+    24,
+    83,
+    84
+  ],
+  "target_hex": "fafc601e06665066522bc08ec0b870008ed866c1c010be8b022ead0bc0743293803fcf74272ead9366263b07740d932ead97668b1566895701ebde93c607cf932ead97668b1566268917ebcd83c604ebc8c606fb03eb665a6658071f61fbc3",
+  "linked_hex": "fafc601e06665066522bc08ec0b870008ed866c1c010be29012ead0bc0743293803fcf74272ead9366263b07740d932ead97668b1566895701ebde93c607cf932ead97668b1566268917ebcd83c604ebc8c6069308eb665a6658071f61fbc3",
+  "descriptor_words": [
+    1901,
+    32,
+    1771,
+    1906,
+    64,
+    1775,
+    0
+  ],
+  "descriptor_resolves_to_source_symbols": true,
+  "diagnostic_stub_symbols": [
+    "bios_msg_base",
+    "bios_msg_1",
+    "bios_msg_2",
+    "bios_msg_3",
+    "int1a_code",
+    "ttticks",
+    "int08_entry"
+  ],
+  "default_reference_output_sha256": "a67d8733509f9baf94017389cc1c991d5ef1c66bdfb91b6cab3eef0fc35e9490",
+  "limitations": "INT 08h handler is a diagnostic stub; the vector activation and deactivation lifecycle and target-wide layout remain incomplete."
+}

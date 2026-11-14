@@ -1,0 +1,16 @@
+{
+  "file": "bios/sysconf.asm",
+  "source_sha256": "8ceda47ee4bf9911d684b5e1004c987a5c78f7ddc8b06b1757c04eef04d44f15",
+  "target_range": "IO.SYS 0xb73a..0xb74a",
+  "bytes": 16,
+  "different_bytes": 0,
+  "probe": "extras/research/passdevice7-linked.asm",
+  "default_object_identical_to_prior": true,
+  "dos7_assembly": "passed",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "Fixed-offset isolated probe stubs device handlers and filter.",
+    "The surrounding DOS7 command table and remaining CONFIG.SYS startup flow are incomplete.",
+    "Mixed link contains older objects and stubs."
+  ]
+}

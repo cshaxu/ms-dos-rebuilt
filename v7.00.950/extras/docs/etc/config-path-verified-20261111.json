@@ -1,0 +1,56 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\config-services-dnm3zf7n",
+  "source": "bios/configpath.asm",
+  "source_sha256": "edd60da5c16e9533ecf9be540d5191fac54419b2a1e38b2d3219f79eff4e7992",
+  "linked_sha256": "d1284fc6bd4bfe90182f0d913b9dcba5b441b1f2c7147b6840b388afecedb0d8",
+  "module_bytes": 327,
+  "exact_non_relocated_bytes": 295,
+  "verified_far_calls": [
+    {
+      "offset": 128,
+      "symbol": "ConfigAlloc",
+      "target_image_offset": 10198
+    },
+    {
+      "offset": 155,
+      "symbol": "ConfigCreate",
+      "target_image_offset": 9948
+    },
+    {
+      "offset": 181,
+      "symbol": "ConfigOpen",
+      "target_image_offset": 9472
+    },
+    {
+      "offset": 209,
+      "symbol": "ConfigRead",
+      "target_image_offset": 9748
+    },
+    {
+      "offset": 237,
+      "symbol": "ConfigWriteAll",
+      "target_image_offset": 9791
+    },
+    {
+      "offset": 262,
+      "symbol": "ConfigClose",
+      "target_image_offset": 9550
+    },
+    {
+      "offset": 284,
+      "symbol": "ConfigClose",
+      "target_image_offset": 9550
+    },
+    {
+      "offset": 294,
+      "symbol": "ConfigFree",
+      "target_image_offset": 10273
+    }
+  ],
+  "service_group_raw_exact_bytes": 978,
+  "dependencies": {
+    "bios/configio.asm": "f81a64fc90fe36f357560237d9e526b990163eb87c8968113a33b9c781707817",
+    "bios/configmem.asm": "1582fc20c6c5a3d1f75c1c06517d2d7275a5c07ebde0c5a15dcda23c38c6cf44"
+  },
+  "scope": "Complete path function; 32 far-call operand bytes independently verified by LINK publics. Final program placement and alignment byte remain pending."
+}

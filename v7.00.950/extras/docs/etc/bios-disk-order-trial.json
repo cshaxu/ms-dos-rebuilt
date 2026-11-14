@@ -1,0 +1,35 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "trial_diff": "extras/research/bios-disk-order-trial.diff",
+  "trial_diff_sha256": "5e680ecaf83f6a59c8b5bddba49510adf5984ae0ad052d8a40dfad9933b57d0c",
+  "source_hashes": {
+    "msdisk": "fef5800dda18a7201f9ade44143f9df3245e10f29f611b62110f0df802904c3c",
+    "msbio2": "b965a3fce58870a840d411d701ba788f1f512e3935b4046b2e5b874fb307c66e"
+  },
+  "comparisons": [
+    {
+      "routine": "dsk_init",
+      "length": 15,
+      "target_offset": "0x2ab5",
+      "relocation_bytes": 8,
+      "non_relocation_differences": []
+    },
+    {
+      "routine": "install_bds",
+      "length": 71,
+      "target_offset": "0x4468",
+      "relocation_bytes": 6,
+      "non_relocation_differences": []
+    }
+  ],
+  "observations": [
+    "The isolated DOS7_CONFIG copies compile after moving dsk_init into msdisk immediately before SetDrive and placing the two volume-label buffers immediately before install_bds in msbio2.",
+    "Both routine bytes match the target outside listing-marked relocations; the 24 buffer bytes match exactly.",
+    "The source edits remain a research hypothesis and have not been merged into the formal files."
+  ],
+  "limitations": [
+    "The build used historical MSBIO.CL2 as an unverified trial input.",
+    "Other source and object ordering differences remain; no complete linked BIOS is claimed.",
+    "Original source ownership and relocation operand values have not been independently proven."
+  ]
+}

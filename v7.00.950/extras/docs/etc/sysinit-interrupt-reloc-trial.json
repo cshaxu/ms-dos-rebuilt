@@ -1,0 +1,27 @@
+{
+  "source": "extras/research/sysinit-interrupt-reloc-trial.asm",
+  "source_sha256": "00dfec777a2a498075d3c9e9b50da395960cdc41d1ba73271939d429475d2521",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "linked_exe_sha256": "32d9a9e130e8216d778e67b62c6a81aea6e23ff163efa72095da1e441f19d3bc",
+  "target_file_range": "0x4d30..0x4f4b",
+  "length": 539,
+  "different_bytes_after_simulated_relocation": 0,
+  "simulated_load_segment": "0x70",
+  "relocations": [
+    {
+      "segment": "0x1",
+      "offset": "0x1de",
+      "before": "0x0",
+      "after": "0x70"
+    }
+  ],
+  "observations": [
+    "Stack data fields and references are represented by labels rather than manually assigned offsets.",
+    "The linked segment relocation is applied before comparison."
+  ],
+  "limitations": [
+    "The test uses isolated paragraph-aligned segments; real full-image segment arrangement remains unverified.",
+    "Stack initialization, message copy and remaining SYSINIT source are outside this comparison.",
+    "No formal source file or full IO.SYS has been reconstructed by this test."
+  ]
+}

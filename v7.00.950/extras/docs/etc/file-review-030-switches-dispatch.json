@@ -1,0 +1,28 @@
+{
+  "file": "bios/sysconf.asm",
+  "file_index": 30,
+  "source_sha256": "d4235875e612a693e130be3f0616add720d485db9f9a5a562b269b8884357257",
+  "ranges": [
+    {
+      "target": "IO.SYS 0xb6e9..0xb703",
+      "bytes": 26,
+      "different_bytes": 0,
+      "purpose": "initial pass dispatch"
+    },
+    {
+      "target": "IO.SYS 0xb2f2..0xb36f",
+      "bytes": 125,
+      "different_bytes": 0,
+      "purpose": "full switch control table and flags"
+    }
+  ],
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "Isolated probes reproduce target offsets with ORG; production layout is not established.",
+    "The complete first-pass control flow and runtime parser integration remain unverified.",
+    "The DOS7 multitrack branch uses a long-jump expansion because of current source layout; target placement remains unresolved.",
+    "The mixed link uses older objects and stubs and is not a production build."
+  ]
+}

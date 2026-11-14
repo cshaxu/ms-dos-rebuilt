@@ -1,0 +1,21 @@
+{
+  "file": "bios/sysinit1.asm",
+  "source_sha256": "2f4f8f5526cefbdca9f098f40bccd06d449691984b33834866df0c522c02544d",
+  "target_evidence": [
+    "IO.SYS 0x5d59: add AX,0a760h",
+    "IO.SYS 0x5d9f: SYSINIT fixed base 0a560h",
+    "IO.SYS 0x5e2b: DOS destination base 0a760h",
+    "IO.SYS 0xf296: message length word"
+  ],
+  "buffer_bytes": 512,
+  "observed_message_bytes": 4307,
+  "target_reserved_paragraphs": 2948,
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "Source SI_end and target message layout are not yet proven to have identical boundaries; arithmetic is based on the current end-label contract.",
+    "This check establishes the 200h size relationship, not byte identity of the surrounding code or execution.",
+    "DOS image source and complete relocation remain incomplete."
+  ]
+}

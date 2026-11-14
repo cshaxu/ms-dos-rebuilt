@@ -1,0 +1,10 @@
+{
+  "stage": "extras\\build\\cparse-real-switch-probe-414i_kvh",
+  "checks": [
+    "current assembled CPARSE returns W without slash for /W",
+    "subsequent NUL ends parsing"
+  ],
+  "limitations": [
+    "Real CPARSE object linked to simplified helper stubs; target 7.0 switch parsing and full DIR not exercised."
+  ]
+}

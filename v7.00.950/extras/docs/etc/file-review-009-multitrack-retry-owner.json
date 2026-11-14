@@ -1,0 +1,30 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "bios_status_offset": 8,
+  "multitrack_mask": 512,
+  "format_multitrack_mask": 2048,
+  "bios_code_offsets": {
+    "vretry_cnt": 3572,
+    "soft_ecc_cnt": 3574
+  },
+  "instruction_anchors": {
+    "multitrack_test": {
+      "target_file_offset": 12463,
+      "hex": "f606090002741f"
+    },
+    "format_multitrack_set": {
+      "target_file_offset": 13972,
+      "hex": "f706080000027406810e08000008"
+    },
+    "format_multitrack_clear": {
+      "target_file_offset": 12857,
+      "hex": "81260800fff7"
+    },
+    "retry_counts": {
+      "target_file_offset": 12595,
+      "hex": "2e892ef40d2e892ef60d"
+    }
+  },
+  "diagnostic_report": "config-ml-multitrack-retry-owner.json",
+  "limitations": "Names are reconstructed. Reference configuration objects retain diagnostic compatibility stubs; final bit-setting paths and disk-driver counter definitions await reconstruction."
+}

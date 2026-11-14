@@ -1,0 +1,23 @@
+{
+  "source_sha256": "44e23fd29908ad6f2c727f3579860d947efc57d6a1c2edead6e88275bd9152a5",
+  "listing_sha256": "08e4bef4411e3166b52aeb9e3ad05d66613974bcb9492b28e1bcff67d8c9bf07",
+  "routines": [
+    {
+      "name": "remap",
+      "target_offset": "0x1527",
+      "length": 99,
+      "masked_relocation_bytes": 18,
+      "matched_nonrelocated_bytes": 81,
+      "differences": []
+    },
+    {
+      "name": "getboot",
+      "target_offset": "0x158a",
+      "length": 35,
+      "masked_relocation_bytes": 2,
+      "matched_nonrelocated_bytes": 33,
+      "differences": []
+    }
+  ],
+  "limitations": "Relocated addresses, inferred init_sysinit_seg symbol ownership, callers and final target link remain unverified."
+}

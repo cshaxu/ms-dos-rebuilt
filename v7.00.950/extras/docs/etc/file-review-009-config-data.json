@@ -1,0 +1,39 @@
+{
+  "file_index": 9,
+  "source": "bios/msbio1.asm",
+  "source_sha256": "22c5b579d1a86895b7119c7fb8731a8cbb12e9c3beb1eeb7a35e4f43ca0c4a47",
+  "target_io_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_data_offset": 2862,
+  "target_data_length": 9,
+  "target_data_bytes": "000000000000000000",
+  "fields": [
+    {
+      "name": "config_flags",
+      "offset": 0,
+      "size": 1
+    },
+    {
+      "name": "config_count",
+      "offset": 1,
+      "size": 2
+    },
+    {
+      "name": "config_value",
+      "offset": 3,
+      "size": 2
+    },
+    {
+      "name": "config_xms",
+      "offset": 5,
+      "size": 4
+    }
+  ],
+  "evidence": "CONFIG$ read routine uses BIOS data offsets 052E and 0531. The target initialization code at 0xEFAD writes a word at 052F, sets bit 0 at 052E and writes a word at 0531. A far call through 0533 appears at 0xEE9F. The proposed fields follow the observed offsets and zero initialization; symbolic names and detailed semantics are inferred.",
+  "validation": "MASM DOS7_CONFIG assembly and stub-assisted historical link. The linked source-defined fields have matching relative offsets, their nine initialized bytes equal the target, and CONFIG$ read references resolve to these actual definitions. Default non-DOS7_CONFIG output remains identical to the prior build.",
+  "remaining": [
+    "config_init_flags",
+    "config_init_segment",
+    "config_init_entry",
+    "complete placement and semantics"
+  ]
+}

@@ -1,0 +1,2735 @@
+{
+  "stage": "extras/build/kernel-dos7-symbols-du61j8us",
+  "configuration": [
+    "USA",
+    "DOS7_CONFIG"
+  ],
+  "objects": {
+    "abort": {
+      "sha256": "928769617ce25b72727c12b59f55a3e6ce80f509a2402c3f9e267a4b2057664a",
+      "source_sha256": "13462864fcadc38f3fd0a910aab6abac0a68257d6fdb9e0ed77258fa9254c995",
+      "fixup_edges": {
+        "handle": [
+          "$close"
+        ],
+        "msdata": [
+          "currentpdb",
+          "jshare",
+          "proc_id",
+          "sftfcb",
+          "user_id"
+        ],
+        "util": [
+          "sffromsfn"
+        ]
+      }
+    },
+    "alloc": {
+      "sha256": "63f6bbff68a61d5885921e8b190f369831a7c3bb9fcd4e062a627adf46af0ff7",
+      "source_sha256": "98c929ded7a515871ecf464ec96bbfda483b3ea4295c739ce1afcbd78ffdb450",
+      "fixup_edges": {
+        "msdata": [
+          "a20off_count",
+          "allocmethod",
+          "arena_head",
+          "bestarena",
+          "currentpdb",
+          "dos_flag",
+          "exterr_locus",
+          "firstarena",
+          "lastarena",
+          "start_arena",
+          "umb_head",
+          "umbflag"
+        ],
+        "crit": [
+          "ecritmem",
+          "lcritmem"
+        ],
+        "msdisp": [
+          "get_user_stack"
+        ],
+        "mscode": [
+          "sys_ret_err",
+          "sys_ret_ok"
+        ]
+      }
+    },
+    "buf": {
+      "sha256": "674106c12dcab33f45e021234c53086e74b2d535c3b09293242e9a445127c374",
+      "source_sha256": "b162899aabcec71289e34b82326457544fd0e794fd20ee97a2f063ce1542ba21",
+      "fixup_edges": {
+        "msdata": [
+          "allowed",
+          "bufferqueue",
+          "buffinhma",
+          "curbuf",
+          "dirtybuffercount",
+          "dos34_flag",
+          "failerr",
+          "first_buff_addr",
+          "high_sector",
+          "lastbuffer",
+          "lomembuff",
+          "preread",
+          "sc_drive",
+          "sc_sector_size",
+          "wperr"
+        ],
+        "disk": [
+          "dread",
+          "fatsecrd"
+        ],
+        "disk2": [
+          "dwrite"
+        ]
+      }
+    },
+    "close": {
+      "sha256": "6c336d843c809d0739637565920c1e68169904744b254df78abaf41dadd87013",
+      "source_sha256": "b9bcb41f70577e9bf407eabfbca3f974cc0c428b93a7574b54be27581821b46b",
+      "fixup_edges": {
+        "msdata": [
+          "allowed",
+          "attrib",
+          "curbuf",
+          "exterr_locus",
+          "high_sector",
+          "jshare",
+          "old_firstclus",
+          "thisdrv",
+          "thissft"
+        ],
+        "time": [
+          "date16"
+        ],
+        "dev": [
+          "dev_close_sft",
+          "dev_open_sft"
+        ],
+        "crit": [
+          "ecritdisk",
+          "lcritdisk"
+        ],
+        "delete": [
+          "fastopen_update"
+        ],
+        "fat": [
+          "fatread_sft"
+        ],
+        "buf": [
+          "flushbuf",
+          "getbuffr",
+          "inc_dirty_count"
+        ],
+        "dir": [
+          "metacompare"
+        ],
+        "share": [
+          "shareend"
+        ],
+        "misc2": [
+          "xchgp"
+        ]
+      }
+    },
+    "cpmio": {
+      "sha256": "90c02e64c484cca08a703dfb47f25143ad41372a2205adbbc2daab7ac6696dc4",
+      "source_sha256": "451b22d70c1cc590390c4f997a26ab9c7d5facbc132905684acfc59c6baaa24f",
+      "fixup_edges": {
+        "cpmio2": [
+          "bufout",
+          "outt",
+          "tab"
+        ],
+        "msdosme": [
+          "canchar",
+          "escchar",
+          "oemfunctionkey"
+        ],
+        "msdata": [
+          "carpos",
+          "date_flag",
+          "devcall",
+          "dos34_flag",
+          "inbuf",
+          "insmode",
+          "packet_temp",
+          "printer_flag",
+          "scan_flag",
+          "startpos",
+          "user_sp"
+        ],
+        "msctrlc": [
+          "dskstatchk",
+          "spoolint",
+          "statchk"
+        ],
+        "disk": [
+          "get_io_sft"
+        ],
+        "dev": [
+          "iofunc"
+        ],
+        "time": [
+          "readtime"
+        ]
+      }
+    },
+    "cpmio2": {
+      "sha256": "c2c9191ebae46ba7f8dcbfac0f70b61fbe72f42163a8cff5f81dc9927fad0203",
+      "source_sha256": "d2a5a4ef5121bb9a8928c83d54499e3e239d182939a062b5a0f02fa7d234265f",
+      "fixup_edges": {
+        "cpmio": [
+          "$std_con_input_no_echo",
+          "rawout",
+          "rawout2"
+        ],
+        "msdata": [
+          "carpos",
+          "charco",
+          "pflag"
+        ],
+        "disk": [
+          "get_io_sft"
+        ],
+        "dev": [
+          "iofunc"
+        ],
+        "msdisp": [
+          "redisp"
+        ],
+        "msctrlc": [
+          "spoolint",
+          "statchk"
+        ]
+      }
+    },
+    "create": {
+      "sha256": "a20c8ce2ce56d03c6238dce5dd0a16ebd357f5b4f7409f68ecbcf3ec4841e020",
+      "source_sha256": "4a76a4fb11682cd81daca1dd2af9afe79fcf21db428a3e19d32af51ea902e9bb",
+      "fixup_edges": {
+        "ioctl": [
+          "$ioctl"
+        ],
+        "msdata": [
+          "dos34_flag",
+          "exterr_locus",
+          "extopen_on",
+          "jshare",
+          "name1",
+          "no_name_id",
+          "packet_temp",
+          "sattrib",
+          "save_bx",
+          "thiscds",
+          "thissft",
+          "volchng_flag"
+        ],
+        "crit": [
+          "ecritdisk",
+          "lcritdisk"
+        ],
+        "delete": [
+          "fastopen_delete"
+        ],
+        "fat": [
+          "fatread_cds"
+        ],
+        "mknode": [
+          "makenode"
+        ],
+        "open": [
+          "set_sft_mode"
+        ]
+      }
+    },
+    "crit": {
+      "sha256": "827f1f3197ec9f1540c7aa222fea3bb02b5d2eb6a15ef8b5516895e7d96b51f6",
+      "source_sha256": "8f95042897a5d39cc514fa965f79e7f3538a213703ed98fb45d0d4cb7a9e3af1",
+      "fixup_edges": {
+        "msdata": [
+          "redir_patch"
+        ]
+      }
+    },
+    "delete": {
+      "sha256": "b4a84b86facdc1565daab053fe8a242fd799873d0d7b7c41825848aa2a4ecefa",
+      "source_sha256": "5fe514092accffa110a13a4f05dd2104664cfad87479f21bb57ea411d1cf1d77",
+      "fixup_edges": {
+        "msdata": [
+          "attrib",
+          "auxstack",
+          "creating",
+          "curbuf",
+          "delall",
+          "fasttable",
+          "founddel",
+          "jshare",
+          "name1",
+          "nosetdir",
+          "ren_wfp",
+          "sattrib",
+          "save_bx",
+          "thiscds",
+          "thisdpb",
+          "thissft",
+          "volchng_flag",
+          "wfp_start"
+        ],
+        "mknode": [
+          "doopen"
+        ],
+        "crit": [
+          "ecritdisk",
+          "lcritdisk"
+        ],
+        "fat": [
+          "fatread_cds"
+        ],
+        "buf": [
+          "flushbuf",
+          "inc_dirty_count"
+        ],
+        "dir": [
+          "getentry",
+          "nextent"
+        ],
+        "dir2": [
+          "getpathnoset"
+        ],
+        "search": [
+          "packname"
+        ],
+        "rom": [
+          "release"
+        ],
+        "create": [
+          "set_media_id"
+        ],
+        "share": [
+          "shareend",
+          "shareenter"
+        ],
+        "macro2": [
+          "skipback"
+        ],
+        "misc2": [
+          "strlen",
+          "testnet"
+        ]
+      }
+    },
+    "dev": {
+      "sha256": "95afe5afd9b48c3d2909be06d1c365066acf1d712442dffe16e4b606083ef902",
+      "source_sha256": "1fdd4f63b181b3575c649caf13ddc29b0d79c6ddc45a60957971a22a678f21a1",
+      "fixup_edges": {
+        "msdata": [
+          "calldevad",
+          "callnewsc",
+          "callscnt",
+          "callssec",
+          "callxad",
+          "cursc_drive",
+          "cursc_sector",
+          "ddmove",
+          "devcall",
+          "deviobuf",
+          "dmaadd",
+          "dos34_flag",
+          "fshare",
+          "high_sector",
+          "iocall",
+          "iomed",
+          "iorchr",
+          "ioscnt",
+          "iostatfail",
+          "ioxad",
+          "sc_cache_count",
+          "sc_cache_ptr",
+          "sc_drive",
+          "sc_flag",
+          "sc_sector_size",
+          "sc_status",
+          "seq_sector",
+          "temp_var",
+          "temp_var2",
+          "thissft",
+          "verflg"
+        ],
+        "msctrlc": [
+          "charhard"
+        ],
+        "disk": [
+          "dos_read",
+          "dos_write"
+        ],
+        "crit": [
+          "ecritdevice",
+          "lcritdevice"
+        ],
+        "msdisp": [
+          "restore_user_world",
+          "save_user_world"
+        ]
+      }
+    },
+    "dinfo": {
+      "sha256": "36dd133cd6c0998ddde627d42cb921f441d5520ace199ac35dc2251e4d7b9c32",
+      "source_sha256": "3bc73774ddcecfc61214336f65449da0331edfd9513c5752100fcfd6fd481c51",
+      "fixup_edges": {
+        "msdata": [
+          "curbuf",
+          "exterr_locus"
+        ],
+        "crit": [
+          "ecritdisk",
+          "lcritdisk"
+        ],
+        "fat": [
+          "fatread_cds",
+          "unpack"
+        ],
+        "misc2": [
+          "testnet"
+        ]
+      }
+    },
+    "dir": {
+      "sha256": "11a02113d8113ef49055e8c0957f6314c88873c4fa66c91abfd5846bed251c15",
+      "source_sha256": "89e596037f89ae5485daf29c2a782cb9512bd3845d5bcfb1f932cf9a5a9be890",
+      "fixup_edges": {
+        "msdata": [
+          "attrib",
+          "clusfac",
+          "clusnum",
+          "creating",
+          "curbuf",
+          "delall",
+          "dirsec",
+          "dirstart",
+          "entfree",
+          "entlast",
+          "fastopenflg",
+          "high_sector",
+          "lastent",
+          "name1",
+          "nxtclusnum",
+          "seccluspos",
+          "thisdpb",
+          "volid"
+        ],
+        "disk": [
+          "dirread",
+          "firstcluster"
+        ],
+        "rom": [
+          "figrec"
+        ],
+        "fat": [
+          "iseof",
+          "unpack"
+        ],
+        "dir2": [
+          "matchattributes",
+          "startsrch"
+        ]
+      }
+    },
+    "dir2": {
+      "sha256": "97b9a66c3a53e719dfdfe1520aed6cdad3a4cd758d31774c79a90620cb0a1964",
+      "source_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+      "fixup_edges": {
+        "msdata": [
+          "allowed",
+          "attrib",
+          "clusnum",
+          "creating",
+          "curbuf",
+          "curr_dir_end",
+          "devfcb",
+          "devpt",
+          "dir_info_buff",
+          "dirstart",
+          "entfree",
+          "entlast",
+          "exterr_locus",
+          "fastopen_ext_info",
+          "fastopenflg",
+          "fastopentable",
+          "high_sector",
+          "lastent",
+          "name1",
+          "next_element_start",
+          "nosetdir",
+          "nuldev",
+          "sattrib",
+          "thiscds",
+          "thisdpb",
+          "volid",
+          "wfp_start"
+        ],
+        "time": [
+          "date16"
+        ],
+        "dircall": [
+          "dos_chdir"
+        ],
+        "crit": [
+          "ecritdisk",
+          "lcritdisk"
+        ],
+        "fat": [
+          "fatread_cds"
+        ],
+        "dir": [
+          "findentry",
+          "setdirsrch",
+          "setrootsrch"
+        ],
+        "misc2": [
+          "fstrcpy"
+        ],
+        "buf": [
+          "getbuffr"
+        ],
+        "fcb": [
+          "getlet",
+          "nametrans",
+          "pathchrcmp"
+        ],
+        "disk": [
+          "set_buf_as_dir"
+        ],
+        "macro2": [
+          "splice"
+        ]
+      }
+    },
+    "dircall": {
+      "sha256": "e3244dca3a58374b3a642d9f28b5beb3b58dbfda992aec5a02f7128318ed8f81",
+      "source_sha256": "769049ce7d690ab8be44205a66cf4d8c900048ef7ec230655599e2b8a5e47a19",
+      "fixup_edges": {
+        "msdata": [
+          "allowed",
+          "attrib",
+          "curbuf",
+          "dirstart",
+          "failerr",
+          "fastopenflg",
+          "high_sector",
+          "lastent",
+          "name1",
+          "nosetdir",
+          "renbuf",
+          "sattrib",
+          "thisdpb",
+          "thissft"
+        ],
+        "crit": [
+          "ecritdisk",
+          "lcritdisk"
+        ],
+        "delete": [
+          "fastopen_delete"
+        ],
+        "buf": [
+          "flushbuf",
+          "getbuffr",
+          "inc_dirty_count"
+        ],
+        "dir": [
+          "getent",
+          "getentry",
+          "srch"
+        ],
+        "dir2": [
+          "getpath",
+          "startsrch"
+        ],
+        "mknode": [
+          "makenode",
+          "newdir",
+          "setdotent"
+        ],
+        "rom": [
+          "release"
+        ],
+        "create": [
+          "set_mknd_err"
+        ],
+        "misc2": [
+          "testnet"
+        ]
+      }
+    },
+    "disk": {
+      "sha256": "d37a26cea2b59a9ce931a89728e7bf15df40cd67483c68662fecec046d6bc762",
+      "source_sha256": "d4a7a2cbda59cc693754529806c4e6b7fcbde376a42e647eacefecef87cd9cca",
+      "fixup_edges": {
+        "cpmio": [
+          "$std_con_string_input"
+        ],
+        "disk2": [
+          "addrec",
+          "diskread",
+          "dskread",
+          "harderrrw",
+          "read_lock_violation",
+          "set_acc_err",
+          "set_acc_err_ds",
+          "setsft",
+          "setup",
+          "write_lock_violation"
+        ],
+        "msdata": [
+          "allowed",
+          "callscnt",
+          "callxad",
+          "clusnum",
+          "conbuf",
+          "consft",
+          "conswap",
+          "contpos",
+          "curbuf",
+          "devcall",
+          "dirsec",
+          "dirstart",
+          "dmaadd",
+          "exterr_locus",
+          "high_sector",
+          "iswin386",
+          "nextadd",
+          "nxtclusnum",
+          "readop",
+          "seccluspos",
+          "thissft"
+        ],
+        "msctrlc": [
+          "charhard",
+          "dskstatchk"
+        ],
+        "dev": [
+          "deviocall",
+          "deviocall2",
+          "setread",
+          "setwrite"
+        ],
+        "disk3": [
+          "diskwrite"
+        ],
+        "close": [
+          "dos_commit"
+        ],
+        "crit": [
+          "ecritdisk",
+          "lcritdisk"
+        ],
+        "rom": [
+          "figrec"
+        ],
+        "buf": [
+          "getbuffr"
+        ],
+        "fat": [
+          "iseof",
+          "unpack"
+        ],
+        "misc2": [
+          "issftnet"
+        ],
+        "lock": [
+          "lock_check"
+        ],
+        "cpmio2": [
+          "outt"
+        ],
+        "util": [
+          "sffromhandle"
+        ]
+      }
+    },
+    "disk2": {
+      "sha256": "0350f17462dbd38c5619893d7abd6da875bdb8868f40df43633863107e88fefb",
+      "source_sha256": "0876bb2c21d9232c3de57ee681c39b028003c09eeb58db36f6f2d9bda4527cb8",
+      "fixup_edges": {
+        "msdata": [
+          "allowed",
+          "bytcnt1",
+          "bytcnt2",
+          "bytpos",
+          "bytsecpos",
+          "callscnt",
+          "callvidrw",
+          "clusnum",
+          "devcall",
+          "dirtybuffercount",
+          "dmaadd",
+          "exterrpt",
+          "first_buff_addr",
+          "high_sector",
+          "lastpos",
+          "nextadd",
+          "readop",
+          "seccluspos",
+          "seccnt",
+          "secpos",
+          "temp_var",
+          "temp_var2",
+          "thisdpb",
+          "thisdrv",
+          "thissft",
+          "trans"
+        ],
+        "rom": [
+          "bufrd",
+          "fndclus",
+          "nextsec",
+          "optimize"
+        ],
+        "disk": [
+          "check_read_lock",
+          "dread"
+        ],
+        "dev": [
+          "deviocall2",
+          "setread",
+          "setwrite"
+        ],
+        "disk3": [
+          "div32",
+          "shr32",
+          "wrterr22"
+        ],
+        "buf": [
+          "getcurhead",
+          "scanplace",
+          "set_rq_sc_parms"
+        ],
+        "msctrlc": [
+          "harderr"
+        ],
+        "fat": [
+          "iseof"
+        ],
+        "lock": [
+          "lock_violation"
+        ]
+      }
+    },
+    "disk3": {
+      "sha256": "c6aedb9927e10cd8a00b43171ee8388a2994ff57126a8e060501c1536fa9f081",
+      "source_sha256": "9576ede44a7a1ff86d46cd8ed02749d783a48ff2d39b703a26d007139f821fdd",
+      "fixup_edges": {
+        "disk2": [
+          "addrec",
+          "breakdown",
+          "dskwrite",
+          "harderrrw",
+          "set_acc_err_ds",
+          "setclus"
+        ],
+        "rom": [
+          "allocate",
+          "bufwrt",
+          "fndclus",
+          "nextsec",
+          "optimize",
+          "relblks",
+          "release",
+          "skpclp"
+        ],
+        "msdata": [
+          "allowed",
+          "bytcnt1",
+          "bytcnt2",
+          "bytpos",
+          "bytsecpos",
+          "clusnum",
+          "cursc_drive",
+          "cursc_sector",
+          "disk_full",
+          "dmaadd",
+          "first_buff_addr",
+          "growcnt",
+          "high_sector",
+          "jshare",
+          "lastpos",
+          "readop",
+          "sc_cache_count",
+          "sc_status",
+          "seccluspos",
+          "seccnt",
+          "secpos",
+          "temp_var",
+          "temp_var2",
+          "thisdpb",
+          "thisdrv",
+          "thissft",
+          "trans",
+          "valsec"
+        ],
+        "disk": [
+          "check_write_lock"
+        ],
+        "buf": [
+          "dec_dirty_count",
+          "getcurhead",
+          "scanplace"
+        ],
+        "delete": [
+          "fastopen_update"
+        ]
+      }
+    },
+    "dosprint": {
+      "sha256": "fb39409fc73bda68cc609c38db03867d3a4da40e248a09b31d6ab71072f06713",
+      "source_sha256": "96412d605a3e19ccfaa9a4fdd57a8949eca7fce3950cf81bc4e3c6bf491b05ba",
+      "fixup_edges": {}
+    },
+    "dup": {
+      "sha256": "5358fd318f85a3b52e03aa9fb263fcf44a9472fbc7efbba576872aa221b81b02",
+      "source_sha256": "e12500722670edd6faa184679039b09225c9f6756c2a2fc644dfabb5e2536b09",
+      "fixup_edges": {
+        "dev": [
+          "dev_open_sft"
+        ],
+        "msdata": [
+          "dosdseg",
+          "thissft"
+        ],
+        "misc2": [
+          "issftnet"
+        ]
+      }
+    },
+    "exepatch": {
+      "sha256": "43e2cd862248c29eeadb5e9e48ac3a353f5827a1df211e36321b59cf76909955",
+      "source_sha256": "ab3b9501d4ef3401a360692c5a4c59c24d19c6590231173c6cabba59d723d99a",
+      "fixup_edges": {
+        "msdata": [
+          "a20off_count",
+          "a20off_psp",
+          "dos_flag",
+          "doshashma",
+          "fixexepatch",
+          "ratbugcode",
+          "rational386patchptr",
+          "rationalpatchptr",
+          "special_version",
+          "unpack_offset"
+        ],
+        "msproc": [
+          "scan_execname1",
+          "scan_special_entries"
+        ]
+      }
+    },
+    "fat": {
+      "sha256": "2f2f50581dd06cf6e239cc0bb7d1580eadf9fdc43117b4ef126ff7f507dfe6f0",
+      "source_sha256": "69b434ab7d945e6de0fbfe9e6a657de2d622a54f92661d4117721a5be15f385f",
+      "fixup_edges": {
+        "misc": [
+          "$setdpb"
+        ],
+        "msdata": [
+          "allowed",
+          "callbpb",
+          "callmed",
+          "callrbyt",
+          "callvidm",
+          "callxad",
+          "cdsaddr",
+          "cdscount",
+          "cl0fatentry",
+          "clussave",
+          "clussec",
+          "clussplit",
+          "curbuf",
+          "cursc_drive",
+          "devcall",
+          "dirtybuffercount",
+          "exterrpt",
+          "first_buff_addr",
+          "high_sector",
+          "readop",
+          "sc_cache_count",
+          "thisdpb",
+          "thisdrv",
+          "volchng_flag"
+        ],
+        "buf": [
+          "bufwrite",
+          "getbuffrb",
+          "getcurhead",
+          "inc_dirty_count",
+          "scanplace"
+        ],
+        "dev": [
+          "deviocall2"
+        ],
+        "msctrlc": [
+          "fatal",
+          "fatal1",
+          "harderr"
+        ],
+        "mscode": [
+          "gotdpb"
+        ]
+      }
+    },
+    "fcb": {
+      "sha256": "53d695eb3ba05d02663572be33d1c34382122459eb0df67e378f15cfae525be8",
+      "source_sha256": "dd7c6d6b85d08585be900b91f329821a81c6ee9b5f1cb71268382af4fb39a01c",
+      "fixup_edges": {
+        "msdata": [
+          "dos34_flag",
+          "dosdseg",
+          "drverr",
+          "file_ucase_tab",
+          "name1",
+          "spaceflag"
+        ],
+        "macro": [
+          "getvisdrv"
+        ]
+      }
+    },
+    "fcbio": {
+      "sha256": "3886de1eee5888c8afb62d9dfa6cd710f84632d7fb5732d19eb5fe9d89f0da9a",
+      "source_sha256": "826fb2b0c8bfb9d2da36c8722270d68bd62a0c205699941f0a66471ee0720608",
+      "fixup_edges": {
+        "msdata": [
+          "allowed",
+          "attrib",
+          "devpt",
+          "dosdseg",
+          "exterr",
+          "fcblru",
+          "jshare",
+          "localsft",
+          "name1",
+          "openbuf",
+          "proc_id",
+          "ren_wfp",
+          "renbuf",
+          "sftfcb",
+          "thisdpb",
+          "thissft",
+          "user_in_ax",
+          "wfp_start"
+        ],
+        "lock": [
+          "checkshare"
+        ],
+        "dir2": [
+          "devname"
+        ],
+        "close": [
+          "dos_close"
+        ],
+        "delete": [
+          "dos_delete"
+        ],
+        "rename": [
+          "dos_rename"
+        ],
+        "mscode": [
+          "fcb_ret_err",
+          "fcb_ret_ok"
+        ],
+        "macro": [
+          "find_dpb"
+        ],
+        "finfo": [
+          "get_file_info"
+        ],
+        "fcbio2": [
+          "getextended",
+          "getextent"
+        ],
+        "msctrlc": [
+          "harderr"
+        ],
+        "misc2": [
+          "issftnet"
+        ],
+        "msdisp": [
+          "restore_user_world",
+          "save_user_world"
+        ],
+        "macro2": [
+          "transfcb"
+        ],
+        "fcb": [
+          "ucase"
+        ]
+      }
+    },
+    "fcbio2": {
+      "sha256": "c8924312396ebcc3dfcf361642b4937a04cbc4eba194288d65fdd156881844e5",
+      "source_sha256": "2faabcea11b9476c1e6108db7eef581c9e1c46793313b2c358343dca31912293",
+      "fixup_edges": {
+        "fcbio": [
+          "blastsft",
+          "checkfcb",
+          "fcbharderr",
+          "lrufcb",
+          "savefcbinfo",
+          "sftfromfcb"
+        ],
+        "lock": [
+          "checkshare"
+        ],
+        "time": [
+          "date16"
+        ],
+        "msdata": [
+          "disk_full",
+          "dmaadd",
+          "fcblru",
+          "localsft",
+          "openbuf",
+          "sftfcb",
+          "thissft"
+        ],
+        "create": [
+          "dos_create"
+        ],
+        "open": [
+          "dos_open"
+        ],
+        "disk": [
+          "dos_read",
+          "dos_write"
+        ],
+        "mscode": [
+          "fcb_ret_err"
+        ],
+        "msdisp": [
+          "get_user_stack"
+        ],
+        "macro": [
+          "getthisdrv"
+        ],
+        "misc2": [
+          "issftnet"
+        ],
+        "share": [
+          "shareend"
+        ],
+        "macro2": [
+          "transfcb"
+        ]
+      }
+    },
+    "file": {
+      "sha256": "58121dc242c884c95fb64d9d6d642c91768cfc224c77f8923d4e65380a490124",
+      "source_sha256": "28f25db8a2d344b22f3e6cf9618b5f85458c16b497978a2862283dbe721c7c77",
+      "fixup_edges": {
+        "handle": [
+          "$close"
+        ],
+        "msdata": [
+          "cmeta",
+          "exterr",
+          "exterr_locus",
+          "extopen_flag",
+          "extopen_io_mode",
+          "extopen_on",
+          "fsharing",
+          "jfn",
+          "jshare",
+          "openbuf",
+          "pjfn",
+          "ren_wfp",
+          "renbuf",
+          "sattrib",
+          "save_bx",
+          "save_cx",
+          "save_di",
+          "save_ds",
+          "save_dx",
+          "save_es",
+          "save_si",
+          "sfn",
+          "thiscds",
+          "thissft",
+          "wfp_start"
+        ],
+        "create": [
+          "dos_create",
+          "dos_create_new",
+          "set_ext_mode"
+        ],
+        "delete": [
+          "dos_delete"
+        ],
+        "open": [
+          "dos_open"
+        ],
+        "rename": [
+          "dos_rename"
+        ],
+        "crit": [
+          "ecritsft",
+          "lcritsft"
+        ],
+        "mscode": [
+          "from_getset",
+          "sys_ret_err",
+          "sys_ret_ok"
+        ],
+        "finfo": [
+          "get_file_info",
+          "set_file_attribute"
+        ],
+        "msdisp": [
+          "get_user_stack"
+        ],
+        "macro": [
+          "getcdsfromdrv"
+        ],
+        "util": [
+          "jfnfree",
+          "sfnfree"
+        ],
+        "fcb": [
+          "pathchrcmp"
+        ],
+        "time": [
+          "readtime"
+        ],
+        "misc2": [
+          "strcmp"
+        ],
+        "macro2": [
+          "transpath",
+          "transpathset"
+        ]
+      }
+    },
+    "finfo": {
+      "sha256": "499d212d84da013dd86be771e36bc5b072659150754cdf108e1aef28438d60d3",
+      "source_sha256": "58ba5d206fe7c20eea409db6ac39ebcf2e59db19b5fc691f942b3ca90ec02c39",
+      "fixup_edges": {
+        "msdata": [
+          "curbuf",
+          "exterr_action",
+          "exterr_class",
+          "exterr_locus",
+          "fastopenflg",
+          "nosetdir",
+          "thisdrv"
+        ],
+        "crit": [
+          "ecritdisk",
+          "lcritdisk"
+        ],
+        "delete": [
+          "fastopen_update",
+          "ren_del_check"
+        ],
+        "buf": [
+          "flushbuf",
+          "inc_dirty_count"
+        ],
+        "dir2": [
+          "getpath"
+        ],
+        "misc2": [
+          "testnet"
+        ]
+      }
+    },
+    "getset": {
+      "sha256": "e353a52372ed6fa90b32ae2895e45527391397ccfcb012f2bd3413e80610a64e",
+      "source_sha256": "b26b12fcd432ca80055e4aec8f222942ab05625b7b9621f232ae8f20464783d7",
+      "fixup_edges": {
+        "msdata": [
+          "a20off_count",
+          "cdscount",
+          "country_cdpg",
+          "curdrv",
+          "currentpdb",
+          "dbcs_tab",
+          "dmaadd",
+          "dos_flag",
+          "dosdseg",
+          "exterr",
+          "exterr_action",
+          "exterr_class",
+          "exterr_locus",
+          "exterrpt",
+          "file_ucase_tab",
+          "ucase_tab",
+          "usernum",
+          "verflg"
+        ],
+        "dinfo": [
+          "disk_info"
+        ],
+        "mscode": [
+          "fcb_ret_err",
+          "from_getset",
+          "sys_ret_err",
+          "sys_ret_ok"
+        ],
+        "msdisp": [
+          "get_user_stack"
+        ],
+        "fcb": [
+          "getlet3"
+        ],
+        "macro": [
+          "getthisdrv",
+          "getvisdrv"
+        ],
+        "msdosme": [
+          "nls_no",
+          "nls_no2",
+          "nls_yes",
+          "nls_yes2"
+        ]
+      }
+    },
+    "handle": {
+      "sha256": "e92d48b2e74f42d86aa1290026370eb17072c61da27a11e0d3d8927ef89c01a2",
+      "source_sha256": "f42fa91329b674864a5421b40be415b348a18f0793221b9c07d526b12924e90f",
+      "fixup_edges": {
+        "alloc": [
+          "$alloc",
+          "$dealloc"
+        ],
+        "msdata": [
+          "currentpdb",
+          "dmaadd",
+          "exterr_locus",
+          "extopen_on",
+          "iswin386",
+          "jshare",
+          "thissft",
+          "user_id"
+        ],
+        "close": [
+          "dos_close",
+          "dos_commit"
+        ],
+        "dup": [
+          "dos_dup_direct"
+        ],
+        "disk": [
+          "dos_read",
+          "dos_write"
+        ],
+        "crit": [
+          "ecritsft",
+          "lcritsft"
+        ],
+        "msdisp": [
+          "get_user_stack"
+        ],
+        "util": [
+          "jfnfree",
+          "pjfnfromhandle",
+          "sffromhandle"
+        ],
+        "mscode": [
+          "sys_ret_err",
+          "sys_ret_ok"
+        ]
+      }
+    },
+    "ioctl": {
+      "sha256": "e5605ae485d26eb90aceceb0b1d8942191a5fd08ce23d630fc5b4d4d5bb33c3f",
+      "source_sha256": "5d2e75742cba4d8f45f5c05ff731b1ee32de092cd01b8aa01442b6ab10d8e5b8",
+      "fixup_edges": {
+        "dev": [
+          "deviocall2",
+          "iofunc"
+        ],
+        "msdata": [
+          "exterr",
+          "exterr_locus",
+          "iocall",
+          "iomed",
+          "ioscnt",
+          "ioxad",
+          "openbuf",
+          "retrycount",
+          "retryloop",
+          "thiscds"
+        ],
+        "disk": [
+          "get_io_sft"
+        ],
+        "msdisp": [
+          "get_user_stack"
+        ],
+        "macro": [
+          "getthisdrv"
+        ],
+        "msctrlc": [
+          "set_i24_extended_error"
+        ],
+        "util": [
+          "sffromhandle"
+        ],
+        "mscode": [
+          "sys_ret_err",
+          "sys_ret_ok"
+        ]
+      }
+    },
+    "isearch": {
+      "sha256": "90c54fa6450195074c2b761f2148982a16e75cfeecd4d0bec910f02b7d72af26",
+      "source_sha256": "ec0bb3be4beec3c99e8931d737222a09f1c5f728009ea4efd27a09d2936cc039",
+      "fixup_edges": {
+        "msdata": [
+          "attrib",
+          "creating",
+          "curbuf",
+          "dirstart",
+          "dmaadd",
+          "dos34_flag",
+          "dummycds",
+          "exterr_locus",
+          "fastopenflg",
+          "found_dev",
+          "lastent",
+          "name1",
+          "nosetdir",
+          "thiscds",
+          "thisdpb",
+          "thisdrv",
+          "wfp_start"
+        ],
+        "crit": [
+          "ecritdisk",
+          "lcritdisk"
+        ],
+        "dir": [
+          "getent",
+          "nextent",
+          "setdirsrch"
+        ],
+        "dir2": [
+          "getpath",
+          "startsrch"
+        ],
+        "mscode": [
+          "gotdpb"
+        ],
+        "macro": [
+          "initcds"
+        ]
+      }
+    },
+    "lock": {
+      "sha256": "6c0d400b962e453ff17a78a531f5222378c157c245fb89883bd4cc10c01ec5fd",
+      "source_sha256": "99dc1dbc2c37e6b2461d1c7921da39d54e81736e3424d2c95c5912a6351f0891",
+      "fixup_edges": {
+        "msdata": [
+          "allowed",
+          "dosdseg",
+          "exterr_locus",
+          "fshare",
+          "jshare",
+          "lock_buffer",
+          "retrycount",
+          "temp_var",
+          "thisdpb"
+        ],
+        "msctrlc": [
+          "harderr"
+        ],
+        "misc2": [
+          "idle"
+        ],
+        "util": [
+          "sffromhandle"
+        ],
+        "mscode": [
+          "sys_ret_err",
+          "sys_ret_ok"
+        ]
+      }
+    },
+    "macro": {
+      "sha256": "2f03d7144c937d893c1b9c526f46b32002ad42cf6758753fe5176a5e52990e2a",
+      "source_sha256": "86b39aee4b10eb6bec74ad5427047c348fb8270a3d6a3dc5818d6c8222a8a788",
+      "fixup_edges": {
+        "msdata": [
+          "cdsaddr",
+          "cdscount",
+          "curdrv",
+          "diffnam",
+          "dpbhead",
+          "drverr",
+          "dummycds",
+          "exterr_locus",
+          "fsharing",
+          "myname",
+          "mynum",
+          "numio",
+          "thiscds"
+        ],
+        "msdisp": [
+          "get_user_stack"
+        ],
+        "mscode": [
+          "sys_ret_err",
+          "sys_ret_ok"
+        ]
+      }
+    },
+    "macro2": {
+      "sha256": "180884dabb106ade2a60e559f8b4ef1dd2713961e2cfd9624ce775d82d76f6cf",
+      "source_sha256": "599c74d3c01f65985e9ffa75fe6bf3eea8a5b36bdf8ef6808634f17deaab77d2",
+      "fixup_edges": {
+        "dir2": [
+          "checkthisdevice",
+          "validatecds"
+        ],
+        "msdata": [
+          "cmeta",
+          "curr_dir_end",
+          "extfcb",
+          "fsharing",
+          "fsplice",
+          "name1",
+          "nosetdir",
+          "openbuf",
+          "sattrib",
+          "splices",
+          "thiscds",
+          "thisdpb",
+          "wfp_start"
+        ],
+        "misc2": [
+          "dstrlen",
+          "fstrcpy",
+          "strcpy",
+          "strlen"
+        ],
+        "crit": [
+          "ecritdisk",
+          "lcritdisk"
+        ],
+        "fat": [
+          "fatread_cds"
+        ],
+        "macro": [
+          "getcdsfromdrv",
+          "getthisdrv",
+          "getvisdrv"
+        ],
+        "fcb": [
+          "getchartype",
+          "nametrans",
+          "pathchrcmp",
+          "ucase"
+        ],
+        "fcbio2": [
+          "getextended"
+        ],
+        "search": [
+          "packname"
+        ],
+        "file": [
+          "setattrib"
+        ],
+        "mscode": [
+          "sys_ret_err",
+          "sys_ret_ok"
+        ]
+      }
+    },
+    "misc": {
+      "sha256": "125f94b459322e2143c02206ec17d81eaedc78e876ad6fd2cad85f471f4f5127",
+      "source_sha256": "43d8d906b97b40370705b3ae1ca004a545bb622cd9a36f3855d762d793e0758f",
+      "fixup_edges": {
+        "ioctl": [
+          "$ioctl"
+        ],
+        "msdata": [
+          "createpdb",
+          "currentpdb",
+          "dos34_flag",
+          "dosdseg",
+          "fatbyte",
+          "indos",
+          "lastbuffer",
+          "sc_status",
+          "sysinitvar",
+          "thiscds",
+          "thissft"
+        ],
+        "dinfo": [
+          "disk_info"
+        ],
+        "dup": [
+          "dos_dup"
+        ],
+        "crit": [
+          "ecritdisk",
+          "lcritdisk"
+        ],
+        "fat": [
+          "fatread_cds"
+        ],
+        "mscode": [
+          "fcb_ret_err",
+          "sys_ret_err"
+        ],
+        "buf": [
+          "flushbuf"
+        ],
+        "msdisp": [
+          "get_user_stack"
+        ],
+        "macro": [
+          "getthisdrv"
+        ],
+        "util": [
+          "pjfnfromhandle",
+          "sffromhandle"
+        ]
+      }
+    },
+    "misc2": {
+      "sha256": "cf1c7922c612ff6f7f779336527c4727fecdad3728e7b07690a95971eea4d4aa",
+      "source_sha256": "0b41797df70242773aee7d72b6cd4a25c415ca6c5b9cc23d9b20082044e3ba7d",
+      "fixup_edges": {
+        "ioctl": [
+          "$ioctl"
+        ],
+        "handle": [
+          "$lseek"
+        ],
+        "file": [
+          "$open"
+        ],
+        "msdata": [
+          "dosdseg",
+          "exterr",
+          "fastflg",
+          "fasttable",
+          "fsharing",
+          "retryloop",
+          "sysinittable",
+          "thiscds",
+          "user_sp",
+          "user_sp_2f",
+          "user_ss"
+        ],
+        "fcb": [
+          "pathchrcmp",
+          "ucase"
+        ]
+      }
+    },
+    "mknode": {
+      "sha256": "ed22297721c512b04a4762cccf7f22441621989609832a0e4e000b98bb5312fe",
+      "source_sha256": "e3c479c9179857e03b6c360931201a1db68af23234dd92408e84c11a50854158",
+      "fixup_edges": {
+        "rom": [
+          "allocate",
+          "figrec",
+          "geteof",
+          "release"
+        ],
+        "msdata": [
+          "allowed",
+          "attrib",
+          "clusnum",
+          "creating",
+          "curbuf",
+          "dirstart",
+          "entfree",
+          "extopen_flag",
+          "extopen_on",
+          "failerr",
+          "fastopen_ext_info",
+          "fastopenflg",
+          "high_sector",
+          "lastent",
+          "name1",
+          "nosetdir",
+          "sattrib",
+          "thisdpb",
+          "thissft",
+          "virtual_open",
+          "volid"
+        ],
+        "time": [
+          "date16"
+        ],
+        "dev": [
+          "dev_close_sft",
+          "dev_open_sft"
+        ],
+        "crit": [
+          "ecritsft",
+          "lcritsft"
+        ],
+        "delete": [
+          "fastopen_update"
+        ],
+        "buf": [
+          "flushbuf",
+          "getbuffr",
+          "inc_dirty_count"
+        ],
+        "dir": [
+          "getent",
+          "setdirsrch"
+        ],
+        "dir2": [
+          "getpathnoset",
+          "matchattributes"
+        ],
+        "fat": [
+          "iseof"
+        ],
+        "disk": [
+          "set_buf_as_dir"
+        ],
+        "share": [
+          "shareend",
+          "shareenter"
+        ]
+      }
+    },
+    "mscode": {
+      "sha256": "aa6d030aa904f59d213190c93931e273bd2ac1caee0c082b2f20c4193e6e9de0",
+      "source_sha256": "dc4d766c2238e9d9045e9ea6917593c0d2d1c2bb7fb634b49df405d19a898ff3",
+      "fixup_edges": {
+        "msdata": [
+          "absdskerr",
+          "absrdwr_sp",
+          "absrdwr_ss",
+          "bios_i2f",
+          "bootdrive",
+          "currentpdb",
+          "cursc_drive",
+          "dos_flag",
+          "dosdseg",
+          "dskstack",
+          "err_table_21",
+          "exterr",
+          "exterr_action",
+          "exterr_class",
+          "exterr_locus",
+          "failerr",
+          "fastopenflg",
+          "high_sector",
+          "indos",
+          "iswin386",
+          "oldinstancejunk",
+          "openbuf",
+          "redir_patch",
+          "temp_var",
+          "temp_var2",
+          "tempseg",
+          "thiscds",
+          "thisdpb",
+          "umb_head",
+          "umbsave1",
+          "umbsave2",
+          "umbsaveflag",
+          "user_in_ax",
+          "vxdpath",
+          "win386_dosvars",
+          "win386_info",
+          "winoldpatch1",
+          "winoldpatch2"
+        ],
+        "disk2": [
+          "dskrdbufscan",
+          "dskread",
+          "dskwrite"
+        ],
+        "disk3": [
+          "dskwrtbufpurge"
+        ],
+        "mstable": [
+          "dtab",
+          "foo",
+          "i21_map_e_tab"
+        ],
+        "crit": [
+          "ecritdisk",
+          "lcritdisk"
+        ],
+        "delete": [
+          "fast_dispatch"
+        ],
+        "msdisp": [
+          "get_user_stack",
+          "restore_user_world",
+          "save_user_world"
+        ],
+        "macro": [
+          "getthisdrv"
+        ],
+        "msdosme": [
+          "novxderrmsg",
+          "vxdmeslen"
+        ],
+        "buf": [
+          "set_rq_sc_parms"
+        ],
+        "misc2": [
+          "tabledispatch"
+        ]
+      }
+    },
+    "msctrlc": {
+      "sha256": "d31848e4a45fa4ea623ce64bb56e0c5fee07fe4da927dbae5cd08c6793743235",
+      "source_sha256": "251d8ede15d74e063a9f5a065366b9db06b3c6890f2a0d7a8ee553489d403143",
+      "fixup_edges": {
+        "getset": [
+          "$get_interrupt_vector"
+        ],
+        "msdata": [
+          "allowed",
+          "auxstack",
+          "bcon",
+          "conc_spsave",
+          "conswap",
+          "contstk",
+          "currentpdb",
+          "deviobuf",
+          "didctrlc",
+          "dos34_flag",
+          "dosdseg",
+          "doshashma",
+          "dskchret",
+          "dskstcall",
+          "dskstcnt",
+          "dskstcom",
+          "dskstst",
+          "err_table_24",
+          "errmap24",
+          "errmap24end",
+          "errormode",
+          "exit_type",
+          "exithold",
+          "exterr",
+          "extopen_on",
+          "faborting",
+          "failerr",
+          "idleint",
+          "indos",
+          "lowint23",
+          "lowint24",
+          "lowint28",
+          "pflag",
+          "pjfn",
+          "readop",
+          "scan_flag",
+          "sfn",
+          "tempseg",
+          "user_in_ax",
+          "user_sp",
+          "user_ss",
+          "wperr"
+        ],
+        "alloc": [
+          "arena_free_process"
+        ],
+        "cpmio2": [
+          "bufout"
+        ],
+        "mscode": [
+          "cal_lk"
+        ],
+        "mknode": [
+          "check_virt_open"
+        ],
+        "msdisp": [
+          "command",
+          "restore_user_world"
+        ],
+        "cpmio": [
+          "crlf"
+        ],
+        "dev": [
+          "dev_close_sft",
+          "dev_open_sft",
+          "deviocall2",
+          "iofunc"
+        ],
+        "msdosme": [
+          "divmes",
+          "divmeslen"
+        ],
+        "abort": [
+          "dos_abort"
+        ],
+        "crit": [
+          "ecritdisk",
+          "lcritdisk"
+        ],
+        "msproc": [
+          "exit_inner"
+        ],
+        "buf": [
+          "flushbuf"
+        ],
+        "disk": [
+          "get_io_sft",
+          "swapback"
+        ]
+      }
+    },
+    "msdata": {
+      "sha256": "d65357485c301ed08271fbb22880b41983a7ce4a38ade5fd9d55a0b8ad973721",
+      "source_sha256": "8cfd6b65393186faa1f6ac8015bea073b6594c98c706a004a696cc413d590da7",
+      "fixup_edges": {
+        "mscode": [
+          "absdrd",
+          "absdwrt",
+          "badcall",
+          "int2f",
+          "okcall"
+        ],
+        "msdisp": [
+          "call_entry",
+          "command",
+          "irett",
+          "leavedos",
+          "quit"
+        ],
+        "msctrlc": [
+          "divov"
+        ],
+        "msinit": [
+          "dosinit"
+        ],
+        "misc2": [
+          "fastret"
+        ],
+        "msproc": [
+          "stay_resident"
+        ]
+      }
+    },
+    "msdisp": {
+      "sha256": "942d27a502bac17fceec4eb119811fa425ee6d1fd185277b0823b4e171056bb5",
+      "source_sha256": "441cfe675ac62e37a2967631e0b6a0a63b5cf979af8c48e3d671ce7d9bfd215d",
+      "fixup_edges": {
+        "msdata": [
+          "a20off_count",
+          "a20off_psp",
+          "auxstack",
+          "bootdrive",
+          "cntcflag",
+          "conswap",
+          "currentpdb",
+          "disa20_iret",
+          "dos34_flag",
+          "dos_flag",
+          "dosdseg",
+          "doshashma",
+          "dskstack",
+          "errormode",
+          "exterr_locus",
+          "extopen_on",
+          "failerr",
+          "fsharing",
+          "idleint",
+          "indos",
+          "iostack",
+          "iswin386",
+          "nosetdir",
+          "nsp",
+          "nss",
+          "printer_flag",
+          "proc_id",
+          "restore_tmp",
+          "savebx",
+          "saveds",
+          "user_id",
+          "user_in_ax",
+          "user_sp",
+          "user_ss",
+          "wperr"
+        ],
+        "mstable": [
+          "dispatch",
+          "maxcall",
+          "maxcom"
+        ],
+        "msctrlc": [
+          "dskstatchk"
+        ]
+      }
+    },
+    "msdosme": {
+      "sha256": "96c04a44b86e902547e992d72ed0bdd5ad814deb8a06c01e86fd62e6fe9ecd4b",
+      "source_sha256": "9a1c7e0320fb80626151eab55fc628aa377768490bb1e415b65dbaae3393f099",
+      "fixup_edges": {
+        "cpmio": [
+          "$std_con_input_no_echo",
+          "backsp",
+          "copylin",
+          "copyone",
+          "copystr",
+          "ctrlz",
+          "enterins",
+          "exitins",
+          "getch",
+          "kilnew",
+          "reedit",
+          "skipone",
+          "skipstr",
+          "twoesc"
+        ]
+      }
+    },
+    "msinit": {
+      "sha256": "720e8000813abfb349ead4c7b197100172cae9f53a9d74ef57096be4e4dbb605",
+      "source_sha256": "67a662e3c6c186fd2fe0604624557077dcd7f8be65f85e3be01f26f250a0c2a0",
+      "fixup_edges": {
+        "misc": [
+          "$setdpb",
+          "setmem"
+        ],
+        "msdata": [
+          "$startcode",
+          "arena_head",
+          "bclock",
+          "bcon",
+          "biosdataptr",
+          "buffhead",
+          "callbpb",
+          "callunit",
+          "chkcopyprot",
+          "country_cdpg",
+          "cpmpatch",
+          "currentpdb",
+          "devcall",
+          "dmaadd",
+          "dosdatasg",
+          "dosdseg",
+          "doshashma",
+          "dosinttable",
+          "dpbhead",
+          "dskchret",
+          "dskstack",
+          "endmem",
+          "fastopentable",
+          "fixexepatch",
+          "hashinitvar",
+          "i0patch",
+          "i20patch",
+          "i21patch",
+          "i25patch",
+          "i26patch",
+          "i27patch",
+          "i2fpatch",
+          "instance_table",
+          "jshare",
+          "labsdrd",
+          "labsdwrt",
+          "lcall_entry",
+          "lcommand",
+          "ldivov",
+          "lint2f",
+          "lirett",
+          "lquit",
+          "lstay_resident",
+          "maxsec",
+          "msdat001e",
+          "nuldev",
+          "numio",
+          "oldinstancejunk",
+          "rational386patchptr",
+          "rationalpatchptr",
+          "sft_addr",
+          "sftabl",
+          "sysinittable",
+          "temp_dosloc",
+          "user_sp",
+          "user_ss",
+          "win386_info",
+          "xmmcontrol"
+        ],
+        "mscode": [
+          "absdrd",
+          "absdwrt",
+          "int2f"
+        ],
+        "msdisp": [
+          "call_entry",
+          "command",
+          "irett",
+          "quit"
+        ],
+        "dev": [
+          "deviocall2"
+        ],
+        "msctrlc": [
+          "divov",
+          "lowint23addr",
+          "lowint24addr",
+          "lowint28addr"
+        ],
+        "exepatch": [
+          "exepatch",
+          "exepatch_start",
+          "iscopyprot",
+          "rational386patch",
+          "rationalpatch"
+        ],
+        "msproc": [
+          "retexepatch",
+          "stay_resident"
+        ]
+      }
+    },
+    "msproc": {
+      "sha256": "86b87c447045b4e7683525763ae084f19cb33aa8753bb7cde7f19dfbcb031a98",
+      "source_sha256": "4aa312105af8582066ac6fe55f47755f6192ac7f9f21a9f2658ab68050a65a98",
+      "fixup_edges": {
+        "alloc": [
+          "$alloc",
+          "$setblock"
+        ],
+        "handle": [
+          "$close",
+          "$lseek",
+          "$read"
+        ],
+        "misc": [
+          "$dup_pdb"
+        ],
+        "ioctl": [
+          "$ioctl"
+        ],
+        "file": [
+          "$open"
+        ],
+        "msdata": [
+          "a20off_count",
+          "a20off_psp",
+          "allocmethod",
+          "allocmsave",
+          "biosdataptr",
+          "chkcopyprot",
+          "currentpdb",
+          "didctrlc",
+          "disa20_xfer",
+          "dmaadd",
+          "dos_flag",
+          "dosdseg",
+          "doshashma",
+          "driverload",
+          "exec_header_len",
+          "exec_init_cs",
+          "exec_init_ip",
+          "exec_init_sp",
+          "exec_init_ss",
+          "exec_ip",
+          "exec_max_bss",
+          "exec_min_bss",
+          "exec_pages",
+          "exec_par_dir",
+          "exec_rle_count",
+          "exec_rle_table",
+          "exec_signature",
+          "exec_sp",
+          "exec_ss",
+          "exit_code",
+          "exit_type",
+          "exterr_locus",
+          "fixexepatch",
+          "indos",
+          "openbuf",
+          "rational386patchptr",
+          "save_ax",
+          "special_version",
+          "temp_var2",
+          "uu_ifs_dos_call"
+        ],
+        "msdisp": [
+          "command",
+          "get_user_stack",
+          "leavedos"
+        ],
+        "misc2": [
+          "dstrlen"
+        ],
+        "crit": [
+          "ecritmem",
+          "lcritmem"
+        ],
+        "exepatch": [
+          "execready"
+        ],
+        "macro": [
+          "getvisdrv"
+        ],
+        "msctrlc": [
+          "reset_environment"
+        ],
+        "mscode": [
+          "sys_ret_err",
+          "sys_ret_ok"
+        ],
+        "fcb": [
+          "ucase"
+        ]
+      }
+    },
+    "mstable": {
+      "sha256": "30517d028f39d9fac89fed08287f79db0ac7bbced4849772b12857356a78961a",
+      "source_sha256": "a21d8332e3ae890095231455fe281a02e7d3330b4d7f3422164bdd382b5b6949",
+      "fixup_edges": {
+        "msproc": [
+          "$abort",
+          "$exec",
+          "$exit",
+          "$keep_process",
+          "$wait"
+        ],
+        "alloc": [
+          "$alloc",
+          "$allocoper",
+          "$dealloc",
+          "$setblock"
+        ],
+        "macro": [
+          "$assignoper",
+          "$useroper",
+          "getcdsfromdrv",
+          "getthisdrv",
+          "initcds"
+        ],
+        "getset": [
+          "$char_oper",
+          "$ecs_call",
+          "$get_default_drive",
+          "$get_dma",
+          "$get_drive_freespace",
+          "$get_interrupt_vector",
+          "$get_verify_on_write",
+          "$get_version",
+          "$getextcntry",
+          "$getextendederror",
+          "$getsetcdpg",
+          "$international",
+          "$set_default_drive",
+          "$set_dma",
+          "$set_interrupt_vector",
+          "$set_verify_on_write",
+          "recset"
+        ],
+        "path": [
+          "$chdir",
+          "$current_dir",
+          "$mkdir",
+          "$rmdir"
+        ],
+        "file": [
+          "$chmod",
+          "$creat",
+          "$createnewfile",
+          "$createtempfile",
+          "$extended_open",
+          "$open",
+          "$rename",
+          "$unlink"
+        ],
+        "handle": [
+          "$close",
+          "$commit",
+          "$dup",
+          "$dup2",
+          "$exthandle",
+          "$file_times",
+          "$lseek",
+          "$read",
+          "$write"
+        ],
+        "misc": [
+          "$create_process_data_block",
+          "$disk_reset",
+          "$dup_pdb",
+          "$get_default_dpb",
+          "$get_dpb",
+          "$get_in_vars",
+          "$get_indos_flag",
+          "$gsetmediaid",
+          "$setdpb",
+          "$sleazefunc",
+          "$sleazefuncdl"
+        ],
+        "search": [
+          "$dir_search_first",
+          "$dir_search_next",
+          "$find_first",
+          "$find_next"
+        ],
+        "fcbio": [
+          "$fcb_close",
+          "$fcb_delete",
+          "$fcb_rename",
+          "$get_fcb_file_length",
+          "$get_fcb_position"
+        ],
+        "fcbio2": [
+          "$fcb_create",
+          "$fcb_open",
+          "$fcb_random_read",
+          "$fcb_random_read_block",
+          "$fcb_random_write",
+          "$fcb_random_write_block",
+          "$fcb_seq_read",
+          "$fcb_seq_write"
+        ],
+        "msdisp": [
+          "$get_current_pdb",
+          "$set_ctrl_c_trapping",
+          "$set_current_pdb",
+          "$set_printer_flag",
+          "get_user_stack"
+        ],
+        "time": [
+          "$get_date",
+          "$get_time",
+          "$set_date",
+          "$set_time",
+          "date16",
+          "dslide",
+          "dsum",
+          "setyear"
+        ],
+        "ioctl": [
+          "$ioctl"
+        ],
+        "lock": [
+          "$lockoper"
+        ],
+        "macro2": [
+          "$nametrans",
+          "drivefromtext"
+        ],
+        "parse": [
+          "$parse_file_descriptor"
+        ],
+        "cpmio": [
+          "$raw_con_input",
+          "$raw_con_io",
+          "$std_con_input_no_echo",
+          "$std_con_string_input",
+          "$std_con_string_output"
+        ],
+        "srvcall": [
+          "$servercall"
+        ],
+        "cpmio2": [
+          "$std_aux_input",
+          "$std_aux_output",
+          "$std_con_input",
+          "$std_con_input_flush",
+          "$std_con_input_status",
+          "$std_con_output",
+          "$std_printer_output",
+          "outt"
+        ],
+        "buf": [
+          "bufwrite",
+          "checkflush",
+          "placebuf",
+          "pointcomp",
+          "scanplace"
+        ],
+        "mscode": [
+          "cal_lk",
+          "dosgetgroup",
+          "dosinstall",
+          "leave2f",
+          "no_op"
+        ],
+        "dir2": [
+          "devname"
+        ],
+        "close": [
+          "dos_close",
+          "free_sft"
+        ],
+        "misc2": [
+          "dstrlen",
+          "fastinit",
+          "getdevlist",
+          "idle",
+          "msg_retrieval",
+          "nls_getext",
+          "nls_ioctl",
+          "nls_lseek",
+          "nls_open",
+          "strcmp",
+          "strcpy",
+          "strlen"
+        ],
+        "msctrlc": [
+          "net_i24_entry"
+        ],
+        "fcb": [
+          "pathchrcmp",
+          "ucase"
+        ],
+        "util": [
+          "pjfnfromhandle",
+          "sffromsfn"
+        ],
+        "open": [
+          "set_sft_mode",
+          "share_error"
+        ],
+        "share": [
+          "share_violation"
+        ]
+      }
+    },
+    "open": {
+      "sha256": "1b1fd9eea4332ea1f7dfcadafce4565730c6fab2ee417edf5ecaecd93738fcd6",
+      "source_sha256": "ec819887cd3e79ee1e4cc9b010fc8c4f0918699f277477a95196134e0d6cdc94",
+      "fixup_edges": {
+        "msdata": [
+          "curbuf",
+          "currentpdb",
+          "dos34_flag",
+          "dos_flag",
+          "extopen_on",
+          "fastopenflg",
+          "fsharing",
+          "jshare",
+          "nosetdir",
+          "open_access",
+          "retrycount",
+          "save_bx",
+          "thiscds",
+          "thissft"
+        ],
+        "dev": [
+          "dev_open_sft"
+        ],
+        "mknode": [
+          "doopen"
+        ],
+        "crit": [
+          "ecritdisk",
+          "lcritdisk"
+        ],
+        "dir2": [
+          "getpath"
+        ],
+        "misc2": [
+          "idle"
+        ],
+        "share": [
+          "share_check",
+          "share_violation"
+        ]
+      }
+    },
+    "origin": {
+      "sha256": "63569243dc8c9c6a1768fc1a33e8a6919755b89a39ed81821c48b99eccbfa2b8",
+      "source_sha256": "9e02ec81b78bd3249c55cb46fa7aa3693e64bdd4ef57bc2ef7566f754d4b03b6",
+      "fixup_edges": {}
+    },
+    "parse": {
+      "sha256": "30da54fce071d12f2342525099942c0e4b6a1fd9ce5aacef6616225b34d11002",
+      "source_sha256": "0d8ff2285e63f56c2f5c0064199a9b54cafed39d1a064ed2d0739c5b2efabba1",
+      "fixup_edges": {
+        "msdisp": [
+          "get_user_stack"
+        ],
+        "fcb": [
+          "makefcb"
+        ]
+      }
+    },
+    "path": {
+      "sha256": "176ee72d1ad15f6fe2407c3250cbca138f576a81357306093164ddfcc12078bc",
+      "source_sha256": "f93d8c15498c8751c0de278267f8d80bf328559f34bb70494a1a303ef3cef5f2",
+      "fixup_edges": {
+        "msdata": [
+          "cmeta",
+          "dosdseg",
+          "drverr",
+          "nosetdir",
+          "openbuf",
+          "thiscds",
+          "wfp_start"
+        ],
+        "dircall": [
+          "dos_chdir",
+          "dos_mkdir",
+          "dos_rmdir"
+        ],
+        "misc2": [
+          "dstrlen",
+          "fstrcpy",
+          "strcmp"
+        ],
+        "crit": [
+          "ecritdisk",
+          "lcritdisk"
+        ],
+        "msdisp": [
+          "get_user_stack"
+        ],
+        "macro": [
+          "getcdsfromdrv",
+          "getvisdrv"
+        ],
+        "mscode": [
+          "sys_ret_err",
+          "sys_ret_ok"
+        ],
+        "macro2": [
+          "transpath",
+          "transpathnoset"
+        ],
+        "dir2": [
+          "validatecds"
+        ]
+      }
+    },
+    "rename": {
+      "sha256": "3df124f97e4b37840766a3e216340eabe4847dab3d186604cc2d4916e7a84b62",
+      "source_sha256": "e6b1bc6274952b29234230fb72dff9e2cb601558d75af5a298079df93b101dbd",
+      "fixup_edges": {
+        "msdata": [
+          "attrib",
+          "auxstack",
+          "creating",
+          "curbuf",
+          "curr_dir_end",
+          "deststart",
+          "dirstart",
+          "dmaadd",
+          "exterr_locus",
+          "failerr",
+          "found_dev",
+          "name1",
+          "name2",
+          "ren_wfp",
+          "renamedma",
+          "thisdpb",
+          "thisdrv",
+          "thissft",
+          "wfp_start"
+        ],
+        "path": [
+          "check_pathlen2"
+        ],
+        "dir2": [
+          "devname",
+          "getpathnoset",
+          "startsrch"
+        ],
+        "isearch": [
+          "dos_search_first",
+          "rename_next"
+        ],
+        "crit": [
+          "ecritdisk",
+          "lcritdisk"
+        ],
+        "delete": [
+          "fastopen_delete",
+          "fastopen_rename",
+          "ren_del_check"
+        ],
+        "dir": [
+          "findentry",
+          "getent",
+          "setdirsrch"
+        ],
+        "buf": [
+          "flushbuf",
+          "inc_dirty_count"
+        ],
+        "mknode": [
+          "rename_make"
+        ],
+        "share": [
+          "shareend"
+        ],
+        "misc2": [
+          "testnet"
+        ]
+      }
+    },
+    "rom": {
+      "sha256": "252fe41a9a4aea5a4a56ecf34363aa5761922d762785f3089112d5cc270cb618",
+      "source_sha256": "870a70fa594015cf46864fee33e861cfa5d4367631c832d16b509718c4cc294c",
+      "fixup_edges": {
+        "msdata": [
+          "allowed",
+          "bufferqueue",
+          "bytcnt1",
+          "bytsecpos",
+          "clusnum",
+          "curbuf",
+          "disk_full",
+          "dmaadd",
+          "fatbyt",
+          "high_sector",
+          "lastpos",
+          "nextadd",
+          "offsetmagicpatch",
+          "seccluspos",
+          "secpos",
+          "thissft",
+          "trans",
+          "valsec"
+        ],
+        "buf": [
+          "flushbuf",
+          "getbuffr",
+          "inc_dirty_count",
+          "placebuf"
+        ],
+        "fat": [
+          "iseof",
+          "pack",
+          "unpack"
+        ]
+      }
+    },
+    "romfind": {
+      "sha256": "df113fc005c7ca8625071bbba38afb7ec8a091195cc2452a0bd0eff5be8f5ace",
+      "source_sha256": "f334bb028ed5ab0ae924865ce21be8b98c43ea2ab59d8624ff5bb51b99d4fb51",
+      "fixup_edges": {}
+    },
+    "search": {
+      "sha256": "c3c8288358a1ff80b872dcbec89456cf63b6ccda6bc2af0edf85a57222b8c554",
+      "source_sha256": "13196cd660edcafb10477fab1a6d807649e7be86f6f4a9c6e436161f0e60d82c",
+      "fixup_edges": {
+        "msdata": [
+          "curdrv",
+          "dmaadd",
+          "dos34_flag",
+          "extfcb",
+          "openbuf",
+          "sattrib",
+          "searchbuf",
+          "thisfcb"
+        ],
+        "isearch": [
+          "dos_search_first",
+          "dos_search_next"
+        ],
+        "mscode": [
+          "fcb_ret_err",
+          "fcb_ret_ok",
+          "sys_ret_err",
+          "sys_ret_ok"
+        ],
+        "macro2": [
+          "transfcb",
+          "transpathset"
+        ]
+      }
+    },
+    "segcheck": {
+      "sha256": "6287bf2a481c4f96bd015519e49d7ccef252f58e4bd535837ab4de6d311aba37",
+      "source_sha256": "b5bbcf41397409b980277292477b75cca01212ba20909767273ffb9a34956da7",
+      "fixup_edges": {}
+    },
+    "share": {
+      "sha256": "16e36bf4758e222a18f83b656172e1165e74fb107175af51dc7ca52c31f8c08f",
+      "source_sha256": "0eb75b8acef5c5dd2bd86d0c7b26ae885ba72d18c2e5bc2d2b01476ef46f1aa7",
+      "fixup_edges": {
+        "msdata": [
+          "allowed",
+          "jshare",
+          "readop",
+          "retrycount",
+          "thisdpb",
+          "thissft"
+        ],
+        "msctrlc": [
+          "harderr"
+        ],
+        "misc2": [
+          "idle"
+        ]
+      }
+    },
+    "srvcall": {
+      "sha256": "5f469e72a1b53d1db7540c79d6b128a54b69c6d75140dd604b8ce15663d637ed",
+      "source_sha256": "2074931698e50d0f41e9584334b72fd622b49ed3c7595f2606acc584ed41a2f3",
+      "fixup_edges": {
+        "close": [
+          "dos_commit"
+        ],
+        "crit": [
+          "ecritsft",
+          "lcritsft"
+        ],
+        "msdata": [
+          "exterr",
+          "exterr_action",
+          "exterr_locus",
+          "exterrpt",
+          "fsharing",
+          "iswin386",
+          "jshare",
+          "proc_id",
+          "savebx",
+          "saveds",
+          "swap_always",
+          "swap_end",
+          "swap_start",
+          "thissft",
+          "user_id"
+        ],
+        "msdisp": [
+          "get_user_stack",
+          "redisp"
+        ],
+        "util": [
+          "sffromsfn"
+        ],
+        "mscode": [
+          "sys_ret_err",
+          "sys_ret_ok"
+        ],
+        "misc2": [
+          "tabledispatch",
+          "xchgp"
+        ]
+      }
+    },
+    "time": {
+      "sha256": "773bc435dfe4bddc86b0b6e4bfab1ffc6855e0568b6000e27766c98a62d10f5f",
+      "source_sha256": "7ea358d51ad44c3bc09e06c81cc468c9d9ff646abac04c619b377606f38cb336",
+      "fixup_edges": {
+        "msdata": [
+          "bclock",
+          "date_flag",
+          "day",
+          "daycnt",
+          "dosdseg",
+          "montab",
+          "month",
+          "timebuf",
+          "weekday",
+          "year",
+          "yrtab"
+        ],
+        "dev": [
+          "deviocall2",
+          "setread",
+          "setwrite"
+        ],
+        "msdisp": [
+          "get_user_stack"
+        ]
+      }
+    },
+    "util": {
+      "sha256": "df0b8657376236fc3825b81cdb4105da402d345182099de0561f7602a353b982",
+      "source_sha256": "664389bd28b8c9455b32c2021d6a04ee2400931326d355f9604eff5ced23ab1e",
+      "fixup_edges": {
+        "msdata": [
+          "currentpdb",
+          "dosdseg",
+          "proc_id",
+          "sft_addr",
+          "user_id"
+        ]
+      }
+    }
+  },
+  "sccs": [
+    [
+      "abort",
+      "alloc",
+      "buf",
+      "close",
+      "cpmio",
+      "cpmio2",
+      "create",
+      "crit",
+      "delete",
+      "dev",
+      "dinfo",
+      "dir",
+      "dir2",
+      "dircall",
+      "disk",
+      "disk2",
+      "disk3",
+      "dup",
+      "exepatch",
+      "fat",
+      "fcb",
+      "fcbio",
+      "fcbio2",
+      "file",
+      "finfo",
+      "getset",
+      "handle",
+      "ioctl",
+      "isearch",
+      "lock",
+      "macro",
+      "macro2",
+      "misc",
+      "misc2",
+      "mknode",
+      "mscode",
+      "msctrlc",
+      "msdata",
+      "msdisp",
+      "msdosme",
+      "msinit",
+      "msproc",
+      "mstable",
+      "open",
+      "parse",
+      "path",
+      "rename",
+      "rom",
+      "search",
+      "share",
+      "srvcall",
+      "time",
+      "util"
+    ],
+    [
+      "dosprint"
+    ],
+    [
+      "origin"
+    ],
+    [
+      "romfind"
+    ],
+    [
+      "segcheck"
+    ]
+  ],
+  "unresolved": {},
+  "reused_historical_generated_messages": {
+    "msdos.cl1": "12b8032cd71b9026b0aa7f3cddd98b896d5a84c091f9bb1597d4033262238153",
+    "msdos.cl2": "eb2759bc8c8db4a665b6383ec98b53afc98c67a41e9b8aab309109504909711b",
+    "msdos.cl3": "e6312a30fa572b0ada935d76c8c306856e6d4eeb561c2f67f9deead57d97f475",
+    "msdos.cl4": "6bb4f994e388db32d50000eec3064e09d6940f20fd408eb26605a03f05e625a9"
+  },
+  "limitations": [
+    "Probe-only assembly; no final target link or byte comparison.",
+    "Reused historical generated message files; does not prove final resource configuration.",
+    "Link fixup graph is configuration-specific and does not include include-order, build, or semantic dependencies.",
+    "A large strongly connected component does not by itself qualify its constituent source files."
+  ]
+}

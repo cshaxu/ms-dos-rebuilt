@@ -1,0 +1,16 @@
+{
+  "file": "lang/usa/messages/usa-ms-command.msg",
+  "source_sha256": "63635d82ffc4456f580a03bb8c5a6f7edfed9059500a793c757531737778e8bd",
+  "state": "waiting_dependencies",
+  "dependency": "cmd/command/tranmsg.asm",
+  "message_id": 1040,
+  "old_message": "MS-DOS Version %1.%2",
+  "target_sha256": "a74c700063cd6b1c91523952bfc80e9393c125d39ada0164d48b5098089fcef3",
+  "target_string_offset": 2041,
+  "target_length": 30,
+  "target_message": "Windows 95. [Version 4.00.950]",
+  "preceding_length_byte": 30,
+  "source_consumer": "cmd/command/tranmsg.asm:342",
+  "target_order_observation": "Target string immediately follows the unchanged deletion confirmation and precedes volume-label messages.",
+  "limitations": "Message identity is inferred from content and neighboring order; exact target message index, caller substitution protocol, and full COMMAND.COM equality remain unverified."
+}

@@ -1,0 +1,22 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_bios_code_word_offset": 11086,
+  "target_dskdrvs_sysinit_offset": 3758,
+  "target_initial_value_hex": "0000",
+  "instruction_anchors": {
+    "dsk_init": {
+      "target_file_offset": 10937,
+      "hex": "2e8e064e2bbfae0e"
+    },
+    "sysinit_writer": {
+      "target_file_offset": 24303,
+      "hex": "8c0e4e2b"
+    },
+    "config_far_segment": {
+      "target_file_offset": 18907,
+      "hex": "2eff364e2b"
+    }
+  },
+  "diagnostic_report": "config-ml-sysinit-seg-unified.json",
+  "limitations": "sysinit_seg is a descriptive reconstructed name. Its definition and relocation remain a diagnostic stub until the owning code and SYSINIT writer are reconstructed."
+}

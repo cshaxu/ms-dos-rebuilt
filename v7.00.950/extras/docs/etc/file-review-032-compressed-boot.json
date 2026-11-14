@@ -1,0 +1,35 @@
+{
+  "sources": {
+    "bios/msbio1.asm": "e36f36b3060e4891b09be823a54546f3e721358943e4d98808f1ec635d1ae130",
+    "bios/sysinit1.asm": "2680d930d50bdf6405ebfddeb47af818b7038b91a2a8337f33fd32c78f67bc67",
+    "bios/sysinit2.asm": "6359289cb6fc83a53cf86df147278a39ec119b0e4c8b007eefa96470a0b3303e"
+  },
+  "change": "Restore compressed boot-drive detection and BIOS state recording, and call it after the compression backdoor.",
+  "matched": [
+    {
+      "region": "SYSINIT caller",
+      "start": "0x1689",
+      "end_exclusive": "0x1697",
+      "bytes": 14
+    },
+    {
+      "region": "compressed boot recording",
+      "start": "0x1c33",
+      "end_exclusive": "0x1c68",
+      "bytes": 53
+    }
+  ],
+  "verification": {
+    "link": "extras/tools/verify_syspre_device_link.py",
+    "link_stage": "extras/build/syspre-object-link-9u1w126r",
+    "module_stage": "extras/build/ml-sysinit-p7oqr0cy",
+    "runtime": "extras/tools/verify_boot_compressed_drive.py",
+    "runtime_stage": "extras/build/compressed-boot-runtime-2ja08ncy",
+    "scope": "Both regions match target and link via actual source. Isolated interrupt stubs cover missing driver, unmapped and invalid mapping, and successful mapped drive. BIOS field location is anchored for the diagnostic."
+  },
+  "limitations": [
+    "SYSINIT continuation after 1697h remains to be reconciled.",
+    "BIOS field placement and other diagnostic gaps or addresses remain synthetic.",
+    "Complete IO.SYS and all three core files remain unverified."
+  ]
+}

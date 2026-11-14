@@ -1,0 +1,32 @@
+{
+  "source_sha256": "9530ff114b7e42b7ccaee138409e3679537e24e04457c6b2bc0c45027cb81950",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_bios_code_file_base": "0x1c50",
+  "tables": [
+    {
+      "name": "con_table",
+      "target_offset": "0x23b8",
+      "entries": 11,
+      "differences": []
+    },
+    {
+      "name": "prn_table",
+      "target_offset": "0x23cf",
+      "entries": 26,
+      "differences": []
+    },
+    {
+      "name": "aux_table",
+      "target_offset": "0x2404",
+      "entries": 11,
+      "differences": []
+    },
+    {
+      "name": "tim_table",
+      "target_offset": "0x241b",
+      "entries": 10,
+      "differences": []
+    }
+  ],
+  "limitations": "Target table entries bind to target-derived procedure addresses; final assembled/linked table and external targets remain unverified."
+}

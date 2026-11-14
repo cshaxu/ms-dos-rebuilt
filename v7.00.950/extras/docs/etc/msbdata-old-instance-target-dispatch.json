@@ -1,0 +1,20 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_dispatch_range": [
+    "0x11ae6",
+    "0x11aff"
+  ],
+  "target_dispatch_bytes": "1e2e8e1e273f3c067502eb313c077502eb3f3c057403e99d00",
+  "source": "dos/mscode.asm Win386_Msg and OldWin386Init; inc/lmstub.asm OldInstanceJunk",
+  "findings": [
+    "The corresponding target INT 2Fh AH=16h dispatch checks AL=6, AL=7, then AL=5; for AL=3 it falls through to the next-handler jump.",
+    "The DOS 6 baseline explicitly checks AL=3 and routes it to OldWin386Init, which returns the OldInstanceJunk table and AX=5248h.",
+    "No B8 48 52 instruction encoding or baseline OldInstanceJunk six-byte header occurs anywhere in target IO.SYS.",
+    "These observations support the conclusion that this old WIN386 2.x dispatch path was removed from the target; they do not independently establish all references to the altah byte."
+  ],
+  "limitations": [
+    "Absence of a byte sequence alone cannot exclude a differently encoded equivalent path.",
+    "Other indirect uses, remaining Windows compatibility code and exact target kernel data layout need separate verification.",
+    "No complete source reconstruction or linked target kernel is established."
+  ]
+}

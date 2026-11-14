@@ -1,0 +1,10 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "diagnostic_source_sha256": "f69cb756edb309b2090417f1d65ed820816f0e6130ef2d8a70d54ce077977865",
+  "bios_offset": 3,
+  "target_initial_hex": "469e",
+  "diagnostic_initial_hex": "0000",
+  "target_reference_file_offset": 2244,
+  "target_reference_hex": "2ea10300",
+  "limitations": "Target code reads this word in the character dispatch path. The target initial bytes differ from the current diagnostic; their provenance is unproven and must not be forced with an invented constant."
+}

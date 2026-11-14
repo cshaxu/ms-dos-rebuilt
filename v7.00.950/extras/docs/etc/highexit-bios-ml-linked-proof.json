@@ -1,0 +1,17 @@
+{
+  "stage": "extras\\build\\highexit-isolated-ml-ibk23hyb",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_range": [
+    "0xcca2",
+    "0xcd71"
+  ],
+  "length": 207,
+  "linked_match_offsets": [
+    512
+  ],
+  "method": "Compile the unchanged original highexit.inc with Microsoft MASM 6 in a synthetic BIOS macro context and link with two external data symbols placed at target-observed offsets.",
+  "limitations": [
+    "BIOS macro definitions and external data providers are synthetic; final BIOS assembly, linking and source integration remain unverified.",
+    "The full unadapted sysconf.asm previously failed to compile with MASM 6, so this does not prove whole-file toolchain compatibility."
+  ]
+}

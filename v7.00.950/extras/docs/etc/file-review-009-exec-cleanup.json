@@ -1,0 +1,23 @@
+{
+  "sources": {
+    "bios/msbio1.asm": "9f1891280940d6214c4113ce17b609bf4db2d49e1414f3d2ccee7367b573ba6a",
+    "bios/sysinit2.asm": "b7f2ce6c938dae80654014375253d447b21c725d2b7589f9b6a53e2a6d301123"
+  },
+  "change": "Restore the system-file return path for path/mode restoration and previous status handling, with actual path preparation and state exports.",
+  "target_region": {
+    "start": "0xa3ab",
+    "end_exclusive": "0xa3e1",
+    "bytes": 54
+  },
+  "verification": {
+    "tool": "extras/tools/verify_syspre_device_link.py",
+    "link_stage": "extras/build/syspre-object-link-6ync6j54",
+    "module_stage": "extras/build/ml-sysinit-migrk8qm",
+    "scope": "The 54-byte source-generated region and adjacent 42-byte option handling match the target. The diagnostic links path preparation and previous status to actual source; the message resource and print routine are actual providers."
+  },
+  "limitations": [
+    "Earlier EXEC and memory-block restore code remains synthetic and does not yet call this path.",
+    "The diagnostic uses other address anchors and gaps.",
+    "Complete IO.SYS and all three target binaries remain unverified."
+  ]
+}

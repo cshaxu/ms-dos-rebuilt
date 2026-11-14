@@ -1,0 +1,14 @@
+{
+  "build_report": "extras/docs/etc/command-entry-relocation-complete-build-20261112.json",
+  "probe_stage": "extras/build/entry-relocate-fixed-probe-j3mu9x25",
+  "checks": [
+    "both generated relocation copies match target bytes",
+    "DOS loader executes relocation and returns to PSP-segment copy",
+    "DS ES CS agree at relocated entry",
+    "SI DI CX match target copy endpoints"
+  ],
+  "limitations": [
+    "probe uses a minimal DOS executable, not full COMMAND initialization",
+    "does not establish final byte identity"
+  ]
+}

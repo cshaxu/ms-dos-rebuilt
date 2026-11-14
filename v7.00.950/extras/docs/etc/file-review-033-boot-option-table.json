@@ -1,0 +1,35 @@
+{
+  "file": "bios/sysinit2.asm",
+  "source_sha256": "f4953c4ff40c1473d1d834637433fe0ae8ef62007ec60a8eeede49b748ef7838",
+  "spans": [
+    {
+      "target_offset": "0xa358",
+      "length": 311,
+      "different_bytes": 0
+    },
+    {
+      "target_offset": "0xa50a",
+      "length": 22,
+      "different_bytes": 0
+    },
+    {
+      "target_offset": "0xa58a",
+      "length": 22,
+      "different_bytes": 0
+    },
+    {
+      "target_offset": "0xa5c1",
+      "length": 12,
+      "different_bytes": 0
+    }
+  ],
+  "tool": "MASM 6 ML isolated probe",
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link": "passed with diagnostic BIOS stub",
+  "probe_source": "extras/research/boot-option-table-linked.asm",
+  "limitations": [
+    "Fixed-offset probe uses equates and synthetic helper destinations; full placement and execution are unverified.",
+    "File open, startup caller and real DISABLELOG BIOS field remain incomplete."
+  ]
+}

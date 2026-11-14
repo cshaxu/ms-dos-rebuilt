@@ -1,0 +1,16 @@
+{
+  "file": "bios/sysinit1.asm",
+  "source_sha256": "288d5673230eae56eb52b35c5f2b032072667d21037e3e9751d7da73ba79df14",
+  "target_initial_data": "IO.SYS 0x9010..0x9058",
+  "initial_bytes_match": true,
+  "buffer_bytes": 72,
+  "target_writer": "IO.SYS 0x114c..0x1153: 23h words followed by one word",
+  "linked_symbol_address": "0466:0272",
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "Buffer absolute layout and the eventual saved-boot-data consumer remain unverified.",
+    "The mixed link contains other older and stub objects and is not a production IO.SYS."
+  ]
+}

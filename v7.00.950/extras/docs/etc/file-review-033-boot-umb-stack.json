@@ -1,0 +1,16 @@
+{
+  "file": "bios/sysinit2.asm",
+  "source_sha256": "65485f3335493946915e71457b1498d10fb0d67ad58f9fa36762245dd6c16e1c",
+  "target_range": "IO.SYS 0x982f..0x9906",
+  "length": 215,
+  "different_bytes": 0,
+  "tool": "MASM 6 ML isolated probe",
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link": "passed",
+  "probe_source": "extras/research/boot-umb-stack-linked.asm",
+  "limitations": [
+    "Fixed-offset probe uses synthetic scratch and state addresses; final layout and runtime remain unverified.",
+    "Outer driver-record loop and startup caller remain incomplete."
+  ]
+}

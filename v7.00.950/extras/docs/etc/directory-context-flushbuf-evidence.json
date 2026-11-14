@@ -1,0 +1,34 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "historical_source": "dos/buf.asm",
+  "historical_source_sha256": "b162899aabcec71289e34b82326457544fd0e794fd20ee97a2f063ce1542ba21",
+  "checks": {
+    "caller_load_drive_and_call": {
+      "file_offset": "0x18018",
+      "bytes": "c42e8a05268a460057e843e45f"
+    },
+    "guarded_entry": {
+      "file_offset": "0x16467",
+      "bytes": "f6060200017503e98130c3"
+    },
+    "flush_body_scan": {
+      "file_offset": "0x19504",
+      "bytes": "e89ffe36f606110604750836833e7100007423"
+    },
+    "flush_body_result": {
+      "file_offset": "0x1953a",
+      "bytes": "161f803e4a03007401f9c3"
+    }
+  },
+  "observations": [
+    "The caller loads AL from the device parameter block before invoking the guarded routine.",
+    "The guarded routine conditionally jumps to file 0x194f2.",
+    "The destination checks dirty-buffer state, scans buffers and returns carry according to FAILERR; this corresponds structurally to historical FlushBuf.",
+    "The provisional external name in the research source was changed to FlushBufGuarded; isolated reassembly retains identical code bytes."
+  ],
+  "limitations": [
+    "The precise meaning of the guard at offset 0x16467 is not yet established.",
+    "This is a structural match, not full equivalence of the target FlushBuf implementation.",
+    "Full kernel source ownership and link remain unverified."
+  ]
+}

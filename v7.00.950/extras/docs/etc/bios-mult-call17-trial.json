@@ -1,0 +1,28 @@
+{
+  "source": "extras/research/bios-mult-call17-trial.asm",
+  "source_sha256": "d6f9a42e9570ca2a505665e71e8336a8fbf2d463bc5bfc6c40a1262f27ad29d7",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "linked_exe_sha256": "798019ac22c6f9644f9e12f2207e3989e12b6f0aace144da2077cb49f0d36cde",
+  "matched_blocks": [
+    {
+      "name": "mult_call17",
+      "target_file_offset": "0x486f",
+      "length": 135
+    },
+    {
+      "name": "mult_call21",
+      "target_file_offset": "0x4918",
+      "length": 44
+    },
+    {
+      "name": "hex_table_and_code",
+      "target_file_offset": "0x4966",
+      "length": 41
+    }
+  ],
+  "limitations": [
+    "ORG reproduces observed target addresses in an isolated link; final source ownership and complete BIOS layout are not established.",
+    "A byte directive forces 32-bit absolute addressing in the trial; original-style instruction encoding is required before formal integration.",
+    "No runtime test of DOS calls, memory at 0000:0604, or shared state has been performed."
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "caller_source": "bios/msint13.asm",
+  "caller_source_sha256": "9b4b6c5d937aa4782ddc2fe4982492f4aea3223f3b6177a8f247912d66dd0ffc",
+  "method": "Decode actual near CALL displacements in target INT 2Fh handler; confirm AL comparisons and IRET after each call.",
+  "calls": [
+    {
+      "symbol": "mult_call16",
+      "dispatch_value": "0x16",
+      "target_call_file_offset": "0x3f2d",
+      "target_routine_file_offset": "0x47e0",
+      "target_bios_code_offset": "0x2b90",
+      "routine_initial_bytes": "1e5152560e1fb8ffff803e752b01747a803e752b007405c606762b308b1e712b"
+    },
+    {
+      "symbol": "mult_call17",
+      "dispatch_value": "0x17",
+      "target_call_file_offset": "0x3f35",
+      "target_routine_file_offset": "0x486f",
+      "target_bios_code_offset": "0x2c1f",
+      "routine_initial_bytes": "2e8b1e712b0bdb787d516652571e062bc08ec08ed867668b156c040000bf0406"
+    },
+    {
+      "symbol": "mult_call18",
+      "dispatch_value": "0x18",
+      "target_call_file_offset": "0x3f3d",
+      "target_routine_file_offset": "0x48f6",
+      "target_bios_code_offset": "0x2ca6",
+      "routine_initial_bytes": "2ea1732b48781a2ea3732b75142e8b1e712bb43ecd212ec706712bffff720233"
+    },
+    {
+      "symbol": "mult_call21",
+      "dispatch_value": "0x21",
+      "target_call_file_offset": "0x3f45",
+      "target_routine_file_offset": "0x4918",
+      "target_bios_code_offset": "0x2cc8",
+      "routine_initial_bytes": "5351522ef7066f2b0040741c2e8b1e782b0bdb74130e1fc7067d2b3f3fba7a2b"
+    }
+  ],
+  "observations": [
+    "All four missing externals have distinct nontrivial target entry points in BIOS_CODE.",
+    "Target entries lie after the identified hidensity routine; reconstructing the caller alone cannot provide these routines.",
+    "The 17h and 21h entry prefixes contain DOS interrupt 21h operations; their full behavior and prerequisites require further examination."
+  ],
+  "limitations": [
+    "Call-target association is proven, but original source filenames and exact routine boundaries are not.",
+    "Bytes alone do not prove variable ownership, calling conventions, or the complete DOS service interactions."
+  ]
+}

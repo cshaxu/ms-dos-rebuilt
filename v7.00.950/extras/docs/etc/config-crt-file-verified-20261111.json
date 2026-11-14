@@ -1,0 +1,89 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\config-crt-file-juo6m3o2",
+  "source_library_sha256": "6dd7fdf103a71d0cec3433aa3bd7d05b73f90c3e9f24e667c29d5f3c0f9a9389",
+  "state_source_sha256": "bd5711b4b0e285f61e20cfd76f7ec8a4b4aabc7b0025b77d1a7d3ff73a96e667",
+  "verified": [
+    {
+      "member": "dos\\dosret.asm",
+      "symbol": "__dosret0",
+      "target_offset": 39122,
+      "bytes": 85,
+      "references": [
+        {
+          "symbol": "__doserrno",
+          "operand": 41
+        },
+        {
+          "symbol": "__osmajor",
+          "operand": 49
+        },
+        {
+          "symbol": "ConfigCRTErrorMap",
+          "operand": 73
+        },
+        {
+          "symbol": "_errno",
+          "operand": 78
+        }
+      ]
+    },
+    {
+      "member": "dos\\close.asm",
+      "symbol": "__close",
+      "target_offset": 38116,
+      "bytes": 32,
+      "references": [
+        {
+          "symbol": "__nfile",
+          "operand": 8
+        },
+        {
+          "symbol": "__osfile",
+          "operand": 26
+        },
+        {
+          "symbol": "__dosret0",
+          "operand": 30
+        }
+      ]
+    },
+    {
+      "member": "dos\\open.asm",
+      "symbol": "__sopen",
+      "target_offset": 38148,
+      "bytes": 460,
+      "references": [
+        {
+          "symbol": "__osmajor",
+          "operand": 10
+        },
+        {
+          "symbol": "__fmode",
+          "operand": 58
+        },
+        {
+          "symbol": "__dosretax",
+          "operand": 98
+        },
+        {
+          "symbol": "__dosretax",
+          "operand": 302
+        },
+        {
+          "symbol": "__nfile",
+          "operand": 409
+        },
+        {
+          "symbol": "__osfile",
+          "operand": 431
+        },
+        {
+          "symbol": "__umaskval",
+          "operand": 444
+        }
+      ]
+    }
+  ],
+  "linked_sha256": "221e91c622b73d45fb2bd6af4c09d6713035e7d23f82b823d6a7e1f148c543dc",
+  "scope": "Original CRT code bodies and every OMF fixup verified with real shared state. Full runtime startup and final DGROUP placement pending."
+}

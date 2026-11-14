@@ -1,0 +1,24 @@
+{
+  "source": "bios/sysconf.asm",
+  "sha256": "51db5b182823c088d56f11b5e871bf1d9971593217c031ee21307035a28337e8",
+  "dependency_source": "bios/msbio1.asm",
+  "change": "Assemble unchanged BIOS keyboard vector table and handlers with ML and paragraph-aligned diagnostic BIOS_DATA, removing the previous three prefix-order differences.",
+  "matched": [
+    {
+      "region": "BIOS keyboard vector table and handlers",
+      "bios_offset_start": "0x28b",
+      "bios_offset_end_exclusive": "0x35f",
+      "bytes": 212
+    }
+  ],
+  "verification": {
+    "tool": "extras/tools/verify_syspre_device_link.py",
+    "link_stage": "extras/build/syspre-object-link-x11azinf",
+    "scope": "Unmodified extracted BIOS source assembled with ML; diagnostic BIOS_DATA field offsets are declared and paragraph-aligned. SYSINIT checks also pass."
+  },
+  "limitations": [
+    "BIOS_DATA field declarations and INT 2Fh handler are still diagnostic anchors, not a complete production BIOS link.",
+    "No core source modified in this step.",
+    "Full product link and final three core binaries remain unverified."
+  ]
+}

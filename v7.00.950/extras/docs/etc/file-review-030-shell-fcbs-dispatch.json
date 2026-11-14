@@ -1,0 +1,29 @@
+{
+  "source": "bios/sysconf.asm",
+  "sha256": "5281e05f9ce562e2fd3f572c85788623288f592407001640af200d23dd8dabea",
+  "change": "Restore target STACKSHIGH fallback branch and remove obsolete FCBS keep reset; link actual SHELL and FCBS dispatch code.",
+  "matched": [
+    {
+      "region": "STACKSHIGH fallback",
+      "start": "0x7417",
+      "end_exclusive": "0x741f",
+      "bytes": 8
+    },
+    {
+      "region": "SHELL, FCBS and FCBSHIGH dispatch",
+      "start": "0x741f",
+      "end_exclusive": "0x74d4",
+      "bytes": 181
+    }
+  ],
+  "verification": {
+    "tool": "extras/tools/verify_syspre_device_link.py",
+    "link_stage": "extras/build/syspre-object-link-eqiddsjj",
+    "module_stage": "extras/build/ml-sysinit-0w6mepsl",
+    "scope": "Actual command and parameter code linked to command buffer, parser, character reader, CONFIG loop and error providers. Other positions are diagnostic anchors."
+  },
+  "limitations": [
+    "Runtime command handling not exercised.",
+    "Complete product link and final three core binaries remain unverified."
+  ]
+}

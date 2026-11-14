@@ -1,0 +1,15 @@
+{
+  "stage": "extras\\build\\resident-resource-runtime-all-8vegtew5",
+  "target_sha256": "a74c700063cd6b1c91523952bfc80e9393c125d39ada0164d48b5098089fcef3",
+  "result": "PASS",
+  "checks": [
+    "Execute linked fixup against the 93-entry target-derived resource.",
+    "Check six input characters and contiguous boundaries of the other 87 messages.",
+    "Verify all 21 critical and 11 parse table addresses and extended-error slots 14, 19, and 81.",
+    "Dereference the first critical message and validate its length and prefix."
+  ],
+  "limitations": [
+    "Other extended-error slots are supported by the static 244-byte target comparison, not individually dereferenced here.",
+    "Synthetic isolated DOS harness at a fixed target-derived offset; not the full disk loader, COMMAND.COM build or SoftPC validation."
+  ]
+}

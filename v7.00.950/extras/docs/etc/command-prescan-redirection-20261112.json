@@ -1,0 +1,68 @@
+{
+  "generated_utc": "2026-11-12T10:52:25.469605+00:00",
+  "source": "cmd/command/tmisc1.asm",
+  "build_report": "extras/docs/etc/command-prescan-redirection-build-20261112.json",
+  "comparison": {
+    "target_offset": "0xc4a4",
+    "candidate_offset": "0xc45b",
+    "length": 405,
+    "different_byte_offsets": [
+      6,
+      7,
+      10,
+      11,
+      32,
+      33,
+      77,
+      78,
+      126,
+      127,
+      181,
+      187,
+      188,
+      220,
+      221,
+      235,
+      236,
+      243,
+      244,
+      280,
+      281,
+      293,
+      294,
+      354,
+      355,
+      366,
+      367,
+      369,
+      370,
+      380,
+      381,
+      388,
+      389,
+      400
+    ],
+    "note": "All 187 decoded instructions have matching structure; differences occur in linked data/call operands, not individually certified."
+  },
+  "runtime": {
+    "echo": {
+      "stage": "extras/build/command-redir-echo-yer4qbh5",
+      "result": "timeout, output empty"
+    },
+    "copy": {
+      "stage": "extras/build/command-redir-copy-376zsl7v",
+      "result": "timeout, destination matches source"
+    },
+    "quoted_copy": {
+      "stage": "extras/build/command-redir-quoted-dj0a9llh",
+      "result": "timeout, destination matches source",
+      "note": "Quoted command arguments, not an isolated test of quoted redirection."
+    }
+  },
+  "file_counts": {
+    "linked": 35,
+    "modified_from_baseline": 30,
+    "unchanged_from_baseline": 5
+  },
+  "final_binary_exact": false
+}

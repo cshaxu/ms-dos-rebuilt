@@ -1,0 +1,32 @@
+{
+  "files": {
+    "bios/sysconf.asm": "d95ef9ebbf935bb2c2f1efa81e5caaaece5df4b3116c39abc5e0a73a7687660f",
+    "inc/psdata.inc": "1a155965a337c9557bdff36c799e630e673457832362560255b0fae1c01f3f66",
+    "inc/parse.asm": "89acf7c8c819cd9afa8e44a50ad3e16d5b69e2eed192e01acb020886078238c9"
+  },
+  "change": "Define the SYSINIT parser string buffer as 260 bytes while preserving the default 128-byte configuration; remove staged synthetic 132-byte padding.",
+  "evidence": [
+    "Target parser data offsets place the following character table 260 bytes after the string buffer start.",
+    "A target-byte-identical parser in an isolated instruction probe copies 259 bytes plus a terminator through the extended region without changing the next field.",
+    "No direct references to the former 132-byte gap were found in the scanned target code ranges; this scan is not exhaustive.",
+    "Default 128-byte parser object is byte-identical to the same build with the historical psdata.inc."
+  ],
+  "matched": {
+    "start": "0x5add",
+    "end_exclusive": "0x6446",
+    "bytes": 2409,
+    "includes_parser_code_and_initialized_data": true
+  },
+  "verification": {
+    "link": "extras/tools/verify_syspre_device_link.py",
+    "link_stage": "extras/build/syspre-object-link-4a119vit",
+    "long_input": "extras/tools/verify_sysinit_parser_long.py",
+    "long_input_stage": "extras/build/sysparse-long-zqthcnpc",
+    "default_object": "extras/tools/verify_parser_default_buffer.py",
+    "default_stage": "extras/build/sysparse-default-q6h7g9l9"
+  },
+  "limitations": [
+    "The 260-byte buffer is reconstructed from target placement and behavior; the original DOS 7 source declaration has not been recovered.",
+    "Other diagnostic gaps and synthetic addresses remain; complete IO.SYS and all three core binaries remain unverified."
+  ]
+}

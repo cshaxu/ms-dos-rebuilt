@@ -1,0 +1,17 @@
+{
+  "source_sha256": "62bd006ba12f6309fcdfffc90c55dbe3e61d584ab5fe257e3f67ab33e44b203c",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_instructions": {
+    "mediacheck_load": {
+      "offset": "0x454a",
+      "bytes": "2e8a1ed80d"
+    },
+    "changed_drv_store": {
+      "offset": "0x45d0",
+      "bytes": "2ec606d80dff"
+    }
+  },
+  "dos7_and_reference_assembled": true,
+  "reference_object_identical_to_prior_diagnostic": true,
+  "limitations": "CS prefix and opcodes confirmed in assembly listing; final external tim_drv offset and full module still require integration."
+}

@@ -1,0 +1,21 @@
+{
+  "source": "bios/sysinit1.asm",
+  "sha256": "ed0a9c5e12a309c2efcc12fcf1693c9217f7adebf4cb0a655b36059887fbc732",
+  "change": "Restore target SYSINIT stack setup, query-controlled system-file EXEC call, DTA setup and startup-display state reset.",
+  "target_region": {
+    "start": "0x159a",
+    "end_exclusive": "0x15d7",
+    "bytes": 61
+  },
+  "verification": {
+    "link": "extras/tools/verify_syspre_device_link.py",
+    "link_stage": "extras/build/syspre-object-link-34tcba67",
+    "module_stage": "extras/build/ml-sysinit-_g8zr7j8",
+    "scope": "Actual caller bytes match target and its near call relocates to the actual 373-byte EXEC chain. The BIOS data symbols in the diagnostic are placed at target addresses."
+  },
+  "limitations": [
+    "The next SYSINIT code after 15D7h has not yet been reconciled with the target.",
+    "BIOS data placement and other addresses or gaps remain anchored or synthetic in diagnostic.",
+    "Complete IO.SYS and all three core files remain unverified."
+  ]
+}

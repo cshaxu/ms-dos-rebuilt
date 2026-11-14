@@ -1,0 +1,100 @@
+{
+  "target_sha256": "a74c700063cd6b1c91523952bfc80e9393c125d39ada0164d48b5098089fcef3",
+  "probe_source": "extras/build/msg-runtime-layout-sylbmfcv/probe.asm",
+  "probe_source_sha256": "7b7d8f5de4ec57c1da1019ef79d72abf15a3efa4282f88fd35fb717cf382f94e",
+  "probe_object_sha256": "0708333576bc204880bdaa6fdc84bf1e01d0701d18a37d2853b6d594dd04835f",
+  "inferred_base": 34775,
+  "fields": [
+    {
+      "name": "handle",
+      "target_address": 34775,
+      "relative_offset": 0,
+      "target_instruction_offset": 65247,
+      "target_instruction": "891ed787"
+    },
+    {
+      "name": "size",
+      "target_address": 34777,
+      "relative_offset": 2,
+      "target_instruction_offset": 65895,
+      "target_instruction": "890ed987"
+    },
+    {
+      "name": "crlf",
+      "target_address": 34779,
+      "relative_offset": 4,
+      "target_instruction_offset": 65514,
+      "target_instruction": "8d3edb87"
+    },
+    {
+      "name": "return_addr",
+      "target_address": 34781,
+      "relative_offset": 6,
+      "target_instruction_offset": 65525,
+      "target_instruction": "8f06dd87"
+    },
+    {
+      "name": "msg_num",
+      "target_address": 34783,
+      "relative_offset": 8,
+      "target_instruction_offset": 66634,
+      "target_instruction": "a3df87"
+    }
+  ],
+  "word_size_compare_offset": 66363,
+  "word_size_compare_bytes": "493b0ed987",
+  "structural_interpretation": "A word-sized $M_SIZE at +2 and CR/LF at +4, followed by return address and saved message number, explains the target offsets. The baseline byte-sized $M_SIZE and saved class byte between CR/LF and return address do not match this local layout.",
+  "limitations": [
+    "Symbols are inferred from matching operations; probe validates relative offsets but not the target data initialization.",
+    "Absence or relocation of the baseline saved-class byte has not been proven across all code paths.",
+    "Full $M_RES_ADDRS structure and the use of the subsequent word are unverified."
+  ],
+  "replacement_count_and_divisor": {
+    "target_replacement_count_address": 34785,
+    "target_divisor_address": 34787,
+    "evidence": [
+      {
+        "offset": 65245,
+        "bytes": "8be9"
+      },
+      {
+        "offset": 65612,
+        "bytes": "892ee187"
+      },
+      {
+        "offset": 65673,
+        "bytes": "3b06e187"
+      },
+      {
+        "offset": 65797,
+        "bytes": "a1e1872bc5"
+      },
+      {
+        "offset": 65813,
+        "bytes": "c706e1870000"
+      },
+      {
+        "offset": 65533,
+        "bytes": "f736e387"
+      }
+    ],
+    "interpretation": "SYSDISPMSG copies CX to BP; display-message saves BP, compares parsed substitution number to the saved word, uses the saved count in subsequent indexing, and clears it. The next word is used as a divisor.",
+    "probe": "extras/build/msg-runtime-tail2-rhi3ib_2/probe.asm",
+    "probe_source_sha256": "2e3b8de830b32b4a02315b08accd986be9b27785653927aeb7d4977025f79e1e",
+    "probe_object_sha256": "1dcf9e891c0e0f117cc23928c3ecab8584702eb4eeb701124e355b1c472f33f6",
+    "probe_offsets": {
+      "handle": 0,
+      "size": 2,
+      "crlf": 4,
+      "return_address": 6,
+      "message_number": 8,
+      "replacement_count": 10,
+      "divisor": 12
+    },
+    "limitations": [
+      "$M_REPLACE_CNT is a descriptive probe name; the original symbol name is unknown.",
+      "The probe establishes matching field offsets, not source provenance or initialization bytes.",
+      "Some code paths and surrounding structures are still unverified."
+    ]
+  }
+}

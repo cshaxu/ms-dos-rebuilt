@@ -1,0 +1,118 @@
+{
+  "source": "bios/msinit.asm",
+  "source_sha256": "e54f106b0b0b14296d6defa02357a8d47139d61db24d9bdbff7986b6e785c186",
+  "listing_sha256": "b6f6aaa4f074c37c1373df55203003488628ffab35aad0014078093fc30b136b",
+  "anchor_target_offset": "0xd28",
+  "initial_fixed_data_bytes_equal": 20,
+  "relative_placements": [
+    {
+      "symbol": "drvfat",
+      "listing_offset": "0x330",
+      "target_offset": "0xd28",
+      "matches_relative_placement": true
+    },
+    {
+      "symbol": "init_bootseg",
+      "listing_offset": "0x339",
+      "target_offset": "0xd31",
+      "matches_relative_placement": true
+    },
+    {
+      "symbol": "rom_drv_num",
+      "listing_offset": "0x33b",
+      "target_offset": "0xd33",
+      "matches_relative_placement": true
+    },
+    {
+      "symbol": "init_temp_h",
+      "listing_offset": "0x33c",
+      "target_offset": "0xd34",
+      "matches_relative_placement": true
+    },
+    {
+      "symbol": "init_reserved",
+      "listing_offset": "0x33e",
+      "target_offset": "0xd36",
+      "matches_relative_placement": true
+    },
+    {
+      "symbol": "num_heads",
+      "listing_offset": "0x33f",
+      "target_offset": "0xd37",
+      "matches_relative_placement": true
+    },
+    {
+      "symbol": "sec_trk",
+      "listing_offset": "0x340",
+      "target_offset": "0xd38",
+      "matches_relative_placement": true
+    },
+    {
+      "symbol": "num_cyln",
+      "listing_offset": "0x341",
+      "target_offset": "0xd39",
+      "matches_relative_placement": true
+    },
+    {
+      "symbol": "fakefloppydrv",
+      "listing_offset": "0x342",
+      "target_offset": "0xd3a",
+      "matches_relative_placement": true
+    },
+    {
+      "symbol": "disktable",
+      "listing_offset": "0x344",
+      "target_offset": "0xd3c",
+      "matches_relative_placement": true
+    },
+    {
+      "symbol": "disktable2",
+      "listing_offset": "0x36c",
+      "target_offset": "0xd64",
+      "matches_relative_placement": true
+    },
+    {
+      "symbol": "init_sysinit_seg",
+      "listing_offset": "0x3b2",
+      "target_offset": "0xdaa",
+      "matches_relative_placement": true
+    },
+    {
+      "symbol": "rom_minidisk_num",
+      "listing_offset": "0x3b4",
+      "target_offset": "0xdac",
+      "matches_relative_placement": true
+    },
+    {
+      "symbol": "hnum",
+      "listing_offset": "0x3b5",
+      "target_offset": "0xdad",
+      "matches_relative_placement": true
+    },
+    {
+      "symbol": "end_of_bdss",
+      "listing_offset": "0x3b6",
+      "target_offset": "0xdae",
+      "matches_relative_placement": true
+    },
+    {
+      "symbol": "mini_hdlim",
+      "listing_offset": "0x3b8",
+      "target_offset": "0xdb0",
+      "matches_relative_placement": true
+    },
+    {
+      "symbol": "mini_seclim",
+      "listing_offset": "0x3ba",
+      "target_offset": "0xdb2",
+      "matches_relative_placement": true
+    },
+    {
+      "symbol": "bios_date",
+      "listing_offset": "0x3bc",
+      "target_offset": "0xdb4",
+      "matches_relative_placement": true
+    }
+  ],
+  "limitations": "Relative placement assumes target drvfat anchor. SYSINIT segment and BDS initial values are relocated and require the final link. init_reserved meaning is unknown."
+}

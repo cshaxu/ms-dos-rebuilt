@@ -1,0 +1,27 @@
+{
+  "file_index": 9,
+  "source": "bios/msbio1.asm",
+  "source_sha256": "21ce706ae6d3fa0ab52ededbd740427c4b1c087ba6039e92586ed49b20cf90fe",
+  "target_offset": 7913,
+  "diagnostic_offset": 10327,
+  "length": 103,
+  "matching_bytes": 99,
+  "different_offsets": [
+    30,
+    31,
+    91,
+    92
+  ],
+  "target_hex": "fafc601e06665066522bc08ec0b870008ed8f606090020744566c1c010be8b022ead0bc0743393803fcf7412837f037074078d47056689470183c604ebe2c607ea2ead93662687072e8b1c83c6026689078cd866c1c010ebc7c606fb033c665a6658071f61fbc3",
+  "linked_hex": "fafc601e06665066522bc08ec0b870008ed8f606090020744566c1c010be29012ead0bc0743393803fcf7412837f037074078d47056689470183c604ebe2c607ea2ead93662687072e8b1c83c6026689078cd866c1c010ebc7c60692093c665a6658071f61fbc3",
+  "diagnostic_stub_symbols": [
+    "bios_msg_base",
+    "bios_msg_1",
+    "bios_msg_2",
+    "bios_msg_3",
+    "int1a_code",
+    "ttticks"
+  ],
+  "default_reference_output_sha256": "a67d8733509f9baf94017389cc1c991d5ef1c66bdfb91b6cab3eef0fc35e9490",
+  "limitations": "Runtime caller and cross-module initialization remain unconnected; the target-wide layout and three output binaries are incomplete."
+}

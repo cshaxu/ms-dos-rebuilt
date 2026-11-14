@@ -1,0 +1,34 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_copy_setup_file_offset": "0x199cc",
+  "target_copy_setup_bytes": "be1fca83c60f83e6f08cc88ed88e0611c5268e06030033ffb94613f3a4",
+  "candidate_doscode_file_base": "0xd4a0",
+  "source_offset_before_alignment": "0xca1f",
+  "source_offset_aligned": "0xca20",
+  "computed_source_file_offset": "0x19ec0",
+  "target_copy_length": "0x1346",
+  "historical_map_sha256": "afe818e9b29d69891bdf850729798b0814ab780ef0ce50c18dd836abe67f32ee",
+  "historical_map_dosdata_length": "0x136a",
+  "historical_map_msdat001e": "0x136a",
+  "historical_bdsize_dosdatasiz": "0x136a",
+  "conditional_bios_sizes_sum_range": [
+    "0x24cb",
+    "0x24da"
+  ],
+  "observations": [
+    "The target initialization aligns CA1Fh to CA20h and copies 1346h bytes to the DOS data segment.",
+    "Under the independently inferred DOSCODE file base, the aligned source points exactly to the previously identified target DOSDATA file base.",
+    "In the historical source and map, the copied MSDAT001E offset, DOSDATA segment length and DOSDATASIZ are all 136Ah.",
+    "The corresponding target DOSDATASIZ is therefore strongly supported as 1346h if the same size convention is retained.",
+    "Historical GETSIZE reads the DOSDATA, BIOS_DATA and BIOS_CODE segment lengths from the linker maps and writes them as the three BDSIZE equates."
+  ],
+  "limitations": [
+    "The target literal proves copy length, but the relationship to a separately authored target BDSIZE.INC remains an inference from the historical build convention.",
+    "The BIOS size pair and final source/link layout remain unresolved.",
+    "No core source constants are changed by this report.",
+    "The target BIOS segment lengths cannot be recovered from the aggregate alone; they must come from independently established target segment boundaries or a reconstructed target map."
+  ],
+  "historical_getsize_source": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\c6ers\\tools6\\bin\\getsize.c",
+  "historical_getsize_sha256": "c23dc5c340f3ba0691cd7fde31d4e635a0241f6277cbaf2ef214ba3986cebf2f",
+  "conditional_bios_sum_warning": "The legacy formula and interpretation of the target BIOS resource boundary are in conditional tension; see origin-bios-size-assumption-conflict.json. Do not use the aggregate as a proven target size."
+}

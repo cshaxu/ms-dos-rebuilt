@@ -1,0 +1,25 @@
+{
+  "source_sha256": "090f42a78c4e593b24111e2e1ab2fe7d947b5ebe744e1f986d6a315aeda6a6db",
+  "listing_sha256": "b0a433a1a8fe1fc2d5bc5e9ccc27bf3d669080c76d31d8e4c24d00b90e8fdf6f",
+  "routines": [
+    {
+      "name": "GetDeviceParameters",
+      "target_offset": "0x3467",
+      "length": 91,
+      "masked_relocation_bytes": 8,
+      "matched_nonrelocated_bytes": 83,
+      "differences": []
+    },
+    {
+      "name": "SetDeviceParameters",
+      "target_offset": "0x34c2",
+      "length": 194,
+      "masked_relocation_bytes": 16,
+      "matched_nonrelocated_bytes": 177,
+      "differences": [
+        133
+      ]
+    }
+  ],
+  "limitations": "Relocation operands and complete linked output remain unverified."
+}

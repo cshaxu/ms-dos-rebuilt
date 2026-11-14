@@ -1,0 +1,16 @@
+{
+  "build_report": "extras/docs/etc/command-transient-transfer-size-build-20261112.json",
+  "probe_stage": "extras/build/transient-handoff-probe-d4pca08a",
+  "source_sha256": "2da05ea0d4ec80b0a5a8d5ccb6c148966e224143cadabccdce6b4522a5b8bf91",
+  "checks": [
+    "29 transferred bytes compared",
+    "stack guard initialized",
+    "PSP block length written",
+    "message descriptor fields initialized",
+    "DS and ES restored and DI restored to the end of the copied block"
+  ],
+  "limitations": [
+    "executes extracted HavCom in a single-segment isolated DOS harness",
+    "does not execute actual far transfer or full COMMAND startup/reload"
+  ]
+}

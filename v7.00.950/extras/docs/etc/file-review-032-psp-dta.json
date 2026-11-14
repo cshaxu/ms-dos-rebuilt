@@ -1,0 +1,15 @@
+{
+  "file": "bios/sysinit1.asm",
+  "source_sha256": "4bf314afb8af60efec02495af276475e9b1c67c0c276f1ca759ed20d4ead32f8",
+  "target_range": "IO.SYS 0x6128..0x6149",
+  "bytes": 33,
+  "different_bytes": 0,
+  "probe": "extras/research/psp-dta-linked.asm",
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "Error-message handling between the probe and memhi initialization is still based on legacy source.",
+    "Fixed-offset probe does not execute INT 21h or verify complete stack lifetime and layout."
+  ]
+}

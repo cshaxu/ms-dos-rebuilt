@@ -1,0 +1,18 @@
+{
+  "source": "extras/research/sysinit-stack-handler-trial.asm",
+  "source_sha256": "06a5e1545883edff0f2874ea653576e7e0069dbd4ecf1370c8635da72b800658",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "linked_exe_sha256": "867fdbc52bbf83640a24f9b512d5501559ebe1769cadb9f42f714658ef23d08e",
+  "target_file_range": "0x4e5a..0x4f06",
+  "length": 172,
+  "different_bytes": 0,
+  "observations": [
+    "EAX is saved and restored as a 32-bit register; the saved-stack lookup consequently uses BP+8.",
+    "The free-entry search is inlined and the non-free allocation byte is restored with MOV."
+  ],
+  "limitations": [
+    "ORG is used only for this isolated target-layout experiment.",
+    "The fatal path is a placeholder excluded from the compared range.",
+    "Formal sysinit1 source and the complete IO.SYS have not been reconstructed or verified by this test."
+  ]
+}

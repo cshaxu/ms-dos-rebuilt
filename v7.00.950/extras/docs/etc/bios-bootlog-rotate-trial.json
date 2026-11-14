@@ -1,0 +1,28 @@
+{
+  "source": "extras/research/bios-bootlog-rotate-trial.asm",
+  "source_sha256": "3035b340f224486035edaaf75ced50ef6c553f32038f130c5d3085cac4270109",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "linked_exe_sha256": "397d1500c58622722fd47259bd8b80d0aafd32c5c95d1c952f734599b7a0734d",
+  "blocks": [
+    {
+      "name": "filenames_flags",
+      "target_file_offset": "0x47a0",
+      "length": 33,
+      "hex": "433a5c424f4f544c4f472e54585400433a5c424f4f544c4f472e50525600014120"
+    },
+    {
+      "name": "rotate_bootlog",
+      "target_file_offset": "0x4944",
+      "length": 34,
+      "hex": "06ba5f2bb441cd21ba502bbf5f2b0e07b456cd21730a3c027506810e6f2b004007c3"
+    }
+  ],
+  "observations": [
+    "The helper calls DOS to delete BOOTLOG.PRV and rename BOOTLOG.TXT to BOOTLOG.PRV; a file-not-found rename error sets flag 4000h.",
+    "Names, initial semantics, and source ownership are inferred from target data and code."
+  ],
+  "limitations": [
+    "ORG emulates target offsets; no final source layout is established.",
+    "DOS service behavior has not been runtime tested."
+  ]
+}

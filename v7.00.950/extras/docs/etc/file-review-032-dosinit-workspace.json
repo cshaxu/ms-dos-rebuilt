@@ -1,0 +1,15 @@
+{
+  "file": "bios/sysinit1.asm",
+  "source_sha256": "966d163d663e60a2a1b7369d24d67c3367aef228b1824b1def35bbd148ff9cb9",
+  "target_range": "IO.SYS 0x5f11..0x5f39",
+  "bytes": 40,
+  "different_bytes": 0,
+  "probe": "extras/research/dosinit-workspace-linked.asm",
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "DOSINIT kernel-side interface and full execution remain unverified.",
+    "Fixed-offset probe does not prove final linked placement or stack layout."
+  ]
+}

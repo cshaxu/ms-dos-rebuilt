@@ -1,0 +1,16 @@
+{
+  "file": "bios/sysinit2.asm",
+  "source_sha256": "8548589aa51cb9ea671e0a5ff349c40b697a86d3f5419b576b34aa344373560a",
+  "target_range": "IO.SYS 0xdecb..0xdf19",
+  "length": 78,
+  "different_bytes": 0,
+  "tool": "MASM 6 ML isolated probe",
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link": "passed with diagnostic message stub",
+  "probe_source": "extras/research/boot-logo-palette-linked.asm",
+  "limitations": [
+    "Fixed-offset probe does not establish final layout or runtime.",
+    "Logo display and startup callers remain incomplete."
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "part": "M5 T12 S1 P41",
+  "ordinals": [
+    61,
+    62,
+    63
+  ],
+  "modified": 2,
+  "unchanged": 1,
+  "exact_dos6": 0,
+  "retired_by_merge": 0,
+  "buildmsg": {
+    "decision": "No edits",
+    "comparison": "Only DOS6 differences: remove invalid leading semicolons from C copyright comment; emit two-field DOS7 class header and utility id 3 instead of 255.",
+    "basis": "inc/msgserv.asm omits $M_COMMAND_VER under DOS7_TRANSIENT_MSG; accepted COMMAND.CLF has $M_CLASS_ID <003H,Class_F_MessageCount>. Original functions, K&R parameter declarations, formatting and message logic retained."
+  },
+  "wrappers": {
+    "decision": "Retain a minimal separately assembled message-resource entry using the existing shared language INCLUDE and resmsg.equ. Initialization/resident resource classes require their own zero-based DATARES contribution/map; combining them into one object would concatenate resources or introduce artificial conditional variants. No message body is duplicated.",
+    "changes": "Indent INCLUDE/PUBLIC/END and segment declarations; normalize DOS CRLF.",
+    "effectiveStatementsEqual": true,
+    "readbackVerified": true
+  },
+  "validation": {
+    "rebuilt": false,
+    "reason": "C source unchanged; both assembly directive streams unchanged. COMMAND.COM retains T11 exact-byte acceptance."
+  },
+  "next_ordinal": 64,
+  "remaining": 3
+}

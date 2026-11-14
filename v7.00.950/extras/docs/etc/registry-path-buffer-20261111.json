@@ -1,0 +1,14 @@
+{
+  "target_dgroup_base": "AA30",
+  "target_buffer_offset": "0860",
+  "target_initialized_image_end": "B290",
+  "allocated_bytes": 256,
+  "basis": "RegPathPart writes at most 256 bytes before failure, or at most 255 characters plus terminator on success. DS:0860 begins immediately beyond initialized image. This establishes required capacity, not original source declaration size or final BSS padding.",
+  "references": [
+    "3AE5",
+    "3B13",
+    "3BBC"
+  ],
+  "link_expression": "offset DGROUP:RegPathBuffer",
+  "final_original_bss_layout": "pending"
+}

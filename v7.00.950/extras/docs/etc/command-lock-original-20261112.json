@@ -1,0 +1,14 @@
+{
+  "build": "extras/docs/etc/command-lock-stable-build-20261112.json",
+  "target_instruction_ranges": [
+    "0xba27..0xbab3",
+    "0xd97d..0xd987"
+  ],
+  "instruction_bytes": 150,
+  "verification": "LOCK/UNLOCK and localized yes/no helper instructions, linked addresses and branch destinations checked",
+  "regression": "extras/build/lock-stable-regress-lde4v4m_",
+  "failed_dispatch_probe": "extras/build/dispatch-current-kzsrodrq",
+  "failed_simple_probe": "extras/build/dispatch-simple-zucmefjz",
+  "pre_dispatch_control": "extras/build/lock-simple-o00igr6i",
+  "limitations": "LOCK/UNLOCK entries are not yet connected to command table; their runtime behavior is unverified; a target-style split table caused ordinary commands to time out and was reverted pending diagnosis"
+}

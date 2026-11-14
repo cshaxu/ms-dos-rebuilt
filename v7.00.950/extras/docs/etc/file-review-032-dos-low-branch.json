@@ -1,0 +1,48 @@
+{
+  "source": "bios/sysinit1.asm",
+  "sha256": "ceff17c55fe0357ddd80c4fec72555ecb9d78c07e1ff319df3daeac18a5a8cbc",
+  "change": "Align the DOS high/low segreinit segment overrides with the target and expose actual low-memory allocation and move procedures.",
+  "matched": [
+    {
+      "region": "UMB defaults",
+      "start": "0x1639",
+      "end_exclusive": "0x1664",
+      "bytes": 43
+    },
+    {
+      "region": "DOS high/low choice",
+      "start": "0x1664",
+      "end_exclusive": "0x1689",
+      "bytes": 37
+    },
+    {
+      "region": "low DOS move",
+      "start": "0x190c",
+      "end_exclusive": "0x1924",
+      "bytes": 24
+    },
+    {
+      "region": "allocation and fatal handler",
+      "start": "0x196d",
+      "end_exclusive": "0x19f3",
+      "bytes": 134
+    },
+    {
+      "region": "CONFIG buffer copy",
+      "start": "0xa1df",
+      "end_exclusive": "0xa230",
+      "bytes": 81
+    }
+  ],
+  "verification": {
+    "tool": "extras/tools/verify_syspre_device_link.py",
+    "link_stage": "extras/build/syspre-object-link-2vohlm31",
+    "module_stage": "extras/build/ml-sysinit-wd1qsegp",
+    "scope": "Each source-generated region matches the corresponding target bytes; low branch links actual low move, allocator, BIOS/DOS move and CONFIG copy source. Other BIOS address placement remains anchored."
+  },
+  "limitations": [
+    "Target SYSINIT continuation from 1689h still requires reconciliation.",
+    "Diagnostics retain synthetic locations and gaps.",
+    "Complete IO.SYS and all three core binaries remain unverified."
+  ]
+}

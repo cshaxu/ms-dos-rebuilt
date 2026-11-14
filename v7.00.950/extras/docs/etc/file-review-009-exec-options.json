@@ -1,0 +1,24 @@
+{
+  "sources": {
+    "bios/msbio1.asm": "4b5fbf4a113f5fafc91937ee4297f3e2fdd73690a18ac5779233b69e08782456",
+    "bios/sysconf.asm": "0b73bd06d6585bb1d3a982118670095b7270a043bb80080c92d15cde53d239bd",
+    "bios/sysinit1.asm": "f920a58d7bb399f4c890efd765db30a2ba5640ad005ce20f59196557024b3b92"
+  },
+  "change": "Restore the target system-file return path that interprets LASTDRIVE and the query option; export existing LASTDRIVE parser and default drive count dependencies.",
+  "target_region": {
+    "start": "0xa3e1",
+    "end_exclusive": "0xa40b",
+    "bytes": 42
+  },
+  "verification": {
+    "link": "extras/tools/verify_syspre_device_link.py",
+    "stage": "extras/build/syspre-object-link-k8bdbgid",
+    "module_assembly_stage": "extras/build/ml-sysinit-g9jlbk3m",
+    "coverage": "The actual 42 source bytes matched, with actual LASTDRIVE parser and CONFIG restore functions linked; startup variables are linked from extracted source except EXEC data, which is target-address anchored in this diagnostic."
+  },
+  "limitations": [
+    "The upstream A296h system-file execution remains synthetic.",
+    "One byte after this routine and other gaps remain synthetic.",
+    "No complete three-core target comparison has passed."
+  ]
+}

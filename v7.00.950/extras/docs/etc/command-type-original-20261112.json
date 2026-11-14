@@ -1,0 +1,29 @@
+{
+  "build": "extras/docs/etc/command-type-original-v2-build-20261112.json",
+  "sources": [
+    "cmd/command/tcmd1b.asm",
+    "cmd/command/tspc.asm"
+  ],
+  "change": "Restored target TYPE single-file parser, parsed argument storage, interface selection and open flags using existing path and read implementations.",
+  "target_instruction_ranges": [
+    "0xb105..0xb12c",
+    "0xb212..0xb25d"
+  ],
+  "registered_instruction_bytes": 114,
+  "target_probe": "extras/build/type-original-final-target-c9a53fst",
+  "current_probe": "extras/build/type-original-final-current-8ykj9ge6",
+  "matched_cases": [
+    "file in subdirectory",
+    "Ctrl-Z truncation",
+    "missing-file stderr",
+    "multiple-argument stderr",
+    "batch continuation"
+  ],
+  "limitations": "Entire TYPE entry, parser and read/output instruction regions are mapped with linked operands; large-file current-vs-target runtime comparison, long filenames/network, device input and I/O failures remain unverified; full binary not byte-identical.",
+  "output_bytes": 92974,
+  "target_bytes": 92870,
+  "full_type_read_target_range": "0xb12c..0xb212",
+  "additional_registered_instruction_bytes": 230,
+  "large_target_probe": "extras/build/type-large-target-vstl14bs",
+  "large_probe_observation": "Target wrote 70003-byte complete output and 70000-byte pre-Ctrl-Z output and DONE marker, but isolated runner timed out before successful exit; current comparison was not executed."
+}

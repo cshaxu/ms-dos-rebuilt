@@ -1,0 +1,64 @@
+{
+  "source": "extras/research/bios-clock-entry-integration/clockent.asm",
+  "source_sha256": "09aa45da2c0dba86d79c96bd1c29447cbf6053fb06d30a3d20b78d9096c65e50",
+  "linked_exe_sha256": "60a5cf00aae68408e72bd6caa0fb668f4ab2906fa9b21cc83150bb2b405daa57",
+  "spans": [
+    {
+      "from": "GetTickCnt",
+      "to": "clock_entry_trial",
+      "linked_distance": 45,
+      "target_distance": 45,
+      "difference": 0
+    },
+    {
+      "from": "clock_entry_trial",
+      "to": "clock_update_trial",
+      "linked_distance": 6,
+      "target_distance": 6,
+      "difference": 0
+    },
+    {
+      "from": "clock_update_trial",
+      "to": "read_real_date",
+      "linked_distance": 11,
+      "target_distance": 11,
+      "difference": 0
+    },
+    {
+      "from": "read_real_date",
+      "to": "read_real_time",
+      "linked_distance": 186,
+      "target_distance": 186,
+      "difference": 0
+    },
+    {
+      "from": "read_real_time",
+      "to": "step_drv",
+      "linked_distance": 444,
+      "target_distance": 444,
+      "difference": 0
+    },
+    {
+      "from": "step_drv",
+      "to": "dsktbl",
+      "linked_distance": 90,
+      "target_distance": 90,
+      "difference": 0
+    },
+    {
+      "from": "dsktbl",
+      "to": "i13z",
+      "linked_distance": 5973,
+      "target_distance": 5973,
+      "difference": 0
+    }
+  ],
+  "entry_linked_hex": "e80300ca0200e80800e8bf00b401cd1ac3",
+  "entry_target_hex": "e80300ca0200e80800e8bf00b401cd1ac3",
+  "entry_bytes_equal": true,
+  "limitations": [
+    "This adds separately named trial wrappers; the old diagnostic int6c provider remains and is not redirected.",
+    "Other diagnostic initialization placeholders remain; full BIOS identity is not claimed.",
+    "BYTE alignment and source ownership are experimental."
+  ]
+}

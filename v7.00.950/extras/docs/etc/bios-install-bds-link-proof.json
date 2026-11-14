@@ -1,0 +1,16 @@
+{
+  "source": "extras/research/bios-install-bds-link-probe.asm",
+  "source_sha256": "ce775544233b20c8c7e78f011581746c57515fc34c86a3550f050d1bb7e6a8fc",
+  "object_sha256": "c59cf0276fe34aabc55a0b910daecfeb10e049b98c9df2c970003aa6f427efb6",
+  "exe_sha256": "8100d47531a189bdbb48657c05ad129bc258da7c36f6aafc0b8d4bc47e41af67",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_file_offset": "0x4450",
+  "linked_exe_file_offset": "0x2b00",
+  "length": 95,
+  "all_bytes_equal_after_link": true,
+  "limitations": [
+    "Explicit ORG placement is isolated link scaffolding and does not reconstruct the complete target BIOS layout.",
+    "Field constants are translated from the historical source and target bytes; the full source-unit dependency graph remains unresolved.",
+    "No full BIOS or image binary equivalence is established."
+  ]
+}

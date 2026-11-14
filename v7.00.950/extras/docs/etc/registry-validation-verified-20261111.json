@@ -1,0 +1,31 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\registry-check-fiiypync",
+  "source": "bios/regvalid.asm",
+  "source_sha256": "9ab44ba61e808f4b24d5180399e94cf4b177e6018159c3e9c582505772ef3df9",
+  "linked_sha256": "7a520e54d9978a56a22bfdcf11ad823eafda3248c226d9ee90b5274473a9cfe3",
+  "validator_bytes": 312,
+  "exact_non_relocated_bytes": 288,
+  "verified_far_calls": 3,
+  "verified_near_calls": 4,
+  "verified_data_references": 2,
+  "diagnostic_raw_exact_bytes": 2,
+  "policy_raw_exact_bytes": 2,
+  "policy_target_offset": "DS:0422h",
+  "policy_initial_value": 255,
+  "checksum_dependency": {
+    "stage": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\registry-check-fiiypync",
+    "source": "bios/regcheck.asm",
+    "source_sha256": "9a88e819ccce2b1dbc156c6a4c799cff2bf24b58e1af16ba77c83a1c3f863f40",
+    "module_bytes": 90,
+    "exact_non_relocated_bytes": 86,
+    "verified_far_calls": 1,
+    "library": "O:\\repos.external\\OpenNT\\public\\sdk\\lib16\\llibce.lib",
+    "library_sha256": "6dd7fdf103a71d0cec3433aa3bd7d05b73f90c3e9f24e667c29d5f3c0f9a9389",
+    "runtime_member": "ulshr.asm",
+    "runtime_symbol": "__aFulshr",
+    "runtime_raw_exact_bytes": 11,
+    "linked_sha256": "a34c89d0d7d9ef0ff7627a3ce3f7ae42606a13946513fd8a972a26996ba5c89e",
+    "scope": "Complete checksum function; sole helper independently matched to historical library and target. Final configuration layout pending."
+  },
+  "scope": "Three complete validators, diagnostic and initial policy state verified; final program layout pending."
+}

@@ -1,0 +1,23 @@
+{
+  "files": [
+    "bios/msint13.asm",
+    "bios/sysinit2.asm"
+  ],
+  "source_hashes": [
+    "5a074fb95ca0011a6385ada48bc841b3d46349dfbe3e4def498c254284854332",
+    "1c691a8fda83355dac0f859f61d79d2264d6ed934eeef0b37ad4c1c529e09fca"
+  ],
+  "target_range": "IO.SYS 0xa5cd..0xa690",
+  "length": 195,
+  "different_bytes": 0,
+  "tool": "MASM 6 ML isolated probe",
+  "default_objects_identical": true,
+  "dos7_assembly": "both passed without warnings",
+  "mixed_diagnostic_link": "passed",
+  "probe_source": "extras/research/boot-path-sync-linked.asm",
+  "limitations": [
+    "Fixed-offset probe places final return at target offset using a gap for missing subsequent adjustments; the production jump displacement is provisional.",
+    "Later startup option adjustments and caller remain incomplete.",
+    "Full layout and execution remain unverified."
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "method": "Overlapping exact 16-byte windows; matched in each complete reference binary. Repetitive data and shifted addresses affect this heuristic; not an instruction-level similarity or proof of source ancestry.",
+  "results": {
+    "IO.SYS": {
+      "5.0": {
+        "reference_size": 33430,
+        "reference_sha256": "dd0915ed366b3f640284df4be30ed35f413dfd5b6966c1f25eee9598a5bf53e0",
+        "target_16_byte_windows_matched": 14934,
+        "target_16_byte_windows": 223133,
+        "target_window_percent": 6.693,
+        "distinct_window_percent": 2.373
+      },
+      "6.0": {
+        "reference_size": 40470,
+        "reference_sha256": "a2b83c3eb0656f29b6a2e48abb5f89fa803cc02f51c1dc95b34503c964cff9b3",
+        "target_16_byte_windows_matched": 17021,
+        "target_16_byte_windows": 223133,
+        "target_window_percent": 7.628,
+        "distinct_window_percent": 3.334
+      },
+      "6.20": {
+        "reference_size": 40566,
+        "reference_sha256": "a96905f6a7358dbddafbe1128e49e9996e7d416e007801b007573c1f0acf9bbf",
+        "target_16_byte_windows_matched": 17028,
+        "target_16_byte_windows": 223133,
+        "target_window_percent": 7.631,
+        "distinct_window_percent": 3.338
+      },
+      "6.22": {
+        "reference_size": 40774,
+        "reference_sha256": "e443d6fb7303cd341d59a260262ae2aa20029a54d8e8daac83c1d4efa9042d75",
+        "target_16_byte_windows_matched": 17029,
+        "target_16_byte_windows": 223133,
+        "target_window_percent": 7.632,
+        "distinct_window_percent": 3.338
+      }
+    },
+    "COMMAND.COM": {
+      "5.0": {
+        "reference_size": 47845,
+        "reference_sha256": "74ad25067e7d9f5c3a0ac2f2967347defb0ffef9e6ed60b60e6499f0b1a8cc89",
+        "target_16_byte_windows_matched": 44226,
+        "target_16_byte_windows": 92855,
+        "target_window_percent": 47.629,
+        "distinct_window_percent": 20.877
+      },
+      "6.0": {
+        "reference_size": 52925,
+        "reference_sha256": "8969c296d4aa4b2fc9d5456444020e60f022f76de539655282e894ddfd699da3",
+        "target_16_byte_windows_matched": 46258,
+        "target_16_byte_windows": 92855,
+        "target_window_percent": 49.817,
+        "distinct_window_percent": 24.018
+      },
+      "6.20": {
+        "reference_size": 54619,
+        "reference_sha256": "9b1d77119ac6fe4f949f574db1445b2848683c3a5aaa2bb09f52d0b538df3541",
+        "target_16_byte_windows_matched": 46680,
+        "target_16_byte_windows": 92855,
+        "target_window_percent": 50.272,
+        "distinct_window_percent": 24.641
+      },
+      "6.22": {
+        "reference_size": 54645,
+        "reference_sha256": "65fa71b0a34e91feffc31297fb5e24d40767c72fb513e46aaac721bda7836110",
+        "target_16_byte_windows_matched": 46651,
+        "target_16_byte_windows": 92855,
+        "target_window_percent": 50.241,
+        "distinct_window_percent": 24.593
+      }
+    }
+  }
+}

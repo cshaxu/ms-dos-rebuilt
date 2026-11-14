@@ -1,0 +1,16 @@
+{
+  "build": "extras/docs/etc/command-external-segments-build-20261112.json",
+  "source": "cmd/command/tmisc1.asm",
+  "change": "restored original CS overrides for external command state",
+  "target_instruction_range": "0xc3ba..0xc3ca",
+  "instruction_bytes": 16,
+  "stable_probe": "extras/build/external-segments-fgclpm9x",
+  "matched_cases": [
+    "ordinary command before unknown external command",
+    "batch continues after unknown external command"
+  ],
+  "reverted_experiment": "extras/docs/etc/command-badcom-original-build-20261112.json",
+  "experiment_observation": "original WIN-specific diagnostic bytes matched target but resulting build timed out even on a simple echo; single and combined binary patch controls also timed out",
+  "limitations": "root cause of startup regression unproven; WIN-specific original diagnostic was reverted and remains incomplete; final binary not identical",
+  "output_bytes": 94220
+}

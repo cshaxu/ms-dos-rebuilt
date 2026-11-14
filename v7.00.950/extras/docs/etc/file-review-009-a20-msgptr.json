@@ -1,0 +1,14 @@
+{
+  "file_index": 9,
+  "source": "bios/msbio1.asm",
+  "source_sha256": "7337e044880bb76d940d3dac73f53600f5460cd9cd6adc0331d269f4475a0389",
+  "target_io_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_pointer_offset": 380,
+  "target_pointer_file_offset": 1916,
+  "target_initial_word": 0,
+  "target_reader_offset": 2778,
+  "candidate_writer_offset": 5368,
+  "linked_symbol_offset": 1792,
+  "validation": "Target A20 failure reads CS:017C; the target file initially contains zero at the corresponding BIOS-data location. Target initialization includes a write of DI to offset 017C before copying a dollar-terminated message. The source-defined exported word is zero-initialized, and the linked A20 reader resolves to it. The no-change default build and ML diagnostic passed; the latter stubs only a20_retry_vector.",
+  "limitations": "Runtime caller data-segment state and writer integration still require full SYSINIT reconstruction; callback vector and target-wide layout remain unresolved."
+}

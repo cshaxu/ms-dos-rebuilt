@@ -1,0 +1,27 @@
+{
+  "source_sha256": "b4c11362a7e7e51fe70c287f3eb518d17651f918e905af3f73ab70f7d3602d68",
+  "listing_sha256": "38f880f33e3341cc8a275eb56d37dd7d37d639e8d30f826b2c15f2e7ecab0a40",
+  "routines": [
+    {
+      "name": "erase_dev_do",
+      "target_offset": "0xbc09",
+      "length": 60,
+      "masked_relocation_bytes": 16,
+      "matched_nonrelocated_bytes": 41,
+      "differences": [
+        1,
+        48,
+        49
+      ]
+    },
+    {
+      "name": "CheckDoubleSpace",
+      "target_offset": "0xbd96",
+      "length": 70,
+      "masked_relocation_bytes": 14,
+      "matched_nonrelocated_bytes": 56,
+      "differences": []
+    }
+  ],
+  "limitations": "Relocation operands and complete linked output remain unverified."
+}

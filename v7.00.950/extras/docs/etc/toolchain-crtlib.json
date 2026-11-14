@@ -1,0 +1,20 @@
+{
+  "task": "M5 T11 S1",
+  "status": "verified-component",
+  "source": "extras/tools/crtlib.c",
+  "input_library": "O:/repos.external/OpenNT/public/sdk/lib16/llibce.lib",
+  "stage": "extras/build/native-crtlib",
+  "member_count": 741,
+  "aliases": 19,
+  "external_name_rewrites": 31,
+  "all_member_objects_byte_equal_to_accepted_preparation": true,
+  "librarian": "Original DOS LIB",
+  "output_library_byte_equal": true,
+  "output_sha256": "b362c8454f1c2bc9dd46c686b1d86d8b4dfbb51fd337f2d918299e53f366df35",
+  "selection_stage": "extras/build/native-crt-members",
+  "selected_crt_objects_compared": 43,
+  "selected_objects_byte_equal": true,
+  "startup_adaptation": "Explicit --dos-startup option preserves existing adaptation: remove crt0 compiler comment 00a81413 and bind __fatalexit to existing __farstub. No code/data/fixup payload edits.",
+  "target_image_read_by_tool": false,
+  "full_configuration_build_verified": false
+}

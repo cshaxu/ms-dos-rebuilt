@@ -1,0 +1,38 @@
+{
+  "source": "bios/sysinit2.asm",
+  "sha256": "b26b3298b8b6f5ea647839cb13b66153554728d89ec9e1e3fe82123fa52a4041",
+  "change": "Expose existing startup device and driver data, and link actual CONFIG multi-pass caller to real startup driver, device-check and single-line CONFIG processing source.",
+  "matched": [
+    {
+      "region": "CONFIG multi-pass caller",
+      "start": "0x16a7",
+      "end_exclusive": "0x16bf",
+      "bytes": 24
+    },
+    {
+      "region": "startup driver processing",
+      "start": "0x4eac",
+      "end_exclusive": "0x4f9a",
+      "bytes": 238
+    },
+    {
+      "region": "startup device checks",
+      "start": "0x4ac0",
+      "end_exclusive": "0x4c30",
+      "bytes": 368
+    }
+  ],
+  "verification": {
+    "tool": "extras/tools/verify_syspre_device_link.py",
+    "link_stage": "extras/build/syspre-object-link-x62836x3",
+    "module_stage": "extras/build/ml-sysinit-cad2eb7d",
+    "runtime": "extras/tools/verify_boot_startup_drivers.py",
+    "runtime_stage": "extras/build/startup-drivers-runtime-kk1fzcc8",
+    "scope": "All three target regions match and link to source providers. The runtime harness stubs the per-record execution and UMB checks, and verifies table iteration and two query modes; it does not load drivers."
+  },
+  "limitations": [
+    "SYSINIT continuation from 16BFh still requires reconciliation.",
+    "BIOS locations and other diagnostic gaps or addresses remain synthetic.",
+    "Complete IO.SYS and all three core files remain unverified."
+  ]
+}

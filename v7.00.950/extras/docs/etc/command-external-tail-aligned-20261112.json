@@ -1,0 +1,22 @@
+{
+  "build": "extras/docs/etc/command-long-output-build-20261112.json",
+  "changes": [
+    "restored external command tail and selected pathname conversion call",
+    "restored resident execution transfer flag",
+    "corrected unformatted string output maximum width to target value"
+  ],
+  "target_instruction_ranges": [
+    "0xc3ec..0xc419",
+    "0xc639..0xc680",
+    "0xc6ad..0xc6d5"
+  ],
+  "instruction_bytes": 156,
+  "target_descriptor_range": "0x106ea..0x106fa",
+  "short_target": "extras/build/exec-aligned-target-m1vpwr7l",
+  "short_current": "extras/build/exec-aligned-current-0kuhkfba",
+  "long_target": "extras/build/exec-long-final-target-ljx4lc_5",
+  "long_current": "extras/build/exec-long-final-current-22u7io6g",
+  "result": "PATH execution, short command tail, 160-character argument PSP tail and post-exec CMDLINE display match target",
+  "limitations": "LFN/UNC canonicalization, error handling, child environment interpretation and full file identity remain unverified",
+  "output_bytes": 94220
+}

@@ -1,0 +1,17 @@
+{
+  "file": "bios/sysinit2.asm",
+  "source_sha256": "4b7705348da8cee797313fd319d56b972743e42d3735e3179a616e6fbde00300",
+  "target_range": "IO.SYS 0xa569..0xa57d",
+  "length": 20,
+  "different_bytes": 0,
+  "tool": "MASM 6 ML isolated probe",
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link": "passed with diagnostic BIOS stub",
+  "probe_source": "extras/research/boot-disablelog-linked.asm",
+  "limitations": [
+    "The target BIOS disable-log byte precedes exec_bios_word, but the project currently resolves that word with a diagnostic stub; real BIOS field ownership and layout are pending.",
+    "Fixed offsets and synthetic error and parser destinations do not prove final placement or execution.",
+    "Option table and caller remain incomplete."
+  ]
+}

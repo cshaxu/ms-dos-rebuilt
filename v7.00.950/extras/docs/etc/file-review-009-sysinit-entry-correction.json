@@ -1,0 +1,15 @@
+{
+  "source": "bios/msbio1.asm",
+  "source_sha256": "d644c034e3614a965a341109de7fba00903e2d8e19958350264afcf1eec2718d",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "far_jump_file_offset": 5410,
+  "far_jump_hex": "eae80ee304",
+  "target_segment": 1251,
+  "target_offset": 3816,
+  "mapped_entry_file_offset": 23576,
+  "entry_bytes": "e91501",
+  "near_jump_destination_file_offset": 23856,
+  "target_bds_offset": 856,
+  "change": "Remove the SI_start label from the start of the DOS7 BDS list; retain the reference label in the non-DOS7 configuration.",
+  "limitations": "Static control-flow evidence identifies the target entry and disproves its placement at BDS start; the target entry and segment layout have not yet been reconstructed. The diagnostic remains stub-assisted."
+}

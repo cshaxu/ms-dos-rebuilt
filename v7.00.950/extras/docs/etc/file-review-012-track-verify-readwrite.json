@@ -1,0 +1,39 @@
+{
+  "source_sha256": "fe84edb08a296f704860c1cfe129bfb8bcca958f50034e393af845a5f39a96f0",
+  "listing_sha256": "5a1012ea77a5267ac45d94483267941a14c16ab7ff88230ace48633fd91d632c",
+  "routines": [
+    {
+      "name": "VerifyTrack",
+      "target_offset": "0x3651",
+      "length": 107,
+      "masked_relocation_bytes": 20,
+      "matched_nonrelocated_bytes": 87,
+      "differences": []
+    },
+    {
+      "name": "ReadTrack",
+      "target_offset": "0x36bc",
+      "length": 8,
+      "masked_relocation_bytes": 2,
+      "matched_nonrelocated_bytes": 6,
+      "differences": []
+    },
+    {
+      "name": "WriteTrack",
+      "target_offset": "0x36c4",
+      "length": 6,
+      "masked_relocation_bytes": 2,
+      "matched_nonrelocated_bytes": 4,
+      "differences": []
+    },
+    {
+      "name": "ReadWriteTrack",
+      "target_offset": "0x36ca",
+      "length": 43,
+      "masked_relocation_bytes": 8,
+      "matched_nonrelocated_bytes": 35,
+      "differences": []
+    }
+  ],
+  "limitations": "Relocation operands and complete linked output remain unverified."
+}

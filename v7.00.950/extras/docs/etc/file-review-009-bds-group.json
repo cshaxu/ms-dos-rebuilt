@@ -1,0 +1,90 @@
+{
+  "file_index": 9,
+  "source": "bios/msbio1.asm",
+  "source_sha256": "9e06d174bf010e49c995dba31b9bbe3bec157cee6e439e39b8f43456d2edf242",
+  "start_bds_diagnostic_pointer": [
+    2285,
+    112
+  ],
+  "start_bds_target_pointer": [
+    856,
+    1251
+  ],
+  "floppy_descriptors": [
+    {
+      "index": 1,
+      "diagnostic_offset": 2285,
+      "target_offset": 20616,
+      "matching_bytes": 96,
+      "different_offsets": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "next_pointer": [
+        2385,
+        112
+      ]
+    },
+    {
+      "index": 2,
+      "diagnostic_offset": 2385,
+      "target_offset": 20716,
+      "matching_bytes": 96,
+      "different_offsets": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "next_pointer": [
+        2485,
+        112
+      ]
+    },
+    {
+      "index": 3,
+      "diagnostic_offset": 2485,
+      "target_offset": 20816,
+      "matching_bytes": 96,
+      "different_offsets": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "next_pointer": [
+        2585,
+        112
+      ]
+    },
+    {
+      "index": 4,
+      "diagnostic_offset": 2585,
+      "target_offset": 20916,
+      "matching_bytes": 100,
+      "different_offsets": [],
+      "next_pointer": [
+        65535,
+        65535
+      ]
+    }
+  ],
+  "hard_descriptor_array_length": 2500,
+  "hard_descriptor_array_exact": true,
+  "diagnostic_stub_symbols": [
+    "bios_msg_base",
+    "bios_msg_1",
+    "bios_msg_2",
+    "bios_msg_3",
+    "int6c_read_date",
+    "int6c_read_time",
+    "ttticks",
+    "char_auxnum",
+    "char_printdev",
+    "disk_start_high"
+  ],
+  "default_reference_output_sha256": "a67d8733509f9baf94017389cc1c991d5ef1c66bdfb91b6cab3eef0fc35e9490",
+  "limitations": "Current link uses BIOS group-relative offsets and segment 0070h; target uses a different segment and offsets. Runtime relocation, segment integration and full target binary remain unverified."
+}

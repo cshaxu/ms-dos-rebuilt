@@ -1,0 +1,16 @@
+{
+  "file": "bios/sysconf.asm",
+  "source_sha256": "e62531fdefd75ae93afd2e9aea6af01f6e86c0e6593caad404f89a1507b2cda4",
+  "target_range": "IO.SYS 0xc3b2..0xc3cc",
+  "bytes": 26,
+  "different_bytes": 0,
+  "probe": "extras/research/umbsync7-linked.asm",
+  "default_object_identical_to_prior": true,
+  "dos7_assembly": "passed",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "Surrounding ProcDOS dispatch retains transitional legacy DevUMB state and differs from target.",
+    "Fixed-offset probe does not prove full layout or runtime behavior.",
+    "Mixed diagnostic link contains older objects and stubs."
+  ]
+}

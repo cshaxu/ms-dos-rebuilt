@@ -1,0 +1,11 @@
+{
+  "file": "bios/msinit.asm",
+  "source_sha256": "a87bb5a8d8000baf7c65cfd493e62b3577c41a03d2d8b39ed55b05a370ad1d50",
+  "change": "Exclude the obsolete seg_reinit_ptr external in DOS7; its only use is in the DOS6 branch",
+  "default_object_identical": true,
+  "dos7_assembly": "passed",
+  "evidence": "Current-source diagnostic link reported seg_reinit_ptr unresolved after the real DOS7 sysinit1 removed this legacy pointer.",
+  "limitations": [
+    "Final BIOS/SYSINIT link still needs to replace diagnostic stubs."
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "source_sha256": "8d86be58adc477b18c9a77c1526514f2c32b632af36bc96d01ca161fd87af76b",
+  "stage": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\sysinit-path-candidate-6nu8h74m",
+  "target_range": "0xec52..0xedc7",
+  "bytes": 374,
+  "comparison": {
+    "matching_bytes": 374,
+    "differences": [],
+    "actual_hex": "504154483d00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000e07bf279fac0ac0740738f87403aaebf4568ad8b05c263a45ff7401aa8bf226acaa0ac075f90adbf87501f55ec3000e1f56508bfab90300b44ecd215872470ac0753ec606c39f00e84a003a06c39f7e07a2c39f3c087409b90300b44fcd2173e7803ec39f00741e803ec39f08be20a07403be25a08bfab02eb94300f3ae4fa5a5a0c39feb03b800005ec32e434f4d002e455845005756b000bf889fb91700fcf2ae752d4fb90500fdb02ef2ae752247fcbe20a08bc7a77507a77504b008eb118bf8be25a0a77507a77504b004eb02b0005e5fc38d36229fb90500833ece5a00741ffc8e06d05a33ff5651f3a65a5e74114f32c0b90001f2ae26803d008bca75e8f9c3"
+  },
+  "assembler": "MASM 5",
+  "reference": "v6.0/cmd/sys/path.asm: Path_Crunch, Search, Search_Ftype, Find_Path_In_Environment",
+  "limitations": [
+    "Diagnostic fixed target offsets; original file ownership is unproven.",
+    "Callers and runtime behavior have not been verified."
+  ]
+}

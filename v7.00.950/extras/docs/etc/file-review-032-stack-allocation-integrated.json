@@ -1,0 +1,27 @@
+{
+  "file": "bios/sysinit1.asm",
+  "file_index": 32,
+  "source_sha256": "26e0735afa4ce06f511266e254b03591a86ca89ab23f037133ffff9b0003e05c",
+  "target_file_range": "0x8671..0x86fa",
+  "length": 137,
+  "different_bytes_after_manual_fixups": 0,
+  "fixup_words": 25,
+  "connected_symbols": [
+    "alloc_marked_block",
+    "stack_high",
+    "sysinit_msg_base",
+    "sysinit_stack_msg_index",
+    "win386_stack_seg",
+    "win386_stack_size",
+    "win386_nextstack",
+    "win386_stack_code_seg",
+    "win386_stack_code_size"
+  ],
+  "default_object_identical": true,
+  "dos7_assembly": "passed",
+  "limitations": [
+    "The 25 target addresses and relative call fields were substituted manually; the full multi-module link and relocation are not yet verified.",
+    "STACKSHIGH default policy and subsequent stackinit implementation are not yet validated against target.",
+    "The saved BIOS code segment correspondence and final segment placement remain to be verified."
+  ]
+}

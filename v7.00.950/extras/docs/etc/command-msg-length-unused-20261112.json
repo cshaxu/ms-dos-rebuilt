@@ -1,0 +1,20 @@
+{
+  "build": "extras/docs/etc/command-msg-length-unused-build-20261112.json",
+  "source": "inc/msgserv.asm",
+  "change": "Excluded unreferenced transient ASCIIZ length helper from both message service macro branches while preserving non-transient paths.",
+  "basis": "Assembler listing contains no call to helper in current transient configuration; target lookup and find helpers are contiguous without it.",
+  "target_instruction_range": "0xfed6..0xff18",
+  "registered_instruction_bytes": 66,
+  "target_probe": "extras/build/msg-length-target-n87s4ssx",
+  "current_probe": "extras/build/msg-length-current-ie8sjecp",
+  "matched_cases": [
+    "DIR listing except separate parent timestamp",
+    "VER /R",
+    "VOL",
+    "DEL missing-file stderr",
+    "batch continuation"
+  ],
+  "limitations": "Target message lookup still appears at a different linked position; other error and locale paths untested; complete binary not byte-identical.",
+  "output_bytes": 92953,
+  "target_bytes": 92870
+}

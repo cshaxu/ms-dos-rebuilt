@@ -1,0 +1,17 @@
+{
+  "file": "bios/sysinit2.asm",
+  "source_sha256": "015c91fd19dea9daea40aa19a0ee5732b713a3bc81d6428f58d96c06b4586957",
+  "target_range": "IO.SYS 0x9906..0x9931",
+  "length": 43,
+  "different_bytes": 0,
+  "tool": "MASM 6 ML isolated probe",
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link": "passed",
+  "probe_source": "extras/research/boot-double-buffer-linked.asm",
+  "limitations": [
+    "Driver type bytes remain temporary standalone storage pending the startup record table.",
+    "Fixed offsets do not prove final placement or execution.",
+    "Table and callers remain incomplete."
+  ]
+}

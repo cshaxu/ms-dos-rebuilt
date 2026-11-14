@@ -1,0 +1,38 @@
+{
+  "part": "M5 T12 S1 P10",
+  "ordinals": [
+    28,
+    29
+  ],
+  "modified": 2,
+  "unchanged": 0,
+  "exact_dos6": 0,
+  "retired_by_merge": 1,
+  "changes": {
+    "mblate": "Seven fall-through PROC blocks with no independent return/caller converted to same-named near labels inside boot_exec_system; remove unused public middle entries and return export, preserve outer near calling convention and final RET. Remove orphan drive-check heading, normalize declarations and deduplicate six identical EXTRN symbols.",
+    "memstate": "Merge contiguous allocation state into ststate; preserve area/bucketptr/bufptr/memlo/prmblk/memhi/ldoff/drivenumber/boot_mode values and aliases; remove duplicate PUBLIC and stale request-packet comments."
+  },
+  "references": {
+    "memory_state": "DOS6 bios/sysinit1.asm:806-833",
+    "procedure_style": "DOS6 near procedures with one entry/end and internal labels; existing mblate EXEC instructions unchanged",
+    "consumers": "Only boot_exec_system referenced externally; bios/sysinit1.asm:1147 calls it. Intermediate labels have no external consumers."
+  },
+  "validation": {
+    "stage": "extras/build/source-quality-p10",
+    "build": "Original MASM ststate and ML mblate; LINK /MAP, RELOC; PASS",
+    "bios": "fc /b against T11 msbio.bin: no differences",
+    "io": "Packed complete 223148-byte IO.SYS with rebuilt BIOS/map; fc /b against extras/assets/IO.SYS: no differences",
+    "postbuild_cleanup": {
+      "dedup_verified": true,
+      "detail": "Only repeated identical SysInitSeg EXTRN declarations removed after validation. Remaining non-EXTRN source and external symbol/type set identical to compiled version; no additional rebuild."
+    },
+    "other_components": "COMMAND.COM/MSDOS.SYS unchanged; T11 acceptance retained"
+  },
+  "collateral_ordinals": [
+    53,
+    59,
+    60
+  ],
+  "next_ordinal": 30,
+  "remaining": 37
+}

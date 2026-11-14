@@ -1,0 +1,34 @@
+{
+  "source": "bios/sysconf.asm",
+  "sha256": "51db5b182823c088d56f11b5e871bf1d9971593217c031ee21307035a28337e8",
+  "change": "Replace diagnostic placeholders with actual DOS 7 USA copyright include, SYSINIT path buffer and SYSCONF multidevice flag.",
+  "matched": [
+    {
+      "region": "copyright",
+      "start": "0x3249",
+      "end_exclusive": "0x32be",
+      "bytes": 117
+    },
+    {
+      "region": "path buffer",
+      "start": "0x3328",
+      "end_exclusive": "0x3368",
+      "bytes": 64
+    },
+    {
+      "region": "multidevice and driver-unit flags",
+      "start": "0x5ad5",
+      "end_exclusive": "0x5ad7",
+      "bytes": 2
+    }
+  ],
+  "verification": {
+    "tool": "extras/tools/verify_syspre_device_link.py",
+    "link_stage": "extras/build/syspre-object-link-eit61r12",
+    "scope": "Actual maintained include and source declarations assembled in place; unrelated layout anchors remain."
+  },
+  "limitations": [
+    "No core source modified in this step.",
+    "Complete product link and final three core binaries remain unverified."
+  ]
+}

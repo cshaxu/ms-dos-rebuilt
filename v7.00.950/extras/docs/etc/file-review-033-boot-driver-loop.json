@@ -1,0 +1,16 @@
+{
+  "file": "bios/sysinit2.asm",
+  "source_sha256": "f660cd9f1eaf3b9fe7197a6dcb16cd01ff6e4a8e9823ae0cd86d44fbb250940e",
+  "target_range": "IO.SYS 0x9bdc..0x9cca",
+  "length": 238,
+  "different_bytes": 0,
+  "tool": "MASM 6 ML isolated probe",
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link": "passed",
+  "probe_source": "extras/research/boot-driver-loop-linked.asm",
+  "limitations": [
+    "Fixed-offset probe uses synthetic UMB and multi-pass destinations; full layout and runtime remain unverified.",
+    "Startup caller and full three-file build remain incomplete."
+  ]
+}

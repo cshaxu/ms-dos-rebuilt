@@ -1,0 +1,10 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "prevoper_bios_code_offset": 9320,
+  "number_of_sec_bios_code_offset": 9322,
+  "prevoper_write_file_offset": 16863,
+  "number_of_sec_write_file_offset": 16992,
+  "number_of_sec_write_hex": "2ea26a24b80102",
+  "reference_source": "bios/msint13.asm",
+  "limitations": "Target INT13 sequence corresponds to reference state. Removing the legacy BIOS_DATA fields immediately caused an early BIOS layout mismatch; they were restored pending target layout reconstruction."
+}

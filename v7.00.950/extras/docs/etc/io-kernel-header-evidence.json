@@ -1,0 +1,17 @@
+{
+  "target": "IO.SYS",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "candidate_kernel_offset": 70592,
+  "candidate_start_bytes": "e9fc85203f7000000007003802010239",
+  "reference": "6.22 MSDOS.SYS",
+  "reference_sha256": "6db133420bf04ddbafe310a720fab934db3e7dc9f5a53fc6692d5a01cbbc0d4e",
+  "reference_start_bytes": "e9747ce03d7000000006163802010239",
+  "common_run": {
+    "reference_offset": 16,
+    "target_offset": 70608,
+    "length": 173
+  },
+  "interpretation": "Strong structural lead: a jump and version bytes precede a contiguous 6.22 kernel header/data match. The major/minor bytes at offsets 9 and 10 are 07 00. This does not establish complete kernel boundaries or all component ordering.",
+  "near_jump_linear_unwrapped_offset": 39359,
+  "near_jump_note": "Arithmetic only: actual 16-bit IP wrapping and runtime CS mapping are not established; do not treat this as a verified execution target."
+}

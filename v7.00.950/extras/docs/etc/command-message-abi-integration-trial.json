@@ -1,0 +1,30 @@
+{
+  "stage": "extras/build/message-abi-trial-0p4fbdju",
+  "trial_changes": [
+    "Message-class header removes version word in isolated inc/msgserv.asm.",
+    "Maximum and minimum width fields are words in isolated inc/msgserv.asm.",
+    "parm_block_size set to 13 in isolated cmd/comequ.asm.",
+    "Generated class declarations changed to two fields; temporary F class callback renamed to $M_CLS_3 and CTL class count set to 3 to satisfy existing macro convention."
+  ],
+  "results": {
+    "tdata_assembly": "0 warnings, 0 errors",
+    "tprintf_assembly": "0 warnings, 0 errors",
+    "tdata_object_sha256": "8691fd27684b5c13102eee1b96cfb294e0dea4784d3bcca8ba7c5667a7320f1d",
+    "tprintf_object_sha256": "9d0c26a0aea77e3c99e17d04ca730cd733c9f733eec6094dbf488f55200f6238"
+  },
+  "counterexample": {
+    "source": "cmd/command/tranmsg.asm:DirCompRatio_Ptr",
+    "first_sublist_object_offset": 650,
+    "next_sublist_object_offset": 661,
+    "actual_distance": 11,
+    "declared_length": 13,
+    "reader_next_offset": 663,
+    "reader_error": "Reader advances two bytes into the next sublist."
+  },
+  "limitations": [
+    "This isolated partial trial is not a complete target implementation.",
+    "The affected block uses historical message ID 1101, which is independently known to change semantics in target.",
+    "Other structures, class layout, symbol ownership and target binary are not verified.",
+    "Changing a length constant without converting hand-written field widths is invalid even though both objects assemble."
+  ]
+}

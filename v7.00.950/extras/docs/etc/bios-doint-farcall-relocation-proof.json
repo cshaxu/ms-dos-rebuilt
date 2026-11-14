@@ -1,0 +1,25 @@
+{
+  "linked_exe_sha256": "5abdbff2830bfbff26c256cd11307c89dfd3cac0fae7d72493e72f03d8005e3f",
+  "target_file_offset": "0x4162",
+  "length": 26,
+  "raw_linked": "8a560832e40ac074108a6603ff760e9d9a100500009c8f460ec3",
+  "target": "8a560832e40ac074108a6603ff760e9d9a100570009c8f460ec3",
+  "relocation_site_linear": "0x3d19",
+  "matching_mz_entries": [
+    {
+      "index": 35,
+      "segment": "0x1a5",
+      "offset": "0x22c9"
+    }
+  ],
+  "synthetic_load_segment": "0x70",
+  "after_synthetic_relocation_matches_target": true,
+  "observations": [
+    "The single differing byte is in the segment word of an MZ far-call relocation to call_orig13, not an instruction encoding discrepancy.",
+    "The target stores segment 0070h; the diagnostic EXE stores 0000h before load relocation."
+  ],
+  "limitations": [
+    "The relocation was applied synthetically to this one word; the complete loading and image build pipeline was not verified.",
+    "Other BIOS components and source ownership remain incomplete."
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "linked_exe_sha256": "e65c23f2f8baebedc6246d5ac6d59208d5cec33efbf76ceb76f28796bedc0e74",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "edges": [
+    {
+      "edge": "GetBP_to_hidensity",
+      "target_instruction_file": "0x2c26",
+      "target_destination_file": "0x463f",
+      "linked_instruction_bios_code": "0xd7a",
+      "linked_destination_bios_code": "0x2322",
+      "symbol": "hidensity"
+    },
+    {
+      "edge": "hidensity_to_has1",
+      "target_instruction_file": "0x466f",
+      "target_destination_file": "0x2c72",
+      "linked_instruction_bios_code": "0x2352",
+      "linked_destination_bios_code": "0xdc6",
+      "symbol": "has1"
+    },
+    {
+      "edge": "hidensity_to_has720k",
+      "target_instruction_file": "0x4675",
+      "target_destination_file": "0x2c35",
+      "linked_instruction_bios_code": "0x2358",
+      "linked_destination_bios_code": "0xd89",
+      "symbol": "has720k"
+    }
+  ],
+  "limitations": [
+    "The checked branches are from diagnostic linked trial objects; overall segment placement and full binary identity remain unresolved.",
+    "Target destination names are identified through independently aligned source labels."
+  ]
+}

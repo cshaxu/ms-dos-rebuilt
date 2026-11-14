@@ -1,0 +1,30 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "dispatcher_bios_offset": 1267,
+  "message_vector_bios_offset": 356,
+  "message_routine_file_offset": 9029,
+  "messages": [
+    {
+      "selector": 1,
+      "meaning": "divide_overflow",
+      "target_file_offset": 19011,
+      "length": 104,
+      "sha256": "f9adb96a130954c215e9885e952ab0fc895698eb7f29e7d163214632b94c96e3"
+    },
+    {
+      "selector": 2,
+      "meaning": "direct_disk_access",
+      "target_file_offset": 19116,
+      "length": 152,
+      "sha256": "377f12930af91a227fe0d2fe568ed8ebd3fd5d1e65a1c6df95a8ca4fe089179e"
+    },
+    {
+      "selector": 3,
+      "meaning": "system_halted",
+      "target_file_offset": 19269,
+      "length": 76,
+      "sha256": "4440cf48501c112c2d5a2e9dd6fd26b4c87a841db1c3aa751fd51f0c40ca8845"
+    }
+  ],
+  "limitations": "Names are descriptive reconstructions, not recovered original DOS 7 symbols. Static message mapping does not establish every caller; message resource symbols remain diagnostic stubs."
+}

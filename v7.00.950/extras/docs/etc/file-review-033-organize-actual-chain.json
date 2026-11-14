@@ -1,0 +1,33 @@
+{
+  "files": {
+    "bios/sysconf.asm": "a259dc2aa4df82704b627d83762b63961953a5a57ab9cdb0f45f6b86979ca342",
+    "bios/sysinit2.asm": "b0ec37b4bb505fb42393ad6345b22d731e5e01dec89a57944ab997c958867d77"
+  },
+  "change": "Link actual organize, get2, skip_comment, mapcase, org_delim and ON/OFF state into the CONFIG caller diagnostic. Organize and keyboard retain their shared return byte.",
+  "matched": {
+    "organize": {
+      "start": "0x2034",
+      "end_exclusive": "0x2299",
+      "bytes": 613
+    },
+    "mapcase": {
+      "start": "0x2ec7",
+      "bytes": 44
+    },
+    "on_off_state": {
+      "start": "0x1e41",
+      "bytes": 6
+    },
+    "caller": {
+      "start": "0x6848",
+      "end_exclusive": "0x69b9",
+      "bytes": 369
+    }
+  },
+  "verification": "extras/tools/verify_syspre_device_link.py",
+  "stage": "extras/build/syspre-object-link-hka6rzti",
+  "limitations": [
+    "menu_check, badop, error_line and other addresses remain anchored.",
+    "Object placement includes synthetic gaps; complete IO.SYS and the three core outputs are not verified."
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "file": "lang/usa/messages/sysimsg.inc",
+  "file_index": 221,
+  "source_sha256": "f9332f3ae4da62b42d67e70980e8f9c3827fda759a6f1f144e6c3de4a45d9743",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_file_range": "0xf298..0x10363",
+  "table_entries": 65,
+  "message_records": 64,
+  "table_bytes": 130,
+  "message_bytes": 4169,
+  "length": 4299,
+  "different_bytes": 0,
+  "exports": [
+    "sysinit_msg_table",
+    "sysinit_msg_base",
+    "sysinit_stack_msg_index"
+  ],
+  "verification": "Standalone historical MASM assembly and LINK; all 4299 bytes compared to the target.",
+  "limitations": [
+    "The standalone file has not been included in the SYSINIT build.",
+    "Original source ownership and symbolic names are not proven; numbered labels represent reconstructed records.",
+    "Some existing DOS 6 message symbols have no exact corresponding DOS 7 record, so the legacy message module cannot yet be replaced safely.",
+    "This file reconstructs target English message content directly and is not yet generated from usa-ms-dos.msg."
+  ]
+}

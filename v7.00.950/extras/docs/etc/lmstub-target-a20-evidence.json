@@ -1,0 +1,20 @@
+{
+  "source": "inc/lmstub.asm",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_a20_call_offset": "0x1af7b",
+  "target_a20_call_bytes": "b4052eff1e7c100bc0740f",
+  "target_error_branch_offset": "0x1af95",
+  "target_error_branch_bytes": "2eff1e3a13",
+  "baseline": "EnsureA20ON branches to XMMerror, which selects video mode, directly prints XMMERRMSG and loops; XMMERRMSG is generated into MSDOS.CL2 from dos/msdos.skl and usa-ms-dos.msg.",
+  "findings": [
+    "The corresponding target A20 call tests AX and, on zero, reaches a far indirect call at 0x1af95 instead of the baseline direct video-print sequence.",
+    "The exact baseline XMMERRMSG text is absent from target IO.SYS; a longer differently worded A20 error occurs at 0x10285. The indirect callee and that text have not been connected."
+  ],
+  "limitations": [
+    "The target far pointer provider and complete control flow remain unverified.",
+    "Absence of exact bytes does not prove no equivalent differently encoded path exists.",
+    "Full kernel data placement and target IO.SYS link remain unresolved."
+  ],
+  "additional_evidence": "extras/docs/etc/lmstub-bios-error-selector-evidence.json",
+  "additional_finding": "The A20 zero-result path and BIOS error entry share compatible selectors 0,1,2,3, suggesting a connection; pointer initialization is still unproven."
+}

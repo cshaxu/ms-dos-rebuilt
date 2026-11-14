@@ -1,0 +1,29 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "linked_exe_sha256": "78da44f3be8210e1ff174e5b6c52993642fa23d2cd8e4bc135aee3e48e1f9c26",
+  "msinit_source_sha256": "26116628dbec0c96e2611c0a33f4c2efc11917cd58928274a03a82e80f2fe9fa",
+  "target_clock_region": {
+    "start": "0x279f",
+    "end_exclusive": "0x2a25",
+    "wrapper_bytes": 17,
+    "clock_object_bytes": 629,
+    "end_alignment_bytes": 1,
+    "total_to_disk_data": 647
+  },
+  "diagnostic": {
+    "GetTickCnt_bios_code": "0xb4c",
+    "disk_data_bios_code": "0xb7a",
+    "bytes_between": 1,
+    "read_real_date_provider": "a20stub.obj",
+    "read_real_time_provider": "a20stub.obj"
+  },
+  "observations": [
+    "The target region starts with 17 bytes of clock-entry code, followed by 629 bytes of clock routines already represented in current msinit.asm, then one byte before disk data.",
+    "The diagnostic link instead uses one-byte read_real_date/read_real_time stubs elsewhere and does not place those clock routines between GetTickCnt and the disk data.",
+    "This explains a 646-byte change in relative gap; the earlier character-code anchors are themselves 42 bytes later than the target, yielding the observed -604-byte displacement at the disk data."
+  ],
+  "limitations": [
+    "The 629-byte figure is the current MASM listing BIOS_CODE span; individual routine relocation operands and whole-object placement remain to be validated.",
+    "This establishes the source of a layout difference, not complete source or binary identity."
+  ]
+}

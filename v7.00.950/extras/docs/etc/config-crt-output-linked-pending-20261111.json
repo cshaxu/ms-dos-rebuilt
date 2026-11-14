@@ -1,0 +1,109 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\crt-output-link-5xqj2mtm",
+  "status": "linked_not_target_verified",
+  "dependency_stage": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\config-crt-input-iqelsf_d",
+  "sources": {
+    "crtflush": "de102cf9b4016ed316ce10442bbf7fdddf8f14032e3789dd952d7b166ffc343b",
+    "crtclose": "2d5b674887bae8014fc098f697a5095f5c489f351836032f9f39d7820f4889ff",
+    "crtwrite": "c5180452bc17cdd4af9ff2b32f05943ad52e5ebf7068f7b40f3da0d7b553e93d",
+    "crtexit": "5b74bc176617de31165acafbeceb2201a04fad0f6679dbb5aee07cc903b1956e"
+  },
+  "output_sha256": "0a79866d6a1cea60775fce4f488631773dd6d6ba7f9346bea6b8542416e43198",
+  "scope": "Real output/exit cycle linked without unresolved symbols. No startup/stack entry yet; target instruction/reference/relocation qualification and final placement pending.",
+  "target_spans": {
+    "crtflush": [
+      {
+        "symbol": "_fflush",
+        "start": 41308,
+        "end": 41394
+      },
+      {
+        "symbol": "__flush",
+        "start": 41394,
+        "end": 41518
+      },
+      {
+        "symbol": "__flushall",
+        "start": 41518,
+        "end": 41524
+      },
+      {
+        "symbol": "CRTFlushAll",
+        "start": 41524,
+        "end": 41628
+      }
+    ],
+    "crtclose": [
+      {
+        "symbol": "__fcloseall",
+        "start": 42302,
+        "end": 42340
+      },
+      {
+        "symbol": "_fclose",
+        "start": 42428,
+        "end": 42626
+      }
+    ],
+    "crtwrite": [
+      {
+        "symbol": "__chkstk",
+        "start": 41250,
+        "end": 41286
+      },
+      {
+        "symbol": "__write",
+        "start": 41758,
+        "end": 42109
+      },
+      {
+        "symbol": "__stackavail",
+        "start": 42110,
+        "end": 42130
+      }
+    ],
+    "crtexit": [
+      {
+        "symbol": "__cintDIV",
+        "start": 37459,
+        "end": 37474
+      },
+      {
+        "symbol": "__amsg_exit",
+        "start": 37474,
+        "end": 37518
+      },
+      {
+        "symbol": "_exit",
+        "start": 37721,
+        "end": 37856
+      },
+      {
+        "symbol": "CRTRestoreVectors",
+        "start": 37856,
+        "end": 37881
+      },
+      {
+        "symbol": "__ctermsub",
+        "start": 37881,
+        "end": 37900
+      },
+      {
+        "symbol": "__fptrap",
+        "start": 38982,
+        "end": 38988
+      },
+      {
+        "symbol": "__farstub",
+        "start": 39208,
+        "end": 39209
+      },
+      {
+        "symbol": "__endstdio",
+        "start": 41286,
+        "end": 41308
+      }
+    ]
+  },
+  "target_bytes_pending_verification": 1230
+}

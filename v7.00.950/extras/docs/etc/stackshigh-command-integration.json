@@ -1,0 +1,25 @@
+{
+  "files": {
+    "bios/config.inc": "4af5a9f6f34f70660248d36781311006e6604596358d80d5af991005b6dd7dc4",
+    "bios/sysconf.asm": "a9976b865234612b891190d5724009191279ebbceb1abb612180daacd7e79cff",
+    "bios/sysinit2.asm": "d59af516e98a0c6661d4bb76e7aa222460f4fa0cbd38e2602813e7c5523d2483"
+  },
+  "target_command_table_file_range": "0x8204..0x8218",
+  "command_table_length": 20,
+  "command_table_exact": true,
+  "target_parser_file_range": "0xc08e..0xc0b2",
+  "parser_length": 36,
+  "parser_different_bytes_after_manual_fixups": 0,
+  "parser_fixup_words": 4,
+  "stack_high_flag_target_offset": "0x65ac",
+  "verification": [
+    "Both source files assemble under default and DOS7_CONFIG.",
+    "Both default configuration objects are unchanged.",
+    "The target command table sequence occurs exactly once in the DOS7 object."
+  ],
+  "limitations": [
+    "The parser comparison substitutes four target addresses and call displacements; the final link is not verified.",
+    "Default high-memory policy and all other writers/readers of stack_high are not yet reconstructed.",
+    "The SYSINIT stack allocator does not yet consume the new flag."
+  ]
+}

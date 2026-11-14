@@ -1,0 +1,60 @@
+{
+  "file": "bios/msbio1.asm",
+  "source_sha256": "c9cdb0447c5bdc740d30d8ad7521b8e54006f74f5b5b2a6f85ca4df48beb437b",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "changes": [
+    "restore rotate_bootlog, which deletes BOOTLOG.PRV and renames BOOTLOG.TXT",
+    "restore hex_digits and hex_dword for eight-digit EDX formatting",
+    "restore mult_call16, the dependent boot-log open and rotation caller",
+    "restore mult_call18, the dependent final-user close leaf",
+    "restore boot-log device/message data and mult_call21 notification leaf",
+    "restore mult_call17, the dependent timer-stamped boot-log writer"
+  ],
+  "target_evidence": {
+    "rotate_bootlog": {
+      "target_file_offset": "0x4944",
+      "length": 34,
+      "isolated_trial": "extras/docs/etc/bios-bootlog-rotate-trial.json",
+      "result": "all bytes equal"
+    },
+    "hex_dword": {
+      "target_file_offset": "0x4966",
+      "length": 25,
+      "isolated_trial": "extras/docs/etc/bios-bootlog-hex-trial.json",
+      "result": "all bytes equal"
+    },
+    "mult_call16": {
+      "target_file_offset": "0x47e0",
+      "length": 143,
+      "isolated_trial": "extras/docs/etc/bios-mult-call16-trial.json",
+      "result": "all bytes equal"
+    },
+    "mult_call18": {
+      "target_file_offset": "0x48f6",
+      "length": 34,
+      "isolated_trial": "extras/docs/etc/bios-mult-call18-trial.json",
+      "result": "all bytes equal"
+    },
+    "mult_call21": {
+      "target_file_offset": "0x4918",
+      "length": 44,
+      "isolated_trial": "extras/docs/etc/bios-mult-call17-trial.json",
+      "result": "all bytes equal"
+    },
+    "mult_call17": {
+      "target_file_offset": "0x486f",
+      "length": 135,
+      "isolated_trial": "extras/docs/etc/bios-mult-call17-trial.json",
+      "result": "all bytes equal; the target's 32-bit absolute timer read remains an explicitly documented byte encoding because MASM 5 cannot express it in USE16 source"
+    }
+  },
+  "validation": {
+    "dos7_assembly": "PASS in the existing isolated DOS compiler stage after its documented assertion-only diagnostic transformation",
+    "default_branch": "unchanged by construction: all new statements are inside DOS7_CONFIG"
+  },
+  "limitations": [
+    "The formal BIOS source layout does not yet place these routines at their final target offsets.",
+    "The existing mixed-link stage uses source-split diagnostic objects and cannot be used as a production full-link proof.",
+    "No whole-file or final IO.SYS equality claim follows from this leaf restoration."
+  ]
+}

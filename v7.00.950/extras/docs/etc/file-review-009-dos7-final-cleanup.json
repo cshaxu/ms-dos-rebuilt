@@ -1,0 +1,23 @@
+{
+  "source": "bios/msbio1.asm",
+  "before_sha256": "9038c144065722fc850ac16a9760a3a10ba2e91f55a44f5e3048374a5a3fe828",
+  "after_sha256": "f24cef262c9bd0e38bc26f7ccbdb02d811407e520e3fcc5d9d1e9cbfe82af4dd",
+  "change": "Resolve the last six DOS7_CONFIG conditions in MSBIO1; independent feature conditionals remain. Update diagnostic source-splitting boundaries to use actual labels and segments.",
+  "object_comparison": {
+    "stage": "extras/build/msbio1-final-compare-vexafi36",
+    "method": "ML assembly before and after; six generated OMF objects compared byte-for-byte",
+    "objects": [
+      "msbio1",
+      "splitbds",
+      "splitent",
+      "splitlat",
+      "biostail",
+      "clockbr"
+    ]
+  },
+  "limitations": [
+    "Identical diagnostic objects do not prove complete IO.SYS or all three target binaries.",
+    "File 9 reconstruction and other files remain incomplete."
+  ],
+  "integration_stage": "extras/build/syspre-object-link-col5pgsm"
+}

@@ -1,0 +1,20 @@
+{
+  "files": {
+    "bios/sysconf.asm": "5794b5bde9b8863daf07e1dcc567c56409746b4db1679f25e3652484e5bab9b7",
+    "bios/syspre.asm": "be541608c90a8adc5223254b284d44b0aa4c052e4ccffb3b30ea8a6f91bc7ccb"
+  },
+  "scope": "Resolved DOS7_CONFIG conditions in these two files, retaining unrelated feature conditionals.",
+  "resolved_conditions": {
+    "bios/sysconf.asm": 93,
+    "bios/syspre.asm": 13
+  },
+  "dos7_masm_object_sha256_before_and_after": {
+    "bios/sysconf.asm": "636f12f7bc7d0a03ef4cdd9298646539c25f04b5f44d6c3d4f89165d0dd553f9",
+    "bios/syspre.asm": "e183faea9cfc08727fac4f194549f8bb74a6b633d903ecd4b256a385c0abe9be"
+  },
+  "target_checks": "extras/tools/verify_menu_check_full.py",
+  "limitations": [
+    "Other v7.0a source files still contain DOS 6 alternatives and must be handled in file/dependency order.",
+    "Full product link and three target binaries remain unverified."
+  ]
+}

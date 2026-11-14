@@ -1,0 +1,17 @@
+{
+  "file": "bios/sysinit2.asm",
+  "source_sha256": "579ae5864606751ce7e346b0d23a3f95f8ac851fc3c8c0983940d738d7d22c46",
+  "target_range": "IO.SYS 0x8d90..0x8db8",
+  "bytes": 40,
+  "different_bytes": 0,
+  "probe": "extras/research/bootdata7-linked.asm",
+  "default_object_identical_to_prior": true,
+  "dos7_assembly": "passed",
+  "mixed_diagnostic_link_exit_code": 0,
+  "evidence": "Target option table associates BOOTMENU, BOOTMENUDEFAULT, BOOTMENUDELAY, BOOTSAFE and NETWORK with the respective offsets; BOOTCONFIG handler writes 32 bytes at 0x4068.",
+  "limitations": [
+    "Actual SYSINIT absolute placement remains unverified.",
+    "MSDOS.SYS option reader and boot-time consumers are not yet integrated.",
+    "Offset 0x4065 remains unidentified."
+  ]
+}

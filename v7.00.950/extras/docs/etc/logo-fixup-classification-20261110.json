@@ -1,0 +1,27 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\bios-v7-build-6o_b7m95",
+  "bytes": 3711,
+  "different_bytes": 36,
+  "differences_in_fixups": 36,
+  "other_differences": [],
+  "fixup_external_symbols": [
+    "bc_retf",
+    "bcodeseg",
+    "bios_data_segment",
+    "bios_flags",
+    "boot_load_segment",
+    "boot_reloc_segment",
+    "boot_runtime_flags",
+    "hma_init_ptr",
+    "int15_esc",
+    "int16_limit",
+    "int16_limit2",
+    "keyboard_service",
+    "memhi",
+    "palette_config",
+    "palette_count",
+    "palette_index",
+    "query_mode_flags"
+  ],
+  "limitation": "Non-fixup differences can include offsets resolved inside the same object; no whole-image claim."
+}

@@ -1,0 +1,17 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\bios-msbio1-prefix-64e_1_h8",
+  "bios_sha256": "c75bd6a7e5d4e614c34c15d52f7e8186f238874e05afa241f5e8b127ebe6b900",
+  "split_objects": [
+    "mbmain",
+    "mbbds",
+    "mbentry",
+    "mblate"
+  ],
+  "prefix_exact_bytes": 856,
+  "bds_nonsegment_matched_bytes": 2954,
+  "SI_start_bios_offset": "0x5478",
+  "limitations": [
+    "Three BDS segment words and startup jump are not target-matched.",
+    "Other SYSINIT layout and final IO.SYS remain incomplete."
+  ]
+}

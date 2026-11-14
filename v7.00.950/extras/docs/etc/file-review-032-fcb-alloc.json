@@ -1,0 +1,33 @@
+{
+  "file": "bios/sysinit1.asm",
+  "source_sha256": "41307366104e6a58f1bea6094280edd43a0653e932f5595215f92a6ef052293c",
+  "target_range": "IO.SYS 0x84eb..0x8546",
+  "bytes": 91,
+  "differences": [
+    [
+      "0xc",
+      "0x5",
+      "0x83"
+    ],
+    [
+      "0xd",
+      "0x6",
+      "0xc0"
+    ],
+    [
+      "0xe",
+      "0x0",
+      "0x6"
+    ]
+  ],
+  "probe": "extras/research/fcballoc7-linked.asm",
+  "default_object_identical_to_prior": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "ADD AX,6 uses an equivalent three-byte encoding.",
+    "Fixed-offset probe uses stubs for allocation and rounding; full layout and behavior are unverified.",
+    "Drive-table allocation and FCB allocation flag writers remain incomplete.",
+    "Mixed diagnostic link contains older objects and stubs."
+  ]
+}

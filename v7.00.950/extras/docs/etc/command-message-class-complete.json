@@ -1,0 +1,3712 @@
+{
+  "method": "Parse target class count from the target lookup routine and two-byte class header, then parse all count entries with 4-byte IDs and relative offsets. Reference retains its historical format. Validate pointers and unique IDs.",
+  "correction": "Earlier reference start 0x8f44 omitted 12 valid :use records from 0x8f14 through 0x8f40. This corrected comparison supersedes counts 175 / 125 / 42 / 30 / 8. A second correction: the target class has 198 entries per its two-byte header; entry 9900 at 0x385 was previously misclassified as four bytes outside the index because the initial parser restricted IDs to <=2000.",
+  "reference": {
+    "path": "extras/build/command-reference-hlt9c1st/COMMAND.COM",
+    "sha256": "65fa71b0a34e91feffc31297fb5e24d40767c72fb513e46aaac721bda7836110",
+    "index_start": 36628,
+    "index_end_exclusive": 37376,
+    "entries": [
+      {
+        "id": 1020,
+        "index_offset": 36628,
+        "relative_offset": 748,
+        "text_offset": 37376,
+        "length": 15,
+        "bytes_hex": "253120627974657320667265650d0a",
+        "text_latin1": "%1 bytes free\r\n"
+      },
+      {
+        "id": 1015,
+        "index_offset": 36632,
+        "relative_offset": 760,
+        "text_offset": 37392,
+        "length": 35,
+        "bytes_hex": "46696c652063616e6e6f7420626520636f70696564206f6e746f20697473656c660d0a",
+        "text_latin1": "File cannot be copied onto itself\r\n"
+      },
+      {
+        "id": 1004,
+        "index_offset": 36636,
+        "relative_offset": 792,
+        "text_offset": 37428,
+        "length": 25,
+        "bytes_hex": "496e73756666696369656e74206469736b2073706163650d0a",
+        "text_latin1": "Insufficient disk space\r\n"
+      },
+      {
+        "id": 1026,
+        "index_offset": 36640,
+        "relative_offset": 814,
+        "text_offset": 37454,
+        "length": 19,
+        "bytes_hex": "496e76616c696420636f646520706167650d0a",
+        "text_latin1": "Invalid code page\r\n"
+      },
+      {
+        "id": 1031,
+        "index_offset": 36644,
+        "relative_offset": 830,
+        "text_offset": 37474,
+        "length": 14,
+        "bytes_hex": "496e76616c696420646174650d0a",
+        "text_latin1": "Invalid date\r\n"
+      },
+      {
+        "id": 1035,
+        "index_offset": 36648,
+        "relative_offset": 841,
+        "text_offset": 37489,
+        "length": 14,
+        "bytes_hex": "496e76616c69642074696d650d0a",
+        "text_latin1": "Invalid time\r\n"
+      },
+      {
+        "id": 1062,
+        "index_offset": 36652,
+        "relative_offset": 852,
+        "text_offset": 37504,
+        "length": 14,
+        "bytes_hex": "496e76616c696420706174680d0a",
+        "text_latin1": "Invalid path\r\n"
+      },
+      {
+        "id": 1028,
+        "index_offset": 36656,
+        "relative_offset": 863,
+        "text_offset": 37519,
+        "length": 33,
+        "bytes_hex": "507265737320616e79206b657920746f20636f6e74696e7565202e202e202e0d0a",
+        "text_latin1": "Press any key to continue . . .\r\n"
+      },
+      {
+        "id": 1045,
+        "index_offset": 36660,
+        "relative_offset": 893,
+        "text_offset": 37553,
+        "length": 28,
+        "bytes_hex": "556e61626c6520746f20637265617465206469726563746f72790d0a",
+        "text_latin1": "Unable to create directory\r\n"
+      },
+      {
+        "id": 1041,
+        "index_offset": 36664,
+        "relative_offset": 918,
+        "text_offset": 37582,
+        "length": 33,
+        "bytes_hex": "566f6c756d6520696e20647269766520253120686173206e6f206c6162656c0d0a",
+        "text_latin1": "Volume in drive %1 has no label\r\n"
+      },
+      {
+        "id": 1042,
+        "index_offset": 36668,
+        "relative_offset": 948,
+        "text_offset": 37616,
+        "length": 26,
+        "bytes_hex": "566f6c756d6520696e2064726976652025312069732025320d0a",
+        "text_latin1": "Volume in drive %1 is %2\r\n"
+      },
+      {
+        "id": 1043,
+        "index_offset": 36672,
+        "relative_offset": 971,
+        "text_offset": 37643,
+        "length": 31,
+        "bytes_hex": "566f6c756d652053657269616c204e756d6265722069732025312d25320d0a",
+        "text_latin1": "Volume Serial Number is %1-%2\r\n"
+      },
+      {
+        "id": 1002,
+        "index_offset": 36676,
+        "relative_offset": 999,
+        "text_offset": 37675,
+        "length": 39,
+        "bytes_hex": "4475706c69636174652066696c65206e616d65206f722066696c65206e6f7420666f756e640d0a",
+        "text_latin1": "Duplicate file name or file not found\r\n"
+      },
+      {
+        "id": 1003,
+        "index_offset": 36680,
+        "relative_offset": 1035,
+        "text_offset": 37715,
+        "length": 27,
+        "bytes_hex": "496e76616c69642070617468206f722066696c65206e616d650d0a",
+        "text_latin1": "Invalid path or file name\r\n"
+      },
+      {
+        "id": 1007,
+        "index_offset": 36684,
+        "relative_offset": 1059,
+        "text_offset": 37743,
+        "length": 26,
+        "bytes_hex": "4f7574206f6620656e7669726f6e6d656e742073706163650d0a",
+        "text_latin1": "Out of environment space\r\n"
+      },
+      {
+        "id": 1008,
+        "index_offset": 36688,
+        "relative_offset": 1082,
+        "text_offset": 37770,
+        "length": 21,
+        "bytes_hex": "46696c65206372656174696f6e206572726f720d0a",
+        "text_latin1": "File creation error\r\n"
+      },
+      {
+        "id": 1009,
+        "index_offset": 36692,
+        "relative_offset": 1100,
+        "text_offset": 37792,
+        "length": 20,
+        "bytes_hex": "42617463682066696c65206d697373696e670d0a",
+        "text_latin1": "Batch file missing\r\n"
+      },
+      {
+        "id": 1010,
+        "index_offset": 36696,
+        "relative_offset": 1117,
+        "text_offset": 37813,
+        "length": 31,
+        "bytes_hex": "0d0a496e73657274206469736b20776974682062617463682066696c650d0a",
+        "text_latin1": "\r\nInsert disk with batch file\r\n"
+      },
+      {
+        "id": 1011,
+        "index_offset": 36700,
+        "relative_offset": 1145,
+        "text_offset": 37845,
+        "length": 26,
+        "bytes_hex": "42616420636f6d6d616e64206f722066696c65206e616d650d0a",
+        "text_latin1": "Bad command or file name\r\n"
+      },
+      {
+        "id": 1014,
+        "index_offset": 36704,
+        "relative_offset": 1168,
+        "text_offset": 37872,
+        "length": 16,
+        "bytes_hex": "4163636573732064656e696564200d0a",
+        "text_latin1": "Access denied \r\n"
+      },
+      {
+        "id": 1016,
+        "index_offset": 36708,
+        "relative_offset": 1181,
+        "text_offset": 37889,
+        "length": 41,
+        "bytes_hex": "436f6e74656e74206f662064657374696e6174696f6e206c6f7374206265666f726520636f70790d0a",
+        "text_latin1": "Content of destination lost before copy\r\n"
+      },
+      {
+        "id": 1017,
+        "index_offset": 36712,
+        "relative_offset": 1219,
+        "text_offset": 37931,
+        "length": 36,
+        "bytes_hex": "496e76616c69642066696c656e616d65206f722066696c65206e6f7420666f756e640d0a",
+        "text_latin1": "Invalid filename or file not found\r\n"
+      },
+      {
+        "id": 1018,
+        "index_offset": 36716,
+        "relative_offset": 1252,
+        "text_offset": 37968,
+        "length": 19,
+        "bytes_hex": "25312066696c6528732920636f706965640d0a",
+        "text_latin1": "%1 file(s) copied\r\n"
+      },
+      {
+        "id": 1019,
+        "index_offset": 36720,
+        "relative_offset": 1268,
+        "text_offset": 37988,
+        "length": 11,
+        "bytes_hex": "25312066696c6528732920",
+        "text_latin1": "%1 file(s) "
+      },
+      {
+        "id": 1021,
+        "index_offset": 36724,
+        "relative_offset": 1276,
+        "text_offset": 38000,
+        "length": 29,
+        "bytes_hex": "496e76616c69642064726976652073706563696669636174696f6e0d0a",
+        "text_latin1": "Invalid drive specification\r\n"
+      },
+      {
+        "id": 1022,
+        "index_offset": 36728,
+        "relative_offset": 1302,
+        "text_offset": 38030,
+        "length": 38,
+        "bytes_hex": "436f64652070616765202531206e6f7420707265706172656420666f722073797374656d0d0a",
+        "text_latin1": "Code page %1 not prepared for system\r\n"
+      },
+      {
+        "id": 1023,
+        "index_offset": 36732,
+        "relative_offset": 1337,
+        "text_offset": 38069,
+        "length": 43,
+        "bytes_hex": "436f64652070616765202531206e6f7420707265706172656420666f7220616c6c20646576696365730d0a",
+        "text_latin1": "Code page %1 not prepared for all devices\r\n"
+      },
+      {
+        "id": 1024,
+        "index_offset": 36736,
+        "relative_offset": 1377,
+        "text_offset": 38113,
+        "length": 22,
+        "bytes_hex": "41637469766520636f646520706167653a2025310d0a",
+        "text_latin1": "Active code page: %1\r\n"
+      },
+      {
+        "id": 1025,
+        "index_offset": 36740,
+        "relative_offset": 1396,
+        "text_offset": 38136,
+        "length": 23,
+        "bytes_hex": "4e4c5346554e43206e6f7420696e7374616c6c65640d0a",
+        "text_latin1": "NLSFUNC not installed\r\n"
+      },
+      {
+        "id": 1027,
+        "index_offset": 36744,
+        "relative_offset": 1416,
+        "text_offset": 38160,
+        "length": 32,
+        "bytes_hex": "43757272656e74206472697665206973206e6f206c6f6e6765722076616c6964",
+        "text_latin1": "Current drive is no longer valid"
+      },
+      {
+        "id": 1029,
+        "index_offset": 36748,
+        "relative_offset": 1445,
+        "text_offset": 38193,
+        "length": 17,
+        "bytes_hex": "4c6162656c206e6f7420666f756e640d0a",
+        "text_latin1": "Label not found\r\n"
+      },
+      {
+        "id": 1030,
+        "index_offset": 36752,
+        "relative_offset": 1459,
+        "text_offset": 38211,
+        "length": 14,
+        "bytes_hex": "53796e746178206572726f720d0a",
+        "text_latin1": "Syntax error\r\n"
+      },
+      {
+        "id": 1032,
+        "index_offset": 36756,
+        "relative_offset": 1470,
+        "text_offset": 38226,
+        "length": 23,
+        "bytes_hex": "43757272656e7420646174652069732025312025320d0a",
+        "text_latin1": "Current date is %1 %2\r\n"
+      },
+      {
+        "id": 1033,
+        "index_offset": 36760,
+        "relative_offset": 1490,
+        "text_offset": 38250,
+        "length": 21,
+        "bytes_hex": "53756e4d6f6e547565576564546875467269536174",
+        "text_latin1": "SunMonTueWedThuFriSat"
+      },
+      {
+        "id": 1034,
+        "index_offset": 36764,
+        "relative_offset": 1508,
+        "text_offset": 38272,
+        "length": 21,
+        "bytes_hex": "456e746572206e6577206461746520282531293a20",
+        "text_latin1": "Enter new date (%1): "
+      },
+      {
+        "id": 1036,
+        "index_offset": 36768,
+        "relative_offset": 1526,
+        "text_offset": 38294,
+        "length": 20,
+        "bytes_hex": "43757272656e742074696d652069732025310d0a",
+        "text_latin1": "Current time is %1\r\n"
+      },
+      {
+        "id": 1037,
+        "index_offset": 36772,
+        "relative_offset": 1543,
+        "text_offset": 38315,
+        "length": 16,
+        "bytes_hex": "456e746572206e65772074696d653a20",
+        "text_latin1": "Enter new time: "
+      },
+      {
+        "id": 1038,
+        "index_offset": 36776,
+        "relative_offset": 1556,
+        "text_offset": 38332,
+        "length": 18,
+        "bytes_hex": "2c2020202044656c6574652028592f4e293f",
+        "text_latin1": ",    Delete (Y/N)?"
+      },
+      {
+        "id": 1039,
+        "index_offset": 36780,
+        "relative_offset": 1571,
+        "text_offset": 38351,
+        "length": 60,
+        "bytes_hex": "416c6c2066696c657320696e206469726563746f72792077696c6c2062652064656c65746564210d0a41726520796f7520737572652028592f4e293f",
+        "text_latin1": "All files in directory will be deleted!\r\nAre you sure (Y/N)?"
+      },
+      {
+        "id": 1040,
+        "index_offset": 36784,
+        "relative_offset": 1628,
+        "text_offset": 38412,
+        "length": 20,
+        "bytes_hex": "4d532d444f532056657273696f6e2025312e2532",
+        "text_latin1": "MS-DOS Version %1.%2"
+      },
+      {
+        "id": 1044,
+        "index_offset": 36788,
+        "relative_offset": 1645,
+        "text_offset": 38433,
+        "length": 19,
+        "bytes_hex": "496e76616c6964206469726563746f72790d0a",
+        "text_latin1": "Invalid directory\r\n"
+      },
+      {
+        "id": 1046,
+        "index_offset": 36792,
+        "relative_offset": 1661,
+        "text_offset": 38453,
+        "length": 54,
+        "bytes_hex": "496e76616c696420706174682c206e6f74206469726563746f72792c0d0a6f72206469726563746f7279206e6f7420656d7074790d0a",
+        "text_latin1": "Invalid path, not directory,\r\nor directory not empty\r\n"
+      },
+      {
+        "id": 1047,
+        "index_offset": 36796,
+        "relative_offset": 1712,
+        "text_offset": 38508,
+        "length": 24,
+        "bytes_hex": "4d7573742073706563696679204f4e206f72204f46460d0a",
+        "text_latin1": "Must specify ON or OFF\r\n"
+      },
+      {
+        "id": 1048,
+        "index_offset": 36800,
+        "relative_offset": 1733,
+        "text_offset": 38533,
+        "length": 17,
+        "bytes_hex": "4469726563746f7279206f662025310d0a",
+        "text_latin1": "Directory of %1\r\n"
+      },
+      {
+        "id": 1049,
+        "index_offset": 36804,
+        "relative_offset": 1747,
+        "text_offset": 38551,
+        "length": 9,
+        "bytes_hex": "4e6f20506174680d0a",
+        "text_latin1": "No Path\r\n"
+      },
+      {
+        "id": 1050,
+        "index_offset": 36808,
+        "relative_offset": 1753,
+        "text_offset": 38561,
+        "length": 30,
+        "bytes_hex": "496e76616c696420647269766520696e2073656172636820706174680d0a",
+        "text_latin1": "Invalid drive in search path\r\n"
+      },
+      {
+        "id": 1051,
+        "index_offset": 36812,
+        "relative_offset": 1780,
+        "text_offset": 38592,
+        "length": 16,
+        "bytes_hex": "496e76616c6964206465766963650d0a",
+        "text_latin1": "Invalid device\r\n"
+      },
+      {
+        "id": 1052,
+        "index_offset": 36816,
+        "relative_offset": 1793,
+        "text_offset": 38609,
+        "length": 22,
+        "bytes_hex": "464f522063616e6e6f74206265206e65737465640d0a",
+        "text_latin1": "FOR cannot be nested\r\n"
+      },
+      {
+        "id": 1053,
+        "index_offset": 36820,
+        "relative_offset": 1812,
+        "text_offset": 38632,
+        "length": 37,
+        "bytes_hex": "496e7465726d6564696174652066696c65206572726f7220647572696e6720706970650d0a",
+        "text_latin1": "Intermediate file error during pipe\r\n"
+      },
+      {
+        "id": 1054,
+        "index_offset": 36824,
+        "relative_offset": 1846,
+        "text_offset": 38670,
+        "length": 38,
+        "bytes_hex": "43616e6e6f7420646f2062696e6172792072656164732066726f6d2061206465766963650d0a",
+        "text_latin1": "Cannot do binary reads from a device\r\n"
+      },
+      {
+        "id": 1055,
+        "index_offset": 36828,
+        "relative_offset": 1881,
+        "text_offset": 38709,
+        "length": 13,
+        "bytes_hex": "425245414b2069732025310d0a",
+        "text_latin1": "BREAK is %1\r\n"
+      },
+      {
+        "id": 1056,
+        "index_offset": 36832,
+        "relative_offset": 1891,
+        "text_offset": 38723,
+        "length": 14,
+        "bytes_hex": "5645524946592069732025310d0a",
+        "text_latin1": "VERIFY is %1\r\n"
+      },
+      {
+        "id": 1057,
+        "index_offset": 36836,
+        "relative_offset": 1902,
+        "text_offset": 38738,
+        "length": 12,
+        "bytes_hex": "4543484f2069732025310d0a",
+        "text_latin1": "ECHO is %1\r\n"
+      },
+      {
+        "id": 1059,
+        "index_offset": 36840,
+        "relative_offset": 1911,
+        "text_offset": 38751,
+        "length": 4,
+        "bytes_hex": "6f666600",
+        "text_latin1": "off\u0000"
+      },
+      {
+        "id": 1060,
+        "index_offset": 36844,
+        "relative_offset": 1912,
+        "text_offset": 38756,
+        "length": 3,
+        "bytes_hex": "6f6e00",
+        "text_latin1": "on\u0000"
+      },
+      {
+        "id": 1061,
+        "index_offset": 36848,
+        "relative_offset": 1912,
+        "text_offset": 38760,
+        "length": 25,
+        "bytes_hex": "4572726f722077726974696e6720746f206465766963650d0a",
+        "text_latin1": "Error writing to device\r\n"
+      },
+      {
+        "id": 1063,
+        "index_offset": 36852,
+        "relative_offset": 1934,
+        "text_offset": 38786,
+        "length": 2,
+        "bytes_hex": "2531",
+        "text_latin1": "%1"
+      },
+      {
+        "id": 1064,
+        "index_offset": 36856,
+        "relative_offset": 1933,
+        "text_offset": 38789,
+        "length": 2,
+        "bytes_hex": "2531",
+        "text_latin1": "%1"
+      },
+      {
+        "id": 1065,
+        "index_offset": 36860,
+        "relative_offset": 1932,
+        "text_offset": 38792,
+        "length": 2,
+        "bytes_hex": "2531",
+        "text_latin1": "%1"
+      },
+      {
+        "id": 1066,
+        "index_offset": 36864,
+        "relative_offset": 1931,
+        "text_offset": 38795,
+        "length": 2,
+        "bytes_hex": "2531",
+        "text_latin1": "%1"
+      },
+      {
+        "id": 1067,
+        "index_offset": 36868,
+        "relative_offset": 1930,
+        "text_offset": 38798,
+        "length": 1,
+        "bytes_hex": "09",
+        "text_latin1": "\t"
+      },
+      {
+        "id": 1068,
+        "index_offset": 36872,
+        "relative_offset": 1928,
+        "text_offset": 38800,
+        "length": 10,
+        "bytes_hex": "203c4449523e20202020",
+        "text_latin1": " <DIR>    "
+      },
+      {
+        "id": 1069,
+        "index_offset": 36876,
+        "relative_offset": 1935,
+        "text_offset": 38811,
+        "length": 3,
+        "bytes_hex": "082008",
+        "text_latin1": "\b \b"
+      },
+      {
+        "id": 1070,
+        "index_offset": 36880,
+        "relative_offset": 1935,
+        "text_offset": 38815,
+        "length": 2,
+        "bytes_hex": "0d0a",
+        "text_latin1": "\r\n"
+      },
+      {
+        "id": 1071,
+        "index_offset": 36884,
+        "relative_offset": 1934,
+        "text_offset": 38818,
+        "length": 2,
+        "bytes_hex": "2531",
+        "text_latin1": "%1"
+      },
+      {
+        "id": 1072,
+        "index_offset": 36888,
+        "relative_offset": 1933,
+        "text_offset": 38821,
+        "length": 9,
+        "bytes_hex": "6d6d2d64642d797900",
+        "text_latin1": "mm-dd-yy\u0000"
+      },
+      {
+        "id": 1073,
+        "index_offset": 36892,
+        "relative_offset": 1939,
+        "text_offset": 38831,
+        "length": 9,
+        "bytes_hex": "64642d6d6d2d797900",
+        "text_latin1": "dd-mm-yy\u0000"
+      },
+      {
+        "id": 1074,
+        "index_offset": 36896,
+        "relative_offset": 1945,
+        "text_offset": 38841,
+        "length": 9,
+        "bytes_hex": "79792d6d6d2d646400",
+        "text_latin1": "yy-mm-dd\u0000"
+      },
+      {
+        "id": 1075,
+        "index_offset": 36900,
+        "relative_offset": 1951,
+        "text_offset": 38851,
+        "length": 5,
+        "bytes_hex": "2531202532",
+        "text_latin1": "%1 %2"
+      },
+      {
+        "id": 1076,
+        "index_offset": 36904,
+        "relative_offset": 1953,
+        "text_offset": 38857,
+        "length": 2,
+        "bytes_hex": "2531",
+        "text_latin1": "%1"
+      },
+      {
+        "id": 1077,
+        "index_offset": 36908,
+        "relative_offset": 1952,
+        "text_offset": 38860,
+        "length": 7,
+        "bytes_hex": "20253120202532",
+        "text_latin1": " %1  %2"
+      },
+      {
+        "id": 1078,
+        "index_offset": 36912,
+        "relative_offset": 1956,
+        "text_offset": 38868,
+        "length": 26,
+        "bytes_hex": "4469726563746f727920616c7265616479206578697374730d0a",
+        "text_latin1": "Directory already exists\r\n"
+      },
+      {
+        "id": 1079,
+        "index_offset": 36916,
+        "relative_offset": 1979,
+        "text_offset": 38895,
+        "length": 10,
+        "bytes_hex": "25312062797465730d0a",
+        "text_latin1": "%1 bytes\r\n"
+      },
+      {
+        "id": 1080,
+        "index_offset": 36920,
+        "relative_offset": 1986,
+        "text_offset": 38906,
+        "length": 21,
+        "bytes_hex": "546f74616c2066696c6573206c69737465643a0d0a",
+        "text_latin1": "Total files listed:\r\n"
+      },
+      {
+        "id": 1081,
+        "index_offset": 36924,
+        "relative_offset": 2004,
+        "text_offset": 38928,
+        "length": 42,
+        "bytes_hex": "284572726f72206f6363757272656420696e20656e7669726f6e6d656e74207661726961626c65290d0a",
+        "text_latin1": "(Error occurred in environment variable)\r\n"
+      },
+      {
+        "id": 1082,
+        "index_offset": 36928,
+        "relative_offset": 2043,
+        "text_offset": 38971,
+        "length": 7,
+        "bytes_hex": "205b592f4e5d3f",
+        "text_latin1": " [Y/N]?"
+      },
+      {
+        "id": 1083,
+        "index_offset": 36932,
+        "relative_offset": 2047,
+        "text_offset": 38979,
+        "length": 2,
+        "bytes_hex": "594e",
+        "text_latin1": "YN"
+      },
+      {
+        "id": 1084,
+        "index_offset": 36936,
+        "relative_offset": 2046,
+        "text_offset": 38982,
+        "length": 15,
+        "bytes_hex": "28636f6e74696e75696e6720253129",
+        "text_latin1": "(continuing %1)"
+      },
+      {
+        "id": 1090,
+        "index_offset": 36940,
+        "relative_offset": 2058,
+        "text_offset": 38998,
+        "length": 13,
+        "bytes_hex": "5265766973696f6e2025310d0a",
+        "text_latin1": "Revision %1\r\n"
+      },
+      {
+        "id": 1091,
+        "index_offset": 36944,
+        "relative_offset": 2068,
+        "text_offset": 39012,
+        "length": 13,
+        "bytes_hex": "444f5320697320696e20524f4d",
+        "text_latin1": "DOS is in ROM"
+      },
+      {
+        "id": 1092,
+        "index_offset": 36948,
+        "relative_offset": 2078,
+        "text_offset": 39026,
+        "length": 13,
+        "bytes_hex": "444f5320697320696e20484d41",
+        "text_latin1": "DOS is in HMA"
+      },
+      {
+        "id": 1093,
+        "index_offset": 36952,
+        "relative_offset": 2088,
+        "text_offset": 39040,
+        "length": 20,
+        "bytes_hex": "444f5320697320696e206c6f77206d656d6f7279",
+        "text_latin1": "DOS is in low memory"
+      },
+      {
+        "id": 1094,
+        "index_offset": 36956,
+        "relative_offset": 2105,
+        "text_offset": 39061,
+        "length": 28,
+        "bytes_hex": "43616e6e6f74204c6f6164686967682062617463682066696c650d0a",
+        "text_latin1": "Cannot Loadhigh batch file\r\n"
+      },
+      {
+        "id": 1095,
+        "index_offset": 36960,
+        "relative_offset": 2130,
+        "text_offset": 39090,
+        "length": 28,
+        "bytes_hex": "4c6f6164486967683a20496e76616c69642066696c656e616d650d0a",
+        "text_latin1": "LoadHigh: Invalid filename\r\n"
+      },
+      {
+        "id": 1096,
+        "index_offset": 36964,
+        "relative_offset": 2155,
+        "text_offset": 39119,
+        "length": 48,
+        "bytes_hex": "43616e6e6f74206f70656e2073706563696669656420636f756e74727920696e666f726d6174696f6e2066696c650d0a",
+        "text_latin1": "Cannot open specified country information file\r\n"
+      },
+      {
+        "id": 1097,
+        "index_offset": 36968,
+        "relative_offset": 2200,
+        "text_offset": 39168,
+        "length": 28,
+        "bytes_hex": "4c6f6164486967683a20496e76616c696420617267756d656e740d0a",
+        "text_latin1": "LoadHigh: Invalid argument\r\n"
+      },
+      {
+        "id": 1098,
+        "index_offset": 36972,
+        "relative_offset": 2225,
+        "text_offset": 39197,
+        "length": 28,
+        "bytes_hex": "526571756972656420706172616d65746572206d697373696e670d0a",
+        "text_latin1": "Required parameter missing\r\n"
+      },
+      {
+        "id": 1099,
+        "index_offset": 36976,
+        "relative_offset": 2250,
+        "text_offset": 39226,
+        "length": 21,
+        "bytes_hex": "556e7265636f676e697a6564207377697463680d0a",
+        "text_latin1": "Unrecognized switch\r\n"
+      },
+      {
+        "id": 1100,
+        "index_offset": 36980,
+        "relative_offset": 2268,
+        "text_offset": 39248,
+        "length": 37,
+        "bytes_hex": "412062616420554d42206e756d62657220686173206265656e207370656369666965640d0a",
+        "text_latin1": "A bad UMB number has been specified\r\n"
+      },
+      {
+        "id": 1101,
+        "index_offset": 36984,
+        "relative_offset": 2302,
+        "text_offset": 39286,
+        "length": 14,
+        "bytes_hex": "202025312e253220746f20312e30",
+        "text_latin1": "  %1.%2 to 1.0"
+      },
+      {
+        "id": 1102,
+        "index_offset": 36988,
+        "relative_offset": 2313,
+        "text_offset": 39301,
+        "length": 57,
+        "bytes_hex": "202020202020202020202020202020202025312e253220746f20312e30206176657261676520636f6d7072657373696f6e20726174696f0d0a",
+        "text_latin1": "                 %1.%2 to 1.0 average compression ratio\r\n"
+      },
+      {
+        "id": 1103,
+        "index_offset": 36992,
+        "relative_offset": 2367,
+        "text_offset": 39359,
+        "length": 26,
+        "bytes_hex": "4f766572777269746520253120285965732f4e6f2f416c6c293f",
+        "text_latin1": "Overwrite %1 (Yes/No/All)?"
+      },
+      {
+        "id": 1104,
+        "index_offset": 36996,
+        "relative_offset": 2390,
+        "text_offset": 39386,
+        "length": 3,
+        "bytes_hex": "594e41",
+        "text_latin1": "YNA"
+      },
+      {
+        "id": 1105,
+        "index_offset": 37000,
+        "relative_offset": 2390,
+        "text_offset": 39390,
+        "length": 4,
+        "bytes_hex": "20202020",
+        "text_latin1": "    "
+      },
+      {
+        "id": 1200,
+        "index_offset": 37004,
+        "relative_offset": 2391,
+        "text_offset": 39395,
+        "length": 0,
+        "bytes_hex": "",
+        "text_latin1": ""
+      },
+      {
+        "id": 1300,
+        "index_offset": 37008,
+        "relative_offset": 2388,
+        "text_offset": 39396,
+        "length": 134,
+        "bytes_hex": "53657473206f7220636c6561727320657874656e646564204354524c2b4320636865636b696e672e0d0a0d0a425245414b205b4f4e207c204f46465d0d0a0d0a5479706520425245414b20776974686f7574206120706172616d6574657220746f20646973706c6179207468652063757272656e7420425245414b2073657474696e672e0d0a",
+        "text_latin1": "Sets or clears extended CTRL+C checking.\r\n\r\nBREAK [ON | OFF]\r\n\r\nType BREAK without a parameter to display the current BREAK setting.\r\n"
+      },
+      {
+        "id": 1320,
+        "index_offset": 37012,
+        "relative_offset": 2519,
+        "text_offset": 39531,
+        "length": 63,
+        "bytes_hex": "446973706c617973206f722073657473207468652061637469766520636f64652070616765206e756d6265722e0d0a0d0a43484350205b6e6e6e5d0d0a0d0a",
+        "text_latin1": "Displays or sets the active code page number.\r\n\r\nCHCP [nnn]\r\n\r\n"
+      },
+      {
+        "id": 1321,
+        "index_offset": 37016,
+        "relative_offset": 2579,
+        "text_offset": 39595,
+        "length": 112,
+        "bytes_hex": "20206e6e6e202020537065636966696573206120636f64652070616765206e756d6265722e0d0a0d0a54797065204348435020776974686f7574206120706172616d6574657220746f20646973706c6179207468652061637469766520636f64652070616765206e756d6265722e0d0a",
+        "text_latin1": "  nnn   Specifies a code page number.\r\n\r\nType CHCP without a parameter to display the active code page number.\r\n"
+      },
+      {
+        "id": 1340,
+        "index_offset": 37020,
+        "relative_offset": 2688,
+        "text_offset": 39708,
+        "length": 91,
+        "bytes_hex": "446973706c61797320746865206e616d65206f66206f72206368616e676573207468652063757272656e74206469726563746f72792e0d0a0d0a4348444952205b64726976653a5d5b706174685d0d0a43484449525b2e2e5d0d0a",
+        "text_latin1": "Displays the name of or changes the current directory.\r\n\r\nCHDIR [drive:][path]\r\nCHDIR[..]\r\n"
+      },
+      {
+        "id": 1341,
+        "index_offset": 37024,
+        "relative_offset": 2776,
+        "text_offset": 39800,
+        "length": 98,
+        "bytes_hex": "4344205b64726976653a5d5b706174685d0d0a43445b2e2e5d0d0a0d0a20202e2e202020537065636966696573207468617420796f752077616e7420746f206368616e676520746f2074686520706172656e74206469726563746f72792e0d0a0d0a",
+        "text_latin1": "CD [drive:][path]\r\nCD[..]\r\n\r\n  ..   Specifies that you want to change to the parent directory.\r\n\r\n"
+      },
+      {
+        "id": 1342,
+        "index_offset": 37028,
+        "relative_offset": 2871,
+        "text_offset": 39899,
+        "length": 145,
+        "bytes_hex": "547970652043442064726976653a20746f20646973706c6179207468652063757272656e74206469726563746f727920696e20746865207370656369666965642064726976652e0d0a5479706520434420776974686f757420706172616d657465727320746f20646973706c6179207468652063757272656e7420647269766520616e64206469726563746f72792e0d0a",
+        "text_latin1": "Type CD drive: to display the current directory in the specified drive.\r\nType CD without parameters to display the current drive and directory.\r\n"
+      },
+      {
+        "id": 1360,
+        "index_offset": 37032,
+        "relative_offset": 3013,
+        "text_offset": 40045,
+        "length": 27,
+        "bytes_hex": "436c65617273207468652073637265656e2e0d0a0d0a434c530d0a",
+        "text_latin1": "Clears the screen.\r\n\r\nCLS\r\n"
+      },
+      {
+        "id": 1400,
+        "index_offset": 37036,
+        "relative_offset": 3037,
+        "text_offset": 40073,
+        "length": 156,
+        "bytes_hex": "436f70696573206f6e65206f72206d6f72652066696c657320746f20616e6f74686572206c6f636174696f6e2e0d0a0d0a434f5059205b2f41207c202f425d20736f75726365205b2f41207c202f425d205b2b20736f75726365205b2f41207c202f425d205b2b202e2e2e5d5d205b64657374696e6174696f6e0d0a20205b2f41207c202f425d5d205b2f565d205b2f59207c202f2d595d0d0a0d0a",
+        "text_latin1": "Copies one or more files to another location.\r\n\r\nCOPY [/A | /B] source [/A | /B] [+ source [/A | /B] [+ ...]] [destination\r\n  [/A | /B]] [/V] [/Y | /-Y]\r\n\r\n"
+      },
+      {
+        "id": 1401,
+        "index_offset": 37040,
+        "relative_offset": 3190,
+        "text_offset": 40230,
+        "length": 104,
+        "bytes_hex": "2020736f7572636520202020202020537065636966696573207468652066696c65206f722066696c657320746f20626520636f706965642e0d0a20202f412020202020202020202020496e6469636174657320616e20415343494920746578742066696c652e0d0a",
+        "text_latin1": "  source       Specifies the file or files to be copied.\r\n  /A           Indicates an ASCII text file.\r\n"
+      },
+      {
+        "id": 1402,
+        "index_offset": 37044,
+        "relative_offset": 3291,
+        "text_offset": 40335,
+        "length": 118,
+        "bytes_hex": "20202f422020202020202020202020496e6469636174657320612062696e6172792066696c652e0d0a202064657374696e6174696f6e202053706563696669657320746865206469726563746f727920616e642f6f722066696c656e616d6520666f7220746865206e65772066696c652873292e0d0a",
+        "text_latin1": "  /B           Indicates a binary file.\r\n  destination  Specifies the directory and/or filename for the new file(s).\r\n"
+      },
+      {
+        "id": 1403,
+        "index_offset": 37048,
+        "relative_offset": 3406,
+        "text_offset": 40454,
+        "length": 63,
+        "bytes_hex": "20202f56202020202020202020202056657269666965732074686174206e65772066696c657320617265207772697474656e20636f72726563746c792e0d0a",
+        "text_latin1": "  /V           Verifies that new files are written correctly.\r\n"
+      },
+      {
+        "id": 1404,
+        "index_offset": 37052,
+        "relative_offset": 3466,
+        "text_offset": 40518,
+        "length": 116,
+        "bytes_hex": "20202f592020202020202020202020537570707265737365732070726f6d7074696e6720746f20636f6e6669726d20796f752077616e7420746f206f766572777269746520616e0d0a2020202020202020202020202020206578697374696e672064657374696e6174696f6e2066696c652e0d0a",
+        "text_latin1": "  /Y           Suppresses prompting to confirm you want to overwrite an\r\n               existing destination file.\r\n"
+      },
+      {
+        "id": 1405,
+        "index_offset": 37056,
+        "relative_offset": 3579,
+        "text_offset": 40635,
+        "length": 114,
+        "bytes_hex": "20202f2d59202020202020202020204361757365732070726f6d7074696e6720746f20636f6e6669726d20796f752077616e7420746f206f766572777269746520616e0d0a2020202020202020202020202020206578697374696e672064657374696e6174696f6e2066696c652e0d0a0d0a",
+        "text_latin1": "  /-Y          Causes prompting to confirm you want to overwrite an\r\n               existing destination file.\r\n\r\n"
+      },
+      {
+        "id": 1406,
+        "index_offset": 37060,
+        "relative_offset": 3690,
+        "text_offset": 40750,
+        "length": 66,
+        "bytes_hex": "54686520737769746368202f59206d61792062652070726573657420696e2074686520434f5059434d4420656e7669726f6e6d656e74207661726961626c652e0d0a",
+        "text_latin1": "The switch /Y may be preset in the COPYCMD environment variable.\r\n"
+      },
+      {
+        "id": 1407,
+        "index_offset": 37064,
+        "relative_offset": 3753,
+        "text_offset": 40817,
+        "length": 135,
+        "bytes_hex": "546f20617070656e642066696c65732c207370656369667920612073696e676c652066696c6520666f722064657374696e6174696f6e2c20627574206d756c7469706c652066696c65730d0a666f7220736f7572636520287573696e672077696c646361726473206f722066696c65312b66696c65322b66696c653320666f726d6174292e0d0a",
+        "text_latin1": "To append files, specify a single file for destination, but multiple files\r\nfor source (using wildcards or file1+file2+file3 format).\r\n"
+      },
+      {
+        "id": 1420,
+        "index_offset": 37068,
+        "relative_offset": 3885,
+        "text_offset": 40953,
+        "length": 138,
+        "bytes_hex": "4368616e67657320746865207465726d696e616c20646576696365207573656420746f20636f6e74726f6c20796f75722073797374656d2e0d0a0d0a43545459206465766963650d0a0d0a2020646576696365202020546865207465726d696e616c2064657669636520796f752077616e7420746f207573652c207375636820617320434f4d312e0d0a",
+        "text_latin1": "Changes the terminal device used to control your system.\r\n\r\nCTTY device\r\n\r\n  device   The terminal device you want to use, such as COM1.\r\n"
+      },
+      {
+        "id": 1440,
+        "index_offset": 37072,
+        "relative_offset": 4020,
+        "text_offset": 41092,
+        "length": 93,
+        "bytes_hex": "446973706c617973206f7220736574732074686520646174652e0d0a0d0a44415445205b6d6d2d64642d79795d0d0a0d0a20206d6d2d64642d7979202020205365747320746865206461746520796f7520737065636966792e0d0a0d0a",
+        "text_latin1": "Displays or sets the date.\r\n\r\nDATE [mm-dd-yy]\r\n\r\n  mm-dd-yy    Sets the date you specify.\r\n\r\n"
+      },
+      {
+        "id": 1441,
+        "index_offset": 37076,
+        "relative_offset": 4110,
+        "text_offset": 41186,
+        "length": 131,
+        "bytes_hex": "54797065204441544520776974686f757420706172616d657465727320746f20646973706c6179207468652063757272656e7420646174652073657474696e6720616e640d0a612070726f6d707420666f722061206e6577206f6e652e2020507265737320454e54455220746f206b656570207468652073616d6520646174652e0d0a",
+        "text_latin1": "Type DATE without parameters to display the current date setting and\r\na prompt for a new one.  Press ENTER to keep the same date.\r\n"
+      },
+      {
+        "id": 1460,
+        "index_offset": 37080,
+        "relative_offset": 4238,
+        "text_offset": 41318,
+        "length": 100,
+        "bytes_hex": "44656c65746573206f6e65206f72206d6f72652066696c65732e0d0a0d0a44454c205b64726976653a5d5b706174685d66696c656e616d65205b2f505d0d0a4552415345205b64726976653a5d5b706174685d66696c656e616d65205b2f505d0d0a0d0a",
+        "text_latin1": "Deletes one or more files.\r\n\r\nDEL [drive:][path]filename [/P]\r\nERASE [drive:][path]filename [/P]\r\n\r\n"
+      },
+      {
+        "id": 1461,
+        "index_offset": 37084,
+        "relative_offset": 4335,
+        "text_offset": 41419,
+        "length": 131,
+        "bytes_hex": "20205b64726976653a5d5b706174685d66696c656e616d652020537065636966696573207468652066696c6528732920746f2064656c6574652e202053706563696679206d756c7469706c650d0a202020202020202020202020202020202020202020202020202066696c6573206279207573696e672077696c6463617264732e0d0a",
+        "text_latin1": "  [drive:][path]filename  Specifies the file(s) to delete.  Specify multiple\r\n                          files by using wildcards.\r\n"
+      },
+      {
+        "id": 1462,
+        "index_offset": 37088,
+        "relative_offset": 4463,
+        "text_offset": 41551,
+        "length": 79,
+        "bytes_hex": "20202f502020202020202020202020202020202020202020202050726f6d70747320666f7220636f6e6669726d6174696f6e206265666f72652064656c6574696e6720656163682066696c652e0d0a",
+        "text_latin1": "  /P                      Prompts for confirmation before deleting each file.\r\n"
+      },
+      {
+        "id": 1480,
+        "index_offset": 37092,
+        "relative_offset": 4539,
+        "text_offset": 41631,
+        "length": 137,
+        "bytes_hex": "446973706c6179732061206c697374206f662066696c657320616e64207375626469726563746f7269657320696e2061206469726563746f72792e0d0a0d0a444952205b64726976653a5d5b706174685d5b66696c656e616d655d205b2f505d205b2f575d205b2f415b5b3a5d617474726962735d5d205b2f4f5b5b3a5d736f72746f72645d5d0d0a",
+        "text_latin1": "Displays a list of files and subdirectories in a directory.\r\n\r\nDIR [drive:][path][filename] [/P] [/W] [/A[[:]attribs]] [/O[[:]sortord]]\r\n"
+      },
+      {
+        "id": 1481,
+        "index_offset": 37096,
+        "relative_offset": 4673,
+        "text_offset": 41769,
+        "length": 30,
+        "bytes_hex": "202020205b2f535d205b2f425d205b2f4c5d205b2f435b485d5d0d0a0d0a",
+        "text_latin1": "    [/S] [/B] [/L] [/C[H]]\r\n\r\n"
+      },
+      {
+        "id": 1482,
+        "index_offset": 37100,
+        "relative_offset": 4700,
+        "text_offset": 41800,
+        "length": 80,
+        "bytes_hex": "20205b64726976653a5d5b706174685d5b66696c656e616d655d2020205370656369666965732064726976652c206469726563746f72792c20616e642f6f722066696c657320746f206c6973742e0d0a",
+        "text_latin1": "  [drive:][path][filename]   Specifies drive, directory, and/or files to list.\r\n"
+      },
+      {
+        "id": 1483,
+        "index_offset": 37104,
+        "relative_offset": 4777,
+        "text_offset": 41881,
+        "length": 89,
+        "bytes_hex": "20202f5020202020202050617573657320616674657220656163682073637265656e66756c206f6620696e666f726d6174696f6e2e0d0a20202f57202020202020557365732077696465206c69737420666f726d61742e0d0a",
+        "text_latin1": "  /P      Pauses after each screenful of information.\r\n  /W      Uses wide list format.\r\n"
+      },
+      {
+        "id": 1484,
+        "index_offset": 37108,
+        "relative_offset": 4863,
+        "text_offset": 41971,
+        "length": 126,
+        "bytes_hex": "20202f41202020202020446973706c6179732066696c657320776974682073706563696669656420617474726962757465732e0d0a2020617474726962732020204420204469726563746f72696573202020522020526561642d6f6e6c792066696c657320202020202020202048202048696464656e2066696c65730d0a",
+        "text_latin1": "  /A      Displays files with specified attributes.\r\n  attribs   D  Directories   R  Read-only files         H  Hidden files\r\n"
+      },
+      {
+        "id": 1485,
+        "index_offset": 37112,
+        "relative_offset": 4986,
+        "text_offset": 42098,
+        "length": 123,
+        "bytes_hex": "20202020202020202020202053202053797374656d2066696c6573202041202046696c657320726561647920746f206172636869766520202d2020507265666978206d65616e696e6720226e6f74220d0a20202f4f2020202020204c6973742062792066696c657320696e20736f72746564206f726465722e0d0a",
+        "text_latin1": "            S  System files  A  Files ready to archive  -  Prefix meaning \"not\"\r\n  /O      List by files in sorted order.\r\n"
+      },
+      {
+        "id": 1486,
+        "index_offset": 37116,
+        "relative_offset": 5106,
+        "text_offset": 42222,
+        "length": 149,
+        "bytes_hex": "2020736f72746f72642020204e20204279206e616d652028616c7068616265746963292020202020202053202042792073697a652028736d616c6c657374206669727374290d0a202020202020202020202020452020427920657874656e73696f6e2028616c70686162657469632920204420204279206461746520262074696d6520286561726c69657374206669727374290d0a",
+        "text_latin1": "  sortord   N  By name (alphabetic)       S  By size (smallest first)\r\n            E  By extension (alphabetic)  D  By date & time (earliest first)\r\n"
+      },
+      {
+        "id": 1487,
+        "index_offset": 37120,
+        "relative_offset": 5252,
+        "text_offset": 42372,
+        "length": 70,
+        "bytes_hex": "20202020202020202020202047202047726f7570206469726563746f72696573206669727374202020202d202050726566697820746f2072657665727365206f726465720d0a",
+        "text_latin1": "            G  Group directories first    -  Prefix to reverse order\r\n"
+      },
+      {
+        "id": 1488,
+        "index_offset": 37124,
+        "relative_offset": 5319,
+        "text_offset": 42443,
+        "length": 127,
+        "bytes_hex": "202020202020202020202020432020427920636f6d7072657373696f6e20726174696f2028736d616c6c657374206669727374290d0a20202f53202020202020446973706c6179732066696c657320696e20737065636966696564206469726563746f727920616e6420616c6c207375626469726563746f726965732e0d0a",
+        "text_latin1": "            C  By compression ratio (smallest first)\r\n  /S      Displays files in specified directory and all subdirectories.\r\n"
+      },
+      {
+        "id": 1489,
+        "index_offset": 37128,
+        "relative_offset": 5443,
+        "text_offset": 42571,
+        "length": 65,
+        "bytes_hex": "20202f4220202020202055736573206261726520666f726d617420286e6f2068656164696e6720696e666f726d6174696f6e206f722073756d6d617279292e0d0a",
+        "text_latin1": "  /B      Uses bare format (no heading information or summary).\r\n"
+      },
+      {
+        "id": 1490,
+        "index_offset": 37132,
+        "relative_offset": 5505,
+        "text_offset": 42637,
+        "length": 27,
+        "bytes_hex": "20202f4c20202020202055736573206c6f776572636173652e0d0a",
+        "text_latin1": "  /L      Uses lowercase.\r\n"
+      },
+      {
+        "id": 1491,
+        "index_offset": 37136,
+        "relative_offset": 5529,
+        "text_offset": 42665,
+        "length": 82,
+        "bytes_hex": "20202f435b485d202020446973706c6179732066696c6520636f6d7072657373696f6e20726174696f3b202f4348207573657320686f737420616c6c6f636174696f6e20756e69742073697a652e0d0a0d0a",
+        "text_latin1": "  /C[H]   Displays file compression ratio; /CH uses host allocation unit size.\r\n\r\n"
+      },
+      {
+        "id": 1492,
+        "index_offset": 37140,
+        "relative_offset": 5608,
+        "text_offset": 42748,
+        "length": 146,
+        "bytes_hex": "5377697463686573206d61792062652070726573657420696e2074686520444952434d4420656e7669726f6e6d656e74207661726961626c652e20204f766572726964650d0a70726573657420737769746368657320627920707265666978696e6720616e79207377697463682077697468202d202868797068656e292d2d666f72206578616d706c652c202f2d572e0d0a",
+        "text_latin1": "Switches may be preset in the DIRCMD environment variable.  Override\r\npreset switches by prefixing any switch with - (hyphen)--for example, /-W.\r\n"
+      },
+      {
+        "id": 1493,
+        "index_offset": 37144,
+        "relative_offset": 5751,
+        "text_offset": 42895,
+        "length": 22,
+        "bytes_hex": "202020205b2f535d205b2f425d205b2f4c5d0d0a0d0a",
+        "text_latin1": "    [/S] [/B] [/L]\r\n\r\n"
+      },
+      {
+        "id": 1494,
+        "index_offset": 37148,
+        "relative_offset": 5770,
+        "text_offset": 42918,
+        "length": 29,
+        "bytes_hex": "20202f4c20202020202055736573206c6f776572636173652e0d0a0d0a",
+        "text_latin1": "  /L      Uses lowercase.\r\n\r\n"
+      },
+      {
+        "id": 1500,
+        "index_offset": 37152,
+        "relative_offset": 5796,
+        "text_offset": 42948,
+        "length": 62,
+        "bytes_hex": "51756974732074686520434f4d4d414e442e434f4d2070726f6772616d2028636f6d6d616e6420696e746572707265746572292e0d0a0d0a455849540d0a",
+        "text_latin1": "Quits the COMMAND.COM program (command interpreter).\r\n\r\nEXIT\r\n"
+      },
+      {
+        "id": 1520,
+        "index_offset": 37156,
+        "relative_offset": 5855,
+        "text_offset": 43011,
+        "length": 61,
+        "bytes_hex": "437265617465732061206469726563746f72792e0d0a0d0a4d4b444952205b64726976653a5d706174680d0a4d44205b64726976653a5d706174680d0a",
+        "text_latin1": "Creates a directory.\r\n\r\nMKDIR [drive:]path\r\nMD [drive:]path\r\n"
+      },
+      {
+        "id": 1540,
+        "index_offset": 37160,
+        "relative_offset": 5913,
+        "text_offset": 43073,
+        "length": 93,
+        "bytes_hex": "446973706c617973206f722073657473206120736561726368207061746820666f722065786563757461626c652066696c65732e0d0a0d0a50415448205b5b64726976653a5d706174685b3b2e2e2e5d5d0d0a50415448203b0d0a0d0a",
+        "text_latin1": "Displays or sets a search path for executable files.\r\n\r\nPATH [[drive:]path[;...]]\r\nPATH ;\r\n\r\n"
+      },
+      {
+        "id": 1541,
+        "index_offset": 37164,
+        "relative_offset": 6003,
+        "text_offset": 43167,
+        "length": 107,
+        "bytes_hex": "547970652050415448203b20746f20636c65617220616c6c207365617263682d706174682073657474696e677320616e6420646972656374204d532d444f5320746f207365617263680d0a6f6e6c7920696e207468652063757272656e74206469726563746f72792e0d0a",
+        "text_latin1": "Type PATH ; to clear all search-path settings and direct MS-DOS to search\r\nonly in the current directory.\r\n"
+      },
+      {
+        "id": 1542,
+        "index_offset": 37168,
+        "relative_offset": 6107,
+        "text_offset": 43275,
+        "length": 59,
+        "bytes_hex": "54797065205041544820776974686f757420706172616d657465727320746f20646973706c6179207468652063757272656e7420706174682e0d0a",
+        "text_latin1": "Type PATH without parameters to display the current path.\r\n"
+      },
+      {
+        "id": 1560,
+        "index_offset": 37172,
+        "relative_offset": 6163,
+        "text_offset": 43335,
+        "length": 55,
+        "bytes_hex": "4368616e67657320746865204d532d444f5320636f6d6d616e642070726f6d70742e0d0a0d0a50524f4d5054205b746578745d0d0a0d0a",
+        "text_latin1": "Changes the MS-DOS command prompt.\r\n\r\nPROMPT [text]\r\n\r\n"
+      },
+      {
+        "id": 1561,
+        "index_offset": 37176,
+        "relative_offset": 6215,
+        "text_offset": 43391,
+        "length": 124,
+        "bytes_hex": "202074657874202020205370656369666965732061206e657720636f6d6d616e642070726f6d70742e0d0a0d0a50726f6d70742063616e206265206d616465207570206f66206e6f726d616c206368617261637465727320616e642074686520666f6c6c6f77696e67207370656369616c20636f6465733a0d0a0d0a",
+        "text_latin1": "  text    Specifies a new command prompt.\r\n\r\nPrompt can be made up of normal characters and the following special codes:\r\n\r\n"
+      },
+      {
+        "id": 1562,
+        "index_offset": 37180,
+        "relative_offset": 6336,
+        "text_offset": 43516,
+        "length": 47,
+        "bytes_hex": "202024512020203d2028657175616c207369676e290d0a20202424202020242028646f6c6c6172207369676e290d0a",
+        "text_latin1": "  $Q   = (equal sign)\r\n  $$   $ (dollar sign)\r\n"
+      },
+      {
+        "id": 1563,
+        "index_offset": 37184,
+        "relative_offset": 6380,
+        "text_offset": 43564,
+        "length": 42,
+        "bytes_hex": "2020245420202043757272656e742074696d650d0a2020244420202043757272656e7420646174650d0a",
+        "text_latin1": "  $T   Current time\r\n  $D   Current date\r\n"
+      },
+      {
+        "id": 1564,
+        "index_offset": 37188,
+        "relative_offset": 6419,
+        "text_offset": 43607,
+        "length": 61,
+        "bytes_hex": "2020245020202043757272656e7420647269766520616e6420706174680d0a202024562020204d532d444f532076657273696f6e206e756d6265720d0a",
+        "text_latin1": "  $P   Current drive and path\r\n  $V   MS-DOS version number\r\n"
+      },
+      {
+        "id": 1565,
+        "index_offset": 37192,
+        "relative_offset": 6477,
+        "text_offset": 43669,
+        "length": 52,
+        "bytes_hex": "2020244e20202043757272656e742064726976650d0a202024472020203e2028677265617465722d7468616e207369676e290d0a",
+        "text_latin1": "  $N   Current drive\r\n  $G   > (greater-than sign)\r\n"
+      },
+      {
+        "id": 1566,
+        "index_offset": 37196,
+        "relative_offset": 6526,
+        "text_offset": 43722,
+        "length": 44,
+        "bytes_hex": "2020244c2020203c20286c6573732d7468616e207369676e290d0a202024422020207c202870697065290d0a",
+        "text_latin1": "  $L   < (less-than sign)\r\n  $B   | (pipe)\r\n"
+      },
+      {
+        "id": 1567,
+        "index_offset": 37200,
+        "relative_offset": 6567,
+        "text_offset": 43767,
+        "length": 121,
+        "bytes_hex": "202024482020204261636b737061636520286572617365732070726576696f757320636861726163746572290d0a2020244520202045736361706520636f64652028415343494920636f6465203237290d0a2020245f20202043617272696167652072657475726e20616e64206c696e65666565640d0a0d0a",
+        "text_latin1": "  $H   Backspace (erases previous character)\r\n  $E   Escape code (ASCII code 27)\r\n  $_   Carriage return and linefeed\r\n\r\n"
+      },
+      {
+        "id": 1568,
+        "index_offset": 37204,
+        "relative_offset": 6685,
+        "text_offset": 43889,
+        "length": 76,
+        "bytes_hex": "547970652050524f4d505420776974686f757420706172616d657465727320746f207265736574207468652070726f6d707420746f207468652064656661756c742073657474696e672e0d0a",
+        "text_latin1": "Type PROMPT without parameters to reset the prompt to the default setting.\r\n"
+      },
+      {
+        "id": 1580,
+        "index_offset": 37208,
+        "relative_offset": 6758,
+        "text_offset": 43966,
+        "length": 71,
+        "bytes_hex": "52656d6f766573202864656c65746573292061206469726563746f72792e0d0a0d0a524d444952205b64726976653a5d706174680d0a5244205b64726976653a5d706174680d0a",
+        "text_latin1": "Removes (deletes) a directory.\r\n\r\nRMDIR [drive:]path\r\nRD [drive:]path\r\n"
+      },
+      {
+        "id": 1600,
+        "index_offset": 37212,
+        "relative_offset": 6826,
+        "text_offset": 44038,
+        "length": 28,
+        "bytes_hex": "52656e616d657320612066696c65206f722066696c65732e0d0a0d0a",
+        "text_latin1": "Renames a file or files.\r\n\r\n"
+      },
+      {
+        "id": 1601,
+        "index_offset": 37216,
+        "relative_offset": 6851,
+        "text_offset": 44067,
+        "length": 83,
+        "bytes_hex": "52454e414d45205b64726976653a5d5b706174685d66696c656e616d65312066696c656e616d65320d0a52454e205b64726976653a5d5b706174685d66696c656e616d65312066696c656e616d65320d0a0d0a",
+        "text_latin1": "RENAME [drive:][path]filename1 filename2\r\nREN [drive:][path]filename1 filename2\r\n\r\n"
+      },
+      {
+        "id": 1602,
+        "index_offset": 37220,
+        "relative_offset": 6931,
+        "text_offset": 44151,
+        "length": 160,
+        "bytes_hex": "4e6f7465207468617420796f752063616e6e6f7420737065636966792061206e6577206472697665206f72207061746820666f7220796f75722064657374696e6174696f6e2066696c652e0d0a0d0a557365204d4f564520746f2072656e616d652061206469726563746f72792c206f7220746f206d6f76652066696c65732066726f6d206f6e65206469726563746f727920746f20616e6f746865722e0d0a",
+        "text_latin1": "Note that you cannot specify a new drive or path for your destination file.\r\n\r\nUse MOVE to rename a directory, or to move files from one directory to another.\r\n"
+      },
+      {
+        "id": 1620,
+        "index_offset": 37224,
+        "relative_offset": 7088,
+        "text_offset": 44312,
+        "length": 87,
+        "bytes_hex": "446973706c6179732c20736574732c206f722072656d6f766573204d532d444f5320656e7669726f6e6d656e74207661726961626c65732e0d0a0d0a534554205b7661726961626c653d5b737472696e675d5d0d0a0d0a",
+        "text_latin1": "Displays, sets, or removes MS-DOS environment variables.\r\n\r\nSET [variable=[string]]\r\n\r\n"
+      },
+      {
+        "id": 1621,
+        "index_offset": 37228,
+        "relative_offset": 7172,
+        "text_offset": 44400,
+        "length": 129,
+        "bytes_hex": "20207661726961626c6520205370656369666965732074686520656e7669726f6e6d656e742d7661726961626c65206e616d652e0d0a2020737472696e6720202020537065636966696573206120736572696573206f66206368617261637465727320746f2061737369676e20746f20746865207661726961626c652e0d0a0d0a",
+        "text_latin1": "  variable  Specifies the environment-variable name.\r\n  string    Specifies a series of characters to assign to the variable.\r\n\r\n"
+      },
+      {
+        "id": 1622,
+        "index_offset": 37232,
+        "relative_offset": 7298,
+        "text_offset": 44530,
+        "length": 75,
+        "bytes_hex": "547970652053455420776974686f757420706172616d657465727320746f20646973706c6179207468652063757272656e7420656e7669726f6e6d656e74207661726961626c65732e0d0a",
+        "text_latin1": "Type SET without parameters to display the current environment variables.\r\n"
+      },
+      {
+        "id": 1640,
+        "index_offset": 37236,
+        "relative_offset": 7370,
+        "text_offset": 44606,
+        "length": 45,
+        "bytes_hex": "446973706c617973206f722073657473207468652074696d652e0d0a0d0a54494d45205b74696d655d0d0a0d0a",
+        "text_latin1": "Displays or sets the time.\r\n\r\nTIME [time]\r\n\r\n"
+      },
+      {
+        "id": 1641,
+        "index_offset": 37240,
+        "relative_offset": 7412,
+        "text_offset": 44652,
+        "length": 131,
+        "bytes_hex": "547970652054494d4520776974686f757420706172616d657465727320746f20646973706c6179207468652063757272656e742074696d652073657474696e6720616e640d0a612070726f6d707420666f722061206e6577206f6e652e2020507265737320454e54455220746f206b656570207468652073616d652074696d652e0d0a",
+        "text_latin1": "Type TIME without parameters to display the current time setting and\r\na prompt for a new one.  Press ENTER to keep the same time.\r\n"
+      },
+      {
+        "id": 1660,
+        "index_offset": 37244,
+        "relative_offset": 7540,
+        "text_offset": 44784,
+        "length": 70,
+        "bytes_hex": "446973706c6179732074686520636f6e74656e7473206f66206120746578742066696c652e0d0a0d0a54595045205b64726976653a5d5b706174685d66696c656e616d650d0a",
+        "text_latin1": "Displays the contents of a text file.\r\n\r\nTYPE [drive:][path]filename\r\n"
+      },
+      {
+        "id": 1680,
+        "index_offset": 37248,
+        "relative_offset": 7607,
+        "text_offset": 44855,
+        "length": 37,
+        "bytes_hex": "446973706c61797320746865204d532d444f532076657273696f6e2e0d0a0d0a5645520d0a",
+        "text_latin1": "Displays the MS-DOS version.\r\n\r\nVER\r\n"
+      },
+      {
+        "id": 1700,
+        "index_offset": 37252,
+        "relative_offset": 7641,
+        "text_offset": 44893,
+        "length": 177,
+        "bytes_hex": "54656c6c73204d532d444f53207768657468657220746f20766572696679207468617420796f75722066696c657320617265207772697474656e20636f72726563746c7920746f20610d0a6469736b2e0d0a0d0a564552494659205b4f4e207c204f46465d0d0a0d0a547970652056455249465920776974686f7574206120706172616d6574657220746f20646973706c6179207468652063757272656e74205645524946592073657474696e672e0d0a",
+        "text_latin1": "Tells MS-DOS whether to verify that your files are written correctly to a\r\ndisk.\r\n\r\nVERIFY [ON | OFF]\r\n\r\nType VERIFY without a parameter to display the current VERIFY setting.\r\n"
+      },
+      {
+        "id": 1720,
+        "index_offset": 37256,
+        "relative_offset": 7815,
+        "text_offset": 45071,
+        "length": 82,
+        "bytes_hex": "446973706c61797320746865206469736b20766f6c756d65206c6162656c20616e642073657269616c206e756d6265722c20696620746865792065786973742e0d0a0d0a564f4c205b64726976653a5d0d0a",
+        "text_latin1": "Displays the disk volume label and serial number, if they exist.\r\n\r\nVOL [drive:]\r\n"
+      },
+      {
+        "id": 1740,
+        "index_offset": 37260,
+        "relative_offset": 7894,
+        "text_offset": 45154,
+        "length": 91,
+        "bytes_hex": "43616c6c73206f6e652062617463682070726f6772616d2066726f6d20616e6f746865722e0d0a0d0a43414c4c205b64726976653a5d5b706174685d66696c656e616d65205b62617463682d706172616d65746572735d0d0a0d0a",
+        "text_latin1": "Calls one batch program from another.\r\n\r\nCALL [drive:][path]filename [batch-parameters]\r\n\r\n"
+      },
+      {
+        "id": 1741,
+        "index_offset": 37264,
+        "relative_offset": 7982,
+        "text_offset": 45246,
+        "length": 114,
+        "bytes_hex": "202062617463682d706172616d657465727320202053706563696669657320616e7920636f6d6d616e642d6c696e6520696e666f726d6174696f6e207265717569726564206279207468650d0a20202020202020202020202020202020202020202062617463682070726f6772616d2e0d0a",
+        "text_latin1": "  batch-parameters   Specifies any command-line information required by the\r\n                     batch program.\r\n"
+      },
+      {
+        "id": 1760,
+        "index_offset": 37268,
+        "relative_offset": 8093,
+        "text_offset": 45361,
+        "length": 76,
+        "bytes_hex": "5265636f72647320636f6d6d656e7473202872656d61726b732920696e20612062617463682066696c65206f7220434f4e4649472e5359532e0d0a0d0a52454d205b636f6d6d656e745d0d0a",
+        "text_latin1": "Records comments (remarks) in a batch file or CONFIG.SYS.\r\n\r\nREM [comment]\r\n"
+      },
+      {
+        "id": 1780,
+        "index_offset": 37272,
+        "relative_offset": 8166,
+        "text_offset": 45438,
+        "length": 107,
+        "bytes_hex": "53757370656e64732070726f63657373696e67206f6620612062617463682070726f6772616d20616e6420646973706c61797320746865206d6573736167652022507265737320616e790d0a6b657920746f20636f6e74696e75652e2e2e2e220d0a0d0a50415553450d0a",
+        "text_latin1": "Suspends processing of a batch program and displays the message \"Press any\r\nkey to continue....\"\r\n\r\nPAUSE\r\n"
+      },
+      {
+        "id": 1800,
+        "index_offset": 37276,
+        "relative_offset": 8270,
+        "text_offset": 45546,
+        "length": 77,
+        "bytes_hex": "446973706c617973206d657373616765732c206f72207475726e7320636f6d6d616e642d6563686f696e67206f6e206f72206f66662e0d0a0d0a20204543484f205b4f4e207c204f46465d0d0a",
+        "text_latin1": "Displays messages, or turns command-echoing on or off.\r\n\r\n  ECHO [ON | OFF]\r\n"
+      },
+      {
+        "id": 1801,
+        "index_offset": 37280,
+        "relative_offset": 8344,
+        "text_offset": 45624,
+        "length": 87,
+        "bytes_hex": "20204543484f205b6d6573736167655d0d0a0d0a54797065204543484f20776974686f757420706172616d657465727320746f20646973706c6179207468652063757272656e74206563686f2073657474696e672e0d0a",
+        "text_latin1": "  ECHO [message]\r\n\r\nType ECHO without parameters to display the current echo setting.\r\n"
+      },
+      {
+        "id": 1820,
+        "index_offset": 37284,
+        "relative_offset": 8428,
+        "text_offset": 45712,
+        "length": 71,
+        "bytes_hex": "44697265637473204d532d444f5320746f2061206c6162656c6c6564206c696e6520696e20612062617463682070726f6772616d2e0d0a0d0a474f544f206c6162656c0d0a0d0a",
+        "text_latin1": "Directs MS-DOS to a labelled line in a batch program.\r\n\r\nGOTO label\r\n\r\n"
+      },
+      {
+        "id": 1821,
+        "index_offset": 37288,
+        "relative_offset": 8496,
+        "text_offset": 45784,
+        "length": 138,
+        "bytes_hex": "20206c6162656c2020205370656369666965732061207465787420737472696e67207573656420696e207468652062617463682070726f6772616d2061732061206c6162656c2e0d0a0d0a596f7520747970652061206c6162656c206f6e2061206c696e6520627920697473656c662c20626567696e6e696e672077697468206120636f6c6f6e2e0d0a",
+        "text_latin1": "  label   Specifies a text string used in the batch program as a label.\r\n\r\nYou type a label on a line by itself, beginning with a colon.\r\n"
+      },
+      {
+        "id": 1840,
+        "index_offset": 37292,
+        "relative_offset": 8631,
+        "text_offset": 45923,
+        "length": 74,
+        "bytes_hex": "4368616e6765732074686520706f736974696f6e206f66207265706c61636561626c6520706172616d657465727320696e20612062617463682066696c652e0d0a0d0a53484946540d0a",
+        "text_latin1": "Changes the position of replaceable parameters in a batch file.\r\n\r\nSHIFT\r\n"
+      },
+      {
+        "id": 1860,
+        "index_offset": 37296,
+        "relative_offset": 8702,
+        "text_offset": 45998,
+        "length": 90,
+        "bytes_hex": "506572666f726d7320636f6e646974696f6e616c2070726f63657373696e6720696e2062617463682070726f6772616d732e0d0a0d0a4946205b4e4f545d204552524f524c4556454c206e756d62657220636f6d6d616e640d0a",
+        "text_latin1": "Performs conditional processing in batch programs.\r\n\r\nIF [NOT] ERRORLEVEL number command\r\n"
+      },
+      {
+        "id": 1861,
+        "index_offset": 37300,
+        "relative_offset": 8789,
+        "text_offset": 46089,
+        "length": 70,
+        "bytes_hex": "4946205b4e4f545d20737472696e67313d3d737472696e673220636f6d6d616e640d0a4946205b4e4f545d2045584953542066696c656e616d6520636f6d6d616e640d0a0d0a",
+        "text_latin1": "IF [NOT] string1==string2 command\r\nIF [NOT] EXIST filename command\r\n\r\n"
+      },
+      {
+        "id": 1862,
+        "index_offset": 37304,
+        "relative_offset": 8856,
+        "text_offset": 46160,
+        "length": 125,
+        "bytes_hex": "20204e4f542020202020202020202020202020205370656369666965732074686174204d532d444f532073686f756c64206361727279206f75742074686520636f6d6d616e64206f6e6c790d0a202020202020202020202020202020202020202069662074686520636f6e646974696f6e2069732066616c73652e0d0a",
+        "text_latin1": "  NOT               Specifies that MS-DOS should carry out the command only\r\n                    if the condition is false.\r\n"
+      },
+      {
+        "id": 1863,
+        "index_offset": 37308,
+        "relative_offset": 8978,
+        "text_offset": 46286,
+        "length": 162,
+        "bytes_hex": "20204552524f524c4556454c206e756d626572205370656369666965732061207472756520636f6e646974696f6e20696620746865206c6173742070726f6772616d2072756e2072657475726e65640d0a2020202020202020202020202020202020202020616e206578697420636f646520657175616c20746f206f722067726561746572207468616e20746865206e756d626572207370656369666965642e0d0a",
+        "text_latin1": "  ERRORLEVEL number Specifies a true condition if the last program run returned\r\n                    an exit code equal to or greater than the number specified.\r\n"
+      },
+      {
+        "id": 1864,
+        "index_offset": 37312,
+        "relative_offset": 9137,
+        "text_offset": 46449,
+        "length": 102,
+        "bytes_hex": "2020636f6d6d616e6420202020202020202020205370656369666965732074686520636f6d6d616e6420746f206361727279206f75742069662074686520636f6e646974696f6e2069730d0a20202020202020202020202020202020202020206d65742e0d0a",
+        "text_latin1": "  command           Specifies the command to carry out if the condition is\r\n                    met.\r\n"
+      },
+      {
+        "id": 1865,
+        "index_offset": 37316,
+        "relative_offset": 9236,
+        "text_offset": 46552,
+        "length": 106,
+        "bytes_hex": "2020737472696e67313d3d737472696e673220205370656369666965732061207472756520636f6e646974696f6e2069662074686520737065636966696564207465787420737472696e67730d0a20202020202020202020202020202020202020206d617463682e0d0a",
+        "text_latin1": "  string1==string2  Specifies a true condition if the specified text strings\r\n                    match.\r\n"
+      },
+      {
+        "id": 1866,
+        "index_offset": 37320,
+        "relative_offset": 9339,
+        "text_offset": 46659,
+        "length": 103,
+        "bytes_hex": "202045584953542066696c656e616d65202020205370656369666965732061207472756520636f6e646974696f6e20696620746865207370656369666965642066696c656e616d650d0a20202020202020202020202020202020202020206578697374732e0d0a",
+        "text_latin1": "  EXIST filename    Specifies a true condition if the specified filename\r\n                    exists.\r\n"
+      },
+      {
+        "id": 1880,
+        "index_offset": 37324,
+        "relative_offset": 9439,
+        "text_offset": 46763,
+        "length": 119,
+        "bytes_hex": "52756e7320612073706563696669656420636f6d6d616e6420666f7220656163682066696c6520696e206120736574206f662066696c65732e0d0a0d0a464f5220257661726961626c6520494e20287365742920444f20636f6d6d616e64205b636f6d6d616e642d706172616d65746572735d0d0a0d0a",
+        "text_latin1": "Runs a specified command for each file in a set of files.\r\n\r\nFOR %variable IN (set) DO command [command-parameters]\r\n\r\n"
+      },
+      {
+        "id": 1881,
+        "index_offset": 37328,
+        "relative_offset": 9555,
+        "text_offset": 46883,
+        "length": 125,
+        "bytes_hex": "2020257661726961626c6520205370656369666965732061207265706c61636561626c6520706172616d657465722e0d0a20202873657429202020202020537065636966696573206120736574206f66206f6e65206f72206d6f72652066696c65732e202057696c646361726473206d617920626520757365642e0d0a",
+        "text_latin1": "  %variable  Specifies a replaceable parameter.\r\n  (set)      Specifies a set of one or more files.  Wildcards may be used.\r\n"
+      },
+      {
+        "id": 1882,
+        "index_offset": 37332,
+        "relative_offset": 9677,
+        "text_offset": 47009,
+        "length": 86,
+        "bytes_hex": "2020636f6d6d616e64202020205370656369666965732074686520636f6d6d616e6420746f206361727279206f757420666f7220656163682066696c652e0d0a2020636f6d6d616e642d706172616d65746572730d0a",
+        "text_latin1": "  command    Specifies the command to carry out for each file.\r\n  command-parameters\r\n"
+      },
+      {
+        "id": 1883,
+        "index_offset": 37336,
+        "relative_offset": 9760,
+        "text_offset": 47096,
+        "length": 162,
+        "bytes_hex": "2020202020202020202020202053706563696669657320706172616d6574657273206f7220737769746368657320666f72207468652073706563696669656420636f6d6d616e642e0d0a0d0a546f207573652074686520464f5220636f6d6d616e6420696e20612062617463682070726f6772616d2c20737065636966792025257661726961626c6520696e7374656164206f660d0a257661726961626c652e0d0a",
+        "text_latin1": "             Specifies parameters or switches for the specified command.\r\n\r\nTo use the FOR command in a batch program, specify %%variable instead of\r\n%variable.\r\n"
+      },
+      {
+        "id": 1900,
+        "index_offset": 37340,
+        "relative_offset": 9919,
+        "text_offset": 47259,
+        "length": 23,
+        "bytes_hex": "526573657276656420636f6d6d616e64206e616d650d0a",
+        "text_latin1": "Reserved command name\r\n"
+      },
+      {
+        "id": 1920,
+        "index_offset": 37344,
+        "relative_offset": 9939,
+        "text_offset": 47283,
+        "length": 47,
+        "bytes_hex": "4c6f61647320612070726f6772616d20696e746f20746865207570706572206d656d6f727920617265612e0d0a0d0a",
+        "text_latin1": "Loads a program into the upper memory area.\r\n\r\n"
+      },
+      {
+        "id": 1921,
+        "index_offset": 37348,
+        "relative_offset": 9983,
+        "text_offset": 47331,
+        "length": 157,
+        "bytes_hex": "4c4f414448494748205b64726976653a5d5b706174685d66696c656e616d65205b706172616d65746572735d0d0a4c4f414448494748205b2f4c3a726567696f6e315b2c6d696e73697a65315d5b3b726567696f6e325b2c6d696e73697a65325d2e2e2e5d205b2f535d5d0d0a2020202020202020205b64726976653a5d5b706174685d66696c656e616d65205b706172616d65746572735d0d0a0d0a",
+        "text_latin1": "LOADHIGH [drive:][path]filename [parameters]\r\nLOADHIGH [/L:region1[,minsize1][;region2[,minsize2]...] [/S]]\r\n         [drive:][path]filename [parameters]\r\n\r\n"
+      },
+      {
+        "id": 1922,
+        "index_offset": 37352,
+        "relative_offset": 10137,
+        "text_offset": 47489,
+        "length": 182,
+        "bytes_hex": "2f4c3a726567696f6e315b2c6d696e73697a65315d5b3b726567696f6e325b2c6d696e73697a65325d5d2e2e2e0d0a2020202020202020202020205370656369666965732074686520726567696f6e287329206f66206d656d6f727920696e746f20776869636820746f206c6f61640d0a2020202020202020202020207468652070726f6772616d2e2020526567696f6e312073706563696669657320746865206e756d626572206f66207468652066697273740d0a",
+        "text_latin1": "/L:region1[,minsize1][;region2[,minsize2]]...\r\n            Specifies the region(s) of memory into which to load\r\n            the program.  Region1 specifies the number of the first\r\n"
+      },
+      {
+        "id": 1923,
+        "index_offset": 37356,
+        "relative_offset": 10316,
+        "text_offset": 47672,
+        "length": 133,
+        "bytes_hex": "2020202020202020202020206d656d6f727920726567696f6e3b206d696e73697a65312073706563696669657320746865206d696e696d756d2073697a652c2069660d0a202020202020202020202020616e792c20666f7220726567696f6e312e2020526567696f6e3220616e64206d696e73697a65322073706563696679207468650d0a",
+        "text_latin1": "            memory region; minsize1 specifies the minimum size, if\r\n            any, for region1.  Region2 and minsize2 specify the\r\n"
+      },
+      {
+        "id": 1924,
+        "index_offset": 37360,
+        "relative_offset": 10446,
+        "text_offset": 47806,
+        "length": 127,
+        "bytes_hex": "2020202020202020202020206e756d62657220616e64206d696e696d756d2073697a65206f6620746865207365636f6e6420726567696f6e2c20696620616e792e0d0a202020202020202020202020596f752063616e2073706563696679206173206d616e7920726567696f6e7320617320796f752077616e742e0d0a0d0a",
+        "text_latin1": "            number and minimum size of the second region, if any.\r\n            You can specify as many regions as you want.\r\n\r\n"
+      },
+      {
+        "id": 1925,
+        "index_offset": 37364,
+        "relative_offset": 10570,
+        "text_offset": 47934,
+        "length": 131,
+        "bytes_hex": "2f5320202020202020202020536872696e6b73206120554d4220746f20697473206d696e696d756d2073697a65207768696c65207468652070726f6772616d0d0a2020202020202020202020206973206c6f6164696e672e20202f53206973206e6f726d616c6c792075736564206f6e6c79206279204d656d4d616b65722e0d0a0d0a",
+        "text_latin1": "/S          Shrinks a UMB to its minimum size while the program\r\n            is loading.  /S is normally used only by MemMaker.\r\n\r\n"
+      },
+      {
+        "id": 1926,
+        "index_offset": 37368,
+        "relative_offset": 10698,
+        "text_offset": 48066,
+        "length": 87,
+        "bytes_hex": "5b64726976653a5d5b706174685d66696c656e616d650d0a20202020202020202020202053706563696669657320746865206c6f636174696f6e20616e64206e616d65206f66207468652070726f6772616d2e0d0a0d0a",
+        "text_latin1": "[drive:][path]filename\r\n            Specifies the location and name of the program.\r\n\r\n"
+      },
+      {
+        "id": 1927,
+        "index_offset": 37372,
+        "relative_offset": 10782,
+        "text_offset": 48154,
+        "length": 90,
+        "bytes_hex": "706172616d6574657273202053706563696669657320616e7920636f6d6d616e642d6c696e6520696e666f726d6174696f6e2072657175697265642062790d0a2020202020202020202020207468652070726f6772616d2e0d0a",
+        "text_latin1": "parameters  Specifies any command-line information required by\r\n            the program.\r\n"
+      }
+    ]
+  },
+  "target": {
+    "path": "extras/baselines/targets/COMMAND.COM",
+    "sha256": "a74c700063cd6b1c91523952bfc80e9393c125d39ada0164d48b5098089fcef3",
+    "index_start": 113,
+    "index_end_exclusive": 905,
+    "entries": [
+      {
+        "id": 1002,
+        "index_offset": 113,
+        "relative_offset": 875,
+        "text_offset": 988,
+        "length": 36,
+        "bytes_hex": "4475706c69636174652066696c65206e616d65206f722066696c6520696e207573650d0a",
+        "text_latin1": "Duplicate file name or file in use\r\n"
+      },
+      {
+        "id": 1003,
+        "index_offset": 117,
+        "relative_offset": 908,
+        "text_offset": 1025,
+        "length": 27,
+        "bytes_hex": "496e76616c69642070617468206f722066696c65206e616d650d0a",
+        "text_latin1": "Invalid path or file name\r\n"
+      },
+      {
+        "id": 1004,
+        "index_offset": 121,
+        "relative_offset": 932,
+        "text_offset": 1053,
+        "length": 25,
+        "bytes_hex": "496e73756666696369656e74206469736b2073706163650d0a",
+        "text_latin1": "Insufficient disk space\r\n"
+      },
+      {
+        "id": 1005,
+        "index_offset": 125,
+        "relative_offset": 954,
+        "text_offset": 1079,
+        "length": 30,
+        "bytes_hex": "52657475726e20636f646520284552524f524c4556454c293a2025310d0a",
+        "text_latin1": "Return code (ERRORLEVEL): %1\r\n"
+      },
+      {
+        "id": 1006,
+        "index_offset": 129,
+        "relative_offset": 981,
+        "text_offset": 1110,
+        "length": 41,
+        "bytes_hex": "5741524e494e473a2052656c6f6164656420434f4d4d414e442e434f4d207472616e7369656e740d0a",
+        "text_latin1": "WARNING: Reloaded COMMAND.COM transient\r\n"
+      },
+      {
+        "id": 1007,
+        "index_offset": 133,
+        "relative_offset": 1019,
+        "text_offset": 1152,
+        "length": 26,
+        "bytes_hex": "4f7574206f6620656e7669726f6e6d656e742073706163650d0a",
+        "text_latin1": "Out of environment space\r\n"
+      },
+      {
+        "id": 1008,
+        "index_offset": 137,
+        "relative_offset": 1042,
+        "text_offset": 1179,
+        "length": 21,
+        "bytes_hex": "46696c65206372656174696f6e206572726f720d0a",
+        "text_latin1": "File creation error\r\n"
+      },
+      {
+        "id": 1009,
+        "index_offset": 141,
+        "relative_offset": 1060,
+        "text_offset": 1201,
+        "length": 20,
+        "bytes_hex": "42617463682066696c65206d697373696e670d0a",
+        "text_latin1": "Batch file missing\r\n"
+      },
+      {
+        "id": 1010,
+        "index_offset": 145,
+        "relative_offset": 1077,
+        "text_offset": 1222,
+        "length": 31,
+        "bytes_hex": "0d0a496e73657274206469736b20776974682062617463682066696c650d0a",
+        "text_latin1": "\r\nInsert disk with batch file\r\n"
+      },
+      {
+        "id": 1011,
+        "index_offset": 149,
+        "relative_offset": 1105,
+        "text_offset": 1254,
+        "length": 26,
+        "bytes_hex": "42616420636f6d6d616e64206f722066696c65206e616d650d0a",
+        "text_latin1": "Bad command or file name\r\n"
+      },
+      {
+        "id": 1012,
+        "index_offset": 153,
+        "relative_offset": 1128,
+        "text_offset": 1281,
+        "length": 57,
+        "bytes_hex": "43616e6e6f742066696e642057494e2e434f4d2c20756e61626c6520746f20636f6e74696e7565206c6f6164696e672057696e646f77730d0a",
+        "text_latin1": "Cannot find WIN.COM, unable to continue loading Windows\r\n"
+      },
+      {
+        "id": 1013,
+        "index_offset": 157,
+        "relative_offset": 1182,
+        "text_offset": 1339,
+        "length": 26,
+        "bytes_hex": "4c6f636b696e67206f7065726174696f6e206661696c65640d0a",
+        "text_latin1": "Locking operation failed\r\n"
+      },
+      {
+        "id": 1014,
+        "index_offset": 161,
+        "relative_offset": 1205,
+        "text_offset": 1366,
+        "length": 14,
+        "bytes_hex": "4163636573732064656e69656420",
+        "text_latin1": "Access denied "
+      },
+      {
+        "id": 1015,
+        "index_offset": 165,
+        "relative_offset": 1216,
+        "text_offset": 1381,
+        "length": 35,
+        "bytes_hex": "46696c652063616e6e6f7420626520636f70696564206f6e746f20697473656c660d0a",
+        "text_latin1": "File cannot be copied onto itself\r\n"
+      },
+      {
+        "id": 1016,
+        "index_offset": 169,
+        "relative_offset": 1248,
+        "text_offset": 1417,
+        "length": 41,
+        "bytes_hex": "436f6e74656e74206f662064657374696e6174696f6e206c6f7374206265666f726520636f70790d0a",
+        "text_latin1": "Content of destination lost before copy\r\n"
+      },
+      {
+        "id": 1017,
+        "index_offset": 173,
+        "relative_offset": 1286,
+        "text_offset": 1459,
+        "length": 36,
+        "bytes_hex": "496e76616c69642066696c656e616d65206f722066696c65206e6f7420666f756e640d0a",
+        "text_latin1": "Invalid filename or file not found\r\n"
+      },
+      {
+        "id": 1018,
+        "index_offset": 177,
+        "relative_offset": 1319,
+        "text_offset": 1496,
+        "length": 19,
+        "bytes_hex": "25312066696c6528732920636f706965640d0a",
+        "text_latin1": "%1 file(s) copied\r\n"
+      },
+      {
+        "id": 1019,
+        "index_offset": 181,
+        "relative_offset": 1335,
+        "text_offset": 1516,
+        "length": 11,
+        "bytes_hex": "25312066696c6528732920",
+        "text_latin1": "%1 file(s) "
+      },
+      {
+        "id": 1020,
+        "index_offset": 185,
+        "relative_offset": 1343,
+        "text_offset": 1528,
+        "length": 15,
+        "bytes_hex": "253120627974657320667265650d0a",
+        "text_latin1": "%1 bytes free\r\n"
+      },
+      {
+        "id": 1021,
+        "index_offset": 189,
+        "relative_offset": 1355,
+        "text_offset": 1544,
+        "length": 29,
+        "bytes_hex": "496e76616c69642064726976652073706563696669636174696f6e0d0a",
+        "text_latin1": "Invalid drive specification\r\n"
+      },
+      {
+        "id": 1022,
+        "index_offset": 193,
+        "relative_offset": 1381,
+        "text_offset": 1574,
+        "length": 38,
+        "bytes_hex": "436f64652070616765202531206e6f7420707265706172656420666f722073797374656d0d0a",
+        "text_latin1": "Code page %1 not prepared for system\r\n"
+      },
+      {
+        "id": 1023,
+        "index_offset": 197,
+        "relative_offset": 1416,
+        "text_offset": 1613,
+        "length": 43,
+        "bytes_hex": "436f64652070616765202531206e6f7420707265706172656420666f7220616c6c20646576696365730d0a",
+        "text_latin1": "Code page %1 not prepared for all devices\r\n"
+      },
+      {
+        "id": 1024,
+        "index_offset": 201,
+        "relative_offset": 1456,
+        "text_offset": 1657,
+        "length": 22,
+        "bytes_hex": "41637469766520636f646520706167653a2025310d0a",
+        "text_latin1": "Active code page: %1\r\n"
+      },
+      {
+        "id": 1025,
+        "index_offset": 205,
+        "relative_offset": 1475,
+        "text_offset": 1680,
+        "length": 23,
+        "bytes_hex": "4e4c5346554e43206e6f7420696e7374616c6c65640d0a",
+        "text_latin1": "NLSFUNC not installed\r\n"
+      },
+      {
+        "id": 1026,
+        "index_offset": 209,
+        "relative_offset": 1495,
+        "text_offset": 1704,
+        "length": 19,
+        "bytes_hex": "496e76616c696420636f646520706167650d0a",
+        "text_latin1": "Invalid code page\r\n"
+      },
+      {
+        "id": 1027,
+        "index_offset": 213,
+        "relative_offset": 1511,
+        "text_offset": 1724,
+        "length": 32,
+        "bytes_hex": "43757272656e74206472697665206973206e6f206c6f6e6765722076616c6964",
+        "text_latin1": "Current drive is no longer valid"
+      },
+      {
+        "id": 1028,
+        "index_offset": 217,
+        "relative_offset": 1540,
+        "text_offset": 1757,
+        "length": 33,
+        "bytes_hex": "507265737320616e79206b657920746f20636f6e74696e7565202e202e202e0d0a",
+        "text_latin1": "Press any key to continue . . .\r\n"
+      },
+      {
+        "id": 1029,
+        "index_offset": 221,
+        "relative_offset": 1570,
+        "text_offset": 1791,
+        "length": 17,
+        "bytes_hex": "4c6162656c206e6f7420666f756e640d0a",
+        "text_latin1": "Label not found\r\n"
+      },
+      {
+        "id": 1030,
+        "index_offset": 225,
+        "relative_offset": 1584,
+        "text_offset": 1809,
+        "length": 14,
+        "bytes_hex": "53796e746178206572726f720d0a",
+        "text_latin1": "Syntax error\r\n"
+      },
+      {
+        "id": 1031,
+        "index_offset": 229,
+        "relative_offset": 1595,
+        "text_offset": 1824,
+        "length": 14,
+        "bytes_hex": "496e76616c696420646174650d0a",
+        "text_latin1": "Invalid date\r\n"
+      },
+      {
+        "id": 1032,
+        "index_offset": 233,
+        "relative_offset": 1606,
+        "text_offset": 1839,
+        "length": 23,
+        "bytes_hex": "43757272656e7420646174652069732025312025320d0a",
+        "text_latin1": "Current date is %1 %2\r\n"
+      },
+      {
+        "id": 1033,
+        "index_offset": 237,
+        "relative_offset": 1626,
+        "text_offset": 1863,
+        "length": 21,
+        "bytes_hex": "53756e4d6f6e547565576564546875467269536174",
+        "text_latin1": "SunMonTueWedThuFriSat"
+      },
+      {
+        "id": 1034,
+        "index_offset": 241,
+        "relative_offset": 1644,
+        "text_offset": 1885,
+        "length": 21,
+        "bytes_hex": "456e746572206e6577206461746520282531293a20",
+        "text_latin1": "Enter new date (%1): "
+      },
+      {
+        "id": 1035,
+        "index_offset": 245,
+        "relative_offset": 1662,
+        "text_offset": 1907,
+        "length": 14,
+        "bytes_hex": "496e76616c69642074696d650d0a",
+        "text_latin1": "Invalid time\r\n"
+      },
+      {
+        "id": 1036,
+        "index_offset": 249,
+        "relative_offset": 1673,
+        "text_offset": 1922,
+        "length": 20,
+        "bytes_hex": "43757272656e742074696d652069732025310d0a",
+        "text_latin1": "Current time is %1\r\n"
+      },
+      {
+        "id": 1037,
+        "index_offset": 253,
+        "relative_offset": 1690,
+        "text_offset": 1943,
+        "length": 16,
+        "bytes_hex": "456e746572206e65772074696d653a20",
+        "text_latin1": "Enter new time: "
+      },
+      {
+        "id": 1038,
+        "index_offset": 257,
+        "relative_offset": 1703,
+        "text_offset": 1960,
+        "length": 18,
+        "bytes_hex": "2c2020202044656c6574652028592f4e293f",
+        "text_latin1": ",    Delete (Y/N)?"
+      },
+      {
+        "id": 1039,
+        "index_offset": 261,
+        "relative_offset": 1718,
+        "text_offset": 1979,
+        "length": 60,
+        "bytes_hex": "416c6c2066696c657320696e206469726563746f72792077696c6c2062652064656c65746564210d0a41726520796f7520737572652028592f4e293f",
+        "text_latin1": "All files in directory will be deleted!\r\nAre you sure (Y/N)?"
+      },
+      {
+        "id": 1040,
+        "index_offset": 265,
+        "relative_offset": 1775,
+        "text_offset": 2040,
+        "length": 30,
+        "bytes_hex": "57696e646f77732039352e205b56657273696f6e20342e30302e3935305d",
+        "text_latin1": "Windows 95. [Version 4.00.950]"
+      },
+      {
+        "id": 1041,
+        "index_offset": 269,
+        "relative_offset": 1802,
+        "text_offset": 2071,
+        "length": 33,
+        "bytes_hex": "566f6c756d6520696e20647269766520253120686173206e6f206c6162656c0d0a",
+        "text_latin1": "Volume in drive %1 has no label\r\n"
+      },
+      {
+        "id": 1042,
+        "index_offset": 273,
+        "relative_offset": 1832,
+        "text_offset": 2105,
+        "length": 26,
+        "bytes_hex": "566f6c756d6520696e2064726976652025312069732025320d0a",
+        "text_latin1": "Volume in drive %1 is %2\r\n"
+      },
+      {
+        "id": 1043,
+        "index_offset": 277,
+        "relative_offset": 1855,
+        "text_offset": 2132,
+        "length": 31,
+        "bytes_hex": "566f6c756d652053657269616c204e756d6265722069732025312d25320d0a",
+        "text_latin1": "Volume Serial Number is %1-%2\r\n"
+      },
+      {
+        "id": 1044,
+        "index_offset": 281,
+        "relative_offset": 1883,
+        "text_offset": 2164,
+        "length": 19,
+        "bytes_hex": "496e76616c6964206469726563746f72790d0a",
+        "text_latin1": "Invalid directory\r\n"
+      },
+      {
+        "id": 1045,
+        "index_offset": 285,
+        "relative_offset": 1899,
+        "text_offset": 2184,
+        "length": 28,
+        "bytes_hex": "556e61626c6520746f20637265617465206469726563746f72790d0a",
+        "text_latin1": "Unable to create directory\r\n"
+      },
+      {
+        "id": 1046,
+        "index_offset": 289,
+        "relative_offset": 1924,
+        "text_offset": 2213,
+        "length": 54,
+        "bytes_hex": "496e76616c696420706174682c206e6f74206469726563746f72792c0d0a6f72206469726563746f7279206e6f7420656d7074790d0a",
+        "text_latin1": "Invalid path, not directory,\r\nor directory not empty\r\n"
+      },
+      {
+        "id": 1047,
+        "index_offset": 293,
+        "relative_offset": 1975,
+        "text_offset": 2268,
+        "length": 24,
+        "bytes_hex": "4d7573742073706563696679204f4e206f72204f46460d0a",
+        "text_latin1": "Must specify ON or OFF\r\n"
+      },
+      {
+        "id": 1048,
+        "index_offset": 297,
+        "relative_offset": 1996,
+        "text_offset": 2293,
+        "length": 17,
+        "bytes_hex": "4469726563746f7279206f662025310d0a",
+        "text_latin1": "Directory of %1\r\n"
+      },
+      {
+        "id": 1049,
+        "index_offset": 301,
+        "relative_offset": 2010,
+        "text_offset": 2311,
+        "length": 9,
+        "bytes_hex": "4e6f20506174680d0a",
+        "text_latin1": "No Path\r\n"
+      },
+      {
+        "id": 1050,
+        "index_offset": 305,
+        "relative_offset": 2016,
+        "text_offset": 2321,
+        "length": 30,
+        "bytes_hex": "496e76616c696420647269766520696e2073656172636820706174680d0a",
+        "text_latin1": "Invalid drive in search path\r\n"
+      },
+      {
+        "id": 1051,
+        "index_offset": 309,
+        "relative_offset": 2043,
+        "text_offset": 2352,
+        "length": 16,
+        "bytes_hex": "496e76616c6964206465766963650d0a",
+        "text_latin1": "Invalid device\r\n"
+      },
+      {
+        "id": 1052,
+        "index_offset": 313,
+        "relative_offset": 2056,
+        "text_offset": 2369,
+        "length": 22,
+        "bytes_hex": "464f522063616e6e6f74206265206e65737465640d0a",
+        "text_latin1": "FOR cannot be nested\r\n"
+      },
+      {
+        "id": 1053,
+        "index_offset": 317,
+        "relative_offset": 2075,
+        "text_offset": 2392,
+        "length": 37,
+        "bytes_hex": "496e7465726d6564696174652066696c65206572726f7220647572696e6720706970650d0a",
+        "text_latin1": "Intermediate file error during pipe\r\n"
+      },
+      {
+        "id": 1054,
+        "index_offset": 321,
+        "relative_offset": 2109,
+        "text_offset": 2430,
+        "length": 38,
+        "bytes_hex": "43616e6e6f7420646f2062696e6172792072656164732066726f6d2061206465766963650d0a",
+        "text_latin1": "Cannot do binary reads from a device\r\n"
+      },
+      {
+        "id": 1055,
+        "index_offset": 325,
+        "relative_offset": 2144,
+        "text_offset": 2469,
+        "length": 13,
+        "bytes_hex": "425245414b2069732025310d0a",
+        "text_latin1": "BREAK is %1\r\n"
+      },
+      {
+        "id": 1056,
+        "index_offset": 329,
+        "relative_offset": 2154,
+        "text_offset": 2483,
+        "length": 14,
+        "bytes_hex": "5645524946592069732025310d0a",
+        "text_latin1": "VERIFY is %1\r\n"
+      },
+      {
+        "id": 1057,
+        "index_offset": 333,
+        "relative_offset": 2165,
+        "text_offset": 2498,
+        "length": 12,
+        "bytes_hex": "4543484f2069732025310d0a",
+        "text_latin1": "ECHO is %1\r\n"
+      },
+      {
+        "id": 1058,
+        "index_offset": 337,
+        "relative_offset": 2174,
+        "text_offset": 2511,
+        "length": 14,
+        "bytes_hex": "4c464e464f522069732025310d0a",
+        "text_latin1": "LFNFOR is %1\r\n"
+      },
+      {
+        "id": 1059,
+        "index_offset": 341,
+        "relative_offset": 2185,
+        "text_offset": 2526,
+        "length": 4,
+        "bytes_hex": "6f666600",
+        "text_latin1": "off\u0000"
+      },
+      {
+        "id": 1060,
+        "index_offset": 345,
+        "relative_offset": 2186,
+        "text_offset": 2531,
+        "length": 3,
+        "bytes_hex": "6f6e00",
+        "text_latin1": "on\u0000"
+      },
+      {
+        "id": 1061,
+        "index_offset": 349,
+        "relative_offset": 2186,
+        "text_offset": 2535,
+        "length": 25,
+        "bytes_hex": "4572726f722077726974696e6720746f206465766963650d0a",
+        "text_latin1": "Error writing to device\r\n"
+      },
+      {
+        "id": 1062,
+        "index_offset": 353,
+        "relative_offset": 2208,
+        "text_offset": 2561,
+        "length": 14,
+        "bytes_hex": "496e76616c696420706174680d0a",
+        "text_latin1": "Invalid path\r\n"
+      },
+      {
+        "id": 1063,
+        "index_offset": 357,
+        "relative_offset": 2219,
+        "text_offset": 2576,
+        "length": 2,
+        "bytes_hex": "2531",
+        "text_latin1": "%1"
+      },
+      {
+        "id": 1064,
+        "index_offset": 361,
+        "relative_offset": 2218,
+        "text_offset": 2579,
+        "length": 2,
+        "bytes_hex": "2531",
+        "text_latin1": "%1"
+      },
+      {
+        "id": 1065,
+        "index_offset": 365,
+        "relative_offset": 2217,
+        "text_offset": 2582,
+        "length": 2,
+        "bytes_hex": "2531",
+        "text_latin1": "%1"
+      },
+      {
+        "id": 1066,
+        "index_offset": 369,
+        "relative_offset": 2216,
+        "text_offset": 2585,
+        "length": 2,
+        "bytes_hex": "2531",
+        "text_latin1": "%1"
+      },
+      {
+        "id": 1067,
+        "index_offset": 373,
+        "relative_offset": 2215,
+        "text_offset": 2588,
+        "length": 1,
+        "bytes_hex": "09",
+        "text_latin1": "\t"
+      },
+      {
+        "id": 1068,
+        "index_offset": 377,
+        "relative_offset": 2213,
+        "text_offset": 2590,
+        "length": 14,
+        "bytes_hex": "2020203c4449523e202020202020",
+        "text_latin1": "   <DIR>      "
+      },
+      {
+        "id": 1069,
+        "index_offset": 381,
+        "relative_offset": 2224,
+        "text_offset": 2605,
+        "length": 3,
+        "bytes_hex": "082008",
+        "text_latin1": "\b \b"
+      },
+      {
+        "id": 1070,
+        "index_offset": 385,
+        "relative_offset": 2224,
+        "text_offset": 2609,
+        "length": 2,
+        "bytes_hex": "0d0a",
+        "text_latin1": "\r\n"
+      },
+      {
+        "id": 1071,
+        "index_offset": 389,
+        "relative_offset": 2223,
+        "text_offset": 2612,
+        "length": 2,
+        "bytes_hex": "2531",
+        "text_latin1": "%1"
+      },
+      {
+        "id": 1072,
+        "index_offset": 393,
+        "relative_offset": 2222,
+        "text_offset": 2615,
+        "length": 8,
+        "bytes_hex": "6d6d2d64642d7979",
+        "text_latin1": "mm-dd-yy"
+      },
+      {
+        "id": 1073,
+        "index_offset": 397,
+        "relative_offset": 2227,
+        "text_offset": 2624,
+        "length": 8,
+        "bytes_hex": "64642d6d6d2d7979",
+        "text_latin1": "dd-mm-yy"
+      },
+      {
+        "id": 1074,
+        "index_offset": 401,
+        "relative_offset": 2232,
+        "text_offset": 2633,
+        "length": 8,
+        "bytes_hex": "79792d6d6d2d6464",
+        "text_latin1": "yy-mm-dd"
+      },
+      {
+        "id": 1075,
+        "index_offset": 405,
+        "relative_offset": 2237,
+        "text_offset": 2642,
+        "length": 5,
+        "bytes_hex": "2531202532",
+        "text_latin1": "%1 %2"
+      },
+      {
+        "id": 1076,
+        "index_offset": 409,
+        "relative_offset": 2239,
+        "text_offset": 2648,
+        "length": 2,
+        "bytes_hex": "2531",
+        "text_latin1": "%1"
+      },
+      {
+        "id": 1077,
+        "index_offset": 413,
+        "relative_offset": 2238,
+        "text_offset": 2651,
+        "length": 3,
+        "bytes_hex": "202531",
+        "text_latin1": " %1"
+      },
+      {
+        "id": 1078,
+        "index_offset": 417,
+        "relative_offset": 2238,
+        "text_offset": 2655,
+        "length": 26,
+        "bytes_hex": "4469726563746f727920616c7265616479206578697374730d0a",
+        "text_latin1": "Directory already exists\r\n"
+      },
+      {
+        "id": 1079,
+        "index_offset": 421,
+        "relative_offset": 2261,
+        "text_offset": 2682,
+        "length": 10,
+        "bytes_hex": "25312062797465730d0a",
+        "text_latin1": "%1 bytes\r\n"
+      },
+      {
+        "id": 1080,
+        "index_offset": 425,
+        "relative_offset": 2268,
+        "text_offset": 2693,
+        "length": 21,
+        "bytes_hex": "546f74616c2066696c6573206c69737465643a0d0a",
+        "text_latin1": "Total files listed:\r\n"
+      },
+      {
+        "id": 1081,
+        "index_offset": 429,
+        "relative_offset": 2286,
+        "text_offset": 2715,
+        "length": 42,
+        "bytes_hex": "284572726f72206f6363757272656420696e20656e7669726f6e6d656e74207661726961626c65290d0a",
+        "text_latin1": "(Error occurred in environment variable)\r\n"
+      },
+      {
+        "id": 1082,
+        "index_offset": 433,
+        "relative_offset": 2325,
+        "text_offset": 2758,
+        "length": 17,
+        "bytes_hex": "205b456e7465723d592c4573633d4e5d3f",
+        "text_latin1": " [Enter=Y,Esc=N]?"
+      },
+      {
+        "id": 1083,
+        "index_offset": 437,
+        "relative_offset": 2339,
+        "text_offset": 2776,
+        "length": 3,
+        "bytes_hex": "594e41",
+        "text_latin1": "YNA"
+      },
+      {
+        "id": 1084,
+        "index_offset": 441,
+        "relative_offset": 2339,
+        "text_offset": 2780,
+        "length": 15,
+        "bytes_hex": "28636f6e74696e75696e6720253129",
+        "text_latin1": "(continuing %1)"
+      },
+      {
+        "id": 1085,
+        "index_offset": 445,
+        "relative_offset": 2351,
+        "text_offset": 2796,
+        "length": 11,
+        "bytes_hex": "2531206469722873292020",
+        "text_latin1": "%1 dir(s)  "
+      },
+      {
+        "id": 1086,
+        "index_offset": 449,
+        "relative_offset": 2359,
+        "text_offset": 2808,
+        "length": 20,
+        "bytes_hex": "253120627974657320616c6c6f63617465640d0a",
+        "text_latin1": "%1 bytes allocated\r\n"
+      },
+      {
+        "id": 1087,
+        "index_offset": 453,
+        "relative_offset": 2376,
+        "text_offset": 2829,
+        "length": 58,
+        "bytes_hex": "20202020202020202020202020202020202020253120627974657320746f74616c206469736b2073706163652c2025322520696e207573650d0a",
+        "text_latin1": "                   %1 bytes total disk space, %2% in use\r\n"
+      },
+      {
+        "id": 1088,
+        "index_offset": 457,
+        "relative_offset": 2431,
+        "text_offset": 2888,
+        "length": 77,
+        "bytes_hex": "46696c65204e616d6520202020202020202053697a652020202020202020416c6c6f63617465642020202020204d6f646966696564202020202020416363657373656420204174747269620d0a",
+        "text_latin1": "File Name         Size        Allocated      Modified      Accessed  Attrib\r\n"
+      },
+      {
+        "id": 1090,
+        "index_offset": 461,
+        "relative_offset": 2505,
+        "text_offset": 2966,
+        "length": 13,
+        "bytes_hex": "5265766973696f6e2025310d0a",
+        "text_latin1": "Revision %1\r\n"
+      },
+      {
+        "id": 1091,
+        "index_offset": 465,
+        "relative_offset": 2515,
+        "text_offset": 2980,
+        "length": 13,
+        "bytes_hex": "444f5320697320696e20524f4d",
+        "text_latin1": "DOS is in ROM"
+      },
+      {
+        "id": 1092,
+        "index_offset": 469,
+        "relative_offset": 2525,
+        "text_offset": 2994,
+        "length": 13,
+        "bytes_hex": "444f5320697320696e20484d41",
+        "text_latin1": "DOS is in HMA"
+      },
+      {
+        "id": 1093,
+        "index_offset": 473,
+        "relative_offset": 2535,
+        "text_offset": 3008,
+        "length": 20,
+        "bytes_hex": "444f5320697320696e206c6f77206d656d6f7279",
+        "text_latin1": "DOS is in low memory"
+      },
+      {
+        "id": 1094,
+        "index_offset": 477,
+        "relative_offset": 2552,
+        "text_offset": 3029,
+        "length": 28,
+        "bytes_hex": "43616e6e6f74204c6f6164686967682062617463682066696c650d0a",
+        "text_latin1": "Cannot Loadhigh batch file\r\n"
+      },
+      {
+        "id": 1095,
+        "index_offset": 481,
+        "relative_offset": 2577,
+        "text_offset": 3058,
+        "length": 28,
+        "bytes_hex": "4c6f6164486967683a20496e76616c69642066696c656e616d650d0a",
+        "text_latin1": "LoadHigh: Invalid filename\r\n"
+      },
+      {
+        "id": 1096,
+        "index_offset": 485,
+        "relative_offset": 2602,
+        "text_offset": 3087,
+        "length": 48,
+        "bytes_hex": "43616e6e6f74206f70656e2073706563696669656420636f756e74727920696e666f726d6174696f6e2066696c650d0a",
+        "text_latin1": "Cannot open specified country information file\r\n"
+      },
+      {
+        "id": 1097,
+        "index_offset": 489,
+        "relative_offset": 2647,
+        "text_offset": 3136,
+        "length": 28,
+        "bytes_hex": "4c6f6164486967683a20496e76616c696420617267756d656e740d0a",
+        "text_latin1": "LoadHigh: Invalid argument\r\n"
+      },
+      {
+        "id": 1098,
+        "index_offset": 493,
+        "relative_offset": 2672,
+        "text_offset": 3165,
+        "length": 28,
+        "bytes_hex": "526571756972656420706172616d65746572206d697373696e670d0a",
+        "text_latin1": "Required parameter missing\r\n"
+      },
+      {
+        "id": 1099,
+        "index_offset": 497,
+        "relative_offset": 2697,
+        "text_offset": 3194,
+        "length": 21,
+        "bytes_hex": "556e7265636f676e697a6564207377697463680d0a",
+        "text_latin1": "Unrecognized switch\r\n"
+      },
+      {
+        "id": 1101,
+        "index_offset": 501,
+        "relative_offset": 2715,
+        "text_offset": 3216,
+        "length": 37,
+        "bytes_hex": "412062616420554d42206e756d62657220686173206265656e207370656369666965640d0a",
+        "text_latin1": "A bad UMB number has been specified\r\n"
+      },
+      {
+        "id": 1100,
+        "index_offset": 505,
+        "relative_offset": 2749,
+        "text_offset": 3254,
+        "length": 6,
+        "bytes_hex": "524853564441",
+        "text_latin1": "RHSVDA"
+      },
+      {
+        "id": 1103,
+        "index_offset": 509,
+        "relative_offset": 2752,
+        "text_offset": 3261,
+        "length": 26,
+        "bytes_hex": "4f766572777269746520253120285965732f4e6f2f416c6c293f",
+        "text_latin1": "Overwrite %1 (Yes/No/All)?"
+      },
+      {
+        "id": 1104,
+        "index_offset": 513,
+        "relative_offset": 2775,
+        "text_offset": 3288,
+        "length": 14,
+        "bytes_hex": "496e76616c696420706174680d0a",
+        "text_latin1": "Invalid path\r\n"
+      },
+      {
+        "id": 1105,
+        "index_offset": 517,
+        "relative_offset": 2786,
+        "text_offset": 3303,
+        "length": 14,
+        "bytes_hex": "202025312e253220746f20312e30",
+        "text_latin1": "  %1.%2 to 1.0"
+      },
+      {
+        "id": 1106,
+        "index_offset": 521,
+        "relative_offset": 2797,
+        "text_offset": 3318,
+        "length": 56,
+        "bytes_hex": "2020202020202020202020202020202025312e253220746f20312e30206176657261676520636f6d7072657373696f6e20726174696f0d0a",
+        "text_latin1": "                %1.%2 to 1.0 average compression ratio\r\n"
+      },
+      {
+        "id": 1107,
+        "index_offset": 525,
+        "relative_offset": 2850,
+        "text_offset": 3375,
+        "length": 171,
+        "bytes_hex": "0d0a5741524e494e473a20546865204c4f434b20636f6d6d616e6420656e61626c657320646972656374206469736b206163636573732062792070726f6772616d730d0a746861742063616e20434f52525550542066696c65206e616d657320616e642f6f722044455354524f59206469736b20646174612c20726573756c74696e6720696e207468650d0a6c6f7373206f662066696c6573206f6e20796f7572206469736b2e0d0a0d0a",
+        "text_latin1": "\r\nWARNING: The LOCK command enables direct disk access by programs\r\nthat can CORRUPT file names and/or DESTROY disk data, resulting in the\r\nloss of files on your disk.\r\n\r\n"
+      },
+      {
+        "id": 1108,
+        "index_offset": 529,
+        "relative_offset": 3018,
+        "text_offset": 3547,
+        "length": 19,
+        "bytes_hex": "41726520796f7520737572652028592f4e293f",
+        "text_latin1": "Are you sure (Y/N)?"
+      },
+      {
+        "id": 1109,
+        "index_offset": 533,
+        "relative_offset": 3034,
+        "text_offset": 3567,
+        "length": 46,
+        "bytes_hex": "2f532c202f562026202f43206e6f7420737570706f72746564207769746820554e43207374796c65206e616d6573",
+        "text_latin1": "/S, /V & /C not supported with UNC style names"
+      },
+      {
+        "id": 1110,
+        "index_offset": 537,
+        "relative_offset": 3077,
+        "text_offset": 3614,
+        "length": 41,
+        "bytes_hex": "2028546f6f206d616e792066696c65732c206469726563746f7279206e6f7420736f72746564290d0a",
+        "text_latin1": " (Too many files, directory not sorted)\r\n"
+      },
+      {
+        "id": 1111,
+        "index_offset": 541,
+        "relative_offset": 3115,
+        "text_offset": 3656,
+        "length": 37,
+        "bytes_hex": "436f756c64206e6f7420616c6c6f63617465206d656d6f727920666f7220706970652e0d0a",
+        "text_latin1": "Could not allocate memory for pipe.\r\n"
+      },
+      {
+        "id": 1300,
+        "index_offset": 545,
+        "relative_offset": 3149,
+        "text_offset": 3694,
+        "length": 134,
+        "bytes_hex": "53657473206f7220636c6561727320657874656e646564204354524c2b4320636865636b696e672e0d0a0d0a425245414b205b4f4e207c204f46465d0d0a0d0a5479706520425245414b20776974686f7574206120706172616d6574657220746f20646973706c6179207468652063757272656e7420425245414b2073657474696e672e0d0a",
+        "text_latin1": "Sets or clears extended CTRL+C checking.\r\n\r\nBREAK [ON | OFF]\r\n\r\nType BREAK without a parameter to display the current BREAK setting.\r\n"
+      },
+      {
+        "id": 1310,
+        "index_offset": 549,
+        "relative_offset": 3280,
+        "text_offset": 3829,
+        "length": 154,
+        "bytes_hex": "456e61626c65732f44697361626c6573204c6f6e672066696c65206e616d6573207768656e2070726f63657373696e6720464f5220636f6d6d616e64732e0d0a0d0a4c464e464f52205b4f4e207c204f46465d0d0a0d0a54797065204c464e464f5220776974686f7574206120706172616d6574657220746f20646973706c6179207468652063757272656e742073657474696e672e0d0a0d0a",
+        "text_latin1": "Enables/Disables Long file names when processing FOR commands.\r\n\r\nLFNFOR [ON | OFF]\r\n\r\nType LFNFOR without a parameter to display the current setting.\r\n\r\n"
+      },
+      {
+        "id": 1320,
+        "index_offset": 553,
+        "relative_offset": 3431,
+        "text_offset": 3984,
+        "length": 63,
+        "bytes_hex": "446973706c617973206f722073657473207468652061637469766520636f64652070616765206e756d6265722e0d0a0d0a43484350205b6e6e6e5d0d0a0d0a",
+        "text_latin1": "Displays or sets the active code page number.\r\n\r\nCHCP [nnn]\r\n\r\n"
+      },
+      {
+        "id": 1321,
+        "index_offset": 557,
+        "relative_offset": 3491,
+        "text_offset": 4048,
+        "length": 112,
+        "bytes_hex": "20206e6e6e202020537065636966696573206120636f64652070616765206e756d6265722e0d0a0d0a54797065204348435020776974686f7574206120706172616d6574657220746f20646973706c6179207468652061637469766520636f64652070616765206e756d6265722e0d0a",
+        "text_latin1": "  nnn   Specifies a code page number.\r\n\r\nType CHCP without a parameter to display the active code page number.\r\n"
+      },
+      {
+        "id": 1340,
+        "index_offset": 561,
+        "relative_offset": 3600,
+        "text_offset": 4161,
+        "length": 91,
+        "bytes_hex": "446973706c61797320746865206e616d65206f66206f72206368616e676573207468652063757272656e74206469726563746f72792e0d0a0d0a4348444952205b64726976653a5d5b706174685d0d0a43484449525b2e2e5d0d0a",
+        "text_latin1": "Displays the name of or changes the current directory.\r\n\r\nCHDIR [drive:][path]\r\nCHDIR[..]\r\n"
+      },
+      {
+        "id": 1341,
+        "index_offset": 565,
+        "relative_offset": 3688,
+        "text_offset": 4253,
+        "length": 98,
+        "bytes_hex": "4344205b64726976653a5d5b706174685d0d0a43445b2e2e5d0d0a0d0a20202e2e202020537065636966696573207468617420796f752077616e7420746f206368616e676520746f2074686520706172656e74206469726563746f72792e0d0a0d0a",
+        "text_latin1": "CD [drive:][path]\r\nCD[..]\r\n\r\n  ..   Specifies that you want to change to the parent directory.\r\n\r\n"
+      },
+      {
+        "id": 1342,
+        "index_offset": 569,
+        "relative_offset": 3783,
+        "text_offset": 4352,
+        "length": 145,
+        "bytes_hex": "547970652043442064726976653a20746f20646973706c6179207468652063757272656e74206469726563746f727920696e20746865207370656369666965642064726976652e0d0a5479706520434420776974686f757420706172616d657465727320746f20646973706c6179207468652063757272656e7420647269766520616e64206469726563746f72792e0d0a",
+        "text_latin1": "Type CD drive: to display the current directory in the specified drive.\r\nType CD without parameters to display the current drive and directory.\r\n"
+      },
+      {
+        "id": 1360,
+        "index_offset": 573,
+        "relative_offset": 3925,
+        "text_offset": 4498,
+        "length": 27,
+        "bytes_hex": "436c65617273207468652073637265656e2e0d0a0d0a434c530d0a",
+        "text_latin1": "Clears the screen.\r\n\r\nCLS\r\n"
+      },
+      {
+        "id": 1400,
+        "index_offset": 577,
+        "relative_offset": 3949,
+        "text_offset": 4526,
+        "length": 156,
+        "bytes_hex": "436f70696573206f6e65206f72206d6f72652066696c657320746f20616e6f74686572206c6f636174696f6e2e0d0a0d0a434f5059205b2f41207c202f425d20736f75726365205b2f41207c202f425d205b2b20736f75726365205b2f41207c202f425d205b2b202e2e2e5d5d205b64657374696e6174696f6e0d0a20205b2f41207c202f425d5d205b2f565d205b2f59207c202f2d595d0d0a0d0a",
+        "text_latin1": "Copies one or more files to another location.\r\n\r\nCOPY [/A | /B] source [/A | /B] [+ source [/A | /B] [+ ...]] [destination\r\n  [/A | /B]] [/V] [/Y | /-Y]\r\n\r\n"
+      },
+      {
+        "id": 1401,
+        "index_offset": 581,
+        "relative_offset": 4102,
+        "text_offset": 4683,
+        "length": 104,
+        "bytes_hex": "2020736f7572636520202020202020537065636966696573207468652066696c65206f722066696c657320746f20626520636f706965642e0d0a20202f412020202020202020202020496e6469636174657320616e20415343494920746578742066696c652e0d0a",
+        "text_latin1": "  source       Specifies the file or files to be copied.\r\n  /A           Indicates an ASCII text file.\r\n"
+      },
+      {
+        "id": 1402,
+        "index_offset": 585,
+        "relative_offset": 4203,
+        "text_offset": 4788,
+        "length": 118,
+        "bytes_hex": "20202f422020202020202020202020496e6469636174657320612062696e6172792066696c652e0d0a202064657374696e6174696f6e202053706563696669657320746865206469726563746f727920616e642f6f722066696c656e616d6520666f7220746865206e65772066696c652873292e0d0a",
+        "text_latin1": "  /B           Indicates a binary file.\r\n  destination  Specifies the directory and/or filename for the new file(s).\r\n"
+      },
+      {
+        "id": 1403,
+        "index_offset": 589,
+        "relative_offset": 4318,
+        "text_offset": 4907,
+        "length": 63,
+        "bytes_hex": "20202f56202020202020202020202056657269666965732074686174206e65772066696c657320617265207772697474656e20636f72726563746c792e0d0a",
+        "text_latin1": "  /V           Verifies that new files are written correctly.\r\n"
+      },
+      {
+        "id": 1404,
+        "index_offset": 593,
+        "relative_offset": 4378,
+        "text_offset": 4971,
+        "length": 116,
+        "bytes_hex": "20202f592020202020202020202020537570707265737365732070726f6d7074696e6720746f20636f6e6669726d20796f752077616e7420746f206f766572777269746520616e0d0a2020202020202020202020202020206578697374696e672064657374696e6174696f6e2066696c652e0d0a",
+        "text_latin1": "  /Y           Suppresses prompting to confirm you want to overwrite an\r\n               existing destination file.\r\n"
+      },
+      {
+        "id": 1405,
+        "index_offset": 597,
+        "relative_offset": 4491,
+        "text_offset": 5088,
+        "length": 114,
+        "bytes_hex": "20202f2d59202020202020202020204361757365732070726f6d7074696e6720746f20636f6e6669726d20796f752077616e7420746f206f766572777269746520616e0d0a2020202020202020202020202020206578697374696e672064657374696e6174696f6e2066696c652e0d0a0d0a",
+        "text_latin1": "  /-Y          Causes prompting to confirm you want to overwrite an\r\n               existing destination file.\r\n\r\n"
+      },
+      {
+        "id": 1406,
+        "index_offset": 601,
+        "relative_offset": 4602,
+        "text_offset": 5203,
+        "length": 121,
+        "bytes_hex": "54686520737769746368202f59206d61792062652070726573657420696e2074686520434f5059434d4420656e7669726f6e6d656e74207661726961626c652e0d0a54686973206d6179206265206f76657272696464656e2077697468202f2d59206f6e2074686520636f6d6d616e64206c696e650d0a0d0a",
+        "text_latin1": "The switch /Y may be preset in the COPYCMD environment variable.\r\nThis may be overridden with /-Y on the command line\r\n\r\n"
+      },
+      {
+        "id": 1407,
+        "index_offset": 605,
+        "relative_offset": 4720,
+        "text_offset": 5325,
+        "length": 135,
+        "bytes_hex": "546f20617070656e642066696c65732c207370656369667920612073696e676c652066696c6520666f722064657374696e6174696f6e2c20627574206d756c7469706c652066696c65730d0a666f7220736f7572636520287573696e672077696c646361726473206f722066696c65312b66696c65322b66696c653320666f726d6174292e0d0a",
+        "text_latin1": "To append files, specify a single file for destination, but multiple files\r\nfor source (using wildcards or file1+file2+file3 format).\r\n"
+      },
+      {
+        "id": 1420,
+        "index_offset": 609,
+        "relative_offset": 4852,
+        "text_offset": 5461,
+        "length": 138,
+        "bytes_hex": "4368616e67657320746865207465726d696e616c20646576696365207573656420746f20636f6e74726f6c20796f75722073797374656d2e0d0a0d0a43545459206465766963650d0a0d0a2020646576696365202020546865207465726d696e616c2064657669636520796f752077616e7420746f207573652c207375636820617320434f4d312e0d0a",
+        "text_latin1": "Changes the terminal device used to control your system.\r\n\r\nCTTY device\r\n\r\n  device   The terminal device you want to use, such as COM1.\r\n"
+      },
+      {
+        "id": 1440,
+        "index_offset": 613,
+        "relative_offset": 4987,
+        "text_offset": 5600,
+        "length": 45,
+        "bytes_hex": "446973706c617973206f7220736574732074686520646174652e0d0a0d0a44415445205b646174655d0d0a0d0a",
+        "text_latin1": "Displays or sets the date.\r\n\r\nDATE [date]\r\n\r\n"
+      },
+      {
+        "id": 1441,
+        "index_offset": 617,
+        "relative_offset": 5029,
+        "text_offset": 5646,
+        "length": 131,
+        "bytes_hex": "54797065204441544520776974686f757420706172616d657465727320746f20646973706c6179207468652063757272656e7420646174652073657474696e6720616e640d0a612070726f6d707420666f722061206e6577206f6e652e2020507265737320454e54455220746f206b656570207468652073616d6520646174652e0d0a",
+        "text_latin1": "Type DATE without parameters to display the current date setting and\r\na prompt for a new one.  Press ENTER to keep the same date.\r\n"
+      },
+      {
+        "id": 1460,
+        "index_offset": 621,
+        "relative_offset": 5157,
+        "text_offset": 5778,
+        "length": 100,
+        "bytes_hex": "44656c65746573206f6e65206f72206d6f72652066696c65732e0d0a0d0a44454c205b64726976653a5d5b706174685d66696c656e616d65205b2f505d0d0a4552415345205b64726976653a5d5b706174685d66696c656e616d65205b2f505d0d0a0d0a",
+        "text_latin1": "Deletes one or more files.\r\n\r\nDEL [drive:][path]filename [/P]\r\nERASE [drive:][path]filename [/P]\r\n\r\n"
+      },
+      {
+        "id": 1461,
+        "index_offset": 625,
+        "relative_offset": 5254,
+        "text_offset": 5879,
+        "length": 131,
+        "bytes_hex": "20205b64726976653a5d5b706174685d66696c656e616d652020537065636966696573207468652066696c6528732920746f2064656c6574652e202053706563696679206d756c7469706c650d0a202020202020202020202020202020202020202020202020202066696c6573206279207573696e672077696c6463617264732e0d0a",
+        "text_latin1": "  [drive:][path]filename  Specifies the file(s) to delete.  Specify multiple\r\n                          files by using wildcards.\r\n"
+      },
+      {
+        "id": 1462,
+        "index_offset": 629,
+        "relative_offset": 5382,
+        "text_offset": 6011,
+        "length": 59,
+        "bytes_hex": "20202f50090950726f6d70747320666f7220636f6e6669726d6174696f6e206265666f72652064656c6574696e6720656163682066696c652e0d0a",
+        "text_latin1": "  /P\t\tPrompts for confirmation before deleting each file.\r\n"
+      },
+      {
+        "id": 1480,
+        "index_offset": 633,
+        "relative_offset": 5438,
+        "text_offset": 6071,
+        "length": 167,
+        "bytes_hex": "446973706c6179732061206c697374206f662066696c657320616e64207375626469726563746f7269657320696e2061206469726563746f72792e0d0a0d0a444952205b64726976653a5d5b706174685d5b66696c656e616d655d205b2f505d205b2f575d205b2f415b5b3a5d617474726962757465735d5d0d0a20205b2f4f5b5b3a5d736f72746f726465725d5d205b2f535d205b2f425d205b2f4c5d205b2f565d0d0a0d0a",
+        "text_latin1": "Displays a list of files and subdirectories in a directory.\r\n\r\nDIR [drive:][path][filename] [/P] [/W] [/A[[:]attributes]]\r\n  [/O[[:]sortorder]] [/S] [/B] [/L] [/V]\r\n\r\n"
+      },
+      {
+        "id": 1481,
+        "index_offset": 637,
+        "relative_offset": 5602,
+        "text_offset": 6239,
+        "length": 170,
+        "bytes_hex": "20205b64726976653a5d5b706174685d5b66696c656e616d655d0d0a20202020202020202020202020205370656369666965732064726976652c206469726563746f72792c20616e642f6f722066696c657320746f206c6973742e0d0a202020202020202020202020202028436f756c6420626520656e68616e6365642066696c652073706563696669636174696f6e206f72206d756c7469706c652066696c6573706563732e290d0a",
+        "text_latin1": "  [drive:][path][filename]\r\n              Specifies drive, directory, and/or files to list.\r\n              (Could be enhanced file specification or multiple filespecs.)\r\n"
+      },
+      {
+        "id": 1482,
+        "index_offset": 641,
+        "relative_offset": 5769,
+        "text_offset": 6410,
+        "length": 97,
+        "bytes_hex": "20202f502020202020202020202050617573657320616674657220656163682073637265656e66756c206f6620696e666f726d6174696f6e2e0d0a20202f5720202020202020202020557365732077696465206c69737420666f726d61742e0d0a",
+        "text_latin1": "  /P          Pauses after each screenful of information.\r\n  /W          Uses wide list format.\r\n"
+      },
+      {
+        "id": 1483,
+        "index_offset": 645,
+        "relative_offset": 5863,
+        "text_offset": 6508,
+        "length": 122,
+        "bytes_hex": "20202f4120202020202020202020446973706c6179732066696c657320776974682073706563696669656420617474726962757465732e0d0a2020617474726962757465732020204420204469726563746f7269657320202020202020202020202020202020522020526561642d6f6e6c792066696c65730d0a",
+        "text_latin1": "  /A          Displays files with specified attributes.\r\n  attributes   D  Directories                R  Read-only files\r\n"
+      },
+      {
+        "id": 1484,
+        "index_offset": 649,
+        "relative_offset": 5982,
+        "text_offset": 6631,
+        "length": 189,
+        "bytes_hex": "20202020202020202020202020202048202048696464656e2066696c657320202020202020202020202020202041202046696c657320726561647920666f7220617263686976696e670d0a20202020202020202020202020202053202053797374656d2066696c65732020202020202020202020202020202d2020507265666978206d65616e696e67206e6f740d0a20202f4f202020202020202020204c6973742062792066696c657320696e20736f72746564206f726465722e0d0a",
+        "text_latin1": "               H  Hidden files               A  Files ready for archiving\r\n               S  System files               -  Prefix meaning not\r\n  /O          List by files in sorted order.\r\n"
+      },
+      {
+        "id": 1485,
+        "index_offset": 653,
+        "relative_offset": 6168,
+        "text_offset": 6821,
+        "length": 155,
+        "bytes_hex": "2020736f72746f72646572202020204e20204279206e616d652028616c7068616265746963292020202020202053202042792073697a652028736d616c6c657374206669727374290d0a202020202020202020202020202020452020427920657874656e73696f6e2028616c70686162657469632920204420204279206461746520262074696d6520286561726c69657374206669727374290d0a",
+        "text_latin1": "  sortorder    N  By name (alphabetic)       S  By size (smallest first)\r\n               E  By extension (alphabetic)  D  By date & time (earliest first)\r\n"
+      },
+      {
+        "id": 1486,
+        "index_offset": 657,
+        "relative_offset": 6320,
+        "text_offset": 6977,
+        "length": 206,
+        "bytes_hex": "20202020202020202020202020202047202047726f7570206469726563746f72696573206669727374202020202d202050726566697820746f2072657665727365206f726465720d0a2020202020202020202020202020204120204279204c61737420416363657373204461746520286561726c69657374206669727374290d0a20202f5320202020202020202020446973706c6179732066696c657320696e20737065636966696564206469726563746f727920616e6420616c6c207375626469726563746f726965732e0d0a",
+        "text_latin1": "               G  Group directories first    -  Prefix to reverse order\r\n               A  By Last Access Date (earliest first)\r\n  /S          Displays files in specified directory and all subdirectories.\r\n"
+      },
+      {
+        "id": 1487,
+        "index_offset": 661,
+        "relative_offset": 6523,
+        "text_offset": 7184,
+        "length": 131,
+        "bytes_hex": "20202f422020202020202020202055736573206261726520666f726d617420286e6f2068656164696e6720696e666f726d6174696f6e206f722073756d6d617279292e0d0a20202f4c2020202020202020202055736573206c6f776572636173652e0d0a20202f5620202020202020202020566572626f7365206d6f64652e0d0a0d0a",
+        "text_latin1": "  /B          Uses bare format (no heading information or summary).\r\n  /L          Uses lowercase.\r\n  /V          Verbose mode.\r\n\r\n"
+      },
+      {
+        "id": 1488,
+        "index_offset": 665,
+        "relative_offset": 6651,
+        "text_offset": 7316,
+        "length": 146,
+        "bytes_hex": "5377697463686573206d61792062652070726573657420696e2074686520444952434d4420656e7669726f6e6d656e74207661726961626c652e20204f766572726964650d0a70726573657420737769746368657320627920707265666978696e6720616e79207377697463682077697468202d202868797068656e292d2d666f72206578616d706c652c202f2d572e0d0a",
+        "text_latin1": "Switches may be preset in the DIRCMD environment variable.  Override\r\npreset switches by prefixing any switch with - (hyphen)--for example, /-W.\r\n"
+      },
+      {
+        "id": 1500,
+        "index_offset": 669,
+        "relative_offset": 6794,
+        "text_offset": 7463,
+        "length": 62,
+        "bytes_hex": "51756974732074686520434f4d4d414e442e434f4d2070726f6772616d2028636f6d6d616e6420696e746572707265746572292e0d0a0d0a455849540d0a",
+        "text_latin1": "Quits the COMMAND.COM program (command interpreter).\r\n\r\nEXIT\r\n"
+      },
+      {
+        "id": 1520,
+        "index_offset": 673,
+        "relative_offset": 6853,
+        "text_offset": 7526,
+        "length": 61,
+        "bytes_hex": "437265617465732061206469726563746f72792e0d0a0d0a4d4b444952205b64726976653a5d706174680d0a4d44205b64726976653a5d706174680d0a",
+        "text_latin1": "Creates a directory.\r\n\r\nMKDIR [drive:]path\r\nMD [drive:]path\r\n"
+      },
+      {
+        "id": 1540,
+        "index_offset": 677,
+        "relative_offset": 6911,
+        "text_offset": 7588,
+        "length": 93,
+        "bytes_hex": "446973706c617973206f722073657473206120736561726368207061746820666f722065786563757461626c652066696c65732e0d0a0d0a50415448205b5b64726976653a5d706174685b3b2e2e2e5d5d0d0a50415448203b0d0a0d0a",
+        "text_latin1": "Displays or sets a search path for executable files.\r\n\r\nPATH [[drive:]path[;...]]\r\nPATH ;\r\n\r\n"
+      },
+      {
+        "id": 1541,
+        "index_offset": 681,
+        "relative_offset": 7001,
+        "text_offset": 7682,
+        "length": 108,
+        "bytes_hex": "547970652050415448203b20746f20636c65617220616c6c207365617263682d706174682073657474696e677320616e64206469726563742057696e646f777320746f207365617263680d0a6f6e6c7920696e207468652063757272656e74206469726563746f72792e0d0a",
+        "text_latin1": "Type PATH ; to clear all search-path settings and direct Windows to search\r\nonly in the current directory.\r\n"
+      },
+      {
+        "id": 1542,
+        "index_offset": 685,
+        "relative_offset": 7106,
+        "text_offset": 7791,
+        "length": 59,
+        "bytes_hex": "54797065205041544820776974686f757420706172616d657465727320746f20646973706c6179207468652063757272656e7420706174682e0d0a",
+        "text_latin1": "Type PATH without parameters to display the current path.\r\n"
+      },
+      {
+        "id": 1560,
+        "index_offset": 689,
+        "relative_offset": 7162,
+        "text_offset": 7851,
+        "length": 56,
+        "bytes_hex": "4368616e676573207468652057696e646f777320636f6d6d616e642070726f6d70742e0d0a0d0a50524f4d5054205b746578745d0d0a0d0a",
+        "text_latin1": "Changes the Windows command prompt.\r\n\r\nPROMPT [text]\r\n\r\n"
+      },
+      {
+        "id": 1561,
+        "index_offset": 693,
+        "relative_offset": 7215,
+        "text_offset": 7908,
+        "length": 124,
+        "bytes_hex": "202074657874202020205370656369666965732061206e657720636f6d6d616e642070726f6d70742e0d0a0d0a50726f6d70742063616e206265206d616465207570206f66206e6f726d616c206368617261637465727320616e642074686520666f6c6c6f77696e67207370656369616c20636f6465733a0d0a0d0a",
+        "text_latin1": "  text    Specifies a new command prompt.\r\n\r\nPrompt can be made up of normal characters and the following special codes:\r\n\r\n"
+      },
+      {
+        "id": 1562,
+        "index_offset": 697,
+        "relative_offset": 7336,
+        "text_offset": 8033,
+        "length": 47,
+        "bytes_hex": "202024512020203d2028657175616c207369676e290d0a20202424202020242028646f6c6c6172207369676e290d0a",
+        "text_latin1": "  $Q   = (equal sign)\r\n  $$   $ (dollar sign)\r\n"
+      },
+      {
+        "id": 1563,
+        "index_offset": 701,
+        "relative_offset": 7380,
+        "text_offset": 8081,
+        "length": 42,
+        "bytes_hex": "2020245420202043757272656e742074696d650d0a2020244420202043757272656e7420646174650d0a",
+        "text_latin1": "  $T   Current time\r\n  $D   Current date\r\n"
+      },
+      {
+        "id": 1564,
+        "index_offset": 705,
+        "relative_offset": 7419,
+        "text_offset": 8124,
+        "length": 62,
+        "bytes_hex": "2020245020202043757272656e7420647269766520616e6420706174680d0a2020245620202057696e646f77732076657273696f6e206e756d6265720d0a",
+        "text_latin1": "  $P   Current drive and path\r\n  $V   Windows version number\r\n"
+      },
+      {
+        "id": 1565,
+        "index_offset": 709,
+        "relative_offset": 7478,
+        "text_offset": 8187,
+        "length": 52,
+        "bytes_hex": "2020244e20202043757272656e742064726976650d0a202024472020203e2028677265617465722d7468616e207369676e290d0a",
+        "text_latin1": "  $N   Current drive\r\n  $G   > (greater-than sign)\r\n"
+      },
+      {
+        "id": 1566,
+        "index_offset": 713,
+        "relative_offset": 7527,
+        "text_offset": 8240,
+        "length": 44,
+        "bytes_hex": "2020244c2020203c20286c6573732d7468616e207369676e290d0a202024422020207c202870697065290d0a",
+        "text_latin1": "  $L   < (less-than sign)\r\n  $B   | (pipe)\r\n"
+      },
+      {
+        "id": 1567,
+        "index_offset": 717,
+        "relative_offset": 7568,
+        "text_offset": 8285,
+        "length": 121,
+        "bytes_hex": "202024482020204261636b737061636520286572617365732070726576696f757320636861726163746572290d0a2020244520202045736361706520636f64652028415343494920636f6465203237290d0a2020245f20202043617272696167652072657475726e20616e64206c696e65666565640d0a0d0a",
+        "text_latin1": "  $H   Backspace (erases previous character)\r\n  $E   Escape code (ASCII code 27)\r\n  $_   Carriage return and linefeed\r\n\r\n"
+      },
+      {
+        "id": 1568,
+        "index_offset": 721,
+        "relative_offset": 7686,
+        "text_offset": 8407,
+        "length": 76,
+        "bytes_hex": "547970652050524f4d505420776974686f757420706172616d657465727320746f207265736574207468652070726f6d707420746f207468652064656661756c742073657474696e672e0d0a",
+        "text_latin1": "Type PROMPT without parameters to reset the prompt to the default setting.\r\n"
+      },
+      {
+        "id": 1580,
+        "index_offset": 725,
+        "relative_offset": 7759,
+        "text_offset": 8484,
+        "length": 71,
+        "bytes_hex": "52656d6f766573202864656c65746573292061206469726563746f72792e0d0a0d0a524d444952205b64726976653a5d706174680d0a5244205b64726976653a5d706174680d0a",
+        "text_latin1": "Removes (deletes) a directory.\r\n\r\nRMDIR [drive:]path\r\nRD [drive:]path\r\n"
+      },
+      {
+        "id": 1600,
+        "index_offset": 729,
+        "relative_offset": 7827,
+        "text_offset": 8556,
+        "length": 50,
+        "bytes_hex": "52656e616d657320612066696c652f6469726563746f7279206f722066696c65732f6469726563746f726965732e0d0a0d0a",
+        "text_latin1": "Renames a file/directory or files/directories.\r\n\r\n"
+      },
+      {
+        "id": 1601,
+        "index_offset": 733,
+        "relative_offset": 7874,
+        "text_offset": 8607,
+        "length": 159,
+        "bytes_hex": "52454e414d45205b64726976653a5d5b706174685d5b6469726563746f72796e616d6531207c2066696c656e616d65315d205b6469726563746f72796e616d6532207c2066696c656e616d65325d0d0a52454e205b64726976653a5d5b706174685d5b6469726563746f72796e616d6531207c2066696c656e616d65315d205b6469726563746f72796e616d6532207c2066696c656e616d65325d0d0a0d0a",
+        "text_latin1": "RENAME [drive:][path][directoryname1 | filename1] [directoryname2 | filename2]\r\nREN [drive:][path][directoryname1 | filename1] [directoryname2 | filename2]\r\n\r\n"
+      },
+      {
+        "id": 1602,
+        "index_offset": 737,
+        "relative_offset": 8030,
+        "text_offset": 8767,
+        "length": 72,
+        "bytes_hex": "4e6f7465207468617420796f752063616e6e6f7420737065636966792061206e6577206472697665206f72207061746820666f7220796f75722064657374696e6174696f6e2e0d0a",
+        "text_latin1": "Note that you cannot specify a new drive or path for your destination.\r\n"
+      },
+      {
+        "id": 1620,
+        "index_offset": 741,
+        "relative_offset": 8099,
+        "text_offset": 8840,
+        "length": 88,
+        "bytes_hex": "446973706c6179732c20736574732c206f722072656d6f7665732057696e646f777320656e7669726f6e6d656e74207661726961626c65732e0d0a0d0a534554205b7661726961626c653d5b737472696e675d5d0d0a0d0a",
+        "text_latin1": "Displays, sets, or removes Windows environment variables.\r\n\r\nSET [variable=[string]]\r\n\r\n"
+      },
+      {
+        "id": 1621,
+        "index_offset": 745,
+        "relative_offset": 8184,
+        "text_offset": 8929,
+        "length": 129,
+        "bytes_hex": "20207661726961626c6520205370656369666965732074686520656e7669726f6e6d656e742d7661726961626c65206e616d652e0d0a2020737472696e6720202020537065636966696573206120736572696573206f66206368617261637465727320746f2061737369676e20746f20746865207661726961626c652e0d0a0d0a",
+        "text_latin1": "  variable  Specifies the environment-variable name.\r\n  string    Specifies a series of characters to assign to the variable.\r\n\r\n"
+      },
+      {
+        "id": 1622,
+        "index_offset": 749,
+        "relative_offset": 8310,
+        "text_offset": 9059,
+        "length": 75,
+        "bytes_hex": "547970652053455420776974686f757420706172616d657465727320746f20646973706c6179207468652063757272656e7420656e7669726f6e6d656e74207661726961626c65732e0d0a",
+        "text_latin1": "Type SET without parameters to display the current environment variables.\r\n"
+      },
+      {
+        "id": 1640,
+        "index_offset": 753,
+        "relative_offset": 8382,
+        "text_offset": 9135,
+        "length": 52,
+        "bytes_hex": "446973706c617973206f722073657473207468652073797374656d2074696d652e0d0a0d0a54494d45205b74696d655d0d0a0d0a",
+        "text_latin1": "Displays or sets the system time.\r\n\r\nTIME [time]\r\n\r\n"
+      },
+      {
+        "id": 1641,
+        "index_offset": 757,
+        "relative_offset": 8431,
+        "text_offset": 9188,
+        "length": 131,
+        "bytes_hex": "547970652054494d452077697468206e6f20706172616d657465727320746f20646973706c6179207468652063757272656e742074696d652073657474696e6720616e6420612070726f6d70740d0a666f722061206e6577206f6e652e2020507265737320454e54455220746f206b656570207468652073616d652074696d652e0d0a",
+        "text_latin1": "Type TIME with no parameters to display the current time setting and a prompt\r\nfor a new one.  Press ENTER to keep the same time.\r\n"
+      },
+      {
+        "id": 1660,
+        "index_offset": 761,
+        "relative_offset": 8559,
+        "text_offset": 9320,
+        "length": 71,
+        "bytes_hex": "446973706c6179732074686520636f6e74656e7473206f6620746578742066696c65732e0d0a0d0a54595045205b64726976653a5d5b706174685d66696c656e616d650d0a0d0a",
+        "text_latin1": "Displays the contents of text files.\r\n\r\nTYPE [drive:][path]filename\r\n\r\n"
+      },
+      {
+        "id": 1680,
+        "index_offset": 765,
+        "relative_offset": 8627,
+        "text_offset": 9392,
+        "length": 38,
+        "bytes_hex": "446973706c617973207468652057696e646f77732076657273696f6e2e0d0a0d0a5645520d0a",
+        "text_latin1": "Displays the Windows version.\r\n\r\nVER\r\n"
+      },
+      {
+        "id": 1700,
+        "index_offset": 769,
+        "relative_offset": 8662,
+        "text_offset": 9431,
+        "length": 178,
+        "bytes_hex": "54656c6c732057696e646f7773207768657468657220746f20766572696679207468617420796f75722066696c657320617265207772697474656e20636f72726563746c7920746f20610d0a6469736b2e0d0a0d0a564552494659205b4f4e207c204f46465d0d0a0d0a547970652056455249465920776974686f7574206120706172616d6574657220746f20646973706c6179207468652063757272656e74205645524946592073657474696e672e0d0a",
+        "text_latin1": "Tells Windows whether to verify that your files are written correctly to a\r\ndisk.\r\n\r\nVERIFY [ON | OFF]\r\n\r\nType VERIFY without a parameter to display the current VERIFY setting.\r\n"
+      },
+      {
+        "id": 1720,
+        "index_offset": 773,
+        "relative_offset": 8837,
+        "text_offset": 9610,
+        "length": 82,
+        "bytes_hex": "446973706c61797320746865206469736b20766f6c756d65206c6162656c20616e642073657269616c206e756d6265722c20696620746865792065786973742e0d0a0d0a564f4c205b64726976653a5d0d0a",
+        "text_latin1": "Displays the disk volume label and serial number, if they exist.\r\n\r\nVOL [drive:]\r\n"
+      },
+      {
+        "id": 1740,
+        "index_offset": 777,
+        "relative_offset": 8916,
+        "text_offset": 9693,
+        "length": 91,
+        "bytes_hex": "43616c6c73206f6e652062617463682070726f6772616d2066726f6d20616e6f746865722e0d0a0d0a43414c4c205b64726976653a5d5b706174685d66696c656e616d65205b62617463682d706172616d65746572735d0d0a0d0a",
+        "text_latin1": "Calls one batch program from another.\r\n\r\nCALL [drive:][path]filename [batch-parameters]\r\n\r\n"
+      },
+      {
+        "id": 1741,
+        "index_offset": 781,
+        "relative_offset": 9004,
+        "text_offset": 9785,
+        "length": 114,
+        "bytes_hex": "202062617463682d706172616d657465727320202053706563696669657320616e7920636f6d6d616e642d6c696e6520696e666f726d6174696f6e207265717569726564206279207468650d0a20202020202020202020202020202020202020202062617463682070726f6772616d2e0d0a",
+        "text_latin1": "  batch-parameters   Specifies any command-line information required by the\r\n                     batch program.\r\n"
+      },
+      {
+        "id": 1760,
+        "index_offset": 785,
+        "relative_offset": 9115,
+        "text_offset": 9900,
+        "length": 76,
+        "bytes_hex": "5265636f72647320636f6d6d656e7473202872656d61726b732920696e20612062617463682066696c65206f7220434f4e4649472e5359532e0d0a0d0a52454d205b636f6d6d656e745d0d0a",
+        "text_latin1": "Records comments (remarks) in a batch file or CONFIG.SYS.\r\n\r\nREM [comment]\r\n"
+      },
+      {
+        "id": 1780,
+        "index_offset": 789,
+        "relative_offset": 9188,
+        "text_offset": 9977,
+        "length": 106,
+        "bytes_hex": "53757370656e64732070726f63657373696e67206f6620612062617463682070726f6772616d20616e6420646973706c61797320746865206d6573736167653a0d0a507265737320616e79206b657920746f20636f6e74696e75652e2e2e2e0d0a0d0a50415553450d0a",
+        "text_latin1": "Suspends processing of a batch program and displays the message:\r\nPress any key to continue....\r\n\r\nPAUSE\r\n"
+      },
+      {
+        "id": 1800,
+        "index_offset": 793,
+        "relative_offset": 9291,
+        "text_offset": 10084,
+        "length": 77,
+        "bytes_hex": "446973706c617973206d657373616765732c206f72207475726e7320636f6d6d616e642d6563686f696e67206f6e206f72206f66662e0d0a0d0a20204543484f205b4f4e207c204f46465d0d0a",
+        "text_latin1": "Displays messages, or turns command-echoing on or off.\r\n\r\n  ECHO [ON | OFF]\r\n"
+      },
+      {
+        "id": 1801,
+        "index_offset": 797,
+        "relative_offset": 9365,
+        "text_offset": 10162,
+        "length": 87,
+        "bytes_hex": "20204543484f205b6d6573736167655d0d0a0d0a54797065204543484f20776974686f757420706172616d657465727320746f20646973706c6179207468652063757272656e74206563686f2073657474696e672e0d0a",
+        "text_latin1": "  ECHO [message]\r\n\r\nType ECHO without parameters to display the current echo setting.\r\n"
+      },
+      {
+        "id": 1810,
+        "index_offset": 801,
+        "relative_offset": 9449,
+        "text_offset": 10250,
+        "length": 83,
+        "bytes_hex": "4c6f636b7320612064726976652c20656e61626c696e6720646972656374206469736b2061636365737320666f7220616e206170706c69636174696f6e2e0d0a0d0a20204c4f434b205b64726976653a5d0d0a",
+        "text_latin1": "Locks a drive, enabling direct disk access for an application.\r\n\r\n  LOCK [drive:]\r\n"
+      },
+      {
+        "id": 1815,
+        "index_offset": 805,
+        "relative_offset": 9529,
+        "text_offset": 10334,
+        "length": 88,
+        "bytes_hex": "556e6c6f636b7320612064726976652c2064697361626c696e6720646972656374206469736b2061636365737320666f7220616e206170706c69636174696f6e2e0d0a0d0a2020554e4c4f434b205b64726976653a5d0d0a",
+        "text_latin1": "Unlocks a drive, disabling direct disk access for an application.\r\n\r\n  UNLOCK [drive:]\r\n"
+      },
+      {
+        "id": 1820,
+        "index_offset": 809,
+        "relative_offset": 9614,
+        "text_offset": 10423,
+        "length": 72,
+        "bytes_hex": "446972656374732057696e646f777320746f2061206c6162656c6c6564206c696e6520696e20612062617463682070726f6772616d2e0d0a0d0a474f544f206c6162656c0d0a0d0a",
+        "text_latin1": "Directs Windows to a labelled line in a batch program.\r\n\r\nGOTO label\r\n\r\n"
+      },
+      {
+        "id": 1821,
+        "index_offset": 813,
+        "relative_offset": 9683,
+        "text_offset": 10496,
+        "length": 138,
+        "bytes_hex": "20206c6162656c2020205370656369666965732061207465787420737472696e67207573656420696e207468652062617463682070726f6772616d2061732061206c6162656c2e0d0a0d0a596f7520747970652061206c6162656c206f6e2061206c696e6520627920697473656c662c20626567696e6e696e672077697468206120636f6c6f6e2e0d0a",
+        "text_latin1": "  label   Specifies a text string used in the batch program as a label.\r\n\r\nYou type a label on a line by itself, beginning with a colon.\r\n"
+      },
+      {
+        "id": 1840,
+        "index_offset": 817,
+        "relative_offset": 9818,
+        "text_offset": 10635,
+        "length": 74,
+        "bytes_hex": "4368616e6765732074686520706f736974696f6e206f66207265706c61636561626c6520706172616d657465727320696e20612062617463682066696c652e0d0a0d0a53484946540d0a",
+        "text_latin1": "Changes the position of replaceable parameters in a batch file.\r\n\r\nSHIFT\r\n"
+      },
+      {
+        "id": 1860,
+        "index_offset": 821,
+        "relative_offset": 9889,
+        "text_offset": 10710,
+        "length": 90,
+        "bytes_hex": "506572666f726d7320636f6e646974696f6e616c2070726f63657373696e6720696e2062617463682070726f6772616d732e0d0a0d0a4946205b4e4f545d204552524f524c4556454c206e756d62657220636f6d6d616e640d0a",
+        "text_latin1": "Performs conditional processing in batch programs.\r\n\r\nIF [NOT] ERRORLEVEL number command\r\n"
+      },
+      {
+        "id": 1861,
+        "index_offset": 825,
+        "relative_offset": 9976,
+        "text_offset": 10801,
+        "length": 70,
+        "bytes_hex": "4946205b4e4f545d20737472696e67313d3d737472696e673220636f6d6d616e640d0a4946205b4e4f545d2045584953542066696c656e616d6520636f6d6d616e640d0a0d0a",
+        "text_latin1": "IF [NOT] string1==string2 command\r\nIF [NOT] EXIST filename command\r\n\r\n"
+      },
+      {
+        "id": 1862,
+        "index_offset": 829,
+        "relative_offset": 10043,
+        "text_offset": 10872,
+        "length": 126,
+        "bytes_hex": "20204e4f5420202020202020202020202020202053706563696669657320746861742057696e646f77732073686f756c64206361727279206f75742074686520636f6d6d616e64206f6e6c790d0a202020202020202020202020202020202020202069662074686520636f6e646974696f6e2069732066616c73652e0d0a",
+        "text_latin1": "  NOT               Specifies that Windows should carry out the command only\r\n                    if the condition is false.\r\n"
+      },
+      {
+        "id": 1863,
+        "index_offset": 833,
+        "relative_offset": 10166,
+        "text_offset": 10999,
+        "length": 162,
+        "bytes_hex": "20204552524f524c4556454c206e756d626572205370656369666965732061207472756520636f6e646974696f6e20696620746865206c6173742070726f6772616d2072756e2072657475726e65640d0a2020202020202020202020202020202020202020616e206578697420636f646520657175616c20746f206f722067726561746572207468616e20746865206e756d626572207370656369666965642e0d0a",
+        "text_latin1": "  ERRORLEVEL number Specifies a true condition if the last program run returned\r\n                    an exit code equal to or greater than the number specified.\r\n"
+      },
+      {
+        "id": 1864,
+        "index_offset": 837,
+        "relative_offset": 10325,
+        "text_offset": 11162,
+        "length": 102,
+        "bytes_hex": "2020636f6d6d616e6420202020202020202020205370656369666965732074686520636f6d6d616e6420746f206361727279206f75742069662074686520636f6e646974696f6e2069730d0a20202020202020202020202020202020202020206d65742e0d0a",
+        "text_latin1": "  command           Specifies the command to carry out if the condition is\r\n                    met.\r\n"
+      },
+      {
+        "id": 1865,
+        "index_offset": 841,
+        "relative_offset": 10424,
+        "text_offset": 11265,
+        "length": 106,
+        "bytes_hex": "2020737472696e67313d3d737472696e673220205370656369666965732061207472756520636f6e646974696f6e2069662074686520737065636966696564207465787420737472696e67730d0a20202020202020202020202020202020202020206d617463682e0d0a",
+        "text_latin1": "  string1==string2  Specifies a true condition if the specified text strings\r\n                    match.\r\n"
+      },
+      {
+        "id": 1866,
+        "index_offset": 845,
+        "relative_offset": 10527,
+        "text_offset": 11372,
+        "length": 103,
+        "bytes_hex": "202045584953542066696c656e616d65202020205370656369666965732061207472756520636f6e646974696f6e20696620746865207370656369666965642066696c656e616d650d0a20202020202020202020202020202020202020206578697374732e0d0a",
+        "text_latin1": "  EXIST filename    Specifies a true condition if the specified filename\r\n                    exists.\r\n"
+      },
+      {
+        "id": 1880,
+        "index_offset": 849,
+        "relative_offset": 10627,
+        "text_offset": 11476,
+        "length": 119,
+        "bytes_hex": "52756e7320612073706563696669656420636f6d6d616e6420666f7220656163682066696c6520696e206120736574206f662066696c65732e0d0a0d0a464f5220257661726961626c6520494e20287365742920444f20636f6d6d616e64205b636f6d6d616e642d706172616d65746572735d0d0a0d0a",
+        "text_latin1": "Runs a specified command for each file in a set of files.\r\n\r\nFOR %variable IN (set) DO command [command-parameters]\r\n\r\n"
+      },
+      {
+        "id": 1881,
+        "index_offset": 853,
+        "relative_offset": 10743,
+        "text_offset": 11596,
+        "length": 125,
+        "bytes_hex": "2020257661726961626c6520205370656369666965732061207265706c61636561626c6520706172616d657465722e0d0a20202873657429202020202020537065636966696573206120736574206f66206f6e65206f72206d6f72652066696c65732e202057696c646361726473206d617920626520757365642e0d0a",
+        "text_latin1": "  %variable  Specifies a replaceable parameter.\r\n  (set)      Specifies a set of one or more files.  Wildcards may be used.\r\n"
+      },
+      {
+        "id": 1882,
+        "index_offset": 857,
+        "relative_offset": 10865,
+        "text_offset": 11722,
+        "length": 86,
+        "bytes_hex": "2020636f6d6d616e64202020205370656369666965732074686520636f6d6d616e6420746f206361727279206f757420666f7220656163682066696c652e0d0a2020636f6d6d616e642d706172616d65746572730d0a",
+        "text_latin1": "  command    Specifies the command to carry out for each file.\r\n  command-parameters\r\n"
+      },
+      {
+        "id": 1883,
+        "index_offset": 861,
+        "relative_offset": 10948,
+        "text_offset": 11809,
+        "length": 162,
+        "bytes_hex": "2020202020202020202020202053706563696669657320706172616d6574657273206f7220737769746368657320666f72207468652073706563696669656420636f6d6d616e642e0d0a0d0a546f207573652074686520464f5220636f6d6d616e6420696e20612062617463682070726f6772616d2c20737065636966792025257661726961626c6520696e7374656164206f660d0a257661726961626c652e0d0a",
+        "text_latin1": "             Specifies parameters or switches for the specified command.\r\n\r\nTo use the FOR command in a batch program, specify %%variable instead of\r\n%variable.\r\n"
+      },
+      {
+        "id": 1900,
+        "index_offset": 865,
+        "relative_offset": 11107,
+        "text_offset": 11972,
+        "length": 23,
+        "bytes_hex": "526573657276656420636f6d6d616e64206e616d650d0a",
+        "text_latin1": "Reserved command name\r\n"
+      },
+      {
+        "id": 1920,
+        "index_offset": 869,
+        "relative_offset": 11127,
+        "text_offset": 11996,
+        "length": 47,
+        "bytes_hex": "4c6f61647320612070726f6772616d20696e746f20746865207570706572206d656d6f727920617265612e0d0a0d0a",
+        "text_latin1": "Loads a program into the upper memory area.\r\n\r\n"
+      },
+      {
+        "id": 1921,
+        "index_offset": 873,
+        "relative_offset": 11171,
+        "text_offset": 12044,
+        "length": 157,
+        "bytes_hex": "4c4f414448494748205b64726976653a5d5b706174685d66696c656e616d65205b706172616d65746572735d0d0a4c4f414448494748205b2f4c3a726567696f6e315b2c6d696e73697a65315d5b3b726567696f6e325b2c6d696e73697a65325d2e2e2e5d205b2f535d5d0d0a2020202020202020205b64726976653a5d5b706174685d66696c656e616d65205b706172616d65746572735d0d0a0d0a",
+        "text_latin1": "LOADHIGH [drive:][path]filename [parameters]\r\nLOADHIGH [/L:region1[,minsize1][;region2[,minsize2]...] [/S]]\r\n         [drive:][path]filename [parameters]\r\n\r\n"
+      },
+      {
+        "id": 1922,
+        "index_offset": 877,
+        "relative_offset": 11325,
+        "text_offset": 12202,
+        "length": 182,
+        "bytes_hex": "2f4c3a726567696f6e315b2c6d696e73697a65315d5b3b726567696f6e325b2c6d696e73697a65325d5d2e2e2e0d0a2020202020202020202020205370656369666965732074686520726567696f6e287329206f66206d656d6f727920696e746f20776869636820746f206c6f61640d0a2020202020202020202020207468652070726f6772616d2e2020526567696f6e312073706563696669657320746865206e756d626572206f66207468652066697273740d0a",
+        "text_latin1": "/L:region1[,minsize1][;region2[,minsize2]]...\r\n            Specifies the region(s) of memory into which to load\r\n            the program.  Region1 specifies the number of the first\r\n"
+      },
+      {
+        "id": 1923,
+        "index_offset": 881,
+        "relative_offset": 11504,
+        "text_offset": 12385,
+        "length": 133,
+        "bytes_hex": "2020202020202020202020206d656d6f727920726567696f6e3b206d696e73697a65312073706563696669657320746865206d696e696d756d2073697a652c2069660d0a202020202020202020202020616e792c20666f7220726567696f6e312e2020526567696f6e3220616e64206d696e73697a65322073706563696679207468650d0a",
+        "text_latin1": "            memory region; minsize1 specifies the minimum size, if\r\n            any, for region1.  Region2 and minsize2 specify the\r\n"
+      },
+      {
+        "id": 1924,
+        "index_offset": 885,
+        "relative_offset": 11634,
+        "text_offset": 12519,
+        "length": 127,
+        "bytes_hex": "2020202020202020202020206e756d62657220616e64206d696e696d756d2073697a65206f6620746865207365636f6e6420726567696f6e2c20696620616e792e0d0a202020202020202020202020596f752063616e2073706563696679206173206d616e7920726567696f6e7320617320796f752077616e742e0d0a0d0a",
+        "text_latin1": "            number and minimum size of the second region, if any.\r\n            You can specify as many regions as you want.\r\n\r\n"
+      },
+      {
+        "id": 1925,
+        "index_offset": 889,
+        "relative_offset": 11758,
+        "text_offset": 12647,
+        "length": 92,
+        "bytes_hex": "2f5320202020202020202020536872696e6b73206120554d4220746f20697473206d696e696d756d2073697a65207768696c65207468652070726f6772616d0d0a2020202020202020202020206973206c6f6164696e672e0d0a0d0a",
+        "text_latin1": "/S          Shrinks a UMB to its minimum size while the program\r\n            is loading.\r\n\r\n"
+      },
+      {
+        "id": 1926,
+        "index_offset": 893,
+        "relative_offset": 11847,
+        "text_offset": 12740,
+        "length": 87,
+        "bytes_hex": "5b64726976653a5d5b706174685d66696c656e616d650d0a20202020202020202020202053706563696669657320746865206c6f636174696f6e20616e64206e616d65206f66207468652070726f6772616d2e0d0a0d0a",
+        "text_latin1": "[drive:][path]filename\r\n            Specifies the location and name of the program.\r\n\r\n"
+      },
+      {
+        "id": 1927,
+        "index_offset": 897,
+        "relative_offset": 11931,
+        "text_offset": 12828,
+        "length": 90,
+        "bytes_hex": "706172616d6574657273202053706563696669657320616e7920636f6d6d616e642d6c696e6520696e666f726d6174696f6e2072657175697265642062790d0a2020202020202020202020207468652070726f6772616d2e0d0a",
+        "text_latin1": "parameters  Specifies any command-line information required by\r\n            the program.\r\n"
+      },
+      {
+        "id": 9900,
+        "index_offset": 901,
+        "relative_offset": 12018,
+        "text_offset": 12919,
+        "length": 52,
+        "bytes_hex": "bd04effe00000100000004000001000000000400000100003f000000010000000a00000000000000000000000000000000000000",
+        "text_latin1": "½\u0004ïþ\u0000\u0000\u0001\u0000\u0000\u0000\u0004\u0000\u0000\u0001\u0000\u0000\u0000\u0000\u0004\u0000\u0000\u0001\u0000\u0000?\u0000\u0000\u0000\u0001\u0000\u0000\u0000\n\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "interpretation": "Lookup treats 0x34 as a length when ID 9900 is requested; the pointer coincides with the end of message 1927, so independent allocation versus subsequent data overlap is not established."
+      }
+    ],
+    "header_offset": 111,
+    "header_bytes": "03c6",
+    "header_count": 198
+  },
+  "comparison": {
+    "same": [
+      1003,
+      1004,
+      1007,
+      1008,
+      1009,
+      1010,
+      1011,
+      1015,
+      1016,
+      1017,
+      1018,
+      1019,
+      1020,
+      1021,
+      1022,
+      1023,
+      1024,
+      1025,
+      1026,
+      1027,
+      1028,
+      1029,
+      1030,
+      1031,
+      1032,
+      1033,
+      1034,
+      1035,
+      1036,
+      1037,
+      1038,
+      1039,
+      1041,
+      1042,
+      1043,
+      1044,
+      1045,
+      1046,
+      1047,
+      1048,
+      1049,
+      1050,
+      1051,
+      1052,
+      1053,
+      1054,
+      1055,
+      1056,
+      1057,
+      1059,
+      1060,
+      1061,
+      1062,
+      1063,
+      1064,
+      1065,
+      1066,
+      1067,
+      1069,
+      1070,
+      1071,
+      1075,
+      1076,
+      1078,
+      1079,
+      1080,
+      1081,
+      1084,
+      1090,
+      1091,
+      1092,
+      1093,
+      1094,
+      1095,
+      1096,
+      1097,
+      1098,
+      1099,
+      1103,
+      1300,
+      1320,
+      1321,
+      1340,
+      1341,
+      1342,
+      1360,
+      1400,
+      1401,
+      1402,
+      1403,
+      1404,
+      1405,
+      1407,
+      1420,
+      1441,
+      1460,
+      1461,
+      1500,
+      1520,
+      1540,
+      1542,
+      1561,
+      1562,
+      1563,
+      1565,
+      1566,
+      1567,
+      1568,
+      1580,
+      1621,
+      1622,
+      1720,
+      1740,
+      1741,
+      1760,
+      1800,
+      1801,
+      1821,
+      1840,
+      1860,
+      1861,
+      1863,
+      1864,
+      1865,
+      1866,
+      1880,
+      1881,
+      1882,
+      1883,
+      1900,
+      1920,
+      1921,
+      1922,
+      1923,
+      1924,
+      1926,
+      1927
+    ],
+    "changed": [
+      1002,
+      1014,
+      1040,
+      1068,
+      1072,
+      1073,
+      1074,
+      1077,
+      1082,
+      1083,
+      1100,
+      1101,
+      1104,
+      1105,
+      1406,
+      1440,
+      1462,
+      1480,
+      1481,
+      1482,
+      1483,
+      1484,
+      1485,
+      1486,
+      1487,
+      1488,
+      1541,
+      1560,
+      1564,
+      1600,
+      1601,
+      1602,
+      1620,
+      1640,
+      1641,
+      1660,
+      1680,
+      1700,
+      1780,
+      1820,
+      1862,
+      1925
+    ],
+    "target_only": [
+      1005,
+      1006,
+      1012,
+      1013,
+      1058,
+      1085,
+      1086,
+      1087,
+      1088,
+      1106,
+      1107,
+      1108,
+      1109,
+      1110,
+      1111,
+      1310,
+      1810,
+      1815,
+      9900
+    ],
+    "reference_only": [
+      1102,
+      1200,
+      1489,
+      1490,
+      1491,
+      1492,
+      1493,
+      1494
+    ]
+  },
+  "limitations": [
+    "Target source ownership and why index ordering differs are unverified.",
+    "Comparisons cover this message class only and do not validate consumer substitution structures.",
+    "Reference executable uses a provisional historical build configuration.",
+    "The meaning of binary message 9900 is unknown; length-prefixed bytes are recorded without assuming text or source ownership.",
+    "ID 9900 points exactly at the end of preceding message 1927; its nominal 52-byte text may overlap following structured data. Do not treat the bytes as a proven independent immutable message."
+  ]
+}

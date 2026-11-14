@@ -1,0 +1,34 @@
+{
+  "file": "cmd/command/tspc.asm",
+  "before_sha256": "40c97115aa6c3565f7804bd50f8a553f68538eebcadcc107234dfd9414279092",
+  "after_sha256": "6072dbaf59ac4ead3da739dcbc00afc2cb10c2a6945d9ee38777951042561f34",
+  "change": "prompt_sublist DB 11 DUP (?) -> 13 DUP (?)",
+  "probe": "extras/build/tspc-copy13-yzv_96sx",
+  "object_sha256": "05f0226622c01e8eb378e2258210c2dce956236ca13e352f80fa57fc69218a3a",
+  "source_symbols": {
+    "prompt_sublist": 1848,
+    "confirm_overwrite": 1861,
+    "dest_exists": 1862,
+    "copy_state": 1863
+  },
+  "target_command_sha256": "a74c700063cd6b1c91523952bfc80e9393c125d39ada0164d48b5098089fcef3",
+  "target_copy_code_offset": 57725,
+  "target_evidence": {
+    "init_dest_exists": "c6 06 57 d8 00",
+    "increment_and_initialize": "fe 06 57 d8 8d 36 49 d8 c6 04 0d",
+    "target_prompt": 55369,
+    "target_confirm": 55382,
+    "target_dest_exists": 55383,
+    "target_copy_state": 55384,
+    "compare_offsets": [
+      56671,
+      56739,
+      56775
+    ]
+  },
+  "limitations": [
+    "Target instruction correspondence is a strong local reconstruction, not whole-file or executable equality.",
+    "Other TRANSPACE variables, target feature configurations, COPY consumer and final link remain unverified."
+  ],
+  "status": "integration_pending"
+}

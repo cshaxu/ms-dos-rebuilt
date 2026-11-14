@@ -1,0 +1,28 @@
+{
+  "source": "extras/research/bios-mult-call18-trial.asm",
+  "source_sha256": "efff4e2d15fca638157ad5e1894230c2a4f4d6d254adf18cbb43e76ddaf2bc23",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "linked_exe_sha256": "d887a0b1bfa225d4bb85c9656de9c6e482038dc1cfab59baefdab94bc8d55236",
+  "blocks": [
+    {
+      "name": "shared_words",
+      "target_file_offset": "0x47c1",
+      "length": 4,
+      "hex": "ffff0000"
+    },
+    {
+      "name": "mult_call18",
+      "target_file_offset": "0x48f6",
+      "length": 34,
+      "hex": "2ea1732b48781a2ea3732b75142e8b1e712bb43ecd212ec706712bffff720233c0c3"
+    }
+  ],
+  "observations": [
+    "The target routine decrements a shared count; on transition to zero it closes the shared handle through INT 21h AH=3Eh and sets the handle to FFFFh.",
+    "Names and source ownership are inferred; the two data words are shared with other multiplex services."
+  ],
+  "limitations": [
+    "ORG reproduces observed offsets in an isolated link, not a production source layout.",
+    "INT 21h interactions and other consumers of the shared state have not been runtime-verified."
+  ]
+}

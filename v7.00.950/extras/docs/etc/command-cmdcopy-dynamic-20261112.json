@@ -1,0 +1,25 @@
+{
+  "source": "cmd/command/tmisc1.asm",
+  "target_ranges": [
+    "0xc639..0xc680",
+    "0xc6ad..0xc6d5"
+  ],
+  "build_report": "extras/docs/etc/command-cmdcopy-dynamic-build-20261112.json",
+  "transient_end": "0xeac4",
+  "allocation_after_rounding": "0xffd2",
+  "changes": "dynamic ComBufPtr source, quote-aware command-name scanning, PSP tail bound, preservation of caller BX",
+  "incomplete": "Original PrepareLongCommand call is not yet implemented; long-command environment handoff and integrated execution remain unverified. Current caller requires BX preservation; final instruction identity is not established.",
+  "isolated_probe": {
+    "stage": "extras\\build\\cmdcopy-probe-tmcmi_xj",
+    "result": "PASS",
+    "source_sha256": "e91f6cfa0bf52a9889dc79817ab932274694bff07569b479a38b4093ba6b94e3",
+    "cases": [
+      "ECHO hi",
+      "quoted command name with whitespace",
+      "command tail above 126 bytes",
+      "BX preserved"
+    ],
+    "truncated_psp_length": 127,
+    "limitations": "probe uses extracted procedure and small delimiter stubs; long-command environment handoff and integrated command execution are not tested"
+  }
+}

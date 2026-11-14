@@ -1,0 +1,35 @@
+{
+  "file_index": 9,
+  "source": "bios/msbio1.asm",
+  "source_sha256": "ecedf14df48c41d83bb0c3ffd87bf40f2bf6f760d7ad9d6c69893718e19aba9a",
+  "interrupt_number": 21,
+  "target_vector_install_file_offset": 3952,
+  "target_vector_table_offset": 84,
+  "target_file_offset": 2550,
+  "linked_binary_offset": 2291,
+  "length": 55,
+  "matching_bytes": 47,
+  "different_byte_offsets": [
+    12,
+    13,
+    17,
+    18,
+    39,
+    40,
+    45,
+    46
+  ],
+  "target_hex": "80fc4f752deb0c3c017508e882002eff2e50013c53751a501e2bc08ed8a01704240c3c0c7509e867009c2eff1e4c011f58f92eff2e0b01",
+  "linked_hex": "80fc4f752deb0c3c017508e813ff2eff2e01073c53751a501e2bc08ed8a01704240c3c0c7509e8f8fe9c2eff1efd061f58f92eff2e0b01",
+  "temporary_stub_symbols": [
+    "bios_msg_base",
+    "bios_msg_1",
+    "bios_msg_2",
+    "bios_msg_3",
+    "int16_check",
+    "int15_reset",
+    "int15_esc"
+  ],
+  "default_reference_output_sha256": "a67d8733509f9baf94017389cc1c991d5ef1c66bdfb91b6cab3eef0fc35e9490",
+  "limitations": "INT 15 callback implementations, final layout and the complete target build remain unresolved. Target contains a short jump over the AL=1 path; that control flow is retained without inferring its intended purpose."
+}

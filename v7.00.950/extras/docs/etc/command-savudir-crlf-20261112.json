@@ -1,0 +1,17 @@
+{
+  "build": "extras/docs/etc/command-savudir-crlf-build-20261112.json",
+  "target_range": "0xc00d..0xc05c",
+  "instruction_bytes": 79,
+  "changes": [
+    "use selected current-directory interface",
+    "initialize utility message class before CRLF output"
+  ],
+  "regression": "extras/build/savudir-regress-ol8b2558",
+  "matching_outputs": [
+    "initial.txt",
+    "back.txt",
+    "sub/after.txt",
+    "sub/true.txt"
+  ],
+  "limitations": "long filename service and all callers of directory save not independently exercised; full file identity pending"
+}

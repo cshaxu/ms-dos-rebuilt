@@ -1,0 +1,790 @@
+{
+  "inc/bdsize.inc": {
+    "kind": "build_artifacts",
+    "name": "BIOS and DOS linker map sizes",
+    "evidence": "inc/origin.inc:56",
+    "detail": "Historical getsize workflow updates these constants from msbio.map and msdos.map. The DOS 7 build applicability and target values remain to be established."
+  },
+  "inc/bootform.inc": {
+    "kind": "source_order",
+    "dependencies": [
+      "inc/bpb.inc"
+    ],
+    "evidence": "inc/bootform.inc:12",
+    "detail": "File requires bpb.inc to be included first to avoid silently incorrect offsets."
+  },
+  "inc/arena.inc": {
+    "kind": "validated_macro_context",
+    "dependencies": [
+      "inc/dosmac.inc"
+    ],
+    "evidence": "extras/docs/etc/file-review-dossym-cycle-unit.json",
+    "detail": "The validated build context uses BREAK from the qualified dosmac.inc. Some callers provide their own equivalent listing macro; this is a selected valid context, not an exclusive provider claim."
+  },
+  "inc/buffer.inc": {
+    "kind": "caller_macro",
+    "name": "BREAK",
+    "evidence": "inc/buffer.inc:1",
+    "detail": "Requires a BREAK macro from the including source context. Multiple implementations exist; the actual provider and ordering must be established for each consumer."
+  },
+  "inc/curdir.inc": {
+    "kind": "validated_macro_context",
+    "dependencies": [
+      "inc/dosmac.inc"
+    ],
+    "evidence": "extras/docs/etc/file-review-dossym-cycle-unit.json",
+    "detail": "The validated build context uses BREAK from the qualified dosmac.inc. Some callers provide their own equivalent listing macro; this is a selected valid context, not an exclusive provider claim."
+  },
+  "inc/dpb.inc": {
+    "kind": "validated_macro_context",
+    "dependencies": [
+      "inc/dosmac.inc"
+    ],
+    "evidence": "extras/docs/etc/file-review-dossym-cycle-unit.json",
+    "detail": "The validated build context uses BREAK from the qualified dosmac.inc. Some callers provide their own equivalent listing macro; this is a selected valid context, not an exclusive provider claim."
+  },
+  "inc/error.inc": {
+    "kind": "caller_macro",
+    "name": "BREAK",
+    "evidence": "inc/error.inc:1",
+    "detail": "Requires a BREAK macro from the including source context. Multiple implementations exist; the actual provider and ordering must be established for each consumer."
+  },
+  "inc/exe.inc": {
+    "kind": "validated_macro_context",
+    "dependencies": [
+      "inc/dosmac.inc"
+    ],
+    "evidence": "extras/docs/etc/file-review-dossym-cycle-unit.json",
+    "detail": "The validated build context uses BREAK from the qualified dosmac.inc. Some callers provide their own equivalent listing macro; this is a selected valid context, not an exclusive provider claim."
+  },
+  "inc/filemode.inc": {
+    "kind": "validated_macro_context",
+    "dependencies": [
+      "inc/dosmac.inc"
+    ],
+    "evidence": "extras/docs/etc/file-review-dossym-cycle-unit.json",
+    "detail": "The validated build context uses BREAK from the qualified dosmac.inc. Some callers provide their own equivalent listing macro; this is a selected valid context, not an exclusive provider claim."
+  },
+  "inc/find.inc": {
+    "kind": "validated_macro_context",
+    "dependencies": [
+      "inc/dosmac.inc"
+    ],
+    "evidence": "extras/docs/etc/file-review-dossym-cycle-unit.json",
+    "detail": "The validated build context uses BREAK from the qualified dosmac.inc. Some callers provide their own equivalent listing macro; this is a selected valid context, not an exclusive provider claim."
+  },
+  "inc/int2a.inc": {
+    "kind": "validated_macro_context",
+    "dependencies": [
+      "inc/dosmac.inc"
+    ],
+    "evidence": "extras/docs/etc/file-review-dossym-cycle-unit.json",
+    "detail": "The validated build context uses BREAK from the qualified dosmac.inc. Some callers provide their own equivalent listing macro; this is a selected valid context, not an exclusive provider claim."
+  },
+  "inc/intnat.inc": {
+    "kind": "validated_macro_context",
+    "dependencies": [
+      "inc/dosmac.inc"
+    ],
+    "evidence": "extras/docs/etc/file-review-dossym-cycle-unit.json",
+    "detail": "The validated build context uses BREAK from the qualified dosmac.inc. Some callers provide their own equivalent listing macro; this is a selected valid context, not an exclusive provider claim."
+  },
+  "inc/mi.inc": {
+    "kind": "validated_macro_context",
+    "dependencies": [
+      "inc/dosmac.inc"
+    ],
+    "evidence": "extras/docs/etc/file-review-dossym-cycle-unit.json",
+    "detail": "The validated build context uses BREAK from the qualified dosmac.inc. Some callers provide their own equivalent listing macro; this is a selected valid context, not an exclusive provider claim."
+  },
+  "inc/mult.inc": {
+    "kind": "validated_macro_context",
+    "dependencies": [
+      "inc/dosmac.inc"
+    ],
+    "evidence": "extras/docs/etc/file-review-dossym-cycle-unit.json",
+    "detail": "The validated build context uses BREAK from the qualified dosmac.inc. Some callers provide their own equivalent listing macro; this is a selected valid context, not an exclusive provider claim."
+  },
+  "inc/pdb.inc": {
+    "kind": "validated_macro_context",
+    "dependencies": [
+      "inc/dosmac.inc"
+    ],
+    "evidence": "extras/docs/etc/file-review-dossym-cycle-unit.json",
+    "detail": "The validated build context uses BREAK from the qualified dosmac.inc. Some callers provide their own equivalent listing macro; this is a selected valid context, not an exclusive provider claim."
+  },
+  "inc/sf.inc": {
+    "kind": "validated_macro_context",
+    "dependencies": [
+      "inc/dosmac.inc"
+    ],
+    "evidence": "extras/docs/etc/file-review-dossym-cycle-unit.json",
+    "detail": "The validated build context uses BREAK from the qualified dosmac.inc. Some callers provide their own equivalent listing macro; this is a selected valid context, not an exclusive provider claim."
+  },
+  "inc/vector.inc": {
+    "kind": "validated_macro_context",
+    "dependencies": [
+      "inc/dosmac.inc"
+    ],
+    "evidence": "extras/docs/etc/file-review-dossym-cycle-unit.json",
+    "detail": "The validated build context uses BREAK from the qualified dosmac.inc. Some callers provide their own equivalent listing macro; this is a selected valid context, not an exclusive provider claim."
+  },
+  "inc/msbds.inc": {
+    "kind": "source_symbol",
+    "dependencies": [
+      "inc/bpb.inc"
+    ],
+    "evidence": "inc/msbds.inc:58",
+    "detail": "BDS_RBPB uses SIZE A_BPB, whose structure is defined in bpb.inc."
+  },
+  "inc/ioctl.inc": {
+    "kind": "source_symbol",
+    "dependencies": [
+      "inc/bpb.inc"
+    ],
+    "evidence": "inc/ioctl.inc:134",
+    "detail": "DP_BPB uses SIZE A_BPB, whose structure is defined in bpb.inc."
+  },
+  "bios/power.inc": {
+    "kind": "source_symbol",
+    "dependencies": [
+      "inc/mult.inc"
+    ],
+    "evidence": "bios/power.inc:172",
+    "detail": "I2F_APM_BROADCAST references MultPWR_BRDCST defined in mult.inc."
+  },
+  "dos/restrict.inc": {
+    "kind": "caller_macro",
+    "name": "rstfile",
+    "evidence": "dos/msproc.asm:326",
+    "detail": "Include invokes rstfile macro; actual caller build context must provide its definition."
+  },
+  "dos/scnam.inc": {
+    "kind": "validated_segment_context",
+    "dependencies": [
+      "inc/dosseg.inc"
+    ],
+    "evidence": "extras/docs/etc/file-review-scnam-context.json",
+    "detail": "Actual caller uses DOSCODE segment declared in dosseg.inc; qualified contextual assembly succeeded. DEBUG branch and final target still unverified."
+  },
+  "lang/usa/messages/comrmsg.inc": {
+    "kind": "verified_caller_context_cycle",
+    "dependencies": [
+      "cmd/command/rdata.asm",
+      "cmd/command/resmsg.equ",
+      "cmd/command/stub.asm"
+    ],
+    "unknown": [
+      {
+        "kind": "target_resource_integration",
+        "name": "class 6 resource generation, load location and target caller integration",
+        "evidence": "extras/docs/etc/comrmsg-resource-tables-fixup-link.json",
+        "detail": "Target class 6 format, runtime fixup and representative consumers have been investigated; original source placement and complete target build remain unresolved."
+      }
+    ],
+    "evidence": "cmd/command/rdata.asm:101,784; cmd/command/resmsg.equ:19; cmd/command/stub.asm:195",
+    "detail": "RDATA includes the fragment inside DATARES; the fragment requires MSG macro and MsgRetrv_Trap, with the latter supplied by STUB. RDATA depends on the fragment, creating a real caller-context cycle."
+  },
+  "bios/msgroup.inc": {
+    "kind": "source_order",
+    "dependencies": [
+      "bios/biosseg.inc"
+    ],
+    "evidence": "bios/biosseg.inc:8",
+    "detail": "Segment switch macros operate on BIOS segments whose full declaration and ordering are provided by biosseg.inc."
+  },
+  "cmd/command/fordata.asm": {
+    "kind": "source_symbol",
+    "dependencies": [
+      "cmd/command/comequ.asm"
+    ],
+    "evidence": "cmd/command/fordata.asm:11",
+    "detail": "SIZE arg_unit depends on the structure definition in comequ.asm; standalone MASM can silently accept an unresolved SIZE expression."
+  },
+  "dos/mssw.asm": {
+    "kind": "source_symbol",
+    "dependencies": [
+      "inc/version.inc"
+    ],
+    "evidence": "dos/mssw.asm:10",
+    "detail": "IBM equ ibmver and FALSE rely on definitions from version.inc in the actual build configuration."
+  },
+  "cmd/command/ifequ.asm": {
+    "kind": "source_symbol",
+    "dependencies": [
+      "inc/version.inc",
+      "cmd/command/comsw.asm"
+    ],
+    "evidence": "cmd/command/comsw.asm:9",
+    "detail": "Current callers include comsw.asm, which itself includes version.inc and supplies the IBM build context."
+  },
+  "lang/usa/messages/usa-ms-dos.msg": {
+    "kind": "integration_dependency",
+    "dependencies": [
+      "bios/sysinit1.asm"
+    ],
+    "evidence": "bios/sysinit1.asm:625",
+    "detail": "Message 0017 FATAL_MSG is consumed by the stack fatal display loop. Existing source stops at $, while a corresponding target BIOS output loop stops at NUL; ownership and terminator compatibility must be resolved before finishing this catalog."
+  },
+  "inc/dosmac.inc": {
+    "kind": "source_context",
+    "dependencies": [
+      "inc/dossym.inc"
+    ],
+    "evidence": "inc/dossym.inc:32",
+    "detail": "In the observed sysinit1 include chain, dossym defines DEBUG before including dosmac; dosmac tests DEBUG during pass 1. Other build contexts may supply DEBUG differently."
+  },
+  "inc/mshalo.asm": {
+    "kind": "caller_context",
+    "dependencies": [
+      "cmd/command/comseg.asm",
+      "inc/vector.inc",
+      "inc/pdb.inc",
+      "inc/arena.inc"
+    ],
+    "unknown": [
+      {
+        "kind": "caller_symbols",
+        "name": "ROM_CS and ROM_IP",
+        "evidence": "cmd/command/tcode.asm:87",
+        "detail": "These external words come from the including COMMAND module and require actual provider mapping."
+      }
+    ],
+    "evidence": "cmd/command/tcode.asm:697",
+    "detail": "Conditional include uses TRANGROUP, vector, PDB and arena declarations in the caller."
+  },
+  "dos/mshalo.asm": {
+    "kind": "caller_context",
+    "name": "segment and ROM symbols",
+    "evidence": "dos/mshalo.asm",
+    "detail": "Code fragment requires a caller-supplied TRANGROUP and related ROM, vector, PDB and arena symbols; its actual consumer is not yet identified."
+  },
+  "lang/usa/messages/usa-ms-command.msg": {
+    "kind": "integration_dependency",
+    "dependencies": [
+      "cmd/command/tranmsg.asm"
+    ],
+    "evidence": "cmd/command/tranmsg.asm:342",
+    "detail": "Message 1040 currently has two substitutions in its consumer; the target has a fixed version string. Consumer contract must be established before updating the catalog."
+  },
+  "cmd/command/tranmsg.asm": {
+    "kind": "caller_context",
+    "dependencies": [
+      "cmd/command/comseg.asm",
+      "cmd/command/comequ.asm",
+      "inc/sysmsg.inc",
+      "cmd/command/tspc.asm"
+    ],
+    "unknown": [
+      {
+        "kind": "caller_context",
+        "name": "message parameter and segment environment",
+        "evidence": "cmd/command/tdata.asm:331",
+        "detail": "tranmsg.asm is included inside tdata.asm and uses caller-provided constants, segment declarations, and external words; remaining providers require verification."
+      }
+    ],
+    "evidence": "cmd/command/tdata.asm:331",
+    "detail": "The file depends on caller-provided message structures, segment context and version substitution words."
+  },
+  "cmd/command/comequ.asm": {
+    "kind": "target_abi_dependency",
+    "dependencies": [
+      "inc/dossym.inc",
+      "inc/curdir.inc",
+      "inc/msgserv.asm"
+    ],
+    "unknown": [
+      {
+        "kind": "target_abi",
+        "name": "13-byte substitution block consumers",
+        "evidence": "extras/docs/etc/command-msg-sublist13-proof.json",
+        "detail": "Target transient message service uses 13-byte substitution blocks, while this file defines size 11. Establish all consumers and conditional configurations before modifying the constant."
+      }
+    ],
+    "evidence": "extras/docs/etc/command-msg-sublist13-proof.json",
+    "detail": "Retains required include ordering and adds observed cross-module message structure ABI dependency."
+  },
+  "inc/highload.inc": {
+    "kind": "caller_context",
+    "dependencies": [
+      "inc/highvar.inc",
+      "inc/arena.inc"
+    ],
+    "unknown": [
+      {
+        "kind": "caller_context",
+        "name": "remaining implicit symbols and build contexts",
+        "evidence": "cmd/command/loadhi.asm:127; bios/sysconf.asm:3421",
+        "detail": "Code fragment depends on including modules; complete macro, symbol, segment and conditional dependencies require verification before processing."
+      }
+    ],
+    "evidence": "inc/highload.inc:180; inc/highload.inc:248; cmd/command/loadhi.asm:54,81,127",
+    "detail": "Uses HIGHVAR variables and ARENA layout; callers supply these in context."
+  },
+  "bios/msbio.lnk": {
+    "kind": "linker_inputs",
+    "dependencies": [
+      "bios/msbio1.asm",
+      "bios/mschar.asm",
+      "bios/msdisk.asm",
+      "bios/msdioctl.asm",
+      "bios/msint13.asm",
+      "bios/msbio2.asm",
+      "bios/msinit.asm",
+      "bios/sysinit1.asm",
+      "bios/sysconf.asm",
+      "bios/syspre.asm",
+      "bios/sysinit2.asm",
+      "bios/sysimes.asm",
+      "bios/power.asm",
+      "bios/ptime.asm",
+      "bios/msend.asm"
+    ],
+    "unknown": [],
+    "evidence": "bios/msbio.lnk",
+    "detail": "Linker response lists object inputs; exact object build provenance and DOS 7 link layout remain to be verified."
+  },
+  "dos/msdos.lnk": {
+    "kind": "linker_inputs",
+    "dependencies": [
+      "dos/origin.asm",
+      "dos/msdata.asm",
+      "dos/mstable.asm",
+      "dos/msdisp.asm",
+      "dos/mscode.asm",
+      "dos/msdosme.asm",
+      "dos/time.asm",
+      "dos/getset.asm",
+      "dos/misc.asm",
+      "dos/misc2.asm",
+      "dos/crit.asm",
+      "dos/cpmio.asm",
+      "dos/cpmio2.asm",
+      "dos/fcbio.asm",
+      "dos/fcbio2.asm",
+      "dos/search.asm",
+      "dos/path.asm",
+      "dos/ioctl.asm",
+      "dos/delete.asm",
+      "dos/rename.asm",
+      "dos/finfo.asm",
+      "dos/dup.asm",
+      "dos/create.asm",
+      "dos/open.asm",
+      "dos/dinfo.asm",
+      "dos/isearch.asm",
+      "dos/abort.asm",
+      "dos/close.asm",
+      "dos/dircall.asm",
+      "dos/disk.asm",
+      "dos/disk2.asm",
+      "dos/disk3.asm",
+      "dos/dir.asm",
+      "dos/dir2.asm",
+      "dos/dev.asm",
+      "dos/mknode.asm",
+      "dos/rom.asm",
+      "dos/fcb.asm",
+      "dos/msctrlc.asm",
+      "dos/fat.asm",
+      "dos/buf.asm",
+      "dos/msproc.asm",
+      "dos/alloc.asm",
+      "dos/srvcall.asm",
+      "dos/segcheck.asm",
+      "dos/dosprint.asm",
+      "dos/util.asm",
+      "dos/handle.asm",
+      "dos/macro.asm",
+      "dos/macro2.asm",
+      "dos/file.asm",
+      "dos/lock.asm",
+      "dos/romfind.asm",
+      "dos/share.asm",
+      "dos/exepatch.asm",
+      "dos/msinit.asm"
+    ],
+    "unknown": [
+      {
+        "kind": "build_object",
+        "name": "parse.obj",
+        "candidates": [
+          "dos/parse.asm",
+          "inc/parse.asm"
+        ],
+        "detail": "Establish actual build source and configuration."
+      }
+    ],
+    "evidence": "dos/msdos.lnk",
+    "detail": "Linker response lists object inputs; exact object build provenance and DOS 7 link layout remain to be verified."
+  },
+  "cmd/command/command.lnk": {
+    "kind": "linker_inputs",
+    "dependencies": [
+      "cmd/command/command1.asm",
+      "cmd/command/command2.asm",
+      "cmd/command/rucode.asm",
+      "cmd/command/stub.asm",
+      "cmd/command/rdata.asm",
+      "cmd/command/init.asm",
+      "cmd/command/iparse.asm",
+      "cmd/command/uinit.asm",
+      "cmd/command/tcode.asm",
+      "cmd/command/tbatch.asm",
+      "cmd/command/tbatch2.asm",
+      "cmd/command/tfor.asm",
+      "cmd/command/dir.asm",
+      "cmd/command/cratio.asm",
+      "cmd/command/tcmd1b.asm",
+      "cmd/command/tcmd2a.asm",
+      "cmd/command/tcmd2b.asm",
+      "cmd/command/tenv.asm",
+      "cmd/command/tenv2.asm",
+      "cmd/command/tmisc1.asm",
+      "cmd/command/tmisc2.asm",
+      "cmd/command/tpipe.asm",
+      "cmd/command/parse2.asm",
+      "cmd/command/path1.asm",
+      "cmd/command/path2.asm",
+      "cmd/command/tucode.asm",
+      "cmd/command/copy.asm",
+      "cmd/command/copypr1.asm",
+      "cmd/command/copypr2.asm",
+      "cmd/command/cparse.asm",
+      "cmd/command/tparse.asm",
+      "cmd/command/tprintf.asm",
+      "cmd/command/loadhi.asm",
+      "cmd/command/tdata.asm",
+      "cmd/command/tspc.asm"
+    ],
+    "unknown": [],
+    "evidence": "cmd/command/command.lnk",
+    "detail": "Linker response lists object inputs; exact object build provenance and DOS 7 link layout remain to be verified."
+  },
+  "inc/msgdcl.inc": {
+    "kind": "caller_context",
+    "dependencies": [
+      "inc/sysmsg.inc"
+    ],
+    "unknown": [
+      {
+        "kind": "caller_context",
+        "name": "message class definitions and COMR COMT FARmsg",
+        "evidence": "inc/msgdcl.inc:109; cmd/command/tdata.asm:1081,1098; cmd/command/tprintf.asm:53,372",
+        "detail": "Macro expands on first pass and requires caller-provided class configuration and symbols; establish actual generated message provider and order."
+      }
+    ],
+    "evidence": "cmd/command/tdata.asm:1081,1098",
+    "detail": "Message macros are expanded in a caller context set up by SYSMSG.INC and generated message definitions."
+  },
+  "bios/msbio.skl": {
+    "kind": "message_build_inputs",
+    "dependencies": [
+      "lang/usa/messages/usa-ms-dos.msg"
+    ],
+    "unknown": [
+      {
+        "kind": "build_tool",
+        "name": "message generator and exact input mapping",
+        "evidence": "bios/msbio.skl",
+        "detail": "Skeleton :use directives reference message resources; determine generator and input provenance for DOS 7."
+      }
+    ],
+    "evidence": "bios/msbio.skl",
+    "detail": "Skeleton consumes message resources; generated output must be checked in actual build."
+  },
+  "dos/msdos.skl": {
+    "kind": "message_build_inputs",
+    "dependencies": [
+      "lang/usa/messages/usa-ms-dos.msg"
+    ],
+    "unknown": [
+      {
+        "kind": "build_tool",
+        "name": "message generator and exact input mapping",
+        "evidence": "dos/msdos.skl",
+        "detail": "Skeleton :use directives reference message resources; determine generator and input provenance for DOS 7."
+      }
+    ],
+    "evidence": "dos/msdos.skl",
+    "detail": "Skeleton consumes message resources; generated output must be checked in actual build."
+  },
+  "cmd/command/command.skl": {
+    "kind": "message_build_inputs",
+    "dependencies": [
+      "lang/usa/messages/usa-ms-command.msg",
+      "cmd/command/buildmsg.c"
+    ],
+    "unknown": [
+      {
+        "kind": "build_tool",
+        "name": "buildidx and existing buildmsg executable provenance",
+        "evidence": "extras/tools/build_command_reference.py:35; cmd/command/buildmsg.c:212",
+        "detail": "Existing command reference builds use buildidx and a prebuilt buildmsg; their correspondence to historical sources and target output remains unverified."
+      }
+    ],
+    "evidence": "cmd/command/command.skl",
+    "detail": "Skeleton consumes message resources; generated output must be checked in actual build."
+  },
+  "lang/usa/messages/comimsg.inc": {
+    "kind": "caller_context",
+    "dependencies": [
+      "cmd/command/resmsg.equ",
+      "cmd/command/comseg.asm"
+    ],
+    "unknown": [
+      {
+        "kind": "target_consumer_contract",
+        "name": "HelpMsgs table layout and COMMAND init consumers",
+        "evidence": "cmd/command/uinit.asm:357; lang/usa/messages/comimsg.inc:24; target COMMAND.COM:0x3319-0x3897",
+        "detail": "Target has 16 help texts instead of 13, and source emits a pointer table that has not yet been located in target. Determine target consumer and placement before editing the fragment."
+      }
+    ],
+    "evidence": "cmd/command/uinit.asm:126,357; lang/usa/messages/comimsg.inc",
+    "detail": "Fragment emits msg macro data and a RESGROUP-relative help table; consumer and target layout must be established."
+  },
+  "inc/const2.asm": {
+    "kind": "caller_context",
+    "dependencies": [
+      "inc/dossym.inc",
+      "inc/sf.inc",
+      "dos/dostab.asm",
+      "inc/ms_data.asm"
+    ],
+    "unknown": [
+      {
+        "kind": "caller_context",
+        "name": "complete DOSDATA symbols, macros and configuration",
+        "evidence": "dos/msdata.asm:13-39; inc/const2.asm:10-55",
+        "detail": "This fragment is included in msdata after multiple headers and requires their macros, structures and build options. Enumerate complete prerequisites."
+      }
+    ],
+    "evidence": "dos/msdata.asm:13-43; inc/const2.asm:85-86,206; dos/dostab.asm:432-433; inc/ms_data.asm:53",
+    "detail": "Uses caller-provided Break, AsmVars, I_am, sf_entry and data-segment environment; also references redir_patch from dostab and DEVIOBUF from ms_data."
+  },
+  "inc/highexit.inc": {
+    "kind": "caller_context",
+    "dependencies": [
+      "inc/arena.inc",
+      "inc/highvar.inc"
+    ],
+    "unknown": [
+      {
+        "kind": "caller_context",
+        "name": "complete segment and external environment",
+        "evidence": "inc/highexit.inc:96; cmd/command/stub.asm:285-286; bios/sysconf.asm:3422",
+        "detail": "getdata and putdata expand against caller-provided segment context; remaining providers and target configuration require verification."
+      }
+    ],
+    "evidence": "inc/highexit.inc:83-115",
+    "detail": "Uses highvar.inc variables and macros as well as arena layout."
+  },
+  "inc/msbdata.inc": {
+    "kind": "conditional_caller_context",
+    "dependencies": [
+      "inc/oemconf.inc"
+    ],
+    "unknown": [
+      {
+        "kind": "bios_caller",
+        "name": "int_2f forward reference and BIOS data placement",
+        "evidence": "bios/msbio1.asm:87,128,870; inc/msbdata.inc:39-42",
+        "detail": "In_Bios branch embeds a far pointer to int_2f supplied by BIOS caller; non-BIOS branch instead defines a dummy. Resolve each required configuration as a potential cycle."
+      }
+    ],
+    "evidence": "inc/msbdata.inc:16-42",
+    "detail": "Different definition and placement semantics in BIOS and DOS callers."
+  },
+  "dos/alloc.asm": {
+    "kind": "expanded_external_fixups",
+    "dependencies": [
+      "inc/const2.asm",
+      "dos/msconst.asm",
+      "dos/crit.asm",
+      "dos/mscode.asm",
+      "dos/msdisp.asm"
+    ],
+    "unknown": [
+      {
+        "kind": "link_context",
+        "name": "external symbol provider build context and completeness",
+        "evidence": "extras/docs/etc/alloc-omf-dependencies.json",
+        "detail": "Object references all 17 symbols; confirm actual link providers and target configuration before completing audit."
+      }
+    ],
+    "evidence": "extras/docs/etc/alloc-omf-dependencies.json",
+    "detail": "Providers found in source via I_am, procedure, entry and labels; emitted through DOS macro expansion."
+  },
+  "bios/inc.asm": {
+    "kind": "source_order",
+    "dependencies": [
+      "inc/bpb.inc",
+      "inc/bootform.inc"
+    ],
+    "unknown": [
+      {
+        "kind": "include_order",
+        "name": "BOOTFORM preceding BPB warning",
+        "evidence": "bios/inc.asm:18-19; inc/bootform.inc:13",
+        "detail": "Listing source includes BOOTFORM before BPB despite BOOTFORM warning. Determine indirect includes and whether this listing-only module affects target before processing."
+      }
+    ],
+    "evidence": "bios/inc.asm:18-19; inc/bootform.inc:13",
+    "detail": "Include ordering must be verified in actual assembly configuration."
+  },
+  "dos/crit.asm": {
+    "kind": "expanded_external_fixup",
+    "dependencies": [
+      "dos/dostab.asm"
+    ],
+    "unknown": [
+      {
+        "kind": "link_context",
+        "name": "actual REDIR_PATCH provider and DOS7 configuration",
+        "evidence": "extras/build/crit-context-0vc2uorx/crit.obj; dos/dostab.asm:432-433",
+        "detail": "The candidate definition must be verified within its owning build module and target configuration."
+      }
+    ],
+    "evidence": "dos/crit.asm:35,61; dos/dostab.asm:432-433",
+    "detail": "I_need macro expansion produced a fixup to redir_patch; source declares it public in dostab.asm."
+  },
+  "dos/dostab.asm": {
+    "kind": "mutual_link_dependency",
+    "dependencies": [
+      "inc/dosmac.inc",
+      "dos/misc2.asm"
+    ],
+    "unknown": [
+      {
+        "kind": "include_context",
+        "name": "DOSDATA preceding definitions and other implicit symbols",
+        "evidence": "dos/msdata.asm:13-43; dos/dostab.asm:440-503",
+        "detail": "This included fragment depends on caller segment and other data; full dependency and target context remain unverified."
+      }
+    ],
+    "evidence": "dos/dostab.asm:496-503; dos/misc2.asm:426",
+    "detail": "Table stores offsets for FastRet defined by MISC2."
+  },
+  "dos/misc2.asm": {
+    "kind": "expanded_external_fixups",
+    "dependencies": [
+      "dos/dostab.asm",
+      "inc/const2.asm",
+      "inc/ms_data.asm",
+      "inc/mshead.asm",
+      "dos/msconst.asm",
+      "dos/fcb.asm",
+      "dos/file.asm",
+      "dos/handle.asm",
+      "dos/ioctl.asm"
+    ],
+    "unknown": [
+      {
+        "kind": "link_context",
+        "name": "remaining external symbols and actual object providers",
+        "evidence": "extras/docs/etc/misc2-omf-dependencies.json",
+        "detail": "Complete actual build providers for all fixup symbols must be verified before unit processing."
+      }
+    ],
+    "evidence": "extras/docs/etc/misc2-omf-dependencies.json",
+    "detail": "Object references tables defined in DOSTAB, which references FastRet from MISC2; verified mutual dependency."
+  },
+  "dos/mstable.asm": {
+    "kind": "expanded_external_fixups",
+    "dependencies": [
+      "dos/msproc.asm",
+      "dos/alloc.asm",
+      "dos/file.asm",
+      "dos/msdisp.asm"
+    ],
+    "unknown": [
+      {
+        "kind": "link_context",
+        "name": "remaining expanded table fixup providers",
+        "evidence": "extras/docs/etc/mstable-omf-dependencies.json",
+        "detail": "All 145 names have unique public providers in a historical 57-object reference build; version configuration differs. Verify target-build providers and full external unit dependencies."
+      }
+    ],
+    "evidence": "extras/docs/etc/mstable-omf-dependencies.json",
+    "detail": "Includes three directly verified procedure providers; this is not the complete set."
+  },
+  "cmd/command/tspc.asm": {
+    "kind": "target_symbol_ownership",
+    "dependencies": [
+      "cmd/command/tdata.asm"
+    ],
+    "unknown": [
+      {
+        "kind": "symbol_reconstruction",
+        "name": "answer_buffer ownership and generated message linkage",
+        "evidence": "extras/docs/etc/file-review-tspc-answer-buffer.json",
+        "detail": "Baseline TDATA exports answer_buffer as message alias; target COPY uses a byte between TSPC fields. Source ownership and replacement must be verified without duplicate publics."
+      }
+    ],
+    "evidence": "cmd/command/tdata.asm:1092-1093; extras/docs/etc/file-review-tspc-answer-buffer.json",
+    "detail": "Target requires reconciling TDATA symbol ownership with the TSPC layout as one dependency unit."
+  },
+  "inc/msgserv.asm": {
+    "kind": "macro_context_cycle",
+    "dependencies": [
+      "inc/sysmsg.inc"
+    ],
+    "unknown": [
+      {
+        "kind": "macro_context",
+        "name": "service flags and generated message classes",
+        "evidence": "inc/sysmsg.inc:239-252,390-441; inc/msgserv.asm:82,1218,2885",
+        "detail": "MSGSERV expands in caller-supplied context and depends on configuration flags and structures; enumerate actual caller paths and target generated resources."
+      }
+    ],
+    "evidence": "inc/sysmsg.inc:203,239-252,390-441; inc/msgserv.asm:1218,2885",
+    "detail": "SYSMSG supplies flags and symbol definitions, then includes MSGSERV inside MSG_UTILNAME and MSG_SERVICES macro expansions."
+  },
+  "inc/sysmsg.inc": {
+    "kind": "macro_context_cycle",
+    "dependencies": [
+      "inc/msgserv.asm",
+      "cmd/command/command.skl",
+      "cmd/command/buildmsg.c",
+      "lang/usa/messages/usa-ms-command.msg"
+    ],
+    "unknown": [
+      {
+        "kind": "generated_resources",
+        "name": "COMMAND.CTL and class files for actual target",
+        "evidence": "inc/sysmsg.inc:394-396,404-441; extras/tools/build_command_reference.py:35",
+        "detail": "Macro-selected generated files depend on skeleton, catalog and generator; establish DOS7 message source and tool configuration."
+      }
+    ],
+    "evidence": "inc/sysmsg.inc:394-396,404-441",
+    "detail": "SYSMSG includes MSGSERV for structures and services and obtains message control/classes from generated resources."
+  },
+  "cmd/command/tparse.asm": {
+    "kind": "verified_include_resolution",
+    "dependencies": [
+      "inc/parse.asm"
+    ],
+    "resolved_includes": {
+      "parse.asm": "inc/parse.asm"
+    },
+    "evidence": "extras/docs/etc/tparse-include-resolution.json",
+    "detail": "COMMAND include search selects inc/parse.asm, which defines SysParse; dos/parse.asm is a different kernel module."
+  },
+  "inc/lmstub.asm": {
+    "kind": "generated_resource_and_target_caller",
+    "dependencies": [
+      "dos/msdos.skl",
+      "lang/usa/messages/usa-ms-dos.msg"
+    ],
+    "unknown": [
+      {
+        "kind": "target_indirect_callee",
+        "name": "A20 failure handler and resource owner",
+        "evidence": "extras/docs/etc/lmstub-target-a20-evidence.json",
+        "detail": "Target A20 failure invokes an indirect far handler; its provider and relationship to BIOS message data require verification."
+      }
+    ],
+    "evidence": "inc/lmstub.asm:600,848; dos/msdos.skl:15",
+    "detail": "MSDOS.CL2 is generated from the MSDOS skeleton and DOS message catalog."
+  }
+}

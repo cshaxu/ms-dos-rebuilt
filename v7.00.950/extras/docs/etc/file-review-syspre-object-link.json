@@ -1,0 +1,14 @@
+{
+  "source_sha256": "949275ae57a049de9aecdd314a7dcd78087e14dc047dffa869fe8b548c1850d4",
+  "object_sha256": "4f5eddeb99d63451d6c819f5340bc675cb7fbd207c83a3658a5d4f3d18a4bcfd",
+  "verification": "extras/tools/verify_syspre_link.py",
+  "object_stage": "extras/build/syspre-data-3oo7gd5r",
+  "link_stage": "extras/build/syspre-object-link-da8ypk01",
+  "target_sysinit_offset": "0x8a64",
+  "matching_linked_bytes": 1166,
+  "scope": "Actual unmodified SYSPRE object linked with target-positioned synthetic external symbols; all bytes including its previously masked relocation bytes match target IO.SYS.",
+  "limitations": [
+    "All external symbol definitions and SYSPRE segment placement are synthetic target-positioned labels.",
+    "Full SYSINIT object ordering, external symbol providers, and final three binaries remain unverified."
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "source": "extras/build/directory-context-copy-trial/dircopy.asm",
+  "source_sha256": "69a1c8ad74e6a40a9a74eb6454955399da0491c712fcbb45c1c55ae30a7f4fb6",
+  "object_sha256": "5737f3e8658a724a62dbb9b1c528e4d75396b5d6ee02907ae9e703dab3c2d7bb",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_file_offset": "0x1805c",
+  "length": 26,
+  "all_bytes_equal": true,
+  "limitations": [
+    "DirSave1 uses the independently observed DOSDATA offset as an EQU solely to validate instruction bytes; final source must use a real relocated symbol.",
+    "Routine and variable names are descriptive and not independently recovered from original 7.0a source.",
+    "No enclosing module, final link, or execution-path equivalence has been verified."
+  ]
+}

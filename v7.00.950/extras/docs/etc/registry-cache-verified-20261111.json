@@ -1,0 +1,33 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\config-services-eg121p83",
+  "source": "bios/regcache.asm",
+  "source_sha256": "ca198e28d147c90fb5312a9ab4f289fd15c0222e828ef07dc1a9afc4585e0b20",
+  "linked_sha256": "48d47bc022964ed5b92e5903332d652da17059b5371f3921d48dfd2b9fa2a053",
+  "module_bytes": 478,
+  "exact_non_relocated_bytes": 450,
+  "verified_far_calls": 7,
+  "verified_data_references": 0,
+  "runtime_helper_raw_exact_bytes": 11,
+  "functions": [
+    "RegLoadKey"
+  ],
+  "allocator_dependency": {
+    "stage": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\config-services-eg121p83",
+    "source": "bios/regalloc.asm",
+    "source_sha256": "41cb2eb1ac089f574af0bd73f89d92d02a82f4b36f5f948fbd68558b0721daec",
+    "linked_sha256": "5fc7bc9458d0b76822ae561cf8dc156bcdad7209945d33690d8e0e8f698e7846",
+    "function_bytes": 140,
+    "exact_non_relocated_bytes": 94,
+    "verified_far_calls": 3,
+    "verified_data_references": 17,
+    "initial_state_raw_exact_bytes": 8,
+    "dependency_services_raw_exact_bytes": 978,
+    "dependencies": {
+      "bios/configio.asm": "f81a64fc90fe36f357560237d9e526b990163eb87c8968113a33b9c781707817",
+      "bios/configmem.asm": "1582fc20c6c5a3d1f75c1c06517d2d7275a5c07ebde0c5a15dcda23c38c6cf44"
+    },
+    "scope": "Complete reserve allocation/retry function and initial state; global program placement and reserve setup caller pending."
+  },
+  "dependency_service_raw_exact_bytes": 978,
+  "scope": "Complete cache lookup/read/insert/cleanup function with actual allocator, IO and CRT providers; final program linkage pending."
+}

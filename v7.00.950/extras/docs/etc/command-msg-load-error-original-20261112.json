@@ -1,0 +1,19 @@
+{
+  "build": "extras/docs/etc/command-msg-load-error-original-build-20261112.json",
+  "source": "inc/msgserv.asm",
+  "change": "Restored target message-loader error epilogue following normal return; GET wrapper now follows target error epilogue.",
+  "target_instruction_range": "0xfeb1..0xfebd",
+  "registered_instruction_bytes": 12,
+  "target_probe": "extras/build/msg-load-entry-target-xk46l4vg",
+  "current_probe": "extras/build/msg-load-entry-current-wr06_tsl",
+  "matched_cases": [
+    "DIR listing except separate parent timestamp",
+    "VER /R",
+    "VOL",
+    "DEL missing-file stderr",
+    "batch continuation"
+  ],
+  "limitations": "No incoming reference to target error epilogue identified; failure branch not runtime exercised. Lookup routines still located differently; complete binary not byte-identical.",
+  "output_bytes": 92935,
+  "target_bytes": 92870
+}

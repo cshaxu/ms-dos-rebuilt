@@ -1,0 +1,15 @@
+{
+  "file": "bios/sysinit2.asm",
+  "source_sha256": "8f135ce030da69735903e0ee0020235e7223d6b1b2f1ae8b3b3209e77b30f493",
+  "target_evidence": [
+    "IO.SYS 0x7571..0x7575 tests AH for zero",
+    "IO.SYS 0x758a..0x758f tests AL for zero"
+  ],
+  "dos7_assembly": "passed",
+  "default_object_identical_to_prior": true,
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "This is a partial recovery: DX lookup mode, its caller ABI, and overall binary layout remain incomplete.",
+    "The mixed link uses stubs and older objects."
+  ]
+}

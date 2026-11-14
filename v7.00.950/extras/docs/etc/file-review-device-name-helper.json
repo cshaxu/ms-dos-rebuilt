@@ -1,0 +1,12 @@
+{
+  "source_sha256": "1cd3799ea4fef4f2fb7b492009ed52eb5741ea10909a736743299170f25f62f7",
+  "verification": "extras/tools/verify_menu_check_full.py",
+  "target_sysinit_offset": "0x78b2",
+  "bytes": 36,
+  "scope": "Actual restored device-name scan helper matches target; full split SYSCONF assembles via verify_syspre_device_link.py.",
+  "limitations": [
+    "Name-dependent device compatibility callers and their BIOS-call/vector dependencies are not reconstructed yet.",
+    "The original command-line pointer normalization contains an as-yet unidentified 6122h base; no unsupported interpretation is asserted.",
+    "Full SYSINIT layout/link and final binaries remain unverified."
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "source": "bios/sysconf.asm",
+  "sha256": "e86f7e2145bfcd3afe7b4433a1684dd03a3a876f53eb5f364f868af3e8b49b98",
+  "change": "Restore shared INSTALL/INSTALLHIGH/ACCDATE flag path and target pass dispatch; join caller to first-pass and QEMM providers.",
+  "matched": [
+    {
+      "region": "CONFIG multi-pass dispatch",
+      "start": "0x69b9",
+      "end_exclusive": "0x6a85",
+      "bytes": 204
+    },
+    {
+      "region": "first-pass DOS/SWITCHES/LOGO",
+      "start": "0x6bdd",
+      "end_exclusive": "0x6ca8",
+      "bytes": 203
+    }
+  ],
+  "remaining_difference": {
+    "region": "QEMM prescan",
+    "total_bytes": 63,
+    "matched_bytes": 61,
+    "actual_offset": "0x8a46",
+    "source_encoding": "3ac4",
+    "target_encoding": "38e0",
+    "explanation": "Both instructions compare AL and AH; direction-bit encodings differ."
+  },
+  "verification": {
+    "tool": "extras/tools/verify_syspre_device_link.py",
+    "link_stage": "extras/build/syspre-object-link-aa34y_dp",
+    "module_stage": "extras/build/ml-sysinit-s8a6usqa",
+    "scope": "Actual CONFIG dispatch, first-pass, QEMM and flag providers linked; other command entry locations and unrelated layout remain anchored."
+  },
+  "limitations": [
+    "QEMM scan has two differing bytes and requires an encoding fix.",
+    "Runtime, complete product link and three final binaries remain unverified."
+  ]
+}

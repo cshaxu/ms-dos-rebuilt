@@ -1,0 +1,19 @@
+{
+  "source": "bios/sysconf.asm",
+  "source_sha256": "d34dc8f8db5916d92a95a8b835ae339e579a408d471d4445f2e08a8be0b8fffc",
+  "change": "Restore target SET/NUMLOCK/comment dispatcher order, share accdate_error with err, restore badop_p indexed message, and link actual parser wrapper and bad-parameter state.",
+  "target": "extras/baselines/targets/IO.SYS",
+  "matched": {
+    "start": "0x7521",
+    "end_exclusive": "0x75c2",
+    "bytes": 161,
+    "bad_parameter_state_bytes": 4
+  },
+  "verification": "extras/tools/verify_syspre_device_link.py",
+  "stage": "extras/build/syspre-object-link-8ypc0vqh",
+  "assembly": "Full SYSCONF after device-data split assembled in same diagnostic.",
+  "limitations": [
+    "sysparse at 5c07h remains target-anchored, as do unrelated gaps and BIOS positions.",
+    "Full product link and all three target binaries remain unverified."
+  ]
+}

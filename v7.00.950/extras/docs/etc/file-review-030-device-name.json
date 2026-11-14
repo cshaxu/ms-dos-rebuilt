@@ -1,0 +1,26 @@
+{
+  "file": "bios/sysconf.asm",
+  "file_index": 30,
+  "source_sha256": "51b70334b69abb1a55f431de022abe8c451c899b34790bcffb7d128876e071c0",
+  "matched_ranges": [
+    {
+      "target": "IO.SYS 0x8f70..0x8f8e",
+      "bytes": 30,
+      "purpose": "ASPI names and flags"
+    },
+    {
+      "target": "IO.SYS 0xd5f8..0xd671",
+      "bytes": 121,
+      "purpose": "device name extraction and ASPI recognition"
+    }
+  ],
+  "different_bytes": 0,
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "Isolated ORG layout does not establish final source ownership or executable placement.",
+    "Neither the normal device-load caller nor the device hook caller has been restored.",
+    "The ASPI flags have no restored consumers."
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "source": "bios/msinit.asm",
+  "source_sha256": "14a47f8f8d62aa1fb31f019aee746997e1cc2756bc84c677634635b70b592f0e",
+  "listing_sha256": "620b2d451435a9a8ad0ff8c236dfb15c2914a037ff4942acc20b47d2d9d36b2d",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_offset": "0x142b",
+  "length": 32,
+  "matched_nonrelocated_bytes": 24,
+  "relocation_bytes": 8,
+  "differences": [],
+  "patch_target": "call_orig13 offsets +4, +6, +1ah, +1bh",
+  "limitations": "Patch destinations must be linked to verified call_orig13 layout; runtime execution and full IO.SYS remain unverified."
+}

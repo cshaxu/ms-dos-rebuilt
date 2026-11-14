@@ -1,0 +1,11 @@
+{
+  "source": "bios/sysinit2.asm",
+  "source_sha256": "60037cbfff97fa6debae36a36fbf79a4e1fa7b53d267c5c3ddcbb2d9b3d03eec",
+  "scenario": "Read an INI file via DOS file calls; switch PATHS/OPTIONS sections and parse WINDIR, BOOTDELAY and BOOTCONFIG.",
+  "result": "passed",
+  "stage": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\option-parser-runtime-nfut13mt",
+  "limitations": [
+    "Extracted procedures and fixture; fixed external data and path finalization are synthetic.",
+    "Does not test full boot, production binary or all options."
+  ]
+}

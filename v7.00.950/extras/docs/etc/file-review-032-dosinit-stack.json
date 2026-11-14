@@ -1,0 +1,15 @@
+{
+  "file": "bios/sysinit1.asm",
+  "source_sha256": "5f9684623f7a331163c27dcf90f25d6d9b351c95006b6941eeaff1ddd8640337",
+  "target_range": "IO.SYS 0x5f07..0x5f11",
+  "bytes": 10,
+  "different_bytes": 0,
+  "probe": "extras/research/dosinit-stack-linked.asm",
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "Probe places instructions at the target offset; final linked placement and execution remain unverified.",
+    "The kernel-side DOSINIT interface remains incomplete."
+  ]
+}

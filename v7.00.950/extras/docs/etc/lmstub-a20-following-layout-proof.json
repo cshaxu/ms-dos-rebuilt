@@ -1,0 +1,17 @@
+{
+  "source": "inc/lmstub.asm",
+  "source_sha256": "a0783d6f103220cbc6eff5ae371fbc9316e53b1e99ff74e4afc418496d4012f8",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_far_call_file_offset": "0x1af95",
+  "target_far_call_hex": "2eff1e3a13",
+  "target_following_file_offset": "0x1af9a",
+  "target_following_hex": "518b0e1000e2fe59cb",
+  "target_signature_occurrences": 1,
+  "observation": "The bytes immediately after the target A20 fatal-error far call exactly encode the historical RatBugCode procedure. The baseline source places OldInstanceJunk, DosHasHMA, fixexepatch and RationalPatchPtr between XMMerror and RatBugCode.",
+  "implication": "The existing isolated candidate does not reconstruct the target layout after its matching 82-byte range. Do not merge that candidate unchanged.",
+  "limitations": [
+    "Unique instruction bytes and source correspondence strongly support identification but do not independently establish original symbol names.",
+    "The intervening historical variables may have moved, changed or been removed; their target ownership and consumers are not yet resolved.",
+    "No final target link or binary identity is established."
+  ]
+}

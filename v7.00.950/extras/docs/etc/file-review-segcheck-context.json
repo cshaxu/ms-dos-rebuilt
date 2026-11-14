@@ -1,0 +1,37 @@
+{
+  "file": "dos/segcheck.asm",
+  "sha256": "b5bbcf41397409b980277292477b75cca01212ba20909767273ffb9a34956da7",
+  "references": [
+    {
+      "name": "6.0",
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\segcheck.asm",
+      "sha256": "b5bbcf41397409b980277292477b75cca01212ba20909767273ffb9a34956da7"
+    },
+    {
+      "name": "5.0",
+      "path": "O:\\repos.hobby\\ms-dos-rebuilt\\v5.0\\dos\\segcheck.asm",
+      "sha256": "b5bbcf41397409b980277292477b75cca01212ba20909767273ffb9a34956da7"
+    },
+    {
+      "name": "Astro",
+      "path": "O:\\repos.external\\astro\\dos\\segcheck.asm",
+      "sha256": "b5bbcf41397409b980277292477b75cca01212ba20909767273ffb9a34956da7"
+    }
+  ],
+  "dependencies": [
+    "inc/devsym.inc",
+    "inc/dosseg.inc",
+    "inc/dossym.inc",
+    "inc/dpb.inc",
+    "inc/int2a.inc",
+    "inc/sf.inc",
+    "inc/version.inc"
+  ],
+  "probe": "extras/build/kernel-dos7-symbols-du61j8us/segcheck.obj",
+  "object_sha256": "6287bf2a481c4f96bd015519e49d7ccef252f58e4bd535837ab4de6d311aba37",
+  "debug": 0,
+  "doscode_size": 0,
+  "external": [],
+  "fixup_externals": [],
+  "limitations": "DEBUG-enabled build and final target configuration not validated."
+}

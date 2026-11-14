@@ -1,0 +1,25 @@
+{
+  "image_sha256": "92619df55bdbdf4dc22e6dba6acdd6a42f8b77323b3542cc8d0b61f8c4c43c1f",
+  "target_io_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "root_entry_index": 30,
+  "first_cluster": 1726,
+  "first_lba": 1757,
+  "read_sectors": 4,
+  "read_destination_physical": 1792,
+  "boot_instruction_offset": 300,
+  "boot_instructions_hex": "bb000753b104e816005b72c8813f4d5a75a781bf0002424a759fea00027000",
+  "loader_checks": [
+    {
+      "file_offset": 0,
+      "bytes": "4d5a"
+    },
+    {
+      "file_offset": 512,
+      "bytes": "424a"
+    }
+  ],
+  "far_jump_segment": 112,
+  "far_jump_offset": 512,
+  "entry_file_offset": 512,
+  "interpretation": "Static path for this boot sector: four consecutive sectors are read to physical 0x700, signatures are checked, and execution transfers to 0070:0200 (file offset 0x200). The MZ header execution entry represents a separate field and is not this boot entry. No boot execution was performed."
+}

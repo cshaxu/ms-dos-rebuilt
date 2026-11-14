@@ -1,0 +1,17 @@
+{
+  "source": "extras/research/bios-msinit-clock-frame-trial.asm",
+  "source_sha256": "c72375c25b47126c408996e2029e18db01ccf50b55e1c64f887f556b95d0b1fc",
+  "object_sha256": "30b8c3cef6283d185d08db78a72fa7344c7a7982ef1ca7236f2e8fdccda1d460",
+  "linked_exe_sha256": "6a8ae1271a707271f447b79893b1a3b77e725612d07b9a37ff2c65c657bb4997",
+  "target_range": "0x27b0..0x2a25",
+  "length": 629,
+  "difference_count": 0,
+  "difference_offsets": [],
+  "temporary_macro_rename": "invoke renamed to dos_invoke in isolated copy of inc/dosmac.inc for ML 6 parsing",
+  "temporary_macro_file_sha256": "468eb8389ee73842bd62d15c71f896cd866f4807dbf07eb4f9ec61df3262ca21",
+  "limitations": [
+    "ML 6 reported macro argument warnings; complete effects of local include adaptation remain to be verified.",
+    "Diagnostic link includes placeholders and uses synthetic 0070h MZ relocation.",
+    "Original source and complete BIOS have not been validated."
+  ]
+}

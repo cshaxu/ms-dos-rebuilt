@@ -1,0 +1,40 @@
+{
+  "target_sha256": "a74c700063cd6b1c91523952bfc80e9393c125d39ada0164d48b5098089fcef3",
+  "class_header_offset": 111,
+  "class_id": 3,
+  "class_count": 198,
+  "final_record_offset": 901,
+  "final_record_bytes": "ac26f22e",
+  "id": 9900,
+  "relative_offset": 12018,
+  "payload_offset": 12919,
+  "payload_length": 52,
+  "payload_hex": "bd04effe00000100000004000001000000000400000100003f000000010000000a00000000000000000000000000000000000000",
+  "target_lookup_code_offset": 66757,
+  "target_lookup_code": "2638357504268a4d0183c702",
+  "method": "Target lookup compares class ID, reads one-byte record count at +1, advances by two bytes and scans four-byte ID/offset records. Count 198 reaches the final record and its pointer immediately follows ID 1927 data.",
+  "limitations": [
+    "Purpose and mutability of 52-byte payload unknown.",
+    "No matching ID 9900 source definition found in scoped 5.0/6.0/Astro COMMAND source.",
+    "No full final class layout or executable verification.",
+    "Do not infer that nominal payload is an independent immutable message merely from the record pointer and first byte."
+  ],
+  "overlap_investigation": {
+    "previous_id": 1927,
+    "previous_end_exclusive": 12919,
+    "record_pointer": 12919,
+    "nominal_first_byte_length": 52,
+    "subsequent_52_bytes_zero_count": 40,
+    "direct_immediate_patterns": {
+      "b8ac26": 0,
+      "bbac26": 0,
+      "baac26": 0,
+      "68ac26": 0
+    },
+    "interpretation": "The lookup interprets the following first byte as message length, but target index may refer to the next data structure or a sentinel. No allocation boundary or runtime ownership established; absence of common immediate forms is not proof that 9900 is unused."
+  },
+  "later_identification": {
+    "evidence": "extras\\docs\\etc\\command-message-9900-versioninfo-proof.json",
+    "finding": "52-byte payload matches VS_FIXEDFILEINFO layout and signature; original source and callers remain unverified."
+  }
+}

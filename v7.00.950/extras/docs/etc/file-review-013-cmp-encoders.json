@@ -1,0 +1,37 @@
+{
+  "source": "cmp ah,al",
+  "target_encoding": "38c4",
+  "tests": [
+    {
+      "tool": "DOS 4 MASM",
+      "tool_sha256": "1c6286c69b616160b8475ad17453ee872702a2c98075c2159ec792a1c745275f",
+      "encoding": "3ae0",
+      "evidence": "isolated successful assembly"
+    },
+    {
+      "tool": "DOS 6 MASM",
+      "tool_sha256": "245b608e0ba51a815ec9501e657e534b4a39ed793824b5eff7267e6e5be20391",
+      "encoding": "3ae0",
+      "evidence": "isolated successful assembly"
+    },
+    {
+      "tool": "ML",
+      "tool_sha256": "711ac49652a85e5a3cd83ee522abf9aed38f8e5059e4f267b420cb17ff88147b",
+      "encoding": "3ae0",
+      "evidence": "isolated successful assembly"
+    },
+    {
+      "tool": "JWasm diagnostic listing",
+      "tool_sha256": "0a548c3c8f680efaaabd610796fa7f2e8d514e64296bfd415020f9adce2133fe",
+      "encoding": "3ae0",
+      "evidence": "isolated listing; JWasm returned general failure despite producing its listing"
+    },
+    {
+      "tool": "NASM",
+      "tool_sha256": "08ad4879e8e327f7b5f830a76df6a6418ffa9aea50febfd399efff747ad32ef8",
+      "encoding": "38c4",
+      "evidence": "isolated successful flat-binary assembly"
+    }
+  ],
+  "limitations": "A standalone instruction probe does not establish that any assembler can build the full MASM source or yield a matching linked IO.SYS."
+}

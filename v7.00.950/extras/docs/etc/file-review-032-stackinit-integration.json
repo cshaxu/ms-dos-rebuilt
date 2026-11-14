@@ -1,0 +1,22 @@
+{
+  "file": "bios/sysinit1.asm",
+  "file_index": 32,
+  "source_sha256": "49a2f8ec8aca9b18df43a3ae877c34591b92c1bf3ae1b333a1d6aaaa3b19ddad",
+  "target_file_range": "0x8a3e..0x8d90",
+  "length": 850,
+  "matching_bytes_without_fixups": 761,
+  "differing_zero_object_bytes": 89,
+  "nonzero_object_mismatches": 0,
+  "default_object_identical": true,
+  "dos7_assembly": "passed",
+  "changes": [
+    "Initialize using the relocated stack-code parameters.",
+    "Save interrupt vectors in the BIOS code segment.",
+    "Set the target initialization flag and use the target register/return sequence."
+  ],
+  "limitations": [
+    "The 89 zero-value object bytes are not independently proven fixups; real symbol resolution and linked comparison are required.",
+    "Segment ownership for int19 vector symbols and the saved BIOS code segment are based on target correspondence and must be validated in the full link.",
+    "Complete SYSINIT and IO.SYS remain unverified."
+  ]
+}

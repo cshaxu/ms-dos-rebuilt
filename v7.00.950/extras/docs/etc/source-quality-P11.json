@@ -1,0 +1,32 @@
+{
+  "part": "M5 T12 S1 P11",
+  "ordinal": 30,
+  "modified": 1,
+  "unchanged": 0,
+  "exact_dos6": 0,
+  "retired_by_merge": 1,
+  "reference": "Original DOS6 bios/sysinit1.asm owns MagicBackdoor/NullBackdoor (839-847) and move_myself (976 onward).",
+  "changes": "Restore relocation prelude and previously absorbed backdoor state to original sysinit1 owner. Insert before original sysinit$ so existing offsets remain. Remove replaced externals, obsolete orphan heading and movstart build input. Define BYTE_SYSINIT to preserve odd byte-aligned start; no data or instruction padding added.",
+  "necessity": "Separate movstart file eliminated; no alternate relocation implementation retained.",
+  "validation": {
+    "stage": "extras/build/source-quality-p11",
+    "tools": "Original ML /c /nologo /Zm plus original LINK /MAP and RELOC; only sysinit1 reassembled.",
+    "result": "PASS; fc /b linked BIOS matches accepted T11; packed complete 223148-byte IO.SYS matches extras/assets/IO.SYS.",
+    "addresses": {
+      "MagicBackdoor": "0473:0FFB",
+      "NullBackdoor": "0473:0FFF",
+      "move_myself": "0473:1000",
+      "SYSIN": "0473:1080"
+    },
+    "diagnostics": "Existing ML.err catalog missing and A4006 diagnostics from inherited BREAK/AsmVar macro calls; assembly/link complete and final bytes match.",
+    "other_components": "COMMAND.COM/MSDOS.SYS untouched; previous exact acceptance retained."
+  },
+  "transfers": "Ordinal 7 backdata final owner is now sysinit1. Original ordinal 30 collateral changes are resolved by this retirement. Full sysinit1 review retains ordinal 56.",
+  "collateral_ordinals": [
+    56,
+    59,
+    60
+  ],
+  "next_ordinal": 31,
+  "remaining": 36
+}

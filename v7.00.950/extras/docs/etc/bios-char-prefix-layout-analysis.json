@@ -1,0 +1,40 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "linked_exe_sha256": "60a5cf00aae68408e72bd6caa0fb668f4ab2906fa9b21cc83150bb2b405daa57",
+  "target_interval": {
+    "file_start": "0x237d",
+    "file_end_exclusive": "0x23b8",
+    "length": 59,
+    "bytes": "000000500050005000500000000000000013501f1c1f1e1f1e1f1f1e1f1e1f0000000000001f003b005a0078009700b500d400f300110130014e01",
+    "identified_data": [
+      {
+        "name": "wait_count candidate",
+        "file_offset": "0x2380",
+        "bytes": "5000500050005000"
+      },
+      {
+        "name": "month_tab candidate",
+        "file_offset": "0x2390",
+        "bytes": "1f1c1f1e1f1e1f1f1e1f1e1f"
+      }
+    ]
+  },
+  "diagnostic_interval": {
+    "bios_code_start": "0x72d",
+    "bios_code_end_exclusive": "0x792",
+    "length": 101,
+    "contains": [
+      "clock entry wrapper",
+      "CONFIG dispatch table and handlers"
+    ]
+  },
+  "observations": [
+    "The +42 shift at con_table comes from the 101-byte diagnostic interval versus a 59-byte target interval after the same preceding BIOS error routine.",
+    "The clock entry wrapper occurs at target file offset 0x279f, while the CONFIG table appears at 0x4990; those diagnostic contributions are not at their target positions.",
+    "The target 59-byte interval contains the historical four printer wait-count words and month-length table by byte pattern; this does not by itself establish ownership or all symbol names."
+  ],
+  "limitations": [
+    "Only selected boundary and content signatures were compared; complete code and relocated pointers remain unverified.",
+    "The interval size difference alone does not prove a unique reordering or identity of every byte."
+  ]
+}

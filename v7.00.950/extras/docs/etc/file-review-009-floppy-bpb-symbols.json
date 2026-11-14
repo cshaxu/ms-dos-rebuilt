@@ -1,0 +1,32 @@
+{
+  "source": "bios/msbio1.asm",
+  "source_sha256": "bda69e171d346a85eda8c6ead7096f4f05347e8414b2e238378b1b22e4246d84",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "symbols": [
+    {
+      "name": "fdrive1",
+      "diagnostic_offset": 6,
+      "target_offset": 862
+    },
+    {
+      "name": "fdrive2",
+      "diagnostic_offset": 106,
+      "target_offset": 962
+    },
+    {
+      "name": "fdrive3",
+      "diagnostic_offset": 206,
+      "target_offset": 1062
+    },
+    {
+      "name": "fdrive4",
+      "diagnostic_offset": 306,
+      "target_offset": 1162
+    }
+  ],
+  "target_initializer_file_offset": 24004,
+  "target_initializer_hex": "8d45068907",
+  "interpretation": "Each exported fdrive symbol addresses the BPB at offset six within its BDS; target initialization derives and stores that same BDS+6 address.",
+  "diagnostic": "config-ml-floppy-bpb-symbols.json",
+  "limitations": "The diagnostic symbols have correct relative placement within source-generated BDS structures. Absolute SYSINIT offsets, runtime initialization and final file identity remain unresolved."
+}

@@ -1,0 +1,15 @@
+{
+  "file": "bios/sysinit2.asm",
+  "source_sha256": "c60e12da25f509ba8cd24c155827c72de7f903a6dc90f644f0162fc2b775162f",
+  "target_range": "IO.SYS 0xa5a0..0xa5c1",
+  "length": 33,
+  "different_bytes": 0,
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link": "passed",
+  "probe_source": "extras/research/boot-option-error-linked.asm",
+  "limitations": [
+    "Fixed-offset isolated probe; execution and final layout are unverified.",
+    "Dispatch and complete message resource remain incomplete."
+  ]
+}

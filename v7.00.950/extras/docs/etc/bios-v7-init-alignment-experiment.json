@@ -1,0 +1,140 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\bios-align-experiment-80_9xflj",
+  "experiment": "MSINIT BIOS_DATA_INIT declaration byte-aligned only in isolated copy",
+  "range_bios_offsets": [
+    "0x68f",
+    "0x1647"
+  ],
+  "range_bytes": 4024,
+  "matched_bytes": 3905,
+  "difference_count": 119,
+  "first_differences": [
+    {
+      "offset": "0x7aa",
+      "actual": 201,
+      "target": 227
+    },
+    {
+      "offset": "0x7ae",
+      "actual": 144,
+      "target": 232
+    },
+    {
+      "offset": "0x7af",
+      "actual": 1,
+      "target": 4
+    },
+    {
+      "offset": "0x880",
+      "actual": 200,
+      "target": 66
+    },
+    {
+      "offset": "0x881",
+      "actual": 18,
+      "target": 15
+    },
+    {
+      "offset": "0x883",
+      "actual": 212,
+      "target": 78
+    },
+    {
+      "offset": "0x884",
+      "actual": 18,
+      "target": 15
+    },
+    {
+      "offset": "0x887",
+      "actual": 214,
+      "target": 80
+    },
+    {
+      "offset": "0x888",
+      "actual": 18,
+      "target": 15
+    },
+    {
+      "offset": "0x8ca",
+      "actual": 61,
+      "target": 131
+    },
+    {
+      "offset": "0x8cb",
+      "actual": 2,
+      "target": 248
+    },
+    {
+      "offset": "0x8cc",
+      "actual": 0,
+      "target": 2
+    },
+    {
+      "offset": "0x8d0",
+      "actual": 35,
+      "target": 26
+    },
+    {
+      "offset": "0x8d1",
+      "actual": 32,
+      "target": 237
+    },
+    {
+      "offset": "0x8d2",
+      "actual": 129,
+      "target": 3
+    },
+    {
+      "offset": "0x8d3",
+      "actual": 198,
+      "target": 54
+    },
+    {
+      "offset": "0x8d4",
+      "actual": 44,
+      "target": 18
+    },
+    {
+      "offset": "0x8d5",
+      "actual": 15,
+      "target": 237
+    },
+    {
+      "offset": "0xa12",
+      "actual": 143,
+      "target": 9
+    },
+    {
+      "offset": "0xa13",
+      "actual": 18,
+      "target": 15
+    },
+    {
+      "offset": "0xa34",
+      "actual": 37,
+      "target": 131
+    },
+    {
+      "offset": "0xa35",
+      "actual": 3,
+      "target": 224
+    },
+    {
+      "offset": "0xa36",
+      "actual": 0,
+      "target": 3
+    },
+    {
+      "offset": "0xac4",
+      "actual": 162,
+      "target": 222
+    }
+  ],
+  "segment_table": " Start  Stop   Length Name                   Class\n 00000H 0053FH 00540H BIOS_DATA              BIOS_DATA\n 00540H 01647H 01108H BIOS_DATA_INIT         BIOS_DATA_INIT\n 01650H 01650H 00000H FILLER                 FILLER\n 01650H 0458FH 02F40H BIOS_CODE              BIOS_CODE\n 04590H 04590H 00000H FILLER2                FILLER2\n 04590H 0FB3FH 0B5B0H SYSINITSEG             SYSTEM_INIT\n 0FB40H 0FB40H 00000H DOS_LOAD_SEG           DOS_LOAD_SEG",
+  "bios_sha256": "c0f4b837d2e6f316d97a6ec5e733da8a9c73a047139e317d8701a3eaead8728e",
+  "limitations": [
+    "Diagnostic copy only; not a production build change.",
+    "Unmatched bytes include unresolved target layout and relocation effects.",
+    "Does not establish original Microsoft source declaration or verify final IO.SYS."
+  ]
+}

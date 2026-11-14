@@ -1,0 +1,15 @@
+{
+  "file": "bios/sysconf.asm",
+  "source_sha256": "316eba1f6958097d3b4103e77430539bb407fc3c539eea138daf6a359b5282d9",
+  "target_range": "IO.SYS 0xb65d..0xb69a",
+  "bytes": 61,
+  "different_bytes": 0,
+  "probe": "extras/research/multipass7-linked.asm",
+  "default_object_identical_to_prior": true,
+  "dos7_assembly": "passed",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "The fixed-offset probe stubs getchr and organize; full execution and image layout are not established.",
+    "The rest of DOS7 CONFIG.SYS command processing remains incomplete."
+  ]
+}

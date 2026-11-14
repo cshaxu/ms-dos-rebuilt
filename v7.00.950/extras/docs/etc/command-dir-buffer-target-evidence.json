@@ -1,0 +1,25 @@
+{
+  "target_sha256": "a74c700063cd6b1c91523952bfc80e9393c125d39ada0164d48b5098089fcef3",
+  "target_routine_offset": "0xac26",
+  "observations": [
+    "Target passes 0xdeca (0xdec7 + 3) to a DOS interrupt using an indirect AX function value, then writes drive letter, colon and backslash at 0xdec7.",
+    "When byte 0xdfcf is nonzero, it invokes INT 21h with AX=7160h, CX=8002h and SI=DI=0xdec7.",
+    "An alternate branch derives the directory prefix at 0xdec7 from a pathname at 0xe0d7.",
+    "The directory display routine selects the 0xdec7 control when byte 0xe599 is zero. The flag is set during a branch associated with the same option bit used for subdirectory handling; its exact semantic scope requires further tracing."
+  ],
+  "baseline_correspondence": "cmd/command/tcmd2a.asm build_dir_string prepares drive colon backslash and obtains current directory into BWDBUF+3; cmd/command/dir.asm DisplayHeader then prints DirHead_Ptr.",
+  "validated_bytes": {
+    "0xac45": "becade36a127e4cd21",
+    "0xac5f": "bec7de8814c744013a5c",
+    "0xac71": "8bfeb86071b90280cd21",
+    "0xac81": "bed7e0bfc7de",
+    "0x9a60": "c60699e500",
+    "0x9a87": "c60699e501",
+    "0x9ab1": "c60699e501"
+  },
+  "limitations": [
+    "The routine uses an indirect DOS function number; it is not assumed to always be a particular function.",
+    "The exact historical variable names, all callers, and ownership of 0xd195 are unconfirmed.",
+    "No production source or complete link was verified."
+  ]
+}

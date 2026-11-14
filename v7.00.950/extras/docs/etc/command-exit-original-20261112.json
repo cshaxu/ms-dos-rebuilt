@@ -1,0 +1,10 @@
+{
+  "build": "extras/docs/etc/command-exit-original-build-20261112.json",
+  "target_range": "0xb935..0xba05",
+  "instruction_bytes": 208,
+  "target_probe": "extras\\build\\exit-direct-target-sfitz_aj",
+  "current_probe": "extras\\build\\exit-direct-current-722u9shq",
+  "direct_exit": "both returned to caller",
+  "regression": "extras/build/exit-regress-oxnqkudx",
+  "limitations": "direct single-command exit covered; interrupt ownership and terminate-stay-resident branches not independently executed; full binary identity unachieved"
+}

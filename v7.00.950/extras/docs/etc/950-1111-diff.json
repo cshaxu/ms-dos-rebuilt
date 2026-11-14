@@ -1,0 +1,4638 @@
+{
+  "task": "M6 T13 S1 P3",
+  "purpose": "950-to-1111 difference assessment and source-layout recommendation for planned T15",
+  "inputs": "O:/assets/w9xbd; extracted and hashed in w9xbd-version-survey.json",
+  "recommendation": "Full self-contained v7.10.1111 source tree initialized from v7.00.950; implement only proven changes, not a v6.21-style overlay and not a rewrite.",
+  "applied": false,
+  "method": {
+    "seed_bytes": 32,
+    "anchor": "32-byte window unique in old region, hash candidate verified with memcmp, longest increasing sequence of old offsets across new offsets; non-overlapping runs extended by exact bytes",
+    "bounds": "Compare independently within identified container components; changes of absolute position are permitted.",
+    "checks": "Same-file COMMAND test matches all 92870 bytes; all emitted runs byte-validated; compiler warnings treated as errors.",
+    "limitations": [
+      "Exact byte-anchor coverage is NOT code equivalence or reconstruction completion. Changed addresses can break otherwise equivalent instructions.",
+      "Regions include code and data; no function equivalence claim.",
+      "Unmatched bytes are not a count of changed instructions or source lines.",
+      "No claim yet on affected source-file count; map symbols and disassembly must supply it.",
+      "Kernel extent includes paragraph alignment; OSR2 kernel end is bounded by the proven identical relocated logo, not an original linker map."
+    ]
+  },
+  "structural_evidence": {
+    "io_mz_config_offsets": [
+      176640,
+      187392
+    ],
+    "command_mz_body_offsets": [
+      16720,
+      16992
+    ],
+    "bios_tail_message_markers": [
+      66403,
+      71939
+    ],
+    "bios_tail_message_size": 4307,
+    "bios_tail_reserve": 4168,
+    "kernel_starts": [
+      70592,
+      76128
+    ],
+    "logo_offsets": [
+      111120,
+      121520
+    ],
+    "logo_size": 65384,
+    "logo_identity": true,
+    "command_resident_message_identity": true
+  },
+  "regions": [
+    {
+      "id": "loader",
+      "file": "IO.SYS",
+      "old_offset": 512,
+      "old_size": 1024,
+      "new_offset": 512,
+      "new_size": 1024,
+      "size_delta": 0,
+      "matched_exact_bytes": 38,
+      "old_unmatched_bytes": 986,
+      "new_unmatched_bytes": 986,
+      "runs": 1,
+      "target_exact_anchor_coverage": 3.71,
+      "blocks": [
+        {
+          "old_offset": 570,
+          "new_offset": 560,
+          "length": 38
+        }
+      ]
+    },
+    {
+      "id": "bios",
+      "file": "IO.SYS",
+      "old_offset": 1536,
+      "old_size": 64867,
+      "new_offset": 1536,
+      "new_size": 70403,
+      "size_delta": 5536,
+      "matched_exact_bytes": 31125,
+      "old_unmatched_bytes": 33742,
+      "new_unmatched_bytes": 39278,
+      "runs": 271,
+      "target_exact_anchor_coverage": 44.21,
+      "blocks": [
+        {
+          "old_offset": 1546,
+          "new_offset": 2058,
+          "length": 231
+        },
+        {
+          "old_offset": 1788,
+          "new_offset": 2300,
+          "length": 70
+        },
+        {
+          "old_offset": 1900,
+          "new_offset": 2412,
+          "length": 239
+        },
+        {
+          "old_offset": 2139,
+          "new_offset": 2651,
+          "length": 45
+        },
+        {
+          "old_offset": 2243,
+          "new_offset": 2755,
+          "length": 1144
+        },
+        {
+          "old_offset": 3504,
+          "new_offset": 4026,
+          "length": 39
+        },
+        {
+          "old_offset": 3670,
+          "new_offset": 4304,
+          "length": 38
+        },
+        {
+          "old_offset": 3721,
+          "new_offset": 4355,
+          "length": 69
+        },
+        {
+          "old_offset": 3841,
+          "new_offset": 4482,
+          "length": 77
+        },
+        {
+          "old_offset": 4158,
+          "new_offset": 4797,
+          "length": 92
+        },
+        {
+          "old_offset": 4319,
+          "new_offset": 4957,
+          "length": 53
+        },
+        {
+          "old_offset": 4507,
+          "new_offset": 5145,
+          "length": 44
+        },
+        {
+          "old_offset": 4594,
+          "new_offset": 5227,
+          "length": 41
+        },
+        {
+          "old_offset": 4636,
+          "new_offset": 5269,
+          "length": 32
+        },
+        {
+          "old_offset": 4674,
+          "new_offset": 5307,
+          "length": 34
+        },
+        {
+          "old_offset": 5162,
+          "new_offset": 5859,
+          "length": 45
+        },
+        {
+          "old_offset": 5259,
+          "new_offset": 5950,
+          "length": 102
+        },
+        {
+          "old_offset": 5415,
+          "new_offset": 6114,
+          "length": 92
+        },
+        {
+          "old_offset": 5705,
+          "new_offset": 6665,
+          "length": 54
+        },
+        {
+          "old_offset": 6037,
+          "new_offset": 7123,
+          "length": 47
+        },
+        {
+          "old_offset": 6408,
+          "new_offset": 7617,
+          "length": 48
+        },
+        {
+          "old_offset": 6466,
+          "new_offset": 7681,
+          "length": 72
+        },
+        {
+          "old_offset": 7172,
+          "new_offset": 8578,
+          "length": 42
+        },
+        {
+          "old_offset": 7220,
+          "new_offset": 8679,
+          "length": 49
+        },
+        {
+          "old_offset": 7272,
+          "new_offset": 8728,
+          "length": 57
+        },
+        {
+          "old_offset": 7409,
+          "new_offset": 8865,
+          "length": 1215
+        },
+        {
+          "old_offset": 8624,
+          "new_offset": 10080,
+          "length": 414
+        },
+        {
+          "old_offset": 9068,
+          "new_offset": 10536,
+          "length": 77
+        },
+        {
+          "old_offset": 9263,
+          "new_offset": 10731,
+          "length": 193
+        },
+        {
+          "old_offset": 9457,
+          "new_offset": 10925,
+          "length": 46
+        },
+        {
+          "old_offset": 9529,
+          "new_offset": 10997,
+          "length": 47
+        },
+        {
+          "old_offset": 9665,
+          "new_offset": 11133,
+          "length": 33
+        },
+        {
+          "old_offset": 9699,
+          "new_offset": 11167,
+          "length": 39
+        },
+        {
+          "old_offset": 9740,
+          "new_offset": 11208,
+          "length": 51
+        },
+        {
+          "old_offset": 9885,
+          "new_offset": 11353,
+          "length": 49
+        },
+        {
+          "old_offset": 9935,
+          "new_offset": 11403,
+          "length": 259
+        },
+        {
+          "old_offset": 10207,
+          "new_offset": 11675,
+          "length": 36
+        },
+        {
+          "old_offset": 10249,
+          "new_offset": 11717,
+          "length": 47
+        },
+        {
+          "old_offset": 10790,
+          "new_offset": 12248,
+          "length": 53
+        },
+        {
+          "old_offset": 10843,
+          "new_offset": 12310,
+          "length": 38
+        },
+        {
+          "old_offset": 10945,
+          "new_offset": 12412,
+          "length": 32
+        },
+        {
+          "old_offset": 11037,
+          "new_offset": 12504,
+          "length": 35
+        },
+        {
+          "old_offset": 11342,
+          "new_offset": 12968,
+          "length": 40
+        },
+        {
+          "old_offset": 11676,
+          "new_offset": 13342,
+          "length": 46
+        },
+        {
+          "old_offset": 11951,
+          "new_offset": 13617,
+          "length": 61
+        },
+        {
+          "old_offset": 12121,
+          "new_offset": 13787,
+          "length": 33
+        },
+        {
+          "old_offset": 12662,
+          "new_offset": 14328,
+          "length": 34
+        },
+        {
+          "old_offset": 14299,
+          "new_offset": 16142,
+          "length": 32
+        },
+        {
+          "old_offset": 14469,
+          "new_offset": 16312,
+          "length": 33
+        },
+        {
+          "old_offset": 15052,
+          "new_offset": 17037,
+          "length": 76
+        },
+        {
+          "old_offset": 15181,
+          "new_offset": 17171,
+          "length": 74
+        },
+        {
+          "old_offset": 15255,
+          "new_offset": 17245,
+          "length": 51
+        },
+        {
+          "old_offset": 15314,
+          "new_offset": 17304,
+          "length": 260
+        },
+        {
+          "old_offset": 15574,
+          "new_offset": 17564,
+          "length": 163
+        },
+        {
+          "old_offset": 15772,
+          "new_offset": 17762,
+          "length": 64
+        },
+        {
+          "old_offset": 15846,
+          "new_offset": 17836,
+          "length": 42
+        },
+        {
+          "old_offset": 15946,
+          "new_offset": 17936,
+          "length": 35
+        },
+        {
+          "old_offset": 16015,
+          "new_offset": 18005,
+          "length": 53
+        },
+        {
+          "old_offset": 16089,
+          "new_offset": 18079,
+          "length": 85
+        },
+        {
+          "old_offset": 16200,
+          "new_offset": 18190,
+          "length": 89
+        },
+        {
+          "old_offset": 16291,
+          "new_offset": 18281,
+          "length": 320
+        },
+        {
+          "old_offset": 16612,
+          "new_offset": 18602,
+          "length": 168
+        },
+        {
+          "old_offset": 16877,
+          "new_offset": 18867,
+          "length": 49
+        },
+        {
+          "old_offset": 17028,
+          "new_offset": 19018,
+          "length": 59
+        },
+        {
+          "old_offset": 17385,
+          "new_offset": 19370,
+          "length": 100
+        },
+        {
+          "old_offset": 17488,
+          "new_offset": 19472,
+          "length": 44
+        },
+        {
+          "old_offset": 17581,
+          "new_offset": 19565,
+          "length": 34
+        },
+        {
+          "old_offset": 17617,
+          "new_offset": 19601,
+          "length": 32
+        },
+        {
+          "old_offset": 18246,
+          "new_offset": 20302,
+          "length": 34
+        },
+        {
+          "old_offset": 18323,
+          "new_offset": 20379,
+          "length": 88
+        },
+        {
+          "old_offset": 18548,
+          "new_offset": 20604,
+          "length": 80
+        },
+        {
+          "old_offset": 18630,
+          "new_offset": 20686,
+          "length": 50
+        },
+        {
+          "old_offset": 18859,
+          "new_offset": 20915,
+          "length": 42
+        },
+        {
+          "old_offset": 18948,
+          "new_offset": 20998,
+          "length": 398
+        },
+        {
+          "old_offset": 19356,
+          "new_offset": 21766,
+          "length": 406
+        },
+        {
+          "old_offset": 19762,
+          "new_offset": 22178,
+          "length": 854
+        },
+        {
+          "old_offset": 20874,
+          "new_offset": 23494,
+          "length": 76
+        },
+        {
+          "old_offset": 20974,
+          "new_offset": 23644,
+          "length": 54
+        },
+        {
+          "old_offset": 23474,
+          "new_offset": 27394,
+          "length": 190
+        },
+        {
+          "old_offset": 23677,
+          "new_offset": 27597,
+          "length": 123
+        },
+        {
+          "old_offset": 23812,
+          "new_offset": 27732,
+          "length": 52
+        },
+        {
+          "old_offset": 24054,
+          "new_offset": 27975,
+          "length": 54
+        },
+        {
+          "old_offset": 24260,
+          "new_offset": 28181,
+          "length": 41
+        },
+        {
+          "old_offset": 24336,
+          "new_offset": 28258,
+          "length": 34
+        },
+        {
+          "old_offset": 25166,
+          "new_offset": 29080,
+          "length": 34
+        },
+        {
+          "old_offset": 25311,
+          "new_offset": 29228,
+          "length": 36
+        },
+        {
+          "old_offset": 25747,
+          "new_offset": 29664,
+          "length": 65
+        },
+        {
+          "old_offset": 25814,
+          "new_offset": 29731,
+          "length": 32
+        },
+        {
+          "old_offset": 25848,
+          "new_offset": 29765,
+          "length": 71
+        },
+        {
+          "old_offset": 25921,
+          "new_offset": 29838,
+          "length": 45
+        },
+        {
+          "old_offset": 26296,
+          "new_offset": 30213,
+          "length": 40
+        },
+        {
+          "old_offset": 26338,
+          "new_offset": 30255,
+          "length": 53
+        },
+        {
+          "old_offset": 26399,
+          "new_offset": 30316,
+          "length": 59
+        },
+        {
+          "old_offset": 26496,
+          "new_offset": 30413,
+          "length": 122
+        },
+        {
+          "old_offset": 26627,
+          "new_offset": 30544,
+          "length": 41
+        },
+        {
+          "old_offset": 26694,
+          "new_offset": 30611,
+          "length": 94
+        },
+        {
+          "old_offset": 26879,
+          "new_offset": 30794,
+          "length": 34
+        },
+        {
+          "old_offset": 26973,
+          "new_offset": 30888,
+          "length": 47
+        },
+        {
+          "old_offset": 27243,
+          "new_offset": 31244,
+          "length": 32
+        },
+        {
+          "old_offset": 27431,
+          "new_offset": 31696,
+          "length": 45
+        },
+        {
+          "old_offset": 27905,
+          "new_offset": 32839,
+          "length": 98
+        },
+        {
+          "old_offset": 28061,
+          "new_offset": 32999,
+          "length": 72
+        },
+        {
+          "old_offset": 28309,
+          "new_offset": 33247,
+          "length": 34
+        },
+        {
+          "old_offset": 28379,
+          "new_offset": 33317,
+          "length": 46
+        },
+        {
+          "old_offset": 28657,
+          "new_offset": 33595,
+          "length": 43
+        },
+        {
+          "old_offset": 28983,
+          "new_offset": 33921,
+          "length": 33
+        },
+        {
+          "old_offset": 29298,
+          "new_offset": 34235,
+          "length": 32
+        },
+        {
+          "old_offset": 29516,
+          "new_offset": 34453,
+          "length": 41
+        },
+        {
+          "old_offset": 29725,
+          "new_offset": 34662,
+          "length": 60
+        },
+        {
+          "old_offset": 29974,
+          "new_offset": 34911,
+          "length": 79
+        },
+        {
+          "old_offset": 30055,
+          "new_offset": 34992,
+          "length": 60
+        },
+        {
+          "old_offset": 30156,
+          "new_offset": 35093,
+          "length": 51
+        },
+        {
+          "old_offset": 30209,
+          "new_offset": 35146,
+          "length": 40
+        },
+        {
+          "old_offset": 30274,
+          "new_offset": 35211,
+          "length": 36
+        },
+        {
+          "old_offset": 30320,
+          "new_offset": 35257,
+          "length": 78
+        },
+        {
+          "old_offset": 30649,
+          "new_offset": 35586,
+          "length": 81
+        },
+        {
+          "old_offset": 30798,
+          "new_offset": 35735,
+          "length": 40
+        },
+        {
+          "old_offset": 31182,
+          "new_offset": 36119,
+          "length": 131
+        },
+        {
+          "old_offset": 31385,
+          "new_offset": 36322,
+          "length": 72
+        },
+        {
+          "old_offset": 31671,
+          "new_offset": 36608,
+          "length": 52
+        },
+        {
+          "old_offset": 31734,
+          "new_offset": 36671,
+          "length": 48
+        },
+        {
+          "old_offset": 31801,
+          "new_offset": 36738,
+          "length": 62
+        },
+        {
+          "old_offset": 31870,
+          "new_offset": 36807,
+          "length": 41
+        },
+        {
+          "old_offset": 31953,
+          "new_offset": 36890,
+          "length": 38
+        },
+        {
+          "old_offset": 32081,
+          "new_offset": 37018,
+          "length": 81
+        },
+        {
+          "old_offset": 32164,
+          "new_offset": 37101,
+          "length": 139
+        },
+        {
+          "old_offset": 32305,
+          "new_offset": 37242,
+          "length": 153
+        },
+        {
+          "old_offset": 32482,
+          "new_offset": 37419,
+          "length": 41
+        },
+        {
+          "old_offset": 32601,
+          "new_offset": 37538,
+          "length": 289
+        },
+        {
+          "old_offset": 32890,
+          "new_offset": 37827,
+          "length": 433
+        },
+        {
+          "old_offset": 33338,
+          "new_offset": 38308,
+          "length": 35
+        },
+        {
+          "old_offset": 33388,
+          "new_offset": 38414,
+          "length": 35
+        },
+        {
+          "old_offset": 33560,
+          "new_offset": 38772,
+          "length": 60
+        },
+        {
+          "old_offset": 33629,
+          "new_offset": 38841,
+          "length": 38
+        },
+        {
+          "old_offset": 33810,
+          "new_offset": 39022,
+          "length": 35
+        },
+        {
+          "old_offset": 33876,
+          "new_offset": 39088,
+          "length": 37
+        },
+        {
+          "old_offset": 33985,
+          "new_offset": 39197,
+          "length": 32
+        },
+        {
+          "old_offset": 34054,
+          "new_offset": 39275,
+          "length": 49
+        },
+        {
+          "old_offset": 34401,
+          "new_offset": 39622,
+          "length": 37
+        },
+        {
+          "old_offset": 34635,
+          "new_offset": 39856,
+          "length": 66
+        },
+        {
+          "old_offset": 34796,
+          "new_offset": 40017,
+          "length": 41
+        },
+        {
+          "old_offset": 35011,
+          "new_offset": 40229,
+          "length": 33
+        },
+        {
+          "old_offset": 35304,
+          "new_offset": 40522,
+          "length": 34
+        },
+        {
+          "old_offset": 35368,
+          "new_offset": 40586,
+          "length": 856
+        },
+        {
+          "old_offset": 36226,
+          "new_offset": 41444,
+          "length": 189
+        },
+        {
+          "old_offset": 36415,
+          "new_offset": 41633,
+          "length": 158
+        },
+        {
+          "old_offset": 36573,
+          "new_offset": 41791,
+          "length": 268
+        },
+        {
+          "old_offset": 36877,
+          "new_offset": 42095,
+          "length": 51
+        },
+        {
+          "old_offset": 36928,
+          "new_offset": 42174,
+          "length": 283
+        },
+        {
+          "old_offset": 37239,
+          "new_offset": 42485,
+          "length": 49
+        },
+        {
+          "old_offset": 37300,
+          "new_offset": 42546,
+          "length": 600
+        },
+        {
+          "old_offset": 37900,
+          "new_offset": 43146,
+          "length": 78
+        },
+        {
+          "old_offset": 37978,
+          "new_offset": 43224,
+          "length": 47
+        },
+        {
+          "old_offset": 38614,
+          "new_offset": 43930,
+          "length": 33
+        },
+        {
+          "old_offset": 38900,
+          "new_offset": 44214,
+          "length": 36
+        },
+        {
+          "old_offset": 38975,
+          "new_offset": 44289,
+          "length": 37
+        },
+        {
+          "old_offset": 39014,
+          "new_offset": 44328,
+          "length": 48
+        },
+        {
+          "old_offset": 39238,
+          "new_offset": 44552,
+          "length": 35
+        },
+        {
+          "old_offset": 39326,
+          "new_offset": 44640,
+          "length": 41
+        },
+        {
+          "old_offset": 39369,
+          "new_offset": 44683,
+          "length": 52
+        },
+        {
+          "old_offset": 39548,
+          "new_offset": 44862,
+          "length": 45
+        },
+        {
+          "old_offset": 39631,
+          "new_offset": 44945,
+          "length": 40
+        },
+        {
+          "old_offset": 39705,
+          "new_offset": 45019,
+          "length": 79
+        },
+        {
+          "old_offset": 39919,
+          "new_offset": 45233,
+          "length": 32
+        },
+        {
+          "old_offset": 39980,
+          "new_offset": 45294,
+          "length": 39
+        },
+        {
+          "old_offset": 40951,
+          "new_offset": 46281,
+          "length": 44
+        },
+        {
+          "old_offset": 41552,
+          "new_offset": 46911,
+          "length": 264
+        },
+        {
+          "old_offset": 41900,
+          "new_offset": 47259,
+          "length": 50
+        },
+        {
+          "old_offset": 41952,
+          "new_offset": 47311,
+          "length": 56
+        },
+        {
+          "old_offset": 42673,
+          "new_offset": 48108,
+          "length": 39
+        },
+        {
+          "old_offset": 42785,
+          "new_offset": 48220,
+          "length": 95
+        },
+        {
+          "old_offset": 42911,
+          "new_offset": 48346,
+          "length": 105
+        },
+        {
+          "old_offset": 43016,
+          "new_offset": 48452,
+          "length": 306
+        },
+        {
+          "old_offset": 43569,
+          "new_offset": 49005,
+          "length": 42
+        },
+        {
+          "old_offset": 43613,
+          "new_offset": 49049,
+          "length": 52
+        },
+        {
+          "old_offset": 43728,
+          "new_offset": 49164,
+          "length": 53
+        },
+        {
+          "old_offset": 43874,
+          "new_offset": 49310,
+          "length": 32
+        },
+        {
+          "old_offset": 43920,
+          "new_offset": 49356,
+          "length": 53
+        },
+        {
+          "old_offset": 43975,
+          "new_offset": 49411,
+          "length": 59
+        },
+        {
+          "old_offset": 44204,
+          "new_offset": 49640,
+          "length": 94
+        },
+        {
+          "old_offset": 44300,
+          "new_offset": 49736,
+          "length": 50
+        },
+        {
+          "old_offset": 44375,
+          "new_offset": 49811,
+          "length": 93
+        },
+        {
+          "old_offset": 44470,
+          "new_offset": 49906,
+          "length": 42
+        },
+        {
+          "old_offset": 44514,
+          "new_offset": 49950,
+          "length": 73
+        },
+        {
+          "old_offset": 44629,
+          "new_offset": 50065,
+          "length": 93
+        },
+        {
+          "old_offset": 44746,
+          "new_offset": 50182,
+          "length": 34
+        },
+        {
+          "old_offset": 44803,
+          "new_offset": 50239,
+          "length": 55
+        },
+        {
+          "old_offset": 44860,
+          "new_offset": 50296,
+          "length": 55
+        },
+        {
+          "old_offset": 45042,
+          "new_offset": 50478,
+          "length": 76
+        },
+        {
+          "old_offset": 45149,
+          "new_offset": 50585,
+          "length": 73
+        },
+        {
+          "old_offset": 45230,
+          "new_offset": 50666,
+          "length": 64
+        },
+        {
+          "old_offset": 45352,
+          "new_offset": 50788,
+          "length": 35
+        },
+        {
+          "old_offset": 45986,
+          "new_offset": 51422,
+          "length": 100
+        },
+        {
+          "old_offset": 46086,
+          "new_offset": 51522,
+          "length": 299
+        },
+        {
+          "old_offset": 46385,
+          "new_offset": 51821,
+          "length": 74
+        },
+        {
+          "old_offset": 46862,
+          "new_offset": 52298,
+          "length": 39
+        },
+        {
+          "old_offset": 46945,
+          "new_offset": 52381,
+          "length": 36
+        },
+        {
+          "old_offset": 46983,
+          "new_offset": 52419,
+          "length": 37
+        },
+        {
+          "old_offset": 47042,
+          "new_offset": 52478,
+          "length": 32
+        },
+        {
+          "old_offset": 47745,
+          "new_offset": 53181,
+          "length": 34
+        },
+        {
+          "old_offset": 48659,
+          "new_offset": 54143,
+          "length": 39
+        },
+        {
+          "old_offset": 49174,
+          "new_offset": 54658,
+          "length": 55
+        },
+        {
+          "old_offset": 50368,
+          "new_offset": 55826,
+          "length": 56
+        },
+        {
+          "old_offset": 50495,
+          "new_offset": 55953,
+          "length": 40
+        },
+        {
+          "old_offset": 50574,
+          "new_offset": 56032,
+          "length": 35
+        },
+        {
+          "old_offset": 50617,
+          "new_offset": 56075,
+          "length": 35
+        },
+        {
+          "old_offset": 50670,
+          "new_offset": 56128,
+          "length": 34
+        },
+        {
+          "old_offset": 50757,
+          "new_offset": 56215,
+          "length": 104
+        },
+        {
+          "old_offset": 50882,
+          "new_offset": 56340,
+          "length": 43
+        },
+        {
+          "old_offset": 50927,
+          "new_offset": 56385,
+          "length": 124
+        },
+        {
+          "old_offset": 51063,
+          "new_offset": 56521,
+          "length": 38
+        },
+        {
+          "old_offset": 51201,
+          "new_offset": 56659,
+          "length": 62
+        },
+        {
+          "old_offset": 51298,
+          "new_offset": 56756,
+          "length": 41
+        },
+        {
+          "old_offset": 51353,
+          "new_offset": 56811,
+          "length": 142
+        },
+        {
+          "old_offset": 51524,
+          "new_offset": 56982,
+          "length": 39
+        },
+        {
+          "old_offset": 51565,
+          "new_offset": 57023,
+          "length": 50
+        },
+        {
+          "old_offset": 51681,
+          "new_offset": 57139,
+          "length": 59
+        },
+        {
+          "old_offset": 51742,
+          "new_offset": 57200,
+          "length": 203
+        },
+        {
+          "old_offset": 51947,
+          "new_offset": 57405,
+          "length": 430
+        },
+        {
+          "old_offset": 52432,
+          "new_offset": 57890,
+          "length": 164
+        },
+        {
+          "old_offset": 52804,
+          "new_offset": 58262,
+          "length": 92
+        },
+        {
+          "old_offset": 53270,
+          "new_offset": 58726,
+          "length": 86
+        },
+        {
+          "old_offset": 53470,
+          "new_offset": 58926,
+          "length": 190
+        },
+        {
+          "old_offset": 53662,
+          "new_offset": 59118,
+          "length": 77
+        },
+        {
+          "old_offset": 53746,
+          "new_offset": 59201,
+          "length": 59
+        },
+        {
+          "old_offset": 53807,
+          "new_offset": 59262,
+          "length": 51
+        },
+        {
+          "old_offset": 54005,
+          "new_offset": 59460,
+          "length": 61
+        },
+        {
+          "old_offset": 54075,
+          "new_offset": 59530,
+          "length": 50
+        },
+        {
+          "old_offset": 54166,
+          "new_offset": 59621,
+          "length": 116
+        },
+        {
+          "old_offset": 54532,
+          "new_offset": 59977,
+          "length": 51
+        },
+        {
+          "old_offset": 54675,
+          "new_offset": 60120,
+          "length": 46
+        },
+        {
+          "old_offset": 54723,
+          "new_offset": 60168,
+          "length": 33
+        },
+        {
+          "old_offset": 54782,
+          "new_offset": 60227,
+          "length": 36
+        },
+        {
+          "old_offset": 54915,
+          "new_offset": 60357,
+          "length": 43
+        },
+        {
+          "old_offset": 54983,
+          "new_offset": 60422,
+          "length": 47
+        },
+        {
+          "old_offset": 55188,
+          "new_offset": 60622,
+          "length": 59
+        },
+        {
+          "old_offset": 55307,
+          "new_offset": 60741,
+          "length": 35
+        },
+        {
+          "old_offset": 55595,
+          "new_offset": 61029,
+          "length": 39
+        },
+        {
+          "old_offset": 55641,
+          "new_offset": 61075,
+          "length": 37
+        },
+        {
+          "old_offset": 56101,
+          "new_offset": 61606,
+          "length": 40
+        },
+        {
+          "old_offset": 56288,
+          "new_offset": 61793,
+          "length": 66
+        },
+        {
+          "old_offset": 56416,
+          "new_offset": 61922,
+          "length": 60
+        },
+        {
+          "old_offset": 56494,
+          "new_offset": 62000,
+          "length": 40
+        },
+        {
+          "old_offset": 56574,
+          "new_offset": 62080,
+          "length": 83
+        },
+        {
+          "old_offset": 56725,
+          "new_offset": 62231,
+          "length": 76
+        },
+        {
+          "old_offset": 56803,
+          "new_offset": 62309,
+          "length": 44
+        },
+        {
+          "old_offset": 56861,
+          "new_offset": 62367,
+          "length": 59
+        },
+        {
+          "old_offset": 56922,
+          "new_offset": 62428,
+          "length": 280
+        },
+        {
+          "old_offset": 57332,
+          "new_offset": 62838,
+          "length": 63
+        },
+        {
+          "old_offset": 57402,
+          "new_offset": 62908,
+          "length": 46
+        },
+        {
+          "old_offset": 57535,
+          "new_offset": 63041,
+          "length": 59
+        },
+        {
+          "old_offset": 57596,
+          "new_offset": 63102,
+          "length": 2372
+        },
+        {
+          "old_offset": 59993,
+          "new_offset": 65499,
+          "length": 53
+        },
+        {
+          "old_offset": 60058,
+          "new_offset": 65564,
+          "length": 309
+        },
+        {
+          "old_offset": 60367,
+          "new_offset": 65873,
+          "length": 37
+        },
+        {
+          "old_offset": 60491,
+          "new_offset": 65997,
+          "length": 91
+        },
+        {
+          "old_offset": 60582,
+          "new_offset": 66088,
+          "length": 34
+        },
+        {
+          "old_offset": 60618,
+          "new_offset": 66124,
+          "length": 64
+        },
+        {
+          "old_offset": 60844,
+          "new_offset": 66350,
+          "length": 44
+        },
+        {
+          "old_offset": 60931,
+          "new_offset": 66447,
+          "length": 47
+        },
+        {
+          "old_offset": 61145,
+          "new_offset": 66660,
+          "length": 48
+        },
+        {
+          "old_offset": 61291,
+          "new_offset": 66804,
+          "length": 53
+        },
+        {
+          "old_offset": 61938,
+          "new_offset": 67476,
+          "length": 80
+        },
+        {
+          "old_offset": 62040,
+          "new_offset": 67578,
+          "length": 54
+        },
+        {
+          "old_offset": 62234,
+          "new_offset": 67910,
+          "length": 692
+        },
+        {
+          "old_offset": 62926,
+          "new_offset": 68602,
+          "length": 269
+        },
+        {
+          "old_offset": 63195,
+          "new_offset": 68871,
+          "length": 1463
+        },
+        {
+          "old_offset": 64658,
+          "new_offset": 70334,
+          "length": 282
+        },
+        {
+          "old_offset": 64940,
+          "new_offset": 70616,
+          "length": 919
+        },
+        {
+          "old_offset": 65859,
+          "new_offset": 71535,
+          "length": 259
+        },
+        {
+          "old_offset": 66258,
+          "new_offset": 71794,
+          "length": 145
+        }
+      ]
+    },
+    {
+      "id": "kernel_aligned",
+      "file": "IO.SYS",
+      "old_offset": 70592,
+      "old_size": 40528,
+      "new_offset": 76128,
+      "new_size": 45392,
+      "size_delta": 4864,
+      "matched_exact_bytes": 20989,
+      "old_unmatched_bytes": 19539,
+      "new_unmatched_bytes": 24403,
+      "runs": 260,
+      "target_exact_anchor_coverage": 46.24,
+      "blocks": [
+        {
+          "old_offset": 70603,
+          "new_offset": 76139,
+          "length": 183
+        },
+        {
+          "old_offset": 71121,
+          "new_offset": 76659,
+          "length": 65
+        },
+        {
+          "old_offset": 71194,
+          "new_offset": 76732,
+          "length": 283
+        },
+        {
+          "old_offset": 71590,
+          "new_offset": 77263,
+          "length": 39
+        },
+        {
+          "old_offset": 71630,
+          "new_offset": 77303,
+          "length": 74
+        },
+        {
+          "old_offset": 72126,
+          "new_offset": 77941,
+          "length": 49
+        },
+        {
+          "old_offset": 72194,
+          "new_offset": 78009,
+          "length": 216
+        },
+        {
+          "old_offset": 72499,
+          "new_offset": 78338,
+          "length": 107
+        },
+        {
+          "old_offset": 72828,
+          "new_offset": 78680,
+          "length": 43
+        },
+        {
+          "old_offset": 72882,
+          "new_offset": 78734,
+          "length": 47
+        },
+        {
+          "old_offset": 73077,
+          "new_offset": 78921,
+          "length": 37
+        },
+        {
+          "old_offset": 73115,
+          "new_offset": 78959,
+          "length": 61
+        },
+        {
+          "old_offset": 73180,
+          "new_offset": 79023,
+          "length": 57
+        },
+        {
+          "old_offset": 73264,
+          "new_offset": 79107,
+          "length": 58
+        },
+        {
+          "old_offset": 73324,
+          "new_offset": 79167,
+          "length": 131
+        },
+        {
+          "old_offset": 73479,
+          "new_offset": 79322,
+          "length": 54
+        },
+        {
+          "old_offset": 73604,
+          "new_offset": 79447,
+          "length": 42
+        },
+        {
+          "old_offset": 73681,
+          "new_offset": 79524,
+          "length": 71
+        },
+        {
+          "old_offset": 73782,
+          "new_offset": 79625,
+          "length": 91
+        },
+        {
+          "old_offset": 73906,
+          "new_offset": 79749,
+          "length": 52
+        },
+        {
+          "old_offset": 74162,
+          "new_offset": 80348,
+          "length": 49
+        },
+        {
+          "old_offset": 74744,
+          "new_offset": 81508,
+          "length": 35
+        },
+        {
+          "old_offset": 74781,
+          "new_offset": 81545,
+          "length": 35
+        },
+        {
+          "old_offset": 74853,
+          "new_offset": 82329,
+          "length": 56
+        },
+        {
+          "old_offset": 74911,
+          "new_offset": 82387,
+          "length": 44
+        },
+        {
+          "old_offset": 74960,
+          "new_offset": 82436,
+          "length": 164
+        },
+        {
+          "old_offset": 75217,
+          "new_offset": 82693,
+          "length": 133
+        },
+        {
+          "old_offset": 75452,
+          "new_offset": 82870,
+          "length": 45
+        },
+        {
+          "old_offset": 75498,
+          "new_offset": 82916,
+          "length": 32
+        },
+        {
+          "old_offset": 75531,
+          "new_offset": 82949,
+          "length": 66
+        },
+        {
+          "old_offset": 75624,
+          "new_offset": 83042,
+          "length": 64
+        },
+        {
+          "old_offset": 75689,
+          "new_offset": 83107,
+          "length": 53
+        },
+        {
+          "old_offset": 75855,
+          "new_offset": 83273,
+          "length": 99
+        },
+        {
+          "old_offset": 75987,
+          "new_offset": 83405,
+          "length": 39
+        },
+        {
+          "old_offset": 76028,
+          "new_offset": 83446,
+          "length": 220
+        },
+        {
+          "old_offset": 76250,
+          "new_offset": 83668,
+          "length": 70
+        },
+        {
+          "old_offset": 76322,
+          "new_offset": 83740,
+          "length": 97
+        },
+        {
+          "old_offset": 76484,
+          "new_offset": 83902,
+          "length": 47
+        },
+        {
+          "old_offset": 76590,
+          "new_offset": 84008,
+          "length": 63
+        },
+        {
+          "old_offset": 76699,
+          "new_offset": 84117,
+          "length": 108
+        },
+        {
+          "old_offset": 77072,
+          "new_offset": 84497,
+          "length": 47
+        },
+        {
+          "old_offset": 77238,
+          "new_offset": 84663,
+          "length": 52
+        },
+        {
+          "old_offset": 77338,
+          "new_offset": 84760,
+          "length": 88
+        },
+        {
+          "old_offset": 77450,
+          "new_offset": 84872,
+          "length": 54
+        },
+        {
+          "old_offset": 77515,
+          "new_offset": 84937,
+          "length": 60
+        },
+        {
+          "old_offset": 77708,
+          "new_offset": 85130,
+          "length": 76
+        },
+        {
+          "old_offset": 77841,
+          "new_offset": 85265,
+          "length": 43
+        },
+        {
+          "old_offset": 78104,
+          "new_offset": 85517,
+          "length": 40
+        },
+        {
+          "old_offset": 78150,
+          "new_offset": 85592,
+          "length": 143
+        },
+        {
+          "old_offset": 78313,
+          "new_offset": 85752,
+          "length": 62
+        },
+        {
+          "old_offset": 78382,
+          "new_offset": 85821,
+          "length": 45
+        },
+        {
+          "old_offset": 78438,
+          "new_offset": 85877,
+          "length": 34
+        },
+        {
+          "old_offset": 78473,
+          "new_offset": 85912,
+          "length": 120
+        },
+        {
+          "old_offset": 78689,
+          "new_offset": 86128,
+          "length": 32
+        },
+        {
+          "old_offset": 78782,
+          "new_offset": 86257,
+          "length": 58
+        },
+        {
+          "old_offset": 79008,
+          "new_offset": 86479,
+          "length": 74
+        },
+        {
+          "old_offset": 79084,
+          "new_offset": 86555,
+          "length": 60
+        },
+        {
+          "old_offset": 79337,
+          "new_offset": 86790,
+          "length": 53
+        },
+        {
+          "old_offset": 79445,
+          "new_offset": 86887,
+          "length": 54
+        },
+        {
+          "old_offset": 79714,
+          "new_offset": 87174,
+          "length": 33
+        },
+        {
+          "old_offset": 79827,
+          "new_offset": 87289,
+          "length": 33
+        },
+        {
+          "old_offset": 80089,
+          "new_offset": 87642,
+          "length": 76
+        },
+        {
+          "old_offset": 80169,
+          "new_offset": 87722,
+          "length": 117
+        },
+        {
+          "old_offset": 80309,
+          "new_offset": 87862,
+          "length": 69
+        },
+        {
+          "old_offset": 80397,
+          "new_offset": 87950,
+          "length": 143
+        },
+        {
+          "old_offset": 80614,
+          "new_offset": 88167,
+          "length": 88
+        },
+        {
+          "old_offset": 80739,
+          "new_offset": 88292,
+          "length": 82
+        },
+        {
+          "old_offset": 80837,
+          "new_offset": 88390,
+          "length": 55
+        },
+        {
+          "old_offset": 80974,
+          "new_offset": 88582,
+          "length": 36
+        },
+        {
+          "old_offset": 81209,
+          "new_offset": 88751,
+          "length": 38
+        },
+        {
+          "old_offset": 81862,
+          "new_offset": 89420,
+          "length": 87
+        },
+        {
+          "old_offset": 82104,
+          "new_offset": 89631,
+          "length": 91
+        },
+        {
+          "old_offset": 82391,
+          "new_offset": 89924,
+          "length": 33
+        },
+        {
+          "old_offset": 82425,
+          "new_offset": 89958,
+          "length": 93
+        },
+        {
+          "old_offset": 82587,
+          "new_offset": 90142,
+          "length": 48
+        },
+        {
+          "old_offset": 82678,
+          "new_offset": 90223,
+          "length": 37
+        },
+        {
+          "old_offset": 82755,
+          "new_offset": 90300,
+          "length": 50
+        },
+        {
+          "old_offset": 82997,
+          "new_offset": 91072,
+          "length": 32
+        },
+        {
+          "old_offset": 83044,
+          "new_offset": 91104,
+          "length": 35
+        },
+        {
+          "old_offset": 83201,
+          "new_offset": 91251,
+          "length": 44
+        },
+        {
+          "old_offset": 83284,
+          "new_offset": 91351,
+          "length": 33
+        },
+        {
+          "old_offset": 83488,
+          "new_offset": 91551,
+          "length": 51
+        },
+        {
+          "old_offset": 83586,
+          "new_offset": 91649,
+          "length": 36
+        },
+        {
+          "old_offset": 83627,
+          "new_offset": 91697,
+          "length": 36
+        },
+        {
+          "old_offset": 83764,
+          "new_offset": 91812,
+          "length": 44
+        },
+        {
+          "old_offset": 84426,
+          "new_offset": 92552,
+          "length": 42
+        },
+        {
+          "old_offset": 84509,
+          "new_offset": 92635,
+          "length": 67
+        },
+        {
+          "old_offset": 84693,
+          "new_offset": 92819,
+          "length": 71
+        },
+        {
+          "old_offset": 84795,
+          "new_offset": 92921,
+          "length": 39
+        },
+        {
+          "old_offset": 84852,
+          "new_offset": 92978,
+          "length": 33
+        },
+        {
+          "old_offset": 84887,
+          "new_offset": 93013,
+          "length": 36
+        },
+        {
+          "old_offset": 84956,
+          "new_offset": 93082,
+          "length": 32
+        },
+        {
+          "old_offset": 85128,
+          "new_offset": 93254,
+          "length": 42
+        },
+        {
+          "old_offset": 85172,
+          "new_offset": 93298,
+          "length": 61
+        },
+        {
+          "old_offset": 85267,
+          "new_offset": 93393,
+          "length": 106
+        },
+        {
+          "old_offset": 85402,
+          "new_offset": 93528,
+          "length": 46
+        },
+        {
+          "old_offset": 85631,
+          "new_offset": 93777,
+          "length": 48
+        },
+        {
+          "old_offset": 85681,
+          "new_offset": 93827,
+          "length": 87
+        },
+        {
+          "old_offset": 85844,
+          "new_offset": 94027,
+          "length": 48
+        },
+        {
+          "old_offset": 86060,
+          "new_offset": 94127,
+          "length": 104
+        },
+        {
+          "old_offset": 86216,
+          "new_offset": 94544,
+          "length": 57
+        },
+        {
+          "old_offset": 86347,
+          "new_offset": 94689,
+          "length": 38
+        },
+        {
+          "old_offset": 86386,
+          "new_offset": 94728,
+          "length": 44
+        },
+        {
+          "old_offset": 86647,
+          "new_offset": 94966,
+          "length": 81
+        },
+        {
+          "old_offset": 87004,
+          "new_offset": 95268,
+          "length": 166
+        },
+        {
+          "old_offset": 87172,
+          "new_offset": 95436,
+          "length": 46
+        },
+        {
+          "old_offset": 87777,
+          "new_offset": 95766,
+          "length": 76
+        },
+        {
+          "old_offset": 87855,
+          "new_offset": 95844,
+          "length": 34
+        },
+        {
+          "old_offset": 87913,
+          "new_offset": 95902,
+          "length": 35
+        },
+        {
+          "old_offset": 88053,
+          "new_offset": 96038,
+          "length": 32
+        },
+        {
+          "old_offset": 88221,
+          "new_offset": 96199,
+          "length": 112
+        },
+        {
+          "old_offset": 88403,
+          "new_offset": 96381,
+          "length": 95
+        },
+        {
+          "old_offset": 88528,
+          "new_offset": 96506,
+          "length": 78
+        },
+        {
+          "old_offset": 88759,
+          "new_offset": 96825,
+          "length": 80
+        },
+        {
+          "old_offset": 88870,
+          "new_offset": 96983,
+          "length": 82
+        },
+        {
+          "old_offset": 88977,
+          "new_offset": 97090,
+          "length": 48
+        },
+        {
+          "old_offset": 89156,
+          "new_offset": 97269,
+          "length": 43
+        },
+        {
+          "old_offset": 89201,
+          "new_offset": 97314,
+          "length": 53
+        },
+        {
+          "old_offset": 89256,
+          "new_offset": 97369,
+          "length": 47
+        },
+        {
+          "old_offset": 89328,
+          "new_offset": 97460,
+          "length": 47
+        },
+        {
+          "old_offset": 89591,
+          "new_offset": 97767,
+          "length": 91
+        },
+        {
+          "old_offset": 89684,
+          "new_offset": 97860,
+          "length": 233
+        },
+        {
+          "old_offset": 89918,
+          "new_offset": 98094,
+          "length": 56
+        },
+        {
+          "old_offset": 89994,
+          "new_offset": 98165,
+          "length": 62
+        },
+        {
+          "old_offset": 90095,
+          "new_offset": 98266,
+          "length": 33
+        },
+        {
+          "old_offset": 90141,
+          "new_offset": 98312,
+          "length": 57
+        },
+        {
+          "old_offset": 90337,
+          "new_offset": 98511,
+          "length": 46
+        },
+        {
+          "old_offset": 90441,
+          "new_offset": 98682,
+          "length": 33
+        },
+        {
+          "old_offset": 90535,
+          "new_offset": 98776,
+          "length": 72
+        },
+        {
+          "old_offset": 90609,
+          "new_offset": 98850,
+          "length": 60
+        },
+        {
+          "old_offset": 90729,
+          "new_offset": 99049,
+          "length": 43
+        },
+        {
+          "old_offset": 90794,
+          "new_offset": 99114,
+          "length": 54
+        },
+        {
+          "old_offset": 90876,
+          "new_offset": 99195,
+          "length": 137
+        },
+        {
+          "old_offset": 91194,
+          "new_offset": 99507,
+          "length": 37
+        },
+        {
+          "old_offset": 91284,
+          "new_offset": 99598,
+          "length": 64
+        },
+        {
+          "old_offset": 91491,
+          "new_offset": 99804,
+          "length": 34
+        },
+        {
+          "old_offset": 91631,
+          "new_offset": 99943,
+          "length": 80
+        },
+        {
+          "old_offset": 91713,
+          "new_offset": 100025,
+          "length": 55
+        },
+        {
+          "old_offset": 91800,
+          "new_offset": 100111,
+          "length": 46
+        },
+        {
+          "old_offset": 91934,
+          "new_offset": 100242,
+          "length": 44
+        },
+        {
+          "old_offset": 92007,
+          "new_offset": 100315,
+          "length": 54
+        },
+        {
+          "old_offset": 92229,
+          "new_offset": 100536,
+          "length": 71
+        },
+        {
+          "old_offset": 92321,
+          "new_offset": 100628,
+          "length": 39
+        },
+        {
+          "old_offset": 92362,
+          "new_offset": 100669,
+          "length": 32
+        },
+        {
+          "old_offset": 92433,
+          "new_offset": 100740,
+          "length": 75
+        },
+        {
+          "old_offset": 92561,
+          "new_offset": 100857,
+          "length": 61
+        },
+        {
+          "old_offset": 92643,
+          "new_offset": 100939,
+          "length": 65
+        },
+        {
+          "old_offset": 92738,
+          "new_offset": 101034,
+          "length": 63
+        },
+        {
+          "old_offset": 92802,
+          "new_offset": 101098,
+          "length": 33
+        },
+        {
+          "old_offset": 92836,
+          "new_offset": 101132,
+          "length": 61
+        },
+        {
+          "old_offset": 93016,
+          "new_offset": 101311,
+          "length": 168
+        },
+        {
+          "old_offset": 93186,
+          "new_offset": 101481,
+          "length": 139
+        },
+        {
+          "old_offset": 93327,
+          "new_offset": 101622,
+          "length": 189
+        },
+        {
+          "old_offset": 93518,
+          "new_offset": 101813,
+          "length": 114
+        },
+        {
+          "old_offset": 93639,
+          "new_offset": 101934,
+          "length": 37
+        },
+        {
+          "old_offset": 93685,
+          "new_offset": 101980,
+          "length": 178
+        },
+        {
+          "old_offset": 93871,
+          "new_offset": 102166,
+          "length": 34
+        },
+        {
+          "old_offset": 93907,
+          "new_offset": 102202,
+          "length": 39
+        },
+        {
+          "old_offset": 93958,
+          "new_offset": 102253,
+          "length": 206
+        },
+        {
+          "old_offset": 94191,
+          "new_offset": 102486,
+          "length": 37
+        },
+        {
+          "old_offset": 94261,
+          "new_offset": 102556,
+          "length": 32
+        },
+        {
+          "old_offset": 94366,
+          "new_offset": 102645,
+          "length": 52
+        },
+        {
+          "old_offset": 94470,
+          "new_offset": 102749,
+          "length": 227
+        },
+        {
+          "old_offset": 94698,
+          "new_offset": 102977,
+          "length": 37
+        },
+        {
+          "old_offset": 94765,
+          "new_offset": 103044,
+          "length": 88
+        },
+        {
+          "old_offset": 94885,
+          "new_offset": 103164,
+          "length": 40
+        },
+        {
+          "old_offset": 94926,
+          "new_offset": 103205,
+          "length": 44
+        },
+        {
+          "old_offset": 94982,
+          "new_offset": 103261,
+          "length": 63
+        },
+        {
+          "old_offset": 95131,
+          "new_offset": 103407,
+          "length": 59
+        },
+        {
+          "old_offset": 95436,
+          "new_offset": 103707,
+          "length": 39
+        },
+        {
+          "old_offset": 95528,
+          "new_offset": 103874,
+          "length": 62
+        },
+        {
+          "old_offset": 95591,
+          "new_offset": 103937,
+          "length": 54
+        },
+        {
+          "old_offset": 95678,
+          "new_offset": 104024,
+          "length": 211
+        },
+        {
+          "old_offset": 95935,
+          "new_offset": 104281,
+          "length": 116
+        },
+        {
+          "old_offset": 96113,
+          "new_offset": 104459,
+          "length": 55
+        },
+        {
+          "old_offset": 96267,
+          "new_offset": 104613,
+          "length": 34
+        },
+        {
+          "old_offset": 96303,
+          "new_offset": 104649,
+          "length": 47
+        },
+        {
+          "old_offset": 96372,
+          "new_offset": 104718,
+          "length": 79
+        },
+        {
+          "old_offset": 96490,
+          "new_offset": 104836,
+          "length": 54
+        },
+        {
+          "old_offset": 96545,
+          "new_offset": 104891,
+          "length": 43
+        },
+        {
+          "old_offset": 96637,
+          "new_offset": 104983,
+          "length": 97
+        },
+        {
+          "old_offset": 96736,
+          "new_offset": 105082,
+          "length": 47
+        },
+        {
+          "old_offset": 96812,
+          "new_offset": 105158,
+          "length": 32
+        },
+        {
+          "old_offset": 96922,
+          "new_offset": 105268,
+          "length": 52
+        },
+        {
+          "old_offset": 97055,
+          "new_offset": 105397,
+          "length": 33
+        },
+        {
+          "old_offset": 97115,
+          "new_offset": 105457,
+          "length": 35
+        },
+        {
+          "old_offset": 97334,
+          "new_offset": 105676,
+          "length": 74
+        },
+        {
+          "old_offset": 97424,
+          "new_offset": 105766,
+          "length": 63
+        },
+        {
+          "old_offset": 97492,
+          "new_offset": 105834,
+          "length": 106
+        },
+        {
+          "old_offset": 97600,
+          "new_offset": 105942,
+          "length": 64
+        },
+        {
+          "old_offset": 97666,
+          "new_offset": 106008,
+          "length": 59
+        },
+        {
+          "old_offset": 97726,
+          "new_offset": 106068,
+          "length": 70
+        },
+        {
+          "old_offset": 97866,
+          "new_offset": 106208,
+          "length": 40
+        },
+        {
+          "old_offset": 98252,
+          "new_offset": 106649,
+          "length": 34
+        },
+        {
+          "old_offset": 98287,
+          "new_offset": 106684,
+          "length": 34
+        },
+        {
+          "old_offset": 98543,
+          "new_offset": 106952,
+          "length": 133
+        },
+        {
+          "old_offset": 98712,
+          "new_offset": 107121,
+          "length": 88
+        },
+        {
+          "old_offset": 98947,
+          "new_offset": 107356,
+          "length": 35
+        },
+        {
+          "old_offset": 99074,
+          "new_offset": 107483,
+          "length": 340
+        },
+        {
+          "old_offset": 99470,
+          "new_offset": 107884,
+          "length": 49
+        },
+        {
+          "old_offset": 99769,
+          "new_offset": 108311,
+          "length": 91
+        },
+        {
+          "old_offset": 100121,
+          "new_offset": 108732,
+          "length": 32
+        },
+        {
+          "old_offset": 100162,
+          "new_offset": 108773,
+          "length": 32
+        },
+        {
+          "old_offset": 100223,
+          "new_offset": 108834,
+          "length": 34
+        },
+        {
+          "old_offset": 100426,
+          "new_offset": 109073,
+          "length": 40
+        },
+        {
+          "old_offset": 101007,
+          "new_offset": 109969,
+          "length": 32
+        },
+        {
+          "old_offset": 101116,
+          "new_offset": 110024,
+          "length": 86
+        },
+        {
+          "old_offset": 101221,
+          "new_offset": 110129,
+          "length": 45
+        },
+        {
+          "old_offset": 101400,
+          "new_offset": 110308,
+          "length": 45
+        },
+        {
+          "old_offset": 101610,
+          "new_offset": 110611,
+          "length": 32
+        },
+        {
+          "old_offset": 101654,
+          "new_offset": 110655,
+          "length": 33
+        },
+        {
+          "old_offset": 101763,
+          "new_offset": 110746,
+          "length": 42
+        },
+        {
+          "old_offset": 102884,
+          "new_offset": 112845,
+          "length": 56
+        },
+        {
+          "old_offset": 102959,
+          "new_offset": 112942,
+          "length": 76
+        },
+        {
+          "old_offset": 103205,
+          "new_offset": 113228,
+          "length": 55
+        },
+        {
+          "old_offset": 103344,
+          "new_offset": 113620,
+          "length": 89
+        },
+        {
+          "old_offset": 103446,
+          "new_offset": 113773,
+          "length": 34
+        },
+        {
+          "old_offset": 103566,
+          "new_offset": 113893,
+          "length": 34
+        },
+        {
+          "old_offset": 103651,
+          "new_offset": 114012,
+          "length": 34
+        },
+        {
+          "old_offset": 103686,
+          "new_offset": 114047,
+          "length": 48
+        },
+        {
+          "old_offset": 103736,
+          "new_offset": 114097,
+          "length": 83
+        },
+        {
+          "old_offset": 103888,
+          "new_offset": 114258,
+          "length": 34
+        },
+        {
+          "old_offset": 104041,
+          "new_offset": 114455,
+          "length": 344
+        },
+        {
+          "old_offset": 104386,
+          "new_offset": 114800,
+          "length": 57
+        },
+        {
+          "old_offset": 104526,
+          "new_offset": 114940,
+          "length": 37
+        },
+        {
+          "old_offset": 104585,
+          "new_offset": 114999,
+          "length": 34
+        },
+        {
+          "old_offset": 104621,
+          "new_offset": 115035,
+          "length": 76
+        },
+        {
+          "old_offset": 104802,
+          "new_offset": 115206,
+          "length": 60
+        },
+        {
+          "old_offset": 104925,
+          "new_offset": 115326,
+          "length": 34
+        },
+        {
+          "old_offset": 105023,
+          "new_offset": 115424,
+          "length": 45
+        },
+        {
+          "old_offset": 105097,
+          "new_offset": 115506,
+          "length": 47
+        },
+        {
+          "old_offset": 105146,
+          "new_offset": 115555,
+          "length": 37
+        },
+        {
+          "old_offset": 105190,
+          "new_offset": 115599,
+          "length": 45
+        },
+        {
+          "old_offset": 105236,
+          "new_offset": 115645,
+          "length": 40
+        },
+        {
+          "old_offset": 105405,
+          "new_offset": 115820,
+          "length": 43
+        },
+        {
+          "old_offset": 105554,
+          "new_offset": 115973,
+          "length": 83
+        },
+        {
+          "old_offset": 105649,
+          "new_offset": 116068,
+          "length": 37
+        },
+        {
+          "old_offset": 105688,
+          "new_offset": 116107,
+          "length": 33
+        },
+        {
+          "old_offset": 105726,
+          "new_offset": 116145,
+          "length": 41
+        },
+        {
+          "old_offset": 105811,
+          "new_offset": 116230,
+          "length": 43
+        },
+        {
+          "old_offset": 105856,
+          "new_offset": 116275,
+          "length": 101
+        },
+        {
+          "old_offset": 105958,
+          "new_offset": 116377,
+          "length": 109
+        },
+        {
+          "old_offset": 106068,
+          "new_offset": 116487,
+          "length": 42
+        },
+        {
+          "old_offset": 106202,
+          "new_offset": 116602,
+          "length": 52
+        },
+        {
+          "old_offset": 106257,
+          "new_offset": 116657,
+          "length": 63
+        },
+        {
+          "old_offset": 106378,
+          "new_offset": 116778,
+          "length": 535
+        },
+        {
+          "old_offset": 106913,
+          "new_offset": 117313,
+          "length": 52
+        },
+        {
+          "old_offset": 106972,
+          "new_offset": 117372,
+          "length": 718
+        },
+        {
+          "old_offset": 107690,
+          "new_offset": 118090,
+          "length": 1209
+        },
+        {
+          "old_offset": 108908,
+          "new_offset": 119343,
+          "length": 142
+        },
+        {
+          "old_offset": 109050,
+          "new_offset": 119485,
+          "length": 130
+        },
+        {
+          "old_offset": 109180,
+          "new_offset": 119615,
+          "length": 307
+        },
+        {
+          "old_offset": 109524,
+          "new_offset": 119924,
+          "length": 76
+        },
+        {
+          "old_offset": 109657,
+          "new_offset": 120063,
+          "length": 60
+        },
+        {
+          "old_offset": 109723,
+          "new_offset": 120123,
+          "length": 385
+        },
+        {
+          "old_offset": 110354,
+          "new_offset": 120751,
+          "length": 37
+        },
+        {
+          "old_offset": 110423,
+          "new_offset": 120820,
+          "length": 41
+        },
+        {
+          "old_offset": 110465,
+          "new_offset": 120862,
+          "length": 338
+        },
+        {
+          "old_offset": 110803,
+          "new_offset": 121203,
+          "length": 100
+        },
+        {
+          "old_offset": 110954,
+          "new_offset": 121354,
+          "length": 166
+        }
+      ]
+    },
+    {
+      "id": "logo",
+      "file": "IO.SYS",
+      "old_offset": 111120,
+      "old_size": 65384,
+      "new_offset": 121520,
+      "new_size": 65384,
+      "size_delta": 0,
+      "matched_exact_bytes": 65384,
+      "old_unmatched_bytes": 0,
+      "new_unmatched_bytes": 0,
+      "runs": 1,
+      "target_exact_anchor_coverage": 100,
+      "blocks": [
+        {
+          "old_offset": 111120,
+          "new_offset": 121520,
+          "length": 65384
+        }
+      ]
+    },
+    {
+      "id": "config",
+      "file": "IO.SYS",
+      "old_offset": 176640,
+      "old_size": 46508,
+      "new_offset": 187392,
+      "new_size": 27444,
+      "size_delta": -19064,
+      "matched_exact_bytes": 9789,
+      "old_unmatched_bytes": 36719,
+      "new_unmatched_bytes": 17655,
+      "runs": 85,
+      "target_exact_anchor_coverage": 35.67,
+      "blocks": [
+        {
+          "old_offset": 176640,
+          "new_offset": 187392,
+          "length": 80
+        },
+        {
+          "old_offset": 176728,
+          "new_offset": 187480,
+          "length": 45
+        },
+        {
+          "old_offset": 176776,
+          "new_offset": 187528,
+          "length": 59
+        },
+        {
+          "old_offset": 176865,
+          "new_offset": 187617,
+          "length": 45
+        },
+        {
+          "old_offset": 176912,
+          "new_offset": 187664,
+          "length": 32
+        },
+        {
+          "old_offset": 177030,
+          "new_offset": 187802,
+          "length": 36
+        },
+        {
+          "old_offset": 177183,
+          "new_offset": 187955,
+          "length": 47
+        },
+        {
+          "old_offset": 177287,
+          "new_offset": 188059,
+          "length": 210
+        },
+        {
+          "old_offset": 177529,
+          "new_offset": 188301,
+          "length": 350
+        },
+        {
+          "old_offset": 177880,
+          "new_offset": 188652,
+          "length": 277
+        },
+        {
+          "old_offset": 178212,
+          "new_offset": 188984,
+          "length": 56
+        },
+        {
+          "old_offset": 178321,
+          "new_offset": 189093,
+          "length": 51
+        },
+        {
+          "old_offset": 178373,
+          "new_offset": 189145,
+          "length": 41
+        },
+        {
+          "old_offset": 178433,
+          "new_offset": 189205,
+          "length": 40
+        },
+        {
+          "old_offset": 178501,
+          "new_offset": 189273,
+          "length": 86
+        },
+        {
+          "old_offset": 178591,
+          "new_offset": 189363,
+          "length": 116
+        },
+        {
+          "old_offset": 178710,
+          "new_offset": 189482,
+          "length": 78
+        },
+        {
+          "old_offset": 178791,
+          "new_offset": 189563,
+          "length": 91
+        },
+        {
+          "old_offset": 178896,
+          "new_offset": 189668,
+          "length": 102
+        },
+        {
+          "old_offset": 179021,
+          "new_offset": 189793,
+          "length": 97
+        },
+        {
+          "old_offset": 179132,
+          "new_offset": 189904,
+          "length": 56
+        },
+        {
+          "old_offset": 179219,
+          "new_offset": 189991,
+          "length": 38
+        },
+        {
+          "old_offset": 179338,
+          "new_offset": 190110,
+          "length": 180
+        },
+        {
+          "old_offset": 179678,
+          "new_offset": 190450,
+          "length": 32
+        },
+        {
+          "old_offset": 179803,
+          "new_offset": 190575,
+          "length": 339
+        },
+        {
+          "old_offset": 180142,
+          "new_offset": 190914,
+          "length": 38
+        },
+        {
+          "old_offset": 180234,
+          "new_offset": 191006,
+          "length": 127
+        },
+        {
+          "old_offset": 180378,
+          "new_offset": 191150,
+          "length": 85
+        },
+        {
+          "old_offset": 180485,
+          "new_offset": 191257,
+          "length": 631
+        },
+        {
+          "old_offset": 181213,
+          "new_offset": 191981,
+          "length": 36
+        },
+        {
+          "old_offset": 186108,
+          "new_offset": 192220,
+          "length": 175
+        },
+        {
+          "old_offset": 186392,
+          "new_offset": 192395,
+          "length": 156
+        },
+        {
+          "old_offset": 186597,
+          "new_offset": 192551,
+          "length": 50
+        },
+        {
+          "old_offset": 186800,
+          "new_offset": 192601,
+          "length": 138
+        },
+        {
+          "old_offset": 213969,
+          "new_offset": 193397,
+          "length": 32
+        },
+        {
+          "old_offset": 214357,
+          "new_offset": 193785,
+          "length": 39
+        },
+        {
+          "old_offset": 214456,
+          "new_offset": 193884,
+          "length": 42
+        },
+        {
+          "old_offset": 214514,
+          "new_offset": 193942,
+          "length": 33
+        },
+        {
+          "old_offset": 214591,
+          "new_offset": 194019,
+          "length": 41
+        },
+        {
+          "old_offset": 214676,
+          "new_offset": 194104,
+          "length": 41
+        },
+        {
+          "old_offset": 214719,
+          "new_offset": 194147,
+          "length": 45
+        },
+        {
+          "old_offset": 214800,
+          "new_offset": 194228,
+          "length": 46
+        },
+        {
+          "old_offset": 214848,
+          "new_offset": 194276,
+          "length": 38
+        },
+        {
+          "old_offset": 214887,
+          "new_offset": 194315,
+          "length": 203
+        },
+        {
+          "old_offset": 215092,
+          "new_offset": 194520,
+          "length": 105
+        },
+        {
+          "old_offset": 215403,
+          "new_offset": 194933,
+          "length": 198
+        },
+        {
+          "old_offset": 215628,
+          "new_offset": 195158,
+          "length": 47
+        },
+        {
+          "old_offset": 215677,
+          "new_offset": 195207,
+          "length": 63
+        },
+        {
+          "old_offset": 215750,
+          "new_offset": 195280,
+          "length": 53
+        },
+        {
+          "old_offset": 215842,
+          "new_offset": 195372,
+          "length": 58
+        },
+        {
+          "old_offset": 215946,
+          "new_offset": 195476,
+          "length": 110
+        },
+        {
+          "old_offset": 216058,
+          "new_offset": 195588,
+          "length": 40
+        },
+        {
+          "old_offset": 216113,
+          "new_offset": 195643,
+          "length": 58
+        },
+        {
+          "old_offset": 216207,
+          "new_offset": 195737,
+          "length": 61
+        },
+        {
+          "old_offset": 216323,
+          "new_offset": 195853,
+          "length": 39
+        },
+        {
+          "old_offset": 216378,
+          "new_offset": 195908,
+          "length": 48
+        },
+        {
+          "old_offset": 216427,
+          "new_offset": 195957,
+          "length": 37
+        },
+        {
+          "old_offset": 216466,
+          "new_offset": 195996,
+          "length": 336
+        },
+        {
+          "old_offset": 216808,
+          "new_offset": 196338,
+          "length": 209
+        },
+        {
+          "old_offset": 217075,
+          "new_offset": 196605,
+          "length": 572
+        },
+        {
+          "old_offset": 217756,
+          "new_offset": 197286,
+          "length": 35
+        },
+        {
+          "old_offset": 217793,
+          "new_offset": 197323,
+          "length": 107
+        },
+        {
+          "old_offset": 217946,
+          "new_offset": 197476,
+          "length": 49
+        },
+        {
+          "old_offset": 218021,
+          "new_offset": 197551,
+          "length": 48
+        },
+        {
+          "old_offset": 218108,
+          "new_offset": 197638,
+          "length": 63
+        },
+        {
+          "old_offset": 218238,
+          "new_offset": 197768,
+          "length": 41
+        },
+        {
+          "old_offset": 218292,
+          "new_offset": 197822,
+          "length": 99
+        },
+        {
+          "old_offset": 218454,
+          "new_offset": 197984,
+          "length": 46
+        },
+        {
+          "old_offset": 218504,
+          "new_offset": 198034,
+          "length": 146
+        },
+        {
+          "old_offset": 218652,
+          "new_offset": 198182,
+          "length": 75
+        },
+        {
+          "old_offset": 218755,
+          "new_offset": 198285,
+          "length": 49
+        },
+        {
+          "old_offset": 219056,
+          "new_offset": 198586,
+          "length": 65
+        },
+        {
+          "old_offset": 219246,
+          "new_offset": 198776,
+          "length": 189
+        },
+        {
+          "old_offset": 219443,
+          "new_offset": 198973,
+          "length": 138
+        },
+        {
+          "old_offset": 219583,
+          "new_offset": 199113,
+          "length": 94
+        },
+        {
+          "old_offset": 219690,
+          "new_offset": 199220,
+          "length": 63
+        },
+        {
+          "old_offset": 219757,
+          "new_offset": 199287,
+          "length": 421
+        },
+        {
+          "old_offset": 220194,
+          "new_offset": 212690,
+          "length": 386
+        },
+        {
+          "old_offset": 220606,
+          "new_offset": 213106,
+          "length": 77
+        },
+        {
+          "old_offset": 220749,
+          "new_offset": 213269,
+          "length": 181
+        },
+        {
+          "old_offset": 221276,
+          "new_offset": 213602,
+          "length": 104
+        },
+        {
+          "old_offset": 221384,
+          "new_offset": 213710,
+          "length": 46
+        },
+        {
+          "old_offset": 221470,
+          "new_offset": 213796,
+          "length": 135
+        },
+        {
+          "old_offset": 221683,
+          "new_offset": 214010,
+          "length": 226
+        },
+        {
+          "old_offset": 221934,
+          "new_offset": 214254,
+          "length": 292
+        }
+      ]
+    },
+    {
+      "id": "cmd_resources",
+      "file": "COMMAND.COM",
+      "old_offset": 64,
+      "old_size": 16656,
+      "new_offset": 64,
+      "new_size": 16928,
+      "size_delta": 272,
+      "matched_exact_bytes": 15652,
+      "old_unmatched_bytes": 1004,
+      "new_unmatched_bytes": 1276,
+      "runs": 12,
+      "target_exact_anchor_coverage": 92.46,
+      "blocks": [
+        {
+          "old_offset": 905,
+          "new_offset": 929,
+          "length": 1135
+        },
+        {
+          "old_offset": 2070,
+          "new_offset": 2100,
+          "length": 896
+        },
+        {
+          "old_offset": 2966,
+          "new_offset": 3011,
+          "length": 2091
+        },
+        {
+          "old_offset": 5057,
+          "new_offset": 5102,
+          "length": 113
+        },
+        {
+          "old_offset": 5170,
+          "new_offset": 5215,
+          "length": 3487
+        },
+        {
+          "old_offset": 8657,
+          "new_offset": 8702,
+          "length": 77
+        },
+        {
+          "old_offset": 8734,
+          "new_offset": 8779,
+          "length": 4185
+        },
+        {
+          "old_offset": 12919,
+          "new_offset": 13103,
+          "length": 57
+        },
+        {
+          "old_offset": 13080,
+          "new_offset": 13276,
+          "length": 55
+        },
+        {
+          "old_offset": 13163,
+          "new_offset": 13356,
+          "length": 41
+        },
+        {
+          "old_offset": 13205,
+          "new_offset": 13398,
+          "length": 1282
+        },
+        {
+          "old_offset": 14487,
+          "new_offset": 14759,
+          "length": 2233
+        }
+      ]
+    },
+    {
+      "id": "cmd_body",
+      "file": "COMMAND.COM",
+      "old_offset": 16720,
+      "old_size": 76150,
+      "new_offset": 16992,
+      "new_size": 76820,
+      "size_delta": 670,
+      "matched_exact_bytes": 53023,
+      "old_unmatched_bytes": 23127,
+      "new_unmatched_bytes": 23797,
+      "runs": 260,
+      "target_exact_anchor_coverage": 69.02,
+      "blocks": [
+        {
+          "old_offset": 16721,
+          "new_offset": 16993,
+          "length": 224
+        },
+        {
+          "old_offset": 16945,
+          "new_offset": 17217,
+          "length": 61
+        },
+        {
+          "old_offset": 17007,
+          "new_offset": 17279,
+          "length": 528
+        },
+        {
+          "old_offset": 17551,
+          "new_offset": 17823,
+          "length": 153
+        },
+        {
+          "old_offset": 17704,
+          "new_offset": 17976,
+          "length": 504
+        },
+        {
+          "old_offset": 18210,
+          "new_offset": 18482,
+          "length": 55
+        },
+        {
+          "old_offset": 18266,
+          "new_offset": 18538,
+          "length": 278
+        },
+        {
+          "old_offset": 18544,
+          "new_offset": 18816,
+          "length": 321
+        },
+        {
+          "old_offset": 18865,
+          "new_offset": 19137,
+          "length": 3271
+        },
+        {
+          "old_offset": 22136,
+          "new_offset": 22408,
+          "length": 242
+        },
+        {
+          "old_offset": 22378,
+          "new_offset": 22650,
+          "length": 397
+        },
+        {
+          "old_offset": 22777,
+          "new_offset": 23049,
+          "length": 59
+        },
+        {
+          "old_offset": 22878,
+          "new_offset": 23150,
+          "length": 73
+        },
+        {
+          "old_offset": 22964,
+          "new_offset": 23236,
+          "length": 43
+        },
+        {
+          "old_offset": 23107,
+          "new_offset": 23379,
+          "length": 311
+        },
+        {
+          "old_offset": 23420,
+          "new_offset": 23692,
+          "length": 109
+        },
+        {
+          "old_offset": 23531,
+          "new_offset": 23803,
+          "length": 120
+        },
+        {
+          "old_offset": 23696,
+          "new_offset": 23968,
+          "length": 34
+        },
+        {
+          "old_offset": 23735,
+          "new_offset": 24007,
+          "length": 349
+        },
+        {
+          "old_offset": 24098,
+          "new_offset": 24370,
+          "length": 50
+        },
+        {
+          "old_offset": 24187,
+          "new_offset": 24459,
+          "length": 1376
+        },
+        {
+          "old_offset": 25564,
+          "new_offset": 25836,
+          "length": 79
+        },
+        {
+          "old_offset": 25644,
+          "new_offset": 25916,
+          "length": 84
+        },
+        {
+          "old_offset": 25734,
+          "new_offset": 26006,
+          "length": 50
+        },
+        {
+          "old_offset": 25785,
+          "new_offset": 26057,
+          "length": 145
+        },
+        {
+          "old_offset": 25945,
+          "new_offset": 26217,
+          "length": 38
+        },
+        {
+          "old_offset": 25984,
+          "new_offset": 26256,
+          "length": 86
+        },
+        {
+          "old_offset": 26071,
+          "new_offset": 26343,
+          "length": 371
+        },
+        {
+          "old_offset": 26443,
+          "new_offset": 26715,
+          "length": 205
+        },
+        {
+          "old_offset": 26649,
+          "new_offset": 26921,
+          "length": 41
+        },
+        {
+          "old_offset": 26721,
+          "new_offset": 26993,
+          "length": 151
+        },
+        {
+          "old_offset": 26874,
+          "new_offset": 27146,
+          "length": 32
+        },
+        {
+          "old_offset": 26907,
+          "new_offset": 27179,
+          "length": 55
+        },
+        {
+          "old_offset": 26964,
+          "new_offset": 27236,
+          "length": 206
+        },
+        {
+          "old_offset": 27188,
+          "new_offset": 27460,
+          "length": 395
+        },
+        {
+          "old_offset": 27624,
+          "new_offset": 27896,
+          "length": 33
+        },
+        {
+          "old_offset": 27658,
+          "new_offset": 27930,
+          "length": 74
+        },
+        {
+          "old_offset": 27733,
+          "new_offset": 28005,
+          "length": 69
+        },
+        {
+          "old_offset": 27815,
+          "new_offset": 28087,
+          "length": 61
+        },
+        {
+          "old_offset": 27877,
+          "new_offset": 28149,
+          "length": 185
+        },
+        {
+          "old_offset": 28063,
+          "new_offset": 28335,
+          "length": 42
+        },
+        {
+          "old_offset": 28106,
+          "new_offset": 28378,
+          "length": 167
+        },
+        {
+          "old_offset": 28274,
+          "new_offset": 28546,
+          "length": 50
+        },
+        {
+          "old_offset": 28325,
+          "new_offset": 28597,
+          "length": 202
+        },
+        {
+          "old_offset": 28528,
+          "new_offset": 28800,
+          "length": 35
+        },
+        {
+          "old_offset": 28564,
+          "new_offset": 28836,
+          "length": 306
+        },
+        {
+          "old_offset": 28875,
+          "new_offset": 29147,
+          "length": 166
+        },
+        {
+          "old_offset": 29042,
+          "new_offset": 29314,
+          "length": 271
+        },
+        {
+          "old_offset": 29314,
+          "new_offset": 29586,
+          "length": 114
+        },
+        {
+          "old_offset": 29438,
+          "new_offset": 29710,
+          "length": 1299
+        },
+        {
+          "old_offset": 30737,
+          "new_offset": 31009,
+          "length": 99
+        },
+        {
+          "old_offset": 30842,
+          "new_offset": 31114,
+          "length": 80
+        },
+        {
+          "old_offset": 30924,
+          "new_offset": 31196,
+          "length": 451
+        },
+        {
+          "old_offset": 31375,
+          "new_offset": 31647,
+          "length": 2636
+        },
+        {
+          "old_offset": 34011,
+          "new_offset": 34287,
+          "length": 294
+        },
+        {
+          "old_offset": 34305,
+          "new_offset": 34593,
+          "length": 38
+        },
+        {
+          "old_offset": 34409,
+          "new_offset": 34697,
+          "length": 32
+        },
+        {
+          "old_offset": 34612,
+          "new_offset": 34900,
+          "length": 59
+        },
+        {
+          "old_offset": 34788,
+          "new_offset": 35076,
+          "length": 41
+        },
+        {
+          "old_offset": 34870,
+          "new_offset": 35158,
+          "length": 78
+        },
+        {
+          "old_offset": 34994,
+          "new_offset": 35282,
+          "length": 33
+        },
+        {
+          "old_offset": 35578,
+          "new_offset": 35866,
+          "length": 53
+        },
+        {
+          "old_offset": 35645,
+          "new_offset": 35933,
+          "length": 93
+        },
+        {
+          "old_offset": 35740,
+          "new_offset": 36028,
+          "length": 65
+        },
+        {
+          "old_offset": 35916,
+          "new_offset": 36204,
+          "length": 66
+        },
+        {
+          "old_offset": 36024,
+          "new_offset": 36312,
+          "length": 48
+        },
+        {
+          "old_offset": 36246,
+          "new_offset": 36534,
+          "length": 40
+        },
+        {
+          "old_offset": 36302,
+          "new_offset": 36590,
+          "length": 38
+        },
+        {
+          "old_offset": 36434,
+          "new_offset": 36722,
+          "length": 60
+        },
+        {
+          "old_offset": 36496,
+          "new_offset": 36784,
+          "length": 34
+        },
+        {
+          "old_offset": 36611,
+          "new_offset": 36899,
+          "length": 44
+        },
+        {
+          "old_offset": 36657,
+          "new_offset": 36945,
+          "length": 58
+        },
+        {
+          "old_offset": 36832,
+          "new_offset": 37120,
+          "length": 48
+        },
+        {
+          "old_offset": 36919,
+          "new_offset": 37207,
+          "length": 52
+        },
+        {
+          "old_offset": 37000,
+          "new_offset": 37288,
+          "length": 35
+        },
+        {
+          "old_offset": 37037,
+          "new_offset": 37325,
+          "length": 72
+        },
+        {
+          "old_offset": 37180,
+          "new_offset": 37467,
+          "length": 36
+        },
+        {
+          "old_offset": 37255,
+          "new_offset": 37542,
+          "length": 78
+        },
+        {
+          "old_offset": 37334,
+          "new_offset": 37621,
+          "length": 66
+        },
+        {
+          "old_offset": 37524,
+          "new_offset": 37811,
+          "length": 49
+        },
+        {
+          "old_offset": 37643,
+          "new_offset": 37930,
+          "length": 45
+        },
+        {
+          "old_offset": 37988,
+          "new_offset": 38275,
+          "length": 59
+        },
+        {
+          "old_offset": 38170,
+          "new_offset": 38457,
+          "length": 42
+        },
+        {
+          "old_offset": 38240,
+          "new_offset": 38527,
+          "length": 46
+        },
+        {
+          "old_offset": 38288,
+          "new_offset": 38575,
+          "length": 40
+        },
+        {
+          "old_offset": 38330,
+          "new_offset": 38617,
+          "length": 41
+        },
+        {
+          "old_offset": 38393,
+          "new_offset": 38680,
+          "length": 84
+        },
+        {
+          "old_offset": 38479,
+          "new_offset": 38766,
+          "length": 39
+        },
+        {
+          "old_offset": 38522,
+          "new_offset": 38809,
+          "length": 35
+        },
+        {
+          "old_offset": 38587,
+          "new_offset": 38874,
+          "length": 53
+        },
+        {
+          "old_offset": 38673,
+          "new_offset": 38960,
+          "length": 56
+        },
+        {
+          "old_offset": 38747,
+          "new_offset": 39034,
+          "length": 43
+        },
+        {
+          "old_offset": 38899,
+          "new_offset": 39186,
+          "length": 145
+        },
+        {
+          "old_offset": 39059,
+          "new_offset": 39346,
+          "length": 73
+        },
+        {
+          "old_offset": 39202,
+          "new_offset": 39489,
+          "length": 44
+        },
+        {
+          "old_offset": 40625,
+          "new_offset": 40915,
+          "length": 118
+        },
+        {
+          "old_offset": 41151,
+          "new_offset": 41644,
+          "length": 36
+        },
+        {
+          "old_offset": 41220,
+          "new_offset": 41713,
+          "length": 53
+        },
+        {
+          "old_offset": 41739,
+          "new_offset": 42241,
+          "length": 37
+        },
+        {
+          "old_offset": 41883,
+          "new_offset": 42385,
+          "length": 88
+        },
+        {
+          "old_offset": 41994,
+          "new_offset": 42496,
+          "length": 32
+        },
+        {
+          "old_offset": 42274,
+          "new_offset": 42776,
+          "length": 35
+        },
+        {
+          "old_offset": 42681,
+          "new_offset": 43182,
+          "length": 39
+        },
+        {
+          "old_offset": 43449,
+          "new_offset": 43956,
+          "length": 56
+        },
+        {
+          "old_offset": 43941,
+          "new_offset": 44525,
+          "length": 38
+        },
+        {
+          "old_offset": 43984,
+          "new_offset": 44568,
+          "length": 38
+        },
+        {
+          "old_offset": 44400,
+          "new_offset": 45019,
+          "length": 51
+        },
+        {
+          "old_offset": 44682,
+          "new_offset": 45312,
+          "length": 120
+        },
+        {
+          "old_offset": 45255,
+          "new_offset": 45885,
+          "length": 38
+        },
+        {
+          "old_offset": 45500,
+          "new_offset": 46130,
+          "length": 43
+        },
+        {
+          "old_offset": 45545,
+          "new_offset": 46175,
+          "length": 38
+        },
+        {
+          "old_offset": 46072,
+          "new_offset": 46702,
+          "length": 41
+        },
+        {
+          "old_offset": 46156,
+          "new_offset": 46786,
+          "length": 40
+        },
+        {
+          "old_offset": 46419,
+          "new_offset": 47049,
+          "length": 110
+        },
+        {
+          "old_offset": 46530,
+          "new_offset": 47160,
+          "length": 42
+        },
+        {
+          "old_offset": 46686,
+          "new_offset": 47316,
+          "length": 55
+        },
+        {
+          "old_offset": 46838,
+          "new_offset": 47468,
+          "length": 108
+        },
+        {
+          "old_offset": 47010,
+          "new_offset": 47640,
+          "length": 32
+        },
+        {
+          "old_offset": 47059,
+          "new_offset": 47689,
+          "length": 56
+        },
+        {
+          "old_offset": 47315,
+          "new_offset": 47945,
+          "length": 34
+        },
+        {
+          "old_offset": 47471,
+          "new_offset": 48101,
+          "length": 112
+        },
+        {
+          "old_offset": 47726,
+          "new_offset": 48355,
+          "length": 64
+        },
+        {
+          "old_offset": 47878,
+          "new_offset": 48507,
+          "length": 53
+        },
+        {
+          "old_offset": 47933,
+          "new_offset": 48562,
+          "length": 47
+        },
+        {
+          "old_offset": 47990,
+          "new_offset": 48619,
+          "length": 35
+        },
+        {
+          "old_offset": 48072,
+          "new_offset": 48701,
+          "length": 92
+        },
+        {
+          "old_offset": 48294,
+          "new_offset": 48923,
+          "length": 50
+        },
+        {
+          "old_offset": 48357,
+          "new_offset": 48986,
+          "length": 33
+        },
+        {
+          "old_offset": 48423,
+          "new_offset": 49052,
+          "length": 37
+        },
+        {
+          "old_offset": 48462,
+          "new_offset": 49091,
+          "length": 94
+        },
+        {
+          "old_offset": 48579,
+          "new_offset": 49208,
+          "length": 36
+        },
+        {
+          "old_offset": 48617,
+          "new_offset": 49246,
+          "length": 44
+        },
+        {
+          "old_offset": 48693,
+          "new_offset": 49322,
+          "length": 43
+        },
+        {
+          "old_offset": 49241,
+          "new_offset": 49870,
+          "length": 107
+        },
+        {
+          "old_offset": 49519,
+          "new_offset": 50148,
+          "length": 53
+        },
+        {
+          "old_offset": 49619,
+          "new_offset": 50248,
+          "length": 34
+        },
+        {
+          "old_offset": 49658,
+          "new_offset": 50287,
+          "length": 40
+        },
+        {
+          "old_offset": 50195,
+          "new_offset": 50824,
+          "length": 58
+        },
+        {
+          "old_offset": 50255,
+          "new_offset": 50884,
+          "length": 34
+        },
+        {
+          "old_offset": 50352,
+          "new_offset": 50981,
+          "length": 175
+        },
+        {
+          "old_offset": 50529,
+          "new_offset": 51158,
+          "length": 46
+        },
+        {
+          "old_offset": 50585,
+          "new_offset": 51214,
+          "length": 48
+        },
+        {
+          "old_offset": 50634,
+          "new_offset": 51263,
+          "length": 60
+        },
+        {
+          "old_offset": 50758,
+          "new_offset": 51387,
+          "length": 60
+        },
+        {
+          "old_offset": 51019,
+          "new_offset": 51648,
+          "length": 39
+        },
+        {
+          "old_offset": 51109,
+          "new_offset": 51738,
+          "length": 39
+        },
+        {
+          "old_offset": 51196,
+          "new_offset": 51825,
+          "length": 44
+        },
+        {
+          "old_offset": 51307,
+          "new_offset": 51936,
+          "length": 60
+        },
+        {
+          "old_offset": 51610,
+          "new_offset": 52239,
+          "length": 32
+        },
+        {
+          "old_offset": 51748,
+          "new_offset": 52384,
+          "length": 42
+        },
+        {
+          "old_offset": 51856,
+          "new_offset": 52492,
+          "length": 73
+        },
+        {
+          "old_offset": 52055,
+          "new_offset": 52691,
+          "length": 49
+        },
+        {
+          "old_offset": 52268,
+          "new_offset": 52904,
+          "length": 88
+        },
+        {
+          "old_offset": 52357,
+          "new_offset": 52993,
+          "length": 74
+        },
+        {
+          "old_offset": 52433,
+          "new_offset": 53069,
+          "length": 48
+        },
+        {
+          "old_offset": 52482,
+          "new_offset": 53118,
+          "length": 57
+        },
+        {
+          "old_offset": 52541,
+          "new_offset": 53177,
+          "length": 52
+        },
+        {
+          "old_offset": 52859,
+          "new_offset": 53495,
+          "length": 49
+        },
+        {
+          "old_offset": 53105,
+          "new_offset": 53741,
+          "length": 55
+        },
+        {
+          "old_offset": 53547,
+          "new_offset": 54183,
+          "length": 32
+        },
+        {
+          "old_offset": 53654,
+          "new_offset": 54290,
+          "length": 35
+        },
+        {
+          "old_offset": 53747,
+          "new_offset": 54383,
+          "length": 50
+        },
+        {
+          "old_offset": 53995,
+          "new_offset": 54631,
+          "length": 48
+        },
+        {
+          "old_offset": 54045,
+          "new_offset": 54681,
+          "length": 33
+        },
+        {
+          "old_offset": 54106,
+          "new_offset": 54742,
+          "length": 35
+        },
+        {
+          "old_offset": 54690,
+          "new_offset": 55326,
+          "length": 32
+        },
+        {
+          "old_offset": 54843,
+          "new_offset": 55479,
+          "length": 37
+        },
+        {
+          "old_offset": 55023,
+          "new_offset": 55659,
+          "length": 34
+        },
+        {
+          "old_offset": 55274,
+          "new_offset": 55910,
+          "length": 34
+        },
+        {
+          "old_offset": 55443,
+          "new_offset": 56079,
+          "length": 45
+        },
+        {
+          "old_offset": 55490,
+          "new_offset": 56126,
+          "length": 55
+        },
+        {
+          "old_offset": 55551,
+          "new_offset": 56187,
+          "length": 70
+        },
+        {
+          "old_offset": 57373,
+          "new_offset": 58066,
+          "length": 100
+        },
+        {
+          "old_offset": 57914,
+          "new_offset": 58607,
+          "length": 32
+        },
+        {
+          "old_offset": 58026,
+          "new_offset": 58719,
+          "length": 63
+        },
+        {
+          "old_offset": 58771,
+          "new_offset": 59480,
+          "length": 66
+        },
+        {
+          "old_offset": 58848,
+          "new_offset": 59557,
+          "length": 34
+        },
+        {
+          "old_offset": 58936,
+          "new_offset": 59661,
+          "length": 74
+        },
+        {
+          "old_offset": 59082,
+          "new_offset": 59807,
+          "length": 74
+        },
+        {
+          "old_offset": 59641,
+          "new_offset": 60365,
+          "length": 43
+        },
+        {
+          "old_offset": 59790,
+          "new_offset": 60514,
+          "length": 41
+        },
+        {
+          "old_offset": 59832,
+          "new_offset": 60556,
+          "length": 54
+        },
+        {
+          "old_offset": 60187,
+          "new_offset": 60911,
+          "length": 42
+        },
+        {
+          "old_offset": 60231,
+          "new_offset": 60955,
+          "length": 52
+        },
+        {
+          "old_offset": 60346,
+          "new_offset": 61070,
+          "length": 53
+        },
+        {
+          "old_offset": 60492,
+          "new_offset": 61216,
+          "length": 32
+        },
+        {
+          "old_offset": 60538,
+          "new_offset": 61262,
+          "length": 53
+        },
+        {
+          "old_offset": 60593,
+          "new_offset": 61317,
+          "length": 59
+        },
+        {
+          "old_offset": 60868,
+          "new_offset": 61592,
+          "length": 94
+        },
+        {
+          "old_offset": 60973,
+          "new_offset": 61697,
+          "length": 50
+        },
+        {
+          "old_offset": 61048,
+          "new_offset": 61772,
+          "length": 93
+        },
+        {
+          "old_offset": 61143,
+          "new_offset": 61867,
+          "length": 42
+        },
+        {
+          "old_offset": 61187,
+          "new_offset": 61911,
+          "length": 73
+        },
+        {
+          "old_offset": 61302,
+          "new_offset": 62026,
+          "length": 93
+        },
+        {
+          "old_offset": 61419,
+          "new_offset": 62143,
+          "length": 34
+        },
+        {
+          "old_offset": 61476,
+          "new_offset": 62200,
+          "length": 55
+        },
+        {
+          "old_offset": 61533,
+          "new_offset": 62257,
+          "length": 55
+        },
+        {
+          "old_offset": 61729,
+          "new_offset": 62453,
+          "length": 38
+        },
+        {
+          "old_offset": 61779,
+          "new_offset": 62503,
+          "length": 38
+        },
+        {
+          "old_offset": 61819,
+          "new_offset": 62543,
+          "length": 93
+        },
+        {
+          "old_offset": 62161,
+          "new_offset": 62885,
+          "length": 53
+        },
+        {
+          "old_offset": 62352,
+          "new_offset": 63076,
+          "length": 76
+        },
+        {
+          "old_offset": 62459,
+          "new_offset": 63183,
+          "length": 69
+        },
+        {
+          "old_offset": 62536,
+          "new_offset": 63260,
+          "length": 64
+        },
+        {
+          "old_offset": 62624,
+          "new_offset": 63348,
+          "length": 37
+        },
+        {
+          "old_offset": 62674,
+          "new_offset": 63398,
+          "length": 35
+        },
+        {
+          "old_offset": 62726,
+          "new_offset": 63450,
+          "length": 40
+        },
+        {
+          "old_offset": 62768,
+          "new_offset": 63492,
+          "length": 141
+        },
+        {
+          "old_offset": 62932,
+          "new_offset": 63656,
+          "length": 44
+        },
+        {
+          "old_offset": 62978,
+          "new_offset": 63702,
+          "length": 128
+        },
+        {
+          "old_offset": 63119,
+          "new_offset": 63843,
+          "length": 35
+        },
+        {
+          "old_offset": 63156,
+          "new_offset": 63880,
+          "length": 41
+        },
+        {
+          "old_offset": 63203,
+          "new_offset": 63927,
+          "length": 42
+        },
+        {
+          "old_offset": 63268,
+          "new_offset": 63992,
+          "length": 61
+        },
+        {
+          "old_offset": 63363,
+          "new_offset": 64087,
+          "length": 40
+        },
+        {
+          "old_offset": 63416,
+          "new_offset": 64140,
+          "length": 141
+        },
+        {
+          "old_offset": 63617,
+          "new_offset": 64341,
+          "length": 39
+        },
+        {
+          "old_offset": 63658,
+          "new_offset": 64382,
+          "length": 54
+        },
+        {
+          "old_offset": 63785,
+          "new_offset": 64509,
+          "length": 62
+        },
+        {
+          "old_offset": 63849,
+          "new_offset": 64573,
+          "length": 204
+        },
+        {
+          "old_offset": 64055,
+          "new_offset": 64779,
+          "length": 432
+        },
+        {
+          "old_offset": 64824,
+          "new_offset": 65548,
+          "length": 33
+        },
+        {
+          "old_offset": 64870,
+          "new_offset": 65594,
+          "length": 37
+        },
+        {
+          "old_offset": 65193,
+          "new_offset": 65917,
+          "length": 56
+        },
+        {
+          "old_offset": 65251,
+          "new_offset": 65975,
+          "length": 48
+        },
+        {
+          "old_offset": 65311,
+          "new_offset": 66035,
+          "length": 63
+        },
+        {
+          "old_offset": 65400,
+          "new_offset": 66124,
+          "length": 47
+        },
+        {
+          "old_offset": 65469,
+          "new_offset": 66193,
+          "length": 47
+        },
+        {
+          "old_offset": 65542,
+          "new_offset": 66266,
+          "length": 41
+        },
+        {
+          "old_offset": 65616,
+          "new_offset": 66340,
+          "length": 59
+        },
+        {
+          "old_offset": 65705,
+          "new_offset": 66429,
+          "length": 72
+        },
+        {
+          "old_offset": 65923,
+          "new_offset": 66647,
+          "length": 52
+        },
+        {
+          "old_offset": 66059,
+          "new_offset": 66783,
+          "length": 51
+        },
+        {
+          "old_offset": 66398,
+          "new_offset": 67122,
+          "length": 42
+        },
+        {
+          "old_offset": 66549,
+          "new_offset": 67273,
+          "length": 42
+        },
+        {
+          "old_offset": 66593,
+          "new_offset": 67317,
+          "length": 36
+        },
+        {
+          "old_offset": 66637,
+          "new_offset": 67361,
+          "length": 92
+        },
+        {
+          "old_offset": 66747,
+          "new_offset": 67471,
+          "length": 53
+        },
+        {
+          "old_offset": 66824,
+          "new_offset": 67548,
+          "length": 50
+        },
+        {
+          "old_offset": 66959,
+          "new_offset": 67712,
+          "length": 35
+        },
+        {
+          "old_offset": 66996,
+          "new_offset": 67749,
+          "length": 74
+        },
+        {
+          "old_offset": 67203,
+          "new_offset": 67985,
+          "length": 108
+        },
+        {
+          "old_offset": 67361,
+          "new_offset": 68146,
+          "length": 36
+        },
+        {
+          "old_offset": 67399,
+          "new_offset": 68184,
+          "length": 75
+        },
+        {
+          "old_offset": 67635,
+          "new_offset": 68520,
+          "length": 44
+        },
+        {
+          "old_offset": 67723,
+          "new_offset": 68608,
+          "length": 318
+        },
+        {
+          "old_offset": 68308,
+          "new_offset": 69193,
+          "length": 281
+        },
+        {
+          "old_offset": 68630,
+          "new_offset": 69515,
+          "length": 101
+        },
+        {
+          "old_offset": 68771,
+          "new_offset": 69656,
+          "length": 143
+        },
+        {
+          "old_offset": 68914,
+          "new_offset": 69799,
+          "length": 16927
+        },
+        {
+          "old_offset": 85841,
+          "new_offset": 86726,
+          "length": 117
+        },
+        {
+          "old_offset": 85958,
+          "new_offset": 86843,
+          "length": 293
+        },
+        {
+          "old_offset": 86251,
+          "new_offset": 87137,
+          "length": 3205
+        },
+        {
+          "old_offset": 89456,
+          "new_offset": 90398,
+          "length": 931
+        },
+        {
+          "old_offset": 90387,
+          "new_offset": 91329,
+          "length": 514
+        },
+        {
+          "old_offset": 90901,
+          "new_offset": 91843,
+          "length": 81
+        },
+        {
+          "old_offset": 90982,
+          "new_offset": 91924,
+          "length": 38
+        },
+        {
+          "old_offset": 91022,
+          "new_offset": 91964,
+          "length": 1109
+        },
+        {
+          "old_offset": 92131,
+          "new_offset": 93073,
+          "length": 703
+        },
+        {
+          "old_offset": 92834,
+          "new_offset": 93776,
+          "length": 36
+        }
+      ]
+    },
+    {
+      "id": "cmd_resident_messages",
+      "file": "COMMAND.COM",
+      "old_offset": 14496,
+      "old_size": 2224,
+      "new_offset": 14768,
+      "new_size": 2224,
+      "size_delta": 0,
+      "matched_exact_bytes": 2224,
+      "old_unmatched_bytes": 0,
+      "new_unmatched_bytes": 0,
+      "runs": 1,
+      "target_exact_anchor_coverage": 100,
+      "blocks": [
+        {
+          "old_offset": 14496,
+          "new_offset": 14768,
+          "length": 2224
+        }
+      ]
+    }
+  ],
+  "core_source_files_modified": 0,
+  "source_files_newly_audited": 0,
+  "tools_added": [
+    "extras/tools/blockdiff.c"
+  ],
+  "no_dos_rebuild": true
+}

@@ -1,0 +1,10 @@
+{
+  "source_sha256": "f3c35f664504e4918a2cbc042d2ec4add8ab659093fe697c1b2d18d254f213a4",
+  "reference_dosmac_sha256": "30acfd9ff4cfa69f2719bc61a4416c3c37fc4cb3ae2b5cdaed64096dfbc67675",
+  "diagnostic_dosmac_sha256": "65f1c2c68106d21dd7246c76df7d812d7458a88b765822ac3e043b6c2d1184e0",
+  "testb_body_exact_copy": true,
+  "fallthrough_done_offset": "0x56f",
+  "fallthrough_diddleback_offset": "0x56f",
+  "ml6_assembly_succeeded": true,
+  "limitations": "Diagnostic copy retains only BREAK, TESTB and no-op FALLTHRU macros; FALLTHRU adjacency was checked after assembly. Other macro semantics and production build have not been validated."
+}

@@ -1,0 +1,37 @@
+{
+  "generated_utc": "2026-11-12T11:31:19.130383+00:00",
+  "source": "cmd/command/tcmd2a.asm",
+  "build_report": "extras/docs/etc/command-path-component-fixed-build-20261112.json",
+  "comparison": {
+    "target_offset": "0xb62b",
+    "candidate_offset": "0xb9c8",
+    "length": 123,
+    "excluded_address_bytes": [
+      11,
+      12,
+      25,
+      26,
+      40,
+      41,
+      50,
+      51,
+      106,
+      107,
+      111,
+      112
+    ],
+    "note": "Instructions match outside six linked operands; target workspace equivalence and call operands not individually certified."
+  },
+  "probe": {
+    "stage": "extras/build/command-pathcomponent-ytych3mu",
+    "result": "PASS",
+    "coverage": "Actual helper with stubs: strips quotes, uppercases and falls back for non-LFN component; LFN conversion and real DOS interfaces not covered."
+  },
+  "remaining": "Helper not yet connected to PATH parser; EXECPATH workspace equivalence, LFN conversion, full PATH, SET integration and ECHO/COPY unverified.",
+  "file_counts": {
+    "linked": 35,
+    "modified_from_baseline": 30,
+    "unchanged_from_baseline": 5
+  },
+  "final_binary_exact": false
+}

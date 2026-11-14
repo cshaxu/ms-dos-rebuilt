@@ -1,0 +1,12 @@
+{
+  "stage": "extras\\build\\dir-onoff-probe-_vtoscwz",
+  "method": "Isolated DOS execution of current on/off handler and adapter",
+  "checks": [
+    "enable and disable a switch with an invalid unused ValuePtr",
+    "preserve SI",
+    "reject nonempty direct argument without changing option"
+  ],
+  "limitations": [
+    "Synthetic parser result; full system parser and DIR execution are not exercised."
+  ]
+}

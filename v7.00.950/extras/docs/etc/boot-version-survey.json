@@ -1,0 +1,298 @@
+{
+  "task": "M6 T13 S1 P1",
+  "scope": "Boot floppy images and floppy-emulation payloads in the six boot ISO wrappers only. Installation CDs are not the target source per owner correction.",
+  "naming": "v<DOS-major>.<two-digit-minor>.<build>: v7.00.950, v7.10.1111, v7.10.1998, v7.10.2222, v8.00.3000.",
+  "samples": [
+    {
+      "id": "fd95a",
+      "source": "E:/core/collection/systems/x86_16_dos/msdos_7xx/msdosw95a_boot.img",
+      "sha256": "92619df55bdbdf4dc22e6dba6acdd6a42f8b77323b3542cc8d0b61f8c4c43c1f",
+      "command_version_string": "4.00.950",
+      "extraction_log": "COMMAND.COM 92870 bytes date=1995-07-11 FAT12-chain=OK\r\nMSDOS.SYS 6 bytes date=1997-10-02 FAT12-chain=OK\r\nIO.SYS 223148 bytes date=1995-07-11 FAT12-chain=OK\r\n",
+      "files": {
+        "IO.SYS": {
+          "sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+          "size": 223148
+        },
+        "MSDOS.SYS": {
+          "sha256": "d28c3a421236bb61081f706193f51f32b9f8b957598d94b6b3b143ae52b1ea03",
+          "size": 6
+        },
+        "COMMAND.COM": {
+          "sha256": "a74c700063cd6b1c91523952bfc80e9393c125d39ada0164d48b5098089fcef3",
+          "size": 92870
+        }
+      }
+    },
+    {
+      "id": "fd95b",
+      "source": "E:/core/collection/systems/x86_16_dos/msdos_7xx/msdosw95b_boot.img",
+      "sha256": "2ab75af3332628413e726187ab3d5aeede8e6459124e72a6f7db8e0738d5244c",
+      "command_version_string": "4.00.1111",
+      "extraction_log": "COMMAND.COM 93812 bytes date=1996-08-24 FAT12-chain=OK\r\nIO.SYS 214836 bytes date=1996-08-24 FAT12-chain=OK\r\nMSDOS.SYS 6 bytes date=1999-11-17 FAT12-chain=OK\r\n",
+      "files": {
+        "IO.SYS": {
+          "sha256": "1a6ca94a7f3e5012e1bdcf696f5b48f644a7b64ab74b0a6693f971cff8769730",
+          "size": 214836
+        },
+        "MSDOS.SYS": {
+          "sha256": "d28c3a421236bb61081f706193f51f32b9f8b957598d94b6b3b143ae52b1ea03",
+          "size": 6
+        },
+        "COMMAND.COM": {
+          "sha256": "b4ba73da07374d504c426098566f4fc559580c84ae2465a827de57df4e23fddd",
+          "size": 93812
+        }
+      }
+    },
+    {
+      "id": "fd98",
+      "source": "E:/core/collection/systems/x86_16_dos/msdos_7xx/msdosw98_boot.img",
+      "sha256": "31d68dcd2d46a244f8f62d9b0de79c912b7b62e649264e8f19d5dbe2deb21f31",
+      "command_version_string": "4.10.1998",
+      "extraction_log": "IO.SYS 224150 bytes date=1998-06-19 FAT12-chain=OK\r\nCOMMAND.COM 94282 bytes date=1998-06-19 FAT12-chain=OK\r\nMSDOS.SYS 9 bytes date=1999-01-14 FAT12-chain=OK\r\n",
+      "files": {
+        "IO.SYS": {
+          "sha256": "b306691321ae8b32a095287709582123e812795ffa985dcec86c1c4f9bf35aa9",
+          "size": 224150
+        },
+        "MSDOS.SYS": {
+          "sha256": "1eba0f7f864728dc5a76bfed6381dfde2f1e283a3d84a3f0600c9b6537e4a329",
+          "size": 9
+        },
+        "COMMAND.COM": {
+          "sha256": "f935c89f348c018a27af493f5842d3ed445cd244e612db8266d044ec70d29c50",
+          "size": 94282
+        }
+      }
+    },
+    {
+      "id": "fd98abd",
+      "source": "E:/core/collection/systems/x86_16_dos/msdos_7xx/msdosw98_boot_allbootdisks.img",
+      "sha256": "7373cbc44221dc125602a2fd47cdc365c642c72dcbbea9bc119b84570a27395d",
+      "command_version_string": "4.10.1998",
+      "extraction_log": "IO.SYS 222390 bytes date=1998-05-11 FAT12-chain=OK\r\nCOMMAND.COM 93880 bytes date=1998-05-11 FAT12-chain=OK\r\nMSDOS.SYS 9 bytes date=1998-06-29 FAT12-chain=OK\r\n",
+      "files": {
+        "IO.SYS": {
+          "sha256": "1c4b40d1743e3149d414fc8ee0ddf098686b74bda8f6fd2bf14b0def489b458a",
+          "size": 222390
+        },
+        "MSDOS.SYS": {
+          "sha256": "1eba0f7f864728dc5a76bfed6381dfde2f1e283a3d84a3f0600c9b6537e4a329",
+          "size": 9
+        },
+        "COMMAND.COM": {
+          "sha256": "48485a9b5d1e736edc46b896de6726160811aeee02d50e5a4df3c2a1c5a69bd7",
+          "size": 93880
+        }
+      }
+    },
+    {
+      "id": "fd98nr",
+      "source": "E:/core/collection/systems/x86_16_dos/msdos_7xx/msdosw98_boot_noram_allbootdisks.img",
+      "sha256": "797562152fecc27ef2163a46b1affa32f98f629157ca2c63692dea36f0790b02",
+      "command_version_string": "4.10.2222",
+      "extraction_log": "IO.SYS 222390 bytes date=1999-04-23 FAT12-chain=OK\r\nMSDOS.SYS 6 bytes date=1999-07-16 FAT12-chain=OK\r\nCOMMAND.COM 93890 bytes date=1999-04-23 FAT12-chain=OK\r\n",
+      "files": {
+        "IO.SYS": {
+          "sha256": "2db8f238742c374f264ead1c44f87d69af42c24688a3a80f7d9657bc952d5d20",
+          "size": 222390
+        },
+        "MSDOS.SYS": {
+          "sha256": "d28c3a421236bb61081f706193f51f32b9f8b957598d94b6b3b143ae52b1ea03",
+          "size": 6
+        },
+        "COMMAND.COM": {
+          "sha256": "c3b5899620d6c58b90727b640bb7bb6a723f6013629c9459c241e9dc9e7ff20b",
+          "size": 93890
+        }
+      }
+    },
+    {
+      "id": "fd98se",
+      "source": "E:/core/collection/systems/x86_16_dos/msdos_7xx/msdosw98se_boot_allbootdisks.img",
+      "sha256": "1487ea28bd60283cab17f3c03e00a874487a0c04430ddcfc7f170f6d17ee9126",
+      "command_version_string": "4.10.2222",
+      "extraction_log": "IO.SYS 222390 bytes date=1999-04-23 FAT12-chain=OK\r\nCOMMAND.COM 93890 bytes date=1999-04-23 FAT12-chain=OK\r\nMSDOS.SYS 9 bytes date=1999-07-18 FAT12-chain=OK\r\n",
+      "files": {
+        "IO.SYS": {
+          "sha256": "2db8f238742c374f264ead1c44f87d69af42c24688a3a80f7d9657bc952d5d20",
+          "size": 222390
+        },
+        "MSDOS.SYS": {
+          "sha256": "1eba0f7f864728dc5a76bfed6381dfde2f1e283a3d84a3f0600c9b6537e4a329",
+          "size": 9
+        },
+        "COMMAND.COM": {
+          "sha256": "c3b5899620d6c58b90727b640bb7bb6a723f6013629c9459c241e9dc9e7ff20b",
+          "size": 93890
+        }
+      }
+    },
+    {
+      "id": "fd98senr",
+      "source": "E:/core/collection/systems/x86_16_dos/msdos_7xx/msdosw98se_boot_noram_allbootdisks.img",
+      "sha256": "e50bac4bc6cd1861d908fb5aaf147644a82c7f9802b5612a33088e93106780d3",
+      "command_version_string": "4.10.1998",
+      "extraction_log": "IO.SYS 222390 bytes date=1998-05-11 FAT12-chain=OK\r\nMSDOS.SYS 6 bytes date=1998-08-07 FAT12-chain=OK\r\nCOMMAND.COM 93880 bytes date=1998-05-11 FAT12-chain=OK\r\n",
+      "files": {
+        "IO.SYS": {
+          "sha256": "1c4b40d1743e3149d414fc8ee0ddf098686b74bda8f6fd2bf14b0def489b458a",
+          "size": 222390
+        },
+        "MSDOS.SYS": {
+          "sha256": "d28c3a421236bb61081f706193f51f32b9f8b957598d94b6b3b143ae52b1ea03",
+          "size": 6
+        },
+        "COMMAND.COM": {
+          "sha256": "48485a9b5d1e736edc46b896de6726160811aeee02d50e5a4df3c2a1c5a69bd7",
+          "size": 93880
+        }
+      }
+    },
+    {
+      "id": "iso95a",
+      "source": "E:/core/collection/systems/x86_16_dos/msdos_7xx/msdosw95a_boot.iso",
+      "sha256": "67b693f5d371af5bc87e085084a77b412bf367957c9e31e80385dbeba92adc60",
+      "command_version_string": "4.00.950",
+      "extraction_log": "El Torito floppy offset=51200 bytes=1474560\r\nCOMMAND.COM 92870 bytes date=1995-07-11 FAT12-chain=OK\r\nMSDOS.SYS 6 bytes date=1997-10-02 FAT12-chain=OK\r\nIO.SYS 223148 bytes date=1995-07-11 FAT12-chain=OK\r\n",
+      "files": {
+        "IO.SYS": {
+          "sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+          "size": 223148
+        },
+        "MSDOS.SYS": {
+          "sha256": "d28c3a421236bb61081f706193f51f32b9f8b957598d94b6b3b143ae52b1ea03",
+          "size": 6
+        },
+        "COMMAND.COM": {
+          "sha256": "a74c700063cd6b1c91523952bfc80e9393c125d39ada0164d48b5098089fcef3",
+          "size": 92870
+        }
+      }
+    },
+    {
+      "id": "iso95b",
+      "source": "E:/core/collection/systems/x86_16_dos/msdos_7xx/msdosw95b_boot.iso",
+      "sha256": "83957bdd13f686ccce2497250aae1b9f699c39b843b2ca7df7e29321fb6383af",
+      "command_version_string": "4.00.1111",
+      "extraction_log": "El Torito floppy offset=51200 bytes=1474560\r\nCOMMAND.COM 93812 bytes date=1996-08-24 FAT12-chain=OK\r\nIO.SYS 214836 bytes date=1996-08-24 FAT12-chain=OK\r\nMSDOS.SYS 6 bytes date=1999-11-17 FAT12-chain=OK\r\n",
+      "files": {
+        "IO.SYS": {
+          "sha256": "1a6ca94a7f3e5012e1bdcf696f5b48f644a7b64ab74b0a6693f971cff8769730",
+          "size": 214836
+        },
+        "MSDOS.SYS": {
+          "sha256": "d28c3a421236bb61081f706193f51f32b9f8b957598d94b6b3b143ae52b1ea03",
+          "size": 6
+        },
+        "COMMAND.COM": {
+          "sha256": "b4ba73da07374d504c426098566f4fc559580c84ae2465a827de57df4e23fddd",
+          "size": 93812
+        }
+      }
+    },
+    {
+      "id": "iso98",
+      "source": "E:/core/collection/systems/x86_16_dos/msdos_7xx/msdosw98_boot.iso",
+      "sha256": "2002b6ef8c0577329aa9d629ad22b743d282cd141979a9ca9e38ca577356af5f",
+      "command_version_string": "4.10.1998",
+      "extraction_log": "El Torito floppy offset=51200 bytes=1474560\r\nIO.SYS 222390 bytes date=1998-05-11 FAT12-chain=OK\r\nCOMMAND.COM 93880 bytes date=1998-05-11 FAT12-chain=OK\r\nMSDOS.SYS 9 bytes date=1998-06-29 FAT12-chain=OK\r\n",
+      "files": {
+        "IO.SYS": {
+          "sha256": "1c4b40d1743e3149d414fc8ee0ddf098686b74bda8f6fd2bf14b0def489b458a",
+          "size": 222390
+        },
+        "MSDOS.SYS": {
+          "sha256": "1eba0f7f864728dc5a76bfed6381dfde2f1e283a3d84a3f0600c9b6537e4a329",
+          "size": 9
+        },
+        "COMMAND.COM": {
+          "sha256": "48485a9b5d1e736edc46b896de6726160811aeee02d50e5a4df3c2a1c5a69bd7",
+          "size": 93880
+        }
+      }
+    },
+    {
+      "id": "iso98_noram",
+      "source": "E:/core/collection/systems/x86_16_dos/msdos_7xx/msdosw98_boot_noram.iso",
+      "sha256": "f409c8c8659acd84ab74cbca198b9b5c6c2a2f626ee6f8aee89f072058806e12",
+      "command_version_string": "4.10.2222",
+      "extraction_log": "El Torito floppy offset=51200 bytes=1474560\r\nIO.SYS 222390 bytes date=1999-04-23 FAT12-chain=OK\r\nMSDOS.SYS 6 bytes date=1999-07-16 FAT12-chain=OK\r\nCOMMAND.COM 93890 bytes date=1999-04-23 FAT12-chain=OK\r\n",
+      "files": {
+        "IO.SYS": {
+          "sha256": "2db8f238742c374f264ead1c44f87d69af42c24688a3a80f7d9657bc952d5d20",
+          "size": 222390
+        },
+        "MSDOS.SYS": {
+          "sha256": "d28c3a421236bb61081f706193f51f32b9f8b957598d94b6b3b143ae52b1ea03",
+          "size": 6
+        },
+        "COMMAND.COM": {
+          "sha256": "c3b5899620d6c58b90727b640bb7bb6a723f6013629c9459c241e9dc9e7ff20b",
+          "size": 93890
+        }
+      }
+    },
+    {
+      "id": "iso98se",
+      "source": "E:/core/collection/systems/x86_16_dos/msdos_7xx/msdosw98se_boot.iso",
+      "sha256": "9c596516ba960fbfdf31d0c8d5f7ff46c3d4d6f77a42ee70359aa69d314a7fc2",
+      "command_version_string": "4.10.2222",
+      "extraction_log": "El Torito floppy offset=51200 bytes=1474560\r\nIO.SYS 222390 bytes date=1999-04-23 FAT12-chain=OK\r\nCOMMAND.COM 93890 bytes date=1999-04-23 FAT12-chain=OK\r\nMSDOS.SYS 9 bytes date=1999-07-18 FAT12-chain=OK\r\n",
+      "files": {
+        "IO.SYS": {
+          "sha256": "2db8f238742c374f264ead1c44f87d69af42c24688a3a80f7d9657bc952d5d20",
+          "size": 222390
+        },
+        "MSDOS.SYS": {
+          "sha256": "1eba0f7f864728dc5a76bfed6381dfde2f1e283a3d84a3f0600c9b6537e4a329",
+          "size": 9
+        },
+        "COMMAND.COM": {
+          "sha256": "c3b5899620d6c58b90727b640bb7bb6a723f6013629c9459c241e9dc9e7ff20b",
+          "size": 93890
+        }
+      }
+    },
+    {
+      "id": "iso98se_noram",
+      "source": "E:/core/collection/systems/x86_16_dos/msdos_7xx/msdosw98se_boot_noram.iso",
+      "sha256": "d0e771c9b2b965f29ae2ba9b7d115f918c1f249b62497db90630e94f39291cd8",
+      "command_version_string": "4.10.1998",
+      "extraction_log": "El Torito floppy offset=51200 bytes=1474560\r\nIO.SYS 222390 bytes date=1998-05-11 FAT12-chain=OK\r\nMSDOS.SYS 6 bytes date=1998-08-07 FAT12-chain=OK\r\nCOMMAND.COM 93880 bytes date=1998-05-11 FAT12-chain=OK\r\n",
+      "files": {
+        "IO.SYS": {
+          "sha256": "1c4b40d1743e3149d414fc8ee0ddf098686b74bda8f6fd2bf14b0def489b458a",
+          "size": 222390
+        },
+        "MSDOS.SYS": {
+          "sha256": "d28c3a421236bb61081f706193f51f32b9f8b957598d94b6b3b143ae52b1ea03",
+          "size": 6
+        },
+        "COMMAND.COM": {
+          "sha256": "48485a9b5d1e736edc46b896de6726160811aeee02d50e5a4df3c2a1c5a69bd7",
+          "size": 93880
+        }
+      }
+    }
+  ],
+  "unique_executable_pairs": 5,
+  "unique_triples": 7,
+  "verification": {
+    "tool": "extras/tools/fatcore.c",
+    "compiler": "gcc -std=c89 -Wall -Wextra -O2",
+    "fat_checks": "512-byte sectors, two equal FATs, image length/BPB agreement, valid FAT12 root/cluster bounds, no loops, exact chain end and full extraction",
+    "iso_checks": "El Torito floppy-emulation image at byte 51200, size 1474560 for all six wrappers",
+    "comparison": "certutil SHA256 for all 13 inputs and 39 extracted files; direct FC /B for all six wrapper-to-IMG triples and swapped FE/SE core pairs.",
+    "no_boot_or_build": true
+  },
+  "limitations": [
+    "Embedded COMMAND version string is evidence, not proof of the IO kernel's exact revision or media originality.",
+    "All-boot-disks/custom disk dates and labels are not official release dates.",
+    "fd98 has distinct 4.10.1998 executable bytes; language/revision origin unresolved.",
+    "OSR1/2.1/2.5 have not been positively identified among these boot samples; do not infer absence from filenames or assert all OSR cores identical.",
+    "Current v7.0 equals fd95a three-core target; earliest-official-950 provenance is not yet independently established.",
+    "The MSDOS71B.IMG in msdos710_en_boot.zip and Chinese CDU package are inventoried candidates, not approved original Microsoft targets."
+  ]
+}

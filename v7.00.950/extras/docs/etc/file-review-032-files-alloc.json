@@ -1,0 +1,33 @@
+{
+  "file": "bios/sysinit1.asm",
+  "source_sha256": "f5e67e16d1959560a1d15c041924ed7bf109480a0e8c9f39913fb41d211d5758",
+  "target_range": "IO.SYS 0x84ab..0x84eb",
+  "bytes": 64,
+  "differences": [
+    [
+      "0x7",
+      "0x5",
+      "0x83"
+    ],
+    [
+      "0x8",
+      "0x6",
+      "0xc0"
+    ],
+    [
+      "0x9",
+      "0x0",
+      "0x6"
+    ]
+  ],
+  "probe": "extras/research/filesalloc7-linked.asm",
+  "default_object_identical_to_prior": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "ADD AX,6 uses an equivalent three-byte encoding.",
+    "Fixed-offset probe uses stubs for allocation and rounding; full image layout and runtime behavior remain unverified.",
+    "FCB and drive-table allocation still follow older paths.",
+    "Mixed diagnostic link contains older objects and stubs."
+  ]
+}

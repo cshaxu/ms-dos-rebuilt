@@ -1,0 +1,20 @@
+{
+  "file": "bios/sysinit1.asm",
+  "source_sha256": "436435351c1099c61be19b78a87e0011239ddd1dc265e2d637d3888270f8cafe",
+  "target_ranges": [
+    "IO.SYS 0x65fa..0x6654",
+    "IO.SYS 0x669d..0x66b9"
+  ],
+  "changes": [
+    "connect BIOS HMA block allocation and CONFIG XMS initialization",
+    "connect conventional-memory CONFIG copy",
+    "reserve BIOS message tail and CONFIG paragraphs in low-memory allocation",
+    "use 286 immediate shift for DOS7 paragraph conversion"
+  ],
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "limitations": [
+    "Fixed-offset target-byte comparison and final layout not yet verified.",
+    "Complete DOS7 IO.SYS link remains pending."
+  ]
+}

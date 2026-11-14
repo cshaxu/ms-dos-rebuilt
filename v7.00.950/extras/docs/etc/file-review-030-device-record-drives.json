@@ -1,0 +1,30 @@
+{
+  "file": "bios/sysconf.asm",
+  "file_index": 30,
+  "source_sha256": "193d4376292a9219ba39580c772875355c1242baf74d6f42faf9c4061021433a",
+  "matched_ranges": [
+    {
+      "target": "IO.SYS 0xb4a8..0xb510",
+      "bytes": 104,
+      "purpose": "26 saved driver pointers"
+    },
+    {
+      "target": "IO.SYS 0xb55d..0xb561",
+      "bytes": 4,
+      "purpose": "drive change bitmap"
+    },
+    {
+      "target": "IO.SYS 0xd575..0xd5f8",
+      "bytes": 131,
+      "purpose": "drive change detector"
+    }
+  ],
+  "different_bytes": 0,
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "limitations": [
+    "The isolated link fixes target offsets with ORG; source ownership and full image layout remain unverified.",
+    "Explicit 66h prefixes reproduce target instruction prefix ordering under the available MASM.",
+    "The caller and the full record buffer lifecycle remain incomplete."
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "files": [
+    "bios/config.inc",
+    "bios/sysinit2.asm",
+    "bios/sysconf.asm"
+  ],
+  "source_hashes": [
+    "96e66bc08887364feb1fc3cd669ee33fc8bce741b49fb7eb6b43b83396576354",
+    "c88c4836eb997494b7c943633dae0c321e40dfe1e9b49d67d0a4833c0864a5c6",
+    "1117c00aaf370da537317575d3c108daa6b56a02808b07f785e2f390781c83d1"
+  ],
+  "target_range": "IO.SYS 0xbfcb..0xbfdd",
+  "bytes": 18,
+  "different_bytes": 0,
+  "target_comtab_record_offset": "0x8169",
+  "probe": "extras/research/fileshigh7-linked.asm",
+  "default_objects_identical_to_prior": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "Fixed-offset probe stubs query and shared parser; complete execution and placement are unverified.",
+    "Other high-memory commands and full IO.SYS layout remain incomplete.",
+    "Mixed diagnostic link contains older objects and stubs."
+  ]
+}

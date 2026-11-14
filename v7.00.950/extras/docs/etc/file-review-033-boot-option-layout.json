@@ -1,0 +1,25 @@
+{
+  "file": "bios/sysinit2.asm",
+  "source_sha256": "cf4dde37ca8d69de379ce4d740deefadf96a9c0ffd92de1d4643be4647a2ebb1",
+  "spans": [
+    {
+      "target_offset": "0x8db8",
+      "length": 165,
+      "different_bytes": 0
+    },
+    {
+      "target_offset": "0xa550",
+      "length": 6,
+      "different_bytes": 0
+    }
+  ],
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link": "passed",
+  "probe_source": "extras/research/boot-option-layout-linked.asm",
+  "limitations": [
+    "Unidentified zero-filled path workspace is reserved, not semantically reconstructed.",
+    "Fixed-offset probes do not establish final placement or execution.",
+    "Path processing and option dispatch remain incomplete."
+  ]
+}

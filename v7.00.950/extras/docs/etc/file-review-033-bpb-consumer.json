@@ -1,0 +1,28 @@
+{
+  "source": "bios/sysinit2.asm",
+  "sha256": "2ce22bc018fcb9e37bc9dc370a8586f5cb42f425dbe3845c960ab09ec001ecb6",
+  "change": "Connect existing device parameter initialization to actual extracted parameter structure and BPB table in the diagnostic.",
+  "matched": [
+    {
+      "region": "device parameter initialization",
+      "start": "0x1f91",
+      "end_exclusive": "0x2034",
+      "bytes": 163
+    },
+    {
+      "region": "device parameter data",
+      "start": "0x0234",
+      "end_exclusive": "0x0358",
+      "bytes": 292
+    }
+  ],
+  "verification": {
+    "tool": "extras/tools/verify_syspre_device_link.py",
+    "link_stage": "extras/build/syspre-object-link-18yftz0p",
+    "scope": "Actual source-derived routine and structure linked with actual BPB table. Diagnostic converts structured references to equivalent offsets and explicit field widths. The 292-byte data comparison was separately performed on the same linked executable; it is now a persistent check."
+  },
+  "limitations": [
+    "Other diagnostic regions retain synthetic positioning; complete product link remains unverified.",
+    "The final three core binaries remain unverified."
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "part": "M5 T12 S1 P39",
+  "ordinals": [
+    58,
+    59
+  ],
+  "modified": 2,
+  "unchanged": 0,
+  "exact_dos6": 0,
+  "retired_by_merge": 1,
+  "changes": "Merge five tailstat fields into adjacent byte-aligned ststate and retire the object/rule. Complete msbio.lnk review: native DOS6 LINK response form, unique source-backed inputs, preserved target order, no alternate linking path.",
+  "linkObjects": [
+    "stkinit",
+    "msbio1",
+    "ststate",
+    "sysinit1",
+    "si2front",
+    "si1tail",
+    "mschar",
+    "initclk",
+    "msdisk",
+    "msdioctl",
+    "msint13",
+    "msbio2",
+    "msinit",
+    "biostail",
+    "biosmsg",
+    "sysinit2",
+    "sysconf",
+    "syspre",
+    "logocode",
+    "logpart",
+    "pathsrc",
+    "mblate",
+    "drivechk",
+    "msend",
+    "sysimes",
+    "power",
+    "ptime"
+  ],
+  "validation": {
+    "build_stage": "extras/build/source-quality-p39",
+    "assembler": "MASM -Mx -t -W1 -I. -I..\\inc -DUSA -DDBLSPACE_HOOKS -DDOS7_CONFIG ststate.asm,ststate.obj,ststate.lst;",
+    "link": "LINK /MAP @msbio.lnk; RELOC msbio.exe msbio.bin 70",
+    "result": "PASS",
+    "warnings": [
+      "L4021 no stack segment",
+      "L4038 no starting address"
+    ],
+    "biosComparison": "fc /b against P27: no differences",
+    "ioComparison": "fc /b against extras/assets/IO.SYS: no differences",
+    "io_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+    "unchanged_components": "COMMAND.COM and MSDOS.SYS unchanged; T11 acceptance retained",
+    "affected_full_audit": "ststate P34 full review remains valid with bounded new data addition verified here; msbio.lnk collateral reviews closed; makefile full review remains 60."
+  },
+  "next_ordinal": 60,
+  "remaining": 7
+}

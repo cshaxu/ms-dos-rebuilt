@@ -1,0 +1,18 @@
+{
+  "build": "extras/docs/etc/command-pgetarg-dynamic-build-20261112.json",
+  "target_probe": "extras\\build\\path-cases-target-m05eg7tj",
+  "current_probe": "extras\\build\\path-pgetarg-g5gbwzcc",
+  "identical_outputs": [
+    "quote.txt",
+    "setpath.txt",
+    "echo.txt",
+    "dest.dat",
+    "copy.txt"
+  ],
+  "quoted_path": "PATH=C:\\ONE TWO;C:\\THREE",
+  "set_path": "PATH=C:\\A;C:\\B",
+  "original_pointer_fix": "cmd_copy and PrepareLongCommand now use arg_ocomptr",
+  "transient_end": "0xe906",
+  "rounded_allocation_end": "0xfe14",
+  "limitations": "PATH merge branch and large/long filenames not fully restored or tested; std_printf substitution pointer currently saved/restored; final binary not identical"
+}

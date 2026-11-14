@@ -1,0 +1,19 @@
+{
+  "source": "bios/msbio1.asm",
+  "source_sha256": "22bc05994bfbc6090082fb2c716ebf834191c074a8ab2b3b3271e8d1229d30db",
+  "previous_name": "config_init_flags",
+  "new_name": "bios_flags",
+  "name_status": "descriptive; original name not established",
+  "bios_offset": 8,
+  "target_initial_bytes": "dc10",
+  "uses": [
+    "A20",
+    "disk",
+    "keyboard",
+    "INT 19h",
+    "CONFIG"
+  ],
+  "diagnostic_before_after_sha256": "c4aca850415a33dab182fee92c6c99beb293698380e2a7d684e199f2a1f705a7",
+  "reference_output_sha256": "a67d8733509f9baf94017389cc1c991d5ef1c66bdfb91b6cab3eef0fc35e9490",
+  "limitations": "The name describes observed uses; it is not recovered original source. Diagnostic objects and stubs remain incomplete."
+}

@@ -1,0 +1,15 @@
+{
+  "build": "extras/docs/etc/command-grouping-original-build-20261112.json",
+  "source": "inc/msgserv.asm",
+  "change": "Restored target numeric conversion grouping by substitution type and removed synthetic 40h-flag grouping wrapper.",
+  "target_instruction_range": "0xfff5..0x1004c",
+  "registered_instruction_bytes": 87,
+  "target_probe": "extras/build/dir-width-target-3a0kmbkn",
+  "current_probe": "extras/build/dir-grouping-current-c9a35066",
+  "matched_cases": [
+    "DIR /C file count and free-space summary including thousands separators"
+  ],
+  "limitations": "Non-US country formats and other numeric substitution paths require additional integration tests; complete COMMAND output not byte-identical.",
+  "output_bytes": 93251,
+  "target_bytes": 92870
+}

@@ -1,0 +1,10 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_bios_offset": 1344,
+  "target_file_offset": 2880,
+  "anchor_hex": "80fa80720a80fc02740a80fc0a7405",
+  "reference_file": "bios/msbio2.asm",
+  "reference_symbol": "ibm_disk_io",
+  "diagnostic": "config-ml-post-interrupt-data.json",
+  "limitations": "Target and DOS 6 source share the disk interceptor signature, but final object ownership and exact linking order require verification when msbio2.asm is processed. The zero-valued fields before this anchor cannot be identified from initial bytes alone."
+}

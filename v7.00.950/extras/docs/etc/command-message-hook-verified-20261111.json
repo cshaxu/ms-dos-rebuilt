@@ -1,0 +1,62 @@
+{
+  "stage": "extras\\build\\command-reference-j9ymgptn",
+  "target_range": [
+    28096,
+    28154
+  ],
+  "bytes": 58,
+  "linked_hex": "803e8503007507803e1f2f00742b5006b82f35cd21891e9f058c06a10507580ac074161ebac10183ea108cd8408ed8b82f25cd211f8c1ec401c3",
+  "target_hex": "803e1804007507803ec84300742b5006b82f35cd21891e76078c06780707580ac074161ebadc0183ea108cd8408ed8b82f25cd211f8c1edf01c3",
+  "verified_omf_operands": [
+    {
+      "offset": 2,
+      "symbol": "PermCom",
+      "addend": 0,
+      "linked": 901,
+      "target": 1048
+    },
+    {
+      "offset": 9,
+      "symbol": "FirstCom",
+      "addend": 0,
+      "linked": 12063,
+      "target": 17352
+    },
+    {
+      "offset": 23,
+      "symbol": "Int2fHandler",
+      "addend": 0,
+      "linked": 1439,
+      "target": 1910
+    },
+    {
+      "offset": 27,
+      "symbol": "Int2fHandler",
+      "addend": 2,
+      "linked": 1441,
+      "target": 1912
+    },
+    {
+      "offset": 37,
+      "symbol": "Carousel_i2f_Hook",
+      "addend": 0,
+      "linked": 449,
+      "target": 476
+    },
+    {
+      "offset": 55,
+      "symbol": "Carousel_i2f_Hook",
+      "addend": 3,
+      "linked": 452,
+      "target": 479
+    }
+  ],
+  "source_hashes": {
+    "cmd/command/init.asm": "6ece05d24951d883ca2e883dbd4449e71da6338cb536816368d158b7d33d6bdd"
+  },
+  "old_conditional_message_retention_removed": true,
+  "caller_passes_FirstCom_in_AL": true,
+  "resource_gates_passed": true,
+  "full_command_exact": false,
+  "remaining": "Existing call is before resident-data move; final post-move startup sequence/EndInit consumer still require restoration before Move_res_data is invoked."
+}

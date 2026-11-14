@@ -1,0 +1,23 @@
+{
+  "sources": {
+    "bios/sysinit1.asm": "fab50259118f46bba47b98a14f643300e0701108b88c4c076a12098ab760dc3a",
+    "bios/syspre.asm": "949275ae57a049de9aecdd314a7dcd78087e14dc047dffa869fe8b548c1850d4",
+    "bios/sysimes.asm": "612c08143c45d7bf0004b2ec241fe43a73394b4e3c1744e06c1f429ce7a31658",
+    "lang/usa/messages/sysimsg.inc": "f05c7696b0fad473fe4eedd5726c8677dcc4aaaf944d6031d89acb3098ab1892"
+  },
+  "split_tool": "extras/tools/split_sysinit_startup_data.py",
+  "verification": "extras/tools/verify_syspre_request_link.py",
+  "link_stage": "extras/build/syspre-object-link-e2h9tv25",
+  "object_sha256": "c2124bd0e67ba6975db566b127015b7ed8931b5a553ac784920ccdec464531e8",
+  "matched_bytes": {
+    "request_packet": 25,
+    "syspre": 1166,
+    "sysimes_resource": 4307
+  },
+  "scope": "Split request packet generated from maintained SYSINIT1 source; actual compiled packet, SYSPRE and SYSIMES objects linked; packet public symbols now resolve through actual packet object. Existing startup split and SYSINIT1/SYSINIT2 isolated compilation passed.",
+  "limitations": [
+    "Diagnostic prefixes and gap still enforce target offsets and provide other external symbols.",
+    "The generated split SYSINIT1 module has not yet been linked into the full BIOS.",
+    "Complete SYSINIT link and final three binary matches remain unverified."
+  ]
+}

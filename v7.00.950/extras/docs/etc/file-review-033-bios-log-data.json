@@ -1,0 +1,15 @@
+{
+  "file": "bios/msbio1.asm",
+  "source_sha256": "85b5aef9d97c76d0b6353836d9e2a274abd0d47f8b6c95287de144cf248e1144",
+  "target_data": "IO.SYS 0x47a0..0x47ca",
+  "changes": [
+    "restore BOOTLOG names, state and initial values",
+    "define exec_bios_word adjacent to the DISABLELOG byte"
+  ],
+  "default_object_identical": true,
+  "dos7_validation": "transformed BIOS diagnostic assembled; mixed link passed after removing exec_bios_word stub",
+  "limitations": [
+    "Logging code and final BIOS data layout are incomplete.",
+    "Complete IO.SYS identity remains unverified."
+  ]
+}

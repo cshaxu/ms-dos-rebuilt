@@ -1,0 +1,36 @@
+{
+  "files": [
+    "bios/sysconf.asm",
+    "bios/sysinit2.asm"
+  ],
+  "source_hashes": [
+    "9676316f788a60256fbe443fd7d73f5a38dcd172bfafc18c21c464ae19ab4eb9",
+    "414eb6df9d3419291f6a27dfbb3ca37e1e230c51ab9d543e01496d1838fd4036"
+  ],
+  "spans": [
+    {
+      "target_offset": "0x8f59",
+      "length": 23,
+      "different_bytes": 0
+    },
+    {
+      "target_offset": "0x8f8e",
+      "length": 41,
+      "different_bytes": 0
+    },
+    {
+      "target_offset": "0x8fdb",
+      "length": 53,
+      "different_bytes": 0
+    }
+  ],
+  "tool": "MASM 6 ML isolated probe",
+  "default_objects_identical": true,
+  "dos7_assembly": "both passed without warnings",
+  "mixed_diagnostic_link": "passed",
+  "probe_source": "extras/research/boot-driver-table-linked.asm",
+  "limitations": [
+    "Fixed-offset probe uses equated procedure addresses; actual final table placement and runtime are unverified.",
+    "Driver record-processing caller remains incomplete."
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "files": {
+    "bios/sysconf.asm": "5794b5bde9b8863daf07e1dcc567c56409746b4db1679f25e3652484e5bab9b7",
+    "bios/sysinit1.asm": "9da767215e47871f9e4a0f949a9ccdd94eb24115f86812b056bf5a52751516c1"
+  },
+  "verification": "extras/tools/verify_menu_check_full.py",
+  "alloc_free_mem": {
+    "sysinit_start": "0x1846",
+    "bytes": 25
+  },
+  "low_memory_check": {
+    "sysinit_start": "0x81ef",
+    "bytes": 24
+  },
+  "qualification": "Actual SYSINIT1 and SYSCONF source are assembled into a target-anchored diagnostic wrapper; stall and other external positions are anchored.",
+  "limitations": [
+    "Full objects and production SYSINIT layout remain unlinked.",
+    "Compression preload caller remains unverified."
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_sysinit_bds_offset": 856,
+  "target_count_offset": 3756,
+  "target_drive_table_offset": 3758,
+  "target_drive_table_entries": 26,
+  "target_count_and_table_file_offset": 23516,
+  "target_initial_length": 54,
+  "target_initialization_file_offset": 23985,
+  "target_initialization_hex": "0e1f0e07bbae0ebf58032bd2ff06ac0e8c4d028d4506890783c302",
+  "diagnostic_report": "config-ml-dskdrvs-sysinit.json",
+  "limitations": "Static target initialization increments the count and populates BPB pointers from the BDS list. Absolute SYSINIT placement, runtime initializer implementation, and later disk-driver segment assumptions remain unresolved."
+}

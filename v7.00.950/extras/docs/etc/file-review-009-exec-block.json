@@ -1,0 +1,22 @@
+{
+  "source": "bios/msbio1.asm",
+  "sha256": "8367aad752e9db493aca149330382079dc9ee534e8514fbae90cbe3d80680fd1",
+  "change": "Restore environment paragraph and seven command-tail record segment fields for system-file EXEC.",
+  "target_region": {
+    "start": "0xa2d2",
+    "end_exclusive": "0xa308",
+    "bytes": 54
+  },
+  "verification": {
+    "link": "extras/tools/verify_syspre_device_link.py",
+    "link_stage": "extras/build/syspre-object-link-89x7ti__",
+    "runtime": "extras/tools/verify_boot_exec_block.py",
+    "runtime_stage": "extras/build/exec-block-runtime-4mp9h7m7",
+    "scope": "Actual 54 bytes match target and link to actual EXEC block and record definitions. An isolated probe checks the environment paragraph and all seven record segment fields."
+  },
+  "limitations": [
+    "Earlier MCB eligibility and resize remain to be restored.",
+    "Diagnostic still contains synthetic addresses and gaps.",
+    "Complete IO.SYS and all three core files remain unverified."
+  ]
+}

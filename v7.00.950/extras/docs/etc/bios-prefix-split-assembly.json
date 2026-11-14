@@ -1,0 +1,20 @@
+{
+  "sources": {
+    "config.asm": "7b85616efe0da974d6db94363f8e809e33fe10312071382c72e123b81867063f",
+    "msbio1.asm": "e70d712d12c959404a39c1894c60e377e364bc2aaeba7692eb4d74c8213617d8"
+  },
+  "results": {
+    "msbio1": {
+      "success": true,
+      "log": " Assembling: msbio1.asm\nmsbio1.asm(70): warning A4004: cannot ASSUME CS\nmsbio1.asm(79): warning A4004: cannot ASSUME CS\n"
+    },
+    "config": {
+      "success": true,
+      "log": " Assembling: config.asm\n"
+    }
+  },
+  "limitations": [
+    "Research-only split of transformed diagnostic source, not a change to formal project source.",
+    "Passing assembly alone does not establish correct external symbol frames, link layout or target identity."
+  ]
+}

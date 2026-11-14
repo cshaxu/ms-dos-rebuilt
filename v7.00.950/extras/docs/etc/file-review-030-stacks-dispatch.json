@@ -1,0 +1,23 @@
+{
+  "source": "bios/sysconf.asm",
+  "sha256": "c9220670d0c00bfbc0d208ac0b7fb5bc58020393bf1c61f9118db6becb0056bf",
+  "change": "Restore STACKS error messages and the shared CONFIG error path; match the parameter loop branch layout.",
+  "matched": [
+    {
+      "region": "STACKS and STACKSHIGH dispatch",
+      "start": "0x735e",
+      "end_exclusive": "0x7417",
+      "bytes": 185
+    }
+  ],
+  "verification": {
+    "tool": "extras/tools/verify_syspre_device_link.py",
+    "link_stage": "extras/build/syspre-object-link-1z4pruss",
+    "module_stage": "extras/build/ml-sysinit-l5gi9qdl",
+    "scope": "Actual command source linked with parameter, stack, parser, indexed-message and CONFIG error providers. Other layout positions are diagnostic anchors."
+  },
+  "limitations": [
+    "STACKS runtime cases have not been exercised.",
+    "Complete product link and final three core binaries remain unverified."
+  ]
+}

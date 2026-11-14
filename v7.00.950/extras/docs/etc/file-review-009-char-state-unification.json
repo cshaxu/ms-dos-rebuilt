@@ -1,0 +1,34 @@
+{
+  "file_index": 9,
+  "source": "bios/msbio1.asm",
+  "source_sha256": "9b87e6e313389116b039c53f57f421374dc1f8f9f1dfac7af4f5a634b0f8e34d",
+  "target_bios_code_offsets": {
+    "auxnum": 1848,
+    "printdev": 1838
+  },
+  "target_dispatch_writes": [
+    7336,
+    7340
+  ],
+  "target_character_reads": [
+    9525,
+    9573
+  ],
+  "diagnostic_symbols": {
+    "auxnum": [
+      445,
+      8503
+    ],
+    "printdev": [
+      445,
+      8505
+    ]
+  },
+  "diagnostic_stub_symbols": [
+    "auxnum",
+    "printdev"
+  ],
+  "diagnostic_exact_region_count": 15,
+  "default_reference_output_sha256": "a67d8733509f9baf94017389cc1c991d5ef1c66bdfb91b6cab3eef0fc35e9490",
+  "limitations": "The character state fields remain diagnostic stubs; target implementations and DOS7 segment addressing in later mschar and disk modules remain incomplete."
+}

@@ -1,0 +1,45 @@
+{
+  "build": "extras/docs/etc/command-path-module-order-build-20261112.json",
+  "modified_source_files": [
+    "cmd/command/tenv.asm",
+    "cmd/command/tmisc1.asm",
+    "cmd/command/tmisc2.asm",
+    "cmd/command/path2.asm",
+    "cmd/command/copypr2.asm"
+  ],
+  "target_probe": "extras\\build\\parse-errors-target-8k9o283q",
+  "current_probe": "extras\\build\\path-module-order-clean-_1kkhi70",
+  "matched_outputs": [
+    "DATE.TXT",
+    "TIME.TXT",
+    "DIR.TXT",
+    "TYPE.TXT",
+    "REN.TXT",
+    "EXE.TXT",
+    "ATTR.TXT",
+    "FOR.TXT",
+    "DONE.TXT",
+    "ERRORS.TXT"
+  ],
+  "code_anchor_deltas": {
+    "PrepareLongCommand": 0,
+    "CopyCanonicalPath": 0,
+    "CountCommandName": 0,
+    "SETPATH": 0,
+    "SelectDriveInterface": 0,
+    "SelectPathInterface": 0,
+    "PathFindFirst": 0,
+    "PathFindNext": 0,
+    "IsNetworkPath": 0,
+    "SetPathDTA": 0,
+    "ClosePathFind": 0,
+    "CopyReturnedName": 0,
+    "SelectReturnedName": 0,
+    "SINGLETEST": 0,
+    "parseline": 0,
+    "Path_Search": 0,
+    "Search": 0
+  },
+  "scope": "Existing implementations reordered with dependency declarations updated; prior complete instruction checks rerun. Runtime probes cover local paths; long-name and UNC paths are not exercised.",
+  "final_byte_exact": false
+}

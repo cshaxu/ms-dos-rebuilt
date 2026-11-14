@@ -1,0 +1,34 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\bios-emptyseg-t0v_q5px",
+  "empty_segments_adjusted": [
+    "mschar",
+    "msdisk",
+    "msdioctl",
+    "msint13",
+    "msbio2",
+    "msinit"
+  ],
+  "landmarks": {
+    "\\HIMEM.SYS": {
+      "actual": "0x422a",
+      "target": "0x4229",
+      "difference": 1
+    },
+    "CONFIG.APP": {
+      "actual": "0x43a3",
+      "target": "0x43a2",
+      "difference": 1
+    },
+    "\\COMMAND.COM": {
+      "actual": "0x4491",
+      "target": "0x4490",
+      "difference": 1
+    },
+    "\\LOGO.SYS": {
+      "actual": "0x8ef6",
+      "target": "0x8ef2",
+      "difference": 4
+    }
+  },
+  "limitation": "Experimental OMF segment alignment; source-based build and final layout remain unverified."
+}

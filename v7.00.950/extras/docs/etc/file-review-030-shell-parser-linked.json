@@ -1,0 +1,18 @@
+{
+  "files": {
+    "bios/sysconf.asm": "ca9d966a655b48ab8edfbda0dbce20bbf627f2f633b27602cf27bfa6c0a6d693",
+    "bios/sysinit2.asm": "7662232f259cd9f08ef5cd539cda1f6ee6b213c1ccc4b950f0250b77f306eb98"
+  },
+  "target_file_range": "0xc14f..0xc1b2",
+  "length": 99,
+  "different_bytes": 0,
+  "probe_source": "extras/research/shell-parser-linked.asm",
+  "probe_sha256": "67b9b5d1a75bbb246e82f45a1bd87bb7c3f6b59620e91b0c2b051857e7c31bb8",
+  "linked_exe_sha256": "04bc019aed4a270cfa19427ec188e7283fcc5548121b5d5ecdb33e9049060622",
+  "method": "The existing SHELL parser is linked with source-extracted target-format command buffers and getchr.",
+  "limitations": [
+    "The test uses ORG for target positions and placeholder query_user and conflp routines.",
+    "Target command fallback and complete SYSINIT remain unverified.",
+    "Matching code and static data does not establish runtime correctness of surrounding startup logic."
+  ]
+}

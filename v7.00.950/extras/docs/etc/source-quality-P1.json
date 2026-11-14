@@ -1,0 +1,68 @@
+{
+  "task": "M5 T12 S1 P1",
+  "scope": "Fixed audit ordinals 1-3",
+  "reference_root": "O:/repos.hobby/ms-dos-archaeology/v6.0",
+  "comparison": "Entire source text compared, not sampled paragraphs; only listed necessary DOS7/toolchain deviations remain. CRLF and original DOS EOF preserved.",
+  "results": [
+    {
+      "ordinal": 1,
+      "path": "inc/dosmac.inc",
+      "action": "modified-format-and-comment-only",
+      "sha256": "7d08d73fe45bf1536f939cab818cf13dad9c3644e9d82b9993522405f2109d17",
+      "dos6_exact": false,
+      "changes": "Move MASM 6 INVOKE compatibility option below original Microsoft header/revision section; use surrounding indentation; preserve Ctrl-Z EOF.",
+      "necessary_deviations": [
+        "MASM 6 INVOKE keyword option",
+        "MASM 5-only EndProc stack diagnostic",
+        "MASM 5-only FALLTHRU pass-two diagnostic"
+      ],
+      "original_body_exact_after_excluding_listed_adaptations": true,
+      "ordered_assembler_statements_unchanged": true,
+      "rebuild": false
+    },
+    {
+      "ordinal": 2,
+      "path": "inc/buffer.inc",
+      "action": "unchanged",
+      "sha256": "ba90345a736a70ca623078fc2f5ac0a92d541263a86d0aca492c9e02a5e89941",
+      "dos6_exact": false,
+      "necessary_deviations": [
+        "BUFFINFO renamed DISKBUFFINFO in exactly STRUC, ENDS and SIZE; sysvar.inc already defines Buffinfo"
+      ],
+      "original_body_exact_after_excluding_listed_adaptations": true,
+      "duplicate_implementation": false,
+      "rebuild": false
+    },
+    {
+      "ordinal": 3,
+      "path": "bios/biosseg.inc",
+      "action": "unchanged",
+      "sha256": "d8330a633df39ec4f95f89b25f2870d339805ab1dc627c67538490fdb6ea599a",
+      "dos6_exact": false,
+      "necessary_deviations": [
+        "BYTE_BIOS_INIT selects initialization alignment for msinit",
+        "BYTE_SYSINIT selects alignment for nine active BIOS source providers"
+      ],
+      "original_body_exact_after_excluding_listed_adaptations": true,
+      "original_romdos_structure_preserved": true,
+      "duplicate_implementation": false,
+      "rebuild": false
+    }
+  ],
+  "counts": {
+    "completed": 3,
+    "modified": 1,
+    "unchanged": 2,
+    "exact_dos6": 0,
+    "remaining": 63
+  },
+  "binary_validation": "No effective assembler statement changed; no rebuild requested or performed. Prior exact three-core acceptance is carried forward, not claimed as a fresh compilation.",
+  "next_new_file_observation": {
+    "ordinal": 4,
+    "path": "bios/biosmt.inc",
+    "lines": 7,
+    "consumer": "bios/biosmsg.asm",
+    "consumer_ordinal": 9,
+    "necessity": "Not yet accepted; single-consumer trailer should be evaluated for inlining together with its owning message unit. No out-of-order source edit performed."
+  }
+}

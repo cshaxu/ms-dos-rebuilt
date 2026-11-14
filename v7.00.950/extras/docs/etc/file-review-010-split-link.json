@@ -1,0 +1,30 @@
+{
+  "source_sha256": "b965a3fce58870a840d411d701ba788f1f512e3935b4046b2e5b874fb307c66e",
+  "stage": "extras\\build\\msbio2-split-link-zvg18thr",
+  "linked_binary_sha256": "0d1765b4cdf53f431a33bfed9c1714767ce27f674bcd06809487ae915ef84e39",
+  "symbols": {
+    "dsk_init": [
+      "0x1a5",
+      "0x1df0"
+    ],
+    "install_bds": [
+      "0x1a5",
+      "0x1e00"
+    ],
+    "config_init_segment": [
+      "0x1a5",
+      "0x2250"
+    ],
+    "bios_swap_msg_first": [
+      "0x1a5",
+      "0x224c"
+    ],
+    "bios_swap_msg_second": [
+      "0x1a5",
+      "0x224e"
+    ]
+  },
+  "dsk_init_nonrelocated_matches": 7,
+  "dsk_init_masked_relocation_bytes": 8,
+  "limitations": "Diagnostic link uses explicit message and init segment stubs, reference objects, synthetic SYSINIT gaps and baseline link order. It does not match target layout and is not a production build."
+}

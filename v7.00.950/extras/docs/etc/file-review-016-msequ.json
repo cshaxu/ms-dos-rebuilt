@@ -1,0 +1,47 @@
+{
+  "file": "bios/msequ.inc",
+  "source_sha256": "ce05581d636a79dbb1429fae1375adecd83afee6881bc22527df054aece8ec8b",
+  "exact_reference_matches": {
+    "5.0": true,
+    "6.0": true,
+    "6.2": true
+  },
+  "target_instruction_checks": [
+    {
+      "constant": "normsettle",
+      "target_offset": "0x2de0",
+      "instruction_bytes": "c644090f"
+    },
+    {
+      "constant": "lstdrv",
+      "target_offset": "0x2ec6",
+      "instruction_bytes": "26a20405"
+    },
+    {
+      "constant": "lstdrv",
+      "target_offset": "0x2ee0",
+      "instruction_bytes": "2686060405"
+    },
+    {
+      "constant": "normsettle",
+      "target_offset": "0x3061",
+      "instruction_bytes": "b00f"
+    },
+    {
+      "constant": "maxerr",
+      "target_offset": "0x311c",
+      "instruction_bytes": "bd0500"
+    },
+    {
+      "constant": "maxerr",
+      "target_offset": "0x318b",
+      "instruction_bytes": "83fd05"
+    },
+    {
+      "constant": "ftoobig",
+      "target_offset": "0x32a4",
+      "instruction_bytes": "26f6451f80"
+    }
+  ],
+  "limitations": "Only target uses of four constants checked in msdisk; multiple declarations are duplicated and remaining constants and consumers require integration review."
+}

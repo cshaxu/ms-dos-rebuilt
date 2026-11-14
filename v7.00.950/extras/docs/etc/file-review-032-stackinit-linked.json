@@ -1,0 +1,19 @@
+{
+  "file": "bios/sysinit1.asm",
+  "file_index": 32,
+  "source_sha256": "49a2f8ec8aca9b18df43a3ae877c34591b92c1bf3ae1b333a1d6aaaa3b19ddad",
+  "probe_source": "extras/research/sysinit-stackinit-linked.asm",
+  "probe_sha256": "7c531eb517a01a32fd4e33ed7bb456305a0983249e3761e3958bc31967e149fd",
+  "linked_exe_sha256": "f7360df701b09572a67a4a9320f2f550c924e0afb423a1f120dee6c36ec0c294",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_file_range": "0x8a3e..0x8d90",
+  "length": 850,
+  "different_bytes_after_simulated_relocation": 0,
+  "simulated_load_segment": "0x70",
+  "method": "Extracts DOS7 interrupt-code and stackinit source from the formal file; provides BIOS vector labels, BIOS data and diagnostic ORG-based target offsets; assembles and links, then applies MZ relocations.",
+  "limitations": [
+    "The harness uses ORG and isolated synthesized segment layout; it is not a production build.",
+    "This comparison does not establish the final source module order, full SYSINIT layout, runtime behavior or complete IO.SYS.",
+    "No stack allocator or message-resource integration is verified by this particular comparison."
+  ]
+}

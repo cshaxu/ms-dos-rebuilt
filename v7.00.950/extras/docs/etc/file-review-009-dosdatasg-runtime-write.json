@@ -1,0 +1,10 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "dosdatasg_bios_offset": 3,
+  "initial_file_bytes": "469e",
+  "target_initialization_file_offset": 5378,
+  "target_initialization_hex": "83c70fc1ef0481c77000893e0300",
+  "reference_source": "bios/msinit.asm",
+  "diagnostic_report": "config-ml-dosdatasg-offset.json",
+  "limitations": "The target computes and writes the DOS data segment during initialization, but static inspection alone does not explain the 469e on-disk bytes or prove all runtime paths."
+}

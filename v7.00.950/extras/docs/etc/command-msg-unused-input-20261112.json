@@ -1,0 +1,24 @@
+{
+  "build": "extras/docs/etc/command-msg-unused-input-build-20261112.json",
+  "source": "inc/msgserv.asm",
+  "change": "Excluded two unreferenced DOS 6 keyboard and DBCS helpers from the transient message service; non-transient configurations retain them.",
+  "basis": "Assembler listing shows no call to WAIT_FOR_INPUT; its only active DBCS helper reference is within that unused procedure. Corresponding target message region has neither routine.",
+  "verified_ranges": [
+    "0x1004c..0x1011c",
+    "0x1011c..0x10149",
+    "0x101fe..0x1021a"
+  ],
+  "new_registered_instruction_bytes": 73,
+  "target_probe": "extras/build/msg-clean-target-czqg7w06",
+  "current_probe": "extras/build/msg-clean-current-2qgbixl5",
+  "matched_cases": [
+    "DIR listing except separate parent timestamp",
+    "VER /R",
+    "VOL",
+    "DEL missing-file stderr",
+    "batch continuation"
+  ],
+  "limitations": "Interactive input and non-US configurations not tested; complete binary not byte-identical.",
+  "output_bytes": 93004,
+  "target_bytes": 92870
+}

@@ -1,0 +1,20 @@
+{
+  "build_report": "extras/docs/etc/command-primary-message-data-layout-build-20261112.json",
+  "verified_linked_target_range": [
+    68976,
+    85989
+  ],
+  "linked_image_range": [
+    47687,
+    64700
+  ],
+  "matching_bytes": 17013,
+  "sha256": "aea65d8587255aa6584ee5fb1e28740ae260107affc9e489755a370007c0095e",
+  "target_buffer_delta_from_message_table": 181,
+  "current_buffer_delta_from_message_table": 173,
+  "limitations": [
+    "The target has eight additional bytes between message table and buffer.",
+    "The checksum still covers only actual payload and does not yet implement the target ranges.",
+    "The checked bytes have not been certified at their final file offset."
+  ]
+}

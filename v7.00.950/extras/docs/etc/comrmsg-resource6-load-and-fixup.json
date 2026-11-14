@@ -1,0 +1,24 @@
+{
+  "target_sha256": "a74c700063cd6b1c91523952bfc80e9393c125d39ada0164d48b5098089fcef3",
+  "call_offset": "0x63bb",
+  "requested_resource": 6,
+  "buffer_offset": "0x08ca",
+  "buffer_capacity": 4608,
+  "resource_file_data_start": "0x38b0",
+  "bytes_read": 2197,
+  "index_count": 93,
+  "index_relocation_code_offset": "0x73f9",
+  "index_entries_simulated": 93,
+  "first_six_character_bytes": "ARIFYN",
+  "method": "Apply observed index-relative-to-index conversion to all 93 entries, then add one to the first six pointers, and compare every result with independently parsed target message positions.",
+  "instruction_bytes": {
+    "0x63bb": "b90012b806008d3eca081e07e8e416",
+    "0x7c0d": "8b0eaf3883e9101ea1d5388ec08b16d738b43fcd21",
+    "0x73f9": "bbcf0833c9368a0ece08015f0283c304e2f8",
+    "0x740b": "36ff06d10836ff06d50836ff06d90836ff06dd0836ff06e10836ff06e508c3"
+  },
+  "limitations": [
+    "Simulation assumes the startup segment registers and successful reads follow the shown path; no live execution was performed.",
+    "Original source names and full callers remain unresolved, and this is not full COMMAND.COM equivalence."
+  ]
+}

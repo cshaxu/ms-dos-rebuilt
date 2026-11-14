@@ -1,0 +1,18 @@
+{
+  "file": "bios/sysinit2.asm",
+  "file_index": 33,
+  "source_sha256": "76d13aa01d28b8ded71349c86e8fb3bf79d69c502afdd2168e1f5c24a3604e10",
+  "target_data_range": "0x6b71..0x6b77",
+  "data_length": 6,
+  "data_different_bytes": 0,
+  "target_routine_range": "0x715b..0x7182",
+  "routine_length": 39,
+  "routine_different_bytes_after_manual_fixups": 0,
+  "manual_address_fixups": 2,
+  "default_object_identical": true,
+  "dos7_assembly": "passed",
+  "limitations": [
+    "The data is placed locally to its consumer in source; its original module ownership and final linked target offset are not established.",
+    "The linked target offsets were manually substituted; complete SYSINIT and IO.SYS remain unverified."
+  ]
+}

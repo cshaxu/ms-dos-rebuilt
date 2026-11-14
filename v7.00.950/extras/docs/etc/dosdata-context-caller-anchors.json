@@ -1,0 +1,41 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "method": "For each nearby region, compare an exact 12-byte window against an initialized OMF object record; verify the target MOV DI,context operand separately.",
+  "associations": [
+    {
+      "historical_object": "delete.obj",
+      "object_sha256": "b4a84b86facdc1565daab053fe8a242fd799873d0d7b7c41825848aa2a4ecefa",
+      "object_record_offset": "0x20",
+      "target_match_file_offset": "0x13b71",
+      "exact_match_hex": "75fb83ee04813c2a2e750680",
+      "context_reference_file_offset": "0x13c2f",
+      "context_dosdata_offset": "0xaac",
+      "distance_bytes": 190
+    },
+    {
+      "historical_object": "dircall.obj",
+      "object_sha256": "e3244dca3a58374b3a642d9f28b5beb3b58dbfda992aec5a02f7128318ed8f81",
+      "object_record_offset": "0xea",
+      "target_match_file_offset": "0x14883",
+      "exact_match_hex": "804d05045e03f783ee1ac604",
+      "context_reference_file_offset": "0x14990",
+      "context_dosdata_offset": "0xaba",
+      "distance_bytes": 269
+    },
+    {
+      "historical_object": "rename.obj",
+      "object_sha256": "3df124f97e4b37840766a3e216340eabe4847dab3d186604cc2d4916e7a84b62",
+      "object_record_offset": "0x93",
+      "target_match_file_offset": "0x13dd4",
+      "exact_match_hex": "c615f6440b1074035eeb045e",
+      "context_reference_file_offset": "0x13dc6",
+      "context_dosdata_offset": "0xac8",
+      "distance_bytes": -14
+    }
+  ],
+  "limitations": [
+    "A short local byte match and proximity establish leads, not full procedure identity or a semantic proof of the context.",
+    "Object offsets can refer to different OMF segments; only the asserted matching record is used.",
+    "The three contexts and all consumer modules remain unverified in the final target build."
+  ]
+}

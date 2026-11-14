@@ -1,0 +1,22 @@
+{
+  "files": [
+    "bios/sysconf.asm",
+    "bios/sysinit2.asm"
+  ],
+  "source_hashes": [
+    "59bc7bc42a2361e21875242e5c5c2f4555109e0088a632057acfb1acad4ff825",
+    "4a78cccc2a7fee27426064a9717d7306bc19a9943e32c10b476080810185bb4f"
+  ],
+  "target_range": "IO.SYS 0x97f0..0x982f",
+  "length": 63,
+  "different_bytes": 0,
+  "tool": "MASM 6 ML isolated probe",
+  "default_objects_identical": true,
+  "dos7_assembly": "both passed without warnings",
+  "mixed_diagnostic_link": "passed",
+  "probe_source": "extras/research/boot-umb-check-linked.asm",
+  "limitations": [
+    "Fixed-offset probe uses synthetic helper destinations; complete layout and runtime remain unverified.",
+    "Startup driver record table and callers remain incomplete."
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "source": "bios/msbio1.asm",
+  "source_sha256": "f948bfac71ebe818364211feb9708c285349c5bf4a266c20681ca2c01371f95b",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "diagnostic_sha256": "ce692a90a554acee155685a626995cea85eb92a305cca4193a0d8cdc226c5688",
+  "target_offset": 7312,
+  "diagnostic_offset": 6800,
+  "length": 1773,
+  "matching_bytes": 1750,
+  "different_offsets": [
+    17,
+    26,
+    27,
+    31,
+    32,
+    55,
+    56,
+    62,
+    63,
+    78,
+    79,
+    1726,
+    1727,
+    1730,
+    1731,
+    1738,
+    1739,
+    1742,
+    1743,
+    1750,
+    1751,
+    1754,
+    1755
+  ],
+  "address_fields": [
+    {
+      "relative_offset": 17,
+      "source_symbol": "con_table",
+      "target_value": 1896,
+      "diagnostic_value": 1938
+    },
+    {
+      "relative_offset": 26,
+      "source_symbol": "auxnum",
+      "target_value": 1848,
+      "diagnostic_value": 8489
+    },
+    {
+      "relative_offset": 31,
+      "source_symbol": "printdev",
+      "target_value": 1838,
+      "diagnostic_value": 8674
+    },
+    {
+      "relative_offset": 55,
+      "source_symbol": "dsktbl",
+      "target_value": 3632,
+      "diagnostic_value": 2896
+    },
+    {
+      "relative_offset": 62,
+      "source_symbol": "start_sec_h",
+      "target_value": 3568,
+      "diagnostic_value": 8676
+    },
+    {
+      "relative_offset": 78,
+      "source_symbol": "start_sec_h",
+      "target_value": 3568,
+      "diagnostic_value": 8676
+    },
+    {
+      "relative_offset": 1726,
+      "source_symbol": "bios_msg_base",
+      "target_value": 11700,
+      "diagnostic_value": 8486
+    },
+    {
+      "relative_offset": 1730,
+      "source_symbol": "bios_msg_1",
+      "target_value": 11692,
+      "diagnostic_value": 8480
+    },
+    {
+      "relative_offset": 1738,
+      "source_symbol": "bios_msg_base",
+      "target_value": 11700,
+      "diagnostic_value": 8486
+    },
+    {
+      "relative_offset": 1742,
+      "source_symbol": "bios_msg_2",
+      "target_value": 11694,
+      "diagnostic_value": 8482
+    },
+    {
+      "relative_offset": 1750,
+      "source_symbol": "bios_msg_base",
+      "target_value": 11700,
+      "diagnostic_value": 8486
+    },
+    {
+      "relative_offset": 1754,
+      "source_symbol": "bios_msg_3",
+      "target_value": 11696,
+      "diagnostic_value": 8484
+    }
+  ],
+  "result": "All 23 differing bytes fall inside 12 source-identified address operands.",
+  "limitations": "Comparison uses a stubbed diagnostic with reference objects, and does not establish final symbol addresses, source authenticity, or the complete file."
+}

@@ -1,0 +1,43 @@
+{
+  "target_sha256": "a74c700063cd6b1c91523952bfc80e9393c125d39ada0164d48b5098089fcef3",
+  "stage": "extras/build/msg-struct-probe-36jxxavf",
+  "probe_source_sha256": "1b9d0a1bbd3a1d50efb68523bf73fcb50e3d857039c1fe411e51e40d2b339fc3",
+  "probe_object_sha256": "e789a1e29f335a6d409a73b1c67b71f49174863c0177e44b9950be571b3ff6eb",
+  "target_region": [
+    87,
+    12972
+  ],
+  "target_region_sha256": "e783f97ce60159bebb0d46247adf20684ca4eb0b57629c6e8f38f300ce5a90de",
+  "assembled_segment_byte_equal": true,
+  "assembled_segment_length": 12885,
+  "target_headers": [
+    {
+      "offset": 87,
+      "class": 1,
+      "count": 4
+    },
+    {
+      "offset": 105,
+      "class": 2,
+      "count": 1
+    },
+    {
+      "offset": 111,
+      "class": 3,
+      "count": 198
+    }
+  ],
+  "source_structure": "$M_CLASS_ID has byte class ID and byte message count; $M_ID has word message number and word relative pointer.",
+  "target_lookup_evidence": {
+    "offset": 66757,
+    "bytes": "2638357504268a4d0183c702",
+    "interpretation": "Checks class at offset zero, reads count at +1, advances pointer by 2."
+  },
+  "current_baseline": "inc/msgserv.asm:111-119 defines an additional EXPECTED_VERSION word between class ID and count.",
+  "limitations": [
+    "Probe generated from target bytes and does not establish historical source identity.",
+    "Other consumers, runtime structures and source generation must be adapted together before altering MSGSERV.",
+    "Target record 9900 meaning remains unknown; no full executable verification.",
+    "ID 9900 points exactly at the end of message 1927; independently allocated message versus overlap with following structured data remains unresolved."
+  ]
+}

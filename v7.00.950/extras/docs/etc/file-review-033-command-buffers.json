@@ -1,0 +1,28 @@
+{
+  "file": "bios/sysinit2.asm",
+  "file_index": 33,
+  "source_sha256": "ae72a16b89037b87a9af5d56d4034b2e91df767b080efa1eb81512582c952801",
+  "target_file_range": "0x91bd..0x947c",
+  "length": 703,
+  "different_bytes": 0,
+  "default_object_identical": true,
+  "dos7_assembly": "passed",
+  "layout": {
+    "newcmd": "0x448d",
+    "tmplate": "0x448e",
+    "commnd": "0x4490",
+    "command_line": "0x44de",
+    "commnd2": "0x455e",
+    "command_line2": "0x45ac",
+    "commnd3": "0x462c",
+    "command_line3": "0x467a",
+    "commnd4": "0x46fa",
+    "winboot_shell_pending": "0x474a"
+  },
+  "validation": "Extracted data assembled and linked with historical MASM and LINK and compared to the target.",
+  "limitations": [
+    "The source name winboot_shell_pending is inferred from target usage.",
+    "Existing DOS6 interpreter fallback consumers have not yet been adapted to the new fixed-size record layout and may behave incorrectly in this intermediate state.",
+    "Final module order, code/data placement and complete IO.SYS remain unverified."
+  ]
+}

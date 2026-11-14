@@ -1,0 +1,18 @@
+{
+  "file": "bios/sysconf.asm",
+  "file_index": 30,
+  "source_sha256": "c4e570f463a85b3f5d658039c0f41defcb8de4c99af3bfa95733bb268e92602d",
+  "target_range": "IO.SYS 0xd428..0xd505",
+  "bytes": 221,
+  "different_bytes": 0,
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "diagnostic_link": "extras/build/query-integration-12ek9psn/query-link-record.log",
+  "diagnostic_link_exit_code": 0,
+  "limitations": [
+    "Probe uses target ORG addresses and helper stubs; the main routine was not linked at target positions with its real subroutines.",
+    "The diagnostic uses older objects and stubs and is not a production build.",
+    "config_record_ptr starts at zero and its allocation/initialization is not restored; calling this path before that work is unsafe and is not verified.",
+    "Device-load hooks that update state and final image layout remain incomplete."
+  ]
+}

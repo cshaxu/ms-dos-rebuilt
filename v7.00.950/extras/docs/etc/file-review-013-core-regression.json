@@ -1,0 +1,47 @@
+{
+  "source_sha256": "c73d32b402fc2fcac8d6954fda8738fdde97d938609d69293fadc620c00632b1",
+  "listing_sha256": "cd3d80aac75bdfe77b869d4e1a05f7a21e9b1cb523d4580f76af5b8302f31cc3",
+  "routines": [
+    {
+      "name": "Media_Chk",
+      "target_offset": "0x2ad8",
+      "length": 120,
+      "masked_relocation_bytes": 18,
+      "matched_nonrelocated_bytes": 102,
+      "differences": []
+    },
+    {
+      "name": "GetBP",
+      "target_offset": "0x2bfc",
+      "length": 190,
+      "masked_relocation_bytes": 10,
+      "matched_nonrelocated_bytes": 180,
+      "differences": []
+    },
+    {
+      "name": "read_sector",
+      "target_offset": "0x2dab",
+      "length": 126,
+      "masked_relocation_bytes": 18,
+      "matched_nonrelocated_bytes": 108,
+      "differences": []
+    },
+    {
+      "name": "diskio",
+      "target_offset": "0x2f0c",
+      "length": 279,
+      "masked_relocation_bytes": 46,
+      "matched_nonrelocated_bytes": 233,
+      "differences": []
+    },
+    {
+      "name": "dskerr",
+      "target_offset": "0x3224",
+      "length": 65,
+      "masked_relocation_bytes": 10,
+      "matched_nonrelocated_bytes": 55,
+      "differences": []
+    }
+  ],
+  "limitations": "Relocation operands and complete linked output remain unverified."
+}

@@ -1,0 +1,16 @@
+{
+  "file": "bios/sysinit1.asm",
+  "source_sha256": "881631a7de16128119d744a0bb1f9f6c156b7a632f5013ea9e58239d8fb05891",
+  "target_range": "IO.SYS 0x85f9..0x8633",
+  "bytes": 58,
+  "different_bytes": 0,
+  "probe": "extras/research/cdsalloc7-linked.asm",
+  "default_object_identical_to_prior": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "Fixed-offset probe stubs relocation, rounding, initialization and allocation; full layout and behavior remain unverified.",
+    "LASTDRIVEHIGH configuration writer and surrounding endfile flow are incomplete.",
+    "Mixed diagnostic link contains older objects and stubs."
+  ]
+}

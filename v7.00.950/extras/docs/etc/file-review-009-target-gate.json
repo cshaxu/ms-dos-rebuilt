@@ -1,0 +1,344 @@
+{
+  "kind": "file-9 target layout gate; not full IO.SYS acceptance",
+  "map": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\sysinit-split-60isgeox\\msbio.map",
+  "binary": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\sysinit-split-60isgeox\\msbio.bin",
+  "binary_sha256": "cc0161e7f0d14a1d17613873e30acc7fd98e8b2a51c6d060a58588473c203a9c",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "passed": false,
+  "checks": [
+    {
+      "kind": "symbol",
+      "name": "bds1",
+      "expected": [
+        1139,
+        856
+      ],
+      "actual": [
+        964,
+        22896
+      ],
+      "passed": false
+    },
+    {
+      "kind": "symbol",
+      "name": "bds_count",
+      "expected": [
+        1139,
+        3756
+      ],
+      "actual": [
+        964,
+        25796
+      ],
+      "passed": false
+    },
+    {
+      "kind": "symbol",
+      "name": "dskdrvs",
+      "expected": [
+        1139,
+        3758
+      ],
+      "actual": [
+        964,
+        25798
+      ],
+      "passed": false
+    },
+    {
+      "kind": "symbol",
+      "name": "SI_start",
+      "expected": [
+        1139,
+        3816
+      ],
+      "actual": [
+        964,
+        25856
+      ],
+      "passed": false
+    },
+    {
+      "kind": "symbol",
+      "name": "alloclim",
+      "expected": [
+        1139,
+        3875
+      ],
+      "actual": [
+        964,
+        677
+      ],
+      "passed": false
+    },
+    {
+      "kind": "symbol",
+      "name": "bios_data_segment",
+      "expected": [
+        1139,
+        3902
+      ],
+      "actual": [
+        964,
+        26439
+      ],
+      "passed": false
+    },
+    {
+      "kind": "symbol",
+      "name": "exec_boot_state",
+      "expected": [
+        1139,
+        3853
+      ],
+      "actual": [
+        964,
+        26438
+      ],
+      "passed": false
+    },
+    {
+      "kind": "symbol",
+      "name": "exec_windows_path",
+      "expected": [
+        1139,
+        16520
+      ],
+      "actual": [
+        964,
+        26374
+      ],
+      "passed": false
+    },
+    {
+      "kind": "symbol",
+      "name": "exec_data",
+      "expected": [
+        1139,
+        41112
+      ],
+      "actual": [
+        964,
+        25864
+      ],
+      "passed": false
+    },
+    {
+      "kind": "symbol",
+      "name": "config_buffer_segment",
+      "expected": [
+        1139,
+        41120
+      ],
+      "actual": [
+        964,
+        25872
+      ],
+      "passed": false
+    },
+    {
+      "kind": "symbol",
+      "name": "config_buffer_paragraphs",
+      "expected": [
+        1139,
+        41122
+      ],
+      "actual": [
+        964,
+        25874
+      ],
+      "passed": false
+    },
+    {
+      "kind": "symbol",
+      "name": "config_buffer_count",
+      "expected": [
+        1139,
+        41124
+      ],
+      "actual": [
+        964,
+        25876
+      ],
+      "passed": false
+    },
+    {
+      "kind": "symbol",
+      "name": "saved_mcb_size",
+      "expected": [
+        1139,
+        41126
+      ],
+      "actual": [
+        964,
+        25878
+      ],
+      "passed": false
+    },
+    {
+      "kind": "symbol",
+      "name": "system_exec_tail",
+      "expected": [
+        1139,
+        41128
+      ],
+      "actual": [
+        964,
+        25880
+      ],
+      "passed": false
+    },
+    {
+      "kind": "symbol",
+      "name": "system_io_path",
+      "expected": [
+        1139,
+        41175
+      ],
+      "actual": [
+        964,
+        25927
+      ],
+      "passed": false
+    },
+    {
+      "kind": "symbol",
+      "name": "system_winboot_path",
+      "expected": [
+        1139,
+        41185
+      ],
+      "actual": [
+        964,
+        25937
+      ],
+      "passed": false
+    },
+    {
+      "kind": "symbol",
+      "name": "system_exec_environment",
+      "expected": [
+        1139,
+        41200
+      ],
+      "actual": [
+        964,
+        25952
+      ],
+      "passed": false
+    },
+    {
+      "kind": "symbol",
+      "name": "system_exec_env_end",
+      "expected": [
+        1139,
+        41214
+      ],
+      "actual": [
+        964,
+        25966
+      ],
+      "passed": false
+    },
+    {
+      "kind": "symbol",
+      "name": "system_exec_block",
+      "expected": [
+        1139,
+        41216
+      ],
+      "actual": [
+        964,
+        25968
+      ],
+      "passed": false
+    },
+    {
+      "kind": "symbol",
+      "name": "config_init_entry",
+      "expected": [
+        1139,
+        41230
+      ],
+      "actual": [
+        964,
+        25982
+      ],
+      "passed": false
+    },
+    {
+      "kind": "symbol",
+      "name": "exec_bios_word",
+      "expected": [
+        357,
+        11126
+      ],
+      "actual": [
+        421,
+        8487
+      ],
+      "passed": false
+    },
+    {
+      "kind": "region",
+      "name": "start_bds_pointer",
+      "length": 4,
+      "binary_offset": 248,
+      "target_offset": 1784,
+      "actual_length": 4,
+      "first_difference": 0,
+      "passed": false
+    },
+    {
+      "kind": "region",
+      "name": "floppy_and_hard_bds",
+      "length": 2900,
+      "binary_offset": 38320,
+      "target_offset": 20616,
+      "actual_length": 2900,
+      "first_difference": 0,
+      "passed": false
+    },
+    {
+      "kind": "region",
+      "name": "bds_count_and_drive_table",
+      "length": 54,
+      "binary_offset": 41220,
+      "target_offset": 23516,
+      "actual_length": 54,
+      "first_difference": null,
+      "passed": true
+    },
+    {
+      "kind": "region",
+      "name": "exec_and_config_data",
+      "length": 118,
+      "binary_offset": 41288,
+      "target_offset": 60872,
+      "actual_length": 118,
+      "first_difference": 21,
+      "passed": false
+    },
+    {
+      "kind": "region",
+      "name": "config_routines",
+      "length": 392,
+      "binary_offset": 41406,
+      "target_offset": 60990,
+      "actual_length": 392,
+      "first_difference": 10,
+      "passed": false
+    },
+    {
+      "kind": "region",
+      "name": "int6c_code",
+      "length": 17,
+      "binary_offset": 8573,
+      "target_offset": 10143,
+      "actual_length": 17,
+      "first_difference": 7,
+      "passed": false
+    }
+  ],
+  "limitations": "Passing these checks does not prove a clean source build, other source files, or complete IO.SYS/COMMAND.COM identity."
+}

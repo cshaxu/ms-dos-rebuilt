@@ -1,0 +1,31 @@
+{
+  "files": {
+    "bios/sysinit1.asm": "c7a7586fec7f8438da69c21e788b062ff4ac321071e5bba77c8f2e5c64464f03",
+    "lang/usa/messages/sysimsg.inc": "f05c7696b0fad473fe4eedd5726c8677dcc4aaaf944d6031d89acb3098ab1892"
+  },
+  "target_selector_range": "0x9592..0x95b4",
+  "selector_length": 34,
+  "selector_different_bytes": 0,
+  "linked_other_ranges": [
+    {
+      "name": "command_buffers",
+      "length": 703,
+      "different_bytes": 0
+    },
+    {
+      "name": "badfil_and_print",
+      "length": 75,
+      "different_bytes": 0
+    }
+  ],
+  "default_object_identical": true,
+  "dos7_assembly": "passed",
+  "probe_source": "extras/research/command-error-linked.asm",
+  "probe_sha256": "5930eea028d29cd7506b23b6a5cbc33574fa264b70af4bbd320b7f04dd1c1ad7",
+  "linked_exe_sha256": "8e99dec2ca5b59eb840d9a366cec92fad5abc3963d30d7efdc5decf4ea1ba957",
+  "limitations": [
+    "The test uses ORG to reproduce target positions and a placeholder error_line.",
+    "The target surrounding startup/fallback logic and writers of winboot_shell_pending remain incomplete.",
+    "Full production SYSINIT linking and IO.SYS byte equality are not yet proven."
+  ]
+}

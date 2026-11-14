@@ -1,0 +1,48 @@
+{
+  "kind": "verified_include_context_dependency_cycle",
+  "members": [
+    "dos/msdata.asm",
+    "inc/const2.asm",
+    "dos/dostab.asm",
+    "inc/ms_data.asm"
+  ],
+  "edges": [
+    {
+      "from": "dos/msdata.asm",
+      "to": "inc/const2.asm",
+      "basis": "included source fragment"
+    },
+    {
+      "from": "dos/msdata.asm",
+      "to": "dos/dostab.asm",
+      "basis": "included source fragment"
+    },
+    {
+      "from": "dos/msdata.asm",
+      "to": "inc/ms_data.asm",
+      "basis": "included source fragment"
+    },
+    {
+      "from": "inc/const2.asm",
+      "to": "dos/dostab.asm",
+      "symbol": "redir_patch"
+    },
+    {
+      "from": "inc/const2.asm",
+      "to": "inc/ms_data.asm",
+      "symbol": "DEVIOBUF"
+    }
+  ],
+  "source_hashes": {
+    "dos/msdata.asm": "8cfd6b65393186faa1f6ac8015bea073b6594c98c706a004a696cc413d590da7",
+    "inc/const2.asm": "d6fd5b7d1c74ab28e361b4854cc431e321abe93e79e2682964681c6b63957100",
+    "dos/dostab.asm": "6b9c684c2096e5e1c1b2c8e94a3a41d9fba7fe85289f8d0ce6e03ac2dd9f397d",
+    "inc/ms_data.asm": "70639e0589480cac1a87c8318d7a0906e383febf9b58856021d14019216cf5dd"
+  },
+  "scope": "The fragments share a single assembly context and contain forward references to later included data. They form a source-processing unit under the user-approved cycle rule.",
+  "limitations": [
+    "This identifies a real local include/context cycle, not a complete strongly connected component.",
+    "Other implicit symbols, external providers and target layout dependencies remain unverified.",
+    "No member is certified complete by this finding."
+  ]
+}

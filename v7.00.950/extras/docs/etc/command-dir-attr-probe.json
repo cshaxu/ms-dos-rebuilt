@@ -1,0 +1,12 @@
+{
+  "stage": "extras\\build\\dir-attr-probe-jxxc8rx5",
+  "method": "Isolated DOS execution of current DirParseAttr source",
+  "checks": [
+    "include hidden and exclude system attributes",
+    "empty attribute list",
+    "empty colon rejected"
+  ],
+  "limitations": [
+    "Minimal harness; complete COMMAND parsing and DIR execution are not exercised."
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "files": {
+    "bios/sysconf.asm": "5794b5bde9b8863daf07e1dcc567c56409746b4db1679f25e3652484e5bab9b7",
+    "bios/syspre.asm": "28155ac13072faf13a3303c6fd1f583eed538d103e5da4b9925594d9b82b9909"
+  },
+  "verification": "extras/tools/verify_menu_check_full.py",
+  "sysconf_init_and_helpers": {
+    "sysinit_start": "0x8041",
+    "bytes": 362
+  },
+  "syspre_preload_prefix": {
+    "sysinit_start": "0x8aaf",
+    "bytes": 220
+  },
+  "scope": "Actual InitDevLoad, SpaceInUMB?, PrepareMark, GetUMBForDev, DevSetMark and SizeDevice are linked with actual SYSPRE prefix in one diagnostic.",
+  "limitations": [
+    "HideUMBs, FreezeUM, UnFreeze and ShrinkUMB remain target-address anchors.",
+    "Later preload body and MagicPostload changed filename reference remain unverified.",
+    "Complete SYSINIT object layout and three binaries remain unverified."
+  ]
+}

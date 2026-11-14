@@ -1,0 +1,37 @@
+{
+  "part": "M5 T12 S1 P22",
+  "ordinal": 41,
+  "modified": 1,
+  "unchanged": 0,
+  "exact_dos6": 0,
+  "retired_by_merge": 0,
+  "reference": "No DOS6 regfind homolog found. Apply surrounding Microsoft module, segment, macro and procedure-comment conventions without inventing source provenance.",
+  "changes": "Remove orphan REGVALIDATE/REGHANDLE fragment headers and reconstruction-verification prose. Consolidate module contract and document actual arguments, pointer/status returns and storage ownership at all fourteen procedures. Normalize instruction/declaration indentation.",
+  "necessity": "Existing REGHANDLE unit already groups lookup, validation, key/file lifetime and invalidation. Three predefined-root cases share InvalidateRoot; preserve this existing source deduplication. Key/file/HV operations use distinct signatures, head-list updates and ownership rules. Owner/file invalidation selects different fields; retain target entry points and emitted flow rather than introduce a new runtime layer. No extra source split is needed.",
+  "validation": {
+    "effectiveStatementsEqual": true,
+    "statementCount": 815,
+    "macroDefinitionAndInvocationsUnchanged": true,
+    "proceduresReviewed": [
+      "RegFindKey",
+      "RegFindOrCreate",
+      "RegValidateKeyHandle",
+      "RegKeyCreate",
+      "RegKeyDestroy",
+      "RegInvalidateKey",
+      "RegFileAddRef",
+      "RegFileReleaseRef",
+      "RegFileCreate",
+      "RegFileUnlink",
+      "RegInvalidateOwner",
+      "RegInvalidateFile",
+      "RegHVCreate",
+      "RegHVUnlink"
+    ],
+    "rebuilt": false,
+    "reason": "All 815 effective assembler statements unchanged, including the macro body and three invocations, typed externals, FAR/NEAR call forms, stack offsets and padding.",
+    "binary_baseline": "T11 CONFIG/IO.SYS acceptance carried through P11; COMMAND.COM/MSDOS.SYS unchanged."
+  },
+  "next_ordinal": 42,
+  "remaining": 25
+}

@@ -1,0 +1,2479 @@
+{
+  "generated_utc": "2026-11-11T21:32:40.232047+00:00",
+  "build_report": "extras\\docs\\etc\\command-interactive-input-build-20261111c.json",
+  "stage": "extras\\build\\command-reference-5b08aozr",
+  "current_source_matches_stage": true,
+  "stale_inputs": [],
+  "input_hashes": {
+    "inc/arena.inc": "8b7e1038bdde542ff71fe320fd666788a3f517bed0ba90d3cad146e001933589",
+    "inc/bdsize.inc": "33a862fb4b05d71a2f8307f231dcb08491fed700343db8c9e56efcae00455ca2",
+    "inc/bootform.inc": "4b965419b9fb2c035961b8042f7a494a6a8baeb1df63c270bb068658e2f1bea9",
+    "inc/bpb.inc": "43452ad264b7242d892634f19bfcd036f8a2f1c926745466b27039e8c5f960a8",
+    "inc/buffer.inc": "dd480d8e43f47d3ba741498ee67dae60716c3fe7fdba92afb73e14f302897b16",
+    "inc/bugtyp.inc": "5ca6cab9f8de58819470837484d8da1a1f044356f5dbb4d3206dbcfebc92ac87",
+    "inc/const2.asm": "0dbaffe9d6fb8ef98433e1409d92763a241600b85a97c22fa6a9b18746d88866",
+    "inc/copyrigh.inc": "1e4ac80d8a6923d5070840d7de469e156c17d385164963fb3e08afe0acff408a",
+    "inc/cpmfcb.inc": "ca2cb0e7a884aca307590d3eb9f4620a5ce3455ccb862d4e19fbd5a4c1e3501f",
+    "inc/cputype.inc": "e9bf8b0a5ee0e10936d5403cddadacc898ce1f8b6807ab955b2d0639e5b50cb0",
+    "inc/curdir.inc": "35ce4c7f4511ccd82b0080f769f1efee90853f42c93a1c9d98a7ab930e618aaf",
+    "inc/dbcs.sw": "ca8e10fb6de72593568aa21cb1e24b36a180c64fff0a49ceb8194c75e79737dd",
+    "inc/devsym.inc": "fc490d94869f327034ac3224f7f3bad918ee643041e3f939b4b65693f24e3071",
+    "inc/dirent.inc": "72797ae77d98550ea6ad11aa4a9d46d8ddd88d3dfbb1872aca0c1cd6a52adaa9",
+    "inc/doscntry.inc": "0afc8359d8e51c0da06b15cf725c15a1600b8a4a44f68a74964c78c1b4864a33",
+    "inc/dosmac.inc": "30acfd9ff4cfa69f2719bc61a4416c3c37fc4cb3ae2b5cdaed64096dfbc67675",
+    "inc/dosseg.inc": "b57bb8fe4cdbd0e215a0fb4c34dd21aff2f300ab6228788a3e3912144f86b0ef",
+    "inc/dossym.inc": "7251b43759082b218b6216a267c69efe1adc46da7e5a8bdf75ddd94d366de6a9",
+    "inc/dpb.inc": "78a9717b8fe123d31651d6351adeb6789501ef273ce2476316f5d4ec7c450ec0",
+    "inc/dpl.asm": "3c05ff68a98c953d5cba320d81aecd0e813db044477fef11ac38fd599520f9da",
+    "inc/ds_vers.inc": "2ff90d605f11ff956bfc05136576978b1a912fc022bc4529af138cc92022a0f1",
+    "inc/ea.inc": "b18162e19f3c81a5982740cc7a5285e0c89d386507b567da61df0e3dddf2549b",
+    "inc/error.inc": "f175053c01e3e4108cab8ac0cef34f5a53e70e050c93216f12182154a2a8968b",
+    "inc/exe.inc": "9823aec6d6bf327ca248ae828bf213aa053f1a466e5d27ffaad455758fd05b36",
+    "inc/fastopen.inc": "64f83d23612ac77f7f1a40e4b5c2dbbb93e6daf65d96106f1d45c8ee6e2cbea3",
+    "inc/fastxxxx.inc": "6e89fb864fb75b1e89bf3c049ead0167d481377ce6fa6986f9e53b30a30331f6",
+    "inc/filemode.inc": "1ed4f86e30874fd29bbf1db7d8d7bf541b3e29f9b52e3eb9cf62b007f6c88a05",
+    "inc/find.inc": "9ffe3c32ba76131086cf11465ac666ff369382bd89193202b2ab1a998e8f2bef",
+    "inc/highexit.inc": "e1df06058140691c7e5fdcc0da2d536d56368aa2331737a15e10ad06c17d7ddc",
+    "inc/highload.inc": "3505df9de417b58463b98d5568bbac17116badc4cf0e2f7339a22e296cb25606",
+    "inc/highvar.inc": "79c6e82987d716b33e73e956b0b1a11689dfaad60a8b55e8c39238cf09c5892d",
+    "inc/int2a.inc": "6af97498ea576a05abb7e58183c2daa8d494e231d931c141bc7fc4c7e756c896",
+    "inc/intnat.inc": "2e198e650d88204dcb6b94dfbb8ed7a9abe629b23e5a9313a8cbd21a0738a809",
+    "inc/ioctl.inc": "3578ed8c51c3856a05bb9dabac438feb9e4bf3ddacd98befa0d90b96e244464c",
+    "inc/lmstub.asm": "16993e6a5d9a9d12a42cca4d89907020d25447900e8e172db8dc304919a82eb7",
+    "inc/lock.inc": "798fc526d01fb124e6b459a034500a2b214f03c32184d4de7b023d8d51fe8841",
+    "inc/magicdrv.inc": "3df074a18ae69121c0f691a0880c4b94d245bc3e25839a30a987cd343e336e0a",
+    "inc/mi.inc": "dc9226da8ca79d71ac339ef92d8deeeae8b0b7414ab671b2075419432fb63f9d",
+    "inc/ms_data.asm": "6ebefa952a6ebb9ab11f7eb635afa5e0e0041607dbe2e60efd7fedd85dc4843a",
+    "inc/msbdata.inc": "9e324c8a49c1487c2dff0dccbe1350f5bbc82dc3aa1843b0e71d4b71ad6dc827",
+    "inc/msbds.inc": "641a8c8ad5a1d611d72342fdf40e20f91ce4a02f89cd83b47d041cebc4265e75",
+    "inc/msgdcl.inc": "2da1a5b96b9a283fadf3d438d0039f729dc7f837c96eff507f8f5411ebb62a12",
+    "inc/msgserv.asm": "627b204f2e96fbd84c8a8b6513fd8a56ae3b2fa56c8a5bc736b5cdf0181cbbf4",
+    "inc/mshalo.asm": "ea61a90d0190128ee5dfcb9a6f2a07f3fed11d37a510896b0e1865c258de0694",
+    "inc/mshead.asm": "a1572e2b8b0b2b840df0c6317d7072901f381ce2c1fe793cd5966a2e07309d29",
+    "inc/mult.inc": "73037418e659c1eab2d3e67fc7e29eebed8fc6f1fe5790848ee22f9870ef89a6",
+    "inc/oemconf.inc": "aff9b69a014044feb6f8261a1bb7fd5a453a5aa85c10633e0d8c707ddf1cc46d",
+    "inc/origin.inc": "95cf02ce5ff4e097b4ba03484fefd52b146fbbec6442d19889b49b19ef2e83ea",
+    "inc/parse.asm": "89acf7c8c819cd9afa8e44a50ad3e16d5b69e2eed192e01acb020886078238c9",
+    "inc/pdb.inc": "e5d7f79a89904b334b869292e28596adbdac23e26d953d12bc0a6cb46a1e4b29",
+    "inc/psdata.inc": "1a155965a337c9557bdff36c799e630e673457832362560255b0fae1c01f3f66",
+    "inc/rombios.inc": "14aa46d7fdbefc03488bf91eb69815d292c61042580419a033622ed367aa564f",
+    "inc/sf.inc": "98f38dad3562b516b4232ceb309a16f6b3ec8f4a899f99a7e433380f466df98d",
+    "inc/smifssym.inc": "bfd832bcd928d692b1b7250b98680ae2dd3b1864a55018ed0e4852631b8bc13b",
+    "inc/syscall.inc": "6c48280825687958d53d845e42cf9abbc7a35231108b59787da902160bc955be",
+    "inc/sysmsg.inc": "e5cf275e81b07172232b6a8fbfe7214aa32d0e5a754a999fc7a423a674d81b49",
+    "inc/sysvar.inc": "e10451b7564ef7f5fe100cfd85d2f873a076ad9ad37ab09a53f95acc42577f2e",
+    "inc/umb.inc": "c53551ce1da16fff455029aea3e38ce029db4d4bb1e61c971c63d7ea8f338c73",
+    "inc/vector.inc": "f254af16d59d41e7f4862c2c21f5ac75fbcdd6022df2f42d9c88d5f3c8b028b0",
+    "inc/version.inc": "b9ce9a6d7b82c2203ac9c5643d8b255c2d3cf7363defa1220ea8c15f3f1cdb61",
+    "inc/versiona.inc": "eaea7e5c2ae3fb043eaf62e9fcc923afe9c8a3fec955eaa62c5c5c63d97caf6f",
+    "inc/win386.inc": "f93d2bd1d1c4be0bb0474a4e0ed8796e0f10fdc8e424fc0ffcd64890e599219c",
+    "inc/wpatch.inc": "5195c65222fd02b5f462e058ddbef9eaaebe577907563e1171863c19c583b1d3",
+    "inc/xmm.inc": "166f5796fa0122255f2ef7013b89de089db4dff1c61e9a6c107838e73c5b7acb",
+    "inc/yesno.asm": "1b9e6c6116c2de8171e7d637edef102ce7bf11019e5cd1af3f3da70d42404516",
+    "cmd/command/buildmsg.c": "7e14fd26348180f23687243b17ec63248d1bdadafe8877dfb24ec41a0fc6e2ea",
+    "cmd/command/comequ.asm": "603e4aaa70fa25ac486f4dc5ab3f462ad1c87eae4d6966b8577b710fe8abeecf",
+    "cmd/command/command.lnk": "043586cd7a15e3e2c753369194c49c60c18548a4fba65f4fdb3d1478a28c5d11",
+    "cmd/command/command.skl": "84a3ec3d5a5dfef919d628e2e564df4e68534a6f57763a108ec430b154bfc441",
+    "cmd/command/command1.asm": "3380e0c8fe906514b51eef5b3c7e861cf895febb029069f7221c69288f6a6559",
+    "cmd/command/command2.asm": "22ca990d088780ad2e906b156e2eec79a2595510c98fe3473b4bf5904103addd",
+    "cmd/command/comseg.asm": "14ede618cfbcba077bb368574af6a1fc56bb07535980d95d8ba146c9bce9e4e3",
+    "cmd/command/comsw.asm": "d6bf33dfafcc6170a7f38e3dedc164910ed0ee1e6e6133200b11c53c49589b37",
+    "cmd/command/copy.asm": "fc34cda03a81fe7ae571faa76cf0b0c86d1e23a61572f0646efd27a374e92c54",
+    "cmd/command/copypr1.asm": "af82e6aa29923b6d8b3be87d83fb7ff4ce790d256451fe75f8628f8ac00bceab",
+    "cmd/command/copypr2.asm": "04c55a37f1200b2a108c8c0249b3752beea54e1bdfb5aeea05098b36a2f424e9",
+    "cmd/command/cparse.asm": "0529153998cf547c0be1d8ae678dfac182f2e9470a01bace26be2df2d0479add",
+    "cmd/command/cratio.asm": "ab9ce983afee6bf5017876483458b0b09fc944f8a2f3ab916c2faa9a6990f28a",
+    "cmd/command/dir.asm": "82d02e6bbc1dd96eb074f473e89fadf6300ae23b9df2598ffd7d91d79c8293fe",
+    "cmd/command/envdata.asm": "a2eb2a333b6dd681b017a546f11e9fca5ca85295038b62fc3fb4ab5358b2b24b",
+    "cmd/command/fordata.asm": "90544898349730457c124055dcd13c536866360f50a63fd3242c6af823f88d0b",
+    "cmd/command/ifequ.asm": "658d692385d05f90d21f5212a4e3f4dd95717eefa9c6a2bd44ca2e97a4cda3be",
+    "cmd/command/init.asm": "c6da1393087cc7fe4ee680214d6bad15695cb5a8ef2dbe46a59130292f64658c",
+    "cmd/command/iparse.asm": "212d981c0338012fe96849a7ea569bea2172d267beeb57415d702d603e7d2e7e",
+    "cmd/command/loadhi.asm": "f3276d251f387197d2bf089da98e8f690fa60c9d7def3b0c93d511994a73e65f",
+    "cmd/command/parse2.asm": "d885de9709a598f2e1b635986a7cedf6d2ae00321155cf4e465d360b114da283",
+    "cmd/command/path1.asm": "eb2126371c40ddd0e13fd28da8f0dd3cc652d5c1b69d52ab1481641ffea04826",
+    "cmd/command/path2.asm": "c230a86460f0677b0b51a1657428161f1c3f05d1857c6573cfc4132457c398d3",
+    "cmd/command/rdata.asm": "d7b0e329ead20b7f14f91f6ea52e327fce9c25fe0b54484b21db6a10c16655b9",
+    "cmd/command/resmsg.equ": "e9944d068ccdc0d10b6fea4a387aa3a127388082ef05d07a146741eb2babb49a",
+    "cmd/command/rucode.asm": "e6e723ea636efe8e11304a32fbad474300dd5ec327546f1d7ed0109baaf6420e",
+    "cmd/command/stub.asm": "f12d215477dfb541df5355aa52730558594d780d30da76222268c05a228484ce",
+    "cmd/command/tbatch.asm": "acb6e1ca668f484e6634add3615828593eba2c1aa320f4dc29b3d698ce9c3113",
+    "cmd/command/tbatch2.asm": "a347cc53c8db8d9e54e2783e510fe52d2d816f108ccb7005f47c5acc97e661e6",
+    "cmd/command/tcmd1b.asm": "052c9e921800c18fd1055bbe2cecd4a2a06999204781f31349636fcafb98da75",
+    "cmd/command/tcmd2a.asm": "1e1b18ba34ff9fefe6e6c0535f574ff037dd7095189639464c641a45d886af9d",
+    "cmd/command/tcmd2b.asm": "516e4020c448f98a5e8186994b174740995e1b325774fee94d8ea3882f8636c4",
+    "cmd/command/tcode.asm": "5457fa3347c389107ee454b4a38379f2706bafb85587408f976c1b22118eb097",
+    "cmd/command/tdata.asm": "7b81403c81c1f426906df09e8e0e45eaf52ea33b7c55b5be349e56313f79e92c",
+    "cmd/command/tenv.asm": "d0bc63bd712fb3ba820eae4ced701f9a2883375df709e802c12c7156d6dd4293",
+    "cmd/command/tenv2.asm": "46a0c1a731bb73e4afe4d17c40f48b96f78817a18483f210fe59c2994fd0affd",
+    "cmd/command/tfor.asm": "93cd89114a467bce48900d36c81897f5f739a091280c17a6560d7b953dd519ae",
+    "cmd/command/tmisc1.asm": "aedaaa191192672d1e392f962e0ab5c780598f4ecb7f330a22e58474591ac3c5",
+    "cmd/command/tmisc2.asm": "27e4410c0a0b9b246dd7057830dec354689b91067bc27d0dd6d6a96377710e4c",
+    "cmd/command/tparse.asm": "6b5e17ff0428e5b9d7d87ec076ef92c2b8f6dbb8e0f09a9e325af0c2e55ba51d",
+    "cmd/command/tpipe.asm": "20a12f5531f2f24687bc7d229ecc3a3d8cded99b20465f2c3f34c09a6197046d",
+    "cmd/command/tprintf.asm": "1ae606de31ba92d03ba7e0c013dc7bcc2e0e6430882454220154130905aec0ce",
+    "cmd/command/tranmsg.asm": "6b284da127b4bebca7c7d1e03e0eb0976648e1869856c3c4579b8e48f6cc057c",
+    "cmd/command/tspc.asm": "802dcdb769e7f9764ff75c6ae55e52308ae3473ed3daf9e29f0f7aa5089ceecc",
+    "cmd/command/tucode.asm": "33a7ef94560d9b04bb431842426cd83e79c654ffef6b8faff414eded486b7628",
+    "cmd/command/uinit.asm": "44c0e918885879bf332c33978d73a262e07a74e1ffdbabf49c1a07259434e738",
+    "lang/usa/messages/comrmsg.inc": "6e37937de76b4828abb013e6964141b1ff87434dc97768a1e769cfb4a5bd6532",
+    "lang/usa/messages/comimsg.inc": "12db4440e42e97a2915db10eaa49d518b4ce57289e90529eee485599033ec2fd",
+    "lang/usa/messages/usa-ms-command.msg": "611d9bac881e9c563a3efcefa38bb14e260a887be3494b2f682be9b33524fe04"
+  },
+  "target_bytes": 92870,
+  "target_sha256": "a74c700063cd6b1c91523952bfc80e9393c125d39ada0164d48b5098089fcef3",
+  "output_bytes": 59591,
+  "output_sha256": "055f737d9c9af61b491cf874715404b96d85c99dc6cc61d3e0966c87171e4f98",
+  "final_byte_exact": false,
+  "current_final_acceptance": false,
+  "source_files": [
+    {
+      "path": "cmd/command/command1.asm",
+      "changed_from_baseline": true,
+      "ledger_state": "pending",
+      "whole_module_target_certified": false
+    },
+    {
+      "path": "cmd/command/command2.asm",
+      "changed_from_baseline": true,
+      "ledger_state": "pending",
+      "whole_module_target_certified": false
+    },
+    {
+      "path": "cmd/command/rucode.asm",
+      "changed_from_baseline": true,
+      "ledger_state": "pending",
+      "whole_module_target_certified": false
+    },
+    {
+      "path": "cmd/command/stub.asm",
+      "changed_from_baseline": true,
+      "ledger_state": "pending",
+      "whole_module_target_certified": false
+    },
+    {
+      "path": "cmd/command/rdata.asm",
+      "changed_from_baseline": true,
+      "ledger_state": "pending",
+      "whole_module_target_certified": false
+    },
+    {
+      "path": "cmd/command/init.asm",
+      "changed_from_baseline": true,
+      "ledger_state": "pending",
+      "whole_module_target_certified": false
+    },
+    {
+      "path": "cmd/command/iparse.asm",
+      "changed_from_baseline": false,
+      "ledger_state": "reference_qualified",
+      "whole_module_target_certified": false
+    },
+    {
+      "path": "cmd/command/uinit.asm",
+      "changed_from_baseline": true,
+      "ledger_state": "pending",
+      "whole_module_target_certified": false
+    },
+    {
+      "path": "cmd/command/tcode.asm",
+      "changed_from_baseline": true,
+      "ledger_state": "pending",
+      "whole_module_target_certified": false
+    },
+    {
+      "path": "cmd/command/tbatch.asm",
+      "changed_from_baseline": false,
+      "ledger_state": "pending",
+      "whole_module_target_certified": false
+    },
+    {
+      "path": "cmd/command/tbatch2.asm",
+      "changed_from_baseline": false,
+      "ledger_state": "pending",
+      "whole_module_target_certified": false
+    },
+    {
+      "path": "cmd/command/tfor.asm",
+      "changed_from_baseline": false,
+      "ledger_state": "pending",
+      "whole_module_target_certified": false
+    },
+    {
+      "path": "cmd/command/dir.asm",
+      "changed_from_baseline": false,
+      "ledger_state": "pending",
+      "whole_module_target_certified": false
+    },
+    {
+      "path": "cmd/command/cratio.asm",
+      "changed_from_baseline": false,
+      "ledger_state": "pending",
+      "whole_module_target_certified": false
+    },
+    {
+      "path": "cmd/command/tcmd1b.asm",
+      "changed_from_baseline": false,
+      "ledger_state": "pending",
+      "whole_module_target_certified": false
+    },
+    {
+      "path": "cmd/command/tcmd2a.asm",
+      "changed_from_baseline": false,
+      "ledger_state": "pending",
+      "whole_module_target_certified": false
+    },
+    {
+      "path": "cmd/command/tcmd2b.asm",
+      "changed_from_baseline": false,
+      "ledger_state": "pending",
+      "whole_module_target_certified": false
+    },
+    {
+      "path": "cmd/command/tenv.asm",
+      "changed_from_baseline": false,
+      "ledger_state": "pending",
+      "whole_module_target_certified": false
+    },
+    {
+      "path": "cmd/command/tenv2.asm",
+      "changed_from_baseline": false,
+      "ledger_state": "pending",
+      "whole_module_target_certified": false
+    },
+    {
+      "path": "cmd/command/tmisc1.asm",
+      "changed_from_baseline": true,
+      "ledger_state": "pending",
+      "whole_module_target_certified": false
+    },
+    {
+      "path": "cmd/command/tmisc2.asm",
+      "changed_from_baseline": false,
+      "ledger_state": "pending",
+      "whole_module_target_certified": false
+    },
+    {
+      "path": "cmd/command/tpipe.asm",
+      "changed_from_baseline": true,
+      "ledger_state": "pending",
+      "whole_module_target_certified": false
+    },
+    {
+      "path": "cmd/command/parse2.asm",
+      "changed_from_baseline": false,
+      "ledger_state": "pending",
+      "whole_module_target_certified": false
+    },
+    {
+      "path": "cmd/command/path1.asm",
+      "changed_from_baseline": false,
+      "ledger_state": "pending",
+      "whole_module_target_certified": false
+    },
+    {
+      "path": "cmd/command/path2.asm",
+      "changed_from_baseline": false,
+      "ledger_state": "pending",
+      "whole_module_target_certified": false
+    },
+    {
+      "path": "cmd/command/tucode.asm",
+      "changed_from_baseline": false,
+      "ledger_state": "pending",
+      "whole_module_target_certified": false
+    },
+    {
+      "path": "cmd/command/copy.asm",
+      "changed_from_baseline": false,
+      "ledger_state": "pending",
+      "whole_module_target_certified": false
+    },
+    {
+      "path": "cmd/command/copypr1.asm",
+      "changed_from_baseline": false,
+      "ledger_state": "pending",
+      "whole_module_target_certified": false
+    },
+    {
+      "path": "cmd/command/copypr2.asm",
+      "changed_from_baseline": false,
+      "ledger_state": "pending",
+      "whole_module_target_certified": false
+    },
+    {
+      "path": "cmd/command/cparse.asm",
+      "changed_from_baseline": false,
+      "ledger_state": "pending",
+      "whole_module_target_certified": false
+    },
+    {
+      "path": "cmd/command/tparse.asm",
+      "changed_from_baseline": false,
+      "ledger_state": "waiting_dependencies",
+      "whole_module_target_certified": false
+    },
+    {
+      "path": "cmd/command/tprintf.asm",
+      "changed_from_baseline": false,
+      "ledger_state": "pending",
+      "whole_module_target_certified": false
+    },
+    {
+      "path": "cmd/command/loadhi.asm",
+      "changed_from_baseline": false,
+      "ledger_state": "pending",
+      "whole_module_target_certified": false
+    },
+    {
+      "path": "cmd/command/tdata.asm",
+      "changed_from_baseline": false,
+      "ledger_state": "pending",
+      "whole_module_target_certified": false
+    },
+    {
+      "path": "cmd/command/tspc.asm",
+      "changed_from_baseline": true,
+      "ledger_state": "integration_pending",
+      "whole_module_target_certified": false
+    }
+  ],
+  "module_count": 35,
+  "modified_modules": 11,
+  "unchanged_modules": 24,
+  "whole_module_target_certified": 0,
+  "coverage_registry_complete": false,
+  "overall_completion_percent": null,
+  "rules": [
+    "Source identity is checked against the actual build input copies.",
+    "Changed/unchanged is relative to ledger baseline, not target certification.",
+    "Only current rerun checks enter the registered coverage; overlapping ranges counted once.",
+    "Instruction/operand equivalence is separate from raw byte equality and startup integration.",
+    "Older ad-hoc evidence outside this registry is unregistered, not proof of zero recovery.",
+    "No whole-product percentage until the target coverage registry is complete."
+  ],
+  "registered_checks": [
+    {
+      "name": "EndInit and helpers",
+      "source": "cmd/command/rdata.asm",
+      "symbol": "EndInit",
+      "range": [
+        17815,
+        18355
+      ],
+      "linked_image_range": [
+        947,
+        1487
+      ],
+      "linked_artifact": "command.exe load image",
+      "proof": "instructions_and_actual_linked_operands",
+      "verifier": "verify_command_endinit.verify",
+      "operands": [
+        {
+          "offset": 3,
+          "symbol": "OriginalComSpec",
+          "linked_value": 1627,
+          "target_value": 1775
+        },
+        {
+          "offset": 12,
+          "symbol": "ComSpec",
+          "linked_value": 814,
+          "target_value": 944
+        },
+        {
+          "offset": 24,
+          "symbol": "OriginalDataSeg",
+          "linked_value": 940,
+          "target_value": 1087
+        },
+        {
+          "offset": 30,
+          "symbol": "TrnSize",
+          "linked_value": 12208,
+          "target_value": 14206
+        },
+        {
+          "offset": 34,
+          "symbol": "UsedEnv",
+          "linked_value": 12198,
+          "target_value": 14196
+        },
+        {
+          "offset": 38,
+          "symbol": "OldEnv",
+          "linked_value": 12196,
+          "target_value": 14194
+        },
+        {
+          "offset": 48,
+          "symbol": "OriginalDataSeg",
+          "linked_value": 940,
+          "target_value": 1087
+        },
+        {
+          "offset": 54,
+          "symbol": "OriginalDataSeg",
+          "linked_value": 940,
+          "target_value": 1087
+        },
+        {
+          "offset": 66,
+          "symbol": "ResSize",
+          "linked_value": 1765,
+          "target_value": 1916
+        },
+        {
+          "offset": 82,
+          "symbol": "FreeInitEnv",
+          "linked_value": 408,
+          "target_value": 408
+        },
+        {
+          "offset": 86,
+          "symbol": "PermCom",
+          "linked_value": 901,
+          "target_value": 1048
+        },
+        {
+          "offset": 100,
+          "symbol": "InitStubSegment",
+          "linked_value": 945,
+          "target_value": 1093
+        },
+        {
+          "offset": 141,
+          "symbol": "CopyInitVector",
+          "linked_value": 385,
+          "target_value": 385
+        },
+        {
+          "offset": 144,
+          "symbol": "CopyInitVector",
+          "linked_value": 382,
+          "target_value": 382
+        },
+        {
+          "offset": 153,
+          "symbol": "PermCom",
+          "linked_value": 901,
+          "target_value": 1048
+        },
+        {
+          "offset": 167,
+          "symbol": "PermCom",
+          "linked_value": 901,
+          "target_value": 1048
+        },
+        {
+          "offset": 174,
+          "symbol": "Batch",
+          "linked_value": 812,
+          "target_value": 942
+        },
+        {
+          "offset": 197,
+          "symbol": "Batch",
+          "linked_value": 812,
+          "target_value": 942
+        },
+        {
+          "offset": 210,
+          "symbol": "Batch",
+          "linked_value": 812,
+          "target_value": 942
+        },
+        {
+          "offset": 218,
+          "symbol": "Batch",
+          "linked_value": 812,
+          "target_value": 942
+        },
+        {
+          "offset": 226,
+          "symbol": "OriginalDataSeg",
+          "linked_value": 940,
+          "target_value": 1087
+        },
+        {
+          "offset": 238,
+          "symbol": "EnvSiz",
+          "linked_value": 1711,
+          "target_value": 1859
+        },
+        {
+          "offset": 252,
+          "symbol": "EnvSiz",
+          "linked_value": 1711,
+          "target_value": 1859
+        },
+        {
+          "offset": 261,
+          "symbol": "nomem_err",
+          "linked_value": 226,
+          "target_value": 226
+        },
+        {
+          "offset": 276,
+          "symbol": "PermCom",
+          "linked_value": 901,
+          "target_value": 1048
+        },
+        {
+          "offset": 306,
+          "symbol": "EnvSiz",
+          "linked_value": 1711,
+          "target_value": 1859
+        },
+        {
+          "offset": 361,
+          "symbol": "FreeInitEnv",
+          "linked_value": 129,
+          "target_value": 129
+        },
+        {
+          "offset": 369,
+          "symbol": "EnvirSeg",
+          "linked_value": 1713,
+          "target_value": 1861
+        },
+        {
+          "offset": 388,
+          "symbol": "TrnMvFlg",
+          "linked_value": 884,
+          "target_value": 1031
+        },
+        {
+          "offset": 393,
+          "symbol": "TranSpaceEnd",
+          "linked_value": 45735,
+          "target_value": 58788
+        },
+        {
+          "offset": 396,
+          "symbol": "CmdBufSize",
+          "linked_value": 1751,
+          "target_value": 1900
+        },
+        {
+          "offset": 431,
+          "symbol": "TrnSeg",
+          "linked_value": 882,
+          "target_value": 1029
+        },
+        {
+          "offset": 437,
+          "symbol": "InitStubSegment",
+          "linked_value": 945,
+          "target_value": 1093
+        },
+        {
+          "offset": 442,
+          "symbol": "OriginalDataSeg",
+          "linked_value": 940,
+          "target_value": 1087
+        },
+        {
+          "offset": 450,
+          "symbol": "TranStart",
+          "linked_value": 14112,
+          "target_value": 17360
+        },
+        {
+          "offset": 483,
+          "symbol": "InitFlag",
+          "linked_value": 942,
+          "target_value": 1090
+        },
+        {
+          "offset": 487,
+          "symbol": "LodCom_Trap",
+          "linked_value": 64490,
+          "target_value": 64369
+        },
+        {
+          "offset": 490,
+          "symbol": "BadMem_Trap",
+          "linked_value": 64517,
+          "target_value": 64396
+        }
+      ],
+      "source_sha256": "d7b0e329ead20b7f14f91f6ea52e327fce9c25fe0b54484b21db6a10c16655b9",
+      "final_file_byte_identity_certified": false
+    },
+    {
+      "name": "CopySingleCommand",
+      "source": "cmd/command/init.asm",
+      "symbol": "CopySingleCommand",
+      "range": [
+        27795,
+        27853
+      ],
+      "linked_image_range": [
+        8835,
+        8893
+      ],
+      "linked_artifact": "command.exe load image",
+      "proof": "instructions_and_actual_linked_operands",
+      "verifier": "verify_command_endinit.verify_single_command",
+      "operands": [
+        {
+          "offset": 2,
+          "symbol": "SingleCom",
+          "linked_value": 903,
+          "target_value": 1050
+        },
+        {
+          "offset": 7,
+          "symbol": "TranStart",
+          "linked_value": 14112,
+          "target_value": 17360
+        },
+        {
+          "offset": 18,
+          "symbol": "TranSpaceEnd",
+          "linked_value": 45737,
+          "target_value": 58790
+        },
+        {
+          "offset": 22,
+          "symbol": "CmdBufSize",
+          "linked_value": 1751,
+          "target_value": 1900
+        },
+        {
+          "offset": 26,
+          "symbol": "InputBufSize",
+          "linked_value": 1753,
+          "target_value": 1902
+        }
+      ],
+      "source_sha256": "c6da1393087cc7fe4ee680214d6bad15695cb5a8ef2dbe46a59130292f64658c",
+      "final_file_byte_identity_certified": false
+    },
+    {
+      "name": "SaveSingleCommand",
+      "source": "cmd/command/init.asm",
+      "symbol": "SaveSingleCommand",
+      "range": [
+        26452,
+        26465
+      ],
+      "linked_image_range": [
+        7635,
+        7648
+      ],
+      "linked_artifact": "command.exe load image",
+      "proof": "instructions_and_actual_linked_operands",
+      "verifier": "verify_command_endinit.verify_single_command",
+      "operands": [
+        {
+          "offset": 2,
+          "symbol": "SingleCom",
+          "linked_value": 903,
+          "target_value": 1050
+        },
+        {
+          "offset": 6,
+          "symbol": "SingleCom",
+          "linked_value": 905,
+          "target_value": 1052
+        },
+        {
+          "offset": 10,
+          "symbol": "PrdAttm",
+          "linked_value": 12113,
+          "target_value": 14111
+        }
+      ],
+      "source_sha256": "c6da1393087cc7fe4ee680214d6bad15695cb5a8ef2dbe46a59130292f64658c",
+      "final_file_byte_identity_certified": false
+    },
+    {
+      "name": "ResizeCommand",
+      "source": "cmd/command/init.asm",
+      "symbol": "ResizeCommand",
+      "range": [
+        25912,
+        25956
+      ],
+      "linked_image_range": [
+        7145,
+        7189
+      ],
+      "linked_artifact": "command.exe load image",
+      "proof": "instructions_and_actual_linked_operands",
+      "verifier": "verify_command_endinit.verify_single_command",
+      "operands": [
+        {
+          "offset": 18,
+          "symbol": "TranSpaceEnd",
+          "linked_value": 45735,
+          "target_value": 58788
+        },
+        {
+          "offset": 32,
+          "symbol": "TranStart",
+          "linked_value": 14112,
+          "target_value": 17360
+        }
+      ],
+      "source_sha256": "c6da1393087cc7fe4ee680214d6bad15695cb5a8ef2dbe46a59130292f64658c",
+      "final_file_byte_identity_certified": false
+    },
+    {
+      "name": "nobatchseg",
+      "source": "cmd/command/init.asm",
+      "symbol": "nobatchseg",
+      "range": [
+        27231,
+        27352
+      ],
+      "linked_image_range": [
+        8405,
+        8526
+      ],
+      "linked_artifact": "command.exe load image",
+      "proof": "instructions_and_actual_linked_operands",
+      "verifier": "verify_command_endinit.verify_single_command",
+      "operands": [
+        {
+          "offset": 2,
+          "symbol": "EnvirSeg",
+          "linked_value": 1713,
+          "target_value": 1861
+        },
+        {
+          "offset": 6,
+          "symbol": "OldEnv",
+          "linked_value": 12196,
+          "target_value": 14194
+        },
+        {
+          "offset": 10,
+          "symbol": "UsedEnv",
+          "linked_value": 12198,
+          "target_value": 14196
+        },
+        {
+          "offset": 26,
+          "symbol": "EnvMax",
+          "linked_value": 12194,
+          "target_value": 14192
+        },
+        {
+          "offset": 39,
+          "symbol": "EnvMax",
+          "linked_value": 12194,
+          "target_value": 14192
+        },
+        {
+          "offset": 45,
+          "symbol": "GetStrLen",
+          "linked_value": 441,
+          "target_value": 575
+        },
+        {
+          "offset": 52,
+          "symbol": "UsedEnv",
+          "linked_value": 12198,
+          "target_value": 14196
+        },
+        {
+          "offset": 77,
+          "symbol": "InitMsgTable",
+          "linked_value": 12579,
+          "target_value": 15196
+        },
+        {
+          "offset": 80,
+          "symbol": "RPrint",
+          "linked_value": 63344,
+          "target_value": 63170
+        },
+        {
+          "offset": 83,
+          "symbol": "EnvSiz",
+          "linked_value": 1711,
+          "target_value": 1859
+        },
+        {
+          "offset": 91,
+          "symbol": "UsedEnv",
+          "linked_value": 12198,
+          "target_value": 14196
+        },
+        {
+          "offset": 96,
+          "symbol": "UsedEnv",
+          "linked_value": 12198,
+          "target_value": 14196
+        },
+        {
+          "offset": 100,
+          "symbol": "CmdBufSize",
+          "linked_value": 1751,
+          "target_value": 1900
+        },
+        {
+          "offset": 108,
+          "symbol": "CmdBufSize",
+          "linked_value": 1751,
+          "target_value": 1900
+        },
+        {
+          "offset": 119,
+          "symbol": "EnvSiz",
+          "linked_value": 1711,
+          "target_value": 1859
+        }
+      ],
+      "source_sha256": "c6da1393087cc7fe4ee680214d6bad15695cb5a8ef2dbe46a59130292f64658c",
+      "final_file_byte_identity_certified": false
+    },
+    {
+      "name": "GetStrLen",
+      "source": "cmd/command/init.asm",
+      "symbol": "GetStrLen",
+      "range": [
+        27853,
+        27862
+      ],
+      "linked_image_range": [
+        8893,
+        8902
+      ],
+      "linked_artifact": "command.exe load image",
+      "proof": "instructions_and_actual_linked_operands",
+      "verifier": "verify_command_endinit.verify_single_command",
+      "operands": [],
+      "source_sha256": "c6da1393087cc7fe4ee680214d6bad15695cb5a8ef2dbe46a59130292f64658c",
+      "final_file_byte_identity_certified": false
+    },
+    {
+      "name": "Alloc_env",
+      "source": "cmd/command/init.asm",
+      "symbol": "Alloc_env",
+      "range": [
+        28537,
+        28862
+      ],
+      "linked_image_range": [
+        9910,
+        10235
+      ],
+      "linked_artifact": "command.exe load image",
+      "proof": "instructions_and_actual_linked_operands",
+      "verifier": "verify_command_endinit.verify_single_command",
+      "operands": [
+        {
+          "offset": 7,
+          "symbol": "EnvirSeg",
+          "linked_value": 1713,
+          "target_value": 1861
+        },
+        {
+          "offset": 11,
+          "symbol": "AllocedEnv",
+          "linked_value": 12126,
+          "target_value": 14124
+        },
+        {
+          "offset": 17,
+          "symbol": "alloc_done",
+          "linked_value": 295,
+          "target_value": 295
+        },
+        {
+          "offset": 26,
+          "symbol": "FirstCom",
+          "linked_value": 14093,
+          "target_value": 17352
+        },
+        {
+          "offset": 46,
+          "symbol": "PathStrLen",
+          "linked_value": 5,
+          "target_value": 5
+        },
+        {
+          "offset": 49,
+          "symbol": "PathString",
+          "linked_value": 12127,
+          "target_value": 14125
+        },
+        {
+          "offset": 63,
+          "symbol": "PathString",
+          "linked_value": 12127,
+          "target_value": 14125
+        },
+        {
+          "offset": 72,
+          "symbol": "PrmptStrLen2",
+          "linked_value": 7,
+          "target_value": 7
+        },
+        {
+          "offset": 75,
+          "symbol": "PrmptString",
+          "linked_value": 12152,
+          "target_value": 14150
+        },
+        {
+          "offset": 89,
+          "symbol": "PrmptString",
+          "linked_value": 12152,
+          "target_value": 14150
+        },
+        {
+          "offset": 92,
+          "symbol": "FindComspec",
+          "linked_value": 338,
+          "target_value": 338
+        },
+        {
+          "offset": 98,
+          "symbol": "ComspOffset",
+          "linked_value": 12164,
+          "target_value": 14162
+        },
+        {
+          "offset": 133,
+          "symbol": "AllocedEnv",
+          "linked_value": 12126,
+          "target_value": 14124
+        },
+        {
+          "offset": 155,
+          "symbol": "init_nomem",
+          "linked_value": 162,
+          "target_value": 162
+        },
+        {
+          "offset": 167,
+          "symbol": "EnvirSeg",
+          "linked_value": 1713,
+          "target_value": 1861
+        },
+        {
+          "offset": 188,
+          "symbol": "PathString",
+          "linked_value": 12127,
+          "target_value": 14125
+        },
+        {
+          "offset": 195,
+          "symbol": "PathStrLen",
+          "linked_value": 6,
+          "target_value": 6
+        },
+        {
+          "offset": 201,
+          "symbol": "AllocedEnv",
+          "linked_value": 12126,
+          "target_value": 14124
+        },
+        {
+          "offset": 212,
+          "symbol": "DefPathString",
+          "linked_value": 12133,
+          "target_value": 14131
+        },
+        {
+          "offset": 231,
+          "symbol": "DefPathStrLen",
+          "linked_value": 19,
+          "target_value": 19
+        },
+        {
+          "offset": 234,
+          "symbol": "DefPathString",
+          "linked_value": 12133,
+          "target_value": 14131
+        },
+        {
+          "offset": 268,
+          "symbol": "AllocedEnv",
+          "linked_value": 12126,
+          "target_value": 14124
+        },
+        {
+          "offset": 273,
+          "symbol": "PrmptString",
+          "linked_value": 12152,
+          "target_value": 14150
+        },
+        {
+          "offset": 280,
+          "symbol": "PrmptStrLen",
+          "linked_value": 12,
+          "target_value": 12
+        },
+        {
+          "offset": 286,
+          "symbol": "ComspOffset",
+          "linked_value": 12164,
+          "target_value": 14162
+        },
+        {
+          "offset": 292,
+          "symbol": "ComspStrLen",
+          "linked_value": 8,
+          "target_value": 8
+        },
+        {
+          "offset": 295,
+          "symbol": "ComspOffset",
+          "linked_value": 12164,
+          "target_value": 14162
+        },
+        {
+          "offset": 298,
+          "symbol": "ComspString",
+          "linked_value": 12166,
+          "target_value": 14164
+        },
+        {
+          "offset": 301,
+          "symbol": "ComspStrLen2",
+          "linked_value": 21,
+          "target_value": 21
+        },
+        {
+          "offset": 308,
+          "symbol": "EnvirSeg",
+          "linked_value": 1713,
+          "target_value": 1861
+        },
+        {
+          "offset": 312,
+          "symbol": "AllocedEnv",
+          "linked_value": 12126,
+          "target_value": 14124
+        },
+        {
+          "offset": 320,
+          "symbol": "Alloc_error",
+          "linked_value": 0,
+          "target_value": 0
+        },
+        {
+          "offset": 323,
+          "symbol": "BadMemErr",
+          "linked_value": 60031,
+          "target_value": 59815
+        }
+      ],
+      "source_sha256": "c6da1393087cc7fe4ee680214d6bad15695cb5a8ef2dbe46a59130292f64658c",
+      "final_file_byte_identity_certified": false
+    },
+    {
+      "name": "FindComspec",
+      "source": "cmd/command/init.asm",
+      "symbol": "FindComspec",
+      "range": [
+        28969,
+        28996
+      ],
+      "linked_image_range": [
+        10342,
+        10369
+      ],
+      "linked_artifact": "command.exe load image",
+      "proof": "instructions_and_actual_linked_operands",
+      "verifier": "verify_command_endinit.verify_single_command",
+      "operands": [
+        {
+          "offset": 7,
+          "symbol": "ComspStrLen",
+          "linked_value": 8,
+          "target_value": 8
+        },
+        {
+          "offset": 10,
+          "symbol": "ComspString",
+          "linked_value": 12166,
+          "target_value": 14164
+        }
+      ],
+      "source_sha256": "c6da1393087cc7fe4ee680214d6bad15695cb5a8ef2dbe46a59130292f64658c",
+      "final_file_byte_identity_certified": false
+    },
+    {
+      "name": "ExtractCmdLine",
+      "source": "cmd/command/init.asm",
+      "symbol": "ExtractCmdLine",
+      "range": [
+        28862,
+        28969
+      ],
+      "linked_image_range": [
+        10235,
+        10342
+      ],
+      "linked_artifact": "command.exe load image",
+      "proof": "instructions_and_actual_linked_operands",
+      "verifier": "verify_command_endinit.verify_single_command",
+      "operands": [
+        {
+          "offset": 8,
+          "symbol": "CmdLineName",
+          "linked_value": 39638,
+          "target_value": 33673
+        },
+        {
+          "offset": 12,
+          "symbol": "TranStart",
+          "linked_value": 14112,
+          "target_value": 17360
+        },
+        {
+          "offset": 50,
+          "symbol": "InitCmdLine",
+          "linked_value": 11024,
+          "target_value": 13018
+        },
+        {
+          "offset": 91,
+          "symbol": "FindComspec",
+          "linked_value": 14,
+          "target_value": 14
+        },
+        {
+          "offset": 98,
+          "symbol": "ComspOffset",
+          "linked_value": 12164,
+          "target_value": 14162
+        }
+      ],
+      "source_sha256": "c6da1393087cc7fe4ee680214d6bad15695cb5a8ef2dbe46a59130292f64658c",
+      "final_file_byte_identity_certified": false
+    },
+    {
+      "name": "ReadInitialCommand",
+      "source": "cmd/command/init.asm",
+      "symbol": "ReadInitialCommand",
+      "range": [
+        25991,
+        25998
+      ],
+      "linked_image_range": [
+        7224,
+        7231
+      ],
+      "linked_artifact": "command.exe load image",
+      "proof": "instructions_and_actual_linked_operands",
+      "verifier": "verify_command_endinit.verify_single_command",
+      "operands": [
+        {
+          "offset": 1,
+          "symbol": "ExtractCmdLine",
+          "linked_value": 3008,
+          "target_value": 2868
+        }
+      ],
+      "source_sha256": "c6da1393087cc7fe4ee680214d6bad15695cb5a8ef2dbe46a59130292f64658c",
+      "final_file_byte_identity_certified": false
+    },
+    {
+      "name": "ParseInitialCommand",
+      "source": "cmd/command/init.asm",
+      "symbol": "ParseInitialCommand",
+      "range": [
+        28996,
+        29030
+      ],
+      "linked_image_range": [
+        10369,
+        10403
+      ],
+      "linked_artifact": "command.exe load image",
+      "proof": "instructions_and_actual_linked_operands",
+      "verifier": "verify_command_endinit.verify_single_command",
+      "operands": [
+        {
+          "offset": 3,
+          "symbol": "InitCmdLine",
+          "linked_value": 11025,
+          "target_value": 13019
+        },
+        {
+          "offset": 11,
+          "symbol": "ParseInitCommand",
+          "linked_value": 12495,
+          "target_value": 14493
+        },
+        {
+          "offset": 19,
+          "symbol": "Init_Parse",
+          "linked_value": 12204,
+          "target_value": 14202
+        }
+      ],
+      "source_sha256": "c6da1393087cc7fe4ee680214d6bad15695cb5a8ef2dbe46a59130292f64658c",
+      "final_file_byte_identity_certified": false
+    },
+    {
+      "name": "SelectInitialCommand",
+      "source": "cmd/command/init.asm",
+      "symbol": "SelectInitialCommand",
+      "range": [
+        26121,
+        26202
+      ],
+      "linked_image_range": [
+        7304,
+        7385
+      ],
+      "linked_artifact": "command.exe load image",
+      "proof": "instructions_and_actual_linked_operands",
+      "verifier": "verify_command_endinit.verify_single_command",
+      "operands": [
+        {
+          "offset": 19,
+          "symbol": "ParseInitialCommand",
+          "linked_value": 3044,
+          "target_value": 2854
+        },
+        {
+          "offset": 24,
+          "symbol": "ApplyInitialBufferSizes",
+          "linked_value": 749,
+          "target_value": 753
+        },
+        {
+          "offset": 43,
+          "symbol": "Num_positionals",
+          "linked_value": 12491,
+          "target_value": 14489
+        },
+        {
+          "offset": 46,
+          "symbol": "Parse_command",
+          "linked_value": 12223,
+          "target_value": 14221
+        },
+        {
+          "offset": 52,
+          "symbol": "Num_positionals",
+          "linked_value": 12491,
+          "target_value": 14489
+        },
+        {
+          "offset": 58,
+          "symbol": "Old_parse_ptr",
+          "linked_value": 12493,
+          "target_value": 14491
+        },
+        {
+          "offset": 62,
+          "symbol": "Init_Parse",
+          "linked_value": 12204,
+          "target_value": 14202
+        },
+        {
+          "offset": 66,
+          "symbol": "Num_positionals",
+          "linked_value": 12491,
+          "target_value": 14489
+        },
+        {
+          "offset": 79,
+          "symbol": "parse_cont",
+          "linked_value": 135,
+          "target_value": 135
+        }
+      ],
+      "source_sha256": "c6da1393087cc7fe4ee680214d6bad15695cb5a8ef2dbe46a59130292f64658c",
+      "final_file_byte_identity_certified": false
+    },
+    {
+      "name": "InitSwitchHandlers",
+      "source": "cmd/command/init.asm",
+      "symbol": "InitSwitchHandlers",
+      "range": [
+        26274,
+        26337
+      ],
+      "linked_image_range": [
+        7457,
+        7520
+      ],
+      "linked_artifact": "command.exe load image",
+      "proof": "instructions_and_actual_linked_operands",
+      "verifier": "verify_command_endinit.verify_single_command",
+      "operands": [
+        {
+          "offset": 2,
+          "symbol": "YSwitchFlags",
+          "linked_value": 1747,
+          "target_value": 1895
+        },
+        {
+          "offset": 9,
+          "symbol": "YSwitchFlags",
+          "linked_value": 1747,
+          "target_value": 1895
+        },
+        {
+          "offset": 16,
+          "symbol": "fFail",
+          "linked_value": 909,
+          "target_value": 1056
+        },
+        {
+          "offset": 28,
+          "symbol": "fFail",
+          "linked_value": 909,
+          "target_value": 1056
+        },
+        {
+          "offset": 32,
+          "symbol": "Parse_command_line",
+          "linked_value": 65394,
+          "target_value": 65394
+        },
+        {
+          "offset": 36,
+          "symbol": "Dswitch",
+          "linked_value": 12217,
+          "target_value": 14215
+        },
+        {
+          "offset": 48,
+          "symbol": "YSwitchFlags",
+          "linked_value": 1747,
+          "target_value": 1895
+        },
+        {
+          "offset": 53,
+          "symbol": "Dswitch",
+          "linked_value": 12217,
+          "target_value": 14215
+        },
+        {
+          "offset": 57,
+          "symbol": "PrdAttm",
+          "linked_value": 12113,
+          "target_value": 14111
+        },
+        {
+          "offset": 61,
+          "symbol": "Parse_command_line",
+          "linked_value": 65365,
+          "target_value": 65365
+        }
+      ],
+      "source_sha256": "c6da1393087cc7fe4ee680214d6bad15695cb5a8ef2dbe46a59130292f64658c",
+      "final_file_byte_identity_certified": false
+    },
+    {
+      "name": "CheckSizeSwitch",
+      "source": "cmd/command/init.asm",
+      "symbol": "CheckSizeSwitch",
+      "range": [
+        29652,
+        29671
+      ],
+      "linked_image_range": [
+        9491,
+        9510
+      ],
+      "linked_artifact": "command.exe load image",
+      "proof": "instructions_and_actual_linked_operands",
+      "verifier": "verify_command_endinit.verify_single_command",
+      "operands": [
+        {
+          "offset": 10,
+          "symbol": "Comnd1_addr",
+          "linked_value": 12486,
+          "target_value": 14484
+        }
+      ],
+      "source_sha256": "c6da1393087cc7fe4ee680214d6bad15695cb5a8ef2dbe46a59130292f64658c",
+      "final_file_byte_identity_certified": false
+    },
+    {
+      "name": "ApplyInitialBufferSizes",
+      "source": "cmd/command/init.asm",
+      "symbol": "ApplyInitialBufferSizes",
+      "range": [
+        26900,
+        26980
+      ],
+      "linked_image_range": [
+        8079,
+        8159
+      ],
+      "linked_artifact": "command.exe load image",
+      "proof": "instructions_and_actual_linked_operands",
+      "verifier": "verify_command_endinit.verify_single_command",
+      "operands": [
+        {
+          "offset": 2,
+          "symbol": "EnvirSeg",
+          "linked_value": 1713,
+          "target_value": 1861
+        },
+        {
+          "offset": 6,
+          "symbol": "FirstCom",
+          "linked_value": 14093,
+          "target_value": 17352
+        },
+        {
+          "offset": 13,
+          "symbol": "RequestedInputSize",
+          "linked_value": 12212,
+          "target_value": 14210
+        },
+        {
+          "offset": 19,
+          "symbol": "RequestedInputSize",
+          "linked_value": 12212,
+          "target_value": 14210
+        },
+        {
+          "offset": 22,
+          "symbol": "InputBufSize",
+          "linked_value": 1753,
+          "target_value": 1902
+        },
+        {
+          "offset": 26,
+          "symbol": "RequestedCmdSize",
+          "linked_value": 12210,
+          "target_value": 14208
+        },
+        {
+          "offset": 32,
+          "symbol": "RequestedCmdSize",
+          "linked_value": 12210,
+          "target_value": 14208
+        },
+        {
+          "offset": 35,
+          "symbol": "CmdBufSize",
+          "linked_value": 1751,
+          "target_value": 1900
+        },
+        {
+          "offset": 43,
+          "symbol": "CmdBufSize",
+          "linked_value": 1751,
+          "target_value": 1900
+        },
+        {
+          "offset": 62,
+          "symbol": "TranSpaceEnd",
+          "linked_value": 45750,
+          "target_value": 58803
+        },
+        {
+          "offset": 70,
+          "symbol": "TrnSize",
+          "linked_value": 12208,
+          "target_value": 14206
+        },
+        {
+          "offset": 74,
+          "symbol": "TrnSize",
+          "linked_value": 12208,
+          "target_value": 14206
+        },
+        {
+          "offset": 78,
+          "symbol": "TrnSeg",
+          "linked_value": 882,
+          "target_value": 1029
+        }
+      ],
+      "source_sha256": "c6da1393087cc7fe4ee680214d6bad15695cb5a8ef2dbe46a59130292f64658c",
+      "final_file_byte_identity_certified": false
+    },
+    {
+      "name": "ParseSwitches",
+      "source": "cmd/command/init.asm",
+      "symbol": "ParseSwitches",
+      "range": [
+        26337,
+        26596
+      ],
+      "linked_image_range": [
+        7520,
+        7779
+      ],
+      "linked_artifact": "command.exe load image",
+      "proof": "instructions_and_actual_linked_operands",
+      "verifier": "verify_command_endinit.verify_single_command",
+      "operands": [
+        {
+          "offset": 1,
+          "symbol": "Comnd1_syn",
+          "linked_value": 12484,
+          "target_value": 14482
+        },
+        {
+          "offset": 4,
+          "symbol": "Command_f_syn",
+          "linked_value": 12292,
+          "target_value": 14290
+        },
+        {
+          "offset": 9,
+          "symbol": "Command_p_syn",
+          "linked_value": 12280,
+          "target_value": 14278
+        },
+        {
+          "offset": 14,
+          "symbol": "Command_d_syn",
+          "linked_value": 12304,
+          "target_value": 14302
+        },
+        {
+          "offset": 19,
+          "symbol": "Command_c_syn",
+          "linked_value": 12341,
+          "target_value": 14339
+        },
+        {
+          "offset": 24,
+          "symbol": "Command_k_syn",
+          "linked_value": 12379,
+          "target_value": 14377
+        },
+        {
+          "offset": 29,
+          "symbol": "Command_y_syn",
+          "linked_value": 12391,
+          "target_value": 14389
+        },
+        {
+          "offset": 34,
+          "symbol": "COMMAND_Z_SYN",
+          "linked_value": 12403,
+          "target_value": 14401
+        },
+        {
+          "offset": 39,
+          "symbol": "Command_e_syn",
+          "linked_value": 12316,
+          "target_value": 14314
+        },
+        {
+          "offset": 44,
+          "symbol": "Command_m_syn",
+          "linked_value": 12353,
+          "target_value": 14351
+        },
+        {
+          "offset": 52,
+          "symbol": "PermCom",
+          "linked_value": 901,
+          "target_value": 1048
+        },
+        {
+          "offset": 59,
+          "symbol": "PermCom",
+          "linked_value": 901,
+          "target_value": 1048
+        },
+        {
+          "offset": 63,
+          "symbol": "OldTerm",
+          "linked_value": 803,
+          "target_value": 933
+        },
+        {
+          "offset": 65,
+          "symbol": "LodCom_Trap",
+          "linked_value": 390,
+          "target_value": 417
+        },
+        {
+          "offset": 69,
+          "symbol": "OldTerm",
+          "linked_value": 805,
+          "target_value": 935
+        },
+        {
+          "offset": 73,
+          "symbol": "PrdAttm",
+          "linked_value": 12113,
+          "target_value": 14111
+        },
+        {
+          "offset": 80,
+          "symbol": "PrdAttm",
+          "linked_value": 12113,
+          "target_value": 14111
+        },
+        {
+          "offset": 84,
+          "symbol": "Parse_command_line",
+          "linked_value": 65279,
+          "target_value": 65279
+        },
+        {
+          "offset": 88,
+          "symbol": "SemiPermCom",
+          "linked_value": 902,
+          "target_value": 1049
+        },
+        {
+          "offset": 95,
+          "symbol": "PermCom",
+          "linked_value": 901,
+          "target_value": 1048
+        },
+        {
+          "offset": 100,
+          "symbol": "YSwitchFlags",
+          "linked_value": 1747,
+          "target_value": 1895
+        },
+        {
+          "offset": 105,
+          "symbol": "FirstCom",
+          "linked_value": 14093,
+          "target_value": 17352
+        },
+        {
+          "offset": 112,
+          "symbol": "SemiPermCom",
+          "linked_value": 902,
+          "target_value": 1049
+        },
+        {
+          "offset": 117,
+          "symbol": "SingleCom",
+          "linked_value": 903,
+          "target_value": 1050
+        },
+        {
+          "offset": 121,
+          "symbol": "SingleCom",
+          "linked_value": 905,
+          "target_value": 1052
+        },
+        {
+          "offset": 125,
+          "symbol": "PrdAttm",
+          "linked_value": 12113,
+          "target_value": 14111
+        },
+        {
+          "offset": 129,
+          "symbol": "ApplyInitialBufferSizes",
+          "linked_value": 428,
+          "target_value": 432
+        },
+        {
+          "offset": 132,
+          "symbol": "Eswitch",
+          "linked_value": 12216,
+          "target_value": 14214
+        },
+        {
+          "offset": 135,
+          "symbol": "CheckSizeSwitch",
+          "linked_value": 1834,
+          "target_value": 3178
+        },
+        {
+          "offset": 148,
+          "symbol": "EnvSiz",
+          "linked_value": 1711,
+          "target_value": 1859
+        },
+        {
+          "offset": 151,
+          "symbol": "Parse_command_line",
+          "linked_value": 65212,
+          "target_value": 65212
+        },
+        {
+          "offset": 155,
+          "symbol": "Ext_msg",
+          "linked_value": 12215,
+          "target_value": 14213
+        },
+        {
+          "offset": 164,
+          "symbol": "parse_line_error",
+          "linked_value": 65235,
+          "target_value": 65235
+        },
+        {
+          "offset": 168,
+          "symbol": "Ext_msg",
+          "linked_value": 12215,
+          "target_value": 14213
+        },
+        {
+          "offset": 172,
+          "symbol": "Parse_command_line",
+          "linked_value": 65191,
+          "target_value": 65191
+        },
+        {
+          "offset": 175,
+          "symbol": "COMMAND_L_SYN",
+          "linked_value": 12415,
+          "target_value": 14413
+        },
+        {
+          "offset": 180,
+          "symbol": "COMMAND_U_SYN",
+          "linked_value": 12454,
+          "target_value": 14452
+        },
+        {
+          "offset": 187,
+          "symbol": "Lswitch",
+          "linked_value": 12218,
+          "target_value": 14216
+        },
+        {
+          "offset": 190,
+          "symbol": "CheckSizeSwitch",
+          "linked_value": 1779,
+          "target_value": 3123
+        },
+        {
+          "offset": 196,
+          "symbol": "RequestedCmdSize",
+          "linked_value": 12210,
+          "target_value": 14208
+        },
+        {
+          "offset": 199,
+          "symbol": "Parse_command_line",
+          "linked_value": 65164,
+          "target_value": 65164
+        },
+        {
+          "offset": 202,
+          "symbol": "Uswitch",
+          "linked_value": 12219,
+          "target_value": 14217
+        },
+        {
+          "offset": 205,
+          "symbol": "CheckSizeSwitch",
+          "linked_value": 1764,
+          "target_value": 3108
+        },
+        {
+          "offset": 211,
+          "symbol": "RequestedInputSize",
+          "linked_value": 12212,
+          "target_value": 14210
+        },
+        {
+          "offset": 214,
+          "symbol": "Parse_command_line",
+          "linked_value": 65149,
+          "target_value": 65149
+        },
+        {
+          "offset": 217,
+          "symbol": "ApplyInitialBufferSizes",
+          "linked_value": 340,
+          "target_value": 344
+        },
+        {
+          "offset": 221,
+          "symbol": "LoadLow",
+          "linked_value": 12220,
+          "target_value": 14218
+        },
+        {
+          "offset": 228,
+          "symbol": "LoadLow",
+          "linked_value": 12220,
+          "target_value": 14218
+        },
+        {
+          "offset": 232,
+          "symbol": "Parse_command_line",
+          "linked_value": 65131,
+          "target_value": 65131
+        },
+        {
+          "offset": 236,
+          "symbol": "YSwitchFlags",
+          "linked_value": 1748,
+          "target_value": 1896
+        },
+        {
+          "offset": 243,
+          "symbol": "YSwitchFlags",
+          "linked_value": 1748,
+          "target_value": 1896
+        },
+        {
+          "offset": 247,
+          "symbol": "Parse_command_line",
+          "linked_value": 65116,
+          "target_value": 65116
+        },
+        {
+          "offset": 250,
+          "symbol": "COMMAND_LOW_SYN",
+          "linked_value": 12440,
+          "target_value": 14438
+        },
+        {
+          "offset": 255,
+          "symbol": "COMMAND_T_SYN",
+          "linked_value": 12479,
+          "target_value": 14477
+        }
+      ],
+      "source_sha256": "c6da1393087cc7fe4ee680214d6bad15695cb5a8ef2dbe46a59130292f64658c",
+      "final_file_byte_identity_certified": false
+    },
+    {
+      "name": "ConsumeSingleCommand",
+      "source": "cmd/command/tcode.asm",
+      "symbol": "ConsumeSingleCommand",
+      "range": [
+        34919,
+        34939
+      ],
+      "linked_image_range": [
+        14769,
+        14789
+      ],
+      "linked_artifact": "command.exe load image",
+      "proof": "instructions_and_actual_linked_operands",
+      "verifier": "verify_command_endinit.verify_single_command",
+      "operands": [
+        {
+          "offset": 4,
+          "symbol": "SEMIPERMCOM",
+          "linked_value": 902,
+          "target_value": 1049
+        },
+        {
+          "offset": 8,
+          "symbol": "SEMIPERMCOM",
+          "linked_value": 902,
+          "target_value": 1049
+        },
+        {
+          "offset": 18,
+          "symbol": "SINGLECOM",
+          "linked_value": 903,
+          "target_value": 1050
+        }
+      ],
+      "source_sha256": "5457fa3347c389107ee454b4a38379f2706bafb85587408f976c1b22118eb097",
+      "final_file_byte_identity_certified": false
+    },
+    {
+      "name": "InitCommandBuffers",
+      "source": "cmd/command/tcode.asm",
+      "symbol": "InitCommandBuffers",
+      "range": [
+        35343,
+        35398
+      ],
+      "linked_image_range": [
+        15216,
+        15271
+      ],
+      "linked_artifact": "command.exe load image",
+      "proof": "instructions_and_actual_linked_operands",
+      "verifier": "verify_command_endinit.verify_single_command",
+      "operands": [
+        {
+          "offset": 3,
+          "symbol": "RESSEG",
+          "linked_value": 41992,
+          "target_value": 53306
+        },
+        {
+          "offset": 6,
+          "symbol": "TranSpaceEnd",
+          "linked_value": 45737,
+          "target_value": 58790
+        },
+        {
+          "offset": 10,
+          "symbol": "CmdBufSize",
+          "linked_value": 1751,
+          "target_value": 1900
+        },
+        {
+          "offset": 13,
+          "symbol": "CmdBufSize",
+          "linked_value": 1751,
+          "target_value": 1900
+        },
+        {
+          "offset": 17,
+          "symbol": "CmdBufferLength",
+          "linked_value": 42010,
+          "target_value": 53328
+        },
+        {
+          "offset": 20,
+          "symbol": "InputBufSize",
+          "linked_value": 1753,
+          "target_value": 1902
+        },
+        {
+          "offset": 24,
+          "symbol": "InputBufferLength",
+          "linked_value": 42012,
+          "target_value": 53330
+        },
+        {
+          "offset": 28,
+          "symbol": "InputBufferLength",
+          "linked_value": 42012,
+          "target_value": 53330
+        },
+        {
+          "offset": 40,
+          "symbol": "CmdBufSize",
+          "linked_value": 1751,
+          "target_value": 1900
+        },
+        {
+          "offset": 51,
+          "symbol": "ComBufPtr",
+          "linked_value": 42014,
+          "target_value": 56198
+        }
+      ],
+      "source_sha256": "5457fa3347c389107ee454b4a38379f2706bafb85587408f976c1b22118eb097",
+      "final_file_byte_identity_certified": false
+    },
+    {
+      "name": "InitializeCommandBuffers",
+      "source": "cmd/command/tcode.asm",
+      "symbol": "InitializeCommandBuffers",
+      "range": [
+        34410,
+        34425
+      ],
+      "linked_image_range": [
+        14434,
+        14449
+      ],
+      "linked_artifact": "command.exe load image",
+      "proof": "instructions_and_actual_linked_operands",
+      "verifier": "verify_command_endinit.verify_single_command",
+      "operands": [
+        {
+          "offset": 1,
+          "symbol": "InitCommandBuffers",
+          "linked_value": 779,
+          "target_value": 930
+        }
+      ],
+      "source_sha256": "5457fa3347c389107ee454b4a38379f2706bafb85587408f976c1b22118eb097",
+      "final_file_byte_identity_certified": false
+    },
+    {
+      "name": "CopyTransientCommand",
+      "source": "cmd/command/tcode.asm",
+      "symbol": "CopyTransientCommand",
+      "range": [
+        34945,
+        34971
+      ],
+      "linked_image_range": [
+        14795,
+        14821
+      ],
+      "linked_artifact": "command.exe load image",
+      "proof": "instructions_and_actual_linked_operands",
+      "verifier": "verify_command_endinit.verify_single_command",
+      "operands": [
+        {
+          "offset": 3,
+          "symbol": "ComBufPtr",
+          "linked_value": 42014,
+          "target_value": 56198
+        },
+        {
+          "offset": 20,
+          "symbol": "ComBufPtr",
+          "linked_value": 42014,
+          "target_value": 56198
+        }
+      ],
+      "source_sha256": "5457fa3347c389107ee454b4a38379f2706bafb85587408f976c1b22118eb097",
+      "final_file_byte_identity_certified": false
+    },
+    {
+      "name": "ReadInteractiveCommand",
+      "source": "cmd/command/tcode.asm",
+      "symbol": "ReadInteractiveCommand",
+      "range": [
+        34987,
+        35008
+      ],
+      "linked_image_range": [
+        14837,
+        14858
+      ],
+      "linked_artifact": "command.exe load image",
+      "proof": "instructions_and_actual_linked_operands",
+      "verifier": "verify_command_endinit.verify_single_command",
+      "operands": [
+        {
+          "offset": 1,
+          "symbol": "TranSpaceEnd",
+          "linked_value": 45737,
+          "target_value": 58790
+        },
+        {
+          "offset": 5,
+          "symbol": "CmdBufferLength",
+          "linked_value": 42010,
+          "target_value": 53328
+        }
+      ],
+      "source_sha256": "5457fa3347c389107ee454b4a38379f2706bafb85587408f976c1b22118eb097",
+      "final_file_byte_identity_certified": false
+    },
+    {
+      "name": "CheckInteractiveCommand",
+      "source": "cmd/command/tcode.asm",
+      "symbol": "CheckInteractiveCommand",
+      "range": [
+        35008,
+        35019
+      ],
+      "linked_image_range": [
+        14858,
+        14869
+      ],
+      "linked_artifact": "command.exe load image",
+      "proof": "instructions_and_actual_linked_operands",
+      "verifier": "verify_command_endinit.verify_single_command",
+      "operands": [
+        {
+          "offset": 1,
+          "symbol": "QueryCommandState",
+          "linked_value": 587,
+          "target_value": 787
+        },
+        {
+          "offset": 6,
+          "symbol": "EXITJ",
+          "linked_value": 347,
+          "target_value": 324
+        },
+        {
+          "offset": 9,
+          "symbol": "ClearCommandState",
+          "linked_value": 571,
+          "target_value": 771
+        }
+      ],
+      "source_sha256": "5457fa3347c389107ee454b4a38379f2706bafb85587408f976c1b22118eb097",
+      "final_file_byte_identity_certified": false
+    },
+    {
+      "name": "CopyInputBuffer",
+      "source": "cmd/command/tcode.asm",
+      "symbol": "CopyInputBuffer",
+      "range": [
+        35019,
+        35038
+      ],
+      "linked_image_range": [
+        14869,
+        14888
+      ],
+      "linked_artifact": "command.exe load image",
+      "proof": "instructions_and_actual_linked_operands",
+      "verifier": "verify_command_endinit.verify_single_command",
+      "operands": [
+        {
+          "offset": 8,
+          "symbol": "ComBufPtr",
+          "linked_value": 42014,
+          "target_value": 56198
+        }
+      ],
+      "source_sha256": "5457fa3347c389107ee454b4a38379f2706bafb85587408f976c1b22118eb097",
+      "final_file_byte_identity_certified": false
+    },
+    {
+      "name": "NotifyCommandState",
+      "source": "cmd/command/tcode.asm",
+      "symbol": "NotifyCommandState",
+      "range": [
+        35780,
+        35804
+      ],
+      "linked_image_range": [
+        15430,
+        15454
+      ],
+      "linked_artifact": "command.exe load image",
+      "proof": "instructions_and_actual_linked_operands",
+      "verifier": "verify_command_endinit.verify_single_command",
+      "operands": [
+        {
+          "offset": 14,
+          "symbol": "NotifyCommandState",
+          "linked_value": 65520,
+          "target_value": 65520
+        }
+      ],
+      "source_sha256": "5457fa3347c389107ee454b4a38379f2706bafb85587408f976c1b22118eb097",
+      "final_file_byte_identity_certified": false
+    },
+    {
+      "name": "ReadCommandLength",
+      "source": "cmd/command/tcode.asm",
+      "symbol": "ReadCommandLength",
+      "range": [
+        35109,
+        35116
+      ],
+      "linked_image_range": [
+        14910,
+        14917
+      ],
+      "linked_artifact": "command.exe load image",
+      "proof": "instructions_and_actual_linked_operands",
+      "verifier": "verify_command_endinit.verify_single_command",
+      "operands": [
+        {
+          "offset": 2,
+          "symbol": "ComBufPtr",
+          "linked_value": 42014,
+          "target_value": 56198
+        }
+      ],
+      "source_sha256": "5457fa3347c389107ee454b4a38379f2706bafb85587408f976c1b22118eb097",
+      "final_file_byte_identity_certified": false
+    },
+    {
+      "name": "Move_res_code",
+      "source": "cmd/command/init.asm",
+      "symbol": "Move_res_code",
+      "range": [
+        28316,
+        28537
+      ],
+      "linked_image_range": [
+        9270,
+        9491
+      ],
+      "linked_artifact": "command.exe load image",
+      "proof": "instructions_and_actual_linked_operands",
+      "verifier": "verify_command_resident_code.verify",
+      "operands": [
+        {
+          "offset": 8,
+          "symbol": "ResidentCodeOffset",
+          "linked_value": 14096,
+          "target_value": 17355
+        },
+        {
+          "offset": 10,
+          "symbol": "StartCode",
+          "linked_value": 4448,
+          "target_value": 5712
+        },
+        {
+          "offset": 23,
+          "symbol": "load_low",
+          "linked_value": 150,
+          "target_value": 150
+        },
+        {
+          "offset": 26,
+          "symbol": "EndCode",
+          "linked_value": 2215,
+          "target_value": 2883
+        },
+        {
+          "offset": 30,
+          "symbol": "YSwitchFlags",
+          "linked_value": 1747,
+          "target_value": 1895
+        },
+        {
+          "offset": 37,
+          "symbol": "StartCode",
+          "linked_value": 4448,
+          "target_value": 5712
+        },
+        {
+          "offset": 58,
+          "symbol": "ResidentChecksum",
+          "linked_value": 4452,
+          "target_value": 5716
+        },
+        {
+          "offset": 70,
+          "symbol": "StartCode",
+          "linked_value": 4448,
+          "target_value": 5712
+        },
+        {
+          "offset": 109,
+          "symbol": "ResidentChecksum",
+          "linked_value": 4452,
+          "target_value": 5716
+        },
+        {
+          "offset": 124,
+          "symbol": "ComInHMA",
+          "linked_value": 316,
+          "target_value": 343
+        },
+        {
+          "offset": 142,
+          "symbol": "ComInHMA",
+          "linked_value": 316,
+          "target_value": 343
+        },
+        {
+          "offset": 149,
+          "symbol": "ComInHMA",
+          "linked_value": 316,
+          "target_value": 343
+        },
+        {
+          "offset": 153,
+          "symbol": "GetResidentDataSize",
+          "linked_value": 85,
+          "target_value": 1200
+        },
+        {
+          "offset": 156,
+          "symbol": "EndCode",
+          "linked_value": 2215,
+          "target_value": 2883
+        },
+        {
+          "offset": 173,
+          "symbol": "ResSize",
+          "linked_value": 1765,
+          "target_value": 1916
+        },
+        {
+          "offset": 179,
+          "symbol": "ResMsgEnd",
+          "linked_value": 1763,
+          "target_value": 1914
+        },
+        {
+          "offset": 182,
+          "symbol": "ExtMsgEnd",
+          "linked_value": 4444,
+          "target_value": 5711
+        },
+        {
+          "offset": 199,
+          "symbol": "StartCode",
+          "linked_value": 4448,
+          "target_value": 5712
+        },
+        {
+          "offset": 202,
+          "symbol": "EndCode",
+          "linked_value": 2215,
+          "target_value": 2883
+        },
+        {
+          "offset": 211,
+          "symbol": "ResidentCodeOffset",
+          "linked_value": 14096,
+          "target_value": 17355
+        },
+        {
+          "offset": 216,
+          "symbol": "Patch_stub",
+          "linked_value": 915,
+          "target_value": 496
+        }
+      ],
+      "source_sha256": "c6da1393087cc7fe4ee680214d6bad15695cb5a8ef2dbe46a59130292f64658c",
+      "final_file_byte_identity_certified": false
+    },
+    {
+      "name": "GetResidentDataSize",
+      "source": "cmd/command/init.asm",
+      "symbol": "GetResidentDataSize",
+      "range": [
+        29671,
+        29689
+      ],
+      "linked_image_range": [
+        9510,
+        9528
+      ],
+      "linked_artifact": "command.exe load image",
+      "proof": "instructions_and_actual_linked_operands",
+      "verifier": "verify_command_resident_code.verify",
+      "operands": [
+        {
+          "offset": 3,
+          "symbol": "ResMsgEnd",
+          "linked_value": 1763,
+          "target_value": 1914
+        },
+        {
+          "offset": 7,
+          "symbol": "ExtMsgEnd",
+          "linked_value": 4444,
+          "target_value": 5711
+        }
+      ],
+      "source_sha256": "c6da1393087cc7fe4ee680214d6bad15695cb5a8ef2dbe46a59130292f64658c",
+      "final_file_byte_identity_certified": false
+    },
+    {
+      "name": "Setup_res_end",
+      "source": "cmd/command/init.asm",
+      "symbol": "Setup_res_end",
+      "range": [
+        28261,
+        28316
+      ],
+      "linked_image_range": [
+        9215,
+        9270
+      ],
+      "linked_artifact": "command.exe load image",
+      "proof": "instructions_and_actual_linked_operands",
+      "verifier": "verify_command_resident_code.verify",
+      "operands": [
+        {
+          "offset": 6,
+          "symbol": "GetResidentDataSize",
+          "linked_value": 287,
+          "target_value": 1402
+        },
+        {
+          "offset": 12,
+          "symbol": "FirstCom",
+          "linked_value": 14093,
+          "target_value": 17352
+        },
+        {
+          "offset": 34,
+          "symbol": "EndCode",
+          "linked_value": 2215,
+          "target_value": 2883
+        },
+        {
+          "offset": 51,
+          "symbol": "ResSize",
+          "linked_value": 1765,
+          "target_value": 1916
+        }
+      ],
+      "source_sha256": "c6da1393087cc7fe4ee680214d6bad15695cb5a8ef2dbe46a59130292f64658c",
+      "final_file_byte_identity_certified": false
+    },
+    {
+      "name": "Initialization messages",
+      "range": [
+        12976,
+        14496
+      ],
+      "proof": "raw_byte_exact_resource"
+    },
+    {
+      "name": "Resident messages",
+      "range": [
+        14496,
+        16720
+      ],
+      "proof": "raw_byte_exact_resource"
+    }
+  ],
+  "registered_instruction_bytes": 2266,
+  "code_block_progress": {
+    "method": "evidence_mapped_target_code_union_v1",
+    "A_verified_target_code_bytes": 2266,
+    "C_total_target_code_bytes": null,
+    "B_unverified_target_code_bytes": null,
+    "percent": null,
+    "denominator_status": "Target code/data/overlay classification not yet complete.",
+    "registry_complete": false,
+    "interpretation": "Verified instruction blocks with checked linked operands; not final file identity or integrated functionality.",
+    "counting_rule": "Union of verified target intervals; no duplicate credit for overlapping blocks.",
+    "percentage_rule": "100*A/C only after the full target code universe is established; unmapped code stays in C."
+  },
+  "registered_exact_resource_bytes": 3744,
+  "verified_unique_target_bytes": 6010,
+  "unregistered_target_bytes": 86860,
+  "diagnostics": {
+    "same_offset_comparison": {
+      "method": "same_file_offset_raw_bytes_v1",
+      "A_matching_target_bytes": 1141,
+      "C_target_bytes": 92870,
+      "B_nonmatching_target_bytes": 91729,
+      "overlapping_mismatches": 58450,
+      "missing_target_bytes": 33279,
+      "extra_output_bytes": 0,
+      "matching_percent": 1.228599117045332,
+      "identity_requires_no_extra_output": true,
+      "interpretation": "Raw byte agreement, not semantic or source-authenticity completion; no alignment or relocation normalization."
+    },
+    "same_offset_delta_from_previous": {
+      "A_matching_target_bytes": -26,
+      "percentage_points": -0.027996123613653667
+    }
+  },
+  "verifier_hashes": {
+    "report_command_progress.py": "c7687b9ab340481f9cdba2213300d3ad4738697601e515cdc99d36f13884b647",
+    "verify_command_endinit.py": "c42ef10d08db47d78d6d9e5dcb12777ea31feece1fe9c9fd873c06cdd240b59e",
+    "verify_command_resident_code.py": "f5d7697634d5d167f95fc43b46da887afae4d5f210ee2c50fc0636300804da99"
+  },
+  "open_gates": [
+    {
+      "id": "startup",
+      "state": "partial",
+      "remaining": "Wire post-move startup and relocated vectors; Move_res_data remains uncalled."
+    },
+    {
+      "id": "command_buffers",
+      "state": "partial",
+      "remaining": "Restore dynamic transient producers/consumers and call CopySingleCommand."
+    },
+    {
+      "id": "environment",
+      "state": "partial",
+      "remaining": "Reconcile environment extent, capacity and initialization lifecycle."
+    },
+    {
+      "id": "transient_commands",
+      "state": "unclosed",
+      "remaining": "Complete target mapping and restoration of transient command handlers."
+    },
+    {
+      "id": "transient_resources",
+      "state": "unclosed",
+      "remaining": "Restore target group-0 transient message resource."
+    },
+    {
+      "id": "final_layout",
+      "state": "unclosed",
+      "remaining": "Produce the full target layout and direct 92870-byte identity."
+    }
+  ],
+  "delta_from_previous": {
+    "registered_instruction_bytes": 7,
+    "exact_resource_bytes": 0,
+    "modified_modules": 0,
+    "previous_generated_utc": "2026-11-11T21:31:49.182754+00:00"
+  }
+}

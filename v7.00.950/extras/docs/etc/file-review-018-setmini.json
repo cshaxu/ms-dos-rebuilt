@@ -1,0 +1,25 @@
+{
+  "source_sha256": "9cb1fd2b32b7bdd03734cd1701489052127f6f65066def5d29c54b08abdd3c50",
+  "listing_sha256": "d6220112253c373ef875eec922b9e3be48871c13057d66bedc3fa586d26ae27a",
+  "routines": [
+    {
+      "name": "setmini",
+      "target_offset": "0x1bcc",
+      "length": 37,
+      "masked_relocation_bytes": 2,
+      "matched_nonrelocated_bytes": 35,
+      "differences": []
+    },
+    {
+      "name": "find_mini_partition",
+      "target_offset": "0x1a80",
+      "length": 276,
+      "masked_relocation_bytes": 48,
+      "matched_nonrelocated_bytes": 227,
+      "differences": [
+        270
+      ]
+    }
+  ],
+  "limitations": "Calls to later routines, local jump relocations, external addresses and full link remain unverified."
+}

@@ -1,0 +1,15 @@
+{
+  "file": "bios/sysinit1.asm",
+  "source_sha256": "f04e3f5ae30227596e2aca404428979655752a8c023c0c479cd7c2b424f087d8",
+  "target_range": "IO.SYS 0x8546..0x85b1",
+  "bytes": 107,
+  "different_bytes": 0,
+  "probe": "extras/research/buffer-policy-linked.asm",
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "Fixed-offset probe stubs error display; execution and full image layout are unverified.",
+    "Earlier device and country-table allocations and full initialization order remain incomplete."
+  ]
+}

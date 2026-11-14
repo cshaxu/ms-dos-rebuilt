@@ -1,0 +1,22 @@
+{
+  "file": "bios/sysconf.asm",
+  "file_index": 30,
+  "source_sha256": "09cba5b8a4cb6ccf114c5b324ec7ea4f2d1b8b3ecfc4dcbd6e84849341f4662f",
+  "range": "0x30..0x400, tag 2",
+  "default_if_omitted": "0xffff",
+  "rounding": "(value + 15) with low four bits cleared",
+  "target_handler_range": "IO.SYS 0xb991..0xb9b0",
+  "handler_bytes": 31,
+  "different_bytes": 3,
+  "difference": "ADD AX,0Fh uses a three-byte equivalent encoding rather than the target sign-extended immediate encoding.",
+  "target_range_data": "IO.SYS 0xb1ed..0xb1f8, 11 bytes identical",
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "The first-pass routing and the complete SWITCHES handler are not byte-verified; some legacy semantic processing remains.",
+    "/C and /D are recognized in the table but their DOS7 effects are not reconstructed here.",
+    "The isolated handler probe uses target ORG addresses; final layout is unverified.",
+    "The diagnostic link contains older objects and stubs."
+  ]
+}

@@ -1,0 +1,152 @@
+{
+  "IO.SYS": {
+    "method": "Unique 32-byte matches in target, sampled every 16 bytes in 6.22; excludes low-diversity windows; target bucket size 8192. Locations are leads only.",
+    "target_bucket_matches": {
+      "0": 45,
+      "1": 17,
+      "2": 13,
+      "3": 25,
+      "4": 30,
+      "5": 21,
+      "6": 77
+    },
+    "examples": [
+      {
+        "baseline_offset": 496,
+        "target_offset": 560,
+        "hex": "db8edb8b1ebc008e1ebe00817f035250750f807f054c75098bd0b8064acd2f8b"
+      },
+      {
+        "baseline_offset": 2784,
+        "target_offset": 1917,
+        "hex": "0000000102000002020000030200000402000005020000060200000702000008"
+      },
+      {
+        "baseline_offset": 2800,
+        "target_offset": 1933,
+        "hex": "02000005020000060200000702000008020000090200000a0200000b0200000c"
+      },
+      {
+        "baseline_offset": 2816,
+        "target_offset": 1949,
+        "hex": "020000090200000a0200000b0200000c0200000d0200000e0200000f02000010"
+      },
+      {
+        "baseline_offset": 2832,
+        "target_offset": 1965,
+        "hex": "0200000d0200000e0200000f0200001002000011020000120200001302000014"
+      },
+      {
+        "baseline_offset": 2848,
+        "target_offset": 1981,
+        "hex": "0200001102000012020000130200001402000015020000160200001702000018"
+      },
+      {
+        "baseline_offset": 2864,
+        "target_offset": 1997,
+        "hex": "02000015020000160200001702000018020000190200001a0200001b0200001c"
+      },
+      {
+        "baseline_offset": 2880,
+        "target_offset": 2013,
+        "hex": "020000190200001a0200001b0200001c0200001d0200001e0200001f02000020"
+      },
+      {
+        "baseline_offset": 2896,
+        "target_offset": 2029,
+        "hex": "0200001d0200001e0200001f0200002002000021020000220200002302000024"
+      },
+      {
+        "baseline_offset": 3056,
+        "target_offset": 7477,
+        "hex": "ff09ffffffff0affffffff0bffffffff0cffffffff0dffffffff0effffffff70"
+      },
+      {
+        "baseline_offset": 3072,
+        "target_offset": 7493,
+        "hex": "0cffffffff0dffffffff0effffffff70ffffffff72ffffffff73ffffffff74ff"
+      },
+      {
+        "baseline_offset": 6288,
+        "target_offset": 2892,
+        "hex": "0a74052eff2e0601535152571e0650b840008ed8c60674000080e27f3a167500"
+      }
+    ]
+  },
+  "COMMAND.COM": {
+    "method": "Unique 32-byte matches in target, sampled every 16 bytes in 6.22; excludes low-diversity windows; target bucket size 8192. Locations are leads only.",
+    "target_bucket_matches": {
+      "0": 250,
+      "1": 320,
+      "2": 24,
+      "3": 12,
+      "4": 5,
+      "5": 12,
+      "7": 88,
+      "8": 9,
+      "10": 2
+    },
+    "examples": [
+      {
+        "baseline_offset": 272,
+        "target_offset": 17329,
+        "hex": "0158cd21c35006e86b00721e8ec0e81c007503e8440026a000003c5a740c8cc0"
+      },
+      {
+        "baseline_offset": 288,
+        "target_offset": 17345,
+        "hex": "007503e8440026a000003c5a740c8cc02603060300408ec0ebe40758c3502683"
+      },
+      {
+        "baseline_offset": 304,
+        "target_offset": 17361,
+        "hex": "2603060300408ec0ebe40758c35026833e010008752226a108003d4849751926"
+      },
+      {
+        "baseline_offset": 320,
+        "target_offset": 17377,
+        "hex": "3e010008752226a108003d4849751926a10a003d4444751026a10c003d454e75"
+      },
+      {
+        "baseline_offset": 336,
+        "target_offset": 17393,
+        "hex": "a10a003d4444751026a10c003d454e750726a10e003d202058c326c706010000"
+      },
+      {
+        "baseline_offset": 352,
+        "target_offset": 17409,
+        "hex": "0726a10e003d202058c326c70601000000b8202026a3080026a30a0026a30c00"
+      },
+      {
+        "baseline_offset": 368,
+        "target_offset": 17425,
+        "hex": "00b8202026a3080026a30a0026a30c0026a30e00c3561e06b452cd2126a18c00"
+      },
+      {
+        "baseline_offset": 384,
+        "target_offset": 17441,
+        "hex": "26a30e00c3561e06b452cd2126a18c003dffff7403f8eb01f9071f5ec3b80258"
+      },
+      {
+        "baseline_offset": 1360,
+        "target_offset": 14907,
+        "hex": "072c205265747279082c2049676e6f7265062c204661696c013f087265616469"
+      },
+      {
+        "baseline_offset": 1376,
+        "target_offset": 14923,
+        "hex": "65062c204661696c013f0872656164696e67000877726974696e67000e202531"
+      },
+      {
+        "baseline_offset": 1392,
+        "target_offset": 14939,
+        "hex": "6e67000877726974696e67000e2025312064726976652025320d0a0f20253120"
+      },
+      {
+        "baseline_offset": 1408,
+        "target_offset": 14955,
+        "hex": "2064726976652025320d0a0f202531206465766963652025320d0a26506c6561"
+      }
+    ]
+  }
+}

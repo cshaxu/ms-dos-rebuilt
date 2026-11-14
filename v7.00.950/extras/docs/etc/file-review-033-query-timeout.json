@@ -1,0 +1,16 @@
+{
+  "file": "bios/sysinit2.asm",
+  "file_index": 33,
+  "source_sha256": "99991afe580d53590dd2c6ce0a1f1d3a0692effdcfb0e457e32f6449fd1b764d",
+  "target_range": "IO.SYS 0x7821..0x7837",
+  "bytes": 22,
+  "different_bytes": 0,
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "The isolated link fixes target offsets and stubs surrounding menu paths.",
+    "Other menu keys and initialization of query mode are not fully reconstructed.",
+    "The mixed link includes older objects and stubs and does not establish full image equality."
+  ]
+}

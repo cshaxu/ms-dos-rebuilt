@@ -1,0 +1,23 @@
+{
+  "files": {
+    "bios/syspre.asm": "28b9997683157a539d0e13e697987ef759b64ea3618be1fb3f72ff61484740e2",
+    "bios/sysinit2.asm": "7b3c268d6755bdbd29342c0662d374a200786a8cc1087fce29e1313d78440857",
+    "bios/sysconf.asm": "5794b5bde9b8863daf07e1dcc567c56409746b4db1679f25e3652484e5bab9b7",
+    "inc/ds_vers.inc": "2ff90d605f11ff956bfc05136576978b1a912fc022bc4529af138cc92022a0f1"
+  },
+  "verification": "extras/tools/verify_menu_check_full.py",
+  "preload_prefix": {
+    "sysinit_start": "0x8aaf",
+    "bytes": 614
+  },
+  "driver_move_data": {
+    "sysinit_start": "0x8aab",
+    "bytes": 4
+  },
+  "scope": "Actual preload prefix through movement, device header loading, and central error exit; complete SYSPRE source assembles. Data are independently placed at target offset for the diagnostic.",
+  "limitations": [
+    "pre_exit2 at 8d5f and four UMB helper calls remain anchored to target addresses.",
+    "MagicMoveInfo and other data are positioned separately by the diagnostic; actual full object layout remains unverified.",
+    "Block-device processing, MagicPostload, complete SYSINIT link and final binaries remain unverified."
+  ]
+}

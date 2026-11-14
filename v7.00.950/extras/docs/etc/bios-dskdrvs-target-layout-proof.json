@@ -1,0 +1,47 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_sysinit_file_base": "0x4d30",
+  "target_sysinit_segment": "0x4e3",
+  "bds1_offset": "0x358",
+  "fixed_bds_count": 4,
+  "descriptor_size": 100,
+  "fixed_bds_chain": [
+    {
+      "index": 1,
+      "file_offset": "0x5088",
+      "next_offset": "0x3bc",
+      "next_segment": "0x4e3"
+    },
+    {
+      "index": 2,
+      "file_offset": "0x50ec",
+      "next_offset": "0x420",
+      "next_segment": "0x4e3"
+    },
+    {
+      "index": 3,
+      "file_offset": "0x5150",
+      "next_offset": "0x484",
+      "next_segment": "0x4e3"
+    },
+    {
+      "index": 4,
+      "file_offset": "0x51b4",
+      "next_offset": "0xffff",
+      "next_segment": "0xffff"
+    }
+  ],
+  "additional_bds_offset": "0x4e8",
+  "additional_bds_count": 25,
+  "additional_bds_bytes": 2500,
+  "additional_bds_records_identical": true,
+  "bds_count_offset": "0xeac",
+  "dskdrvs_offset": "0xeae",
+  "dskdrvs_words": 26,
+  "dsk_init_operand_file_offset": "0x2abf",
+  "limitations": [
+    "SYSINIT base and segment follow prior target BDS pointer evidence; relocation and initialization sequence are not fully verified.",
+    "Zero-filled entries alone do not establish original initializer syntax or full target SYSINIT layout.",
+    "Source ownership and 856-byte preceding SYSINIT contribution remain unresolved."
+  ]
+}

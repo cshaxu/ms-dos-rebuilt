@@ -1,0 +1,22 @@
+{
+  "file": "bios/sysinit1.asm",
+  "source_sha256": "733e08d60214a005cc958e9e83ac7d3ae0c1bf3b2ac5a97830d0094eafde1ab8",
+  "target_writes": [
+    "IO.SYS 0x1123: RPL memory limit",
+    "IO.SYS 0x112b: model byte",
+    "IO.SYS 0x1132: secondary model byte"
+  ],
+  "linked_symbol_addresses": {
+    "rpl_memory_size": "0466:0248",
+    "sys_model_byte": "0466:026D",
+    "sys_scnd_model_byte": "0466:026E"
+  },
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link_exit_code": 0,
+  "diagnostic_stub": "Three machine field placeholders removed; other placeholders remain.",
+  "limitations": [
+    "Full execution and final linked placement remain unverified.",
+    "Boot input memory size and other diagnostic placeholders still require reconciliation."
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "file": "bios/sysconf.asm",
+  "file_index": 30,
+  "source_sha256": "67d2df80611af6d1f9219be769034641c96429f26c465b7b1198bd7aa45c7688",
+  "target_getchr_range": "0xc31c..0xc33c",
+  "length": 32,
+  "different_bytes_after_manual_fixups": 0,
+  "fixup_words": 4,
+  "target_next_routine": "error_line starts at 0xc33c",
+  "removed_dos7_dependency": "badorder",
+  "validation": [
+    "No project source call to incorrect_order was found.",
+    "DOS7 object contains no BADORDER external name.",
+    "Default configuration object is byte-identical.",
+    "Target image lacks the old incorrect-order text."
+  ],
+  "limitations": [
+    "Four address words were substituted from the target; final link remains unverified.",
+    "Target routine ownership and complete error_line implementation are not yet proven by this comparison."
+  ]
+}

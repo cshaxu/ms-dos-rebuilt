@@ -1,0 +1,3232 @@
+{
+  "source": "O:\\repos.external\\OpenNT\\public\\sdk\\lib16\\llibce.lib",
+  "source_sha256": "6dd7fdf103a71d0cec3433aa3bd7d05b73f90c3e9f24e667c29d5f3c0f9a9389",
+  "output": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\config-crt-compatible-20261111\\crtfix.lib",
+  "output_sha256": "b362c8454f1c2bc9dd46c686b1d86d8b4dfbb51fd337f2d918299e53f366df35",
+  "aliases": {
+    "_malloc": "__fmalloc",
+    "_free": "__ffree",
+    "__msize": "__fmsize",
+    "_realloc": "__frealloc",
+    "__expand": "__fexpand",
+    "__fatexit": "_atexit",
+    "__fonexit": "__onexit",
+    "?exit@@YAXH@Z": "_exit",
+    "?exit@@ZAXH@Z": "_exit",
+    "_VFREE": "__VMFREEHBK",
+    "_VHEAPINIT": "__VMINITIALIZE",
+    "_VHEAPTERM": "__VMTERMINATE",
+    "_VLOAD": "__PVMLOADHBK",
+    "_VLOCK": "__PVMLOCKHBK",
+    "_VLOCKCNT": "__CVMLOCKHBK",
+    "_VMALLOC": "__VMALLOC",
+    "_VREALLOC": "__VREALLOC",
+    "_VUNLOCK": "__VMUNLOCKHBK",
+    "_VMSIZE": "__CBSIZEHBK"
+  },
+  "repacked_payloads_verified": true,
+  "member_count": 741,
+  "changed_members": [
+    {
+      "member": "dos\\stdalloc.asm",
+      "external_renames": [
+        [
+          "_malloc",
+          "__fmalloc"
+        ]
+      ]
+    },
+    {
+      "member": "wild.c",
+      "external_renames": [
+        [
+          "_free",
+          "__ffree"
+        ],
+        [
+          "_malloc",
+          "__fmalloc"
+        ]
+      ]
+    },
+    {
+      "member": "_freebuf.asm",
+      "external_renames": [
+        [
+          "_free",
+          "__ffree"
+        ]
+      ]
+    },
+    {
+      "member": "_getbuf.asm",
+      "external_renames": [
+        [
+          "_malloc",
+          "__fmalloc"
+        ]
+      ]
+    },
+    {
+      "member": "_sftbuf.asm",
+      "external_renames": [
+        [
+          "_malloc",
+          "__fmalloc"
+        ]
+      ]
+    },
+    {
+      "member": "putenv.c",
+      "external_renames": [
+        [
+          "_malloc",
+          "__fmalloc"
+        ],
+        [
+          "_realloc",
+          "__frealloc"
+        ]
+      ]
+    },
+    {
+      "member": "setvbuf.c",
+      "external_renames": [
+        [
+          "_malloc",
+          "__fmalloc"
+        ]
+      ]
+    },
+    {
+      "member": "tempnam.c",
+      "external_renames": [
+        [
+          "_free",
+          "__ffree"
+        ],
+        [
+          "_malloc",
+          "__fmalloc"
+        ]
+      ]
+    },
+    {
+      "member": "calloc.asm",
+      "external_renames": [
+        [
+          "_malloc",
+          "__fmalloc"
+        ]
+      ]
+    },
+    {
+      "member": "strdup.asm",
+      "external_renames": [
+        [
+          "_malloc",
+          "__fmalloc"
+        ]
+      ]
+    },
+    {
+      "member": "dos\\cenvarg.c",
+      "external_renames": [
+        [
+          "_free",
+          "__ffree"
+        ],
+        [
+          "_malloc",
+          "__fmalloc"
+        ]
+      ]
+    },
+    {
+      "member": "dos\\execve.c",
+      "external_renames": [
+        [
+          "_free",
+          "__ffree"
+        ],
+        [
+          "_malloc",
+          "__fmalloc"
+        ]
+      ]
+    },
+    {
+      "member": "execvpe.c",
+      "external_renames": [
+        [
+          "_free",
+          "__ffree"
+        ],
+        [
+          "_malloc",
+          "__fmalloc"
+        ]
+      ]
+    },
+    {
+      "member": "dos\\spawnve.c",
+      "external_renames": [
+        [
+          "_free",
+          "__ffree"
+        ],
+        [
+          "_malloc",
+          "__fmalloc"
+        ]
+      ]
+    },
+    {
+      "member": "spawnvpe.c",
+      "external_renames": [
+        [
+          "_free",
+          "__ffree"
+        ],
+        [
+          "_malloc",
+          "__fmalloc"
+        ]
+      ]
+    },
+    {
+      "member": "dos\\getcwd.c",
+      "external_renames": [
+        [
+          "_malloc",
+          "__fmalloc"
+        ]
+      ]
+    },
+    {
+      "member": "fullpath.c",
+      "external_renames": [
+        [
+          "_free",
+          "__ffree"
+        ],
+        [
+          "_malloc",
+          "__fmalloc"
+        ]
+      ]
+    },
+    {
+      "member": "iostrini.cxx",
+      "external_renames": [
+        [
+          "__fatexit",
+          "_atexit"
+        ]
+      ]
+    },
+    {
+      "member": "cininit.cxx",
+      "external_renames": [
+        [
+          "__fatexit",
+          "_atexit"
+        ]
+      ]
+    },
+    {
+      "member": "cerrinit.cxx",
+      "external_renames": [
+        [
+          "__fatexit",
+          "_atexit"
+        ]
+      ]
+    },
+    {
+      "member": "cloginit.cxx",
+      "external_renames": [
+        [
+          "__fatexit",
+          "_atexit"
+        ]
+      ]
+    },
+    {
+      "member": "\\vm_bld\\src\\dos\\vheap.c",
+      "external_renames": [
+        [
+          "_VLOCKCNT",
+          "__CVMLOCKHBK"
+        ]
+      ]
+    }
+  ],
+  "member_payloads": [
+    {
+      "member": "dos\\crt0.asm",
+      "sha256": "bd6b6d9278cba8b16dd64594d469c186af44ded9e2aa15b5b13d72f23470e0b4"
+    },
+    {
+      "member": "dos\\crt0dat.asm",
+      "sha256": "5b0744d6ae21cea48362d4172dcbc519eaae9d9d5fdb3154f5f939bcf53ca7a4"
+    },
+    {
+      "member": "dos\\crt0msg.asm",
+      "sha256": "a2baf04cfca514e8505d413cf052782db9210e8e5ff68bedca993d94e119de5c"
+    },
+    {
+      "member": "crt0fp.asm",
+      "sha256": "b533dacb2d598385a7c5d1b1feea003129ffefebc3000ec9351c5c6956d66379"
+    },
+    {
+      "member": "chkstk.asm",
+      "sha256": "3af60a9c8515cded0c50cf7f6638820c27a23ae3eb545b9fde49c62b9841e896"
+    },
+    {
+      "member": "chkstk.asm",
+      "sha256": "c0b55acc4e09e0f382dbbd84d5292cf3dd8af6618b891249c7f60fbe63f981ef"
+    },
+    {
+      "member": "chksum.asm",
+      "sha256": "be65ba7d535276ae8b19dcf3e8ab2b2894ffc2c9539ed8ad17627112a90c8ef3"
+    },
+    {
+      "member": "dos\\stdargv.asm",
+      "sha256": "408a36c0134574e3a3673cb5cae90e1cc7f49d41606aa64d3d4901cf9d42c9fa"
+    },
+    {
+      "member": "dos\\stdenvp.asm",
+      "sha256": "2eef76135e2a013bbafb939bee5ab144bdfe4316097bf5f0864a66d1e79efbde"
+    },
+    {
+      "member": "dos\\nmsghdr.asm",
+      "sha256": "941abc8ec7c323c27d68ea22279ee156cf1367e9c977bac12f1a6e1197a9b527"
+    },
+    {
+      "member": "fmsghdr.asm",
+      "sha256": "c0553dfcc52c2ec998dbc94f5dda14d98f20af1c2b39854bc222229de6a088f7"
+    },
+    {
+      "member": "dos\\stdalloc.asm",
+      "sha256": "7b99f02788b34988e2d63af8c5d99384fc92e26af1655e56874fd5f6fca1816b"
+    },
+    {
+      "member": "dos\\dosret.asm",
+      "sha256": "22e8ef05efa99bf0f1f9a1d55719bb48a5415d0d732041203074b4136c93382e"
+    },
+    {
+      "member": "dos\\stdargv.asm",
+      "sha256": "b83cc8bc4a6e4990b95da7b9f20b7f9aa2d1f5688510aaa807a6633b32a0e4b8"
+    },
+    {
+      "member": "wild.c",
+      "sha256": "ef9ea5d227aa0fb6c484f32e6f0b63b3160d576e51ea5ff5f2e7f0a40945538f"
+    },
+    {
+      "member": "dbptrchk.asm",
+      "sha256": "95bb2c9eb3ac0916c50877992d2a9b527362dda8e51224c6c8211adac94d8e35"
+    },
+    {
+      "member": "dos\\dbscrswp.asm",
+      "sha256": "116f4bbe8177ada4c9c1639c101c99cdf3d2fa7b7d9c463c0295de495c856fce"
+    },
+    {
+      "member": "farstub.asm",
+      "sha256": "aba0bb5a6042859076e717a9fae0ed1bcca9b0f59c0ddcae40079d2104ce44e9"
+    },
+    {
+      "member": "nearstub.asm",
+      "sha256": "1e4dc688e8cb76ebe9d36c34fa5154b95f317717522326415891db0f6eb3f643"
+    },
+    {
+      "member": "fclose.c",
+      "sha256": "3deef4853ac2ed54b140032bc1dbc23b5cfc7f38a9b2c8a06edd739cbcc79e2c"
+    },
+    {
+      "member": "fopen.c",
+      "sha256": "7f01c3733deae9c32c7d9c2ea150a047548db89328ecd26d31f59576836a6ff9"
+    },
+    {
+      "member": "fprintf.c",
+      "sha256": "c372e104a0768bc3c8a8d28741627c4428e4e15719bd134b1b92db3d6d1194b8"
+    },
+    {
+      "member": "fread.asm",
+      "sha256": "0ad862bc78d4149302f4079ff465e54f05ea919f2deb9a5d0d58d5162a41869e"
+    },
+    {
+      "member": "fscanf.c",
+      "sha256": "9c713c6ea488d1f3579a4ee91ecd594427d530ff0fde3a2511872dca6c626664"
+    },
+    {
+      "member": "fwrite.asm",
+      "sha256": "603c86526978c71b278392a6ea75700da55357d712c5d84ceb9401de35bb8be1"
+    },
+    {
+      "member": "printf.c",
+      "sha256": "e1eda59b13d837176443b528fd3240e64bfff45bd869ce45f5c3be8c001aa7f2"
+    },
+    {
+      "member": "scanf.c",
+      "sha256": "8cc1e04227f9bd473a4d35318a81aeb95a8dad49a0b02c9d4f9f03e027fcefe9"
+    },
+    {
+      "member": "_cflush.asm",
+      "sha256": "88571fceb6361368c772c5216c427c0949e8397aca3280d98c819ea462a4898c"
+    },
+    {
+      "member": "_file.c",
+      "sha256": "24baa499fd377428ed239a94a9a77b82f1886f5b6e60154838dd556850e81395"
+    },
+    {
+      "member": "_filbuf.asm",
+      "sha256": "fe5099b53a7bb5d82f3eb7579c8c87153649887cfa4caa1db8529360163b0ad2"
+    },
+    {
+      "member": "_flsbuf.asm",
+      "sha256": "2375df547115bad9d094fcf40e50d71c7fe8607e42f27593f42fe6c9984cb19c"
+    },
+    {
+      "member": "_freebuf.asm",
+      "sha256": "5b457fd4689fd49730d07e73d2282f6eaaeb73ffe6f1c39c084571f251fd84b7"
+    },
+    {
+      "member": "_getbuf.asm",
+      "sha256": "933c0794993c8fe66f9847548a72c13d496c26f9b941f29c47525573a2fc676a"
+    },
+    {
+      "member": "_open.c",
+      "sha256": "a25c0011140a9c347e429447d3586e5c645ab96c7ce32427dcad37e9fe6736bc"
+    },
+    {
+      "member": "_sftbuf.asm",
+      "sha256": "0510440133369148b42cf14963eafa6f96637e6a02da47e00ef222c895c1fc4b"
+    },
+    {
+      "member": "fflush.c",
+      "sha256": "83e3498a46b84907d5afe4a331703eab62c33793feafc3dad141d45e7662c8da"
+    },
+    {
+      "member": "input.c",
+      "sha256": "ec8a7eefe207958480b2155ee69a9215775677cedab24cb7deaacb5cbac6ead8"
+    },
+    {
+      "member": "output.asm",
+      "sha256": "36131dabc6ada6bf562c330c10bc935c14b4a505e8d6805882ee6f626bd4ba3a"
+    },
+    {
+      "member": "stream.c",
+      "sha256": "509aa28ed1d03ce7687006b0f147291bee6a35d4ff14ce77e88fb035bcce6fec"
+    },
+    {
+      "member": "putc.asm",
+      "sha256": "74de29cfc4b84103ab14a645344f9d96c0baa1a841dbc5c2b4abd0751025f74e"
+    },
+    {
+      "member": "getc.asm",
+      "sha256": "c843337fcb4b02e6712dddb80781673f3a524794f32fc205aa43980d600754a0"
+    },
+    {
+      "member": "ungetc.c",
+      "sha256": "09599a95a1ab9e94919f067a518493110d76686ad39941de9ac54dde853b1cb4"
+    },
+    {
+      "member": "dos\\close.asm",
+      "sha256": "28df976efe919a3ae69a98c7bdbd25994d05e9f4b29dfd9c1b15159a77410a86"
+    },
+    {
+      "member": "dos\\lseek.asm",
+      "sha256": "bca69f63dfc700c6ef22bc28abc53f2a5904a50c5214969d45b2998eb73637f7"
+    },
+    {
+      "member": "dos\\open.asm",
+      "sha256": "470fcc343efd8126bc6d37e7912c9c0ef629cfe2f9e344ec326383658f289125"
+    },
+    {
+      "member": "dos\\read.asm",
+      "sha256": "bf00f08a84a82e527fcc339f1bbb8d83040413e09d63ea99651cbe9e3d5649e5"
+    },
+    {
+      "member": "write.asm",
+      "sha256": "efc1161005a3f0dc55616f3b42c70af1c88666093616c1c137f82dd4c0d56e62"
+    },
+    {
+      "member": "stackava.asm",
+      "sha256": "59c6cd86d78dad79d80adb7d76e02257ec1477f58e898a164b14096c56f7f2e5"
+    },
+    {
+      "member": "txtmode.asm",
+      "sha256": "2aceaf010f359a35b3a838cd0e5d931b4700ea2bd5b8d532fcbe54a2306fb942"
+    },
+    {
+      "member": "ncommode.asm",
+      "sha256": "b3854be2d77541063515e32686cdb9019a6d8f2084bdf3d70ae2079affd95952"
+    },
+    {
+      "member": "seekfast.asm",
+      "sha256": "2aceaf010f359a35b3a838cd0e5d931b4700ea2bd5b8d532fcbe54a2306fb942"
+    },
+    {
+      "member": "malloc.asm",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "member": "free.asm",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "member": "nmalloc.asm",
+      "sha256": "34ea7f660a99e19bb73427f9e217f1fcf100a71765b778aacc7b5810926e6cef"
+    },
+    {
+      "member": "fmalloc.asm",
+      "sha256": "0746001201aa41a53e7cee6dfe1bd4021e4a41e44ee318888dd6ecce8f711c2b"
+    },
+    {
+      "member": "fdata.asm",
+      "sha256": "f8ba111f3904acd62419ba4c122ff9924c89d16e8378aa0e1ea9b0a0b54a0742"
+    },
+    {
+      "member": "initseg.asm",
+      "sha256": "67ab54c67a040c5d00fc0e30ce42392c4e76fe01e0878dc72120b94bed3cd5ab"
+    },
+    {
+      "member": "linkseg.asm",
+      "sha256": "45bcf98973914cfa2156a307c84259716bff4099643fbd3f048d161a6ed55bba"
+    },
+    {
+      "member": "searchsg.asm",
+      "sha256": "49d840b92b42a84599a7c1cdeee198543b7f9ed0daa81862360610750657713b"
+    },
+    {
+      "member": "growseg.asm",
+      "sha256": "653ee5ed38e285ea8f68127096bf54da333ea7a76805301db83c6a7bf5450350"
+    },
+    {
+      "member": "newseg.asm",
+      "sha256": "3834fb0afd7a8fde9dc98c2f23ccb5cda339dbc70519c336315d7c9c707cdf78"
+    },
+    {
+      "member": "msize.asm",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "member": "nmsize.asm",
+      "sha256": "1e2cae453a048606b13ec4e38e1bee99cd2fb96fa1a03a4bff425e551e1a66f8"
+    },
+    {
+      "member": "fmsize.asm",
+      "sha256": "70566aa050379bfc13ec2b528e30067b87e5fbf29e02000c13108a6419520bf5"
+    },
+    {
+      "member": "delete.cxx",
+      "sha256": "2ba25c3c30d014c08d824cac9b6d459408bac095c60bc656cc3857de77433385"
+    },
+    {
+      "member": "delete.cxx",
+      "sha256": "23faa3334f08db31380bf4d06804e8cf12689b0e29690b31e206845dc11e5f55"
+    },
+    {
+      "member": "delete.cxx",
+      "sha256": "23faa3334f08db31380bf4d06804e8cf12689b0e29690b31e206845dc11e5f55"
+    },
+    {
+      "member": "delete.cxx",
+      "sha256": "23faa3334f08db31380bf4d06804e8cf12689b0e29690b31e206845dc11e5f55"
+    },
+    {
+      "member": "new.cxx",
+      "sha256": "2ba25c3c30d014c08d824cac9b6d459408bac095c60bc656cc3857de77433385"
+    },
+    {
+      "member": "new.cxx",
+      "sha256": "2ba25c3c30d014c08d824cac9b6d459408bac095c60bc656cc3857de77433385"
+    },
+    {
+      "member": "new.cxx",
+      "sha256": "e53e10e7c6d4d30d18fe452844a85b8b1e83b21895af2d4e0d1a2eb7545e9cfb"
+    },
+    {
+      "member": "new.cxx",
+      "sha256": "23faa3334f08db31380bf4d06804e8cf12689b0e29690b31e206845dc11e5f55"
+    },
+    {
+      "member": "handler.cxx",
+      "sha256": "fb7b1108ccbdbd41cb3208bdb427ea94e61854e48f766cfc64a8b18594ef9a49"
+    },
+    {
+      "member": "handler.cxx",
+      "sha256": "4675cf79414e8939cf70466d0241c96735a1ecf00eb48b3de2dcdf627639d84b"
+    },
+    {
+      "member": "handler.cxx",
+      "sha256": "fb7b1108ccbdbd41cb3208bdb427ea94e61854e48f766cfc64a8b18594ef9a49"
+    },
+    {
+      "member": "handler.cxx",
+      "sha256": "fb7b1108ccbdbd41cb3208bdb427ea94e61854e48f766cfc64a8b18594ef9a49"
+    },
+    {
+      "member": "strcat.asm",
+      "sha256": "150acb324a7a16fe359bf026438ed1acab2510e2a2b3761b878e8f8894b41ab5"
+    },
+    {
+      "member": "strcpy.asm",
+      "sha256": "1ccc6812553b45ad5882c0fb6706124124fdbf0285c0c735afc60664331cdf9e"
+    },
+    {
+      "member": "strcmp.asm",
+      "sha256": "e6710719cd58a55c5624ed93851434b51f1e8625fe7cbe9740bdce7911f56c08"
+    },
+    {
+      "member": "strlen.asm",
+      "sha256": "9f1a6828afefb75c7966c5614c744806d113c7827a61372371d7a1cd57fc8683"
+    },
+    {
+      "member": "strncat.asm",
+      "sha256": "f44ed440564dd98cc7628186a3d6387840327a2e9183a5a18f8fab715fef8854"
+    },
+    {
+      "member": "strncpy.asm",
+      "sha256": "b959aa6923dc0d47c2553794418d418d96dc9a6157672490b17f5e24ccefba12"
+    },
+    {
+      "member": "strncmp.asm",
+      "sha256": "8a1e93f7dd7dafd3cd5d17894d433f220fe5e65e5324f61dbdbd1efb0a8ed82d"
+    },
+    {
+      "member": "atoi.asm",
+      "sha256": "3958ed17cdad5f96f350568628aa5738c18a6e153d7b22bd377f9f104a539d21"
+    },
+    {
+      "member": "atol.asm",
+      "sha256": "3958ed17cdad5f96f350568628aa5738c18a6e153d7b22bd377f9f104a539d21"
+    },
+    {
+      "member": "atof.c",
+      "sha256": "842982f4b6724d19e4e713e8287a8289d6a991f188299c247e7e41348e61db66"
+    },
+    {
+      "member": "atox.asm",
+      "sha256": "de963d633fe56938c91c3642644c710f14b727e4d3de66945b6f5635e5d5ab10"
+    },
+    {
+      "member": "itoa.asm",
+      "sha256": "2602907a5b8b25b51fdfdcc3b177ccfdb82938327e03877e2ea9dca0043b15dd"
+    },
+    {
+      "member": "ltoa.asm",
+      "sha256": "f032f55972e24e6b8da78fa2c1a69bb75dfe86488e095df334b69a66b45f8bf0"
+    },
+    {
+      "member": "_fptostr.c",
+      "sha256": "8ffdc529c68d9545f58eca2ee46456533179b8e9c984994566de07a5d1551f4b"
+    },
+    {
+      "member": "ultoa.asm",
+      "sha256": "3e78c1e64e1a4d1caa6675159b8af6e1356604fae43116635be3f6bc16dbc933"
+    },
+    {
+      "member": "tolower.c",
+      "sha256": "5bdade8e77c43b012500e681c7e58b00da7aa31c49698f240fb55b668bacdade"
+    },
+    {
+      "member": "toupper.c",
+      "sha256": "6a1d8c389d9b9d5ff3d97896f6bd566e07c01f6f4de0fb8e9a2518f826abe563"
+    },
+    {
+      "member": "abort.asm",
+      "sha256": "79c222fadea8a353b2f87af8d1ef3762ad59d6be1486935799bf9e8436f3e11e"
+    },
+    {
+      "member": "cmiscdat.asm",
+      "sha256": "914e5a96a105867c6fcc627b08639b1370db46a46a32439001b5e8dd692399ac"
+    },
+    {
+      "member": "ctype.asm",
+      "sha256": "852f52a6129d7bd8048c33395772149cbc57ab77d8c97fedafd6a2034e995ee4"
+    },
+    {
+      "member": "getenv.c",
+      "sha256": "b92d1e0b775243986d7060b3a5ce3e70d28e224523c996b33f45d2fdfa9cf68c"
+    },
+    {
+      "member": "isatty.asm",
+      "sha256": "d333c0a5196dfc87ec69d2f6c43ec792893def503366cb0f1e5c6889db7bf163"
+    },
+    {
+      "member": "perror.c",
+      "sha256": "0f799484684b2204de28c572588d240395b684aad30b25e51ffc8e79719ca44c"
+    },
+    {
+      "member": "putenv.c",
+      "sha256": "e1ebe05ed75bec9b4068e565b189def3edd0abed9dc82780a6d021abe9ad0110"
+    },
+    {
+      "member": "div.asm",
+      "sha256": "e8f5b9eaaebad0861572b293ffb06b68446e4eb975cb6619b262ac84e1abd410"
+    },
+    {
+      "member": "dos\\apisim.asm",
+      "sha256": "ae23595371d650eef055b9e71815142d00980a7dde0d889acc15ab7b6c413814"
+    },
+    {
+      "member": "dos\\kbhit.asm",
+      "sha256": "2490203940e6d838e71d65b2cbc7e173f7c2cb2e7cc04ae2786ea5ed072efa79"
+    },
+    {
+      "member": "dos\\getch.asm",
+      "sha256": "d94f8333cc7dcd00c0ade68ec77d2780603f2e790936933ff91081cf39eb47c4"
+    },
+    {
+      "member": "dos\\int86.asm",
+      "sha256": "c93e6ccbbb4db0ea23fa22fb3c9d8f5811b79b5b67105c7b833b72b013fbd57e"
+    },
+    {
+      "member": "dos\\hdiff.asm",
+      "sha256": "32b573ac0d5b7be5033d99785a46ff2ff7b9f209a29697ea237816894aea9aa8"
+    },
+    {
+      "member": "dos\\hdiff.asm",
+      "sha256": "6976f4ad037635ac0e96b60d9406b78cc034ec4d0963b11ea474cfaa412a1066"
+    },
+    {
+      "member": "dos\\diffhlp.asm",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "member": "rchkstk.asm",
+      "sha256": "c7217716dcb1df97903a9fc17fc6f5ec617e6739db1a3e06a5c5c88713f5a7ec"
+    },
+    {
+      "member": "rchkstk.asm",
+      "sha256": "c212cfcd1bf9065690395960e7740c35d1b49d2f4935cecd034b9e32fc6c2518"
+    },
+    {
+      "member": "_tmpoff.asm",
+      "sha256": "cafaa5dd21fc4de3d2ac030671bb86c483be671c463a6bd2d290784de04e3442"
+    },
+    {
+      "member": "clearerr.c",
+      "sha256": "604dcfdfedc2c4bb53d68e726dc19de8e097f0a149e4fb41e71a4731735dcca4"
+    },
+    {
+      "member": "closeall.c",
+      "sha256": "e7544761355bf96b087a2909b9ca51c8045404d4b055aa604d133ef8ae0c1ff2"
+    },
+    {
+      "member": "fdopen.c",
+      "sha256": "add81161964e42cbbd03aa56213058f9222ffe524e63b0ec609d9021907bccbc"
+    },
+    {
+      "member": "fgetpos.c",
+      "sha256": "29912975de43b5891703bb3c740c709c03578f07f3a36f888f38deffe0f50b27"
+    },
+    {
+      "member": "fgets.asm",
+      "sha256": "638350fabb3c166957c2140e883e04b3fd5b4a25b71a116e3983474df2bd3fd8"
+    },
+    {
+      "member": "fputs.c",
+      "sha256": "0bbbddb1a20665bb36b8289891a2c2a3e479dd3cb18103e7bbbe22ee1326b0c1"
+    },
+    {
+      "member": "freopen.c",
+      "sha256": "b81811c7d64040124dccdee7c57d81237fdecd689680f317d5f43f4ecb2fbd63"
+    },
+    {
+      "member": "fseek.c",
+      "sha256": "f2e690ded462b98eac6a50269c0b8d2b6c688fd62c4e1f64f6d7f61e05f3cfae"
+    },
+    {
+      "member": "fsetpos.c",
+      "sha256": "c462dabdd062eadf8fe90b126b7bed3176a9659484cbbed29b00c217b13e2926"
+    },
+    {
+      "member": "ftell.c",
+      "sha256": "db7d0924696d15448e9dad13ea1a71094a9a8ac7b29928d96d9774a3db907e1b"
+    },
+    {
+      "member": "gets.asm",
+      "sha256": "eef3fadb48ce64213027ae6efc589436294f0ffa1b0f13b6226d21d8f8873ca5"
+    },
+    {
+      "member": "getw.c",
+      "sha256": "85e3b0345ac1e31cdfb967ac1b0e3e96d9ad607963b56af1d860d465ced19bcc"
+    },
+    {
+      "member": "puts.c",
+      "sha256": "69b4548ec60ce0d078cc8527d6da708dc0ae129bcea7a99afa556bd7e48ef5c1"
+    },
+    {
+      "member": "putw.c",
+      "sha256": "a9dd75002f3889ba6734c56f10ee5468394fe8f789d02ab1434b353dc5e4c97c"
+    },
+    {
+      "member": "rewind.c",
+      "sha256": "c09410fc61b958e9416da7d891ca06e445d5c409b8c1f8233e590d8c901e3ca4"
+    },
+    {
+      "member": "rmtmp.c",
+      "sha256": "484a6943dafec66813ae3dc5b8598a1caf4cc4b283d4a1732e62fc51e2528c7b"
+    },
+    {
+      "member": "setbuf.c",
+      "sha256": "6c26668b65741b738924fa73fc7d514de4200d1bc15cd68742200b8d1264edf0"
+    },
+    {
+      "member": "setvbuf.c",
+      "sha256": "ee94bacdc02b80bebdaddcb7c728a8c1e39982aca31c259fee32378eb9e1cd76"
+    },
+    {
+      "member": "sprintf.c",
+      "sha256": "6cd8fc356fb09209749e0dc16350b434b7c684a98506b5e9b773af91126aace5"
+    },
+    {
+      "member": "sscanf.c",
+      "sha256": "a787a3b0d889d2ebbe3dbdabb479ab574c7a761c827d91bfe3946b37c8457716"
+    },
+    {
+      "member": "tempnam.c",
+      "sha256": "aa1b48030d306b831ca64392732361a662c45b48ada646bca5adeb6abf103714"
+    },
+    {
+      "member": "tmpfile.c",
+      "sha256": "38dfed326d75026a8869fd1a76fd14ecdfe9cbff91da7c906f2659c9891c50b8"
+    },
+    {
+      "member": "vfprintf.c",
+      "sha256": "dbc20a8cd0d484243c1083570262257618df6a8a5126b144d58b05c842ed3f86"
+    },
+    {
+      "member": "vprintf.c",
+      "sha256": "9c5afbc8a64b52980d5052585b315f9ca92dee166496923c075518cffe4800a8"
+    },
+    {
+      "member": "vsprintf.c",
+      "sha256": "88afb6a346c223da511c4dc09230810d0630ea5a842c43c608b23bf96cae55da"
+    },
+    {
+      "member": "feoferr.c",
+      "sha256": "3189e5bbca6c548e823d366189dc92078266da56df51af3fe13f3c5cf2eec6c7"
+    },
+    {
+      "member": "fileno.c",
+      "sha256": "c51bedb0fa0c6a67a1332bed153690f885f5c6c7f8a72419e56702a1a43013ba"
+    },
+    {
+      "member": "sprintf.c",
+      "sha256": "9f1f37806e969a05edee9f71d6f7d792b47f7989b8773a36c5699ff465cd8dc1"
+    },
+    {
+      "member": "vsprintf.c",
+      "sha256": "8350eb9765e44fdb12585f172153041342327325e41ecb44e1d308316421ce17"
+    },
+    {
+      "member": "creat.asm",
+      "sha256": "c5744fb5c04f1edf9a4dbbf9cba35ef5ae2604e787973644e02ed063203d8d7d"
+    },
+    {
+      "member": "eof.c",
+      "sha256": "b9e3df5522ac581f7b5f06c989bc8609a4f25d7f3ec54dda50d2571154aa43ae"
+    },
+    {
+      "member": "tell.c",
+      "sha256": "c045e67db4231968a449528458d5479aa4b69b709b0a0aa59af35f9a5c2b6e32"
+    },
+    {
+      "member": "dos\\chsize.c",
+      "sha256": "d3cc39fb1ddbbb7d2b1f528072d6a2c2289639c032bb2002e5c33a186ad0722b"
+    },
+    {
+      "member": "commit.c",
+      "sha256": "f65bd65934ae8143347b5aab7021d6bb856b5a9e8e5561b3d77021077b8f316c"
+    },
+    {
+      "member": "dos\\dup.asm",
+      "sha256": "ee444bc57f02571b77563884dbcda79e4f9cb4723a251b845901c8b950dc7cc5"
+    },
+    {
+      "member": "flength.c",
+      "sha256": "95946cfbedfe8c65c9951c63a2fe956bfc767aa437d60eb4617cf1c9c3e5d6ee"
+    },
+    {
+      "member": "mktemp.c",
+      "sha256": "ca4116beae4cd12ffd159cb32e434fb4220934630fd160b6c2f5ed4de7378e5a"
+    },
+    {
+      "member": "setmode.c",
+      "sha256": "e03b8d237e597748e0a2d5c7ddad35bfe0a6ea3a88814374e204002e11b2b30f"
+    },
+    {
+      "member": "realloc.asm",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "member": "expand.asm",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "member": "nrealloc.asm",
+      "sha256": "f5e56a114f3fcd1f0cc1067be0eabf2c4ef396104e441587af69f1995c2fc8e1"
+    },
+    {
+      "member": "nexpand.asm",
+      "sha256": "009679047672c4c2363e847826279b31455628a526eb586f0005d20b0b8a74bd"
+    },
+    {
+      "member": "frealloc.asm",
+      "sha256": "3c0ec2fde4ccb9dfd3b729eeed3dfd52d2543bda1823b8b9332b56dd2560407a"
+    },
+    {
+      "member": "fexpand.asm",
+      "sha256": "b74945a977a8fd049019687ff1c993a05cc19e801732712e29b61058d4ffe03c"
+    },
+    {
+      "member": "resize.asm",
+      "sha256": "f24398aafbf27733065888dd7115a918d713a30d0c22000cb99a1dfe3096eb71"
+    },
+    {
+      "member": "calloc.asm",
+      "sha256": "63d4c8f3ea1ecdbc5a17226dafb5d45158da6f08136486ae8321a65316c8e769"
+    },
+    {
+      "member": "calloc.asm",
+      "sha256": "229bf8cfa6475c6c5fa369149abee339f5b25fa75e78a5153faa8544bc7d82f5"
+    },
+    {
+      "member": "calloc.asm",
+      "sha256": "63d4c8f3ea1ecdbc5a17226dafb5d45158da6f08136486ae8321a65316c8e769"
+    },
+    {
+      "member": "nheapchk.asm",
+      "sha256": "4347dd2fb47f5ce236131f1c0529d660852d2e0543b908606ed95f5af4b51acb"
+    },
+    {
+      "member": "nheapwal.asm",
+      "sha256": "beac55db62996edf762a9555112c3ae1dcf7fd76d22d681bc9e5e149208e86cd"
+    },
+    {
+      "member": "fheapchk.asm",
+      "sha256": "f14ef9d7352dffe7bc6d4317da571c8bacaf57d99b7ac82c22734cd1004284f4"
+    },
+    {
+      "member": "fheapwal.asm",
+      "sha256": "beac55db62996edf762a9555112c3ae1dcf7fd76d22d681bc9e5e149208e86cd"
+    },
+    {
+      "member": "findseg.asm",
+      "sha256": "717a2768ded14905f7640248d02c2a25dd4b54d5d6867c00559e0a3d3e694ef1"
+    },
+    {
+      "member": "headchk.asm",
+      "sha256": "a0ce5b38e5d8b06adbbd51dea99f8a8a5fec1092d303945d78cdcf35bb9d2bf5"
+    },
+    {
+      "member": "setlist.asm",
+      "sha256": "298e7bf13edb3a58f2e3cf817f496d0e31461c481307315e4cdd2895cb9833ad"
+    },
+    {
+      "member": "setseg.asm",
+      "sha256": "5773322f4593647fa7160dbb8ee7489090e3a37a3d2b3868cd7800f5b1422cd0"
+    },
+    {
+      "member": "walklist.asm",
+      "sha256": "cfaedebf67ba12d5e7201ee9076736f04a63b80c80949985614de79f60042670"
+    },
+    {
+      "member": "walkone.asm",
+      "sha256": "ca7128b637ce8ea65761859e35c29d5c6cee38834ebc20b36988dd75cdad83aa"
+    },
+    {
+      "member": "walkseg.asm",
+      "sha256": "160feb93abc9ec814a6b250b5bba3c7f07af8ce60b7a3bc92f49ddead0e79914"
+    },
+    {
+      "member": "nfreect.asm",
+      "sha256": "55599e7a7e0f6f35bfcf32f6262e5f4179cb75b689d40e0bf9a0ed3da62a55b4"
+    },
+    {
+      "member": "nmemavl.asm",
+      "sha256": "f9e7fd86eb49f2d730ba95f5e05a80b283eb115b2f86e75c2714a624eb10a601"
+    },
+    {
+      "member": "nmemmax.asm",
+      "sha256": "a3329bec13407fc39ed8c613bacd479c0210095fd78affbb29cc698b7730752b"
+    },
+    {
+      "member": "fheapmin.asm",
+      "sha256": "dbd1b943d815655a189ba7c55658276b2a6eb11d6a2ccbe1797f8c09f2ad67ce"
+    },
+    {
+      "member": "nheapmin.asm",
+      "sha256": "2f6078a2beca15d8ba621adedfa9744cb9e7064c71ca640ed3cbb83b2dc8e263"
+    },
+    {
+      "member": "scanseg.asm",
+      "sha256": "78bc67c297d5041db6305c24d10b3a096c1f2343ba5d179e3144c499b44f4cd5"
+    },
+    {
+      "member": "growscan.asm",
+      "sha256": "611840bb9b0e43e5f2c3600ff9e41652fed393677879e9c4f6724d39f29436e4"
+    },
+    {
+      "member": "minseg.asm",
+      "sha256": "6ff8ca8acf44b07da13183d490e653d02c7f42cb71a6a03fbc38205f54bfe7be"
+    },
+    {
+      "member": "unlinksg.asm",
+      "sha256": "46e78bcf0ddee38010054ecc97044e68707df6d4ba758560554687fdd09369c5"
+    },
+    {
+      "member": "nmalloc.asm",
+      "sha256": "36a5cacaf81cf7b8bc00d7987da5a234e142f2416c3192a8b20b1d4c4b2de87c"
+    },
+    {
+      "member": "heapadd.asm",
+      "sha256": "b2431d73be4037e0c357e9c549d74f75794e65a88d2560e038b11200415cff4c"
+    },
+    {
+      "member": "addlist.asm",
+      "sha256": "e4824d32e85cd16b1d20a5f66a6d6577044567827e3297340a695c60d1488c09"
+    },
+    {
+      "member": "addseg.asm",
+      "sha256": "e5e9d9c9acfd936af25d33cd5321d8b1a5094751dc04e9fab417e423d8f8e78e"
+    },
+    {
+      "member": "bheapadd.asm",
+      "sha256": "a8390f0263618f9eb7215275b167a6f65c533c5cd53530e0064f129e08066dbd"
+    },
+    {
+      "member": "bcalloc.asm",
+      "sha256": "f338df5daf0ae3925d9ca4066a7b4d1f88c12065aeb845db64ed410fad85725e"
+    },
+    {
+      "member": "bdata.asm",
+      "sha256": "ada78d35e447743fdbd36163a9c65a4b4f6c7c81867819248ecb0e3a52df74e0"
+    },
+    {
+      "member": "bexpand.asm",
+      "sha256": "4a56c3ebb745927dc0c53e6a8d6032efa41982f158132d795b2514fc50f5c3d7"
+    },
+    {
+      "member": "bheapchk.asm",
+      "sha256": "03fd50b0db0c74f28ebb54d2dcb37492d06ef57accbb0faaffa65ecab540c638"
+    },
+    {
+      "member": "bheapseg.asm",
+      "sha256": "2ff6f0a7dae8d7b5f1989443250ed6986ecc03efe3f41d537e78e444f586974c"
+    },
+    {
+      "member": "bheapwal.asm",
+      "sha256": "340acd91f63907b4368d0b70bdfb27f08341f7270544b66bbd506092387f9a15"
+    },
+    {
+      "member": "bmalloc.asm",
+      "sha256": "8cd45920d60a097e91b8b347db35926c0cba27d235258b850737eec6db9258c5"
+    },
+    {
+      "member": "bmsize.asm",
+      "sha256": "6842b6ed45952092855c3ef3bdd22215087ebc033d7aaf92ad5b5dbac299e932"
+    },
+    {
+      "member": "brealloc.asm",
+      "sha256": "9691dd966b81bbe7ec578ea93b0947ef0c5c59907e1708d9a9619d46b7a49228"
+    },
+    {
+      "member": "bfreeseg.asm",
+      "sha256": "9133e04fe571c7bb0a461cb8bb850839e2f9667127c076f8ffa13b7465a8a6b2"
+    },
+    {
+      "member": "bheapmin.asm",
+      "sha256": "9e30aa3290051171e6d586bd515b53b10adc81d9d7c3cd81d0fee516e7b8c187"
+    },
+    {
+      "member": "dos\\halloc.asm",
+      "sha256": "1c545373863c319b56f16d6b91dfc799521e82e87e7a501c40e4425f72a0d462"
+    },
+    {
+      "member": "alloca.asm",
+      "sha256": "17ddfefdeae1ec2234f25ac90c744b3fc2195be96f166848b17ca3b9aa52ed39"
+    },
+    {
+      "member": "dos\\bdos.asm",
+      "sha256": "50a1fa334020da1faf60eeb2951a81a4fec16df5db2ed972760c00cdead9985c"
+    },
+    {
+      "member": "output.asm",
+      "sha256": "ab0ea4921bea61e709a6397102df8ae2c430c78ecd19ee88288d0e3dc419b2da"
+    },
+    {
+      "member": "cputs.asm",
+      "sha256": "a9f9c678a2e8d5b1d1c925862022f9569ee390d69bfdfc4812db51d52bf0209e"
+    },
+    {
+      "member": "input.c",
+      "sha256": "33b24aacaa8a8d6b928dd639214d10d819f04826904ce2f03c577af721a5a5ed"
+    },
+    {
+      "member": "dos\\int86x.asm",
+      "sha256": "5544dda46c57a75b93b1ed33715850a623a378f790492c8a57a22d0f63a8f3d8"
+    },
+    {
+      "member": "dos\\intdos.asm",
+      "sha256": "b51f02133c332d312556e5a01295538a1c30de4a35ecb28bde7a631241d7bb4d"
+    },
+    {
+      "member": "dos\\intdosx.asm",
+      "sha256": "9f8fa2a39f33160f9d97c956928f5283c09255b01896fe05e953f7430a050000"
+    },
+    {
+      "member": "movedata.asm",
+      "sha256": "bb7071eef70dc2fc60d9ac739b2016e7dead2346dbd43762ce1205b7d98bfb10"
+    },
+    {
+      "member": "segread.asm",
+      "sha256": "1f2b43404657df48c7d441ee43ccd0af2a4e948c8070956660298a8a570f32d6"
+    },
+    {
+      "member": "ungetch.asm",
+      "sha256": "5cb588ecf4447761ee2d80e1e77bd4f57dabf96d304503b4d30ad246f4fa0ac0"
+    },
+    {
+      "member": "dos\\cgets.asm",
+      "sha256": "1299afdabe747c456b8917ee2037429e5b56686839781e7b661c42653b120e05"
+    },
+    {
+      "member": "dos\\inp.asm",
+      "sha256": "bf853a5f337bca52a2c3a52af0e57a09d469877d3454d133e35f60aca9964d26"
+    },
+    {
+      "member": "dos\\outp.asm",
+      "sha256": "809331b9f048c048b30ee440f825c6b091cdc0267a7adf39a8b5ec01d7d7addf"
+    },
+    {
+      "member": "dos\\putch.asm",
+      "sha256": "25763fe974e1c608e61e7c23a811442e369841e348c5deb69a271ba4451d05f8"
+    },
+    {
+      "member": "asctime.c",
+      "sha256": "4dd9d473a580c7d508ffd3e0d6b4316949b1d958d6fccb00b6af9b58640efe0a"
+    },
+    {
+      "member": "ctime.c",
+      "sha256": "c337d17e538ddaed1c9f313fc8bd8b4f89d74ebbb10142bd7d2718fe8dfa020c"
+    },
+    {
+      "member": "days.c",
+      "sha256": "2ff828661c510a5bf086658dfede06f59ea2a4ebe4bfb7ae218c9e5c15a4a7c4"
+    },
+    {
+      "member": "difftime.c",
+      "sha256": "5cbf291e03a4a958dd3bba653fe53b46338625b104a337f5bb74e9a62d259ee0"
+    },
+    {
+      "member": "dos\\ftime.c",
+      "sha256": "287604075a2f29a8b269c20eb33deefe9d5df95a16fba213496d531587b45f1d"
+    },
+    {
+      "member": "gmtime.c",
+      "sha256": "a891aaf201bc6f067bdcf2647126e67cf6947f440874f06a6b7723fb6b8e2086"
+    },
+    {
+      "member": "localtim.c",
+      "sha256": "9d8e0457f966ad3f4153ceefa16afc6708637640e554659d98edc75356299c58"
+    },
+    {
+      "member": "dos\\time.asm",
+      "sha256": "477d5a5d81af442c88661bb0c6752f320a78c349427c29d3eec13ff3769bca85"
+    },
+    {
+      "member": "tzset.c",
+      "sha256": "54a2aac8bb0367df98d5a2a728264d4bf46237bc061249cc23848677bbc88a0d"
+    },
+    {
+      "member": "timeset.c",
+      "sha256": "dd966a40bf98fc5e3c63a2f3b575bd2c5a716e9df7d13439976252a7ab407d19"
+    },
+    {
+      "member": "dos\\utime.c",
+      "sha256": "abdedb14797c038e5b2ec490dbea349bc13409870ea5cda6ee4101269dea7506"
+    },
+    {
+      "member": "dtoxtime.c",
+      "sha256": "034c9d674a45b543ce374a493a3351010ff018318074a931f61ef9ab3495c3bd"
+    },
+    {
+      "member": "_cinittm.asm",
+      "sha256": "48687fd9c5148068b5355aac1ae5c7b7beba385629f408abed6ac8557533529a"
+    },
+    {
+      "member": "clock.c",
+      "sha256": "8dd563b9f7d897796c38c4df444ac4d462b91a93bf2e5769d5976494dccbc3d7"
+    },
+    {
+      "member": "mktime.c",
+      "sha256": "b900520a36fb1af4b095c95bc36baca2e2d8bd2349c88f430f5d3c26bbcf3eb8"
+    },
+    {
+      "member": "dos\\strdate.asm",
+      "sha256": "635802235c61a68af7e1687c3d2820abc1a60afc837a4417b89b1389fce13235"
+    },
+    {
+      "member": "dos\\strtime.asm",
+      "sha256": "6957bc2cff6fdcc39da7d6b60ba6df00e38b2251c594f6c415ba8ab1f027eaea"
+    },
+    {
+      "member": "strftime.c",
+      "sha256": "c4147b95af65beb9cc78be25d785d2cb66e59c4ebfd882e1e0a0dec4f585c436"
+    },
+    {
+      "member": "strchr.asm",
+      "sha256": "bad66133fb258485a9b737bc48fbc737a16a81c2547424850929fd7db528d7ab"
+    },
+    {
+      "member": "stricmp.asm",
+      "sha256": "26b0fd875c3a3782b95f3187adbd675a9367c2143de59c666f1625e135ace131"
+    },
+    {
+      "member": "strdup.asm",
+      "sha256": "48aaf374c94b763d94934c8b1ac8788c4a088cd659a012c680e626ea14e5026b"
+    },
+    {
+      "member": "strnicmp.asm",
+      "sha256": "f702fcc8c65188de5725b41b97e50a7456e369ec9698db101a5d1b51706220da"
+    },
+    {
+      "member": "strnset.asm",
+      "sha256": "cb8a777d724dcb28754d53b7c3bb303d8c8ade29f8fbf7cf531f852f7c72fe87"
+    },
+    {
+      "member": "strrchr.asm",
+      "sha256": "3426d8eefefabbe2bab978a901a66e6573e132eb524a71e04e06446957aa4250"
+    },
+    {
+      "member": "strrev.asm",
+      "sha256": "923ab440410533954d230344bf07fe7c4c13b1ad8b271234e412a607a1c8a226"
+    },
+    {
+      "member": "strset.asm",
+      "sha256": "ab4043216a174d7b156134d38191e564a8340ac77edf893924dac07cc9c8e0e3"
+    },
+    {
+      "member": "strlwr.asm",
+      "sha256": "f150a9fcf5f1cdfa7facd55a63649dde1ce63e08052abd8c737a3f4e6020f93d"
+    },
+    {
+      "member": "strupr.asm",
+      "sha256": "65204feeae90441113de9cb248556a2d560fb9c731dc9dea661cca52cb4db37d"
+    },
+    {
+      "member": "strcspn.asm",
+      "sha256": "52faaf903499102e5ce1ad9b94189d30e63a3a44bcd72c57ff17b91eefbb7bf3"
+    },
+    {
+      "member": "strpbrk.asm",
+      "sha256": "969dd53e7730c25b97efb688b1fabf6eb48ad525a82179a2f8fd644e50a46e27"
+    },
+    {
+      "member": "strspn.asm",
+      "sha256": "4b3f812a80d36c94138a5f254ba95c71a4825fde730c98c926e4c183d9298906"
+    },
+    {
+      "member": "strtok.asm",
+      "sha256": "98886d411fc8fd71529f2b4943d48ff07924ef379886a8a83eaea31f31de43b7"
+    },
+    {
+      "member": "strstr.asm",
+      "sha256": "67a96c3f940656b0e54d9d9d98b5da29a73ea5f8a5d7b205bef606963c51f351"
+    },
+    {
+      "member": "strdup.asm",
+      "sha256": "48aaf374c94b763d94934c8b1ac8788c4a088cd659a012c680e626ea14e5026b"
+    },
+    {
+      "member": "strdup.asm",
+      "sha256": "d0397fb5763b0ee765f704465a2c4e811045be8e68cf585f6f7b7cdae711d2eb"
+    },
+    {
+      "member": "strcoll.c",
+      "sha256": "407b44f3b852831439d15c376570d98511037b46fafbd4d96f9f1bd29e016b80"
+    },
+    {
+      "member": "strxfrm.c",
+      "sha256": "1b28fcce8a9e8ec0afdec4386a4597ea0622882e8fc2b69bb6082979181242f8"
+    },
+    {
+      "member": "hmemcpy.asm",
+      "sha256": "9c44f0d06bb26830e4b9dc72c227e51b524aad88f3c194b2f6d811596d62c7e5"
+    },
+    {
+      "member": "hmemchr.asm",
+      "sha256": "29e217e21261b549780e4aa4335cb8b5ac59e04498c5a24ce9638b748edd5d81"
+    },
+    {
+      "member": "hmemcpy.asm",
+      "sha256": "12927e93921c25378ac9fd540f26bb4551d8b13f037d2ece8c36f32670bf1f54"
+    },
+    {
+      "member": "hmemcmp.asm",
+      "sha256": "b428baed10fbd514a694d6e37fd708184cd06c5ec8a47d4b4f2ec61ca13bfca6"
+    },
+    {
+      "member": "hmemcmp.asm",
+      "sha256": "e0c51e5874f186b8b5d5f5262fd408a22e0c0134edfba59b39a604d038c1003d"
+    },
+    {
+      "member": "hmemcpy.asm",
+      "sha256": "4b3737c47f9f67b274bf293f6c4cef3214cfc38805174aa742fb89016dd67687"
+    },
+    {
+      "member": "hmemset.asm",
+      "sha256": "16cbc4b984fcaedda76def7bc57524a68ec460316d0ef21247f53ab67e7055df"
+    },
+    {
+      "member": "xtoa.asm",
+      "sha256": "1e2d8978c8ef69edf4898e350b86aa1e32690f7f92d04e313298b63f6b88840f"
+    },
+    {
+      "member": "swab.asm",
+      "sha256": "aee6814fce86da31591aa3dd0e5dc9fb129c25aa5f184def5d260b340b94cd8e"
+    },
+    {
+      "member": "fcvt.c",
+      "sha256": "d74d65f2591b1ac2c9f8765213f2b49883ab63960286a0f0697550ddeb995bf4"
+    },
+    {
+      "member": "gcvt.c",
+      "sha256": "528b2682a7ab7e2d444d93c262a134926784a6c68363ff49632e1b9ab9fe6c28"
+    },
+    {
+      "member": "strtod.c",
+      "sha256": "efc8b0e5913632b0f0a82b4b9539f911cbc8c8b353b53d45f5919f7a52644900"
+    },
+    {
+      "member": "strtol.asm",
+      "sha256": "b091ce69ac8c37504401d94dd6e1f469cc65f3df443c4d1937cc1dd52f748579"
+    },
+    {
+      "member": "_ctype.asm",
+      "sha256": "9c84cb14ea47b69cb3cbd4180fc5630adec1c4dadabf0b3a22812fbd8c0de5d2"
+    },
+    {
+      "member": "_ctypex.asm",
+      "sha256": "a4822de99f139c22837dde005fd0b67ba2677bf17f572d5ce5e79dcd8a8a9cca"
+    },
+    {
+      "member": "mblen.c",
+      "sha256": "66e5785c25553662a69c697b2d3226bf3ba040514c3cd7500988b30266f9384c"
+    },
+    {
+      "member": "mbtowc.c",
+      "sha256": "ea40fdd5c85a681e0c29c04c2aaad6f0a255bb82253f01ac62c794c08f4e76a9"
+    },
+    {
+      "member": "mbstowcs.c",
+      "sha256": "1dd9d62ffc26ccb9236e0b2617aa17d8378604cc7ca0ed76f21cd3e252022460"
+    },
+    {
+      "member": "wctomb.c",
+      "sha256": "a8cab7594d01d14cf782f7c2e08871e55f846c06bbec22aa13b6cf7153f765c1"
+    },
+    {
+      "member": "wcstombs.c",
+      "sha256": "df07d95c7657b61663a73633fb6e970ba7dddc92816ab4ce81df8862510c8d4a"
+    },
+    {
+      "member": "mblen.c",
+      "sha256": "cee2d073957070a43b1729ff6d480efdc4159fa4ee56751cbfd1d3ce108cdccc"
+    },
+    {
+      "member": "mbtowc.c",
+      "sha256": "ea40fdd5c85a681e0c29c04c2aaad6f0a255bb82253f01ac62c794c08f4e76a9"
+    },
+    {
+      "member": "mbstowcs.c",
+      "sha256": "1dd9d62ffc26ccb9236e0b2617aa17d8378604cc7ca0ed76f21cd3e252022460"
+    },
+    {
+      "member": "wctomb.c",
+      "sha256": "a8cab7594d01d14cf782f7c2e08871e55f846c06bbec22aa13b6cf7153f765c1"
+    },
+    {
+      "member": "wcstombs.c",
+      "sha256": "df07d95c7657b61663a73633fb6e970ba7dddc92816ab4ce81df8862510c8d4a"
+    },
+    {
+      "member": "abs.c",
+      "sha256": "4769eac96750cef225f8161c37dc6421911790c7d75f56c8880717ddb172f9be"
+    },
+    {
+      "member": "bsearch.c",
+      "sha256": "517e7cca3589677d0d6f03a3b10c2215c0fa3b8fd733e780ca77399ce752c33c"
+    },
+    {
+      "member": "dos\\doserr.c",
+      "sha256": "7c8a9f84c7c60efbd36f8b117d2756737c9cd6246349092b8754f2d5a3d857b7"
+    },
+    {
+      "member": "getpath.c",
+      "sha256": "9e55b6341a1e2fd292662952c38aeebd0d67de383f247025883fdd0175b09c1a"
+    },
+    {
+      "member": "labs.c",
+      "sha256": "4de102517c19b6af4148201f9699f7f0d5e234781f5574d3b3ce7f6611e2c270"
+    },
+    {
+      "member": "lfind.c",
+      "sha256": "69a4c016985ee3d9ec864b20ee81c032d641d410017183496bfcfd208c62fd3b"
+    },
+    {
+      "member": "longdiv.asm",
+      "sha256": "f98131aa4eb1b0352401406fcd8a5d9482a217cb50a028b72a14b5ddd224d998"
+    },
+    {
+      "member": "lsearch.c",
+      "sha256": "916c7dcd6db1488398c2e641c47fe7ed69bb86c7859cafb990aca754de511dff"
+    },
+    {
+      "member": "onexit.asm",
+      "sha256": "e5bea1bfd2d8e107da0a9c363ec63b3b7e5f2df268b8b38e44cf74ffe0b68e1e"
+    },
+    {
+      "member": "qsort.asm",
+      "sha256": "4e1a96449901c161980207aeb55939f83d68e0861c416cf75b374645e0241cb7"
+    },
+    {
+      "member": "dos\\raise.asm",
+      "sha256": "5005c1f6987c3c00878d340d38afee78933834930640b7c55a8ddb00d6b18847"
+    },
+    {
+      "member": "rand.c",
+      "sha256": "c4f2e73214ce761c513ab173e3dc1fa4d33267af36e4a0d9965f36464197c461"
+    },
+    {
+      "member": "setjmp.asm",
+      "sha256": "c7cceef717c14fe0314b86868c68360ee3e6a32ee53d495f7de999cd53353066"
+    },
+    {
+      "member": "dos\\signal.asm",
+      "sha256": "62bd18e54d0b8690082ac50f410454966a387f8db6cce36ef1b78b6be3a54519"
+    },
+    {
+      "member": "_strerr.c",
+      "sha256": "7777accb6df7e1e94fa09c1081da2d072a490918348fe7b9b990dc6d73f38ba5"
+    },
+    {
+      "member": "syserr.c",
+      "sha256": "99802d0dc4c84b19ffdb786227dfc1aa547976cc2fdf2126e3975833bd712eb4"
+    },
+    {
+      "member": "umask.asm",
+      "sha256": "d486157a46538f181d55cf8f36e1e919e874ca377045e79b8a6578f6f9d3ab29"
+    },
+    {
+      "member": "dos\\wrt2err.asm",
+      "sha256": "b94b6c1f7c63e41ee59fb4b6ab0705957247bcda3b4a6ba9f47a980402e5a726"
+    },
+    {
+      "member": "dos\\ovlm6l.asm",
+      "sha256": "16f4d551107c7867ff3794d4a8ce0473bd2f05b43931947439a7c97d20f16cd5"
+    },
+    {
+      "member": "lrotl.asm",
+      "sha256": "2897eddbbef0e11f91e0e4d6255f2b13057765e088480acfdd39c3aa13e0fa0b"
+    },
+    {
+      "member": "lrotr.asm",
+      "sha256": "09dac2364f1ba108a665f0d833f1628380a69938960e7e7b87d56a4cc1ba916a"
+    },
+    {
+      "member": "rotl.asm",
+      "sha256": "66571af9d74e9b59268aea2e30986aec3e3a62783afad2a85a7c256a0e3c7d5c"
+    },
+    {
+      "member": "rotr.asm",
+      "sha256": "583e9ca377f54577a5e9bac6a1cefee519273c2a1af56fb7d291739d212c1578"
+    },
+    {
+      "member": "strerror.c",
+      "sha256": "ebb71eb0a70fa81880e489dcffb55b146e23e1341974070f5a243dfaa8e3ef7c"
+    },
+    {
+      "member": "splitpat.c",
+      "sha256": "30854b221f8672aca43be208a81d40da320b99da7865add3194515cef9b080fc"
+    },
+    {
+      "member": "searchen.c",
+      "sha256": "8f5556cdf4654e7dfb991bc7e15c09a54535e5050b1475dce61a2427075b6d4e"
+    },
+    {
+      "member": "makepath.c",
+      "sha256": "e2c993a2718eb9258ba599e70517a467bbb2a8ea676f14a72e7d41716518c8a8"
+    },
+    {
+      "member": "assert.c",
+      "sha256": "e179c6a55b660ee470c454b6d0194b3644b25474986e72be10e26a10c39f51e2"
+    },
+    {
+      "member": "setlocal.c",
+      "sha256": "545b7e0167a254978ab74ed0110f364a3075e96eb1a6a94b2764265f29b0ae39"
+    },
+    {
+      "member": "purevirt.asm",
+      "sha256": "d96e5f13791a19b6fde89c0a1001e4063134057aa9a3c1a654212e5f8524efce"
+    },
+    {
+      "member": "lconv.c",
+      "sha256": "71901f8c77470b5929bb2a5ceef8acf276eceff97239a85a482ae6e6d7473240"
+    },
+    {
+      "member": "lconvdat.asm",
+      "sha256": "fa78dd488cb22ce870742e77d61f9a21f9c863dcbc267313be394898674749f6"
+    },
+    {
+      "member": "charmax.asm",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "member": "onexit.asm",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "member": "dos\\cenvarg.c",
+      "sha256": "d958ef4729953081bbc5d960a1f3da71c0648d1ae7486f34b99521564d20e114"
+    },
+    {
+      "member": "cfinfo.asm",
+      "sha256": "2aceaf010f359a35b3a838cd0e5d931b4700ea2bd5b8d532fcbe54a2306fb942"
+    },
+    {
+      "member": "dos\\doexec.asm",
+      "sha256": "9c29b377fc0bc0d87252d1f5c8b86700400b45271f225807d6dc597f9f484762"
+    },
+    {
+      "member": "dos\\dospawn.asm",
+      "sha256": "63185c2b861b88ef2d4e5a05dc85cfc8c370b35d7c0fbd405dc91658ca94641d"
+    },
+    {
+      "member": "execl.c",
+      "sha256": "5d47da46b095b0733ecfa8463c95aec83e9a9ce85c4a4e6625278745714a57c6"
+    },
+    {
+      "member": "execle.c",
+      "sha256": "f96668ccd70b38583962ed95841c4170d51fc3f4e0bb4dde864cdda2cf19f34b"
+    },
+    {
+      "member": "execlp.c",
+      "sha256": "176867e279545ccd1099e1d4d08a8b52f3ddd29e98ca5321225476cce7edd2a5"
+    },
+    {
+      "member": "execlpe.c",
+      "sha256": "f96668ccd70b38583962ed95841c4170d51fc3f4e0bb4dde864cdda2cf19f34b"
+    },
+    {
+      "member": "execv.c",
+      "sha256": "db3bafc5644a8aebddcc79145e7678c485ff07b7f51ea5f880da3ae0e8d9403a"
+    },
+    {
+      "member": "dos\\execve.c",
+      "sha256": "1fba0916bf07ae7285d7107337f5624ce8d00ac7c4cf8143808a01d29cb4dda0"
+    },
+    {
+      "member": "execvp.c",
+      "sha256": "db3bafc5644a8aebddcc79145e7678c485ff07b7f51ea5f880da3ae0e8d9403a"
+    },
+    {
+      "member": "execvpe.c",
+      "sha256": "3207963dec783ea2f9cb09d491598b8d0779d75b7e6d47481f9ebc9235f20faf"
+    },
+    {
+      "member": "dos\\execmsg.asm",
+      "sha256": "1df8cead9eb6e21ae8e59ee8141f7ab58b6138a163cf458033ce4ce899aa92ad"
+    },
+    {
+      "member": "spawnl.c",
+      "sha256": "00a26796f1307b5dbe4487f92a530db0fb0e766390ac0eba560aace066be680b"
+    },
+    {
+      "member": "spawnle.c",
+      "sha256": "ce7e831d8c023b76ca6f945a875ec7b0f9141c5595b38a5e2b0d3a1f1e7ec6b8"
+    },
+    {
+      "member": "spawnlp.c",
+      "sha256": "53d1da96172bdaf5cb7829abf61fba0368bdc0ae030d0437498d10a203bdc2f2"
+    },
+    {
+      "member": "spawnlpe.c",
+      "sha256": "ce7e831d8c023b76ca6f945a875ec7b0f9141c5595b38a5e2b0d3a1f1e7ec6b8"
+    },
+    {
+      "member": "spawnv.c",
+      "sha256": "2d2e65b7e1c568f32bb87cf61baeea07b2ee02846dc319b00d11bb5e91ae6984"
+    },
+    {
+      "member": "dos\\spawnve.c",
+      "sha256": "c3bdd30a18d5287ac5f693c2bf969fe309338f55bf02b776a0239d59dba3a19b"
+    },
+    {
+      "member": "spawnvp.c",
+      "sha256": "2d2e65b7e1c568f32bb87cf61baeea07b2ee02846dc319b00d11bb5e91ae6984"
+    },
+    {
+      "member": "spawnvpe.c",
+      "sha256": "b9fb9adc3e1c32a21e5cda77f9b14f3c96dfbf96ce70c6d13c8adc2b0d00edcb"
+    },
+    {
+      "member": "system.c",
+      "sha256": "225738415b1c22491bfdea105c8812985235e4204968cee7797d9690b57f7f8c"
+    },
+    {
+      "member": "dos\\execload.asm",
+      "sha256": "ed098d601eb44c0c33ac4a37ddad06f4166e360b347b038d5c6f6f826a421c05"
+    },
+    {
+      "member": "dos\\access.asm",
+      "sha256": "44dd26dacdca612c31954fc8f2a98f2d3fafb3d6b5b519e948c1b9eb06e4c8a5"
+    },
+    {
+      "member": "dos\\chmod.asm",
+      "sha256": "f9eb0268430e58f41a81f78969bdd15c6476e896a49a8802f2eb4ce3a9a24723"
+    },
+    {
+      "member": "dos\\dir.asm",
+      "sha256": "c09fac06be7d24772d83b0310f761f1fc6d35fa99902ead61b90f6761e686e86"
+    },
+    {
+      "member": "dos\\drive.asm",
+      "sha256": "18989b6f90413e0430d63c7d271904063b1cde52ca1cfe72fb1ac3be28004522"
+    },
+    {
+      "member": "dos\\fstat.c",
+      "sha256": "ebfa1831c835886988241d42425fbbb8f94fca40c2b644ceb6fb2c5fb3c19b21"
+    },
+    {
+      "member": "dos\\getcwd.c",
+      "sha256": "c265cad7a9a9a3a018977fe429e0e4d19826be43947b268642b27af1025f9cda"
+    },
+    {
+      "member": "dos\\getpid.asm",
+      "sha256": "322c8cd7cce30b46428e007b41629fa3dca6c2e8394293e854156172afa713e7"
+    },
+    {
+      "member": "dos\\locking.asm",
+      "sha256": "c754503a967648d02078a104bc1842a511e255a2d8b35815e4a45ee406c9e99f"
+    },
+    {
+      "member": "dos\\rename.asm",
+      "sha256": "f2c3fcdb14b2000e687dcd4e74f35c5a3e0a44eba1e377b2401a2807aae09ed8"
+    },
+    {
+      "member": "dos\\stat.c",
+      "sha256": "a470fbe27bd7005c75897dd550b3e64128ed4eb8c8d2033052ed47edf8f6442b"
+    },
+    {
+      "member": "fullpath.c",
+      "sha256": "58b6220a2e3a7d03fa9af0f4199247ba0865ea48b9004a2c7f4bf3e26f95edf2"
+    },
+    {
+      "member": "dos\\unlink.asm",
+      "sha256": "393c94c5bff373e6b0d104532095a39a3e90816361aefc5f303e5d096c9d9c0a"
+    },
+    {
+      "member": "dos\\allocmem.asm",
+      "sha256": "1bf4779751dc1bf895f17c6fb8b7b2be8df9cafd7291ed39b834a68eaeef7d47"
+    },
+    {
+      "member": "dos\\b_disk.asm",
+      "sha256": "4c5f20d29550b035a8289286c1632bb806a342465420b0c93972c3f944c3d6b4"
+    },
+    {
+      "member": "dos\\b_equipl.asm",
+      "sha256": "fcb93119170938c60dddb0fd4ce30fbf97ba7c0f5600b76a72746a51e8191fc2"
+    },
+    {
+      "member": "dos\\b_keybrd.asm",
+      "sha256": "18989c35ba3193a8126a5bae827013a1288859863bcef3b510b4209b0463a948"
+    },
+    {
+      "member": "dos\\b_memsiz.asm",
+      "sha256": "c81186379edf64b6ea9524885f96d2bf56ea6cac6c7c225abb3c991b6a50114e"
+    },
+    {
+      "member": "dos\\b_print.asm",
+      "sha256": "aae259eb7799d003639af87f1b3af538162dae291d659d16f6b82a1d0d07b744"
+    },
+    {
+      "member": "dos\\b_serial.asm",
+      "sha256": "a84e8001f750bfc21516395150f55c5d315e5d7f1a941fe6bd879eedb742a28a"
+    },
+    {
+      "member": "dos\\b_timofd.asm",
+      "sha256": "8ee60f427b930377935c64ffd0ce7027cefce8409f50f1548806ba53f7bc5626"
+    },
+    {
+      "member": "dos\\chainint.asm",
+      "sha256": "ff54b72e4c375112afccebff3f53938c4339b3cfdfd8e32b3bdb07b7889274b3"
+    },
+    {
+      "member": "dos\\d_close.asm",
+      "sha256": "a43c63c322cc0d11397a365f379fc7ecada16f7784c7a325c10bc471e237c618"
+    },
+    {
+      "member": "dos\\d_commit.asm",
+      "sha256": "d79b5c46d7b095da5631b0fce00a7a2ad260023928e7ca09342fc6369f2d6f24"
+    },
+    {
+      "member": "dos\\d_creat.asm",
+      "sha256": "ee29f33dcc8daacb6b8e583d2f8f7c4f82a7e28a99230e42e967451a48babde3"
+    },
+    {
+      "member": "dos\\d_getvec.asm",
+      "sha256": "47a5b1197fcaf982c0c890b34621558d7553ade10e764fc69244ea452cc4ce71"
+    },
+    {
+      "member": "dos\\d_find.asm",
+      "sha256": "ece91eb60bc909f310722dc9261aea1760273c3a7e27f1e16551b9b3309f790e"
+    },
+    {
+      "member": "dos\\d_gfile.asm",
+      "sha256": "ecc6fc1a5e5262c8128447fd447fee3a246dfe947ad4119870638d6f6b59525f"
+    },
+    {
+      "member": "dos\\d_gftime.asm",
+      "sha256": "a988c7be307488c0cf2408ada68b25bf39747459b75eae38736cdb6e585429cd"
+    },
+    {
+      "member": "dos\\d_keep.asm",
+      "sha256": "5d977fd3c0c7b11d490a053e69f858b6b37d0dcc5cabdf5cd4de2836fba5edd1"
+    },
+    {
+      "member": "dos\\d_lock.asm",
+      "sha256": "5d13c6025fef6912e002a5514903a41ce93059e0e4129c1ff962a573c569ffee"
+    },
+    {
+      "member": "dos\\d_open.asm",
+      "sha256": "11effb8a10b15b4df03e53f540abc9660e36b2995b35097fdbe468ed824a02d0"
+    },
+    {
+      "member": "dos\\d_rdwr.asm",
+      "sha256": "8d22b1882496b313594f0f430323f406aba6a15bf10cdac11e2cf3350cbb32f5"
+    },
+    {
+      "member": "dos\\d_seek.asm",
+      "sha256": "38b0d86c0c0a140494f18e167e69c06ccbb1a9ea6688d2750bb0c937d47b9704"
+    },
+    {
+      "member": "dos\\d_setvec.asm",
+      "sha256": "141c6618a6af93a193047f9eed31b7955d6a5083f2673a90a8e6699087dc714c"
+    },
+    {
+      "member": "dos\\d_sfile.asm",
+      "sha256": "e506216eabe2b54852576b1c8963c771728c2a37aa7d44dadebfaf603cb13107"
+    },
+    {
+      "member": "dos\\d_sftime.asm",
+      "sha256": "b999e09fed103ff66e6b652529c8af0e93a2da9f62024abafe5018e14c47207c"
+    },
+    {
+      "member": "dos\\disable.asm",
+      "sha256": "1e124f8cc10b7f80a88436e9ac0aa11769b50d0059cea70d7c525f569053ad99"
+    },
+    {
+      "member": "dos\\diskfree.asm",
+      "sha256": "5c3008d8278b3021d3c54fa4d99fa285d6049e562c5b9282c6f39d1700df35fa"
+    },
+    {
+      "member": "dos\\enable.asm",
+      "sha256": "379cee0dc47b8a74ea857d7d16f7cb4f5f26172404b891ba999486a2aeb7b78b"
+    },
+    {
+      "member": "dos\\freemem.asm",
+      "sha256": "143d2bdac2abef54e756a4aa3ba065557568e407b22c9a00141c87b74116dd7d"
+    },
+    {
+      "member": "dos\\getdate.asm",
+      "sha256": "8e0a0c829ba5e6c5481839ca3424f668a06ef144d2753330ceb55ec27e8f2018"
+    },
+    {
+      "member": "dos\\getdrive.asm",
+      "sha256": "81d628e605ae97d97f65251e131560600877cf21bab09abc85a6df9a56f7ae9d"
+    },
+    {
+      "member": "dos\\gettime.asm",
+      "sha256": "d25b6d4dc1397a1263b85e592b16b3c0870c540740dd70029bd95b5b47db868e"
+    },
+    {
+      "member": "dos\\harderr.asm",
+      "sha256": "ee1f9f479a73cf59a51b8f439c92dcd48b29ef5c4fd75d526bbe837020745d5e"
+    },
+    {
+      "member": "dos\\hardretn.asm",
+      "sha256": "7ef04e2d25899afba1fc590d38ab2202312ed9d001e76a7596b7405fd2183b63"
+    },
+    {
+      "member": "dos\\inpw.asm",
+      "sha256": "94c1ca70bbdf651954d89562961729b9eac8fed3c4c98b7d533d34d2347fa672"
+    },
+    {
+      "member": "dos\\outpw.asm",
+      "sha256": "fd8342d14611c7932ed3ddbfcfe7aae4c6c31c40fd45799e0eece0d8bf391e4d"
+    },
+    {
+      "member": "dos\\setblock.asm",
+      "sha256": "d62f370e9c601b18ac8161483889e1d873816f7b448b8deaf711e8431c1cb109"
+    },
+    {
+      "member": "dos\\setdate.asm",
+      "sha256": "d40d18394ae0b25b83160edb78307be63c3195811e4cdea747d3b8ef51b15337"
+    },
+    {
+      "member": "dos\\setdrive.asm",
+      "sha256": "88cbca64961a26b521a026791a41801da89989c9b71ac3b27885b09ad30c9256"
+    },
+    {
+      "member": "dos\\settime.asm",
+      "sha256": "2451500360851e569b6817e31cf0ce03ba2031ca0c9962d1cb576645f04da8c5"
+    },
+    {
+      "member": "bat16.asm",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "member": "batdos3.asm",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "member": "libcinfo.c",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "member": "aldiv.asm",
+      "sha256": "4b7fc61286135c51c940b0575ee7da7bd6d7993d9a51cb3bb5ee922f92e4cc3e"
+    },
+    {
+      "member": "almul.asm",
+      "sha256": "3400e04fa463b60e55177a60ccee06bf9e51d0d26d38ff6d09f64dba99fa97c3"
+    },
+    {
+      "member": "alrem.asm",
+      "sha256": "4b7fc61286135c51c940b0575ee7da7bd6d7993d9a51cb3bb5ee922f92e4cc3e"
+    },
+    {
+      "member": "alshl.asm",
+      "sha256": "9fb63fdddea1796c793ec43a98eabe04f6165995cc89c38ae446e56e1cda7311"
+    },
+    {
+      "member": "alshr.asm",
+      "sha256": "9fb63fdddea1796c793ec43a98eabe04f6165995cc89c38ae446e56e1cda7311"
+    },
+    {
+      "member": "auldiv.asm",
+      "sha256": "4b7fc61286135c51c940b0575ee7da7bd6d7993d9a51cb3bb5ee922f92e4cc3e"
+    },
+    {
+      "member": "aulrem.asm",
+      "sha256": "4b7fc61286135c51c940b0575ee7da7bd6d7993d9a51cb3bb5ee922f92e4cc3e"
+    },
+    {
+      "member": "aulshr.asm",
+      "sha256": "9fb63fdddea1796c793ec43a98eabe04f6165995cc89c38ae446e56e1cda7311"
+    },
+    {
+      "member": "ldiv.asm",
+      "sha256": "4b892f30b203bcccebf1fc3fe0bd407fad6c7b120c5e507cfd1802b2283d1a4f"
+    },
+    {
+      "member": "lmul.asm",
+      "sha256": "4bd1f82afc489d0d44c689ff0dae13b7ef36b813f1387cc28282805d43605af6"
+    },
+    {
+      "member": "lrem.asm",
+      "sha256": "5844b3bc7c5f3fd5404e19b57e4c9e2e487d39a86973368ce813d8ba0e39ac70"
+    },
+    {
+      "member": "lshl.asm",
+      "sha256": "53819e26faf6fd606ee591ea0eb5a7d110c12733a62b9f707b55551f3f21cce8"
+    },
+    {
+      "member": "lshr.asm",
+      "sha256": "737c0d1aecd7683bb40be423c513443576a469fbbf48d6f448926f7e1fe2a6a1"
+    },
+    {
+      "member": "aldiv.asm",
+      "sha256": "dc248862380393d2aebfd87436c1417414cedf71fb6b0cea89637eeaa9055968"
+    },
+    {
+      "member": "almul.asm",
+      "sha256": "967022b2855024f12d98462dbd325bad3fc1441f92da297f99d9120c4988a4cb"
+    },
+    {
+      "member": "alrem.asm",
+      "sha256": "dc248862380393d2aebfd87436c1417414cedf71fb6b0cea89637eeaa9055968"
+    },
+    {
+      "member": "alshl.asm",
+      "sha256": "fa924fa57752c6e1faf0aa45916ff5a831045c5e0795201a348fd807f3a8218a"
+    },
+    {
+      "member": "alshr.asm",
+      "sha256": "fa924fa57752c6e1faf0aa45916ff5a831045c5e0795201a348fd807f3a8218a"
+    },
+    {
+      "member": "auldiv.asm",
+      "sha256": "dc248862380393d2aebfd87436c1417414cedf71fb6b0cea89637eeaa9055968"
+    },
+    {
+      "member": "aulrem.asm",
+      "sha256": "dc248862380393d2aebfd87436c1417414cedf71fb6b0cea89637eeaa9055968"
+    },
+    {
+      "member": "aulshr.asm",
+      "sha256": "fa924fa57752c6e1faf0aa45916ff5a831045c5e0795201a348fd807f3a8218a"
+    },
+    {
+      "member": "uldiv.asm",
+      "sha256": "91bcc6b7cba18a9791c65687351b4c468ae7f5f2cd2531e73ef5e0aec558e55a"
+    },
+    {
+      "member": "ulrem.asm",
+      "sha256": "8ebf0508d615c73f2e5fbc61f42093af58f430ebf5ac9ae422ad53a37492fdbe"
+    },
+    {
+      "member": "ulshr.asm",
+      "sha256": "9d39b0370f6a0a51898c0e287e2def835917144efa208d15290180d87ea6a66f"
+    },
+    {
+      "member": "aldiv.asm",
+      "sha256": "01aa6bb0e6a3de8b5957543547089df270b791c540af562ffa19a92d94e8aedc"
+    },
+    {
+      "member": "almul.asm",
+      "sha256": "e362e6c78aaae945cfbb2c594a1a569726e0af970207c3ac62de748e1fdbb7f8"
+    },
+    {
+      "member": "alrem.asm",
+      "sha256": "01aa6bb0e6a3de8b5957543547089df270b791c540af562ffa19a92d94e8aedc"
+    },
+    {
+      "member": "alshl.asm",
+      "sha256": "37a017022b15f841f2f77b636f771004494a8cf0bd718c26796e581ec9f61d97"
+    },
+    {
+      "member": "alshr.asm",
+      "sha256": "37a017022b15f841f2f77b636f771004494a8cf0bd718c26796e581ec9f61d97"
+    },
+    {
+      "member": "auldiv.asm",
+      "sha256": "01aa6bb0e6a3de8b5957543547089df270b791c540af562ffa19a92d94e8aedc"
+    },
+    {
+      "member": "aulrem.asm",
+      "sha256": "01aa6bb0e6a3de8b5957543547089df270b791c540af562ffa19a92d94e8aedc"
+    },
+    {
+      "member": "aulshr.asm",
+      "sha256": "37a017022b15f841f2f77b636f771004494a8cf0bd718c26796e581ec9f61d97"
+    },
+    {
+      "member": "ldiv.asm",
+      "sha256": "53d5e50d4cfa3e0802fbb6eefc88cc57c968749abdec67e6809a67e78f310d0f"
+    },
+    {
+      "member": "lmul.asm",
+      "sha256": "996f2a1f49fc051d8e222933b139551d3989becc301db01b196e3853dc97441b"
+    },
+    {
+      "member": "lrem.asm",
+      "sha256": "d45830a4a81011bff408386141ed8de1e0e81ef03a94c591ef3cfd731ea8b7ce"
+    },
+    {
+      "member": "lshl.asm",
+      "sha256": "891d6dd43c7edd3a19f56e7c261cbe7c3efa942801003ad82352b08fd6b6c301"
+    },
+    {
+      "member": "lshr.asm",
+      "sha256": "a74e1721307a29e246d82483fccf6138aff61b878bc8b76e09fc136e4ca7beb5"
+    },
+    {
+      "member": "aldiv.asm",
+      "sha256": "d7951231736248923af733ca150fea0b51e51e44e476c6fd2c7e82c69ee4f2e4"
+    },
+    {
+      "member": "almul.asm",
+      "sha256": "ce506171e4738a20e8cc8250b9d9054d19e23b34be4a6e320c0b42df70cef37f"
+    },
+    {
+      "member": "alrem.asm",
+      "sha256": "d7951231736248923af733ca150fea0b51e51e44e476c6fd2c7e82c69ee4f2e4"
+    },
+    {
+      "member": "alshl.asm",
+      "sha256": "1b092eebcbc48d52bd84000c492ed727448d04bf0fc44fe1a71555e979e5a63f"
+    },
+    {
+      "member": "alshr.asm",
+      "sha256": "1b092eebcbc48d52bd84000c492ed727448d04bf0fc44fe1a71555e979e5a63f"
+    },
+    {
+      "member": "auldiv.asm",
+      "sha256": "d7951231736248923af733ca150fea0b51e51e44e476c6fd2c7e82c69ee4f2e4"
+    },
+    {
+      "member": "aulrem.asm",
+      "sha256": "d7951231736248923af733ca150fea0b51e51e44e476c6fd2c7e82c69ee4f2e4"
+    },
+    {
+      "member": "aulshr.asm",
+      "sha256": "1b092eebcbc48d52bd84000c492ed727448d04bf0fc44fe1a71555e979e5a63f"
+    },
+    {
+      "member": "uldiv.asm",
+      "sha256": "a142483a701de6c9d6bd62e50e5efefc4b41b378e64e94b229c88dedcf8c6871"
+    },
+    {
+      "member": "ulrem.asm",
+      "sha256": "2c2cd3aae9b034de6233c1e06f40cb098a53b51cacbb14a9a66a6d444944c13f"
+    },
+    {
+      "member": "ulshr.asm",
+      "sha256": "10c46c2803e3944c0859d4b6b56a5b5fe5baf493b001417bdeeef43406101286"
+    },
+    {
+      "member": "llrot.asm",
+      "sha256": "324203fd867451231a2662feb5f398fd3374d6842605c166428c53ab519e0263"
+    },
+    {
+      "member": "llrot.asm",
+      "sha256": "3de8848c6824191aeca34a069ab7ad32d4cba8532e76d2849a1113f121a2b5c4"
+    },
+    {
+      "member": "lrrot.asm",
+      "sha256": "fbeecd394cc5831156dd8c14a91f9b0949203011fa0414244d707d8fcc35f0e9"
+    },
+    {
+      "member": "lrrot.asm",
+      "sha256": "07d3f4beac4d77c3c3ef675d6992cd020cc1976a777b8644d2805a55a00f85e8"
+    },
+    {
+      "member": "hmemcpy.asm",
+      "sha256": "9c44f0d06bb26830e4b9dc72c227e51b524aad88f3c194b2f6d811596d62c7e5"
+    },
+    {
+      "member": "hmemchr.asm",
+      "sha256": "29e217e21261b549780e4aa4335cb8b5ac59e04498c5a24ce9638b748edd5d81"
+    },
+    {
+      "member": "hmemcmp.asm",
+      "sha256": "b428baed10fbd514a694d6e37fd708184cd06c5ec8a47d4b4f2ec61ca13bfca6"
+    },
+    {
+      "member": "hmemcmp.asm",
+      "sha256": "e0c51e5874f186b8b5d5f5262fd408a22e0c0134edfba59b39a604d038c1003d"
+    },
+    {
+      "member": "hmemcpy.asm",
+      "sha256": "4b3737c47f9f67b274bf293f6c4cef3214cfc38805174aa742fb89016dd67687"
+    },
+    {
+      "member": "strchr.asm",
+      "sha256": "bad66133fb258485a9b737bc48fbc737a16a81c2547424850929fd7db528d7ab"
+    },
+    {
+      "member": "stricmp.asm",
+      "sha256": "26b0fd875c3a3782b95f3187adbd675a9367c2143de59c666f1625e135ace131"
+    },
+    {
+      "member": "strncat.asm",
+      "sha256": "f44ed440564dd98cc7628186a3d6387840327a2e9183a5a18f8fab715fef8854"
+    },
+    {
+      "member": "strncmp.asm",
+      "sha256": "8a1e93f7dd7dafd3cd5d17894d433f220fe5e65e5324f61dbdbd1efb0a8ed82d"
+    },
+    {
+      "member": "strncpy.asm",
+      "sha256": "b959aa6923dc0d47c2553794418d418d96dc9a6157672490b17f5e24ccefba12"
+    },
+    {
+      "member": "strnset.asm",
+      "sha256": "cb8a777d724dcb28754d53b7c3bb303d8c8ade29f8fbf7cf531f852f7c72fe87"
+    },
+    {
+      "member": "strrchr.asm",
+      "sha256": "3426d8eefefabbe2bab978a901a66e6573e132eb524a71e04e06446957aa4250"
+    },
+    {
+      "member": "strrev.asm",
+      "sha256": "923ab440410533954d230344bf07fe7c4c13b1ad8b271234e412a607a1c8a226"
+    },
+    {
+      "member": "strset.asm",
+      "sha256": "ab4043216a174d7b156134d38191e564a8340ac77edf893924dac07cc9c8e0e3"
+    },
+    {
+      "member": "strlwr.asm",
+      "sha256": "f150a9fcf5f1cdfa7facd55a63649dde1ce63e08052abd8c737a3f4e6020f93d"
+    },
+    {
+      "member": "strupr.asm",
+      "sha256": "65204feeae90441113de9cb248556a2d560fb9c731dc9dea661cca52cb4db37d"
+    },
+    {
+      "member": "strlen.asm",
+      "sha256": "9f1a6828afefb75c7966c5614c744806d113c7827a61372371d7a1cd57fc8683"
+    },
+    {
+      "member": "strcmp.asm",
+      "sha256": "e6710719cd58a55c5624ed93851434b51f1e8625fe7cbe9740bdce7911f56c08"
+    },
+    {
+      "member": "strcpy.asm",
+      "sha256": "1ccc6812553b45ad5882c0fb6706124124fdbf0285c0c735afc60664331cdf9e"
+    },
+    {
+      "member": "strcat.asm",
+      "sha256": "150acb324a7a16fe359bf026438ed1acab2510e2a2b3761b878e8f8894b41ab5"
+    },
+    {
+      "member": "hmemset.asm",
+      "sha256": "16cbc4b984fcaedda76def7bc57524a68ec460316d0ef21247f53ab67e7055df"
+    },
+    {
+      "member": "strcspn.asm",
+      "sha256": "52faaf903499102e5ce1ad9b94189d30e63a3a44bcd72c57ff17b91eefbb7bf3"
+    },
+    {
+      "member": "strpbrk.asm",
+      "sha256": "969dd53e7730c25b97efb688b1fabf6eb48ad525a82179a2f8fd644e50a46e27"
+    },
+    {
+      "member": "strspn.asm",
+      "sha256": "4b3f812a80d36c94138a5f254ba95c71a4825fde730c98c926e4c183d9298906"
+    },
+    {
+      "member": "strtok.asm",
+      "sha256": "98886d411fc8fd71529f2b4943d48ff07924ef379886a8a83eaea31f31de43b7"
+    },
+    {
+      "member": "strstr.asm",
+      "sha256": "67a96c3f940656b0e54d9d9d98b5da29a73ea5f8a5d7b205bef606963c51f351"
+    },
+    {
+      "member": "hmemcpy.asm",
+      "sha256": "12927e93921c25378ac9fd540f26bb4551d8b13f037d2ece8c36f32670bf1f54"
+    },
+    {
+      "member": "strnicmp.asm",
+      "sha256": "f702fcc8c65188de5725b41b97e50a7456e369ec9698db101a5d1b51706220da"
+    },
+    {
+      "member": "cxxalias.asm",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "member": "c:\\tmp\\vdtemp2.asm",
+      "sha256": "e020fc1570d54326a6097e5f00bf891eff6e71f60fed8a7f3689f51b780fde80"
+    },
+    {
+      "member": "c:\\tmp\\vdtemp2.asm",
+      "sha256": "95d0a1368d1873aaba340748791f76f0807801679f4e4149223dd37fbb3c76cb"
+    },
+    {
+      "member": "c:\\tmp\\vdtemp2.asm",
+      "sha256": "650518bf7a64bd30435ab090b6f2278801f49edfa24c1a27bd6d995bbd8717d2"
+    },
+    {
+      "member": "c:\\tmp\\vdtemp2.asm",
+      "sha256": "e5573b9a7c05445f689b5468e8adab0ad192edf51a859bf703ef0ebe4e2adb40"
+    },
+    {
+      "member": "c:\\tmp\\vdtemp2.asm",
+      "sha256": "ba29fce9b098610a764385b4b62c8a12ef8e4245b51ba7e677874e0e900ede0f"
+    },
+    {
+      "member": "c:\\tmp\\vdtemp2.asm",
+      "sha256": "72d7fb6ce4408922c61e0b5fa6dc28df9182ebf5726bbd2a34c475d01e370045"
+    },
+    {
+      "member": "c:\\tmp\\vdtemp2.asm",
+      "sha256": "e1cee414f9163b9b7a7586a83529ca7aac7afe30d08a0f85a45ea014fd687344"
+    },
+    {
+      "member": "c:\\tmp\\vdtemp2.asm",
+      "sha256": "b6b54cb0de4315bd3b8a2ca195bd420432be18636a52d746aa22521dd223bd30"
+    },
+    {
+      "member": "c:\\tmp\\vdtemp2.asm",
+      "sha256": "5a2927abd916867138836e9ad0b05b592fc0bb6d766215c77bbd4234b797ec55"
+    },
+    {
+      "member": "c:\\tmp\\vdtemp2.asm",
+      "sha256": "aedb52c53b4ab6ebf4630e23d0450756c0fa5d991619e899db6f45ba7146aed2"
+    },
+    {
+      "member": "c:\\tmp\\vdtemp2.asm",
+      "sha256": "d5a2ef784a1b069c87c7f32687d57bc099050cbb1cbd076cc5c343be8771aea8"
+    },
+    {
+      "member": "c:\\tmp\\vdtemp2.asm",
+      "sha256": "57c5a159bcb4a1241a892d05a04b7a9e15b69ec7123df70e2470c9a231681639"
+    },
+    {
+      "member": "c:\\tmp\\vctemp2.asm",
+      "sha256": "33df6f9776756963955d2f8b07131b9b34de1c0988819fb6b5fe658d5521f618"
+    },
+    {
+      "member": "c:\\tmp\\vctemp2.asm",
+      "sha256": "d978a5b659edb2d78a8e5958a1d385a19241bca18abf485d5c29978618758de2"
+    },
+    {
+      "member": "c:\\tmp\\vctemp2.asm",
+      "sha256": "7c33a8837903380dfe04009ed1960fd6b97779a4a2d76a0ab07979e96186f103"
+    },
+    {
+      "member": "c:\\tmp\\vctemp2.asm",
+      "sha256": "6b72754fbba9f90d35675d84092af8bf4bad782925a13fd96daf4a287f19bd06"
+    },
+    {
+      "member": "c:\\tmp\\vctemp2.asm",
+      "sha256": "550a38b4000051ca1ccb3b98fc4d47b6528914b7cf42fb9cc8608f19bf826ef4"
+    },
+    {
+      "member": "c:\\tmp\\vctemp2.asm",
+      "sha256": "5295cf67421ddc43bdc1e89e800f06327cd13976e106468b548ff0eb588e2966"
+    },
+    {
+      "member": "c:\\tmp\\vctemp2.asm",
+      "sha256": "644e59adc0188f71cee31c9c241d4abf883f24e604a683c9f4d5595b58366e30"
+    },
+    {
+      "member": "c:\\tmp\\vctemp2.asm",
+      "sha256": "05676442be97d381b49a3184c2b154a1a0f88673de1e0247b6b24377bd8f37bd"
+    },
+    {
+      "member": "c:\\tmp\\vctemp2.asm",
+      "sha256": "8c90cec126fb2ac1df044ace74c848ddd5ba804975997ac35655d8fb0b493e1b"
+    },
+    {
+      "member": "c:\\tmp\\vctemp2.asm",
+      "sha256": "94418259a24f4aa81fac8805a4f944f3ead61aa08cbfd7892941190da10260bf"
+    },
+    {
+      "member": "c:\\tmp\\vctemp2.asm",
+      "sha256": "f8cda376f4e807de43bc47435348fe88bd5e7cdce2a81cc9ecdc40152cf2c5d7"
+    },
+    {
+      "member": "c:\\tmp\\vctemp2.asm",
+      "sha256": "380b03b21cd669fe1658998cd8331f90f9341c870dafc8a72844b7f0490a4585"
+    },
+    {
+      "member": "c:\\tmp\\vctemp2.asm",
+      "sha256": "c43aed23bb377c84c3d7de1de053e01ecc0e4d2e01f82cc80c5d4d533083322a"
+    },
+    {
+      "member": "c:\\tmp\\vctemp2.asm",
+      "sha256": "b95fc00eff4d9d0258b81681d4dad07d9c39ee486b39e532cf06ba0ea4573c66"
+    },
+    {
+      "member": "c:\\tmp\\vctemp2.asm",
+      "sha256": "7ad654c952166f382840a41aaf4938b20f9873b6c70036c1b9475ac138511d0e"
+    },
+    {
+      "member": "c:\\tmp\\vctemp2.asm",
+      "sha256": "44077a6ef882094d753118c2de3c40629e280b54ba18b01f903b550a202de07e"
+    },
+    {
+      "member": "c:\\tmp\\vctemp2.asm",
+      "sha256": "f82a42c5debbb811595e6373053c3bf0b3bfcfe90850823de7e3e9cf90f6dea9"
+    },
+    {
+      "member": "c:\\tmp\\vctemp2.asm",
+      "sha256": "443b1766a4e058f999d24c6e24a73e8db5d783036e5c57073a22dff6a5d90732"
+    },
+    {
+      "member": "c:\\tmp\\vctemp2.asm",
+      "sha256": "b6061687da70a9a34af943475e921689bbd7bf84282e1abd6cdd8da7c92ff239"
+    },
+    {
+      "member": "c:\\tmp\\vctemp2.asm",
+      "sha256": "63e102d1b30aadfd93a27589768342a8516fd7a34c93e9df5944db9b721dc627"
+    },
+    {
+      "member": "c:\\tmp\\vctemp2.asm",
+      "sha256": "7836d3e45dc5d2090dc1cdd8334821ceba679e0b89a53bceb97e8d85d8f0cafc"
+    },
+    {
+      "member": "c:\\tmp\\vctemp2.asm",
+      "sha256": "686a4def88703851f2885449cd9e2b620963988fbf18f2ad734ef25ca782da8f"
+    },
+    {
+      "member": "c:\\tmp\\vctemp2.asm",
+      "sha256": "6a64cf92b990468dbd552ffc856eaba71311f53ea694fa914e3fb56e63a72397"
+    },
+    {
+      "member": "c:\\tmp\\vctemp2.asm",
+      "sha256": "82f89aad358cdcd3e6405b17f50e3574157a5151a40e6f527b0ddccc7367518a"
+    },
+    {
+      "member": ".\\87disp.asm",
+      "sha256": "db0df9be74d92868e475bed52facff330c4a4378a578eed38a939c06c474cc46"
+    },
+    {
+      "member": ".\\87cabs.asm",
+      "sha256": "f34b822e72a0530707c39499e56ca3950f6142bb154736bfa5cc844779cc6d0f"
+    },
+    {
+      "member": ".\\87sqrt.asm",
+      "sha256": "bfa96b54b797fc8a37a602295ca51fbb74076b44cc7fd57d14e56dc28af93624"
+    },
+    {
+      "member": ".\\87tran.asm",
+      "sha256": "d3bf885a69ab4f1c7448022a9d2f6e7bc0f0a3d861223bd579ad4ca24360b85e"
+    },
+    {
+      "member": ".\\87trig.asm",
+      "sha256": "987f1a654d86b48b68e597be04882e4f5515776a2eb8bab421e6f59fff8a4c4d"
+    },
+    {
+      "member": ".\\87triga.asm",
+      "sha256": "ccaae6d397ef5fabbcc45bc4b5ddbc372086d9a577da2231322237ef15d82e91"
+    },
+    {
+      "member": ".\\87trigh.asm",
+      "sha256": "bbc3f652397638b23dcf34f0a9f010ad080dc545712d04dcf6c66c0e8a9dbfe7"
+    },
+    {
+      "member": ".\\emtrigx.asm",
+      "sha256": "a8b85df6b350c8a6f3e8b2b0a3a03ebc4176ee3713e4e8549e1f1681f3dafd0e"
+    },
+    {
+      "member": ".\\fixups.asm",
+      "sha256": "f83dc5e88a5d1bb27b32a73840a38cc1c476a0b9b7332c20324b16a775336d4c"
+    },
+    {
+      "member": ".\\ixtomx.asm",
+      "sha256": "7aeb6891766af2598e02d302deb7d725f6f9079a1417e6bb44cfb2569ecc7ebf"
+    },
+    {
+      "member": ".\\x8fin.asm",
+      "sha256": "7963f67a47bcfcfdbf981c86b9d28a146271272c96c537d6b0316d6105897ba2"
+    },
+    {
+      "member": ".\\x8fout.asm",
+      "sha256": "e701c75b8e6d47a6804621d2a05ff3ece0d48c4551459d0880c127717b5c8329"
+    },
+    {
+      "member": ".\\x8tmul.asm",
+      "sha256": "cddb37edacf433d96541c2285237648b65b4e1dfcaaa7abcce2e6fcdf0f4b529"
+    },
+    {
+      "member": ".\\fastadd.asm",
+      "sha256": "f595c8a1e49866f007eef9c7d98a0c765a0bc261f72a8ebf6cc37f35a5d57160"
+    },
+    {
+      "member": ".\\fastmult.asm",
+      "sha256": "d586a9632be921ec4c77c2f4cf19eddbe3eca9ca88cfeabaa99e2e26f0a64b94"
+    },
+    {
+      "member": ".\\x10fout.asm",
+      "sha256": "4104a0dac208ddd0c7cdbb9170670e79047421f457be347521592cd067e61561"
+    },
+    {
+      "member": ".\\x10tmul.asm",
+      "sha256": "b8f717b8ac5796c710b87988b5956dd2cc42b9e8da469bf7afe27764d75f7262"
+    },
+    {
+      "member": ".\\tenpow.asm",
+      "sha256": "a4b810867f7f921b9ec6411a1a822ade8390f39c9f065340f8a77cfb862c39ba"
+    },
+    {
+      "member": ".\\mantold.asm",
+      "sha256": "426bb892863111c78b51d5257a14b685f8dbc26f26130f28c95c365fa133ee35"
+    },
+    {
+      "member": ".\\strgtod.asm",
+      "sha256": "41ea313b4117b89b70a938885bfcd6849338a3c4edb35bf74ef45820e086cf2f"
+    },
+    {
+      "member": ".\\strgtold.asm",
+      "sha256": "9c0986742bfee71418e86279ca864eab2e5f5361b6187527389a407d4956baea"
+    },
+    {
+      "member": ".\\arndfstr.c",
+      "sha256": "76ba49acf75f095ec7ca2e27f13610da0b8fc8942504d66e28ad925f9165c583"
+    },
+    {
+      "member": ".\\bessel.c",
+      "sha256": "c57128aeb518d36c09139ca496b6386c503bd768762dc12e4be391a1dfada997"
+    },
+    {
+      "member": ".\\bessel.c",
+      "sha256": "4bf0d9573c3f53853da097e40e9b8259559a90fd085643919ba7f31a3f193713"
+    },
+    {
+      "member": ".\\cvt.c",
+      "sha256": "87e663ca9c41a78177da3d39446a6dcb34a29845fb821fc2aeca9da65a480f97"
+    },
+    {
+      "member": ".\\87ccabs.asm",
+      "sha256": "3e0cfe586738965a74950e0026dc742ef3cfcd9e38b120f7c0823e1cbafc6b95"
+    },
+    {
+      "member": ".\\87csqrt.asm",
+      "sha256": "3e0cfe586738965a74950e0026dc742ef3cfcd9e38b120f7c0823e1cbafc6b95"
+    },
+    {
+      "member": ".\\87ctran.asm",
+      "sha256": "3cbd1630906605790c3a84ffae1b4c25bdf8f7f840e258892ad3e8cffd372675"
+    },
+    {
+      "member": ".\\87ctrig.asm",
+      "sha256": "b4adc3ca21a5360b94cb7bff5d19449ea5edc16072398a7c45ca54cdb9bf3235"
+    },
+    {
+      "member": ".\\87ctriga.asm",
+      "sha256": "18f58247c639ce02d53a01274a60d24693be8a9de43740c6c8ac99e929bca311"
+    },
+    {
+      "member": ".\\87ctrigh.asm",
+      "sha256": "b4adc3ca21a5360b94cb7bff5d19449ea5edc16072398a7c45ca54cdb9bf3235"
+    },
+    {
+      "member": ".\\87exist.asm",
+      "sha256": "3a7b4f774613c992d2744e43296a8725dfb3dde62108dfaf5f216aa34a1b313d"
+    },
+    {
+      "member": ".\\87fcall.asm",
+      "sha256": "cc8d4e2f4c1850919e2284493e6047e455d179867746946d29dc62b2353b9c8c"
+    },
+    {
+      "member": ".\\87ccall.asm",
+      "sha256": "053ce2155691aaa6daadaf2d5e17e1873929da08c827e16e750c9f747b81e4ae"
+    },
+    {
+      "member": ".\\87ccallf.asm",
+      "sha256": "0c950d40a4a9ce30f90f8729a320eb0f5dfa157b23f43c29653a195a0a78a51c"
+    },
+    {
+      "member": ".\\87ccalls.asm",
+      "sha256": "288e04ee64995574b1ee8806bc4a365df00e250946c571325d4615b602bfd589"
+    },
+    {
+      "member": ".\\87cdisp.asm",
+      "sha256": "928e581204f353b5236f3b197de84a5466f75e801b01a966ecd1dfad390687ad"
+    },
+    {
+      "member": ".\\87cldisp.asm",
+      "sha256": "656a8f381b2ce702f7fdfca8cf216fc0c76a03764bb9608fe4e7db5f8c3c058d"
+    },
+    {
+      "member": ".\\87ceil.asm",
+      "sha256": "61ba448b7b7644410f6ff8091a27f8fd535473102f7bb17e58d4f0ff4fc2db85"
+    },
+    {
+      "member": ".\\87fcmp.asm",
+      "sha256": "c774fe604fe6e6c6a5bef2fd8f6d9f433a55ed14fd9521febedaea2515a9ccc4"
+    },
+    {
+      "member": ".\\87floor.asm",
+      "sha256": "83e09846f7ee0092f7f316c8c36f8e110b7b2a38c4d5d2ca699fcd62a7a1a701"
+    },
+    {
+      "member": ".\\87fmod.asm",
+      "sha256": "f78784307532d7023395fa4ea6549fcf0cbf77344d9a11f8fc0ac770372ecfb7"
+    },
+    {
+      "member": ".\\87ftol.asm",
+      "sha256": "9d609dd8e37dcccbe531e3c3c3fdab49ebc9f6ddfeb492bb4aef1d32ebed00f0"
+    },
+    {
+      "member": ".\\87ifabs.asm",
+      "sha256": "4a86afb233344928a36b1c94861107e5f96bf34eeec53ff7a48f0a8ec9ca7acc"
+    },
+    {
+      "member": ".\\87minmax.asm",
+      "sha256": "807224f37028b341035a51cf5ff1c0452be507de639048a329d2bda528f066ee"
+    },
+    {
+      "member": ".\\87ldexp.asm",
+      "sha256": "c410757eaff1d6c0bcfbd90c83d28ce2a117f672ca8d6464ebd05a5ec71c2b83"
+    },
+    {
+      "member": ".\\87modf.asm",
+      "sha256": "7fb86c23d26d8a9b4d5e6c7c9bead4cd6940cf9aff06a923127c0096c447072a"
+    },
+    {
+      "member": ".\\cfinn.c",
+      "sha256": "a9eeaed749375c6ce854115b895e6738b72d392b0890fede6a13deef8db4b4fa"
+    },
+    {
+      "member": ".\\cfout.asm",
+      "sha256": "fb85b72c7108db57aada54ac2893331092b02f6b1b449e205575590d5351acdf"
+    },
+    {
+      "member": ".\\cfpsig.asm",
+      "sha256": "b3d9084bedec473fa1b9aa9d2b955dd2006162cbf33db6155ca4befce7ee3cc1"
+    },
+    {
+      "member": ".\\cixtomx.asm",
+      "sha256": "1eea07cb61644c543a860ccdafc307527f4e3f6e259048f6e5240b53dfbd40a8"
+    },
+    {
+      "member": ".\\fabs.asm",
+      "sha256": "1ab61d7bca924dbc3317c79a5583fe37b7f5737e48540061947f7d5f012f9e36"
+    },
+    {
+      "member": ".\\fltusedc.asm",
+      "sha256": "639a8ae25712db41abcb27f27438c12a4104e90ba9966f14ecccc6a1bc105faa"
+    },
+    {
+      "member": ".\\ldusedc.asm",
+      "sha256": "f2a98256ee4214c66b1c03e9a735bed10a26be5050fe8551b6881f5e57f6a0c2"
+    },
+    {
+      "member": ".\\fpreset.asm",
+      "sha256": "a121b2ea953e49863db4a2eca5f53d9299528c3e6ad1d73370cdc9648187990b"
+    },
+    {
+      "member": ".\\frexp.asm",
+      "sha256": "02746c2d77e3527997d6ffc6ecafb6d15063298877ddc7ba6a5c9bf9f29d9c43"
+    },
+    {
+      "member": ".\\huge.asm",
+      "sha256": "884960bd8e88b97569d97bee58953827579c4f7fcabc88953d50d36861855df1"
+    },
+    {
+      "member": ".\\ieee.asm",
+      "sha256": "fed8eb690fefdd72143ab145410538a59dcf4d702cbef6b479b00055b4f71574"
+    },
+    {
+      "member": ".\\matherr.asm",
+      "sha256": "3c8e90f4aed45db7311008389df46352bdbe960f83a6a1ce7892cb95fb1d48cc"
+    },
+    {
+      "member": ".\\xfld1.asm",
+      "sha256": "3fb928f9acaac9e8bcfa3bf7e5c3fda19d3b9cb78a41e58297d872e28c6b7aea"
+    },
+    {
+      "member": ".\\87ccabs.asm",
+      "sha256": "3e0cfe586738965a74950e0026dc742ef3cfcd9e38b120f7c0823e1cbafc6b95"
+    },
+    {
+      "member": ".\\87csqrt.asm",
+      "sha256": "3e0cfe586738965a74950e0026dc742ef3cfcd9e38b120f7c0823e1cbafc6b95"
+    },
+    {
+      "member": ".\\87ctran.asm",
+      "sha256": "3cbd1630906605790c3a84ffae1b4c25bdf8f7f840e258892ad3e8cffd372675"
+    },
+    {
+      "member": ".\\87ctrig.asm",
+      "sha256": "b4adc3ca21a5360b94cb7bff5d19449ea5edc16072398a7c45ca54cdb9bf3235"
+    },
+    {
+      "member": ".\\87ctriga.asm",
+      "sha256": "18f58247c639ce02d53a01274a60d24693be8a9de43740c6c8ac99e929bca311"
+    },
+    {
+      "member": ".\\87ctrigh.asm",
+      "sha256": "b4adc3ca21a5360b94cb7bff5d19449ea5edc16072398a7c45ca54cdb9bf3235"
+    },
+    {
+      "member": ".\\87ceil.asm",
+      "sha256": "0dccc53b7c5319faf71d265b1280da6a1a1fb8b563590c70ff067b8e70d615e4"
+    },
+    {
+      "member": ".\\87lfabs.asm",
+      "sha256": "eceec73636629b223dbc54556c516f85073f25928cafc4d8aafb958759eb1867"
+    },
+    {
+      "member": ".\\87floor.asm",
+      "sha256": "0dccc53b7c5319faf71d265b1280da6a1a1fb8b563590c70ff067b8e70d615e4"
+    },
+    {
+      "member": ".\\87fmod.asm",
+      "sha256": "72822b08c331c18cd3e4b5e97c999e474c5a8907451260f33e2a1cec047e1dd0"
+    },
+    {
+      "member": ".\\87ldexp.asm",
+      "sha256": "3a24a5eedfb7f266ab4b975390c628b49e127276095bf8ac189c0fb87a4b7352"
+    },
+    {
+      "member": ".\\87modf.asm",
+      "sha256": "a29351bca4dcd831eb9ca50180c2249e20125bb96a8d3c33d2b4f78de93709cb"
+    },
+    {
+      "member": ".\\cvtld.c",
+      "sha256": "e3bf056ef4f0577effa486ac8fd17ab8ce5579dc5b9c95d20a969c2abaf86bf2"
+    },
+    {
+      "member": ".\\huge.asm",
+      "sha256": "e347a3fc21fcf6f667bbe27844b51127422dc93b7158228cbc84d044849e6e89"
+    },
+    {
+      "member": ".\\matherr.asm",
+      "sha256": "c3b31fea9f7304e35c89eac5a413392387b4599dd1e645695261074d9228835e"
+    },
+    {
+      "member": ".\\frexp.asm",
+      "sha256": "dfb37cbb403d41031c9b6f3e03f799696f897eacafbc75886cb1d00bb4ce3686"
+    },
+    {
+      "member": ".\\atold.c",
+      "sha256": "510c46b823aab789af6822b98f9404fb44db07db747a95d20e8a269edb79d3b0"
+    },
+    {
+      "member": ".\\strtold.c",
+      "sha256": "d2d814c06f56ca0d259ee85e3e5ed29223eff1135907186b501ad6bbc123ad29"
+    },
+    {
+      "member": ".\\x87fcall.asm",
+      "sha256": "97a2627c1f832c65e82650995463a1ded85a369459094a6f6c262f0785637012"
+    },
+    {
+      "member": ".\\x87ccall.asm",
+      "sha256": "d90596454327ac46dfeff1cfcb36206848b2bc202f0e190c50ed0998db6a861e"
+    },
+    {
+      "member": ".\\x87ccalf.asm",
+      "sha256": "97a2627c1f832c65e82650995463a1ded85a369459094a6f6c262f0785637012"
+    },
+    {
+      "member": ".\\x87ccals.asm",
+      "sha256": "edf4095752202fd043e251fefe4510cd7afa1f71b1dc9d4a4591ce62a47e8ff9"
+    },
+    {
+      "member": ".\\x87ftol.asm",
+      "sha256": "78655bc265c2980b1b07f3b3e16c25cb0783400f0f624fee4569022036f53c53"
+    },
+    {
+      "member": ".\\x87fcmp.asm",
+      "sha256": "25cba529ea7afc1ddce6cad463d9852fb034d2bf674d917bd4bb37ced704c306"
+    },
+    {
+      "member": ".\\x87cfunc.asm",
+      "sha256": "fb9cfa48ac85bee6c46d8474f0beab30c3d359350636552028e1811158b04a1b"
+    },
+    {
+      "member": ".\\x87cfunc.asm",
+      "sha256": "fb9cfa48ac85bee6c46d8474f0beab30c3d359350636552028e1811158b04a1b"
+    },
+    {
+      "member": ".\\x87cfunc.asm",
+      "sha256": "af40056a46750f38120117364693d18940e4b0529561cc09a7e7d80d4507afbf"
+    },
+    {
+      "member": ".\\x87cfunc.asm",
+      "sha256": "e1ed4247221092391bffcb2ae3f360bb021354cc922c271f9f2e6ff19631cb21"
+    },
+    {
+      "member": ".\\x87cfunc.asm",
+      "sha256": "af40056a46750f38120117364693d18940e4b0529561cc09a7e7d80d4507afbf"
+    },
+    {
+      "member": ".\\x87cfunc.asm",
+      "sha256": "e1ed4247221092391bffcb2ae3f360bb021354cc922c271f9f2e6ff19631cb21"
+    },
+    {
+      "member": ".\\x87cfunc.asm",
+      "sha256": "fb9cfa48ac85bee6c46d8474f0beab30c3d359350636552028e1811158b04a1b"
+    },
+    {
+      "member": ".\\x87cfunc.asm",
+      "sha256": "fb9cfa48ac85bee6c46d8474f0beab30c3d359350636552028e1811158b04a1b"
+    },
+    {
+      "member": ".\\x87cfunc.asm",
+      "sha256": "fb9cfa48ac85bee6c46d8474f0beab30c3d359350636552028e1811158b04a1b"
+    },
+    {
+      "member": ".\\x87cfunc.asm",
+      "sha256": "78655bc265c2980b1b07f3b3e16c25cb0783400f0f624fee4569022036f53c53"
+    },
+    {
+      "member": ".\\x87cfunc.asm",
+      "sha256": "78655bc265c2980b1b07f3b3e16c25cb0783400f0f624fee4569022036f53c53"
+    },
+    {
+      "member": ".\\x87cfunc.asm",
+      "sha256": "422dc87577d04891f5213276ce4a63c3fcde20c696cc04ee651e3514fa1733d5"
+    },
+    {
+      "member": ".\\x87cfunc.asm",
+      "sha256": "76c7ba2dd3ef603f135a1b7a3ed41d83fa06c53d2d94d9a0edc9bae9b65481b9"
+    },
+    {
+      "member": ".\\x87cfunc.asm",
+      "sha256": "422dc87577d04891f5213276ce4a63c3fcde20c696cc04ee651e3514fa1733d5"
+    },
+    {
+      "member": ".\\x87cfunc.asm",
+      "sha256": "76c7ba2dd3ef603f135a1b7a3ed41d83fa06c53d2d94d9a0edc9bae9b65481b9"
+    },
+    {
+      "member": ".\\x87cfunc.asm",
+      "sha256": "78655bc265c2980b1b07f3b3e16c25cb0783400f0f624fee4569022036f53c53"
+    },
+    {
+      "member": ".\\x87cfunc.asm",
+      "sha256": "78655bc265c2980b1b07f3b3e16c25cb0783400f0f624fee4569022036f53c53"
+    },
+    {
+      "member": ".\\x87cfunc.asm",
+      "sha256": "25cba529ea7afc1ddce6cad463d9852fb034d2bf674d917bd4bb37ced704c306"
+    },
+    {
+      "member": ".\\x87cfunc.asm",
+      "sha256": "78655bc265c2980b1b07f3b3e16c25cb0783400f0f624fee4569022036f53c53"
+    },
+    {
+      "member": "iostrini.cxx",
+      "sha256": "c79a1da4d66a84bb263c448ecb8373cae3d72fdd364dee2701f3c37caefbb97d"
+    },
+    {
+      "member": "cininit.cxx",
+      "sha256": "bdc2054e25bc1ec5af3194b7f876b203d484412de469a4ad67eeb24f86421b75"
+    },
+    {
+      "member": "cerrinit.cxx",
+      "sha256": "1cfdfa3c245f28c85656d4b7ea1d344a7b866f013c1f3f5e2a2ecbff41601be4"
+    },
+    {
+      "member": "cloginit.cxx",
+      "sha256": "0217ebed82f64104d72873199b4a379933f3b699212d32f77b66db35b3344197"
+    },
+    {
+      "member": "iostream.cxx",
+      "sha256": "ec29eb5b95e314ec78c36ca38de40c009ce85d1f9af27765def47c6dddef0444"
+    },
+    {
+      "member": "streamb.cxx",
+      "sha256": "bc2e3d73958474e05c2af6c73355d83f47b09f5d12e18d4d32bcc8ef426ffcf2"
+    },
+    {
+      "member": "streamb1.cxx",
+      "sha256": "70aa452dd4b6c44c1dcd52a1803b4d7a9bb9adb4378731d0f6e76a5f66c86a1f"
+    },
+    {
+      "member": "ios.cxx",
+      "sha256": "b50ee47a9929886d87ed1d790879659245e7c3f6c40aa13572a108fc95bd3747"
+    },
+    {
+      "member": "istream.cxx",
+      "sha256": "0bc79c6360c63bc8cb2a95521152b0a7e162d32568669625f541058892a37bb8"
+    },
+    {
+      "member": "istream1.cxx",
+      "sha256": "bb8e5e195e80998e82b93975e22535272a64bc1068b663b758e6ea56f381059a"
+    },
+    {
+      "member": "istrchar.cxx",
+      "sha256": "1722ad025e61075ea8c1b193476bfa5967efcc3d751c4bcb5dba273c18793bf3"
+    },
+    {
+      "member": "istrget.cxx",
+      "sha256": "42756778ab00af8bf577f1eed4bdea1edf832f8002b6b58263885c28588fd313"
+    },
+    {
+      "member": "istrgetl.cxx",
+      "sha256": "1c0070c05114c289b35b7b8de229eaa80f82b33b117e74f65e29d55967857970"
+    },
+    {
+      "member": "istrgint.cxx",
+      "sha256": "3fd4cd16018b575a709280c7ca6ae755b5900609ad22f6277b45c24c7f44b4ed"
+    },
+    {
+      "member": "istrshrt.cxx",
+      "sha256": "48e5b3f9aa2f334b01651c23ca8cd57e885a0bdf2c2621961d23ae87cb735236"
+    },
+    {
+      "member": "istrusht.cxx",
+      "sha256": "b5f695bfe10fce7ecc17e176fe1e217e641d09f102b4c4c1a794d9fd2cb562ef"
+    },
+    {
+      "member": "istrint.cxx",
+      "sha256": "48e5b3f9aa2f334b01651c23ca8cd57e885a0bdf2c2621961d23ae87cb735236"
+    },
+    {
+      "member": "istruint.cxx",
+      "sha256": "b5f695bfe10fce7ecc17e176fe1e217e641d09f102b4c4c1a794d9fd2cb562ef"
+    },
+    {
+      "member": "istrlong.cxx",
+      "sha256": "52489a9bf702cb0e53855fc7da403ec120db484be6e1a72ec4b386113ed44890"
+    },
+    {
+      "member": "istrulng.cxx",
+      "sha256": "ef3e0a2e8d5b6db74ab37d576f9b0a58f41626d0fef21933438302c8ea0d1312"
+    },
+    {
+      "member": "istrgdbl.cxx",
+      "sha256": "de82e2eff7c1a1ed50850a64084ddb794693d15fa11fecfc7ffc0467f04da879"
+    },
+    {
+      "member": "istrflt.cxx",
+      "sha256": "3a0f217cff57d99b6c1f7363b3c922d6271f83c3f4825815e5b0eeecf531fcdb"
+    },
+    {
+      "member": "istrdbl.cxx",
+      "sha256": "6c1cdabeedc7591c094dcfd55a0c4427e7d0db7cc276f084a55bb7f12865f272"
+    },
+    {
+      "member": "istrldbl.cxx",
+      "sha256": "72e6906307f4e38549992eab4873feaddb89a2a2e082da2b55c21dba09f95a5c"
+    },
+    {
+      "member": "ostream.cxx",
+      "sha256": "bed9804dcea1791b524651fca854df6b8e406732cbab89fa2723c296b831251b"
+    },
+    {
+      "member": "ostream1.cxx",
+      "sha256": "d68756e2c99eaff01fc1533f303f549fdee1cb7a40b3700a8854cc1a446fde67"
+    },
+    {
+      "member": "ostrchar.cxx",
+      "sha256": "b703bfdcc55aee8ae90e954b1c1ddffdf2f7d5092842a5055a41562690f63154"
+    },
+    {
+      "member": "ostrput.cxx",
+      "sha256": "ed5090719c3893e9a09d107c430d67aca10d0b8a36036d18cc88cbeac3fbb0c7"
+    },
+    {
+      "member": "ostrshrt.cxx",
+      "sha256": "ce0afed82500598726b8f56dffaf95eff877cdfa955579cb4e9190b1dded2ffe"
+    },
+    {
+      "member": "ostrusht.cxx",
+      "sha256": "5337cc83c924adefeedf4d3fe349109f85d6e5ef45332bddb9e51240521983a5"
+    },
+    {
+      "member": "ostrint.cxx",
+      "sha256": "38c16f0d370dcc20a47a9b8aaab049cec330f506c38fa546a409f98363b685cd"
+    },
+    {
+      "member": "ostruint.cxx",
+      "sha256": "f52fb8f75121f75eaa53d1886a3a3855d860049593ab01b6718a07b939fa09e0"
+    },
+    {
+      "member": "ostrlong.cxx",
+      "sha256": "519763fb2e5a89f9164139008b25c42357274e8ce6522fb1a617f8d9c6523704"
+    },
+    {
+      "member": "ostrulng.cxx",
+      "sha256": "977f2fda4f32a630a999d3d03ca7e120aa821bc0f4a578459504f74b1b87f04d"
+    },
+    {
+      "member": "ostrptr.cxx",
+      "sha256": "efa88c62c3febab094a7663bf5047ccc864a43d69d6bd12896e8c60d60c8daf0"
+    },
+    {
+      "member": "ostrdbl.cxx",
+      "sha256": "2fd689ddfa6495cf053398b1068f1e6f9a2f5345052ea41c0cbab0d2237c7275"
+    },
+    {
+      "member": "ostrldbl.cxx",
+      "sha256": "c5ec3a79bf968cd1beb4fb162165f601ece22247042ca6cf65ea9606bd5db7ce"
+    },
+    {
+      "member": "filebuf.cxx",
+      "sha256": "57eb4cdc4222651164e4611009d02ea4a01723f87a8ffd49448de7940f2a5ade"
+    },
+    {
+      "member": "filebuf1.cxx",
+      "sha256": "2b9bf5466dff6257fbd6348ddc252bd190c31e59e11cc14bfdbfd4ce3d5c3b63"
+    },
+    {
+      "member": "ifstream.cxx",
+      "sha256": "20707abfdb4ff5a335ef1229333b900aebb1e2bf626f0492b3f1f6e3e2fec06d"
+    },
+    {
+      "member": "ofstream.cxx",
+      "sha256": "cdf6b3bf56f20493b0a3c11654d2272e6832b130af57b64acf3671c278cfc00a"
+    },
+    {
+      "member": "fstream.cxx",
+      "sha256": "0b25a0daf11e44aa49c69cc14586efd297b96253e7c7ebc613a15459c9b72d22"
+    },
+    {
+      "member": "strstrea.cxx",
+      "sha256": "748b93819ad917dbaf9fcbab219b7a40a5dc21313774ebbc47e673bd8d2899ad"
+    },
+    {
+      "member": "strmbdbp.cxx",
+      "sha256": "3ee284a0f375b112cc392561a833f6f14caa622ff5af70d45fb81cc9e178aaed"
+    },
+    {
+      "member": "stdiostr.cxx",
+      "sha256": "cfc0d25d7356cf8b219124e392e2bdb92e1fff4d03cbf8173365bf90b9f4e981"
+    },
+    {
+      "member": "wcore.asm",
+      "sha256": "9f9630f6306fdbce14880e115589eca06d95dfcb6cbcf229d13c25150c9a3b27"
+    },
+    {
+      "member": "wmpsnpfn.asm",
+      "sha256": "3b131a24afa0c0cf96e4a8936d5a9d6fc906c53a530b472ac35ea870764193ec"
+    },
+    {
+      "member": "wfp.asm",
+      "sha256": "238828f49ae0d660d869213e0415fe9eb20df7d121806dd8d82afc7788aa6442"
+    },
+    {
+      "member": "wlongbit.asm",
+      "sha256": "45ad2a60eccc79324aa0c262386a02694cbcb012270ca2c8c3605dcca742a301"
+    },
+    {
+      "member": "whugeptr.asm",
+      "sha256": "925de3326fc0805cf9fde99f6a2518ba391d6da94ba83742e165ffe2de133ac3"
+    },
+    {
+      "member": "wretlds.asm",
+      "sha256": "27f967e44140b27c47161c3fba57857db27559c4fd2f23714e390f1fcf913520"
+    },
+    {
+      "member": "..\\gr\\qcwindow.asm",
+      "sha256": "3035617a060f3bc1c58203aad3d719f5a5f1592319f3e247149d0c9197b6b75e"
+    },
+    {
+      "member": "..\\gr\\grfpinit.asm",
+      "sha256": "9dbaf887dd1629ceae564707b0e96f1e2095bd7302b6e78cbee18be26a3bec58"
+    },
+    {
+      "member": "..\\gr\\grwindow.asm",
+      "sha256": "d406814a2e93eebb283186dbcad0de7418227902902927e6ed5123f75a52f71e"
+    },
+    {
+      "member": "\\vm_bld\\src\\dos\\alias.asm",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "member": "\\vm_bld\\src\\dos\\vheap.c",
+      "sha256": "8c3425df343b9311c029905d5590c92b802e22eef6a0284a4a43dd22912869f8"
+    },
+    {
+      "member": "\\vm_bld\\src\\vm.c",
+      "sha256": "6b1db42ae0c3ea52e7767e5e14d60b31c3ce89c00808ba1ec1957cf7b42dc35e"
+    },
+    {
+      "member": "\\vm_bld\\src\\vmalloc.c",
+      "sha256": "cfffb738e4d994ffbe0fe790a46077f79025435b4b8333bf51b27016fe9b4a9e"
+    },
+    {
+      "member": "\\vm_bld\\src\\vmassert.asm",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "member": "\\vm_bld\\src\\vmdisk.c",
+      "sha256": "de2ba7b93ec13f54793aef88e69481a2eafa7100a6321bc7d6534235790f390e"
+    },
+    {
+      "member": "\\vm_bld\\src\\vmem.asm",
+      "sha256": "7cc7e5b6ad583116e2af5a40437b4cc8997998bc11756d842693980ffdf077e3"
+    },
+    {
+      "member": "\\vm_bld\\src\\vmems.c",
+      "sha256": "20db43f5c6e33611d729b949d481f4a6ca069b857a7c9dba3df00a22b51ac0c4"
+    },
+    {
+      "member": "\\vm_bld\\src\\vmfree.c",
+      "sha256": "90ff811da0dca643e9c827315ed27cb5f7b95610238fe198551f43108ecd0893"
+    },
+    {
+      "member": "\\vm_bld\\src\\vmlist.c",
+      "sha256": "0400184c9c0cf3f9ba9dedf4d5202e1903cc58a02d88775a3cff7bf3855d2922"
+    },
+    {
+      "member": "\\vm_bld\\src\\vmlock.c",
+      "sha256": "c86b53dcb576f3da6f28cbef7baf1ec2941faa33e41a95237341660547e57f54"
+    },
+    {
+      "member": "\\vm_bld\\src\\vmlockc.c",
+      "sha256": "33866433b286555c22bc46d29ceee85c5a630e135b0b5d34c6f800d90b076259"
+    },
+    {
+      "member": "\\vm_bld\\src\\vmlockm.c",
+      "sha256": "bf0626d73efde6b5b2ccf7e567d3fdcd7eeec09351d9add2a236a63de2f8ba27"
+    },
+    {
+      "member": "\\vm_bld\\src\\vmphys.c",
+      "sha256": "e1ca4fb0f5eb61fda20d5ce5595b5870ff80742a8ac5cc50e1937ab787491c5e"
+    },
+    {
+      "member": "\\vm_bld\\src\\vmprintf.asm",
+      "sha256": "f2e28b3904d8fc73b8b35b904f1e4dd2c82a9087dd861f4da02f3eb3958393db"
+    },
+    {
+      "member": "\\vm_bld\\src\\vmutil.asm",
+      "sha256": "dae6fda67f3ce1812af1f759421c8611762305c5a91a003e74c22bb38c6647a2"
+    },
+    {
+      "member": "\\vm_bld\\src\\vmxms.c",
+      "sha256": "655e28825c60c57978bb0950c26a36dc1349aa0327474a48e9f0228f90d25781"
+    },
+    {
+      "member": "\\vm_bld\\src\\alloc.c",
+      "sha256": "06a305feda85d879a4186f16e2eddc303a755f2a78d193983abd60e36b0261a5"
+    },
+    {
+      "member": "\\vm_bld\\src\\vfree.c",
+      "sha256": "33125c3543423a016c2c656adc32b19f862b02e1cfe7ac16b64c9bbdf1ab8fec"
+    },
+    {
+      "member": "\\vm_bld\\src\\listmgt.c",
+      "sha256": "3ae9b62c1f8b9979355c2be49f21dee9c4c76c9134c233f58006673fd00e8b5f"
+    },
+    {
+      "member": "\\vm_bld\\src\\load.c",
+      "sha256": "8765c73c9a1e69d7484193897ef30d5c15544d3fcb55e4676f7cc97b55b57a0b"
+    },
+    {
+      "member": "\\vm_bld\\src\\lock.c",
+      "sha256": "e690a927830b60c6b223de4241811fd470452c7f0dd251939d146772b1109119"
+    },
+    {
+      "member": "\\vm_bld\\src\\vrealloc.c",
+      "sha256": "d487e6cfcd6f1807716af5591ccdf47f4e39e0b789e8dbc094f50bd53a07340c"
+    },
+    {
+      "member": "\\vm_bld\\src\\size.c",
+      "sha256": "2e37b13e1638e7f8234908440f4c4e3124310a5a91a2ec04aea08476b1930502"
+    },
+    {
+      "member": "\\vm_bld\\src\\stub.c",
+      "sha256": "0420f353ed7850dff4db63b8f34d713fae481294879b2cc55b6f6fa4f310411d"
+    },
+    {
+      "member": "\\vm_bld\\src\\ems\\ems.asm",
+      "sha256": "7fd138b3f4a190d950f4e3a4208777d58adbdeb8fa620c62d1f52c3bc05e4fc6"
+    },
+    {
+      "member": "\\vm_bld\\src\\ems\\ems40.asm",
+      "sha256": "06ba0bd4445003f8b07f2f4dcd2bf7b041482c91c9629b213c67af50aeba40f1"
+    },
+    {
+      "member": "\\vm_bld\\src\\ems\\ems41.asm",
+      "sha256": "ee8cedfa4d5981b9cf30223b6092ec9fe182bd2f0e34c1d9c8b2f44f1b6e5b0f"
+    },
+    {
+      "member": "\\vm_bld\\src\\ems\\ems42.asm",
+      "sha256": "15ce7c0af253066788feff9c4ea606aec52d08ad0d9f6fe5ff3da37efa02780e"
+    },
+    {
+      "member": "\\vm_bld\\src\\ems\\ems43.asm",
+      "sha256": "3e8d3ab63127acd3938a893ae8e5c68e0ee33ba05f57a426a8713dcc55e13335"
+    },
+    {
+      "member": "\\vm_bld\\src\\ems\\ems44.asm",
+      "sha256": "12f87b072a471beffccb3389b89bc12883cccbf525e5d236ed3fdfe468f88a89"
+    },
+    {
+      "member": "\\vm_bld\\src\\ems\\ems45.asm",
+      "sha256": "c74e1141dfbc36e2796aa5501b131e161177085f0ce902a2da5fe152e5714bf8"
+    },
+    {
+      "member": "\\vm_bld\\src\\ems\\ems46.asm",
+      "sha256": "fc31a4079f24500effdd16349f50c15d83dd11d597af667e7741962c2fa9c8fa"
+    },
+    {
+      "member": "\\vm_bld\\src\\ems\\ems47.asm",
+      "sha256": "092ffdc94eb9209f3c4d9dace87d897354ff7455183e28a151a80d626ba5491f"
+    },
+    {
+      "member": "\\vm_bld\\src\\ems\\ems48.asm",
+      "sha256": "69a402b620f801b3e47bb8794670c2ca4f56d2e5892740d4762f3af41b5ef943"
+    },
+    {
+      "member": "\\vm_bld\\src\\ems\\ems4B.asm",
+      "sha256": "d38b62f2db3267cc48a620125d08832648ce4f1ca2bf12110da0e69c6b7c3df5"
+    },
+    {
+      "member": "\\vm_bld\\src\\ems\\ems4C.asm",
+      "sha256": "e662ab2e44aff9d87185e6060facf6e78bc180a82fe33568198fbdd4baffced8"
+    },
+    {
+      "member": "\\vm_bld\\src\\ems\\ems4D.asm",
+      "sha256": "de6fef30ac40ea7f09a4915b240249039f174dd618685a3c43b649d86347c35f"
+    },
+    {
+      "member": "\\vm_bld\\src\\ems\\ems4E00.asm",
+      "sha256": "ad1c9879337e8feef913a671c82b500102db194f274602307de4b888375a8e9a"
+    },
+    {
+      "member": "\\vm_bld\\src\\ems\\ems4E01.asm",
+      "sha256": "cf5b267fe62d27939b675079ad72cbef5cf149ab87b47a44540f45f79520ce06"
+    },
+    {
+      "member": "\\vm_bld\\src\\ems\\ems4E02.asm",
+      "sha256": "640bca4ee68285d79a57503416451f22ce9d58a7403e62a731e24801b4561ce6"
+    },
+    {
+      "member": "\\vm_bld\\src\\ems\\ems4E03.asm",
+      "sha256": "f3fd118ee551a5b5371156d4613c1464ec3473a6e33b36ad2fdd26947ebafb87"
+    },
+    {
+      "member": "\\vm_bld\\src\\ems\\ems4F00.asm",
+      "sha256": "a37ed57ac1d2b4b5de49d3c08945b242c56351aa4074045f9c6af5300143d3d7"
+    },
+    {
+      "member": "\\vm_bld\\src\\ems\\ems4F01.asm",
+      "sha256": "3b17cffaf96b8dac360a6c895d8f961014156fe43860260d2d7302ed299ada63"
+    },
+    {
+      "member": "\\vm_bld\\src\\ems\\ems4F02.asm",
+      "sha256": "70d63e87f90694fb56743b1c7a2416864f6bafcfad86117a89b7757a3d9c47c8"
+    },
+    {
+      "member": "\\vm_bld\\src\\ems\\ems50.asm",
+      "sha256": "49c964487a931e7f859fea1e555098c58495549b48b170e5cfcee3867b5cad13"
+    },
+    {
+      "member": "\\vm_bld\\src\\ems\\ems51.asm",
+      "sha256": "470f93a78b26c27bfb715c03c50765957f7f429708fa7392b7295842a868c3ed"
+    },
+    {
+      "member": "\\vm_bld\\src\\ems\\ems5200.asm",
+      "sha256": "d35c552476a45b95cccf8f25e8530fe39f9910b917de728d545b175926dae919"
+    },
+    {
+      "member": "\\vm_bld\\src\\ems\\ems5201.asm",
+      "sha256": "0eff3c8544ffcc0f591bee0ba70742bbae0a4f9e1b847fa3c61477e73ce4015e"
+    },
+    {
+      "member": "\\vm_bld\\src\\ems\\ems5202.asm",
+      "sha256": "1fadd9b3a0d8d5be274fafd1a19f3d26141e794318a8dd9f1d81ad7ba9339fe5"
+    },
+    {
+      "member": "\\vm_bld\\src\\ems\\ems5300.asm",
+      "sha256": "5d5879249828dc5ae3896143e82081cbf9f03dc522cce9f552f874852797919b"
+    },
+    {
+      "member": "\\vm_bld\\src\\ems\\ems5301.asm",
+      "sha256": "934298eae13b6f7de8f019ba7ba8fd99fa551a37401dd8ab9d707224826112f5"
+    },
+    {
+      "member": "\\vm_bld\\src\\ems\\ems5400.asm",
+      "sha256": "2b2d2b8082815a02a2d4f10194fabb735ab6e6b4f7e0993c3fd282d9a592107c"
+    },
+    {
+      "member": "\\vm_bld\\src\\ems\\ems5401.asm",
+      "sha256": "da1408aba2cd44ebf95b33653ed3c36168d923984775062ef007f4a74a7e63c7"
+    },
+    {
+      "member": "\\vm_bld\\src\\ems\\ems5402.asm",
+      "sha256": "c01a4dc7367129c20e9764007b458a128f13bb65018a5400c8348eb9d6832b5d"
+    },
+    {
+      "member": "\\vm_bld\\src\\ems\\ems55.asm",
+      "sha256": "3c9640879f8a8ab2e7bf4f30e4dc76b3b35461468e8e77f6f5a05ae4428a4e12"
+    },
+    {
+      "member": "\\vm_bld\\src\\ems\\ems56.asm",
+      "sha256": "3c9640879f8a8ab2e7bf4f30e4dc76b3b35461468e8e77f6f5a05ae4428a4e12"
+    },
+    {
+      "member": "\\vm_bld\\src\\ems\\ems5602.asm",
+      "sha256": "a5f039e69f1e7a13c2515a37cbb938c54e97aeeccd59b480c4c0b83a0cb8a1c5"
+    },
+    {
+      "member": "\\vm_bld\\src\\ems\\ems5700.asm",
+      "sha256": "230b086e633be55965ecbad8af1c57227924e1e4f164f3af746b559185d69fef"
+    },
+    {
+      "member": "\\vm_bld\\src\\ems\\ems5701.asm",
+      "sha256": "230b086e633be55965ecbad8af1c57227924e1e4f164f3af746b559185d69fef"
+    },
+    {
+      "member": "\\vm_bld\\src\\xms\\xms.asm",
+      "sha256": "3e652fd6db58462832182bf15e29bb520091c4fe3b3f1e4aed4a07cc18750c7a"
+    },
+    {
+      "member": "\\vm_bld\\src\\xms\\xms00.asm",
+      "sha256": "d7892aa2695a386f8b471d12eb722e43812228ef79c999bb50d860e9797c2c32"
+    },
+    {
+      "member": "\\vm_bld\\src\\xms\\xms01.asm",
+      "sha256": "8f63266c43f4a8a509adda1ff3e9102f51cbbf54dbf0f641dd3aebd8903d628e"
+    },
+    {
+      "member": "\\vm_bld\\src\\xms\\xms02.asm",
+      "sha256": "a7b74c46c3801b5d93680dd8f418c2ab3ef07fbc50114ee1989d301037510530"
+    },
+    {
+      "member": "\\vm_bld\\src\\xms\\xms03.asm",
+      "sha256": "7e8b59cdd99de258ce3165cb0384f236e7e966e698299f8e5cec6541ade17a39"
+    },
+    {
+      "member": "\\vm_bld\\src\\xms\\xms04.asm",
+      "sha256": "6da852a881c83664a0ba29c3e06bcaa89eeda733de6f888430282c5a3b2132d4"
+    },
+    {
+      "member": "\\vm_bld\\src\\xms\\xms05.asm",
+      "sha256": "5023f6c1353bbefa06042e1aaba659317eae7fb2bdde6fe48f9019b418cd37b8"
+    },
+    {
+      "member": "\\vm_bld\\src\\xms\\xms06.asm",
+      "sha256": "9ab4133bd80ba3d3073103416e63b7fb433a876cadb6d95ebd5a9735c166f68d"
+    },
+    {
+      "member": "\\vm_bld\\src\\xms\\xms07.asm",
+      "sha256": "1aa0bddea3da81c7e293a42f5d37993e08acf4e25e436ea63b7d25c069baff38"
+    },
+    {
+      "member": "\\vm_bld\\src\\xms\\xms08.asm",
+      "sha256": "762417f9c48087e1a2e54b09945e7a9518dd34e6663f1cf5c26ffcdcb4102476"
+    },
+    {
+      "member": "\\vm_bld\\src\\xms\\xms09.asm",
+      "sha256": "51ced894f7fc263b131a33862ad2c28895d846e71354f27f8a05682af1fe2307"
+    },
+    {
+      "member": "\\vm_bld\\src\\xms\\xms0A.asm",
+      "sha256": "8ff10c5db578fc0343c51400606f9f6b6c5246e3bc7c6ef749908970ee190ca5"
+    },
+    {
+      "member": "\\vm_bld\\src\\xms\\xms0B.asm",
+      "sha256": "da82ad81ef13085dfd1652e7c4a82f073bc6875bfe6e1dc7c5dd72ba54b28048"
+    },
+    {
+      "member": "\\vm_bld\\src\\xms\\xms0C.asm",
+      "sha256": "ea0e0effda566bf3cdd04692612ff8dc873595ec47d8319c72ef1374052557ea"
+    },
+    {
+      "member": "\\vm_bld\\src\\xms\\xms0D.asm",
+      "sha256": "2936a9e75bffa91162e5301599b831f21d52a7d75a42a05ea3dab4f16a65d101"
+    },
+    {
+      "member": "\\vm_bld\\src\\xms\\xms0E.asm",
+      "sha256": "ec021179ab3cfad1367ac724552c966e99c75c8435fb831c0db8944815a60e94"
+    },
+    {
+      "member": "\\vm_bld\\src\\xms\\xms0F.asm",
+      "sha256": "f713a69c902d3cff001b7286f62e31aa6769bbb81b938bd5d3d2478d747207e6"
+    },
+    {
+      "member": "\\vm_bld\\src\\xms\\xms10.asm",
+      "sha256": "1a076cef2a1249c25735710d2da63b10d1f5179aa7225b127f2d1e8b624d8363"
+    },
+    {
+      "member": "\\vm_bld\\src\\xms\\xms11.asm",
+      "sha256": "94fa13e3c023cf4741db4d68b5c18805852574a5efa904ae9afc9f9445f2efe7"
+    },
+    {
+      "member": ".\\emulator.asm",
+      "sha256": "b2e504eb446d9cbdd55bc0f994dc2354cb4a4c693507ba88864dbc1be4261037"
+    },
+    {
+      "member": ".\\emoem.asm",
+      "sha256": "9ff4838785dd176b6526b64c4af3a42585c33fe37ae31b40f0da4f2b9715bde8"
+    },
+    {
+      "member": "..\\src\\move.asm",
+      "sha256": "bcd5781ed5c5a48402c3650f37ae11cdc39a56a40d556b6218ddd96c2673e890"
+    },
+    {
+      "member": "..\\src\\moveinit.c",
+      "sha256": "225eb6d5b6a1413e9a1d2a7ae6681681531050d03867d2c42c0c4485955b3917"
+    }
+  ],
+  "scope": "Alias symbol adaptation only; all OMF code/data payload records preserved byte for byte. No target image input; final target identity not asserted."
+}

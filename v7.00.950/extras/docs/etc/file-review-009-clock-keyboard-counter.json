@@ -1,0 +1,21 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "keyboard_tick_bios_offset": 1283,
+  "shared_count_bios_offset": 1285,
+  "instruction_anchors": {
+    "clock_increment": {
+      "target_file_offset": 10016,
+      "hex": "ff060505e84b00"
+    },
+    "keyboard_increment": {
+      "target_file_offset": 8720,
+      "hex": "26ff060505"
+    },
+    "keyboard_reset": {
+      "target_file_offset": 8742,
+      "hex": "26c70605050000"
+    }
+  },
+  "diagnostic_report": "config-ml-clock-keyboard-counter.json",
+  "limitations": "Static code shows both clock-read and keyboard paths mutate the same BIOS word; exact runtime scheduling and purpose remain unverified."
+}

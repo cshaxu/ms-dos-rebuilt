@@ -1,0 +1,35 @@
+{
+  "generated_utc": "2026-11-12T11:22:26.956697+00:00",
+  "source": "cmd/command/tenv.asm",
+  "build_report": "extras/docs/etc/command-prompt-return-build-20261112.json",
+  "comparison": {
+    "target_offset": "0xbab3",
+    "candidate_offset": "0xbce3",
+    "length": 36,
+    "excluded_address_bytes": [
+      1,
+      2,
+      10,
+      11,
+      17,
+      18,
+      28,
+      29,
+      32,
+      33
+    ],
+    "note": "Matches outside five linked call/data fields, not separately certified."
+  },
+  "probe": {
+    "stage": "extras/build/command-prompt-osyusmr1",
+    "result": "PASS",
+    "coverage": "Actual PROMPT entry with stubbed argument lookup, set and delete; checked value pointer, length and no-argument deletion."
+  },
+  "remaining": "PATH parser, SET PATH handling and real environment integration remain incomplete. ECHO/COPY not rerun.",
+  "file_counts": {
+    "linked": 35,
+    "modified_from_baseline": 30,
+    "unchanged_from_baseline": 5
+  },
+  "final_binary_exact": false
+}

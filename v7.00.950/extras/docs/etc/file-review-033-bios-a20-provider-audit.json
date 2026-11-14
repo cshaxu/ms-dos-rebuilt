@@ -1,0 +1,65 @@
+{
+  "kind": "dependency audit; one target-backed provider subunit integrated",
+  "stage": "extras/build/bios-bootlog-formal-link",
+  "baseline_no_a20_result": {
+    "method": "Relink the formal mixed BIOS response without a20stub.",
+    "link_exit_code": 2,
+    "unresolved_symbol_count": 35,
+    "bios_resource_symbols": [
+      "bios_msg_base",
+      "bios_msg_1",
+      "bios_msg_2",
+      "bios_msg_3"
+    ]
+  },
+  "current_no_a20_result": {
+    "method": "Link16 5.60 relink of the current formal mixed BIOS response without a20stub after biosmsg.inc integration.",
+    "link_exit_code": 2,
+    "unresolved_symbol_count": 17,
+    "unresolved_symbols": [
+      "MOVE_MYSELF",
+      "t_switch",
+      "V86_CRIT_SETFOCUS", "Win386_SI", "IT_StackLoc",
+      "SI_Next", "IsWin386",
+      "inHMA", "ZEROSEG", "SysinitPresent",
+      "NextStack", "re_init", "FHAVEK09", "MULTRK_FLAG",
+      "IT_StackSize", "MoveDOSIntoHMA", "FreeHMAPtr"
+    ],
+    "resolved_since_baseline": [
+      "bios_msg_base", "bios_msg_1", "bios_msg_2", "bios_msg_3",
+      "PREVOPER", "NUMBER_OF_SEC", "EC35_FLAG",
+      "daycnttoday", "bintobcd", "TTTICKS", "havecmosclock", "INT6C_RET_ADDR", "FEB29", "DISKSECTOR", "FHAVE96", "FSETOWNER", "SINGLE", "MULTITRK_FORMAT_FLAG"
+    ]
+  },
+  "classification": {
+    "resolved_bios_code_resource": [
+      "bios_msg_base", "bios_msg_1", "bios_msg_2", "bios_msg_3"
+      , "PREVOPER", "NUMBER_OF_SEC", "EC35_FLAG"
+    ],
+    "remaining_bios_data_or_code": [
+      "t_switch", "V86_Crit_SetFocus",
+      "Win386_SI", "IT_StackLoc", "SI_Next",
+      "IsWin386", "inHMA",
+      "ZEROSEG", "SysinitPresent", "NextStack", "re_init",
+      "FHAVEK09", "MULTRK_FLAG", "IT_StackSize", "MoveDOSIntoHMA",
+      "FreeHMAPtr"
+    ],
+    "remaining_sysinitseg": [
+      "MOVE_MYSELF"
+    ]
+  },
+  "topology": {
+    "unit": "DOS7 shared BIOS provider cycle",
+    "reason": "The remaining group is consumed by BIOS_DATA, BIOS_CODE and SYSINITSEG objects, while initialization code writes several fields. The completed localized message resource is an independently target-mapped leaf within that user-approved cycle."
+  },
+  "related_evidence": [
+    "extras/docs/etc/file-review-033-bios-message-resource.json",
+    "extras/docs/etc/bios-code-resource-mapping-evidence.json",
+    "extras/docs/etc/target-bios-code-data-tables.json"
+  ],
+  "next_gate": "Recover the next target-mapped provider leaf from the remaining 17 symbols; do not adopt any zero-value or RET-only A20 diagnostic provider.",
+  "limitations": [
+    "The no-stub link establishes required symbol ownership only; it does not identify all initial values or final locations.",
+    "No IO.SYS equality, final relocation, or runtime behavior is claimed."
+  ]
+}

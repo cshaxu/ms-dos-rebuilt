@@ -1,0 +1,56 @@
+{
+  "part": "M5 T12 S1 P2",
+  "ordinals": [
+    4,
+    5,
+    6
+  ],
+  "modified": 3,
+  "unchanged": 0,
+  "exact_dos6": 0,
+  "retired_by_merge": 1,
+  "collateral_edits": [
+    "bios/biosmsg.asm (ordinal 9; full review pending)"
+  ],
+  "checks": {
+    "includeExpandedStatementsEqual": true,
+    "parseStatementsEqual": true,
+    "parseDos6ProjectionEqual": true,
+    "messageBranches": [
+      {
+        "defines": [],
+        "equal": true
+      },
+      {
+        "defines": [
+          "RESIDENT_MSG_BUFFER"
+        ],
+        "equal": true
+      },
+      {
+        "defines": [
+          "RESOURCE_ONLY"
+        ],
+        "equal": true
+      },
+      {
+        "defines": [
+          "RESIDENT_MSG_BUFFER",
+          "RESOURCE_ONLY"
+        ],
+        "equal": true
+      }
+    ]
+  },
+  "rebuild": false,
+  "reason": "INCLUDE expansion unchanged; parser whitespace only; PUBLIC declarations hoisted without changing emitted statements or export sets in any of four conditional combinations.",
+  "parse_differences": [
+    "Default overridable CMP AL,AL macro; BIOS sysconf.asm supplies 38 C0 encoding",
+    "Five direct-address LEA encoding guards preserve ML bytes while retaining original MASM instructions",
+    "Two explicit SHORT qualifiers"
+  ],
+  "parse_dos6_projection": "Removing the enumerated adaptations reproduces the complete DOS6 text. No unrelated parser implementation or formatting changes.",
+  "message_provenance": "DOS6 cmd/command/rdata.asm:779 includes comrmsg.inc, but the v6.0 reference tree lacks that generated include. Whole-file DOS6 identity is not claimed. Existing DOS7 message data and all four selected statement streams are preserved; declaration style follows original PUBLIC directives.",
+  "removed_duplicate_lines": 94,
+  "artifacts": "T11 accepted three-core artifacts remain unchanged. No compilation or publication performed."
+}

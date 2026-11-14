@@ -1,0 +1,24 @@
+{
+  "files": [
+    "bios/sysconf.asm",
+    "bios/sysinit2.asm"
+  ],
+  "default_objects_identical": true,
+  "dos7_assembly": "passed",
+  "before_unresolved": [
+    "badcom",
+    "config_refresh_path",
+    "config_record_device",
+    "config_device_segment"
+  ],
+  "after_unresolved": [
+    "config_refresh_path",
+    "config_record_device",
+    "config_device_segment"
+  ],
+  "link_log": "extras/build/query-integration-12ek9psn/query-link-no-badcom.log",
+  "limitations": [
+    "The diagnostic links current DOS7 sysinit1, sysinit2, sysimes, sysconf, syspre and msint13 with other older diagnostic objects and stubs.",
+    "This is not a full production build; missing CONFIG$ symbols and target byte equality remain unresolved."
+  ]
+}

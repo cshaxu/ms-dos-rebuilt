@@ -1,0 +1,1841 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\crt-output-link-i27wiqn2",
+  "status": "cycle_and_dependencies_verified_final_layout_pending",
+  "dependency_stage": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\config-crt-input-1n5ca4ld",
+  "sources": {
+    "crtflush": "90ada20682599f5d164f4e46b98efdbf3030dfe637e7facbfb027ca7bcf3017d",
+    "crtclose": "8e2fbbd9171b56418d39dbfa5b15c386468952506fe243ee7c6957c04238c099",
+    "crtwrite": "685dec50830d79cd8b295a0850de3ebd0003e0632ad406b335c3a5dbd6268b8a",
+    "crtexit": "ff4789a73f4397c4137e4a2bc638f4296d677d83d1d8f1de1e1c72074b09a802",
+    "crtprint": "ca30f0abecfab916a1a4a422d3f6ebe8aa6ffae78d607336f312df1d7190236d"
+  },
+  "output_sha256": "d8f3a18545c31a09d39d298db75d76d03109f51c7d6798be70201cf5b28a3ed6",
+  "cycle_code_bytes": 1230,
+  "image_relocations": 36,
+  "scope": "Instruction bodies and actual symbolic providers verified, with exact full-image relocation set. Final original placement/startup integration pending.",
+  "verification": {
+    "stage": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\crt-output-link-i27wiqn2",
+    "functions": [
+      {
+        "source": "crtflush",
+        "symbol": "_fflush",
+        "start": 41308,
+        "bytes": 86,
+        "reference_errors": [],
+        "differences": [],
+        "checked_references": [
+          {
+            "at": 41322,
+            "operand": 1,
+            "width": 2,
+            "symbol": "CRTFlushAll"
+          },
+          {
+            "at": 41334,
+            "operand": 1,
+            "width": 2,
+            "symbol": "__flush"
+          },
+          {
+            "at": 41353,
+            "operand": 2,
+            "width": 2,
+            "symbol": "__iob"
+          },
+          {
+            "at": 41357,
+            "operand": 2,
+            "width": 2,
+            "symbol": "__iob2"
+          },
+          {
+            "at": 41376,
+            "operand": 1,
+            "width": 2,
+            "symbol": "__commit"
+          },
+          {
+            "at": 41376,
+            "operand": 3,
+            "width": 2,
+            "symbol": "__commit"
+          }
+        ]
+      },
+      {
+        "source": "crtflush",
+        "symbol": "__flush",
+        "start": 41394,
+        "bytes": 124,
+        "reference_errors": [],
+        "differences": [],
+        "checked_references": [
+          {
+            "at": 41427,
+            "operand": 2,
+            "width": 2,
+            "symbol": "__iob"
+          },
+          {
+            "at": 41431,
+            "operand": 2,
+            "width": 2,
+            "symbol": "__iob2"
+          },
+          {
+            "at": 41463,
+            "operand": 1,
+            "width": 2,
+            "symbol": "__write"
+          },
+          {
+            "at": 41463,
+            "operand": 3,
+            "width": 2,
+            "symbol": "__write"
+          }
+        ]
+      },
+      {
+        "source": "crtflush",
+        "symbol": "__flushall",
+        "start": 41518,
+        "bytes": 6,
+        "reference_errors": [],
+        "differences": [],
+        "checked_references": [
+          {
+            "at": 41520,
+            "operand": 1,
+            "width": 2,
+            "symbol": "CRTFlushAll"
+          }
+        ]
+      },
+      {
+        "source": "crtflush",
+        "symbol": "CRTFlushAll",
+        "start": 41524,
+        "bytes": 104,
+        "reference_errors": [],
+        "differences": [],
+        "checked_references": [
+          {
+            "at": 41530,
+            "operand": 1,
+            "width": 2,
+            "symbol": "__iob"
+          },
+          {
+            "at": 41554,
+            "operand": 1,
+            "width": 2,
+            "symbol": "_fflush"
+          },
+          {
+            "at": 41554,
+            "operand": 3,
+            "width": 2,
+            "symbol": "_fflush"
+          },
+          {
+            "at": 41573,
+            "operand": 2,
+            "width": 2,
+            "symbol": "__lastiob"
+          },
+          {
+            "at": 41593,
+            "operand": 1,
+            "width": 2,
+            "symbol": "_fflush"
+          },
+          {
+            "at": 41593,
+            "operand": 3,
+            "width": 2,
+            "symbol": "_fflush"
+          }
+        ]
+      },
+      {
+        "source": "crtclose",
+        "symbol": "__fcloseall",
+        "start": 42302,
+        "bytes": 38,
+        "reference_errors": [],
+        "differences": [],
+        "checked_references": [
+          {
+            "at": 42304,
+            "operand": 1,
+            "width": 2,
+            "symbol": "__iob+60"
+          },
+          {
+            "at": 42314,
+            "operand": 1,
+            "width": 2,
+            "symbol": "_fclose"
+          },
+          {
+            "at": 42314,
+            "operand": 3,
+            "width": 2,
+            "symbol": "_fclose"
+          },
+          {
+            "at": 42329,
+            "operand": 2,
+            "width": 2,
+            "symbol": "__lastiob"
+          }
+        ]
+      },
+      {
+        "source": "crtclose",
+        "symbol": "_fclose",
+        "start": 42428,
+        "bytes": 198,
+        "reference_errors": [],
+        "differences": [],
+        "checked_references": [
+          {
+            "at": 42469,
+            "operand": 1,
+            "width": 2,
+            "symbol": "__flush"
+          },
+          {
+            "at": 42479,
+            "operand": 2,
+            "width": 2,
+            "symbol": "__iob"
+          },
+          {
+            "at": 42483,
+            "operand": 2,
+            "width": 2,
+            "symbol": "__iob2+4"
+          },
+          {
+            "at": 42492,
+            "operand": 1,
+            "width": 2,
+            "symbol": "__freebuf"
+          },
+          {
+            "at": 42504,
+            "operand": 1,
+            "width": 2,
+            "symbol": "__close"
+          },
+          {
+            "at": 42504,
+            "operand": 3,
+            "width": 2,
+            "symbol": "__close"
+          },
+          {
+            "at": 42523,
+            "operand": 1,
+            "width": 2,
+            "symbol": "CRTTempPrefix"
+          },
+          {
+            "at": 42531,
+            "operand": 1,
+            "width": 2,
+            "symbol": "_strcpy"
+          },
+          {
+            "at": 42531,
+            "operand": 3,
+            "width": 2,
+            "symbol": "_strcpy"
+          },
+          {
+            "at": 42555,
+            "operand": 1,
+            "width": 2,
+            "symbol": "CRTPathSep"
+          },
+          {
+            "at": 42563,
+            "operand": 1,
+            "width": 2,
+            "symbol": "_strcat"
+          },
+          {
+            "at": 42563,
+            "operand": 3,
+            "width": 2,
+            "symbol": "_strcat"
+          },
+          {
+            "at": 42588,
+            "operand": 1,
+            "width": 2,
+            "symbol": "__itoa"
+          },
+          {
+            "at": 42588,
+            "operand": 3,
+            "width": 2,
+            "symbol": "__itoa"
+          },
+          {
+            "at": 42601,
+            "operand": 1,
+            "width": 2,
+            "symbol": "__unlink"
+          },
+          {
+            "at": 42601,
+            "operand": 3,
+            "width": 2,
+            "symbol": "__unlink"
+          }
+        ]
+      },
+      {
+        "source": "crtwrite",
+        "symbol": "__chkstk",
+        "start": 41250,
+        "bytes": 36,
+        "reference_errors": [],
+        "differences": [],
+        "checked_references": [
+          {
+            "at": 41258,
+            "operand": 2,
+            "width": 2,
+            "symbol": "_STKHQQ"
+          },
+          {
+            "at": 41271,
+            "operand": 1,
+            "width": 2,
+            "symbol": "__aaltstkovr"
+          },
+          {
+            "at": 41279,
+            "operand": 1,
+            "width": 2,
+            "symbol": "__amsg_exit"
+          },
+          {
+            "at": 41282,
+            "operand": 2,
+            "width": 2,
+            "symbol": "__aaltstkovr"
+          }
+        ]
+      },
+      {
+        "source": "crtwrite",
+        "symbol": "__write",
+        "start": 41758,
+        "bytes": 351,
+        "reference_errors": [],
+        "differences": [],
+        "checked_references": [
+          {
+            "at": 41767,
+            "operand": 2,
+            "width": 2,
+            "symbol": "__nfile"
+          },
+          {
+            "at": 41777,
+            "operand": 1,
+            "width": 2,
+            "symbol": "__dosretax"
+          },
+          {
+            "at": 41780,
+            "operand": 2,
+            "width": 2,
+            "symbol": "___aDBswpflg"
+          },
+          {
+            "at": 41788,
+            "operand": 2,
+            "width": 2,
+            "symbol": "___aDBswpchk"
+          },
+          {
+            "at": 41792,
+            "operand": 2,
+            "width": 2,
+            "symbol": "__osfile"
+          },
+          {
+            "at": 41810,
+            "operand": 2,
+            "width": 2,
+            "symbol": "__osfile"
+          },
+          {
+            "at": 41859,
+            "operand": 1,
+            "width": 2,
+            "symbol": "__stackavail"
+          },
+          {
+            "at": 41859,
+            "operand": 3,
+            "width": 2,
+            "symbol": "__stackavail"
+          },
+          {
+            "at": 41909,
+            "operand": 1,
+            "width": 2,
+            "symbol": "CRTWriteBuffer"
+          },
+          {
+            "at": 41920,
+            "operand": 1,
+            "width": 2,
+            "symbol": "CRTWriteBuffer"
+          },
+          {
+            "at": 41931,
+            "operand": 1,
+            "width": 2,
+            "symbol": "CRTWriteBuffer"
+          },
+          {
+            "at": 41947,
+            "operand": 1,
+            "width": 2,
+            "symbol": "__chkstk"
+          },
+          {
+            "at": 42008,
+            "operand": 2,
+            "width": 2,
+            "symbol": "__osfile"
+          },
+          {
+            "at": 42049,
+            "operand": 1,
+            "width": 2,
+            "symbol": "__dosretax"
+          },
+          {
+            "at": 42061,
+            "operand": 1,
+            "width": 2,
+            "symbol": "__dosretax"
+          },
+          {
+            "at": 42085,
+            "operand": 2,
+            "width": 2,
+            "symbol": "__osfile"
+          }
+        ]
+      },
+      {
+        "source": "crtwrite",
+        "symbol": "__stackavail",
+        "start": 42110,
+        "bytes": 20,
+        "reference_errors": [],
+        "differences": [],
+        "checked_references": [
+          {
+            "at": 42112,
+            "operand": 1,
+            "width": 2,
+            "symbol": "_STKHQQ"
+          }
+        ]
+      },
+      {
+        "source": "crtexit",
+        "symbol": "__cintDIV",
+        "start": 37459,
+        "bytes": 15,
+        "reference_errors": [],
+        "differences": [],
+        "checked_references": [
+          {
+            "at": 37459,
+            "operand": 2,
+            "width": 2,
+            "symbol": "CRTDataSegment"
+          },
+          {
+            "at": 37468,
+            "operand": 2,
+            "width": 2,
+            "symbol": "__aexit_rtn"
+          },
+          {
+            "at": 37468,
+            "operand": 4,
+            "width": 2,
+            "symbol": "_exit"
+          }
+        ]
+      },
+      {
+        "source": "crtexit",
+        "symbol": "__amsg_exit",
+        "start": 37474,
+        "bytes": 44,
+        "reference_errors": [],
+        "differences": [],
+        "checked_references": [
+          {
+            "at": 37475,
+            "operand": 3,
+            "width": 2,
+            "symbol": "CRTDataSegment"
+          },
+          {
+            "at": 37482,
+            "operand": 1,
+            "width": 2,
+            "symbol": "__farstub"
+          },
+          {
+            "at": 37482,
+            "operand": 3,
+            "width": 2,
+            "symbol": "__farstub"
+          },
+          {
+            "at": 37488,
+            "operand": 1,
+            "width": 2,
+            "symbol": "__FF_MSGBANNER"
+          },
+          {
+            "at": 37492,
+            "operand": 1,
+            "width": 2,
+            "symbol": "__NMSG_WRITE"
+          },
+          {
+            "at": 37495,
+            "operand": 2,
+            "width": 2,
+            "symbol": "___aDBswpflg"
+          },
+          {
+            "at": 37505,
+            "operand": 2,
+            "width": 2,
+            "symbol": "___aDBrterr"
+          },
+          {
+            "at": 37514,
+            "operand": 2,
+            "width": 2,
+            "symbol": "__aexit_rtn"
+          }
+        ]
+      },
+      {
+        "source": "crtexit",
+        "symbol": "_exit",
+        "start": 37721,
+        "bytes": 135,
+        "reference_errors": [],
+        "differences": [],
+        "checked_references": [
+          {
+            "at": 37754,
+            "operand": 2,
+            "width": 2,
+            "symbol": "__exitflag"
+          },
+          {
+            "at": 37763,
+            "operand": 1,
+            "width": 2,
+            "symbol": "CRTExitEmpty"
+          },
+          {
+            "at": 37766,
+            "operand": 1,
+            "width": 2,
+            "symbol": "CRTExitEmpty"
+          },
+          {
+            "at": 37769,
+            "operand": 1,
+            "width": 2,
+            "symbol": "__ctermsub"
+          },
+          {
+            "at": 37772,
+            "operand": 1,
+            "width": 2,
+            "symbol": "CRTPreTerm"
+          },
+          {
+            "at": 37775,
+            "operand": 1,
+            "width": 2,
+            "symbol": "CRTPostTerm"
+          },
+          {
+            "at": 37778,
+            "operand": 1,
+            "width": 2,
+            "symbol": "__ctermsub"
+          },
+          {
+            "at": 37781,
+            "operand": 2,
+            "width": 2,
+            "symbol": "___aDBswpflg"
+          },
+          {
+            "at": 37789,
+            "operand": 2,
+            "width": 2,
+            "symbol": "___aDBexit"
+          },
+          {
+            "at": 37793,
+            "operand": 1,
+            "width": 2,
+            "symbol": "CRTPostTerm"
+          },
+          {
+            "at": 37796,
+            "operand": 1,
+            "width": 2,
+            "symbol": "CRTPostTerm"
+          },
+          {
+            "at": 37799,
+            "operand": 1,
+            "width": 2,
+            "symbol": "__ctermsub"
+          },
+          {
+            "at": 37802,
+            "operand": 1,
+            "width": 2,
+            "symbol": "CRTPostTerm"
+          },
+          {
+            "at": 37805,
+            "operand": 1,
+            "width": 2,
+            "symbol": "CRTPostTerm"
+          },
+          {
+            "at": 37808,
+            "operand": 1,
+            "width": 2,
+            "symbol": "__ctermsub"
+          },
+          {
+            "at": 37811,
+            "operand": 1,
+            "width": 2,
+            "symbol": "__nullcheck"
+          },
+          {
+            "at": 37811,
+            "operand": 3,
+            "width": 2,
+            "symbol": "__nullcheck"
+          },
+          {
+            "at": 37837,
+            "operand": 1,
+            "width": 2,
+            "symbol": "CRTRestoreVectors"
+          }
+        ]
+      },
+      {
+        "source": "crtexit",
+        "symbol": "CRTRestoreVectors",
+        "start": 37856,
+        "bytes": 25,
+        "reference_errors": [],
+        "differences": [],
+        "checked_references": [
+          {
+            "at": 37856,
+            "operand": 2,
+            "width": 2,
+            "symbol": "CRTFloatCallback+2"
+          },
+          {
+            "at": 37865,
+            "operand": 2,
+            "width": 2,
+            "symbol": "CRTFloatCallback"
+          },
+          {
+            "at": 37870,
+            "operand": 2,
+            "width": 2,
+            "symbol": "__aintdiv"
+          }
+        ]
+      },
+      {
+        "source": "crtexit",
+        "symbol": "__ctermsub",
+        "start": 37881,
+        "bytes": 19,
+        "reference_errors": [],
+        "differences": [],
+        "checked_references": []
+      },
+      {
+        "source": "crtexit",
+        "symbol": "__fptrap",
+        "start": 38982,
+        "bytes": 6,
+        "reference_errors": [],
+        "differences": [],
+        "checked_references": [
+          {
+            "at": 38985,
+            "operand": 1,
+            "width": 2,
+            "symbol": "__amsg_exit"
+          }
+        ]
+      },
+      {
+        "source": "crtexit",
+        "symbol": "__farstub",
+        "start": 39208,
+        "bytes": 1,
+        "reference_errors": [],
+        "differences": [],
+        "checked_references": []
+      },
+      {
+        "source": "crtexit",
+        "symbol": "__endstdio",
+        "start": 41286,
+        "bytes": 22,
+        "reference_errors": [],
+        "differences": [],
+        "checked_references": [
+          {
+            "at": 41289,
+            "operand": 1,
+            "width": 2,
+            "symbol": "__flushall"
+          },
+          {
+            "at": 41289,
+            "operand": 3,
+            "width": 2,
+            "symbol": "__flushall"
+          },
+          {
+            "at": 41294,
+            "operand": 1,
+            "width": 2,
+            "symbol": "__exitflag"
+          },
+          {
+            "at": 41301,
+            "operand": 1,
+            "width": 2,
+            "symbol": "__fcloseall"
+          },
+          {
+            "at": 41301,
+            "operand": 3,
+            "width": 2,
+            "symbol": "__fcloseall"
+          }
+        ]
+      }
+    ],
+    "code_relocations": [
+      877,
+      964,
+      1055,
+      1094,
+      157,
+      259,
+      286,
+      318,
+      343,
+      356,
+      1850,
+      562,
+      688,
+      787,
+      799,
+      803,
+      5457,
+      5342,
+      6276,
+      6280,
+      6284,
+      6288,
+      6292,
+      6296,
+      6300,
+      1329,
+      1408,
+      1443
+    ],
+    "extra_verified": [
+      {
+        "member": "_flsbuf.asm",
+        "kind": "code",
+        "target_offset": 39210,
+        "bytes": 235,
+        "references": [
+          {
+            "operand": 50,
+            "symbol": "__iob",
+            "addend": 0
+          },
+          {
+            "operand": 54,
+            "symbol": "__iob2",
+            "addend": 0
+          },
+          {
+            "operand": 76,
+            "symbol": "__iob",
+            "addend": 12
+          },
+          {
+            "operand": 82,
+            "symbol": "__iob",
+            "addend": 24
+          },
+          {
+            "operand": 88,
+            "symbol": "__iob",
+            "addend": 48
+          },
+          {
+            "operand": 94,
+            "symbol": "__osfile",
+            "addend": 0
+          },
+          {
+            "operand": 111,
+            "symbol": "__write",
+            "addend": 0
+          },
+          {
+            "operand": 134,
+            "symbol": "__getbuf",
+            "addend": 0
+          },
+          {
+            "operand": 176,
+            "symbol": "__write",
+            "addend": 0
+          },
+          {
+            "operand": 206,
+            "symbol": "__osfile",
+            "addend": 0
+          },
+          {
+            "operand": 220,
+            "symbol": "__lseek",
+            "addend": 0
+          }
+        ]
+      },
+      {
+        "member": "_sftbuf.asm",
+        "kind": "code",
+        "target_offset": 39522,
+        "bytes": 200,
+        "references": [
+          {
+            "operand": 9,
+            "symbol": "ConfigStreamBuffers",
+            "addend": 0
+          },
+          {
+            "operand": 13,
+            "symbol": "__iob",
+            "addend": 12
+          },
+          {
+            "operand": 18,
+            "symbol": "ConfigStreamBuffers",
+            "addend": 4
+          },
+          {
+            "operand": 22,
+            "symbol": "__iob",
+            "addend": 24
+          },
+          {
+            "operand": 27,
+            "symbol": "ConfigStreamBuffers",
+            "addend": 8
+          },
+          {
+            "operand": 31,
+            "symbol": "__iob",
+            "addend": 48
+          },
+          {
+            "operand": 39,
+            "symbol": "__iob",
+            "addend": 0
+          },
+          {
+            "operand": 43,
+            "symbol": "__iob2",
+            "addend": 0
+          },
+          {
+            "operand": 106,
+            "symbol": "__fmalloc",
+            "addend": 0
+          },
+          {
+            "operand": 141,
+            "symbol": "__iob",
+            "addend": 0
+          },
+          {
+            "operand": 145,
+            "symbol": "__iob2",
+            "addend": 0
+          },
+          {
+            "operand": 159,
+            "symbol": "__osfile",
+            "addend": 0
+          },
+          {
+            "operand": 167,
+            "symbol": "__flush",
+            "addend": 0
+          }
+        ]
+      },
+      {
+        "member": "output.asm",
+        "kind": "data",
+        "target_offset": 45274,
+        "bytes": 97,
+        "references": []
+      },
+      {
+        "member": "output.asm",
+        "kind": "code",
+        "target_offset": 39722,
+        "bytes": 1016,
+        "references": [
+          {
+            "operand": 0,
+            "symbol": "ConfigFormatCode",
+            "addend": 104
+          },
+          {
+            "operand": 2,
+            "symbol": "ConfigFormatCode",
+            "addend": 115
+          },
+          {
+            "operand": 4,
+            "symbol": "ConfigFormatCode",
+            "addend": 137
+          },
+          {
+            "operand": 6,
+            "symbol": "ConfigFormatCode",
+            "addend": 189
+          },
+          {
+            "operand": 8,
+            "symbol": "ConfigFormatCode",
+            "addend": 233
+          },
+          {
+            "operand": 10,
+            "symbol": "ConfigFormatCode",
+            "addend": 241
+          },
+          {
+            "operand": 12,
+            "symbol": "ConfigFormatCode",
+            "addend": 282
+          },
+          {
+            "operand": 14,
+            "symbol": "ConfigFormatCode",
+            "addend": 332
+          },
+          {
+            "operand": 24,
+            "symbol": "__chkstk",
+            "addend": 0
+          },
+          {
+            "operand": 64,
+            "symbol": "ConfigFormatData",
+            "addend": 0
+          },
+          {
+            "operand": 102,
+            "symbol": "ConfigFormatCode",
+            "addend": 0
+          },
+          {
+            "operand": 440,
+            "symbol": "ConfigFormatData",
+            "addend": 89
+          },
+          {
+            "operand": 444,
+            "symbol": "ConfigFormatData",
+            "addend": 95
+          },
+          {
+            "operand": 655,
+            "symbol": "__cfltcvt_tab",
+            "addend": 20
+          },
+          {
+            "operand": 665,
+            "symbol": "__cfltcvt_tab",
+            "addend": 0
+          },
+          {
+            "operand": 690,
+            "symbol": "__cfltcvt_tab",
+            "addend": 12
+          },
+          {
+            "operand": 711,
+            "symbol": "__cfltcvt_tab",
+            "addend": 8
+          }
+        ]
+      },
+      {
+        "member": "output.asm",
+        "kind": "code",
+        "target_offset": 40738,
+        "bytes": 258,
+        "references": [
+          {
+            "operand": 131,
+            "symbol": "__flsbuf",
+            "addend": 0
+          }
+        ]
+      },
+      {
+        "member": "cmiscdat.asm",
+        "kind": "data",
+        "target_offset": 45382,
+        "bytes": 34,
+        "references": [
+          {
+            "operand": 0,
+            "symbol": "__fptrap",
+            "addend": 0
+          },
+          {
+            "operand": 4,
+            "symbol": "__fptrap",
+            "addend": 0
+          },
+          {
+            "operand": 8,
+            "symbol": "__fptrap",
+            "addend": 0
+          },
+          {
+            "operand": 12,
+            "symbol": "__fptrap",
+            "addend": 0
+          },
+          {
+            "operand": 16,
+            "symbol": "__fptrap",
+            "addend": 0
+          },
+          {
+            "operand": 20,
+            "symbol": "__fptrap",
+            "addend": 0
+          },
+          {
+            "operand": 24,
+            "symbol": "__fptrap",
+            "addend": 0
+          }
+        ]
+      },
+      {
+        "member": "_sftbuf.asm",
+        "kind": "data",
+        "target_offset": 45262,
+        "bytes": 12,
+        "references": []
+      },
+      {
+        "source": "bios/crtprint.asm",
+        "symbol": "_printf",
+        "kind": "code",
+        "target_offset": 37900,
+        "bytes": 60,
+        "references": [
+          {
+            "operand": 7,
+            "symbol": "__iob",
+            "addend": 12
+          },
+          {
+            "operand": 30,
+            "symbol": "__iob",
+            "addend": 12
+          },
+          {
+            "operand": 45,
+            "symbol": "__iob",
+            "addend": 12
+          },
+          {
+            "operand": 10,
+            "symbol": "__stbuf"
+          },
+          {
+            "operand": 49,
+            "symbol": "__ftbuf"
+          },
+          {
+            "operand": 33,
+            "symbol": "__output"
+          }
+        ]
+      },
+      {
+        "source": "bios/crtprint.asm",
+        "symbol": "_sprintf",
+        "kind": "code",
+        "target_offset": 38652,
+        "bytes": 100,
+        "references": [
+          {
+            "operand": 8,
+            "symbol": "CRTStringStream",
+            "addend": 10
+          },
+          {
+            "operand": 18,
+            "symbol": "CRTStringStream",
+            "addend": 6
+          },
+          {
+            "operand": 22,
+            "symbol": "CRTStringStream",
+            "addend": 8
+          },
+          {
+            "operand": 25,
+            "symbol": "CRTStringStream",
+            "addend": 0
+          },
+          {
+            "operand": 34,
+            "symbol": "CRTStringStream",
+            "addend": 4
+          },
+          {
+            "operand": 63,
+            "symbol": "CRTStringStream",
+            "addend": 4
+          },
+          {
+            "operand": 69,
+            "symbol": "CRTStringStream",
+            "addend": 0
+          },
+          {
+            "operand": 73,
+            "symbol": "CRTStringStream",
+            "addend": 0
+          },
+          {
+            "operand": 52,
+            "symbol": "__output"
+          },
+          {
+            "operand": 87,
+            "symbol": "__flsbuf"
+          }
+        ]
+      }
+    ],
+    "status": "cycle_and_dependencies_verified_final_layout_pending",
+    "data": [
+      {
+        "symbol": "__aintdiv",
+        "target_offset": 44678,
+        "bytes": 4
+      },
+      {
+        "symbol": "__exitflag",
+        "target_offset": 44753,
+        "bytes": 1
+      },
+      {
+        "symbol": "__aaltstkovr",
+        "target_offset": 45374,
+        "bytes": 4
+      },
+      {
+        "symbol": "CRTTempPrefix",
+        "target_offset": 45422,
+        "bytes": 2
+      },
+      {
+        "symbol": "CRTPathSep",
+        "target_offset": 45424,
+        "bytes": 2
+      },
+      {
+        "symbol": "CRTFloatCallback",
+        "target_offset": 45458,
+        "bytes": 4
+      }
+    ],
+    "dependencies": [
+      {
+        "member": "dos\\dosret.asm",
+        "source": null,
+        "kind": "data",
+        "target_offset": 45242,
+        "bytes": 20,
+        "fixups": []
+      },
+      {
+        "member": "dos\\dosret.asm",
+        "source": null,
+        "kind": "code",
+        "target_offset": 39122,
+        "bytes": 85,
+        "fixups": [
+          {
+            "offset": 41,
+            "symbol": "__doserrno"
+          },
+          {
+            "offset": 49,
+            "symbol": "__osmajor"
+          },
+          {
+            "offset": 73,
+            "symbol": "ConfigCRTErrorMap"
+          },
+          {
+            "offset": 78,
+            "symbol": "_errno"
+          }
+        ]
+      },
+      {
+        "member": "_filbuf.asm",
+        "source": null,
+        "kind": "code",
+        "target_offset": 37960,
+        "bytes": 156,
+        "fixups": [
+          {
+            "offset": 32,
+            "symbol": "__iob"
+          },
+          {
+            "offset": 36,
+            "symbol": "__iob2"
+          },
+          {
+            "offset": 50,
+            "symbol": "__getbuf"
+          },
+          {
+            "offset": 75,
+            "symbol": "__read"
+          },
+          {
+            "offset": 117,
+            "symbol": "__osfile"
+          }
+        ]
+      },
+      {
+        "member": "_freebuf.asm",
+        "source": null,
+        "kind": "code",
+        "target_offset": 43088,
+        "bytes": 55,
+        "fixups": [
+          {
+            "offset": 25,
+            "symbol": "__ffree"
+          }
+        ]
+      },
+      {
+        "member": "_getbuf.asm",
+        "source": null,
+        "kind": "code",
+        "target_offset": 39446,
+        "bytes": 75,
+        "fixups": [
+          {
+            "offset": 12,
+            "symbol": "__fmalloc"
+          },
+          {
+            "offset": 21,
+            "symbol": "__iob"
+          },
+          {
+            "offset": 25,
+            "symbol": "__iob2"
+          }
+        ]
+      },
+      {
+        "member": "dos\\close.asm",
+        "source": null,
+        "kind": "code",
+        "target_offset": 38116,
+        "bytes": 32,
+        "fixups": [
+          {
+            "offset": 8,
+            "symbol": "__nfile"
+          },
+          {
+            "offset": 26,
+            "symbol": "__osfile"
+          },
+          {
+            "offset": 30,
+            "symbol": "__dosret0"
+          }
+        ]
+      },
+      {
+        "member": "dos\\lseek.asm",
+        "source": null,
+        "kind": "code",
+        "target_offset": 41628,
+        "bytes": 129,
+        "fixups": [
+          {
+            "offset": 11,
+            "symbol": "__nfile"
+          },
+          {
+            "offset": 22,
+            "symbol": "__lseekchk"
+          },
+          {
+            "offset": 123,
+            "symbol": "__osfile"
+          },
+          {
+            "offset": 127,
+            "symbol": "__dosretax"
+          }
+        ]
+      },
+      {
+        "member": "dos\\read.asm",
+        "source": "bios/crtread.asm",
+        "kind": "code",
+        "target_offset": 40996,
+        "bytes": 254,
+        "fixups": [
+          {
+            "offset": 11,
+            "symbol": "__nfile"
+          },
+          {
+            "offset": 30,
+            "symbol": "__osfile"
+          },
+          {
+            "offset": 37,
+            "symbol": "___aDBswpflg"
+          },
+          {
+            "offset": 39,
+            "symbol": "__aDBdoswp"
+          },
+          {
+            "offset": 45,
+            "symbol": "___aDBswpchk"
+          },
+          {
+            "offset": 67,
+            "symbol": "__osfile"
+          },
+          {
+            "offset": 74,
+            "symbol": "__osfile"
+          },
+          {
+            "offset": 103,
+            "symbol": "__osfile"
+          },
+          {
+            "offset": 118,
+            "symbol": "__osfile"
+          },
+          {
+            "offset": 137,
+            "symbol": "__dosretax"
+          },
+          {
+            "offset": 155,
+            "symbol": "__osfile"
+          }
+        ]
+      },
+      {
+        "member": "seekfast.asm",
+        "source": null,
+        "kind": "data",
+        "target_offset": 45416,
+        "bytes": 2,
+        "fixups": []
+      },
+      {
+        "member": "fmalloc.asm",
+        "source": null,
+        "kind": "data",
+        "target_offset": 45418,
+        "bytes": 4,
+        "fixups": []
+      },
+      {
+        "member": "fmalloc.asm",
+        "source": null,
+        "kind": "code",
+        "target_offset": 42130,
+        "bytes": 172,
+        "fixups": [
+          {
+            "offset": 34,
+            "symbol": "__fheap"
+          },
+          {
+            "offset": 41,
+            "symbol": "__searchseg"
+          },
+          {
+            "offset": 45,
+            "symbol": "__fheap"
+          },
+          {
+            "offset": 49,
+            "symbol": "__fheap"
+          },
+          {
+            "offset": 74,
+            "symbol": "__fheap"
+          },
+          {
+            "offset": 82,
+            "symbol": "__fheap"
+          },
+          {
+            "offset": 94,
+            "symbol": "__growseg"
+          },
+          {
+            "offset": 99,
+            "symbol": "__growseg"
+          },
+          {
+            "offset": 106,
+            "symbol": "__searchseg"
+          },
+          {
+            "offset": 115,
+            "symbol": "__fheap"
+          },
+          {
+            "offset": 118,
+            "symbol": "__newseg"
+          },
+          {
+            "offset": 123,
+            "symbol": "__searchseg"
+          },
+          {
+            "offset": 128,
+            "symbol": "__fheap"
+          },
+          {
+            "offset": 132,
+            "symbol": "__fheap"
+          },
+          {
+            "offset": 142,
+            "symbol": "__pnhFarHeap"
+          },
+          {
+            "offset": 146,
+            "symbol": "__pnhFarHeap"
+          },
+          {
+            "offset": 155,
+            "symbol": "__pnhFarHeap"
+          }
+        ]
+      },
+      {
+        "member": "fdata.asm",
+        "source": null,
+        "kind": "data",
+        "target_offset": 45426,
+        "bytes": 14,
+        "fixups": []
+      },
+      {
+        "member": "initseg.asm",
+        "source": null,
+        "kind": "code",
+        "target_offset": 43144,
+        "bytes": 52,
+        "fixups": []
+      },
+      {
+        "member": "linkseg.asm",
+        "source": null,
+        "kind": "code",
+        "target_offset": 43196,
+        "bytes": 54,
+        "fixups": []
+      },
+      {
+        "member": "searchsg.asm",
+        "source": null,
+        "kind": "code",
+        "target_offset": 42626,
+        "bytes": 124,
+        "fixups": []
+      },
+      {
+        "member": "growseg.asm",
+        "source": null,
+        "kind": "data",
+        "target_offset": 45440,
+        "bytes": 2,
+        "fixups": []
+      },
+      {
+        "member": "growseg.asm",
+        "source": null,
+        "kind": "code",
+        "target_offset": 42750,
+        "bytes": 256,
+        "fixups": [
+          {
+            "offset": 45,
+            "symbol": "DGROUP"
+          },
+          {
+            "offset": 51,
+            "symbol": "__amblksiz"
+          },
+          {
+            "offset": 191,
+            "symbol": "__psp"
+          }
+        ]
+      },
+      {
+        "member": "newseg.asm",
+        "source": null,
+        "kind": "code",
+        "target_offset": 43006,
+        "bytes": 68,
+        "fixups": [
+          {
+            "offset": 31,
+            "symbol": "__aseglo"
+          },
+          {
+            "offset": 37,
+            "symbol": "__aseghi"
+          },
+          {
+            "offset": 42,
+            "symbol": "__aseghi"
+          },
+          {
+            "offset": 58,
+            "symbol": "__initseg"
+          },
+          {
+            "offset": 61,
+            "symbol": "__linkseg"
+          }
+        ]
+      },
+      {
+        "member": "strcat.asm",
+        "source": null,
+        "kind": "code",
+        "target_offset": 43250,
+        "bytes": 84,
+        "fixups": []
+      },
+      {
+        "member": "strcpy.asm",
+        "source": null,
+        "kind": "code",
+        "target_offset": 43334,
+        "bytes": 60,
+        "fixups": []
+      },
+      {
+        "member": "strncpy.asm",
+        "source": null,
+        "kind": "code",
+        "target_offset": 38906,
+        "bytes": 42,
+        "fixups": []
+      },
+      {
+        "member": "itoa.asm",
+        "source": null,
+        "kind": "code",
+        "target_offset": 43394,
+        "bytes": 28,
+        "fixups": [
+          {
+            "offset": 26,
+            "symbol": "__cxtoa"
+          }
+        ]
+      },
+      {
+        "member": "xtoa.asm",
+        "source": null,
+        "kind": "code",
+        "target_offset": 43438,
+        "bytes": 99,
+        "fixups": []
+      },
+      {
+        "member": "dos\\unlink.asm",
+        "source": null,
+        "kind": "code",
+        "target_offset": 43422,
+        "bytes": 15,
+        "fixups": [
+          {
+            "offset": 13,
+            "symbol": "__dosret0"
+          }
+        ]
+      },
+      {
+        "member": "dos\\d_commit.asm",
+        "source": null,
+        "kind": "code",
+        "target_offset": 43074,
+        "bytes": 13,
+        "fixups": [
+          {
+            "offset": 11,
+            "symbol": "__dosreturn"
+          }
+        ]
+      },
+      {
+        "source": "bios/crtcmp.asm",
+        "kind": "code",
+        "target_offset": 38776,
+        "bytes": 69,
+        "fixups": []
+      },
+      {
+        "source": "bios/crtstdio.asm",
+        "kind": "code",
+        "target_offset": 37458,
+        "bytes": 1,
+        "fixups": []
+      },
+      {
+        "source": "bios/cfgline.asm",
+        "kind": "code",
+        "target_offset": 1886,
+        "bytes": 142,
+        "fixups": [
+          {
+            "offset": 61,
+            "symbol": "__filbuf"
+          }
+        ]
+      },
+      {
+        "source": "bios/crtmsg.asm",
+        "symbol": "__NMSG_TEXT",
+        "kind": "code",
+        "target_offset": 39024,
+        "bytes": 43,
+        "fixups": [
+          {
+            "operand": 11,
+            "symbol": "CRTMessages"
+          }
+        ]
+      },
+      {
+        "source": "bios/crtmsg.asm",
+        "symbol": "__NMSG_WRITE",
+        "kind": "code",
+        "target_offset": 39067,
+        "bytes": 54,
+        "fixups": [
+          {
+            "operand": 9,
+            "symbol": "__NMSG_TEXT"
+          },
+          {
+            "operand": 33,
+            "symbol": "___aDBswpflg"
+          },
+          {
+            "operand": 41,
+            "symbol": "___aDBswpchk"
+          }
+        ]
+      },
+      {
+        "source": "bios/crtmsg.asm",
+        "symbol": "__FF_MSGBANNER",
+        "kind": "code",
+        "target_offset": 38948,
+        "bytes": 34,
+        "fixups": [
+          {
+            "operand": 9,
+            "symbol": "__NMSG_WRITE"
+          },
+          {
+            "operand": 28,
+            "symbol": "__NMSG_WRITE"
+          },
+          {
+            "operand": 13,
+            "symbol": "__adbgmsg"
+          },
+          {
+            "operand": 20,
+            "symbol": "__adbgmsg"
+          }
+        ]
+      },
+      {
+        "source": "bios/crtmsg.asm",
+        "symbol": "__nullcheck",
+        "kind": "code",
+        "target_offset": 38988,
+        "bytes": 36,
+        "fixups": [
+          {
+            "operand": 21,
+            "symbol": "__FF_MSGBANNER"
+          },
+          {
+            "operand": 29,
+            "symbol": "__NMSG_WRITE"
+          }
+        ]
+      },
+      {
+        "source": "bios/crtmsg.asm",
+        "symbol": "__adbgmsg",
+        "kind": "data",
+        "target_offset": 45238,
+        "bytes": 4,
+        "fixups": []
+      },
+      {
+        "source": "bios/crtmsg.asm",
+        "symbol": "CRTMessageHeader",
+        "kind": "data",
+        "target_offset": 45474,
+        "bytes": 224,
+        "fixups": []
+      },
+      {
+        "source": "bios/crtcomit.asm",
+        "symbol": "__commit",
+        "kind": "code",
+        "target_offset": 42340,
+        "bytes": 88,
+        "fixups": [
+          {
+            "operand": 14,
+            "symbol": "__nfile"
+          },
+          {
+            "operand": 20,
+            "symbol": "_errno"
+          },
+          {
+            "operand": 31,
+            "symbol": "__osminor"
+          },
+          {
+            "operand": 35,
+            "symbol": "__osmajor"
+          },
+          {
+            "operand": 48,
+            "symbol": "__osfile"
+          },
+          {
+            "operand": 70,
+            "symbol": "__doserrno"
+          },
+          {
+            "operand": 74,
+            "symbol": "_errno"
+          },
+          {
+            "operand": 55,
+            "symbol": "__dos_commit"
+          }
+        ]
+      }
+    ],
+    "image_relocations": 36,
+    "cycle_code_bytes": 1230,
+    "scope": "Instruction bodies and actual symbolic providers verified, with exact full-image relocation set. Final original placement/startup integration pending."
+  },
+  "string_stream_initial_data": {
+    "symbol": "CRTStringStream",
+    "target_offset": 45700,
+    "bytes": 12,
+    "initial_byte": 255
+  }
+}

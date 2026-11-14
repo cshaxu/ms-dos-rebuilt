@@ -1,0 +1,45 @@
+{
+  "source": "bios/sysinit1.asm",
+  "sha256": "fdd955fc50a301fc712fba814009bb8c15661b7bda60f31f39ff283357ae9a65",
+  "changes": [
+    "Restore the DOS 7 INSTALL memory-error notification and message offset to the dynamically appended message.",
+    "Checksum the region from sysinit_exec_start to SI_end plus the 200h temporary buffer and sysinit_extra_bytes."
+  ],
+  "matched": [
+    {
+      "region": "relocated INSTALL base and checksum",
+      "start": "0x3b94",
+      "end_exclusive": "0x3c06",
+      "bytes": 114
+    },
+    {
+      "region": "standard handle initialization",
+      "start": "0x39ca",
+      "end_exclusive": "0x3a1b",
+      "bytes": 81
+    },
+    {
+      "region": "device open helper",
+      "start": "0x3221",
+      "end_exclusive": "0x3246",
+      "bytes": 37
+    },
+    {
+      "region": "device names",
+      "start": "0x32be",
+      "end_exclusive": "0x32ce",
+      "bytes": 16
+    }
+  ],
+  "verification": {
+    "tool": "extras/tools/verify_syspre_device_link.py",
+    "link_stage": "extras/build/syspre-object-link-wn2fqo0o",
+    "module_stage": "extras/build/ml-sysinit-15a9et7q",
+    "scope": "Actual source-linked relocations compared to target; the final source change after this run only updates a comment."
+  },
+  "limitations": [
+    "INSTALL base allocation and message-copy caller are not yet restored and verified.",
+    "Runtime behavior and complete product linking remain unverified.",
+    "All three final core binaries remain unverified."
+  ]
+}

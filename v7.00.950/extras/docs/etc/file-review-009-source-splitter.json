@@ -1,0 +1,38 @@
+{
+  "source": "bios/msbio1.asm",
+  "source_sha256": "4c7da2d2b70fcd9f30701844a9a3ddd05c582d831f89990cdee2747652ad0c11",
+  "splitter": "extras/tools/split_msbio1_sysinit.py",
+  "splitter_sha256": "a6aa8ae2887c086fab21f3b0147a4d7fefa348e52ecc70f4da2f710f8a660aaa",
+  "generated_files": {
+    "msbio1.asm": "65bed29e81fabadf4f293617769583be16aff91b9ac294358d9c52d076ffd85e",
+    "splitbds.asm": "52cd37e9639017f75b5452d2fff65a80aa0a4d11045683d45608e859aa9edef3",
+    "splitent.asm": "a869859cb0820fab5ffd9d0ab235a9dfc7b9f2ae3fd334020deac8bb4eed0365",
+    "splitlat.asm": "9f9bd78eb3378ccf9cb6934978546056f7edd42aba5e9fd03366d5dafafa38ad"
+  },
+  "default_preserves_historical_assertions": true,
+  "ml6_mode_assertions_checked_after_link": [
+    "orig13=00B4",
+    "off_d0=00D0"
+  ],
+  "independent_of_target_for_source_generation": true,
+  "diagnostic_main_link": {
+    "status": "linked_with_reference_objects_and_stubs",
+    "output_sha256": "cc0161e7f0d14a1d17613873e30acc7fd98e8b2a51c6d060a58588473c203a9c",
+    "start_bds": [
+      964,
+      22896
+    ],
+    "exec_data": [
+      964,
+      25864
+    ],
+    "config_init_entry": [
+      964,
+      25982
+    ],
+    "floppy_bds_body_bytes_verified": 384,
+    "hard_bds_bytes_verified": 2500,
+    "exec_non_pointer_bytes_verified": 102
+  },
+  "limitations": "Production build integration and target SYSINIT stack/link ordering are incomplete. The linked diagnostic uses 6.22 reference objects, synthetic gaps, and stubs; it is not a target binary."
+}

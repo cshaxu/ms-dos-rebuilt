@@ -1,0 +1,23 @@
+{
+  "files": [
+    "bios/sysinit1.asm",
+    "bios/sysconf.asm"
+  ],
+  "source_hashes": [
+    "6c5e9830c45457656360cb45f7ce9c829cec41afe2c36d60c931dfa0ba8e6912",
+    "7ffdfa2ec2953c9c65483ea5f045651788cfcfaadf0a378bf4920a37111b62b8"
+  ],
+  "target_range": "IO.SYS 0x5f39..0x5f4e",
+  "bytes": 21,
+  "different_bytes": 0,
+  "probe": "extras/research/acctable7-linked.asm",
+  "data_layout": "Pointer immediately precedes config_envlen and config_wrkseg; target SYSINIT offsets 5aca, 5ace and 5ad0.",
+  "default_objects_identical_to_prior": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "Pointer meaning is inferred from ACCDATE consumer; kernel-side DOSINIT ABI, return behavior and final placement remain unverified.",
+    "ACCDATE command parser and complete startup flow remain incomplete.",
+    "Mixed diagnostic link contains older objects and stubs."
+  ]
+}

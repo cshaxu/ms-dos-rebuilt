@@ -1,0 +1,45 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\bios-mblate-order-6z4dojpy",
+  "bios_sha256": "b2b99d00c7f45487931652bf9a23ee5f5dc4275f6a3cc1dba66de9eb9b7cf834",
+  "exec_data": {
+    "linked_sysinit_offset": "0xa00c",
+    "target_sysinit_offset": "0xa098",
+    "range_bytes": 1224,
+    "different_bytes": 421,
+    "first_difference_offsets": [
+      "0x15",
+      "0x16",
+      "0x1b",
+      "0x1c",
+      "0x21",
+      "0x27",
+      "0x33",
+      "0x39",
+      "0x6a",
+      "0x8f",
+      "0x93",
+      "0x9f",
+      "0xc7",
+      "0xd0",
+      "0xd1",
+      "0xd2",
+      "0xdb",
+      "0xdc",
+      "0xdd",
+      "0xec",
+      "0x108",
+      "0x10f",
+      "0x12c",
+      "0x12d"
+    ]
+  },
+  "si_end": {
+    "linked_offset": "0xa4d0",
+    "target_offset": "0xa560",
+    "difference_bytes": -144
+  },
+  "limitations": [
+    "Provisional object order; recorded range includes relocations and end padding.",
+    "Does not verify execution or complete IO.SYS."
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "sources": {
+    "bios/sysinit1.asm": "04dec67754e66b373d8b492a0d8cad1234d3da3b13dccf5d33b8a05ff09d5bc6",
+    "bios/sysinit2.asm": "cb90f34a1453151a3d19ec45ff9b2135ef599d6f4e829a57e1d9a05917ee3a6a"
+  },
+  "change": "Restore the undecided BIOS startup option query and connect the following CONFIG pre-scan call to actual code.",
+  "target_region": {
+    "start": "0x15f6",
+    "end_exclusive": "0x1639",
+    "bytes": 67
+  },
+  "verification": {
+    "tool": "extras/tools/verify_syspre_device_link.py",
+    "link_stage": "extras/build/syspre-object-link-up_ofpvb",
+    "module_stage": "extras/build/ml-sysinit-lob_n0ww",
+    "scope": "64 source-generated query bytes and the actual three-byte CONFIG call match target. Query, query result, CONFIG command and DOCONF use actual source providers; BIOS segment address is anchored."
+  },
+  "limitations": [
+    "Target SYSINIT continuation after 1639h still requires reconciliation.",
+    "BIOS address and other diagnostic placement or gaps remain synthetic.",
+    "Complete IO.SYS and all three core binaries remain unverified."
+  ]
+}

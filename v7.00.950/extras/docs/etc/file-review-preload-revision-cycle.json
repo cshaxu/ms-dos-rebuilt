@@ -1,0 +1,23 @@
+{
+  "files": {
+    "bios/syspre.asm": "464c31b817dffab41b91640cf1e38439ef64e666342249ee95c1efd94ec47fbe",
+    "bios/sysinit2.asm": "7b3c268d6755bdbd29342c0662d374a200786a8cc1087fce29e1313d78440857",
+    "bios/sysconf.asm": "5794b5bde9b8863daf07e1dcc567c56409746b4db1679f25e3652484e5bab9b7",
+    "inc/ds_vers.inc": "2ff90d605f11ff956bfc05136576978b1a912fc022bc4529af138cc92022a0f1"
+  },
+  "verification": "extras/tools/verify_menu_check_full.py",
+  "data": {
+    "sysinit_start": "0x8a64",
+    "bytes": 65
+  },
+  "syspre_preload_prefix": {
+    "sysinit_start": "0x8aaf",
+    "bytes": 457
+  },
+  "scope": "Actual SYSPRE names and revision data, revision-dependent driver patch and first driver initialization invocation are compared to IO.SYS; complete SYSPRE source assembles.",
+  "limitations": [
+    "fail_driver_load, magic_is_resident and pre_exit_3 are target-address anchors.",
+    "Four UMB helper calls and other external data positions remain target-address anchors.",
+    "Later error and resident paths, complete SYSINIT object layout and three binaries remain unverified."
+  ]
+}

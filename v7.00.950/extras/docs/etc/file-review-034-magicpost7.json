@@ -1,0 +1,22 @@
+{
+  "files": [
+    "bios/sysinit1.asm",
+    "bios/syspre.asm"
+  ],
+  "source_hashes": [
+    "3172a9c951cc6727871262acc3eef1cfcde24475bd0ca9d679f1ca76a81d13d7",
+    "12bcd4a0fff7b4da23df0f9f3dcbb9b7c852a673ac199f1d90d0b018bc0e8f30"
+  ],
+  "target_range": "IO.SYS 0xdb2a..0xdbc9",
+  "length": 159,
+  "different_bytes": 0,
+  "tool": "MASM 6 ML isolated probe",
+  "default_objects_identical": true,
+  "dos7_assembly": "both passed without warnings",
+  "mixed_diagnostic_link": "passed",
+  "probe_source": "extras/research/magicpost7-linked.asm",
+  "limitations": [
+    "Fixed-offset probe uses synthetic data and helper destinations; final layout and execution remain unverified.",
+    "Startup call ordering and full three-file build remain incomplete."
+  ]
+}

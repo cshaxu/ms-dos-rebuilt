@@ -1,0 +1,20 @@
+{
+  "files": {
+    "bios/sysinit2.asm": "69931e3b8aefff92f211bd45c07bd607bd670aa681a47b881d97c1496b9d17d1",
+    "lang/usa/messages/sysimsg.inc": "53792b59ca0bd0881ba56a7406f98306034d269687b9f963e43ad7d6c951090a"
+  },
+  "target_file_range": "0x7a8b..0x7aea",
+  "length": 95,
+  "different_bytes": 0,
+  "removed_external": "$AutoPrmpt",
+  "default_object_identical": true,
+  "dos7_assembly": "passed",
+  "probe_source": "extras/research/query-prompt-linked.asm",
+  "probe_sha256": "f0ff371c3ff6eab27ed6c959e1a8711b97eff47da953d1e68a4cd6a5cc99e27c",
+  "linked_exe_sha256": "d63038084bc9f46e03c8e02a0cc19cb2d183ac3ed03a945225ee2fd05fc05650",
+  "limitations": [
+    "The isolated link uses target ORG positions, a diagnostic command table and a minimal print procedure.",
+    "Earlier query_user state handling, keyboard input, callers and complete SYSINIT remain unverified.",
+    "Callers of the generic-prompt branch must supply the correct DS:DX; existing callers have not all been converted."
+  ]
+}

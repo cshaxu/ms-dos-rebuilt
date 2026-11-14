@@ -1,0 +1,14 @@
+{
+  "link_exit": 0,
+  "link_log": "\r\nMicrosoft (R) Segmented Executable Linker NTGroup Version 5.60.220 Dec 28 1999\r\nCopyright (C) Microsoft Corp 1984-1993.  All rights reserved.\r\n\r\nObject Modules [.obj]: /MAP msbio1 chardata mschar clockent msinit diskdata msdisk iodata msdioctl msint13 msbio2 multunit config+\r\nObject Modules [.obj]: sysinit1+sysconf+syspre+sysinit2+sysimes+power+ptime+\r\nObject Modules [.obj]: msend+splitbds+splitp1+splitent+splitp2+splitlat+a20stub+m2stub+c7stub+initstub,msbio,msbio;\r\n",
+  "sources": {
+    "c7stub.asm": "773059250596b836fb0907ffa07340c9a6ed5069172912f92900aace24b003e6",
+    "clockent.asm": "1d399be38dae8d87f83baf00cd6d8d56baee20a279e5d926b9bdc578678238ed"
+  },
+  "limitations": [
+    "Split inputs are transformed diagnostic sources, not formal source changes.",
+    "Other stubs and provisional initialization data remain."
+  ],
+  "linked_exe_sha256": "94429fb10e64b6ed219d3085b41aab507a35fd4f189358f941667becc8d237d5",
+  "target_comparison": "extras/docs/etc/bios-prefix-split-target-comparison.json"
+}

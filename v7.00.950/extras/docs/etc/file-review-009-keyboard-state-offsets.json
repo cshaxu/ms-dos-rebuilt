@@ -1,0 +1,23 @@
+{
+  "source": "bios/msbio1.asm",
+  "source_sha256": "b6bb4a70ddc0070682005086dcd8069c70fb3717a8f8cf0833828f2cc85093fb",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "bios_state_offsets": {
+    "int16_tick": 1283,
+    "int16_count": 1285,
+    "int16_limit": 1287,
+    "int16_limit2": 1289,
+    "int16_active": 1291
+  },
+  "target_initial_hex": "00000000c800c8000000",
+  "target_threshold_copy": {
+    "file_offset": 16046,
+    "hex": "a10905a30705"
+  },
+  "target_counter_decrement": {
+    "file_offset": 2622,
+    "hex": "2eff0e0b05"
+  },
+  "diagnostic": "config-ml-keyboard-state-offsets.json",
+  "limitations": "Static observations prove offsets, initial values, and selected accesses only; exact names, full keyboard timing behavior, and the final DOS 7 build remain unverified."
+}

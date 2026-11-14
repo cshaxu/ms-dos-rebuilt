@@ -1,0 +1,29 @@
+{
+  "source": "bios/sysconf.asm",
+  "sha256": "d660876f38ebbf795481b8235226dc873a17deef716dd14fdc7559e769a322b4",
+  "change": "Restore target indexed messages for CONFIG bad-parameter output and correct the DS assumption for the far pointer load.",
+  "matched": [
+    {
+      "region": "bad-parameter output",
+      "start": "0x75c2",
+      "end_exclusive": "0x75ec",
+      "bytes": 42
+    },
+    {
+      "region": "LASTDRIVE and LASTDRIVEHIGH branches including numeric helper",
+      "start": "0x72ad",
+      "end_exclusive": "0x7329",
+      "bytes": 124
+    }
+  ],
+  "verification": {
+    "tool": "extras/tools/verify_syspre_device_link.py",
+    "link_stage": "extras/build/syspre-object-link-oc6layrx",
+    "module_stage": "extras/build/ml-sysinit-mi7bt_as",
+    "scope": "Actual source objects linked to parameter table, numeric parser, query, message and error providers; other target locations remain diagnostic anchors."
+  },
+  "limitations": [
+    "Runtime error and LASTDRIVE cases not executed.",
+    "Complete product link and final three core binaries remain unverified."
+  ]
+}

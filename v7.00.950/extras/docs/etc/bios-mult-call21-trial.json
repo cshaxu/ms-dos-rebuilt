@@ -1,0 +1,34 @@
+{
+  "source": "extras/research/bios-mult-call21-trial.asm",
+  "source_sha256": "f9feb3085f6abf7ccccb79b9b5066b423a7c27f42a7d45fbcad0a0af5cc520c8",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "linked_exe_sha256": "75a33fcb89f1a1f4bc5686215a92cf857842a5ee21cfd67eae3b964611f4daf1",
+  "blocks": [
+    {
+      "name": "log_flags",
+      "target_file_offset": "0x47bf",
+      "length": 2,
+      "hex": "4120"
+    },
+    {
+      "name": "log_device_and_message",
+      "target_file_offset": "0x47c8",
+      "length": 7,
+      "hex": "00004d44463f3f"
+    },
+    {
+      "name": "mult_call21",
+      "target_file_offset": "0x4918",
+      "length": 44,
+      "hex": "5351522ef7066f2b0040741c2e8b1e782b0bdb74130e1fc7067d2b3f3fba7a2bb80444b90500cd215a595bc3"
+    }
+  ],
+  "observations": [
+    "When flag 4000h is set and the device word is nonzero, the routine passes a five-byte MDF?? buffer to INT 21h function 4404h.",
+    "Names and source ownership are inferred; DS is changed on the active path."
+  ],
+  "limitations": [
+    "ORG emulates target offsets and does not establish final object layout.",
+    "No end-to-end device or DOS interaction was tested."
+  ]
+}

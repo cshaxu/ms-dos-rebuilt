@@ -1,0 +1,42 @@
+{
+  "source": "bios/sysinit2.asm",
+  "source_sha256": "6d2e10d5bb978d682b7039f54ebfaac6bad9056955f2e149bd9f329283987bec",
+  "state": "integration_pending",
+  "target": "extras/baselines/targets/IO.SYS",
+  "continuous_code": {
+    "sysinit_start": "0x4ac0",
+    "sysinit_end_exclusive": "0x5ad4",
+    "bytes": 4116,
+    "verification": "extras/tools/verify_menu_check_full.py",
+    "qualification": "SYSINIT 4AC0h..5AC9h comprises 4106 bytes from one SYSINIT2 source slice; 5ACAh..5AD3h comprises 10 bytes from SYSCONF placed separately by the diagnostic. Region start and external dependencies remain anchored.",
+    "sysinit2_bytes": 4106,
+    "sysconf_bytes": 10
+  },
+  "startup_data": {
+    "sysinit_start": "0x42e0",
+    "sysinit_end_exclusive": "0x4476",
+    "bytes": 406,
+    "verification": "extras/tools/verify_sysinit_startup_split.py",
+    "qualification": "Independently linked data object with diagnostic target-offset prefix."
+  },
+  "runtime_probes": [
+    "extras/tools/run_old_dos_file_probe.py",
+    "extras/tools/run_old_dos_loader_probe.py"
+  ],
+  "limitations": [
+    "SYSINIT1 startup-choice source now calls the restored entries in an anchored combined diagnostic; final object link remains unverified.",
+    "Diagnostic link anchors the code region and external dependencies.",
+    "Complete SYSINIT link and all three target binaries remain unverified."
+  ],
+  "safe_boot_message": {
+    "sysinit_start": "0x474c",
+    "bytes": 13,
+    "verification": "extras/tools/verify_menu_check_full.py",
+    "qualification": "Public data; target caller remains to be integrated."
+  },
+  "public_data": [
+    "boot_old_image_seg",
+    "boot_dos_file_table",
+    "boot_windows_file_table"
+  ]
+}

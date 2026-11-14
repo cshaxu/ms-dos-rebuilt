@@ -1,0 +1,69 @@
+{
+  "purpose": "Isolated exploratory build of unchanged 6.22 kernel sources with only MAJOR_VERSION=7 and MINOR_VERSION=0 in a disposable source copy. The project source was not modified.",
+  "reference_sha256": "6db133420bf04ddbafe310a720fab934db3e7dc9f5a53fc6692d5a01cbbc0d4e",
+  "probe_sha256": "967749ba80db57e7835021449ce8bf9deeec1c875ba235b5b8adceb5c02ed1f0",
+  "target_io_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "probe_status": "built",
+  "changes": [
+    {
+      "reference_offset": 9,
+      "old": 6,
+      "new": 7
+    },
+    {
+      "reference_offset": 10,
+      "old": 22,
+      "new": 0
+    },
+    {
+      "reference_offset": 691,
+      "old": 6,
+      "new": 7
+    },
+    {
+      "reference_offset": 692,
+      "old": 22,
+      "new": 0
+    },
+    {
+      "reference_offset": 4571,
+      "old": 6,
+      "new": 7
+    },
+    {
+      "reference_offset": 4572,
+      "old": 22,
+      "new": 0
+    },
+    {
+      "reference_offset": 25459,
+      "old": 6,
+      "new": 7
+    },
+    {
+      "reference_offset": 25460,
+      "old": 22,
+      "new": 0
+    },
+    {
+      "reference_offset": 36514,
+      "old": 6,
+      "new": 7
+    },
+    {
+      "reference_offset": 36515,
+      "old": 22,
+      "new": 0
+    }
+  ],
+  "mstable": {
+    "source": "dos/mstable.asm",
+    "constants": "inc/versiona.inc",
+    "baseline_version_offset": 9,
+    "target_version_offset": 70601,
+    "probe_version_bytes": "0700",
+    "target_version_bytes": "0700",
+    "matched_following_error_table_bytes": 178
+  },
+  "limitation": "This establishes only the version data field and error table prefix. It does not produce the 7.0a kernel or IO.SYS."
+}

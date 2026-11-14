@@ -1,0 +1,24 @@
+{
+  "source": "bios/syspre.asm",
+  "source_sha256": "28155ac13072faf13a3303c6fd1f583eed538d103e5da4b9925594d9b82b9909",
+  "state": "integration_pending",
+  "verification": "extras/tools/verify_menu_check_full.py",
+  "entry": {
+    "sysinit_start": "0x8aaf",
+    "bytes": 220
+  },
+  "exit": {
+    "sysinit_start": "0x8df7",
+    "bytes": 3
+  },
+  "scope": "Actual entry through InitDevLoad and the error trampoline compared at target offsets; other external dependencies remain anchored.",
+  "limitations": [
+    "Later device-size, loading, initialization and error paths retain incomplete DOS6-derived logic.",
+    "The MagicPostload filename reference changed to the target-relative spelling; its complete routine has not been reverified after this edit.",
+    "Full object and complete SYSINIT link remain unverified."
+  ],
+  "driver_names": {
+    "sysinit_start": "0x8a64",
+    "bytes": 59
+  }
+}

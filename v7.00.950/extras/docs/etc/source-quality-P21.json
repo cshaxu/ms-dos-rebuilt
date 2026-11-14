@@ -1,0 +1,37 @@
+{
+  "part": "M5 T12 S1 P21",
+  "ordinal": 40,
+  "modified": 1,
+  "unchanged": 0,
+  "exact_dos6": 0,
+  "retired_by_merge": 0,
+  "reference": "No DOS6 bios/rapiopen.asm or rapi* homolog found. This target-specific registry module is reviewed against Microsoft assembly module/procedure/segment conventions; no false whole-file correspondence is claimed.",
+  "changes": "Replace fifteen stale per-file provenance/verification header blocks at the top with one module contract. Add purpose and actual stack-argument comments to each of the fifteen procedures; normalize declarations and instruction indentation. Preserve original instruction spelling, offsets and generated branch labels for binary traceability.",
+  "necessity": "The file already consolidates open/close/query/create/delete/set/enumeration/flush/mount/save APIs in one REGAPI compilation unit. No additional split files required. RegVMEntry selects a Windows provider at runtime, while local operation is needed without that provider; these are required modes, not redundant DOS-version branches. Local calls share validation, path, file-reference and record providers. Preserve instruction-level similarities in open/create and mount/save to retain target stack paths and layout.",
+  "validation": {
+    "effectiveStatementsEqual": true,
+    "statementCount": 1877,
+    "proceduresReviewed": [
+      "RegOpenKey",
+      "RegCloseKey",
+      "RegQueryValueCore",
+      "RegCreateKey",
+      "RegDeleteKey",
+      "RegDeleteValue",
+      "RegSetValueCore",
+      "RegEnumKey",
+      "RegEnumValue",
+      "RegUnsupportedOperation",
+      "RegFlushKey",
+      "RegRemapKey",
+      "RegLoadKeyAPI",
+      "RegUnloadKey",
+      "RegSaveKey"
+    ],
+    "rebuilt": false,
+    "reason": "All 1877 effective assembler statements unchanged, including FAR/NEAR calls, stack offsets, EVEN/NOP padding, data and segment order. Comments/whitespace only.",
+    "binary_baseline": "T11 CONFIG/IO.SYS acceptance carried through P11; COMMAND.COM/MSDOS.SYS unchanged."
+  },
+  "next_ordinal": 41,
+  "remaining": 26
+}

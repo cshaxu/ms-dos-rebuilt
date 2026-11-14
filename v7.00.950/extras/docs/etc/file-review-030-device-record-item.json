@@ -1,0 +1,24 @@
+{
+  "file": "bios/sysconf.asm",
+  "file_index": 30,
+  "source_sha256": "ddb543b91aeeed6c1f6fff054e3eec35f940c1f70bd71dc41b92706b71e0461e",
+  "matched_ranges": [
+    {
+      "target": "IO.SYS 0xb462..0xb4a8",
+      "bytes": 70,
+      "purpose": "device record initial state"
+    },
+    {
+      "target": "IO.SYS 0xd505..0xd52e",
+      "bytes": 41,
+      "purpose": "vector change record helper"
+    }
+  ],
+  "different_bytes": 0,
+  "default_object_identical": true,
+  "dos7_assembly": "passed",
+  "limitations": [
+    "The target offsets are fixed by ORG in an isolated link; actual source ownership and final placement remain unverified.",
+    "The containing config_record_device routine, allocation and all record consumers remain incomplete."
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "milestone": "M6",
+  "last_allocated_task": 20,
+  "naming": "v<DOS-major>.<two-digit-minor>.<build>: v7.00.950, v7.10.1111, v7.10.1998, v7.10.2222, v8.00.3000.",
+  "tasks": [
+    {
+      "id": "T13",
+      "milestone": "M6",
+      "directory": "v7.00.950",
+      "title": "最早 4.00.950 与现有 7.0 身份核验",
+      "status": "deferred",
+      "work": "S1 启动软盘基线；S2 确认早期正式版及必要源码差异；S3 精确验收",
+      "transfer": "950 earliest-media provenance and remaining release identification retained; owner authorized T20 to proceed using pinned 950 source and 1111 target."
+    },
+    {
+      "id": "T14",
+      "milestone": "M6",
+      "directory": "v7.00.950",
+      "title": "Windows 95 SP1 / OSR1",
+      "status": "planned",
+      "work": "分别核对 SP1、OSR1；仅为实证差异恢复源码，相同核心记录复用"
+    },
+    {
+      "id": "T15",
+      "milestone": "M6",
+      "directory": "v7.10.1111",
+      "title": "Windows 95 OSR2",
+      "status": "superseded",
+      "work": "以已核验 v7.00.950 为基线，先二进制功能块差异与依赖，再恢复 7.10",
+      "superseded_by": "T20"
+    },
+    {
+      "id": "T16",
+      "milestone": "M6",
+      "directory": "v7.10.1111 (以实测为准)",
+      "title": "Windows 95 OSR2.1",
+      "status": "planned",
+      "work": "对 OSR2 三文件逐个核对；USB 更新不自动视作 DOS 更新"
+    },
+    {
+      "id": "T17",
+      "milestone": "M6",
+      "directory": "v7.10.1111 (以实测为准)",
+      "title": "Windows 95 OSR2.5",
+      "status": "planned",
+      "work": "对 OSR2/2.1 核对；相同复用，不创建仅改标签的第二实现"
+    },
+    {
+      "id": "T18",
+      "milestone": "M6",
+      "directory": "v7.10.1998",
+      "title": "Windows 98 FE",
+      "status": "planned",
+      "work": "先澄清两组 1998 核心的语言/修订差异；以最近已验收 7.10 源码恢复"
+    },
+    {
+      "id": "T19",
+      "milestone": "M6",
+      "directory": "v7.10.2222",
+      "title": "Windows 98 SE",
+      "status": "planned",
+      "work": "以 FE 为基线，按有依据代码块映射恢复差异；配置文本变体单列"
+    },
+    {
+      "id": "T20",
+      "milestone": "M6",
+      "directory": "v7.10.1111",
+      "title": "DOS 7.10.1111 三核心完整源码复建",
+      "status": "active",
+      "work": "S1 完整基线与目标冻结；S2 拓扑顺序恢复差异；S3 独立精确构建验收",
+      "authorization": "Owner explicitly admitted a new T dedicated to implementing 7.10.1111.",
+      "baseline": "v7.00.950",
+      "media": "O:/assets/w9xbd/Microsoft Windows 95 OSR2 - Boot Disk (Dell OEM) (3.5-1.44mb)/disk01.img",
+      "active_subtask": "S2",
+      "completed_subtasks": [
+        "S1"
+      ],
+      "state_record": "v7.10.1111/extras/docs/states/CURRENT.md"
+    }
+  ]
+}

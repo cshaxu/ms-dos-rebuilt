@@ -1,0 +1,24 @@
+{
+  "source": "bios/sysconf.asm",
+  "source_sha256": "a259dc2aa4df82704b627d83762b63961953a5a57ab9cdb0f45f6b86979ca342",
+  "change": "Clear CX as well as DX before seeking CONFIG.SYS to the beginning; CX:DX is the signed seek offset.",
+  "target": "extras/baselines/targets/IO.SYS",
+  "verification": {
+    "actual_config_entry": {
+      "start": "0x6848",
+      "end_exclusive": "0x692d",
+      "matched_bytes": 229
+    },
+    "actual_filename": {
+      "start": "0x32ce",
+      "matched_bytes": 12
+    },
+    "script": "extras/tools/verify_syspre_device_link.py",
+    "stage": "extras/build/syspre-object-link-piw0pfcd",
+    "assembly": "Complete SYSCONF assembled after device-data splitting."
+  },
+  "limitations": [
+    "getcom and badfil are anchored to target addresses, not linked from actual provider code in this comparison.",
+    "Other synthetic addresses and gaps remain; complete SYSINIT and three target binaries are not verified."
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "bios_code_offsets": {
+    "dpt": 3556,
+    "cursec": 3560,
+    "curhd": 3561,
+    "curtrk": 3562,
+    "temp_h": 3566,
+    "saved_word": 3570
+  },
+  "instruction_anchors": {
+    "dpt": {
+      "target_file_offset": 12203,
+      "hex": "2e8936e40d2e8c06e60d"
+    },
+    "cursec": {
+      "target_file_offset": 12262,
+      "hex": "2e8816e80d"
+    },
+    "curhd_curtrk": {
+      "target_file_offset": 12300,
+      "hex": "2e8816e90d2ea3ea0d"
+    },
+    "temp_h": {
+      "target_file_offset": 12248,
+      "hex": "2ea3ee0d"
+    },
+    "saved_word": {
+      "target_file_offset": 12189,
+      "hex": "2ea3f20d"
+    }
+  },
+  "diagnostic_report": "config-ml-chs-state-owner.json",
+  "limitations": "Target instruction correspondence is static; the fields are diagnostic stubs until disk module integration."
+}

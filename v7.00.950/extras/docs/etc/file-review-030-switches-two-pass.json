@@ -1,0 +1,28 @@
+{
+  "file": "bios/sysconf.asm",
+  "file_index": 30,
+  "source_sha256": "7f356fd32551bb04b71491f208b26ac1d4904e2c3b6d3c5b990dd686319284e8",
+  "ranges": [
+    {
+      "target": "IO.SYS 0xb955..0xb9b0",
+      "bytes": 91,
+      "different_bytes": 3,
+      "purpose": "first-pass switch parse decisions"
+    },
+    {
+      "target": "IO.SYS 0xc20b..0xc24e",
+      "bytes": 67,
+      "different_bytes": 0,
+      "purpose": "later switch flag application"
+    }
+  ],
+  "difference": "ADD AX,0Fh is encoded with accumulator-immediate form rather than target sign-extended immediate form.",
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "Probes fix target addresses with ORG and do not establish production layout or complete parser behavior.",
+    "First-pass command routing and parser resource details are not fully byte-verified.",
+    "Mixed diagnostic includes older objects and stubs, not a production build."
+  ]
+}

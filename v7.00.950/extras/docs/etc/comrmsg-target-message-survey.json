@@ -1,0 +1,798 @@
+{
+  "source": "lang/usa/messages/comrmsg.inc",
+  "source_sha256": "711e8b6e73fcc7c2cb62c47eca75730bc8779a824cc5b9039bfc4692322435e2",
+  "reference_object_sha256": "54fac32c32b8a1efc9766c29971c5d59e8e5ecdd8d988097545974a394fc5b02",
+  "target_sha256": "a74c700063cd6b1c91523952bfc80e9393c125d39ada0164d48b5098089fcef3",
+  "message_count": 85,
+  "status_counts": {
+    "unique": 72,
+    "ambiguous": 11,
+    "absent": 2
+  },
+  "messages": [
+    {
+      "name": "Req_Abort",
+      "reference_offset": 901,
+      "length": 5,
+      "target_hits": [
+        14901
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "Req_Retry",
+      "reference_offset": 907,
+      "length": 7,
+      "target_hits": [
+        14907
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "Req_Ignore",
+      "reference_offset": 915,
+      "length": 8,
+      "target_hits": [
+        14915
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "Req_Fail",
+      "reference_offset": 924,
+      "length": 6,
+      "target_hits": [
+        14924
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "Req_End",
+      "reference_offset": 931,
+      "length": 1,
+      "target_hits": [
+        14931,
+        68540
+      ],
+      "status": "ambiguous"
+    },
+    {
+      "name": "MRead",
+      "reference_offset": 933,
+      "length": 8,
+      "target_hits": [
+        14933
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "MWrite",
+      "reference_offset": 942,
+      "length": 8,
+      "target_hits": [
+        14942
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "BlkDevErr",
+      "reference_offset": 951,
+      "length": 14,
+      "target_hits": [
+        14951
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "CharDevErr",
+      "reference_offset": 966,
+      "length": 15,
+      "target_hits": [
+        14966
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "NeedVolMsg",
+      "reference_offset": 982,
+      "length": 38,
+      "target_hits": [
+        14982
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "BadFatMsg",
+      "reference_offset": 1021,
+      "length": 37,
+      "target_hits": [
+        15021
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "ComBad",
+      "reference_offset": 1059,
+      "length": 21,
+      "target_hits": [
+        15059
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "PutBackMsg",
+      "reference_offset": 1081,
+      "length": 33,
+      "target_hits": [],
+      "status": "absent"
+    },
+    {
+      "name": "Prompt",
+      "reference_offset": 1115,
+      "length": 33,
+      "target_hits": [
+        1757
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "EndBatMes",
+      "reference_offset": 1149,
+      "length": 28,
+      "target_hits": [
+        15148
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "ExecEMes",
+      "reference_offset": 1178,
+      "length": 19,
+      "target_hits": [
+        15177
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "ExeBad",
+      "reference_offset": 1198,
+      "length": 19,
+      "target_hits": [
+        15197
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "TooBig",
+      "reference_offset": 1218,
+      "length": 34,
+      "target_hits": [
+        15217
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "NoHandMes",
+      "reference_offset": 1253,
+      "length": 22,
+      "target_hits": [
+        15252
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "RBadNam",
+      "reference_offset": 1276,
+      "length": 26,
+      "target_hits": [],
+      "status": "absent"
+    },
+    {
+      "name": "AccDen",
+      "reference_offset": 1303,
+      "length": 14,
+      "target_hits": [
+        1366,
+        15302,
+        16200
+      ],
+      "status": "ambiguous"
+    },
+    {
+      "name": "BMemMes",
+      "reference_offset": 1318,
+      "length": 25,
+      "target_hits": [
+        15317
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "HaltMes",
+      "reference_offset": 1344,
+      "length": 38,
+      "target_hits": [
+        15343
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "FRetMes",
+      "reference_offset": 1383,
+      "length": 33,
+      "target_hits": [
+        15382
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "Patricide",
+      "reference_offset": 1417,
+      "length": 46,
+      "target_hits": [
+        15416
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "Newlin",
+      "reference_offset": 1464,
+      "length": 2,
+      "target_hits": [
+        2609,
+        15493
+      ],
+      "status": "ambiguous"
+    },
+    {
+      "name": "ExtErr19",
+      "reference_offset": 1487,
+      "length": 19,
+      "target_hits": [
+        15496
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "ExtErr20",
+      "reference_offset": 1507,
+      "length": 12,
+      "target_hits": [
+        15516
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "ExtErr21",
+      "reference_offset": 1520,
+      "length": 9,
+      "target_hits": [
+        15529
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "ExtErr22",
+      "reference_offset": 1530,
+      "length": 22,
+      "target_hits": [
+        15539
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "ExtErr23",
+      "reference_offset": 1553,
+      "length": 10,
+      "target_hits": [
+        15562
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "ExtErr24",
+      "reference_offset": 1564,
+      "length": 33,
+      "target_hits": [
+        15573
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "ExtErr25",
+      "reference_offset": 1598,
+      "length": 10,
+      "target_hits": [
+        15607
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "ExtErr26",
+      "reference_offset": 1609,
+      "length": 18,
+      "target_hits": [
+        15618
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "ExtErr27",
+      "reference_offset": 1628,
+      "length": 16,
+      "target_hits": [
+        15637
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "ExtErr28",
+      "reference_offset": 1645,
+      "length": 26,
+      "target_hits": [
+        15654
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "ExtErr29",
+      "reference_offset": 1672,
+      "length": 17,
+      "target_hits": [
+        15681
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "ExtErr30",
+      "reference_offset": 1690,
+      "length": 16,
+      "target_hits": [
+        15699
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "ExtErr31",
+      "reference_offset": 1707,
+      "length": 15,
+      "target_hits": [
+        15716
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "ExtErr32",
+      "reference_offset": 1723,
+      "length": 17,
+      "target_hits": [
+        15732
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "ExtErr33",
+      "reference_offset": 1741,
+      "length": 14,
+      "target_hits": [
+        15750
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "ExtErr34",
+      "reference_offset": 1756,
+      "length": 19,
+      "target_hits": [
+        15765
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "ExtErr35",
+      "reference_offset": 1776,
+      "length": 15,
+      "target_hits": [
+        15785
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "ExtErr36",
+      "reference_offset": 1792,
+      "length": 25,
+      "target_hits": [
+        15801
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "ExtErr37",
+      "reference_offset": 1818,
+      "length": 18,
+      "target_hits": [
+        15827
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "ExtErr38",
+      "reference_offset": 1837,
+      "length": 12,
+      "target_hits": [
+        15846
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "ExtErr39",
+      "reference_offset": 1850,
+      "length": 23,
+      "target_hits": [
+        15859
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "ParsErr01",
+      "reference_offset": 1916,
+      "length": 19,
+      "target_hits": [
+        15883
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "ParsErr02",
+      "reference_offset": 1936,
+      "length": 26,
+      "target_hits": [
+        15903
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "ParsErr03",
+      "reference_offset": 1963,
+      "length": 14,
+      "target_hits": [
+        15930
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "ParsErr04",
+      "reference_offset": 1978,
+      "length": 15,
+      "target_hits": [
+        15945
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "ParsErr05",
+      "reference_offset": 1994,
+      "length": 1,
+      "target_hits": [
+        15961
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "ParsErr06",
+      "reference_offset": 1996,
+      "length": 36,
+      "target_hits": [
+        15963
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "ParsErr07",
+      "reference_offset": 2033,
+      "length": 27,
+      "target_hits": [
+        16000,
+        16028
+      ],
+      "status": "ambiguous"
+    },
+    {
+      "name": "ParsErr08",
+      "reference_offset": 2061,
+      "length": 27,
+      "target_hits": [
+        16000,
+        16028
+      ],
+      "status": "ambiguous"
+    },
+    {
+      "name": "ParsErr09",
+      "reference_offset": 2089,
+      "length": 28,
+      "target_hits": [
+        16056
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "ParsErr10",
+      "reference_offset": 2118,
+      "length": 17,
+      "target_hits": [
+        16085,
+        16598
+      ],
+      "status": "ambiguous"
+    },
+    {
+      "name": "ParsErr11",
+      "reference_offset": 2136,
+      "length": 29,
+      "target_hits": [
+        16103
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "ExtErr01",
+      "reference_offset": 2188,
+      "length": 16,
+      "target_hits": [
+        16133
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "ExtErr02",
+      "reference_offset": 2205,
+      "length": 14,
+      "target_hits": [
+        923,
+        16150
+      ],
+      "status": "ambiguous"
+    },
+    {
+      "name": "ExtErr03",
+      "reference_offset": 2220,
+      "length": 14,
+      "target_hits": [
+        938,
+        16165
+      ],
+      "status": "ambiguous"
+    },
+    {
+      "name": "ExtErr04",
+      "reference_offset": 2235,
+      "length": 19,
+      "target_hits": [
+        16180
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "ExtErr05",
+      "reference_offset": 2255,
+      "length": 14,
+      "target_hits": [
+        1366,
+        15302,
+        16200
+      ],
+      "status": "ambiguous"
+    },
+    {
+      "name": "ExtErr06",
+      "reference_offset": 2270,
+      "length": 14,
+      "target_hits": [
+        16215
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "ExtErr07",
+      "reference_offset": 2285,
+      "length": 31,
+      "target_hits": [
+        16230
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "ExtErr08",
+      "reference_offset": 2317,
+      "length": 19,
+      "target_hits": [
+        953,
+        16262
+      ],
+      "status": "ambiguous"
+    },
+    {
+      "name": "ExtErr09",
+      "reference_offset": 2337,
+      "length": 28,
+      "target_hits": [
+        16282
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "ExtErr10",
+      "reference_offset": 2366,
+      "length": 19,
+      "target_hits": [
+        16311
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "ExtErr11",
+      "reference_offset": 2386,
+      "length": 14,
+      "target_hits": [
+        16331
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "ExtErr12",
+      "reference_offset": 2401,
+      "length": 26,
+      "target_hits": [
+        16346
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "ExtErr13",
+      "reference_offset": 2428,
+      "length": 12,
+      "target_hits": [
+        16373
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "ExtErr15",
+      "reference_offset": 2441,
+      "length": 27,
+      "target_hits": [
+        16387
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "ExtErr16",
+      "reference_offset": 2469,
+      "length": 35,
+      "target_hits": [
+        16415
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "ExtErr17",
+      "reference_offset": 2505,
+      "length": 15,
+      "target_hits": [
+        16451
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "ExtErr18",
+      "reference_offset": 2521,
+      "length": 13,
+      "target_hits": [
+        16467
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "ExtErr80",
+      "reference_offset": 2535,
+      "length": 11,
+      "target_hits": [
+        16481
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "ExtErr82",
+      "reference_offset": 2547,
+      "length": 27,
+      "target_hits": [
+        16494
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "ExtErr83",
+      "reference_offset": 2575,
+      "length": 14,
+      "target_hits": [
+        16522
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "ExtErr84",
+      "reference_offset": 2590,
+      "length": 21,
+      "target_hits": [
+        16537
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "ExtErr85",
+      "reference_offset": 2612,
+      "length": 21,
+      "target_hits": [
+        16559
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "ExtErr86",
+      "reference_offset": 2634,
+      "length": 16,
+      "target_hits": [
+        16581
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "ExtErr87",
+      "reference_offset": 2651,
+      "length": 17,
+      "target_hits": [
+        16085,
+        16598
+      ],
+      "status": "ambiguous"
+    },
+    {
+      "name": "ExtErr88",
+      "reference_offset": 2669,
+      "length": 18,
+      "target_hits": [
+        16616
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "ExtErr89",
+      "reference_offset": 2688,
+      "length": 33,
+      "target_hits": [
+        16635
+      ],
+      "status": "unique"
+    },
+    {
+      "name": "ExtErr90",
+      "reference_offset": 2722,
+      "length": 39,
+      "target_hits": [
+        16669
+      ],
+      "status": "unique"
+    }
+  ],
+  "limitations": [
+    "Exact length-prefixed message search does not prove ownership, executable control flow, pointer tables or relocation.",
+    "Short or duplicate messages have ambiguous matches; absent messages may reflect changed content or encoding.",
+    "Reference object is a provisional DOS 6 build, not a DOS 7 source or complete target build."
+  ],
+  "context_findings": [
+    "cmd/command/rdata.asm includes comrmsg.inc inside DATARES and provides the external MsgRetrv_Trap; the fragment and caller have a real include/symbol dependency.",
+    "The target has a 66-byte prompt at 0x3ae9 immediately after Invalid COMMAND.COM; its ownership relative to baseline PutBackMsg and Prompt needs consumer validation.",
+    "The target resident region has length-prefixed Bad command or file name at 0x3bab, differing in capitalization from baseline RBadNam."
+  ]
+}

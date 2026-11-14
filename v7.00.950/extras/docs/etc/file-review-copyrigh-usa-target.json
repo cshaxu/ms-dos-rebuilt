@@ -1,0 +1,39 @@
+{
+  "file": "inc/copyrigh.inc",
+  "before_sha256": "3de09de4d754760b4b1e015404f95cdc7a2e6ca55f0b22a5b3ade1e734a3c227",
+  "after_sha256": "1e4ac80d8a6923d5070840d7de469e156c17d385164963fb3e08afe0acff408a",
+  "change": "USA text: MS DOS Version 6 (C)Copyright 1981-1994 to MS-DOS Version 7 (C)Copyright 1981-1995",
+  "stage": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\copyright-probe-sif3b5ox",
+  "probe": [
+    {
+      "name": "before",
+      "source_sha256": "3de09de4d754760b4b1e015404f95cdc7a2e6ca55f0b22a5b3ade1e734a3c227",
+      "object_sha256": "d1b7809765d3ef4395e6903eea2b632615d5a2cd64461ffa7106fc3548d1009f",
+      "emitted_sha256": "f4e44f2440d35ae3d045b762a9417d1d917c740cf09f6db67c0678e2bc1d0ab7",
+      "emitted_hex": "4d5320444f532056657273696f6e203620284329436f7079726967687420313938312d31393934204d6963726f736f667420436f7270204c6963656e736564204d6174657269616c202d2050726f7065727479206f66204d6963726f736f667420416c6c2072696768747320726573657276656420"
+    },
+    {
+      "name": "after",
+      "source_sha256": "1e4ac80d8a6923d5070840d7de469e156c17d385164963fb3e08afe0acff408a",
+      "object_sha256": "ef4cfa908b3332b66f1ea9fb2f783421c0054f22a8fdbb37fb504b23b4317b07",
+      "emitted_sha256": "afaa401b5cb75cbd1fb89e9ee214266e7c36668155b44a7cae9804fe29764ca4",
+      "emitted_hex": "4d532d444f532056657273696f6e203720284329436f7079726967687420313938312d31393935204d6963726f736f667420436f7270204c6963656e736564204d6174657269616c202d2050726f7065727479206f66204d6963726f736f667420416c6c2072696768747320726573657276656420"
+    }
+  ],
+  "target_positions": {
+    "IO.SYS": [
+      32633,
+      99246
+    ],
+    "COMMAND.COM": [
+      31289,
+      85872
+    ]
+  },
+  "target_hashes": {
+    "IO.SYS": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+    "COMMAND.COM": "a74c700063cd6b1c91523952bfc80e9393c125d39ada0164d48b5098089fcef3"
+  },
+  "matched_bytes": 117,
+  "limitations": "USA branch only; other language branches, placement, and complete IO.SYS/COMMAND.COM binaries remain unverified."
+}

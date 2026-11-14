@@ -1,0 +1,46 @@
+{
+  "files": {
+    "bios/sysconf.asm": "c3b99b0d59590548f9fefd8069b5394809ea317b1ac5f21adea3cfba5b0eebc2",
+    "inc/parse.asm": "89acf7c8c819cd9afa8e44a50ad3e16d5b69e2eed192e01acb020886078238c9",
+    "inc/psdata.inc": "071642bb031b8a932578bd294f2f4527b2a89442f7a3caeb5f1bd446b59b4381"
+  },
+  "change": "Supply target CMP AL,AL encoding in SYSINIT parser context; shared parser default macro preserves its previous instruction encoding. Link actual SysParse to SYSINIT caller.",
+  "target_match": {
+    "sysparse_code": {
+      "start": "0x5c07",
+      "end_exclusive": "0x6446",
+      "bytes": 2111
+    },
+    "parser_data": {
+      "bytes": 166,
+      "ranges": [
+        [
+          "0x5add",
+          "0x5b74"
+        ],
+        [
+          "0x5bf8",
+          "0x5c07"
+        ]
+      ]
+    },
+    "synthetic_gap": {
+      "start": "0x5b74",
+      "end_exclusive": "0x5bf8",
+      "bytes": 132,
+      "ownership": "unknown"
+    }
+  },
+  "default_object_regression": {
+    "equal": true,
+    "before": "extras/build/sysparse-sysinit-_52bcrx1/parser.obj",
+    "after": "extras/build/sysparse-sysinit-xlw087b2/default/parser.obj",
+    "scope": "Same SYSINIT parser flags with encoding override omitted; does not establish complete COMMAND build."
+  },
+  "verification": "extras/tools/verify_syspre_device_link.py",
+  "stage": "extras/build/syspre-object-link-2dojvhqx",
+  "limitations": [
+    "The parser diagnostic inserts a 132-byte gap after the string buffer in a staged copy of psdata.inc; its source ownership and production layout remain unresolved.",
+    "Full IO.SYS, COMMAND.COM and MSDOS.SYS have not been rebuilt and verified byte-for-byte."
+  ]
+}

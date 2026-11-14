@@ -1,0 +1,13 @@
+{
+  "build_report": "extras/docs/etc/command-a20-alias-verified-build-20261112.json",
+  "probe_stage": "extras/build/a20-alias-fixed-probe-sma5xz5f",
+  "checks": [
+    "unequal memory regions return A20 on without XMS",
+    "equal regions query mocked XMS and map off/on results",
+    "BX CX SI DI DS ES restored"
+  ],
+  "limitations": [
+    "controlled same-segment addresses and mocked XMS; real A20 line is not changed",
+    "whole startup and final byte identity not tested"
+  ]
+}

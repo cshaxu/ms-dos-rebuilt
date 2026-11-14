@@ -1,0 +1,24 @@
+{
+  "target_command_sha256": "a74c700063cd6b1c91523952bfc80e9393c125d39ada0164d48b5098089fcef3",
+  "target_instruction_offset": 57891,
+  "target_instructions": "881e59d8b440bb0200b90100ba59d8cd21b440c60659d808cd21",
+  "target_answer_buffer": 55385,
+  "neighbor_before": {
+    "name": "copy_state",
+    "address": 55384
+  },
+  "neighbor_after": {
+    "name": "BATHAND",
+    "address": 55386
+  },
+  "baseline_consumer": "cmd/command/copy.asm:1234-1241",
+  "baseline_owner": "cmd/command/tdata.asm:1092-1093",
+  "baseline_definition": "answer_buffer EQU $M_F_00450H_MSG+0",
+  "interpretation": "Matching COPY write, one-byte console output, and overwrite with backspace establish corresponding buffer address. Position between copy_state and BATHAND suggests allocation in transient layout, but target source ownership is not directly visible.",
+  "required_work": "Resolve TSPC allocation and TDATA public alias coherently within their dependency unit; preserve public symbol uniqueness and verify target generated message behavior.",
+  "limitations": [
+    "Target source ownership is inferred from address layout; a different segment grouping is possible.",
+    "Consumer, message generation and target-wide data layout remain unverified."
+  ],
+  "status": "waiting_dependency_unit"
+}

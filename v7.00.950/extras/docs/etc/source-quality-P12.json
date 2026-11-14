@@ -1,0 +1,23 @@
+{
+  "part": "M5 T12 S1 P12",
+  "ordinal": 31,
+  "modified": 1,
+  "unchanged": 0,
+  "exact_dos6": 0,
+  "retired_by_merge": 0,
+  "reference": "Original DOS6 bios/msbio1.asm; complete current module reviewed, including P9 BDS/entry merge.",
+  "changes": "Return six original procedure headers to cbreak, strategy, outchr, block13, EnsureA20On and int19. Remove orphan headings, obsolete sector-buffer commentary, three build-verification notes and eight redundant PUBLIC declarations. Select the formal DOS7_CONFIG declaration branch.",
+  "preserved": "All instructions, data, structures, macros and original ROMDOS/ROMEXEC/POWER/ROMDRIVE conditionals. Keep complementary palette operations, keyboard install/setup, self-modifying int15 jump, delay jumps and layout-dependent bytes. BDS schema is shared with merged P9 instances.",
+  "validation": {
+    "nonpublicStatementsEqual": true,
+    "publicSymbolSetEqual": true,
+    "beforeStatements": 1476,
+    "afterStatements": 1468,
+    "removedDuplicatePublicLines": 8,
+    "rebuilt": false,
+    "reason": "Ordered effective non-PUBLIC assembler statements and exported symbol set unchanged; no emitted-byte change.",
+    "binary_baseline": "P11 original-tool BIOS/IO.SYS match and T11 accepted COMMAND.COM/MSDOS.SYS remain applicable."
+  },
+  "next_ordinal": 32,
+  "remaining": 35
+}

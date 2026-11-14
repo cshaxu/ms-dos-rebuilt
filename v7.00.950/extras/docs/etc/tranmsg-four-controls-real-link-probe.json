@@ -1,0 +1,17 @@
+{
+  "stage": "extras\\build\\tranmsg-link-trial-4kpd32p1",
+  "target_range": [
+    "0x105f9",
+    "0x10660"
+  ],
+  "expected_length": 103,
+  "executable_match_offsets": [
+    55941
+  ],
+  "link_status": "PASS",
+  "excerpt_source": "isolated source trial from cmd/tranmsg.asm",
+  "limitations": [
+    "Provider definitions are synthetic and positioned with ORG at independently inferred target addresses.",
+    "A successful link only proves these seven fixups in this synthetic configuration, not the complete COMMAND link or historical symbol layout."
+  ]
+}

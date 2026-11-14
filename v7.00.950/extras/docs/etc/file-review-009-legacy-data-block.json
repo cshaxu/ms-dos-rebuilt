@@ -1,0 +1,8 @@
+{
+  "source": "bios/msbio1.asm",
+  "source_sha256": "bda69e171d346a85eda8c6ead7096f4f05347e8414b2e238378b1b22e4246d84",
+  "change": "Combine 25 adjacent DOS7-excluded legacy disk data conditionals into one block while retaining data declaration order.",
+  "diagnostic_before_after_sha256": "c4aca850415a33dab182fee92c6c99beb293698380e2a7d684e199f2a1f705a7",
+  "reference_output_sha256": "a67d8733509f9baf94017389cc1c991d5ef1c66bdfb91b6cab3eef0fc35e9490",
+  "limitations": "The byte-identical diagnostic includes legacy objects and stubs and does not prove a complete target build."
+}

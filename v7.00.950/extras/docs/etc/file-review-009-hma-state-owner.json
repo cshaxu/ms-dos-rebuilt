@@ -1,0 +1,13 @@
+{
+  "source": "bios/msbio1.asm",
+  "source_sha256": "6cf32433ae6fb47641637103aa56d56c9795638030af91db9e03b789be0b39df",
+  "old_diagnostic_bios_offsets": {
+    "FreeHMAPtr": 1337,
+    "MoveDOSIntoHMA": 1339,
+    "SysinitPresent": 1343
+  },
+  "target_initial_tail_hex": "00000000000000",
+  "change": "Exclude the provisional legacy HMA fields from this DOS 7 BIOS_DATA position and preserve explicit diagnostic-only stubs.",
+  "diagnostic_tail_differences": [],
+  "limitations": "Target zeros and the following code contradict these fields at the preceding diagnostic positions; they do not establish whether equivalent HMA state exists elsewhere. Diagnostic tail bytes come from stub contribution, so their match does not prove correct source or final layout."
+}

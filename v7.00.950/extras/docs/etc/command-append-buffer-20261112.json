@@ -1,0 +1,34 @@
+{
+  "generated_utc": "2026-11-12T10:56:02.909473+00:00",
+  "source": "cmd/command/tmisc1.asm",
+  "build_report": "extras/docs/etc/command-append-buffer-build-20261112.json",
+  "comparison": {
+    "target_offset": "0xc680",
+    "candidate_offset": "0xc60d",
+    "length": 18,
+    "excluded_address_bytes": [
+      2,
+      3,
+      5,
+      6
+    ],
+    "note": "Instruction sequence matches target; two linked data addresses not certified by this check."
+  },
+  "remaining": "cmd_copy still needs target dynamic command copy and long-command environment handling; dependent helper is not yet established.",
+  "runtime": {
+    "echo": {
+      "stage": "extras/build/command-append-echo-izkcu4qn",
+      "result": "timeout, empty output"
+    },
+    "copy": {
+      "stage": "extras/build/command-append-copy-7f8wl1ey",
+      "result": "timeout, destination matches source"
+    }
+  },
+  "file_counts": {
+    "linked": 35,
+    "modified_from_baseline": 30,
+    "unchanged_from_baseline": 5
+  },
+  "final_binary_exact": false
+}

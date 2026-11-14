@@ -1,0 +1,24 @@
+{
+  "file": "bios/sysinit2.asm",
+  "file_index": 33,
+  "source_sha256": "22b4659cce3297f9232cfe4844c5c1cc83b8b9194c066b083a796eebe5e5eb12",
+  "target_range": "IO.SYS 0x7778..0x79d9",
+  "bytes": 609,
+  "different_bytes": 2,
+  "difference": "CMP CH,AH emitted as 3a ec rather than target 38 e5; both compare the same operands and the following branch depends only on equality.",
+  "coverage": [
+    "print_item",
+    "select_item",
+    "disp_input",
+    "disp_num",
+    "show_status"
+  ],
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "Isolated link fixes target offsets using ORG; actual final placement and the full startup/menu chain are unverified.",
+    "The mixed diagnostic contains older objects and stubs and is not a production build.",
+    "Two target bytes still differ under the available assembler."
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "file": "bios/sysinit1.asm",
+  "file_index": 32,
+  "source_sha256": "b56a4cc932aa88e6dc0e3664ba445457aea12ea5f7302b3ea20a789b25d2528d",
+  "status": "waiting_dependencies",
+  "default_masm_object_identical": true,
+  "dos7_masm_assembly": "passed",
+  "target_ranges": [
+    {
+      "file_range": "0x8682..0x8692",
+      "bytes": 16,
+      "differences_after_manual_symbol_fixups": 0
+    },
+    {
+      "file_range": "0x86b1..0x86ca",
+      "bytes": 25,
+      "differences_after_manual_symbol_fixups": 0
+    }
+  ],
+  "fixups": "Target offsets substituted only for comparison: endstackcode 021Bh, message base A5EAh, stack-message index A5E6h.",
+  "unresolved_symbols": [
+    "sysinit_msg_base",
+    "sysinit_stack_msg_index"
+  ],
+  "limitations": [
+    "The new message table symbols are unresolved external dependencies, not production definitions.",
+    "The surrounding DOS 6 allocation and instance-data paths are not yet the target DOS 7 implementation; this partial change is not a completed stack initializer.",
+    "Full IO.SYS link and binary comparison have not passed."
+  ]
+}

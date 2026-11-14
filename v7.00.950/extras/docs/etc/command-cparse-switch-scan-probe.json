@@ -1,0 +1,10 @@
+{
+  "stage": "extras\\build\\cparse-target-scan-probe-ppp5mrfj",
+  "checks": [
+    "actual CPARSE object scanner emits /W and sets target mask",
+    "scanner emits /A:R in uppercase and sets target mask"
+  ],
+  "limitations": [
+    "Scanner called directly; shared CPARSE entry and production command callers still use legacy switch path."
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "build": "extras/docs/etc/command-cratio-clean-build-20261112.json",
+  "changes": [
+    "removed uncalled DOS 6 CVF/FAT scanning routines and their exclusive buffers and filename",
+    "retained ComputeRatio and Div32 used by DOS 7 DIR",
+    "restored COMSPEC resident filename pointer updates"
+  ],
+  "target_instruction_ranges": [
+    "0xae80..0xaeff",
+    "0xbb79..0xbc2e"
+  ],
+  "verification": "actual linked instructions and operands checked; 181 newly counted instruction bytes after overlap",
+  "prior_bytes": 94222,
+  "output_bytes": 93190,
+  "target_bytes": 92870,
+  "headroom_bytes": 1035,
+  "target_probe": "extras/build/cratio-final-target-iqbxt0f_",
+  "current_probe": "extras/build/cratio-final-current-18ua29_s",
+  "prior_dir_probe": "extras/build/cratio-control-prior-cql5z90i",
+  "current_dir_probe": "extras/build/cratio-control-current-4u002jt2",
+  "matching_cases": [
+    "COMSPEC environment text",
+    "COPY wildcard and data",
+    "continuation after unknown command"
+  ],
+  "known_difference": "DIR /C SRC lists parent directory in prior and current builds; target lists SRC contents",
+  "limitations": "resident COMSPEC pointer runtime, actual compressed-volume ratio, DIR /C pathname behavior, and final byte identity remain unverified"
+}

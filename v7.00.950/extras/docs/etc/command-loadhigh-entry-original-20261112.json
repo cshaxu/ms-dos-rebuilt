@@ -1,0 +1,15 @@
+{
+  "build": "extras/docs/etc/command-loadhigh-entry-original-build-20261112.json",
+  "sources": [
+    "cmd/command/tmisc1.asm",
+    "cmd/command/loadhi.asm"
+  ],
+  "target_entry": "0xc3e2",
+  "target_loadhigh_jump": "0xfc17",
+  "target_probe": "extras/build/loadhigh-diag-target-1e83c31l",
+  "current_probe": "extras/build/loadhigh-diag-current-rdoq26eo",
+  "before_probe": "extras/build/loadhigh-before-22ag90e0",
+  "target_output": "EXTERNALDONE",
+  "current_output": "DONE",
+  "finding": "LOADHIGH external program output missing in current and pre-change build; cause not yet isolated. Target entry restored; do not mark runtime path complete."
+}

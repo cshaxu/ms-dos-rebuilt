@@ -1,0 +1,16 @@
+{
+  "build": "extras/docs/etc/command-dir-shared-copy-original-build-20261112.json",
+  "target_probe": "extras/build/dir-pathbranch-target-ep5oqk2b",
+  "current_probe": "extras/build/dir-sharedcopy-current-pdvnzgdi",
+  "matched": [
+    "DIR.TXT",
+    "LIST.TXT",
+    "PWD.TXT",
+    "DONE.TXT"
+  ],
+  "scope": "Local directory path, wildcard recursion and restoration; UNC and error paths untested.",
+  "changes": [
+    "Moved DIR shared argument and switch parsing into target sequence",
+    "Reused MOVE_TO_SRCBUF and removed duplicate DIR implementation"
+  ]
+}

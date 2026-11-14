@@ -1,0 +1,13 @@
+{
+  "file": "bios/sysinit1.asm",
+  "source_sha256": "078b55160163f30ff31645c7316b276ff72074af79c97fa9f9d3040f7488db6d",
+  "target_call": "IO.SYS 0x5e8b calls 0x691d",
+  "helper_evidence": "extras/docs/etc/file-review-032-bios-reinit.json",
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "BIOS move length and placement still use partially reconstructed logic, so whole-call placement and behavior are unverified.",
+    "The mixed link contains older objects and stubs."
+  ]
+}

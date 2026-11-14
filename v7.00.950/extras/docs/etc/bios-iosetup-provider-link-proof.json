@@ -1,0 +1,31 @@
+{
+  "probe_directory": "extras/research/bios-iosetup-provider-link",
+  "sources_sha256": {
+    "provider": "be446c298346510b04433bf73a8ebc397b906639d0e89c9a2524f08cbf707c5c",
+    "consumer": "f701a560178b057f32fb16e1b84f232a7f1823e8bf51e87a984d96ef51d7c898",
+    "extra": "f8324e5fb6a9182b129e784830c3276259ecc132531cc314ef875aa83d137e54"
+  },
+  "exe_sha256": "ebd28f2236aa68b479c1179b834b63a8f3d65b53cfae52a33ef82bf12027ae0b",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "linked_blocks": [
+    {
+      "name": "disk_data",
+      "target_file_offset": "0x2a26",
+      "linked_exe_file_offset": "0xfd6",
+      "length": 65,
+      "all_bytes_equal": true
+    },
+    {
+      "name": "iosetup",
+      "target_file_offset": "0x3023",
+      "linked_exe_file_offset": "0x15d3",
+      "length": 69,
+      "all_bytes_equal": true
+    }
+  ],
+  "limitations": [
+    "ORGs and object ordering are isolated link scaffolding; original target source ownership and complete BIOS layout remain unverified.",
+    "Only iosetup and its selected data are compared; other disk routines and symbols remain unresolved.",
+    "Uninitialized data linking to zero does not establish original initializer choices."
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "trial_source": "extras/research/bios-msdisk-sm92-frame/msdisk.asm",
+  "source_sha256": "4bbbf739a96bfd86ba40189a84fca4c1e48f4d4b123db828f7a91c980342b8c9",
+  "linked_exe_sha256": "e65c23f2f8baebedc6246d5ac6d59208d5cec33efbf76ceb76f28796bedc0e74",
+  "sm92_linked_operand": "0xbbb",
+  "sm92_map_offset": "0xbbb",
+  "target_sm92_operand": "0xe17",
+  "common_bios_code_shift": -604,
+  "dos6_object_byte_identical": true,
+  "getbp_differing_byte_offsets": [
+    "0x2b",
+    "0x2c",
+    "0x3a",
+    "0x3b",
+    "0xab",
+    "0xac",
+    "0xb6",
+    "0xb7"
+  ],
+  "limitations": [
+    "Only the isolated trial uses the segment qualifier; the formal source is unchanged.",
+    "The diagnostic link retains other stubs and legacy inputs; full IO.SYS identity is not demonstrated."
+  ],
+  "correction_hidensity": "hidensity is provided by the trial msbio2 object, not a stub; see bios-msbio2-hidensity-target-check.json."
+}

@@ -1,0 +1,31 @@
+{
+  "file_index": 9,
+  "source": "bios/msbio1.asm",
+  "source_sha256": "3faabf25c5b6eaac0850d9342799712f21f8a4e1d4b2ccb81621a4c3dca406b2",
+  "target_io_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_sysinit_offsets": [
+    41120,
+    41122
+  ],
+  "target_file_offsets": [
+    60880,
+    60882
+  ],
+  "target_initial_bytes": "00000000",
+  "probe_symbols": {
+    "config_buffer_segment": [
+      1034,
+      0
+    ],
+    "config_buffer_paragraphs": [
+      1034,
+      2
+    ],
+    "config_init_entry": [
+      1034,
+      4
+    ]
+  },
+  "validation": "DOS7_CONFIG MASM assembly and stub-assisted historical link: callback stores reference source-defined adjacent words. Their four initialized bytes match the target. Baseline BIOS output remains identical to the previous build.",
+  "limitations": "Four zero bytes are weak evidence alone; target instruction references establish the relative order. Symbol names are inferred. Overall SYSINIT placement and SI_start entry are not verified; only config_init_flags was stubbed in this test, and runtime assignment to config_init_segment remains unresolved."
+}

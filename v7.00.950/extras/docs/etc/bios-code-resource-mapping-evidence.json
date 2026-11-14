@@ -1,0 +1,14 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "observations": [
+    "The resident BIOS error vector stored at file 0x764 is 01d5:06f5.",
+    "Applying the candidate file base 0x1c50 to offset 06f5 identifies the independently located BIOS selector routine at file 0x2345.",
+    "The same file base maps 01d5:2da6 to file 0x49f6, where the word is 01a2h.",
+    "The word at 49f6 is the resource length: resource table start 49f0 plus 01a2h reaches the IOSYSMSG marker at 4b92.",
+    "If the startup routine reads that loaded resource word unchanged, its aligned contribution is 01c0h and the two copy loops span 2f30h."
+  ],
+  "limitations": [
+    "The vector and image contents strongly support the mapping, but no runtime trace establishes that the memory word remains unmodified at the read.",
+    "The copy span is not proven to equal the BIOS_CODE size used by GETSIZE; the relation to target BDSIZE and origin remains unresolved."
+  ]
+}

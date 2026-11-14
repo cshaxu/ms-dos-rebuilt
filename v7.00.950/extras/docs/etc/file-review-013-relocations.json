@@ -1,0 +1,849 @@
+{
+  "source_sha256": "fef5800dda18a7201f9ade44143f9df3245e10f29f611b62110f0df802904c3c",
+  "listing_sha256": "a1140a0abdece1f4afc3c1fc25abb376d502d387b666c5b43676aef049a8d644",
+  "assumptions": "Target BIOS_Code starts at file offset 0x1c50; SetDrive is at 0x2ac4.",
+  "local_relocations": [
+    {
+      "target_offset": "0x332e",
+      "instruction": "mov\tcs:ext_packet_count,ax",
+      "expected": "0x16b8",
+      "target": "0x16b8",
+      "match": true
+    },
+    {
+      "target_offset": "0x334c",
+      "instruction": "mov\tcs:ext_packet_sector,ax",
+      "expected": "0x16be",
+      "target": "0x16be",
+      "match": true
+    },
+    {
+      "target_offset": "0x3351",
+      "instruction": "mov\tcs:ext_packet_sector+2,dx",
+      "expected": "0x16c0",
+      "target": "0x16c0",
+      "match": true
+    },
+    {
+      "target_offset": "0x3356",
+      "instruction": "mov\tcs:ext_packet_buffer,bx",
+      "expected": "0x16ba",
+      "target": "0x16ba",
+      "match": true
+    },
+    {
+      "target_offset": "0x335e",
+      "instruction": "mov\tcs:ext_packet_buffer+2,ax",
+      "expected": "0x16bc",
+      "target": "0x16bc",
+      "match": true
+    },
+    {
+      "target_offset": "0x3380",
+      "instruction": "mov\tsi,offset Bios_Code:ext_packet",
+      "expected": "0x16b6",
+      "target": "0x16b6",
+      "match": true
+    }
+  ],
+  "external_references": {
+    "les di,[start_bds]": [
+      {
+        "target_offset": "0x2ac6",
+        "value": "0xf8"
+      },
+      {
+        "target_offset": "0x2e95",
+        "value": "0xf8"
+      }
+    ],
+    "mov cs:[tim_drv],-1": [
+      {
+        "target_offset": "0x2aee",
+        "value": "0xdd8"
+      },
+      {
+        "target_offset": "0x2b45",
+        "value": "0xdd8"
+      },
+      {
+        "target_offset": "0x326b",
+        "value": "0xdd8"
+      }
+    ],
+    "test byte ptr bios_flags,2": [
+      {
+        "target_offset": "0x2b08",
+        "value": "0x8"
+      },
+      {
+        "target_offset": "0x2b3a",
+        "value": "0x8"
+      },
+      {
+        "target_offset": "0x2bb0",
+        "value": "0x8"
+      },
+      {
+        "target_offset": "0x2c21",
+        "value": "0x8"
+      },
+      {
+        "target_offset": "0x2d5c",
+        "value": "0x8"
+      },
+      {
+        "target_offset": "0x2e2b",
+        "value": "0x8"
+      },
+      {
+        "target_offset": "0x2e3b",
+        "value": "0x8"
+      },
+      {
+        "target_offset": "0x2fc2",
+        "value": "0x8"
+      },
+      {
+        "target_offset": "0x3226",
+        "value": "0x8"
+      }
+    ],
+    "call mediacheck": [
+      {
+        "target_offset": "0x2b0e",
+        "value": "0x28da"
+      }
+    ],
+    "call haschange": [
+      {
+        "target_offset": "0x2b13",
+        "value": "0x2a51"
+      }
+    ],
+    "mov al,cs:[tim_drv]": [
+      {
+        "target_offset": "0x2b1c",
+        "value": "0xdd8"
+      }
+    ],
+    "les bx,[ptrsav]": [
+      {
+        "target_offset": "0x2b2d",
+        "value": "0x12"
+      },
+      {
+        "target_offset": "0x2bbf",
+        "value": "0x12"
+      }
+    ],
+    "call media_set_vid": [
+      {
+        "target_offset": "0x2b40",
+        "value": "0x29da"
+      }
+    ],
+    "call gettickcnt": [
+      {
+        "target_offset": "0x2b54",
+        "value": "0xb22"
+      },
+      {
+        "target_offset": "0x32da",
+        "value": "0xb22"
+      }
+    ],
+    "inc byte ptr cs:accesscount": [
+      {
+        "target_offset": "0x2b6b",
+        "value": "0xdd7"
+      }
+    ],
+    "cmp byte ptr cs:accesscount,accessmax": [
+      {
+        "target_offset": "0x2b70",
+        "value": "0xdd7"
+      }
+    ],
+    "dec byte ptr cs:accesscount": [
+      {
+        "target_offset": "0x2b78",
+        "value": "0xdd7"
+      }
+    ],
+    "mov cs:[set_id_flag],1": [
+      {
+        "target_offset": "0x2b98",
+        "value": "0xdf8"
+      }
+    ],
+    "cmp cs:[set_id_flag],2": [
+      {
+        "target_offset": "0x2ba3",
+        "value": "0xdf8"
+      }
+    ],
+    "mov cs:[set_id_flag],0": [
+      {
+        "target_offset": "0x2ba9",
+        "value": "0xdf8"
+      }
+    ],
+    "call set_volume_id": [
+      {
+        "target_offset": "0x2bb6",
+        "value": "0x2a58"
+      }
+    ],
+    "mov si,offset vol_no_name": [
+      {
+        "target_offset": "0x2bde",
+        "value": "0xe0b"
+      }
+    ],
+    "mov si,offset fat_16_id": [
+      {
+        "target_offset": "0x2beb",
+        "value": "0xe02"
+      }
+    ],
+    "mov si,offset fat_12_id": [
+      {
+        "target_offset": "0x2bf0",
+        "value": "0xdf9"
+      }
+    ],
+    "call hidensity": [
+      {
+        "target_offset": "0x2c27",
+        "value": "0x29ef"
+      }
+    ],
+    "mov bx,offset sm92": [
+      {
+        "target_offset": "0x2c36",
+        "value": "0xe17"
+      }
+    ],
+    "mov cs:set_id_flag,0": [
+      {
+        "target_offset": "0x2ca7",
+        "value": "0xdf8"
+      },
+      {
+        "target_offset": "0x2cb2",
+        "value": "0xdf8"
+      }
+    ],
+    "lds si,disksector_ptr": [
+      {
+        "target_offset": "0x2d2a",
+        "value": "0xfc"
+      }
+    ],
+    "cmp cs:[set_id_flag],1": [
+      {
+        "target_offset": "0x2d44",
+        "value": "0xdf8"
+      }
+    ],
+    "mov cs:[set_id_flag],2": [
+      {
+        "target_offset": "0x2d55",
+        "value": "0xdf8"
+      }
+    ],
+    "call resetchanged": [
+      {
+        "target_offset": "0x2d62",
+        "value": "0x2a4b"
+      }
+    ],
+    "lds bx,disksector_ptr": [
+      {
+        "target_offset": "0x2db5",
+        "value": "0xfc"
+      }
+    ],
+    "cmp cs:[media_set_for_format],0": [
+      {
+        "target_offset": "0x2dd1",
+        "value": "0x17a2"
+      },
+      {
+        "target_offset": "0x2df7",
+        "value": "0x17a2"
+      },
+      {
+        "target_offset": "0x302e",
+        "value": "0x17a2"
+      },
+      {
+        "target_offset": "0x3076",
+        "value": "0x17a2"
+      },
+      {
+        "target_offset": "0x327e",
+        "value": "0x17a2"
+      }
+    ],
+    "lds si,cs:dpt": [
+      {
+        "target_offset": "0x2ddb",
+        "value": "0xde4"
+      },
+      {
+        "target_offset": "0x2e05",
+        "value": "0xde4"
+      }
+    ],
+    "mov cs:[save_head_sttl],al": [
+      {
+        "target_offset": "0x2de7",
+        "value": "0xde1"
+      }
+    ],
+    "mov al,cs:[save_head_sttl]": [
+      {
+        "target_offset": "0x2dff",
+        "value": "0xde1"
+      }
+    ],
+    "mov cs:[step_drv],dl": [
+      {
+        "target_offset": "0x2e17",
+        "value": "0xdd6"
+      },
+      {
+        "target_offset": "0x3198",
+        "value": "0xdd6"
+      }
+    ],
+    "mov cs:[tim_drv],dl": [
+      {
+        "target_offset": "0x2e1c",
+        "value": "0xdd8"
+      }
+    ],
+    "mov cs:[wrtverify],103h": [
+      {
+        "target_offset": "0x2e63",
+        "value": "0xdda"
+      }
+    ],
+    "mov cs:[wrtverify],romwrite": [
+      {
+        "target_offset": "0x2e6c",
+        "value": "0xdda"
+      }
+    ],
+    "jmp bc_err_cnt": [
+      {
+        "target_offset": "0x2e76",
+        "value": "0xee9b"
+      }
+    ],
+    "test byte ptr bios_flags,08h": [
+      {
+        "target_offset": "0x2eb1",
+        "value": "0x8"
+      }
+    ],
+    "test byte ptr bios_flags,04h": [
+      {
+        "target_offset": "0x2ecf",
+        "value": "0x8"
+      }
+    ],
+    "call swpdsk": [
+      {
+        "target_offset": "0x2eec",
+        "value": "0x285f"
+      }
+    ],
+    "mov cs:[rflag],romread": [
+      {
+        "target_offset": "0x2f09",
+        "value": "0xdda"
+      }
+    ],
+    "mov cs:xfer_seg,es": [
+      {
+        "target_offset": "0x2f11",
+        "value": "0x179f"
+      },
+      {
+        "target_offset": "0x32b6",
+        "value": "0x179f"
+      }
+    ],
+    "mov cs:medbyt,al": [
+      {
+        "target_offset": "0x2f1c",
+        "value": "0xdd9"
+      }
+    ],
+    "cmp cs:[start_sec_h],0": [
+      {
+        "target_offset": "0x2f31",
+        "value": "0xdf0"
+      }
+    ],
+    "cmp cs:[rflag],romwrite": [
+      {
+        "target_offset": "0x2f44",
+        "value": "0xdda"
+      }
+    ],
+    "mov cs:[seccnt],cx": [
+      {
+        "target_offset": "0x2f53",
+        "value": "0xddc"
+      }
+    ],
+    "mov cs:[spsav],sp": [
+      {
+        "target_offset": "0x2f58",
+        "value": "0xdec"
+      }
+    ],
+    "add si,cs:[start_sec_h]": [
+      {
+        "target_offset": "0x2f7a",
+        "value": "0xdf0"
+      }
+    ],
+    "mov dx,cs:[start_sec_h]": [
+      {
+        "target_offset": "0x2f93",
+        "value": "0xdf0"
+      }
+    ],
+    "mov cs:[saved_word],ax": [
+      {
+        "target_offset": "0x2f9f",
+        "value": "0xdf2"
+      }
+    ],
+    "mov word ptr cs:dpt,si": [
+      {
+        "target_offset": "0x2fae",
+        "value": "0xde4"
+      }
+    ],
+    "mov word ptr cs:dpt+2,es": [
+      {
+        "target_offset": "0x2fb3",
+        "value": "0xde6"
+      }
+    ],
+    "call checklatchio": [
+      {
+        "target_offset": "0x2fc8",
+        "value": "0x2922"
+      }
+    ],
+    "mov cs:[temp_h],ax": [
+      {
+        "target_offset": "0x2fda",
+        "value": "0xdee"
+      },
+      {
+        "target_offset": "0x2ffa",
+        "value": "0xdee"
+      }
+    ],
+    "mov ax,cs:[saved_word]": [
+      {
+        "target_offset": "0x2fde",
+        "value": "0xdf2"
+      },
+      {
+        "target_offset": "0x3332",
+        "value": "0xdf2"
+      }
+    ],
+    "mov cs:[cursec],dl": [
+      {
+        "target_offset": "0x2fe9",
+        "value": "0xde8"
+      }
+    ],
+    "mov ax,cs:[temp_h]": [
+      {
+        "target_offset": "0x2ff4",
+        "value": "0xdee"
+      }
+    ],
+    "cmp cs:[temp_h],0": [
+      {
+        "target_offset": "0x3002",
+        "value": "0xdee"
+      }
+    ],
+    "mov cs:[curhd],dl": [
+      {
+        "target_offset": "0x300f",
+        "value": "0xde9"
+      }
+    ],
+    "mov cs:[curtrk],ax": [
+      {
+        "target_offset": "0x3013",
+        "value": "0xdea"
+      }
+    ],
+    "mov ax,cs:[seccnt]": [
+      {
+        "target_offset": "0x3017",
+        "value": "0xddc"
+      },
+      {
+        "target_offset": "0x3324",
+        "value": "0xddc"
+      }
+    ],
+    "mov cs:[tim_drv],al": [
+      {
+        "target_offset": "0x3029",
+        "value": "0xdd8"
+      }
+    ],
+    "mov al,cs:[eot]": [
+      {
+        "target_offset": "0x3035",
+        "value": "0xde3"
+      }
+    ],
+    "lds si,cs:[dpt]": [
+      {
+        "target_offset": "0x303b",
+        "value": "0xde4"
+      },
+      {
+        "target_offset": "0x30c1",
+        "value": "0xde4"
+      }
+    ],
+    "mov cs:save_eot,al": [
+      {
+        "target_offset": "0x3045",
+        "value": "0xde2"
+      }
+    ],
+    "mov cs:motorstartup,ah": [
+      {
+        "target_offset": "0x304a",
+        "value": "0xdde"
+      }
+    ],
+    "mov cs:settlecurrent,al": [
+      {
+        "target_offset": "0x305f",
+        "value": "0xddf"
+      }
+    ],
+    "mov cs:settleslow,al": [
+      {
+        "target_offset": "0x3065",
+        "value": "0xde0"
+      }
+    ],
+    "les si,cs:dpt": [
+      {
+        "target_offset": "0x3080",
+        "value": "0xde4"
+      },
+      {
+        "target_offset": "0x328c",
+        "value": "0xde4"
+      },
+      {
+        "target_offset": "0x329b",
+        "value": "0xde4"
+      }
+    ],
+    "mov al, cs:save_eot": [
+      {
+        "target_offset": "0x3084",
+        "value": "0xde2"
+      }
+    ],
+    "mov al,cs:settlecurrent": [
+      {
+        "target_offset": "0x308c",
+        "value": "0xddf"
+      }
+    ],
+    "mov ah,cs:motorstartup": [
+      {
+        "target_offset": "0x3091",
+        "value": "0xdde"
+      }
+    ],
+    "test byte ptr bios_flags+1,2": [
+      {
+        "target_offset": "0x30b1",
+        "value": "0x9"
+      },
+      {
+        "target_offset": "0x31b1",
+        "value": "0x9"
+      }
+    ],
+    "mov cl,cs:[cursec]": [
+      {
+        "target_offset": "0x30c6",
+        "value": "0xde8"
+      }
+    ],
+    "sub cl,cs:cursec": [
+      {
+        "target_offset": "0x30de",
+        "value": "0xde8"
+      }
+    ],
+    "mov al,cs:[cursec]": [
+      {
+        "target_offset": "0x30f3",
+        "value": "0xde8"
+      }
+    ],
+    "sub cl,cs:[cursec]": [
+      {
+        "target_offset": "0x3105",
+        "value": "0xde8"
+      }
+    ],
+    "mov ah,cs:rflag": [
+      {
+        "target_offset": "0x3122",
+        "value": "0xdda"
+      },
+      {
+        "target_offset": "0x3370",
+        "value": "0xdda"
+      }
+    ],
+    "mov cs:vretry_cnt,bp": [
+      {
+        "target_offset": "0x3136",
+        "value": "0xdf4"
+      },
+      {
+        "target_offset": "0x3366",
+        "value": "0xdf4"
+      }
+    ],
+    "mov cs:soft_ecc_cnt,bp": [
+      {
+        "target_offset": "0x313b",
+        "value": "0xdf6"
+      },
+      {
+        "target_offset": "0x336b",
+        "value": "0xdf6"
+      }
+    ],
+    "mov dx,cs:[curtrk]": [
+      {
+        "target_offset": "0x3141",
+        "value": "0xdea"
+      }
+    ],
+    "or dh,cs:[cursec]": [
+      {
+        "target_offset": "0x315c",
+        "value": "0xde8"
+      }
+    ],
+    "mov dh,byte ptr cs:[curhd]": [
+      {
+        "target_offset": "0x3165",
+        "value": "0xde9"
+      }
+    ],
+    "cmp cs:[step_drv],-1": [
+      {
+        "target_offset": "0x3175",
+        "value": "0xdd6"
+      }
+    ],
+    "cmp cs:wrtverify,103h": [
+      {
+        "target_offset": "0x31a1",
+        "value": "0xdda"
+      },
+      {
+        "target_offset": "0x338a",
+        "value": "0xdda"
+      }
+    ],
+    "sub cs:[seccnt],ax": [
+      {
+        "target_offset": "0x31be",
+        "value": "0xddc"
+      }
+    ],
+    "mov cs:[cursec],cl": [
+      {
+        "target_offset": "0x31c5",
+        "value": "0xde8"
+      }
+    ],
+    "mov cs:[cursec],1": [
+      {
+        "target_offset": "0x31d0",
+        "value": "0xde8"
+      }
+    ],
+    "mov dh,cs:[curhd]": [
+      {
+        "target_offset": "0x31d6",
+        "value": "0xde9"
+      }
+    ],
+    "inc cs:[curtrk]": [
+      {
+        "target_offset": "0x31e5",
+        "value": "0xdea"
+      }
+    ],
+    "mov cs:[curhd],dh": [
+      {
+        "target_offset": "0x31ea",
+        "value": "0xde9"
+      }
+    ],
+    "cmp dl,cs:[step_drv]": [
+      {
+        "target_offset": "0x31f1",
+        "value": "0xdd6"
+      }
+    ],
+    "dec cs:soft_ecc_cnt": [
+      {
+        "target_offset": "0x3211",
+        "value": "0xdf6"
+      },
+      {
+        "target_offset": "0x33a9",
+        "value": "0xdf6"
+      }
+    ],
+    "call resetdisk": [
+      {
+        "target_offset": "0x3216",
+        "value": "0x1c52"
+      },
+      {
+        "target_offset": "0x321b",
+        "value": "0x1c52"
+      },
+      {
+        "target_offset": "0x32fa",
+        "value": "0x1c52"
+      },
+      {
+        "target_offset": "0x33ae",
+        "value": "0x1c52"
+      },
+      {
+        "target_offset": "0x33b3",
+        "value": "0x1c52"
+      },
+      {
+        "target_offset": "0x33d9",
+        "value": "0x1c52"
+      }
+    ],
+    "dec cs:vretry_cnt": [
+      {
+        "target_offset": "0x3220",
+        "value": "0xdf4"
+      },
+      {
+        "target_offset": "0x33b8",
+        "value": "0xdf4"
+      }
+    ],
+    "call checkio": [
+      {
+        "target_offset": "0x322c",
+        "value": "0x29ac"
+      }
+    ],
+    "test bios_flags,0800h": [
+      {
+        "target_offset": "0x3230",
+        "value": "0x8"
+      }
+    ],
+    "and bios_flags,not 0800h": [
+      {
+        "target_offset": "0x323b",
+        "value": "0x8"
+      }
+    ],
+    "mov cs:soft_ecc_cnt,maxerr": [
+      {
+        "target_offset": "0x3258",
+        "value": "0xdf6"
+      },
+      {
+        "target_offset": "0x33c9",
+        "value": "0xdf6"
+      }
+    ],
+    "mov cx,cs:seccnt": [
+      {
+        "target_offset": "0x3271",
+        "value": "0xddc"
+      }
+    ],
+    "mov sp,cs:[spsav]": [
+      {
+        "target_offset": "0x3276",
+        "value": "0xdec"
+      }
+    ],
+    "mov al,cs:settleslow": [
+      {
+        "target_offset": "0x3287",
+        "value": "0xde0"
+      }
+    ],
+    "mov es,cs:xfer_seg": [
+      {
+        "target_offset": "0x32af",
+        "value": "0x179f"
+      }
+    ],
+    "mov es:[lsterr],al": [
+      {
+        "target_offset": "0x32c6",
+        "value": "0xe26"
+      }
+    ],
+    "mov di,offset errin": [
+      {
+        "target_offset": "0x32cc",
+        "value": "0xe1e"
+      }
+    ],
+    "mov byte ptr cs:[accesscount],0": [
+      {
+        "target_offset": "0x32eb",
+        "value": "0xdd7"
+      }
+    ],
+    "mov ax,cs:xfer_seg": [
+      {
+        "target_offset": "0x335a",
+        "value": "0x179f"
+      }
+    ]
+  },
+  "inconsistent_external_instruction_forms": {},
+  "limitations": "External values are inferred from target bytes; neither their definitions nor final linked placement have been verified."
+}

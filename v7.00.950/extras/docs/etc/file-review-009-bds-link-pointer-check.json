@@ -1,0 +1,41 @@
+{
+  "source": "bios/msbio1.asm",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "diagnostic_sha256": "cc0161e7f0d14a1d17613873e30acc7fd98e8b2a51c6d060a58588473c203a9c",
+  "records": [
+    {
+      "record": 1,
+      "target_offset": 956,
+      "target_segment": 1251,
+      "diagnostic_offset": 22996,
+      "diagnostic_segment": 1076,
+      "terminates_list": false
+    },
+    {
+      "record": 2,
+      "target_offset": 1056,
+      "target_segment": 1251,
+      "diagnostic_offset": 23096,
+      "diagnostic_segment": 1076,
+      "terminates_list": false
+    },
+    {
+      "record": 3,
+      "target_offset": 1156,
+      "target_segment": 1251,
+      "diagnostic_offset": 23196,
+      "diagnostic_segment": 1076,
+      "terminates_list": false
+    },
+    {
+      "record": 4,
+      "target_offset": 65535,
+      "target_segment": 65535,
+      "diagnostic_offset": 65535,
+      "diagnostic_segment": 65535,
+      "terminates_list": true
+    }
+  ],
+  "finding": "The three different four-byte fields each encode a pointer to the following 100-byte descriptor in their respective link layouts; the fourth terminates the list with FFFF:FFFF.",
+  "limitations": "This establishes these pointer relationships in the existing stubbed diagnostic and target image; it does not establish target segment placement or a complete 7.0a build."
+}

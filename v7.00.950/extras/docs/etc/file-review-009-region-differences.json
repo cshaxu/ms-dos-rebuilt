@@ -1,0 +1,487 @@
+{
+  "source": "bios/msbio1.asm",
+  "source_sha256": "4c7da2d2b70fcd9f30701844a9a3ddd05c582d831f89990cdee2747652ad0c11",
+  "binary_sha256": "cc0161e7f0d14a1d17613873e30acc7fd98e8b2a51c6d060a58588473c203a9c",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "comparison": [
+    {
+      "region": "floppy_and_hard_bds",
+      "length": 2900,
+      "matching_bytes": 2891,
+      "different_offsets": [
+        0,
+        1,
+        2,
+        100,
+        101,
+        102,
+        200,
+        201,
+        202
+      ],
+      "different_values": [
+        {
+          "offset": 0,
+          "diagnostic": 212,
+          "target": 188
+        },
+        {
+          "offset": 1,
+          "diagnostic": 89,
+          "target": 3
+        },
+        {
+          "offset": 2,
+          "diagnostic": 52,
+          "target": 227
+        },
+        {
+          "offset": 100,
+          "diagnostic": 56,
+          "target": 32
+        },
+        {
+          "offset": 101,
+          "diagnostic": 90,
+          "target": 4
+        },
+        {
+          "offset": 102,
+          "diagnostic": 52,
+          "target": 227
+        },
+        {
+          "offset": 200,
+          "diagnostic": 156,
+          "target": 132
+        },
+        {
+          "offset": 201,
+          "diagnostic": 90,
+          "target": 4
+        },
+        {
+          "offset": 202,
+          "diagnostic": 52,
+          "target": 227
+        }
+      ]
+    },
+    {
+      "region": "exec_and_config_data",
+      "length": 118,
+      "matching_bytes": 102,
+      "different_offsets": [
+        21,
+        22,
+        27,
+        28,
+        33,
+        34,
+        39,
+        40,
+        45,
+        46,
+        51,
+        52,
+        57,
+        58,
+        106,
+        107
+      ],
+      "different_values": [
+        {
+          "offset": 21,
+          "diagnostic": 6,
+          "target": 136
+        },
+        {
+          "offset": 22,
+          "diagnostic": 103,
+          "target": 64
+        },
+        {
+          "offset": 27,
+          "diagnostic": 39,
+          "target": 118
+        },
+        {
+          "offset": 28,
+          "diagnostic": 33,
+          "target": 43
+        },
+        {
+          "offset": 33,
+          "diagnostic": 8,
+          "target": 152
+        },
+        {
+          "offset": 34,
+          "diagnostic": 101,
+          "target": 160
+        },
+        {
+          "offset": 39,
+          "diagnostic": 11,
+          "target": 155
+        },
+        {
+          "offset": 40,
+          "diagnostic": 101,
+          "target": 160
+        },
+        {
+          "offset": 45,
+          "diagnostic": 70,
+          "target": 13
+        },
+        {
+          "offset": 46,
+          "diagnostic": 103,
+          "target": 15
+        },
+        {
+          "offset": 51,
+          "diagnostic": 12,
+          "target": 156
+        },
+        {
+          "offset": 52,
+          "diagnostic": 101,
+          "target": 160
+        },
+        {
+          "offset": 57,
+          "diagnostic": 13,
+          "target": 157
+        },
+        {
+          "offset": 58,
+          "diagnostic": 101,
+          "target": 160
+        },
+        {
+          "offset": 106,
+          "diagnostic": 24,
+          "target": 168
+        },
+        {
+          "offset": 107,
+          "diagnostic": 101,
+          "target": 160
+        }
+      ]
+    },
+    {
+      "region": "config_routines",
+      "length": 392,
+      "matching_bytes": 348,
+      "different_offsets": [
+        10,
+        11,
+        25,
+        26,
+        29,
+        30,
+        32,
+        33,
+        41,
+        42,
+        66,
+        67,
+        81,
+        82,
+        118,
+        119,
+        146,
+        147,
+        153,
+        154,
+        203,
+        204,
+        212,
+        213,
+        244,
+        245,
+        253,
+        254,
+        268,
+        269,
+        294,
+        295,
+        299,
+        300,
+        354,
+        355,
+        359,
+        360,
+        372,
+        373,
+        384,
+        385,
+        388,
+        389
+      ],
+      "different_values": [
+        {
+          "offset": 10,
+          "diagnostic": 165,
+          "target": 35
+        },
+        {
+          "offset": 11,
+          "diagnostic": 2,
+          "target": 15
+        },
+        {
+          "offset": 25,
+          "diagnostic": 16,
+          "target": 160
+        },
+        {
+          "offset": 26,
+          "diagnostic": 101,
+          "target": 160
+        },
+        {
+          "offset": 29,
+          "diagnostic": 18,
+          "target": 162
+        },
+        {
+          "offset": 30,
+          "diagnostic": 101,
+          "target": 160
+        },
+        {
+          "offset": 32,
+          "diagnostic": 165,
+          "target": 35
+        },
+        {
+          "offset": 33,
+          "diagnostic": 2,
+          "target": 15
+        },
+        {
+          "offset": 41,
+          "diagnostic": 18,
+          "target": 162
+        },
+        {
+          "offset": 42,
+          "diagnostic": 101,
+          "target": 160
+        },
+        {
+          "offset": 66,
+          "diagnostic": 71,
+          "target": 62
+        },
+        {
+          "offset": 67,
+          "diagnostic": 103,
+          "target": 15
+        },
+        {
+          "offset": 81,
+          "diagnostic": 18,
+          "target": 162
+        },
+        {
+          "offset": 82,
+          "diagnostic": 101,
+          "target": 160
+        },
+        {
+          "offset": 118,
+          "diagnostic": 16,
+          "target": 160
+        },
+        {
+          "offset": 119,
+          "diagnostic": 101,
+          "target": 160
+        },
+        {
+          "offset": 146,
+          "diagnostic": 16,
+          "target": 160
+        },
+        {
+          "offset": 147,
+          "diagnostic": 101,
+          "target": 160
+        },
+        {
+          "offset": 153,
+          "diagnostic": 18,
+          "target": 162
+        },
+        {
+          "offset": 154,
+          "diagnostic": 101,
+          "target": 160
+        },
+        {
+          "offset": 203,
+          "diagnostic": 18,
+          "target": 162
+        },
+        {
+          "offset": 204,
+          "diagnostic": 101,
+          "target": 160
+        },
+        {
+          "offset": 212,
+          "diagnostic": 18,
+          "target": 162
+        },
+        {
+          "offset": 213,
+          "diagnostic": 101,
+          "target": 160
+        },
+        {
+          "offset": 244,
+          "diagnostic": 18,
+          "target": 162
+        },
+        {
+          "offset": 245,
+          "diagnostic": 101,
+          "target": 160
+        },
+        {
+          "offset": 253,
+          "diagnostic": 16,
+          "target": 160
+        },
+        {
+          "offset": 254,
+          "diagnostic": 101,
+          "target": 160
+        },
+        {
+          "offset": 268,
+          "diagnostic": 71,
+          "target": 62
+        },
+        {
+          "offset": 269,
+          "diagnostic": 103,
+          "target": 15
+        },
+        {
+          "offset": 294,
+          "diagnostic": 16,
+          "target": 160
+        },
+        {
+          "offset": 295,
+          "diagnostic": 101,
+          "target": 160
+        },
+        {
+          "offset": 299,
+          "diagnostic": 18,
+          "target": 162
+        },
+        {
+          "offset": 300,
+          "diagnostic": 101,
+          "target": 160
+        },
+        {
+          "offset": 354,
+          "diagnostic": 20,
+          "target": 164
+        },
+        {
+          "offset": 355,
+          "diagnostic": 101,
+          "target": 160
+        },
+        {
+          "offset": 359,
+          "diagnostic": 71,
+          "target": 62
+        },
+        {
+          "offset": 360,
+          "diagnostic": 103,
+          "target": 15
+        },
+        {
+          "offset": 372,
+          "diagnostic": 16,
+          "target": 160
+        },
+        {
+          "offset": 373,
+          "diagnostic": 101,
+          "target": 160
+        },
+        {
+          "offset": 384,
+          "diagnostic": 18,
+          "target": 162
+        },
+        {
+          "offset": 385,
+          "diagnostic": 101,
+          "target": 160
+        },
+        {
+          "offset": 388,
+          "diagnostic": 16,
+          "target": 160
+        },
+        {
+          "offset": 389,
+          "diagnostic": 101,
+          "target": 160
+        }
+      ]
+    },
+    {
+      "region": "int6c_code",
+      "length": 17,
+      "matching_bytes": 13,
+      "different_offsets": [
+        7,
+        8,
+        10,
+        11
+      ],
+      "different_values": [
+        {
+          "offset": 7,
+          "diagnostic": 178,
+          "target": 8
+        },
+        {
+          "offset": 8,
+          "diagnostic": 26,
+          "target": 0
+        },
+        {
+          "offset": 10,
+          "diagnostic": 176,
+          "target": 191
+        },
+        {
+          "offset": 11,
+          "diagnostic": 26,
+          "target": 0
+        }
+      ]
+    }
+  ],
+  "observations": [
+    "All 9 BDS differences lie in the first four-byte field of records 1\u20133. The remaining 2,891 bytes match at these symbol-relative positions.",
+    "The strict gate still fails these regions: these counts do not certify addresses, layout, or the whole file."
+  ],
+  "limitations": "Diagnostic link uses synthetic contributions, reference objects, and stubs; comparisons are against one existing intermediate, not a fresh production build. Matching bytes alone do not prove source fidelity or execution."
+}

@@ -1,0 +1,35 @@
+{
+  "sources": {
+    "a20stub.asm": "b02aa6fc5ea1b0153acf705804d055f18b0bcd8c45b0dd14447d9992a64e65c4",
+    "m2stub.asm": "0f0ac20aa105d8790e05ff4b0f9b2abfeb437ce064e50762e015ac5ba6792c34",
+    "multunit.asm": "ba493934af989bc043d896cd79f2fa7b98cfbd40b2c1d7b70418ce1ed0a73f70"
+  },
+  "link_exit": 0,
+  "link_log": "\r\nMicrosoft (R) Segmented Executable Linker NTGroup Version 5.60.220 Dec 28 1999\r\nCopyright (C) Microsoft Corp 1984-1993.  All rights reserved.\r\n\r\nObject Modules [.obj]: /MAP msbio1 chardata mschar clockent msinit diskdata msdisk iodata msdioctl msint13 msbio2 multunit config+\r\nObject Modules [.obj]: sysinit1+sysconf+syspre+sysinit2+sysimes+power+ptime+\r\nObject Modules [.obj]: msend+splitbds+splitp1+splitent+splitp2+splitlat+a20stub+m2stub+c7stub+initstub,msbio,msbio;\r\n",
+  "limitations": [
+    "Shared data ownership and source naming remain hypotheses.",
+    "The diagnostic link includes placeholder objects and is not a complete IO.SYS build."
+  ],
+  "linked_exe_sha256": "2c20faa738487cd7c4dcd9f5516bfa2ca70897942f92be7ce99d840e6eded1c5",
+  "bios_code_offset": "0x2b4e",
+  "shared_symbols": [
+    "config_init_segment",
+    "sysinit_seg"
+  ],
+  "target_matched_instructions": [
+    {
+      "target_file_offset": "0x2ab9",
+      "length": 5,
+      "bytes": "2e8e064e2b"
+    },
+    {
+      "target_file_offset": "0x49db",
+      "length": 5,
+      "bytes": "2eff364e2b"
+    }
+  ],
+  "observations": [
+    "Both symbols resolve to the same word after the previous BIOS procedure; the prior three zero bytes comprise one alignment byte and this word under the trial layout.",
+    "Target positions for mult_call16 and CONFIG table remain unchanged."
+  ]
+}

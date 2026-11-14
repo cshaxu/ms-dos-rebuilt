@@ -1,0 +1,30 @@
+{
+  "file": "bios/sysinit1.asm",
+  "source_sha256": "e944e9350f2b4d1bac814942dff9101a3b38ccddfec3ba197aa579767a98e731",
+  "target_writes": [
+    "IO.SYS 0xe7e..0xe89: boot image size and boot data",
+    "IO.SYS 0x1190: relocation segment",
+    "IO.SYS 0x100f and 0x8313: shared floppy flag"
+  ],
+  "target_initial_words": {
+    "0xf42": 0,
+    "0xf46": 0,
+    "0xf4e": 0,
+    "0xf50": 0
+  },
+  "linked_symbol_addresses": {
+    "no_floppy_report": "0466:0245",
+    "boot_load_segment": "0466:0383",
+    "boot_reloc_segment": "0466:0385",
+    "boot_data_high": "0466:0387",
+    "boot_data_low": "0466:0389"
+  },
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link_exit_code": 0,
+  "diagnostic_stub": "All SYSINIT boot-state placeholders removed; BIOS message placeholders remain.",
+  "limitations": [
+    "Boot image consumer and complete startup path are not yet reconstructed.",
+    "Absolute data layout and runtime behavior remain unverified; mixed link retains other stubs."
+  ]
+}

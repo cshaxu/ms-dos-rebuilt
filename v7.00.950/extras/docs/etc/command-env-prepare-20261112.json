@@ -1,0 +1,39 @@
+{
+  "generated_utc": "2026-11-12T11:05:24.227991+00:00",
+  "source": "cmd/command/tenv.asm",
+  "build_report": "extras/docs/etc/command-env-prepare-fixed-build-20261112.json",
+  "comparison": {
+    "target_offset": "0xbc52",
+    "candidate_offset": "0xbdc2",
+    "length": 133,
+    "different_byte_offsets": [
+      8,
+      9,
+      22,
+      41,
+      49,
+      53,
+      54,
+      69,
+      78,
+      82,
+      94,
+      103,
+      104,
+      119
+    ],
+    "note": "Differences occur in linked address/call operands, not individually certified."
+  },
+  "probe": {
+    "stage": "extras/build/command-envprepare-8d0w07h7",
+    "result": "PASS",
+    "coverage": "Source routine with stubbed environment operations: no resize, replacement, ordinary growth, and long-command reservation. Does not test actual DOS memory or real environment contents."
+  },
+  "remaining": "SET and cmd_copy are not yet connected to this routine; ECHO and COPY not rerun on this build.",
+  "file_counts": {
+    "linked": 35,
+    "modified_from_baseline": 30,
+    "unchanged_from_baseline": 5
+  },
+  "final_binary_exact": false
+}

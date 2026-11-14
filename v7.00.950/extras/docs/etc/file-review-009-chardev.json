@@ -1,0 +1,46 @@
+{
+  "file_index": 9,
+  "source": "bios/msbio1.asm",
+  "source_sha256": "4a5e6e0009e1b58ee9a1cbcf07edbc0956cb0bd50a7d1912b4e09afcdf6b5f3f",
+  "target_offset": 7312,
+  "diagnostic_offset": 10080,
+  "length": 156,
+  "matching_bytes": 145,
+  "different_offsets": [
+    17,
+    26,
+    27,
+    31,
+    32,
+    55,
+    56,
+    62,
+    63,
+    78,
+    79
+  ],
+  "target_hex": "601e068bec2e8e1eda008b5e148b3781fe6807740c8b47022ea238072e88262e07c41e1200268a4701268a670d268b4f12268b571481fe300e75192ec706f00d000083faff750d268b571c2e8916f00d268b571a97268a47022e3a0473379803c003f09726c47f0efc1e2eff54011f7202b401c51e1200894703071f6183c402cbb003c41e120026294f12b481f9c3000000000000e8e9ffebd97000",
+  "linked_hex": "601e068bec2e8e1eda008b5e148b3781fea407740c8b47022ea237212e88263821c41e1200268a4701268a670d268b4f12268b571481fe620b75192ec7063921000083faff750d268b571c2e89163921268b571a97268a47022e3a0473379803c003f09726c47f0efc1e2eff54011f7202b401c51e1200894703071f6183c402cbb003c41e120026294f12b481f9c3000000000000e8e9ffebd97000",
+  "verified_code_segment_offsets": {
+    "BC_RETF": 192,
+    "BC_CMDERR": 193,
+    "OFF_D0": 208,
+    "BIOS_DATA_WORD": 218,
+    "INT19OLD02": 221
+  },
+  "following_hardware_vector_table_exact": true,
+  "diagnostic_stub_symbols": [
+    "bios_msg_base",
+    "bios_msg_1",
+    "bios_msg_2",
+    "bios_msg_3",
+    "int6c_read_date",
+    "int6c_read_time",
+    "ttticks",
+    "char_auxnum",
+    "char_printdev",
+    "disk_start_high"
+  ],
+  "default_reference_output_sha256": "a67d8733509f9baf94017389cc1c991d5ef1c66bdfb91b6cab3eef0fc35e9490",
+  "limitations": "Three device-state fields and other symbols are temporary diagnostic stubs; their implementations and consumers in later files remain incomplete. seg_reinit and subsequent code placement are not yet matched to the full target."
+}

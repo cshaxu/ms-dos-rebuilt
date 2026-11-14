@@ -1,0 +1,25 @@
+{
+  "file": "bios/sysconf.asm",
+  "source_sha256": "369dde25243920da778a7b9440aab75b6e9040f03136b9fda4f152309db077ac",
+  "ranges": [
+    {
+      "range": "0xb638..0xb650",
+      "bytes": 24,
+      "differences": 0
+    },
+    {
+      "range": "0xd4bf..0xd4c9",
+      "bytes": 10,
+      "differences": 0
+    }
+  ],
+  "probe": "extras/research/conftime7-linked.asm",
+  "correction": "The prior config_device_vector inference was wrong: DOS function 5700h stores CONFIG.SYS time and date there, later emitted as device-record item 9.",
+  "default_object_identical_to_prior": true,
+  "dos7_assembly": "passed",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "The two snippets use fixed target offsets; full executable layout and device-record behavior are not yet proven.",
+    "Mixed link contains older objects and stubs."
+  ]
+}

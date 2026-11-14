@@ -1,0 +1,27 @@
+{
+  "build": "extras/docs/etc/command-legacy-parser-data-final-build-20261112.json",
+  "sources": [
+    "cmd/command/tdata.asm",
+    "cmd/command/dir.asm",
+    "cmd/command/tcmd1b.asm",
+    "cmd/command/tenv2.asm",
+    "cmd/command/tucode.asm",
+    "cmd/command/loadhi.asm"
+  ],
+  "change": "Removed unreferenced DOS 6 DIR/BREAK/MRDIR/LOADHIGH parser controls and obsolete external declarations; retained and reordered target DIR option strings and pointers.",
+  "target_data_range": "0x10c35..0x10c7b",
+  "matched_data_bytes": 70,
+  "target_probe": "extras/build/parser-data-target-91fw70yv",
+  "current_probe": "extras/build/parser-data-current-mdhr7q50",
+  "matched_cases": [
+    "DIR name sorting",
+    "DIR attribute filter",
+    "wildcard RENAME",
+    "TYPE",
+    "VERIFY ON",
+    "batch continuation"
+  ],
+  "limitations": "Other switches, locale and error paths untested; full binary not byte-identical.",
+  "output_bytes": 92731,
+  "target_bytes": 92870
+}

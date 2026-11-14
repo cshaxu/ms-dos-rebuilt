@@ -1,0 +1,103 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "linked_exe_sha256": "78da44f3be8210e1ff174e5b6c52993642fa23d2cd8e4bc135aee3e48e1f9c26",
+  "bios_code_common_shift": -604,
+  "anchors": [
+    {
+      "symbol": "dsktbl",
+      "target_file_offset": "0x2a80",
+      "linked_bios_code_offset": "0xbd4",
+      "shift": -604
+    },
+    {
+      "symbol": "do_generic_ioctl",
+      "target_file_offset": "0x342b",
+      "linked_bios_code_offset": "0x157f",
+      "shift": -604
+    },
+    {
+      "symbol": "i13z",
+      "target_file_offset": "0x41d5",
+      "linked_bios_code_offset": "0x2329",
+      "shift": -604
+    },
+    {
+      "symbol": "install_bds",
+      "target_file_offset": "0x4468",
+      "linked_bios_code_offset": "0x25bc",
+      "shift": -604
+    },
+    {
+      "symbol": "hidensity",
+      "target_file_offset": "0x463f",
+      "linked_bios_code_offset": "0x2793",
+      "shift": -604
+    },
+    {
+      "symbol": "mult_call16",
+      "target_file_offset": "0x47e0",
+      "linked_bios_code_offset": "0x2934",
+      "shift": -604
+    },
+    {
+      "symbol": "mult_call17",
+      "target_file_offset": "0x486f",
+      "linked_bios_code_offset": "0x29c3",
+      "shift": -604
+    },
+    {
+      "symbol": "mult_call18",
+      "target_file_offset": "0x48f6",
+      "linked_bios_code_offset": "0x2a4a",
+      "shift": -604
+    },
+    {
+      "symbol": "mult_call21",
+      "target_file_offset": "0x4918",
+      "linked_bios_code_offset": "0x2a6c",
+      "shift": -604
+    }
+  ],
+  "matching_near_control_flow": [
+    {
+      "name": "GetBP_to_hidensity",
+      "target_file_offset": "0x2c26",
+      "hex": "e8161a"
+    },
+    {
+      "name": "mult16",
+      "target_file_offset": "0x3f2d",
+      "hex": "e8b008"
+    },
+    {
+      "name": "mult17",
+      "target_file_offset": "0x3f35",
+      "hex": "e83709"
+    },
+    {
+      "name": "mult18",
+      "target_file_offset": "0x3f3d",
+      "hex": "e8b609"
+    },
+    {
+      "name": "mult21",
+      "target_file_offset": "0x3f45",
+      "hex": "e8d009"
+    },
+    {
+      "name": "hidensity_to_has1",
+      "target_file_offset": "0x466f",
+      "hex": "e900e6"
+    },
+    {
+      "name": "hidensity_to_has720k",
+      "target_file_offset": "0x4675",
+      "hex": "e9bde5"
+    }
+  ],
+  "limitations": [
+    "Common shift is a relative-layout result only; absolute BIOS_CODE placement is not established.",
+    "Diagnostic link retains synthetic providers, other stubs, and nonfinal generated inputs.",
+    "Seven matching control-flow instructions do not prove complete intervening code or full IO.SYS identity."
+  ]
+}

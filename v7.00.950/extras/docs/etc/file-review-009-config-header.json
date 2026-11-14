@@ -1,0 +1,18 @@
+{
+  "file_index": 9,
+  "source": "bios/msbio1.asm",
+  "source_sha256": "a98fe7a81fb94c7cbd9311f22fd8047e57e6fad9b7ecbd20bf4748c78ba22540",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_header_offset": 1837,
+  "target_attributes": 49152,
+  "target_interrupt_code_offset": 2238,
+  "probe_header_offset": 281,
+  "probe_attributes": 49152,
+  "probe_interrupt_offset": 1877,
+  "probe_wrapper_prefix": "e80200",
+  "target_wrapper_prefix": "e80200",
+  "probe_chaining": "LPT3 -> CONFIG$ -> COM2, verified by linked near offsets",
+  "conditional": "DOS7_CONFIG",
+  "validation": "MASM assembles with DOS7_CONFIG; temporary DOS 8.3 named config_table stub lets the historical linker resolve and validate header and wrapper. Default BIOS build also succeeds and matches prior build.",
+  "unresolved": "config_table and actual CONFIG$ command handlers are not implemented; probe stub is generated only in ignored extras/build, is not part of source, and output is not 7.0a."
+}

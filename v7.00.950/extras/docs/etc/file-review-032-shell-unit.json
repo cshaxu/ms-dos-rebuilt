@@ -1,0 +1,41 @@
+{
+  "sources": {
+    "bios/sysinit1.asm": "e685f8de8477d81964439ab0aa6331c3aec15da5d9986cdf4abe7bd71d414776",
+    "bios/sysinit2.asm": "2ce22bc018fcb9e37bc9dc370a8586f5cb42f425dbe3845c960ab09ec001ecb6"
+  },
+  "changes": [
+    "Restore DOS 7 shell main and executable-size checking as a source unit with the self-overwriting scratch location.",
+    "Connect CONFIG completion to the shell main and remove superseded DOS 6 shell flow."
+  ],
+  "matched": [
+    {
+      "region": "CONFIG-to-shell handoff",
+      "start": "0x1745",
+      "end_exclusive": "0x1748",
+      "bytes": 3
+    },
+    {
+      "region": "shell main",
+      "start": "0x4759",
+      "end_exclusive": "0x4907",
+      "bytes": 430
+    },
+    {
+      "region": "shell size check",
+      "start": "0x49ea",
+      "end_exclusive": "0x4ac0",
+      "bytes": 214
+    }
+  ],
+  "verification": {
+    "tool": "extras/tools/verify_syspre_device_link.py",
+    "link_stage": "extras/build/syspre-object-link-n8iv75av",
+    "module_stage": "extras/build/ml-sysinit-6hw35q1d",
+    "scope": "Diagnostic target-positioned link uses actual source objects and checks byte equality. The only source change after that link restored the external badfil declaration; the full module assembly includes that fix."
+  },
+  "limitations": [
+    "Some BIOS offsets and unrelated segment locations remain diagnostic constants.",
+    "Final module order, complete product link, and runtime shell flow remain unverified.",
+    "The three core output binaries have not been verified byte-identical."
+  ]
+}

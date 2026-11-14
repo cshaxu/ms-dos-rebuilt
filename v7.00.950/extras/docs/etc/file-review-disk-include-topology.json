@@ -1,0 +1,50 @@
+{
+  "files": [
+    {
+      "file": "bios/msdskpr.inc",
+      "sha256": "e8dd92dced3a3c098cddefa5ca73804cae9dac8cd0870d6ba51ef10b7c1ebd59",
+      "dependencies": [],
+      "matches": [
+        {
+          "name": "6.0",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\msdskpr.inc",
+          "sha256": "e8dd92dced3a3c098cddefa5ca73804cae9dac8cd0870d6ba51ef10b7c1ebd59"
+        },
+        {
+          "name": "5.0",
+          "path": "O:\\repos.hobby\\ms-dos-rebuilt\\v5.0\\bios\\msdskpr.inc",
+          "sha256": "e8dd92dced3a3c098cddefa5ca73804cae9dac8cd0870d6ba51ef10b7c1ebd59"
+        },
+        {
+          "name": "Astro",
+          "path": "O:\\repos.external\\astro\\bios\\msdskpr.inc",
+          "sha256": "e8dd92dced3a3c098cddefa5ca73804cae9dac8cd0870d6ba51ef10b7c1ebd59"
+        }
+      ],
+      "status": "reference_qualified",
+      "target_status": "unverified"
+    },
+    {
+      "file": "inc/bootform.inc",
+      "sha256": "4b965419b9fb2c035961b8042f7a494a6a8baeb1df63c270bb068658e2f1bea9",
+      "dependencies": [
+        "inc/bpb.inc"
+      ],
+      "matches": [
+        {
+          "name": "6.0",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\inc\\bootform.inc",
+          "sha256": "4b965419b9fb2c035961b8042f7a494a6a8baeb1df63c270bb068658e2f1bea9"
+        },
+        {
+          "name": "Astro",
+          "path": "O:\\repos.external\\astro\\inc\\bootform.inc",
+          "sha256": "4b965419b9fb2c035961b8042f7a494a6a8baeb1df63c270bb068658e2f1bea9"
+        }
+      ],
+      "status": "reference_qualified",
+      "target_status": "unverified"
+    }
+  ],
+  "limitations": "Reference qualification and prerequisite ordering only; target layout and full binary identity remain unverified."
+}

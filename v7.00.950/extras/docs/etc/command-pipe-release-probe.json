@@ -1,0 +1,13 @@
+{
+  "build_report": "extras/docs/etc/command-control-break-pipe-cleanup-build2-20261112.json",
+  "probe_stage": "extras/build/pipe-release-probe-w5ivltgu",
+  "checks": [
+    "allocated pipe block freed and reallocated at same segment",
+    "pipe pointer and flag cleared",
+    "echo state shifted and AX preserved"
+  ],
+  "limitations": [
+    "does not invoke a real Ctrl-C interrupt or full COMMAND flow",
+    "does not prove final binary identity"
+  ]
+}

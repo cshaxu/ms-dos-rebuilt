@@ -1,0 +1,31 @@
+{
+  "source_sha256": "e0029933b3e3378b5331e0f8df8a5f962f99d049cb74b1f84504171276eb5a39",
+  "listing_sha256": "5ff9751ea99ec6fcd4e22005d92a2817d8d03e4bd2a4aa60577e7cf7d1844317",
+  "routines": [
+    {
+      "name": "movbpb",
+      "target_offset": "0x2d26",
+      "length": 66,
+      "masked_relocation_bytes": 10,
+      "matched_nonrelocated_bytes": 56,
+      "differences": []
+    },
+    {
+      "name": "mov_media_ids",
+      "target_offset": "0x2d68",
+      "length": 52,
+      "masked_relocation_bytes": 0,
+      "matched_nonrelocated_bytes": 52,
+      "differences": []
+    },
+    {
+      "name": "readfat",
+      "target_offset": "0x2d9c",
+      "length": 15,
+      "masked_relocation_bytes": 0,
+      "matched_nonrelocated_bytes": 15,
+      "differences": []
+    }
+  ],
+  "limitations": "Relocation operands and complete linked output remain unverified."
+}

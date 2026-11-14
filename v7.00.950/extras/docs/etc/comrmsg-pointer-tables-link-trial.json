@@ -1,0 +1,17 @@
+{
+  "stage": "extras\\build\\resident-tables-link-_h67q_31",
+  "target_sha256": "a74c700063cd6b1c91523952bfc80e9393c125d39ada0164d48b5098089fcef3",
+  "target_range": [
+    "0x56ab",
+    "0x579f"
+  ],
+  "length": 244,
+  "matching_executable_offsets": [
+    3139
+  ],
+  "method": "Original three table declarations with DATARES qualifiers are linked against a synthetic 93-entry class index provider placed at the target-observed offset.",
+  "limitations": [
+    "Synthetic provider uses ORG; actual target build placement and all class consumers remain unverified.",
+    "Only the three tables were compared, not complete COMMAND.COM."
+  ]
+}

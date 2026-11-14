@@ -1,0 +1,30 @@
+{
+  "file_index": 9,
+  "source": "bios/msbio1.asm",
+  "source_sha256": "4561ced8c646700c279226ddf0903df10ff4373300f973fc6c922a6cfb703316",
+  "target_io_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_file_offset": 18891,
+  "routine_length": 25,
+  "target_bytes": "f7060800008074060e68892deb02f8c32eff364e2b680ea1cb",
+  "linked_probe_bytes": "f7062309008074060e682c01eb02f8c32eff36c01a68c21acb",
+  "different_operand_positions": [
+    2,
+    3,
+    10,
+    11,
+    19,
+    20,
+    22,
+    23
+  ],
+  "matching_nonoperand_bytes": 17,
+  "validation": "MASM -DDOS7_CONFIG and temporary stub-assisted link. Four 16-bit operands differ due to unresolved layout-dependent addresses; remaining opcode and branch bytes match. Temporary stubs are ignored build outputs, not implementation.",
+  "unresolved": [
+    "config_flags",
+    "config_value",
+    "config_init_flags",
+    "config_init_segment",
+    "config_init_entry"
+  ],
+  "cpu": "The target uses immediate PUSH; .286 is enabled locally and restored to .8086 after the procedure."
+}

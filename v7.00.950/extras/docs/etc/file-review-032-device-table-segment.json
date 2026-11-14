@@ -1,0 +1,15 @@
+{
+  "file": "bios/sysinit1.asm",
+  "source_sha256": "0bbd1c7a95fdda077ecb0347abaf9037eed9b3ae626d239ed3250e8c1d335210",
+  "target_range": "IO.SYS 0x83fb..0x8401",
+  "bytes": 6,
+  "different_bytes": 0,
+  "probe": "extras/research/device-table-segment-linked.asm",
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "DOSINIT return ABI and downstream table allocation remain incomplete.",
+    "Fixed-offset probe does not prove execution or whole-image placement."
+  ]
+}

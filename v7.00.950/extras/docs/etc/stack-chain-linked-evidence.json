@@ -1,0 +1,48 @@
+{
+  "source_hashes": {
+    "bios/sysinit1.asm": "49a2f8ec8aca9b18df43a3ae877c34591b92c1bf3ae1b333a1d6aaaa3b19ddad",
+    "bios/sysconf.asm": "a9976b865234612b891190d5724009191279ebbceb1abb612180daacd7e79cff",
+    "bios/sysinit2.asm": "d59af516e98a0c6661d4bb76e7aa222460f4fa0cbd38e2602813e7c5523d2483",
+    "bios/msint13.asm": "492a997b52e93e844b42852d28979c4c4a218705689514c20a36a3d36e56c9bb",
+    "lang/usa/messages/sysimsg.inc": "f9332f3ae4da62b42d67e70980e8f9c3827fda759a6f1f144e6c3de4a45d9743"
+  },
+  "probe_source": "extras/research/stack-chain-linked.asm",
+  "probe_sha256": "c0280cd74334b11417e51971bbca880c48f61809238e4888bee1bc48715c65fc",
+  "linked_exe_sha256": "bd0994a9335e77bf6e2d92cc0c1edf9fe900e3404cd26396b52f8423863e0d80",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "simulated_load_segment": "0x70",
+  "ranges": [
+    {
+      "component": "stack_allocation_caller",
+      "target_range": "0x8671..0x86fa",
+      "length": 137,
+      "different_bytes": 0
+    },
+    {
+      "component": "stackinit_and_vector_save",
+      "target_range": "0x8a3e..0x8d90",
+      "length": 850,
+      "different_bytes": 0
+    },
+    {
+      "component": "allocator_and_marker",
+      "target_range": "0xd2ba..0xd32d",
+      "length": 115,
+      "different_bytes": 0
+    },
+    {
+      "component": "message_table_and_text",
+      "target_range": "0xf298..0x10363",
+      "length": 4299,
+      "different_bytes": 0
+    }
+  ],
+  "total_compared_bytes": 5401,
+  "method": "Historical MASM and LINK using extracted project source routines and the formal message resource, then MZ relocation.",
+  "limitations": [
+    "ORG directives and data/segment definitions in the probe reproduce target positions and are not the production build layout.",
+    "The instance-field and vector providers are reproduced in the harness rather than linked as full production modules.",
+    "No runtime test or complete IO.SYS byte comparison is performed.",
+    "Legacy generated messages still coexist with the target table in the production source."
+  ]
+}

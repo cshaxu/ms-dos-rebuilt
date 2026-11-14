@@ -1,0 +1,30 @@
+{
+  "stage": "extras\\build\\command-reference-bsmvs76p",
+  "target_range": [
+    25119,
+    25135
+  ],
+  "verified_bytes": 16,
+  "linked_code_hex": "3d0516750b81ff0004750580263105fb",
+  "target_code_hex": "3d0516750b81ff0004750580266707fb",
+  "address_field": {
+    "offset": 13,
+    "symbol": "YSwitchFlags",
+    "linked": 1329,
+    "target": 1895
+  },
+  "state_initial_value": 256,
+  "state_target_file_offset": 18615,
+  "provider_evidence": [
+    "Existing TranVars field at +20, following Res_Tpa; no new storage allocated.",
+    "Existing SetYSwitch OR 10h corresponds to target instruction at file 66A2h using DS:0767h."
+  ],
+  "source_hashes": {
+    "cmd/command/rucode.asm": "a0c94e23c9951ee09c1262accfd35114295be3551bd66b0913a40cdd27e61e94",
+    "cmd/command/rdata.asm": "14aa0aa1c1be1ed88ea65de70313f40a06907433fc623f62996abbca800f7208"
+  },
+  "initialization_and_resident_resource_gates_passed": true,
+  "full_handler_exact": false,
+  "full_command_exact": false,
+  "remaining": "GET_COMMAND_STATE original segment and additional stub pointer providers; startup loading and complete layout."
+}

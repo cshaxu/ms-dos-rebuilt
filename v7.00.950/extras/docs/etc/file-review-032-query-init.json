@@ -1,0 +1,16 @@
+{
+  "file": "bios/sysinit1.asm",
+  "file_index": 32,
+  "source_sha256": "9b6c72d8f2f3c4747a90e3db4e8f2cc7ccb740245960791eaaaa40a2f1096114",
+  "target_range": "IO.SYS 0x5f90..0x5fe8",
+  "bytes": 88,
+  "different_bytes": 0,
+  "default_object_identical": true,
+  "dos7_assembly": "passed",
+  "behavior": "Copies localized Y/y/N/n/A/a from message 23 to SYSINIT response bytes and updates the four DOS Y/N response bytes.",
+  "limitations": [
+    "The isolated link fixes target addresses with ORG; actual cross-module symbol placement and full startup integration are not proven.",
+    "The subsequent target DOS data update and other DOS7 startup changes are not yet reconstructed.",
+    "Full IO.SYS equality is unverified."
+  ]
+}

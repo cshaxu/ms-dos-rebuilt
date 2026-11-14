@@ -1,0 +1,20 @@
+{
+  "build": "extras/docs/etc/command-dir-cluster-order-original-build-20261112.json",
+  "target_probe": "extras/build/dir-pathbranch-target-ep5oqk2b",
+  "current_probe": "extras/build/dir-clusterorder-current-iei6j2n8",
+  "matched": [
+    "DIR.TXT",
+    "LIST.TXT",
+    "PWD.TXT",
+    "DONE.TXT"
+  ],
+  "target_order": [
+    "ChangeDirBasePath",
+    "DirSearchDrive",
+    "DirShiftBytes",
+    "DirClusterBytes",
+    "DirFileClusters",
+    "DirConvertFileTime"
+  ],
+  "scope": "Code adjacency, existing operand verifiers, local directory and recursive search. Detailed disk statistics and LFN time paths not retested here."
+}

@@ -1,0 +1,33 @@
+{
+  "source": "bios/msbio1.asm",
+  "source_sha256": "8e75464864b25af4ff90239b513de366a5c6dae945748f0abcec6ba626aaca5a",
+  "change": "Restore the target absolute-read and IOCTL drive-map leaf with actual state, correct DS assumption and target comparison encoding. Link actual CONFIG buffer restore and LASTDRIVE conversion dependencies.",
+  "matched": {
+    "drive_map": {
+      "start": "0xa4be",
+      "end_exclusive": "0xa55b",
+      "bytes": 157
+    },
+    "config_restore": {
+      "start": "0xa230",
+      "bytes": 102
+    },
+    "lastdrive_number": {
+      "start": "0x72e7",
+      "bytes": 48
+    },
+    "config_buffer_state_bytes": 8
+  },
+  "verification": {
+    "link": "extras/tools/verify_syspre_device_link.py",
+    "link_stage": "extras/build/syspre-object-link-rotkuqbz",
+    "runtime": "extras/tools/verify_boot_drive_map.py",
+    "runtime_stage": "extras/build/drive-map-runtime-b2cclc1v",
+    "assembly": "The actual split MSBIO1 SYSINIT contribution passed two-pass MASM."
+  },
+  "runtime_scope": "Interrupt stubs cover invalid response, remapped drive and same-drive IOCTL result. No actual disk or system-file execution is performed.",
+  "limitations": [
+    "The upstream A296h system-file execution and A40Ch drive check have not yet been restored.",
+    "Five bytes after the drive map data remain synthetic, as do other gaps and BIOS anchors; full IO.SYS and all three target binaries remain unverified."
+  ]
+}

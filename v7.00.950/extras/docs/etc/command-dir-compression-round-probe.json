@@ -1,0 +1,10 @@
+{
+  "stage": "extras\\build\\dir-compression-round-probe-4zyqiem1",
+  "checks": [
+    "round below, at and above a 4096-byte boundary",
+    "round a 32-bit size with a 16-bit shift"
+  ],
+  "limitations": [
+    "Isolated arithmetic only; compression driver, initialization and DIR are not exercised."
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "file_index": 9,
+  "source": "bios/msbio1.asm",
+  "source_sha256": "b3466309f82b913502d121ccf856c4266daf112e74a0efa90f97086b3e1def35",
+  "target_file_offset": 2605,
+  "linked_binary_offset": 1974,
+  "length": 39,
+  "matching_bytes": 32,
+  "different_byte_offsets": [
+    14,
+    15,
+    20,
+    21,
+    30,
+    35,
+    36
+  ],
+  "target_hex": "fb9c2ef6060900207513fa2eff1e74019c2eff0e0b057501909dca0200e839002eff1e5401ebe3",
+  "linked_hex": "fb9c2ef6060900207513fa2eff1e09079c2eff0e0d077501909dca0200e836002eff1e0107ebe3",
+  "target_vector_install_offset": 3962,
+  "target_vector_table_offset": 88,
+  "interrupt_number": 22,
+  "temporary_stub_symbols": [
+    "bios_msg_base",
+    "bios_msg_1",
+    "bios_msg_2",
+    "bios_msg_3",
+    "int16_check"
+  ],
+  "default_reference_output_sha256": "a67d8733509f9baf94017389cc1c991d5ef1c66bdfb91b6cab3eef0fc35e9490",
+  "limitations": "int16_check is an external dependency; the old interrupt-vector initializer, counter lifecycle and final layout are unresolved. This diagnostic is not a full 7.0a build."
+}

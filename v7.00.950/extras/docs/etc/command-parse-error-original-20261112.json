@@ -1,0 +1,37 @@
+{
+  "build": "extras/docs/etc/command-parse-error-original-build-20261112.json",
+  "modified_source_files": [
+    "cmd/command/tcmd2b.asm",
+    "cmd/command/tcmd2a.asm",
+    "cmd/command/parse2.asm",
+    "cmd/command/tenv2.asm",
+    "cmd/command/loadhi.asm"
+  ],
+  "target_probe": "extras\\build\\parse-errors-target-8k9o283q",
+  "current_probe": "extras\\build\\parse-errors-current-hljqoylk",
+  "matched_outputs": [
+    "DATE.TXT",
+    "TIME.TXT",
+    "DIR.TXT",
+    "TYPE.TXT",
+    "REN.TXT",
+    "EXE.TXT",
+    "ATTR.TXT",
+    "FOR.TXT",
+    "DONE.TXT",
+    "ERRORS.TXT"
+  ],
+  "stderr_capture": "DOS handle 1 and 2 redirected before EXEC COMMAND.COM",
+  "error_output": "COPY-INVALID\r\n        1 file(s) copied\r\nVER-INVALID\r\nParse Error 3\r\n\r\nTYPE-MISSING\r\nParse Error 2\r\n\r\nCD-INVALID\r\nParse Error 3\r\n\r\nERRORS-DONE\r\n",
+  "restored_target_range": [
+    47621,
+    47655
+  ],
+  "shared_target_range": [
+    43839,
+    43860
+  ],
+  "workspace_displacement": 4,
+  "final_byte_exact": false,
+  "runtime_scope": "VER /Z, missing TYPE argument and CD /Z errors match. COPY /Z and /! were accepted by target and current; COPY error routine is instruction-verified but its error runtime path was not exercised."
+}

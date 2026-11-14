@@ -1,0 +1,11 @@
+{
+  "source": "bios/msbio1.asm",
+  "source_sha256": "353dcb3912ea77b7db6a848778f47bec745f02cc840d09fbbd1cf98c6d594e59",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_read_real_date_offset": 10160,
+  "target_read_real_time_offset": 10346,
+  "reference_source": "bios/msinit.asm",
+  "diagnostic": "config-ml-real-clock-names.json",
+  "reference_build": "../../build/msbio1-real-clock-names-reference.json",
+  "limitations": "Static functional correspondence to DOS 6 source; target helpers have differences and are not yet rebuilt. The diagnostic substitutes explicit stubs. Source ownership and eventual linkage require verification when msinit.asm is processed."
+}

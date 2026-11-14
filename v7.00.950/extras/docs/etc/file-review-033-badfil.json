@@ -1,0 +1,23 @@
+{
+  "files": {
+    "bios/sysinit2.asm": "7c5768a11a4d5026b74ebcb7fc4b38460c6a000a312cec523181b74ca781d64d",
+    "lang/usa/messages/sysimsg.inc": "a041b85f9b8bed7d3576132983aec14026c32cf0786ae40119e4d4b3da898d80"
+  },
+  "target_file_range": "0x7f06..0x7f51",
+  "length": 75,
+  "different_bytes": 0,
+  "default_object_identical": true,
+  "dos7_assembly": "passed",
+  "message_indices": {
+    "missing_file": 8,
+    "newline": 5
+  },
+  "probe_source": "extras/research/badfil-linked.asm",
+  "probe_sha256": "ef16d2a0fed586f5621d3dd7633d4ece52cb455464b512688889cc84f10511e0",
+  "linked_exe_sha256": "72df9c5a6961159a4f2fa255bf58e4059dfd5afaa92b3714c62bf8fa64bcb67b",
+  "limitations": [
+    "The isolated link uses ORG and diagnostic data/continuation definitions; full production layout remains unverified.",
+    "The command interpreter failure caller still references the legacy badcom symbol and has not been reconstructed.",
+    "Full SYSINIT and IO.SYS remain incomplete."
+  ]
+}

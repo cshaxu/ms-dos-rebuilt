@@ -1,0 +1,30 @@
+{
+  "sources": {
+    "provider.asm": "27b5a1d720bdcca70a1ec6bb9dad38d4a27492641d4c23468a29490673c146a3",
+    "consumer.asm": "330976ee2dabf2a6c075c3c109d77b73a9d81b309fa9762f93ce287a87081010"
+  },
+  "objects": {
+    "provider.obj": "2f7c5fa690e2f0684972b7637ae0768f540d6f19bbef90bb870e9f314a38a67b",
+    "consumer.obj": "1d45dc75937170c04487fd852c712881df43ec17729e3a573d3ab7a14254b0a2"
+  },
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "linked_exe_sha256": "fb18cbbb55febca68baa140ca7ab7e46455e4a79c79f22a0b1afac4d6c04347a",
+  "blocks": [
+    {
+      "name": "data",
+      "target_file_offset": "0x33e6",
+      "length": 16,
+      "hex": "ffffffff080000005000000000002400"
+    },
+    {
+      "name": "RestoreOldDpt",
+      "target_file_offset": "0x3964",
+      "length": 44,
+      "hex": "5032c02ea2a3172e8606a2170ac07419561e062ec53696172bc08ec02689367800268c1e7a00071f5e58f8c3"
+    }
+  ],
+  "limitations": [
+    "Artificial ORG and order reproduce only observed relative placement; no historical ownership or final BIOS layout is proven.",
+    "The consumer is an extracted DOS7_CONFIG routine, not the complete msdioctl object."
+  ]
+}

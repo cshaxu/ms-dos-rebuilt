@@ -1,0 +1,43 @@
+{
+  "build_report": "extras/docs/etc/command-mz-resource-build-20261112.json",
+  "output_bytes": 80779,
+  "target_bytes": 92870,
+  "output_header_bytes": 15296,
+  "target_header_bytes": 16720,
+  "resource_extents": [
+    [
+      64,
+      11544,
+      11552
+    ],
+    [
+      11552,
+      13063,
+      13072
+    ],
+    [
+      13072,
+      15285,
+      15296
+    ]
+  ],
+  "primary_class_counts": [
+    4,
+    1,
+    182
+  ],
+  "checks": [
+    "MZ declared size and image extent",
+    "no MZ relocation entries",
+    "linked executable image preserved exactly",
+    "three source-generated NSCO resource envelopes and alignment",
+    "all generated primary message offsets remain inside payload",
+    "initialization and resident resources match separately verified source artifacts",
+    "packer recomputes sizes after resource length changes"
+  ],
+  "limitations": [
+    "primary message resource remains incomplete and not target-identical",
+    "linked load image still contains historical message tables and other unfinished content",
+    "runtime loading and final full-file identity are not verified"
+  ]
+}

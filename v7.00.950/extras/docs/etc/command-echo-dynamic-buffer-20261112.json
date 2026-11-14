@@ -1,0 +1,36 @@
+{
+  "generated_utc": "2026-11-12T10:23:46.608843+00:00",
+  "source": "cmd/command/tucode.asm",
+  "build_report": "extras/docs/etc/command-echo-dynamic-buffer-build-20261112.json",
+  "instruction_evidence": {
+    "target_file_offset": "0xd7cd",
+    "candidate_file_offset": "0xd61f",
+    "identical_bytes": "80f90074088bd6",
+    "description": "conditional branch and mov dx,si; calls and surrounding ECHO handler not certified"
+  },
+  "instrumentation_warning": "DOS exit probes after PSP migration must restore both parent and old termination vector; prior timeout-only checkpoint results do not locate execution.",
+  "checks": {
+    "old_copy_same_input": {
+      "stage": "extras/build/command-fresh-copy-old-pdy_arp7",
+      "result": "timeout; destination bytes equal"
+    },
+    "new_copy_same_input": {
+      "stage": "extras/build/command-fresh-copy-new-6azlm_74",
+      "result": "exit 0; destination bytes equal"
+    },
+    "new_copy_second_input": {
+      "stage": "extras/build/command-fixed-copy-q0csgqbz",
+      "result": "exit 0; destination bytes equal"
+    },
+    "new_echo": {
+      "stage": "extras/build/command-fixed-echo-k8odro6c",
+      "result": "timeout; output empty"
+    }
+  },
+  "interpretation": "The byte-aligned ECHO operand is restored, but ECHO integration remains broken. COPY passes these two isolated input cases; causality from the ECHO change and broad correctness are not established.",
+  "file_counts": {
+    "linked": 35,
+    "modified_from_baseline": 30,
+    "unchanged_from_baseline": 5
+  }
+}

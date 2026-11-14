@@ -1,0 +1,23 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "candidate_data_file_base": 106176,
+  "basis": "COUNTRY_CDPG path at fixed data offset 122Ah+8 matches target; this is a data mapping lead, not a full data segment proof.",
+  "country_path_file_offset": 110834,
+  "yesno_data_offsets": [
+    4918,
+    4919,
+    4920,
+    4921
+  ],
+  "yesno_file_offset": 111094,
+  "disk_initial_bytes": "00000000",
+  "target_getextcntry_ss_references": [
+    73618,
+    73625,
+    73632,
+    73639
+  ],
+  "nearby_pointer_bytes_file_offset": 111085,
+  "nearby_pointer_bytes": "00b812081336133a1300000000",
+  "next_required_work": "Trace initialization/registration of data offsets 1336h..1339h before moving generated YNyn constants. Initial zero data is not evidence that runtime values should remain zero."
+}

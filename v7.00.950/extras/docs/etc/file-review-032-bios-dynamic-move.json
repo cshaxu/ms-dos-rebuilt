@@ -1,0 +1,50 @@
+{
+  "file": "bios/sysinit1.asm",
+  "source_sha256": "7047dad00fcfd11e3e9b42ea59b4ed361046b9d64a82f6e548f0ba308ca5dc91",
+  "target_ranges": [
+    "IO.SYS 0x5d71..0x5d8b",
+    "IO.SYS 0x5e6d..0x5e8e"
+  ],
+  "reservation_differences": [
+    [
+      "0x9",
+      "0x5",
+      "0x83"
+    ],
+    [
+      "0xa",
+      "0x1f",
+      "0xc0"
+    ],
+    [
+      "0xb",
+      "0x0",
+      "0x1f"
+    ],
+    [
+      "0xc",
+      "0x25",
+      "0x83"
+    ],
+    [
+      "0xd",
+      "0xf0",
+      "0xe0"
+    ],
+    [
+      "0xe",
+      "0xff",
+      "0xf0"
+    ]
+  ],
+  "move_differences": [],
+  "probe": "extras/research/bios-dynamic-move-linked.asm",
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "MASM accumulator immediate encodings in the reservation may differ from target.",
+    "Actual BIOS message resource and full linked layout remain incomplete; diagnostic link still uses stubs.",
+    "Real relocation and execution have not been verified."
+  ]
+}

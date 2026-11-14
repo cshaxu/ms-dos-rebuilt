@@ -1,0 +1,23 @@
+{
+  "file_index": 9,
+  "source": "bios/msbio1.asm",
+  "source_sha256": "4e1726e029f4455154254bf0b50f99cd0efe779adc0553843bf29660e38fae06",
+  "tracktable": {
+    "target_offset": 1918,
+    "bios_offset": 382,
+    "length": 252,
+    "matching_bytes": 252
+  },
+  "strategy": {
+    "target_offset": 2170,
+    "bios_offset": 634,
+    "length": 11,
+    "matching_bytes": 11
+  },
+  "preserved_offsets": {
+    "romvectors": 256,
+    "cdev": 320
+  },
+  "default_reference_output_sha256": "a67d8733509f9baf94017389cc1c991d5ef1c66bdfb91b6cab3eef0fc35e9490",
+  "limitations": "Other device entries still differ in position or operands. Target CLOCK and disk entry placement needs coordinated device-chain restructuring; an isolated attempted move was reverted. Full target outputs remain incomplete."
+}

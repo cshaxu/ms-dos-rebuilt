@@ -1,0 +1,27 @@
+{
+  "sources": {
+    "bios/syspre.asm": "949275ae57a049de9aecdd314a7dcd78087e14dc047dffa869fe8b548c1850d4",
+    "bios/sysimes.asm": "612c08143c45d7bf0004b2ec241fe43a73394b4e3c1744e06c1f429ce7a31658",
+    "lang/usa/messages/sysimsg.inc": "f05c7696b0fad473fe4eedd5726c8677dcc4aaaf944d6031d89acb3098ab1892"
+  },
+  "objects": {
+    "syspre": "4f5eddeb99d63451d6c819f5340bc675cb7fbd207c83a3658a5d4f3d18a4bcfd",
+    "sysimes": "8d2008293422cc5e7f3e1fcf0332527a90d2f61436f0d5ea23498df763958959"
+  },
+  "verification": "extras/tools/verify_syspre_sysimes_link.py",
+  "object_stages": [
+    "extras/build/syspre-data-3oo7gd5r",
+    "extras/build/ml-sysinit-ildo15ix"
+  ],
+  "link_stage": "extras/build/syspre-object-link-2sy3y_5z",
+  "matched": {
+    "syspre": 1166,
+    "sysimes_resource": 4307
+  },
+  "scope": "Real independently assembled SYSPRE and SYSIMES objects linked together; message symbols are provided by actual SYSIMES object and both target byte ranges match.",
+  "limitations": [
+    "Diagnostic synthetic prefix supplies remaining external symbols and artificial gap places SYSIMES at target offset.",
+    "SYSIMES object used documented ML build-stage compatibility adaptations.",
+    "Full SYSINIT order, all real external providers and final three binaries remain unverified."
+  ]
+}

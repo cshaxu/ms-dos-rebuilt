@@ -1,0 +1,69 @@
+{
+  "linked_exe_sha256": "39ab04f7d614696bf0674645fec737b1efded284a6d8ec6d3fe950de8ee557d7",
+  "map_offsets": {
+    "i13z": "0x2329",
+    "install_bds": "0x25bc",
+    "mediacheck": "0x267e",
+    "hidensity": "0x2793",
+    "set_changed_dl": "0x27cd",
+    "mult_call16": "0x2932",
+    "mult_call17": "0x29c1",
+    "mult_call18": "0x2a48",
+    "mult_call21": "0x2a6a"
+  },
+  "spans": [
+    {
+      "from": "i13z",
+      "to": "install_bds",
+      "linked": 659,
+      "target": 659,
+      "difference": 0
+    },
+    {
+      "from": "install_bds",
+      "to": "mediacheck",
+      "linked": 194,
+      "target": 194,
+      "difference": 0
+    },
+    {
+      "from": "mediacheck",
+      "to": "hidensity",
+      "linked": 277,
+      "target": 277,
+      "difference": 0
+    },
+    {
+      "from": "hidensity",
+      "to": "mult_call16",
+      "linked": 415,
+      "target": 417,
+      "difference": -2
+    },
+    {
+      "from": "mult_call16",
+      "to": "mult_call17",
+      "linked": 143,
+      "target": 143,
+      "difference": 0
+    },
+    {
+      "from": "mult_call17",
+      "to": "mult_call18",
+      "linked": 135,
+      "target": 135,
+      "difference": 0
+    },
+    {
+      "from": "mult_call18",
+      "to": "mult_call21",
+      "linked": 34,
+      "target": 34,
+      "difference": 0
+    }
+  ],
+  "limitations": [
+    "Link order is a hypothesis tested against target offsets, not proof of original source ownership.",
+    "Other diagnostic stubs remain and full target binary identity is not established."
+  ]
+}

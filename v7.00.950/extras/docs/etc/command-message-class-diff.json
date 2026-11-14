@@ -1,0 +1,572 @@
+{
+  "reference": "extras/build/command-reference-hlt9c1st/COMMAND.COM",
+  "reference_sha256": "65fa71b0a34e91feffc31297fb5e24d40767c72fb513e46aaac721bda7836110",
+  "target": "extras/baselines/targets/COMMAND.COM",
+  "target_sha256": "a74c700063cd6b1c91523952bfc80e9393c125d39ada0164d48b5098089fcef3",
+  "method": "Search aligned four-byte ID plus structure-relative displacement entries in a bounded class index region, accept only printable ASCII/control CR LF TAB length-prefixed messages with unique ID in each region.",
+  "reference_index_window": [
+    36352,
+    37632
+  ],
+  "target_index_window": [
+    128,
+    1024
+  ],
+  "reference_entries": 177,
+  "target_entries": 181,
+  "unique_shared_count": 161,
+  "changed_count": 32,
+  "changed_entries": [
+    {
+      "id": 1014,
+      "reference": {
+        "index": 36704,
+        "text_offset": 37872,
+        "length": 16,
+        "text": "Access denied \r\n",
+        "bytes": "4163636573732064656e696564200d0a"
+      },
+      "target": {
+        "index": 161,
+        "text_offset": 1366,
+        "length": 14,
+        "text": "Access denied ",
+        "bytes": "4163636573732064656e69656420"
+      }
+    },
+    {
+      "id": 1040,
+      "reference": {
+        "index": 36784,
+        "text_offset": 38412,
+        "length": 20,
+        "text": "MS-DOS Version %1.%2",
+        "bytes": "4d532d444f532056657273696f6e2025312e2532"
+      },
+      "target": {
+        "index": 265,
+        "text_offset": 2040,
+        "length": 30,
+        "text": "Windows 95. [Version 4.00.950]",
+        "bytes": "57696e646f77732039352e205b56657273696f6e20342e30302e3935305d"
+      }
+    },
+    {
+      "id": 1068,
+      "reference": {
+        "index": 36872,
+        "text_offset": 38800,
+        "length": 10,
+        "text": " <DIR>    ",
+        "bytes": "203c4449523e20202020"
+      },
+      "target": {
+        "index": 377,
+        "text_offset": 2590,
+        "length": 14,
+        "text": "   <DIR>      ",
+        "bytes": "2020203c4449523e202020202020"
+      }
+    },
+    {
+      "id": 1077,
+      "reference": {
+        "index": 36908,
+        "text_offset": 38860,
+        "length": 7,
+        "text": " %1  %2",
+        "bytes": "20253120202532"
+      },
+      "target": {
+        "index": 413,
+        "text_offset": 2651,
+        "length": 3,
+        "text": " %1",
+        "bytes": "202531"
+      }
+    },
+    {
+      "id": 1082,
+      "reference": {
+        "index": 36928,
+        "text_offset": 38971,
+        "length": 7,
+        "text": " [Y/N]?",
+        "bytes": "205b592f4e5d3f"
+      },
+      "target": {
+        "index": 433,
+        "text_offset": 2758,
+        "length": 17,
+        "text": " [Enter=Y,Esc=N]?",
+        "bytes": "205b456e7465723d592c4573633d4e5d3f"
+      }
+    },
+    {
+      "id": 1083,
+      "reference": {
+        "index": 36932,
+        "text_offset": 38979,
+        "length": 2,
+        "text": "YN",
+        "bytes": "594e"
+      },
+      "target": {
+        "index": 437,
+        "text_offset": 2776,
+        "length": 3,
+        "text": "YNA",
+        "bytes": "594e41"
+      }
+    },
+    {
+      "id": 1100,
+      "reference": {
+        "index": 36980,
+        "text_offset": 39248,
+        "length": 37,
+        "text": "A bad UMB number has been specified\r\n",
+        "bytes": "412062616420554d42206e756d62657220686173206265656e207370656369666965640d0a"
+      },
+      "target": {
+        "index": 505,
+        "text_offset": 3254,
+        "length": 6,
+        "text": "RHSVDA",
+        "bytes": "524853564441"
+      }
+    },
+    {
+      "id": 1101,
+      "reference": {
+        "index": 36984,
+        "text_offset": 39286,
+        "length": 14,
+        "text": "  %1.%2 to 1.0",
+        "bytes": "202025312e253220746f20312e30"
+      },
+      "target": {
+        "index": 501,
+        "text_offset": 3216,
+        "length": 37,
+        "text": "A bad UMB number has been specified\r\n",
+        "bytes": "412062616420554d42206e756d62657220686173206265656e207370656369666965640d0a"
+      }
+    },
+    {
+      "id": 1104,
+      "reference": {
+        "index": 36996,
+        "text_offset": 39386,
+        "length": 3,
+        "text": "YNA",
+        "bytes": "594e41"
+      },
+      "target": {
+        "index": 513,
+        "text_offset": 3288,
+        "length": 14,
+        "text": "Invalid path\r\n",
+        "bytes": "496e76616c696420706174680d0a"
+      }
+    },
+    {
+      "id": 1105,
+      "reference": {
+        "index": 37000,
+        "text_offset": 39390,
+        "length": 4,
+        "text": "    ",
+        "bytes": "20202020"
+      },
+      "target": {
+        "index": 517,
+        "text_offset": 3303,
+        "length": 14,
+        "text": "  %1.%2 to 1.0",
+        "bytes": "202025312e253220746f20312e30"
+      }
+    },
+    {
+      "id": 1406,
+      "reference": {
+        "index": 37060,
+        "text_offset": 40750,
+        "length": 66,
+        "text": "The switch /Y may be preset in the COPYCMD environment variable.\r\n",
+        "bytes": "54686520737769746368202f59206d61792062652070726573657420696e2074686520434f5059434d4420656e7669726f6e6d656e74207661726961626c652e0d0a"
+      },
+      "target": {
+        "index": 601,
+        "text_offset": 5203,
+        "length": 121,
+        "text": "The switch /Y may be preset in the COPYCMD environment variable.\r\nThis may be overridden with /-Y on the command line\r\n\r\n",
+        "bytes": "54686520737769746368202f59206d61792062652070726573657420696e2074686520434f5059434d4420656e7669726f6e6d656e74207661726961626c652e0d0a54686973206d6179206265206f76657272696464656e2077697468202f2d59206f6e2074686520636f6d6d616e64206c696e650d0a0d0a"
+      }
+    },
+    {
+      "id": 1440,
+      "reference": {
+        "index": 37072,
+        "text_offset": 41092,
+        "length": 93,
+        "text": "Displays or sets the date.\r\n\r\nDATE [mm-dd-yy]\r\n\r\n  mm-dd-yy    Sets the date you specify.\r\n\r\n",
+        "bytes": "446973706c617973206f7220736574732074686520646174652e0d0a0d0a44415445205b6d6d2d64642d79795d0d0a0d0a20206d6d2d64642d7979202020205365747320746865206461746520796f7520737065636966792e0d0a0d0a"
+      },
+      "target": {
+        "index": 613,
+        "text_offset": 5600,
+        "length": 45,
+        "text": "Displays or sets the date.\r\n\r\nDATE [date]\r\n\r\n",
+        "bytes": "446973706c617973206f7220736574732074686520646174652e0d0a0d0a44415445205b646174655d0d0a0d0a"
+      }
+    },
+    {
+      "id": 1462,
+      "reference": {
+        "index": 37088,
+        "text_offset": 41551,
+        "length": 79,
+        "text": "  /P                      Prompts for confirmation before deleting each file.\r\n",
+        "bytes": "20202f502020202020202020202020202020202020202020202050726f6d70747320666f7220636f6e6669726d6174696f6e206265666f72652064656c6574696e6720656163682066696c652e0d0a"
+      },
+      "target": {
+        "index": 629,
+        "text_offset": 6011,
+        "length": 59,
+        "text": "  /P\t\tPrompts for confirmation before deleting each file.\r\n",
+        "bytes": "20202f50090950726f6d70747320666f7220636f6e6669726d6174696f6e206265666f72652064656c6574696e6720656163682066696c652e0d0a"
+      }
+    },
+    {
+      "id": 1482,
+      "reference": {
+        "index": 37100,
+        "text_offset": 41800,
+        "length": 80,
+        "text": "  [drive:][path][filename]   Specifies drive, directory, and/or files to list.\r\n",
+        "bytes": "20205b64726976653a5d5b706174685d5b66696c656e616d655d2020205370656369666965732064726976652c206469726563746f72792c20616e642f6f722066696c657320746f206c6973742e0d0a"
+      },
+      "target": {
+        "index": 641,
+        "text_offset": 6410,
+        "length": 97,
+        "text": "  /P          Pauses after each screenful of information.\r\n  /W          Uses wide list format.\r\n",
+        "bytes": "20202f502020202020202020202050617573657320616674657220656163682073637265656e66756c206f6620696e666f726d6174696f6e2e0d0a20202f5720202020202020202020557365732077696465206c69737420666f726d61742e0d0a"
+      }
+    },
+    {
+      "id": 1483,
+      "reference": {
+        "index": 37104,
+        "text_offset": 41881,
+        "length": 89,
+        "text": "  /P      Pauses after each screenful of information.\r\n  /W      Uses wide list format.\r\n",
+        "bytes": "20202f5020202020202050617573657320616674657220656163682073637265656e66756c206f6620696e666f726d6174696f6e2e0d0a20202f57202020202020557365732077696465206c69737420666f726d61742e0d0a"
+      },
+      "target": {
+        "index": 645,
+        "text_offset": 6508,
+        "length": 122,
+        "text": "  /A          Displays files with specified attributes.\r\n  attributes   D  Directories                R  Read-only files\r\n",
+        "bytes": "20202f4120202020202020202020446973706c6179732066696c657320776974682073706563696669656420617474726962757465732e0d0a2020617474726962757465732020204420204469726563746f7269657320202020202020202020202020202020522020526561642d6f6e6c792066696c65730d0a"
+      }
+    },
+    {
+      "id": 1485,
+      "reference": {
+        "index": 37112,
+        "text_offset": 42098,
+        "length": 123,
+        "text": "            S  System files  A  Files ready to archive  -  Prefix meaning \"not\"\r\n  /O      List by files in sorted order.\r\n",
+        "bytes": "20202020202020202020202053202053797374656d2066696c6573202041202046696c657320726561647920746f206172636869766520202d2020507265666978206d65616e696e6720226e6f74220d0a20202f4f2020202020204c6973742062792066696c657320696e20736f72746564206f726465722e0d0a"
+      },
+      "target": {
+        "index": 653,
+        "text_offset": 6821,
+        "length": 155,
+        "text": "  sortorder    N  By name (alphabetic)       S  By size (smallest first)\r\n               E  By extension (alphabetic)  D  By date & time (earliest first)\r\n",
+        "bytes": "2020736f72746f72646572202020204e20204279206e616d652028616c7068616265746963292020202020202053202042792073697a652028736d616c6c657374206669727374290d0a202020202020202020202020202020452020427920657874656e73696f6e2028616c70686162657469632920204420204279206461746520262074696d6520286561726c69657374206669727374290d0a"
+      }
+    },
+    {
+      "id": 1487,
+      "reference": {
+        "index": 37120,
+        "text_offset": 42372,
+        "length": 70,
+        "text": "            G  Group directories first    -  Prefix to reverse order\r\n",
+        "bytes": "20202020202020202020202047202047726f7570206469726563746f72696573206669727374202020202d202050726566697820746f2072657665727365206f726465720d0a"
+      },
+      "target": {
+        "index": 661,
+        "text_offset": 7184,
+        "length": 131,
+        "text": "  /B          Uses bare format (no heading information or summary).\r\n  /L          Uses lowercase.\r\n  /V          Verbose mode.\r\n\r\n",
+        "bytes": "20202f422020202020202020202055736573206261726520666f726d617420286e6f2068656164696e6720696e666f726d6174696f6e206f722073756d6d617279292e0d0a20202f4c2020202020202020202055736573206c6f776572636173652e0d0a20202f5620202020202020202020566572626f7365206d6f64652e0d0a0d0a"
+      }
+    },
+    {
+      "id": 1488,
+      "reference": {
+        "index": 37124,
+        "text_offset": 42443,
+        "length": 127,
+        "text": "            C  By compression ratio (smallest first)\r\n  /S      Displays files in specified directory and all subdirectories.\r\n",
+        "bytes": "202020202020202020202020432020427920636f6d7072657373696f6e20726174696f2028736d616c6c657374206669727374290d0a20202f53202020202020446973706c6179732066696c657320696e20737065636966696564206469726563746f727920616e6420616c6c207375626469726563746f726965732e0d0a"
+      },
+      "target": {
+        "index": 665,
+        "text_offset": 7316,
+        "length": 146,
+        "text": "Switches may be preset in the DIRCMD environment variable.  Override\r\npreset switches by prefixing any switch with - (hyphen)--for example, /-W.\r\n",
+        "bytes": "5377697463686573206d61792062652070726573657420696e2074686520444952434d4420656e7669726f6e6d656e74207661726961626c652e20204f766572726964650d0a70726573657420737769746368657320627920707265666978696e6720616e79207377697463682077697468202d202868797068656e292d2d666f72206578616d706c652c202f2d572e0d0a"
+      }
+    },
+    {
+      "id": 1541,
+      "reference": {
+        "index": 37164,
+        "text_offset": 43167,
+        "length": 107,
+        "text": "Type PATH ; to clear all search-path settings and direct MS-DOS to search\r\nonly in the current directory.\r\n",
+        "bytes": "547970652050415448203b20746f20636c65617220616c6c207365617263682d706174682073657474696e677320616e6420646972656374204d532d444f5320746f207365617263680d0a6f6e6c7920696e207468652063757272656e74206469726563746f72792e0d0a"
+      },
+      "target": {
+        "index": 681,
+        "text_offset": 7682,
+        "length": 108,
+        "text": "Type PATH ; to clear all search-path settings and direct Windows to search\r\nonly in the current directory.\r\n",
+        "bytes": "547970652050415448203b20746f20636c65617220616c6c207365617263682d706174682073657474696e677320616e64206469726563742057696e646f777320746f207365617263680d0a6f6e6c7920696e207468652063757272656e74206469726563746f72792e0d0a"
+      }
+    },
+    {
+      "id": 1560,
+      "reference": {
+        "index": 37172,
+        "text_offset": 43335,
+        "length": 55,
+        "text": "Changes the MS-DOS command prompt.\r\n\r\nPROMPT [text]\r\n\r\n",
+        "bytes": "4368616e67657320746865204d532d444f5320636f6d6d616e642070726f6d70742e0d0a0d0a50524f4d5054205b746578745d0d0a0d0a"
+      },
+      "target": {
+        "index": 689,
+        "text_offset": 7851,
+        "length": 56,
+        "text": "Changes the Windows command prompt.\r\n\r\nPROMPT [text]\r\n\r\n",
+        "bytes": "4368616e676573207468652057696e646f777320636f6d6d616e642070726f6d70742e0d0a0d0a50524f4d5054205b746578745d0d0a0d0a"
+      }
+    },
+    {
+      "id": 1564,
+      "reference": {
+        "index": 37188,
+        "text_offset": 43607,
+        "length": 61,
+        "text": "  $P   Current drive and path\r\n  $V   MS-DOS version number\r\n",
+        "bytes": "2020245020202043757272656e7420647269766520616e6420706174680d0a202024562020204d532d444f532076657273696f6e206e756d6265720d0a"
+      },
+      "target": {
+        "index": 705,
+        "text_offset": 8124,
+        "length": 62,
+        "text": "  $P   Current drive and path\r\n  $V   Windows version number\r\n",
+        "bytes": "2020245020202043757272656e7420647269766520616e6420706174680d0a2020245620202057696e646f77732076657273696f6e206e756d6265720d0a"
+      }
+    },
+    {
+      "id": 1600,
+      "reference": {
+        "index": 37212,
+        "text_offset": 44038,
+        "length": 28,
+        "text": "Renames a file or files.\r\n\r\n",
+        "bytes": "52656e616d657320612066696c65206f722066696c65732e0d0a0d0a"
+      },
+      "target": {
+        "index": 729,
+        "text_offset": 8556,
+        "length": 50,
+        "text": "Renames a file/directory or files/directories.\r\n\r\n",
+        "bytes": "52656e616d657320612066696c652f6469726563746f7279206f722066696c65732f6469726563746f726965732e0d0a0d0a"
+      }
+    },
+    {
+      "id": 1601,
+      "reference": {
+        "index": 37216,
+        "text_offset": 44067,
+        "length": 83,
+        "text": "RENAME [drive:][path]filename1 filename2\r\nREN [drive:][path]filename1 filename2\r\n\r\n",
+        "bytes": "52454e414d45205b64726976653a5d5b706174685d66696c656e616d65312066696c656e616d65320d0a52454e205b64726976653a5d5b706174685d66696c656e616d65312066696c656e616d65320d0a0d0a"
+      },
+      "target": {
+        "index": 733,
+        "text_offset": 8607,
+        "length": 159,
+        "text": "RENAME [drive:][path][directoryname1 | filename1] [directoryname2 | filename2]\r\nREN [drive:][path][directoryname1 | filename1] [directoryname2 | filename2]\r\n\r\n",
+        "bytes": "52454e414d45205b64726976653a5d5b706174685d5b6469726563746f72796e616d6531207c2066696c656e616d65315d205b6469726563746f72796e616d6532207c2066696c656e616d65325d0d0a52454e205b64726976653a5d5b706174685d5b6469726563746f72796e616d6531207c2066696c656e616d65315d205b6469726563746f72796e616d6532207c2066696c656e616d65325d0d0a0d0a"
+      }
+    },
+    {
+      "id": 1620,
+      "reference": {
+        "index": 37224,
+        "text_offset": 44312,
+        "length": 87,
+        "text": "Displays, sets, or removes MS-DOS environment variables.\r\n\r\nSET [variable=[string]]\r\n\r\n",
+        "bytes": "446973706c6179732c20736574732c206f722072656d6f766573204d532d444f5320656e7669726f6e6d656e74207661726961626c65732e0d0a0d0a534554205b7661726961626c653d5b737472696e675d5d0d0a0d0a"
+      },
+      "target": {
+        "index": 741,
+        "text_offset": 8840,
+        "length": 88,
+        "text": "Displays, sets, or removes Windows environment variables.\r\n\r\nSET [variable=[string]]\r\n\r\n",
+        "bytes": "446973706c6179732c20736574732c206f722072656d6f7665732057696e646f777320656e7669726f6e6d656e74207661726961626c65732e0d0a0d0a534554205b7661726961626c653d5b737472696e675d5d0d0a0d0a"
+      }
+    },
+    {
+      "id": 1640,
+      "reference": {
+        "index": 37236,
+        "text_offset": 44606,
+        "length": 45,
+        "text": "Displays or sets the time.\r\n\r\nTIME [time]\r\n\r\n",
+        "bytes": "446973706c617973206f722073657473207468652074696d652e0d0a0d0a54494d45205b74696d655d0d0a0d0a"
+      },
+      "target": {
+        "index": 753,
+        "text_offset": 9135,
+        "length": 52,
+        "text": "Displays or sets the system time.\r\n\r\nTIME [time]\r\n\r\n",
+        "bytes": "446973706c617973206f722073657473207468652073797374656d2074696d652e0d0a0d0a54494d45205b74696d655d0d0a0d0a"
+      }
+    },
+    {
+      "id": 1641,
+      "reference": {
+        "index": 37240,
+        "text_offset": 44652,
+        "length": 131,
+        "text": "Type TIME without parameters to display the current time setting and\r\na prompt for a new one.  Press ENTER to keep the same time.\r\n",
+        "bytes": "547970652054494d4520776974686f757420706172616d657465727320746f20646973706c6179207468652063757272656e742074696d652073657474696e6720616e640d0a612070726f6d707420666f722061206e6577206f6e652e2020507265737320454e54455220746f206b656570207468652073616d652074696d652e0d0a"
+      },
+      "target": {
+        "index": 757,
+        "text_offset": 9188,
+        "length": 131,
+        "text": "Type TIME with no parameters to display the current time setting and a prompt\r\nfor a new one.  Press ENTER to keep the same time.\r\n",
+        "bytes": "547970652054494d452077697468206e6f20706172616d657465727320746f20646973706c6179207468652063757272656e742074696d652073657474696e6720616e6420612070726f6d70740d0a666f722061206e6577206f6e652e2020507265737320454e54455220746f206b656570207468652073616d652074696d652e0d0a"
+      }
+    },
+    {
+      "id": 1660,
+      "reference": {
+        "index": 37244,
+        "text_offset": 44784,
+        "length": 70,
+        "text": "Displays the contents of a text file.\r\n\r\nTYPE [drive:][path]filename\r\n",
+        "bytes": "446973706c6179732074686520636f6e74656e7473206f66206120746578742066696c652e0d0a0d0a54595045205b64726976653a5d5b706174685d66696c656e616d650d0a"
+      },
+      "target": {
+        "index": 761,
+        "text_offset": 9320,
+        "length": 71,
+        "text": "Displays the contents of text files.\r\n\r\nTYPE [drive:][path]filename\r\n\r\n",
+        "bytes": "446973706c6179732074686520636f6e74656e7473206f6620746578742066696c65732e0d0a0d0a54595045205b64726976653a5d5b706174685d66696c656e616d650d0a0d0a"
+      }
+    },
+    {
+      "id": 1680,
+      "reference": {
+        "index": 37248,
+        "text_offset": 44855,
+        "length": 37,
+        "text": "Displays the MS-DOS version.\r\n\r\nVER\r\n",
+        "bytes": "446973706c61797320746865204d532d444f532076657273696f6e2e0d0a0d0a5645520d0a"
+      },
+      "target": {
+        "index": 765,
+        "text_offset": 9392,
+        "length": 38,
+        "text": "Displays the Windows version.\r\n\r\nVER\r\n",
+        "bytes": "446973706c617973207468652057696e646f77732076657273696f6e2e0d0a0d0a5645520d0a"
+      }
+    },
+    {
+      "id": 1780,
+      "reference": {
+        "index": 37272,
+        "text_offset": 45438,
+        "length": 107,
+        "text": "Suspends processing of a batch program and displays the message \"Press any\r\nkey to continue....\"\r\n\r\nPAUSE\r\n",
+        "bytes": "53757370656e64732070726f63657373696e67206f6620612062617463682070726f6772616d20616e6420646973706c61797320746865206d6573736167652022507265737320616e790d0a6b657920746f20636f6e74696e75652e2e2e2e220d0a0d0a50415553450d0a"
+      },
+      "target": {
+        "index": 789,
+        "text_offset": 9977,
+        "length": 106,
+        "text": "Suspends processing of a batch program and displays the message:\r\nPress any key to continue....\r\n\r\nPAUSE\r\n",
+        "bytes": "53757370656e64732070726f63657373696e67206f6620612062617463682070726f6772616d20616e6420646973706c61797320746865206d6573736167653a0d0a507265737320616e79206b657920746f20636f6e74696e75652e2e2e2e0d0a0d0a50415553450d0a"
+      }
+    },
+    {
+      "id": 1820,
+      "reference": {
+        "index": 37284,
+        "text_offset": 45712,
+        "length": 71,
+        "text": "Directs MS-DOS to a labelled line in a batch program.\r\n\r\nGOTO label\r\n\r\n",
+        "bytes": "44697265637473204d532d444f5320746f2061206c6162656c6c6564206c696e6520696e20612062617463682070726f6772616d2e0d0a0d0a474f544f206c6162656c0d0a0d0a"
+      },
+      "target": {
+        "index": 809,
+        "text_offset": 10423,
+        "length": 72,
+        "text": "Directs Windows to a labelled line in a batch program.\r\n\r\nGOTO label\r\n\r\n",
+        "bytes": "446972656374732057696e646f777320746f2061206c6162656c6c6564206c696e6520696e20612062617463682070726f6772616d2e0d0a0d0a474f544f206c6162656c0d0a0d0a"
+      }
+    },
+    {
+      "id": 1862,
+      "reference": {
+        "index": 37304,
+        "text_offset": 46160,
+        "length": 125,
+        "text": "  NOT               Specifies that MS-DOS should carry out the command only\r\n                    if the condition is false.\r\n",
+        "bytes": "20204e4f542020202020202020202020202020205370656369666965732074686174204d532d444f532073686f756c64206361727279206f75742074686520636f6d6d616e64206f6e6c790d0a202020202020202020202020202020202020202069662074686520636f6e646974696f6e2069732066616c73652e0d0a"
+      },
+      "target": {
+        "index": 829,
+        "text_offset": 10872,
+        "length": 126,
+        "text": "  NOT               Specifies that Windows should carry out the command only\r\n                    if the condition is false.\r\n",
+        "bytes": "20204e4f5420202020202020202020202020202053706563696669657320746861742057696e646f77732073686f756c64206361727279206f75742074686520636f6d6d616e64206f6e6c790d0a202020202020202020202020202020202020202069662074686520636f6e646974696f6e2069732066616c73652e0d0a"
+      }
+    },
+    {
+      "id": 1925,
+      "reference": {
+        "index": 37364,
+        "text_offset": 47934,
+        "length": 131,
+        "text": "/S          Shrinks a UMB to its minimum size while the program\r\n            is loading.  /S is normally used only by MemMaker.\r\n\r\n",
+        "bytes": "2f5320202020202020202020536872696e6b73206120554d4220746f20697473206d696e696d756d2073697a65207768696c65207468652070726f6772616d0d0a2020202020202020202020206973206c6f6164696e672e20202f53206973206e6f726d616c6c792075736564206f6e6c79206279204d656d4d616b65722e0d0a0d0a"
+      },
+      "target": {
+        "index": 889,
+        "text_offset": 12647,
+        "length": 92,
+        "text": "/S          Shrinks a UMB to its minimum size while the program\r\n            is loading.\r\n\r\n",
+        "bytes": "2f5320202020202020202020536872696e6b73206120554d4220746f20697473206d696e696d756d2073697a65207768696c65207468652070726f6772616d0d0a2020202020202020202020206973206c6f6164696e672e0d0a0d0a"
+      }
+    }
+  ],
+  "nonunique_ids": [],
+  "limitations": [
+    "Bounded candidate scan is not a complete message-class parser and excludes non-ASCII and messages >=160 bytes.",
+    "Reference build is provisional; target and reference may use different configurations.",
+    "Indexes and strings are not sufficient to prove all consumer substitution blocks.",
+    "No project resource was edited."
+  ]
+}

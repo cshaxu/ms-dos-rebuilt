@@ -1,0 +1,47 @@
+{
+  "source": "extras/research/bios-mult-unit-trial.asm",
+  "source_sha256": "bdc1dfa8968628717fe6492567e8ac1ccaa8441530add316748384a9d2ff41e4",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "linked_exe_sha256": "c7daf341194e405ec982212f178615595b5e28f51f823f919ba362b3b3c825ce",
+  "matched_blocks": [
+    {
+      "name": "shared_data",
+      "target_file_offset": "0x47a0",
+      "length": 64
+    },
+    {
+      "name": "mult_call16",
+      "target_file_offset": "0x47e0",
+      "length": 143
+    },
+    {
+      "name": "mult_call17",
+      "target_file_offset": "0x486f",
+      "length": 135
+    },
+    {
+      "name": "mult_call18",
+      "target_file_offset": "0x48f6",
+      "length": 34
+    },
+    {
+      "name": "mult_call21",
+      "target_file_offset": "0x4918",
+      "length": 44
+    },
+    {
+      "name": "rotate_bootlog",
+      "target_file_offset": "0x4944",
+      "length": 34
+    },
+    {
+      "name": "hex_table_and_code",
+      "target_file_offset": "0x4966",
+      "length": 41
+    }
+  ],
+  "limitations": [
+    "ORG is a target-layout experiment and does not prove original source ownership or full BIOS layout.",
+    "The unit uses native LINK 5.60; complete BIOS compatibility and DOS call behavior remain unverified."
+  ]
+}

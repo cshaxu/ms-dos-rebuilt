@@ -1,0 +1,16 @@
+{
+  "file": "bios/sysinit2.asm",
+  "source_sha256": "f59c1abac83ef4c513d0c8332097c5bd63c7aac64695a38a00d43b9450f3db1b",
+  "target_range": "IO.SYS 0xa7b0..0xa7ef",
+  "length": 63,
+  "different_bytes": 0,
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link": "passed",
+  "probe_source": "extras/research/boot-option-number-linked.asm",
+  "limitations": [
+    "Fixed-offset isolated probe; final layout and execution are unverified.",
+    "Reader and callers are not yet restored.",
+    "Target comparison accepts digit value 0Ah; this observed behavior is preserved."
+  ]
+}

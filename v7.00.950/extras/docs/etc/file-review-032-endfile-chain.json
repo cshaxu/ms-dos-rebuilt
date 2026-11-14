@@ -1,0 +1,33 @@
+{
+  "source": "bios/sysinit1.asm",
+  "sha256": "c448adceea717b1089c3761c80b34a83ddcac4de953777fb38069b7dd7bf07c2",
+  "changes": [
+    "Remove the unused legacy setdevmark procedure and its now-unused devmark_addr external.",
+    "Replace diagnostic interrupt-rearm placeholder with source assembled from SYSINIT1."
+  ],
+  "matched": [
+    {
+      "region": "interrupt rearm",
+      "start": "0x3a1b",
+      "end_exclusive": "0x3a5c",
+      "bytes": 65
+    },
+    {
+      "region": "continuous EndFile and INSTALL execution",
+      "start": "0x363e",
+      "end_exclusive": "0x3b88",
+      "bytes": 1354
+    }
+  ],
+  "verification": {
+    "tool": "extras/tools/verify_syspre_device_link.py",
+    "link_stage": "extras/build/syspre-object-link-gb8d7odi",
+    "module_stage": "extras/build/ml-sysinit-9weyolxp",
+    "scope": "Continuous source-object link matches target; active source tree contains no remaining setdevmark references. The split diagnostic retains known fixed layout assumptions, including INSTALL base size."
+  },
+  "limitations": [
+    "This does not verify the complete SYSINIT object ordering or final linked image.",
+    "Interrupt rearm and INSTALL runtime behavior were not exercised.",
+    "All three final core binaries remain unverified."
+  ]
+}

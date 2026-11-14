@@ -1,0 +1,41 @@
+{
+  "stage": "extras\\build\\resident-resource-fixup-integrated-6z0lwwfq",
+  "target_sha256": "a74c700063cd6b1c91523952bfc80e9393c125d39ada0164d48b5098089fcef3",
+  "linked_components": {
+    "resource": {
+      "target_range": [
+        "0x38b3",
+        "0x4145"
+      ],
+      "length": 2194,
+      "linked_match_offsets": [
+        2765
+      ]
+    },
+    "tables": {
+      "target_range": [
+        "0x56ab",
+        "0x579f"
+      ],
+      "length": 244,
+      "linked_match_offsets": [
+        4959
+      ]
+    },
+    "fixup": {
+      "target_range": [
+        "0x73f9",
+        "0x742a"
+      ],
+      "length": 49,
+      "linked_match_offsets": [
+        5203
+      ]
+    }
+  },
+  "method": "Class 6 message source exports index pointer labels; original-style tables and the fixup routine reference those actual labels in one historical link.",
+  "limitations": [
+    "Resource placement uses ORG at a target-derived offset and does not implement disk-to-memory loading.",
+    "The linked test puts resource data and runtime code in one synthetic executable and does not verify final COMMAND.COM layout or execution."
+  ]
+}

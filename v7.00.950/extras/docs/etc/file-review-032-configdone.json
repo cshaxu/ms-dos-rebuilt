@@ -1,0 +1,25 @@
+{
+  "source": "bios/sysinit1.asm",
+  "sha256": "3bdaa71272e304b84b7db1e6bb65b8d4db4e3f89f399beaeff9c553929e0db8d",
+  "changes": [
+    "Use CS overrides for area and runhigh during CONFIG completion.",
+    "Remove unnecessary ES and BX saves around the installed-program cleanup to match target.",
+    "Remove unused setdevmarkflag and round external declarations."
+  ],
+  "matched": {
+    "region": "CONFIG completion memory release and VDISK selection",
+    "start": "0x1700",
+    "end_exclusive": "0x1745",
+    "bytes": 69
+  },
+  "verification": {
+    "tool": "extras/tools/verify_syspre_device_link.py",
+    "link_stage": "extras/build/syspre-object-link-nnc9bd4x",
+    "module_stage": "extras/build/ml-sysinit-adej5o24",
+    "scope": "Actual source linked to install state and VDISK provider; target-position anchors remain elsewhere."
+  },
+  "limitations": [
+    "The preceding CONFIG completion control flow and following DOS 7 shell entry remain incomplete.",
+    "Complete SYSINIT product link and final three core binaries remain unverified."
+  ]
+}

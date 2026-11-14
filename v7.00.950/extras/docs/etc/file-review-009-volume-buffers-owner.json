@@ -1,0 +1,12 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "nul_vid_bios_code_offset": 10240,
+  "tmp_vid_bios_code_offset": 10252,
+  "target_initial_file_offset": 17488,
+  "target_initial_length": 24,
+  "target_copy_file_offset": 18124,
+  "target_copy_hex": "bf0c28be0028b90c00f32ea4",
+  "reference_source": "bios/msbio2.asm",
+  "diagnostic_report": "config-ml-volume-buffers-owner.json",
+  "limitations": "Target initial data and copy operation establish the buffer role. Final definitions and segment assumptions await reconstruction of the later volume-label code; diagnostic uses explicit stubs."
+}

@@ -1,0 +1,48 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "table_file_offset": "0x3bd2",
+  "entries": [
+    {
+      "offset": "0x0",
+      "segment": "0x50",
+      "size": 1
+    },
+    {
+      "offset": "0x4",
+      "segment": "0x50",
+      "size": 1
+    },
+    {
+      "offset": "0xe",
+      "segment": "0x50",
+      "size": 20
+    },
+    {
+      "offset": "0x30",
+      "segment": "0x50",
+      "size": 4
+    },
+    {
+      "offset": "0x12",
+      "segment": "0x70",
+      "size": 4
+    },
+    {
+      "offset": "0x45e",
+      "segment": "0x70",
+      "size": 1
+    }
+  ],
+  "terminator": "00000000",
+  "last_entry": "0070:045e size 1",
+  "independent_cbreak_evidence": {
+    "file_offset": "0xa5f",
+    "bytes": "2ec6065e0403cf"
+  },
+  "baseline_source": "bios/msbio1.asm Instance_Table contains ALTAH,Bios_Data,1; DOS 6 BData declaration places altah at 0x000c.",
+  "interpretation": "The target has a BIOS instance-table entry for 0070:045e, matching the byte set by the corresponding break handler; 0x045e is therefore corroborated beyond a single code reference.",
+  "limitations": [
+    "Exact target initialization and all consumers of this table remain to be established.",
+    "Absence of the older DOS 2.x instance table does not imply that all WIN386 instance support was removed."
+  ]
+}

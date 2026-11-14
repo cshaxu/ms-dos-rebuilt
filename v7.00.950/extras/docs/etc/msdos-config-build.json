@@ -1,0 +1,17 @@
+{
+  "artifact": "MSDOS.SYS",
+  "target_image_sha256": "92619df55bdbdf4dc22e6dba6acdd6a42f8b77323b3542cc8d0b61f8c4c43c1f",
+  "generator": "extras/tools/build_msdos_config.py",
+  "generator_sha256": "b98803417492f146e441fe8eca1f37945c565dd09a733e425abb363b28146ad5",
+  "output_bytes": 6,
+  "output_sha256": "d28c3a421236bb61081f706193f51f32b9f8b957598d94b6b3b143ae52b1ea03",
+  "target_sha256": "d28c3a421236bb61081f706193f51f32b9f8b957598d94b6b3b143ae52b1ea03",
+  "byte_equal": true,
+  "interpretation": "The target MSDOS.SYS is six bytes of configuration text, generated directly from the documented ASCII line and CR LF; this does not build the IO.SYS kernel or COMMAND.COM.",
+  "limitations": "Component-level reproduction only; clean end-to-end build and all three final artifacts remain incomplete.",
+  "independent_build": {
+    "option": "--no-verify",
+    "validation": "Target read was intercepted and forbidden during successful build; generated output retained the same SHA-256.",
+    "target_required": false
+  }
+}

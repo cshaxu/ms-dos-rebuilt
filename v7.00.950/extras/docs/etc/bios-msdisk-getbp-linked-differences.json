@@ -1,0 +1,54 @@
+{
+  "linked_exe_sha256": "eca2638232aabe6765b7690d08bf9ad248adbed4b2d418c1e00efb9fbc6b726d",
+  "routine_length": 190,
+  "differing_bytes": 8,
+  "differences": [
+    {
+      "name": "hidensity_call",
+      "routine_offset": "0x2b",
+      "linked": "0x15a5",
+      "target": "0x1a16",
+      "difference": -1137,
+      "kind": "relative"
+    },
+    {
+      "name": "sm92_address",
+      "routine_offset": "0x3a",
+      "linked": "0x260b",
+      "target": "0xe17",
+      "difference": 6132,
+      "kind": "absolute"
+    },
+    {
+      "name": "set_id_flag_first",
+      "routine_offset": "0xab",
+      "linked": "0xb9c",
+      "target": "0xdf8",
+      "difference": -604,
+      "kind": "absolute"
+    },
+    {
+      "name": "set_id_flag_second",
+      "routine_offset": "0xb6",
+      "linked": "0xb9c",
+      "target": "0xdf8",
+      "difference": -604,
+      "kind": "absolute"
+    }
+  ],
+  "linked_map_offsets": {
+    "dsktbl": "0xbd4",
+    "sm92": "0xbbb",
+    "set_id_flag": "0xb9c",
+    "hidensity": "0x2322"
+  },
+  "observations": [
+    "The four differing operands explain all eight differing bytes.",
+    "The sm92 operand equals the linked BIOS_CODE linear start plus its map offset, rather than the CS-relative map offset; investigate relocation frame before integrating.",
+    "The hidensity call resolves to the trial msbio2 object; its displacement differs due to module placement."
+  ],
+  "limitations": [
+    "Diagnostic link is not final and does not establish target runtime behavior or original source ownership."
+  ],
+  "correction_hidensity": "hidensity is provided by the trial msbio2 object, not a stub; see bios-msbio2-hidensity-target-check.json."
+}

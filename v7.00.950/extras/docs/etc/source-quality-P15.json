@@ -1,0 +1,24 @@
+{
+  "part": "M5 T12 S1 P15",
+  "ordinal": 34,
+  "modified": 1,
+  "unchanged": 0,
+  "exact_dos6": 0,
+  "retired_by_merge": 0,
+  "reference": "Original DOS6 bios/msdioctl.asm; complete current module reviewed against the original IOCTL owner and interfaces.",
+  "changes": "Select all 99 DOS7_CONFIG branches according to formal MASM/ML makefile flags; remove inactive DOS6 implementations. Move BYTE_SYSINIT below original header. Add original-style entry/exit comments to the two extended INT 13h operations and shared check; update BootIo buffer and preserved-DX comments.",
+  "necessity": "The two new operations already belong to the original msdioctl module and share IOCtl_Int13_Check. They have different packet/return handling; no separate extension file or duplicated capability-check implementation is needed. Existing read/write/verify/format services retain their original module structure.",
+  "preserved": "CS-relative resident data, Bios_Flags bits, far DiskSector_Ptr, expanded dispatch tables, DOS7 media-ID paths and BIOS interfaces retained. Original M060 historical retry body retained verbatim; existing IF 0 wrapper preserves its non-emitting status in place of original COMMENT/ENDCOMMENT delimiters. Two Ctrl-Z markers retained.",
+  "validation": {
+    "effectiveStatementsEqual": true,
+    "statementCount": 1007,
+    "originalHistoricalRetryBodyIdentical": true,
+    "removedLines": 482,
+    "selectedGuards": 99,
+    "rebuilt": false,
+    "reason": "All 1007 effective assembler statements retain order and literal values, including the unchanged IF 0 body. Only known-build selectors, comments and non-emitting header placement changed.",
+    "binary_baseline": "P11 accepted BIOS/IO.SYS and T11 accepted COMMAND.COM/MSDOS.SYS remain applicable."
+  },
+  "next_ordinal": 35,
+  "remaining": 32
+}

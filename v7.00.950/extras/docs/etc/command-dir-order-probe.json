@@ -1,0 +1,13 @@
+{
+  "stage": "extras\\build\\dir-order-probe-4l8illcp",
+  "method": "Isolated DOS execution of current DirParseOrder source",
+  "checks": [
+    "default group/name/extension order",
+    "access-date ascending and compression descending",
+    "compression flag set",
+    "empty colon rejected"
+  ],
+  "limitations": [
+    "Uses a minimal harness; full COMMAND parsing and DIR execution are not exercised."
+  ]
+}

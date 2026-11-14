@@ -1,0 +1,10 @@
+{
+  "stage": "extras\\build\\cparse-target-match-probe-5j9ilnxt",
+  "checks": [
+    "actual CPARSE object matcher recognizes W, A:R and -W using target bit positions",
+    "unknown Z returns zero"
+  ],
+  "limitations": [
+    "Matcher only; full tokenizer and callers are not yet switched to target definitions."
+  ]
+}

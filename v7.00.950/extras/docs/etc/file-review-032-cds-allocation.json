@@ -1,0 +1,22 @@
+{
+  "source": "bios/sysinit1.asm",
+  "sha256": "b0062bc01760c56875a7a611a587939f8955a1745a0b9094a94efc39e33a1578",
+  "change": "Expose existing fooset entry for source-object linkage; replace the synthetic CDS caller region with an object assembled from the actual source.",
+  "matched": {
+    "region": "CDS allocation and initialization caller",
+    "start": "0x38c9",
+    "end_exclusive": "0x391f",
+    "bytes": 86
+  },
+  "verification": {
+    "tool": "extras/tools/verify_syspre_device_link.py",
+    "link_stage": "extras/build/syspre-object-link-6o7peipz",
+    "module_stage": "extras/build/ml-sysinit-5ymd7ffm",
+    "scope": "Caller linked to actual TempCDS/fooset, allocation, message, and other source providers at diagnostic target positions."
+  },
+  "limitations": [
+    "This change exports an existing source entry; it does not alter the CDS algorithm.",
+    "The diagnostic has other synthetic addresses and is not a complete product link.",
+    "No complete three-file binary equality verification has been achieved."
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "source": "bios/msbio1.asm",
+  "source_sha256": "bda69e171d346a85eda8c6ead7096f4f05347e8414b2e238378b1b22e4246d84",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_routine_file_offset": 9029,
+  "operands": [
+    {
+      "offset": 9,
+      "symbol": "bios_msg_base",
+      "target_offset": 11700
+    },
+    {
+      "offset": 13,
+      "symbol": "bios_msg_1",
+      "target_offset": 11692
+    },
+    {
+      "offset": 21,
+      "symbol": "bios_msg_base",
+      "target_offset": 11700
+    },
+    {
+      "offset": 25,
+      "symbol": "bios_msg_2",
+      "target_offset": 11694
+    },
+    {
+      "offset": 33,
+      "symbol": "bios_msg_base",
+      "target_offset": 11700
+    },
+    {
+      "offset": 37,
+      "symbol": "bios_msg_3",
+      "target_offset": 11696
+    }
+  ],
+  "target_message_relative_offsets": [
+    63,
+    168,
+    321
+  ],
+  "diagnostic": "config-ml-bios-error-operands.json",
+  "limitations": "Resource symbols remain diagnostic stubs and are not real message data. Six operand bindings and target table offsets are verified, not the final segment layout or complete IO.SYS."
+}

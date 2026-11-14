@@ -1,0 +1,18 @@
+{
+  "source_sha256": "aa77c073facbeab92812fa6214990772a91bbb17679e946f8d05884f3614bf95",
+  "listing_sha256": "f96054393babeb749b594371e01159b8dbe1017a3ae3c04c7dc0f6428d0f0795",
+  "routines": [
+    {
+      "name": "fat_bpb_and_clusters",
+      "target_offset": "0x17d2",
+      "length": 144,
+      "masked_relocation_bytes": 14,
+      "matched_nonrelocated_bytes": 128,
+      "differences": [
+        130,
+        131
+      ]
+    }
+  ],
+  "limitations": "Masked relocation operands, later branch destinations and complete target link remain unverified."
+}

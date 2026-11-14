@@ -1,0 +1,34 @@
+{
+  "files": [
+    "bios/config.inc",
+    "bios/sysinit2.asm",
+    "bios/sysconf.asm"
+  ],
+  "source_hashes": [
+    "fe53eefed146125cae38882d02aeb47a816ab9e9341ee1e3a3a86764b3c25238",
+    "1447ee459254ce3ba50a68e73660a4647064e60db8bdae69236eb948ade8950d",
+    "b1992d0b695298ce92f4f20bc74def80c285299c6c46a3e1aaec6ece1662e5d5"
+  ],
+  "ranges": [
+    {
+      "range": "0xb7fb..0xb80a",
+      "bytes": 15,
+      "differences": 0
+    },
+    {
+      "range": "0xb861..0xb872",
+      "bytes": 17,
+      "differences": 0
+    }
+  ],
+  "target_comtab_record_offset": "0x8110",
+  "probe": "extras/research/buffershigh7-linked.asm",
+  "default_objects_identical_to_prior": true,
+  "dos7_assembly": "passed",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "The high-memory allocator that consumes p_buffers_high is not yet restored.",
+    "Fixed-offset probes use a query stub; complete execution and layout are unverified.",
+    "Mixed link contains older objects and stubs."
+  ]
+}

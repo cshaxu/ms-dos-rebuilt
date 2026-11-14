@@ -1,0 +1,49 @@
+{
+  "source_sha256": "a2761f63982c15de02c505a60245d6fb86605f3ea7f50acafe8aee2819a8d2ce",
+  "listing_sha256": "2e7e62a8c676dda4cfd3358384f268716102d35bcb18105fc4fa5a60a190c331",
+  "routines": [
+    {
+      "name": "dsk_open",
+      "target_offset": "0x2e29",
+      "length": 16,
+      "masked_relocation_bytes": 2,
+      "matched_nonrelocated_bytes": 14,
+      "differences": []
+    },
+    {
+      "name": "dsk_close",
+      "target_offset": "0x2e39",
+      "length": 23,
+      "masked_relocation_bytes": 2,
+      "matched_nonrelocated_bytes": 21,
+      "differences": []
+    },
+    {
+      "name": "dsk_rem",
+      "target_offset": "0x2e50",
+      "length": 16,
+      "masked_relocation_bytes": 0,
+      "matched_nonrelocated_bytes": 16,
+      "differences": []
+    },
+    {
+      "name": "dsk_writv",
+      "target_offset": "0x2e60",
+      "length": 24,
+      "masked_relocation_bytes": 6,
+      "matched_nonrelocated_bytes": 17,
+      "differences": [
+        17
+      ]
+    },
+    {
+      "name": "dsk_read",
+      "target_offset": "0x2e78",
+      "length": 5,
+      "masked_relocation_bytes": 0,
+      "matched_nonrelocated_bytes": 5,
+      "differences": []
+    }
+  ],
+  "limitations": "Relocation operands and complete linked output remain unverified."
+}

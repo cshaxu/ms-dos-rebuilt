@@ -1,0 +1,29 @@
+{
+  "build": "extras/docs/etc/command-path-display-original-build-20261112.json",
+  "message_workspace": "Arg_Buf aliases TranSpaceEnd+2, matching target message descriptor",
+  "removed_static_bytes": 128,
+  "registered_original_ranges": [
+    "0xb622..0xb62b",
+    "0xb62b..0xb6a6",
+    "0xb6a6..0xb6d3"
+  ],
+  "regression": "extras/build/path-display-regress-_aaeoaow",
+  "target_matching_outputs": [
+    "quote.txt",
+    "setpath.txt",
+    "echo.txt",
+    "dest.dat",
+    "copy.txt"
+  ],
+  "limitations": "Instruction blocks and individual linked operands match modulo relocation. Full binary identity, long-path behavior, and real INT 2F/1213 integration remain unverified.",
+  "path_original_instruction_range": "0xb522..0xb6d3",
+  "path_instruction_bytes": 433,
+  "empty_path_probe": {
+    "target": "extras\\build\\path-empty-target-5wwsjpnt",
+    "current": "extras\\build\\path-empty-current-8p124t5n",
+    "matching_outputs": [
+      "empty.txt",
+      "restored.txt"
+    ]
+  }
+}

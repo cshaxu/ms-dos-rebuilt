@@ -1,0 +1,12 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_callback_initial_hex": "00000000",
+  "target_call_file_offset": "0x3f9e",
+  "candidate_literal_offsets": {
+    "0x1f12": [
+      "0x3fa1"
+    ],
+    "0x1f14": []
+  },
+  "limitations": "This is a literal-address search in the resident BIOS region, not an exhaustive dataflow analysis; indirect or nonresident writes may exist. Callback initialization remains unresolved."
+}

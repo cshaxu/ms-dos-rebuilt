@@ -1,0 +1,20 @@
+{
+  "source": "bios/msbio1.asm",
+  "before_sha256": "bcdef0b842f671b69da8ab64c2bd97c5d43f7f867ef5f06edbbf4346a2ba3842",
+  "after_sha256": "9038c144065722fc850ac16a9760a3a10ba2e91f55a44f5e3048374a5a3fe828",
+  "change": "Resolve 71 DOS7_CONFIG branches through the end of BIOS command handling, retaining DOS 7 code and unrelated feature conditionals.",
+  "comparison": {
+    "stage": "extras/build/msbio1-next-compare-l_dhgmd9",
+    "method": "Assemble before and after using ML and compare six generated OMF objects byte for byte.",
+    "objects": [
+      "msbio1",
+      "splitbds",
+      "splitent",
+      "splitlat",
+      "biostail",
+      "clockbr"
+    ]
+  },
+  "remaining": "DOS7_CONFIG guards remain in later BIOS and SYSINIT code. Full IO.SYS and the three complete target files remain unverified.",
+  "integration_stage": "extras/build/syspre-object-link-48no7d2v"
+}

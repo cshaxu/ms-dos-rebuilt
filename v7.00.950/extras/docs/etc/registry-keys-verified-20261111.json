@@ -1,0 +1,53 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\config-services-6xmnpnqj",
+  "source": "bios/regkey.asm",
+  "source_sha256": "b07e22c7386570ba65ace05481cfdcd952e08a4b2220920cd92bbd959966d22a",
+  "linked_sha256": "821ab2d58b3fd4e141eadc5eecc2cc43cb260a4a53ea48befa01ee3aeaba3cac",
+  "module_bytes": 376,
+  "exact_non_relocated_bytes": 348,
+  "verified_far_calls": 3,
+  "verified_data_references": 8,
+  "initial_list_raw_exact_bytes": 4,
+  "functions": [
+    "RegKeyCreate",
+    "RegKeyDestroy"
+  ],
+  "allocator_dependency": {
+    "stage": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\config-services-6xmnpnqj",
+    "source": "bios/reghandle.asm",
+    "source_sha256": "5d8f340a11ba0714bebdc078446b431faabb0c4a791b17ffe5a00e73a608bdb7",
+    "linked_sha256": "b9138e0dbe22114ba3eee68cc48ad8c17e49d6243be554d53041eed4970e9b11",
+    "module_bytes": 380,
+    "exact_non_relocated_bytes": 368,
+    "verified_far_calls": 1,
+    "verified_data_references": 4,
+    "initial_list_raw_exact_bytes": 4,
+    "functions": [
+      "RegInvalidateOwner",
+      "RegInvalidateFile",
+      "RegHVCreate",
+      "RegHVUnlink"
+    ],
+    "allocator_dependency": {
+      "stage": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\config-services-6xmnpnqj",
+      "source": "bios/regalloc.asm",
+      "source_sha256": "41cb2eb1ac089f574af0bd73f89d92d02a82f4b36f5f948fbd68558b0721daec",
+      "linked_sha256": "5fc7bc9458d0b76822ae561cf8dc156bcdad7209945d33690d8e0e8f698e7846",
+      "function_bytes": 140,
+      "exact_non_relocated_bytes": 94,
+      "verified_far_calls": 3,
+      "verified_data_references": 17,
+      "initial_state_raw_exact_bytes": 8,
+      "dependency_services_raw_exact_bytes": 978,
+      "dependencies": {
+        "bios/configio.asm": "f81a64fc90fe36f357560237d9e526b990163eb87c8968113a33b9c781707817",
+        "bios/configmem.asm": "1582fc20c6c5a3d1f75c1c06517d2d7275a5c07ebde0c5a15dcda23c38c6cf44"
+      },
+      "scope": "Complete reserve allocation/retry function and initial state; global program placement and reserve setup caller pending."
+    },
+    "dependency_service_raw_exact_bytes": 978,
+    "scope": "Four complete invalidation/RGHV operations and list initial state; unlink does not free memory. Final program linkage pending."
+  },
+  "dependency_service_raw_exact_bytes": 978,
+  "scope": "Complete dynamic key creation/destruction with actual allocator/free and list providers. Root lookup and final program linkage pending."
+}

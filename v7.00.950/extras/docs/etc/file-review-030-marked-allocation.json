@@ -1,0 +1,23 @@
+{
+  "file": "bios/sysconf.asm",
+  "file_index": 30,
+  "source_sha256": "12c515afc3745f32ab787ade05a457a29470b4dbd8bb0825ae1a55e9e7de7f88",
+  "routine": "alloc_marked_block",
+  "target_file_range": "0xd2ba..0xd2f9",
+  "length": 63,
+  "different_bytes_after_manual_fixups": 0,
+  "fixup_words": 12,
+  "dependencies": [
+    "SpaceInUMB?",
+    "ShrinkUMB",
+    "GetUMBForDev",
+    "setdevmark7",
+    "check_low_memory"
+  ],
+  "default_object_identical": true,
+  "dos7_assembly": "passed",
+  "limitations": [
+    "Twelve target address and near-call words were substituted manually; actual linked displacements and full layout remain unverified.",
+    "The SYSINIT stack setup does not yet call this allocator, so the target allocation flow is not yet integrated."
+  ]
+}

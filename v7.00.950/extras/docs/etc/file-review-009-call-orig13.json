@@ -1,0 +1,29 @@
+{
+  "file_index": 9,
+  "source": "bios/msbio1.asm",
+  "source_sha256": "52b2141ef37504b8458f6559860e47dbb7215e03f148ee28cf92ad858fe7c8c5",
+  "target_file_offset": 2832,
+  "linked_binary_offset": 1964,
+  "length": 30,
+  "matching_bytes": 24,
+  "differing_byte_offsets": [
+    2,
+    3,
+    17,
+    18,
+    23,
+    24
+  ],
+  "target_bytes": "8e1e0e058d6e009cfa2eff1eb4002e8c1e0e050e1f9ce85dff9d8d6e00cb",
+  "diagnostic_bytes": "8e1e1c008d6e009cfa2eff1eb4002e8c1e1c000e1f9ce816009d8d6e00cb",
+  "difference_interpretation": "two references to i13_ds and one near call displacement; final segment layout remains unresolved",
+  "diagnostic_stubs": [
+    "bios_msg_base",
+    "bios_msg_1",
+    "bios_msg_2",
+    "bios_msg_3"
+  ],
+  "default_reference_output_sha256": "a67d8733509f9baf94017389cc1c991d5ef1c66bdfb91b6cab3eef0fc35e9490",
+  "default_reference_unchanged": true,
+  "limitations": "Only a diagnostic conditional BIOS link; target addresses, full BIOS layout and all three final binary outputs are not yet matched."
+}

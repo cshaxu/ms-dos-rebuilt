@@ -1,0 +1,24 @@
+{
+  "target_sha256": "a74c700063cd6b1c91523952bfc80e9393c125d39ada0164d48b5098089fcef3",
+  "target_class_1_ids": [
+    65535,
+    2,
+    3,
+    8
+  ],
+  "reference_generated_class_1_labels": [
+    "00002H",
+    "00003H",
+    "00008H",
+    "FF"
+  ],
+  "baseline_generator": "cmd/command/buildmsg.c",
+  "baseline_skeleton": "cmd/command/command.skl",
+  "mechanism": "The historical generator emits the default FFFF entry in ClassTerminate, after regular class 1 entries. Its pass 2 emits the default text after those regular texts. The target orders that entry and text first.",
+  "implication": "The currently demonstrated baseline generator and skeleton output require a changed generation strategy or a compatible postprocessing step to reproduce the target resource layout; merely copying the baseline generated class cannot match.",
+  "limits": [
+    "The original DOS 7 generator implementation and the preferred reconstruction strategy are not established.",
+    "This does not imply buildmsg.c is itself part of the target executable or that the baseline C source must be edited.",
+    "Other class interleaving and all other resource differences remain separate requirements."
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "source": "bios/sysinit1.asm",
+  "sha256": "f3a5730d39f3c1bcc2ac0ad4e62dca3db97140cf93141f54f25fb5327701b88b",
+  "changes": [
+    "Use BCodeSeg for the two stack initialization BIOS segment accesses, rather than the distinct temp_bcode_seg variable.",
+    "Place skipstack after the CS-to-DS restore, matching the target branch destinations."
+  ],
+  "matched": [
+    {
+      "region": "interrupt stack code and data",
+      "start": "0x0000",
+      "end_exclusive": "0x021b",
+      "bytes": 539
+    },
+    {
+      "region": "stack allocation and caller",
+      "start": "0x391f",
+      "end_exclusive": "0x39ca",
+      "bytes": 171
+    },
+    {
+      "region": "stackinit and new_init_loop",
+      "start": "0x3d0e",
+      "end_exclusive": "0x4060",
+      "bytes": 850
+    }
+  ],
+  "verification": {
+    "tool": "extras/tools/verify_syspre_device_link.py",
+    "link_stage": "extras/build/syspre-object-link-21wqombe",
+    "module_stage": "extras/build/ml-sysinit-s1vfjuoz",
+    "scope": "Actual source objects linked together and compared with target. BIOS interrupt-vector and instance field offsets remain diagnostic constants."
+  },
+  "supersedes": [
+    "extras/docs/etc/file-review-033-bios-code-segment-alias.json: its alias conclusion is invalid for current actual split data.",
+    "extras/docs/etc/file-review-032-stackinit-linked.json: previous probe masked the distinct target segment provider."
+  ],
+  "limitations": [
+    "BIOS field offsets and some other link positions remain synthetic.",
+    "Runtime interrupt hook behavior and complete product linking are not verified.",
+    "All three final core binaries remain unverified."
+  ]
+}

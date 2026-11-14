@@ -1,0 +1,24 @@
+{
+  "file": "bios/msinit.asm",
+  "source_sha256": "56127029d5631337e981b8e683b3345430c286693153c3eaff8f9c29f3fcdfe7",
+  "change": "Export DOS7 near-call aliases for the existing calendar conversion implementations.",
+  "aliases": {
+    "daycnt_to_day_near": "daycnt_to_day",
+    "bin_to_bcd_near": "bin_to_bcd"
+  },
+  "validation": {
+    "dos7_assembly": "PASS in the isolated ML-compatible diagnostic stage",
+    "mixed_link": "PASS with c7stub removed from the response",
+    "linked_symbols": {
+      "daycnt_to_day": "0189:0F57",
+      "daycnt_to_day_near": "0189:0F57",
+      "bin_to_bcd": "0189:1015",
+      "bin_to_bcd_near": "0189:1015"
+    },
+    "default_branch": "unchanged by construction: aliases are within DOS7_CONFIG"
+  },
+  "limitations": [
+    "The mixed link still uses source splitting and other diagnostic stubs.",
+    "The linked output is not an IO.SYS candidate and does not prove target layout or whole-image equality."
+  ]
+}

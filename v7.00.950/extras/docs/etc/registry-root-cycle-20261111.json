@@ -1,0 +1,29 @@
+{
+  "scope": "Verified direct call edges in unpacked target; unfinished callers form a joint dependency unit.",
+  "edges": [
+    {
+      "callsite": "8340h",
+      "caller": "823Eh",
+      "callee": "30A4h"
+    },
+    {
+      "callsite": "30C1h",
+      "caller": "30A4h",
+      "callee": "823Eh"
+    },
+    {
+      "callsite": "8362h",
+      "caller": "823Eh",
+      "callee": "2FDCh"
+    }
+  ],
+  "external_dependencies": [
+    "3818h",
+    "4056h",
+    "5A4Ch"
+  ],
+  "completed_this_turn": [
+    "5A4Ch"
+  ],
+  "policy": "Use previously user-approved cycle-as-unit handling; finish external dependencies before the cycle."
+}

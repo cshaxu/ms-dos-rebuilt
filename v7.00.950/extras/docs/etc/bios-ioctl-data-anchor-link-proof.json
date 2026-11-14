@@ -1,0 +1,41 @@
+{
+  "source": "extras/research/bios-ioctl-data-anchor-probe.asm",
+  "source_sha256": "c5b08197ee7fd623504ab9ce5ba8c1af7463824f03d66d25b19cc0903e461359",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "linked_exe_sha256": "b69e38bb8c3ae11983f3525c0912acd6fd01b4b174506bc5186e15a7d3c02616",
+  "blocks": [
+    {
+      "name": "data",
+      "bios_code_offset": "0x1796",
+      "target_file_offset": "0x33e6",
+      "length": 16,
+      "bytes": "ffffffff080000005000000000002400"
+    },
+    {
+      "name": "media_reference",
+      "bios_code_offset": "0x18c0",
+      "target_file_offset": "0x3510",
+      "length": 4,
+      "bytes": "2ea2a117"
+    },
+    {
+      "name": "sectors_reference",
+      "bios_code_offset": "0x18fd",
+      "target_file_offset": "0x354d",
+      "length": 5,
+      "bytes": "2e890ea417"
+    },
+    {
+      "name": "track_head_references",
+      "bios_code_offset": "0x1980",
+      "target_file_offset": "0x35d0",
+      "length": 9,
+      "bytes": "2ea39c172e880e9b17"
+    }
+  ],
+  "limitations": [
+    "ORG emulates observed layout in an isolated link; it is not a final BIOS layout or proof of source ownership.",
+    "The preceding byte at offset 1795h is excluded because its purpose is unconfirmed.",
+    "Matching initial bytes cannot establish whether every zero was historically explicitly initialized."
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "files": {
+    "bios/sysconf.asm": "5794b5bde9b8863daf07e1dcc567c56409746b4db1679f25e3652484e5bab9b7",
+    "bios/syspre.asm": "28155ac13072faf13a3303c6fd1f583eed538d103e5da4b9925594d9b82b9909"
+  },
+  "verification": "extras/tools/verify_menu_check_full.py",
+  "sizedevice": {
+    "sysinit_start": "0x8165",
+    "bytes": 70
+  },
+  "preload_prefix": {
+    "sysinit_start": "0x8aaf",
+    "bytes": 220
+  },
+  "scope": "Actual SYSCONF SizeDevice is called from actual SYSPRE source in a target-anchored diagnostic.",
+  "limitations": [
+    "Four deeper UMB calls remain target-address anchors.",
+    "The preload body after device setup remains incomplete.",
+    "MagicPostload changed filename reference remains to be reverified; full SYSINIT link is incomplete."
+  ]
+}

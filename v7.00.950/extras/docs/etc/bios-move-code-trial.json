@@ -1,0 +1,16 @@
+{
+  "source": "extras/research/bios-move-code-probe.asm",
+  "source_sha256": "6a3159623367de98ffc8d81c75647872284adfa49042bda2b3e93400e0ff2bdb",
+  "object_sha256": "14d5cc58e547e9e96dd7c16dfbe42f22f4677fadd25a160b31435dff5d9f2830",
+  "linked_exe_sha256": "2c5c0726a9851fa97895e2739a4f8dfba175b777ac98bb38c137f0877802ac54",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_file_offset": "0x6654",
+  "length": 30,
+  "linked_exe_file_offset": "0x1b24",
+  "all_bytes_equal_after_link": true,
+  "limitations": [
+    "The trial uses absolute offsets and ORG to reproduce the observed segment layout; final source needs linked symbols.",
+    "ReinitBios is an empty stand-in at the target call address, so its semantics are not verified.",
+    "The target dynamic copy length depends on a runtime value and full BIOS integration remains unverified."
+  ]
+}

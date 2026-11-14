@@ -1,0 +1,32 @@
+{
+  "source": "bios/sysconf.asm",
+  "sha256": "309c586334ed2ba2dd1522d1b6fbeb05f2409b9d3a22d0d031bb937413f63207",
+  "change": "Restore two zero bytes after the /E range in maintained source and remove the diagnostic-only injection from both table verifiers.",
+  "matched": [
+    {
+      "region": "CONFIG parameter table",
+      "start": "0x6446",
+      "end_exclusive": "0x6698",
+      "bytes": 594,
+      "synthetic_table_bytes": 0
+    },
+    {
+      "region": "two restored bytes",
+      "start": "0x64c8",
+      "end_exclusive": "0x64ca",
+      "bytes": 2
+    }
+  ],
+  "verification": {
+    "table_tool": "extras/tools/verify_config_parameter_table.py",
+    "table_stage": "extras/build/config-tables-hk9e_1q5",
+    "link_tool": "extras/tools/verify_syspre_device_link.py",
+    "link_stage": "extras/build/syspre-object-link-di9f7_jy",
+    "module_stage": "extras/build/ml-sysinit-4aezvm7g",
+    "scope": "Maintained table assembled without injection; links use actual table bytes. Other diagnostic anchors remain."
+  },
+  "limitations": [
+    "The two bytes are zero in the target and no literal direct references were found in a SYSINIT scan; their original purpose and indirect accesses remain unknown.",
+    "Full product link and final three core binaries remain unverified."
+  ]
+}

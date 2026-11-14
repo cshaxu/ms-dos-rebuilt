@@ -1,0 +1,13 @@
+{
+  "file": "bios/sysinit2.asm",
+  "source_sha256": "b7722db8aa9cf729d68fcb5e5ffa087ae568d7f812102b5bdc8a66237d81671f",
+  "target_consumer": "IO.SYS 0xa157: mov ax,[4064h]",
+  "target_initial_bytes": "1e00",
+  "default_object_identical_to_prior": true,
+  "dos7_assembly": "passed",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "The startup menu and option parser that use this word remain unimplemented.",
+    "Full target image placement is unverified."
+  ]
+}

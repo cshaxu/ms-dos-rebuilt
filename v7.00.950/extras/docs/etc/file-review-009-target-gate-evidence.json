@@ -1,0 +1,40 @@
+{
+  "source": "bios/msbio1.asm",
+  "gate": "extras/tools/verify_msbio1_target.py",
+  "gate_sha256": "3556529d6443814a3df66a1864f87041ea0b2bb099216b83533cc942b2443f9e",
+  "report": "file-review-009-target-gate.json",
+  "checks": 27,
+  "passing_checks": [
+    "bds_count_and_drive_table"
+  ],
+  "failing_checks": [
+    "bds1",
+    "bds_count",
+    "dskdrvs",
+    "SI_start",
+    "alloclim",
+    "bios_data_segment",
+    "exec_boot_state",
+    "exec_windows_path",
+    "exec_data",
+    "config_buffer_segment",
+    "config_buffer_paragraphs",
+    "config_buffer_count",
+    "saved_mcb_size",
+    "system_exec_tail",
+    "system_io_path",
+    "system_winboot_path",
+    "system_exec_environment",
+    "system_exec_env_end",
+    "system_exec_block",
+    "config_init_entry",
+    "exec_bios_word",
+    "start_bds_pointer",
+    "floppy_and_hard_bds",
+    "exec_and_config_data",
+    "config_routines",
+    "int6c_code"
+  ],
+  "mutation_test": "Flipping the first byte of the previously matching BDS count/table caused that exact check to fail.",
+  "limitations": "This is a strict gate for selected file-9 symbols and regions only, not full IO.SYS acceptance. The current diagnostic uses reference objects and stubs. Checks overlap and counts are not a project completion percentage."
+}

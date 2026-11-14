@@ -1,0 +1,25 @@
+{
+  "files": {
+    "bios/sysconf.asm": "5794b5bde9b8863daf07e1dcc567c56409746b4db1679f25e3652484e5bab9b7",
+    "bios/syspre.asm": "0dce8ddce5af1d0e645ca1d5cd788a03f8e3243bf74c90b8b157904300402c6a"
+  },
+  "verification": "extras/tools/verify_menu_check_full.py",
+  "sysconf_init_and_helpers": {
+    "sysinit_start": "0x8041",
+    "bytes": 391
+  },
+  "execdev": {
+    "sysinit_start": "0x81ab",
+    "bytes": 29
+  },
+  "syspre_preload_prefix": {
+    "sysinit_start": "0x8aaf",
+    "bytes": 269
+  },
+  "scope": "Actual InitDevLoad through ExecDev and the MagicPreload prefix through the driver-header check compared against IO.SYS at target offsets. SYSPRE assembled as a complete source file.",
+  "limitations": [
+    "HideUMBs, FreezeUM, UnFreeze and ShrinkUMB remain target-address anchors.",
+    "The error destination pre_exit_3 is anchored; subsequent preload body and MagicPostload remain unverified.",
+    "Complete SYSINIT object layout and three binaries remain unverified."
+  ]
+}

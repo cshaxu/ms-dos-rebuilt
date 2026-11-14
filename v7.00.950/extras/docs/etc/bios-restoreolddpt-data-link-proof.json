@@ -1,0 +1,25 @@
+{
+  "source": "extras/research/bios-restoreolddpt-data-probe.asm",
+  "source_sha256": "c8baa7d317ba397775c1b832cf97fba46b4e38ce8b4a68be9741caf0b4efaf92",
+  "reference_source": "bios/msdioctl.asm RestoreOldDpt DOS7_CONFIG branch",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "linked_exe_sha256": "fb18cbbb55febca68baa140ca7ab7e46455e4a79c79f22a0b1afac4d6c04347a",
+  "blocks": [
+    {
+      "name": "data",
+      "target_file_offset": "0x33e6",
+      "length": 16,
+      "bytes": "ffffffff080000005000000000002400"
+    },
+    {
+      "name": "RestoreOldDpt",
+      "target_file_offset": "0x3964",
+      "length": 44,
+      "bytes": "5032c02ea2a3172e8606a2170ac07419561e062ec53696172bc08ec02689367800268c1e7a00071f5e58f8c3"
+    }
+  ],
+  "limitations": [
+    "ORG emulates observed layout in isolated link and does not prove target source ownership or complete BIOS layout.",
+    "No runtime probe or full IO.SYS comparison was performed."
+  ]
+}

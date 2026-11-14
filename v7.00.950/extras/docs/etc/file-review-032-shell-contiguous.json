@@ -1,0 +1,24 @@
+{
+  "source": "bios/sysinit1.asm",
+  "sha256": "8802c0d5bfde81da3c00b4f1f240d6ac44df67921a24a4e03399a7bc2772f6ac",
+  "changes": [
+    "Remove ten unused external declarations left after replacing the DOS 6 shell path.",
+    "Add continuous shell-chain equality and actual symbol-provider checks to the existing diagnostic."
+  ],
+  "matched": {
+    "region": "shell main, drive resolution, shell execution and sizing, startup drivers, shell and environment preparation, AUTOEXEC switch helpers",
+    "start": "0x4759",
+    "end_exclusive": "0x52c9",
+    "bytes": 2928
+  },
+  "verification": {
+    "tool": "extras/tools/verify_syspre_device_link.py",
+    "link_stage": "extras/build/syspre-object-link-wg8tkgoa",
+    "module_stage": "extras/build/ml-sysinit-gkdh9rmg",
+    "scope": "Actual source objects linked at diagnostic target positions. The link preceded declaration-only cleanup, which was checked by the full-module assembly."
+  },
+  "limitations": [
+    "The full product link and natural module order are not verified.",
+    "Shell runtime behavior and three final core binaries are unverified."
+  ]
+}

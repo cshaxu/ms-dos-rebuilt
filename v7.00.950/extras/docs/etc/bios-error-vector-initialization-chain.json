@@ -1,0 +1,43 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "dosdata_file_base": "0x19ec0",
+  "observations": [
+    "Target GET_IN_VARS-shaped routine returns BX=0026 and ES=SS in the saved register frame, matching the historical INT 21h AH=52h service implementation.",
+    "Kernel initialization sets DOSDATA:0038 to DOSDATA:006d and DOSDATA:003a to the DOSDATA segment.",
+    "The later BIOS code calls INT 21h AH=52h; using the returned ES:BX, it follows the far pointer at +12h, then the word at +13h, and retains the result.",
+    "At DOSDATA:006d+0013h, the image contains 132ch; at DOSDATA:132ch+8, the image contains 133ah.",
+    "The BIOS code loads the latter offset and writes 04c2h and 0070h to that far pointer; DOSDATA:133a is the vector called with AX=1 by the candidate divide handler and with AX=0 by the A20 error path.",
+    "BIOS 0070:04c2 corresponds to target file offset 0x0ac2 under the previously established resident BIOS mapping."
+  ],
+  "byte_checks": {
+    "get_vars_return": {
+      "file_offset": "0x12287",
+      "bytes": "c7440226008c5410c3"
+    },
+    "kernel_hashinit_pointer_init": {
+      "file_offset": "0x19c5e",
+      "bytes": "268c063a00be6d002689363800"
+    },
+    "bios_lookup_chain": {
+      "file_offset": "0x5f90",
+      "bytes": "b452cd2126c45f12268b5f1353268b5f06"
+    },
+    "bios_store_vector": {
+      "file_offset": "0x5fe7",
+      "bytes": "5b268b5f0826c707c20426c747027000"
+    },
+    "bios_error_entry": {
+      "file_offset": "0xac2",
+      "bytes": "0bc0752d"
+    },
+    "target_divide_caller": {
+      "file_offset": "0x161b9",
+      "bytes": "2e8e1e273fb80100ff1e3a13ebe1"
+    }
+  },
+  "limitations": [
+    "The reconstruction is based on static dataflow and the previously established DOSDATA and resident BIOS mappings; it is not a live execution trace.",
+    "The service dispatch entry for the matching GET_IN_VARS routine has not been independently traced in this report.",
+    "Writes to these table words between their initialization and use are not excluded by these local checks."
+  ]
+}

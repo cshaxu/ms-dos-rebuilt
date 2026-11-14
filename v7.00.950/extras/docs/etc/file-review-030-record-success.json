@@ -1,0 +1,16 @@
+{
+  "file": "bios/sysconf.asm",
+  "file_index": 30,
+  "source_sha256": "c4450178e563c2518aa8f03416f783d21e3f5a773cafb6899204a095eec16e3e",
+  "target_range": "IO.SYS 0xbd57..0xbd6a",
+  "bytes": 19,
+  "different_bytes": 0,
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "Isolated target layout uses ORG and a stub for the record routine; real full-image placement is unverified.",
+    "The mixed link uses older objects and stubs and is not a production build.",
+    "The full device-record lifecycle and boot image byte equality remain incomplete."
+  ]
+}

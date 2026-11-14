@@ -1,0 +1,41 @@
+{
+  "target_sha256": "a74c700063cd6b1c91523952bfc80e9393c125d39ada0164d48b5098089fcef3",
+  "probe_source": "extras/build/msg-find-symbolic-nuyjlpa2/probe.asm",
+  "probe_source_sha256": "609685aac443b28aa7a33da32bab96bd2a6451752578823dbb523293a45fe1a8",
+  "probe_object_sha256": "d89e032b9c1a948633d777ab2438091586515db78fc14b91d8c8ebace5951ff9",
+  "target_code_range": [
+    66722,
+    66808
+  ],
+  "byte_equal": true,
+  "symbols": [
+    {
+      "source_name": "$M_DISK_PROC_ADDR",
+      "target_address": 34767,
+      "evidence": "target checks and calls far pointer; corresponds to inc/msgserv.asm:2400-2407"
+    },
+    {
+      "source_name": "$M_MSG_NUM",
+      "target_address": 34783,
+      "evidence": "target restores saved original message number; corresponds to inc/msgserv.asm:2401"
+    },
+    {
+      "source_name": "$M_SIZE",
+      "target_address": 34777,
+      "evidence": "target clears word at exit of find; corresponds to inc/msgserv.asm:2507 which clears a byte in baseline"
+    },
+    {
+      "source_name": "$M_HANDLE",
+      "target_address": 34775,
+      "evidence": "target SYSDISPMSG stores BX at entry; corresponds to inc/msgserv.asm:1280"
+    }
+  ],
+  "target_size_clear_bytes": "c706d9870000",
+  "baseline_declaration": "inc/msgserv.asm: $M_SIZE DB 0",
+  "limitations": [
+    "Names are inferred from corresponding operations and require validation across all callers.",
+    "Equates hardcode target addresses for this isolated comparison and do not establish target relocation.",
+    "A target word store alone does not prove the complete adjacent data structure or initialization.",
+    "The message macros and full COMMAND build remain unverified."
+  ]
+}

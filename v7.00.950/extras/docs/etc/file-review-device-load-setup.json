@@ -1,0 +1,64 @@
+{
+  "source_sha256": "49da25d1da4c00af3836f9070a994d8b3683b6ea2ae67565df68efa6182a9e8c",
+  "verification": "extras/tools/verify_menu_check_full.py",
+  "target_sysinit_offset": "0x6d52",
+  "matched_bytes": 134,
+  "logging_code_and_data": {
+    "sysinit_start": "0x9d72",
+    "bytes": 432
+  },
+  "umb_helper_object": {
+    "stowSiz": {
+      "object_offset": "0x1dd7",
+      "segment_index": 6,
+      "target_sysinit_offset": "0x7ab6",
+      "bytes": 20,
+      "fixup_byte_offsets": [
+        14,
+        15
+      ],
+      "matching_nonfixup_bytes": 18
+    },
+    "GetLoadUMB": {
+      "object_offset": "0x1f8c",
+      "segment_index": 6,
+      "target_sysinit_offset": "0x7c6b",
+      "bytes": 8,
+      "fixup_byte_offsets": [
+        4,
+        5
+      ],
+      "matching_nonfixup_bytes": 6
+    },
+    "GetLoadSize": {
+      "object_offset": "0x1f94",
+      "segment_index": 6,
+      "target_sysinit_offset": "0x7c73",
+      "bytes": 24,
+      "fixup_byte_offsets": [
+        6,
+        7,
+        11,
+        12
+      ],
+      "matching_nonfixup_bytes": 20
+    },
+    "StoLoadSize": {
+      "object_offset": "0x1fca",
+      "segment_index": 6,
+      "target_sysinit_offset": "0x7ca9",
+      "bytes": 19,
+      "fixup_byte_offsets": [
+        6,
+        7
+      ],
+      "matching_nonfixup_bytes": 17
+    }
+  },
+  "scope": "Removed target-absent round call and corrected load-memory error branch. Real source from device command-line handling through load setup and no-memory exit matches target; log source and data match; split SYSCONF assembles.",
+  "limitations": [
+    "UMB selection helper evidence is from a current-source MASM 6 build; its OMF fixups remain unverified.",
+    "LoadDev and BadFile are target-position anchors, not yet included as real code in this comparison.",
+    "DeviceLineLimit historical symbolic origin, full SYSINIT link and three final binaries remain unverified."
+  ]
+}

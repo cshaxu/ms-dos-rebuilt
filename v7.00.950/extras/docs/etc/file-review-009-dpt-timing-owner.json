@@ -1,0 +1,26 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "bios_code_offsets": {
+    "motorstartup": 3550,
+    "settlecurrent": 3551,
+    "settleslow": 3552,
+    "save_eot": 3554,
+    "eot": 3555
+  },
+  "instruction_anchors": {
+    "eot_swap": {
+      "target_file_offset": 12339,
+      "hex": "2ea0e30d1e2ec536e40d8644048a640a2ea2e20d2e8826de0d"
+    },
+    "settle": {
+      "target_file_offset": 12381,
+      "hex": "2ea2df0db00f2ea2e00d"
+    },
+    "restore": {
+      "target_file_offset": 12418,
+      "hex": "2ea0e20d268844042ea0df0d2e8a26de0d"
+    }
+  },
+  "diagnostic_report": "config-ml-dpt-timing-owner.json",
+  "limitations": "Target setup uses an exchange for EOT while the reference sequence stores and rereads; this behavior difference must be recovered in the later disk module. Current diagnostic uses stubs."
+}

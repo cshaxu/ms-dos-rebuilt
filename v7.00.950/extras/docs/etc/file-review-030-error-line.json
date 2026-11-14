@@ -1,0 +1,18 @@
+{
+  "file": "bios/sysconf.asm",
+  "file_index": 30,
+  "source_sha256": "bdd147afbbda8fd44578a911773c8a76013530a5bbfeeffcf914a7d5c2211750",
+  "target_file_range": "0xc33c..0xc34e",
+  "length": 18,
+  "different_bytes": 0,
+  "default_object_identical": true,
+  "dos7_assembly": "passed",
+  "message_token": "0x8011",
+  "probe_source": "extras/research/error-line-linked.asm",
+  "probe_sha256": "bba03a74e62277fcb9868018b88f27931c5763cbd84d302a33f616c641e8bd6f",
+  "linked_exe_sha256": "ffe9a175c502099fa388043d8bb92a9c18ca41e01249d72fa65d60d82d3e3bb9",
+  "limitations": [
+    "The isolated link uses ORG target offsets and a placeholder showlinenum procedure; its behavior and final production placement are not verified.",
+    "Full SYSINIT and IO.SYS remain unverified."
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "part": "M5 T12 S1 P17",
+  "ordinal": 36,
+  "modified": 1,
+  "unchanged": 0,
+  "exact_dos6": 0,
+  "retired_by_merge": 0,
+  "reference": "Original DOS6 bios/msend.asm, full module.",
+  "changes": "Correct header scope to data and initialization end markers, and remove extra blank lines left after moving the code-end marker. All segment declarations, alignment, public symbols and labels remain original.",
+  "necessity": "Keep original msend owner for BData_end, SI_end and dos_load_seg. BCode_end is already owned by biosmsg after the P3 merge, earlier than msend in msbio.lnk. Restoring it here would duplicate the definition and change the boundary; merging the remaining marker module would obscure original segment structure without removing an alternate implementation.",
+  "validation": {
+    "effectiveStatementsEqual": true,
+    "statementCount": 13,
+    "rebuilt": false,
+    "reason": "Only comment and whitespace changes. Compared complete effective streams; no segment/alignment/link change.",
+    "binary_baseline": "P11 accepted BIOS/IO.SYS and T11 accepted COMMAND.COM/MSDOS.SYS remain applicable."
+  },
+  "next_ordinal": 37,
+  "remaining": 30
+}

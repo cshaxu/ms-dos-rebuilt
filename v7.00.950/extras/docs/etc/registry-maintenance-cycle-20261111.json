@@ -1,0 +1,28 @@
+{
+  "image_sha256": "c46661f8295799e12f3bf16179d87ee2e313d7968a9779e79299966ece036dad",
+  "unit_entries": [
+    "658A",
+    "6D72",
+    "70AA"
+  ],
+  "verified_cycle_edges": [
+    {
+      "call": "0x70da",
+      "destination": "0x658a"
+    },
+    {
+      "call": "0x6ad5",
+      "destination": "0x6d72"
+    },
+    {
+      "call": "0x6e31",
+      "destination": "0x70aa"
+    }
+  ],
+  "remaining_external_prerequisites": [
+    "7D78 name helper",
+    "7B18 helper: inspect dependencies",
+    "2A2A no-op callback"
+  ],
+  "policy": "Existing user approval permits verified cycle as a joint dependency unit; not a blocker."
+}

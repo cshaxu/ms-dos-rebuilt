@@ -1,0 +1,82 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "linked_exe_sha256": "e65c23f2f8baebedc6246d5ac6d59208d5cec33efbf76ceb76f28796bedc0e74",
+  "anchors": [
+    {
+      "symbol": "dsktbl",
+      "target_file": "0x2a80",
+      "target_bios_code": "0xe30",
+      "linked_bios_code": "0xbd4",
+      "linked_minus_target": -604
+    },
+    {
+      "symbol": "do_generic_ioctl",
+      "target_file": "0x342b",
+      "target_bios_code": "0x17db",
+      "linked_bios_code": "0x157f",
+      "linked_minus_target": -604
+    },
+    {
+      "symbol": "i13z",
+      "target_file": "0x41d5",
+      "target_bios_code": "0x2585",
+      "linked_bios_code": "0x1efd",
+      "linked_minus_target": -1672
+    },
+    {
+      "symbol": "install_bds",
+      "target_file": "0x4468",
+      "target_bios_code": "0x2818",
+      "linked_bios_code": "0x210c",
+      "linked_minus_target": -1804
+    },
+    {
+      "symbol": "hidensity",
+      "target_file": "0x463f",
+      "target_bios_code": "0x29ef",
+      "linked_bios_code": "0x2322",
+      "linked_minus_target": -1741
+    }
+  ],
+  "spans": [
+    {
+      "from": "dsktbl",
+      "to": "do_generic_ioctl",
+      "target_distance": 2475,
+      "linked_distance": 2475,
+      "linked_minus_target": 0
+    },
+    {
+      "from": "do_generic_ioctl",
+      "to": "i13z",
+      "target_distance": 3498,
+      "linked_distance": 2430,
+      "linked_minus_target": -1068
+    },
+    {
+      "from": "i13z",
+      "to": "install_bds",
+      "target_distance": 659,
+      "linked_distance": 527,
+      "linked_minus_target": -132
+    },
+    {
+      "from": "install_bds",
+      "to": "hidensity",
+      "target_distance": 471,
+      "linked_distance": 534,
+      "linked_minus_target": 63
+    }
+  ],
+  "anchor_evidence": [
+    "bios-msdisk-dispatch-relocation-analysis.json",
+    "file-review-012-all-procedures.json",
+    "file-review-019-int13-entry.json",
+    "bios-disk-order-trial.json",
+    "bios-msbio2-hidensity-target-check.json"
+  ],
+  "limitations": [
+    "Diagnostic linked objects contain stubs and synthetic fragments; observed differences cannot be attributed to a specific missing module without further evidence.",
+    "Individual anchored routine matches do not establish complete intervening source or byte identity."
+  ]
+}

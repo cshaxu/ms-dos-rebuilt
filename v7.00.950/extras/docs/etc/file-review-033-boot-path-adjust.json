@@ -1,0 +1,17 @@
+{
+  "file": "bios/sysinit2.asm",
+  "source_sha256": "8753028c0de483b20bcdac7a9cb31a5b379bb01c131a764d30e1d3d7ac384b7a",
+  "target_range": "IO.SYS 0xa5cd..0xa6ae",
+  "length": 225,
+  "different_bytes": 0,
+  "tool": "MASM 6 ML isolated probe",
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link": "passed",
+  "probe_source": "extras/research/boot-path-adjust-linked.asm",
+  "limitations": [
+    "Driver type bytes are temporary standalone storage pending reconstruction of the startup driver record table.",
+    "Fixed-offset probe does not prove final layout or execution.",
+    "Option reader and caller remain incomplete."
+  ]
+}

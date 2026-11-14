@@ -1,0 +1,48 @@
+{
+  "part": "M5 T12 S1 P9",
+  "ordinals": [
+    24,
+    25,
+    26,
+    27
+  ],
+  "modified": 4,
+  "unchanged": 0,
+  "exact_dos6": 0,
+  "retired_by_merge": 2,
+  "checks": [
+    {
+      "path": "bios\\logocode.asm",
+      "equal": true,
+      "statements": 576
+    },
+    {
+      "path": "bios\\logpart.asm",
+      "equal": true,
+      "statements": 78
+    }
+  ],
+  "reference": "DOS6 bios/msbio1.asm:362-427 owns bds_str and initial floppy structures. Restored ownership in msbio1 while preserving DOS7 SYSINIT placement and values.",
+  "schema_comparison": "Complete bds_str field statement sequence in mbbds equals existing msbio1 structure; duplicate removed, existing definition reused.",
+  "changes": {
+    "logocode": "Normalize declarations/PROC and instruction indentation; inline sole OR AX,-1 encoding macro; retain image sources and VGA plane loops required by target.",
+    "logpart": "Normalize declarations/PROC/instruction indentation; remove repeated unchanged .286 directive; retain shared log-send implementation.",
+    "mbbds": "Move data instances into existing msbio1 SysInitSeg, remove external bds1 and duplicate structure/module.",
+    "mbentry": "Append SI_start near jump after BDS with word alignment; delete one-jump module."
+  },
+  "validation": {
+    "stage": "extras/build/source-quality-p9",
+    "build": "Only msbio1 reassembled by original ML, then LINK /MAP and RELOC; PASS.",
+    "diagnostics": "Existing ML.err catalog missing; A4004 warnings at original segment assumptions. Assembly and link finish; resulting BIOS matches byte-for-byte.",
+    "bios": "fc /b compared against accepted T11 msbio.bin: no differences",
+    "io": "Complete 223148-byte IO.SYS packed with rebuilt BIOS/map and unchanged accepted other inputs; fc /b against extras/assets/IO.SYS: no differences",
+    "other_components": "No COMMAND.COM/MSDOS.SYS rebuild. Pure-equivalence logo/log edits reuse accepted objects."
+  },
+  "collateral_ordinals": [
+    31,
+    59,
+    60
+  ],
+  "next_ordinal": 28,
+  "remaining": 39
+}

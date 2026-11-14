@@ -1,0 +1,52 @@
+{
+  "part": "M5 T12 S1 P7",
+  "ordinals": [
+    19,
+    20,
+    21
+  ],
+  "modified": 3,
+  "unchanged": 0,
+  "exact_dos6": 0,
+  "retired_by_merge": 1,
+  "files": [
+    {
+      "path": "bios/cpath.asm",
+      "decision": "Retain path preparation module; normalize formatting, correct module title to CPATH, move provenance here.",
+      "provenance": "Reconstructed names describe behavior; not recovered debug symbols. No DOS6 equivalent file claimed.",
+      "checks": {
+        "equal": true,
+        "count": 185
+      },
+      "necessity": "The alternate-file copy is the path lookup failure fallback in one service, not an unnecessary second implementation."
+    },
+    {
+      "path": "bios/devparm.asm",
+      "decision": "Retire and merge into adjacent reqpkt storage.",
+      "reference": "DOS6 bios/sysinit2.asm:4163-4164 defines the same a_deviceparameters structure, with DOS6 default values. DOS7's zero initial values are retained.",
+      "byte_layout": "Same segment, byte alignment, sequence and original BPB/IOCTL types; no new raw-binary substitution."
+    },
+    {
+      "path": "bios/drivechk.asm",
+      "decision": "Normalize format, document first entry's drive-letter result, inline single-use boot_map_cmp as its same DB bytes.",
+      "check": {
+        "expanded_statements_equal": true,
+        "count": 173
+      },
+      "necessity": "Distinct driver IOCTL and INT25/IOCTL mapping protocols, called from sysinit2:724/729; shared module stays coherent."
+    }
+  ],
+  "validation": {
+    "stage": "extras/build/source-quality-p7",
+    "build": "Only reqpkt.asm reassembled with original MASM; LINK /MAP and RELOC; PASS",
+    "comparison": "fc /b of linked BIOS against T11 and packed 223148-byte IO.SYS against extras/assets/IO.SYS both report no differences",
+    "other_components": "No COMMAND.COM/MSDOS.SYS rebuild; previously accepted identity retained. cpath/drivechk instructions unchanged.",
+    "collateral_ordinals": [
+      46,
+      59,
+      60
+    ]
+  },
+  "next_ordinal": 22,
+  "remaining": 45
+}

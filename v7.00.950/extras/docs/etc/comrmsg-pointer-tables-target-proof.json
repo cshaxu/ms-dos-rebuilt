@@ -1,0 +1,31 @@
+{
+  "target_sha256": "a74c700063cd6b1c91523952bfc80e9393c125d39ada0164d48b5098089fcef3",
+  "file_range": [
+    "0x56ab",
+    "0x579f"
+  ],
+  "length": 244,
+  "tables": [
+    {
+      "name": "CritMsgPtrs",
+      "entries": 21,
+      "message_ids": "219-239"
+    },
+    {
+      "name": "ParsMsgPtrs",
+      "entries": 11,
+      "message_ids": "301-311"
+    },
+    {
+      "name": "ExtMsgPtrs",
+      "entries": 90,
+      "mapping": "201-290 with absent error slots set to zero; 219-239 reuse the critical-error index pointer fields"
+    }
+  ],
+  "target_equal": true,
+  "notable": "Resources 214 and 281 exist with zero-length payloads, but the corresponding extended-error table slots 14 and 81 are null.",
+  "limitations": [
+    "Runtime offsets rely on previously validated class 6 loading and fixup assumptions.",
+    "Original historical table placement and complete caller/link integration remain unverified."
+  ]
+}

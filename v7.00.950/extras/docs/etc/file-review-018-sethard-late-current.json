@@ -1,0 +1,46 @@
+{
+  "source_sha256": "0ae009c4603827956650c3b7099422fcb10e7f5959a4abb28008961ff01384b1",
+  "listing_sha256": "d7db9bd47997b374c48707e5cce5c285bff0af6641e84174aa9eea5ae5499acf",
+  "routines": [
+    {
+      "name": "versions_and_nonfat",
+      "target_offset": "0x1764",
+      "length": 110,
+      "masked_relocation_bytes": 6,
+      "matched_nonrelocated_bytes": 102,
+      "differences": [
+        105,
+        106
+      ]
+    },
+    {
+      "name": "fat_bpb_and_clusters",
+      "target_offset": "0x17d2",
+      "length": 144,
+      "masked_relocation_bytes": 14,
+      "matched_nonrelocated_bytes": 128,
+      "differences": [
+        130,
+        131
+      ]
+    },
+    {
+      "name": "sethard_fallback_and_return",
+      "target_offset": "0x1862",
+      "length": 221,
+      "masked_relocation_bytes": 12,
+      "matched_nonrelocated_bytes": 201,
+      "differences": [
+        122,
+        123,
+        124,
+        139,
+        140,
+        141,
+        164,
+        165
+      ]
+    }
+  ],
+  "limitations": "Relocated addresses and full production build remain unverified; MASM encodes two sub ax,1 forms differently."
+}

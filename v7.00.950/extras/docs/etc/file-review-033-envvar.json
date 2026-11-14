@@ -1,0 +1,21 @@
+{
+  "files": [
+    "bios/sysinit2.asm",
+    "bios/sysconf.asm"
+  ],
+  "source_sha256": "c0a9f97362f7984bba2f190ca6c1bf26b1bdb29e6506f60b12acbac2e02e9f51",
+  "sysconf_sha256": "19bd0e78de88836b28c82fc414bd7bb3e284df1fcd250f343ac35353cbbb07db",
+  "target_range": "IO.SYS 0x750d..0x75aa",
+  "bytes": 157,
+  "different_bytes": 0,
+  "probe": "extras/research/env7-linked.asm",
+  "dos7_assembly": "passed",
+  "default_objects_identical_to_prior": true,
+  "mixed_diagnostic_link_exit_code": 0,
+  "phase_error_cause": "Explicit CS overrides fix MASM 5 pass-size disagreement for references with DS assumed unknown.",
+  "limitations": [
+    "Fixed-offset isolated link does not prove full executable layout.",
+    "Additional DOS 7 callers and startup initialization remain incomplete.",
+    "Mixed diagnostic link includes older objects and stubs."
+  ]
+}

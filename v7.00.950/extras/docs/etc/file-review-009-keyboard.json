@@ -1,0 +1,60 @@
+{
+  "file_index": 9,
+  "source": "bios/msbio1.asm",
+  "source_sha256": "c589b494cd04767bbc344af2d4e0da17e59bc129b86beb3d8b65349c945a95bb",
+  "routines": [
+    {
+      "name": "int15_esc",
+      "diagnostic_offset": 10042,
+      "target_offset": 7712,
+      "length": 18,
+      "matching_bytes": 15,
+      "different_offsets": [
+        1,
+        2,
+        6
+      ],
+      "linked_hex": "e81a1b2e8016290100558bec806606fe5dcf",
+      "target_hex": "e80f002e8016cf0100558bec806606fe5dcf"
+    },
+    {
+      "name": "int16_check",
+      "diagnostic_offset": 10060,
+      "target_offset": 8683,
+      "length": 75,
+      "matching_bytes": 60,
+      "different_offsets": [
+        6,
+        33,
+        34,
+        40,
+        41,
+        44,
+        45,
+        49,
+        50,
+        57,
+        58,
+        62,
+        63,
+        69,
+        70
+      ],
+      "linked_hex": "501e062e8e06300080e4ef80fc017234740580fc0277302bc08ed8a16c04263b06e706751226ff06e90626a1eb06263906e9067212eb0d26a3e70626c706e9060000eb03e8c41a071f58cb",
+      "target_hex": "501e062e8e06da0080e4ef80fc017234740580fc0277302bc08ed8a16c04263b060305751226ff06050526a1070526390605057212eb0d26a3030526c70605050000eb03e800fc071f58cb"
+    }
+  ],
+  "timer_state_target_offset": 2819,
+  "timer_state_diagnostic_offset": 1767,
+  "timer_state_length": 10,
+  "timer_state_exact": true,
+  "diagnostic_stub_symbols": [
+    "bios_msg_base",
+    "bios_msg_1",
+    "bios_msg_2",
+    "bios_msg_3",
+    "keyboard_service"
+  ],
+  "default_reference_output_sha256": "a67d8733509f9baf94017389cc1c991d5ef1c66bdfb91b6cab3eef0fc35e9490",
+  "limitations": "Shared keyboard service remains a stub; final addresses and whole target binary are unresolved. Current diagnostic is not a functional 7.0 build."
+}

@@ -1,0 +1,18 @@
+{
+  "file": "bios/sysconf.asm",
+  "file_index": 30,
+  "source_sha256": "ca9d966a655b48ab8edfbda0dbce20bbf627f2f633b27602cf27bfa6c0a6d693",
+  "target_file_range": "0xc33c..0xc37c",
+  "length": 64,
+  "different_bytes": 0,
+  "assembler": "ML 6 historical DOS tool",
+  "default_masm_object_identical": true,
+  "probe_source": "extras/research/showlinenum-ml-linked.asm",
+  "probe_sha256": "3df1d0b7d68dcad204aeec2b98e4bd9cfaf30860146860e281a6ea0b02900d23",
+  "linked_exe_sha256": "8d86c653393b33c7185c2014a3ad8d9c23794efb10060a0b5d2917763bb88157",
+  "limitations": [
+    "The isolated link uses ORG to reproduce target offsets and test storage for linecount/showcount.",
+    "The complete SYSINIT and IO.SYS builds are not validated.",
+    "MASM 5 encodes CMP AX,10 differently; the exact 64-byte match is with ML 6."
+  ]
+}

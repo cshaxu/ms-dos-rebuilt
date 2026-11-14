@@ -1,0 +1,39 @@
+{
+  "sources": {
+    "bios/msint13.asm": "262f9868eca810d46d25bcec0ee61d5f962f5f93c368e67ec81e59ec8ad9f37e",
+    "bios/sysconf.asm": "25a456b17421909a899bbaffcaad9b7d3291a973b767103c6083a89fcef357c0",
+    "bios/sysinit1.asm": "d9660e7217dd9ec7437e34c02d8f7893269f1f6a5c260a2eab250d1190f8887d"
+  },
+  "change": "Restore device information table allocation, header setup, recorded-device copy and BIOS callback pointer handoff; expose existing record count and BIOS callback field.",
+  "matched": [
+    {
+      "region": "endfile entry and BDS relocation",
+      "start": "0x363e",
+      "end_exclusive": "0x36d1",
+      "bytes": 147
+    },
+    {
+      "region": "device information table construction",
+      "start": "0x36d1",
+      "end_exclusive": "0x3774",
+      "bytes": 163
+    },
+    {
+      "region": "disk sector buffer movement",
+      "start": "0x3c06",
+      "end_exclusive": "0x3c4f",
+      "bytes": 73
+    }
+  ],
+  "verification": {
+    "tool": "extras/tools/verify_syspre_device_link.py",
+    "link_stage": "extras/build/syspre-object-link-7j7c_nbz",
+    "module_stage": "extras/build/ml-sysinit-4hhrghzg",
+    "scope": "Target regions match actual source-generated code; recorded device fields, allocator and sector movement use source providers. BIOS address 1FCCh is anchored; existing MSINT13 listing places win386_callback_table nine bytes before win386_info_flags, matching the target offset difference."
+  },
+  "limitations": [
+    "The reconstructed device table has not been exercised end to end.",
+    "BIOS field location and other diagnostic addresses or gaps remain synthetic.",
+    "Complete IO.SYS and all three core binaries remain unverified."
+  ]
+}

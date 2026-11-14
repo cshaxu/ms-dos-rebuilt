@@ -1,0 +1,15 @@
+{
+  "file": "bios/sysinit2.asm",
+  "file_index": 33,
+  "source_sha256": "6c1e0365c5ad104c3dd1ea3f8732000610cd0ea7fbd7036ca2ff4c0435c44bb5",
+  "target_data_range": "IO.SYS 0x6b6b..0x6b77",
+  "matched_bytes": 12,
+  "initialization_evidence": "SYSINIT offsets 0x1271..0x12b7 copy six bytes from message 23 into these variables and the DOS system tables",
+  "default_object_identical": true,
+  "dos7_assembly": "passed",
+  "limitations": [
+    "Startup writer and consumers have not been reconstructed and connected.",
+    "Names are descriptive; the original symbol names are unknown.",
+    "The isolated data match does not prove final executable placement."
+  ]
+}

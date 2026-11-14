@@ -1,0 +1,14 @@
+{
+  "file": "bios/sysinit1.asm",
+  "source_sha256": "4f805f1d419608bd7045626a1ec4547623bb64677e3fdbd71374c9bf9829b648",
+  "target_instruction": "IO.SYS 0x1163: mov CX,114ch",
+  "linked_symbol_address": "0000:114C",
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link_exit_code": 0,
+  "diagnostic_stub": "All four DOS relocation symbol placeholders removed; other placeholders remain.",
+  "limitations": [
+    "114ch is the observed target load segment constant; its relationship to the final reconstructed boot layout remains to be derived and validated.",
+    "The mixed link contains other older and stub objects and is not a production IO.SYS."
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "source_sha256": "e65a4f78336aaf6a8e7dd156fe6f1a0dd20d1eacb11c50c847ae92a0068749ee",
+  "listing_external_segment": "SYSINITSEG",
+  "definition": "bios/msbio1.asm SYSINITSEG DOS7_CONFIG",
+  "target_after_bdss": "0x5bdc",
+  "zero_bytes_after_bdss": 54,
+  "note": "Target bytes are consistent with bds_count followed by 26 zeroed dskdrvs words, but zeros alone do not prove symbol ownership. The DOS7 msinit code currently does not use dskdrvs; final link remains unverified."
+}

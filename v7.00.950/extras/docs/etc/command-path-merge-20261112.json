@@ -1,0 +1,42 @@
+{
+  "source": "cmd/command/tcmd2a.asm",
+  "target_range": "0xb53f..0xb5af",
+  "build": "extras/docs/etc/command-path-merge-v2-build-20261112.json",
+  "unit_probe": "extras\\build\\path-merge-unit-hgf2gsol",
+  "unit_result": "PASS with find_path and INT 2F/1213 conversion stubs",
+  "cases": [
+    "append old PATH when absent from new",
+    "case-insensitive duplicate suppression",
+    "old PATH missing",
+    "clear one-shot flag"
+  ],
+  "actual_int2f_probe": {
+    "stage": "extras\\build\\int2f1213-probe-q7p9bmfj",
+    "inputs": [
+      "0x0061",
+      "0x5a62"
+    ],
+    "returned_ax": [
+      "0x1213",
+      "0x1213"
+    ],
+    "interpretation": "DOSBox returned the function selector unchanged for both inputs; it did not provide the conversion expected by this original code path. Full Windows 95 DOS behavior remains unverified."
+  },
+  "regression_probe": "extras\\build\\path-merge-regress-2dgsq_qj",
+  "target_matching_outputs": [
+    "quote.txt",
+    "setpath.txt",
+    "echo.txt",
+    "dest.dat",
+    "copy.txt"
+  ],
+  "transient_end": "0xe97a",
+  "rounded_allocation_end": "0xfe88",
+  "limitations": "Linked operands and instruction blocks match modulo relocation; integration with actual INT 2F/1213 remains unverified.",
+  "latest_build": "extras/docs/etc/command-path-entry-aligned-build-20261112.json",
+  "latest_regression": "extras/build/path-entry-regress-mo_6rxn1",
+  "registered_target_ranges": [
+    "0xb53f..0xb5af",
+    "0xb5af..0xb618"
+  ]
+}

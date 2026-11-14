@@ -1,0 +1,24 @@
+{
+  "source_sha256": "f4e0d1489474840c88bfa48340a271cc0c9cfa04df8a58002d0de97959664cfd",
+  "listing_sha256": "ae251efe1d7dd6b2609728c7a061f22e061ac8a2c2c178a2a9b5caa686514f0c",
+  "routines": [
+    {
+      "name": "read_real_date",
+      "target_offset": "0x27b0",
+      "length": 186,
+      "masked_relocation_bytes": 46,
+      "matched_nonrelocated_bytes": 140,
+      "differences": []
+    },
+    {
+      "name": "read_real_time",
+      "target_offset": "0x286a",
+      "length": 66,
+      "masked_relocation_bytes": 24,
+      "matched_nonrelocated_bytes": 42,
+      "differences": []
+    }
+  ],
+  "limitations": "Diagnostic ML listing assembled only the two extracted procedures with external helper declarations; relocated addresses, helper implementations, production segment ownership and complete IO.SYS remain unverified.",
+  "source_note": "Listing predates a comment-only correction to the documented DOS 7 return location."
+}

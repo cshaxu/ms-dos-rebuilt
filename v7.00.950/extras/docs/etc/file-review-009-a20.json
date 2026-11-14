@@ -1,0 +1,24 @@
+{
+  "file_index": 9,
+  "source": "bios/msbio1.asm",
+  "source_sha256": "00d0a1a48981b83e7967ff4739997cea9a903b6fc5fad60da90d73f5d8eba0f5",
+  "target_io_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_file_offset": 2694,
+  "routine_length": 118,
+  "matching_bytes": 109,
+  "different_address_operand_positions": [
+    16,
+    17,
+    21,
+    22,
+    45,
+    87,
+    88,
+    115,
+    116
+  ],
+  "target_bytes": "2ef606080001742e5156571e062ec5367e042ec43e8204b90800fcf3a7071f5f5e597402f8c350b405532eff1e0e000bc074095b58f9c350b406ebed0bc0752db40fcd103c07740632e4b002cd10b40532c0cd102e8b367c010e1ffcac3c247409b40ebb0700cd10ebf2fbebfde890ff2eff1e6401cb",
+  "probe_bytes": "2ef606080001742e5156571e062ec536d2072ec43ed607b90800fcf3a7071f5f5e597402f8c350b405532eff1e0d000bc074095b58f9c350b406ebed0bc0752db40fcd103c07740632e4b002cd10b40532c0cd102e8b3670090e1ffcac3c247409b40ebb0700cd10ebf2fbebfde890ff2eff1e7209cb",
+  "validation": "Historical MASM assembly/link with temporary a20_message_ptr and a20_retry_vector data symbols. All opcode/control-flow bytes match; the nine differing bytes are address fields. A repeatable ML link with those two explicit test placeholders also verifies the four previously restored CONFIG routines. Default BIOS output is unchanged.",
+  "limitations": "A20 message pointer and callback remain external/unimplemented, and target conditional BIOS no longer links without those dependencies. Other legacy A20 callers, final address layout, runtime integration and complete IO.SYS remain unresolved. Diagnostic stubs are ignored build artifacts, not implementation."
+}

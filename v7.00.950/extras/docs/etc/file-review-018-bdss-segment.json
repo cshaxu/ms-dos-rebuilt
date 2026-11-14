@@ -1,0 +1,13 @@
+{
+  "source_sha256": "91b41d52577804d37ed2c0475caa88d0ba03fb4b6dae64e1da0625bb36058f34",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_sysinit_segment": "0x4e3",
+  "target_initial_bdss_offset": "0x4e8",
+  "target_bdss_file_offset": "0x5218",
+  "target_static_mapping": "file offset = (segment << 4) + offset - 0x100",
+  "target_entries_checked": 25,
+  "target_entry_size": 100,
+  "target_link_initial_value": "ffffffff",
+  "msinit_bdss_external_segment": "SYSINITSEG",
+  "limitations": "The frozen image mapping is independently inferred; full link and runtime placement remain unverified."
+}

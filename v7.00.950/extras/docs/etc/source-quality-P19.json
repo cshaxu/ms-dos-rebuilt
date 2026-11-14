@@ -1,0 +1,23 @@
+{
+  "part": "M5 T12 S1 P19",
+  "ordinal": 38,
+  "modified": 1,
+  "unchanged": 0,
+  "exact_dos6": 0,
+  "retired_by_merge": 0,
+  "reference": "Original DOS6 bios/msint13.asm; full selected module reviewed, including INT 2F Windows/HMA services and INT 13 DMA/ECC paths.",
+  "changes": "Resolve 43 DOS7_CONFIG selectors and discard inactive DOS6 alternatives. Remove orphan HMAPtr and deleted-variable headers. Return INT 2F and move_sector headers to their actual procedures after intervening data. Normalize PUBLIC indentation and correct far-buffer comments; move BYTE_SYSINIT below original header.",
+  "necessity": "Windows initialization tables and keyboard/video multiplex services extend the original INT 2F owner; they are not NT/BOP code. HMA allocation/free operations are distinct services sharing the existing block search. Extended-read ECC recovery consumes a disk address packet; original CHS recovery consumes register geometry, so both are required. Keep common move_sector/check_wrap/find_bds/doint helpers and avoid a second module or replacement implementation.",
+  "preserved": "Complete original common DMA/ECC handling, hardware workarounds, historical comments, raw cmp encodings, external/public interfaces, resident data layout, CPU directives and stack-return paths.",
+  "validation": {
+    "effectiveStatementsEqual": true,
+    "statementCount": 1092,
+    "selectedGuards": 43,
+    "removedLines": 271,
+    "rebuilt": false,
+    "reason": "All 1092 effective statements remain identical in order and literal values. No instruction/data/segment/link change.",
+    "binary_baseline": "P11 accepted BIOS/IO.SYS and T11 accepted COMMAND.COM/MSDOS.SYS remain applicable."
+  },
+  "next_ordinal": 39,
+  "remaining": 28
+}

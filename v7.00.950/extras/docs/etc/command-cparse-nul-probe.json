@@ -1,0 +1,10 @@
+{
+  "stage": "extras\\build\\cparse-nul-probe-pbbsxp0i",
+  "checks": [
+    "NUL and CR take end-of-input branch",
+    "ordinary character continues"
+  ],
+  "limitations": [
+    "Isolated decision block only; complete CPARSE and DIRCMD parsing are not exercised."
+  ]
+}

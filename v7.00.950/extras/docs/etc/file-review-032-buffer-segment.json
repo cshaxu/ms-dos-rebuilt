@@ -1,0 +1,32 @@
+{
+  "source": "bios/sysinit1.asm",
+  "sha256": "4950177a647e2f3740ae913783be1c39572fd17746ad96eb550996a84068c90b",
+  "change": "Use CS override for h_buffers when DS addresses the buffer information segment; export actual helper symbols for diagnostic linking.",
+  "matched": [
+    {
+      "region": "buffer initialization caller",
+      "start": "0x3881",
+      "end_exclusive": "0x38c9",
+      "bytes": 72
+    },
+    {
+      "region": "buffer initialization helpers",
+      "start": "0x3c4f",
+      "end_exclusive": "0x3d0e",
+      "bytes": 191
+    }
+  ],
+  "verification": {
+    "link": "extras/tools/verify_syspre_device_link.py",
+    "link_stage": "extras/build/syspre-object-link-cck1r5s7",
+    "module_stage": "extras/build/ml-sysinit-6zkt6ze2",
+    "runtime": "extras/tools/verify_boot_buffer_segment.py",
+    "runtime_stage": "extras/build/buffer-segment-runtime-5f6sn8j8",
+    "scope": "Actual source linked to diagnostic target positions; isolated execution tests CS count zero with a distinct DS holding nonzero data at the same offset."
+  },
+  "limitations": [
+    "HMA enabled allocation path was not exercised by the isolated probe.",
+    "Some external labels and target placement remain synthetic; complete SYSINIT link is not verified.",
+    "Complete IO.SYS and all three core binaries remain unverified."
+  ]
+}

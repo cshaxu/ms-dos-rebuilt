@@ -1,0 +1,24 @@
+{
+  "part": "M5 T12 S1 P31",
+  "ordinal": 50,
+  "modified": 1,
+  "unchanged": 0,
+  "exact_dos6": 0,
+  "retired_by_merge": 0,
+  "reference": "DOS6 bios/sysinit1.asm TempCDS, EndFile, ParaRound, INSTALL trampoline, buffer and stack initialization, Taiwan OEM services.",
+  "changes": "Remove orphan DOS/BIOS communication-block header and stale three-buffer policy. Replace displaced Set_Buffer header with actual buffer-queue contract, attach sector-buffer relocation comment to its procedure, correct GetBufferAddr7 title/remove unsupported NZ return claim, correct stale stack-size comments. Normalize project-added eight-space indentation to tabs; retain historical comments and original empty/locale branches.",
+  "necessity": "Current link order is sysinit1, si2front, si1tail. si2front emits configuration/menu/country code in the same segment, so direct absorption into sysinit1 changes target ordering. Keep this original-owner continuation rather than combine unrelated owners or introduce selector-based repeated assembly. Shared marked allocation and sector relocation already service all required consumers; no duplicate new algorithm.",
+  "validation": {
+    "effectiveStatementsEqual": true,
+    "statementCount": 1828,
+    "readbackVerified": true,
+    "originalParaRoundCanonicalEqual": true,
+    "originalTaiwanOemCanonicalEqual": true,
+    "originalEmptyConditionalsRetained": true,
+    "rebuilt": false,
+    "reason": "All directives, instructions, operands, literals and macro/IRP definitions/invocations unchanged.",
+    "binary_baseline": "Latest structural BIOS/full IO.SYS comparison P27; COMMAND.COM/MSDOS.SYS unchanged."
+  },
+  "next_ordinal": 51,
+  "remaining": 16
+}

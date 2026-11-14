@@ -1,0 +1,22 @@
+{
+  "source": "extras/research/directory-context/dir-search-trial.asm",
+  "source_sha256": "13a2d4aba64274887f79d7aa9aa09ffd336f06f76b8a76111352148794599b05",
+  "baseline_source_sha256": "89e596037f89ae5485daf29c2a782cb9512bd3845d5bcfb1f932cf9a5a9be890",
+  "object_sha256": "c7c589f35d2624a1a0823e8568ffc5fdc98bbcb0a1e8114dec5d2d1cf6530e09",
+  "listing_sha256": "fd7a1a903bf1bab5e9c3418784a00c331fcb82b659bef7c2b91fcd5322206df3",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_file_offset": "0x14e55",
+  "length": 217,
+  "masked_listing_relocation_bytes": 60,
+  "non_relocation_differences": [],
+  "observations": [
+    "The recovered Search includes separate paths to reset or preserve the long-name context.",
+    "Its return saves ENTLAST into the context and clears the count on carry.",
+    "All nonrelocated bytes of the 217-byte trial Search match the target."
+  ],
+  "limitations": [
+    "Relocation mask is derived from MASM listing E/R markers; final linked operand values are not yet verified.",
+    "The code is an isolated research copy and is not integrated into the formal source.",
+    "CaptureDir and DirSave1 are provisional descriptive symbols; complete dependencies and final kernel remain unverified."
+  ]
+}

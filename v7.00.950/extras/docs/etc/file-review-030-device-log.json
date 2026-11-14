@@ -1,0 +1,16 @@
+{
+  "file": "bios/sysconf.asm",
+  "file_index": 30,
+  "source_sha256": "bf6184d3cd09639fa5ae98b536144d73f2f15a95db9fd87265f2c54ad5e1f619",
+  "target_range": "IO.SYS 0xeaa2..0xec52",
+  "length": 432,
+  "different_bytes": 0,
+  "default_object_identical": true,
+  "dos7_assembly": "passed",
+  "diagnostic_link": "extras/build/query-integration-12ek9psn/query-link-configlog.log",
+  "limitations": [
+    "The isolated byte comparison fixes target addresses with ORG; original module ownership and final layout remain unverified.",
+    "The loading-message entry exists but its target caller has not yet been restored.",
+    "The diagnostic still lacks config_record_device and uses older objects and stubs."
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "file_index": 9,
+  "source": "bios/msbio1.asm",
+  "source_sha256": "01a549cc3d1e4035b0cd311d547097d2fd4c884ad577f366a8313f22e17a5c85",
+  "target_bios_code_offset": 3568,
+  "target_character_write_offsets": [
+    7371,
+    7387
+  ],
+  "target_disk_read_offset": 12078,
+  "diagnostic_symbol": [
+    445,
+    8505
+  ],
+  "diagnostic_stub_symbol": "start_sec_h",
+  "diagnostic_exact_region_count": 15,
+  "default_reference_output_sha256": "a67d8733509f9baf94017389cc1c991d5ef1c66bdfb91b6cab3eef0fc35e9490",
+  "limitations": "The diagnostic symbol is a stub. Existing 6.22 disk objects still assume the old data segment and must be reconstructed later for DOS7; target addresses and complete binaries remain unresolved."
+}

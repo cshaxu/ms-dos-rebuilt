@@ -1,0 +1,157 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\bios-sysconf-ml-p_z7twdz",
+  "configuration": "ML 6 /Zm SYSCONF, other modules unchanged",
+  "original_object_sha256": "3df78575f2fd763eabdeedc6e8992a09d5fc057bac1ba9bc122420193bbc6f04",
+  "ml_object_sha256": "74969bc8d9b34f5b6a7ca017eb9795faa1a5c70da26ca422a0da16d3bb48c416",
+  "original_bios_sha256": "647b0eac50ade2ddbb50c52b4e7250098e1fbd0d5bfabda9b38f158218993acb",
+  "ml_bios_sha256": "22c32270fd972b384f6220a2cbe122927a019dd6ead1fa02c18f7f23f909d279",
+  "original": {
+    "unique_32_byte_windows": 1568,
+    "top_offsets": [
+      [
+        "0x82c",
+        486
+      ],
+      [
+        "0x8a",
+        346
+      ],
+      [
+        "-0x3db8",
+        181
+      ],
+      [
+        "0x3630",
+        137
+      ],
+      [
+        "0x3523",
+        79
+      ],
+      [
+        "-0x339e",
+        41
+      ],
+      [
+        "0x3647",
+        40
+      ],
+      [
+        "0x3db",
+        22
+      ]
+    ]
+  },
+  "ml": {
+    "unique_32_byte_windows": 1592,
+    "top_offsets": [
+      [
+        "0x832",
+        486
+      ],
+      [
+        "0x90",
+        352
+      ],
+      [
+        "-0x3db2",
+        190
+      ],
+      [
+        "0x3637",
+        164
+      ],
+      [
+        "-0x3398",
+        44
+      ],
+      [
+        "0x364e",
+        39
+      ],
+      [
+        "0x3526",
+        31
+      ],
+      [
+        "0x3db",
+        22
+      ]
+    ]
+  },
+  "device_record_original": {
+    "linked_offset": "0xa03e",
+    "target_range": "0xd428..0xd504",
+    "length": 221,
+    "matching_bytes": 194,
+    "difference_offsets": [
+      "0xc",
+      "0xd",
+      "0xf",
+      "0x10",
+      "0x24",
+      "0x25",
+      "0x7e",
+      "0x7f",
+      "0x83",
+      "0x84",
+      "0x8c",
+      "0x8d",
+      "0x9a",
+      "0x9b",
+      "0x9f",
+      "0xa0",
+      "0xb0",
+      "0xb1",
+      "0xb4",
+      "0xb5",
+      "0xb7",
+      "0xc4",
+      "0xc5",
+      "0xcd",
+      "0xce",
+      "0xd2",
+      "0xd3"
+    ]
+  },
+  "device_record_ml": {
+    "linked_offset": "0xa037",
+    "target_range": "0xd428..0xd504",
+    "length": 221,
+    "matching_bytes": 194,
+    "difference_offsets": [
+      "0xc",
+      "0xd",
+      "0xf",
+      "0x10",
+      "0x24",
+      "0x25",
+      "0x7e",
+      "0x7f",
+      "0x83",
+      "0x84",
+      "0x8c",
+      "0x8d",
+      "0x9a",
+      "0x9b",
+      "0x9f",
+      "0xa0",
+      "0xb0",
+      "0xb1",
+      "0xb4",
+      "0xb5",
+      "0xb7",
+      "0xc4",
+      "0xc5",
+      "0xcd",
+      "0xce",
+      "0xd2",
+      "0xd3"
+    ]
+  },
+  "limitations": [
+    "Exploratory matching windows include the whole SYSINIT segment and may overlap.",
+    "Addresses, actual layout and relocation effects are not normalized.",
+    "Target IO.SYS and the remaining core components are not verified."
+  ]
+}

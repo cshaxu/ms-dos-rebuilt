@@ -1,0 +1,17 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "sysinit_file_base": 19760,
+  "table_file_offset": 62230,
+  "table_relative_word": 4024,
+  "message_base_file_offset": 62234,
+  "message_file_offset": 66258,
+  "message_length_with_nul": 144,
+  "message_sha256": "14466f89dc761cfeaf736431d0565600f9435dd6d4aca2210f6a8ba34da2c071",
+  "copy_routine_file_offset": 34481,
+  "copy_routine_hex": "b91b0233f633fffcf3a450beeaa50336e6a5acaa0ac075fa",
+  "copied_handler_length": 539,
+  "handler_output_loop_file_offset": 20278,
+  "handler_output_loop_hex": "0e1fbe1b02ac0ac07408b307b40ecd10ebf3f4ebfd",
+  "finding": "Initialization copies 021Bh bytes of handler to a new segment, appends the indexed NUL-terminated stack message, and the handler reads from CS:021Bh until NUL.",
+  "limitations": "Static target code/data correlation only; original source arrangement and complete runtime integration remain unverified."
+}

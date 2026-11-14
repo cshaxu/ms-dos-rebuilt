@@ -1,0 +1,44 @@
+{
+  "task": "M5 T11 S1",
+  "status": "component-build-verified",
+  "stage": "extras/build/native-command/cmd/command",
+  "source_layout": "cmd/command; inc; lang/usa/messages",
+  "tools": "Microsoft C 6.00 BUILDMSG; DOS BUILDIDX, NMAKE, MASM, LINK; native C msgindex and cmdimage",
+  "output": "command.com",
+  "bytes": 92870,
+  "linked_code_offset": 16720,
+  "target": "extras/baselines/targets/COMMAND.COM",
+  "byte_equal": true,
+  "production_dos_batches_verified": ["extras/tools/dosbuild/command.bat", "extras/tools/dosbuild/cmdres.bat"],
+  "buildmsg_recompiled_from_maintained_c_source": true,
+  "comparison": "fc /b: no differences encountered",
+  "runtime_source_slicing": false,
+  "post_build_target_patch": false,
+  "full_three_core_build_verified": false,
+  "file_dispositions": {
+    "reused_unchanged": [
+      "cmd/command/command1.asm", "cmd/command/command2.asm",
+      "cmd/command/rucode.asm", "cmd/command/stub.asm", "cmd/command/rdata.asm",
+      "cmd/command/init.asm", "cmd/command/iparse.asm", "cmd/command/uinit.asm",
+      "cmd/command/tcode.asm", "cmd/command/tbatch.asm", "cmd/command/tbatch2.asm",
+      "cmd/command/tfor.asm", "cmd/command/dir.asm", "cmd/command/cratio.asm",
+      "cmd/command/tcmd1b.asm", "cmd/command/tcmd2a.asm", "cmd/command/tcmd2b.asm",
+      "cmd/command/tenv.asm", "cmd/command/tenv2.asm", "cmd/command/tmisc1.asm",
+      "cmd/command/tmisc2.asm", "cmd/command/tpipe.asm", "cmd/command/parse2.asm",
+      "cmd/command/path1.asm", "cmd/command/path2.asm", "cmd/command/tucode.asm",
+      "cmd/command/copy.asm", "cmd/command/copypr1.asm", "cmd/command/copypr2.asm",
+      "cmd/command/cparse.asm", "cmd/command/tparse.asm", "cmd/command/loadhi.asm",
+      "cmd/command/tprintf.asm", "cmd/command/tdata.asm", "cmd/command/tspc.asm"
+    ],
+    "modified": ["cmd/command/buildmsg.c", "lang/usa/messages/comrmsg.inc"],
+    "added": [
+      "cmd/command/iniclass.asm", "cmd/command/resclass.asm", "cmd/command/makefile",
+      "extras/tools/cmdimage.c", "extras/tools/dosbuild/command.bat", "extras/tools/dosbuild/cmdres.bat"
+    ],
+    "reused_count": 35,
+    "modified_count": 2,
+    "added_count": 6,
+    "comparison_baseline": "Pre-migration maintained DOS 7 source, not original DOS 6 source"
+  },
+  "remaining": "Integrate CMD host entry; configuration/CRT migration; fresh three-core acceptance; retire forbidden scripts and caches"
+}

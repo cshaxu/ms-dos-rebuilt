@@ -1,0 +1,34 @@
+{
+  "source": "bios/sysconf.asm",
+  "sha256": "96fb7e585327050a639fca089f51c6dcde81e715f3ff9a556a660937c2fb4cc4",
+  "change": "Use the same explicit CMP AL,AH encoding style already used by MSBIO1 to reproduce the target QEMM comparison.",
+  "matched": [
+    {
+      "region": "QEMM name and prescan",
+      "start": "0x8a25",
+      "end_exclusive": "0x8a64",
+      "bytes": 63
+    },
+    {
+      "region": "CONFIG multi-pass dispatch",
+      "start": "0x69b9",
+      "end_exclusive": "0x6a85",
+      "bytes": 204
+    },
+    {
+      "region": "first-pass DOS/SWITCHES/LOGO",
+      "start": "0x6bdd",
+      "end_exclusive": "0x6ca8",
+      "bytes": 203
+    }
+  ],
+  "verification": {
+    "tool": "extras/tools/verify_syspre_device_link.py",
+    "link_stage": "extras/build/syspre-object-link-z_raz5ud",
+    "module_stage": "extras/build/ml-sysinit-7v2ud7gs",
+    "scope": "Actual prescan, multi-pass and first-pass providers are linked; other command entry locations and unrelated layout remain anchored."
+  },
+  "limitations": [
+    "Runtime, complete product link and three final binaries remain unverified."
+  ]
+}

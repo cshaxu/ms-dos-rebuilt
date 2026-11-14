@@ -1,0 +1,15 @@
+{
+  "source_sha256": "bcf5ea4ea63649192c1a0ee924357e4057ac58e61598ab2ebb0ac40ddc1775f6",
+  "listing_sha256": "6a793a9654cf96c4c74f894d6538e07f2c8124edc8f3808c97208180df82aed3",
+  "routines": [
+    {
+      "name": "call_bios_code",
+      "target_offset": "0xe42",
+      "length": 23,
+      "masked_relocation_bytes": 8,
+      "matched_nonrelocated_bytes": 15,
+      "differences": []
+    }
+  ],
+  "limitations": "Eight address bytes and BIOS code segment initial value require production link; complete IO.SYS not verified."
+}

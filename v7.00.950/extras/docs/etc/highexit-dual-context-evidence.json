@@ -1,0 +1,39 @@
+{
+  "file": "inc/highexit.inc",
+  "source_sha256": "e1df06058140691c7e5fdcc0da2d536d56368aa2331737a15e10ad06c17d7ddc",
+  "command_context": {
+    "target_offset": "0x437a",
+    "length": 214,
+    "object_fixup_count": 10,
+    "non_fixup_byte_mismatches": 0,
+    "assembler": "MASM 5.NT.02"
+  },
+  "bios_context": {
+    "target_offset": "0xcca2",
+    "length": 207,
+    "object_fixup_count": 9,
+    "non_fixup_mismatch_offsets": [
+      "0xb0",
+      "0xb1"
+    ],
+    "reference_instruction": "3dffff",
+    "target_instruction": "83f8ff",
+    "assembler": "MASM 5.NT.02"
+  },
+  "assembler_probe": {
+    "stage": "extras/build/highexit-cmp-ml-kn_mq62t",
+    "masm6_original_source_instruction": "83f8ff",
+    "masm6_minus_one_instruction": "83f8ff",
+    "masm5_original_and_minus_one_instruction": "3dffff",
+    "interpretation": "Toolchain selection can explain the BIOS comparison encoding without changing the historical source."
+  },
+  "full_bios_ml_attempt": {
+    "stage": "extras/build/highexit-sysconf-ml-g1dkjulg",
+    "status": "failed",
+    "reason": "Existing DOSMAC macros are rejected by ML 6 in this unadapted full sysconf build; full-context MASM 6 parity remains unverified."
+  },
+  "limitations": [
+    "Full BIOS compilation using the candidate MASM 6 toolchain failed; other instructions may encode differently.",
+    "Object fixup fields are not final linked addresses and complete target IO.SYS/COMMAND.COM equivalence is not established."
+  ]
+}

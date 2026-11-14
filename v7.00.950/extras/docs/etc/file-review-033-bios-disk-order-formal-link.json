@@ -1,0 +1,48 @@
+{
+  "kind": "isolated mixed link; not a production BIOS or IO.SYS build",
+  "stage": "extras/build/bios-bootlog-formal-link",
+  "formal_sources": {
+    "bios/msdisk.asm": "e1f13f89a82991ee86bb7f6ff6852f19369e5bc7bc3db166fed7a4a9e5f06ebc",
+    "bios/msbio2.asm": "0d6eefe026e1b4255b7856847deff70aecf20f28135676a5708a312b0534ef9e"
+  },
+  "source_ownership": {
+    "dsk_init": "bios/msdisk.asm under DOS7_CONFIG",
+    "nul_vid": "bios/msbio2.asm under DOS7_CONFIG",
+    "tmp_vid": "bios/msbio2.asm under DOS7_CONFIG"
+  },
+  "assembly": {
+    "msdisk": {
+      "result": "PASS",
+      "object_sha256": "422ea6a1dc79194313e691b6f7853d9c2a9e8d24e83489bd1cb6d48c5c64837f",
+      "compatibility_input": "The isolated stage uses the pre-existing reduced ML dosmac probe; no project include was changed."
+    },
+    "msbio2": {
+      "result": "PASS",
+      "object_sha256": "62892a659ddd2132e47142a09ec116a0e80f0e812d814f9ca161ca0915f2559e"
+    }
+  },
+  "link": {
+    "result": "PASS",
+    "output": "msbio.exe",
+    "output_bytes": 57351,
+    "output_sha256": "5ae9f69d0bca765de6e59ef3b069b82be933250e4c12b4ed0c3e3207a70a2bdc",
+    "response_excludes": [
+      "clockent",
+      "m2stub",
+      "c7stub",
+      "initstub",
+      "multunit"
+    ],
+    "map_symbols": {
+      "dsk_init": "0189:10AB",
+      "nul_vid": "0189:2A4A",
+      "tmp_vid": "0189:2A56"
+    }
+  },
+  "basis": "The formal edits are the same DOS7_CONFIG ownership and placement changes established in bios-disk-order-trial.json. That trial showed the two local routines and 24 buffer bytes match the target outside marked relocations, while preserving byte-identical DOS6 objects.",
+  "limitations": [
+    "The link includes generated msbio1/SYSINIT split inputs and a20stub, so it is not a clean production build.",
+    "The reduced ML macro environment is a compiler compatibility probe, not a pristine historical-toolchain build.",
+    "No final IO.SYS layout, relocation, or whole-file byte equality is claimed."
+  ]
+}

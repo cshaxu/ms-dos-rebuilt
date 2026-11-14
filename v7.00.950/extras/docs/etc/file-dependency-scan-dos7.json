@@ -1,0 +1,5603 @@
+{
+  "kind": "DOS7_CONFIG conditional lexical scan, not a completed dependency graph",
+  "limitations": [
+    "Assembly conditionals and macro-generated dependencies are not evaluated.",
+    "Only explicit INCLUDE and EXTRN/PUBLIC are parsed; implicit, build, resource and binary-layout dependencies are missing.",
+    "Candidate leaves and cycles require verification; unknown and ambiguous items cannot be treated as satisfied."
+  ],
+  "file_count": 220,
+  "candidate_leaves": [
+    "bios/apmequ.inc",
+    "bios/biosseg.inc",
+    "bios/biostruc.inc",
+    "bios/config.inc",
+    "bios/devmark.inc",
+    "bios/msdskpr.inc",
+    "bios/msend.asm",
+    "bios/msequ.inc",
+    "bios/msload.asm",
+    "bios/rom8k.inc",
+    "cmd/command/buildmsg.c",
+    "cmd/command/comseg.asm",
+    "cmd/command/envdata.asm",
+    "cmd/command/resmsg.equ",
+    "dos/mpatch.asm",
+    "inc/bpb.inc",
+    "inc/copyrigh.inc",
+    "inc/cpmfcb.inc",
+    "inc/cputype.inc",
+    "inc/dbcs.sw",
+    "inc/devsym.inc",
+    "inc/dirent.inc",
+    "inc/doscntry.inc",
+    "inc/dosseg.inc",
+    "inc/dpl.asm",
+    "inc/ds_vers.inc",
+    "inc/ea.inc",
+    "inc/fastopen.inc",
+    "inc/fastxxxx.inc",
+    "inc/highvar.inc",
+    "inc/lock.inc",
+    "inc/magicdrv.inc",
+    "inc/oemconf.inc",
+    "inc/rombios.inc",
+    "inc/smifssym.inc",
+    "inc/syscall.inc",
+    "inc/sysvar.inc",
+    "inc/umb.inc",
+    "inc/version.inc",
+    "inc/versiona.inc",
+    "inc/win386.inc",
+    "inc/wpatch.inc",
+    "inc/xmm.inc"
+  ],
+  "cycles": [
+    [
+      "inc/dosmac.inc",
+      "inc/dossym.inc"
+    ],
+    [
+      "cmd/command/comequ.asm",
+      "cmd/command/command.skl",
+      "cmd/command/command1.asm",
+      "cmd/command/command2.asm",
+      "cmd/command/copy.asm",
+      "cmd/command/copypr1.asm",
+      "cmd/command/copypr2.asm",
+      "cmd/command/cratio.asm",
+      "cmd/command/dir.asm",
+      "cmd/command/fordata.asm",
+      "cmd/command/init.asm",
+      "cmd/command/loadhi.asm",
+      "cmd/command/rdata.asm",
+      "cmd/command/rucode.asm",
+      "cmd/command/stub.asm",
+      "cmd/command/tbatch2.asm",
+      "cmd/command/tcmd1b.asm",
+      "cmd/command/tcmd2a.asm",
+      "cmd/command/tcmd2b.asm",
+      "cmd/command/tcode.asm",
+      "cmd/command/tdata.asm",
+      "cmd/command/tenv.asm",
+      "cmd/command/tenv2.asm",
+      "cmd/command/tfor.asm",
+      "cmd/command/tmisc1.asm",
+      "cmd/command/tmisc2.asm",
+      "cmd/command/tpipe.asm",
+      "cmd/command/tprintf.asm",
+      "cmd/command/tranmsg.asm",
+      "cmd/command/tspc.asm",
+      "cmd/command/tucode.asm",
+      "cmd/command/uinit.asm",
+      "inc/msgdcl.inc",
+      "inc/msgserv.asm",
+      "inc/sysmsg.inc",
+      "lang/usa/messages/comrmsg.inc",
+      "lang/usa/messages/usa-ms-command.msg"
+    ],
+    [
+      "bios/romdinit.asm",
+      "bios/romdrive.asm"
+    ],
+    [
+      "bios/msbio1.asm",
+      "bios/msbio2.asm",
+      "bios/mschar.asm",
+      "bios/msdioctl.asm",
+      "bios/msdisk.asm",
+      "bios/msinit.asm",
+      "bios/msint13.asm",
+      "bios/power.asm",
+      "bios/ptime.asm",
+      "bios/sysconf.asm",
+      "bios/sysinit1.asm",
+      "bios/sysinit2.asm",
+      "bios/syspre.asm",
+      "dos/alloc.asm",
+      "dos/crit.asm",
+      "dos/dostab.asm",
+      "dos/exepatch.asm",
+      "dos/file.asm",
+      "dos/handle.asm",
+      "dos/misc2.asm",
+      "dos/mscode.asm",
+      "dos/msconst.asm",
+      "dos/msdisp.asm",
+      "dos/msdos.skl",
+      "dos/msproc.asm",
+      "dos/mstable.asm",
+      "inc/bugtyp.inc",
+      "inc/const2.asm",
+      "inc/lmstub.asm",
+      "inc/ms_data.asm",
+      "lang/usa/messages/usa-ms-dos.msg"
+    ]
+  ],
+  "files": {
+    "bios/apmequ.inc": {
+      "sha256": "6ea83b5c2ad1a1bc2f95d9a1b2f84762cb305f589cd06b2c6a9bf37e1aa23258",
+      "conditional_filter_fallback": false,
+      "dependencies": [],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "bios/biosseg.inc": {
+      "sha256": "d81bdc2ca6e1638c581e21afb6d4aaa59e5ba65fc02bb15df2d9c22208e5d335",
+      "conditional_filter_fallback": false,
+      "dependencies": [],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "bios/biostruc.inc": {
+      "sha256": "df66a5bce6e1d8f3fa5101cdf5a4901ea060a3aa8f919e1a9a92b347c135b7f1",
+      "conditional_filter_fallback": false,
+      "dependencies": [],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "bios/config.inc": {
+      "sha256": "c5df5eae47f4cff75bbf315cfa01b8d5f356c10ffccfe792da301ecf23969efa",
+      "conditional_filter_fallback": false,
+      "dependencies": [],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "bios/devmark.inc": {
+      "sha256": "d6f3dfbcb520b51e6a3b1d0a4bb5b7a2aa5fa268eca22dda1f23f8347f4c7c22",
+      "conditional_filter_fallback": false,
+      "dependencies": [],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "bios/inc.asm": {
+      "sha256": "e6c87373edd2407dce762f47b09b187572fc77c0071f81f19da74a3954307b20",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "bios/biostruc.inc",
+        "bios/devmark.inc",
+        "bios/msdskpr.inc",
+        "bios/msequ.inc",
+        "bios/msgroup.inc",
+        "inc/arena.inc",
+        "inc/bootform.inc",
+        "inc/bpb.inc",
+        "inc/copyrigh.inc",
+        "inc/cpmfcb.inc",
+        "inc/cputype.inc",
+        "inc/curdir.inc",
+        "inc/devsym.inc",
+        "inc/doscntry.inc",
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/dpb.inc",
+        "inc/ea.inc",
+        "inc/exe.inc",
+        "inc/filemode.inc",
+        "inc/find.inc",
+        "inc/intnat.inc",
+        "inc/ioctl.inc",
+        "inc/mi.inc",
+        "inc/msbds.inc",
+        "inc/mult.inc",
+        "inc/pdb.inc",
+        "inc/sf.inc",
+        "inc/smifssym.inc",
+        "inc/syscall.inc",
+        "inc/sysvar.inc",
+        "inc/vector.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [
+        {
+          "kind": "include_order",
+          "name": "BOOTFORM preceding BPB warning",
+          "evidence": "bios/inc.asm:18-19; inc/bootform.inc:13",
+          "detail": "Listing source includes BOOTFORM before BPB despite BOOTFORM warning. Determine indirect includes and whether this listing-only module affects target before processing."
+        }
+      ],
+      "ambiguous": []
+    },
+    "bios/msbio.lnk": {
+      "sha256": "0f6159cd77ca1f8d62040c44192a42c2ccddf376ee63ad17e97bcf3c8031df9f",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "bios/msbio1.asm",
+        "bios/msbio2.asm",
+        "bios/mschar.asm",
+        "bios/msdioctl.asm",
+        "bios/msdisk.asm",
+        "bios/msend.asm",
+        "bios/msinit.asm",
+        "bios/msint13.asm",
+        "bios/power.asm",
+        "bios/ptime.asm",
+        "bios/sysconf.asm",
+        "bios/sysimes.asm",
+        "bios/sysinit1.asm",
+        "bios/sysinit2.asm",
+        "bios/syspre.asm"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "bios/msbio.skl": {
+      "sha256": "6a0b44c877ad3e7edc3c3e324bcbf3afa50d44f08abc7809dff80ec4deea35d0",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "lang/usa/messages/usa-ms-dos.msg"
+      ],
+      "unknown": [
+        {
+          "kind": "build_tool",
+          "name": "message generator and exact input mapping",
+          "evidence": "bios/msbio.skl",
+          "detail": "Skeleton :use directives reference message resources; determine generator and input provenance for DOS 7."
+        }
+      ],
+      "ambiguous": []
+    },
+    "bios/msbio1.asm": {
+      "sha256": "9b7c6ce81e2239472e4a253fb724ceb89eae1ae6ec1f1fc2d1982235b8c18b9c",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "bios/biosseg.inc",
+        "bios/mschar.asm",
+        "bios/msdisk.asm",
+        "bios/msequ.inc",
+        "bios/msinit.asm",
+        "bios/msint13.asm",
+        "bios/power.asm",
+        "bios/ptime.asm",
+        "bios/romdrive.asm",
+        "bios/sysinit1.asm",
+        "inc/bootform.inc",
+        "inc/bpb.inc",
+        "inc/devsym.inc",
+        "inc/msbds.inc",
+        "inc/oemconf.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [
+        {
+          "kind": "symbol",
+          "name": "auxnum"
+        },
+        {
+          "kind": "symbol",
+          "name": "bios_data_segment"
+        },
+        {
+          "kind": "symbol",
+          "name": "bios_msg_1"
+        },
+        {
+          "kind": "symbol",
+          "name": "bios_msg_2"
+        },
+        {
+          "kind": "symbol",
+          "name": "bios_msg_3"
+        },
+        {
+          "kind": "symbol",
+          "name": "bios_msg_base"
+        },
+        {
+          "kind": "symbol",
+          "name": "exec_bios_word"
+        },
+        {
+          "kind": "symbol",
+          "name": "exec_boot_state"
+        },
+        {
+          "kind": "symbol",
+          "name": "exec_windows_path"
+        },
+        {
+          "kind": "symbol",
+          "name": "move_myself"
+        },
+        {
+          "kind": "symbol",
+          "name": "printdev"
+        },
+        {
+          "kind": "symbol",
+          "name": "start_sec_h"
+        },
+        {
+          "kind": "symbol",
+          "name": "sysinit_seg"
+        },
+        {
+          "kind": "symbol",
+          "name": "ttticks"
+        }
+      ],
+      "ambiguous": [
+        {
+          "kind": "symbol",
+          "name": "tim_table",
+          "candidates": [
+            "bios/mschar.asm",
+            "bios/power.asm"
+          ]
+        }
+      ]
+    },
+    "bios/msbio2.asm": {
+      "sha256": "b965a3fce58870a840d411d701ba788f1f512e3935b4046b2e5b874fb307c66e",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "bios/biosseg.inc",
+        "bios/msbio1.asm",
+        "bios/mschar.asm",
+        "bios/msdisk.asm",
+        "bios/msequ.inc",
+        "bios/msgroup.inc",
+        "bios/power.asm",
+        "dos/dostab.asm",
+        "inc/bootform.inc",
+        "inc/bpb.inc",
+        "inc/msbds.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [
+        {
+          "kind": "include",
+          "name": "msbio.cl2"
+        },
+        {
+          "kind": "symbol",
+          "name": "bios_msg_base"
+        },
+        {
+          "kind": "symbol",
+          "name": "bios_swap_msg_first"
+        },
+        {
+          "kind": "symbol",
+          "name": "bios_swap_msg_second"
+        },
+        {
+          "kind": "symbol",
+          "name": "config_init_segment"
+        },
+        {
+          "kind": "symbol",
+          "name": "eot"
+        },
+        {
+          "kind": "symbol",
+          "name": "feb29"
+        },
+        {
+          "kind": "symbol",
+          "name": "fhave96"
+        },
+        {
+          "kind": "symbol",
+          "name": "medbyt"
+        },
+        {
+          "kind": "symbol",
+          "name": "nul_vid"
+        },
+        {
+          "kind": "symbol",
+          "name": "tim_drv"
+        },
+        {
+          "kind": "symbol",
+          "name": "tmp_vid"
+        },
+        {
+          "kind": "symbol",
+          "name": "v86_crit_setfocus"
+        }
+      ],
+      "ambiguous": [
+        {
+          "kind": "symbol",
+          "name": "daycnt2",
+          "candidates": [
+            "bios/msbio1.asm",
+            "bios/power.asm"
+          ]
+        }
+      ]
+    },
+    "bios/mschar.asm": {
+      "sha256": "64b5915fcaa891abd2bf2105c25b3d1e7399831ae9e99570dafab54e2d89b164",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "bios/biosseg.inc",
+        "bios/msbio1.asm",
+        "bios/msequ.inc",
+        "bios/msgroup.inc",
+        "bios/power.asm",
+        "bios/ptime.asm",
+        "inc/bpb.inc",
+        "inc/devsym.inc",
+        "inc/error.inc",
+        "inc/ioctl.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [
+        {
+          "kind": "symbol",
+          "name": "auxbuf"
+        },
+        {
+          "kind": "symbol",
+          "name": "auxnum"
+        },
+        {
+          "kind": "symbol",
+          "name": "bin_to_bcd_near"
+        },
+        {
+          "kind": "symbol",
+          "name": "bintobcd"
+        },
+        {
+          "kind": "symbol",
+          "name": "daycnt_to_day_near"
+        },
+        {
+          "kind": "symbol",
+          "name": "daycnttoday"
+        },
+        {
+          "kind": "symbol",
+          "name": "havecmosclock"
+        },
+        {
+          "kind": "symbol",
+          "name": "printdev"
+        },
+        {
+          "kind": "symbol",
+          "name": "t_switch"
+        },
+        {
+          "kind": "symbol",
+          "name": "ttticks"
+        },
+        {
+          "kind": "symbol",
+          "name": "wait_count"
+        }
+      ],
+      "ambiguous": [
+        {
+          "kind": "symbol",
+          "name": "altah",
+          "candidates": [
+            "bios/msbio1.asm",
+            "inc/msbdata.inc"
+          ]
+        },
+        {
+          "kind": "symbol",
+          "name": "daycnt",
+          "candidates": [
+            "bios/msbio1.asm",
+            "bios/power.asm"
+          ]
+        }
+      ]
+    },
+    "bios/msdioctl.asm": {
+      "sha256": "bb448bff64d4d9b10cc46191b143bc992a5135dc7b072bc955618e3c7e1722c4",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "bios/biosseg.inc",
+        "bios/msbio1.asm",
+        "bios/msbio2.asm",
+        "bios/msdisk.asm",
+        "bios/msdskpr.inc",
+        "bios/msequ.inc",
+        "bios/msgroup.inc",
+        "inc/bootform.inc",
+        "inc/bpb.inc",
+        "inc/devsym.inc",
+        "inc/ioctl.inc",
+        "inc/msbds.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [
+        {
+          "kind": "symbol",
+          "name": "curhd"
+        },
+        {
+          "kind": "symbol",
+          "name": "cursec"
+        },
+        {
+          "kind": "symbol",
+          "name": "curtrk"
+        },
+        {
+          "kind": "symbol",
+          "name": "disksector"
+        },
+        {
+          "kind": "symbol",
+          "name": "dpt"
+        },
+        {
+          "kind": "symbol",
+          "name": "eot"
+        },
+        {
+          "kind": "symbol",
+          "name": "fhave96"
+        },
+        {
+          "kind": "symbol",
+          "name": "formt_eot"
+        },
+        {
+          "kind": "symbol",
+          "name": "fsetowner"
+        },
+        {
+          "kind": "symbol",
+          "name": "gap_patch"
+        },
+        {
+          "kind": "symbol",
+          "name": "had_format_error"
+        },
+        {
+          "kind": "symbol",
+          "name": "hdnum"
+        },
+        {
+          "kind": "symbol",
+          "name": "media_set_for_format"
+        },
+        {
+          "kind": "symbol",
+          "name": "mediatype"
+        },
+        {
+          "kind": "symbol",
+          "name": "multitrk_format_flag"
+        },
+        {
+          "kind": "symbol",
+          "name": "multrk_flag"
+        },
+        {
+          "kind": "symbol",
+          "name": "rflag"
+        },
+        {
+          "kind": "symbol",
+          "name": "seccnt"
+        },
+        {
+          "kind": "symbol",
+          "name": "sectorspertrack"
+        },
+        {
+          "kind": "symbol",
+          "name": "spsav"
+        },
+        {
+          "kind": "symbol",
+          "name": "start_sec_h"
+        },
+        {
+          "kind": "symbol",
+          "name": "step_drv"
+        },
+        {
+          "kind": "symbol",
+          "name": "tempdpt"
+        },
+        {
+          "kind": "symbol",
+          "name": "tim_drv"
+        },
+        {
+          "kind": "symbol",
+          "name": "trknum"
+        },
+        {
+          "kind": "symbol",
+          "name": "xfer_seg"
+        },
+        {
+          "kind": "symbol",
+          "name": "zeroseg"
+        }
+      ],
+      "ambiguous": []
+    },
+    "bios/msdisk.asm": {
+      "sha256": "fef5800dda18a7201f9ade44143f9df3245e10f29f611b62110f0df802904c3c",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "bios/biosseg.inc",
+        "bios/msbio1.asm",
+        "bios/msbio2.asm",
+        "bios/mschar.asm",
+        "bios/msdioctl.asm",
+        "bios/msdskpr.inc",
+        "bios/msequ.inc",
+        "bios/msgroup.inc",
+        "inc/bootform.inc",
+        "inc/bpb.inc",
+        "inc/dossym.inc",
+        "inc/msbds.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [
+        {
+          "kind": "symbol",
+          "name": "accesscount"
+        },
+        {
+          "kind": "symbol",
+          "name": "auxnum"
+        },
+        {
+          "kind": "symbol",
+          "name": "curhd"
+        },
+        {
+          "kind": "symbol",
+          "name": "cursec"
+        },
+        {
+          "kind": "symbol",
+          "name": "curtrk"
+        },
+        {
+          "kind": "symbol",
+          "name": "disksector"
+        },
+        {
+          "kind": "symbol",
+          "name": "dpt"
+        },
+        {
+          "kind": "symbol",
+          "name": "ec35_flag"
+        },
+        {
+          "kind": "symbol",
+          "name": "eot"
+        },
+        {
+          "kind": "symbol",
+          "name": "errin"
+        },
+        {
+          "kind": "symbol",
+          "name": "errout"
+        },
+        {
+          "kind": "symbol",
+          "name": "fat_12_id"
+        },
+        {
+          "kind": "symbol",
+          "name": "fat_16_id"
+        },
+        {
+          "kind": "symbol",
+          "name": "fhave96"
+        },
+        {
+          "kind": "symbol",
+          "name": "fsetowner"
+        },
+        {
+          "kind": "symbol",
+          "name": "lsterr"
+        },
+        {
+          "kind": "symbol",
+          "name": "medbyt"
+        },
+        {
+          "kind": "symbol",
+          "name": "media_set_for_format"
+        },
+        {
+          "kind": "symbol",
+          "name": "motorstartup"
+        },
+        {
+          "kind": "symbol",
+          "name": "multitrk_format_flag"
+        },
+        {
+          "kind": "symbol",
+          "name": "multrk_flag"
+        },
+        {
+          "kind": "symbol",
+          "name": "number_of_sec"
+        },
+        {
+          "kind": "symbol",
+          "name": "prevoper"
+        },
+        {
+          "kind": "symbol",
+          "name": "rflag"
+        },
+        {
+          "kind": "symbol",
+          "name": "save_eot"
+        },
+        {
+          "kind": "symbol",
+          "name": "save_head_sttl"
+        },
+        {
+          "kind": "symbol",
+          "name": "saved_word"
+        },
+        {
+          "kind": "symbol",
+          "name": "seccnt"
+        },
+        {
+          "kind": "symbol",
+          "name": "set_id_flag"
+        },
+        {
+          "kind": "symbol",
+          "name": "settlecurrent"
+        },
+        {
+          "kind": "symbol",
+          "name": "settleslow"
+        },
+        {
+          "kind": "symbol",
+          "name": "single"
+        },
+        {
+          "kind": "symbol",
+          "name": "sm92"
+        },
+        {
+          "kind": "symbol",
+          "name": "soft_ecc_cnt"
+        },
+        {
+          "kind": "symbol",
+          "name": "spsav"
+        },
+        {
+          "kind": "symbol",
+          "name": "start_sec_h"
+        },
+        {
+          "kind": "symbol",
+          "name": "step_drv"
+        },
+        {
+          "kind": "symbol",
+          "name": "temp_h"
+        },
+        {
+          "kind": "symbol",
+          "name": "tim_drv"
+        },
+        {
+          "kind": "symbol",
+          "name": "vol_no_name"
+        },
+        {
+          "kind": "symbol",
+          "name": "vretry_cnt"
+        },
+        {
+          "kind": "symbol",
+          "name": "wrtverify"
+        },
+        {
+          "kind": "symbol",
+          "name": "xfer_seg"
+        },
+        {
+          "kind": "symbol",
+          "name": "zeroseg"
+        }
+      ],
+      "ambiguous": [
+        {
+          "kind": "symbol",
+          "name": "daycnt",
+          "candidates": [
+            "bios/msbio1.asm",
+            "bios/power.asm"
+          ]
+        }
+      ]
+    },
+    "bios/msdskpr.inc": {
+      "sha256": "e8dd92dced3a3c098cddefa5ca73804cae9dac8cd0870d6ba51ef10b7c1ebd59",
+      "conditional_filter_fallback": false,
+      "dependencies": [],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "bios/msend.asm": {
+      "sha256": "ceb3f2072658c8dc153e2274c42b75d8578426ebe84078779209ba62bce00e34",
+      "conditional_filter_fallback": false,
+      "dependencies": [],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "bios/msequ.inc": {
+      "sha256": "ce05581d636a79dbb1429fae1375adecd83afee6881bc22527df054aece8ec8b",
+      "conditional_filter_fallback": false,
+      "dependencies": [],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "bios/msgroup.inc": {
+      "sha256": "e3784b1333bf98e632ce3ee94b41dc7ffa7b8da3ed6c7e27b8eaf0f2dee8fe34",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "bios/biosseg.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "bios/msinit.asm": {
+      "sha256": "26116628dbec0c96e2611c0a33f4c2efc11917cd58928274a03a82e80f2fe9fa",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "bios/biosseg.inc",
+        "bios/biostruc.inc",
+        "bios/msbio1.asm",
+        "bios/msbio2.asm",
+        "bios/mschar.asm",
+        "bios/msdisk.asm",
+        "bios/msdskpr.inc",
+        "bios/msequ.inc",
+        "bios/msgroup.inc",
+        "bios/power.asm",
+        "bios/sysimes.asm",
+        "bios/sysinit1.asm",
+        "inc/bootform.inc",
+        "inc/bpb.inc",
+        "inc/dosmac.inc",
+        "inc/dossym.inc",
+        "inc/msbds.inc",
+        "inc/mult.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [
+        {
+          "kind": "include",
+          "name": "msbio.cl8"
+        },
+        {
+          "kind": "symbol",
+          "name": "bintobcd"
+        },
+        {
+          "kind": "symbol",
+          "name": "bios_a20_msg"
+        },
+        {
+          "kind": "symbol",
+          "name": "bios_cpu_msg"
+        },
+        {
+          "kind": "symbol",
+          "name": "bios_data_segment"
+        },
+        {
+          "kind": "symbol",
+          "name": "bios_msg_base"
+        },
+        {
+          "kind": "symbol",
+          "name": "boot_copy_buffer"
+        },
+        {
+          "kind": "symbol",
+          "name": "boot_data_high"
+        },
+        {
+          "kind": "symbol",
+          "name": "boot_data_low"
+        },
+        {
+          "kind": "symbol",
+          "name": "boot_load_segment"
+        },
+        {
+          "kind": "symbol",
+          "name": "boot_reloc_segment"
+        },
+        {
+          "kind": "symbol",
+          "name": "daycnttoday"
+        },
+        {
+          "kind": "symbol",
+          "name": "disksector"
+        },
+        {
+          "kind": "symbol",
+          "name": "eot"
+        },
+        {
+          "kind": "symbol",
+          "name": "errin"
+        },
+        {
+          "kind": "symbol",
+          "name": "errout"
+        },
+        {
+          "kind": "symbol",
+          "name": "fat_12_id"
+        },
+        {
+          "kind": "symbol",
+          "name": "fat_16_id"
+        },
+        {
+          "kind": "symbol",
+          "name": "feb29"
+        },
+        {
+          "kind": "symbol",
+          "name": "fhave96"
+        },
+        {
+          "kind": "symbol",
+          "name": "fhavek09"
+        },
+        {
+          "kind": "symbol",
+          "name": "havecmosclock"
+        },
+        {
+          "kind": "symbol",
+          "name": "int6c_ret_addr"
+        },
+        {
+          "kind": "symbol",
+          "name": "motorstartup"
+        },
+        {
+          "kind": "symbol",
+          "name": "no_floppy_report"
+        },
+        {
+          "kind": "symbol",
+          "name": "rpl_memory_size"
+        },
+        {
+          "kind": "symbol",
+          "name": "single"
+        },
+        {
+          "kind": "symbol",
+          "name": "start_sec_h"
+        },
+        {
+          "kind": "symbol",
+          "name": "sys_model_byte"
+        },
+        {
+          "kind": "symbol",
+          "name": "sys_scnd_model_byte"
+        },
+        {
+          "kind": "symbol",
+          "name": "sysinit_bios_paras"
+        },
+        {
+          "kind": "symbol",
+          "name": "sysinit_bios_start"
+        },
+        {
+          "kind": "symbol",
+          "name": "sysinit_reserve_count"
+        },
+        {
+          "kind": "symbol",
+          "name": "sysinit_reserve_size"
+        },
+        {
+          "kind": "symbol",
+          "name": "temp_h"
+        },
+        {
+          "kind": "symbol",
+          "name": "ttticks"
+        },
+        {
+          "kind": "symbol",
+          "name": "vol_no_name"
+        }
+      ],
+      "ambiguous": [
+        {
+          "kind": "symbol",
+          "name": "bios_res",
+          "candidates": [
+            "bios/msbio1.asm",
+            "inc/msbdata.inc"
+          ]
+        },
+        {
+          "kind": "symbol",
+          "name": "bootflags",
+          "candidates": [
+            "bios/msbio1.asm",
+            "inc/msbdata.inc"
+          ]
+        },
+        {
+          "kind": "symbol",
+          "name": "daycnt",
+          "candidates": [
+            "bios/msbio1.asm",
+            "bios/power.asm"
+          ]
+        },
+        {
+          "kind": "symbol",
+          "name": "daycnt2",
+          "candidates": [
+            "bios/msbio1.asm",
+            "bios/power.asm"
+          ]
+        },
+        {
+          "kind": "symbol",
+          "name": "dosdatasg",
+          "candidates": [
+            "bios/msbio1.asm",
+            "inc/msbdata.inc"
+          ]
+        }
+      ]
+    },
+    "bios/msint13.asm": {
+      "sha256": "9b4b6c5d937aa4782ddc2fe4982492f4aea3223f3b6177a8f247912d66dd0ffc",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "bios/biosseg.inc",
+        "bios/biostruc.inc",
+        "bios/msbio1.asm",
+        "bios/msbio2.asm",
+        "bios/msequ.inc",
+        "bios/msgroup.inc",
+        "dos/dostab.asm",
+        "inc/bpb.inc",
+        "inc/msbds.inc",
+        "inc/version.inc",
+        "inc/win386.inc"
+      ],
+      "unknown": [
+        {
+          "kind": "symbol",
+          "name": "disksector"
+        },
+        {
+          "kind": "symbol",
+          "name": "fhave96"
+        },
+        {
+          "kind": "symbol",
+          "name": "freehmaptr"
+        },
+        {
+          "kind": "symbol",
+          "name": "media_set_for_format"
+        },
+        {
+          "kind": "symbol",
+          "name": "movedosintohma"
+        },
+        {
+          "kind": "symbol",
+          "name": "mult_call16"
+        },
+        {
+          "kind": "symbol",
+          "name": "mult_call17"
+        },
+        {
+          "kind": "symbol",
+          "name": "mult_call18"
+        },
+        {
+          "kind": "symbol",
+          "name": "mult_call21"
+        },
+        {
+          "kind": "symbol",
+          "name": "si_next"
+        },
+        {
+          "kind": "symbol",
+          "name": "sysinitpresent"
+        },
+        {
+          "kind": "symbol",
+          "name": "win386_si"
+        }
+      ],
+      "ambiguous": []
+    },
+    "bios/msload.asm": {
+      "sha256": "23f61732695925da5444b6765c45a9bcb357792d85944b98fe6efc50c9a6d247",
+      "conditional_filter_fallback": false,
+      "dependencies": [],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "bios/power.asm": {
+      "sha256": "d3090363616ba41069834f7796b7f719c8c40ee82c1ec48ecfb5ee3aa373f95d",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "bios/apmequ.inc",
+        "bios/biosseg.inc",
+        "bios/devmark.inc",
+        "bios/msbio1.asm",
+        "bios/msequ.inc",
+        "bios/msgroup.inc",
+        "bios/power.inc",
+        "bios/ptime.asm",
+        "inc/bpb.inc",
+        "inc/devsym.inc",
+        "inc/error.inc",
+        "inc/ioctl.inc",
+        "inc/mult.inc",
+        "inc/syscall.inc",
+        "inc/umb.inc",
+        "inc/version.inc",
+        "inc/win386.inc"
+      ],
+      "unknown": [
+        {
+          "kind": "include",
+          "name": "msbio.cl9"
+        },
+        {
+          "kind": "symbol",
+          "name": "baddosmsg"
+        },
+        {
+          "kind": "symbol",
+          "name": "parsecmdline"
+        },
+        {
+          "kind": "symbol",
+          "name": "pw_debug"
+        },
+        {
+          "kind": "symbol",
+          "name": "pw_low"
+        },
+        {
+          "kind": "symbol",
+          "name": "pw_mode"
+        },
+        {
+          "kind": "symbol",
+          "name": "pw_savings_value"
+        },
+        {
+          "kind": "symbol",
+          "name": "ttticks"
+        }
+      ],
+      "ambiguous": [
+        {
+          "kind": "symbol",
+          "name": "bios_res",
+          "candidates": [
+            "bios/msbio1.asm",
+            "inc/msbdata.inc"
+          ]
+        },
+        {
+          "kind": "symbol",
+          "name": "daycnt",
+          "candidates": [
+            "bios/msbio1.asm",
+            "bios/power.asm"
+          ]
+        },
+        {
+          "kind": "symbol",
+          "name": "daycnt2",
+          "candidates": [
+            "bios/msbio1.asm",
+            "bios/power.asm"
+          ]
+        }
+      ]
+    },
+    "bios/power.inc": {
+      "sha256": "7ba90c01066279b1dd7540226449e47b5d10cf0ecbf28ca06bbfb4100ec74f93",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/mult.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "bios/ptime.asm": {
+      "sha256": "dc40f17b2330fd64ce85d9b4d2a35c8f0d716790762a99f3ed64089652e255ee",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "bios/apmequ.inc",
+        "bios/biosseg.inc",
+        "bios/msbio1.asm",
+        "bios/msequ.inc",
+        "bios/msgroup.inc",
+        "bios/power.asm",
+        "bios/power.inc",
+        "inc/bpb.inc",
+        "inc/devsym.inc",
+        "inc/error.inc",
+        "inc/ioctl.inc",
+        "inc/mult.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [
+        {
+          "kind": "symbol",
+          "name": "bintobcd"
+        },
+        {
+          "kind": "symbol",
+          "name": "ttticks"
+        }
+      ],
+      "ambiguous": [
+        {
+          "kind": "symbol",
+          "name": "bios_res",
+          "candidates": [
+            "bios/msbio1.asm",
+            "inc/msbdata.inc"
+          ]
+        },
+        {
+          "kind": "symbol",
+          "name": "daycnt",
+          "candidates": [
+            "bios/msbio1.asm",
+            "bios/power.asm"
+          ]
+        },
+        {
+          "kind": "symbol",
+          "name": "daycnt2",
+          "candidates": [
+            "bios/msbio1.asm",
+            "bios/power.asm"
+          ]
+        }
+      ]
+    },
+    "bios/rom8k.inc": {
+      "sha256": "a59c6fd2ce8ef9e9499300946e4885d2b0bccbea278b987e57b822dc94061ecd",
+      "conditional_filter_fallback": false,
+      "dependencies": [],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "bios/romdinit.asm": {
+      "sha256": "15045b982405f4f1b30cdfce760751ae306d4dc2211671a87d5f96c249e7fe38",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "bios/biosseg.inc",
+        "bios/msgroup.inc",
+        "bios/romdrive.asm",
+        "inc/version.inc"
+      ],
+      "unknown": [
+        {
+          "kind": "symbol",
+          "name": "badvermes"
+        },
+        {
+          "kind": "symbol",
+          "name": "dos_drv"
+        },
+        {
+          "kind": "symbol",
+          "name": "headermes"
+        }
+      ],
+      "ambiguous": [
+        {
+          "kind": "symbol",
+          "name": "xfer_from_rom",
+          "candidates": [
+            "bios/romrd.asm",
+            "bios/romrdhi.asm",
+            "bios/romrdlo.asm"
+          ]
+        }
+      ]
+    },
+    "bios/romdrive.asm": {
+      "sha256": "7900155468a5aa13a7fe24b401e0ffc9774a2446fb62663179620b74e43a1f62",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "bios/biosseg.inc",
+        "bios/msgroup.inc",
+        "bios/romdinit.asm",
+        "inc/devsym.inc"
+      ],
+      "unknown": [],
+      "ambiguous": [
+        {
+          "kind": "symbol",
+          "name": "xfer_from_rom",
+          "candidates": [
+            "bios/romrd.asm",
+            "bios/romrdhi.asm",
+            "bios/romrdlo.asm"
+          ]
+        }
+      ]
+    },
+    "bios/romrd.asm": {
+      "sha256": "6873dba81f979c322dbaea758090c2765b3f84e00ee4772053d255f895456426",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "bios/biosseg.inc",
+        "bios/msgroup.inc",
+        "bios/rom8k.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "bios/romrdhi.asm": {
+      "sha256": "437bc818effd18711fb2550c72cc6678cc8cfcbd1217fabfe994e032e09f38d6",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "bios/biosseg.inc",
+        "bios/msgroup.inc",
+        "bios/rom8k.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "bios/romrdlo.asm": {
+      "sha256": "6c69f056db340a22dee6aaecfa1a5714420b7ef3a6073ea799a2e3342581b413",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "bios/biosseg.inc",
+        "bios/msgroup.inc",
+        "bios/rom8k.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "bios/sysconf.asm": {
+      "sha256": "b4c11362a7e7e51fe70c287f3eb518d17651f918e905af3f73ab70f7d3602d68",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "bios/biosseg.inc",
+        "bios/config.inc",
+        "bios/devmark.inc",
+        "bios/msbio1.asm",
+        "bios/sysimes.asm",
+        "bios/sysinit1.asm",
+        "bios/sysinit2.asm",
+        "inc/devsym.inc",
+        "inc/doscntry.inc",
+        "inc/dossym.inc",
+        "inc/dpb.inc",
+        "inc/highexit.inc",
+        "inc/highload.inc",
+        "inc/highvar.inc",
+        "inc/magicdrv.inc",
+        "inc/pdb.inc",
+        "inc/syscall.inc",
+        "inc/sysvar.inc",
+        "inc/umb.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [
+        {
+          "kind": "symbol",
+          "name": "config_device_segment"
+        },
+        {
+          "kind": "symbol",
+          "name": "config_record_device"
+        },
+        {
+          "kind": "symbol",
+          "name": "config_refresh_path"
+        },
+        {
+          "kind": "symbol",
+          "name": "multrk_flag"
+        },
+        {
+          "kind": "symbol",
+          "name": "pararound"
+        },
+        {
+          "kind": "symbol",
+          "name": "t_switch"
+        }
+      ],
+      "ambiguous": [
+        {
+          "kind": "include",
+          "name": "parse.asm",
+          "candidates": [
+            "dos/parse.asm",
+            "inc/parse.asm"
+          ]
+        },
+        {
+          "kind": "symbol",
+          "name": "delim",
+          "candidates": [
+            "bios/sysinit2.asm",
+            "cmd/command/tenv2.asm"
+          ]
+        },
+        {
+          "kind": "symbol",
+          "name": "parseline",
+          "candidates": [
+            "bios/sysinit2.asm",
+            "cmd/command/parse2.asm"
+          ]
+        },
+        {
+          "kind": "symbol",
+          "name": "testkanj",
+          "candidates": [
+            "bios/sysinit2.asm",
+            "cmd/command/tenv.asm"
+          ]
+        }
+      ]
+    },
+    "bios/sysimes.asm": {
+      "sha256": "f81889db61617ea4610405cac043074344e111c5b24132ff4d497fcf13468059",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "bios/biosseg.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [
+        {
+          "kind": "include",
+          "name": "msbio.cl3"
+        }
+      ],
+      "ambiguous": []
+    },
+    "bios/sysinit1.asm": {
+      "sha256": "36e9b2ce7f749899cabd7777ce4e14b4d55c0d8d2b4b10d69648cbc55d5c6fe4",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "bios/biosseg.inc",
+        "bios/biostruc.inc",
+        "bios/devmark.inc",
+        "bios/msbio1.asm",
+        "bios/msend.asm",
+        "bios/power.asm",
+        "bios/sysconf.asm",
+        "bios/sysimes.asm",
+        "bios/sysinit2.asm",
+        "bios/syspre.asm",
+        "dos/dostab.asm",
+        "inc/arena.inc",
+        "inc/bpb.inc",
+        "inc/cputype.inc",
+        "inc/curdir.inc",
+        "inc/devsym.inc",
+        "inc/dosmac.inc",
+        "inc/dossym.inc",
+        "inc/dpb.inc",
+        "inc/exe.inc",
+        "inc/ioctl.inc",
+        "inc/mult.inc",
+        "inc/oemconf.inc",
+        "inc/pdb.inc",
+        "inc/sf.inc",
+        "inc/syscall.inc",
+        "inc/sysvar.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [
+        {
+          "kind": "include",
+          "name": "msbio.cl5"
+        },
+        {
+          "kind": "include",
+          "name": "msbio.cl6"
+        },
+        {
+          "kind": "include",
+          "name": "msbio.cl4"
+        },
+        {
+          "kind": "include",
+          "name": "msbio.cl7"
+        },
+        {
+          "kind": "symbol",
+          "name": "cdosinit"
+        },
+        {
+          "kind": "symbol",
+          "name": "freehmaptr"
+        },
+        {
+          "kind": "symbol",
+          "name": "inhma"
+        },
+        {
+          "kind": "symbol",
+          "name": "int19sem"
+        },
+        {
+          "kind": "symbol",
+          "name": "it_stackloc"
+        },
+        {
+          "kind": "symbol",
+          "name": "it_stacksize"
+        },
+        {
+          "kind": "symbol",
+          "name": "movedosintohma"
+        },
+        {
+          "kind": "symbol",
+          "name": "multrk_flag"
+        },
+        {
+          "kind": "symbol",
+          "name": "nextstack"
+        },
+        {
+          "kind": "symbol",
+          "name": "re_init"
+        },
+        {
+          "kind": "symbol",
+          "name": "seg_reinit"
+        },
+        {
+          "kind": "symbol",
+          "name": "sysinitpresent"
+        },
+        {
+          "kind": "symbol",
+          "name": "v86_crit_setfocus"
+        }
+      ],
+      "ambiguous": [
+        {
+          "kind": "symbol",
+          "name": "bootflags",
+          "candidates": [
+            "bios/msbio1.asm",
+            "inc/msbdata.inc"
+          ]
+        },
+        {
+          "kind": "symbol",
+          "name": "dos_res",
+          "candidates": [
+            "bios/msbio1.asm",
+            "inc/msbdata.inc"
+          ]
+        },
+        {
+          "kind": "symbol",
+          "name": "pathstring",
+          "candidates": [
+            "bios/sysinit2.asm",
+            "cmd/command/uinit.asm"
+          ]
+        }
+      ]
+    },
+    "bios/sysinit2.asm": {
+      "sha256": "274cec6ff8215f741efea160487b0285026540b01eeb70c7f667d5c9bd05ed1d",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "bios/biosseg.inc",
+        "bios/config.inc",
+        "bios/devmark.inc",
+        "bios/sysconf.asm",
+        "bios/sysimes.asm",
+        "bios/sysinit1.asm",
+        "inc/bpb.inc",
+        "inc/copyrigh.inc",
+        "inc/devsym.inc",
+        "inc/doscntry.inc",
+        "inc/ioctl.inc",
+        "inc/rombios.inc",
+        "inc/syscall.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [
+        {
+          "kind": "symbol",
+          "name": "ec35_flag"
+        },
+        {
+          "kind": "symbol",
+          "name": "eot"
+        },
+        {
+          "kind": "symbol",
+          "name": "pararound"
+        }
+      ],
+      "ambiguous": []
+    },
+    "bios/syspre.asm": {
+      "sha256": "65e7a17f4525b13a87e4d3a50e770d491fbc44b4f22043f5ef3b3a96dc93ce17",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "bios/biosseg.inc",
+        "bios/devmark.inc",
+        "bios/sysconf.asm",
+        "bios/sysimes.asm",
+        "bios/sysinit1.asm",
+        "bios/sysinit2.asm",
+        "inc/curdir.inc",
+        "inc/devsym.inc",
+        "inc/dpb.inc",
+        "inc/ds_vers.inc",
+        "inc/magicdrv.inc",
+        "inc/syscall.inc",
+        "inc/sysvar.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [
+        {
+          "kind": "symbol",
+          "name": "cdosinit"
+        },
+        {
+          "kind": "symbol",
+          "name": "re_init"
+        }
+      ],
+      "ambiguous": []
+    },
+    "dos/abort.asm": {
+      "sha256": "13462864fcadc38f3fd0a910aab6abac0a68257d6fdb9e0ed77258fa9254c995",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/devsym.inc",
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/mult.inc",
+        "inc/pdb.inc",
+        "inc/sf.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "dos/alloc.asm": {
+      "sha256": "98c929ded7a515871ecf464ec96bbfda483b3ea4295c739ce1afcbd78ffdb450",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "dos/crit.asm",
+        "dos/mscode.asm",
+        "dos/msconst.asm",
+        "dos/msdisp.asm",
+        "inc/arena.inc",
+        "inc/const2.asm",
+        "inc/devsym.inc",
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [
+        {
+          "kind": "link_context",
+          "name": "external symbol provider build context and completeness",
+          "evidence": "extras/docs/etc/alloc-omf-dependencies.json",
+          "detail": "Object references all 17 symbols; confirm actual link providers and target configuration before completing audit."
+        }
+      ],
+      "ambiguous": []
+    },
+    "dos/buf.asm": {
+      "sha256": "b162899aabcec71289e34b82326457544fd0e794fd20ee97a2f063ce1542ba21",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/devsym.inc",
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/dpb.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "dos/close.asm": {
+      "sha256": "b9bcb41f70577e9bf407eabfbca3f974cc0c428b93a7574b54be27581821b46b",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/bugtyp.inc",
+        "inc/devsym.inc",
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/mult.inc",
+        "inc/sf.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "dos/cpmio.asm": {
+      "sha256": "451b22d70c1cc590390c4f997a26ab9c7d5facbc132905684acfc59c6baaa24f",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "dos/cpmio2.asm",
+        "dos/dosmes.inc",
+        "dos/kstrin.asm",
+        "inc/devsym.inc",
+        "inc/doscntry.inc",
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/sf.inc",
+        "inc/vector.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [
+        {
+          "kind": "symbol",
+          "name": "get_io_sft"
+        },
+        {
+          "kind": "symbol",
+          "name": "iofunc"
+        }
+      ],
+      "ambiguous": []
+    },
+    "dos/cpmio2.asm": {
+      "sha256": "d2a5a4ef5121bb9a8928c83d54499e3e239d182939a062b5a0f02fa7d234265f",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/devsym.inc",
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/sf.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "dos/create.asm": {
+      "sha256": "4a76a4fb11682cd81daca1dd2af9afe79fcf21db428a3e19d32af51ea902e9bb",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/curdir.inc",
+        "inc/devsym.inc",
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/filemode.inc",
+        "inc/mult.inc",
+        "inc/sf.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "dos/crit.asm": {
+      "sha256": "8f95042897a5d39cc514fa965f79e7f3538a213703ed98fb45d0d4cb7a9e3af1",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "dos/dostab.asm",
+        "inc/bugtyp.inc",
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/int2a.inc",
+        "inc/vector.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [
+        {
+          "kind": "link_context",
+          "name": "actual REDIR_PATCH provider and DOS7 configuration",
+          "evidence": "extras/build/crit-context-0vc2uorx/crit.obj; dos/dostab.asm:432-433",
+          "detail": "The candidate definition must be verified within its owning build module and target configuration."
+        }
+      ],
+      "ambiguous": []
+    },
+    "dos/delete.asm": {
+      "sha256": "5fe514092accffa110a13a4f05dd2104664cfad87479f21bb57ea411d1cf1d77",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/devsym.inc",
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/dpb.inc",
+        "inc/fastopen.inc",
+        "inc/fastxxxx.inc",
+        "inc/filemode.inc",
+        "inc/mult.inc",
+        "inc/sf.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "dos/dev.asm": {
+      "sha256": "1fdd4f63b181b3575c649caf13ddc29b0d79c6ddc45a60957971a22a678f21a1",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/devsym.inc",
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/dpb.inc",
+        "inc/sf.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "dos/dinfo.asm": {
+      "sha256": "3bc73774ddcecfc61214336f65449da0331edfd9513c5752100fcfd6fd481c51",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/bugtyp.inc",
+        "inc/devsym.inc",
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/dpb.inc",
+        "inc/mult.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "dos/dir.asm": {
+      "sha256": "89e596037f89ae5485daf29c2a782cb9512bd3845d5bcfb1f932cf9a5a9be890",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/dpb.inc",
+        "inc/fastopen.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "dos/dir2.asm": {
+      "sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/curdir.inc",
+        "inc/devsym.inc",
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/dpb.inc",
+        "inc/fastopen.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "dos/dircall.asm": {
+      "sha256": "769049ce7d690ab8be44205a66cf4d8c900048ef7ec230655599e2b8a5e47a19",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/curdir.inc",
+        "inc/devsym.inc",
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/dpb.inc",
+        "inc/fastopen.inc",
+        "inc/fastxxxx.inc",
+        "inc/mult.inc",
+        "inc/sf.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "dos/disk.asm": {
+      "sha256": "d4a7a2cbda59cc693754529806c4e6b7fcbde376a42e647eacefecef87cd9cca",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/devsym.inc",
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/dpb.inc",
+        "inc/fastxxxx.inc",
+        "inc/filemode.inc",
+        "inc/mult.inc",
+        "inc/sf.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [
+        {
+          "kind": "symbol",
+          "name": "charhard"
+        },
+        {
+          "kind": "symbol",
+          "name": "deviocall"
+        },
+        {
+          "kind": "symbol",
+          "name": "deviocall2"
+        },
+        {
+          "kind": "symbol",
+          "name": "outt"
+        },
+        {
+          "kind": "symbol",
+          "name": "setup"
+        }
+      ],
+      "ambiguous": []
+    },
+    "dos/disk2.asm": {
+      "sha256": "0876bb2c21d9232c3de57ee681c39b028003c09eeb58db36f6f2d9bda4527cb8",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/devsym.inc",
+        "inc/dosmac.inc",
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/dpb.inc",
+        "inc/filemode.inc",
+        "inc/sf.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [
+        {
+          "kind": "symbol",
+          "name": "getcurhead"
+        },
+        {
+          "kind": "symbol",
+          "name": "scanplace"
+        }
+      ],
+      "ambiguous": []
+    },
+    "dos/disk3.asm": {
+      "sha256": "9576ede44a7a1ff86d46cd8ed02749d783a48ff2d39b703a26d007139f821fdd",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/devsym.inc",
+        "inc/dosmac.inc",
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/dpb.inc",
+        "inc/sf.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "dos/divmes.inc": {
+      "sha256": "7c97a1fd07befd5d0861306e0573369d33caf84ea3190bdbae65889b7e816192",
+      "conditional_filter_fallback": false,
+      "dependencies": [],
+      "unknown": [
+        {
+          "kind": "include",
+          "name": "msdos.cl1"
+        },
+        {
+          "kind": "include",
+          "name": "msdos.cl4"
+        }
+      ],
+      "ambiguous": []
+    },
+    "dos/dosmes.inc": {
+      "sha256": "c5f7b697c97a672d659b143c50d48fc78fa16adc739a160b955ff51c2859188c",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "dos/divmes.inc",
+        "dos/kstrin.asm",
+        "inc/doscntry.inc",
+        "inc/dosmac.inc",
+        "inc/dossym.inc",
+        "inc/yesno.asm"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "dos/dosprint.asm": {
+      "sha256": "96412d605a3e19ccfaa9a4fdd57a8949eca7fce3950cf81bc4e3c6bf491b05ba",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/devsym.inc",
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "dos/dostab.asm": {
+      "sha256": "6b9c684c2096e5e1c1b2c8e94a3a41d9fba7fe85289f8d0ce6e03ac2dd9f397d",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "dos/misc2.asm",
+        "inc/dosmac.inc"
+      ],
+      "unknown": [
+        {
+          "kind": "symbol",
+          "name": "fastret"
+        },
+        {
+          "kind": "include_context",
+          "name": "DOSDATA preceding definitions and other implicit symbols",
+          "evidence": "dos/msdata.asm:13-43; dos/dostab.asm:440-503",
+          "detail": "This included fragment depends on caller segment and other data; full dependency and target context remain unverified."
+        }
+      ],
+      "ambiguous": []
+    },
+    "dos/dup.asm": {
+      "sha256": "e12500722670edd6faa184679039b09225c9f6756c2a2fc644dfabb5e2536b09",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/devsym.inc",
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/sf.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "dos/exepatch.asm": {
+      "sha256": "ab3b9501d4ef3401a360692c5a4c59c24d19c6590231173c6cabba59d723d99a",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "dos/mpatch.asm",
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/exe.inc",
+        "inc/lmstub.asm",
+        "inc/pdb.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [
+        {
+          "kind": "symbol",
+          "name": "a20off_count"
+        },
+        {
+          "kind": "symbol",
+          "name": "a20off_psp"
+        },
+        {
+          "kind": "symbol",
+          "name": "dos_flag"
+        },
+        {
+          "kind": "symbol",
+          "name": "scan_execname1"
+        },
+        {
+          "kind": "symbol",
+          "name": "scan_special_entries"
+        },
+        {
+          "kind": "symbol",
+          "name": "special_version"
+        },
+        {
+          "kind": "symbol",
+          "name": "unpack_offset"
+        }
+      ],
+      "ambiguous": []
+    },
+    "dos/fat.asm": {
+      "sha256": "69b434ab7d945e6de0fbfe9e6a657de2d622a54f92661d4117721a5be15f385f",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/curdir.inc",
+        "inc/devsym.inc",
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/dpb.inc",
+        "inc/sf.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [
+        {
+          "kind": "symbol",
+          "name": "getcurhead"
+        },
+        {
+          "kind": "symbol",
+          "name": "scanplace"
+        }
+      ],
+      "ambiguous": []
+    },
+    "dos/fcb.asm": {
+      "sha256": "dd7c6d6b85d08585be900b91f329821a81c6ee9b5f1cb71268382af4fb39a01c",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/devsym.inc",
+        "inc/doscntry.inc",
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "dos/fcbio.asm": {
+      "sha256": "826fb2b0c8bfb9d2da36c8722270d68bd62a0c205699941f0a66471ee0720608",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/bugtyp.inc",
+        "inc/cpmfcb.inc",
+        "inc/devsym.inc",
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/dpb.inc",
+        "inc/filemode.inc",
+        "inc/mult.inc",
+        "inc/sf.inc",
+        "inc/syscall.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [
+        {
+          "kind": "symbol",
+          "name": "checkshare"
+        },
+        {
+          "kind": "symbol",
+          "name": "getextended"
+        },
+        {
+          "kind": "symbol",
+          "name": "transfcb"
+        },
+        {
+          "kind": "symbol",
+          "name": "ucase"
+        }
+      ],
+      "ambiguous": [
+        {
+          "kind": "symbol",
+          "name": "testkanj",
+          "candidates": [
+            "bios/sysinit2.asm",
+            "cmd/command/tenv.asm"
+          ]
+        }
+      ]
+    },
+    "dos/fcbio2.asm": {
+      "sha256": "2faabcea11b9476c1e6108db7eef581c9e1c46793313b2c358343dca31912293",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/bugtyp.inc",
+        "inc/cpmfcb.inc",
+        "inc/devsym.inc",
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/filemode.inc",
+        "inc/sf.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [
+        {
+          "kind": "symbol",
+          "name": "dos_create"
+        },
+        {
+          "kind": "symbol",
+          "name": "dos_open"
+        },
+        {
+          "kind": "symbol",
+          "name": "dos_read"
+        },
+        {
+          "kind": "symbol",
+          "name": "dos_write"
+        }
+      ],
+      "ambiguous": []
+    },
+    "dos/file.asm": {
+      "sha256": "28f25db8a2d344b22f3e6cf9618b5f85458c16b497978a2862283dbe721c7c77",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/bugtyp.inc",
+        "inc/devsym.inc",
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/filemode.inc",
+        "inc/sf.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [
+        {
+          "kind": "symbol",
+          "name": "dos_create"
+        },
+        {
+          "kind": "symbol",
+          "name": "dos_create_new"
+        },
+        {
+          "kind": "symbol",
+          "name": "dos_open"
+        },
+        {
+          "kind": "symbol",
+          "name": "set_ext_mode"
+        },
+        {
+          "kind": "symbol",
+          "name": "sfnfree"
+        }
+      ],
+      "ambiguous": []
+    },
+    "dos/finfo.asm": {
+      "sha256": "58ba5d206fe7c20eea409db6ac39ebcf2e59db19b5fc691f942b3ca90ec02c39",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/devsym.inc",
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/fastopen.inc",
+        "inc/fastxxxx.inc",
+        "inc/mult.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "dos/getset.asm": {
+      "sha256": "b26b12fcd432ca80055e4aec8f222942ab05625b7b9621f232ae8f20464783d7",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "cmd/command/tspc.asm",
+        "dos/dostab.asm",
+        "dos/mstable.asm",
+        "inc/const2.asm",
+        "inc/devsym.inc",
+        "inc/doscntry.inc",
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/lmstub.asm",
+        "inc/mult.inc",
+        "inc/pdb.inc",
+        "inc/version.inc",
+        "inc/yesno.asm"
+      ],
+      "unknown": [
+        {
+          "kind": "symbol",
+          "name": "a20off_count"
+        },
+        {
+          "kind": "symbol",
+          "name": "cdscount"
+        },
+        {
+          "kind": "symbol",
+          "name": "chswitch"
+        },
+        {
+          "kind": "symbol",
+          "name": "cntcflag"
+        },
+        {
+          "kind": "symbol",
+          "name": "currentpdb"
+        },
+        {
+          "kind": "symbol",
+          "name": "dmaadd"
+        },
+        {
+          "kind": "symbol",
+          "name": "dos_flag"
+        },
+        {
+          "kind": "symbol",
+          "name": "exterr"
+        },
+        {
+          "kind": "symbol",
+          "name": "exterr_action"
+        },
+        {
+          "kind": "symbol",
+          "name": "exterr_class"
+        },
+        {
+          "kind": "symbol",
+          "name": "exterr_locus"
+        },
+        {
+          "kind": "symbol",
+          "name": "exterrpt"
+        },
+        {
+          "kind": "symbol",
+          "name": "fake_count"
+        },
+        {
+          "kind": "symbol",
+          "name": "get_user_stack"
+        },
+        {
+          "kind": "symbol",
+          "name": "special_version"
+        },
+        {
+          "kind": "symbol",
+          "name": "thiscds"
+        },
+        {
+          "kind": "symbol",
+          "name": "verflg"
+        }
+      ],
+      "ambiguous": [
+        {
+          "kind": "symbol",
+          "name": "dbcs_tab",
+          "candidates": [
+            "dos/dostab.asm",
+            "inc/lmstub.asm"
+          ]
+        }
+      ]
+    },
+    "dos/handle.asm": {
+      "sha256": "f42fa91329b674864a5421b40be415b348a18f0793221b9c07d526b12924e90f",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "dos/dostab.asm",
+        "dos/msconst.asm",
+        "inc/bugtyp.inc",
+        "inc/devsym.inc",
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/filemode.inc",
+        "inc/mult.inc",
+        "inc/pdb.inc",
+        "inc/sf.inc",
+        "inc/syscall.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [
+        {
+          "kind": "symbol",
+          "name": "currentpdb"
+        },
+        {
+          "kind": "symbol",
+          "name": "dmaadd"
+        },
+        {
+          "kind": "symbol",
+          "name": "dos_read"
+        },
+        {
+          "kind": "symbol",
+          "name": "dos_write"
+        },
+        {
+          "kind": "symbol",
+          "name": "dummycds"
+        },
+        {
+          "kind": "symbol",
+          "name": "exterr_locus"
+        },
+        {
+          "kind": "symbol",
+          "name": "extopen_on"
+        },
+        {
+          "kind": "symbol",
+          "name": "failerr"
+        },
+        {
+          "kind": "symbol",
+          "name": "pjfnfromhandle"
+        },
+        {
+          "kind": "symbol",
+          "name": "save_cx"
+        },
+        {
+          "kind": "symbol",
+          "name": "save_di"
+        },
+        {
+          "kind": "symbol",
+          "name": "save_ds"
+        },
+        {
+          "kind": "symbol",
+          "name": "save_es"
+        },
+        {
+          "kind": "symbol",
+          "name": "save_si"
+        },
+        {
+          "kind": "symbol",
+          "name": "thiscds"
+        },
+        {
+          "kind": "symbol",
+          "name": "thissft"
+        },
+        {
+          "kind": "symbol",
+          "name": "user_id"
+        }
+      ],
+      "ambiguous": []
+    },
+    "dos/ioctl.asm": {
+      "sha256": "5d2e75742cba4d8f45f5c05ff731b1ee32de092cd01b8aa01442b6ab10d8e5b8",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/bpb.inc",
+        "inc/curdir.inc",
+        "inc/devsym.inc",
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/dpb.inc",
+        "inc/ioctl.inc",
+        "inc/mult.inc",
+        "inc/sf.inc",
+        "inc/vector.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [
+        {
+          "kind": "symbol",
+          "name": "getthisdrv"
+        }
+      ],
+      "ambiguous": []
+    },
+    "dos/isearch.asm": {
+      "sha256": "ec0bb3be4beec3c99e8931d737222a09f1c5f728009ea4efd27a09d2936cc039",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/curdir.inc",
+        "inc/devsym.inc",
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/dpb.inc",
+        "inc/fastopen.inc",
+        "inc/fastxxxx.inc",
+        "inc/mult.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "dos/kstrin.asm": {
+      "sha256": "973c9453988f7d2148fca526a478069b6a34a197715321f20624aee615928e51",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "dos/dostab.asm"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "dos/lock.asm": {
+      "sha256": "99dc1dbc2c37e6b2461d1c7921da39d54e81736e3424d2c95c5912a6351f0891",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/devsym.inc",
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/dpb.inc",
+        "inc/lock.inc",
+        "inc/mult.inc",
+        "inc/sf.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "dos/macro.asm": {
+      "sha256": "86b39aee4b10eb6bec74ad5427047c348fb8270a3d6a3dc5818d6c8222a8a788",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/curdir.inc",
+        "inc/devsym.inc",
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/dpb.inc",
+        "inc/mult.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "dos/macro2.asm": {
+      "sha256": "599c74d3c01f65985e9ffa75fe6bf3eea8a5b36bdf8ef6808634f17deaab77d2",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "cmd/command/tenv2.asm",
+        "inc/curdir.inc",
+        "inc/devsym.inc",
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/mult.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [],
+      "ambiguous": [
+        {
+          "kind": "symbol",
+          "name": "testkanj",
+          "candidates": [
+            "bios/sysinit2.asm",
+            "cmd/command/tenv.asm"
+          ]
+        }
+      ]
+    },
+    "dos/misc.asm": {
+      "sha256": "43d8d906b97b40370705b3ae1ca004a545bb622cd9a36f3855d762d793e0758f",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/bpb.inc",
+        "inc/bugtyp.inc",
+        "inc/curdir.inc",
+        "inc/devsym.inc",
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/dpb.inc",
+        "inc/filemode.inc",
+        "inc/mi.inc",
+        "inc/mult.inc",
+        "inc/pdb.inc",
+        "inc/sf.inc",
+        "inc/vector.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "dos/misc2.asm": {
+      "sha256": "0b41797df70242773aee7d72b6cd4a25c415ca6c5b9cc23d9b20082044e3ba7d",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "dos/dostab.asm",
+        "dos/fcb.asm",
+        "dos/file.asm",
+        "dos/handle.asm",
+        "dos/ioctl.asm",
+        "dos/msconst.asm",
+        "inc/bugtyp.inc",
+        "inc/const2.asm",
+        "inc/curdir.inc",
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/fastxxxx.inc",
+        "inc/ms_data.asm",
+        "inc/mshead.asm",
+        "inc/sf.inc",
+        "inc/sysvar.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [
+        {
+          "kind": "link_context",
+          "name": "remaining external symbols and actual object providers",
+          "evidence": "extras/docs/etc/misc2-omf-dependencies.json",
+          "detail": "Complete actual build providers for all fixup symbols must be verified before unit processing."
+        }
+      ],
+      "ambiguous": []
+    },
+    "dos/mknode.asm": {
+      "sha256": "e3c479c9179857e03b6c360931201a1db68af23234dd92408e84c11a50854158",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/devsym.inc",
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/dpb.inc",
+        "inc/fastopen.inc",
+        "inc/filemode.inc",
+        "inc/sf.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "dos/mpatch.asm": {
+      "sha256": "8af243919b9d2044c6ccc4341233065ccf3a441e6bae8881f9d1065e1cd74d40",
+      "conditional_filter_fallback": false,
+      "dependencies": [],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "dos/mscode.asm": {
+      "sha256": "dc4d766c2238e9d9045e9ea6917593c0d2d1c2bb7fb634b49df405d19a898ff3",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "dos/divmes.inc",
+        "dos/mssw.asm",
+        "dos/mstable.asm",
+        "inc/curdir.inc",
+        "inc/devsym.inc",
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/dpb.inc",
+        "inc/fastopen.inc",
+        "inc/fastxxxx.inc",
+        "inc/mi.inc",
+        "inc/mshead.asm",
+        "inc/mult.inc",
+        "inc/syscall.inc",
+        "inc/vector.inc",
+        "inc/version.inc",
+        "inc/win386.inc"
+      ],
+      "unknown": [],
+      "ambiguous": [
+        {
+          "kind": "symbol",
+          "name": "bios_i2f",
+          "candidates": [
+            "bios/msbio1.asm",
+            "inc/msbdata.inc"
+          ]
+        }
+      ]
+    },
+    "dos/msconst.asm": {
+      "sha256": "5e32f377e8f336bd307e318a010c9a77d787f79fa8fe16a33f2376ff0828f359",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "dos/msdisp.asm",
+        "inc/bugtyp.inc",
+        "inc/mshead.asm"
+      ],
+      "unknown": [
+        {
+          "kind": "symbol",
+          "name": "badcall"
+        },
+        {
+          "kind": "symbol",
+          "name": "okcall"
+        }
+      ],
+      "ambiguous": []
+    },
+    "dos/msctrlc.asm": {
+      "sha256": "251d8ede15d74e063a9f5a065366b9db06b3c6890f2a0d7a8ee553489d403143",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "dos/divmes.inc",
+        "dos/mssw.asm",
+        "inc/bugtyp.inc",
+        "inc/devsym.inc",
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/dpb.inc",
+        "inc/exe.inc",
+        "inc/filemode.inc",
+        "inc/lmstub.asm",
+        "inc/mi.inc",
+        "inc/mult.inc",
+        "inc/pdb.inc",
+        "inc/sf.inc",
+        "inc/syscall.inc",
+        "inc/vector.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "dos/msdata.asm": {
+      "sha256": "8cfd6b65393186faa1f6ac8015bea073b6594c98c706a004a696cc413d590da7",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "dos/dostab.asm",
+        "dos/mpatch.asm",
+        "dos/msconst.asm",
+        "dos/mssw.asm",
+        "inc/arena.inc",
+        "inc/const2.asm",
+        "inc/curdir.inc",
+        "inc/devsym.inc",
+        "inc/doscntry.inc",
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/dpb.inc",
+        "inc/fastopen.inc",
+        "inc/find.inc",
+        "inc/lmstub.asm",
+        "inc/mi.inc",
+        "inc/ms_data.asm",
+        "inc/msbdata.inc",
+        "inc/pdb.inc",
+        "inc/sf.inc",
+        "inc/vector.inc",
+        "inc/version.inc",
+        "inc/wpatch.inc",
+        "inc/xmm.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "dos/msdisp.asm": {
+      "sha256": "441cfe675ac62e37a2967631e0b6a0a63b5cf979af8c48e3d671ce7d9bfd215d",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "dos/dostab.asm",
+        "dos/msconst.asm",
+        "dos/mssw.asm",
+        "dos/mstable.asm",
+        "dos/scnam.inc",
+        "inc/bugtyp.inc",
+        "inc/devsym.inc",
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/lmstub.asm",
+        "inc/mi.inc",
+        "inc/ms_data.asm",
+        "inc/pdb.inc",
+        "inc/syscall.inc",
+        "inc/vector.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [
+        {
+          "kind": "symbol",
+          "name": "a20off_count"
+        },
+        {
+          "kind": "symbol",
+          "name": "a20off_psp"
+        },
+        {
+          "kind": "symbol",
+          "name": "bootdrive"
+        },
+        {
+          "kind": "symbol",
+          "name": "cntcflag"
+        },
+        {
+          "kind": "symbol",
+          "name": "conswap"
+        },
+        {
+          "kind": "symbol",
+          "name": "cpswflag"
+        },
+        {
+          "kind": "symbol",
+          "name": "cpswsave"
+        },
+        {
+          "kind": "symbol",
+          "name": "currentpdb"
+        },
+        {
+          "kind": "symbol",
+          "name": "dos34_flag"
+        },
+        {
+          "kind": "symbol",
+          "name": "dos_flag"
+        },
+        {
+          "kind": "symbol",
+          "name": "errormode"
+        },
+        {
+          "kind": "symbol",
+          "name": "exterr_locus"
+        },
+        {
+          "kind": "symbol",
+          "name": "extopen_on"
+        },
+        {
+          "kind": "symbol",
+          "name": "failerr"
+        },
+        {
+          "kind": "symbol",
+          "name": "fsharing"
+        },
+        {
+          "kind": "symbol",
+          "name": "idleint"
+        },
+        {
+          "kind": "symbol",
+          "name": "indos"
+        },
+        {
+          "kind": "symbol",
+          "name": "nosetdir"
+        },
+        {
+          "kind": "symbol",
+          "name": "nsp"
+        },
+        {
+          "kind": "symbol",
+          "name": "nss"
+        },
+        {
+          "kind": "symbol",
+          "name": "printer_flag"
+        },
+        {
+          "kind": "symbol",
+          "name": "proc_id"
+        },
+        {
+          "kind": "symbol",
+          "name": "restore_tmp"
+        },
+        {
+          "kind": "symbol",
+          "name": "savebx"
+        },
+        {
+          "kind": "symbol",
+          "name": "saveds"
+        },
+        {
+          "kind": "symbol",
+          "name": "user_id"
+        },
+        {
+          "kind": "symbol",
+          "name": "user_in_ax"
+        },
+        {
+          "kind": "symbol",
+          "name": "user_sp"
+        },
+        {
+          "kind": "symbol",
+          "name": "user_ss"
+        },
+        {
+          "kind": "symbol",
+          "name": "wperr"
+        }
+      ],
+      "ambiguous": []
+    },
+    "dos/msdos.lnk": {
+      "sha256": "7fc32dd2e361db355e3c591b1619fac0f68232afe4012948c9359b73d2294c0c",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "dos/abort.asm",
+        "dos/alloc.asm",
+        "dos/buf.asm",
+        "dos/close.asm",
+        "dos/cpmio.asm",
+        "dos/cpmio2.asm",
+        "dos/create.asm",
+        "dos/crit.asm",
+        "dos/delete.asm",
+        "dos/dev.asm",
+        "dos/dinfo.asm",
+        "dos/dir.asm",
+        "dos/dir2.asm",
+        "dos/dircall.asm",
+        "dos/disk.asm",
+        "dos/disk2.asm",
+        "dos/disk3.asm",
+        "dos/dosprint.asm",
+        "dos/dup.asm",
+        "dos/exepatch.asm",
+        "dos/fat.asm",
+        "dos/fcb.asm",
+        "dos/fcbio.asm",
+        "dos/fcbio2.asm",
+        "dos/file.asm",
+        "dos/finfo.asm",
+        "dos/getset.asm",
+        "dos/handle.asm",
+        "dos/ioctl.asm",
+        "dos/isearch.asm",
+        "dos/lock.asm",
+        "dos/macro.asm",
+        "dos/macro2.asm",
+        "dos/misc.asm",
+        "dos/misc2.asm",
+        "dos/mknode.asm",
+        "dos/mscode.asm",
+        "dos/msctrlc.asm",
+        "dos/msdata.asm",
+        "dos/msdisp.asm",
+        "dos/msdosme.asm",
+        "dos/msinit.asm",
+        "dos/msproc.asm",
+        "dos/mstable.asm",
+        "dos/open.asm",
+        "dos/origin.asm",
+        "dos/path.asm",
+        "dos/rename.asm",
+        "dos/rom.asm",
+        "dos/romfind.asm",
+        "dos/search.asm",
+        "dos/segcheck.asm",
+        "dos/share.asm",
+        "dos/srvcall.asm",
+        "dos/time.asm",
+        "dos/util.asm"
+      ],
+      "unknown": [
+        {
+          "kind": "build_object",
+          "name": "parse.obj",
+          "candidates": [
+            "dos/parse.asm",
+            "inc/parse.asm"
+          ],
+          "detail": "Establish actual build source and configuration."
+        }
+      ],
+      "ambiguous": []
+    },
+    "dos/msdos.skl": {
+      "sha256": "a5605f538cce0c44d6eee650a50cc82b991e4f5743d804e9abe17e12c6e27a9a",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "lang/usa/messages/usa-ms-dos.msg"
+      ],
+      "unknown": [
+        {
+          "kind": "build_tool",
+          "name": "message generator and exact input mapping",
+          "evidence": "dos/msdos.skl",
+          "detail": "Skeleton :use directives reference message resources; determine generator and input provenance for DOS 7."
+        }
+      ],
+      "ambiguous": []
+    },
+    "dos/msdosme.asm": {
+      "sha256": "9a1c7e0320fb80626151eab55fc628aa377768490bb1e415b65dbaae3393f099",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "dos/dosmes.inc",
+        "dos/mssw.asm",
+        "inc/dosseg.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "dos/mshalo.asm": {
+      "sha256": "89dbe90c55b755472d8f2834b9ac4e415fce6e9f0376e50b3da0821f9c964250",
+      "conditional_filter_fallback": false,
+      "dependencies": [],
+      "unknown": [
+        {
+          "kind": "caller_context",
+          "name": "segment and ROM symbols",
+          "evidence": "dos/mshalo.asm",
+          "detail": "Code fragment requires a caller-supplied TRANGROUP and related ROM, vector, PDB and arena symbols; its actual consumer is not yet identified."
+        }
+      ],
+      "ambiguous": []
+    },
+    "dos/msinit.asm": {
+      "sha256": "67a662e3c6c186fd2fe0604624557077dcd7f8be65f85e3be01f26f250a0c2a0",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "cmd/command/tcode.asm",
+        "dos/dostab.asm",
+        "dos/exepatch.asm",
+        "dos/mpatch.asm",
+        "dos/mscode.asm",
+        "dos/msconst.asm",
+        "dos/msctrlc.asm",
+        "dos/msdisp.asm",
+        "dos/msproc.asm",
+        "dos/mssw.asm",
+        "dos/mstable.asm",
+        "inc/arena.inc",
+        "inc/bugtyp.inc",
+        "inc/const2.asm",
+        "inc/cputype.inc",
+        "inc/curdir.inc",
+        "inc/devsym.inc",
+        "inc/doscntry.inc",
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/dpb.inc",
+        "inc/fastopen.inc",
+        "inc/find.inc",
+        "inc/lmstub.asm",
+        "inc/mi.inc",
+        "inc/ms_data.asm",
+        "inc/mshead.asm",
+        "inc/pdb.inc",
+        "inc/sf.inc",
+        "inc/sysvar.inc",
+        "inc/vector.inc",
+        "inc/version.inc",
+        "inc/win386.inc",
+        "inc/xmm.inc"
+      ],
+      "unknown": [
+        {
+          "kind": "symbol",
+          "name": "absdrd"
+        },
+        {
+          "kind": "symbol",
+          "name": "absdwrt"
+        },
+        {
+          "kind": "symbol",
+          "name": "arena_head"
+        },
+        {
+          "kind": "symbol",
+          "name": "bclock"
+        },
+        {
+          "kind": "symbol",
+          "name": "bcon"
+        },
+        {
+          "kind": "symbol",
+          "name": "buffhead"
+        },
+        {
+          "kind": "symbol",
+          "name": "chkcopyprot"
+        },
+        {
+          "kind": "symbol",
+          "name": "createpdb"
+        },
+        {
+          "kind": "symbol",
+          "name": "currentpdb"
+        },
+        {
+          "kind": "symbol",
+          "name": "divov"
+        },
+        {
+          "kind": "symbol",
+          "name": "dmaadd"
+        },
+        {
+          "kind": "symbol",
+          "name": "dpbhead"
+        },
+        {
+          "kind": "symbol",
+          "name": "dskchret"
+        },
+        {
+          "kind": "symbol",
+          "name": "endmem"
+        },
+        {
+          "kind": "symbol",
+          "name": "maxsec"
+        },
+        {
+          "kind": "symbol",
+          "name": "nuldev"
+        },
+        {
+          "kind": "symbol",
+          "name": "numio"
+        },
+        {
+          "kind": "symbol",
+          "name": "sft_addr"
+        },
+        {
+          "kind": "symbol",
+          "name": "special_entries"
+        },
+        {
+          "kind": "symbol",
+          "name": "stay_resident"
+        },
+        {
+          "kind": "symbol",
+          "name": "temp_dosloc"
+        },
+        {
+          "kind": "symbol",
+          "name": "user_sp"
+        },
+        {
+          "kind": "symbol",
+          "name": "user_ss"
+        }
+      ],
+      "ambiguous": [
+        {
+          "kind": "symbol",
+          "name": "dos_res",
+          "candidates": [
+            "bios/msbio1.asm",
+            "inc/msbdata.inc"
+          ]
+        },
+        {
+          "kind": "symbol",
+          "name": "dosdatasg",
+          "candidates": [
+            "bios/msbio1.asm",
+            "inc/msbdata.inc"
+          ]
+        }
+      ]
+    },
+    "dos/msioctl.asm": {
+      "sha256": "39228d3934d865562191950ef45a9347c9d998a6d59a2f323c5c2f0d8e35a65b",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/ioctl.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "dos/msproc.asm": {
+      "sha256": "4aa312105af8582066ac6fe55f47755f6192ac7f9f21a9f2658ab68050a65a98",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "dos/dostab.asm",
+        "dos/exepatch.asm",
+        "dos/mpatch.asm",
+        "dos/msdisp.asm",
+        "dos/restrict.inc",
+        "dos/romfind.asm",
+        "inc/arena.inc",
+        "inc/curdir.inc",
+        "inc/devsym.inc",
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/exe.inc",
+        "inc/lmstub.asm",
+        "inc/mshead.asm",
+        "inc/pdb.inc",
+        "inc/sf.inc",
+        "inc/syscall.inc",
+        "inc/vector.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [
+        {
+          "kind": "symbol",
+          "name": "a20off_count"
+        },
+        {
+          "kind": "symbol",
+          "name": "a20off_psp"
+        },
+        {
+          "kind": "symbol",
+          "name": "allocmethod"
+        },
+        {
+          "kind": "symbol",
+          "name": "allocmsave"
+        },
+        {
+          "kind": "symbol",
+          "name": "chkcopyprot"
+        },
+        {
+          "kind": "symbol",
+          "name": "createpdb"
+        },
+        {
+          "kind": "symbol",
+          "name": "currentpdb"
+        },
+        {
+          "kind": "symbol",
+          "name": "didctrlc"
+        },
+        {
+          "kind": "symbol",
+          "name": "dmaadd"
+        },
+        {
+          "kind": "symbol",
+          "name": "dos_flag"
+        },
+        {
+          "kind": "symbol",
+          "name": "exec_chksum"
+        },
+        {
+          "kind": "symbol",
+          "name": "exec_cs"
+        },
+        {
+          "kind": "symbol",
+          "name": "exec_init_cs"
+        },
+        {
+          "kind": "symbol",
+          "name": "exec_init_ip"
+        },
+        {
+          "kind": "symbol",
+          "name": "exec_init_sp"
+        },
+        {
+          "kind": "symbol",
+          "name": "exec_init_ss"
+        },
+        {
+          "kind": "symbol",
+          "name": "exec_ip"
+        },
+        {
+          "kind": "symbol",
+          "name": "exec_len_mod_512"
+        },
+        {
+          "kind": "symbol",
+          "name": "exec_max_bss"
+        },
+        {
+          "kind": "symbol",
+          "name": "exec_min_bss"
+        },
+        {
+          "kind": "symbol",
+          "name": "exec_pages"
+        },
+        {
+          "kind": "symbol",
+          "name": "exec_par_dir"
+        },
+        {
+          "kind": "symbol",
+          "name": "exec_rle_count"
+        },
+        {
+          "kind": "symbol",
+          "name": "exec_rle_table"
+        },
+        {
+          "kind": "symbol",
+          "name": "exec_signature"
+        },
+        {
+          "kind": "symbol",
+          "name": "exec_sp"
+        },
+        {
+          "kind": "symbol",
+          "name": "exec_ss"
+        },
+        {
+          "kind": "symbol",
+          "name": "exit_code"
+        },
+        {
+          "kind": "symbol",
+          "name": "exit_type"
+        },
+        {
+          "kind": "symbol",
+          "name": "exterr_locus"
+        },
+        {
+          "kind": "symbol",
+          "name": "fake_count"
+        },
+        {
+          "kind": "symbol",
+          "name": "indos"
+        },
+        {
+          "kind": "symbol",
+          "name": "openbuf"
+        },
+        {
+          "kind": "symbol",
+          "name": "save_ax"
+        },
+        {
+          "kind": "symbol",
+          "name": "special_entries"
+        },
+        {
+          "kind": "symbol",
+          "name": "special_version"
+        },
+        {
+          "kind": "symbol",
+          "name": "temp_var2"
+        },
+        {
+          "kind": "symbol",
+          "name": "ucase"
+        },
+        {
+          "kind": "symbol",
+          "name": "uu_ifs_dos_call"
+        }
+      ],
+      "ambiguous": [
+        {
+          "kind": "symbol",
+          "name": "romstartaddr",
+          "candidates": [
+            "bios/msbio1.asm",
+            "inc/msbdata.inc"
+          ]
+        }
+      ]
+    },
+    "dos/mssw.asm": {
+      "sha256": "e0490c29ff1a0415385516faeb3172e13b7e3eec546bbf02cce8ae4d752728ab",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/version.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "dos/mstable.asm": {
+      "sha256": "a21d8332e3ae890095231455fe281a02e7d3330b4d7f3422164bdd382b5b6949",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "dos/alloc.asm",
+        "dos/file.asm",
+        "dos/msdisp.asm",
+        "dos/msproc.asm",
+        "dos/mssw.asm",
+        "inc/copyrigh.inc",
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/fastopen.inc",
+        "inc/syscall.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [
+        {
+          "kind": "link_context",
+          "name": "remaining expanded table fixup providers",
+          "evidence": "extras/docs/etc/mstable-omf-dependencies.json",
+          "detail": "All 145 names have unique public providers in a historical 57-object reference build; version configuration differs. Verify target-build providers and full external unit dependencies."
+        }
+      ],
+      "ambiguous": []
+    },
+    "dos/open.asm": {
+      "sha256": "ec819887cd3e79ee1e4cc9b010fc8c4f0918699f277477a95196134e0d6cdc94",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/curdir.inc",
+        "inc/devsym.inc",
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/fastopen.inc",
+        "inc/fastxxxx.inc",
+        "inc/filemode.inc",
+        "inc/mult.inc",
+        "inc/sf.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "dos/origin.asm": {
+      "sha256": "9e02ec81b78bd3249c55cb46fa7aa3693e64bdd4ef57bc2ef7566f754d4b03b6",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/origin.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "dos/parse.asm": {
+      "sha256": "0d8ff2285e63f56c2f5c0064199a9b54cafed39d1a064ed2d0739c5b2efabba1",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/devsym.inc",
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "dos/path.asm": {
+      "sha256": "f93d8c15498c8751c0de278267f8d80bf328559f34bb70494a1a303ef3cef5f2",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/curdir.inc",
+        "inc/devsym.inc",
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/dpb.inc",
+        "inc/filemode.inc",
+        "inc/mult.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [
+        {
+          "kind": "symbol",
+          "name": "dos_mkdir"
+        },
+        {
+          "kind": "symbol",
+          "name": "dos_rmdir"
+        }
+      ],
+      "ambiguous": []
+    },
+    "dos/rename.asm": {
+      "sha256": "e6b1bc6274952b29234230fb72dff9e2cb601558d75af5a298079df93b101dbd",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/devsym.inc",
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/filemode.inc",
+        "inc/find.inc",
+        "inc/mult.inc",
+        "inc/sf.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "dos/restrict.inc": {
+      "sha256": "a5f68b20aba15a124f3e6f9af99638505e0112edd94a72f8aac7db9160560a76",
+      "conditional_filter_fallback": false,
+      "dependencies": [],
+      "unknown": [
+        {
+          "kind": "caller_macro",
+          "name": "rstfile",
+          "evidence": "dos/msproc.asm:326",
+          "detail": "Include invokes rstfile macro; actual caller build context must provide its definition."
+        }
+      ],
+      "ambiguous": []
+    },
+    "dos/rom.asm": {
+      "sha256": "870a70fa594015cf46864fee33e861cfa5d4367631c832d16b509718c4cc294c",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/devsym.inc",
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/dpb.inc",
+        "inc/fastxxxx.inc",
+        "inc/sf.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "dos/romfind.asm": {
+      "sha256": "f334bb028ed5ab0ae924865ce21be8b98c43ea2ab59d8624ff5bb51b99d4fb51",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/dosmac.inc",
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/error.inc",
+        "inc/mi.inc",
+        "inc/mshead.asm",
+        "inc/version.inc"
+      ],
+      "unknown": [],
+      "ambiguous": [
+        {
+          "kind": "symbol",
+          "name": "romstartaddr",
+          "candidates": [
+            "bios/msbio1.asm",
+            "inc/msbdata.inc"
+          ]
+        }
+      ]
+    },
+    "dos/scnam.inc": {
+      "sha256": "45dc2dc00161d605fe96e1f4962e7ef6fb5af495359b46f9da3a167dfbe9b3e8",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/dosseg.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "dos/search.asm": {
+      "sha256": "13196cd660edcafb10477fab1a6d807649e7be86f6f4a9c6e436161f0e60d82c",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/devsym.inc",
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/fastopen.inc",
+        "inc/fastxxxx.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [
+        {
+          "kind": "symbol",
+          "name": "dos_search_first"
+        },
+        {
+          "kind": "symbol",
+          "name": "dos_search_next"
+        },
+        {
+          "kind": "symbol",
+          "name": "transfcb"
+        },
+        {
+          "kind": "symbol",
+          "name": "transpathset"
+        }
+      ],
+      "ambiguous": []
+    },
+    "dos/segcheck.asm": {
+      "sha256": "b5bbcf41397409b980277292477b75cca01212ba20909767273ffb9a34956da7",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/devsym.inc",
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/dpb.inc",
+        "inc/int2a.inc",
+        "inc/sf.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [
+        {
+          "kind": "symbol",
+          "name": "ecritdisk"
+        }
+      ],
+      "ambiguous": []
+    },
+    "dos/share.asm": {
+      "sha256": "0eb75b8acef5c5dd2bd86d0c7b26ae885ba72d18c2e5bc2d2b01476ef46f1aa7",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/devsym.inc",
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/dpb.inc",
+        "inc/sf.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "dos/shrprint.asm": {
+      "sha256": "2262e4a31bd4a2e5f4a4e71d62377068ab0956811691b7c84399ca2b1221cd6d",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/devsym.inc",
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "dos/srvcall.asm": {
+      "sha256": "2074931698e50d0f41e9584334b72fd622b49ed3c7595f2606acc584ed41a2f3",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/devsym.inc",
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/dpl.asm",
+        "inc/mult.inc",
+        "inc/sf.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "dos/time.asm": {
+      "sha256": "7ea358d51ad44c3bc09e06c81cc468c9d9ff646abac04c619b377606f38cb336",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/devsym.inc",
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "dos/util.asm": {
+      "sha256": "664389bd28b8c9455b32c2021d6a04ee2400931326d355f9604eff5ced23ab1e",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/bugtyp.inc",
+        "inc/devsym.inc",
+        "inc/dosseg.inc",
+        "inc/dossym.inc",
+        "inc/pdb.inc",
+        "inc/sf.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "cmd/command/buildmsg.c": {
+      "sha256": "7e14fd26348180f23687243b17ec63248d1bdadafe8877dfb24ec41a0fc6e2ea",
+      "conditional_filter_fallback": true,
+      "dependencies": [],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "cmd/command/comequ.asm": {
+      "sha256": "603e4aaa70fa25ac486f4dc5ab3f462ad1c87eae4d6966b8577b710fe8abeecf",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/curdir.inc",
+        "inc/dossym.inc",
+        "inc/msgserv.asm"
+      ],
+      "unknown": [
+        {
+          "kind": "target_abi",
+          "name": "13-byte substitution block consumers",
+          "evidence": "extras/docs/etc/command-msg-sublist13-proof.json",
+          "detail": "Target transient message service uses 13-byte substitution blocks, while this file defines size 11. Establish all consumers and conditional configurations before modifying the constant."
+        }
+      ],
+      "ambiguous": []
+    },
+    "cmd/command/command.lnk": {
+      "sha256": "043586cd7a15e3e2c753369194c49c60c18548a4fba65f4fdb3d1478a28c5d11",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "cmd/command/command1.asm",
+        "cmd/command/command2.asm",
+        "cmd/command/copy.asm",
+        "cmd/command/copypr1.asm",
+        "cmd/command/copypr2.asm",
+        "cmd/command/cparse.asm",
+        "cmd/command/cratio.asm",
+        "cmd/command/dir.asm",
+        "cmd/command/init.asm",
+        "cmd/command/iparse.asm",
+        "cmd/command/loadhi.asm",
+        "cmd/command/parse2.asm",
+        "cmd/command/path1.asm",
+        "cmd/command/path2.asm",
+        "cmd/command/rdata.asm",
+        "cmd/command/rucode.asm",
+        "cmd/command/stub.asm",
+        "cmd/command/tbatch.asm",
+        "cmd/command/tbatch2.asm",
+        "cmd/command/tcmd1b.asm",
+        "cmd/command/tcmd2a.asm",
+        "cmd/command/tcmd2b.asm",
+        "cmd/command/tcode.asm",
+        "cmd/command/tdata.asm",
+        "cmd/command/tenv.asm",
+        "cmd/command/tenv2.asm",
+        "cmd/command/tfor.asm",
+        "cmd/command/tmisc1.asm",
+        "cmd/command/tmisc2.asm",
+        "cmd/command/tparse.asm",
+        "cmd/command/tpipe.asm",
+        "cmd/command/tprintf.asm",
+        "cmd/command/tspc.asm",
+        "cmd/command/tucode.asm",
+        "cmd/command/uinit.asm"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "cmd/command/command.skl": {
+      "sha256": "8ee27b220b583012afedb472f654bcec1d537504294e5f21f146a0b839a8e296",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "cmd/command/buildmsg.c",
+        "lang/usa/messages/usa-ms-command.msg"
+      ],
+      "unknown": [
+        {
+          "kind": "build_tool",
+          "name": "buildidx and existing buildmsg executable provenance",
+          "evidence": "extras/tools/build_command_reference.py:35; cmd/command/buildmsg.c:212",
+          "detail": "Existing command reference builds use buildidx and a prebuilt buildmsg; their correspondence to historical sources and target output remains unverified."
+        }
+      ],
+      "ambiguous": []
+    },
+    "cmd/command/command1.asm": {
+      "sha256": "f06136213c6bb00c156eee0876a4ae821166567027f18c22c71196a1ffa1e40d",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "cmd/command/comequ.asm",
+        "cmd/command/command2.asm",
+        "cmd/command/comseg.asm",
+        "cmd/command/comsw.asm",
+        "cmd/command/init.asm",
+        "cmd/command/rdata.asm",
+        "cmd/command/resmsg.equ",
+        "inc/dossym.inc",
+        "inc/syscall.inc"
+      ],
+      "unknown": [
+        {
+          "kind": "symbol",
+          "name": "accden"
+        },
+        {
+          "kind": "symbol",
+          "name": "exebad"
+        },
+        {
+          "kind": "symbol",
+          "name": "execemes"
+        },
+        {
+          "kind": "symbol",
+          "name": "rbadnam"
+        },
+        {
+          "kind": "symbol",
+          "name": "toobig"
+        }
+      ],
+      "ambiguous": []
+    },
+    "cmd/command/command2.asm": {
+      "sha256": "aac1b9cad1f30e9df6ea1e9f8d463e365d068e77be200e44b9a2103251ee28a7",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "cmd/command/comequ.asm",
+        "cmd/command/command1.asm",
+        "cmd/command/comseg.asm",
+        "cmd/command/comsw.asm",
+        "cmd/command/init.asm",
+        "cmd/command/rdata.asm",
+        "cmd/command/resmsg.equ",
+        "cmd/command/rucode.asm",
+        "cmd/command/stub.asm",
+        "cmd/command/tdata.asm",
+        "cmd/command/tspc.asm",
+        "cmd/command/uinit.asm",
+        "inc/dossym.inc",
+        "inc/pdb.inc",
+        "inc/syscall.inc"
+      ],
+      "unknown": [
+        {
+          "kind": "symbol",
+          "name": "bmemmes"
+        },
+        {
+          "kind": "symbol",
+          "name": "combad"
+        },
+        {
+          "kind": "symbol",
+          "name": "fretmes"
+        },
+        {
+          "kind": "symbol",
+          "name": "haltmes"
+        },
+        {
+          "kind": "symbol",
+          "name": "nohandmes"
+        },
+        {
+          "kind": "symbol",
+          "name": "prompt"
+        },
+        {
+          "kind": "symbol",
+          "name": "putbackmsg"
+        }
+      ],
+      "ambiguous": []
+    },
+    "cmd/command/comseg.asm": {
+      "sha256": "14ede618cfbcba077bb368574af6a1fc56bb07535980d95d8ba146c9bce9e4e3",
+      "conditional_filter_fallback": false,
+      "dependencies": [],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "cmd/command/comsw.asm": {
+      "sha256": "d6bf33dfafcc6170a7f38e3dedc164910ed0ee1e6e6133200b11c53c49589b37",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/version.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "cmd/command/copy.asm": {
+      "sha256": "fc34cda03a81fe7ae571faa76cf0b0c86d1e23a61572f0646efd27a374e92c54",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "cmd/command/comequ.asm",
+        "cmd/command/comseg.asm",
+        "cmd/command/comsw.asm",
+        "cmd/command/copypr1.asm",
+        "cmd/command/copypr2.asm",
+        "cmd/command/rdata.asm",
+        "cmd/command/tcode.asm",
+        "cmd/command/tdata.asm",
+        "cmd/command/tmisc1.asm",
+        "cmd/command/tprintf.asm",
+        "cmd/command/tspc.asm",
+        "inc/dossym.inc",
+        "inc/sf.inc",
+        "inc/syscall.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "cmd/command/copypr1.asm": {
+      "sha256": "af82e6aa29923b6d8b3be87d83fb7ff4ce790d256451fe75f8628f8ac00bceab",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "cmd/command/comequ.asm",
+        "cmd/command/comseg.asm",
+        "cmd/command/comsw.asm",
+        "cmd/command/copy.asm",
+        "cmd/command/tdata.asm",
+        "cmd/command/tspc.asm",
+        "inc/dossym.inc",
+        "inc/sf.inc",
+        "inc/syscall.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "cmd/command/copypr2.asm": {
+      "sha256": "04c55a37f1200b2a108c8c0249b3752beea54e1bdfb5aeea05098b36a2f424e9",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "cmd/command/comequ.asm",
+        "cmd/command/comseg.asm",
+        "cmd/command/comsw.asm",
+        "cmd/command/copypr1.asm",
+        "cmd/command/tcmd1b.asm",
+        "cmd/command/tdata.asm",
+        "cmd/command/tspc.asm",
+        "inc/dossym.inc",
+        "inc/sf.inc",
+        "inc/syscall.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "cmd/command/cparse.asm": {
+      "sha256": "0529153998cf547c0be1d8ae678dfac182f2e9470a01bace26be2df2d0479add",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "cmd/command/comequ.asm",
+        "cmd/command/comseg.asm",
+        "cmd/command/comsw.asm",
+        "cmd/command/tdata.asm",
+        "cmd/command/tmisc1.asm",
+        "cmd/command/tspc.asm",
+        "inc/devsym.inc",
+        "inc/dossym.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "cmd/command/cratio.asm": {
+      "sha256": "ab9ce983afee6bf5017876483458b0b09fc944f8a2f3ab916c2faa9a6990f28a",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "cmd/command/comequ.asm",
+        "cmd/command/comseg.asm",
+        "cmd/command/tdata.asm",
+        "cmd/command/tspc.asm",
+        "inc/dossym.inc",
+        "inc/magicdrv.inc",
+        "inc/syscall.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "cmd/command/dir.asm": {
+      "sha256": "82d02e6bbc1dd96eb074f473e89fadf6300ae23b9df2598ffd7d91d79c8293fe",
+      "conditional_filter_fallback": true,
+      "dependencies": [
+        "cmd/command/comequ.asm",
+        "cmd/command/comseg.asm",
+        "cmd/command/comsw.asm",
+        "cmd/command/cratio.asm",
+        "cmd/command/rdata.asm",
+        "cmd/command/tdata.asm",
+        "cmd/command/tmisc1.asm",
+        "cmd/command/tranmsg.asm",
+        "cmd/command/tspc.asm",
+        "inc/bpb.inc",
+        "inc/doscntry.inc",
+        "inc/dossym.inc",
+        "inc/filemode.inc",
+        "inc/find.inc",
+        "inc/ioctl.inc",
+        "inc/rombios.inc",
+        "inc/syscall.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "cmd/command/envdata.asm": {
+      "sha256": "79fe75fb0ce61dad7f9956b594e2bf8a7480f8559ec96a1ab598bbfe38afc805",
+      "conditional_filter_fallback": false,
+      "dependencies": [],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "cmd/command/fordata.asm": {
+      "sha256": "90544898349730457c124055dcd13c536866360f50a63fd3242c6af823f88d0b",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "cmd/command/comequ.asm"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "cmd/command/ifequ.asm": {
+      "sha256": "658d692385d05f90d21f5212a4e3f4dd95717eefa9c6a2bd44ca2e97a4cda3be",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "cmd/command/comsw.asm",
+        "inc/version.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "cmd/command/init.asm": {
+      "sha256": "6432fd23c892a50261d6899c845f75f2178677b49142211c62626b049fa513da",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "cmd/command/comequ.asm",
+        "cmd/command/command1.asm",
+        "cmd/command/command2.asm",
+        "cmd/command/comseg.asm",
+        "cmd/command/comsw.asm",
+        "cmd/command/envdata.asm",
+        "cmd/command/rdata.asm",
+        "cmd/command/resmsg.equ",
+        "cmd/command/rucode.asm",
+        "cmd/command/stub.asm",
+        "cmd/command/tdata.asm",
+        "cmd/command/tpipe.asm",
+        "cmd/command/tspc.asm",
+        "cmd/command/uinit.asm",
+        "inc/doscntry.inc",
+        "inc/dossym.inc",
+        "inc/msbdata.inc",
+        "inc/mult.inc",
+        "inc/pdb.inc",
+        "inc/syscall.inc",
+        "inc/xmm.inc",
+        "lang/usa/messages/comimsg.inc"
+      ],
+      "unknown": [
+        {
+          "kind": "symbol",
+          "name": "accden"
+        },
+        {
+          "kind": "symbol",
+          "name": "badcomaccmsg"
+        },
+        {
+          "kind": "symbol",
+          "name": "badcomlkmsg"
+        },
+        {
+          "kind": "symbol",
+          "name": "badvermsg"
+        },
+        {
+          "kind": "symbol",
+          "name": "copyrightmsg"
+        },
+        {
+          "kind": "symbol",
+          "name": "outenvmsg"
+        },
+        {
+          "kind": "symbol",
+          "name": "triageerror"
+        }
+      ],
+      "ambiguous": [
+        {
+          "kind": "symbol",
+          "name": "pathstring",
+          "candidates": [
+            "bios/sysinit2.asm",
+            "cmd/command/uinit.asm"
+          ]
+        }
+      ]
+    },
+    "cmd/command/iparse.asm": {
+      "sha256": "212d981c0338012fe96849a7ea569bea2172d267beeb57415d702d603e7d2e7e",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "cmd/command/comseg.asm"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "cmd/command/loadhi.asm": {
+      "sha256": "f3276d251f387197d2bf089da98e8f690fa60c9d7def3b0c93d511994a73e65f",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "cmd/command/comequ.asm",
+        "cmd/command/comseg.asm",
+        "cmd/command/tcmd2b.asm",
+        "cmd/command/tdata.asm",
+        "cmd/command/tmisc1.asm",
+        "cmd/command/tspc.asm",
+        "inc/arena.inc",
+        "inc/dossym.inc",
+        "inc/highload.inc",
+        "inc/highvar.inc",
+        "inc/syscall.inc"
+      ],
+      "unknown": [
+        {
+          "kind": "symbol",
+          "name": "path_search"
+        }
+      ],
+      "ambiguous": [
+        {
+          "kind": "symbol",
+          "name": "arg",
+          "candidates": [
+            "cmd/command/tspc.asm",
+            "inc/dosmac.inc"
+          ]
+        }
+      ]
+    },
+    "cmd/command/parse2.asm": {
+      "sha256": "d885de9709a598f2e1b635986a7cedf6d2ae00321155cf4e465d360b114da283",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "cmd/command/comequ.asm",
+        "cmd/command/comseg.asm",
+        "cmd/command/comsw.asm",
+        "cmd/command/rdata.asm",
+        "cmd/command/tdata.asm",
+        "cmd/command/tspc.asm",
+        "inc/devsym.inc",
+        "inc/dossym.inc"
+      ],
+      "unknown": [],
+      "ambiguous": [
+        {
+          "kind": "symbol",
+          "name": "arg",
+          "candidates": [
+            "cmd/command/tspc.asm",
+            "inc/dosmac.inc"
+          ]
+        }
+      ]
+    },
+    "cmd/command/path1.asm": {
+      "sha256": "eb2126371c40ddd0e13fd28da8f0dd3cc652d5c1b69d52ab1481641ffea04826",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "cmd/command/comequ.asm",
+        "cmd/command/comseg.asm",
+        "cmd/command/comsw.asm",
+        "cmd/command/tdata.asm",
+        "cmd/command/tspc.asm",
+        "inc/dossym.inc",
+        "inc/syscall.inc"
+      ],
+      "unknown": [],
+      "ambiguous": [
+        {
+          "kind": "symbol",
+          "name": "arg",
+          "candidates": [
+            "cmd/command/tspc.asm",
+            "inc/dosmac.inc"
+          ]
+        }
+      ]
+    },
+    "cmd/command/path2.asm": {
+      "sha256": "c230a86460f0677b0b51a1657428161f1c3f05d1857c6573cfc4132457c398d3",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "cmd/command/comequ.asm",
+        "cmd/command/comseg.asm",
+        "cmd/command/comsw.asm",
+        "cmd/command/rdata.asm",
+        "cmd/command/tdata.asm",
+        "cmd/command/tspc.asm",
+        "inc/dossym.inc",
+        "inc/find.inc",
+        "inc/syscall.inc"
+      ],
+      "unknown": [],
+      "ambiguous": [
+        {
+          "kind": "symbol",
+          "name": "arg",
+          "candidates": [
+            "cmd/command/tspc.asm",
+            "inc/dosmac.inc"
+          ]
+        }
+      ]
+    },
+    "cmd/command/rdata.asm": {
+      "sha256": "4ee560f3295ac70062ccb9e5e43e3a17763c95c668eedac6cb87be27d28d5f83",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "cmd/command/comequ.asm",
+        "cmd/command/command1.asm",
+        "cmd/command/command2.asm",
+        "cmd/command/comseg.asm",
+        "cmd/command/comsw.asm",
+        "cmd/command/init.asm",
+        "cmd/command/resmsg.equ",
+        "cmd/command/rucode.asm",
+        "cmd/command/stub.asm",
+        "cmd/command/tcode.asm",
+        "cmd/command/tspc.asm",
+        "cmd/command/uinit.asm",
+        "inc/dossym.inc",
+        "inc/highvar.inc",
+        "inc/pdb.inc",
+        "inc/syscall.inc",
+        "lang/usa/messages/comrmsg.inc"
+      ],
+      "unknown": [
+        {
+          "kind": "include",
+          "name": "command.loc"
+        }
+      ],
+      "ambiguous": []
+    },
+    "cmd/command/resmsg.equ": {
+      "sha256": "e9944d068ccdc0d10b6fea4a387aa3a127388082ef05d07a146741eb2babb49a",
+      "conditional_filter_fallback": false,
+      "dependencies": [],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "cmd/command/rucode.asm": {
+      "sha256": "fc7b22775027fe13379317ffe2586ef6d058afa9c3c87d51f94c88e2c66cbec9",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "cmd/command/comequ.asm",
+        "cmd/command/command2.asm",
+        "cmd/command/comseg.asm",
+        "cmd/command/comsw.asm",
+        "cmd/command/rdata.asm",
+        "cmd/command/resmsg.equ",
+        "cmd/command/stub.asm",
+        "inc/arena.inc",
+        "inc/devsym.inc",
+        "inc/doscntry.inc",
+        "inc/dossym.inc",
+        "inc/filemode.inc",
+        "inc/mult.inc",
+        "inc/pdb.inc",
+        "inc/syscall.inc"
+      ],
+      "unknown": [
+        {
+          "kind": "symbol",
+          "name": "badfatmsg"
+        },
+        {
+          "kind": "symbol",
+          "name": "blkdeverr"
+        },
+        {
+          "kind": "symbol",
+          "name": "chardeverr"
+        },
+        {
+          "kind": "symbol",
+          "name": "endbatmes"
+        },
+        {
+          "kind": "symbol",
+          "name": "mread"
+        },
+        {
+          "kind": "symbol",
+          "name": "mwrite"
+        },
+        {
+          "kind": "symbol",
+          "name": "needvolmsg"
+        },
+        {
+          "kind": "symbol",
+          "name": "newlin"
+        },
+        {
+          "kind": "symbol",
+          "name": "patricide"
+        },
+        {
+          "kind": "symbol",
+          "name": "req_abort"
+        },
+        {
+          "kind": "symbol",
+          "name": "req_end"
+        },
+        {
+          "kind": "symbol",
+          "name": "req_fail"
+        },
+        {
+          "kind": "symbol",
+          "name": "req_ignore"
+        },
+        {
+          "kind": "symbol",
+          "name": "req_retry"
+        }
+      ],
+      "ambiguous": []
+    },
+    "cmd/command/stub.asm": {
+      "sha256": "2679057c107cb8daba7f762f6f3f151948bd059460d7712f70954185c729d7a0",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "cmd/command/command1.asm",
+        "cmd/command/command2.asm",
+        "cmd/command/comseg.asm",
+        "cmd/command/init.asm",
+        "cmd/command/rdata.asm",
+        "cmd/command/rucode.asm",
+        "inc/highexit.inc",
+        "inc/highvar.inc",
+        "inc/versiona.inc",
+        "inc/xmm.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "cmd/command/tbatch.asm": {
+      "sha256": "acb6e1ca668f484e6634add3615828593eba2c1aa320f4dc29b3d698ce9c3113",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "cmd/command/comequ.asm",
+        "cmd/command/comseg.asm",
+        "cmd/command/comsw.asm",
+        "cmd/command/rdata.asm",
+        "cmd/command/tcode.asm",
+        "cmd/command/tdata.asm",
+        "cmd/command/tmisc1.asm",
+        "cmd/command/tspc.asm",
+        "inc/doscntry.inc",
+        "inc/dossym.inc",
+        "inc/syscall.inc"
+      ],
+      "unknown": [],
+      "ambiguous": [
+        {
+          "kind": "symbol",
+          "name": "arg",
+          "candidates": [
+            "cmd/command/tspc.asm",
+            "inc/dosmac.inc"
+          ]
+        }
+      ]
+    },
+    "cmd/command/tbatch2.asm": {
+      "sha256": "a347cc53c8db8d9e54e2783e510fe52d2d816f108ccb7005f47c5acc97e661e6",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "cmd/command/comequ.asm",
+        "cmd/command/comseg.asm",
+        "cmd/command/comsw.asm",
+        "cmd/command/rdata.asm",
+        "cmd/command/tcode.asm",
+        "cmd/command/tdata.asm",
+        "cmd/command/tmisc1.asm",
+        "cmd/command/tspc.asm",
+        "inc/dossym.inc",
+        "inc/syscall.inc"
+      ],
+      "unknown": [],
+      "ambiguous": [
+        {
+          "kind": "symbol",
+          "name": "arg",
+          "candidates": [
+            "cmd/command/tspc.asm",
+            "inc/dosmac.inc"
+          ]
+        }
+      ]
+    },
+    "cmd/command/tcmd1b.asm": {
+      "sha256": "052c9e921800c18fd1055bbe2cecd4a2a06999204781f31349636fcafb98da75",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "cmd/command/comequ.asm",
+        "cmd/command/comseg.asm",
+        "cmd/command/comsw.asm",
+        "cmd/command/rdata.asm",
+        "cmd/command/tcode.asm",
+        "cmd/command/tdata.asm",
+        "cmd/command/tenv2.asm",
+        "cmd/command/tmisc1.asm",
+        "cmd/command/tprintf.asm",
+        "cmd/command/tspc.asm",
+        "cmd/command/tucode.asm",
+        "inc/bpb.inc",
+        "inc/dossym.inc",
+        "inc/filemode.inc",
+        "inc/ioctl.inc",
+        "inc/sf.inc",
+        "inc/syscall.inc"
+      ],
+      "unknown": [],
+      "ambiguous": [
+        {
+          "kind": "symbol",
+          "name": "arg",
+          "candidates": [
+            "cmd/command/tspc.asm",
+            "inc/dosmac.inc"
+          ]
+        }
+      ]
+    },
+    "cmd/command/tcmd2a.asm": {
+      "sha256": "1e1b18ba34ff9fefe6e6c0535f574ff037dd7095189639464c641a45d886af9d",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "cmd/command/comequ.asm",
+        "cmd/command/comseg.asm",
+        "cmd/command/comsw.asm",
+        "cmd/command/tdata.asm",
+        "cmd/command/tenv2.asm",
+        "cmd/command/tmisc1.asm",
+        "cmd/command/tprintf.asm",
+        "cmd/command/tspc.asm",
+        "inc/bpb.inc",
+        "inc/dossym.inc",
+        "inc/filemode.inc",
+        "inc/ioctl.inc",
+        "inc/rombios.inc",
+        "inc/sf.inc",
+        "inc/syscall.inc"
+      ],
+      "unknown": [],
+      "ambiguous": [
+        {
+          "kind": "symbol",
+          "name": "arg",
+          "candidates": [
+            "cmd/command/tspc.asm",
+            "inc/dosmac.inc"
+          ]
+        }
+      ]
+    },
+    "cmd/command/tcmd2b.asm": {
+      "sha256": "516e4020c448f98a5e8186994b174740995e1b325774fee94d8ea3882f8636c4",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "cmd/command/comequ.asm",
+        "cmd/command/comseg.asm",
+        "cmd/command/comsw.asm",
+        "cmd/command/rdata.asm",
+        "cmd/command/stub.asm",
+        "cmd/command/tcode.asm",
+        "cmd/command/tdata.asm",
+        "cmd/command/tmisc1.asm",
+        "cmd/command/tspc.asm",
+        "inc/dossym.inc",
+        "inc/mult.inc",
+        "inc/pdb.inc",
+        "inc/syscall.inc"
+      ],
+      "unknown": [],
+      "ambiguous": [
+        {
+          "kind": "symbol",
+          "name": "arg",
+          "candidates": [
+            "cmd/command/tspc.asm",
+            "inc/dosmac.inc"
+          ]
+        }
+      ]
+    },
+    "cmd/command/tcode.asm": {
+      "sha256": "62eb49c335e1ee521236ade2c0651c7682627c787e4e77adbdc4383fb82f49ae",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "cmd/command/comequ.asm",
+        "cmd/command/command1.asm",
+        "cmd/command/comseg.asm",
+        "cmd/command/comsw.asm",
+        "cmd/command/rdata.asm",
+        "cmd/command/tcmd2b.asm",
+        "cmd/command/tdata.asm",
+        "cmd/command/tfor.asm",
+        "cmd/command/tmisc1.asm",
+        "cmd/command/tpipe.asm",
+        "cmd/command/tprintf.asm",
+        "cmd/command/tranmsg.asm",
+        "cmd/command/tspc.asm",
+        "inc/arena.inc",
+        "inc/dossym.inc",
+        "inc/pdb.inc",
+        "inc/syscall.inc",
+        "inc/vector.inc"
+      ],
+      "unknown": [],
+      "ambiguous": [
+        {
+          "kind": "include",
+          "name": "mshalo.asm",
+          "candidates": [
+            "dos/mshalo.asm",
+            "inc/mshalo.asm"
+          ]
+        },
+        {
+          "kind": "symbol",
+          "name": "arg",
+          "candidates": [
+            "cmd/command/tspc.asm",
+            "inc/dosmac.inc"
+          ]
+        }
+      ]
+    },
+    "cmd/command/tdata.asm": {
+      "sha256": "7b81403c81c1f426906df09e8e0e45eaf52ea33b7c55b5be349e56313f79e92c",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "cmd/command/comequ.asm",
+        "cmd/command/comseg.asm",
+        "cmd/command/comsw.asm",
+        "cmd/command/copy.asm",
+        "cmd/command/dir.asm",
+        "cmd/command/ifequ.asm",
+        "cmd/command/loadhi.asm",
+        "cmd/command/tbatch2.asm",
+        "cmd/command/tcmd1b.asm",
+        "cmd/command/tcmd2a.asm",
+        "cmd/command/tcmd2b.asm",
+        "cmd/command/tcode.asm",
+        "cmd/command/tenv.asm",
+        "cmd/command/tenv2.asm",
+        "cmd/command/tfor.asm",
+        "cmd/command/tpipe.asm",
+        "cmd/command/tranmsg.asm",
+        "cmd/command/tspc.asm",
+        "cmd/command/tucode.asm",
+        "inc/dirent.inc",
+        "inc/error.inc",
+        "inc/msgdcl.inc",
+        "inc/sysmsg.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "cmd/command/tenv.asm": {
+      "sha256": "d0bc63bd712fb3ba820eae4ced701f9a2883375df709e802c12c7156d6dd4293",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "cmd/command/comequ.asm",
+        "cmd/command/comseg.asm",
+        "cmd/command/comsw.asm",
+        "cmd/command/rdata.asm",
+        "cmd/command/resmsg.equ",
+        "cmd/command/tdata.asm",
+        "cmd/command/tmisc1.asm",
+        "cmd/command/tspc.asm",
+        "inc/arena.inc",
+        "inc/doscntry.inc",
+        "inc/dossym.inc",
+        "inc/syscall.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "cmd/command/tenv2.asm": {
+      "sha256": "46a0c1a731bb73e4afe4d17c40f48b96f78817a18483f210fe59c2994fd0affd",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "cmd/command/comequ.asm",
+        "cmd/command/comseg.asm",
+        "cmd/command/comsw.asm",
+        "cmd/command/rdata.asm",
+        "cmd/command/tdata.asm",
+        "cmd/command/tmisc1.asm",
+        "cmd/command/tspc.asm",
+        "inc/dossym.inc",
+        "inc/find.inc",
+        "inc/syscall.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "cmd/command/tfor.asm": {
+      "sha256": "93cd89114a467bce48900d36c81897f5f739a091280c17a6560d7b953dd519ae",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "cmd/command/comequ.asm",
+        "cmd/command/comseg.asm",
+        "cmd/command/comsw.asm",
+        "cmd/command/fordata.asm",
+        "cmd/command/rdata.asm",
+        "cmd/command/tbatch2.asm",
+        "cmd/command/tcode.asm",
+        "cmd/command/tdata.asm",
+        "cmd/command/tmisc1.asm",
+        "cmd/command/tspc.asm",
+        "inc/devsym.inc",
+        "inc/dossym.inc",
+        "inc/find.inc",
+        "inc/syscall.inc"
+      ],
+      "unknown": [],
+      "ambiguous": [
+        {
+          "kind": "symbol",
+          "name": "arg",
+          "candidates": [
+            "cmd/command/tspc.asm",
+            "inc/dosmac.inc"
+          ]
+        }
+      ]
+    },
+    "cmd/command/tmisc1.asm": {
+      "sha256": "93e31313dcb247d9c2e661a22d5376374318d13121f41867ed48e03e134174db",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "cmd/command/comequ.asm",
+        "cmd/command/comseg.asm",
+        "cmd/command/comsw.asm",
+        "cmd/command/rdata.asm",
+        "cmd/command/tcode.asm",
+        "cmd/command/tdata.asm",
+        "cmd/command/tparse.asm",
+        "cmd/command/tpipe.asm",
+        "cmd/command/tspc.asm",
+        "inc/dossym.inc",
+        "inc/syscall.inc"
+      ],
+      "unknown": [
+        {
+          "kind": "symbol",
+          "name": "batcom"
+        }
+      ],
+      "ambiguous": [
+        {
+          "kind": "symbol",
+          "name": "arg",
+          "candidates": [
+            "cmd/command/tspc.asm",
+            "inc/dosmac.inc"
+          ]
+        }
+      ]
+    },
+    "cmd/command/tmisc2.asm": {
+      "sha256": "27e4410c0a0b9b246dd7057830dec354689b91067bc27d0dd6d6a96377710e4c",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "cmd/command/comequ.asm",
+        "cmd/command/comseg.asm",
+        "cmd/command/comsw.asm",
+        "cmd/command/rdata.asm",
+        "cmd/command/tcode.asm",
+        "cmd/command/tdata.asm",
+        "cmd/command/tmisc1.asm",
+        "cmd/command/tspc.asm",
+        "inc/bpb.inc",
+        "inc/dossym.inc",
+        "inc/ioctl.inc",
+        "inc/pdb.inc",
+        "inc/sf.inc",
+        "inc/syscall.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "cmd/command/tparse.asm": {
+      "sha256": "6b5e17ff0428e5b9d7d87ec076ef92c2b8f6dbb8e0f09a9e325af0c2e55ba51d",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "cmd/command/comseg.asm",
+        "cmd/command/comsw.asm",
+        "inc/parse.asm",
+        "inc/psdata.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "cmd/command/tpipe.asm": {
+      "sha256": "8212af6332ff32ff97a743371f24e9a7c0119bd3809a870c339ce287e7005310",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "cmd/command/comequ.asm",
+        "cmd/command/comseg.asm",
+        "cmd/command/comsw.asm",
+        "cmd/command/rdata.asm",
+        "cmd/command/tcode.asm",
+        "cmd/command/tdata.asm",
+        "cmd/command/tenv.asm",
+        "cmd/command/tmisc1.asm",
+        "cmd/command/tmisc2.asm",
+        "cmd/command/tprintf.asm",
+        "cmd/command/tspc.asm",
+        "inc/dossym.inc",
+        "inc/pdb.inc",
+        "inc/syscall.inc"
+      ],
+      "unknown": [],
+      "ambiguous": [
+        {
+          "kind": "symbol",
+          "name": "testkanj",
+          "candidates": [
+            "bios/sysinit2.asm",
+            "cmd/command/tenv.asm"
+          ]
+        }
+      ]
+    },
+    "cmd/command/tprintf.asm": {
+      "sha256": "1ae606de31ba92d03ba7e0c013dc7bcc2e0e6430882454220154130905aec0ce",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "cmd/command/comequ.asm",
+        "cmd/command/comseg.asm",
+        "cmd/command/comsw.asm",
+        "cmd/command/rdata.asm",
+        "cmd/command/tcode.asm",
+        "cmd/command/tdata.asm",
+        "cmd/command/tenv2.asm",
+        "cmd/command/tmisc1.asm",
+        "cmd/command/tspc.asm",
+        "inc/dossym.inc",
+        "inc/msgdcl.inc",
+        "inc/sysmsg.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "cmd/command/tranmsg.asm": {
+      "sha256": "afbe89f42762de33ad60c124419611108c37fcb17fecc06602c840fc5816d36d",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "cmd/command/comequ.asm",
+        "cmd/command/comseg.asm",
+        "cmd/command/tspc.asm",
+        "inc/sysmsg.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [
+        {
+          "kind": "caller_context",
+          "name": "message parameter and segment environment",
+          "evidence": "cmd/command/tdata.asm:331",
+          "detail": "tranmsg.asm is included inside tdata.asm and uses caller-provided constants, segment declarations, and external words; remaining providers require verification."
+        }
+      ],
+      "ambiguous": []
+    },
+    "cmd/command/tspc.asm": {
+      "sha256": "8f7fe96ff0e089b6d31672c074543e37b7c867eceb17ce61707d7cacfb46ad2c",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "cmd/command/comequ.asm",
+        "cmd/command/comseg.asm",
+        "cmd/command/comsw.asm",
+        "cmd/command/tdata.asm",
+        "inc/dossym.inc",
+        "inc/find.inc",
+        "inc/intnat.inc",
+        "inc/magicdrv.inc",
+        "inc/version.inc"
+      ],
+      "unknown": [
+        {
+          "kind": "symbol_reconstruction",
+          "name": "answer_buffer ownership and generated message linkage",
+          "evidence": "extras/docs/etc/file-review-tspc-answer-buffer.json",
+          "detail": "Baseline TDATA exports answer_buffer as message alias; target COPY uses a byte between TSPC fields. Source ownership and replacement must be verified without duplicate publics."
+        }
+      ],
+      "ambiguous": []
+    },
+    "cmd/command/tucode.asm": {
+      "sha256": "33a7ef94560d9b04bb431842426cd83e79c654ffef6b8faff414eded486b7628",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "cmd/command/comequ.asm",
+        "cmd/command/comseg.asm",
+        "cmd/command/comsw.asm",
+        "cmd/command/rdata.asm",
+        "cmd/command/tcmd1b.asm",
+        "cmd/command/tdata.asm",
+        "cmd/command/tenv2.asm",
+        "cmd/command/tmisc1.asm",
+        "cmd/command/tspc.asm",
+        "inc/dossym.inc",
+        "inc/syscall.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "cmd/command/uinit.asm": {
+      "sha256": "ed1be0649ee7fa647f9b7af48c53f74e5305d74bbf30cacc51986059c262baed",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "cmd/command/command1.asm",
+        "cmd/command/command2.asm",
+        "cmd/command/comseg.asm",
+        "cmd/command/comsw.asm",
+        "cmd/command/ifequ.asm",
+        "cmd/command/resmsg.equ",
+        "cmd/command/rucode.asm",
+        "cmd/command/tmisc2.asm",
+        "cmd/command/tparse.asm",
+        "cmd/command/tprintf.asm",
+        "lang/usa/messages/comimsg.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "inc/arena.inc": {
+      "sha256": "8b7e1038bdde542ff71fe320fd666788a3f517bed0ba90d3cad146e001933589",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/dosmac.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "inc/bdsize.inc": {
+      "sha256": "33a862fb4b05d71a2f8307f231dcb08491fed700343db8c9e56efcae00455ca2",
+      "conditional_filter_fallback": false,
+      "dependencies": [],
+      "unknown": [
+        {
+          "kind": "build_artifacts",
+          "name": "BIOS and DOS linker map sizes",
+          "evidence": "inc/origin.inc:56",
+          "detail": "Historical getsize workflow updates these constants from msbio.map and msdos.map. The DOS 7 build applicability and target values remain to be established."
+        }
+      ],
+      "ambiguous": []
+    },
+    "inc/bootform.inc": {
+      "sha256": "4b965419b9fb2c035961b8042f7a494a6a8baeb1df63c270bb068658e2f1bea9",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/bpb.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "inc/bpb.inc": {
+      "sha256": "43452ad264b7242d892634f19bfcd036f8a2f1c926745466b27039e8c5f960a8",
+      "conditional_filter_fallback": false,
+      "dependencies": [],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "inc/buffer.inc": {
+      "sha256": "dd480d8e43f47d3ba741498ee67dae60716c3fe7fdba92afb73e14f302897b16",
+      "conditional_filter_fallback": false,
+      "dependencies": [],
+      "unknown": [
+        {
+          "kind": "caller_macro",
+          "name": "BREAK",
+          "evidence": "inc/buffer.inc:1",
+          "detail": "Requires a BREAK macro from the including source context. Multiple implementations exist; the actual provider and ordering must be established for each consumer."
+        }
+      ],
+      "ambiguous": []
+    },
+    "inc/bugtyp.inc": {
+      "sha256": "5ca6cab9f8de58819470837484d8da1a1f044356f5dbb4d3206dbcfebc92ac87",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "dos/msconst.asm"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "inc/const2.asm": {
+      "sha256": "d6fd5b7d1c74ab28e361b4854cc431e321abe93e79e2682964681c6b63957100",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "dos/dostab.asm",
+        "inc/dossym.inc",
+        "inc/ms_data.asm",
+        "inc/sf.inc"
+      ],
+      "unknown": [
+        {
+          "kind": "caller_context",
+          "name": "complete DOSDATA symbols, macros and configuration",
+          "evidence": "dos/msdata.asm:13-39; inc/const2.asm:10-55",
+          "detail": "This fragment is included in msdata after multiple headers and requires their macros, structures and build options. Enumerate complete prerequisites."
+        }
+      ],
+      "ambiguous": []
+    },
+    "inc/copyrigh.inc": {
+      "sha256": "1e4ac80d8a6923d5070840d7de469e156c17d385164963fb3e08afe0acff408a",
+      "conditional_filter_fallback": false,
+      "dependencies": [],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "inc/cpmfcb.inc": {
+      "sha256": "ca2cb0e7a884aca307590d3eb9f4620a5ce3455ccb862d4e19fbd5a4c1e3501f",
+      "conditional_filter_fallback": false,
+      "dependencies": [],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "inc/cputype.inc": {
+      "sha256": "e9bf8b0a5ee0e10936d5403cddadacc898ce1f8b6807ab955b2d0639e5b50cb0",
+      "conditional_filter_fallback": false,
+      "dependencies": [],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "inc/curdir.inc": {
+      "sha256": "35ce4c7f4511ccd82b0080f769f1efee90853f42c93a1c9d98a7ab930e618aaf",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/dosmac.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "inc/dbcs.sw": {
+      "sha256": "ca8e10fb6de72593568aa21cb1e24b36a180c64fff0a49ceb8194c75e79737dd",
+      "conditional_filter_fallback": false,
+      "dependencies": [],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "inc/devsym.inc": {
+      "sha256": "fc490d94869f327034ac3224f7f3bad918ee643041e3f939b4b65693f24e3071",
+      "conditional_filter_fallback": false,
+      "dependencies": [],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "inc/dirent.inc": {
+      "sha256": "72797ae77d98550ea6ad11aa4a9d46d8ddd88d3dfbb1872aca0c1cd6a52adaa9",
+      "conditional_filter_fallback": false,
+      "dependencies": [],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "inc/doscntry.inc": {
+      "sha256": "0afc8359d8e51c0da06b15cf725c15a1600b8a4a44f68a74964c78c1b4864a33",
+      "conditional_filter_fallback": false,
+      "dependencies": [],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "inc/dosmac.inc": {
+      "sha256": "30acfd9ff4cfa69f2719bc61a4416c3c37fc4cb3ae2b5cdaed64096dfbc67675",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/dossym.inc",
+        "inc/mshead.asm"
+      ],
+      "unknown": [
+        {
+          "kind": "symbol",
+          "name": "sym"
+        }
+      ],
+      "ambiguous": [
+        {
+          "kind": "symbol",
+          "name": "dosdatasg",
+          "candidates": [
+            "bios/msbio1.asm",
+            "inc/msbdata.inc"
+          ]
+        },
+        {
+          "kind": "symbol",
+          "name": "name",
+          "candidates": [
+            "cmd/command/resmsg.equ",
+            "cmd/command/tdata.asm",
+            "cmd/command/uinit.asm",
+            "inc/dosmac.inc"
+          ]
+        }
+      ]
+    },
+    "inc/dosseg.inc": {
+      "sha256": "b57bb8fe4cdbd0e215a0fb4c34dd21aff2f300ab6228788a3e3912144f86b0ef",
+      "conditional_filter_fallback": false,
+      "dependencies": [],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "inc/dossym.inc": {
+      "sha256": "7251b43759082b218b6216a267c69efe1adc46da7e5a8bdf75ddd94d366de6a9",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/buffer.inc",
+        "inc/dbcs.sw",
+        "inc/dirent.inc",
+        "inc/dosmac.inc",
+        "inc/error.inc",
+        "inc/version.inc",
+        "inc/versiona.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "inc/dpb.inc": {
+      "sha256": "78a9717b8fe123d31651d6351adeb6789501ef273ce2476316f5d4ec7c450ec0",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/dosmac.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "inc/dpl.asm": {
+      "sha256": "3c05ff68a98c953d5cba320d81aecd0e813db044477fef11ac38fd599520f9da",
+      "conditional_filter_fallback": false,
+      "dependencies": [],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "inc/ds_vers.inc": {
+      "sha256": "2ff90d605f11ff956bfc05136576978b1a912fc022bc4529af138cc92022a0f1",
+      "conditional_filter_fallback": false,
+      "dependencies": [],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "inc/ea.inc": {
+      "sha256": "b18162e19f3c81a5982740cc7a5285e0c89d386507b567da61df0e3dddf2549b",
+      "conditional_filter_fallback": false,
+      "dependencies": [],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "inc/error.inc": {
+      "sha256": "f175053c01e3e4108cab8ac0cef34f5a53e70e050c93216f12182154a2a8968b",
+      "conditional_filter_fallback": false,
+      "dependencies": [],
+      "unknown": [
+        {
+          "kind": "caller_macro",
+          "name": "BREAK",
+          "evidence": "inc/error.inc:1",
+          "detail": "Requires a BREAK macro from the including source context. Multiple implementations exist; the actual provider and ordering must be established for each consumer."
+        }
+      ],
+      "ambiguous": []
+    },
+    "inc/exe.inc": {
+      "sha256": "9823aec6d6bf327ca248ae828bf213aa053f1a466e5d27ffaad455758fd05b36",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/dosmac.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "inc/fastopen.inc": {
+      "sha256": "64f83d23612ac77f7f1a40e4b5c2dbbb93e6daf65d96106f1d45c8ee6e2cbea3",
+      "conditional_filter_fallback": false,
+      "dependencies": [],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "inc/fastxxxx.inc": {
+      "sha256": "6e89fb864fb75b1e89bf3c049ead0167d481377ce6fa6986f9e53b30a30331f6",
+      "conditional_filter_fallback": false,
+      "dependencies": [],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "inc/filemode.inc": {
+      "sha256": "1ed4f86e30874fd29bbf1db7d8d7bf541b3e29f9b52e3eb9cf62b007f6c88a05",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/dosmac.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "inc/find.inc": {
+      "sha256": "9ffe3c32ba76131086cf11465ac666ff369382bd89193202b2ab1a998e8f2bef",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/dosmac.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "inc/highexit.inc": {
+      "sha256": "e1df06058140691c7e5fdcc0da2d536d56368aa2331737a15e10ad06c17d7ddc",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/arena.inc",
+        "inc/highvar.inc"
+      ],
+      "unknown": [
+        {
+          "kind": "caller_context",
+          "name": "complete segment and external environment",
+          "evidence": "inc/highexit.inc:96; cmd/command/stub.asm:285-286; bios/sysconf.asm:3422",
+          "detail": "getdata and putdata expand against caller-provided segment context; remaining providers and target configuration require verification."
+        }
+      ],
+      "ambiguous": []
+    },
+    "inc/highload.inc": {
+      "sha256": "3505df9de417b58463b98d5568bbac17116badc4cf0e2f7339a22e296cb25606",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/arena.inc",
+        "inc/highvar.inc"
+      ],
+      "unknown": [
+        {
+          "kind": "caller_context",
+          "name": "remaining implicit symbols and build contexts",
+          "evidence": "cmd/command/loadhi.asm:127; bios/sysconf.asm:3421",
+          "detail": "Code fragment depends on including modules; complete macro, symbol, segment and conditional dependencies require verification before processing."
+        }
+      ],
+      "ambiguous": []
+    },
+    "inc/highvar.inc": {
+      "sha256": "79c6e82987d716b33e73e956b0b1a11689dfaad60a8b55e8c39238cf09c5892d",
+      "conditional_filter_fallback": false,
+      "dependencies": [],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "inc/int2a.inc": {
+      "sha256": "6af97498ea576a05abb7e58183c2daa8d494e231d931c141bc7fc4c7e756c896",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/dosmac.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "inc/intnat.inc": {
+      "sha256": "2e198e650d88204dcb6b94dfbb8ed7a9abe629b23e5a9313a8cbd21a0738a809",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/dosmac.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "inc/ioctl.inc": {
+      "sha256": "3578ed8c51c3856a05bb9dabac438feb9e4bf3ddacd98befa0d90b96e244464c",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/bpb.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "inc/lmstub.asm": {
+      "sha256": "a0783d6f103220cbc6eff5ae371fbc9316e53b1e99ff74e4afc418496d4012f8",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "dos/msdos.skl",
+        "lang/usa/messages/usa-ms-dos.msg"
+      ],
+      "unknown": [
+        {
+          "kind": "include",
+          "name": "msdos.cl2"
+        },
+        {
+          "kind": "target_indirect_callee",
+          "name": "A20 failure handler and resource owner",
+          "evidence": "extras/docs/etc/lmstub-target-a20-evidence.json",
+          "detail": "Target A20 failure invokes an indirect far handler; its provider and relationship to BIOS message data require verification."
+        }
+      ],
+      "ambiguous": []
+    },
+    "inc/lock.inc": {
+      "sha256": "798fc526d01fb124e6b459a034500a2b214f03c32184d4de7b023d8d51fe8841",
+      "conditional_filter_fallback": false,
+      "dependencies": [],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "inc/magicdrv.inc": {
+      "sha256": "3df074a18ae69121c0f691a0880c4b94d245bc3e25839a30a987cd343e336e0a",
+      "conditional_filter_fallback": false,
+      "dependencies": [],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "inc/mi.inc": {
+      "sha256": "dc9226da8ca79d71ac339ef92d8deeeae8b0b7414ab671b2075419432fb63f9d",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/dosmac.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "inc/ms_data.asm": {
+      "sha256": "70639e0589480cac1a87c8318d7a0906e383febf9b58856021d14019216cf5dd",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "cmd/command/tcode.asm",
+        "dos/mscode.asm",
+        "dos/msdisp.asm"
+      ],
+      "unknown": [
+        {
+          "kind": "symbol",
+          "name": "absdrd"
+        },
+        {
+          "kind": "symbol",
+          "name": "absdwrt"
+        },
+        {
+          "kind": "symbol",
+          "name": "divov"
+        },
+        {
+          "kind": "symbol",
+          "name": "stay_resident"
+        }
+      ],
+      "ambiguous": []
+    },
+    "inc/msbdata.inc": {
+      "sha256": "9e324c8a49c1487c2dff0dccbe1350f5bbc82dc3aa1843b0e71d4b71ad6dc827",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/oemconf.inc"
+      ],
+      "unknown": [
+        {
+          "kind": "bios_caller",
+          "name": "int_2f forward reference and BIOS data placement",
+          "evidence": "bios/msbio1.asm:87,128,870; inc/msbdata.inc:39-42",
+          "detail": "In_Bios branch embeds a far pointer to int_2f supplied by BIOS caller; non-BIOS branch instead defines a dummy. Resolve each required configuration as a potential cycle."
+        }
+      ],
+      "ambiguous": []
+    },
+    "inc/msbds.inc": {
+      "sha256": "641a8c8ad5a1d611d72342fdf40e20f91ce4a02f89cd83b47d041cebc4265e75",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/bpb.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "inc/msgdcl.inc": {
+      "sha256": "2da1a5b96b9a283fadf3d438d0039f729dc7f837c96eff507f8f5411ebb62a12",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/sysmsg.inc"
+      ],
+      "unknown": [
+        {
+          "kind": "caller_context",
+          "name": "message class definitions and COMR COMT FARmsg",
+          "evidence": "inc/msgdcl.inc:109; cmd/command/tdata.asm:1081,1098; cmd/command/tprintf.asm:53,372",
+          "detail": "Macro expands on first pass and requires caller-provided class configuration and symbols; establish actual generated message provider and order."
+        }
+      ],
+      "ambiguous": []
+    },
+    "inc/msgserv.asm": {
+      "sha256": "627b204f2e96fbd84c8a8b6513fd8a56ae3b2fa56c8a5bc736b5cdf0181cbbf4",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/copyrigh.inc",
+        "inc/sysmsg.inc"
+      ],
+      "unknown": [
+        {
+          "kind": "macro_context",
+          "name": "service flags and generated message classes",
+          "evidence": "inc/sysmsg.inc:239-252,390-441; inc/msgserv.asm:82,1218,2885",
+          "detail": "MSGSERV expands in caller-supplied context and depends on configuration flags and structures; enumerate actual caller paths and target generated resources."
+        }
+      ],
+      "ambiguous": []
+    },
+    "inc/mshalo.asm": {
+      "sha256": "ea61a90d0190128ee5dfcb9a6f2a07f3fed11d37a510896b0e1865c258de0694",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "cmd/command/comseg.asm",
+        "inc/arena.inc",
+        "inc/pdb.inc",
+        "inc/vector.inc"
+      ],
+      "unknown": [
+        {
+          "kind": "caller_symbols",
+          "name": "ROM_CS and ROM_IP",
+          "evidence": "cmd/command/tcode.asm:87",
+          "detail": "These external words come from the including COMMAND module and require actual provider mapping."
+        }
+      ],
+      "ambiguous": []
+    },
+    "inc/mshead.asm": {
+      "sha256": "a1572e2b8b0b2b840df0c6317d7072901f381ce2c1fe793cd5966a2e07309d29",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/dosseg.inc",
+        "inc/origin.inc"
+      ],
+      "unknown": [
+        {
+          "kind": "symbol",
+          "name": "dosinit"
+        }
+      ],
+      "ambiguous": []
+    },
+    "inc/mult.inc": {
+      "sha256": "73037418e659c1eab2d3e67fc7e29eebed8fc6f1fe5790848ee22f9870ef89a6",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/dosmac.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "inc/oemconf.inc": {
+      "sha256": "aff9b69a014044feb6f8261a1bb7fd5a453a5aa85c10633e0d8c707ddf1cc46d",
+      "conditional_filter_fallback": false,
+      "dependencies": [],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "inc/origin.inc": {
+      "sha256": "5e0e96fdffccfb760dc650c056aca15a48a5927eb15f7a7d7bf9b5c30b7dbf96",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/bdsize.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "inc/parse.asm": {
+      "sha256": "592bc38122c81888e90f11134051f705bc4db27c7e4691d3d0adc4b565b01c31",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/psdata.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "inc/pdb.inc": {
+      "sha256": "e5d7f79a89904b334b869292e28596adbdac23e26d953d12bc0a6cb46a1e4b29",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/dosmac.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "inc/psdata.inc": {
+      "sha256": "071642bb031b8a932578bd294f2f4527b2a89442f7a3caeb5f1bd446b59b4381",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/version.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "inc/rombios.inc": {
+      "sha256": "14aa46d7fdbefc03488bf91eb69815d292c61042580419a033622ed367aa564f",
+      "conditional_filter_fallback": false,
+      "dependencies": [],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "inc/sf.inc": {
+      "sha256": "98f38dad3562b516b4232ceb309a16f6b3ec8f4a899f99a7e433380f466df98d",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/dosmac.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "inc/smifssym.inc": {
+      "sha256": "bfd832bcd928d692b1b7250b98680ae2dd3b1864a55018ed0e4852631b8bc13b",
+      "conditional_filter_fallback": false,
+      "dependencies": [],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "inc/syscall.inc": {
+      "sha256": "6c48280825687958d53d845e42cf9abbc7a35231108b59787da902160bc955be",
+      "conditional_filter_fallback": false,
+      "dependencies": [],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "inc/sysmsg.inc": {
+      "sha256": "e5cf275e81b07172232b6a8fbfe7214aa32d0e5a754a999fc7a423a674d81b49",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "cmd/command/buildmsg.c",
+        "cmd/command/command.skl",
+        "inc/msgserv.asm",
+        "inc/versiona.inc",
+        "lang/usa/messages/usa-ms-command.msg"
+      ],
+      "unknown": [
+        {
+          "kind": "include",
+          "name": "&utilname.CTL"
+        },
+        {
+          "kind": "include",
+          "name": "&ext"
+        },
+        {
+          "kind": "generated_resources",
+          "name": "COMMAND.CTL and class files for actual target",
+          "evidence": "inc/sysmsg.inc:394-396,404-441; extras/tools/build_command_reference.py:35",
+          "detail": "Macro-selected generated files depend on skeleton, catalog and generator; establish DOS7 message source and tool configuration."
+        }
+      ],
+      "ambiguous": []
+    },
+    "inc/sysvar.inc": {
+      "sha256": "e10451b7564ef7f5fe100cfd85d2f873a076ad9ad37ab09a53f95acc42577f2e",
+      "conditional_filter_fallback": false,
+      "dependencies": [],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "inc/umb.inc": {
+      "sha256": "c53551ce1da16fff455029aea3e38ce029db4d4bb1e61c971c63d7ea8f338c73",
+      "conditional_filter_fallback": false,
+      "dependencies": [],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "inc/vector.inc": {
+      "sha256": "f254af16d59d41e7f4862c2c21f5ac75fbcdd6022df2f42d9c88d5f3c8b028b0",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "inc/dosmac.inc"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "inc/version.inc": {
+      "sha256": "b9ce9a6d7b82c2203ac9c5643d8b255c2d3cf7363defa1220ea8c15f3f1cdb61",
+      "conditional_filter_fallback": false,
+      "dependencies": [],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "inc/versiona.inc": {
+      "sha256": "eaea7e5c2ae3fb043eaf62e9fcc923afe9c8a3fec955eaa62c5c5c63d97caf6f",
+      "conditional_filter_fallback": false,
+      "dependencies": [],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "inc/win386.inc": {
+      "sha256": "f93d2bd1d1c4be0bb0474a4e0ed8796e0f10fdc8e424fc0ffcd64890e599219c",
+      "conditional_filter_fallback": false,
+      "dependencies": [],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "inc/wpatch.inc": {
+      "sha256": "5195c65222fd02b5f462e058ddbef9eaaebe577907563e1171863c19c583b1d3",
+      "conditional_filter_fallback": false,
+      "dependencies": [],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "inc/xmm.inc": {
+      "sha256": "166f5796fa0122255f2ef7013b89de089db4dff1c61e9a6c107838e73c5b7acb",
+      "conditional_filter_fallback": false,
+      "dependencies": [],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "inc/yesno.asm": {
+      "sha256": "c06e759028108eb655662c8c5231075b145854d14f166c44720298e505546e7b",
+      "conditional_filter_fallback": false,
+      "dependencies": [],
+      "unknown": [
+        {
+          "kind": "include",
+          "name": "msdos.cl3"
+        }
+      ],
+      "ambiguous": []
+    },
+    "lang/usa/messages/comimsg.inc": {
+      "sha256": "b34409f4fc0c721c6212e8f0ceab1e0ca6af7e43315ab8c70f92b4d9230ff387",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "cmd/command/comseg.asm",
+        "cmd/command/resmsg.equ"
+      ],
+      "unknown": [
+        {
+          "kind": "target_consumer_contract",
+          "name": "HelpMsgs table layout and COMMAND init consumers",
+          "evidence": "cmd/command/uinit.asm:357; lang/usa/messages/comimsg.inc:24; target COMMAND.COM:0x3319-0x3897",
+          "detail": "Target has 16 help texts instead of 13, and source emits a pointer table that has not yet been located in target. Determine target consumer and placement before editing the fragment."
+        }
+      ],
+      "ambiguous": []
+    },
+    "lang/usa/messages/comrmsg.inc": {
+      "sha256": "711e8b6e73fcc7c2cb62c47eca75730bc8779a824cc5b9039bfc4692322435e2",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "cmd/command/rdata.asm",
+        "cmd/command/resmsg.equ",
+        "cmd/command/stub.asm"
+      ],
+      "unknown": [
+        {
+          "kind": "target_resource_integration",
+          "name": "class 6 resource generation, load location and target caller integration",
+          "evidence": "extras/docs/etc/comrmsg-resource-tables-fixup-link.json",
+          "detail": "Target class 6 format, runtime fixup and representative consumers have been investigated; original source placement and complete target build remain unresolved."
+        }
+      ],
+      "ambiguous": []
+    },
+    "lang/usa/messages/usa-ms-command.msg": {
+      "sha256": "63635d82ffc4456f580a03bb8c5a6f7edfed9059500a793c757531737778e8bd",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "cmd/command/tranmsg.asm"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    },
+    "lang/usa/messages/usa-ms-dos.msg": {
+      "sha256": "fb3c861b357783257ea83f72aaa92c09bcece67df9b8f59ed188f5870a759a29",
+      "conditional_filter_fallback": false,
+      "dependencies": [
+        "bios/sysinit1.asm"
+      ],
+      "unknown": [],
+      "ambiguous": []
+    }
+  }
+}

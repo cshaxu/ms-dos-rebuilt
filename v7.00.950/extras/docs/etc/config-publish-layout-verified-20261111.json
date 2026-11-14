@@ -1,0 +1,415 @@
+{
+  "source": "bios/cfgpub.asm",
+  "sha256": "0597a45b09bb9376046dc40c9c953a92010ae88effd8eb6b45a60d7bdf804812",
+  "reserved_storage": {
+    "target_dgroup_start": 508,
+    "bytes": 4,
+    "contents": "zero",
+    "interpretation": "Unreferenced storage between record head and count, retained without assigning an invented runtime function."
+  },
+  "contiguous_record_region": {
+    "target_dgroup_start": 504,
+    "bytes": 18,
+    "count_displacement": 8,
+    "name_displacement": 10
+  },
+  "source_build": {
+    "stage": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\crt-explicit-qt26r48i",
+    "frontend_stage": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\config-profile-7kz230n0",
+    "executable_sha256": "2449b673df066596ee388ed4153fbf060e595e1db141a17907705a3f745a87ce",
+    "startup": {
+      "stage": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\crt-explicit-qt26r48i",
+      "startup_code_bytes": 274,
+      "startup_relocations": 7,
+      "image_relocations": 445,
+      "entry_linear": 2126,
+      "bss_start": 45670,
+      "bss_end": 50322,
+      "crt_static_bss_bytes": 12,
+      "communal_start": 45696,
+      "communal_bytes": 4626,
+      "checked_references": [
+        {
+          "operand": 14,
+          "symbol": "DGROUP",
+          "addend": 0
+        },
+        {
+          "operand": 36,
+          "symbol": "__end",
+          "addend": 65534
+        },
+        {
+          "operand": 45,
+          "symbol": "__FF_MSGBANNER",
+          "addend": 0
+        },
+        {
+          "operand": 52,
+          "symbol": "__NMSG_WRITE",
+          "addend": 0
+        },
+        {
+          "operand": 61,
+          "symbol": "__osversion",
+          "addend": 0
+        },
+        {
+          "operand": 67,
+          "symbol": "__osver",
+          "addend": 0
+        },
+        {
+          "operand": 78,
+          "symbol": "__atopsp",
+          "addend": 4
+        },
+        {
+          "operand": 81,
+          "symbol": "__atopsp",
+          "addend": 6
+        },
+        {
+          "operand": 115,
+          "symbol": "__atopsp",
+          "addend": 0
+        },
+        {
+          "operand": 136,
+          "symbol": "__psp",
+          "addend": 0
+        },
+        {
+          "operand": 142,
+          "symbol": "__edata",
+          "addend": 0
+        },
+        {
+          "operand": 145,
+          "symbol": "__end",
+          "addend": 0
+        },
+        {
+          "operand": 157,
+          "symbol": "___qczrinit",
+          "addend": 0
+        },
+        {
+          "operand": 164,
+          "symbol": "__setenvp",
+          "addend": 0
+        },
+        {
+          "operand": 169,
+          "symbol": "__setargv",
+          "addend": 0
+        },
+        {
+          "operand": 176,
+          "symbol": "__cinit",
+          "addend": 0
+        },
+        {
+          "operand": 184,
+          "symbol": "__environ",
+          "addend": 2
+        },
+        {
+          "operand": 188,
+          "symbol": "__environ",
+          "addend": 0
+        },
+        {
+          "operand": 192,
+          "symbol": "___argv",
+          "addend": 2
+        },
+        {
+          "operand": 196,
+          "symbol": "___argv",
+          "addend": 0
+        },
+        {
+          "operand": 200,
+          "symbol": "___argc",
+          "addend": 0
+        },
+        {
+          "operand": 203,
+          "symbol": "_main",
+          "addend": 0
+        },
+        {
+          "operand": 210,
+          "symbol": "_exit",
+          "addend": 0
+        },
+        {
+          "operand": 215,
+          "symbol": "__astart",
+          "addend": 272
+        },
+        {
+          "operand": 224,
+          "symbol": "__atopsp",
+          "addend": 2
+        },
+        {
+          "operand": 226,
+          "symbol": "_exit",
+          "addend": 0
+        },
+        {
+          "operand": 232,
+          "symbol": "__astart",
+          "addend": 272
+        },
+        {
+          "operand": 237,
+          "symbol": "__farstub",
+          "addend": 0
+        },
+        {
+          "operand": 243,
+          "symbol": "__FF_MSGBANNER",
+          "addend": 0
+        },
+        {
+          "operand": 247,
+          "symbol": "__NMSG_WRITE",
+          "addend": 0
+        },
+        {
+          "operand": 251,
+          "symbol": "___aDBswpflg",
+          "addend": 0
+        },
+        {
+          "operand": 261,
+          "symbol": "___aDBswpflg",
+          "addend": 4
+        },
+        {
+          "operand": 270,
+          "symbol": "__atopsp",
+          "addend": 2
+        },
+        {
+          "operand": 272,
+          "symbol": "DGROUP",
+          "addend": 0
+        }
+      ],
+      "scope": "Original CRT startup body and every fixup, executable entry, actual BSS start/end and stack guard verified. Other reused CRT members and full original layout still require verification."
+    },
+    "initialization": {
+      "stage": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\crt-explicit-qt26r48i",
+      "module": "dos\\crt0dat.asm",
+      "code_bytes": 380,
+      "references": [
+        {
+          "operand": 7,
+          "symbol": "_DATA",
+          "addend": 14
+        },
+        {
+          "operand": 11,
+          "symbol": "_DATA",
+          "addend": 16
+        },
+        {
+          "operand": 19,
+          "symbol": "__cintDIV",
+          "addend": 0
+        },
+        {
+          "operand": 27,
+          "symbol": "CDATA",
+          "addend": 4
+        },
+        {
+          "operand": 33,
+          "symbol": "_DATA",
+          "addend": 34
+        },
+        {
+          "operand": 41,
+          "symbol": "CDATA",
+          "addend": 6
+        },
+        {
+          "operand": 45,
+          "symbol": "CDATA",
+          "addend": 8
+        },
+        {
+          "operand": 51,
+          "symbol": "CDATA",
+          "addend": 2
+        },
+        {
+          "operand": 56,
+          "symbol": "__fptrap",
+          "addend": 0
+        },
+        {
+          "operand": 59,
+          "symbol": "CDATA",
+          "addend": 10
+        },
+        {
+          "operand": 63,
+          "symbol": "CDATA",
+          "addend": 12
+        },
+        {
+          "operand": 70,
+          "symbol": "CDATA",
+          "addend": 2
+        },
+        {
+          "operand": 74,
+          "symbol": "_DATA",
+          "addend": 34
+        },
+        {
+          "operand": 97,
+          "symbol": "_DATA",
+          "addend": 0
+        },
+        {
+          "operand": 121,
+          "symbol": "_DATA",
+          "addend": 46
+        },
+        {
+          "operand": 150,
+          "symbol": "_DATA",
+          "addend": 46
+        },
+        {
+          "operand": 167,
+          "symbol": "_DATA",
+          "addend": 46
+        },
+        {
+          "operand": 174,
+          "symbol": "XIFB",
+          "addend": 0
+        },
+        {
+          "operand": 177,
+          "symbol": "XIFE",
+          "addend": 0
+        },
+        {
+          "operand": 183,
+          "symbol": "XIB",
+          "addend": 0
+        },
+        {
+          "operand": 186,
+          "symbol": "XIE",
+          "addend": 0
+        },
+        {
+          "operand": 192,
+          "symbol": "XIFCB",
+          "addend": 0
+        },
+        {
+          "operand": 195,
+          "symbol": "XIFCE",
+          "addend": 0
+        },
+        {
+          "operand": 236,
+          "symbol": "_DATA",
+          "addend": 89
+        },
+        {
+          "operand": 244,
+          "symbol": "XOB",
+          "addend": 0
+        },
+        {
+          "operand": 247,
+          "symbol": "XOE",
+          "addend": 0
+        },
+        {
+          "operand": 253,
+          "symbol": "XPB",
+          "addend": 0
+        },
+        {
+          "operand": 256,
+          "symbol": "XPE",
+          "addend": 0
+        },
+        {
+          "operand": 263,
+          "symbol": "___aDBswpflg",
+          "addend": 0
+        },
+        {
+          "operand": 265,
+          "symbol": "__aDBdoswp",
+          "addend": 0
+        },
+        {
+          "operand": 271,
+          "symbol": "___aDBexit",
+          "addend": 0
+        },
+        {
+          "operand": 274,
+          "symbol": "XCB",
+          "addend": 0
+        },
+        {
+          "operand": 277,
+          "symbol": "XCE",
+          "addend": 0
+        },
+        {
+          "operand": 283,
+          "symbol": "XCFB",
+          "addend": 0
+        },
+        {
+          "operand": 286,
+          "symbol": "XCFE",
+          "addend": 0
+        },
+        {
+          "operand": 292,
+          "symbol": "__nullcheck",
+          "addend": 0
+        },
+        {
+          "operand": 338,
+          "symbol": "CDATA",
+          "addend": 4
+        },
+        {
+          "operand": 347,
+          "symbol": "CDATA",
+          "addend": 2
+        },
+        {
+          "operand": 352,
+          "symbol": "_DATA",
+          "addend": 14
+        }
+      ],
+      "relocations": [
+        2694
+      ],
+      "scope": "Complete original initialization/termination code and every linked operand verified; final placement and complete image remain pending."
+    },
+    "scope": "Fresh source build, frontend regression and original CRT startup/init verified. Remaining CRT members, final target layout and packed binary identity are not certified."
+  },
+  "remaining_initialized_data_delta": 14,
+  "scope": "Record block layout verified in combined main regression. Exact full data/code ordering, missing allocations and final three binary identities pending."
+}

@@ -1,0 +1,56 @@
+{
+  "msbio2_trial_object_sha256": "d51e841b9490f6fea2ba0f0690b06ec171f3dcbaf5e3fb45cab9e6c41bf206c1",
+  "linked_exe_sha256": "abe4f807cf0efa6e96bd9d8adda273b9b0b1602503e81fb1738ca87beadb603b",
+  "map_offsets": {
+    "i13z": "0x2329",
+    "install_bds": "0x25bc",
+    "mediacheck": "0x267e",
+    "hidensity": "0x2793",
+    "set_changed_dl": "0x27cd",
+    "mult_call16": "0x2994",
+    "mult_call17": "0x2a23",
+    "mult_call18": "0x2aaa",
+    "mult_call21": "0x2acc"
+  },
+  "spans": [
+    {
+      "from": "i13z",
+      "to": "install_bds",
+      "linked_distance": 659,
+      "target_distance": 659,
+      "difference": 0
+    },
+    {
+      "from": "install_bds",
+      "to": "mediacheck",
+      "linked_distance": 194,
+      "target_distance": 194,
+      "difference": 0
+    },
+    {
+      "from": "mediacheck",
+      "to": "hidensity",
+      "linked_distance": 277,
+      "target_distance": 277,
+      "difference": 0
+    },
+    {
+      "from": "hidensity",
+      "to": "set_changed_dl",
+      "linked_distance": 58,
+      "target_distance": 58,
+      "difference": 0
+    },
+    {
+      "from": "hidensity",
+      "to": "mult_call16",
+      "linked_distance": 513,
+      "target_distance": 417,
+      "difference": 96
+    }
+  ],
+  "limitations": [
+    "Other diagnostic stubs and historical generated inputs remain.",
+    "Target message providers, source ownership and full target identity remain unverified."
+  ]
+}

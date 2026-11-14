@@ -1,0 +1,72 @@
+{
+  "file_index": 9,
+  "source": "bios/msbio1.asm",
+  "source_sha256": "ce048a5d5cc0fed41694e42f2c011b74930dab2d95839f92902c4075383ab616",
+  "routines": [
+    {
+      "name": "keyboard_service",
+      "diagnostic_offset": 10041,
+      "target_offset": 7730,
+      "length": 169,
+      "matching_bytes": 149,
+      "different_offsets": [
+        4,
+        20,
+        21,
+        27,
+        28,
+        32,
+        33,
+        37,
+        38,
+        41,
+        53,
+        54,
+        91,
+        92,
+        153,
+        154,
+        160,
+        161,
+        165,
+        166
+      ],
+      "linked_hex": "1e2e8e1e30000fba3608000d1f0f8397002efe06b504750f2e8c16b3042e8926b1040e17bcb104e8f41e601e06160783ec268bfce87200803e84042a750fb80112b3309cfaff1e70088b168804b400a049040c809cfaff1e7008e8660083c42626803e84042a721377052689168804b81211b3009cfa26ff1e7008260fb61e62048bfb268b9150048afbb4029cfa26ff1e7008071f612efe0eb504790a2e8e16b3042e8b26b104f9c3",
+      "target_hex": "1e2e8e1eda000fba3608000d1f0f8397002efe067e05750f2e8c167c052e89267a050e17bc7a05e8f400601e06160783ec268bfce84601803e84042a750fb80112b3309cfaff1e70088b168804b400a049040c809cfaff1e7008e8400383c42626803e84042a721377052689168804b81211b3009cfa26ff1e7008260fb61e62048bfb268b9150048afbb4029cfa26ff1e7008071f612efe0e7e05790a2e8e167c052e8b267a05f9c3"
+    },
+    {
+      "name": "video_state_save",
+      "diagnostic_offset": 10210,
+      "target_offset": 8111,
+      "length": 26,
+      "matching_bytes": 26,
+      "different_offsets": [],
+      "linked_hex": "572bc98ed9fcbe1004a4be4904b11ef3a4be8404b107f3a45fc3",
+      "target_hex": "572bc98ed9fcbe1004a4be4904b11ef3a4be8404b107f3a45fc3"
+    },
+    {
+      "name": "video_state_restore",
+      "diagnostic_offset": 10236,
+      "target_offset": 8655,
+      "length": 28,
+      "matching_bytes": 28,
+      "different_offsets": [],
+      "linked_hex": "061f8bf72bc98ec1fcbf1004a4bf4904b11ef3a4bf8404b107f3a4c3",
+      "target_hex": "061f8bf72bc98ec1fcbf1004a4bf4904b11ef3a4bf8404b107f3a4c3"
+    }
+  ],
+  "target_stack_file_offset": 8138,
+  "target_stack_length": 512,
+  "target_stack_initial_state": "zero bytes followed by 00000000ff",
+  "diagnostic_stub_symbols": [
+    "bios_msg_base",
+    "bios_msg_1",
+    "bios_msg_2",
+    "bios_msg_3",
+    "keyboard_vector_setup",
+    "int1a_code",
+    "ttticks"
+  ],
+  "default_reference_output_sha256": "a67d8733509f9baf94017389cc1c991d5ef1c66bdfb91b6cab3eef0fc35e9490",
+  "limitations": "keyboard_vector_setup and other dependencies remain diagnostic stubs; runtime integration, final layout and all three target outputs remain incomplete."
+}

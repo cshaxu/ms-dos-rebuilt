@@ -1,0 +1,15 @@
+{
+  "build_report": "extras/docs/etc/command-reload-search-verified-build-20261112.json",
+  "probe_stage": "extras/build/reload-search-probe-pul8vq7c",
+  "checks": [
+    "COMSPEC first",
+    "original path second after failure",
+    "boot drive path third after failures",
+    "DOS boot drive is stored in the path"
+  ],
+  "limitations": [
+    "file loading is stubbed",
+    "interactive retry is not exercised",
+    "whole COMMAND startup and binary identity are not verified"
+  ]
+}

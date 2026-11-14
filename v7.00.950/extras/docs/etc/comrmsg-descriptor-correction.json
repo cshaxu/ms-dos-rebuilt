@@ -1,0 +1,14 @@
+{
+  "target_sha256": "a74c700063cd6b1c91523952bfc80e9393c125d39ada0164d48b5098089fcef3",
+  "correction": "The earlier claim that the descriptor at file 0x79ed identifies the class 6 resource at file 0x38a0 was unsupported. 0x38a0 is also an in-segment word pointer, and the indirect callee is parser-like; identical numeric values are not evidence of the same address space or purpose.",
+  "evidence": [
+    "At 0x642a startup computes CS + (0x43d0 >> 4) and stores it in the segment word at 0x377c.",
+    "Under the same MZ image mapping used for the descriptor, the far pointer offset at 0x377a is 0x7004, giving candidate file entry 0x4150 + 0x43d0 + 0x7004 = 0xf524.",
+    "At 0xf524, a near call reaches 0xea12 and returns far. The candidate callee scans command characters and accesses ES:[DI] as a control block, consistent with the SYSPARSE calling pattern in the baseline.",
+    "The word at the descriptor start is 0x38a0, which under the load-image mapping points to nearby in-memory data at file 0x79f0, rather than independently proving a resource file offset."
+  ],
+  "limits": [
+    "The full segment assumptions and all control-block fields still need runtime-independent verification.",
+    "The class 6 resource and its 2213-byte matched trial remain valid; only the claimed caller/descriptor relationship is withdrawn."
+  ]
+}

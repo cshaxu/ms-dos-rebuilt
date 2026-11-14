@@ -1,0 +1,15 @@
+{
+  "file": "bios/sysinit1.asm",
+  "source_sha256": "6e35c75a730417d5bdb1d1dcd449b9750bd10c8a407f4322b7d0307092c3f85b",
+  "target_range": "IO.SYS 0x5e8e..0x5eea",
+  "bytes": 92,
+  "different_bytes": 0,
+  "probe": "extras/research/boot-image-move-linked.asm",
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "Fixed-offset probe stubs pararound; real memory copying and full placement remain unverified.",
+    "Later compression consumers of reserved segment and size remain incomplete."
+  ]
+}

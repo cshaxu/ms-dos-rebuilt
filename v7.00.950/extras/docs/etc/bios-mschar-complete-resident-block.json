@@ -1,0 +1,20 @@
+{
+  "linked_exe_sha256": "b25dceb72caaeed9fdef71f150ee4ce90384339d451e03faf67a9cee1d51d55d",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "source": "extras/research/bios-mschar-clock-call-trial.asm",
+  "source_sha256": "573678894962d3c5a17bf58454c9ee074cf93ecf3acaf7e5f14bce6c79f87259",
+  "target_range": {
+    "start": "0x23b8",
+    "end_exclusive": "0x279f",
+    "length": 999,
+    "dispatch_tables_length": 120,
+    "routines_length": 879,
+    "different_bytes": 0
+  },
+  "synthetic_load_segment": "0x70",
+  "limitations": [
+    "This is a diagnostic link with temporary providers and inferred object ordering, not a production build.",
+    "Full target IO.SYS, source provenance and runtime behavior remain unverified.",
+    "The formal mschar file remains integration_pending."
+  ]
+}

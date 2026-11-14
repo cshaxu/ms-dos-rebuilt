@@ -1,0 +1,63 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\bios-v7-build-th0tbx_h",
+  "temporary_directory": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\temp",
+  "source_root": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a",
+  "configuration": [
+    "USA",
+    "DBLSPACE_HOOKS",
+    "DOS7_CONFIG"
+  ],
+  "reference": "DOS 7.0a",
+  "messages": "project-owned reconstructed USA messages",
+  "message_sha256": "a41c59db3b3bf4fa1a08b83fc9e12b8db558c5673569bac66dec735df4203951",
+  "objects": [
+    {
+      "name": "msload",
+      "sha256": "cd81270cfde17f7acaa05355eca74eb34cb79decf488d73341ec77597022f847"
+    },
+    {
+      "name": "msbio1",
+      "sha256": "8209afb08236bdf5baca83888a811cd0515b92a372c765026d2d94cb76c55ca3"
+    },
+    {
+      "name": "mschar",
+      "sha256": "949e6e37624e4cfd92872bac226f799f7aee15eb904430abe0c6e54e87817065"
+    },
+    {
+      "name": "msdisk",
+      "sha256": "e1cfc504e41ea97213eebb45f52b3ab10bea26718fcafbe20297cb2670c4f17b"
+    },
+    {
+      "name": "msdioctl",
+      "sha256": "5f8fadb6bf83e4311d8cfddf041c161d18ab5cacbb1b7a68f2b1488a1fdf37c9"
+    },
+    {
+      "name": "msint13",
+      "sha256": "80c2057e1a176fac0ca23549f96d3dbc4298a74f29ce2944de361f18712bf0fa"
+    },
+    {
+      "name": "msbio2",
+      "sha256": "b2c7821f943a90c692c7eca2ff5dbb385ad15891385da84b9dd540c7e3dcec1d"
+    },
+    {
+      "name": "initclk",
+      "sha256": "273327cb12d55980f568169b18b554a2dc1ad87d034f56801ace73a535ff187a"
+    },
+    {
+      "name": "msinit",
+      "sha256": "8383207c077191e34f2e75b28cb1744110f059f14afde91f52eaf02b6694ad1c"
+    },
+    {
+      "name": "sysinit1",
+      "sha256": "4c79a1e975697a562c688c4d2382213cd16b525faf2498a63423fab479026483"
+    }
+  ],
+  "status": "incomplete",
+  "msbio1_assembler": "ML 6.00 /Zm; temporary IF2 assertions checked from listing",
+  "msload_assembler": "ML 6.00 /Zm",
+  "msbio1_offsets": {
+    "orig13": "00B4",
+    "off_d0": "00D0"
+  },
+  "error": "RuntimeError('assembly failed: sysconf; see O:\\\\repos.hobby\\\\ms-dos-rebuilt\\\\v7.0a\\\\extras\\\\build\\\\bios-v7-build-th0tbx_h\\\\sysconf.log')"
+}

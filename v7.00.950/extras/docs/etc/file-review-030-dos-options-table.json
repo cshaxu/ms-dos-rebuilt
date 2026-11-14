@@ -1,0 +1,40 @@
+{
+  "source": "bios/sysconf.asm",
+  "source_sha256": "aefbb8302cdcd755b40b2d56d856ff4184086fb6242bec75faf4dd9795c18b5b",
+  "changes": [
+    "Restore DOS= AUTO, NOAUTO and SINGLE strings and target option-table layout.",
+    "Restore target ProcDOS handling for all seven options, including signed SINGLE branch and BIOS startup flags.",
+    "Move the /E range table to the target position; move unused p_dos_hi adjacent to the DOS option counter based on the observed layout."
+  ],
+  "target_match": {
+    "procdos": {
+      "start": "0x764c",
+      "end_exclusive": "0x76de",
+      "bytes": 146
+    },
+    "parameter_table": {
+      "start": "0x6446",
+      "end_exclusive": "0x6698",
+      "bytes": 594,
+      "actual_source_bytes": 592,
+      "synthetic_bytes": 2,
+      "synthetic_range": [
+        "0x64c8",
+        "0x64ca"
+      ]
+    }
+  },
+  "verification": {
+    "integration": "extras/tools/verify_syspre_device_link.py",
+    "integration_stage": "extras/build/syspre-object-link-kv77ukza",
+    "runtime": "extras/tools/verify_procdos_runtime.py",
+    "runtime_stage": "extras/build/procdos-runtime-0kszyxon",
+    "table": "extras/tools/verify_config_parameter_table.py",
+    "table_stage": "extras/build/config-tables-3ymkfxnz"
+  },
+  "limitations": [
+    "Two zero bytes before p_ctrl_break have not been attributed and are inserted only in the diagnostic table.",
+    "p_dos_hi placement is an inference from the target layout, not a recovered original declaration.",
+    "Other synthetic gaps and addresses remain; full IO.SYS and three target core binaries are unverified."
+  ]
+}

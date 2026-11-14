@@ -1,0 +1,11 @@
+{
+  "stage": "extras\\build\\dir-ratio-display-probe-wcmp4ury",
+  "checks": [
+    "16-bit packed ratio retains integer and fractional fields",
+    "01FFh is valid",
+    "FFFFh suppresses output"
+  ],
+  "limitations": [
+    "Printf is a stub; real compression driver and DIR rendering not exercised."
+  ]
+}

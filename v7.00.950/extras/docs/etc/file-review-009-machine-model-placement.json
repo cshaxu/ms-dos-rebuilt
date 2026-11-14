@@ -1,0 +1,22 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "model_bios_offset": 12,
+  "secondary_model_bios_offset": 13,
+  "target_initial_hex": "ff00",
+  "instruction_anchors": {
+    "initialization": {
+      "target_file_offset": 4188,
+      "hex": "268a47022ea20c00268a47032ea20d00"
+    },
+    "ps2_30": {
+      "target_file_offset": 16886,
+      "hex": "803e0c00fa"
+    },
+    "cmos_check": {
+      "target_file_offset": 3263,
+      "hex": "803e0c00fc7523803e0d00067407803e0d0004"
+    }
+  },
+  "diagnostic_report": "config-ml-machine-model-placement.json",
+  "limitations": "The target model and submodel locations are established by initialization and comparison sequences. The reference sysinit1 inHMA dependency is an explicit diagnostic stub pending reconstruction."
+}

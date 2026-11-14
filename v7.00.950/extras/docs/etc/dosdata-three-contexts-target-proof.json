@@ -1,0 +1,48 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "dosdata_file_base": "0x19ec0",
+  "historical_swap_end": "0x0aac",
+  "target_table_start": "0x0ad7",
+  "target_new_area_start": "0x0aac",
+  "target_new_area_length": 42,
+  "area_starts": [
+    "0x0aac",
+    "0x0aba",
+    "0x0ac8"
+  ],
+  "area_stride": 14,
+  "byte_checks": {
+    "first_area_call": {
+      "file_offset": "0x13c2f",
+      "bytes": "bfac0ae84143"
+    },
+    "second_area_call": {
+      "file_offset": "0x14990",
+      "bytes": "bfba0ae8e035"
+    },
+    "third_area_call": {
+      "file_offset": "0x13dc6",
+      "bytes": "bfc80ae89042"
+    },
+    "shared_area_use": {
+      "file_offset": "0x17f76",
+      "bytes": "8b0de3fa034d0a493b4d0c"
+    },
+    "directory_attribute_mask": {
+      "file_offset": "0x17fe0",
+      "bytes": "b00f2622470b3c0f"
+    }
+  },
+  "observations": [
+    "Three pointers 0aac, 0aba and 0ac8 address consecutive 14-byte regions before the target UCASE table.",
+    "The first two are passed to the same routine; the third is passed to a nearby related routine.",
+    "The shared routine accesses fields at offsets 0, 2, 4, 6, 8, 0a and 0c and exchanges several fields with existing DOS data.",
+    "Nearby directory processing masks the directory attribute with 0fh and compares the result with 0fh.",
+    "The 42 bytes account for the target UCASE table displacement relative to the historical source, with the following historical swap-end padding byte retained in the layout."
+  ],
+  "limitations": [
+    "The boundaries are supported by repeated pointers and field access, but original structure names and individual field semantics are not established.",
+    "The long-filename association is suggested by the directory attribute handling and needs full caller reconstruction.",
+    "There may be additional layout changes elsewhere that happen to cancel; complete linkage is not proven."
+  ]
+}

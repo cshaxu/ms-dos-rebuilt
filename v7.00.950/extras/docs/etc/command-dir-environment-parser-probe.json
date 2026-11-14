@@ -1,0 +1,10 @@
+{
+  "stage": "extras\\build\\dir-env-parser-probe-fpc07pjz",
+  "checks": [
+    "DIRCMD /W enables wide mode via shared dispatcher",
+    "command-line /-W overrides environment option"
+  ],
+  "limitations": [
+    "Environment lookup and CPARSE are stubs; real tokenizer, environment block and full DIR not exercised."
+  ]
+}

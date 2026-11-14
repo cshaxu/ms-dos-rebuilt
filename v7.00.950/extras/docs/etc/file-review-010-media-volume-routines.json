@@ -1,0 +1,143 @@
+{
+  "source_sha256": "2a44c774dfedf7336f38fddedb0d2641b2f5f860566d959b8139ed5d33a48613",
+  "listing_sha256": "405cfba1d976bda26423a804023c4a2ed80649293e314cd6798d207d8e8355d3",
+  "routines": [
+    {
+      "name": "mediacheck",
+      "target_offset": "0x452a",
+      "length": 72,
+      "masked_relocation_bytes": 10,
+      "matched_nonrelocated_bytes": 62,
+      "differences": []
+    },
+    {
+      "name": "checklatchio",
+      "target_offset": "0x4572",
+      "length": 33,
+      "masked_relocation_bytes": 4,
+      "matched_nonrelocated_bytes": 29,
+      "differences": []
+    },
+    {
+      "name": "checkfatvid",
+      "target_offset": "0x4593",
+      "length": 7,
+      "masked_relocation_bytes": 0,
+      "matched_nonrelocated_bytes": 7,
+      "differences": []
+    },
+    {
+      "name": "check_vid",
+      "target_offset": "0x459a",
+      "length": 98,
+      "masked_relocation_bytes": 8,
+      "matched_nonrelocated_bytes": 90,
+      "differences": []
+    },
+    {
+      "name": "checkio",
+      "target_offset": "0x45fc",
+      "length": 36,
+      "masked_relocation_bytes": 6,
+      "matched_nonrelocated_bytes": 30,
+      "differences": []
+    },
+    {
+      "name": "returnvid",
+      "target_offset": "0x4620",
+      "length": 10,
+      "masked_relocation_bytes": 0,
+      "matched_nonrelocated_bytes": 10,
+      "differences": []
+    },
+    {
+      "name": "vid_into_packet",
+      "target_offset": "0x462d",
+      "length": 18,
+      "masked_relocation_bytes": 2,
+      "matched_nonrelocated_bytes": 16,
+      "differences": []
+    },
+    {
+      "name": "hidensity",
+      "target_offset": "0x463f",
+      "length": 58,
+      "masked_relocation_bytes": 4,
+      "matched_nonrelocated_bytes": 54,
+      "differences": []
+    },
+    {
+      "name": "set_changed_dl",
+      "target_offset": "0x4679",
+      "length": 27,
+      "masked_relocation_bytes": 2,
+      "matched_nonrelocated_bytes": 25,
+      "differences": []
+    },
+    {
+      "name": "checkromchange",
+      "target_offset": "0x4694",
+      "length": 7,
+      "masked_relocation_bytes": 0,
+      "matched_nonrelocated_bytes": 7,
+      "differences": []
+    },
+    {
+      "name": "resetchanged",
+      "target_offset": "0x469b",
+      "length": 6,
+      "masked_relocation_bytes": 0,
+      "matched_nonrelocated_bytes": 6,
+      "differences": []
+    },
+    {
+      "name": "haschange",
+      "target_offset": "0x46a1",
+      "length": 7,
+      "masked_relocation_bytes": 0,
+      "matched_nonrelocated_bytes": 7,
+      "differences": []
+    },
+    {
+      "name": "set_volume_id",
+      "target_offset": "0x46a8",
+      "length": 25,
+      "masked_relocation_bytes": 0,
+      "matched_nonrelocated_bytes": 25,
+      "differences": []
+    },
+    {
+      "name": "read_volume_id",
+      "target_offset": "0x46c3",
+      "length": 158,
+      "masked_relocation_bytes": 14,
+      "matched_nonrelocated_bytes": 144,
+      "differences": []
+    },
+    {
+      "name": "transfer_volume_id",
+      "target_offset": "0x4761",
+      "length": 23,
+      "masked_relocation_bytes": 2,
+      "matched_nonrelocated_bytes": 21,
+      "differences": []
+    },
+    {
+      "name": "check_volume_id",
+      "target_offset": "0x4778",
+      "length": 21,
+      "masked_relocation_bytes": 2,
+      "matched_nonrelocated_bytes": 19,
+      "differences": []
+    },
+    {
+      "name": "fat_check",
+      "target_offset": "0x478d",
+      "length": 16,
+      "masked_relocation_bytes": 2,
+      "matched_nonrelocated_bytes": 14,
+      "differences": []
+    }
+  ],
+  "limitations": "Relocation operands and complete linked output remain unverified."
+}

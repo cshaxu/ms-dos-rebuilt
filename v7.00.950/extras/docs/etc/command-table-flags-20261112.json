@@ -1,0 +1,16 @@
+{
+  "build": "extras/docs/etc/command-table-flags-build-20261112.json",
+  "source": "cmd/command/tdata.asm",
+  "changes": [
+    "VOL command flags match target",
+    "CTTY command flags match target",
+    "LOADHIGH help list matches target"
+  ],
+  "target_probe": "extras/build/table-flags-target-xpohoxix",
+  "current_probe": "extras/build/table-flags-current-3_eansky",
+  "probe_result": "VOL /?, CTTY /?, LOADHIGH /?, and ECHO output match target",
+  "trace_control": "extras/build/trace-control-feajbts0",
+  "failed_split_table_trace": "extras/build/dispatch-trace-kj5ocpz9",
+  "trace_observation": "Correction: startup tracing also causes the stable control to stall; the cause and point of the split-table timeout remain unproven.",
+  "limitations": "split-table timeout not resolved; final file not byte-identical"
+}

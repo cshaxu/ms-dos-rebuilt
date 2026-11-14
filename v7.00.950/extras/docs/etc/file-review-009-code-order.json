@@ -1,0 +1,158 @@
+{
+  "file_index": 9,
+  "source": "bios/msbio1.asm",
+  "source_sha256": "0a71f10e70c09050277624af7fdcd7e54642fb00a9b6f473a3a6da07574364bf",
+  "target_offset": 7312,
+  "diagnostic_offset": 10080,
+  "length": 1773,
+  "matching_bytes": 1726,
+  "different_relative_offsets": [
+    17,
+    26,
+    27,
+    31,
+    32,
+    55,
+    56,
+    62,
+    63,
+    78,
+    79,
+    587,
+    588,
+    591,
+    592,
+    593,
+    594,
+    597,
+    598,
+    692,
+    693,
+    787,
+    788,
+    1404,
+    1405,
+    1411,
+    1412,
+    1415,
+    1416,
+    1420,
+    1421,
+    1428,
+    1429,
+    1433,
+    1434,
+    1726,
+    1727,
+    1730,
+    1731,
+    1738,
+    1739,
+    1742,
+    1743,
+    1750,
+    1751,
+    1754,
+    1755
+  ],
+  "routines": [
+    {
+      "name": "video_service",
+      "segment_offset": 290,
+      "target_file_offset": 7538,
+      "length": 169,
+      "matching_bytes": 169
+    },
+    {
+      "name": "int15_reset",
+      "segment_offset": 459,
+      "target_file_offset": 7707,
+      "length": 4,
+      "matching_bytes": 4
+    },
+    {
+      "name": "int15_esc",
+      "segment_offset": 464,
+      "target_file_offset": 7712,
+      "length": 18,
+      "matching_bytes": 18
+    },
+    {
+      "name": "keyboard_service",
+      "segment_offset": 482,
+      "target_file_offset": 7730,
+      "length": 169,
+      "matching_bytes": 169
+    },
+    {
+      "name": "keyboard_vector_install",
+      "segment_offset": 665,
+      "target_file_offset": 7913,
+      "length": 103,
+      "matching_bytes": 101
+    },
+    {
+      "name": "keyboard_vector_setup",
+      "segment_offset": 768,
+      "target_file_offset": 8016,
+      "length": 95,
+      "matching_bytes": 93
+    },
+    {
+      "name": "video_state_save",
+      "segment_offset": 863,
+      "target_file_offset": 8111,
+      "length": 26,
+      "matching_bytes": 26
+    },
+    {
+      "name": "video_state_restore",
+      "segment_offset": 1407,
+      "target_file_offset": 8655,
+      "length": 28,
+      "matching_bytes": 28
+    },
+    {
+      "name": "int16_check",
+      "segment_offset": 1435,
+      "target_file_offset": 8683,
+      "length": 75,
+      "matching_bytes": 63
+    },
+    {
+      "name": "int19_restore",
+      "segment_offset": 1510,
+      "target_file_offset": 8758,
+      "length": 112,
+      "matching_bytes": 112
+    },
+    {
+      "name": "outchr_code",
+      "segment_offset": 1622,
+      "target_file_offset": 8870,
+      "length": 121,
+      "matching_bytes": 121
+    },
+    {
+      "name": "dos7_erase_vdisk",
+      "segment_offset": 1743,
+      "target_file_offset": 8991,
+      "length": 38,
+      "matching_bytes": 38
+    }
+  ],
+  "diagnostic_stub_symbols": [
+    "bios_msg_base",
+    "bios_msg_1",
+    "bios_msg_2",
+    "bios_msg_3",
+    "int6c_read_date",
+    "int6c_read_time",
+    "ttticks",
+    "char_auxnum",
+    "char_printdev",
+    "disk_start_high"
+  ],
+  "default_reference_output_sha256": "a67d8733509f9baf94017389cc1c991d5ef1c66bdfb91b6cab3eef0fc35e9490",
+  "limitations": "47 bytes remain different, target data/layout and message symbols unresolved; diagnostic uses baseline objects and temporary stubs, and is not the complete 7.0a build."
+}

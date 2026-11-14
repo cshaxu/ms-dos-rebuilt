@@ -1,0 +1,24 @@
+{
+  "sources": {
+    "bios/sysconf.asm": "2b5809ee749ab4452e9136aebe10a342f20f7218c28d699d3b5153b832016782",
+    "bios/sysinit2.asm": "eb856fec1fa437ebfc99a79cbdb703a1f740d8d880e01b26c9fb346d129910ea"
+  },
+  "verification": "extras/tools/verify_menu_check_full.py",
+  "compatibility_routines": {
+    "sysinit_start": "0x76de",
+    "bytes": 522
+  },
+  "initialization_calls": {
+    "bytes": 22,
+    "target_ranges": [
+      "0x6e2e..0x6e3a",
+      "0x6e9f..0x6ea7"
+    ]
+  },
+  "scope": "Restored device-name compatibility dispatch, shared INT 12 flags and initialization before/after calls; actual naturally contiguous routines and calls match target in diagnostic. Split SYSCONF and SYSINIT2 assemble and existing device-data and startup-data checks pass.",
+  "limitations": [
+    "Device original command line normalization before the dispatch remains incomplete; target 6122h base remains unidentified.",
+    "Diagnostic fixes source/data addresses and BIOS external addresses; full SYSINIT linkage remains unverified.",
+    "Three final binaries remain unverified."
+  ]
+}

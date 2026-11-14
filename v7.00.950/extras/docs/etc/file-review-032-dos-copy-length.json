@@ -1,0 +1,16 @@
+{
+  "file": "bios/sysinit1.asm",
+  "source_sha256": "9935498ca7afc7838287f861685f859d1dedac69571412fe9cfa15d53110dbe9",
+  "target_range": "IO.SYS 0x5e45..0x5e52",
+  "bytes": 13,
+  "different_bytes": 0,
+  "initial_data_target": "IO.SYS 0x5c3e..0x5c42",
+  "probe": "extras/research/dos-copy-length-linked.asm",
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "The DOS7 destination address and initialization of source segment remain incomplete.",
+    "Fixed-offset probe does not verify full linked layout or execution."
+  ]
+}

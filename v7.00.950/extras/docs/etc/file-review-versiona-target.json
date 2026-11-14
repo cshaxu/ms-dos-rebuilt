@@ -1,0 +1,34 @@
+{
+  "file": "inc/versiona.inc",
+  "before_sha256": "a1ba1f9824e7f8c1c3abf956fa2161179e4697e4fc3a25bdcf1bd98117f1fdb5",
+  "after_sha256": "eaea7e5c2ae3fb043eaf62e9fcc923afe9c8a3fec955eaa62c5c5c63d97caf6f",
+  "change": "major_version 6 to 7; minor_version 22 to 0",
+  "dependencies": [],
+  "probe_stage": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\versiona-probe-thoy4l33",
+  "probe": [
+    {
+      "configuration": "before",
+      "source_sha256": "a1ba1f9824e7f8c1c3abf956fa2161179e4697e4fc3a25bdcf1bd98117f1fdb5",
+      "object_sha256": "2d3f754ed4d53e7bd37c5f8c1c14a271058c6014ed07880c846543cca6911359"
+    },
+    {
+      "configuration": "after",
+      "source_sha256": "eaea7e5c2ae3fb043eaf62e9fcc923afe9c8a3fec955eaa62c5c5c63d97caf6f",
+      "object_sha256": "0388ccf96efa987731ec48a13fe24c9ac6cc5bb296a9c0272cf754e4783022b2"
+    }
+  ],
+  "target_evidence": {
+    "io_sys_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+    "kernel_version_offset": 70601,
+    "kernel_version_hex": "0700",
+    "command_sha256": "a74c700063cd6b1c91523952bfc80e9393c125d39ada0164d48b5098089fcef3",
+    "command_get_version_offset": 25557,
+    "command_instruction_hex": "b430cd213d0700",
+    "kernel_get_version_offset": 71184,
+    "kernel_get_version_bytes": "bb0700b20032f6803e070d00740380ce10",
+    "dosrevnm": 0,
+    "dosinhma": 16
+  },
+  "limitations": "Version, revision and HMA bit match target code. ROM-only flag was not target-verified. Full IO.SYS and COMMAND.COM equality remains unverified.",
+  "status": "component_verified"
+}

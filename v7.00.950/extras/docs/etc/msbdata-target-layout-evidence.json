@@ -1,0 +1,18 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "bios_file_base": "0x600",
+  "target_initial_bytes": "e95608469ee96604dc100000ff00",
+  "observations": [
+    "The target BIOS begins with DosDataSg at offset 3, a near jump at offset 5, flags at 8, a zero word at 10, and model bytes at 12 and 13.",
+    "Target code at file 0xa5f writes 3 to CS:[0x45e] and returns with IRET; the target byte at BIOS offset 0x45e initially is zero.",
+    "The DOS 6 non-BIOS BData declaration places altah at 0x000c, but that location is a target model byte, not the target break flag.",
+    "DOS7_CONFIG in bios/msbio1.asm skips this include and already defines its own reconstructed DOS 7 BIOS data layout.",
+    "The reference inc/lmstub.asm uses BData:altah in OldInstanceJunk. The reference six-byte table header was not found verbatim in target IO.SYS; this does not establish whether equivalent data or code exists elsewhere."
+  ],
+  "baseline_assembly_listing": "extras/build/kernel-dos7-symbols-du61j8us/msdata.lst",
+  "limitations": [
+    "Target ALT AH ownership is inferred by behavior and DOS 6 source correspondence.",
+    "The old WIN386 instance-table path and its target representation are not established; do not choose final BData definitions until its actual callers/layout are resolved.",
+    "No full target kernel or BIOS build was verified."
+  ]
+}

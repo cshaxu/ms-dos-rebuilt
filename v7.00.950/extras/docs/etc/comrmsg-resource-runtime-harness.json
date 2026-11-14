@@ -1,0 +1,14 @@
+{
+  "stage": "extras\\build\\resident-resource-runtime-probe-_su56izk",
+  "target_sha256": "a74c700063cd6b1c91523952bfc80e9393c125d39ada0164d48b5098089fcef3",
+  "result": "PASS",
+  "checks": [
+    "Execute linked 49-byte candidate fixup against the generated 93-entry resource.",
+    "Read the six relocated character pointers and compare with ARIFYN.",
+    "Follow CritMsgPtrs through its pointer field and verify the first message length and initial characters."
+  ],
+  "limitations": [
+    "This is an isolated synthetic DOS harness, not a boot, SoftPC validation, complete resource file loader, or final COMMAND.COM execution.",
+    "ORG still fixes the resource to a target-derived offset, and harness segment setup is synthetic."
+  ]
+}

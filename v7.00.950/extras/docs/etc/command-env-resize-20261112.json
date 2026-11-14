@@ -1,0 +1,35 @@
+{
+  "generated_utc": "2026-11-12T11:01:44.233301+00:00",
+  "source": "cmd/command/tenv.asm",
+  "build_report": "extras/docs/etc/command-env-resize-build-20261112.json",
+  "comparison": {
+    "target_offset": "0xbe2e",
+    "candidate_offset": "0xbf77",
+    "length": 72,
+    "excluded_address_bytes": [
+      5,
+      6,
+      49,
+      50,
+      53,
+      54,
+      61,
+      62,
+      65,
+      66
+    ],
+    "note": "Instruction bytes match excluding linked address and call operands, which are not individually certified."
+  },
+  "probe": {
+    "stage": "extras/build/command-envresize-8939oh4f",
+    "result": "PASS",
+    "coverage": "Source-based successful upper and lower segment paths; setblock and TPA calls are test stubs. Real DOS allocation, failure branch and integration are not covered."
+  },
+  "remaining": "ResizeEnvironment is not yet connected to the long-command environment update or cmd_copy. Original STORE_CHAR remains until those callers are reconstructed.",
+  "file_counts": {
+    "linked": 35,
+    "modified_from_baseline": 30,
+    "unchanged_from_baseline": 5
+  },
+  "final_binary_exact": false
+}

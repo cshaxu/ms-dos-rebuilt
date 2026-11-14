@@ -1,0 +1,41 @@
+{
+  "files": [
+    "bios/config.inc",
+    "bios/sysinit2.asm",
+    "bios/sysconf.asm"
+  ],
+  "source_hashes": [
+    "a18fd87120fed1e6b84c4f098d6d2d2f8f476d9937da434a34b6f8b798e2897f",
+    "6697fa25c63f56da5e412f56b68811bb11d1ca1f946b7763e2be2b6eda783e80",
+    "2970b064ad9ec17fac0903fe535cfa98faed2062af54d018afa89117efdac36d"
+  ],
+  "target_range": "IO.SYS 0xc017..0xc059",
+  "bytes": 66,
+  "differences": [
+    [
+      "0x24",
+      "0x3d",
+      "0x83"
+    ],
+    [
+      "0x25",
+      "0x21",
+      "0xf8"
+    ],
+    [
+      "0x26",
+      "0x0",
+      "0x21"
+    ]
+  ],
+  "target_comtab_record_offset": "0x819e",
+  "probe": "extras/research/lastdrivehigh7-linked.asm",
+  "default_objects_identical_to_prior": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "CMP AX,21h uses an equivalent three-byte encoding.",
+    "Fixed-offset probe stubs query and the shared entry; full image and runtime behavior remain unverified.",
+    "Remaining high-memory command handlers and final layout are incomplete."
+  ]
+}

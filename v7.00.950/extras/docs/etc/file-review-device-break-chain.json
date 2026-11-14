@@ -1,0 +1,26 @@
+{
+  "files": {
+    "bios/sysinit1.asm": "ca22acbbaca04f448c446891c0bd35ed35d7e09ff5df671e941bfff487a4beff",
+    "bios/sysconf.asm": "5794b5bde9b8863daf07e1dcc567c56409746b4db1679f25e3652484e5bab9b7",
+    "bios/syspre.asm": "28b9997683157a539d0e13e697987ef759b64ea3618be1fb3f72ff61484740e2"
+  },
+  "verification": "extras/tools/verify_menu_check_full.py",
+  "pararound": {
+    "sysinit_start": "0x3b88",
+    "bytes": 12
+  },
+  "round_and_set_break": {
+    "sysinit_start": "0x8207",
+    "bytes": 70
+  },
+  "preload_prefix": {
+    "sysinit_start": "0x8aaf",
+    "bytes": 691
+  },
+  "scope": "Actual ParaRound, RoundBreakAddr and DevSetBreak are combined with the actual MagicPreload block-device path through its DPB chain search; each range matches target bytes. Full SYSINIT1, SYSCONF and SYSPRE source files assemble separately.",
+  "limitations": [
+    "Diagnostic assigns target positions to source fragments and some external data; whole-object layout and linkage remain unverified.",
+    "Four deeper UMB helpers remain anchored.",
+    "The subsequent 0x70ac sector-size helper and remaining DPB, driver-init and product binaries remain unverified."
+  ]
+}

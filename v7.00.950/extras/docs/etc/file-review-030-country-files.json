@@ -1,0 +1,29 @@
+{
+  "source": "bios/sysconf.asm",
+  "sha256": "580cec72cf4201a3c05523b360dbc462712df40eaafbe3a73e794e54a0e19a43",
+  "change": "Restore country error messages using the DOS 7 message offset table. Connect existing FILES and FILESHIGH handlers to actual parameter and error providers.",
+  "matched": [
+    {
+      "region": "country error handling",
+      "start": "0x7248",
+      "end_exclusive": "0x7266",
+      "bytes": 30
+    },
+    {
+      "region": "FILES and FILESHIGH dispatch",
+      "start": "0x7266",
+      "end_exclusive": "0x72ad",
+      "bytes": 71
+    }
+  ],
+  "verification": {
+    "tool": "extras/tools/verify_syspre_device_link.py",
+    "link_stage": "extras/build/syspre-object-link-tu_utmhi",
+    "module_stage": "extras/build/ml-sysinit-dsqz6zuz",
+    "scope": "Actual source objects linked to actual message table, query, parameter data and error handlers, with diagnostic layout anchors elsewhere."
+  },
+  "limitations": [
+    "COUNTRY main handler and complete product link remain unverified.",
+    "FILES and COUNTRY runtime scenarios and final three core binaries remain unverified."
+  ]
+}

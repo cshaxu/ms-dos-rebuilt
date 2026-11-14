@@ -1,0 +1,16 @@
+{
+  "build": "extras/docs/etc/command-dir-control-build-20261112.json",
+  "source": "cmd/command/tranmsg.asm",
+  "change": "Aligned two DIR summary controls to target flag and width values.",
+  "target_control_ranges": [
+    "0x10545..0x10555",
+    "0x10555..0x10565"
+  ],
+  "matched_with_linked_operands_bytes": 32,
+  "target_probe": "extras/build/dir-width-target-3a0kmbkn",
+  "current_probe": "extras/build/dir-control-current-fgi13yop",
+  "observation": "File count field matches target; free-space field lacks target thousands separators because current message formatting requires the non-target 40h grouping flag. Parent directory timestamps are from independent test roots.",
+  "limitations": "Reconstruct target numeric grouping in shared message formatter; final file not byte-identical.",
+  "output_bytes": 93310,
+  "target_bytes": 92870
+}

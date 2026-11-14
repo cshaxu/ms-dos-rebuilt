@@ -1,0 +1,42 @@
+{
+  "file": "bios/sysinit2.asm",
+  "source_sha256": "156a470e44abfb0f6fe489f17052ab81c3cc92111ae51d5c3c1a7ebc7e660654",
+  "spans": [
+    {
+      "target_offset": "0xa731",
+      "length": 91,
+      "differences": [
+        [
+          "0x2e",
+          "0x3d",
+          "0x83"
+        ],
+        [
+          "0x2f",
+          "0x5a",
+          "0xf8"
+        ],
+        [
+          "0x30",
+          "0x0",
+          "0x5a"
+        ]
+      ]
+    },
+    {
+      "target_offset": "0xa7a1",
+      "length": 15,
+      "differences": []
+    }
+  ],
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link": "passed",
+  "probe_source": "extras/research/boot-option-dispatch-linked.asm",
+  "limitations": [
+    "CMP AX,90 uses a three-byte encoding that differs from the target; identical semantics do not establish byte identity.",
+    "BIOS flag synchronization has a temporary return and is absent from the compared spans.",
+    "Fixed offsets, inserted gap and synthetic external destinations do not prove final placement or execution.",
+    "Option table and dispatch caller remain incomplete."
+  ]
+}

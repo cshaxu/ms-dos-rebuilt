@@ -1,0 +1,11 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "flag_word_bios_offset": 8,
+  "changeline_mask": 2,
+  "a20_mask": 1,
+  "target_media_check_file_offset": 11168,
+  "target_media_check_hex": "2e803ef80d022ec606f80d00740af6060800027403",
+  "reference_source": "bios/msdisk.asm",
+  "diagnostic_report": "config-ml-bios-flag-masks.json",
+  "limitations": "Mask names are reconstructed; target media path maps bit 2 to reference changeline decision, and A20 paths test bit 1. Later driver code must use packed flags."
+}

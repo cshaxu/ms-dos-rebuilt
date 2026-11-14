@@ -1,0 +1,29 @@
+{
+  "generated_utc": "2026-11-12T11:16:28.502507+00:00",
+  "source": "cmd/command/tenv.asm",
+  "build_report": "extras/docs/etc/command-set-argument-scan-build-20261112.json",
+  "comparison": {
+    "target_offset": "0xbb1b",
+    "candidate_offset": "0xbcf3",
+    "length": 37,
+    "excluded_address_bytes": [
+      32,
+      33,
+      35,
+      36
+    ],
+    "note": "Sequence matches outside message and error branch operands, not separately certified."
+  },
+  "probe": {
+    "stage": "extras/build/command-setscan-mxdqauob",
+    "result": "PASS",
+    "coverage": "Actual scan tested FOO=BAR, FOO= and FOO=A=B; downstream success and error handlers are stubs."
+  },
+  "remaining": "PATH special handling, MOVE_NAME migration and actual complete SET/PROMPT remain incomplete. ECHO/COPY not rerun.",
+  "file_counts": {
+    "linked": 35,
+    "modified_from_baseline": 30,
+    "unchanged_from_baseline": 5
+  },
+  "final_binary_exact": false
+}

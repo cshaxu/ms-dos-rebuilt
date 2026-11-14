@@ -1,0 +1,23 @@
+{
+  "file_index": 9,
+  "source": "bios/msbio1.asm",
+  "source_sha256": "0ce8e598e3fff15c44c1ee691cf663420ed82376679549e6067e1f2e35cff60e",
+  "diagnostic_source_sha256": "2c4087ed50e4506f2850bfd3a62fd5ccaee62d65dc45926db7c73db585bb03de",
+  "post_build_change": "Only two unreferenced public symbol names were renamed to avoid asserting unknown roles.",
+  "target_table_offset": 1856,
+  "target_data_offset": 1900,
+  "diagnostic_table_offset": 1727,
+  "diagnostic_data_offset": 1771,
+  "data_length": 18,
+  "data_exact": true,
+  "relative_offsets": {
+    "bios_hook_1": 44,
+    "bios_hook_2": 48,
+    "int16_old": 52,
+    "int4f_old": 56,
+    "a20_message_ptr": 60
+  },
+  "timer_state_exact": true,
+  "default_reference_output_sha256": "a67d8733509f9baf94017389cc1c991d5ef1c66bdfb91b6cab3eef0fc35e9490",
+  "limitations": "Names of first two hooks are neutral because their roles are not fully proven. Fields are not yet at final absolute target offsets and runtime initialization remains incomplete."
+}

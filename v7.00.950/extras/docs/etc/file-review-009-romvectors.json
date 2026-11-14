@@ -1,0 +1,24 @@
+{
+  "file_index": 9,
+  "source": "bios/msbio1.asm",
+  "source_sha256": "1d948dbb6f222c60712e4fe3f99521ca3d1588b5b0b94ce2b7d977f31bf56945",
+  "target_offset": 1792,
+  "diagnostic_offset": 256,
+  "length": 45,
+  "matching_bytes": 45,
+  "entry_numbers": [
+    16,
+    19,
+    21,
+    25,
+    27,
+    79,
+    8,
+    15,
+    22
+  ],
+  "numromvectors": 9,
+  "target_hex": "10000000001300000000150000000019000000001b000000004f0000000008000000000f000000001600000000",
+  "default_reference_output_sha256": "a67d8733509f9baf94017389cc1c991d5ef1c66bdfb91b6cab3eef0fc35e9490",
+  "limitations": "Only the table initial bytes and entry count are proven; vector initialization, reboot callback and overall target binaries remain incomplete."
+}

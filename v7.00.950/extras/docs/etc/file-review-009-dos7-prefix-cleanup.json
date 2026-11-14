@@ -1,0 +1,16 @@
+{
+  "file": "bios/msbio1.asm",
+  "change": "Resolve nine DOS7_CONFIG branches through the first device definitions, retaining DOS 7 paths and unrelated ROM feature conditionals. Remaining DOS7_CONFIG branches require ordered cleanup.",
+  "source_sha256_before": "346b48ced062a6638f59a537d54f2c35863b3192c93a4b198093dde1769b5004",
+  "source_sha256_after": "bcdef0b842f671b69da8ab64c2bd97c5d43f7f867ef5f06edbbf4346a2ba3842",
+  "test": {
+    "scope": "Generated split MSBIO1 main contribution assembled with ML and DOS7_CONFIG defined; before and after OMF object files are byte-identical.",
+    "stage": "extras/build/msbio1-prefix-compare-c8j0_jna",
+    "object_sha256": "a7988ef0865789a2fff4fe70f968f5bc31e7f502b39dfd2d21cd99b13d9cdf1f"
+  },
+  "limitations": [
+    "This validates unchanged diagnostic object output, not full IO.SYS target identity.",
+    "DOS7_CONFIG branches outside this prefix remain."
+  ],
+  "integration_stage": "extras/build/syspre-object-link-9m3bk8ji"
+}

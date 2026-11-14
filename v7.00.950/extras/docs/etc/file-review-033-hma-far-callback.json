@@ -1,0 +1,18 @@
+{
+  "file": "bios/sysinit1.asm",
+  "source_sha256": "36253fe2df3c9d6a45f585207a8169cbc664df22d0c6bd226ede3ae37a806c3a",
+  "changes": [
+    "DOS7 TryToMovDOSHi checks runhigh and initializes CPM entry after successful transition",
+    "DOS7 far callback preserves registers and returns ES=FFFFh on success"
+  ],
+  "target_ranges": [
+    "0x65c5..0x65fa"
+  ],
+  "dos7_assembly": "passed",
+  "default_object_identical": true,
+  "mixed_diagnostic_link": "passed",
+  "limitations": [
+    "Fixed-offset byte probe and full integration layout remain unverified.",
+    "DOS7 HMA allocation and movement dependencies are not yet complete."
+  ]
+}

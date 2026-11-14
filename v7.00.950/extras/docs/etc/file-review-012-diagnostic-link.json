@@ -1,0 +1,18 @@
+{
+  "source_sha256": "bb448bff64d4d9b10cc46191b143bc992a5135dc7b072bc955618e3c7e1722c4",
+  "object_sha256": "bda778a67eeb0883f473d54b6b8f60d50227732a25127d67140274176f31def6",
+  "diagnostic_binary_sha256": "c9ecbb0ea67ffa4ad966f25aeec033096bbf83d57d0c7e72976f93f5278bbae0",
+  "stage": "extras\\build\\ioctl-link-s0goi1m5",
+  "symbols": {
+    "Do_Generic_IOCtl": "01A5:1349",
+    "DiskSector_Ptr": "0000:00FC",
+    "Bios_Flags": "0000:0008",
+    "int6c_update": "01A5:2322",
+    "bios_swap_msg_first": "01A5:231C"
+  },
+  "warnings": [
+    "L4021 no stack segment",
+    "L4038 no starting address"
+  ],
+  "limitations": "Diagnostic includes stubbed clock and message symbols, legacy objects and synthetic SYSINIT gaps. No production link or target byte identity is established."
+}

@@ -1,0 +1,35 @@
+{
+  "linked_exe_sha256": "d200af29787e9cfea9561c5df21e6f084064d9da0f04a65f9063895fff614896",
+  "edges": [
+    {
+      "symbol": "mult_call16",
+      "linked_call_offset": "0x2081",
+      "linked_destination": "0x29d4",
+      "target_call_file": "0x3f2d"
+    },
+    {
+      "symbol": "mult_call17",
+      "linked_call_offset": "0x2089",
+      "linked_destination": "0x2a63",
+      "target_call_file": "0x3f35"
+    },
+    {
+      "symbol": "mult_call18",
+      "linked_call_offset": "0x2091",
+      "linked_destination": "0x2aea",
+      "target_call_file": "0x3f3d"
+    },
+    {
+      "symbol": "mult_call21",
+      "linked_call_offset": "0x2099",
+      "linked_destination": "0x2b0c",
+      "target_call_file": "0x3f45"
+    }
+  ],
+  "observations": [
+    "Linked caller code is four bytes shorter before the multiplex calls relative to the target position inferred from i13z; use listing offsets for the call-edge check."
+  ],
+  "limitations": [
+    "Diagnostic linked objects are not final; full BIOS layout and DOS interactions remain unverified."
+  ]
+}

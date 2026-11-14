@@ -1,0 +1,71 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\msg-leaf-3euyqg0s",
+  "files": [
+    {
+      "file": "inc/dbcs.sw",
+      "sha256": "ca8e10fb6de72593568aa21cb1e24b36a180c64fff0a49ceb8194c75e79737dd",
+      "objects": [
+        {
+          "object": "dbcn.obj",
+          "sha256": "e4738c3da031e5535ae8481c61ffa90a73589af1b4419ddc46dc118271509125",
+          "flags": []
+        },
+        {
+          "object": "dbcy.obj",
+          "sha256": "e4738c3da031e5535ae8481c61ffa90a73589af1b4419ddc46dc118271509125",
+          "flags": [
+            "-DDBCS"
+          ]
+        }
+      ],
+      "matches": [
+        {
+          "name": "6.0",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\inc\\dbcs.sw",
+          "sha256": "ca8e10fb6de72593568aa21cb1e24b36a180c64fff0a49ceb8194c75e79737dd"
+        },
+        {
+          "name": "Astro",
+          "path": "O:\\repos.external\\astro\\inc\\dbcs.sw",
+          "sha256": "ca8e10fb6de72593568aa21cb1e24b36a180c64fff0a49ceb8194c75e79737dd"
+        }
+      ],
+      "target_status": "unverified"
+    },
+    {
+      "file": "cmd/command/resmsg.equ",
+      "sha256": "e9944d068ccdc0d10b6fea4a387aa3a127388082ef05d07a146741eb2babb49a",
+      "objects": [
+        {
+          "object": "resmsg.obj",
+          "sha256": "fe6c89517f6ca7dc159ce1f3c66eba6af08f9f01d39d42dd0e203b189a7d7480",
+          "flags": []
+        }
+      ],
+      "matches": [
+        {
+          "name": "6.0",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\resmsg.equ",
+          "sha256": "e9944d068ccdc0d10b6fea4a387aa3a127388082ef05d07a146741eb2babb49a"
+        },
+        {
+          "name": "5.0",
+          "path": "O:\\repos.hobby\\ms-dos-rebuilt\\v5.0\\cmd\\command\\resmsg.equ",
+          "sha256": "e9944d068ccdc0d10b6fea4a387aa3a127388082ef05d07a146741eb2babb49a"
+        },
+        {
+          "name": "Astro",
+          "path": "O:\\repos.external\\astro\\cmd\\command\\resmsg.equ",
+          "sha256": "e9944d068ccdc0d10b6fea4a387aa3a127388082ef05d07a146741eb2babb49a"
+        },
+        {
+          "name": "OpenNT",
+          "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\resmsg.equ",
+          "sha256": "e9944d068ccdc0d10b6fea4a387aa3a127388082ef05d07a146741eb2babb49a"
+        }
+      ],
+      "target_status": "unverified"
+    }
+  ],
+  "limitations": "Source-reference qualification only; final target message usage and binaries remain unverified."
+}

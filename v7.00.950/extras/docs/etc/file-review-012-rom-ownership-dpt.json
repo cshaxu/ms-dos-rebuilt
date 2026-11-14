@@ -1,0 +1,47 @@
+{
+  "source_sha256": "0b9c73beb448508b26f89958f1c76810a8540182413eba5a035e791ccf346a77",
+  "listing_sha256": "d296f104c58d8dd309cd0a1483e9129561a112e19bde452335613ce1df6d4f2b",
+  "routines": [
+    {
+      "name": "ToRom",
+      "target_offset": "0x38bd",
+      "length": 96,
+      "masked_relocation_bytes": 16,
+      "matched_nonrelocated_bytes": 80,
+      "differences": []
+    },
+    {
+      "name": "IOCtl_GetOwn",
+      "target_offset": "0x391d",
+      "length": 30,
+      "masked_relocation_bytes": 4,
+      "matched_nonrelocated_bytes": 26,
+      "differences": []
+    },
+    {
+      "name": "IOCtl_SetOwn",
+      "target_offset": "0x393b",
+      "length": 16,
+      "masked_relocation_bytes": 8,
+      "matched_nonrelocated_bytes": 8,
+      "differences": []
+    },
+    {
+      "name": "ExitOwn",
+      "target_offset": "0x394b",
+      "length": 25,
+      "masked_relocation_bytes": 2,
+      "matched_nonrelocated_bytes": 23,
+      "differences": []
+    },
+    {
+      "name": "RestoreOldDpt",
+      "target_offset": "0x3964",
+      "length": 44,
+      "masked_relocation_bytes": 6,
+      "matched_nonrelocated_bytes": 38,
+      "differences": []
+    }
+  ],
+  "limitations": "Relocation operands and complete linked output remain unverified."
+}

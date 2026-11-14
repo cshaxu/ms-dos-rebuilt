@@ -1,0 +1,13 @@
+{
+  "source": "extras/research/sysinit-fatal-handler-trial.asm",
+  "source_sha256": "6615041a1bd29e1e62312bc647ab28ee769857812bb2a1dd657e6b671c2eb5e4",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "linked_exe_sha256": "34e21b84c2b6a7ab9993a34467299547c270da50d45c40ca5d2bcb10006054f9",
+  "target_file_range": "0x4f06..0x4f4b",
+  "length": 69,
+  "different_bytes": 0,
+  "limitations": [
+    "BIOS segment and variable offsets are target-layout constants in this isolated test; relocation and runtime integration remain unverified.",
+    "The NUL-terminated message is appended to copied handler code by initialization, as documented in file-review-dosmsg-stack-copy-proof.json."
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "files": [
+    "bios/sysinit1.asm",
+    "bios/sysinit2.asm"
+  ],
+  "target_range": "IO.SYS 0x9e24..0x9fa9",
+  "dos7_assembly": "passed without warnings",
+  "status": "fixed-offset probe matches target; integrated layout and runtime pending",
+  "source_sha256": [
+    "4de0ce60fd1cd8ce64cd697f4e840f00c14fe7379db20729dcec749fa37f894d",
+    "96288bdcf78b316df4a3e67fd1c73035debec8cd53a509dc43af7c089ce49b2b"
+  ],
+  "length": 389,
+  "different_bytes": 0,
+  "probe_source": "extras/research/boot-environment-linked.asm",
+  "default_object_identical": true,
+  "mixed_diagnostic_link": "passed with LINK16 5.60.220; mixed object diagnostic only"
+}

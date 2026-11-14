@@ -1,0 +1,22 @@
+{
+  "build": "extras/docs/etc/command-vol-original-build-20261112.json",
+  "sources": [
+    "cmd/command/tdata.asm",
+    "cmd/command/tcmd1b.asm"
+  ],
+  "change": "Restored target VOL drive argument parser, error handling and five-byte descriptor before CTTY.",
+  "target_instruction_range": "0xb271..0xb296",
+  "registered_instruction_bytes": 37,
+  "target_probe": "extras/build/vol-original-target-5m5qbj2u",
+  "current_probe": "extras/build/vol-original-current-7fz13520",
+  "matched_cases": [
+    "default drive",
+    "explicit C: drive",
+    "invalid drive syntax stderr",
+    "extra argument stderr",
+    "batch continuation"
+  ],
+  "limitations": "Other drives, LFN/network and device-specific cases untested; complete binary not byte-identical.",
+  "output_bytes": 92930,
+  "target_bytes": 92870
+}

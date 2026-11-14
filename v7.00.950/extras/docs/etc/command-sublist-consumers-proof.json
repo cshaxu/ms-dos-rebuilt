@@ -1,0 +1,71 @@
+{
+  "target_sha256": "a74c700063cd6b1c91523952bfc80e9393c125d39ada0164d48b5098089fcef3",
+  "target_copy_loop_offset": 64829,
+  "target_copy_loop_bytes": "b90d00f3a4",
+  "target_segment_fixup_offset": 64881,
+  "target_segment_fixup_bytes": "837f04007509f647070475038c4f0483c30de2ec59",
+  "probe": "extras/build/msg-subst-loop-qfk9a2nt/probe.asm",
+  "probe_source_sha256": "0387a788ddb36ef1bdf17525ca8e4e67866c0e5f416d386450154747bb28daa9",
+  "probe_object_sha256": "4ef584ce3174030028de43dfca670c9d71fce04c3bad89b3169c84dd165b420b",
+  "assembled_loop_byte_equal": true,
+  "uses_of_parm_block_size": {
+    "cmd/command/comequ.asm": [
+      70
+    ],
+    "cmd/command/copy.asm": [
+      1198
+    ],
+    "cmd/command/tprintf.asm": [
+      176,
+      212
+    ],
+    "cmd/command/tranmsg.asm": [
+      29,
+      104,
+      118,
+      132,
+      157,
+      171,
+      185,
+      234,
+      266,
+      295,
+      314,
+      344,
+      353,
+      367,
+      381,
+      390,
+      404,
+      413,
+      448,
+      492,
+      506,
+      520,
+      554,
+      568,
+      582,
+      596,
+      664,
+      697,
+      720,
+      734,
+      743,
+      762,
+      792,
+      806,
+      878,
+      887,
+      901,
+      910
+    ],
+    "cmd/command/tspc.asm": [
+      472
+    ]
+  },
+  "limitations": [
+    "Inventory uses lexical references and includes configuration-dependent code; indirect or literal-size consumers may exist.",
+    "Other target changes in TPRINTF and TRANMSG are not reproduced.",
+    "The message ABI must be reconciled as a dependency unit before changing formal source."
+  ]
+}

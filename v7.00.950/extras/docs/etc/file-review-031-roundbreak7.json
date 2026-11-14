@@ -1,0 +1,16 @@
+{
+  "file": "bios/sysconf.asm",
+  "source_sha256": "e4b399bf5aba506d3681e359e872459a9a4cb8a7740b1fb9691e800cd5b41dc7",
+  "target_range": "IO.SYS 0xcf37..0xcf58",
+  "length": 33,
+  "different_bytes": 0,
+  "tool": "MASM 6 ML isolated probe",
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link": "passed",
+  "probe_source": "extras/research/roundbreak7-linked.asm",
+  "limitations": [
+    "Fixed-offset probe uses synthetic helper destinations; actual branch encoding depends on final source layout.",
+    "Full runtime and surrounding DOS7 UMB finalization remain incomplete."
+  ]
+}

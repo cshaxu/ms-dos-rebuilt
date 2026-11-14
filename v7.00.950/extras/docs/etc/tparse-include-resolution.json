@@ -1,0 +1,22 @@
+{
+  "source": "cmd/command/tparse.asm",
+  "selected_include": "inc/parse.asm",
+  "rejected_name_collision": "dos/parse.asm",
+  "selection_evidence": [
+    "The COMMAND reference build invokes MASM with -Icmd and -Iinc, but not -Idos, and no cmd/parse.asm is present.",
+    "inc/parse.asm defines SysParse; dos/parse.asm implements DOS file-descriptor parsing rather than SysParse.",
+    "Reference tparse listing defines SysParse, Cmd_parse and Append_parse in the same TRANCODE segment."
+  ],
+  "target_wrapper_range": [
+    "0xf520",
+    "0xf528"
+  ],
+  "target_wrapper_bytes": "e8eff4c3e8ebf4cb",
+  "target_sysparse_offset": "0xea12",
+  "target_distance_sysparse_to_wrapper": 2830,
+  "reference_listing_distance_sysparse_to_wrapper": 2832,
+  "limitations": [
+    "The target parser body differs in length from the provisional reference; the body and relocation are not verified.",
+    "The source dependency is established for the historical build, not proof that the final DOS 7 build uses identical source."
+  ]
+}

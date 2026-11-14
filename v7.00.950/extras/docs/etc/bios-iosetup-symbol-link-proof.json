@@ -1,0 +1,26 @@
+{
+  "probe_source": "extras/research/bios-iosetup-symbol-probe.asm",
+  "source_sha256": "dcac42cfc11d55890dd1fbf9f1b36fe1aef94e650bd217f2a2b08d9962d6166b",
+  "object_sha256": "fbcfeb469ee5a28873ccac4e237ec68031983ac908b6e6afbee4a81d3b592a78",
+  "exe_sha256": "0347bc5770b9b991382b0dde5fad8ab97ec5c1c6fc121a95766bef3173821a30",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "target_file_offset": "0x3023",
+  "linked_exe_file_offset": "0x15d3",
+  "length": 69,
+  "all_bytes_equal_after_link": true,
+  "symbol_offsets": {
+    "tim_drv": "0xdd8",
+    "motorstartup": "0xdde",
+    "settlecurrent": "0xddf",
+    "settleslow": "0xde0",
+    "save_eot": "0xde2",
+    "eot": "0xde3",
+    "dpt": "0xde4",
+    "media_set_for_format": "0x17a2"
+  },
+  "limitations": [
+    "ORG placement is isolated scaffolding, not the final source layout.",
+    "Field offsets are derived from the target and historical source; exact original 7.0 symbol names and owners are not independently recovered.",
+    "No real disk I/O or full BIOS integration is tested."
+  ]
+}

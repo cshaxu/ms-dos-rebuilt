@@ -1,0 +1,14 @@
+{
+  "source": "bios/msbio1.asm",
+  "source_sha256": "f8c23906fa69aea754e1a89827454a6743473ca2c953c04fe9a67002930aceea",
+  "symbol": "disksector_ptr",
+  "name_status": "reconstructed descriptive name",
+  "bios_offset": 252,
+  "target_initial_hex": "00000000",
+  "target_readboot_file_offset": 11699,
+  "target_readboot_hex": "c51efc00061e07",
+  "target_initializer_file_offset": 24050,
+  "target_initializer_hex": "8e1e3e0f8c0efa005f893efc008c06fe00",
+  "interpretation": "The target readboot loads DS:BX from BIOS_DATA:00FC and uses it as the BIOS read buffer. SYSINIT loads the BIOS data segment and writes DI and ES to the pointer.",
+  "limitations": "Allocation and initializer implementation remain in later files; the old disksector array is still a diagnostic-only compatibility stub. Other uses and final layout are not yet fully reconstructed."
+}

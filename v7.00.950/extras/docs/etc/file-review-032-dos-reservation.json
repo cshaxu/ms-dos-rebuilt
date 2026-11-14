@@ -1,0 +1,18 @@
+{
+  "file": "bios/sysinit1.asm",
+  "source_sha256": "93aa890e6ecda09e7708e207342e09c34752a2cbf2098a2d1681382defad7454",
+  "target_ranges": [
+    "IO.SYS 0x5d61..0x5d71",
+    "IO.SYS 0x5e66..0x5e6d"
+  ],
+  "bytes": 23,
+  "different_bytes": 0,
+  "probe": "extras/research/dos-reservation-linked.asm",
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "SYSINIT relocation size, DOS image source segment initialization and complete layout remain incomplete.",
+    "Fixed-offset probe does not execute the code or verify full linked placement."
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "file": "bios/sysinit2.asm",
+  "source_sha256": "d8a9bc3509903099edba380cfca558faa418d9823bcc21de028c09b837e8ebd4",
+  "target_range": "IO.SYS 0xa6ae..0xa731",
+  "length": 131,
+  "different_bytes": 0,
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link": "passed",
+  "probe_source": "extras/research/boot-option-line-linked.asm",
+  "limitations": [
+    "Fixed-offset isolated probe; execution and final layout are unverified.",
+    "Option-file open, dispatch and caller are not yet restored."
+  ]
+}

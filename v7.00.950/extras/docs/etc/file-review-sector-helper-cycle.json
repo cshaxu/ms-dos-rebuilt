@@ -1,0 +1,23 @@
+{
+  "files": {
+    "bios/sysinit1.asm": "a8045391ba231b8d9b4a0abd65134c86f06d4bdac3b14ad5f111651ba2906d1a",
+    "bios/sysinit2.asm": "7b3c268d6755bdbd29342c0662d374a200786a8cc1087fce29e1313d78440857",
+    "bios/sysconf.asm": "19d498a291ead9f1cf4f2e092f32a2bdb9f4a1ccd96ab6c9364d9beddef118af",
+    "bios/syspre.asm": "81fc7b49ce91e329e74a868cb81f193a403d274d386dacc182190839f15e53d4"
+  },
+  "verification": "extras/tools/verify_menu_check_full.py",
+  "sector_size_helper": {
+    "sysinit_start": "0x70ac",
+    "bytes": 118
+  },
+  "preload_prefix": {
+    "sysinit_start": "0x8aaf",
+    "bytes": 776
+  },
+  "scope": "Actual sector-size helper uses actual prnerr and is called by actual preload DPB initialization; three complete sources assemble separately.",
+  "limitations": [
+    "Diagnostic uses fixed target offsets for source fragments and selected external data; full object layout and linkage remain unverified.",
+    "SYSCONF normal-device caller still has its earlier sector-size path and is not yet reconstructed for this helper.",
+    "Subsequent preload device linking, final three binaries and deep UMB calls remain unverified."
+  ]
+}

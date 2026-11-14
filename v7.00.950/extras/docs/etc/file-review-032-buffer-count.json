@@ -1,0 +1,32 @@
+{
+  "source": "bios/sysinit1.asm",
+  "sha256": "b641da847aac833aece8c11f11211d88b0d9c623f803a90e1d6e5bf1ea7c0ad7",
+  "change": "Correct buffer-size overflow message call to the target print routine; link existing SFT/FCB and buffer count source.",
+  "matched": [
+    {
+      "region": "SFT and FCB setup",
+      "start": "0x3774",
+      "end_exclusive": "0x3816",
+      "bytes": 162
+    },
+    {
+      "region": "buffer count calculation",
+      "start": "0x3816",
+      "end_exclusive": "0x3881",
+      "bytes": 107
+    }
+  ],
+  "verification": {
+    "tool": "extras/tools/verify_syspre_device_link.py",
+    "link_stage": "extras/build/syspre-object-link-julphvci",
+    "module_stage": "extras/build/ml-sysinit-4q67zcxn",
+    "runtime": "extras/tools/verify_boot_buffer_count.py",
+    "runtime_stage": "extras/build/buffer-count-runtime-8abgys2z",
+    "scope": "Both regions match target and link to actual file/FCB state, allocator and message code. Isolated probe covers default, explicit and overflow counts with a message-output stub and UMB disabled."
+  },
+  "limitations": [
+    "The UMB-enabled runtime branch was not exercised by this probe.",
+    "SYSINIT continuation after 3881h and other diagnostic anchors remain.",
+    "Complete IO.SYS and all three core binaries remain unverified."
+  ]
+}

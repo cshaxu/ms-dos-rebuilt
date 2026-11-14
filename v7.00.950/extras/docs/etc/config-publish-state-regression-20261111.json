@@ -1,0 +1,105 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\config-crt-file-thnpqfk1",
+  "source_library_sha256": "6dd7fdf103a71d0cec3433aa3bd7d05b73f90c3e9f24e667c29d5f3c0f9a9389",
+  "state_source_sha256": "17375d4a2af511144a3808fa2ade3fbd30da73ce73947a9ecf3067f6eaa556ee",
+  "sources": {
+    "crtfile": "17375d4a2af511144a3808fa2ade3fbd30da73ce73947a9ecf3067f6eaa556ee",
+    "cfgioctl": "cc23f8ca4f50def2d158b45d5ad18a20111934db164744f0d7fbc7526d8bbc9f",
+    "cfgpub": "7e4e0180b0ca766a8ee121aa234db6cccc422f37bf3069c5b9275b82e35a4bff"
+  },
+  "image_relocations": 4,
+  "verified": [
+    {
+      "member": "dos\\dosret.asm",
+      "symbol": "__dosret0",
+      "target_offset": 39122,
+      "bytes": 85,
+      "references": [
+        {
+          "symbol": "__doserrno",
+          "operand": 41
+        },
+        {
+          "symbol": "__osmajor",
+          "operand": 49
+        },
+        {
+          "symbol": "ConfigCRTErrorMap",
+          "operand": 73
+        },
+        {
+          "symbol": "_errno",
+          "operand": 78
+        }
+      ]
+    },
+    {
+      "member": "dos\\close.asm",
+      "symbol": "__close",
+      "target_offset": 38116,
+      "bytes": 32,
+      "references": [
+        {
+          "symbol": "__nfile",
+          "operand": 8
+        },
+        {
+          "symbol": "__osfile",
+          "operand": 26
+        },
+        {
+          "symbol": "__dosret0",
+          "operand": 30
+        }
+      ]
+    },
+    {
+      "member": "dos\\open.asm",
+      "symbol": "__sopen",
+      "target_offset": 38148,
+      "bytes": 460,
+      "references": [
+        {
+          "symbol": "__osmajor",
+          "operand": 10
+        },
+        {
+          "symbol": "__fmode",
+          "operand": 58
+        },
+        {
+          "symbol": "__dosretax",
+          "operand": 98
+        },
+        {
+          "symbol": "__dosretax",
+          "operand": 302
+        },
+        {
+          "symbol": "__nfile",
+          "operand": 409
+        },
+        {
+          "symbol": "__osfile",
+          "operand": 431
+        },
+        {
+          "symbol": "__umaskval",
+          "operand": 444
+        }
+      ]
+    },
+    {
+      "symbol": "ConfigPublishData",
+      "target_offset": 400,
+      "bytes": 322
+    },
+    {
+      "symbol": "ConfigIOWrite",
+      "target_offset": 722,
+      "bytes": 54
+    }
+  ],
+  "linked_sha256": "d49985d4e1dc1185a68f68d02e25d3d1519f9d1735b1f2bed5ec6eb746dfaa00",
+  "scope": "Original CRT code bodies and every OMF fixup verified with real shared state. Full runtime startup and final DGROUP placement pending."
+}

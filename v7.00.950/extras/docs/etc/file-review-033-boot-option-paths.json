@@ -1,0 +1,15 @@
+{
+  "file": "bios/sysinit2.asm",
+  "source_sha256": "49039d89f6248805c3873a18422509ccd0586eaebe6e68680f16b8b78695c2d1",
+  "target_range": "IO.SYS 0xa520..0xa550",
+  "length": 48,
+  "different_bytes": 0,
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link": "passed",
+  "probe_source": "extras/research/boot-option-paths-linked.asm",
+  "limitations": [
+    "Fixed-offset probe; full production placement remains unverified.",
+    "Path normalization and option dispatch remain incomplete."
+  ]
+}

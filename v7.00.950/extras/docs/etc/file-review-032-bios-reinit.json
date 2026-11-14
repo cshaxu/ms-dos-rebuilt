@@ -1,0 +1,21 @@
+{
+  "files": [
+    "bios/sysinit1.asm",
+    "bios/sysconf.asm"
+  ],
+  "source_hashes": [
+    "5965807679a93a3e18a46fc4517df8be471cf148b795815c0683966c91d89944",
+    "4b60bd6ca94cedfedcd6b94d80904938bfab5e48bae4686b7241efc622192962"
+  ],
+  "target_range": "IO.SYS 0x691d..0x6944",
+  "bytes": 39,
+  "different_bytes": 0,
+  "probe": "extras/research/bios-reinit7-linked.asm",
+  "default_objects_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "The helper is not yet connected to the BIOS move path.",
+    "Fixed-offset probe does not prove actual vector layout or runtime execution."
+  ]
+}

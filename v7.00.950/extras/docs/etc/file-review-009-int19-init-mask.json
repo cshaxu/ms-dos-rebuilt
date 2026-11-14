@@ -1,0 +1,12 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "status_word_bios_offset": 8,
+  "int19_initialized_mask": 256,
+  "target_test_file_offset": 8831,
+  "target_test_hex": "f606090001741c",
+  "target_set_file_offset": 36197,
+  "target_set_hex": "b870008ed8800e090001c3",
+  "reference_source": "bios/sysinit1.asm",
+  "diagnostic_report": "config-ml-int19-init-mask.json",
+  "limitations": "Target setter and INT19 test use bit 0100h. The old reference object still writes a diagnostic int19sem stub; actual SYSINIT integration remains pending."
+}

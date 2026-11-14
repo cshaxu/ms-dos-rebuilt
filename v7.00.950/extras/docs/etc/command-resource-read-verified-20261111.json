@@ -1,0 +1,213 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\command-reference-915m80s2",
+  "target_range": [
+    31406,
+    31887
+  ],
+  "new_code_bytes": 378,
+  "total_resource_chain_bytes": 481,
+  "code_equal_except_verified_state_addresses": true,
+  "state_fixups": [
+    {
+      "instruction": 31410,
+      "target_address": 14549,
+      "linked_address": 9321
+    },
+    {
+      "instruction": 31414,
+      "target_address": 14551,
+      "linked_address": 9323
+    },
+    {
+      "instruction": 31418,
+      "target_address": 14553,
+      "linked_address": 9325
+    },
+    {
+      "instruction": 31422,
+      "target_address": 14555,
+      "linked_address": 9327
+    },
+    {
+      "instruction": 31433,
+      "target_address": 14567,
+      "linked_address": 9339
+    },
+    {
+      "instruction": 31443,
+      "target_address": 14567,
+      "linked_address": 9339
+    },
+    {
+      "instruction": 31450,
+      "target_address": 14565,
+      "linked_address": 9337
+    },
+    {
+      "instruction": 31476,
+      "target_address": 14557,
+      "linked_address": 9329
+    },
+    {
+      "instruction": 31487,
+      "target_address": 14557,
+      "linked_address": 9329
+    },
+    {
+      "instruction": 31494,
+      "target_address": 14565,
+      "linked_address": 9337
+    },
+    {
+      "instruction": 31506,
+      "target_address": 14557,
+      "linked_address": 9329
+    },
+    {
+      "instruction": 31516,
+      "target_address": 14557,
+      "linked_address": 9329
+    },
+    {
+      "instruction": 31523,
+      "target_address": 14559,
+      "linked_address": 9331
+    },
+    {
+      "instruction": 31527,
+      "target_address": 14561,
+      "linked_address": 9333
+    },
+    {
+      "instruction": 31543,
+      "target_address": 14511,
+      "linked_address": 9283
+    },
+    {
+      "instruction": 31553,
+      "target_address": 14511,
+      "linked_address": 9283
+    },
+    {
+      "instruction": 31582,
+      "target_address": 14511,
+      "linked_address": 9283
+    },
+    {
+      "instruction": 31590,
+      "target_address": 14514,
+      "linked_address": 9286
+    },
+    {
+      "instruction": 31598,
+      "target_address": 14516,
+      "linked_address": 9288
+    },
+    {
+      "instruction": 31603,
+      "target_address": 14517,
+      "linked_address": 9289
+    },
+    {
+      "instruction": 31610,
+      "target_address": 14535,
+      "linked_address": 9307
+    },
+    {
+      "instruction": 31634,
+      "target_address": 14559,
+      "linked_address": 9331
+    },
+    {
+      "instruction": 31637,
+      "target_address": 14561,
+      "linked_address": 9333
+    },
+    {
+      "instruction": 31669,
+      "target_address": 14511,
+      "linked_address": 9283
+    },
+    {
+      "instruction": 31681,
+      "target_address": 14522,
+      "linked_address": 9294
+    },
+    {
+      "instruction": 31689,
+      "target_address": 14526,
+      "linked_address": 9298
+    },
+    {
+      "instruction": 31693,
+      "target_address": 14555,
+      "linked_address": 9327
+    },
+    {
+      "instruction": 31702,
+      "target_address": 14511,
+      "linked_address": 9283
+    },
+    {
+      "instruction": 31733,
+      "target_address": 14559,
+      "linked_address": 9331
+    },
+    {
+      "instruction": 31737,
+      "target_address": 14561,
+      "linked_address": 9333
+    },
+    {
+      "instruction": 31742,
+      "target_address": 14513,
+      "linked_address": 9285
+    },
+    {
+      "instruction": 31749,
+      "target_address": 14553,
+      "linked_address": 9325
+    },
+    {
+      "instruction": 31757,
+      "target_address": 14511,
+      "linked_address": 9283
+    },
+    {
+      "instruction": 31765,
+      "target_address": 14549,
+      "linked_address": 9321
+    },
+    {
+      "instruction": 31770,
+      "target_address": 14551,
+      "linked_address": 9323
+    },
+    {
+      "instruction": 31823,
+      "target_address": 14541,
+      "linked_address": 9313
+    },
+    {
+      "instruction": 31850,
+      "target_address": 14537,
+      "linked_address": 9309
+    }
+  ],
+  "state_bytes_exact": 58,
+  "initialization_class_bytes_still_exact": 1492,
+  "assembly_warnings": 0,
+  "functions": [
+    "ReadMessageClass",
+    "ReadMessageHeader",
+    "ScanMessageClass",
+    "FindMessageFile"
+  ],
+  "input_contract": "AX class, CX capacity, ES:DI destination, DS RESGROUP",
+  "integration_pending": "Resource container assembly and startup calls. No fake loader or fallback path added; current binary is not yet the target resource container.",
+  "full_command_exact": false,
+  "source_hashes": {
+    "cmd/command/init.asm": "092b8a34958c9a09fd8d92caf3eaf5c3b950a5b4595774c7654180bdb186783c",
+    "cmd/command/uinit.asm": "6984aa7090765fd1bc65db73f533ae2128666ea04ee721a8c05e0b4b78a6cc6c"
+  }
+}

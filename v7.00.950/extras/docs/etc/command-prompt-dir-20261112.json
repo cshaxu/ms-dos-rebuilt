@@ -1,0 +1,28 @@
+{
+  "build": "extras/docs/etc/command-prompt-dir-build-20261112.json",
+  "target_range": "0xb3f2..0xb4db",
+  "instruction_bytes": 233,
+  "verification": "instructions and actual relocated operands match target",
+  "regression": "extras/build/prompt-path-regress-ymynkne4",
+  "target_matching_outputs": [
+    "quote.txt",
+    "setpath.txt",
+    "echo.txt",
+    "dest.dat",
+    "copy.txt"
+  ],
+  "reserved_rounded_end": "0xfe14",
+  "limitations": "interactive prompt and long-name service integration not exercised; overall file not byte-identical",
+  "data_verification": {
+    "prompt_table_entries": 13,
+    "prompt_table_bytes": 40,
+    "ver_descriptor_bytes": 4,
+    "cls_string_bytes": 5,
+    "method": "actual linked symbol targets and target bytes checked in command-progress.json"
+  },
+  "redirected_input_probe": {
+    "target": "extras/build/prompt-stdin-target-77ycwuje",
+    "current": "extras/build/prompt-stdin-current-4d3mn1ct",
+    "outcome": "both timed out (runner exit 124); no prompt behavior claim"
+  }
+}

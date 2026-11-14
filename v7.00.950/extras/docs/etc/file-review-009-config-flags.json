@@ -1,0 +1,15 @@
+{
+  "file_index": 9,
+  "source": "bios/msbio1.asm",
+  "source_sha256": "320ceaf7b73c269a54c1e99f6515c7dd95144cbbe79c1202b68ef481de316fd4",
+  "target_io_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "bios_data_file_offset": 1536,
+  "target_bios_i2f_offset": 5,
+  "target_bios_i2f_opcode": "e9",
+  "target_flag_offset": 8,
+  "target_flag_initial_word": 4316,
+  "target_init_flag_writer_offset": 24322,
+  "target_init_flag_tester_offset": 18891,
+  "validation": "A conditional 7.0 BIOS header uses a near BIOS INT 2F jump followed by the source-defined flags word. MASM and ML 6 historical links both succeed without external test stubs, with the flag at BIOS_DATA:0008 and initial bytes DC 10 matching the target. The ML diagnostic independently checks orig13 and off_d0 offsets and all four CONFIG routines. The default baseline BIOS build remains unchanged.",
+  "limitations": "Overall BIOS data layout, initial DOS data segment, near-jump displacement, remaining routines, runtime integration and complete target IO.SYS remain unresolved. DOS7_CONFIG is an incomplete reconstruction, not a full production build."
+}

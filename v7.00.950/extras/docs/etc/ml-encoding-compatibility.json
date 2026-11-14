@@ -1,0 +1,27 @@
+{
+  "verifier": "extras/tools/verify_ml_encodings.py",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "isolated_results": [
+    {
+      "name": "SWITCHES parse",
+      "bytes": 91,
+      "different_bytes": 0
+    },
+    {
+      "name": "record buffer initialization",
+      "bytes": 39,
+      "different_bytes": 0
+    },
+    {
+      "name": "QEMM scan",
+      "bytes": 63,
+      "different_bytes": 2
+    }
+  ],
+  "production_ml_assembly": "failed on unmodified inc/dosmac.inc with ML A2008 and A2061: invoke macro syntax and IF2 are incompatible with this single-pass assembler",
+  "limitations": [
+    "The two matching probes use isolated ORG placements and do not prove the production source builds or has matching final addresses.",
+    "QEMM still uses an equivalent compare encoded differently.",
+    "ML compatibility must be resolved without changing the intended DOS source behavior or pretending a diagnostic build is production."
+  ]
+}

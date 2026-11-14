@@ -1,0 +1,47 @@
+{
+  "source": "bios/msinit.asm",
+  "source_sha256": "401cd3898b48c67732b266c15830ac732b7ba810ec3c66b393e33194a5069ec0",
+  "listing_sha256": "fcd96804a3e97e94df8e6d8d98438cbf22d26665eefd43609793ac81be24afb2",
+  "target_offset": "0x10ba",
+  "length": 87,
+  "matched_nonrelocated_bytes": 70,
+  "masked_relocation_bytes": 10,
+  "differences": [
+    {
+      "offset": 68,
+      "listing": "0x74",
+      "target": "0x75"
+    },
+    {
+      "offset": 72,
+      "listing": "0x2d",
+      "target": "0x83"
+    },
+    {
+      "offset": 73,
+      "listing": "0x20",
+      "target": "0xe8"
+    },
+    {
+      "offset": 74,
+      "listing": "0x0",
+      "target": "0x20"
+    },
+    {
+      "offset": 79,
+      "listing": "0x2d",
+      "target": "0x83"
+    },
+    {
+      "offset": 80,
+      "listing": "0x40",
+      "target": "0xe8"
+    },
+    {
+      "offset": 81,
+      "listing": "0x0",
+      "target": "0x40"
+    }
+  ],
+  "limitations": "Code segment pointer, relocated addresses and later SYSINIT initialization require full integration."
+}

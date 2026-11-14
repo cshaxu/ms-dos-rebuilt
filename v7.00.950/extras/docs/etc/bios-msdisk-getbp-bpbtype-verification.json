@@ -1,0 +1,344 @@
+{
+  "source_sha256": "c9dfcdbf52261720bbf7a74077575c5722e858666d48c41676feac69c95a5ac5",
+  "listing_sha256": "56a7cb6e06e2693aa585d1c244c56d5073045da794f31f3df2daa2d637c37c62",
+  "target_offset": "0x2bfc",
+  "length": 190,
+  "relocation_bytes_masked": 14,
+  "nonrelocation_differences": [],
+  "instructions": [
+    {
+      "offset": "0x0",
+      "source": "test\tbyte ptr es:[di].bds_flags+??000B,??000A ",
+      "mask": "00000"
+    },
+    {
+      "offset": "0x5",
+      "source": "jz\tgetbp1",
+      "mask": "00"
+    },
+    {
+      "offset": "0x7",
+      "source": "jmp\tgetret_exit",
+      "mask": "011"
+    },
+    {
+      "offset": "0xa",
+      "source": "push\tcx",
+      "mask": "0"
+    },
+    {
+      "offset": "0xb",
+      "source": "push\tdx",
+      "mask": "0"
+    },
+    {
+      "offset": "0xc",
+      "source": "push\tbx",
+      "mask": "0"
+    },
+    {
+      "offset": "0xd",
+      "source": "call\treadbootsec",
+      "mask": "000"
+    },
+    {
+      "offset": "0x10",
+      "source": "jc\tgetbp_err_ret_brdg\t; carry set if there was error.",
+      "mask": "00"
+    },
+    {
+      "offset": "0x12",
+      "source": "or\tcx,cx\t\t\t; cx is 0 if boot sector is valid.",
+      "mask": "00"
+    },
+    {
+      "offset": "0x14",
+      "source": "jnz\tdofatbpb",
+      "mask": "00"
+    },
+    {
+      "offset": "0x16",
+      "source": "call\tmovbpb\t\t\t; move bpb into registers.",
+      "mask": "000"
+    },
+    {
+      "offset": "0x19",
+      "source": "jmp\tshort has1",
+      "mask": "00"
+    },
+    {
+      "offset": "0x1b",
+      "source": "jmp getbp_err_ret",
+      "mask": "011"
+    },
+    {
+      "offset": "0x1e",
+      "source": "call\treadfat \t\t; puts media descriptor byte in ah",
+      "mask": "000"
+    },
+    {
+      "offset": "0x21",
+      "source": "jc\tgetbp_err_ret_brdg",
+      "mask": "00"
+    },
+    {
+      "offset": "0x23",
+      "source": "test\tbyte ptr bios_flags,2",
+      "mask": "00110"
+    },
+    {
+      "offset": "0x28",
+      "source": "jz\tbpb_nochangeline\t; brif not",
+      "mask": "00"
+    },
+    {
+      "offset": "0x2a",
+      "source": "call\thidensity\t\t; may not return!  May add sp,2 and",
+      "mask": "011"
+    },
+    {
+      "offset": "0x2d",
+      "source": "cmp\tes:[di].bds_formfactor,ffsmall",
+      "mask": "00000"
+    },
+    {
+      "offset": "0x32",
+      "source": "jnz\tis_floppy",
+      "mask": "00"
+    },
+    {
+      "offset": "0x34",
+      "source": "cmp\tah,0f9h \t\t; is it a valid fat id byte for 3.5\" ?",
+      "mask": "000"
+    },
+    {
+      "offset": "0x37",
+      "source": "jnz\tgot_unknown_medium",
+      "mask": "00"
+    },
+    {
+      "offset": "0x39",
+      "source": "mov\tbx,offset sm92\t\t; pointer to correct bpb",
+      "mask": "011"
+    },
+    {
+      "offset": "0x3c",
+      "source": "mov\tal,cs:[bx.spf]",
+      "mask": "000"
+    },
+    {
+      "offset": "0x3f",
+      "source": "mov\tcx,cs:[bx.csec]",
+      "mask": "0000"
+    },
+    {
+      "offset": "0x43",
+      "source": "mov\tdx,word ptr cs:[bx.spau]",
+      "mask": "0000"
+    },
+    {
+      "offset": "0x47",
+      "source": "mov\tbx,word ptr cs:[bx.spt]",
+      "mask": "0000"
+    },
+    {
+      "offset": "0x4b",
+      "source": "jmp\tshort has1",
+      "mask": "00"
+    },
+    {
+      "offset": "0x4d",
+      "source": "cmp\tah,0f8h\t\t\t; valid media??  (0f8h-0ffh)",
+      "mask": "000"
+    },
+    {
+      "offset": "0x50",
+      "source": "jb\tgot_unknown_medium",
+      "mask": "00"
+    },
+    {
+      "offset": "0x52",
+      "source": "mov\tal,1\t\t\t;set number of fat sectors",
+      "mask": "00"
+    },
+    {
+      "offset": "0x54",
+      "source": "mov\tbx,64*256+8\t\t;set dir entries and sector max",
+      "mask": "000"
+    },
+    {
+      "offset": "0x57",
+      "source": "mov\tcx,40*8 \t\t;set size of drive",
+      "mask": "000"
+    },
+    {
+      "offset": "0x5a",
+      "source": "mov\tdx,01*256+1\t\t;set head limit and sec/all unit",
+      "mask": "000"
+    },
+    {
+      "offset": "0x5d",
+      "source": "test\tah,00000010b\t\t;test for 8 or 9 sector",
+      "mask": "000"
+    },
+    {
+      "offset": "0x60",
+      "source": "jnz\thas8\t\t\t;nz = has 8 sectors",
+      "mask": "00"
+    },
+    {
+      "offset": "0x62",
+      "source": "inc\tal\t\t\t;inc number of fat sectors",
+      "mask": "00"
+    },
+    {
+      "offset": "0x64",
+      "source": "inc\tbl\t\t\t;inc sector max",
+      "mask": "00"
+    },
+    {
+      "offset": "0x66",
+      "source": "add\tcx,40\t\t\t;increase size",
+      "mask": "000"
+    },
+    {
+      "offset": "0x69",
+      "source": "test\tah,00000001b\t\t;test for 1 or 2 heads",
+      "mask": "000"
+    },
+    {
+      "offset": "0x6c",
+      "source": "jz\thas1\t\t\t;z = 1 head",
+      "mask": "00"
+    },
+    {
+      "offset": "0x6e",
+      "source": "add\tcx,cx\t\t\t;double size of disk",
+      "mask": "00"
+    },
+    {
+      "offset": "0x70",
+      "source": "mov\tbh,112\t\t\t;increase number of directory entries",
+      "mask": "00"
+    },
+    {
+      "offset": "0x72",
+      "source": "inc\tdh\t\t\t;inc sec/all unit",
+      "mask": "00"
+    },
+    {
+      "offset": "0x74",
+      "source": "inc\tdl\t\t\t;inc head limit",
+      "mask": "00"
+    },
+    {
+      "offset": "0x76",
+      "source": "mov\tes:[di].BDS_BPB.BPB_SECTORSPERCLUSTER,dh",
+      "mask": "0000"
+    },
+    {
+      "offset": "0x7a",
+      "source": "mov\tbyte ptr es:[di].BDS_BPB.BPB_ROOTENTRIES,bh",
+      "mask": "0000"
+    },
+    {
+      "offset": "0x7e",
+      "source": "mov\tes:[di].BDS_BPB.BPB_TOTALSECTORS,cx",
+      "mask": "0000"
+    },
+    {
+      "offset": "0x82",
+      "source": "mov\tes:[di].BDS_BPB.BPB_MEDIADESCRIPTOR,ah",
+      "mask": "0000"
+    },
+    {
+      "offset": "0x86",
+      "source": "mov\tbyte ptr es:[di].BDS_BPB.BPB_SECTORSPERFAT,al",
+      "mask": "0000"
+    },
+    {
+      "offset": "0x8a",
+      "source": "mov\tbyte ptr es:[di].BDS_BPB.BPB_SECTORSPERTRACK,bl",
+      "mask": "0000"
+    },
+    {
+      "offset": "0x8e",
+      "source": "mov\tbyte ptr es:[di].BDS_BPB.BPB_HEADS,dl",
+      "mask": "0000"
+    },
+    {
+      "offset": "0x92",
+      "source": "mov\tword ptr es:[di].BDS_BPB.BPB_HIDDENSECTORS+2,0",
+      "mask": "000000"
+    },
+    {
+      "offset": "0x98",
+      "source": "mov\tword ptr es:[di].BDS_BPB.BPB_HIDDENSECTORS,0",
+      "mask": "000000"
+    },
+    {
+      "offset": "0x9e",
+      "source": "mov\tword ptr es:[di].BDS_BPB.BPB_BIGTOTALSECTORS+2,0",
+      "mask": "000000"
+    },
+    {
+      "offset": "0xa4",
+      "source": "pop\tbx",
+      "mask": "0"
+    },
+    {
+      "offset": "0xa5",
+      "source": "pop\tdx",
+      "mask": "0"
+    },
+    {
+      "offset": "0xa6",
+      "source": "pop\tcx",
+      "mask": "0"
+    },
+    {
+      "offset": "0xa7",
+      "source": "ret",
+      "mask": "0"
+    },
+    {
+      "offset": "0xa8",
+      "source": "mov\tcs:set_id_flag,0",
+      "mask": "000110"
+    },
+    {
+      "offset": "0xae",
+      "source": "call\tmaperror",
+      "mask": "000"
+    },
+    {
+      "offset": "0xb1",
+      "source": "jmp\tshort getret",
+      "mask": "00"
+    },
+    {
+      "offset": "0xb3",
+      "source": "mov\tcs:set_id_flag,0",
+      "mask": "000110"
+    },
+    {
+      "offset": "0xb9",
+      "source": "mov\tal,error_unknown_media",
+      "mask": "00"
+    },
+    {
+      "offset": "0xbb",
+      "source": "stc",
+      "mask": "0"
+    },
+    {
+      "offset": "0xbc",
+      "source": "jmp\tshort getret",
+      "mask": "00"
+    }
+  ],
+  "limitations": [
+    "MASM relocation-marked values are masked except local near calls normalized from listing addresses; the complete linked output is not checked here.",
+    "The source is an isolated trial, not the formal msdisk.asm."
+  ]
+}

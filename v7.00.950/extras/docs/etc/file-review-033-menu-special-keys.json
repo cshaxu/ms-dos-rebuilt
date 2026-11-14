@@ -1,0 +1,18 @@
+{
+  "files": [
+    "bios/sysinit2.asm",
+    "bios/sysconf.asm"
+  ],
+  "target_range": "IO.SYS 0x78e9..0x794f",
+  "bytes": 102,
+  "different_bytes": 0,
+  "default_objects_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "Isolated probe uses target addresses and stubs for surrounding menu functions.",
+    "The compression_skip name and current source placement are inferred; target compression-driver consumers remain incomplete.",
+    "Other startup key handling and the complete executable layout have not been validated.",
+    "Mixed diagnostic uses older objects and stubs."
+  ]
+}

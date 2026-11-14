@@ -1,0 +1,28 @@
+{
+  "file": "bios/sysinit2.asm",
+  "source_sha256": "5e3b6c3f3348e42656644c9bfa913aa8196d41ac9b9de466cd638bd727af8471",
+  "ml_probe": [
+    {
+      "target_offset": "0xa731",
+      "length": 91,
+      "differences": []
+    },
+    {
+      "target_offset": "0xa7a1",
+      "length": 15,
+      "differences": []
+    }
+  ],
+  "bios_dependency": {
+    "file": "bios/msint13.asm",
+    "symbol": "win386_info_flags",
+    "target_segment_offset": "0x1fd5",
+    "target_reference": "IO.SYS 0x3d97",
+    "basis": "Target INT 2Fh info handler loads BL from CS:1FD5; source handler loads BL from CS:win386_info_flags.",
+    "exported": false
+  },
+  "limitations": [
+    "ML probe uses fixed offsets and synthetic external destinations.",
+    "BIOS flag synchronization and dispatch caller remain incomplete."
+  ]
+}

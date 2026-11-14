@@ -1,0 +1,31 @@
+{
+  "generated_utc": "2026-11-12T11:14:11.183593+00:00",
+  "source": "cmd/command/tenv.asm",
+  "build_report": "extras/docs/etc/command-env-getarg-build-20261112.json",
+  "comparison": {
+    "target_offset": "0xbda7",
+    "candidate_offset": "0xbf45",
+    "length": 24,
+    "excluded_address_bytes": [
+      5,
+      6,
+      11,
+      12,
+      19,
+      20
+    ],
+    "note": "Instruction sequence matches outside three linked operand fields, not separately certified."
+  },
+  "probe": {
+    "stage": "extras/build/command-envgetarg-t6s63_cz",
+    "result": "PASS",
+    "coverage": "Actual GETARG source and argv structure: no argument, present argument and empty argument; SCANOFF is stubbed."
+  },
+  "remaining": "Name-copy migration, PATH special handling and complete real environment integration remain incomplete. ECHO/COPY not rerun.",
+  "file_counts": {
+    "linked": 35,
+    "modified_from_baseline": 30,
+    "unchanged_from_baseline": 5
+  },
+  "final_binary_exact": false
+}

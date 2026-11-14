@@ -1,0 +1,47 @@
+{
+  "source_sha256": "062c0b1eda30cd349393bb1c1045c0d226d3fc2fdaff8088c871fcfbd7c6cdbf",
+  "listing_sha256": "9c7160564ef5b7f007ea4c002a486e50a365f6835963af999937c0fc5e08f01a",
+  "routines": [
+    {
+      "name": "con_read",
+      "target_offset": "0x2430",
+      "length": 10,
+      "masked_relocation_bytes": 0,
+      "matched_nonrelocated_bytes": 10,
+      "differences": []
+    },
+    {
+      "name": "chrin",
+      "target_offset": "0x243a",
+      "length": 57,
+      "masked_relocation_bytes": 8,
+      "matched_nonrelocated_bytes": 49,
+      "differences": []
+    },
+    {
+      "name": "con_rdnd",
+      "target_offset": "0x2473",
+      "length": 95,
+      "masked_relocation_bytes": 14,
+      "matched_nonrelocated_bytes": 81,
+      "differences": []
+    },
+    {
+      "name": "con_writ",
+      "target_offset": "0x24d2",
+      "length": 12,
+      "masked_relocation_bytes": 0,
+      "matched_nonrelocated_bytes": 12,
+      "differences": []
+    },
+    {
+      "name": "con_flush",
+      "target_offset": "0x24de",
+      "length": 17,
+      "masked_relocation_bytes": 2,
+      "matched_nonrelocated_bytes": 15,
+      "differences": []
+    }
+  ],
+  "limitations": "Relocation operands and complete linked output remain unverified."
+}

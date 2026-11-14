@@ -1,0 +1,20 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "historical_source": "dos/dir.asm",
+  "historical_source_sha256": "89e596037f89ae5485daf29c2a782cb9512bd3845d5bcfb1f932cf9a5a9be890",
+  "target_capture_call_file_offset": "0x14e7c",
+  "target_capture_routine_file_offset": "0x17f1c",
+  "target_search_setup_hex": "1e8e1ee4058a278a470b",
+  "target_search_followup_hex": "745a0ae4743a363a267f057433f6470b0874",
+  "target_search_later_anchor_file_offset": "0x14eef",
+  "observations": [
+    "The target caller loads AH from directory entry byte zero and AL from its attribute byte, calls the recovered capture routine, and branches on its result.",
+    "After that call the target retains the historical Search logic checking end-of-directory, deleted marker and volume attribute.",
+    "A later target window matches the historical dir.obj Search code, supporting the association with dos/dir.asm."
+  ],
+  "limitations": [
+    "The target may organize routines across files differently from the historical reference.",
+    "Only this local caller and short historical anchors are verified; the entire Search function has not been reconstructed.",
+    "The capture procedure ownership remains unknown even though the Search caller is identified."
+  ]
+}

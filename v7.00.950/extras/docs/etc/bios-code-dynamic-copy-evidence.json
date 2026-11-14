@@ -1,0 +1,30 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "byte_checks": {
+    "dynamic_size_initialization": {
+      "file_offset": "0x5d71",
+      "bytes": "b8d5018ec026a1a62d83c01f83e0f0a3f70f05a02d"
+    },
+    "bios_copy_1": {
+      "file_offset": "0x5e74",
+      "bytes": "be30008bfeb9a02d2e030ef70f2bced1e9f3a5"
+    },
+    "bios_copy_2": {
+      "file_offset": "0x6659",
+      "bytes": "be30008bfeb9a02d2e030ef70f2bced1e9f3a5"
+    }
+  },
+  "observations": [
+    "Two target copy loops use a BIOS code starting offset of 0030h and an end value of 2da0h plus a runtime word at CS:0ff7h.",
+    "A preceding routine computes that word as (word at 01d5:2da6 + 001fh) AND fff0h.",
+    "Under the independently hypothesized code-image mapping with file base 1c50h, the candidate file word at 49f6h is 01a2h; this would produce an added length of 01c0h and a copied span of 2f30h.",
+    "The 01d5:06f5 error vector and resource length ending at IOSYSMSG independently corroborate the candidate image mapping; runtime mutation remains unverified."
+  ],
+  "limitations": [
+    "The 01d5:2da6 runtime address has not been traced to its loaded contents independently of the candidate file mapping.",
+    "The dynamic copied span is not proven to be the BIOS_CODE segment length used by historical GETSIZE.",
+    "Using that span as BIOCODESIZ would conflict with the conditional legacy origin aggregate, so doing so would be unjustified without resolving target loading and layout.",
+    "No target source constants are changed."
+  ],
+  "additional_mapping_evidence": "extras/docs/etc/bios-code-resource-mapping-evidence.json"
+}

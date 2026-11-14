@@ -1,0 +1,18 @@
+{
+  "source": "bios/msbio1.asm",
+  "source_sha256": "92a39c7576bf066552dcc740a2816d9928536e608fe220732f0692aa16bcf2a6",
+  "symbol": "saved_mcb_size",
+  "name_status": "descriptive; original name and file ownership unknown",
+  "target_sysinit_offset": 41126,
+  "target_initial_hex": "0000",
+  "linked_layout": {
+    "name": "saved_mcb_size",
+    "diagnostic_segment": 964,
+    "diagnostic_offset": 2963,
+    "target_offset": 41126,
+    "offset_equal": false
+  },
+  "target_use_evidence": "file-review-009-config-adjacent-mcb.json",
+  "diagnostic": "config-ml-saved-mcb-layout.json",
+  "limitations": "The adjacent field and target uses are established, but original source-file ownership and absolute linked placement remain unverified. The later execution path has not yet been restored to use the symbol."
+}

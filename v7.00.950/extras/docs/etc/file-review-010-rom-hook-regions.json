@@ -1,0 +1,24 @@
+{
+  "source_sha256": "2a44c774dfedf7336f38fddedb0d2641b2f5f860566d959b8139ed5d33a48613",
+  "reference_binary": "extras\\build\\sysinit-split-60isgeox\\msbio.bin",
+  "reference_binary_sha256": "cc0161e7f0d14a1d17613873e30acc7fd98e8b2a51c6d060a58588473c203a9c",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "map": "extras/build/sysinit-split-60isgeox/msbio.map",
+  "exact_regions": [
+    {
+      "name": "ibm_disk_io",
+      "reference_binary_start": "0x77c",
+      "length": 302,
+      "target_file_offset": "0xb40",
+      "exact_occurrences": 1
+    },
+    {
+      "name": "compaq_disk_io",
+      "reference_binary_start": "0x8aa",
+      "length": 33,
+      "target_file_offset": "0xc6e",
+      "exact_occurrences": 1
+    }
+  ],
+  "limitations": "Reference diagnostic object spans match target exactly but their final DOS 7 placement, entry references and production build are not established."
+}

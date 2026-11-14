@@ -1,0 +1,26 @@
+{
+  "source_sha256": "5087e5e65fff65927f10817ffaedb0fc05a79b5efe3ade80c74fd665796b602d",
+  "listing_sha256": "3c4a175514abc6286fed35660a95a5220f41cab52f041159982e92147effabf5",
+  "routines": [
+    {
+      "name": "diskrd",
+      "target_offset": "0x2f06",
+      "length": 6,
+      "masked_relocation_bytes": 2,
+      "matched_nonrelocated_bytes": 4,
+      "differences": []
+    },
+    {
+      "name": "diskio",
+      "target_offset": "0x2f0c",
+      "length": 279,
+      "masked_relocation_bytes": 46,
+      "matched_nonrelocated_bytes": 231,
+      "differences": [
+        270,
+        273
+      ]
+    }
+  ],
+  "limitations": "Relocation operands and complete linked output remain unverified."
+}

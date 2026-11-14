@@ -1,0 +1,15 @@
+{
+  "file": "bios/sysinit1.asm",
+  "source_sha256": "ec798d79c830c9b636a8cfd6042642ffaafc623fbb344f67bb5b809bdc18099d",
+  "target_range": "IO.SYS 0x689b..0x68dd",
+  "bytes": 66,
+  "different_bytes": 0,
+  "probe": "extras/research/vdisk-control-linked.asm",
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "Fixed-offset probe does not execute the BIOS interrupt or prove complete layout.",
+    "Full startup and target binary equivalence remain incomplete."
+  ]
+}

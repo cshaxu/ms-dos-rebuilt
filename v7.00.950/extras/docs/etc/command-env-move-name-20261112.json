@@ -1,0 +1,34 @@
+{
+  "generated_utc": "2026-11-12T11:20:00.638040+00:00",
+  "sources": [
+    "cmd/command/tenv.asm",
+    "cmd/command/tcmd2a.asm"
+  ],
+  "build_report": "extras/docs/etc/command-env-move-name-build-20261112.json",
+  "comparison": {
+    "target_offset": "0xbd8e",
+    "candidate_offset": "0xbf44",
+    "length": 25,
+    "byte_equal": true,
+    "bytes": "803c0d74faace84a007405aaacaaebf0e86a00aa3c3d75e8c3"
+  },
+  "probes": [
+    {
+      "stage": "extras/build/command-movename-9106ytj9",
+      "result": "PASS",
+      "coverage": "Actual MOVE_NAME with uppercase and double-byte stubs; real environment and country tables not tested."
+    },
+    {
+      "stage": "extras/build/command-pathprepare-kzv1gzuv",
+      "result": "PASS",
+      "coverage": "PATH capacity argument generation for nonempty and empty values; environment preparation is stubbed."
+    }
+  ],
+  "remaining": "PATH parser and SET PATH special handling are not target-identical; real DOS environment update and full SET/PROMPT/PATH remain unverified. ECHO/COPY not rerun.",
+  "file_counts": {
+    "linked": 35,
+    "modified_from_baseline": 30,
+    "unchanged_from_baseline": 5
+  },
+  "final_binary_exact": false
+}

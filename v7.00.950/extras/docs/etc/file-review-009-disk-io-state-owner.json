@@ -1,0 +1,18 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "bios_code_offsets": {
+    "medbyt": 3545,
+    "wrtverify_rflag": 3546,
+    "seccnt": 3548,
+    "spsav": 3564,
+    "xfer_seg": 6047
+  },
+  "instruction_anchors": {
+    "0x2f06": "2ec606da0d02",
+    "0x2f0e": "2e8c069f17",
+    "0x2f1a": "2ea2d90d",
+    "0x2f50": "2e890edc0d2e8926ec0d"
+  },
+  "diagnostic_report": "config-ml-disk-io-state-owner.json",
+  "limitations": "Target code sequence corresponds to reference diskrd/diskio; the current diagnostic uses stubs until the disk module is reconstructed."
+}

@@ -1,0 +1,21 @@
+{
+  "build": "extras/docs/etc/command-dir-compress-order-v3-build-20261112.json",
+  "target_probe": "extras\\build\\dir-compressorder-target-fo92g60s",
+  "current_probe": "extras\\build\\dir-compressorder-current-vr5sympe",
+  "matched": [
+    "DIR.TXT",
+    "DONE.TXT"
+  ],
+  "target_order": [
+    "DirConvertFileTime",
+    "DirSelectPathInterface",
+    "DirPrintPadding",
+    "DirCompressionRoot",
+    "DirInitCompression",
+    "DirGetCompressionRatio",
+    "DirQueryCompressedSize",
+    "ComputeRatio",
+    "DirRoundCompressionClusters"
+  ],
+  "scope": "DIR /C on uncompressed DOSBox volume, compression-volume path not exercised."
+}

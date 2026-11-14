@@ -1,0 +1,16 @@
+{
+  "source": "bios/msbio1.asm",
+  "source_sha256": "c3c446c44a2b1009f39c2b0ad904d8714e85ccad8ebf93c99fcd25e5bd047e37",
+  "previous_diagnostic_disksector": [
+    0,
+    1345
+  ],
+  "previous_diagnostic_feb29": [
+    0,
+    1857
+  ],
+  "target_disk_code_file_offset": 2880,
+  "target_disk_code_hex": "80fa80720a80fc02740a80fc0a74052eff2e0601",
+  "change": "Exclude the legacy disksector buffer and feb29 data definitions from DOS7_CONFIG; both remain explicit compatibility stubs for unchanged reference objects.",
+  "limitations": "The target code demonstrates that the previous diagnostic buffer placement is wrong. The target buffer and leap-year state have not yet been located or reconstructed; diagnostic stubs are not implementation."
+}

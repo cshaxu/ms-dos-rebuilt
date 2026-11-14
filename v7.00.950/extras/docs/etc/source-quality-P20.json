@@ -1,0 +1,21 @@
+{
+  "part": "M5 T12 S1 P20",
+  "ordinal": 39,
+  "modified": 1,
+  "unchanged": 0,
+  "exact_dos6": 0,
+  "retired_by_merge": 0,
+  "reference": "DOS6 inc/path.asm (Path_Crunch, Search, Search_Ftype and environment search), full module comparison.",
+  "changes": "Normalize declarations, procedures and instruction indentation to tabs; replace reconstruction-provenance sentence with module description and add original-style entry/exit comments matching current interfaces. No copyright/authorship invented.",
+  "necessity": "A cohesive counterpart of the original standalone PATH helper module, not a single-symbol fragment. Keep it separate from neighbouring logpart/mblate. Four related routines share path buffer and extension strings. No second PATH-search implementation found in BIOS source by named-symbol search; no external named callers found either, which does not justify deleting target-resident bytes.",
+  "differences": "DOS7 uses byte-aligned SysInitSeg, local path/find buffer, explicit segment setup and config_envlen/config_wrkseg instead of PSP environment lookup. Search flag handling and register preservation differ from DOS6 and remain unchanged; preserve exact target behavior rather than substituting reference instructions.",
+  "validation": {
+    "effectiveStatementsEqual": true,
+    "statementCount": 166,
+    "rebuilt": false,
+    "reason": "All 166 effective assembler statements unchanged, including quoted string contents and explicit cmp encoding.",
+    "binary_baseline": "P11 BIOS/IO.SYS and T11 COMMAND.COM/MSDOS.SYS exact acceptance retained."
+  },
+  "next_ordinal": 40,
+  "remaining": 27
+}

@@ -1,0 +1,19 @@
+{
+  "target_sha256": "a74c700063cd6b1c91523952bfc80e9393c125d39ada0164d48b5098089fcef3",
+  "mz_load_image_file_offset": "0x4150",
+  "target_code_offset": "0x714e",
+  "target_code_bytes": "bf9d3833c933d2ff1e7a37",
+  "observations": [
+    "At file offset 0x714e, code sets DI=0x389d, zeroes CX and DX, then makes an indirect far call through [0x377a].",
+    "In the unrelocated MZ load image, offset 0x389d corresponds to file offset 0x79ed. At that position are a little-endian DWORD 0x38a0 and, five bytes later, DWORD 0x38a6.",
+    "File offset 0x38a0 begins the verified 6-class resource container; 0x38a6 points six bytes into its header."
+  ],
+  "limitations": [
+    "The mapping assumes the code uses the segment based at the MZ load-image start; actual segment setup and possible memory movement must be traced.",
+    "The purpose and structure of the complete descriptor and indirect far callee have not been proven.",
+    "This does not yet establish a complete resource read path or linkable source."
+  ],
+  "status": "withdrawn_misidentified_parser_control_block",
+  "correction_evidence": "extras/docs/etc/comrmsg-descriptor-correction.json",
+  "correction": "The proposed descriptor-to-resource association was a coincidental numerical match and is not established; the candidate far callee behaves like a command-line parser."
+}

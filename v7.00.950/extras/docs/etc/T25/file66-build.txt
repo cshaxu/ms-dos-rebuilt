@@ -1,0 +1,23 @@
+PASS 293 current source inputs equal the verified stage.
+private-desktop=DOS5Build_25412_244792218 owned-pid=21160
+[compile 0s] Compiling rapiopen
+child-exit=0 timeout=0
+OMF layout: 4660 code bytes, 192 fixups, 6 data records; code/operands unchanged
+private-desktop=DOS5Build_22344_244794562 owned-pid=3280
+[compile 0s] Linking configuration
+child-exit=0 timeout=0
+Comparing files O:\REPOS.HOBBY\MS-DOS-REBUILT\V7.00.950\EXTRAS\BUILD\T25-RAPIOPEN-29327-7179\BIOS\CONFIG.EXE and O:\REPOS.HOBBY\MS-DOS-REBUILT\V7.00.950\EXTRAS\BUILD\T25-PNPTOSH-28579-3394\BIOS\CONFIG.EXE
+FC: no differences encountered
+
+IO image: 223148 bytes; configuration at 176640
+PASS 293 current source inputs equal the verified stage.
+Comparing files O:\REPOS.HOBBY\MS-DOS-REBUILT\V7.00.950\EXTRAS\BUILD\T25-RAPIOPEN-29327-7179\OUT\IO.SYS and O:\REPOS.HOBBY\MS-DOS-REBUILT\V7.00.950\EXTRAS\BASELINES\TARGETS\IO.SYS
+FC: no differences encountered
+
+Comparing files O:\REPOS.HOBBY\MS-DOS-REBUILT\V7.00.950\EXTRAS\BUILD\T25-RAPIOPEN-29327-7179\OUT\MSDOS.SYS and O:\REPOS.HOBBY\MS-DOS-REBUILT\V7.00.950\EXTRAS\BASELINES\TARGETS\MSDOS.SYS
+FC: no differences encountered
+
+Comparing files O:\REPOS.HOBBY\MS-DOS-REBUILT\V7.00.950\EXTRAS\BUILD\T25-RAPIOPEN-29327-7179\OUT\COMMAND.COM and O:\REPOS.HOBBY\MS-DOS-REBUILT\V7.00.950\EXTRAS\BASELINES\TARGETS\COMMAND.COM
+FC: no differences encountered
+
+PASS: rapiopen compiled; configuration freshly linked unchanged; IO.SYS repacked exact; two inherited outputs exact; 293 source inputs checked.

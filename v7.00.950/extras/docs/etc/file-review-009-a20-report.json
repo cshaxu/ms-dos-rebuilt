@@ -1,0 +1,39 @@
+{
+  "source": "bios/msbio1.asm",
+  "source_sha256": "69c339dd48663505e9cab7b402f9c2f94c378638e1f8768405c92bd67ed85f26",
+  "target": "extras/baselines/targets/IO.SYS",
+  "target_file_offset": "0x2345",
+  "diagnostic_binary_offset": "0x2723",
+  "length": 56,
+  "matching_bytes": 44,
+  "different_byte_offsets": [
+    9,
+    10,
+    13,
+    14,
+    21,
+    22,
+    25,
+    26,
+    33,
+    34,
+    37,
+    38
+  ],
+  "difference_interpretation": "six 16-bit message resource address operands; resources and final layout remain unresolved",
+  "diagnostic_vector": {
+    "file_offset": "0x701",
+    "offset": "0x00e3",
+    "segment": "0x02d4",
+    "points_to_source_callback": true
+  },
+  "temporary_stub_symbols": [
+    "bios_msg_base",
+    "bios_msg_1",
+    "bios_msg_2",
+    "bios_msg_3"
+  ],
+  "baseline_output_sha256": "a67d8733509f9baf94017389cc1c991d5ef1c66bdfb91b6cab3eef0fc35e9490",
+  "baseline_unchanged": true,
+  "limitations": "Diagnostic link uses temporary message-resource stubs; the 7.0a message resources and whole IO.SYS are not reconstructed."
+}

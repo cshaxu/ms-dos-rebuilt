@@ -1,0 +1,22 @@
+{
+  "files": [
+    "bios/sysinit1.asm",
+    "bios/sysconf.asm"
+  ],
+  "source_hashes": [
+    "67f627716746c03bd7e2587a7feb3fe326530417e74e385ea917150e25c2e506",
+    "b9c4940027fb2fbd00d22d22cd09a91a0ffa2ad8c178153648a3a6f5c818b7c9"
+  ],
+  "target_range": "IO.SYS 0xb69a..0xb6d1",
+  "bytes": 55,
+  "different_bytes": 0,
+  "probe": "extras/research/installflag7-linked.asm",
+  "evidence": "Target uses byte flag at 0f53h; next CONFIG.SYS size word begins at 0f54h.",
+  "default_objects_identical_to_prior": true,
+  "dos7_assembly": "passed",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "Fixed-offset probe stubs getchr; full image placement and command processing remain unverified.",
+    "Mixed link contains older objects and stubs."
+  ]
+}

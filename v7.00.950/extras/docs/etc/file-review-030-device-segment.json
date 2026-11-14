@@ -1,0 +1,23 @@
+{
+  "file": "bios/sysconf.asm",
+  "file_index": 30,
+  "source_sha256": "ae69a9cf8357099aec7057e5c5d9517cdce9185b0c8566077b14bcdeb9b7a12d",
+  "target_word": "SYSINIT 0x6842 / IO.SYS 0xb572",
+  "target_initial_bytes": "0000",
+  "target_reads": [
+    "IO.SYS 0xbc16",
+    "IO.SYS 0xbc1e"
+  ],
+  "target_writes": [
+    "IO.SYS 0xd70d: clear",
+    "IO.SYS 0xd748: set from ES:[BX]"
+  ],
+  "default_object_identical": true,
+  "dos7_assembly": "passed",
+  "diagnostic_link": "extras/build/query-integration-12ek9psn/query-link-configseg.log",
+  "limitations": [
+    "The target word is defined but its hook writers are not restored.",
+    "Source ownership and final executable layout are inferred, not established.",
+    "Diagnostic still lacks config_refresh_path and config_record_device and uses older objects/stubs."
+  ]
+}

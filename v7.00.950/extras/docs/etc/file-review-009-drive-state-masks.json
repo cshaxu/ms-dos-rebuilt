@@ -1,0 +1,19 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "flag_word_bios_offset": 8,
+  "setowner_mask": 8,
+  "single_drive_mask": 4,
+  "instruction_anchors": {
+    "setowner": {
+      "target_file_offset": 11951,
+      "hex": "f606080008741726807d0400"
+    },
+    "single": {
+      "target_file_offset": 11981,
+      "hex": "f606080004741750268a4505"
+    }
+  },
+  "reference_source": "bios/msdisk.asm",
+  "diagnostic_report": "config-ml-drive-state-masks.json",
+  "limitations": "Masks are descriptive reconstructed names; the DOS 7 state encoding differs from the reference standalone variables. The later disk and IOCTL modules must use the packed bits."
+}

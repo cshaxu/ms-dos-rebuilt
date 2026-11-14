@@ -1,0 +1,31 @@
+{
+  "source_sha256": "7aa3d50ba8909dedf68207cc7880276778e8a2499821627d4fe9b881a422188c",
+  "listing_sha256": "be8660b2d968a1af436ca16f3ab6253bdcbd7c6e826cc4ed8b7a579bb3c04078",
+  "routines": [
+    {
+      "name": "domini",
+      "target_offset": "0x1a3c",
+      "length": 59,
+      "masked_relocation_bytes": 10,
+      "matched_nonrelocated_bytes": 49,
+      "differences": []
+    },
+    {
+      "name": "print_init",
+      "target_offset": "0x1c35",
+      "length": 8,
+      "masked_relocation_bytes": 0,
+      "matched_nonrelocated_bytes": 8,
+      "differences": []
+    },
+    {
+      "name": "aux_init",
+      "target_offset": "0x1c3d",
+      "length": 10,
+      "masked_relocation_bytes": 0,
+      "matched_nonrelocated_bytes": 10,
+      "differences": []
+    }
+  ],
+  "limitations": "Masked relocation operands and complete target layout/link remain unverified."
+}

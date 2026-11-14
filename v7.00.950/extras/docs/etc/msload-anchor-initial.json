@@ -1,0 +1,22 @@
+{
+  "source_file": "bios/msload.asm",
+  "baseline_loader_size": 1446,
+  "baseline_loader_sha256": "ea8bb3b9c7a22bc141a3d887a66fda6aacd945e6763b23d003399ea2df71c8c0",
+  "target": "IO.SYS",
+  "method": "Exact unique 16-byte windows, merged where adjacent. Low diversity windows excluded. Matches establish leads, not identical procedures.",
+  "matches": [
+    {
+      "source_start": 489,
+      "source_end": 529,
+      "target_start": 553,
+      "target_end": 593
+    },
+    {
+      "source_start": 1414,
+      "source_end": 1445,
+      "target_start": 18977,
+      "target_end": 19008
+    }
+  ],
+  "conclusion": "Correspondence is partial; target begins with an MZ header, and initial execution and load layout require further analysis before source changes."
+}

@@ -1,0 +1,24 @@
+{
+  "source": "bios/sysconf.asm",
+  "sha256": "51db5b182823c088d56f11b5e871bf1d9971593217c031ee21307035a28337e8",
+  "change": "Reconstruct the system-data arena allocation routine following setdevmark7 using target control flow and actual area/ldoff/marker providers.",
+  "matched": [
+    {
+      "region": "system-data allocator",
+      "start": "0x85fd",
+      "end_exclusive": "0x8678",
+      "bytes": 123
+    }
+  ],
+  "verification": {
+    "tool": "extras/tools/verify_syspre_device_link.py",
+    "link_stage": "extras/build/syspre-object-link-rucws70a",
+    "module_stage": "extras/build/ml-sysinit-s8iulscc",
+    "scope": "Allocator assembled and linked after the actual marker writer, with actual area and ldoff data providers. Other layout remains diagnostic."
+  },
+  "limitations": [
+    "Routine name and original historical comment are reconstructed.",
+    "No direct caller has been identified by a scan of the target SYSINIT bytes; indirect callers have not been excluded.",
+    "Runtime behavior, full product link and final three core binaries remain unverified."
+  ]
+}

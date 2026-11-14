@@ -1,0 +1,63 @@
+{
+  "source_sha256": "8001acc156090d5f1ccb179c6da4a56390b6d9b1f0d9a8bd0a8c2faa7692b42e",
+  "listing_sha256": "b782d5ddc20bb4823c87901e3f38ba856b47f7a27449783ea5d9846f0afe76de",
+  "routines": [
+    {
+      "name": "in_bin",
+      "target_offset": "0x28ac",
+      "length": 37,
+      "masked_relocation_bytes": 16,
+      "matched_nonrelocated_bytes": 21,
+      "differences": []
+    },
+    {
+      "name": "date_verify",
+      "target_offset": "0x28d1",
+      "length": 62,
+      "masked_relocation_bytes": 16,
+      "matched_nonrelocated_bytes": 46,
+      "differences": []
+    },
+    {
+      "name": "time_verify",
+      "target_offset": "0x290f",
+      "length": 25,
+      "masked_relocation_bytes": 6,
+      "matched_nonrelocated_bytes": 19,
+      "differences": []
+    },
+    {
+      "name": "bcd_verify",
+      "target_offset": "0x2928",
+      "length": 41,
+      "masked_relocation_bytes": 2,
+      "matched_nonrelocated_bytes": 39,
+      "differences": []
+    },
+    {
+      "name": "daycnt_to_day",
+      "target_offset": "0x2951",
+      "length": 190,
+      "masked_relocation_bytes": 48,
+      "matched_nonrelocated_bytes": 142,
+      "differences": []
+    },
+    {
+      "name": "bin_to_bcd",
+      "target_offset": "0x2a0f",
+      "length": 11,
+      "masked_relocation_bytes": 0,
+      "matched_nonrelocated_bytes": 11,
+      "differences": []
+    },
+    {
+      "name": "bcd_to_bin",
+      "target_offset": "0x2a1a",
+      "length": 11,
+      "masked_relocation_bytes": 0,
+      "matched_nonrelocated_bytes": 11,
+      "differences": []
+    }
+  ],
+  "limitations": "MASM listing comparison only; target relocation operands, production link and segment ownership remain unverified."
+}

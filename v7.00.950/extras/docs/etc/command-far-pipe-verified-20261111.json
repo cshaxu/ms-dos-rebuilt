@@ -1,0 +1,187 @@
+{
+  "stage": "extras\\build\\command-reference-i0hsafvb",
+  "checks": [
+    {
+      "unit": "allocation",
+      "target_range": [
+        50678,
+        50704
+      ],
+      "bytes": 26,
+      "verified_fields": [
+        {
+          "offset": 16,
+          "symbol": "ResSeg",
+          "addend": 0,
+          "linked": 41878,
+          "target": 53306
+        },
+        {
+          "offset": 20,
+          "symbol": "PipePtr",
+          "addend": 0,
+          "linked": 1102,
+          "target": 1251
+        },
+        {
+          "offset": 23,
+          "symbol": "PipePtr",
+          "addend": 2,
+          "linked": 1104,
+          "target": 1253
+        }
+      ],
+      "verified_branches": [
+        [
+          8,
+          1,
+          25137
+        ]
+      ],
+      "linked_hex": "b448bb4100cd21722e8ec033ff1e8e1e96a3893e4e04a350041f"
+    },
+    {
+      "unit": "pipe prefix",
+      "target_range": [
+        52377,
+        52428
+      ],
+      "bytes": 51,
+      "verified_fields": [
+        {
+          "offset": 2,
+          "symbol": "EchoFlag",
+          "addend": 0,
+          "linked": 896,
+          "target": 1043
+        },
+        {
+          "offset": 7,
+          "symbol": "PipePtr",
+          "addend": 0,
+          "linked": 1102,
+          "target": 1251
+        },
+        {
+          "offset": 12,
+          "symbol": "PipePtr",
+          "addend": 2,
+          "linked": 1104,
+          "target": 1253
+        },
+        {
+          "offset": 29,
+          "symbol": "InPipePtr",
+          "addend": 0,
+          "linked": 1706,
+          "target": 1855
+        }
+      ],
+      "verified_branches": [
+        [
+          25,
+          2,
+          26159
+        ],
+        [
+          39,
+          2,
+          25766
+        ]
+      ],
+      "linked_hex": "80268003fe8b364e041e8e1e5004ac1f3c7c74073c7c7403e9c3008b16aa06b8203dcd217303e92cff8bd8b0ff864718a21800"
+    },
+    {
+      "unit": "pipe quote",
+      "target_range": [
+        52496,
+        52516
+      ],
+      "bytes": 20,
+      "verified_fields": [
+        {
+          "offset": 8,
+          "symbol": "PipePtr",
+          "addend": 2,
+          "linked": 1104,
+          "target": 1253
+        }
+      ],
+      "verified_branches": [],
+      "linked_hex": "3c227510411e8e1e5004ac1faa413c2275f3ebd4"
+    },
+    {
+      "unit": "release",
+      "target_range": [
+        52852,
+        52894
+      ],
+      "bytes": 42,
+      "verified_fields": [
+        {
+          "offset": 5,
+          "symbol": "ResSeg",
+          "addend": 0,
+          "linked": 41878,
+          "target": 53306
+        },
+        {
+          "offset": 11,
+          "symbol": "PipePtr",
+          "addend": 2,
+          "linked": 1104,
+          "target": 1253
+        },
+        {
+          "offset": 29,
+          "symbol": "PipeFlag",
+          "addend": 0,
+          "linked": 942,
+          "target": 1091
+        },
+        {
+          "offset": 37,
+          "symbol": "EchoFlag",
+          "addend": 0,
+          "linked": 896,
+          "target": 1043
+        }
+      ],
+      "verified_branches": [],
+      "linked_hex": "1e502e8e1e96a333c0870650040bc07408068ec0b449cd210732c08606ae030ac07404d02e8003581fc3"
+    }
+  ],
+  "pipe_memory_message_id": 1111,
+  "message_target_range": [
+    3656,
+    3694
+  ],
+  "descriptor_target_range": [
+    67744,
+    67747
+  ],
+  "message_and_descriptor_exact": true,
+  "layout_relative_to_Pipe1": {
+    "Pipe2": 79,
+    "PipePtr": 158,
+    "Re_OutStr": 162,
+    "SafePathBuffer": 422,
+    "OriginalComSpec": 682
+  },
+  "old_static_PipeStr_removed": true,
+  "source_hashes": {
+    "cmd/command/rdata.asm": "58438aafbc17c4c133e87e8b8b4f871b282972a1170b9a96dfc91602cfbfbf82",
+    "cmd/command/tpipe.asm": "20a12f5531f2f24687bc7d229ecc3a3d8cded99b20465f2c3f34c09a6197046d",
+    "cmd/command/tmisc1.asm": "aedaaa191192672d1e392f962e0ab5c780598f4ecb7f330a22e58474591ac3c5",
+    "cmd/command/tranmsg.asm": "5d3f62d04a45945293855a46d430ba19c3fc8e0113d7885f2badb9a5faff25d0",
+    "cmd/command/command.skl": "84a3ec3d5a5dfef919d628e2e564df4e68534a6f57763a108ec430b154bfc441",
+    "lang/usa/messages/usa-ms-command.msg": "611d9bac881e9c563a3efcefa38bb14e260a887be3494b2f682be9b33524fe04"
+  },
+  "resource_gates_passed": true,
+  "full_command_exact": false,
+  "remaining": [
+    "Transient producer/consumers still use DOS6 static COMBUF and byte-length interface; target uses dynamic pointer and WORD length.",
+    "PipePtr overlaps initialization code; runtime overlay ownership initialization still unverified.",
+    "Full EndInit, post-move startup and whole module/layout still incomplete."
+  ]
+}

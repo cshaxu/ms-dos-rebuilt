@@ -1,0 +1,17 @@
+{
+  "source": "bios/msbio1.asm",
+  "source_sha256": "4ccf30cd47f67d27cd8c7129d25630bdf079e1f19a21660c3254262c8400794b",
+  "change": "Remove provisional DOS 7 BIOS_DATA copies of prevoper, number_of_sec, fhave96, single, fhavek09 and fsetowner; retain explicit compatibility stubs for old objects.",
+  "prior_evidence": [
+    "file-review-009-int13-state-ownership.json",
+    "file-review-009-bios-flag-masks.json",
+    "file-review-009-drive-state-masks.json",
+    "file-review-009-k09-mask.json"
+  ],
+  "diagnostic_unresolved_bios_offsets": [
+    "0x539",
+    "0x53a"
+  ],
+  "diagnostic": "config-ml-legacy-flags-excluded.json",
+  "limitations": "The diagnostic uses DOS 6 objects and stubs. Two formerly matched BIOS bytes now differ due to unresolved segment contributions; final BIOS_DATA layout and the later disk/character implementations are not established."
+}

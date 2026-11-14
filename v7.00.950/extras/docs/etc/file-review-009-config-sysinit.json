@@ -1,0 +1,33 @@
+{
+  "file_index": 9,
+  "source": "bios/msbio1.asm",
+  "source_sha256": "ac23be7e4adbe854adba475bc12453ba8e8de1b4d59ced61429f11042698c7c8",
+  "target_io_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "sysinit_candidate_file_base": 19760,
+  "evidence_for_segment_base": "At base+0F3E and +0F40 are the target BIOS_DATA and BIOS_CODE segment words 0070 and 01D5; target init code loads these words and writes CS to the config callback segment slot.",
+  "target_callback_segment_offset": 41230,
+  "target_callback_file_offset": 60990,
+  "routine_length": 36,
+  "target_bytes": "1e0e1f83c10fc1e904a1230f2bc14833d226891526894502a3a0a0890ea2a0a3230f1fcb",
+  "probe_bytes": "1e0e1f83c10fc1e904a190592bc14833d226891526894502a39259890e9459a390591fcb",
+  "different_operand_positions": [
+    10,
+    11,
+    25,
+    26,
+    29,
+    30,
+    32,
+    33
+  ],
+  "matching_nonoperand_bytes": 28,
+  "validation": "DOS7_CONFIG MASM assembly and stub-assisted historical link. All instruction and branch bytes match; 4 word addresses await final segment layout. Default BIOS build matches prior output.",
+  "unresolved": [
+    "config_init_flags",
+    "config_alloc_top",
+    "config_buffer_segment",
+    "config_buffer_paragraphs",
+    "runtime assignment of config_init_segment"
+  ],
+  "limitations": "Temporary external data placeholders in ignored build only; code layout and whole 7.0a binary remain incomplete."
+}

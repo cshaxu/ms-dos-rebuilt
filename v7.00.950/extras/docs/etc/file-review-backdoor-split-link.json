@@ -1,0 +1,23 @@
+{
+  "sources": {
+    "bios/sysinit1.asm": "fab50259118f46bba47b98a14f643300e0701108b88c4c076a12098ab760dc3a",
+    "bios/syspre.asm": "949275ae57a049de9aecdd314a7dcd78087e14dc047dffa869fe8b548c1850d4",
+    "bios/sysimes.asm": "612c08143c45d7bf0004b2ec241fe43a73394b4e3c1744e06c1f429ce7a31658"
+  },
+  "split_tool": "extras/tools/split_sysinit_startup_data.py",
+  "verification": "extras/tools/verify_syspre_backdoor_link.py",
+  "link_stage": "extras/build/syspre-object-link-ae7lotgo",
+  "backdoor_object_sha256": "125c0105660d92e5047297ac12b246a31b5b551d8ca711f4dd4a0ccfb14d052c",
+  "matched_bytes": {
+    "request_packet": 25,
+    "backdoor": 5,
+    "syspre": 1166,
+    "sysimes_resource": 4307
+  },
+  "scope": "Backdoor data and far return are extracted from maintained SYSINIT1; actual backdoor, request, SYSPRE and SYSIMES objects linked, resolving MagicBackdoor and NullBackdoor through the real backdoor object. Split SYSINIT1/SYSINIT2 assemble and startup-data test passes.",
+  "limitations": [
+    "Synthetic prefix pieces and gap still supply other externals and place contributions at target offsets.",
+    "Generated SYSINIT1 remainder is not yet part of the full BIOS link.",
+    "Complete SYSINIT link and final three binaries remain unverified."
+  ]
+}

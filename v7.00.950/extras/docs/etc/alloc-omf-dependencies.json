@@ -1,0 +1,74 @@
+{
+  "source": "dos/alloc.asm",
+  "source_sha256": "98c929ded7a515871ecf464ec96bbfda483b3ea4295c739ce1afcbd78ffdb450",
+  "object": "extras/build/alloc-context-lq6xctj5/alloc.obj",
+  "object_sha256": "63f6bbff68a61d5885921e8b190f369831a7c3bb9fcd4e062a627adf46af0ff7",
+  "external": [
+    "a20off_count",
+    "allocmethod",
+    "arena_head",
+    "bestarena",
+    "currentpdb",
+    "dos_flag",
+    "ecritmem",
+    "exterr_locus",
+    "firstarena",
+    "get_user_stack",
+    "lastarena",
+    "lcritmem",
+    "start_arena",
+    "sys_ret_err",
+    "sys_ret_ok",
+    "umb_head",
+    "umbflag"
+  ],
+  "fixup_externals": [
+    "a20off_count",
+    "allocmethod",
+    "arena_head",
+    "bestarena",
+    "currentpdb",
+    "dos_flag",
+    "ecritmem",
+    "exterr_locus",
+    "firstarena",
+    "get_user_stack",
+    "lastarena",
+    "lcritmem",
+    "start_arena",
+    "sys_ret_err",
+    "sys_ret_ok",
+    "umb_head",
+    "umbflag"
+  ],
+  "candidate_providers": {
+    "inc/const2.asm": [
+      "allocmethod",
+      "bestarena",
+      "currentpdb",
+      "exterr_locus",
+      "firstarena",
+      "lastarena"
+    ],
+    "dos/msconst.asm": [
+      "a20off_count",
+      "arena_head",
+      "dos_flag",
+      "start_arena",
+      "umb_head",
+      "umbflag"
+    ],
+    "dos/crit.asm": [
+      "ecritmem",
+      "lcritmem"
+    ],
+    "dos/msdisp.asm": [
+      "get_user_stack"
+    ],
+    "dos/mscode.asm": [
+      "sys_ret_err",
+      "sys_ret_ok"
+    ]
+  },
+  "limitations": "Provider candidates are source definitions; object/link configuration and target correspondence remain unverified."
+}

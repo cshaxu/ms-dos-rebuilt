@@ -1,0 +1,26 @@
+{
+  "sources": {
+    "bios/sysinit1.asm": "9e5cb0d02315f094668aa32e7e5a29e26fcee081bc2efa82c6ee7f4d070967d1",
+    "bios/sysconf.asm": "fa5674977e541b177e273b07f0821828e860019ef53cae621c36a3c50913edbc"
+  },
+  "changes": [
+    "Restore the DOS 7 line-number display wrapper in SYSINIT1.",
+    "Expose existing SYSCONF showlinenum entry as a genuine dependency."
+  ],
+  "matched": {
+    "region": "line number display wrapper",
+    "start": "0x1748",
+    "end_exclusive": "0x175d",
+    "bytes": 21
+  },
+  "verification": {
+    "tool": "extras/tools/verify_syspre_device_link.py",
+    "link_stage": "extras/build/syspre-object-link-m7nga5gb",
+    "module_stage": "extras/build/ml-sysinit-e4si12_m",
+    "scope": "Actual wrapper links to actual linecount, showcount and showlinenum providers; diagnostic target positions remain."
+  },
+  "limitations": [
+    "Runtime call paths for this wrapper have not been exhaustively recovered.",
+    "Complete product link and final three core binaries remain unverified."
+  ]
+}

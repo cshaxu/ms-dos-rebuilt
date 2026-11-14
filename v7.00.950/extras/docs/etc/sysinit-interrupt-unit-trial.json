@@ -1,0 +1,13 @@
+{
+  "source": "extras/research/sysinit-interrupt-unit-trial.asm",
+  "source_sha256": "9e77f628e85ff4dd833e78540f3fd541d5dc3d34be74e8609cab75f5f31bd717",
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "linked_exe_sha256": "1e6fabae14c654d74763d367c3a517c842dca8271d804d6b0e9d47383cc5479e",
+  "target_file_range": "0x4d42..0x4f4b",
+  "length": 521,
+  "different_bytes": 0,
+  "limitations": [
+    "The target-layout constants and ORG are diagnostic only, not a production implementation.",
+    "The initialization copy, appended message, surrounding SYSINIT data and complete IO.SYS are not verified by this comparison."
+  ]
+}

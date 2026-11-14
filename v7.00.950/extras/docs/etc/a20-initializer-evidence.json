@@ -1,0 +1,14 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "source_reference": "bios/msinit.asm",
+  "target_comparable_context": "COMPAQ int13 patch followed by INT 15h function 4101h",
+  "initializer_file_offset": 5361,
+  "pointer_store_file_offset": 5368,
+  "pointer_store": "mov [017c],di",
+  "message_table_file_offset": 62228,
+  "message_base_file_offset": 62234,
+  "selected_table_word": 3947,
+  "message_file_offset": 66181,
+  "message_hex": "0d0a413230206861726477617265206572726f722e2020436f6e7461637420746563686e6963616c20737570706f727420746f206964656e74696679207468652070726f626c656d2e0d0a24",
+  "limits": "Static BIOS-data mapping and source correspondence; runtime DS/ES and destination bounds are not proven. Initializer integration is pending; no source is modified by this check."
+}

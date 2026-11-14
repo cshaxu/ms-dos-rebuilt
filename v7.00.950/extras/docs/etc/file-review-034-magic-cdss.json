@@ -1,0 +1,39 @@
+{
+  "file": "bios/syspre.asm",
+  "source_sha256": "051e6f5f290c514f235b3efc69f89fc454bec5e763de2a31165e56c59e9b7d84",
+  "target_range": "IO.SYS 0xdbc9..0xdc10",
+  "length": 71,
+  "results": {
+    "magic.exe": [
+      {
+        "offset": "0x35",
+        "actual": "0x3a",
+        "target": "0x38"
+      },
+      {
+        "offset": "0x36",
+        "actual": "0xda",
+        "target": "0xd3"
+      }
+    ],
+    "magic5.exe": [
+      {
+        "offset": "0x35",
+        "actual": "0x3a",
+        "target": "0x38"
+      },
+      {
+        "offset": "0x36",
+        "actual": "0xda",
+        "target": "0xd3"
+      }
+    ]
+  },
+  "meaning": "CMP BL,DL has a different but equivalent two-byte register encoding.",
+  "probe_source": "extras/research/magic-cdss-linked.asm",
+  "limitations": [
+    "Both isolated assemblers differ in encoding; target binary equality is not established.",
+    "Fixed-offset probe does not establish full layout or runtime.",
+    "DOS7 startup order and full linked image are incomplete."
+  ]
+}

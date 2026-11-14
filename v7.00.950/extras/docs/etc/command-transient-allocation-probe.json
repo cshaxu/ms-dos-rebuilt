@@ -1,0 +1,14 @@
+{
+  "build_report": "extras/docs/etc/command-transient-allocation-target-build-20261112.json",
+  "probe_stage": "extras/build/transient-allocation-probe-n4g9op5i",
+  "checks": [
+    "real DOS allocation and resize",
+    "second block size 0BEh from initial 100h paragraphs",
+    "temporary block available for reallocation",
+    "saved ES restored and allocated block freed"
+  ],
+  "limitations": [
+    "success case only; allocation failures are not exercised",
+    "does not execute full COMMAND return or relocation"
+  ]
+}

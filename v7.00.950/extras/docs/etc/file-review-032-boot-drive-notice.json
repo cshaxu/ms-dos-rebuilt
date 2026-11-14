@@ -1,0 +1,15 @@
+{
+  "file": "bios/sysinit1.asm",
+  "source_sha256": "6e3c1290d821f035b781b030930a98ad8e64d40da742916067a77ba92a58a7cc",
+  "target_range": "IO.SYS 0x6149..0x6169",
+  "bytes": 32,
+  "different_bytes": 0,
+  "probe": "extras/research/boot-drive-notice-linked.asm",
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "Fixed-offset probe stubs indexed printing and does not execute DOS calls.",
+    "Complete startup, stack lifetime and linked layout remain unverified."
+  ]
+}

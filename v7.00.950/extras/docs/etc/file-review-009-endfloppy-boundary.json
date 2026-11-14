@@ -1,0 +1,37 @@
+{
+  "source": "bios/msbio1.asm",
+  "source_sha256": "c12a017a56617d9a454f61e7a05742ceaae2b08d72f79ce7868ffd192a8ab026",
+  "target_dynamic_start_instruction_offset": 5195,
+  "target_dynamic_start_hex": "bf4005",
+  "target_patch_source_instruction_offset": 5235,
+  "target_patch_source_hex": "be4005",
+  "target_patch_code_file_offset": 2880,
+  "target_patch_code_start_hex": "80fa80720a80fc02740a80fc0a74052eff2e0601",
+  "diagnostic_endfloppy": {
+    "diagnostic_segment": 0,
+    "diagnostic_offset": 1335,
+    "target_dynamic_start_offset": 1344,
+    "offset_equal": false
+  },
+  "interpretation": "Target initialization starts its dynamic BIOS placement at 0540h; on the applicable machine path it copies optional hard-disk patch code from the same offset. The reference static configuration uses endfloppy as a starting boundary.",
+  "limitations": "The target code establishes a dynamic boundary but not the exact symbolic name or nature of the nine bytes before it. No padding or field names have been invented. Diagnostic includes legacy objects and stubs; target IO.SYS is not yet built.",
+  "clarification": "The target 0540h dynamic start is not proven to be the endfloppy symbol. Reference link places endfloppy, BData_end and ibm_disk_io at different offsets and both BIOS data segments have word alignment; 9 bytes cannot be attributed to paragraph alignment or to msbio1 alone.",
+  "reference_map_symbols": {
+    "ENDFLOPPY": [
+      0,
+      2302
+    ],
+    "BDATA_END": [
+      0,
+      2304
+    ],
+    "END96TPI": [
+      0,
+      2328
+    ],
+    "IBM_DISK_IO": [
+      0,
+      4830
+    ]
+  }
+}

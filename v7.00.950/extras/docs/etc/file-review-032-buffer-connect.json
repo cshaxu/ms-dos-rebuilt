@@ -1,0 +1,15 @@
+{
+  "file": "bios/sysinit1.asm",
+  "source_sha256": "b8269796c1b48e8372f0d324f5f649f973d9fc15c88c97c02d96e7a190ba6e6c",
+  "target_range": "IO.SYS 0x85b1..0x85c3",
+  "bytes": 18,
+  "different_bytes": 0,
+  "probe": "extras/research/buffer-connect-linked.asm",
+  "default_object_identical": true,
+  "dos7_assembly": "passed without warnings",
+  "mixed_diagnostic_link_exit_code": 0,
+  "limitations": [
+    "Fixed-offset probe does not execute the code or prove whole-image placement.",
+    "Complete initialization order and integration remain incomplete."
+  ]
+}

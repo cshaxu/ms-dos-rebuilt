@@ -1,0 +1,120 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\romrd-context-am9zwbtw",
+  "files": [
+    {
+      "file": "bios/romrd.asm",
+      "sha256": "6873dba81f979c322dbaea758090c2765b3f84e00ee4772053d255f895456426",
+      "dependencies": [
+        "bios/biosseg.inc",
+        "bios/msgroup.inc",
+        "bios/rom8k.inc"
+      ],
+      "objects": [
+        {
+          "file": "bios/romrd.asm",
+          "flag": "FAKEROM",
+          "enabled": false,
+          "object": "r00n.obj",
+          "object_sha256": "766e5b632aba0046e14d87d2407e20cd8a1e38377c4ecaa230cb62731aca46c0"
+        },
+        {
+          "file": "bios/romrd.asm",
+          "flag": "FAKEROM",
+          "enabled": true,
+          "object": "r00y.obj",
+          "object_sha256": "3357ba6a943d039433f5127e5b420452228f9c133437de93d55487757be0b02a"
+        }
+      ],
+      "matches": [
+        {
+          "name": "6.0",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\romrd.asm",
+          "sha256": "6873dba81f979c322dbaea758090c2765b3f84e00ee4772053d255f895456426"
+        },
+        {
+          "name": "Astro",
+          "path": "O:\\repos.external\\astro\\bios\\romrd.asm",
+          "sha256": "6873dba81f979c322dbaea758090c2765b3f84e00ee4772053d255f895456426"
+        }
+      ],
+      "target_status": "unverified"
+    },
+    {
+      "file": "bios/romrdhi.asm",
+      "sha256": "437bc818effd18711fb2550c72cc6678cc8cfcbd1217fabfe994e032e09f38d6",
+      "dependencies": [
+        "bios/biosseg.inc",
+        "bios/msgroup.inc",
+        "bios/rom8k.inc"
+      ],
+      "objects": [
+        {
+          "file": "bios/romrdhi.asm",
+          "flag": "FAKEROM",
+          "enabled": false,
+          "object": "r01n.obj",
+          "object_sha256": "9d98a0af8fcd9f531b661d3818dbc81a8b864ffb5e8919485b8061a5d19543a0"
+        },
+        {
+          "file": "bios/romrdhi.asm",
+          "flag": "FAKEROM",
+          "enabled": true,
+          "object": "r01y.obj",
+          "object_sha256": "fa092dacb03855376ecfabbbd34d0f2a92cbaf58cd06e265750360391aa22d9f"
+        }
+      ],
+      "matches": [
+        {
+          "name": "6.0",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\romrdhi.asm",
+          "sha256": "437bc818effd18711fb2550c72cc6678cc8cfcbd1217fabfe994e032e09f38d6"
+        },
+        {
+          "name": "Astro",
+          "path": "O:\\repos.external\\astro\\bios\\romrdhi.asm",
+          "sha256": "437bc818effd18711fb2550c72cc6678cc8cfcbd1217fabfe994e032e09f38d6"
+        }
+      ],
+      "target_status": "unverified"
+    },
+    {
+      "file": "bios/romrdlo.asm",
+      "sha256": "6c69f056db340a22dee6aaecfa1a5714420b7ef3a6073ea799a2e3342581b413",
+      "dependencies": [
+        "bios/biosseg.inc",
+        "bios/msgroup.inc",
+        "bios/rom8k.inc"
+      ],
+      "objects": [
+        {
+          "file": "bios/romrdlo.asm",
+          "flag": "FAKEROMDRIVE",
+          "enabled": false,
+          "object": "r02n.obj",
+          "object_sha256": "6083e62644d59759af4d0997a67b3a8352892bd07c2474494f0aa55447a528bb"
+        },
+        {
+          "file": "bios/romrdlo.asm",
+          "flag": "FAKEROMDRIVE",
+          "enabled": true,
+          "object": "r02y.obj",
+          "object_sha256": "10d54ba428d8fd4306c5fbeb074657502f80760923e6700635e234010b395847"
+        }
+      ],
+      "matches": [
+        {
+          "name": "6.0",
+          "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\romrdlo.asm",
+          "sha256": "6c69f056db340a22dee6aaecfa1a5714420b7ef3a6073ea799a2e3342581b413"
+        },
+        {
+          "name": "Astro",
+          "path": "O:\\repos.external\\astro\\bios\\romrdlo.asm",
+          "sha256": "6c69f056db340a22dee6aaecfa1a5714420b7ef3a6073ea799a2e3342581b413"
+        }
+      ],
+      "target_status": "unverified"
+    }
+  ],
+  "limitations": "Both local test conditions assemble, but whether target uses a ROM reader and full binary identity remain unverified."
+}

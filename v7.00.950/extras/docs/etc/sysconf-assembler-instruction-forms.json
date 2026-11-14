@@ -1,0 +1,22 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-rebuilt\\v7.0a\\extras\\build\\sysconf-encoding-rlfvfoc0",
+  "masm5": [
+    "0000  25 FFF0                \\\tand ax,-16",
+    "0003  0D FFFF                \\\tor ax,-1",
+    "0006  25 FFF0                \\\tand ax,0fff0h",
+    "0009  0D FFFF                \\\tor ax,0ffffh"
+  ],
+  "ml6": [
+    "0000  83 E0 F0\t\t\tand ax,-16",
+    "0003  83 C8 FF\t\t\tor ax,-1",
+    "0006  83 E0 F0\t\t\tand ax,0fff0h",
+    "0009  83 C8 FF\t\t\tor ax,0ffffh"
+  ],
+  "target_forms": [
+    "83 E0 F0",
+    "83 C8 FF"
+  ],
+  "limitations": [
+    "Encoding probe only; not a SYSINIT build or source change."
+  ]
+}

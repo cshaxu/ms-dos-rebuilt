@@ -1,0 +1,25 @@
+{
+  "file": "cmd/command/tspc.asm",
+  "sha256": "40c97115aa6c3565f7804bd50f8a553f68538eebcadcc107234dfd9414279092",
+  "reference_6_sha256": "3dc9ce6f801dd4f1c01fa47676783b4758b2ff3605e7fc8668c3bc658c8e7ffa",
+  "object": "extras/build/tspc-context-riahqbtt/tspc.obj",
+  "object_sha256": "d06c5f7da18dc2323d1fa0c969979f67c38d7cc2007aff45460e9613ff00b565",
+  "assembler_options": [
+    "USA",
+    "DOS7_CONFIG",
+    "DBLSPACE_HOOKS"
+  ],
+  "public_count": 209,
+  "external": [],
+  "external_fixups": [],
+  "difference_from_dos6": "Adds PUBLIC declarations and uninitialized 11+1+1+1 byte COPY overwrite state variables at source lines 435-438.",
+  "consumer": "cmd/command/copy.asm:94-95,220-221,689-726,1197-1206",
+  "target_command_sha256": "a74c700063cd6b1c91523952bfc80e9393c125d39ada0164d48b5098089fcef3",
+  "target_overwrite_string_offset": 3262,
+  "limitations": [
+    "Text is evidence of feature presence only; it does not establish target variable names, allocation sizes, ordering or actual DOS7 build settings.",
+    "Source differs from 6.0 and Astro and is not qualified as target-equivalent.",
+    "Consumers and final linked layout remain unverified."
+  ],
+  "status": "pending_target_layout"
+}

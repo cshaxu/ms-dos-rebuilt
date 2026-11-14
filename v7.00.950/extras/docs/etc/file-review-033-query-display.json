@@ -1,0 +1,28 @@
+{
+  "file": "bios/sysinit2.asm",
+  "file_index": 33,
+  "source_sha256": "c569f3e53774857fd799114d7fe3d12fda643ee453866225167389135d67c314",
+  "matched_ranges": [
+    {
+      "target": "IO.SYS 0x6944..0x6963",
+      "bytes": 31,
+      "purpose": "print_indexed"
+    },
+    {
+      "target": "IO.SYS 0x7976..0x798a",
+      "bytes": 20,
+      "purpose": "disp_input"
+    },
+    {
+      "target": "IO.SYS 0x7aea..0x7b8c",
+      "bytes": 162,
+      "purpose": "query input"
+    }
+  ],
+  "default_object_identical": true,
+  "dos7_assembly": "passed",
+  "limitations": [
+    "The isolated link reproduces target offsets with ORG, so final executable placement is not established.",
+    "Query entry, response initialization and the full executable remain incomplete."
+  ]
+}

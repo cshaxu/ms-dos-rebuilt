@@ -1,0 +1,53 @@
+{
+  "target_sha256": "477eb53a2b3b81cefe58bcad409c682044e4ee4bf35dad678f80e1c5afbf35a5",
+  "source": "inc/lmstub.asm",
+  "source_sha256": "a0783d6f103220cbc6eff5ae371fbc9316e53b1e99ff74e4afc418496d4012f8",
+  "target_dosdata_file_base": "0x19ec0",
+  "inferred_variables": {
+    "DosHasHMA": {
+      "dosdata_offset": "0x0d07",
+      "target_file_offset": "0x1abc7"
+    },
+    "fixexepatch": {
+      "dosdata_offset": "0x0d08",
+      "target_file_offset": "0x1abc8"
+    },
+    "RationalPatchPtr": {
+      "dosdata_offset": "0x0d0a",
+      "target_file_offset": "0x1abca"
+    },
+    "Rational386PatchPtr": {
+      "dosdata_offset": "0x133e",
+      "target_file_offset": "0x1b1fe"
+    }
+  },
+  "observations": [
+    "The target EXE loader calls the word at DOSDATA:0d08 where the historical source calls fixexepatch; it tests byte DOSDATA:0d07 where the source tests DosHasHMA.",
+    "Target initialization sets the byte at 0d07 and updates the word at 0d08 when DOS enters the HMA.",
+    "Target initialization sets words at 0d08 and 0d0a to the same default routine, followed by ChkCopyProt at 0061, matching the historical initialization order of fixexepatch, RationalPatchPtr and ChkCopyProt.",
+    "The second EXE loader call uses DOSDATA:133e, corresponding to Rational386PatchPtr, not RationalPatchPtr."
+  ],
+  "byte_checks": {
+    "exec_patch_calls": {
+      "target_file_offset": "0x18095",
+      "bytes": "8b4c0a8b440c36ff16080d36ff163e13"
+    },
+    "exec_hma_test": {
+      "target_file_offset": "0x180c4",
+      "bytes": "36803e070d007420"
+    },
+    "init_default_patches": {
+      "target_file_offset": "0x19a20",
+      "bytes": "c706080d3e98c7060a0d3e98c70661003e98"
+    },
+    "init_hma_patch": {
+      "target_file_offset": "0x19d29",
+      "bytes": "c606070d01c706080d1bc3"
+    }
+  },
+  "limitations": [
+    "Symbol names are inferred by comparing multiple target instruction sequences with historical source; original 7.0a symbol names are not independently recovered.",
+    "The exact source ownership and preceding target layout of these variables remain unverified.",
+    "No complete executable link or target-wide equivalence has been established."
+  ]
+}
