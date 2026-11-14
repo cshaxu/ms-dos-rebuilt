@@ -139,8 +139,6 @@ flagcyln	equ 00010000b
 flagseclim	equ 00100000b
 flagheads	equ 01000000b
 flagff		equ 10000000b
-	public  boot_delay
-boot_delay      dw      2               ; startup delay in seconds
 boot_menu       db      0               ; show startup menu
 boot_menu_default db    1               ; default startup menu selection
 boot_menu_delay dw      30              ; startup menu timeout
@@ -215,8 +213,6 @@ boot_himem_record_length db 17h,81h
 boot_driver_entry1 db 11h,81h
 	dw      offset boot_check_ifshlp,offset boot_ifshlp_driver
 	db      0ch,1
-	dw      offset boot_check_setver,offset boot_setver_driver
-	db      0ch,0
 	dw      0
 	public  boot_umb_driver_record
 boot_umb_driver_record label word
@@ -290,8 +286,8 @@ boot_windows_file_table label word
 
 boot_io_w40_entry db 6
 boot_io_w40 db 'IO.W40',0
-boot_winboot_sys_entry db 11
-boot_winboot_sys db 'WINBOOT.SYS',0
+boot_winboot_sys_entry db 6
+boot_winboot_sys db 'JO.SYS',0
 boot_msdos_w40_entry db 9
 boot_msdos_w40 db 'MSDOS.W40',0
 boot_winboot_ini_entry db 11

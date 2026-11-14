@@ -228,7 +228,7 @@ sysinitseg segment
 	extrn	boot_shell_main:near
 	extrn	query_bios_call:near,config_xms_init:near,config_copy:near
 	extrn	config_buffer_paragraphs:word
-	extrn	boot_runtime_flags:byte,boot_delay:word
+	extrn	boot_runtime_flags:byte
 	extrn	config_record_ptr:dword,config_record_count:word
 	extrn	config_hook_active:byte
 	extrn	config_access_table:dword

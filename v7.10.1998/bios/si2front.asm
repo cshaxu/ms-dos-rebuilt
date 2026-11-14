@@ -229,7 +229,7 @@ IFDEF	CONFIGPROC
 ;----------------------------------------------------------------------------
 ;
 		assume ds:nothing, es:nothing
-extrn boot_safe:byte,boot_menu:byte,boot_delay:word,boot_config_name:byte
+extrn boot_safe:byte,boot_menu:byte,boot_config_name:byte
 extrn boot_build_menu:near,boot_toupper:near,boot_logo_display:near,query_keyboard_service:near
 public aoffblockdesc,bdefblock,bmaxblock,display_menu,sectimeout
 organize	proc	near

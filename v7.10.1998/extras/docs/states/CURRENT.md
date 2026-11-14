@@ -58,3 +58,5 @@ P16 integrates the FE signature and version checks into RegReadFile and updates 
 P17 removes the two obsolete BOOTDELAY writes from the initial menu scan in SI2FRONT. Stage cmd-22890-6289 aligns the 145-byte menu block with the target modulo a one-byte preceding displacement. Ten linked operand bytes remain in the block. COMMAND.COM and MSDOS.SYS continue to match. IO.SYS remains open.
 
 P18 restores WINVER acceptance, leaves the obsolete BOOTDELAY option as a no-op, and aligns the existing startup stack entry. It initializes the optional registry query type output through the inherited RegQueryValueEx. The 14-byte startup block matches at its exact FE image address. The isolated configuration link matches the 250-byte query block apart from two address operand bytes. Stage cmd-23961-25591 builds all three images; IO.SYS remains open.
+
+P19 removes unused BOOTDELAY storage and the default SETVER driver entry, and restores JO.SYS in the existing earlier-system filename table. The linked filename starts at target offset A752h. Stage cmd-25290-9280 builds all three files; COMMAND.COM and MSDOS.SYS match in full. IO.SYS remains open.
