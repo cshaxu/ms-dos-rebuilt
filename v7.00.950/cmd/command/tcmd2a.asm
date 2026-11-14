@@ -100,7 +100,6 @@ transpace	ends
 	EXTRN	SelectDriveInterface:near
 	EXTRN	SelectPathInterface:near
 	EXTRN	CanonicalizePath:near
-	EXTRN	PrepareEnvironmentChange:near
 	EXTRN	SetEnvironmentValue:near
 	EXTRN	ParseArgument:near
 	EXTRN	DirSetupParamError:near
@@ -150,21 +149,21 @@ Version:
 
 ;       Parse the optional /R switch.
 
-        mov     di,offset TRANGROUP:Parse_Ver
-        mov     ParseArgIndex,1
-        invoke  ParseArgument
-        jnc     short verDebug
-        mov     bl,0
-        or      ax,ax
-        jz      short verPrintVer
+	mov	di,offset TRANGROUP:Parse_Ver
+	mov	ParseArgIndex,1
+	invoke	ParseArgument
+	jnc	short verDebug
+	mov	bl,0
+	or	ax,ax
+	jz	short verPrintVer
 verError:
-        jmp     CError
+	jmp	CError
 verBad:
-        mov     ax,1
-        invoke  DirSetupParamError
-        jmp     short verError
+	mov	ax,1
+	invoke	DirSetupParamError
+	jmp	short verError
 verDebug:
-        mov     bl,1
+	mov	bl,1
 
 verPrintVer:
 	push	bx			; save /debug flag
@@ -310,12 +309,12 @@ print_B:
 	mov	al,vbar
 
 print_char:
-        push    dx
-        mov     dl,al
-        mov     ah,Std_CON_output
-        int     21h
-        pop     dx
-        ret
+	push	dx
+	mov	dl,al
+	mov	ah,Std_CON_output
+	int	21h
+	pop	dx
+	ret
 
 print_drive:
 	mov	ah,Get_Default_drive
@@ -327,52 +326,52 @@ print_drive:
 ASSUME	DS:TRANGROUP,ES:TRANGROUP
 
 build_dir_for_prompt:
-        push    ds
-        mov     ds,[resseg]
-        ASSUME  DS:RESGROUP
-        xor     ResidentBreakFlag,1
-        pop     ds
-        ASSUME  DS:TRANGROUP
-        jz      short PromptDirError
-        xor     dl,dl
-        mov     si,offset TRANGROUP:BWDBUF
-        mov     di,si
-        mov     al,CurDrv
-        add     al,'A'
-        push    ax
-        call    SelectDriveInterface
-        mov     bl,al
-        pop     ax
-        mov     ah,':'
-        stosw
-        mov     al,[dirchar]
-        stosb
-        xchg    si,di
-        mov     string_ptr_2,di
-        mov     ax,PathGetdirFunction
-        int     21h
-        jnc     short PromptDirFound
+	push	ds
+	mov	ds,[resseg]
+	ASSUME	DS:RESGROUP
+	xor	ResidentBreakFlag,1
+	pop	ds
+	ASSUME	DS:TRANGROUP
+	jz	short PromptDirError
+	xor	dl,dl
+	mov	si,offset TRANGROUP:BWDBUF
+	mov	di,si
+	mov	al,CurDrv
+	add	al,'A'
+	push	ax
+	call	SelectDriveInterface
+	mov	bl,al
+	pop	ax
+	mov	ah,':'
+	stosw
+	mov	al,[dirchar]
+	stosb
+	xchg	si,di
+	mov	string_ptr_2,di
+	mov	ax,PathGetdirFunction
+	int	21h
+	jnc	short PromptDirFound
 PromptDirError:
-        mov     dx,offset TRANGROUP:BadCurDrv
-        jmp     short PromptDirPrint
+	mov	dx,offset TRANGROUP:BadCurDrv
+	jmp	short PromptDirPrint
 PromptDirFound:
-        or      bl,bl
-        jz      short PromptDirReady
-        mov     si,di
-        mov     ax,7160h
-        mov     cx,8002h
-        int     21h
+	or	bl,bl
+	jz	short PromptDirReady
+	mov	si,di
+	mov	ax,7160h
+	mov	cx,8002h
+	int	21h
 PromptDirReady:
-        mov     dx,offset TRANGROUP:string_buf_ptr
+	mov	dx,offset TRANGROUP:string_buf_ptr
 PromptDirPrint:
-        push    ds
-        mov     ds,[resseg]
-        ASSUME  DS:RESGROUP
-        mov     ResidentBreakFlag,0
-        pop     ds
-        ASSUME  DS:TRANGROUP
-        call    std_printf
-        ret
+	push	ds
+	mov	ds,[resseg]
+	ASSUME	DS:RESGROUP
+	mov	ResidentBreakFlag,0
+	pop	ds
+	ASSUME	DS:TRANGROUP
+	call	std_printf
+	ret
 
 build_dir_for_chdir:
 	call	build_dir_string
@@ -384,7 +383,7 @@ build_dir_for_chdir:
 
 build_dir_string:
 	mov	dl,ds:[FCB]
-	mov	al,dl
+	mov	al,DL
 	add	al,'@'
 	cmp	al,'@'
 	jnz	gotdrive
@@ -442,148 +441,149 @@ PathHasArgs:
 
 	PUBLIC	PathFromSet
 PathFromSet:
-        push    ds
-        mov     ds,[resseg]
-        ASSUME  DS:RESGROUP
+	push	ds
+	mov	ds,[resseg]
+	ASSUME	DS:RESGROUP
 .386
-        btr     word ptr [YSwitchFlags],5
+	btr	word ptr [YSwitchFlags],5
 .8086
-        pop     ds
-        ASSUME  DS:TRANGROUP
-        jnc     short pathslp
-        push    es
-        push    di
-        push    si
-        push    cx
-        invoke  find_path
-        pop     cx
-        jc      short PathMergeDone
-        pop     si
-        push    si
+	pop	ds
+	ASSUME	DS:TRANGROUP
+	jnc	short pathslp
+	push	es
+	push	di
+	push	si
+	push	cx
+	invoke	find_path
+	pop	cx
+	jc	short PathMergeDone
+	pop	si
+	push	si
 PathMergeSearch:
-        cmp     byte ptr [si],end_of_line_in
-        je      short PathMergeAppend
-        push    si
-        push    di
+	cmp	byte ptr [si],end_of_line_in
+	je	short PathMergeAppend
+	push	si
+	push	di
 PathMergeCompare:
-        mov     al,es:[di]
-        inc     di
-        test    al,al
-        jz      short PathMergeFound
-        push    ax
-        mov     ax,1213h
-        int     2fh
-        add     sp,2
-        mov     ah,al
-        lodsb
-        cmp     al,end_of_line_in
-        je      short PathMergeNext
-        push    ax
-        mov     ax,1213h
-        int     2fh
-        add     sp,2
-        cmp     al,ah
-        je      short PathMergeCompare
+	mov	al,es:[di]
+	inc	di
+	test	al,al
+	jz	short PathMergeFound
+	push	ax
+	mov	ax,1213h
+	int	2fh
+	add	sp,2
+	mov	ah,al
+	lodsb
+	cmp	al,end_of_line_in
+	je	short PathMergeNext
+	push	ax
+	mov	ax,1213h
+	int	2fh
+	add	sp,2
+	cmp	al,ah
+	je	short PathMergeCompare
 PathMergeNext:
-        pop     di
-        pop     si
-        inc     si
-        jmp     short PathMergeSearch
+	pop	di
+	pop	si
+	inc	si
+	jmp	short PathMergeSearch
 PathMergeFound:
-        pop     di
-        pop     si
-        jmp     short PathMergeDone
+	pop	di
+	pop	si
+	jmp	short PathMergeDone
 PathMergeAppend:
-        mov     ax,ds
-        mov     si,di
-        push    es
-        pop     ds
-        pop     cx
-        pop     di
-        pop     es
-        push    ax
-        push    cx
-        sub     cx,cx
+	mov	ax,ds
+	mov	si,di
+	push	es
+	pop	ds
+	pop	cx
+	pop	di
+	pop	es
+	push	ax
+	push	cx
+	sub	cx,cx
 PathMergeCopy:
-        lodsb
-        test    al,al
-        jz      short PathMergeCopied
-        stosb
-        inc     cx
-        jmp     short PathMergeCopy
+	lodsb
+	test	al,al
+	jz	short PathMergeCopied
+	stosb
+	inc	cx
+	jmp	short PathMergeCopy
 PathMergeCopied:
-        pop     si
-        pop     ds
-        mov     al,semicolon
-        stosb
-        inc     cx
-        jmp     short pathslp
+	pop	si
+	pop	ds
+	mov	al,semicolon
+	stosb
+	inc	cx
+	jmp	short pathslp
 PathMergeDone:
-        pop     si
-        pop     di
-        pop     es
+	pop	si
+	pop	di
+	pop	es
 pathslp:
-        lodsb
-        cmp     al,end_of_line_in
-        jne     short PathCheckQuote
-        call    PathAddComponent
-        jmp     short path_eol
+	lodsb
+	cmp	al,end_of_line_in
+	jne	short PathCheckQuote
+	call	PathAddComponent
+	jmp	short path_eol
 PathCheckQuote:
-        cmp     al,'"'
-        jne     short PathCheckKanji
-        xor     bl,20h
+	cmp	al,'"'
+	jne	short PathCheckKanji
+	xor	bl,20h
 PathCheckKanji:
-        invoke  testkanj
-        jz      short PathCheckDelimiter
-        inc     si                      ; Skip second DBCS byte
+	invoke	testkanj
+	jz	short PathCheckDelimiter
+	inc	si                      ; Skip second DBCS byte
 PathCheckDelimiter:
-        test    bl,20h
-        jnz     short PathCheckWhite
-        cmp     al,semicolon
-        je      short PathNextComponent
+	test	bl,20h
+	jnz	short PathCheckWhite
+	cmp	al,semicolon
+	je	short PathNextComponent
 PathCheckWhite:
-        call    PathIsDelimiter
-        jnz     short pathslp
-        call    PathAddComponent
-        jmp     short scan_white
+	call	PathIsDelimiter
+	jnz	short pathslp
+	call	PathAddComponent
+	jmp	short scan_white
 PathNextComponent:
-        call    PathAddComponent
-        jmp     short pathslp
+	call	PathAddComponent
+	jmp	short pathslp
 
-scan_white:
-        lodsb
-        cmp     al,end_of_line_in
-        jz      path_eol
-        cmp     al,blank
-        jz      scan_white
-        cmp     al,tab_chr
-        jz      scan_white
-        mov     dx,offset TranGroup:Extend_Buf_ptr
-        mov     Extend_Buf_ptr,MoreArgs_ptr
-        mov     msg_disp_class,parse_msg_class
-        jmp     cerror
+scan_white:					;AN049; make sure were at EOL
+	lodsb					;AN049; get a character
+	cmp	al,end_of_line_in		;AN049; end of line?
+	jz	path_eol			;AN049; yes - go set path
+	cmp	al,blank			;AN049; whitespace?
+	jz	scan_white			;AN049; yes - continue scanning
+	cmp	al,tab_chr			;AN049; whitespace?
+	jz	scan_white			;AN049; yes - continue scanning
+
+	mov	dx,offset TranGroup:Extend_Buf_ptr ;AN049; no - set up error message
+	mov	Extend_Buf_ptr,MoreArgs_ptr	;AN049; get "Too many parameters" message number
+	mov	msg_disp_class,parse_msg_class	;AN049; set up parse error msg class
+	jmp	cerror				;AN049;
 
 path_eol:
-        mov     al,end_of_line_in
-        stosb
-        inc     cx
-        mov     dx,offset TRANGROUP:srcxname
-        mov     si,offset TRANGROUP:PATH_TEXT-1
-        lodsb
-        xor     ah,ah
-        add     ax,cx
-        mov     bx,0101h
-        cmp     cx,1
-        je      short PathSetValue
-        dec     bh
+	mov	al,end_of_line_in
+	stosb
+	inc	cx
+	mov	dx,offset TRANGROUP:srcxname
+	mov	si,offset TRANGROUP:PATH_TEXT-1
+	lodsb
+	xor	ah,ah
+	add	ax,cx
+	mov	bx,0101h
+	cmp	cx,1
+	je	short PathSetValue
+	dec	bh
 PathSetValue:
-        jmp     SetEnvironmentValue
+	jmp	SetEnvironmentValue
 
 disppath:
-        invoke  find_path
-        call    print_path
-        call    crlf2
-        return
+	invoke	find_path			;AN049;
+	call	print_path
+	call	crlf2
+	return
 
 ; Test a PATH delimiter only when outside a quoted component.
 ;
@@ -681,31 +681,31 @@ PathComponentDone:
 PathAddComponent ENDP
 
 print_path:
-        jc      short path0
-        mov     al,[PATH_TEXT-1]
-        xor     ah,ah
-        push    es
-        pop     ds
-        sub     di,ax
-        mov     si,di
-        invoke  scasb2
-        mov     cx,di
-        push    cs
-        pop     es
-        mov     di,offset TRANGROUP:TranSpaceEnd+2
-        sub     cx,si
-        rep     movsb
-        mov     dx,offset TRANGROUP:arg_buf_ptr
-        push    cs
-        pop     ds
-        jmp     std_printf
+	jc	short path0
+	mov	al,[PATH_TEXT-1]
+	xor	ah,ah
+	push	es
+	pop	ds
+	sub	di,ax
+	mov	si,di
+	invoke	scasb2
+	mov	cx,di
+	push	cs
+	pop	es
+	mov	di,offset TRANGROUP:TranSpaceEnd+2
+	sub	cx,si
+	rep	movsb
+	mov	dx,offset TRANGROUP:arg_buf_ptr
+	push	cs
+	pop	ds
+	jmp	std_printf
 path0:
-        mov     dx,offset trangroup:nulpath_ptr
-        push    cs
-        pop     es
-        push    cs
-        pop     ds
-        jmp     std_printf
+	mov	dx,offset trangroup:nulpath_ptr
+	push	cs
+	pop	es
+	push	cs
+	pop	ds
+	jmp	std_printf
 
 ASSUME	DS:TRANGROUP
 
