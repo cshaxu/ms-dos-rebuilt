@@ -34,6 +34,7 @@ CGROUP group _TEXT,REGTEXT
 RegistryCode label byte
 	extrn RegAllocate:near
 	extrn RegInitKeyPool:near
+	extrn RegResetRootHandles:near
 	extrn RegFreeKeyPool:near
 	extrn RegValidateKeyHandle:near
 	extrn RegInvalidateKeyHandles:near
@@ -67,6 +68,7 @@ RegInitialize proc far
 	call RegInitKeyPool
 	or ax,ax
 	jz short rit_error
+	call RegResetRootHandles
 	xor ax,ax
 	jmp short rit_done
 rit_error:

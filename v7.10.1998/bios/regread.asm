@@ -113,7 +113,46 @@ RegDecodeKeyRecord proc near
 	mov es,word ptr [bp+6]
 	db 66h
 	cmp word ptr es:[di],0
-	jnz rdkr_free
+	jz short rdkr_used
+	db 66h
+	cmp word ptr es:[di],1
+	jz short rdkr_used
+	db 66h
+	cmp word ptr es:[di],2
+	jz short rdkr_used
+rdkr_free:
+	; CMP DWORD PTR ES:[DI],80000000h, operand prefix first.
+	db 66h,26h,81h,3Dh
+	dd 80000000h
+	je short rdkr_copy_free
+	db 66h
+	cmp word ptr es:[di],-1
+	jne short rdkr_skip_free
+rdkr_copy_free:
+	db 66h
+	mov ax,es:[di+4]
+	mov es,word ptr [bp+0Ah]
+	db 66h
+	mov es:[si+8],ax
+	mov es,word ptr [bp+6]
+	db 66h
+	push word ptr es:[di+8]
+	call RegKeyOffsetToIndex
+	mov es,word ptr [bp+0Ah]
+	xor ax,es:[si]
+	xor dx,es:[si+2]
+	sub dh,dh
+	xor es:[si],ax
+	xor es:[si+2],dx
+	db 66h
+	cmp word ptr es:[si+8],38h
+	ja short rdkr_free_ok
+rdkr_skip_free:
+	jmp near ptr rdkr_zero
+rdkr_free_ok:
+	mov ax,1
+	jmp near ptr rdkr_done
+rdkr_used:
 	mov es,word ptr [bp+0Ah]
 	mov dx,es:[si+2]
 	mov dh,1
@@ -170,36 +209,20 @@ RegDecodeKeyRecord proc near
 	mov ax,es:[di+4]
 	mov es,word ptr [bp+0Ah]
 	mov es:[si+0Eh],ax
+	mov es,[bp+6]
+	db 66h
+	cmp word ptr es:[di],1
+	jnz short rdkr_continuation
+	mov es,[bp+0Ah]
+	or byte ptr es:[si+3],2
 	jmp short rdkr_zero
-rdkr_free:
-	; CMP DWORD PTR ES:[DI],80000000h, operand prefix first.
-	db 66h,26h,81h,3Dh
-	dd 80000000h
-	je short rdkr_copy_free
+rdkr_continuation:
 	db 66h
-	cmp word ptr es:[di],-1
-	jne short rdkr_zero
-rdkr_copy_free:
-	db 66h
-	mov ax,es:[di+4]
-	mov es,word ptr [bp+0Ah]
-	db 66h
-	mov es:[si+8],ax
-	mov es,word ptr [bp+6]
-	db 66h
-	push word ptr es:[di+8]
-	call RegKeyOffsetToIndex
-	mov es,word ptr [bp+0Ah]
-	xor ax,es:[si]
-	xor dx,es:[si+2]
-	sub dh,dh
-	xor es:[si],ax
-	xor es:[si+2],dx
-	db 66h
-	cmp word ptr es:[si+8],38h
-	jbe short rdkr_zero
-	mov ax,1
-	jmp short rdkr_done
+	cmp word ptr es:[di],2
+	jnz short rdkr_zero
+	mov es,[bp+0Ah]
+	or byte ptr es:[si+3],4
+	jmp short rdkr_zero
 rdkr_zero:
 	xor ax,ax
 rdkr_done:
@@ -221,11 +244,28 @@ RegEncodeKeyRecord proc near
 	mov es,word ptr [bp+0Ah]
 	test word ptr es:[si+2],100h
 	jz rekr_free
+	test word ptr es:[si+2],200h
+	jz short rekr_continuation
 	mov di,[bp+4]
-	mov es,word ptr [bp+6]
+	mov es,[bp+6]
+	mov word ptr es:[di],1
+rekr_type_high:
+	mov word ptr es:[di+2],0
+	jmp short rekr_links
+rekr_continuation:
+	test word ptr es:[si+2],400h
+	jz short rekr_ordinary
+	mov di,[bp+4]
+	mov es,[bp+6]
+	mov word ptr es:[di],2
+	jmp short rekr_type_high
+rekr_ordinary:
+	mov di,[bp+4]
+	mov es,[bp+6]
 	db 66h
 	mov word ptr es:[di],0
 	dw 0
+rekr_links:
 	mov es,word ptr [bp+0Ah]
 	mov ax,es:[si+8]
 	mov dx,es:[si+0Ah]

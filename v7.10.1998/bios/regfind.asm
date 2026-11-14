@@ -121,6 +121,85 @@ RegReallocRetry endp
 	db 0
 	endif
 
+; Reinitialize the machine and user handles after allocating the key pool.
+	public RegResetRootHandles
+RegResetRootHandles proc near
+	enter 04Ch,0
+	push di
+	push si
+	sub eax,eax
+	mov [bp-046h],eax
+	mov byte ptr [bp-035h],2
+	mov [bp-032h],ax
+	mov [bp-034h],ax
+	mov [bp-02Eh],ax
+	mov [bp-030h],ax
+	mov ax,04B48h
+	mov [bp-04Ch],ax
+	mov [bp-026h],ax
+	mov ax,025h
+	mov [bp-04Ah],ax
+	mov [bp-024h],ax
+	sub eax,eax
+	mov [bp-020h],eax
+	mov [bp-048h],ax
+	mov [bp-03Ah],ax
+	mov [bp-038h],ax
+	mov [bp-022h],ax
+	mov [bp-014h],ax
+	mov [bp-012h],ax
+	mov [bp-036h],al
+	mov [bp-010h],al
+	mov byte ptr [bp-0Fh],3
+	mov [bp-0Ch],ax
+	mov [bp-0Eh],ax
+	mov [bp-8],ax
+	mov [bp-0Ah],ax
+	mov ax,0FFFFh
+	mov [bp-02Ch],ax
+	mov [bp-6],ax
+	cwd
+	mov [bp-042h],ax
+	mov [bp-040h],dx
+	mov [bp-03Eh],ax
+	mov [bp-03Ch],dx
+	mov [bp-02Ah],ax
+	mov [bp-028h],dx
+	mov [bp-01Ch],ax
+	mov [bp-01Ah],dx
+	mov [bp-018h],ax
+	mov [bp-016h],dx
+	mov [bp-4],ax
+	mov [bp-2],dx
+	push ds
+	mov di,offset DGROUP:RegMachineRoot
+	lea si,[bp-04Ch]
+	push ds
+	pop es
+	push ss
+	pop ds
+	mov cx,013h
+	rep movsw
+	pop ds
+	push ds
+	mov di,offset DGROUP:RegUserRoot
+	lea si,[bp-026h]
+	push ds
+	pop es
+	push ss
+	pop ds
+	mov cx,013h
+	rep movsw
+	pop ds
+	pop si
+	pop di
+	leave
+	ret
+RegResetRootHandles endp
+	if ($ - RegistryCode) and 1
+	db 0
+	endif
+
 	public RegInitKeyPool
 RegInitKeyPool proc near
 	enter 4,0

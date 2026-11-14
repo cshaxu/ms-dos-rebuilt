@@ -46,3 +46,5 @@ P10 restores the FE registry write chain inside REGOPEN and REGREAD using the ex
 P11 connects the ASD.DAT import to the existing configuration main and registry APIs. Stage cmd-18119-31508 builds all three images. The six ASD procedures occupy the target offsets and match their 1052 target bytes apart from 12 FAR call operands. IO.SYS is 221990 bytes against 222390 and remains open. COMMAND.COM and MSDOS.SYS continue to match in full.
 
 P12 restores DOS commit and the registry header update in the existing RegSaveFile path. The 21-byte DOS commit wrapper and 39-byte DOS allocation wrapper match their target blocks. Stage cmd-18850-14319 builds IO.SYS at 222102 bytes against 222390, with full matches for COMMAND.COM and MSDOS.SYS. IO.SYS remains open.
+
+P13 restores FE root handle reset and teaches the inherited key record encoder and decoder to persist chained key types. Root reset matches the full 178-byte target block. Stage cmd-19644-4741 builds IO.SYS at 222374 bytes against 222390. COMMAND.COM and MSDOS.SYS remain exact. IO.SYS still has target code and layout differences.
