@@ -138,6 +138,7 @@ RegDosClose proc near
         pop bp
         ret 2
 RegDosClose endp
+        db 0                    ; Align the memory helpers.
 	public RegMoveMemory
 RegMoveMemory proc near
         push bp
@@ -298,6 +299,7 @@ rdra_done:
         pop bp
         ret 6
 RegDosRealloc endp
+        db 0                    ; Align the attribute helpers.
 	public RegDosGetAttr
 RegDosGetAttr proc near
         push bp

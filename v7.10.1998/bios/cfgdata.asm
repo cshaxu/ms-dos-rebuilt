@@ -23,8 +23,9 @@ ConfigInfoData dd 1 dup (?)
 AsdPath label byte
 ConfigPathBuffer db 200h dup (?)
 AsdRecord db 118h dup (?)
+        db 4 dup (?)             ; Alignment before the profile name buffer.
 ConfigNameBuffer db 1000h dup (?)
-        db 8 dup (?)             ; Original storage; purpose unresolved.
+        db 4 dup (?)             ; Original storage; purpose unresolved.
 ConfigCommonEnd label byte
 c_common ends
 DGROUP group c_common

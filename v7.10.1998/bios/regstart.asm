@@ -50,7 +50,6 @@ RegistryCode label byte
 	extrn RegCommitDataCache:near
 	extrn RegScanDataBlocks:near
 	extrn RegInitDataCache:near
-	extrn RegChecksum:near
 	public RegInitialize
 RegInitialize proc far
 	mov ax,DGROUP
@@ -909,7 +908,7 @@ rsfs_restore:
 	add ax,58h
 	push dx
 	push ax
-	push 7
+	push 3
 	call RegDosSetAttr
 rsfs_attributes:
 	mov ax,si
@@ -917,7 +916,7 @@ rsfs_attributes:
 	add ax,58h
 	push dx
 	push ax
-	push 7
+	push 3
 	call RegDosSetAttr
 	mov es,word ptr [bp+6]
 	and byte ptr es:[si+56h],0EFh
@@ -1071,6 +1070,8 @@ RegMountRoot proc far
 	cmp dword ptr [bp+6],80000002h
 	jz short rmrt_root
 	cmp dword ptr [bp+6],80000003h
+	jz short rmrt_root
+	cmp dword ptr [bp+6],80000001h
 	jz short rmrt_root
 	mov ax,57h
 rmrt_zero_dx:

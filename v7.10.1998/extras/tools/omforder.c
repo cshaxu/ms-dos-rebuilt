@@ -39,6 +39,10 @@ static void add_start(SYMBOL *s) {
     if(start_count==4096) fail("Too many procedures");
     starts[start_count++]=s->offset; code_segment=s->seg;
 }
+static int offset_order(const void *a,const void *b) {
+    unsigned x=*(const unsigned *)a,y=*(const unsigned *)b;
+    return x<y?-1:x>y;
+}
 static size_t record_end(const unsigned char *d,size_t n,size_t p) {
     size_t end,i; unsigned sum=0;
     if(n-p<3) fail("Truncated OMF record");
@@ -196,12 +200,12 @@ int main(int argc,char **argv) {
     unsigned group,seg,offset,last_seg=0,last_offset=0,changed=0,total=0,i;
     int whole=0,procedures=0;
     if(argc<4) {
-        fprintf(stderr,"Usage: omforder input.obj output.obj listing [--whole | --procedures | --data symbol ...]\n");
+        fprintf(stderr,"Usage: omforder input.obj output.obj listing [--whole | --procedures [symbol ...] | --data symbol ...]\n");
         return 2;
     }
     if(!strcmp(argv[1],argv[2])) fail("Use a distinct output file");
     if(argc==5 && !strcmp(argv[4],"--whole")) whole=1;
-    else if(argc==5 && !strcmp(argv[4],"--procedures")) procedures=1;
+    else if(argc>=5 && !strcmp(argv[4],"--procedures")) procedures=1;
     else if(argc>4 && (argc<6 || strcmp(argv[4],"--data"))) fail("Invalid mode");
     f=fopen(argv[1],"rb"); if(!f) fail(argv[1]);
     if(fseek(f,0,SEEK_END) || (length=ftell(f))<=0) fail("Object size");
@@ -222,7 +226,7 @@ int main(int argc,char **argv) {
             s->offset=word(d+q); s->seg=seg; q+=2; index_value(d,n,&q);
         }
     }
-    if(argc>=6) {
+    if(argc>=6 && !procedures) {
         for(i=5;i<(unsigned)argc;i++) add_start(lookup(argv[i]));
     } else {
         char line[2048],previous[256];
@@ -249,6 +253,8 @@ int main(int argc,char **argv) {
     }
     if(!start_count) fail("No source procedures");
     if(procedures) {
+        for(i=5;i<(unsigned)argc;i++) add_start(lookup(argv[i]));
+        qsort(starts,start_count,sizeof(*starts),offset_order);
         reblock(raw,size,argv[2]); free(raw); free(out); return 0;
     }
     if(whole) { starts[0]=0; start_count=1; }

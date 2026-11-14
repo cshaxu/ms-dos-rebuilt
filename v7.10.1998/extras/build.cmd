@@ -107,11 +107,13 @@ for %%N in (crtprint crtsprnt crtflush crtclose crtcomit cfgpub regstart regopen
     call :order %%N
     if errorlevel 1 goto failed
 )
-for %%N in (cfgmain cfgline cfgmenu) do (
+call :order cfgmain --data ConfigSetError _main
+if errorlevel 1 goto failed
+for %%N in (cfgline cfgmenu) do (
     call :order %%N --whole
     if errorlevel 1 goto failed
 )
-call :order regread --procedures
+call :order regread --procedures RegFinishKeyAllocation
 if errorlevel 1 goto failed
 call :order regroot --data RegTransferBuffer
 if errorlevel 1 goto failed

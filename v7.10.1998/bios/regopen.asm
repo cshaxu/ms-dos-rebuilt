@@ -32,6 +32,8 @@ RegistryCode label byte
 	extrn RegAllocate:near
 	extrn RegDosFree:near
 	extrn RegEnumValueRecord:near
+	extrn RegMaintainCache:near
+	extrn RegForEachFile:near
 	extrn RegGrowDataExtent:near
 	extrn RegFreeDataExtent:near
 	extrn RegTrimDataSlots:near
@@ -159,277 +161,301 @@ RegPathPart endp
 
 	public RegOpenPath
 RegOpenPath proc near
-	enter 2Ch,0
+	enter 2Eh,0
 	push di
 	push si
-	mov cx,[bp+0Ah]
-	mov word ptr [bp-14h],0
+	mov si,[bp+0Ah]
+	mov word ptr [bp-02Ah],0
 	mov ax,[bp+0Ch]
-	or ax,cx
+	or ax,si
 	jz short ropt_empty
-	mov ax,[bp+0Ch]
-	push ax
-	push cx
-	lea ax,[bp-28h]
+	push word ptr [bp+0Ch]
+	push si
+	lea ax,[bp-024h]
 	push ss
 	push ax
-	lea ax,[bp-10h]
+	lea ax,[bp-010h]
 	push ss
 	push ax
 	call RegPathPart
 	or ax,ax
 	jnz short ropt_start
 ropt_empty:
-	jmp ropt_parent
+	jmp near ptr ropt_parent
 ropt_start:
-	mov bx,[bp+0Eh]
-	mov es,word ptr [bp+10h]
+	mov al,[bp+4]
+	and al,1
+	jnz short ropt_parent_key
+	mov ax,si
+	sub ax,[bp-024h]
+	neg ax
+	add [bp-010h],ax
+	mov ax,[bp+0Ch]
+	mov [bp-024h],si
+	mov [bp-022h],ax
+ropt_parent_key:
+	les bx,[bp+0Eh]
 	db 66h
 	mov ax,es:[bx+6]
-	mov [bp-8],eax
+	mov [bp-0Ah],eax
 	db 66h
 	mov ax,es:[bx+0Eh]
-	mov [bp-18h],eax
+	mov [bp-018h],eax
 	db 66h
 	mov ax,es:[bx+0Ah]
-	mov [bp-0Ch],eax
-	mov word ptr [bp-12h],0
+	mov [bp-0Eh],eax
+	mov word ptr [bp-014h],0
 ropt_component:
-	push dword ptr [bp-28h]
-	push word ptr [bp-10h]
+	push dword ptr [bp-024h]
+	push word ptr [bp-010h]
 	call RegNameChecksum
-	mov [bp-4],ax
-	mov [bp-2],dx
-	cmp dword ptr [bp-18h],0FFFFFFh
-	jae near ptr ropt_nochild
-	mov si,[bp-8]
+	mov [bp-6],ax
+	mov [bp-4],dx
+	cmp dword ptr [bp-018h],0FFFFFFh
+	jnc short ropt_nochild
+	mov si,[bp-0Ah]
 ropt_find:
-	push word ptr [bp-6]
+	mov word ptr [bp-2],0
+ropt_fetch:
+	push word ptr [bp-8]
 	push si
-	push dword ptr [bp-18h]
-	lea ax,[bp-1Ch]
+	push dword ptr [bp-018h]
+	lea ax,[bp-01Ch]
 	push ss
 	push ax
 	call RegFetchKeyRecord
-	mov [bp-0Eh],ax
-	or ax,ax
-	jnz ropt_result
-	les bx,[bp-1Ch]
+	mov di,ax
+	or di,ax
+	jnz near ptr ropt_data_error
+	les bx,[bp-01Ch]
 	sub dx,dx
 	mov ax,es:[bx+0Eh]
-	cmp ax,[bp-4]
-	jnz near ptr ropt_next
-	cmp dx,[bp-2]
-	jnz near ptr ropt_next
-	push word ptr [bp-6]
+	cmp ax,[bp-6]
+	jnz short ropt_next_nomatch
+	cmp dx,[bp-4]
+	jz short ropt_fetch_data
+ropt_next_nomatch:
+	jmp near ptr ropt_skip_record
+ropt_fetch_data:
+	push word ptr [bp-8]
 	push si
 	push word ptr es:[bx+0Ch]
 	mov al,es:[bx+0Bh]
 	sub ah,ah
 	push ax
-	lea ax,[bp-20h]
+	lea ax,[bp-020h]
 	push ss
 	push ax
 	call RegFetchDataRecord
-	mov [bp-0Eh],ax
-	or ax,ax
-	jnz ropt_data_error
-	les bx,[bp-1Ch]
-	test word ptr es:[bx+2],400h
+	mov di,ax
+	or di,ax
+	jz short ropt_check_class
+	push word ptr [bp-8]
+	push si
+	push dword ptr [bp-018h]
+	push 0
+	call RegUnlockKeyCache
+	cmp word ptr [bp-2],0
+	jnz near ptr ropt_data_error
+	mov word ptr [bp-2],1
+	push offset CGROUP:RegMaintainCache
+	call RegForEachFile
+	push offset CGROUP:RegMaintainCache
+	call RegForEachFile
+	jmp short ropt_fetch
+ropt_nochild:
+	mov si,[bp-0Ah]
+	jmp near ptr ropt_found
+ropt_check_class:
+	mov [bp-012h],di
+	les bx,[bp-01Ch]
+	test word ptr es:[bx+2],0400h
 	jnz short ropt_ordinary_key
-	xor ax,ax
+	mov ax,1
 	jmp short ropt_key_class
 ropt_ordinary_key:
-	mov ax,4
+	xor ax,ax
 ropt_key_class:
-	mov cx,[bp+4]
+	mov cl,[bp+4]
 	and cx,4
+	cmp cx,1
+	sbb cx,cx
+	neg cx
 	cmp ax,cx
-	jne short ropt_nomatch
-	mov ax,[bp-10h]
-	les bx,[bp-20h]
+	jnz short ropt_nomatch
+	mov ax,[bp-010h]
+	les bx,[bp-020h]
 	cmp es:[bx+0Ch],ax
 	jnz short ropt_nomatch
-	push dword ptr [bp-28h]
-	lea ax,[bx+14h]
+	push dword ptr [bp-024h]
+	lea ax,[bx+014h]
 	push es
 	push ax
-	push word ptr [bp-10h]
+	push word ptr [bp-010h]
 	call RegCompareName
 	or ax,ax
 	jnz short ropt_nomatch
 	mov di,1
 	jmp short ropt_release_data
-ropt_nochild:
-	mov si,[bp-8]
-	jmp short ropt_found
 ropt_nomatch:
 	xor di,di
 ropt_release_data:
-	push word ptr [bp-6]
+	push word ptr [bp-8]
 	push si
-	les bx,[bp-1Ch]
+	les bx,[bp-01Ch]
 	push word ptr es:[bx+0Ch]
 	push 0
 	call RegUnlockDataCache
 	or di,di
 	jnz short ropt_found
 ropt_next:
-	mov word ptr [bp-12h],1
-	mov eax,[bp-18h]
-	mov [bp-0Ch],eax
-	les bx,[bp-1Ch]
+	mov word ptr [bp-014h],1
+	mov eax,[bp-018h]
+	mov [bp-0Eh],eax
+	les bx,[bp-01Ch]
 	mov ax,es:[bx]
 	mov dx,es:[bx+2]
 	sub dh,dh
-	mov [bp-18h],ax
-	mov [bp-16h],dx
-	push word ptr [bp-6]
+	mov [bp-018h],ax
+	mov [bp-016h],dx
+	push word ptr [bp-8]
 	push si
-	push dword ptr [bp-0Ch]
+	push dword ptr [bp-0Eh]
 	push 0
 	call RegUnlockKeyCache
-	cmp dword ptr [bp-18h],0FFFFFFh
-	jb ropt_find
+	cmp dword ptr [bp-018h],0FFFFFFh
+	jc near ptr ropt_find
 ropt_found:
-	cmp dword ptr [bp-18h],0FFFFFFh
-	jae short ropt_create_check
+	cmp dword ptr [bp-018h],0FFFFFFh
+	jnc short ropt_create_check
 	push 0
 	push 0
-	lea ax,[bp-28h]
+	lea ax,[bp-024h]
 	push ss
 	push ax
-	lea ax,[bp-10h]
+	lea ax,[bp-010h]
 	push ss
 	push ax
 	call RegPathPart
 	or ax,ax
 	jz short ropt_create_check
-	mov eax,[bp-18h]
-	mov [bp-0Ch],eax
-	les bx,[bp-1Ch]
+	mov eax,[bp-018h]
+	mov [bp-0Eh],eax
+	les bx,[bp-01Ch]
 	mov ax,es:[bx+4]
 	mov dx,es:[bx+6]
 	sub dh,dh
-	mov [bp-18h],ax
-	mov [bp-16h],dx
-	push word ptr [bp-6]
+	mov [bp-018h],ax
+	mov [bp-016h],dx
+	push word ptr [bp-8]
 	push si
-	push dword ptr [bp-0Ch]
+	push dword ptr [bp-0Eh]
 	xor ax,ax
-	mov [bp-12h],ax
+	mov [bp-014h],ax
 	push ax
 	call RegUnlockKeyCache
-	jmp ropt_component
+	jmp near ptr ropt_component
+ropt_skip_record:
+	mov [bp-012h],di
+	jmp near ptr ropt_next
 ropt_data_error:
-	push word ptr [bp-6]
-	push si
-	push dword ptr [bp-18h]
-	push 0
-ropt_data_error_release:
-	call RegUnlockKeyCache
-	jmp ropt_result
+	mov ax,di
+	jmp near ptr ropt_exit
 ropt_create_check:
-	cmp dword ptr [bp-18h],0FFFFFFh
-	jb ropt_finish_key
-	mov bx,[bp+4]
-	test bl,1
+	cmp dword ptr [bp-018h],0FFFFFFh
+	jc near ptr ropt_finish_key
+	mov al,[bp+4]
+	and al,1
 	jnz short ropt_permission
-	mov ax,3F3h
-	jmp ropt_exit
+	mov ax,03F3h
+	jmp near ptr ropt_exit
 ropt_permission:
-	les di,[bp+0Eh]
-	cmp byte ptr es:[di+17h],6
-	jnz short ropt_readonly
-	test bl,2
-	jz short ropt_denied
-ropt_readonly:
-	mov es,word ptr [bp-6]
-	test byte ptr es:[si+56h],80h
+	mov es,[bp-8]
+	test byte ptr es:[si+056h],080h
 	jz short ropt_parent_record
-ropt_denied:
-	jmp ropt_access_denied
+	mov ax,5
+	jmp near ptr ropt_exit
 ropt_parent_record:
 	push es
 	push si
-	push dword ptr [bp-0Ch]
-	lea ax,[bp-1Ch]
+	push dword ptr [bp-0Eh]
+	lea ax,[bp-01Ch]
 	push ss
 	push ax
 	call RegFetchKeyRecord
 	mov di,ax
 	or di,ax
-	jnz ropt_exit
-	push word ptr [bp-6]
+	jnz short ropt_data_error
+	push word ptr [bp-8]
 	push si
-	push dword ptr [bp-0Ch]
+	push dword ptr [bp-0Eh]
 	call RegLookupKeyHandle
 	mov [bp-4],ax
 	mov [bp-2],dx
 ropt_create:
-	push word ptr [bp-6]
+	push word ptr [bp-8]
 	push si
-	lea ax,[bp-18h]
+	lea ax,[bp-018h]
 	push ss
 	push ax
-	lea ax,[bp-24h]
+	lea ax,[bp-028h]
 	push ss
 	push ax
 	call RegAllocateKeyRecord
 	mov di,ax
 	or di,ax
-	jnz ropt_alloc_error
-	push word ptr [bp-6]
+	jnz near ptr ropt_alloc_error
+	push word ptr [bp-8]
 	push si
-	mov ax,[bp-10h]
-	add ax,14h
+	mov ax,[bp-010h]
+	add ax,014h
 	push ax
-	lea ax,[bp-20h]
+	lea ax,[bp-020h]
 	push ss
 	push ax
 	call RegAllocateDataRecord
-	mov [bp-0Eh],ax
+	mov [bp-012h],ax
 	or ax,ax
-	jnz ropt_free_new
-	cmp [bp-12h],ax
+	jnz near ptr ropt_free_new
+	cmp [bp-014h],ax
 	jz short ropt_first_child
-	mov [bp-12h],ax
+	mov [bp-014h],ax
 	cwd
 	mov di,ax
 	mov [bp-2],dx
-	les bx,[bp-24h]
+	les bx,[bp-028h]
 	mov ax,es:[bx+8]
 	mov dx,es:[bx+0Ah]
-	les bx,[bp-1Ch]
+	les bx,[bp-01Ch]
 	xor ax,es:[bx+8]
 	xor dx,es:[bx+0Ah]
 	sub dh,dh
-	les bx,[bp-24h]
+	les bx,[bp-028h]
 	xor es:[bx+8],ax
 	xor es:[bx+0Ah],dx
-	les bx,[bp-1Ch]
+	les bx,[bp-01Ch]
 	mov ax,es:[bx]
 	mov dx,es:[bx+2]
-	xor ax,[bp-18h]
-	xor dx,[bp-16h]
+	xor ax,[bp-018h]
+	xor dx,[bp-016h]
 	sub dh,dh
 	xor es:[bx],ax
 	xor es:[bx+2],dx
 	jmp short ropt_linked
 ropt_first_child:
-	les bx,[bp-24h]
+	les bx,[bp-028h]
 	mov ax,es:[bx+8]
 	mov dx,es:[bx+0Ah]
-	xor ax,[bp-0Ch]
-	xor dx,[bp-0Ah]
+	xor ax,[bp-0Eh]
+	xor dx,[bp-0Ch]
 	sub dh,dh
 	xor es:[bx+8],ax
 	xor es:[bx+0Ah],dx
-	les bx,[bp-1Ch]
+	les bx,[bp-01Ch]
 	mov ax,es:[bx+4]
 	mov dx,es:[bx+6]
-	xor ax,[bp-18h]
-	xor dx,[bp-16h]
+	xor ax,[bp-018h]
+	xor dx,[bp-016h]
 	sub dh,dh
 	xor es:[bx+4],ax
 	xor es:[bx+6],dx
@@ -437,11 +463,11 @@ ropt_first_child:
 	mov ax,[bp-2]
 	or ax,di
 	jz short ropt_linked
-	mov es,word ptr [bp-2]
+	mov es,[bp-2]
 	db 66h,26h,81h,7Dh,0Eh
 	dd 0FFFFFFh
-	jb short ropt_clear_handle
-	mov eax,[bp-18h]
+	jc short ropt_clear_handle
+	mov eax,[bp-018h]
 	db 66h
 	mov es:[di+0Eh],ax
 ropt_clear_handle:
@@ -450,157 +476,156 @@ ropt_clear_handle:
 	mov di,ax
 	mov [bp-2],dx
 ropt_linked:
-	les bx,[bp-24h]
+	les bx,[bp-028h]
 	db 66h,26h,81h,0Fh
 	dd 0FFFFFFh
-	les bx,[bp-24h]
-	db 66h,26h,81h,4Fh,04h
+	les bx,[bp-028h]
+	db 66h,26h,81h,4Fh,4
 	dd 0FFFFFFh
-	les bx,[bp-20h]
+	les bx,[bp-020h]
 	mov ax,es:[bx+6]
-	les bx,[bp-24h]
+	les bx,[bp-028h]
 	mov es:[bx+0Ch],ax
-	les bx,[bp-20h]
+	les bx,[bp-020h]
 	sub al,al
 	mov ah,es:[bx+4]
 	mov dx,ax
 	sub cx,cx
-	les bx,[bp-24h]
-	mov [bp-2Ch],cx
-	mov [bp-2Ah],ax
+	les bx,[bp-028h]
+	mov [bp-02Eh],cx
+	mov [bp-02Ch],ax
 	xor cx,es:[bx+8]
 	xor dx,es:[bx+0Ah]
 	and dh,al
-	xor cx,[bp-2Ch]
+	xor cx,[bp-02Eh]
 	xor dx,ax
 	mov es:[bx+8],cx
 	mov es:[bx+0Ah],dx
-	push dword ptr [bp-28h]
-	push word ptr [bp-10h]
+	push dword ptr [bp-024h]
+	push word ptr [bp-010h]
 	call RegNameChecksum
-	les bx,[bp-24h]
+	les bx,[bp-028h]
 	mov es:[bx+0Eh],ax
-	mov ax,[bp-10h]
-	add ax,14h
-	les bx,[bp-20h]
+	mov ax,[bp-010h]
+	add ax,014h
+	les bx,[bp-020h]
 	mov es:[bx+8],ax
 	mov word ptr es:[bx+0Ah],0
-	mov ax,[bp-10h]
-	les bx,[bp-20h]
+	mov ax,[bp-010h]
+	les bx,[bp-020h]
 	mov es:[bx+0Ch],ax
-	mov eax,[bp-20h]
-	add ax,14h
+	mov eax,[bp-020h]
+	add ax,014h
 	push eax
-	push dword ptr [bp-28h]
-	push word ptr [bp-10h]
+	push dword ptr [bp-024h]
+	push word ptr [bp-010h]
 	call RegMoveMemory
-	les bx,[bp-20h]
+	les bx,[bp-020h]
 	mov word ptr es:[bx+0Eh],0
-	les bx,[bp-20h]
-	mov word ptr es:[bx+10h],0
-	les bx,[bp-20h]
-	mov word ptr es:[bx+12h],0
-	push word ptr [bp-6]
+	les bx,[bp-020h]
+	mov word ptr es:[bx+010h],0
+	les bx,[bp-020h]
+	mov word ptr es:[bx+012h],0
+	push word ptr [bp-8]
 	push si
-	push dword ptr [bp-0Ch]
+	push dword ptr [bp-0Eh]
 	push 1
 	call RegUnlockKeyCache
-	mov eax,[bp-18h]
-	mov [bp-0Ch],eax
-	mov eax,[bp-24h]
-	mov [bp-1Ch],eax
-	push word ptr [bp-6]
+	mov eax,[bp-018h]
+	mov [bp-0Eh],eax
+	mov eax,[bp-028h]
+	mov [bp-01Ch],eax
+	push word ptr [bp-8]
 	push si
-	les bx,[bp-20h]
+	les bx,[bp-020h]
 	push word ptr es:[bx+6]
 	push 1
 	call RegUnlockDataCache
-	mov word ptr [bp-14h],1
+	mov word ptr [bp-02Ah],1
 	mov [bp-4],di
 	push 0
 	push 0
-	lea ax,[bp-28h]
+	lea ax,[bp-024h]
 	push ss
 	push ax
-	lea ax,[bp-10h]
+	lea ax,[bp-010h]
 	push ss
 	push ax
 	call RegPathPart
 	or ax,ax
-	jnz ropt_create
+	jnz near ptr ropt_create
 ropt_finish_key:
-	push dword ptr [bp-8]
-	push dword ptr [bp-18h]
+	push dword ptr [bp-0Ah]
+	push dword ptr [bp-018h]
 	call RegLookupKeyHandle
 	mov di,ax
 	mov [bp-2],dx
 	or dx,ax
-	jnz ropt_release_key
+	jnz near ptr ropt_release_key
 	call RegAcquireKeyHandle
 	mov di,ax
 	mov [bp-2],dx
 	or dx,ax
 	jnz short ropt_init_handle
-	mov word ptr [bp-0Eh],0Eh
-	jmp ropt_release_key
+	mov word ptr [bp-012h],0Eh
+	jmp near ptr ropt_release_key
 ropt_free_new:
-	push word ptr [bp-6]
+	push word ptr [bp-8]
 	push si
-	push dword ptr [bp-18h]
+	push dword ptr [bp-018h]
 	push 0
 	call RegUnlockKeyCache
-	push word ptr [bp-6]
+	push word ptr [bp-8]
 	push si
-	push dword ptr [bp-18h]
+	push dword ptr [bp-018h]
 	call RegFreeKeyRecord
 ropt_release_parent:
-	push word ptr [bp-6]
+	push word ptr [bp-8]
 	push si
-	push dword ptr [bp-0Ch]
-	push word ptr [bp-14h]
-	jmp ropt_data_error_release
+	push dword ptr [bp-0Eh]
+	push word ptr [bp-02Ah]
+	call RegUnlockKeyCache
+	jmp near ptr ropt_result
 ropt_alloc_error:
-	mov [bp-0Eh],di
+	mov [bp-012h],di
 	jmp short ropt_release_parent
-ropt_access_denied:
-	mov ax,5
-	jmp ropt_exit
 ropt_init_handle:
-	mov eax,[bp-8]
-	mov es,word ptr [bp-2]
+	mov eax,[bp-0Ah]
+	mov es,[bp-2]
 	db 66h
 	mov es:[di+6],ax
-	mov eax,[bp-18h]
+	mov eax,[bp-018h]
 	db 66h
 	mov es:[di+0Ah],ax
-	les bx,[bp-1Ch]
+	les bx,[bp-01Ch]
 	mov ax,es:[bx+4]
 	mov dx,es:[bx+6]
 	sub dh,dh
-	mov es,word ptr [bp-2]
+	mov es,[bp-2]
 	mov es:[di+0Eh],ax
-	mov es:[di+10h],dx
-	les bx,[bp-1Ch]
+	mov es:[di+010h],dx
+	les bx,[bp-01Ch]
 	mov ax,es:[bx+0Ch]
-	mov es,word ptr [bp-2]
-	mov es:[di+12h],ax
-	les bx,[bp-1Ch]
+	mov es,[bp-2]
+	mov es:[di+012h],ax
+	les bx,[bp-01Ch]
+	sub ah,ah
 	mov al,es:[bx+0Bh]
-	mov es,word ptr [bp-2]
-	mov es:[di+16h],al
+	mov es,[bp-2]
+	mov es:[di+016h],al
 	les bx,[bp+0Eh]
-	mov al,es:[bx+17h]
-	mov es,word ptr [bp-2]
-	mov es:[di+17h],al
-	les bx,[bp-1Ch]
-	test word ptr es:[bx+2],200h
+	mov al,es:[bx+017h]
+	mov es,[bp-2]
+	mov es:[di+017h],al
+	les bx,[bp-01Ch]
+	test word ptr es:[bx+2],0200h
 	jz short ropt_release_key
 	mov es,[bp-2]
 	or byte ptr es:[di+3],1
 ropt_release_key:
-	push dword ptr [bp-8]
-	push dword ptr [bp-18h]
-	push word ptr [bp-14h]
+	push dword ptr [bp-0Ah]
+	push dword ptr [bp-018h]
+	push word ptr [bp-02Ah]
 	call RegUnlockKeyCache
 	mov ax,[bp-2]
 	or ax,di
@@ -610,7 +635,7 @@ ropt_release_key:
 	jmp short ropt_retain
 ropt_parent:
 	mov ax,[bp+0Eh]
-	mov dx,[bp+10h]
+	mov dx,[bp+010h]
 	mov si,ax
 	mov [bp-2],dx
 ropt_retain:
@@ -622,9 +647,9 @@ ropt_retain:
 	les bx,[bp+6]
 	mov es:[bx],si
 	mov es:[bx+2],di
-	mov word ptr [bp-0Eh],0
+	mov word ptr [bp-012h],0
 ropt_result:
-	mov ax,[bp-0Eh]
+	mov ax,[bp-012h]
 ropt_exit:
 	pop si
 	pop di

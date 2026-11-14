@@ -835,5 +835,6 @@ cfgmain_terminate:
 	pop	bp
 	ret
 _main	endp
+	nop
 CFGMAIN	ends
 	end

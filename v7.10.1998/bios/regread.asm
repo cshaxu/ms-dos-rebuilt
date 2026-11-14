@@ -106,46 +106,44 @@ RegDecodeKeyRecord proc near
 	enter 4,0
 	push di
 	push si
-	mov di,[bp+4]
-	mov si,[bp+8]
-	mov es,word ptr [bp+0Ah]
-	mov byte ptr es:[si+3],0
-	mov es,word ptr [bp+6]
+	mov di,[bp+8]
+	mov si,[bp+4]
+	mov es,[bp+0Ah]
+	mov byte ptr es:[di+3],0
+	mov es,[bp+6]
 	db 66h
-	cmp word ptr es:[di],0
+	cmp word ptr es:[si],0
 	jz short rdkr_used
 	db 66h
-	cmp word ptr es:[di],1
+	cmp word ptr es:[si],1
 	jz short rdkr_used
 	db 66h
-	cmp word ptr es:[di],2
+	cmp word ptr es:[si],2
 	jz short rdkr_used
-rdkr_free:
-	; CMP DWORD PTR ES:[DI],80000000h, operand prefix first.
-	db 66h,26h,81h,3Dh
+	db 66h,26h,81h,3Ch
 	dd 80000000h
-	je short rdkr_copy_free
+	jz short rdkr_copy_free
 	db 66h
-	cmp word ptr es:[di],-1
-	jne short rdkr_skip_free
+	cmp word ptr es:[si],-1
+	jnz short rdkr_skip_free
 rdkr_copy_free:
 	db 66h
-	mov ax,es:[di+4]
-	mov es,word ptr [bp+0Ah]
+	mov ax,es:[si+4]
+	mov es,[bp+0Ah]
 	db 66h
-	mov es:[si+8],ax
-	mov es,word ptr [bp+6]
+	mov es:[di+8],ax
+	mov es,[bp+6]
 	db 66h
-	push word ptr es:[di+8]
+	push word ptr es:[si+8]
 	call RegKeyOffsetToIndex
-	mov es,word ptr [bp+0Ah]
-	xor ax,es:[si]
-	xor dx,es:[si+2]
+	mov es,[bp+0Ah]
+	xor ax,es:[di]
+	xor dx,es:[di+2]
 	sub dh,dh
-	xor es:[si],ax
-	xor es:[si+2],dx
+	xor es:[di],ax
+	xor es:[di+2],dx
 	db 66h
-	cmp word ptr es:[si+8],38h
+	cmp word ptr es:[di+8],038h
 	ja short rdkr_free_ok
 rdkr_skip_free:
 	jmp near ptr rdkr_zero
@@ -153,76 +151,75 @@ rdkr_free_ok:
 	mov ax,1
 	jmp near ptr rdkr_done
 rdkr_used:
-	mov es,word ptr [bp+0Ah]
-	mov dx,es:[si+2]
+	mov es,[bp+0Ah]
+	mov dx,es:[di+2]
 	mov dh,1
-	mov es:[si+2],dx
-	mov es,word ptr [bp+6]
+	mov es:[di+2],dx
+	mov es,[bp+6]
 	db 66h
-	push word ptr es:[di+0Ch]
+	push word ptr es:[si+0Ch]
 	call RegKeyOffsetToIndex
-	mov es,word ptr [bp+0Ah]
-	xor ax,es:[si+8]
-	xor dx,es:[si+0Ah]
+	mov es,[bp+0Ah]
+	xor ax,es:[di+8]
+	xor dx,es:[di+0Ah]
 	sub dh,dh
-	xor es:[si+8],ax
-	xor es:[si+0Ah],dx
-	mov es,word ptr [bp+6]
+	xor es:[di+8],ax
+	xor es:[di+0Ah],dx
+	mov es,[bp+6]
 	db 66h
-	push word ptr es:[di+14h]
+	push word ptr es:[si+014h]
 	call RegKeyOffsetToIndex
-	mov es,word ptr [bp+0Ah]
-	xor ax,es:[si]
-	xor dx,es:[si+2]
+	mov es,[bp+0Ah]
+	xor ax,es:[di]
+	xor dx,es:[di+2]
 	sub dh,dh
-	xor es:[si],ax
-	xor es:[si+2],dx
-	mov es,word ptr [bp+6]
+	xor es:[di],ax
+	xor es:[di+2],dx
+	mov es,[bp+6]
 	db 66h
-	push word ptr es:[di+10h]
+	push word ptr es:[si+010h]
 	call RegKeyOffsetToIndex
-	mov es,word ptr [bp+0Ah]
-	xor ax,es:[si+4]
-	xor dx,es:[si+6]
+	mov es,[bp+0Ah]
+	xor ax,es:[di+4]
+	xor dx,es:[di+6]
 	sub dh,dh
-	xor es:[si+4],ax
-	xor es:[si+6],dx
-	mov es,word ptr [bp+6]
-	mov ah,es:[di+18h]
+	xor es:[di+4],ax
+	xor es:[di+6],dx
+	mov es,[bp+6]
+	mov ah,es:[si+018h]
 	sub al,al
 	mov dx,ax
 	sub cx,cx
-	mov es,word ptr [bp+0Ah]
+	mov es,[bp+0Ah]
 	mov [bp-4],cx
-	xor cx,es:[si+8]
-	xor dx,es:[si+0Ah]
+	xor cx,es:[di+8]
+	xor dx,es:[di+0Ah]
 	and dh,al
 	xor cx,[bp-4]
 	xor dx,ax
-	mov es:[si+8],cx
-	mov es:[si+0Ah],dx
-	mov es,word ptr [bp+6]
-	mov ax,es:[di+1Ah]
-	mov es,word ptr [bp+0Ah]
-	mov es:[si+0Ch],ax
-	mov es,word ptr [bp+6]
-	mov ax,es:[di+4]
-	mov es,word ptr [bp+0Ah]
-	mov es:[si+0Eh],ax
+	mov es:[di+8],cx
+	mov es:[di+0Ah],dx
+	mov es,[bp+6]
+	mov ax,es:[si+01Ah]
+	mov es,[bp+0Ah]
+	mov es:[di+0Ch],ax
+	mov es,[bp+6]
+	mov ax,es:[si+4]
+	mov es,[bp+0Ah]
+	mov es:[di+0Eh],ax
 	mov es,[bp+6]
 	db 66h
-	cmp word ptr es:[di],1
+	cmp word ptr es:[si],1
 	jnz short rdkr_continuation
 	mov es,[bp+0Ah]
-	or byte ptr es:[si+3],2
+	or byte ptr es:[di+3],2
 	jmp short rdkr_zero
 rdkr_continuation:
 	db 66h
-	cmp word ptr es:[di],2
+	cmp word ptr es:[si],2
 	jnz short rdkr_zero
 	mov es,[bp+0Ah]
-	or byte ptr es:[si+3],4
-	jmp short rdkr_zero
+	or byte ptr es:[di+3],4
 rdkr_zero:
 	xor ax,ax
 rdkr_done:
@@ -240,103 +237,103 @@ RegEncodeKeyRecord proc near
 	enter 4,0
 	push di
 	push si
-	mov si,[bp+8]
-	mov es,word ptr [bp+0Ah]
-	test word ptr es:[si+2],100h
-	jz rekr_free
-	test word ptr es:[si+2],200h
+	mov di,[bp+8]
+	mov es,[bp+0Ah]
+	test word ptr es:[di+2],0100h
+	jz near ptr rekr_free
+	test word ptr es:[di+2],0200h
 	jz short rekr_continuation
-	mov di,[bp+4]
+	mov si,[bp+4]
 	mov es,[bp+6]
-	mov word ptr es:[di],1
+	mov word ptr es:[si],1
 rekr_type_high:
-	mov word ptr es:[di+2],0
+	mov word ptr es:[si+2],0
 	jmp short rekr_links
 rekr_continuation:
-	test word ptr es:[si+2],400h
+	test word ptr es:[di+2],0400h
 	jz short rekr_ordinary
-	mov di,[bp+4]
+	mov si,[bp+4]
 	mov es,[bp+6]
-	mov word ptr es:[di],2
+	mov word ptr es:[si],2
 	jmp short rekr_type_high
 rekr_ordinary:
-	mov di,[bp+4]
+	mov si,[bp+4]
 	mov es,[bp+6]
 	db 66h
-	mov word ptr es:[di],0
+	mov word ptr es:[si],0
 	dw 0
 rekr_links:
-	mov es,word ptr [bp+0Ah]
-	mov ax,es:[si+8]
-	mov dx,es:[si+0Ah]
+	mov es,[bp+0Ah]
+	mov ax,es:[di+8]
+	mov dx,es:[di+0Ah]
 	sub dh,dh
 	push dx
 	push ax
 	call RegKeyIndexToOffset
-	mov es,word ptr [bp+6]
-	mov es:[di+0Ch],ax
-	mov es:[di+0Eh],dx
-	mov es,word ptr [bp+0Ah]
-	mov ax,es:[si]
-	mov dx,es:[si+2]
+	mov es,[bp+6]
+	mov es:[si+0Ch],ax
+	mov es:[si+0Eh],dx
+	mov es,[bp+0Ah]
+	mov ax,es:[di]
+	mov dx,es:[di+2]
 	sub dh,dh
 	push dx
 	push ax
 	call RegKeyIndexToOffset
-	mov es,word ptr [bp+6]
-	mov es:[di+14h],ax
-	mov es:[di+16h],dx
-	mov es,word ptr [bp+0Ah]
-	mov ax,es:[si+4]
-	mov dx,es:[si+6]
+	mov es,[bp+6]
+	mov es:[si+014h],ax
+	mov es:[si+016h],dx
+	mov es,[bp+0Ah]
+	mov ax,es:[di+4]
+	mov dx,es:[di+6]
 	sub dh,dh
 	push dx
 	push ax
 	call RegKeyIndexToOffset
-	mov es,word ptr [bp+6]
-	mov es:[di+10h],ax
-	mov es:[di+12h],dx
-	mov es,word ptr [bp+0Ah]
-	mov ax,es:[si+0Eh]
-	mov es,word ptr [bp+6]
-	mov es:[di+4],ax
-	mov word ptr es:[di+6],0
-	mov es,word ptr [bp+0Ah]
-	cmp word ptr es:[si+0Ch],-1
-	jnz short rekr_value
-	mov es,word ptr [bp+6]
+	mov es,[bp+6]
+	mov es:[si+010h],ax
+	mov es:[si+012h],dx
+	mov es,[bp+0Ah]
+	mov ax,es:[di+0Eh]
+	mov es,[bp+6]
+	mov es:[si+4],ax
+	mov word ptr es:[si+6],0
+	mov es,[bp+0Ah]
+	cmp word ptr es:[di+0Ch],-1
+	jnz short rekr_data_fields
+	mov es,[bp+6]
 	db 66h
-	mov word ptr es:[di+18h],-1
+	mov word ptr es:[si+18h],-1
 	dw -1
 	jmp short rekr_done
-rekr_value:
-	mov al,es:[si+0Bh]
+rekr_data_fields:
+	mov al,es:[di+0Bh]
 	sub ah,ah
-	mov cx,es:[si+0Ch]
-	mov es,word ptr [bp+6]
-	mov es:[di+18h],ax
-	mov es:[di+1Ah],cx
+	mov cx,es:[di+0Ch]
+	mov es,[bp+6]
+	mov es:[si+018h],ax
+	mov es:[si+01Ah],cx
 	jmp short rekr_done
 rekr_free:
-	mov di,[bp+4]
-	mov es,word ptr [bp+6]
+	mov si,[bp+4]
+	mov es,[bp+6]
 	db 66h
-	mov word ptr es:[di],0
+	mov word ptr es:[si],0
 	dw 8000h
-	mov es,word ptr [bp+0Ah]
+	mov es,[bp+0Ah]
 	db 66h
-	mov ax,es:[si+8]
-	mov es,word ptr [bp+6]
+	mov ax,es:[di+8]
+	mov es,[bp+6]
 	db 66h
-	mov es:[di+4],ax
+	mov es:[si+4],ax
 	mov ax,es
-	mov es,word ptr [bp+0Ah]
-	mov cx,es:[si]
-	mov dx,es:[si+2]
+	mov es,[bp+0Ah]
+	mov cx,es:[di]
+	mov dx,es:[di+2]
 	sub dh,dh
 	push dx
 	push cx
-	mov [bp-4],di
+	mov [bp-4],si
 	mov [bp-2],ax
 	call RegKeyIndexToOffset
 	les bx,[bp-4]
@@ -911,6 +908,8 @@ rakr_split:
 	push ax
 	push 1
 	call RegUnlockKeyCache
+	public RegFinishKeyAllocation
+RegFinishKeyAllocation label near
 rakr_finish:
 	mov eax,[bp-4]
 	mov es,[bp+0Eh]
@@ -964,7 +963,7 @@ RegFreeKeyRecord proc near
 	or di,ax
 	jnz short rfkr_free_done
 	les bx,[bp-4]
-	and byte ptr es:[bx+3],0FEh
+	and byte ptr es:[bx+3],0F8h
 	mov es,word ptr [bp+0Ah]
 	mov ax,es:[si+42h]
 	mov dx,es:[si+44h]
@@ -2976,41 +2975,6 @@ rid_done:
 	leave
 	ret 6
 RegInitDataCache endp
-	if ($ - RegistryCode) and 1
-	db 0
-	endif
-
-	public RegChecksum
-RegChecksum proc near
-        enter 8,0
-        push di
-        push si
-        mov di,[bp+4]
-        mov ax,[bp+6]
-        mov dx,[bp+8]
-        mov si,ax
-        mov [bp-2],dx
-        mov dword ptr [bp-8],0
-        shr di,2
-        or di,di
-        jz short rbcs_done
-        mov es,word ptr [bp-2]
-rbcs_next:
-        mov bx,si
-        add si,4
-        db 66h
-        mov ax,es:[bx]
-        add [bp-8],eax
-        dec di
-        jnz short rbcs_next
-rbcs_done:
-        mov ax,[bp-8]
-        mov dx,[bp-6]
-        pop si
-        pop di
-        leave
-        ret 6
-RegChecksum endp
 	if ($ - RegistryCode) and 1
 	db 0
 	endif

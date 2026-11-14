@@ -7,7 +7,7 @@ CFGMSGS segment word public 'CODE'
         public ConfigMessageResource,ConfigMessageIndex,ConfigMessageText
         public ConfigMessageResourceEnd
 ConfigMessageResource label byte
-        dw 6,14,100h,0BBh
+        dw 6,4,100h,0B1h
 ConfigMessageIndex label word
         dw MsgNone-ConfigMessageText,MsgChoice-ConfigMessageText
         dw MsgSelect-ConfigMessageText,MsgOriginal-ConfigMessageText
