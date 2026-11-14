@@ -56,10 +56,10 @@ IO.SYS, MSDOS.SYS and COMMAND.COM all equal. This is an existing-asset check,
 not a claim that a new build has run. The accepted six-byte MSDOS.SYS config
 remains the target; other media provenance does not silently change it.
 
-## Current prefix: 133/293
+## Current prefix: 134/293
 
-Modified source/build files 63, exact 21, necessary unchanged 13,
-no same-name reference unchanged 36. Next: 134, cmd/command/tmisc2.asm. Tooling modified
+Modified source/build files 64, exact 21, necessary unchanged 13,
+no same-name reference unchanged 36. Next: 135, cmd/command/tparse.asm. Tooling modified
 1 (ioimage.c case-insensitive map symbol lookup), outside source count.
 See etc/T25/part1.md. BIOSTAIL.OBJ is unchanged; all compiler/link phases ran,
 then packaging failure was diagnosed and repaired. Fresh three-output FC/B
@@ -272,4 +272,10 @@ reuses LenMsgOrPathBuf for the shared resident-path copy. Required dynamic
 command-tail, quoted-path, pipe and notification behavior remains intact.
 COMMAND rebuild/repack and all target/input checks pass;
 extras/build/t25-tmisc1-19369-21356; see part42.md.
-Next: 134 tmisc2.asm. Full automatic final build remains pending.
+File 134 removes TMISC2's unused PathFindBuffer external, restores separate
+declarations and surrounding instruction format, replaces eight DOS service
+literals with existing symbols, and corrects the stale switch-scan comment.
+Shared path/search and necessary LFN redirection behavior remain intact.
+COMMAND rebuild/repack and all target/input checks pass;
+extras/build/t25-tmisc2-19950-1260; see part43.md.
+Next: 135 tparse.asm. Full automatic final build remains pending.
