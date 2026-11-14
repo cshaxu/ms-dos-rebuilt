@@ -26,3 +26,5 @@ P1 freezes the OAK floppy targets, verifies the three 2222 product hashes, and r
 P2 decodes the IO.SYS payload and localizes exact block reuse in the BIOS, DOS kernel, configuration manager and COMMAND. It records Astro as a component source baseline, with confirmed and prospective component mappings. No product source changed.
 
 P3 integrates the Windows Millennium banner and 4.90.3000 version string into the historical build. Stage `cmd-10845-25468` produced a 93,906-byte COMMAND.COM with unchanged source snapshots. Three of the 120 baseline paths in cmd/command, inc and lang/usa/messages differ. The target byte comparison remains open, and no asset was published.
+
+P4 restores the CHCP query-only path, CHCP help and restart messages, and the target resident stub layout. Stage `cmd-11626-5666` produced 93,833 bytes and matched the complete 3000 message resource area. The linked code still requires the remaining startup and DIR changes. Seven source paths are changed against the 120-path baseline in this delivery.

@@ -245,6 +245,8 @@ COMMAND  000014d4 0195
 	"Type BREAK without a parameter to display the current BREAK setting.",CR,LF
 1310 U 0000 "Enables/Disables Long file names when processing FOR commands.",CR,LF,CR,LF,"LFNFOR [ON | OFF]",CR,LF,CR,LF
 	"Type LFNFOR without a parameter to display the current setting.",CR,LF,CR,LF
+1319 U 0000 "Displays the active code page number.",CR,LF,CR,LF
+	"CHCP",CR,LF,CR,LF
 1320 U 0000 "Displays or sets the active code page number.",CR,LF,CR,LF
 	"CHCP [nnn]",CR,LF,CR,LF
 1321 U 0000 "  nnn   Specifies a code page number.",CR,LF,CR,LF

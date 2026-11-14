@@ -14,9 +14,9 @@ InitMsg14       label word
     dw 0,0
 InitMsg15       label word
     dw 0,0
-HelpMsgs        label word
 InitMsg16       label word
     dw 0,0
+HelpMsgs        label word
 InitMsg17       label word
     dw 0,0
 InitMsg18       label word
@@ -46,6 +46,8 @@ InitMsg29       label word
 InitMsg30       label word
     dw 0,0
 InitMsg31       label word
+    dw 0,0
+InitMsg32       label word
     dw 0,0
     db 800h dup (0)     ; message-text workspace
     public InitMsgClass,InitMsgCount,InitMsgTable,HelpMsgs
@@ -57,7 +59,7 @@ ELSE
 
 ;   Initialization class: message number and record-relative text offset.
 InitMsgClass    db 5
-InitMsgCount    db 21
+InitMsgCount    db 22
 InitMsgTable    label word
 InitMsg11       label word
     dw 11,BadVerMsg-InitMsg11
@@ -69,45 +71,48 @@ InitMsg14       label word
     dw 14,BadComLkMsg-InitMsg14
 InitMsg15       label word
     dw 15,BadComAccMsg-InitMsg15
-HelpMsgs        label word
 InitMsg16       label word
-    dw 16,Help1Msg-InitMsg16
+    dw 16,RestartMsg-InitMsg16
+HelpMsgs        label word
 InitMsg17       label word
-    dw 17,Help2Msg-InitMsg17
+    dw 17,Help1Msg-InitMsg17
 InitMsg18       label word
-    dw 18,Help3Msg-InitMsg18
+    dw 18,Help2Msg-InitMsg18
 InitMsg19       label word
-    dw 19,Help4Msg-InitMsg19
+    dw 19,Help3Msg-InitMsg19
 InitMsg20       label word
-    dw 20,Help5Msg-InitMsg20
+    dw 20,Help4Msg-InitMsg20
 InitMsg21       label word
-    dw 21,Help6Msg-InitMsg21
+    dw 21,Help5Msg-InitMsg21
 InitMsg22       label word
-    dw 22,Help7Msg-InitMsg22
+    dw 22,Help6Msg-InitMsg22
 InitMsg23       label word
-    dw 23,Help8Msg-InitMsg23
+    dw 23,Help7Msg-InitMsg23
 InitMsg24       label word
-    dw 24,Help9Msg-InitMsg24
+    dw 24,Help8Msg-InitMsg24
 InitMsg25       label word
-    dw 25,Help10Msg-InitMsg25
+    dw 25,Help9Msg-InitMsg25
 InitMsg26       label word
-    dw 26,Help11Msg-InitMsg26
+    dw 26,Help10Msg-InitMsg26
 InitMsg27       label word
-    dw 27,Help12Msg-InitMsg27
+    dw 27,Help11Msg-InitMsg27
 InitMsg28       label word
-    dw 28,Help13Msg-InitMsg28
+    dw 28,Help12Msg-InitMsg28
 InitMsg29       label word
-    dw 29,Help14Msg-InitMsg29
+    dw 29,Help13Msg-InitMsg29
 InitMsg30       label word
-    dw 30,Help15Msg-InitMsg30
+    dw 30,Help14Msg-InitMsg30
 InitMsg31       label word
-    dw 31,Help16Msg-InitMsg31
+    dw 31,Help15Msg-InitMsg31
+InitMsg32       label word
+    dw 32,Help16Msg-InitMsg32
 
     msg BadVerMsg, <"Incorrect MS-DOS version",CR,LF>
     msg OutEnvMsg, <"Out of environment space",CR,LF>
     msg CopyrightMsg, <CR,LF,CR,LF,"Microsoft(R) Windows Millennium",CR,LF,"   (C)Copyright Microsoft Corp 1981-1999.",CR,LF>
     msg BadComLkMsg, <"Specified COMMAND search directory bad",CR,LF>
     msg BadComAccMsg, <"Specified COMMAND search directory bad, access denied",CR,LF>
+    msg RestartMsg, <CR,LF,"Please press CTRL+ALT+DELETE to restart your computer.",CR,LF>
     msg Help1Msg, <"Starts a new copy of the Windows Command Interpreter.",CR,LF,CR,LF>
     msg Help2Msg, <"COMMAND [[drive:]path] [device] [/E:nnnnn] [/L:nnnn] [/U:nnn] [/P] [/MSG]",CR,LF,"                       [/LOW] [/Y [/[C|K] command]]",CR,LF>
     msg Help3Msg, <"  [drive:]path    Specifies the directory containing COMMAND.COM.",CR,LF>
