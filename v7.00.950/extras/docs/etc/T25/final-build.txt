@@ -1,0 +1,106 @@
+Build directory: O:\repos.hobby\ms-dos-rebuilt\v7.00.950\extras\build\cmd-13107-4986
+[1/8] Checking historical tools and compiling native support...
+[check 25] O:\repos.hobby\ms-dos-archaeology\v6.0\c6ers\tools6\include\bios.h
+[check 50] O:\repos.hobby\ms-dos-archaeology\v6.0\c6ers\tools6\include\share.h
+[tools] Compiling msgindex...
+[tools] Compiling cmdimage...
+[tools] Compiling ioimage...
+[tools] Compiling crtlib...
+[tools] Compiling omforder...
+[2/8] Snapshotting and staging source inputs...
+[check 75] O:\repos.hobby\ms-dos-rebuilt\v7.00.950\bios\biostruc.inc
+[check 100] O:\repos.hobby\ms-dos-rebuilt\v7.00.950\bios\crtread.asm
+[check 125] O:\repos.hobby\ms-dos-rebuilt\v7.00.950\bios\pnpcaps.asm
+[check 150] O:\repos.hobby\ms-dos-rebuilt\v7.00.950\bios\romrd.asm
+[check 175] O:\repos.hobby\ms-dos-rebuilt\v7.00.950\dos\dir.asm
+[check 200] O:\repos.hobby\ms-dos-rebuilt\v7.00.950\dos\ioctl.asm
+[check 225] O:\repos.hobby\ms-dos-rebuilt\v7.00.950\dos\msproc.asm
+[check 250] O:\repos.hobby\ms-dos-rebuilt\v7.00.950\inc\const2.asm
+[check 275] O:\repos.hobby\ms-dos-rebuilt\v7.00.950\inc\int2a.inc
+[check 300] O:\repos.hobby\ms-dos-rebuilt\v7.00.950\inc\sysvar.inc
+[check 325] O:\repos.hobby\ms-dos-rebuilt\v7.00.950\cmd\command\ifequ.asm
+[check 350] O:\repos.hobby\ms-dos-rebuilt\v7.00.950\cmd\command\tmisc2.asm
+[check 375] O:\repos.hobby\ms-dos-rebuilt\v7.00.950\extras\tools\dosbuild\cmdres.bat
+[3/8] Building BIOS, loader and DOS kernel...
+private-desktop=DOS5Build_37636_290040687 owned-pid=13616
+[compile 0s] Starting bios
+[compile 5s] Building BIOS and loader
+[compile 10s] Building BIOS and loader
+[compile 15s] Building BIOS and loader
+child-exit=0 timeout=0
+private-desktop=DOS5Build_29556_290058234 owned-pid=12292
+[compile 0s] Starting kernel
+[compile 5s] Building DOS kernel
+[compile 10s] Building DOS kernel
+[compile 15s] Building DOS kernel
+[compile 20s] Building DOS kernel
+[compile 25s] Building DOS kernel
+child-exit=0 timeout=0
+[4/8] Building COMMAND and message resources...
+private-desktop=DOS5Build_10432_290084343 owned-pid=4584
+[compile 0s] Starting command
+[compile 5s] Building COMMAND message compiler
+[compile 10s] Building COMMAND and message resources
+[compile 15s] Building COMMAND and message resources
+[compile 20s] Building COMMAND and message resources
+[compile 25s] Building COMMAND and message resources
+child-exit=0 timeout=0
+Resource classes: 4, 1, 198 messages
+private-desktop=DOS5Build_9892_290112906 owned-pid=21756
+[compile 0s] Starting cmdres
+child-exit=0 timeout=0
+COMMAND image: 92870 bytes; linked code at 16720
+[5/8] Building configuration, registry and original CRT...
+CRT library: 741 members, 19 aliases, 31 external names resolved
+private-desktop=DOS5Build_18096_290117125 owned-pid=5264
+[compile 0s] Starting crtlib
+child-exit=0 timeout=0
+CRT library: 741 members, 0 aliases, 1 external names resolved
+private-desktop=DOS5Build_18840_290122234 owned-pid=36340
+[compile 0s] Starting cfgasm
+[compile 5s] Building configuration and registry
+child-exit=0 timeout=0
+OMF fixup order: 6 operands, 1 records changed; code/data unchanged
+OMF fixup order: 10 operands, 1 records changed; code/data unchanged
+OMF fixup order: 13 operands, 1 records changed; code/data unchanged
+OMF fixup order: 13 operands, 1 records changed; code/data unchanged
+OMF fixup order: 8 operands, 1 records changed; code/data unchanged
+OMF fixup order: 17 operands, 1 records changed; code/data unchanged
+OMF fixup order: 27 operands, 1 records changed; code/data unchanged
+OMF fixup order: 29 operands, 1 records changed; code/data unchanged
+OMF fixup order: 50 operands, 1 records changed; code/data unchanged
+OMF fixup order: 18 operands, 1 records changed; code/data unchanged
+OMF fixup order: 28 operands, 1 records changed; code/data unchanged
+OMF fixup order: 5 operands, 1 records changed; code/data unchanged
+OMF layout: 4660 code bytes, 192 fixups, 6 data records; code/operands unchanged
+OMF layout: 3168 code bytes, 222 fixups, 5 data records; code/operands unchanged
+OMF layout: 9234 code bytes, 243 fixups, 12 data records; code/operands unchanged
+OMF layout: 8874 code bytes, 267 fixups, 13 data records; code/operands unchanged
+OMF layout: 2050 code bytes, 75 fixups, 3 data records; code/operands unchanged
+OMF layout: 2098 code bytes, 52 fixups, 3 data records; code/operands unchanged
+private-desktop=DOS5Build_34100_290130953 owned-pid=34224
+[compile 0s] Starting cfglink
+child-exit=0 timeout=0
+[6/8] Packaging linked IO components...
+IO image: 223148 bytes; configuration at 176640
+[7/8] Verifying unchanged inputs and exact target bytes...
+[check 400] O:\repos.hobby\ms-dos-rebuilt\v7.00.950\bios\cfgioctl.asm
+[check 425] O:\repos.hobby\ms-dos-rebuilt\v7.00.950\bios\inc.asm
+[check 450] O:\repos.hobby\ms-dos-rebuilt\v7.00.950\bios\pnpfind.asm
+[check 475] O:\repos.hobby\ms-dos-rebuilt\v7.00.950\bios\rqvalue.asm
+[check 500] O:\repos.hobby\ms-dos-rebuilt\v7.00.950\dos\dircmp.asm
+[check 525] O:\repos.hobby\ms-dos-rebuilt\v7.00.950\dos\lfn.asm
+[check 550] O:\repos.hobby\ms-dos-rebuilt\v7.00.950\dos\open.asm
+[check 575] O:\repos.hobby\ms-dos-rebuilt\v7.00.950\inc\cputype.inc
+[check 600] O:\repos.hobby\ms-dos-rebuilt\v7.00.950\inc\lmstub.asm
+[check 625] O:\repos.hobby\ms-dos-rebuilt\v7.00.950\inc\version.inc
+[check 650] O:\repos.hobby\ms-dos-rebuilt\v7.00.950\cmd\command\iparse.asm
+[check 675] O:\repos.hobby\ms-dos-rebuilt\v7.00.950\cmd\command\tprintf.asm
+[check 700] O:\repos.hobby\ms-dos-rebuilt\v7.00.950\extras\tools\dosbuild\host-tools.cmd
+IO.SYS: MATCH
+MSDOS.SYS: MATCH
+COMMAND.COM: MATCH
+[8/8] Publishing all three verified outputs...
+Published: O:\repos.hobby\ms-dos-rebuilt\v7.00.950\extras\assets
+Build finished with exit code 0. Review the output above.
+Press any key to continue . . . 

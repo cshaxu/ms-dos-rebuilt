@@ -21,7 +21,7 @@ Exit Criteria | All 293 files dispositioned, every source edit verified, separat
 Original Owner Request | Admit new audit/repair task for v7.00.950, with v6.22 as audit baseline
 Similar-Issue Sweep | Unnecessary text changes, duplicate implementations, unjustified new modules, conditional branches, relocation/alignment, source-generated resources versus opaque bytes
 
-S1 active. T13's historical deferred provenance work remains deferred and is
+S1 closed after the full production build and completion audit. T13's historical deferred provenance work remains deferred and is
 not marked complete by this audit. Archived prior packet: history/pre-T25-current.md.
 Owner-directed T25 is this conversation's active work; no v7.10 source touched.
 
@@ -59,7 +59,7 @@ remains the target; other media provenance does not silently change it.
 ## Current prefix: 293/293
 
 Modified source/build files 117, exact 90, necessary unchanged 47,
-no same-name reference unchanged 39. Next: clean production build and completion audit. Tooling modified
+no same-name reference unchanged 39. Clean production build and completion audit passed. See ../etc/T25/completion-audit.md. Tooling modified
 1 (ioimage.c case-insensitive map symbol lookup), outside source count.
 See etc/T25/part1.md. BIOSTAIL.OBJ is unchanged; all compiler/link phases ran,
 then packaging failure was diagnosed and repaired. Fresh three-output FC/B
@@ -565,3 +565,6 @@ Next: 288 lang/usa/messages/biosmsg.inc. Final full build pending.
 P93 accepts 288-293. Four message sources retain target data differences
 and two resource includes have no same-name supplier. See part93.md.
 Final full build pending.
+
+P94 closes T25 S1. Clean production build cmd-13107-4986 passed all three
+target comparisons and published the verified assets.
