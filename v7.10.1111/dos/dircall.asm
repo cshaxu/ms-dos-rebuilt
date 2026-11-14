@@ -35,7 +35,7 @@
 
 Installed = TRUE
 
-        i_need  IoState2,WORD
+	i_need	IoState2,WORD
 	i_need	THISSFT,DWORD
 	i_need	THISCDS,DWORD
 	i_need	NoSetDir,BYTE
@@ -405,8 +405,8 @@ NOTDIRPATH:
 	JMP	NodeAccErrJ
 
 rmdir_get_buf:
-        MOV     DI,OFFSET DOSDATA:IoState2
-        invoke  LfnSaveState
+	MOV	DI,OFFSET DOSDATA:IoState2
+	invoke	LfnSaveState
 	LDS	DI,[CURBUF]
 ASSUME	DS:NOTHING
 	SUB	BX,DI		; Compute true offset
@@ -474,8 +474,8 @@ rmdir_short_entry:
 	MOV	[ALLOWED],allowed_FAIL + allowed_RETRY
 	XOR	AL,AL			; Pre read
 	invoke	GETBUFFR		; Get sector back
-        JNC     rmdir_buffer_ready
-        JMP     NOTDIRPATHPOP2
+	JNC	rmdir_buffer_ready
+	JMP	NOTDIRPATHPOP2		; Screw up
 rmdir_buffer_ready:
 	LDS	DI,[CURBUF]
 ASSUME	DS:NOTHING

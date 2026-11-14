@@ -165,16 +165,16 @@ NoUpdate:
         INC DATE_FLAG
         JMP SHORT INTEST
 Get:
-        POP AX
-        JNC input_read
-        MOV AL,2
-        JMP SHORT INTEST
+	POP	AX
+	JNC	input_read
+	MOV	AL,2
+	JMP	SHORT INTEST
 input_external:
-        POP DX
-        JMP SHORT input_return
+	POP	DX
+	JMP	SHORT input_return
 input_read:
-        XOR AH,AH
-        invoke IOFUNC
+	XOR	AH,AH
+	invoke	IOFUNC
 input_return:
         POP DX
         POP SI
@@ -184,7 +184,7 @@ input_return:
         JNZ noscan
         MOV BYTE PTR SCAN_FLAG,1
 noscan:
-        return
+	return
  IFDEF  DBCS			    ;AN000;
 EndProc INTER_CON_INPUT_NO_ECHO     ;AN000;  ;2/11/KK				      ;AN000;
  ELSE				    ;AN000;
@@ -512,12 +512,12 @@ OLDBAK:
 
 ;hkn; SS override
         CMP     BYTE PTR [INSMODE],0
-        jz      OldBakTemplate
+        jz      OldBakTemplate  ; In insert mode, done
 OldBakReturn:
         ret
 OldBakTemplate:
         OR      BH,BH
-        jz      OldBakReturn
+        jz      OldBakReturn    ; Not advanced in template, stay where we are
         DEC     BH              ;Go back in template
         DEC     SI
         return

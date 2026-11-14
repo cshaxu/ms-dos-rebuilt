@@ -39,7 +39,7 @@
 
 Installed = TRUE
 
-        i_need  NlsBuffer,BYTE
+	i_need	NlsBuffer,BYTE
 	i_need	PreRead,WORD
 	i_need	CurBuf,DWORD
 	i_need	WPErr,BYTE
@@ -56,9 +56,9 @@ Installed = TRUE
 	i_need	LoMemBuff,dword
 
 DOSCODE SEGMENT
-        EXTRN SC_SECTOR_SIZE:WORD
-        EXTRN SC_DRIVE:BYTE
-        EXTRN FIRST_BUFF_ADDR:WORD
+	EXTRN	SC_SECTOR_SIZE:WORD
+	EXTRN	SC_DRIVE:BYTE
+	EXTRN	FIRST_BUFF_ADDR:WORD
 	ASSUME	SS:DOSDATA,CS:DOSCODE
 
 Break	<GETCURHEAD -- Get current buffer header>
@@ -80,7 +80,7 @@ Break	<GETCURHEAD -- Get current buffer header>
 procedure   GETCURHEAD,NEAR
 
 	lds	di, BufferQueue		; Pointer to the first buffer;smr;SS Override
-	mov	CS:[FIRST_BUFF_ADDR],di	;save first buffer addr;smr;SS Override
+	mov	CS:[FIRST_BUFF_ADDR],di	; save first buffer address
 	ret
 
 EndProc GETCURHEAD
@@ -285,7 +285,7 @@ getb_drive:
 	MOV	BX,-1				; no free buffer yet
 	MOV	CX,HIGH_SECTOR
 	CALL	GETCURHEAD
-ASSUME DS:NOTHING
+ASSUME	DS:NOTHING
 
 ; Search from the most recently used end, remembering free buffers.
 
@@ -442,14 +442,14 @@ Break	<FLUSHBUF -- WRITE OUT DIRTY BUFFERS>
 
 procedure   FlushBuf,NEAR
 	DOSAssume   <DS>,"FlushBuf"
-        CMP     AL,-1
-        JNE     flush_get_head
-        XOR     BX,BX
-        MOV     CX,26
+	CMP	AL,-1
+	JNE	flush_get_head
+	XOR	BX,BX
+	MOV	CX,26
 flush_drive_flags:
-        AND     BYTE PTR SS:[BX+NlsBuffer+20],0f7h
-        INC     BX
-        LOOP    flush_drive_flags
+	AND	BYTE PTR SS:[BX+NlsBuffer+20],0f7h
+	INC	BX
+	LOOP	flush_drive_flags
 flush_get_head:
 
 	call	GetCurHead
@@ -499,22 +499,22 @@ EndProc	FlushBuf
 	Assert	ISBUF,<DS,DI>,"CheckFlush"
 	mov	ah, -1
 	CMP	[DI.buf_ID],AH
-        JNZ     checkflush_used
+	JNZ	checkflush_used
 checkflush_done:
-        RET
+	RET
 checkflush_used:
-        DB      038h,0c4h       ; CMP AH,AL - target opcode
+	DB	038h,0c4h		; CMP AH,AL
 	JZ	DOBUFFER		; do this buffer
 	CMP	AL,[DI.buf_ID]
 	CLC
-        JNZ     checkflush_done  ; Buffer not for this unit or SFT
-        XOR     BX,BX
-        MOV     BL,AL
-        TEST    BYTE PTR SS:[BX+NlsBuffer+20],8
-        JNZ     checkflush_done
+	JNZ	checkflush_done		; Buffer not for this unit or SFT
+	XOR	BX,BX
+	MOV	BL,AL
+	TEST	BYTE PTR SS:[BX+NlsBuffer+20],8
+	JNZ	checkflush_done
 DOBUFFER:
 	TESTB	[DI.buf_flags],buf_dirty
-        JZ      checkflush_done  ; Buffer not dirty, carry clear by TEST
+	JZ	checkflush_done		; Buffer not dirty, carry clear by TEST
 	PUSH	AX
 	PUSH	WORD PTR [DI.buf_ID]
 	CALL	BUFWRITE
@@ -583,7 +583,7 @@ NO_IGNORE:
 	MOV	EAX,[DI.buf_wrtcntinc]	; offset of identical FAT sectors
 
 	PUSH	DI		; Save buffer pointer
-        OR      DI,-1           ; No write has succeeded
+	OR	DI,-1		; No write has succeeded
 
 	push	ds
 	push	bx
@@ -633,8 +633,8 @@ NOSET:				;	succeedes.
 	STI
 	pop	bx
 	pop	ds
-        SHR     DI,1            ; Carry set only if all writes failed
-BWROK:  POP     DI
+	SHR	DI,1		; Carry set only if all writes failed
+BWROK:	POP	DI
 	return
 
 EndProc BufWrite

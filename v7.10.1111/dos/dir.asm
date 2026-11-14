@@ -65,7 +65,7 @@
 
 DOSCODE	Segment
 	allow_getdseg
-        EXTRN MetaCompare:NEAR
+	EXTRN	MetaCompare:NEAR
 	ASSUME	SS:DOSDATA,CS:DOSCODE
 
 Break	<FINDENTRY -- LOOK FOR AN ENTRY>
@@ -193,13 +193,13 @@ NextEntJ:
 	JMP	SHORT SETESRET
 
 LfnSkipEntry:
-        POP     DS
+	POP	DS
 LfnNextEntry:
-        ASSUME  DS:DOSDATA
-        LES     BP,[THISDPB]
-        CALL    NEXTENTRY
-        JNC     LfnSearchEntry
-        JMP     SHORT SETESRET
+	ASSUME	DS:DOSDATA
+	LES	BP,[THISDPB]
+	CALL	NEXTENTRY
+	JNC	LfnSearchEntry
+	JMP	SHORT SETESRET
 
 FOUND:
 ;
@@ -240,7 +240,7 @@ SETESRET:
         JNC     LfnSearchReturn
         MOV     IoState1,0
 LfnSearchReturn:
-        return
+	return
 EndProc Search
 
 ;----------------------------------------------------------------------------
@@ -530,37 +530,37 @@ dir_sft_store:
         xchg    ax,bx
         mov     CS:DirSftIds[bx],al
 dir_sft_saved:
-        popa
-        ret
+	popa
+	ret
 EndProc SaveDirSft
 
 ; ES:DI points to an SFT. Return its number in AL, carry on failure.
-procedure DirSftNumber,near
-        push    es
-        xor     cx,cx
-        mov     dx,es
-        getdseg <es>
-        les     bx,es:sft_addr
+procedure   DirSftNumber,NEAR
+	push	es
+	xor	cx,cx
+	mov	dx,es
+	getdseg	<es>
+	les	bx,es:sft_addr
 dir_sft_block:
-        mov     ax,es
-        cmp     ax,dx
-        jne     dir_sft_next_block
-        mov     ax,di
-        sub     ax,bx
-        db      083h,0E8h,SFTable ; SUB AX,SFTable - short immediate
-        mov     bl,SIZE sf_entry
-        div     bl
-        add     ax,cx
-        jmp     short dir_sft_number_done
+	mov	ax,es
+	cmp	ax,dx
+	jne	dir_sft_next_block
+	mov	ax,di
+	sub	ax,bx
+	db	083h,0E8h,SFTable ; SUB AX,SFTable - short immediate
+	mov	bl,SIZE sf_entry
+	div	bl
+	add	ax,cx
+	jmp	short dir_sft_number_done
 dir_sft_next_block:
-        add     cx,es:[bx.SFCount]
-        les     bx,es:[bx.SFLink]
-        cmp     bx,-1
-        jne     dir_sft_block
-        stc
+	add	cx,es:[bx.SFCount]
+	les	bx,es:[bx.SFLink]
+	cmp	bx,-1
+	jne	dir_sft_block
+	stc
 dir_sft_number_done:
-        pop     es
-        ret
+	pop	es
+	ret
 EndProc DirSftNumber
 
 ; ES:DI points to an SFT. Return directory cluster in SI:CX, entry in DX.
@@ -596,12 +596,12 @@ dir_sft_found:
         mov     dx,WORD PTR es:DirSftPositions[bx+4]
         clc
 dir_sft_find_exit:
-        pop     di
-        pop     es
-        ASSUME  ES:NOTHING
+	pop	di
+	pop	es
+	ASSUME	ES:NOTHING
 dir_sft_find_done:
-        mov     ax,0
-        ret
+	mov	ax,0
+	ret
 EndProc FindDirSft
 
 procedure ClearDirSft,near
@@ -611,10 +611,10 @@ procedure ClearDirSft,near
         jc      dir_sft_clear_done
         mov     DWORD PTR CS:DirSftPositions[bx],0
 dir_sft_clear_done:
-        popa
-        ret
+	popa
+	ret
 EndProc ClearDirSft
-        .8086
+	.8086
 
 DOSCODE	ENDS
 	END

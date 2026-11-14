@@ -69,29 +69,29 @@ Break <DOS_CLOSE -- CLOSE FILE from SFT>
 ;	ES:DI point to SFT
 ;	Carry set if error
 ;	    AX has error code
-; DS preserved, others destroyed
+; DS = DOSDATA on return, others destroyed
 ;---------------------------------------------------------------------------
 
 ;hkn; DOS_CLOSE called from fcbio.asm and handle.asm. DS alreday set up.
 
-        PUBLIC CloseClean
+	PUBLIC	CloseClean
 CloseClean:
-        push ds
-        pop es
-        mov di,si
+	push	ds
+	pop	es
+	mov	di,si
 CloseDevice:
-        clc
-        jmp CloseFinish
+	clc
+	jmp	CloseFinish
 CloseReadError:
-        test bp,devid_file_clean
-        jnz CloseReadDone
-        mov al,error_access_denied
-        stc
+	test	bp,devid_file_clean
+	jnz	CloseReadDone
+	mov	al,error_access_denied
+	stc
 CloseReadDone:
         jmp CloseDeviceDone
 CloseAccessDate:
-        mov es:[di+12h],ax
-        jmp short clook
+	mov	es:[di+12h],ax
+	jmp	short clook
 
 procedure   DOS_CLOSE,NEAR
 	DOSAssume   <DS>,"DOS_Close"
@@ -132,42 +132,42 @@ LocalClose:
 CloseEntry:
 	PUSH	AX
 ;
-; File clean or device does not get stamped nor disk looked at.
+; Devices bypass directory access. Clean files may update the access date.
 ;
-	TEST BX,devid_device
-	jnz CloseDevice
-	push bx
-	invoke DirFromSFT
-	pop bp
-	jc CloseReadError
-	ASSUME DS:NOTHING
-	test DOS_FLAG,40h
-	jnz CloseCheckClean
-	test [si].sf_mode,4
-	jnz CloseCheckClean
-	push ds
-	push bx
-	lds bx,[si].sf_devptr
-	mov bl,[bx]
-	mov bh,0
-	test BYTE PTR ss:[bx+NlsBuffer+20],4
-	pop bx
-	pop ds
-	jz CloseCheckClean
-	test bp,devid_file_clean
-	jz CloseGetDate
-	or EXTOPEN_ON,2
+	TEST	BX,devid_device
+	jnz	CloseDevice
+	push	bx
+	invoke	DirFromSFT
+	pop	bp
+	jc	CloseReadError
+	ASSUME	DS:NOTHING
+	test	DOS_FLAG,40h
+	jnz	CloseCheckClean
+	test	[si].sf_mode,4
+	jnz	CloseCheckClean
+	push	ds
+	push	bx
+	lds	bx,[si].sf_devptr
+	mov	bl,[bx]
+	mov	bh,0
+	test	BYTE PTR ss:[bx+NlsBuffer+20],4
+	pop	bx
+	pop	ds
+	jz	CloseCheckClean
+	test	bp,devid_file_clean
+	jz	CloseGetDate
+	or	EXTOPEN_ON,2
 CloseGetDate:
-	push ds
-	invoke DATE16
-	pop ds
-	ASSUME DS:NOTHING
-	cmp ax,es:[di+12h]
-	jnz CloseAccessDate
+	push	ds
+	invoke	DATE16
+	pop	ds
+	ASSUME	DS:NOTHING
+	cmp	ax,es:[di+12h]
+	jnz	CloseAccessDate
 CloseCheckClean:
-	test bp,devid_file_clean
-	jz clook
-	jmp CloseClean
+	test	bp,devid_file_clean
+	jz	clook
+	jmp	CloseClean
 clook:
 ;
 ; ES:DI points to entry
@@ -199,14 +199,14 @@ Bye:	MOV	DI,SI
 	JMP	CloseDeviceDone
 
 CLOSE_GO:
-	test bp,devid_file_clean
-	jnz CloseSetFields
-	TEST [SI].sf_mode,sf_isfcb
-	jnz setattr
-	MOV AL,[SI].sf_attr
-	MOV ES:[DI].dir_attr,AL
+	test	bp,devid_file_clean
+	jnz	CloseSetFields
+	TEST	[SI].sf_mode,sf_isfcb
+	jnz	setattr
+	MOV	AL,[SI].sf_attr
+	MOV	ES:[DI].dir_attr,AL
 setattr:
-	OR BYTE PTR ES:[DI.dir_attr],attr_archive
+	OR	BYTE PTR ES:[DI.dir_attr],attr_archive	;Set archive
 CloseSetFields:
 	MOV	AX,ES:[DI.dir_first]	;AN011;F.O. save old first clusetr
 
@@ -245,18 +245,18 @@ yesdirty:
 	MOV	AL,[THISDRV]
 	invoke	DeferredFlush		; flush all relevant buffers
 	RESTORE <DI,ES>
-	jnc CloseFinish
-	push ds
-	push bx
-	lds bx,es:[di].sf_devptr
-	mov bl,[bx]
-	mov bh,0
-	ASSUME DS:DOSDATA
-	and BYTE PTR [bx+NlsBuffer+20],0FBh
-	pop bx
-	pop ds
-	ASSUME DS:NOTHING
-	mov al,error_access_denied
+	jnc	CloseFinish
+	push	ds
+	push	bx
+	lds	bx,es:[di].sf_devptr
+	mov	bl,[bx]
+	mov	bh,0
+	ASSUME	DS:DOSDATA
+	and	BYTE PTR [bx+NlsBuffer+20],0FBh
+	pop	bx
+	pop	ds
+	ASSUME	DS:NOTHING
+	mov	al,error_access_denied
 	stc
 CloseFinish:
 	JC	CloseDeviceDone

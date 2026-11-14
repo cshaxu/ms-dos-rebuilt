@@ -7,18 +7,9 @@
 ;	All Rights Reserved.
 ;
 
-;**	Main Path cracking routines, low level search routines
+;**	DIRCMP.ASM - Directory name comparison
 ;
-;	  FindEntry
-;	  SEARCH
-;	  Srch
-;	  NEXTENT
 ;	  MetaCompare
-;	  NEXTENTRY
-;	  GETENTRY
-;	  GETENT
-;	  SETDIRSRCH
-;	  SETROOTSRCH
 ;
 ;	  Revision history:
 ;
@@ -28,16 +19,29 @@
 	.xcref
 	include version.inc
 	include dosseg.inc
-	include fastopen.inc
 	include dossym.inc
-	include dpb.inc
 	.cref
 	.list
 
 
-; Extracted comparison procedure; linked in the DOS 7 late-code region.
-DOSCODE Segment
-        ASSUME CS:DOSCODE,SS:DOSDATA,DS:NOTHING,ES:NOTHING
+DOSCODE	Segment
+	ASSUME	CS:DOSCODE,SS:DOSDATA,DS:NOTHING,ES:NOTHING
+;----------------------------------------------------------------------------
+;
+; Procedure Name : MetaCompare
+;
+; Inputs:
+;	DS:SI -> 11 character FCB style name NO '?'
+;	    Typically this is a directory entry.  It MUST be in upper case
+;	ES:DI -> 11 character FCB style name with possible '?'
+;	    Typically this is a FCB or SFT.  It MUST be in upper case
+; Function:
+;	Compare FCB style names allowing for ? match to any char
+; Outputs:
+;	Zero if match else NZ
+; Destroys CX,SI,DI all others preserved
+;----------------------------------------------------------------------------
+
 	procedure   MetaCompare,near
 	MOV	CX,11
  IFDEF  DBCS				;AN000;
@@ -92,5 +96,5 @@ MetaRet:
  ENDIF					;AN000;
 	return				; Zero set, Match
 EndProc MetaCompare
-DOSCODE ENDS
-        END
+DOSCODE	ENDS
+	END

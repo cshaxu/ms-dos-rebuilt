@@ -39,7 +39,7 @@
 	.cref
 	.list
 
-        i_need  DeviceCallDepth,BYTE
+	i_need	DeviceCallDepth,BYTE
 	i_need	IOXAD,DWORD
 	i_need	IOSCNT,WORD
 	i_need	DEVIOBUF,4
@@ -264,7 +264,7 @@ ASSUME	DS:NOTHING
 	pushf
 	mov	al,ss:IoStatFail	;assume fail error
 	cbw				;sign extend to word
-        DB      083h,0f8h,0ffh   ; CMP AX,-1 - target short immediate
+	DB	083h,0f8h,0ffh   ; CMP AX,-1 - target short immediate
 	jne	not_fail_ret
 	inc	ss:IoStatFail
 	popf
@@ -337,11 +337,11 @@ ASSUME	DS:NOTHING
 	return				; NON ZERO FLAG FOR OUTPUT STATUS
 
 IOIST:
-        ; Compare the two DWORDs of the DOS 7 pipe name signature.
-        DB      066h,081h,07ch,sf_name,'PIPE'
-        JNZ     io_file_status
-        DB      066h,081h,07ch,sf_name+4,'STDX'
-        JZ      io_pipe_status
+	; Compare the two DWORDs of the DOS 7 pipe name signature.
+	DB	066h,081h,07ch,sf_name,'PIPE'
+	JNZ	io_file_status
+	DB	066h,081h,07ch,sf_name+4,'STDX'
+	JZ	io_pipe_status
 io_file_status:
 	.386
 	PUSH	DWORD PTR [SI.sf_position] ; Save position
@@ -351,22 +351,22 @@ io_file_status:
 	return
 
 io_pipe_status:
-        CALL    SETXADDR
-        MOV     CX,1
-        MOV     AX,1131h
-        LES     DI,SS:[THISSFT]
-        INT     2fh
-        JC      io_pipe_empty
-        JCXZ    io_pipe_empty
-        MOV     BP,SP
-        MOV     [BP+4],DX
-        OR      AL,1
-        CALL    RESTXADDR
-        RET
+	CALL	SETXADDR
+	MOV	CX,1
+	MOV	AX,1131h
+	LES	DI,SS:[THISSFT]
+	INT	2fh
+	JC	io_pipe_empty
+	JCXZ	io_pipe_empty
+	MOV	BP,SP
+	MOV	[BP+4],DX
+	OR	AL,1
+	CALL	RESTXADDR
+	RET
 io_pipe_empty:
-        CALL    RESTXADDR
-        XOR     AL,AL
-        RET
+	CALL	RESTXADDR
+	XOR	AL,AL
+	RET
 
 IOUT:
 	CALL	SETXADDR
@@ -488,13 +488,13 @@ procedure   DEV_CLOSE_SFT,NEAR
 	XOR	AH,AH			; Unit
 	TESTB	ES:[DI].SF_FLAGS,devid_device
 	LES	DI,ES:[DI.sf_devptr]	; Get DPB or device
-        PUSHF
-        PUSH    AX
-        MOV     AX,ES
-        OR      AX,DI
-        POP     AX
-        JZ      OPCLS_DONEP      ; Null driver pointer; discard saved flags
-        POPF
+	PUSHF
+	PUSH	AX
+	MOV	AX,ES
+	OR	AX,DI
+	POP	AX
+	JZ	OPCLS_DONEP      ; Null driver pointer; discard saved flags
+	POPF
 	JNZ	Got_Dev_Addr
 
 	; We are about to call device open/close on a block driver.  If no 
@@ -594,7 +594,7 @@ entry	DEVIOCALL2
         JZ      dev_enter_selected
         MOV     AX,OFFSET DOSCODE:EcritConsole
 dev_enter_selected:
-        CALL    AX
+	CALL	AX
 
 	TESTB	[SI.SDEVATT],DevTyp    ;AN000; >32mb   block device ?
 	JNZ	chardev2	       ;AN000; >32mb   no
@@ -624,7 +624,7 @@ chksector:			       ;AN000; >32mb
 	JMP	SHORT dev_exit	       ;AN000; >32mb
 
 chardev2:			       ;AN000;
-        INC     DeviceCallDepth
+	INC	DeviceCallDepth
 
 	;
 	; As above only DS:SI points to device header on entry, and DS:SI is 
@@ -638,9 +638,9 @@ chardev2:			       ;AN000;
 	MOV	AX,[SI.SDEVINT]
 	MOV	WORD PTR [CALLDEVAD],AX
 	CALL	DWORD PTR [CALLDEVAD]
-        DEC     DeviceCallDepth
-        CMP     CS:[SC_FLAG],0
-        JZ      dev_exit
+	DEC	DeviceCallDepth
+	CMP	CS:[SC_FLAG],0
+	JZ	dev_exit
 	CALL	VIRREAD 		;AN000;LB. move data from SC to buffer
 	JC	chardev2		;AN000;LB. bad sector or exceeds max sec
 dev_exit:
@@ -651,7 +651,7 @@ dev_exit:
         JZ      dev_leave_selected
         MOV     AX,OFFSET DOSCODE:LcritConsole
 dev_leave_selected:
-        CALL    AX
+	CALL	AX
 	return
 EndProc DEVIOCALL
 

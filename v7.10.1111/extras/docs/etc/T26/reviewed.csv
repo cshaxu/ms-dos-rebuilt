@@ -141,3 +141,24 @@ ordinal,path,disposition,verification
 140,cmd/command/tspc.asm,reduced,Restored substitution block size name and public declarations; kept widened DIR fields
 141,cmd/command/tucode.asm,reduced,Restored formatting and unchanged declarations; kept 1111 argument processing
 142,cmd/command/uinit.asm,reduced,Restored DOS names and parameter table declarations; retained 1111 initialization options and header data
+143,dos/abort.asm,retained,1111 termination code omits SHARE close-process dispatch and its argument state
+144,dos/alloc.asm,exact,Byte comparison with frozen 950
+145,dos/buf.asm,reduced,Restored inherited low-level buffer formatting; retained target cache geometry and sector handling
+146,dos/close.asm,reduced,Restored common instructions and comments; retained FAT32 close and removed SHARE and FASTOPEN behavior
+147,dos/cpmio.asm,reduced,Restored inherited console instruction formatting; retained target console state and control transfer
+148,dos/cpmio2.asm,exact,Byte comparison with frozen 950
+149,dos/create.asm,retained,1111 media-ID IOCTL tries extended category 48h and falls back to 08h; SHARE and FASTOPEN calls are absent
+150,dos/crit.asm,reduced,Restored formatting in legacy critical-section callbacks; retained target PSP management and callback flow
+151,dos/delete.asm,retained,Target deletes without FASTOPEN updates and preserves the expanded cluster state
+152,dos/dev.asm,reduced,Restored inherited device-entry formatting; retained linked 1111 cache and device state
+153,dos/devcache.asm,reduced-to-exact,Removed unrelated device-call declarations and restored 950 secondary cache module and comments
+154,dos/dinfo.asm,retained,Target GetDiskFree tracks high words of the cluster counts and uses extended DPB fields
+155,dos/dir.asm,reduced,Restored common directory logic formatting; retained 1111 FAT32 directory traversal and active state
+156,dos/dir2.asm,retained,The target uses dword directory IDs and reconstructs FAT32 cluster addresses without the 950 FASTOPEN path
+157,dos/dircall.asm,reduced,Restored common directory-call formatting; retained high-word cluster state
+158,dos/dircmp.asm,reduced-to-exact,Restored MetaCompare instructions and contract; removed unrelated path-search includes
+159,dos/disk.asm,retained,Target disk path uses extended cluster and buffer state in its linked modules
+160,dos/disk2.asm,reduced,Restored shared disk I/O declarations and formatting; retained 1111 position and error flow
+161,dos/disk3.asm,retained,The target write arithmetic uses 32-bit cluster positions and explicit carry and interrupt handling
+162,dos/diskio.asm,reduced,Restored module contract and removed unreferenced device declarations; kept target directory and FAT32 sector reads
+163,dos/diskset.asm,reduced,Restored setup procedure contract and removed unrelated externs; kept target 32-bit seek and FAT32 bounds
