@@ -355,8 +355,8 @@ endif
 
 
         short_addr  $InternalTable                 ; 112    70
-        short_addr  $LfnCall                       ; 113    71
-        short_addr  $ExtendedCall                  ; 114    72
+        short_addr  $LfnCall                        ; 113    71
+        short_addr  $ExtendedCall                   ; 114    72
         short_addr  $DriveFlags                    ; 115    73
 
 VAL2    =       ($-DISPATCH)/2 - 1

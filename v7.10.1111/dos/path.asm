@@ -98,7 +98,7 @@ CurdirErr:
 CurrentValidate:
 	SAVE	<DS,SI> 		; save destination
 
-;hkn; 	Set up DS to access ThisCDS
+;hkn; 	Set up DS to access NoSetDir
 	getdseg	<ds>			; ds -> dosdata
 
 	MOV	NoSetDir,0		; interested only in contents
@@ -260,7 +260,7 @@ procedure $CHDIR,NEAR
 ChDirErrP:
 	MOV	AL,error_path_not_found
 ChdirErr:
-	JMP	SHORT RmDirReturn	; oops!
+	JMP	SHORT RmDirReturn	; return the path error
 
 ChDirCrack:
 
@@ -325,7 +325,7 @@ ENDIF
 	.8086
 	RESTORE <CX,DX,DI,ES>
 ;
-; ES:DI point to the physical CDS, DX:CX is the ID (local only)
+; ES:DI point to the physical CDS, CX is the ID (local only)
 ;
 GotCDS:
 ;

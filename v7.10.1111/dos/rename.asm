@@ -30,7 +30,7 @@
 
 Installed = TRUE
 
-        i_need  IoState3,WORD
+	i_need	IoState3,WORD
 	i_need	RENAMEDMA,BYTE
 	i_need	AUXSTACK,BYTE
 	i_need	DESTSTART,WORD
@@ -129,7 +129,7 @@ LOCAL_RENAME:
 	MOV	AL,BYTE PTR [SI]
 	MOV	AH,BYTE PTR [DI]
 	OR	AX,2020H		; Lower case
-        DB      038h,0e0h       ; CMP AL,AH - target opcode
+	DB	038h,0E0h		; CMP AL,AH, register-to-r/m form
 	JZ	SAMEDRV
 	MOV	AX,error_not_same_device
 	STC
@@ -148,7 +148,7 @@ SAMEDRV:
 	invoke	DOS_SEARCH_FIRST	; Sets [NoSetDir] to 1, [CURBUF+2]:BX
 					;    points to entry
 	JNC	Check_Dev
-        DB      083h,0f8h,error_no_more_files ; CMP AX,short immediate
+	DB	083h,0F8h,error_no_more_files ; CMP AX, signed immediate
 	JNZ	GOTERR
 	MOV	AX,error_file_not_found
 GOTERR:
@@ -191,7 +191,8 @@ notdir:
 	JMP	RENAME_POP
 
 ;------------------------------------------------------------------------------
-; Save the source long-name state before looking up the destination.
+; Check if the source is a file or directory.  If file, delete the entry
+; from the Fastopen cache. If directory, rename it later
 ;------------------------------------------------------------------------------
 REN_OK1:				;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
         PUSH    SI
@@ -385,7 +386,9 @@ DIRTY_IT:
 	OR	ES:[DI.buf_flags],buf_dirty
 
 ;------------------------------------------------------------------------------
-; Restore the data segment and remove the source long-name entries.
+; Check if the source is a directory of file.  If directory rename it to the
+; the new name in the Fastopen cache buffer.   If file name it has been
+; previously deleted.
 ;------------------------------------------------------------------------------
 Yesdirty2:
 	MOV	DS,WORD PTR [DMAADD+2]
@@ -427,7 +430,8 @@ NEXT_SOURCE:
 	JMP	RENAME_CLEAN
 
 ;------------------------------------------------------------------------------
-; Build the next destination name.
+; Check if file or directory. If file, delete file from the Fastopen cache,
+; if directory, rename directory name in the Fastopen cache.
 ;-----------------------------------------------------------------------------
 REN_OK2:
 	MOV	AL,[RENAMEDMA + 21 + dir_attr]	   ; PTR P5622

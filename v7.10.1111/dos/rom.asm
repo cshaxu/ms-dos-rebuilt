@@ -83,15 +83,15 @@ Break   <FNDCLUS -- Skip over allocation units>
 ; Procedure Name : FNDCLUS
 ;
 ; Inputs:
-;       ECX = No. of clusters to skip
+;       CX = No. of clusters to skip
 ;       ES:BP = Base of drive parameters
 ;       [THISSFT] point to SFT
 ; Outputs:
-;       EBX = Last cluster skipped to
-;       ECX = No. of clusters remaining (0 unless EOF)
-;       EDX = Position of last cluster
+;       BX = Last cluster skipped to
+;       CX = No. of clusters remaining (0 unless EOF)
+;       DX = Position of last cluster
 ;       Carry set if error (currently user FAILed to I 24)
-; EDI destroyed. Interrupts disabled on return.
+; DI destroyed. No other registers affected.
 ;--------------------------------------------------------------------------
 
 procedure FNDCLUS,NEAR
@@ -338,7 +338,7 @@ NOREAD:
         XCHG    AX,CX
         SHR     CX,1
         XOR     AX,AX
-        SUB     DI,SS:[BYTSECPOS]
+        SUB     DI,SS:[BYTSECPOS] ; Back up to the start of the sector
         REP     STOSW
         POP     DI
         POP     CX
@@ -685,14 +685,13 @@ Break   <ALLOCATE -- Assign disk space>
 ;----+----+----+----+----+----+----+----+----+----+----+----+----+----+----;
 ;                                                                          ;
 ;       ENTRY   BX = Last cluster of file (0 if null file)
-;               FatClusterHigh = High word of last cluster
-;               ClusterCountHigh:CX = No. of clusters to allocate
+;               CX = No. of clusters to allocate
 ;               ES:BP = Base of drive parameters
 ;               [THISSFT] = Points to SFT
 ;
 ;       EXIT    'C' set if insufficient space
 ;                 [FAILERR] can be tested to see the reason for failure
-;                 ClusterSaveHigh:AX = No. of clusters allocated before rollback
+;                 CX = max. no. of clusters that could be added to file
 ;               'C' clear if space allocated
 ;                 BX = First cluster allocated
 ;                 FatClusterHigh = High word of first cluster
@@ -1120,7 +1119,7 @@ Break   <GETEOF -- Find the end of a file>
 ;       FatClusterHigh = High word of last cluster
 ;       ClusterSaveHigh:DI = Number of clusters traversed
 ;       Carry set if error (currently user FAILed to I 24)
-; No other registers affected.
+; DI destroyed. No other registers affected.
 ;
 ;--------------------------------------------------------------------------
 

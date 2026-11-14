@@ -1930,9 +1930,9 @@ Abort_Inner:
 ENDPROC $ABORT
 
 ; Notify the BIOS before transferring control to the new process.
-        i_need NlsBuffer,BYTE
-        i_need IsWin386,BYTE
-        i_need CDSADDR,DWORD
+	I_need	NlsBuffer,BYTE
+	I_need	IsWin386,BYTE
+	I_need	CDSADDR,DWORD
 
 procedure ExecNotify,near
         push ax

@@ -84,13 +84,13 @@ procedure   SHARE_VIOLATION,NEAR
 	PUSH    DI
 	MOV     [READOP],0                      ; All share errors are reading
         LES     DI,ThisSFT
-        TEST    ES:[DI].sf_flags,DEVID_ISDEV
+        TEST    ES:[DI].sf_flags,DEVID_ISDEV ; Character device?
         JZ      share_disk_error
-        OR      AH,80h
+        OR      AH,80h                  ; Mark a character-device error
         LDS     SI,ES:[DI].sf_devptr
         MOV     DI,AX
         invoke  CHARHARD
-        JMP     short share_error_done
+        JMP     SHORT share_error_done
 share_disk_error:
 	MOV     [ALLOWED],allowed_FAIL + allowed_RETRY
 	LES     BP,[THISDPB]

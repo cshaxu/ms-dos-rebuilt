@@ -197,3 +197,28 @@ ordinal,path,disposition,verification
 196,dos/msdata.asm,exact,Byte comparison with frozen 950
 197,dos/msdisp.asm,reduced,Restored comments at the DOS call entry; kept 1111 dispatch and register path
 198,dos/msdos.cfg,retained,The frozen target MSDOS.SYS is the nine-byte marker 3b5739354542440d0a
+199,dos/msdos.lnk,exact,Byte comparison with frozen 950
+200,dos/msdos.skl,exact,Byte comparison with frozen 950
+201,dos/msdosme.asm,exact,Byte comparison with frozen 950
+202,dos/mshalo.asm,exact,Byte comparison with frozen 950
+203,dos/msinit.asm,retained,Target initialization supplies extended BPB signature and setup fields and omits FASTOPEN patching
+204,dos/msioctl.asm,exact,Byte comparison with frozen 950
+205,dos/msproc.asm,reduced,Restored shared process setup formatting; retained target immediate shifts and allocation flow
+206,dos/mssw.asm,exact,Byte comparison with frozen 950
+207,dos/mstable.asm,reduced,Restored inherited system table formatting; retained Win386_Control table entry
+208,dos/open.asm,reduced,Restored inherited Installed condition spelling; retained target extended-open behavior and absence of FASTOPEN
+209,dos/origin.asm,exact,Byte comparison with frozen 950
+210,dos/parse.asm,exact,Byte comparison with frozen 950
+211,dos/path.asm,reduced,Restored the path error comment; retained dword directory IDs and target error jumps
+212,dos/rename.asm,reduced,Restored common rename declarations; retained extended cluster update logic
+213,dos/restrict.inc,exact,Byte comparison with frozen 950
+214,dos/rom.asm,reduced,Restored common ROM path source forms; retained target extended cluster and FAT state
+215,dos/romfind.asm,exact,Byte comparison with frozen 950
+216,dos/scnam.inc,exact,Byte comparison with frozen 950
+217,dos/search.asm,retained,Target search preserves the DMA pointer with dword operations and updates the FAT32 search state
+218,dos/segcheck.asm,exact,Byte comparison with frozen 950
+219,dos/share.asm,reduced,Restored applicable sharing formatting; target omits old SHARE open and close dispatch
+220,dos/shrprint.asm,exact,Byte comparison with frozen 950
+221,dos/srvcall.asm,retained,Target server close path uses the local return without the 950 share callback
+222,dos/time.asm,retained,Target time packing uses immediate shifts and different instruction encodings
+223,dos/util.asm,reduced-to-exact,Removed unreferenced local labels and restored the handle lookup comments

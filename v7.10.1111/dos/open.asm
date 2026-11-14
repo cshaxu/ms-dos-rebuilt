@@ -178,7 +178,7 @@ NOEXTOP:
 
 ;Extended open hooks
 
-IF Installed EQ FALSE
+IF NOT Installed
 	transfer NET_SEQ_OPEN
 ELSE
 
@@ -227,7 +227,7 @@ OpenRedirected:
 
 ;Extended open hooks
 
-IF Installed EQ FALSE
+IF NOT Installed
 	transfer NET_OPEN
 ELSE
 
@@ -315,7 +315,7 @@ CheckFileAttr:
 	CMP	DL,sharing_net_FCB	; is it net FCB?
 	JNZ	NormalOpen		; no
 ResetAccess:
-	AND	CX,NOT 3	; clear access
+	AND	CX,NOT 3		; clear the low access bits
 	.errnz	open_for_read
 ;	OR	CX,open_for_read	; stick in open_for_read
 	MOV	[SI].sf_mode,CX
@@ -324,7 +324,7 @@ ResetAccess:
 ; The SFT is normal.  See if the requested access is open_for_read
 ;
 NormalOpen:
-	AND	CL,3		; remove extras
+	AND	CL,3			; retain the low access bits
 	CMP	CL,open_for_read	; is it open for read?
 	JZ	FillSFT
 	RESTORE <SI,DS>
@@ -494,7 +494,7 @@ CheckAccessMode:
 	AND	BL,3
 	CMP	BL,2
 	JA	Make_Bad_Access
-	TEST	AL,8
+	TEST	AL,8			; reject reserved access bit
 	JNZ	Make_Bad_Access
 	POP	BX
 	CLC
