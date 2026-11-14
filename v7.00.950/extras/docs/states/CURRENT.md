@@ -56,10 +56,10 @@ IO.SYS, MSDOS.SYS and COMMAND.COM all equal. This is an existing-asset check,
 not a claim that a new build has run. The accepted six-byte MSDOS.SYS config
 remains the target; other media provenance does not silently change it.
 
-## Current prefix: 139/293
+## Current prefix: 140/293
 
-Modified source/build files 68, exact 21, necessary unchanged 14,
-no same-name reference unchanged 36. Next: 140, cmd/command/tucode.asm. Tooling modified
+Modified source/build files 69, exact 21, necessary unchanged 14,
+no same-name reference unchanged 36. Next: 141, cmd/command/uinit.asm. Tooling modified
 1 (ioimage.c case-insensitive map symbol lookup), outside source count.
 See etc/T25/part1.md. BIOSTAIL.OBJ is unchanged; all compiler/link phases ran,
 then packaging failure was diagnosed and repaired. Fresh three-output FC/B
@@ -325,3 +325,10 @@ rebuild/repack and all target/input checks pass at
 extras/build/t25-lfn-contract-23137-5945. See part48.md and lfn-xp-contracts.md.
 This is a correction to already-counted file 134; prefix stays 139/293 and
 modified count stays 68. Next sequential file remains 140 tucode.asm.
+
+P49 accepts file 140 TUCODE: remove six unused externals, normalize added
+declarations/instructions, reuse four service/message symbols and correct
+ON_OFF's parsed-input contract. XP DEM confirms 7141h DS:DX/CH/CL and SI
+wildcard-selection roles. COMMAND rebuild/repack and all target/input checks
+pass; extras/build/t25-tucode-23741-28320; see part49.md.
+Next sequential file: 141 uinit.asm. Final build and LFN completion audit pending.

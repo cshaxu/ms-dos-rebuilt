@@ -19,6 +19,7 @@ API | Microsoft authority | Current 950 correspondence | Scope
 71A0 | demlfn.c:5298, :3792; demlfn.h:374 | SelectPathInterface supplies DS:DX root and CX=0; tests BX bit 4000h | Register/capability contract checked; all path boundary cases not proved
 7160 | demlfn.c:5333; demlfn.h:673 | COPYPR2 CanonicalizePath uses DS:SI, ES:DI, CX=1 | Short-path request and expansion flag checked
 716C | demlfn.c:5506 | TMISC2 redirection supplies DS:SI, BX/CX/DX/DI | Register roles checked; modes/error cases not exhaustively checked
+7141 | demlfn.c:5441 and :4905 | TUCODE uses DS:DX pathname; batch LFN deletion sets CX=0 and SI=1, individual deletion sets SI=0 | Wildcard-selection contract checked; broader deletion edge cases still pending
 
 PATH2 prefers the returned short filename by adding 104h to the long filename
 pointer; SelectReturnedName subtracts 104h when the short-name field is empty.
