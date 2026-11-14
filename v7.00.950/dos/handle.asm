@@ -273,12 +273,12 @@ movhandl:
 
 ;	Done.  'C' clear
 
-ok_done:JMP         Sys_Ret_OK
+ok_done:JMP	Sys_Ret_OK
 
 too_many_files:
 	MOV	AL,error_too_many_open_files
 ExtHandleError:
-	JMP         Sys_Ret_Err
+	JMP	Sys_Ret_Err
 
 
 enlarge:
@@ -564,17 +564,17 @@ procedure   $File_Times,NEAR
 FileTimeError:
 	jc	LSeekError		; bad handle
 
-        cmp al,1
-        jbe short ft_write_time
-        TESTB ES:[di].sf_flags,devid_device
-        jnz short ft_access_default
-        invoke IsSFTNet
-        jz short ft_access_date
+	cmp al,1
+	jbe short ft_write_time
+	TESTB ES:[di].sf_flags,devid_device
+	jnz short ft_access_default
+	invoke IsSFTNet
+	jz short ft_access_date
 ft_access_default:
-        cmp al,5
-        je short ok_ret
-        sub cx,cx
-        jmp short ft_get_date
+	cmp al,5
+	je short ok_ret
+	sub cx,cx
+	jmp short ft_get_date
 ft_write_time:
 	or	al, al			; get time/date ?
 	jnz	ft_set_time
@@ -619,66 +619,66 @@ ok_ret:
 
 ; Access dates reside in the directory entry rather than the SFT.
 ft_access_date:
-        push ss
-        pop ds
-        ASSUME DS:DOSDATA
-        push ax
-        push dx
-        invoke DirFromSFT
-        pop dx
-        pop cx
-        jc FileTimeError
-        cmp cl,5
-        je short ft_set_access
-        sub cx,cx
-        mov ax,ES:[di+12h]       ; directory last-access date
-        xor dx,dx
-        call ValidateFileDate
-        jmp short ft_return_date
+	push ss
+	pop ds
+	ASSUME DS:DOSDATA
+	push ax
+	push dx
+	invoke DirFromSFT
+	pop dx
+	pop cx
+	jc FileTimeError
+	cmp cl,5
+	je short ft_set_access
+	sub cx,cx
+	mov ax,ES:[di+12h]       ; directory last-access date
+	xor dx,dx
+	call ValidateFileDate
+	jmp short ft_return_date
 ft_set_access:
-        mov ax,dx
-        mov dx,[si].sf_date
-        call ValidateFileDate
-        jc short ft_bad_date
-        mov ES:[di+12h],dx
-        or WORD PTR [si].sf_mode,4
-        test BYTE PTR ES:[bx+5],40h ; directory buffer dirty flag
-        jnz short ft_access_dirty
-        invoke INC_DIRTY_COUNT
-        or BYTE PTR ES:[bx+5],40h
+	mov ax,dx
+	mov dx,[si].sf_date
+	call ValidateFileDate
+	jc short ft_bad_date
+	mov ES:[di+12h],dx
+	or WORD PTR [si].sf_mode,4
+	test BYTE PTR ES:[bx].buf_flags,buf_dirty ; directory buffer dirty flag
+	jnz short ft_access_dirty
+	invoke INC_DIRTY_COUNT
+	or BYTE PTR ES:[bx].buf_flags,buf_dirty
 ft_access_dirty:
-        mov al,-1
-        push es
-        pop ds
-        ASSUME DS:NOTHING
-        mov di,bx
-        invoke CHECKFLUSH
-        jnc short ft_access_done
-        jmp FileTimeError
+	mov al,-1
+	push es
+	pop ds
+	ASSUME DS:NOTHING
+	mov di,bx
+	invoke CHECKFLUSH
+	jnc short ft_access_done
+	jmp FileTimeError
 ft_access_done:
-        jmp short ok_ret
+	jmp short ok_ret
 ft_bad_date:
-        mov al,error_invalid_data
-        transfer SYS_RET_ERR
+	mov al,error_invalid_data
+	transfer SYS_RET_ERR
 
 ; AX is a packed DOS date. Preserve DX if day/month is invalid.
 procedure ValidateFileDate,near
-        test al,1Fh
-        jz short ft_invalid_date
-        test ax,1E0h
-        jz short ft_invalid_date
-        push ax
-        and ax,1E0h
-        cmp ax,180h
-        pop ax
-        ja short ft_invalid_date
-        mov dx,ax
-        clc
+	test al,1Fh
+	jz short ft_invalid_date
+	test ax,1E0h
+	jz short ft_invalid_date
+	push ax
+	and ax,1E0h
+	cmp ax,180h
+	pop ax
+	ja short ft_invalid_date
+	mov dx,ax
+	clc
 FileDateReturn:
-        ret
+	ret
 ft_invalid_date:
-        stc
-        jmp short FileDateReturn
+	stc
+	jmp short FileDateReturn
 EndProc ValidateFileDate
 
 EndProc $File_Times
