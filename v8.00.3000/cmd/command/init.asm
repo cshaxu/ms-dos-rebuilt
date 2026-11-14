@@ -653,9 +653,6 @@ ResizeCommand:
 	add	bx,400h
 	add	bx,0FFh
 	add	bx,offset TRANGROUP:TranSpaceEnd
-	jnc	rcSizeReady
-	int	3
-rcSizeReady:
 	add	bx,15
 	mov	cl,4
 	shr	bx,cl

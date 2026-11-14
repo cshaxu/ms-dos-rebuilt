@@ -290,9 +290,6 @@ TRANSPACE segment public byte
 	extrn	DirArgumentCount:byte
 
 
-ifdef DBLSPACE_HOOKS
-	extrn	DirCompressionMask:dword, DirCompressionShift:byte
-endif
 
 	extrn	arg:byte			; parsed argument array
 	extrn	AttrSelect:byte		; attribute select states -
@@ -408,18 +405,12 @@ TRANCODE segment public byte
 	extrn	DirSetEntryPosition:near
 	extrn	DirNormalizePattern:near
 	extrn	MOVE_TO_SRCBUF:near
-ifdef DBLSPACE_HOOKS
-	extrn	DirRoundCompressionClusters:near
-endif
 
 	extrn	CError:near		; COMMAND error recycle point
 	extrn	TCOMMAND:near
 	extrn	Print_Char:near
 	extrn	SelectPathInterface:near
 	extrn	argv_calc:near, TSYSGETMSG:near
-ifdef DBLSPACE_HOOKS
-	extrn	ComputeRatio:near	; Calculate ratio of two sector counts
-endif
 
 	public	Catalog		; our entry point
 
@@ -489,11 +480,7 @@ Catalog	proc
 	mov	DirNetworkPath,al
 	or	al,al
 	jz	short catVolume
-ifdef DBLSPACE_HOOKS
 	test	Bits,mask subd or mask verbose or mask cratio
-else
-	test	Bits,mask subd or mask verbose
-endif
 	jz	@F
 	mov	dx,offset TRANGROUP:DirUNCError_Ptr
 	jmp	CError
@@ -537,16 +524,6 @@ catCrunch:
 	jne	catRecErr	; handle recorded error
 
 	call	InstallCtrlC	; install control-C handler
-ifdef DBLSPACE_HOOKS
-	test	Bits, mask cratio	; compression ratio wanted?
-	jz	@f
-
-	call	DirInitCompression	; yes, initialize volume geometry
-	jnc	@f			; CY clear if geometry is available
-
-	and	Bits, not (mask cratio) ; failed, clear cratio option bit
-@@:
-endif
 	call	ZeroTotals	; zero grand totals
 	mov	DirTraversalActive,0
 	call	ListDir		; list main directory
@@ -1801,19 +1778,6 @@ DisplayTotals	proc
 	mov	dx,offset TRANGROUP:Total_Ptr
 	invoke	Std_Printf			; "Total:",cr,lf
 	call	UseLine
-ifdef DBLSPACE_HOOKS
-	test	Bits, mask cratio
-	jz	short dtCntSize
-
-	mov	ax, [ccluUsedTotal]	; setup compression ratio counts for
-	mov	[ccluUsedDir], ax	;   display routine
-	mov	si, offset TRANGROUP:csecUsedTotal
-	mov	di, offset TRANGROUP:csecUsedDir
-	movsw
-	movsw
-
-dtCntSize:
-endif
 	mov	eax,dword ptr DirAllocatedClustersTotal
 	mov	dword ptr DirAllocatedClusters,eax
 	mov	eax,FileCntTotal
@@ -1827,14 +1791,14 @@ endif
 	mov	bx,1			; grand total
 	call	DisplayCntSiz		; display file count & size &
 dtFree: 				;   (maybe) compression ratio
-	cmp	DirNetworkPath,0	; no local free-space query for UNC
-	jz	short dtLocalFree
+	call	GetDirDiskInfo
+	jnc	short dtLocalFree
+	cmp	DirNetworkPath,0	; suppress the line after a local query failure
+	jz	dtRet
 	invoke	Crlf2
 	call	UseLine
 	ret
 dtLocalFree:
-	call	GetDirDiskInfo
-	jc	dtRet
 	mov	eax,dword ptr DirTotalClusters
 	call	DirClusterBytes
 	or	edx,edx
@@ -1908,6 +1872,11 @@ GetDirDiskInfo proc near
 	push	ds
 	pop	es
 	mov	word ptr [di+2],0
+	cmp	DirNetworkPath,0
+	je	short gdiLocal
+	mov	dx,offset TRANGROUP:SrcBuf
+	jmp	short gdiQuery
+gdiLocal:
 	mov	dl,byte ptr ds:[FCB]
 	or	dl,dl
 	jnz	short gdiDrive
@@ -1921,6 +1890,7 @@ gdiDrive:
 	mov	word ptr DirDiskPath,dx
 	mov	word ptr DirDiskPath+2,'\'
 	mov	dx,offset TRANGROUP:DirDiskPath
+gdiQuery:
 	mov	ax,7303h
 	mov	cx,2Ch
 	int	21h
@@ -1928,6 +1898,8 @@ gdiDrive:
 	mov	cx,word ptr DirBytesPerSector
 	jmp	short gdiSectorSize
 gdiLegacy:
+	cmp	DirNetworkPath,0
+	jne	short gdiError
 	mov	ah,GET_DRIVE_FREESPACE
 	mov	dl,byte ptr ds:[FCB]
 	int	21h
@@ -2764,28 +2736,6 @@ lseDirectory:
 lseSizeDone:
 	add	di,2			; access date already stored
 	xor	ax,ax
-ifdef DBLSPACE_HOOKS
-	test	Bits,mask cratio
-	jz	short lseNoRatio
-	test	DirBuf.find_buf_attr,ATTR_DIRECTORY
-	jnz	short lseNoRatio
-	mov	ax,DirBuf.find_buf_size_l
-	mov	dx,DirBuf.find_buf_size_h
-	mov	si,offset TRANGROUP:DirBuf+find_buf_pname
-	mov	cl,byte ptr ds:[FCB]
-	or	cl,cl
-	jnz	short lseDrive
-	call	DirGetCompressionRatio
-	jmp	short lseRatioReady
-lseDrive:
-	sub	si,2
-	push	word ptr [si]
-	add	cl,'@'
-	mov	ch,':'
-	mov	[si],cx
-	call	DirGetCompressionRatio
-	pop	word ptr [si]
-lseRatioReady:
 	or	ax,ax
 	jz	short lseNoRatio
 lseStoreRatio:
@@ -2796,13 +2746,6 @@ lseStoreRatio:
 lseNoRatio:
 	dec	ax
 	jmp	short lseStoreRatio
-else
-	dec	ax
-	stosw
-	xor	ax,ax
-	stosw
-	ret
-endif
 LoadShortEntry endp
 
 ; Copy at most CX characters from a name component.
@@ -2914,29 +2857,6 @@ lleSize:
 	rep	movsb
 	pop	di
 	xor	ax,ax
-ifdef DBLSPACE_HOOKS
-	test	Bits,mask cratio
-	jz	short lleNoRatio
-	test	PathFindBuffer,ATTR_DIRECTORY
-	jnz	short lleNoRatio
-	mov	si,offset TRANGROUP:PathFindBuffer+130h
-	invoke	SelectReturnedName
-	mov	ax,word ptr PathFindBuffer+20h
-	mov	dx,word ptr PathFindBuffer+22h
-	mov	cl,byte ptr ds:[FCB]
-	or	cl,cl
-	jnz	short lleDrive
-	call	DirGetCompressionRatio
-	jmp	short lleRatioReady
-lleDrive:
-	sub	si,2
-	push	word ptr [si]
-	add	cl,'@'
-	mov	ch,':'
-	mov	[si],cx
-	call	DirGetCompressionRatio
-	pop	word ptr [si]
-lleRatioReady:
 	or	ax,ax
 	jz	short lleNoRatio
 lleStoreRatio:
@@ -2947,13 +2867,6 @@ lleStoreRatio:
 lleNoRatio:
 	dec	ax
 	jmp	short lleStoreRatio
-else
-	dec	ax
-	stosw
-	mov	ax,DirSavedByteCount
-	stosw
-	ret
-endif
 LoadLongEntry endp
 
 
@@ -3124,12 +3037,6 @@ poFind:
 	jne	short poErr
 	neg	cx
 	add	cx,NUM_ORDER_LTRS	; CL = sort order code
-ifdef DBLSPACE_HOOKS
-	cmp	cl, CRATIO_ORDER	; force compression ratio reporting
-	jne	short poSet
-	or	Bits, mask cratio
-poSet:
-endif
 	or	cl,dl			; CL = sort code with up/dn bit
 	mov	[bx],cl			; store sort order code in buffer
 	inc	bx
@@ -3617,12 +3524,6 @@ dfBegin:
 dfFull:
 	call	DisplayName
 	call	DisplayTheRest
-ifdef DBLSPACE_HOOKS
-	test	Bits,mask cratio
-	jz	@F
-	call	DisplayCompRatio
-@@:
-endif
 	cmp	PathFindMode,0
 	jz	short dfCount
 	call	DirDisplayLongName
@@ -4070,39 +3971,6 @@ DisplayTheRest	endp
 	.8086
 
 
-ifdef DBLSPACE_HOOKS
-;***	DisplayCompRatio - display compression ratio
-;
-;	ENTRY	BX = offset of entry in TPA buffer
-;
-;	EXIT	nothing
-;
-;	USED	AX,CX,DX
-;
-;	EFFECTS
-;
-;	  File compression ratio is displayed.
-
-
-	public	DisplayCompRatio
-DisplayCompRatio proc
-	push	es
-	mov	es,ss:Tpa
-	mov	ax,es:[bx].compratio
-	cmp	ax,-1
-	je	short dcrRet
-	mov	ss:Dir_CRatio_2,al
-	and	byte ptr ss:Dir_CRatio_2,0Fh
-	mov	cl,4
-	shr	ax,cl
-	mov	ss:Dir_CRatio_1,ax
-	mov	dx,offset TRANGROUP:DirCompRatio_Ptr
-	invoke	Std_Printf
-dcrRet:
-	pop	es
-	ret
-DisplayCompRatio endp
-endif
 
 ; Convert a DOS date word to the year and month/day message fields.
 ; AX = packed date, returns CX = year and DX = month/day.
@@ -4200,32 +4068,6 @@ dtrShow:
 	movzx	edx,ss:DirCount
 	xor	bx,bx
 DisplayCntSiz:
-ifdef DBLSPACE_HOOKS
-	test	ss:Bits,mask cratio
-	jz	short dtrSize
-	push	eax
-	push	edx
-	push	bx
-	mov	ax,ss:ccluUsedDir
-	or	ax,ax
-	jz	short dtrSkipRatio
-	mov	cx,word ptr ss:csecUsedDir+2
-	mov	bx,word ptr ss:csecUsedDir
-	call	ComputeRatio
-	mov	ss:Dir_CRatio_2,al
-	and	byte ptr ss:Dir_CRatio_2,0Fh
-	mov	cl,4
-	shr	ax,cl
-	mov	ss:Dir_CRatio_1,ax
-	mov	dx,offset TRANGROUP:AveCompRatio_Ptr
-	invoke	Std_Printf
-	call	UseLine
-dtrSkipRatio:
-	pop	bx
-	pop	edx
-	pop	eax
-dtrSize:
-endif
 	push	bx
 	mov	dword ptr ss:Dir_Num,eax
 	mov	dword ptr ss:DirCountOutput,edx
@@ -4879,176 +4721,9 @@ DirPrintPadding endp
 
 	assume	ds:TRANGROUP,es:TRANGROUP
 
-ifdef DBLSPACE_HOOKS
-; Prepare the compression volume geometry for the selected drive.
-DirCompressionRoot db '\',0
-	public	DirInitCompression
-DirInitCompression proc near
-	call	GetDirDiskInfo
-	jnc	short dicDrive
-	jmp	dicError
-dicDrive:
-	mov	dl,byte ptr ds:[FCB]
-	or	dl,dl
-	jz	short dicDefault
-	dec	dx
-	jmp	short dicMap
-dicDefault:
-	mov	dl,CurDrv
-dicMap:
-	mov	ax,4A11h
-	mov	bx,1
-	int	2Fh
-	or	ax,ax
-	jnz	dicError
-	test	bl,80h
-	jz	dicError
-	and	bl,7Fh
-	push	bx
-	push	dx
-	mov	ax,4A11h
-	mov	dl,bl
-	mov	bx,1
-	int	2Fh
-	pop	dx
-	pop	cx
-	or	ax,ax
-	jnz	short dicError
-	and	bl,7Fh
-	xchg	bx,cx
-	cmp	dl,cl
-	jz	short dicHost
-	mov	bl,cl
-dicHost:
-	cmp	fUseHostSize,0
-	jz	short dicSpace
-	mov	dl,bl
-dicSpace:
-	mov	ah,GET_DRIVE_FREESPACE
-	inc	dx
-	int	21h
-	cmp	ax,-1
-	jz	short dicError
-	mov	csecPerCluster,al
-	mul	cx
-	mov	cx,dx
-	mov	bx,ax
-	sub	bx,1
-	sbb	cx,0
-	mov	word ptr DirCompressionMask,bx
-	mov	word ptr DirCompressionMask+2,cx
-	and	bx,ax
-	and	cx,dx
-	or	bx,cx
-	jnz	short dicError
-.386
-	bsf	cx,ax
-	jnz	short dicShift
-	bsf	cx,dx
-	jz	short dicError
-.8086
-	add	cx,16
-dicShift:
-	mov	DirCompressionShift,cl
-	mov	ax,7143h
-	mov	bl,2
-	mov	dx,offset TRANGROUP:DirCompressionRoot
-	stc
-	int	21h
-	jc	short dicError
-	clc
-dicReturn:
-	ret
-dicError:
-	stc
-	jmp	short dicReturn
-DirInitCompression endp
-
-; Calculate the target packed ratio for a named file.
-; DX:AX is the logical size and DS:SI addresses the filename.
-	public	DirGetCompressionRatio
-	.386
-DirGetCompressionRatio proc near
-	push	bx
-	push	cx
-	push	dx
-	mov	bx,ax
-	or	bx,dx
-	jz	short dgcrEmpty
-	call	DirRoundCompressionClusters
-	mov	ccluUsed,ax
-	call	DirQueryCompressedSize
-	jc	short dgcrError
-	movzx	eax,ax
-	shl	edx,16
-	or	eax,edx
-	xor	edx,edx
-	call	DirShiftBytes
-	mov	csecUsed,eax
-	mov	ax,ccluUsed
-	add	ccluUsedDir,ax
-	add	ccluUsedTotal,ax
-	mov	cx,word ptr csecUsed+2
-	mov	bx,word ptr csecUsed
-	add	word ptr csecUsedDir,bx
-	adc	word ptr csecUsedDir+2,cx
-	add	word ptr csecUsedTotal,bx
-	adc	word ptr csecUsedTotal+2,cx
-	call	ComputeRatio
-dgcrReturn:
-	pop	dx
-	pop	cx
-	pop	bx
-	ret
-dgcrError:
-	xor	ax,ax
-	jmp	short dgcrReturn
-dgcrEmpty:
-	mov	ax,100h
-	jmp	short dgcrReturn
-DirGetCompressionRatio endp
-	.8086
-endif
 
 ; Get compressed size of DS:SI, preserving the current directory.
 ; Returns DOS status in carry and the size in DX:AX.
-	public	DirQueryCompressedSize
-DirQueryCompressedSize proc near
-	push	es
-	push	ds
-	push	di
-	push	cs
-	pop	es
-	push	cs
-	pop	ds
-	cmp	DirTraversalActive,0
-	jnz	short dqcsQuery
-	push	si
-	call	DirSearchDrive
-	invoke	SavUDir
-	invoke	SetRest1
-	call	ChangeDirBasePath
-	pop	si
-dqcsQuery:
-	mov	ax,7143h
-	mov	bl,2
-	mov	dx,si
-	int	21h
-	pushf
-	cmp	DirTraversalActive,0
-	jnz	short dqcsReturn
-	push	ax
-	push	dx
-	invoke	RestUDir1
-	pop	dx
-	pop	ax
-dqcsReturn:
-	popf
-	pop	di
-	pop	ds
-	pop	es
-	ret
-DirQueryCompressedSize endp
 ;M010;end	
 
 

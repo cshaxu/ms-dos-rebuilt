@@ -7,11 +7,11 @@ inc     =..\..\inc
 MSG_DIR=..\..\lang\usa\messages
 
 ASM     = masm
-AFLAGS  = /Mx /t /W1 /DUSA /DOEMBASE /I. /I$(inc) /I$(MSG_DIR)
+AFLAGS  = /Mx /t /W1 /DUSA /DDBLSPACE_HOOKS /I. /I$(inc) /I$(MSG_DIR)
 
 OBJS    = command1.obj command2.obj rucode.obj stub.obj rdata.obj \
        init.obj iparse.obj uinit.obj tcode.obj tbatch.obj tbatch2.obj \
-       tfor.obj dir.obj cratio.obj tcmd1b.obj tcmd2a.obj tcmd2b.obj \
+       tfor.obj dir.obj tcmd1b.obj tcmd2a.obj tcmd2b.obj \
        tenv.obj tenv2.obj tmisc1.obj tmisc2.obj tpipe.obj parse2.obj \
        path1.obj path2.obj tucode.obj copy.obj copypr1.obj copypr2.obj \
        cparse.obj tparse.obj loadhi.obj tprintf.obj tdata.obj tspc.obj

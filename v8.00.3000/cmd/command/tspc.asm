@@ -48,7 +48,6 @@ TRANSPACE	SEGMENT PUBLIC BYTE
 	PUBLIC	Extend_Buf_off
 	PUBLIC	Extend_Buf_seg
 	PUBLIC	ALLSWITCH
-	PUBLIC	append_exec		;AN041;
 	PUBLIC	arg
 	PUBLIC	argbufptr
 	PUBLIC	ARGC
@@ -515,7 +514,6 @@ vol_label	db	11 dup (" ")            ;AN000; volume label - init to blanks
 expand_star	db	?
 msg_flag	db	?			;AN022; flag set if non-utility message issued
 msg_numb	dw	0			;AN022; set with extended error message issued
-append_exec	db	0			;AN041; set if internal append executed
 print_err_flag	dw	0			;AN000; flag set if error during sysdispmsg
 subst_buffer	db	parm_block_size*2 dup (0);AN061;
 
@@ -555,6 +553,7 @@ search_error	DW	(?)			; address of error message to be printed
 if_not_count	DW	?
 
 zflag		db	?			; Used by typefil to indicate ^Z's
+		db	0			; align the transient stack
 
 	PUBLIC	StackGuard
 StackGuard	DW	55AAh			; transient stack boundary
