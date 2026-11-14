@@ -30,3 +30,5 @@ The owner permanently authorizes committing and pushing verified project work
 to the configured Git remote. Do not request repeated confirmation. Preserve 
 unrelated work, exclude ignored build directories, and report the commit and 
 actual push result. An intermediate commit does not imply audit completion.
+Commit and push each verified MTSP P promptly; do not accumulate completed 
+parts into a final lump-sum commit. Keep each P's changes and proof together.
