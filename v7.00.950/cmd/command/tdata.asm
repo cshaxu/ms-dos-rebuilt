@@ -92,8 +92,10 @@ ENDM
 TRANSPACE	SEGMENT PUBLIC BYTE	;AC000;
 	EXTRN	arg_buf:BYTE
 	EXTRN	bwdbuf:byte
-	EXTRN	bytes_free:WORD,DirUsedPercent:WORD
-	EXTRN	DirCountOutput:WORD,DirAllocatedBytes:DWORD
+	EXTRN	bytes_free:WORD
+	EXTRN	DirUsedPercent:WORD
+	EXTRN	DirCountOutput:WORD
+	EXTRN	DirAllocatedBytes:DWORD
 	EXTRN	charbuf:byte
 	EXTRN	copy_Num:WORD
 	EXTRN	DATE_OUTPUT:BYTE	;AC000;
@@ -105,8 +107,9 @@ endif
 	EXTRN	DRIVE_OUTPUT:BYTE	;AC000;
 	EXTRN	file_size_high:WORD
 	EXTRN	file_size_low:WORD
-        EXTRN   DirAttributeText:BYTE, DirBasePath:BYTE
-        EXTRN   TraceReturnCode:BYTE
+	EXTRN	DirAttributeText:BYTE
+	EXTRN	DirBasePath:BYTE
+	EXTRN	TraceReturnCode:BYTE
         EXTRN   FileSiz:DWORD           ; accumulated file size for DIR
 	EXTRN	major_ver_num:WORD
 	EXTRN	minor_ver_num:WORD
@@ -142,7 +145,8 @@ TRANCODE	SEGMENT PUBLIC BYTE	;AC000;
 	EXTRN	CTTY:NEAR
 	EXTRN	DATE:NEAR
 	EXTRN	ECHO:NEAR
-	EXTRN	LockDrive:NEAR,UnlockDrive:NEAR
+	EXTRN	LockDrive:NEAR
+	EXTRN	UnlockDrive:NEAR
 	EXTRN	ERASE:NEAR
 	EXTRN	GOTO:NEAR
 	EXTRN	IFERLEV:NEAR
@@ -189,7 +193,7 @@ TRANCODE	ENDS
 TRANDATA	SEGMENT PUBLIC BYTE
 	PUBLIC	DirDateTimeTemplate, DirDateBlank, DirAttributePtr
 	PUBLIC	DirVerboseHeader_Ptr, DirContRoot_Ptr, DirContCurrent_Ptr
-        PUBLIC OnOffControl,OnOffWords
+	PUBLIC	OnOffControl,OnOffWords
 
 	PUBLIC	accden_ptr		;AN000;
 	PUBLIC	acrlf_ptr		;AN000;
@@ -389,9 +393,9 @@ IFTAB	LABEL	BYTE				; Table of IF conditionals
 	DW	OFFSET TRANGROUP:IFEXISTS
 	DB	0
 
-; Table for internal command names
-COMTAB LABEL BYTE
-; Flags, handler and help list, indexed by the command-name table.
+; Table for internal command flags, handlers and help lists.
+; Entries correspond to the names in CommandNames.
+COMTAB	LABEL	BYTE
 	DB	fSwitchAllowed+fCheckDrive	; DIR
 	DW	OFFSET TRANGROUP:CATALOG
 	DW	TRANGROUP:DirHelpMsgs
@@ -513,8 +517,8 @@ COMTAB LABEL BYTE
 	DW	OFFSET TRANGROUP:LFNFOR
 	DW	TRANGROUP:LFNForHelpMsgs
 
-PUBLIC CommandNames
-CommandNames LABEL BYTE
+	PUBLIC	CommandNames
+CommandNames	LABEL	BYTE
 	DB	3,"DIR"
 	DB	4,"CALL"
 	DB	4,"CHCP"
@@ -628,25 +632,16 @@ FILE_REQUIRED	LABEL	BYTE			;AN000;
 		DW	TRANGROUP:NO_VALUES	;AN000;
 		DB	0			;AN000;  no keywords
 
-OnOffWords DB 2,"ON",3,"OFF",0
-PARSE_CHCP	DB	81H,0,0,0,0		; Optional numeric code page
-
-;
-; PARSE control block for an optional file specification (upper cased)
-; or drive number
-;
-
+OnOffWords	DB	2,"ON",3,"OFF",0
 
 ;
 ; PARSE BLOCK FOR CHCP
 ;
+; ParseArgument returns the numeric value in ParseResultValue.
+; CHCP checks the supported three digit range.
+;
+PARSE_CHCP	DB	81H,0,0,0,0		; Optional numeric code page
 
-;
-; The following parse control block can be used for any command which
-; needs only one optional three digit decimal parameter for operands.
-; Returns verified result in PARSE1_OUTPUT.  Currently used for the
-; CHCP internal command.
-;
 CHCP_MINVAL	EQU	100			;AN000;
 CHCP_MAXVAL	EQU	999			;AN000;
 
@@ -694,36 +689,9 @@ TIME_CONTROL1	LABEL	BYTE			;AN000;
 
 
 ;
-; PARSE BLOCK FOR VOL
-;
-
-;
-; The following parse control block can be used for any command which
-; needs only an optional drive letter as an operand.  Returns unverified
-; drive number (one based) in DRIVE_OUTPUT.  Currently used for the VOL
-; internal command.
-;
-
-;
-; PARSE BLOCK FOR MKDIR, RMDIR, TYPE
-;
-
-;
-; The following parse control block can be used for any command which
-; needs only one required file specification as an operand.  Returns a
-; pointer to the unverified string in PARSE1_OUTPUT.  Currently used
-; for the MKDIR, RMDIR, and TYPE internal commands.
-;
-
-;
-; PARSE BLOCK FOR CHDIR, TRUENAME
-;
-
-;
-; The following parse control block can be used for any command which
-; needs only one optional file specification an operand.  Returns a
-; pointer to the unverified string in PARSE1_OUTPUT.  Currently used
-; for the CHDIR and TRUENAME internal commands.
+; PARSE controls for a drive, device name, pathname and ON/OFF argument.
+; ParseArgument returns the value in ParseResultValue and its type in
+; ParseResultType.  Callers check the number of operands.
 ;
 
 PARSE_VOL	DB	11H,0,0,0,0		; Optional drive
@@ -741,24 +709,19 @@ EchoOnOffControl DB	21H,1,0FFH,0FFH,0	; ECHO ON/OFF argument
 ; The following parse control block is used for the DEL/ERASE internal
 ; commands.  This command has one required file specification and an
 ; optional switch (/p) as operands. The verified switch or unverified
-; file specification is returned in PARSE1_OUTPUT.
+; file specification is returned in ParseResultValue.
 ;
 
 PARSE_ERASE	DB	20H,0,10H,0,0	; pathname and /P switch
 
 ;
-; PARSE BLOCK FOR DIR
+; SWITCH SYNONYMS FOR DIR
 ;
 
 ;
-; The following parse control block is used for the DIR internal command.
-; This command has one optional file specification and several optional
-; switches.  Switches, switch values, and the filespec are returned in 
-; PARSE1_OUTPUT.
-;
-; Switches are /a[value], /-a, /o[value], /-o, /s, /-s, /?, /b, /-b,
-; /w, /-w, /p, and /-p.  The string values for /a and /o are optional,
-; do not require colons, and are not checked against a value list.
+; DIR identifies switches through the synonym pointer table below.
+; The string values for /a and /o are optional, do not require colons,
+; and are not checked against a value list.
 ;
 ; Switch /h has been removed from the DIR command	;M008
 ; Switch /? is no longer handled internally		;M008
@@ -830,23 +793,11 @@ endif
 ;
 ; The following parse control block can be used for any command which
 ; needs only two required file specifications as operands.  Returns
-; pointers to the unverified string in PARSE1_OUTPUT.
+; pointers to the unverified string in ParseResultValue.
 ; Currently used for the RENAME internal command.
 ;
 
 PARSE_RENAME	DB	20H,0,0,0,0	; Required filename
-
-;
-; PARSE BLOCK FOR CTTY
-;
-
-;
-; The following parse control block can be used for any command which
-; needs one required device name as an operand.  Returns a pointer to
-; unverified string in PARSE1_OUTPUT. Currently used for the CTTY
-; internal command.
-;
-
 
 ;
 ; PARSE BLOCK FOR VER
@@ -854,22 +805,10 @@ PARSE_RENAME	DB	20H,0,0,0,0	; Required filename
 
 ;
 ; The following parse control block can be used for any command which
-; needs an optional switch "/debug".  Currently used for the VER command.
+; needs an optional switch "/R".  Currently used for the VER command.
 ;
 
 PARSE_VER	DB	0,0,40H,0,0		; Optional /R switch
-
-;
-; M003 ; Start of changes for LoadHigh support
-;
-
-;
-;Parse Control Block for LOADHIGH command
-;
-
-;
-; M003 ; End of changes for LoadHigh support
-;
 
 public TempVarName
 TempVarName	db	"TEMP=",0
