@@ -56,10 +56,10 @@ IO.SYS, MSDOS.SYS and COMMAND.COM all equal. This is an existing-asset check,
 not a claim that a new build has run. The accepted six-byte MSDOS.SYS config
 remains the target; other media provenance does not silently change it.
 
-## Current prefix: 177/293
+## Current prefix: 178/293
 
-Modified source/build files 91, exact 26, necessary unchanged 24,
-no same-name reference unchanged 36. Next: 178, dos/idle.asm. Tooling modified
+Modified source/build files 92, exact 26, necessary unchanged 24,
+no same-name reference unchanged 36. Next: 179, dos/ioctl.asm. Tooling modified
 1 (ioimage.c case-insensitive map symbol lookup), outside source count.
 See etc/T25/part1.md. BIOSTAIL.OBJ is unchanged; all compiler/link phases ran,
 then packaging failure was diagnosed and repaired. Fresh three-output FC/B
@@ -472,3 +472,9 @@ buffer flags with inherited symbols. Fresh kernel link unchanged, fresh
 IO.SYS and inherited other outputs target-exact; 293 inputs checked.
 See part71.md/file177-build.txt. Next: 178 dos/idle.asm.
 Full clean build and completion audit pending.
+
+P72 accepts 178 IDLE: remove copied unused declarations/includes and correct
+module description. C stderr-capture probe executes original NMAKE; fresh
+kernel link unchanged, fresh IO.SYS and inherited outputs target-exact.
+293 inputs checked. See part72.md/file178-build.txt and diagnostic caveat.
+Next: 179 dos/ioctl.asm. Full clean build and completion audit pending.

@@ -1,4 +1,4 @@
-	TITLE MISC2 - Miscellanious routines for MS-DOS
+	TITLE IDLE - Sharing retry delay
 	NAME  IDLE
 
 ;
@@ -7,24 +7,9 @@
 ;	All Rights Reserved.
 ;
 
-;**	MISC2.ASM - Miscellaneous useful routines
+;**	IDLE.ASM - Sharing retry delay
 ;
-;	StrCpy
-;	StrCmp
-;	StrLen
-;	DStrLen
 ;	Idle
-;	TableDispatch
-;	FastInit			  ; DOS 4.0
-;	FastRet			  ; DOS 4.0
-;	NLS_OPEN			  ; DOS 4.0
-;	NLS_LSEEK			  ; DOS 4.0
-;	Fake_User_Stack		  ; DOS 4.0
-;	GetDevList			  ; DOS 4.0
-;	NLS_IOCTL			  ; DOS 4.0
-;	NLS_GETEXT			  ; DOS 4.0
-;	MSG_RETRIEVAL		  ; DOS 4.0
-;	Fake_Version		  ; DOS 4.0
 ;
 ;	Revision history:
 ;
@@ -39,32 +24,15 @@
 	include version.inc
 	include dosseg.inc
 	include dossym.inc
-	include sysvar.inc
-	include sf.inc
-	include curdir.inc
-	include fastxxxx.inc
-	include bugtyp.inc
 	.cref
 	.list
 
-	i_need	THISCDS,DWORD
 	I_Need	RetryLoop,WORD
 	I_need	fSharing,BYTE		; TRUE => server-issued call
-	I_need	FastTable,BYTE		;AN000;
-	I_need	FastFlg,BYTE		;AN000;
-	I_need	User_SP_2F,WORD 	;AN000;
-	I_need	User_SP,WORD		;AN000;
-	I_need	User_SS,WORD		;AN000;
-	I_need	SysInitTable,BYTE	;AN000;
-	I_need	EXTERR,WORD		;AN000;
-	I_need	fshare,byte		;AN001;
-	I_need	Special_version,WORD	;AN006;
 
-	i_need	NlsBuffer,BYTE
 
 DOSCODE	SEGMENT
 
-	allow_getdseg
 
 	ASSUME	SS:DOSDATA,CS:DOSCODE
 
