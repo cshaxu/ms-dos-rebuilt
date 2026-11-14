@@ -1,0 +1,37 @@
+{
+  "scope": "Complete COMMAND.COM; both files 54619 bytes; equal byte offsets outside this list.",
+  "differences": [
+    {
+      "offset_hex": "0x21ad",
+      "v620": 48,
+      "v621": 49,
+      "source": "lang/usa/messages/comimsg.inc"
+    },
+    {
+      "offset_hex": "0x4994",
+      "v620": 134,
+      "v621": 50,
+      "source": "cmd/command/tcmd2a.asm"
+    },
+    {
+      "offset_hex": "0x4995",
+      "v620": 224,
+      "v621": 228,
+      "source": "cmd/command/tcmd2a.asm"
+    },
+    {
+      "offset_hex": "0x4996",
+      "v620": 50,
+      "v621": 176,
+      "source": "cmd/command/tcmd2a.asm"
+    },
+    {
+      "offset_hex": "0x4997",
+      "v620": 228,
+      "v621": 21,
+      "source": "cmd/command/tcmd2a.asm"
+    }
+  ],
+  "tcmd2a_evidence": "extras/docs/etc/command-tcmd2a-check.json",
+  "full_verification": "extras/docs/etc/overlay-build-verification.json"
+}

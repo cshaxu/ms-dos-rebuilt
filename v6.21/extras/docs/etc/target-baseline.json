@@ -1,0 +1,45 @@
+{
+  "image": {
+    "size": 221184,
+    "sha256": "c9adff049e37166320e2b3111cd3f16b699dcb7244330b03282fab1e3c89633b",
+    "bpb_bytes": 1474560,
+    "bytes_per_sector": 512,
+    "sectors_per_cluster": 1,
+    "reserved_sectors": 1,
+    "fat_count": 2,
+    "fat_sectors": 9,
+    "root_entries": 224,
+    "data_offset": 16896,
+    "fat_copies_equal": true
+  },
+  "files": {
+    "IO.SYS": {
+      "size": 40566,
+      "sha256": "a96905f6a7358dbddafbe1128e49e9996e7d416e007801b007573c1f0acf9bbf",
+      "first_cluster": 2,
+      "clusters": 80,
+      "last_cluster": 81,
+      "attributes": 39
+    },
+    "MSDOS.SYS": {
+      "size": 38138,
+      "sha256": "1ff320e7fdb3de707370e18d48d52b724b6f40f86ae7b70469bb130d754a904f",
+      "first_cluster": 82,
+      "clusters": 75,
+      "last_cluster": 156,
+      "attributes": 39
+    },
+    "COMMAND.COM": {
+      "size": 54619,
+      "sha256": "d8a0777930d8ded8a3e8bca732f32360c3bd6896394d5f938b1a0d85287d11dd",
+      "first_cluster": 157,
+      "clusters": 107,
+      "last_cluster": 263,
+      "attributes": 32
+    }
+  },
+  "source_image": "E:\\core\\collection\\systems\\x86_16_dos\\msdos_6xx\\msdos621_en_boot.img",
+  "target_directory": "extras/baselines/targets",
+  "missing_tail_bytes": 1253376,
+  "scope": "Read-only FAT12 inspection; complete core chains only; image may be truncated."
+}

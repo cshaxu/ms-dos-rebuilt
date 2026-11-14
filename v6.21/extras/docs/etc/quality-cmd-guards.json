@@ -1,0 +1,16 @@
+{
+  "status": "verified",
+  "test": "extras\\build\\cmd-guards-lwj1dybm\\test.cmd",
+  "log": "extras\\build\\cmd-guards-lwj1dybm\\test.log",
+  "exit_code": 0,
+  "production_assets_untouched": true,
+  "checks": [
+    "wrong output",
+    "wrong target hash",
+    "publication rollback",
+    "changed source",
+    "missing source",
+    "unlisted source"
+  ],
+  "shared_source_guard_for_base_and_overlay": true
+}

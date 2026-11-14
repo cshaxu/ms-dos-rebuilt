@@ -1,0 +1,199 @@
+{
+  "task": "M4 T9 S1",
+  "initial_files": 13,
+  "files": [
+    {
+      "path": "cmd/command/tcmd2a.asm",
+      "sha256": "76def300feef18a0e328182a4e0655c925266ee731c08572308e5634c9798651",
+      "kind": "source",
+      "status": "reviewed_retained",
+      "number": 1,
+      "evidence": "quality-source-audit.json"
+    },
+    {
+      "path": "lang/usa/messages/comimsg.inc",
+      "sha256": "f0bef5a57b9f9959add81a578f3562b4f7d68791a07fb31ab4fe782f49b60f92",
+      "kind": "source",
+      "status": "reviewed_retained",
+      "number": 2,
+      "evidence": "quality-source-audit.json"
+    },
+    {
+      "path": "extras/tools/__pycache__/build_command_reference.cpython-313.pyc",
+      "sha256": "f411f0af25ec583085a8cd08b1c86ab313620445ba5582ccec7c1c2eb2ea713f",
+      "kind": "tool",
+      "status": "retired_non_cmd_script",
+      "number": 3,
+      "evidence": "quality-script-retirement.json"
+    },
+    {
+      "path": "extras/tools/__pycache__/build_kernel_reference.cpython-313.pyc",
+      "sha256": "a270617279cf9fab1a6eaaf10c3c479a5a9895d771484161b2c894627f15b6ca",
+      "kind": "tool",
+      "status": "retired_non_cmd_script",
+      "number": 4,
+      "evidence": "quality-script-retirement.json"
+    },
+    {
+      "path": "extras/tools/__pycache__/build_three.cpython-313.pyc",
+      "sha256": "7a5dd0fae8094962c2b76f113fdf5570310bcfd07e77729e367db87520925e59",
+      "kind": "tool",
+      "status": "retired_non_cmd_script",
+      "number": 5,
+      "evidence": "quality-script-retirement.json"
+    },
+    {
+      "path": "extras/tools/__pycache__/target_fat12.cpython-313.pyc",
+      "sha256": "4081751587625061584121aa8a963452f5e759b64fb302b9a381919ab6257d86",
+      "kind": "tool",
+      "status": "retired_non_cmd_script",
+      "number": 6,
+      "evidence": "quality-script-retirement.json"
+    },
+    {
+      "path": "extras/tools/build_bios_reference.py",
+      "sha256": "8a746db8539d35e35c59fcfe299f7cca67d664e4647df88bf43f44ae69f0ab78",
+      "kind": "tool",
+      "status": "retired_non_cmd_script",
+      "number": 7,
+      "evidence": "quality-script-retirement.json"
+    },
+    {
+      "path": "extras/tools/build_command_reference.py",
+      "sha256": "1289655d8d9247527f281ff04b1225affa7f163ff7794b5f991bbd969f96b065",
+      "kind": "tool",
+      "status": "retired_non_cmd_script",
+      "number": 8,
+      "evidence": "quality-script-retirement.json"
+    },
+    {
+      "path": "extras/tools/build_isolated_runner.py",
+      "sha256": "bc957ac86710f8dacdcd3ed2413e4ea17747c4c46a888124dfb1305217751619",
+      "kind": "tool",
+      "status": "retired_non_cmd_script",
+      "number": 9,
+      "evidence": "quality-script-retirement.json"
+    },
+    {
+      "path": "extras/tools/build_kernel_reference.py",
+      "sha256": "758d02b80a6c06d75f32d61ce19e8356c6cfd0f731193faea3a9b2703737bc02",
+      "kind": "tool",
+      "status": "retired_non_cmd_script",
+      "number": 10,
+      "evidence": "quality-script-retirement.json"
+    },
+    {
+      "path": "extras/tools/build_three.py",
+      "sha256": "4bca6a73afaee81fc2185934c3671c0037bee1e77ee0cd1fbcff9460e58ffac8",
+      "kind": "tool",
+      "status": "retired_non_cmd_script",
+      "number": 11,
+      "evidence": "quality-script-retirement.json"
+    },
+    {
+      "path": "extras/tools/isolated_tool_runner.c",
+      "sha256": "c28ccb33d1df915fbc726b62b8b80f2a2e0a1d8850724e9670b0fbacc051053b",
+      "kind": "tool",
+      "status": "verified_format_only",
+      "number": 12,
+      "final_sha256": "39fcd07d5de6c59273a46159046f01a0a5f2e2494c698c6d2487532c78d33312",
+      "reference": "v6.2/extras/tools/isolated_tool_runner.c",
+      "evidence": "Accepted input and native runner pins identical to verified v6.20; no behavior change."
+    },
+    {
+      "path": "extras/tools/target_fat12.py",
+      "sha256": "f8cc8eed664e7adcf16d12b60d9685557d9729772b16685662e01829314f6f72",
+      "kind": "tool",
+      "status": "retired_non_cmd_script",
+      "number": 13,
+      "evidence": "quality-script-retirement.json"
+    },
+    {
+      "number": 14,
+      "path": "build.cmd",
+      "sha256": "606ca04cb4baff2d85474515a190ed5b26bd8cd0cd5365c2dad40402a0a5a6c5",
+      "kind": "build_tool",
+      "status": "verified_added",
+      "evidence": "quality-build-acceptance.json"
+    },
+    {
+      "number": 15,
+      "path": "extras/tools/build.cmd",
+      "sha256": "dd08df422b3a49d7f3645898f0bad5fa229c38a0cc60aa55fa5659169ff72218",
+      "kind": "build_tool",
+      "status": "verified_added",
+      "evidence": "quality-build-acceptance.json"
+    },
+    {
+      "number": 16,
+      "path": "extras/tools/dosbuild/baseline.lst",
+      "sha256": "5054ca958a63752d5dfdd8b93fc580a95a2d0c5e47107a7a7e6f5827437a4c62",
+      "kind": "build_tool",
+      "status": "verified_added",
+      "evidence": "quality-build-acceptance.json"
+    },
+    {
+      "number": 17,
+      "path": "extras/tools/dosbuild/build.bat",
+      "sha256": "d5c415856612e29a08053d9fc10c6835f47bddda66cad61a6b9a5f631aee7782",
+      "kind": "build_tool",
+      "status": "verified_added",
+      "evidence": "quality-build-acceptance.json"
+    },
+    {
+      "number": 18,
+      "path": "extras/tools/dosbuild/host-tools.cmd",
+      "sha256": "6aef4ff8990a26ce17e7e70189b56f8825a948ded61bc26728572b70a1e48c7d",
+      "kind": "build_tool",
+      "status": "verified_added",
+      "evidence": "quality-build-acceptance.json"
+    },
+    {
+      "number": 19,
+      "path": "extras/tools/dosbuild/nosrv.bat",
+      "sha256": "60b1028b408dadaac310542c6816818759e9274155e65b562a4253474dcfd1bc",
+      "kind": "build_tool",
+      "status": "verified_added",
+      "evidence": "quality-build-acceptance.json"
+    },
+    {
+      "number": 20,
+      "path": "extras/tools/dosbuild/overlay.lst",
+      "sha256": "9741d481900dab24568a40c66eb3c5bea30bf86172ceee73a36d6a0e6e4903f4",
+      "kind": "build_tool",
+      "status": "verified_added",
+      "evidence": "quality-build-acceptance.json"
+    },
+    {
+      "number": 21,
+      "path": "extras/tools/dosbuild/targets.sha256",
+      "sha256": "124dc33bd32569231d18d865f6a5cc0b964cde125b019878bfdb2624153e93ac",
+      "kind": "build_tool",
+      "status": "verified_added",
+      "evidence": "quality-build-acceptance.json"
+    },
+    {
+      "number": 22,
+      "path": "extras/tools/dosbuild/tools.ini",
+      "sha256": "2897bc51cbccf0306c2154a91ffc386f20e5713e0e009ee9dfee615ec53440c1",
+      "kind": "build_tool",
+      "status": "verified_added",
+      "evidence": "quality-build-acceptance.json"
+    },
+    {
+      "number": 23,
+      "path": "extras/tools/dosbuild/tools.lst",
+      "sha256": "a620e917451d7243fa6fb6ec9335360e505c48e7a7ae55ccb8d1a92fb6bef029",
+      "kind": "build_tool",
+      "status": "verified_added",
+      "evidence": "quality-build-acceptance.json"
+    }
+  ],
+  "status_counts": {
+    "reviewed_retained": 2,
+    "retired_non_cmd_script": 10,
+    "verified_format_only": 1,
+    "verified_added": 10
+  },
+  "completion": "No pending files; inherited 225-file scope covered separately by quality-source-audit.json"
+}

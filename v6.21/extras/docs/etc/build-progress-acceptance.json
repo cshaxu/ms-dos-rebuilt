@@ -1,0 +1,72 @@
+{
+  "task": "M5 T10 S1",
+  "status": "verified",
+  "files_modified": 4,
+  "before_sha256": {
+    "extras/tools/build.cmd": "dd08df422b3a49d7f3645898f0bad5fa229c38a0cc60aa55fa5659169ff72218",
+    "extras/tools/isolated_tool_runner.c": "39fcd07d5de6c59273a46159046f01a0a5f2e2494c698c6d2487532c78d33312",
+    "extras/tools/dosbuild/host-tools.cmd": "6aef4ff8990a26ce17e7e70189b56f8825a948ded61bc26728572b70a1e48c7d",
+    "extras/tools/dosbuild/build.bat": "d5c415856612e29a08053d9fc10c6835f47bddda66cad61a6b9a5f631aee7782"
+  },
+  "after_sha256": {
+    "extras/tools/build.cmd": "b2730a9c780017b6e34f3d6753ad266ea23a44d0fab4b154e0351717af2c959e",
+    "extras/tools/isolated_tool_runner.c": "a9561fbddba8b0c6078e659f50d00d41fea446e749a38a02289c8ceffcaaf43d",
+    "extras/tools/dosbuild/host-tools.cmd": "4310eb991a60d64f1bb99847cc1d1ba2f85bbaf5ee9c784f93c1e6d06d2c03fc",
+    "extras/tools/dosbuild/build.bat": "bf758a372c139d3f4efbde2cc0ab6ac157c69744f45aa08ebdeaa84603144960"
+  },
+  "unchanged_compiler_input_count": 227,
+  "dos_batch_effective_commands_identical": true,
+  "dos_rebuild": false,
+  "native_fixture": {
+    "status": "verified",
+    "live_lines": [
+      {
+        "seconds": 0.19,
+        "text": "private-desktop=DOS5Build_32832_130322250 owned-pid=26088"
+      },
+      {
+        "seconds": 0.19,
+        "text": "[compile 0s] Waiting for DOS build status"
+      },
+      {
+        "seconds": 5.19,
+        "text": "[compile 5s] Building IO.SYS"
+      },
+      {
+        "seconds": 10.2,
+        "text": "[compile 10s] Building MSDOS.SYS"
+      },
+      {
+        "seconds": 13.3,
+        "text": "child-exit=0 timeout=0"
+      }
+    ],
+    "success_exit": 0,
+    "failure_exit": 7,
+    "console_matches_host_log": true,
+    "private_desktop": true
+  },
+  "cache_refresh": {
+    "status": "verified",
+    "exit_code": 0,
+    "old_cache_rebuilt": true,
+    "output_sha256": "0ff06c420cfee936b57eb45d792daab519c6e221e5d092a22519162f3d947550"
+  },
+  "cmd_fixture": {
+    "status": "verified",
+    "test": "extras\\build\\progress-guards-9ozxae33\\test.cmd",
+    "log": "extras\\build\\progress-guards-9ozxae33\\test.log",
+    "exit_code": 0,
+    "hash_progress_observed": true,
+    "wrong_hash_and_output_rejected": true,
+    "rollback_passed": true
+  },
+  "outputs_unchanged_and_target_equal": true,
+  "progress": [
+    "six host stages",
+    "every 25 hash operations",
+    "live DOS phase every 5 seconds",
+    "same live messages in host.log",
+    "failure phase and log paths"
+  ]
+}

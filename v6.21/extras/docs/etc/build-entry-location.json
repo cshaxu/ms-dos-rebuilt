@@ -1,0 +1,35 @@
+{
+  "before": {
+    "build.cmd": "462a4d3593ecd62e2903dc1fcbdb3ca6876da14643e9b98dc4ee6270268456f9",
+    "extras\\tools\\build.cmd": "b2730a9c780017b6e34f3d6753ad266ea23a44d0fab4b154e0351717af2c959e"
+  },
+  "entry": "extras/build.cmd",
+  "merged_wrapper_and_helper": true,
+  "after_sha256": "8ff7f97d9abfd9ee1af32094bfb6e60f6ffb582e9629da41ae1fea1c38ef2d59",
+  "historical_copies_renamed": [
+    {
+      "old": "extras/build/progress-update/extras/tools/build.cmd",
+      "new": "extras/build/progress-update/extras/tools/build-entry.cmd",
+      "sha256": "dd08df422b3a49d7f3645898f0bad5fa229c38a0cc60aa55fa5659169ff72218"
+    }
+  ],
+  "status": "verified",
+  "tests": [
+    {
+      "exit_code": 0,
+      "root_and_support_paths_correct": true,
+      "pause": true,
+      "lock_released": true
+    },
+    {
+      "exit_code": 7,
+      "root_and_support_paths_correct": true,
+      "pause": true,
+      "lock_released": true
+    }
+  ],
+  "unique_build_cmd": [
+    "extras/build.cmd"
+  ],
+  "dos_rebuild": false
+}

@@ -1,0 +1,31 @@
+{
+  "scope": "Temporary copies under ignored extras/build; no production files were altered.",
+  "script_sha256": "4bca6a73afaee81fc2185934c3671c0037bee1e77ee0cd1fbcff9460e58ffac8",
+  "cases": [
+    {
+      "case": "valid baseline and overlay",
+      "result": "accepted"
+    },
+    {
+      "case": "one inherited baseline file changed",
+      "result": "rejected: 6.20 baseline changed"
+    },
+    {
+      "case": "one overlay file changed",
+      "result": "rejected: overlay differs from ledger"
+    },
+    {
+      "case": "unlisted overlay file added",
+      "result": "rejected: overlay does not match ledger"
+    },
+    {
+      "case": "required overlay file removed",
+      "result": "rejected: overlay does not match ledger"
+    },
+    {
+      "case": "restored baseline and overlay",
+      "result": "accepted; snapshot identical to initial"
+    }
+  ],
+  "limitations": "Validates guard behavior for these mutations, not all filesystem races."
+}

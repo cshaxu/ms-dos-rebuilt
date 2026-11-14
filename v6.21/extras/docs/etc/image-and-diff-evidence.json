@@ -1,0 +1,41 @@
+{
+  "image": "E:\\core\\collection\\systems\\x86_16_dos\\msdos_6xx\\msdos621_en_boot.img",
+  "image_sha256": "c9adff049e37166320e2b3111cd3f16b699dcb7244330b03282fab1e3c89633b",
+  "image_bytes": 221184,
+  "bpb_bytes": 1474560,
+  "image_file_chains_complete": true,
+  "components": [
+    {
+      "file": "IO.SYS",
+      "size": 40566,
+      "sha256": "a96905f6a7358dbddafbe1128e49e9996e7d416e007801b007573c1f0acf9bbf",
+      "image_baseline_output_equal": true
+    },
+    {
+      "file": "MSDOS.SYS",
+      "size": 38138,
+      "sha256": "1ff320e7fdb3de707370e18d48d52b724b6f40f86ae7b70469bb130d754a904f",
+      "image_baseline_output_equal": true
+    },
+    {
+      "file": "COMMAND.COM",
+      "size": 54619,
+      "sha256": "d8a0777930d8ded8a3e8bca732f32360c3bd6896394d5f938b1a0d85287d11dd",
+      "image_baseline_output_equal": true
+    }
+  ],
+  "command_differences": {
+    "banner_offset": "0x21ad",
+    "code_offset": "0x4994",
+    "tcmd2a_listing_offsets": [
+      "0x006d",
+      "0x006f"
+    ],
+    "print_version_address": "026e:23a9",
+    "offset_conversion": "0x26e0+0x23a9-0x100+0x0b=0x4994",
+    "intermediate_remaining_offsets": [
+      "0x21ad"
+    ]
+  },
+  "limitations": "The image is truncated outside the complete target chains. Map/listing proves this selected build layout, not historical symbol names."
+}
