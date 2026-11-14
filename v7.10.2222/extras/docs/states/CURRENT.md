@@ -22,3 +22,5 @@
 | Similar-Issue Sweep | Check all linked callers and resource offsets affected by each binary delta. |
 
 P1 freezes both baselines, selects the overlay, and restores the Windows build string in the inherited COMMAND source.
+
+P2 reuses the RTC refresh routine, restores the SE BIOS flags and expands two-digit years in the existing SYSPARSE date path. Stage cmd-1022-3510 builds all three files. MSDOS.SYS matches. IO.SYS differs only at 13E2h and COMMAND.COM still has a one-byte length difference and linked operand differences.
