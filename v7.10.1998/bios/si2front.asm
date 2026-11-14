@@ -696,33 +696,16 @@ kbd_read proc   near
         je      short kbd7_wait
         jmp     kbd7_menu
 kbd7_wait:
-        cmp     word ptr [boot_delay],0
-        je      short kbd7_shift
-        mov     ax,182
-        mul     word ptr [boot_delay]
-        mov     cx,10
-        div     cx
-        mov     bp,ax
-        push    ds
-        sub     ax,ax
-        mov     ds,ax
-        mov     dx,ds:[046ch]
-kbd7_wait_loop:
-        mov     ah,1
-        int     16h
-        jnz     short kbd7_wait_done
-        mov     ax,ds:[046ch]
-        sub     ax,dx
-        cmp     ax,bp
-        jb      short kbd7_wait_loop
-kbd7_wait_done:
-        pop     ds
-kbd7_shift:
         sub     dx,dx
         mov     ah,2
         int     16h
-        test    al,3
+        test    al,7
         jz      short kbd7_check_key
+        test    al,3
+        jnz     short kbd7_shift
+        mov     byte ptr [boot_menu],1
+        jmp     short kbd7_check_key
+kbd7_shift:
         mov     dx,offset sysinit_msg_base
         add     dx,word ptr [sysinit_msg_table+58]
 kbd7_safe:
@@ -731,7 +714,11 @@ kbd7_check_key:
         mov     ah,1
         int     16h
         jnz     short kbd7_have_key
+        test    byte ptr [boot_menu],1
+        jnz     short kbd7_show_menu
         jmp     kbd7_finish
+kbd7_show_menu:
+        jmp     kbd7_menu
 kbd7_have_key:
         test    al,al
         jz      short kbd7_function_key
@@ -829,10 +816,6 @@ kbd7_step:
         and     byte ptr [query_mode_flags],0feh
         or      byte ptr [query_mode_flags],8
         and     byte ptr [boot_runtime_flags],0efh
-        cmp     [boot_delay],dx
-        je      short kbd7_consume
-        mov     dx,offset sysinit_msg_base
-        add     dx,word ptr [sysinit_msg_table+64]
 kbd7_consume:
         mov     ah,0
         int     16h
