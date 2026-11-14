@@ -1,8 +1,6 @@
-;** CFGZERO.ASM - No arguments. Return the target default option value.
+;** CFGZERO.ASM - Return the default configuration option.
 ;
-; FAR C entry: No arguments. Return the target default option value.
-; Preserve profile bounds and original data segment restoration.
-; Local instruction flow follows the target; final layout is linked.
+; FAR C entry; no arguments. Returns AX = 0.
 ;
 _DATA segment word public 'DATA'
 ; No private data dependencies.

@@ -1,8 +1,7 @@
-;** CFGPUB.ASM - No arguments. Publish profile data and record list through CONFIG$.
+;** CFGPUB.ASM - Publish configuration profile data.
 ;
-; FAR C entry: No arguments. Publish profile data and record list through CONFIG$.
-; Original CONFIG$ request, signature and record serialization retained.
-; Local instruction flow follows the target; final layout is linked.
+; FAR C entry; no arguments. Request a buffer through CONFIG$ and fill
+; its header, profile data and linked configuration records.
 ;
         extrn ConfigIOWrite:far
         extrn __close:far

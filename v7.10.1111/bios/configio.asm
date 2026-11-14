@@ -1,4 +1,7 @@
-;** CONFIGIO.ASM
+;** CONFIGIO.ASM - Configuration program DOS file services
+;
+; FAR C entries. Arguments begin at BP+6; caller removes arguments.
+; Registry NEAR entries begin at BP+4 and remove their arguments.
 ;
 	.386
 _DATA segment word public use16 'DATA'
@@ -378,6 +381,10 @@ _TEXT ends
 
 REGIO segment word public use16 'CODE'
 	assume cs:REGIO
+
+; Open: path FAR pointer, reserved DWORD, flags DWORD, status FAR pointer.
+; Flag bit 0 requests write access and clearing the read-only attribute.
+;
 	public ConfigOpen
 ConfigOpen proc far
         enter 0,0
@@ -420,6 +427,10 @@ co_status:
         leave
         ret
 ConfigOpen endp
+
+; Close: path FAR pointer, handle WORD, reserved DWORD, flags DWORD.
+; Nonzero flags request commit and restore hidden/system/read-only bits.
+;
 	public ConfigClose
 ConfigClose proc far
         enter 0,0
@@ -456,6 +467,10 @@ cc_exit:
         leave
         ret
 ConfigClose endp
+
+; Read: handle WORD, buffer FAR pointer, count WORD, reserved WORD.
+; Return the DOS byte count in AX, or -1 on error.
+;
 	public ConfigRead
 ConfigRead proc far
         enter 0,0
@@ -484,6 +499,10 @@ cr_fail:
         mov ax,-1
         jmp short cr_exit
 ConfigRead endp
+
+; WriteAll: handle WORD, buffer FAR pointer, count DWORD, reserved DWORD.
+; Return zero in DX:AX on complete transfer, -1 on error or short transfer.
+;
 	public ConfigWriteAll
 ConfigWriteAll proc far
         enter 0,0
@@ -531,6 +550,9 @@ cwa_exit:
         leave
         ret
 ConfigWriteAll endp
+
+; Create: path FAR pointer and reserved DWORD.
+;
 	public ConfigCreate
 ConfigCreate proc far
         enter 0,0
@@ -560,6 +582,9 @@ ccr_fail:
         mov eax,-1
         jmp short ccr_exit
 ConfigCreate endp
+
+; GetAttr: path FAR pointer and reserved DWORD.
+;
 	public ConfigGetAttr
 ConfigGetAttr proc far
         enter 0,0

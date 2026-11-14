@@ -12,3 +12,16 @@ ordinal,path,disposition,verification
 11,bios/cfgmatch.asm,reduced-to-exact,Restored 950 procedure contract comments; assembler statements unchanged
 12,bios/cfgmem.asm,reduced,Restored 950 surviving procedure documentation and declaration style; kept byte segment alignment and omitted realloc entry as in the 1111 link map
 13,bios/cfgmenu.asm,exact,Byte comparison with frozen 950
+14,bios/cfgmsg.asm,retained,Target IO.SYS at 190568 contains the updated message header
+15,bios/cfgpub.asm,reduced-to-exact,Restored 950 procedure contract comments; assembler statements unchanged
+16,bios/cfgseg.asm,retained,CGROUP is present in the target-matching configuration map at 014E:0000
+17,bios/cfgzero.asm,reduced-to-exact,Restored the 950 return contract; assembler statements unchanged
+18,bios/config.inc,exact,Byte comparison with frozen 950
+19,bios/config.lnk,retained,1111 object placement and registry and CRT contributions produce the exact linked configuration
+20,bios/config.mak,retained,Assembly membership follows the 1111 linker list and requires crtstart.obj
+21,bios/configio.asm,reduced,Restored 950 documentation for six inherited FAR procedures; active registry NEAR and configuration FAR callers use distinct linked entries
+22,bios/cpath.asm,retained,1111 linked ConfigPreparePath has two additional pushes and 16-byte stack adjustment for ConfigOpen
+23,bios/crtclose.asm,exact,Byte comparison with frozen 950
+24,bios/crtcmp.asm,exact,Byte comparison with frozen 950
+25,bios/crtcomit.asm,exact,Byte comparison with frozen 950
+26,bios/crtend.asm,retained,Paragraph alignment precedes __end at 062E:1D70 in exact configuration link
