@@ -82,21 +82,15 @@ DOSDATA	SEGMENT
 	EXTRN	UNPACK_OFFSET	:WORD
 	EXTRN	RatBugCode	:FAR
 	EXTRN	RationalPatchPtr:word
-	EXTRN	fixexepatch	:word		; M028
-	EXTRN	Rational386PatchPtr:word
-	EXTRN	Special_Version	:word		; M028
 ;	EXTRN	A20OFF_FLAG	:byte
-	extrn	DosHasHMA	:byte		
 	extrn	A20OFF_COUNT	:byte		; M068
-	extrn	A20OFF_PSP	:word		; M068
-	extrn	DOS_FLAG	:byte		; M068
 
 DOSDATA	ENDS
 
 
-DOSCODE SEGMENT
-        ASSUME CS:DOSCODE,SS:DOSDATA
-        EXTRN ScanCodeSeq:NEAR,VerifyVersion:NEAR
+DOSCODE	SEGMENT
+	ASSUME	CS:DOSCODE, SS:DOSDATA
+	EXTRN	ScanCodeSeq:near,VerifyVersion:near
 public		exepatch_start
 exepatch_start	label 	byte
 
