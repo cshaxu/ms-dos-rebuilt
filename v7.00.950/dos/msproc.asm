@@ -1924,9 +1924,9 @@ Abort_Inner:
 ENDPROC $ABORT
 
 ; Notify the BIOS before transferring control to the new process.
-        i_need NlsBuffer,BYTE
-        i_need IsWin386,BYTE
-        i_need CDSADDR,DWORD
+	I_need	NlsBuffer,BYTE
+	I_need	IsWin386,BYTE
+	I_need	CDSADDR,DWORD
 
 procedure ExecNotify,near
         push ax
@@ -1981,9 +1981,9 @@ exec_save_drive:
         push ds
         push bx
         xor eax,eax
-        test WORD PTR [bx+43h],4000h
+        test [bx.curdir_flags],curdir_inuse
         jz short exec_save_id
-        lds bx,DWORD PTR [bx+45h]
+        lds bx,[bx.curdir_devptr]
         mov eax,[bx+13h]
 exec_save_id:
         DB 66h                 ; 32-bit operand before segment override
@@ -2034,11 +2034,11 @@ exec_check_drives:
 exec_check_drive:
         push es
         push di
-        test WORD PTR ES:[di+43h],4000h
+        test ES:[di.curdir_flags],curdir_inuse
         jz short exec_check_next
-        test WORD PTR ES:[di+43h],8000h
+        test ES:[di.curdir_flags],curdir_isnet
         jnz short exec_check_next
-        les di,DWORD PTR ES:[di+45h]
+        les di,ES:[di.curdir_devptr]
         mov eax,[bx]
         or eax,eax
         jz short exec_check_next
