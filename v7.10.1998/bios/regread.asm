@@ -2791,6 +2791,96 @@ RegNameChecksum endp
 	db 0
 	endif
 
+; Convert the decimal value name at the supplied far pointer.
+	public RegValueNameNumber
+RegValueNameNumber proc near
+	push bp
+	mov bp,sp
+	push di
+	push si
+	mov si,[bp+4]
+	xor di,di
+	mov es,[bp+6]
+	cmp byte ptr es:[si],'0'
+	jl short rvnn_done
+rvnn_digit:
+	cmp byte ptr es:[si],'9'
+	jg short rvnn_done
+	mov ax,10
+	mul di
+	mov di,ax
+	mov al,es:[si]
+	cbw
+	sub ax,'0'
+	add di,ax
+	inc si
+	cmp byte ptr es:[si],'0'
+	jnl short rvnn_digit
+rvnn_done:
+	mov ax,di
+	pop si
+	pop di
+	leave
+	ret 4
+RegValueNameNumber endp
+	if ($ - RegistryCode) and 1
+	db 0
+	endif
+
+; Store a decimal value name in the supplied far buffer.
+	public RegFormatValueName
+RegFormatValueName proc near
+	enter 2,0
+	push di
+	push si
+	mov word ptr [bp-2],0
+	mov bx,10000
+	cmp word ptr [bp+8],0
+	jnz short rfvn_digit
+	mov bx,[bp+4]
+	mov es,[bp+6]
+	mov si,bx
+	inc bx
+	mov byte ptr es:[si],'0'
+	jmp short rfvn_end
+rfvn_digit:
+	mov ax,[bp+8]
+	sub dx,dx
+	div bx
+	mov di,ax
+	mul bx
+	sub [bp+8],ax
+	or di,di
+	jz short rfvn_emit
+	mov word ptr [bp-2],1
+rfvn_emit:
+	cmp word ptr [bp-2],0
+	jz short rfvn_next
+	lea ax,[di+'0']
+	les si,[bp+4]
+	inc word ptr [bp+4]
+	mov es:[si],al
+rfvn_next:
+	mov cx,10
+	mov ax,bx
+	sub dx,dx
+	div cx
+	mov bx,ax
+	or ax,bx
+	jnz short rfvn_digit
+	mov bx,[bp+4]
+rfvn_end:
+	mov es,[bp+6]
+	mov byte ptr es:[bx],0
+	pop si
+	pop di
+	leave
+	ret 6
+RegFormatValueName endp
+	if ($ - RegistryCode) and 1
+	db 0
+	endif
+
 	public RegCompareName
 RegCompareName proc near
         enter 4,0
@@ -2911,6 +3001,49 @@ rcfr_done:
 	leave
 	ret 10h
 RegCopyFileRange endp
+	if ($ - RegistryCode) and 1
+	db 0
+	endif
+
+; Remove a value from a locked data record and close the resulting gap.
+; The far value pointer precedes the far record pointer on the stack.
+	public RegRemoveValueRecord
+RegRemoveValueRecord proc near
+	push bp
+	mov bp,sp
+	push di
+	push si
+	mov si,[bp+4]
+	mov es,[bp+6]
+	mov di,es:[si+8]
+	add di,es:[si+0Ah]
+	add di,0Ch
+	les bx,[bp+8]
+	dec word ptr es:[bx+0Eh]
+	jz short rrvr_size
+	push word ptr [bp+6]
+	push si
+	mov ax,si
+	mov dx,[bp+6]
+	add ax,di
+	push dx
+	push ax
+	les bx,[bp+8]
+	sub ax,es:[bx+8]
+	neg ax
+	add ax,bx
+	push ax
+	call RegMoveMemory
+rrvr_size:
+	sub cx,cx
+	les bx,[bp+8]
+	sub es:[bx+8],di
+	sbb es:[bx+0Ah],cx
+	pop si
+	pop di
+	leave
+	ret 8
+RegRemoveValueRecord endp
 	if ($ - RegistryCode) and 1
 	db 0
 	endif
