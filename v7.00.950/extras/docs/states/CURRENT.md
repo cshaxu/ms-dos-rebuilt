@@ -56,10 +56,10 @@ IO.SYS, MSDOS.SYS and COMMAND.COM all equal. This is an existing-asset check,
 not a claim that a new build has run. The accepted six-byte MSDOS.SYS config
 remains the target; other media provenance does not silently change it.
 
-## Current prefix: 147/293
+## Current prefix: 150/293
 
-Modified source/build files 73, exact 21, necessary unchanged 17,
-no same-name reference unchanged 36. Next: 148, dos/create.asm. Tooling modified
+Modified source/build files 74, exact 21, necessary unchanged 19,
+no same-name reference unchanged 36. Next: 151, dos/dev.asm. Tooling modified
 1 (ioimage.c case-insensitive map symbol lookup), outside source count.
 See etc/T25/part1.md. BIOSTAIL.OBJ is unchanged; all compiler/link phases ran,
 then packaging failure was diagnosed and repaired. Fresh three-output FC/B
@@ -360,3 +360,10 @@ group its external declaration; retain CPMIO2's required console mode inputs.
 Fresh kernel link unchanged; repacked IO.SYS and both inherited outputs exact.
 All 293 inputs match extras/build/t25-cpmio-27503-24180; see part53.md.
 Next: 148 dos/create.asm. Final full build and completion audit pending.
+
+P54 accepts files 148-150: retain CREATE drive-state dispatch and DELETE
+LFN cleanup/flush policy; remove CRIT unused externals and obsolete patch
+comment, restore declaration and instruction forms. Fresh kernel link unchanged;
+repacked IO.SYS and inherited other outputs exact; all 293 inputs verified.
+Latest: extras/build/t25-crit-27983-31332; see part54.md.
+Next: 151 dos/dev.asm. Final full build and completion audit pending.
