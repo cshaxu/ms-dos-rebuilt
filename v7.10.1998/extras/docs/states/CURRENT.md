@@ -52,3 +52,5 @@ P13 restores FE root handle reset and teaches the inherited key record encoder a
 P14 restores the FE startup modifier keys and the early menu scan in the existing SI2FRONT module. Stage cmd-20333-11663 builds all three images. The 364-byte keyboard block aligns to the target by one byte and has 36 operand differences. COMMAND.COM and MSDOS.SYS match in full. IO.SYS remains open.
 
 P15 restores FE key allocation inside the inherited REGREAD allocator, retaining its shared cache services. Its complete 720-byte target block differs in six linked call bytes. Stage cmd-21456-6331 produces 222422 IO.SYS bytes and full matches for COMMAND.COM and MSDOS.SYS. IO.SYS still differs from the frozen image.
+
+P16 integrates the FE signature and version checks into RegReadFile and updates the inherited save routine to mark the correct header state during in-place writes. Stage cmd-22217-20342 brings IO.SYS to the same 222390-byte length as the frozen target, with the first 2048 bytes matching exactly. The BIOS, embedded kernel and configuration still have unresolved instruction or layout differences. COMMAND.COM and MSDOS.SYS remain exact.

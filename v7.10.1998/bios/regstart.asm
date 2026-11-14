@@ -397,20 +397,17 @@ roft_allocated:
 	call RegDosRead
 	or ax,ax
 	jz short roft_read_error
-	mov eax,[bp-4]
-	add ax,16h
-	push eax
-	call RegValidateHeader
-	or ax,ax
-	jnz short roft_header
-roft_invalid:
-	mov si,3F1h
-	jmp roft_close_error
-roft_open_error:
-	mov si,[bp-6]
-	jmp roft_free
-roft_header:
 	les bx,[bp-4]
+	db 66h,26h,81h,7Fh,16h	; CREG signature
+	dd 47455243h
+	jnz near ptr roft_invalid
+	db 66h,26h,81h,7Fh,1Ah
+	dd 10000h
+	jz short roft_header
+	db 66h,26h,81h,7Fh,1Ah
+	dd 20000h
+	jnz near ptr roft_invalid
+roft_header:
 	and byte ptr es:[bx+28h],0FAh
 	; CMP DWORD PTR ES:[BX+1Ah],00020000h, operand prefix first.
 	db 66h,26h,81h,7Fh,1Ah
@@ -433,6 +430,9 @@ roft_key_header:
 	dd 4E4B4752h
 	jz short roft_caches
 	jmp short roft_invalid
+roft_open_error:
+	mov si,[bp-6]
+	jmp short roft_free
 roft_read_error:
 	mov si,[bp-6]
 	jmp short roft_close_error
@@ -478,6 +478,8 @@ roft_link:
 	mov es:[bx],ax
 	xor ax,ax
 	jmp short roft_done
+roft_invalid:
+	mov si,3F1h
 roft_close_error:
 	push word ptr [bp-0Ah]
 	call RegDosClose
@@ -492,45 +494,6 @@ roft_done:
 	leave
 	ret 8
 RegReadFile endp
-	if ($ - RegistryCode) and 1
-	db 0
-	endif
-
-	public RegValidateHeader
-RegValidateHeader proc near
-	push bp
-	mov bp,sp
-	push si
-	mov si,[bp+4]
-	mov es,word ptr [bp+6]
-	db 66h,26h,81h,3Ch
-	dd 47455243h
-	jnz short rcht_bad
-	db 66h,26h,81h,7Ch,04h
-	dd 10000h
-	jz short rcht_checksum
-	db 66h,26h,81h,7Ch,04h
-	dd 20000h
-	jnz short rcht_bad
-rcht_checksum:
-	test byte ptr es:[si+12h],4
-	jz short rcht_valid
-	push es
-	push si
-	push 20h
-	call RegChecksum
-	or dx,ax
-	jnz short rcht_bad
-rcht_valid:
-	mov ax,1
-	jmp short rcht_done
-rcht_bad:
-	xor ax,ax
-rcht_done:
-	pop si
-	leave
-	ret 4
-RegValidateHeader endp
 	if ($ - RegistryCode) and 1
 	db 0
 	endif
@@ -799,6 +762,8 @@ rsfs_inplace:
 	mov [bp-4],ax
 	inc ax
 	jz rsfs_error
+	mov es,[bp+6]
+	or byte ptr es:[si+28h],9
 rsfs_header:
 	cmp word ptr [bp-6],-1
 	jnz short rsfs_extent
@@ -807,13 +772,16 @@ rsfs_header:
 	jz short rsfs_keys
 rsfs_extent:
 	mov es,word ptr [bp+6]
+	or byte ptr es:[si+28h],20h
 	test byte ptr es:[si+56h],8
 	jz short rsfs_packed
+	mov es,[bp+6]
 	mov ax,es:[si+0Ch]
 	mov dx,es:[si+0Eh]
 	add ah,10h
 	jmp short rsfs_position
 rsfs_packed:
+	mov es,[bp+6]
 	mov ax,es:[si+0Ch]
 	mov dx,es:[si+0Eh]
 	add ax,20h
@@ -837,7 +805,7 @@ rsfs_position:
 	push word ptr [bp-4]
 	call RegDosCommit
 	or ax,ax
-	jz rsfs_error
+	jz short rsfs_commit_error
 rsfs_keys:
 	push word ptr [bp+6]
 	push si
