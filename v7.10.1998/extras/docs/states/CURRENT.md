@@ -62,3 +62,5 @@ P18 restores WINVER acceptance, leaves the obsolete BOOTDELAY option as a no-op,
 P19 removes unused BOOTDELAY storage and the default SETVER driver entry, and restores JO.SYS in the existing earlier-system filename table. The linked filename starts at target offset A752h. Stage cmd-25290-9280 builds all three files; COMMAND.COM and MSDOS.SYS match in full. IO.SYS remains open.
 
 P20 restores FE restart menu selection and the extended DPB check on the boot volume. Stage cmd-26041-23814 matches the 37-byte FAT32 check exactly at BD4Ch, restores the BIOS message marker at 72799 and the boot logo at 122928, and verifies COMMAND.COM and MSDOS.SYS in full. IO.SYS remains open.
+
+P21 restores the shared local rename error exit in FILE. Stage cmd-26799-27076 matches all 45488 bytes of the embedded DOS image and trailing alignment, as well as COMMAND.COM and MSDOS.SYS in full. Remaining IO.SYS differences are in the configuration and BIOS regions and the outer header.

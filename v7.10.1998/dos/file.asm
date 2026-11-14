@@ -483,7 +483,8 @@ rnloop: 				   ;AN000;
 	JMP	rnloop			   ;AN000;;MS.
 rnerr:					   ;AN000;
 	ADD	SP,4			   ;AN000;;MS. pop thiscds
-	error	error_current_directory    ;AN000;;MS.
+	MOV	AL,error_current_directory ;AN000;;MS.
+	JMP	SHORT UnlinkE		   ; Return through the file error exit
 dorn:					   ;AN000;
 	POP	WORD PTR SS:[THISCDS+2]    ;AN000;;MS.;PBUGBUG;SS REQD??
 	POP	WORD PTR SS:[THISCDS]	   ;AN000;;MS.;PBUGBUG;SS REQD??
