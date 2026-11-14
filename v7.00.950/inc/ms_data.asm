@@ -228,7 +228,7 @@ IBMPATCH    label byte
 					;at SYSINIT time.
  
  
-; DOS 7 I/O state records; names assigned during reconstruction.
+; Saved directory scan states for LFN lookup and rename.
         I_am    IoState1,14,<14 dup (0)>
         I_am    IoState2,14,<14 dup (0)>
         I_am    IoState3,14,<14 dup (0)>
