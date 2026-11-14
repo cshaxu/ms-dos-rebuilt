@@ -27,7 +27,8 @@ TITLE	Part3 COMMAND Transient Routines
 DATARES 	SEGMENT PUBLIC BYTE	;AC000;
 	EXTRN	BATCH:WORD
 	EXTRN	ECHOFLAG:BYTE
-	EXTRN	FORFLAG:BYTE,LFNForFlag:BYTE
+	EXTRN	FORFLAG:BYTE
+	EXTRN	LFNForFlag:BYTE
 	EXTRN	FORPTR:WORD
 	EXTRN	NEST:WORD
 	EXTRN	NULLFLAG:BYTE
@@ -44,8 +45,10 @@ TRANDATA	ENDS
 
 TRANSPACE	SEGMENT PUBLIC BYTE	;AC000;
 	extrn	arg:byte		; the arg structure!
-	EXTRN	ComBufPtr:WORD,CmdBufferLength:WORD
-	EXTRN	PathFindMode:BYTE,PathFindHandle:WORD
+	EXTRN	ComBufPtr:WORD
+	EXTRN	CmdBufferLength:WORD
+	EXTRN	PathFindMode:BYTE
+	EXTRN	PathFindHandle:WORD
 	EXTRN	RESSEG:WORD
 	EXTRN	string_ptr_2:word
 TRANSPACE	ENDS
@@ -54,7 +57,9 @@ TRANCODE	SEGMENT PUBLIC BYTE
 
 ASSUME	CS:TRANGROUP,DS:NOTHING,ES:NOTHING,SS:NOTHING
 
-	EXTRN	SelectPathInterface:NEAR,PathFindFirst:NEAR,PathFindNext:NEAR
+	EXTRN	SelectPathInterface:NEAR
+	EXTRN	PathFindFirst:NEAR
+	EXTRN	PathFindNext:NEAR
 	EXTRN	cerror:near
 	EXTRN	docom:near
 	EXTRN	docom1:near
@@ -219,7 +224,7 @@ for_find_first:
 	PUSH	CX
 	XOR	CX,CX
 	mov	DI,fordma
-	invoke	PathFindFirst
+	invoke	PathFindFirst			; and search for first filename match
 	mov	f.FOR_FIND_HANDLE,AX
 	mov	CS:PathFindHandle,0
 	POP	CX
@@ -228,7 +233,7 @@ for_find_next:
 	mov	DI,fordma
 	mov	AX,f.FOR_FIND_HANDLE
 	mov	CS:PathFindHandle,AX
-	invoke	PathFindNext
+	invoke	PathFindNext			; search for next filename match
 	mov	CS:PathFindHandle,0
 
 for_result:
@@ -599,8 +604,8 @@ break <Save_Args>
 ;   1)	The allocated area will be AT LEAST the size requested -- since
 ;	the underlying MSDOS call, <alloc> returns an integral number of
 ;	paragraphs.
-;   2)	It is an error if MSDOS can't allocate AT LEAST as much memory
-;	as the caller of Save_Args requests.
+;   2)	It is an error if MSDOS can't allocate the control information
+;	and three command-buffer lengths of string storage.
 ;   3)	AX is undefined if CF indicates an error.
 ;---------------
 Procedure   Save_Args,NEAR
@@ -637,8 +642,8 @@ assume	ES:nothing
 	add	CX, CX
 	add	CX, CmdBufferLength
 	rep	movsb
-	mov	CX, arg.argvcnt		; adjust argv pointers
-	xor	AX, AX			; base address for argv_calc
+	mov	CX, arg.argvcnt 		; adjust argv pointers
+	xor	AX, AX				; base address for argv_calc
 	mov	SI, ComBufPtr
 	add	SI, CmdBufferLength
 	inc	SI
@@ -684,6 +689,7 @@ save_exit:
 	ret
 ;---------------
 EndProc Save_Args
+;----------------------------------------------------------------------------
 
 trancode    ends
 	    end

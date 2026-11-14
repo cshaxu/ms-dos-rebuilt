@@ -56,10 +56,10 @@ IO.SYS, MSDOS.SYS and COMMAND.COM all equal. This is an existing-asset check,
 not a claim that a new build has run. The accepted six-byte MSDOS.SYS config
 remains the target; other media provenance does not silently change it.
 
-## Current prefix: 131/293
+## Current prefix: 132/293
 
-Modified source/build files 61, exact 21, necessary unchanged 13,
-no same-name reference unchanged 36. Next: 132, cmd/command/tfor.asm. Tooling modified
+Modified source/build files 62, exact 21, necessary unchanged 13,
+no same-name reference unchanged 36. Next: 133, cmd/command/tmisc1.asm. Tooling modified
 1 (ioimage.c case-insensitive map symbol lookup), outside source count.
 See etc/T25/part1.md. BIOSTAIL.OBJ is unchanged; all compiler/link phases ran,
 then packaging failure was diagnosed and repaired. Fresh three-output FC/B
@@ -263,4 +263,8 @@ File 131 restores TENV2's directory error/copy/string comparison comments,
 instruction layout and two service symbols. Required shared path handling
 remains intact. COMMAND rebuild/repack and all target/input checks pass;
 extras/build/t25-tenv2-18843-19521; see part40.md.
-Next: 132 tfor.asm. Full automatic final build remains pending.
+File 132 restores TFOR's external/search and inherited Save_Args conventions;
+corrects the obsolete allocation-input note. Required dynamic FOR state and
+search ownership remain intact. COMMAND rebuild/repack and all target/input
+checks pass; extras/build/t25-tfor-19274-29286; see part41.md.
+Next: 133 tmisc1.asm. Full automatic final build remains pending.
