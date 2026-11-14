@@ -12,8 +12,8 @@
 ;	DskRead
 ;	DWRITE
 ;	DSKWRITE
-;	HarderrRW
-;	SETUP
+;	CHECK_WRITE_LOCK
+;	CHECK_READ_LOCK
 ;	BREAKDOWN
 ;	READ_LOCK_VIOLATION
 ;	WRITE_LOCK_VIOLATION
@@ -50,21 +50,17 @@ Installed = TRUE
 	i_need	THISSFT,DWORD
 	i_need	DMAADD,DWORD
 	i_need	NEXTADD,WORD
-	i_need	ThisDrv,BYTE
 	i_need	SecClusPos,BYTE
 	i_need	ClusNum,WORD
 	i_need	ReadOp,BYTE
 	i_need	Trans,BYTE
 	i_need	BytPos,4
-	i_need	SecPos,DWORD		 ; DOS 4.00 >32mb			;AN000;
 	i_need	BytSecPos,WORD
 	i_need	BytCnt1,WORD
 	i_need	BytCnt2,WORD
 	i_need	SecCnt,WORD
 	i_need	ThisDPB,DWORD
 	i_need	LastPos,WORD
-	i_need	EXTERRPT,DWORD
-	i_need	CALLVIDRW,DWORD
 	i_need	ALLOWED,BYTE
 	i_need	DEVCALL,BYTE
 	i_need	CALLSCNT,WORD
@@ -78,31 +74,9 @@ Installed = TRUE
 
 
 DOSCODE	Segment
-        EXTRN FIRST_BUFF_ADDR:WORD
+	EXTRN	FIRST_BUFF_ADDR:WORD
 	ASSUME	SS:DOSDATA, CS:DOSCODE
 
-
-Break	<DSKREAD -- PHYSICAL DISK READ>
-;---------------------------------------------------------------------------
-;
-; Procedure Name : DSKREAD
-;
-; Inputs:
-;	DS:BX = Transfer addr
-;	CX = Number of sectors
-;	[HIGH_SECTOR] = Absolute record number (HIGH)
-;	DX = Absolute record number	       (LOW)
-;	ES:BP = Base of drive parameters
-; Function:
-;	Call BIOS to perform disk read
-; Outputs:
-;	DI = CX on entry
-;	CX = Number of sectors unsuccessfully transfered
-;	AX = Status word as returned by BIOS (error code in AL if error)
-;	Zero set if OK (from BIOS) (carry clear)
-;	Zero clear if error (carry clear)
-; SI Destroyed, others preserved
-;---------------------------------------------------------------------------
 
 Break	<CHECK_WRITE_LOCK>
 ;---------------------------------------------------------------------------
@@ -175,6 +149,28 @@ do_retry:				;
 READ_LOCK_OK:				;
 	return				;
 EndProc CHECK_READ_LOCK 		;
+
+Break	<DSKREAD -- PHYSICAL DISK READ>
+;---------------------------------------------------------------------------
+;
+; Procedure Name : DSKREAD
+;
+; Inputs:
+;	DS:BX = Transfer addr
+;	CX = Number of sectors
+;	[HIGH_SECTOR] = Absolute record number (HIGH)
+;	DX = Absolute record number	       (LOW)
+;	ES:BP = Base of drive parameters
+; Function:
+;	Call BIOS to perform disk read
+; Outputs:
+;	DI = CX on entry
+;	CX = Number of sectors unsuccessfully transfered
+;	AX = Status word as returned by BIOS (error code in AL if error)
+;	Zero set if OK (from BIOS) (carry clear)
+;	Zero clear if error (carry clear)
+; SI Destroyed, others preserved
+;---------------------------------------------------------------------------
 
 procedure   DskRead,NEAR
 
@@ -285,46 +281,6 @@ DODSKOP:
 EndProc DskRead
 
 
-
-
-
-Break	<SETUP -- SETUP A DISK READ OR WRITE FROM USER>
-;----------------------------------------------------------------------------
-;
-; Procedure Name : SETUP
-;
-; Inputs:
-;	ES:DI point to SFT (value also in THISSFT)
-;	DMAAdd contains transfer address
-;	CX = Byte count
-;	DS = DOSDATA
-;   WARNING Stack must be clean, two ret addrs on stack, 1st of caller,
-;		2nd of caller of caller.
-; Outputs:
-;	    CX = byte count
-;	    [THISDPB] = Base of drive parameters if file
-;		      = Pointer to device header if device or NET
-;	    ES:DI Points to SFT
-;	    [NEXTADD] = Displacement of disk transfer within segment
-;	    [TRANS] = 0 (No transfers yet)
-;	    BytPos = Byte position in file
-;
-;	The following fields are relevant to local files (not devices) only:
-;
-;	    SecPos = Position of first sector (local files only)
-;	    [BYTSECPOS] = Byte position in first sector (local files only)
-;	    [CLUSNUM] = First cluster (local files only)
-;	    [SECCLUSPOS] = Sector within first cluster (local files only)
-;	    [THISDRV] = Physical unit number (local files only)
-;
-;      RETURNS ONE LEVEL UP WITH:
-;	   CX = 0
-;	   CARRY = Clear
-;	IF AN ERROR IS DETECTED
-; All other registers destroyed
-;----------------------------------------------------------------------------
-
-;hkn; called from disk.asm. DS has been set up to DOSDATA.
 
 
 
