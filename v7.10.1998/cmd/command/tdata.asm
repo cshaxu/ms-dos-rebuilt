@@ -111,8 +111,8 @@ endif
 	EXTRN	DirBasePath:BYTE
 	EXTRN	TraceReturnCode:BYTE
         EXTRN   FileSiz:DWORD           ; accumulated file size for DIR
-	EXTRN	major_ver_num:WORD
-	EXTRN	minor_ver_num:WORD
+
+	EXTRN	WindowsVersion:BYTE
 	EXTRN	one_char_val:BYTE
 	EXTRN	PARSE1_OUTPUT:BYTE	;AC000;
 	EXTRN	srcbuf:byte
@@ -756,6 +756,8 @@ DIR_SW_NEG_C	DB	"/-C",0
 endif
 DIR_SW_NEG_Z	DB	"/-Z",0
 DIR_SW_Z	DB	"/Z",0
+DIR_SW_NEG_4	DB	"/-4",0
+DIR_SW_4	DB	"/4",0
 ;
 ; Here's a list of pointers to DIR's switch synonyms, for easier
 ; identification.  Order is critical - DIR routines rely on the
@@ -786,6 +788,8 @@ endif
 		DW	TRANGROUP:DIR_SW_O
 		DW	TRANGROUP:DIR_SW_NEG_A
 		DW	TRANGROUP:DIR_SW_A
+		DW	TRANGROUP:DIR_SW_NEG_4
+		DW	TRANGROUP:DIR_SW_4
 
 ;
 ; PARSE BLOCK FOR RENAME

@@ -1074,9 +1074,9 @@ old_load_bad_image:
 	pop     ds
 	assume  ds:sysinitseg
 	call    print_indexed
-	dw      803bh
+	dw      8040h
 	call    print_indexed
-	dw      803ch
+	dw      8041h
 old_load_close:
 	mov     ah,close
 	int     21h
@@ -1085,9 +1085,9 @@ old_load_not_found:
 	push    cs
 	pop     ds
 	call    print_indexed
-	dw      803ah
+	dw      803fh
 	call    print_indexed
-	dw      803ch
+	dw      8041h
 old_load_restore:
 	pop     dx
 	pop     ds
@@ -1992,40 +1992,40 @@ boot_previous_menu_check endp
 boot_build_menu proc near
 	mov     bx,2
 	mov     dx,offset sysinit_msg_base
-	add     dx,word ptr [sysinit_msg_table+92]
-	mov     [bx+aoffBlockDesc],dx
-	add     bx,2
-	mov     dx,offset sysinit_msg_base
-	add     dx,word ptr [sysinit_msg_table+94]
-	mov     [bx+aoffBlockDesc],dx
-	add     bx,2
-	mov     dx,offset sysinit_msg_base
-	add     dx,word ptr [sysinit_msg_table+96]
-	mov     [bx+aoffBlockDesc],dx
-	cmp     byte ptr [exec_value],'0'
-	je      short boot_menu_nonetwork
-	add     bx,2
-	mov     dx,offset sysinit_msg_base
-	add     dx,word ptr [sysinit_msg_table+98]
-	mov     [bx+aoffBlockDesc],dx
-boot_menu_nonetwork:
-	add     bx,2
-	mov     dx,offset sysinit_msg_base
-	add     dx,word ptr [sysinit_msg_table+100]
-	mov     [bx+aoffBlockDesc],dx
-	add     bx,2
-	mov     dx,offset sysinit_msg_base
 	add     dx,word ptr [sysinit_msg_table+102]
 	mov     [bx+aoffBlockDesc],dx
 	add     bx,2
 	mov     dx,offset sysinit_msg_base
 	add     dx,word ptr [sysinit_msg_table+104]
 	mov     [bx+aoffBlockDesc],dx
+	add     bx,2
+	mov     dx,offset sysinit_msg_base
+	add     dx,word ptr [sysinit_msg_table+106]
+	mov     [bx+aoffBlockDesc],dx
+	cmp     byte ptr [exec_value],'0'
+	je      short boot_menu_nonetwork
+	add     bx,2
+	mov     dx,offset sysinit_msg_base
+	add     dx,word ptr [sysinit_msg_table+108]
+	mov     [bx+aoffBlockDesc],dx
+boot_menu_nonetwork:
+	add     bx,2
+	mov     dx,offset sysinit_msg_base
+	add     dx,word ptr [sysinit_msg_table+110]
+	mov     [bx+aoffBlockDesc],dx
+	add     bx,2
+	mov     dx,offset sysinit_msg_base
+	add     dx,word ptr [sysinit_msg_table+112]
+	mov     [bx+aoffBlockDesc],dx
+	add     bx,2
+	mov     dx,offset sysinit_msg_base
+	add     dx,word ptr [sysinit_msg_table+114]
+	mov     [bx+aoffBlockDesc],dx
 	test    byte ptr [boot_runtime_flags],80h
 	jnz     short boot_menu_no_old_dos
 	add     bx,2
 	mov     dx,offset sysinit_msg_base
-	add     dx,word ptr [sysinit_msg_table+106]
+	add     dx,word ptr [sysinit_msg_table+116]
 	mov     [bx+aoffBlockDesc],dx
 boot_menu_no_old_dos:
 	shr     bx,1
@@ -2130,7 +2130,7 @@ boot_menu_selection_other:
 	or      byte ptr [boot_config_flags],10h
 boot_menu_selection_old_message:
 	mov     dx,offset sysinit_msg_base
-	add     dx,word ptr [sysinit_msg_table+122]
+	add     dx,word ptr [sysinit_msg_table+132]
 boot_menu_selection_done:
 	jcxz    boot_menu_selection_return
 	push    dx
@@ -2432,7 +2432,7 @@ boot_section_options endp
 boot_option_error proc near
 	mov     ah,std_con_string_output
 	mov     dx,offset sysinit_msg_base
-	add     dx,word ptr [sysinit_msg_table+124]
+	add     dx,word ptr [sysinit_msg_table+134]
 	int     21h
 	mov     si,offset boot_option_line
 boot_error_char:

@@ -1735,7 +1735,7 @@ LdngLo:
 	cmp	cs:[dos_low_message],0
 	je	short load_low_silent
 	call	print_indexed
-	dw	8038h
+	dw	803dh
 load_low_silent:
 
 ifndef ROMDOS
@@ -2093,7 +2093,7 @@ FatalErr:
 	push    cs
 	pop     ds
 	call    print_indexed
-	dw      8039h
+	dw      803eh
 	public  stall
 stall label near
 fatal_halt:

@@ -153,10 +153,10 @@ endif
         PUBLIC  LeftOnLine
         PUBLIC  LeftOnPage
 	PUBLIC	linperpag		;AN000;
-	PUBLIC	major_ver_num
+
 	PUBLIC	MELCOPY
 	PUBLIC	MELSTART
-	PUBLIC	minor_ver_num
+
 	PUBLIC	msg_flag		;AN022;
 	PUBLIC	msg_numb		;AN022;
 	PUBLIC	NOWRITE
@@ -413,8 +413,8 @@ bytes_free	dw	?
 		dw	?
 	PUBLIC	Bytes_Free_Fraction,DirUsedPercent
 Bytes_Free_Fraction dw ?
-major_ver_num	dw	?
-minor_ver_num	dw	?
+	PUBLIC	WindowsVersion
+WindowsVersion db	"4.10.1998",0
 one_char_val	db	?,0
 vol_drv 	db	?
 	PUBLIC	DirSortOverflow

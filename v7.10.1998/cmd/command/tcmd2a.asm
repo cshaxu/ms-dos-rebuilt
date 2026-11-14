@@ -62,7 +62,7 @@ TRANDATA	SEGMENT PUBLIC BYTE	;AC000;
 	EXTRN	Parse_Ver:byte
 	EXTRN	prompt_table:word
 	EXTRN	string_buf_ptr:word	;AC000;
-	EXTRN	WindowsVer_Ptr:word
+	EXTRN	VerMes_Ptr:word
 TRANDATA	ENDS
 
 TRANSPACE	SEGMENT PUBLIC BYTE	;AC000;
@@ -70,8 +70,8 @@ TRANSPACE	SEGMENT PUBLIC BYTE	;AC000;
 	EXTRN	bwdbuf:byte
 	EXTRN	curdrv:byte
 	EXTRN	dirchar:byte
-	EXTRN	major_ver_num:word
-	EXTRN	minor_ver_num:word
+
+
 	EXTRN	One_Char_Val:byte
 	EXTRN	srcxname:byte		;AN049;
 	EXTRN	resseg:word
@@ -212,16 +212,7 @@ verDone:
 	jmp	Crlf2
 
 Print_Version:
-	mov	ah,GET_VERSION
-	int	21h
-	push	ax
-	xor	ah,ah
-	mov	Major_Ver_Num,ax
-	pop	ax
-	xchg	ah,al
-	xor	ah,ah
-	mov	Minor_Ver_Num,ax
-	mov	dx,offset TRANGROUP:WindowsVer_Ptr
+	mov	dx,offset TRANGROUP:VerMes_Ptr
 	jmp	Std_Printf
 
 

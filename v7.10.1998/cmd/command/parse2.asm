@@ -626,7 +626,9 @@ ParseDateArg:
         MOV     ParseDateParts+4,AX
         MOV     ParseDateParts+6,AX
         TEST    BYTE PTR [DI],8
-        JNZ     SHORT ParseDateSuccess
+        .386
+        JNZ     NEAR PTR ParseDateSuccess
+        .8086
         CALL    ReadDecimal
         MOV     ParseDateParts,AX
         CALL    CheckDateSeparator
@@ -670,10 +672,12 @@ ParseDateDay:
         JB      SHORT ParseDateYear
         MOV     AX,ParseDateParts
 ParseDateYear:
-        OR      AX,AX
-        JZ      SHORT ParseDateError
         CMP     AX,100
         JA      SHORT ParseDateStoreYear
+        CMP     AX,80
+        JAE     SHORT ParseDateThisCentury
+        ADD     AX,100
+ParseDateThisCentury:
         ADD     AX,1900
 ParseDateStoreYear:
         MOV     DATE_YEAR,AX

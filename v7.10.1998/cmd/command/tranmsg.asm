@@ -358,48 +358,12 @@ SureMes_Ptr	dw	1039				;AN000;message number
 
 ;  "Microsoft DOS Version %1.%2",13,10
 ;
-VerMes_Ptr	dw	1040				;AN000;message number
-		db	no_subst			;AN000;number of subst
-		db	parm_block_size 		;AN000;size of sublist
-		db	0				;AN000;reserved
-		dw	OFFSET	TranGroup:Major_Ver_Num ;AN000;offset of arg
-		dw	0				;AN000;segment of arg
-		db	1				;AN000;first subst
-		db	Right_Align+Unsgn_Bin_Word	;AN000;binary to decimal
-		dw	1				;AN000;maximum width
-		dw	1				;AN000;minimum width
-		db	blank				;AN000;pad character
-		db	parm_block_size 		;AN000;size of sublist
-		db	0				;AN000;reserved
-		dw	OFFSET	TranGroup:Minor_Ver_Num ;AN000;offset of arg
-		dw	0				;AN000;segment of arg
-		db	2				;AN000;second subst
-		db	Right_Align+Unsgn_Bin_Word	;AN000;binary to decimal
-		dw	2				;AN000;maximum width
-		dw	2				;AN000;minimum width
-		db	"0"                             ;AN000;pad character
-
-	public	WindowsVer_Ptr
-WindowsVer_Ptr	dw	1932				;AN000;message number
-		db	no_subst			;AN000;number of subst
-		db	parm_block_size 		;AN000;size of sublist
-		db	0				;AN000;reserved
-		dw	OFFSET	TranGroup:Major_Ver_Num ;AN000;offset of arg
-		dw	0				;AN000;segment of arg
-		db	1				;AN000;first subst
-		db	Right_Align+Unsgn_Bin_Word	;AN000;binary to decimal
-		dw	1				;AN000;maximum width
-		dw	1				;AN000;minimum width
-		db	blank				;AN000;pad character
-		db	parm_block_size 		;AN000;size of sublist
-		db	0				;AN000;reserved
-		dw	OFFSET	TranGroup:Minor_Ver_Num ;AN000;offset of arg
-		dw	0				;AN000;segment of arg
-		db	2				;AN000;second subst
-		db	Right_Align+Unsgn_Bin_Word	;AN000;binary to decimal
-		dw	2				;AN000;maximum width
-		dw	2				;AN000;minimum width
-		db	"0"                             ;AN000;pad character
+VerMes_Ptr	dw	1040			; message number
+		db	1,parm_block_size,0
+		dw	offset TRANGROUP:WindowsVersion,0
+		db	1,Char_field_ASCIIZ
+		dw	128,0
+		db	blank
 
 ;  "Volume in drive %1 has no label",13,10
 ;

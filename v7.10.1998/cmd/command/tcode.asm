@@ -273,11 +273,15 @@ ASSUME	DS:TRANGROUP
 SAVSIZ:
 ;
 ; AX is the number of bytes free in the buffer between the resident and the
-; transient with a maximum of 64K-1.  We round this down to a multiple of 512.
+; transient with a maximum of 64K-1.  Round down to a multiple of 512,
+; or to a multiple of 4K if at least 4K is available.
 ;
 	CMP	AX,512
 	JBE	GotSize
 	AND	AX,0FE00h			; NOT 511 = NOT 1FF
+	CMP	AX,1000h
+	JB	GotSize
+	AND	AX,0F000h
 
 GotSize:
 	MOV	[BYTCNT],AX			; Max no. of bytes that can be buffered

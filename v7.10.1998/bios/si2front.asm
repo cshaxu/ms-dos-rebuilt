@@ -794,7 +794,7 @@ kbd7_old:
         test    byte ptr [boot_runtime_flags],10h
         jnz     short kbd7_consume
         mov     dx,offset sysinit_msg_base
-        add     dx,word ptr [sysinit_msg_table+122]
+        add     dx,word ptr [sysinit_msg_table+132]
         jmp     short kbd7_consume
 kbd7_other_key:
         cmp     ah,40h

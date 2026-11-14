@@ -1007,7 +1007,7 @@ fcb7_fillloop:
 	test	dx,dx
 	jz	buffer_check_size
 	mov	dx,offset sysinit_msg_base
-	add	dx,word ptr [sysinit_msg_table+108]
+	add	dx,word ptr [sysinit_msg_table+118]
 	call	print
 buffer_default:
 	mov	cx,30
@@ -1386,7 +1386,7 @@ IFDEF	CONFIGPROC
 
 	mov	cx,(offset end_sysinit_base) - (offset sysinit_base)
 	mov	si,offset sysinit_msg_base
-	add	si,word ptr [sysinit_msg_table+110]
+	add	si,word ptr [sysinit_msg_table+120]
 install_msg_size:
 	lodsb
 	inc	cx
@@ -1406,7 +1406,7 @@ install_msg_size:
 	cld
 	rep	movsb
 	mov	si,offset sysinit_msg_base
-	add	si,word ptr [sysinit_msg_table+110]
+	add	si,word ptr [sysinit_msg_table+120]
 install_msg_copy:
 	lodsb
 	stosb

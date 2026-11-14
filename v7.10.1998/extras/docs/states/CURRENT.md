@@ -26,3 +26,5 @@ P1 freezes the target, records the [binary comparison](../etc/block-baseline.md)
 P1 build stage `cmd-30323-14713` produced the three files. MSDOS.SYS and all COMMAND resource bytes matched the FE target. COMMAND linked code and IO.SYS require further reconstruction. The publication gate remains in force.
 
 P2 restores the five extra SYSINIT slots and localized text in the existing resource source. All 4767 bytes of the linked resource match the frozen FE block. The FE message slots shift later indices; call sites and the remaining BIOS layout are still under reconstruction. The bytes outside the resource remain subject to the complete-image gate.
+
+P3 restores the FE COMMAND version display, DIR /4, transient buffer rounding and DATE century handling in the inherited modules. It also retargets existing SYSINIT call sites after the five inserted message slots. Build stage `cmd-1846-15111` matches all 93880 bytes of COMMAND.COM and all four bytes of MSDOS.SYS. The IO.SYS loader and SYSINIT message block still match. IO.SYS remains open and publication is gated on the full image.

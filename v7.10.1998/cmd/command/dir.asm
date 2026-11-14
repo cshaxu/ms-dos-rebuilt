@@ -178,9 +178,9 @@ M028	dbo	9/24/90		When country=US, sort by strict character
 				;M008;NUM_DIR_SWS reduced by 2 for /h,/? not used
 				;M010;NUM_DIR_SWS increased by 2 for /l,/-l
 ifdef DBLSPACE_HOOKS
-NUM_DIR_SWS	equ	20	; # of dir switch synonyms in Dir_Sw_Ptrs list
+NUM_DIR_SWS	equ	22	; # of dir switch synonyms in Dir_Sw_Ptrs list
 else
-NUM_DIR_SWS	equ	18	; # of dir switch synonyms in Dir_Sw_Ptrs list
+NUM_DIR_SWS	equ	20	; # of dir switch synonyms in Dir_Sw_Ptrs list
 endif
 				;M010;'lcase' replaces removed 'help' in OptionRec
 ifdef DBLSPACE_HOOKS
@@ -192,6 +192,8 @@ endif
 ;		on/off bit record for /l, /b, /s, /p, /w, /c options
 ;		(order is hard-coded; see OnOffSw)
 ;		Inmem is set when entries are loaded in memory.
+
+DirFourDigitYear equ	0400h	; /4
 
 NUM_ATTR_LTRS	equ	6	; length of attribute letter list
 
@@ -898,6 +900,7 @@ ifdef DBLSPACE_HOOKS
 	dw	OnOffSw,DirParseRatio
 endif
 	dw	OnOffSw,OnOffSw,NoOrder,DirParseOrder,DefaultAttr,DirParseAttr
+	dw	OnOffSw,OnOffSw
 
 ; Find a matching synonym and leave SI at the value following it.
 DirMatchSwitch proc near
@@ -3990,7 +3993,26 @@ DirPrintDateTime:
 	mov	word ptr ss:[DirDateTimeBuffer+21],cx
 drPrint:
 	mov	dx,offset TRANGROUP:DirDateTimeBuffer
+	test	word ptr ss:[Bits],DirFourDigitYear
+	jz	short drDate1Short
+	test	word ptr ss:[Bits],mask verbose
+	jnz	short drDate1Short
+	push	bx
+	mov	bx,dx
+	add	word ptr [bx+11],2
+	add	word ptr [bx+13],2
+	sub	byte ptr [bx+10],24h
+	add	byte ptr [bx+10],34h
 	invoke	Std_Printf
+	sub	word ptr [bx+11],2
+	sub	word ptr [bx+13],2
+	sub	byte ptr [bx+10],34h
+	add	byte ptr [bx+10],24h
+	pop	bx
+	jmp	short drDate1Done
+drDate1Short:
+	invoke	Std_Printf
+drDate1Done:
 	mov	dx,offset TRANGROUP:DirDateTimeBuffer+16
 	invoke	Std_Printf
 
@@ -4009,7 +4031,26 @@ drAccessDate:
 	mov	word ptr ss:[DirDateTimeBuffer+5],cx
 	mov	word ptr ss:[DirDateTimeBuffer+7],dx
 	mov	dx,offset TRANGROUP:DirDateTimeBuffer
+	test	word ptr ss:[Bits],DirFourDigitYear
+	jz	short drDate2Short
+	test	word ptr ss:[Bits],mask verbose
+	jnz	short drDate2Short
+	push	bx
+	mov	bx,dx
+	add	word ptr [bx+11],2
+	add	word ptr [bx+13],2
+	sub	byte ptr [bx+10],24h
+	add	byte ptr [bx+10],34h
 	invoke	Std_Printf
+	sub	word ptr [bx+11],2
+	sub	word ptr [bx+13],2
+	sub	byte ptr [bx+10],34h
+	add	byte ptr [bx+10],24h
+	pop	bx
+	jmp	short drDate2Done
+drDate2Short:
+	invoke	Std_Printf
+drDate2Done:
 drAttributes:
 	call	DirMakeAttributes
 	mov	dx,offset TRANGROUP:DirAttributePtr
@@ -4073,6 +4114,13 @@ DirDecodeDate proc
 	shr	cl,1
 	xor	ch,ch			; CX = year - 1980
 	add	cx,80			; CX = 2-digit year
+	test	word ptr ss:[Bits],DirFourDigitYear
+	jz	short date_two_digits
+	test	word ptr ss:[Bits],mask verbose
+	jnz	short date_two_digits
+	add	cx,1900			; restore the century
+	jmp	short datedone
+date_two_digits:
 	cmp	cl,100
 	jb	datedone
 	sub	cl,100			; adjust for 21st century
