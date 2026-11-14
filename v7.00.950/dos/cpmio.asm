@@ -68,6 +68,7 @@ DOSCODE SEGMENT
 
 	EXTRN	Get_IO_SFT:Near
 	EXTRN	IOFunc:near
+	EXTRN	ConsoleStatePtr:DWORD
 
 	EXTRN	EscChar:BYTE		; lead byte for function keys
 	EXTRN	CanChar:BYTE		; Cancel character
@@ -122,69 +123,74 @@ ELSE								  ;AN000;
 procedure   $STD_CON_INPUT_NO_ECHO,NEAR   ;System call 8
 
 ENDIF
-        PUSH DS
-        PUSH SI
-        PUSH DX
-        EXTRN ConsoleStatePtr:DWORD
-        LDS SI,CS:ConsoleStatePtr
-        MOV WORD PTR [SI+2],0
-        MOV AL,1
+	PUSH	DS
+	PUSH	SI
+	PUSH	DX
+	LDS	SI,CS:ConsoleStatePtr
+	MOV	WORD PTR [SI+2],0
+	MOV	AL,1
 INTEST:
-        PUSH AX
-        invoke STATCHK
-        JNZ Get
-        CMP Printer_Flag,0
-        JNZ no_sys_wait
-        MOV AH,5
-        invoke IOFUNC
-        MOV AX,168Fh
-        MOV DH,1
-        INT 2Fh
-        TEST AX,AX
-        JZ input_external
+	PUSH	AX
+	invoke	STATCHK
+	JNZ	Get
+;hkn; SS override
+	cmp	[Printer_Flag],0	; is printer idle?
+	JNZ	no_sys_wait
+	mov	ah,5			; get input status with system wait
+	invoke	IOFUNC
+	MOV	AX,168Fh
+	MOV	DH,1
+	INT	2Fh
+	TEST	AX,AX
+	JZ	input_external
 no_sys_wait:
-        MOV AH,84h
-        INT int_IBM
-        CMP BYTE PTR DATE_FLAG,-1
-        JNZ NoUpdate
-        PUSH BX
-        PUSH CX
-        PUSH DS
-        PUSH SS
-        POP DS
-        SUB AX,AX
-        CALL Save_Restore_Packet
-        invoke READTIME
-        MOV AX,1
-        CALL Save_Restore_Packet
-        POP DS
-        POP CX
-        POP BX
+	MOV	AH,84h
+	INT	int_IBM
+;hkn; SS override
+	CMP	byte ptr [DATE_FLAG],-1 ; date is updated may be every
+	JNZ	NoUpdate		; 65535 x ? ms if no one calls
+	PUSH	BX
+	PUSH	CX
+	PUSH	DS
+;hkn; READTIME must use ds = DOSDATA
+	PUSH	SS
+	POP	DS
+	SUB	AX,AX
+	CALL	Save_Restore_Packet	; save DEVCALL packet
+	invoke	READTIME		; readtime
+	MOV	AX,1
+	CALL	Save_Restore_Packet	; restore DEVCALL packet
+	POP	DS
+	POP	CX
+	POP	BX
 NoUpdate:
-        POP AX
-        INC DATE_FLAG
-        JMP SHORT INTEST
+	POP	AX
+;hkn; SS override
+	INC	[DATE_FLAG]
+	JMP	SHORT INTEST
 Get:
-        POP AX
-        JNC input_read
-        MOV AL,2
-        JMP SHORT INTEST
+	POP	AX
+	JNC	input_read
+	MOV	AL,2
+	JMP	SHORT INTEST
 input_external:
-        POP DX
-        JMP SHORT input_return
+	POP	DX
+	JMP	SHORT input_return
 input_read:
-        XOR AH,AH
-        invoke IOFUNC
+	XOR	AH,AH
+	invoke	IOFUNC
 input_return:
-        POP DX
-        POP SI
-        POP DS
-        MOV BYTE PTR SCAN_FLAG,0
-        TEST AL,AL
-        JNZ noscan
-        MOV BYTE PTR SCAN_FLAG,1
+	POP	DX
+	POP	SI
+	POP	DS
+;hkn; SS override
+	MOV	BYTE PTR [SCAN_FLAG],0
+	TEST	AL,AL		; extended code ( AL )
+	JNZ	noscan
+;hkn; SS override
+	MOV	BYTE PTR [SCAN_FLAG],1	; set this flag for ALT_Q key
 noscan:
-        return
+	return
  IFDEF  DBCS			    ;AN000;
 EndProc INTER_CON_INPUT_NO_ECHO     ;AN000;  ;2/11/KK				      ;AN000;
  ELSE				    ;AN000;
@@ -512,12 +518,12 @@ OLDBAK:
 
 ;hkn; SS override
         CMP     BYTE PTR [INSMODE],0
-        jz      OldBakTemplate
+        jz      OldBakTemplate  ; In insert mode, done
 OldBakReturn:
         ret
 OldBakTemplate:
         OR      BH,BH
-        jz      OldBakReturn
+        jz      OldBakReturn    ; Not advanced in template, stay where we are
         DEC     BH              ;Go back in template
         DEC     SI
         return

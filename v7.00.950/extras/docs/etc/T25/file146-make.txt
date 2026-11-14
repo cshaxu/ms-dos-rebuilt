@@ -1,0 +1,77 @@
+	masm -I. -Mx -t -W2 -I..\inc   -DUSA cpmio.asm;
+	link /MAP @msdos.lnk
+
+Microsoft (R) Segmented-Executable Linker  Version 5.10    
+Copyright (C) Microsoft Corp 1984-1990.  All rights reserved.
+
+Object Modules [.OBJ]: /MAP  origin.obj           +
+Object Modules [.OBJ]:  msdata.obj           +
+Object Modules [.OBJ]:  mstable.obj          +
+Object Modules [.OBJ]:  msdisp.obj           +
+Object Modules [.OBJ]:  mscode.obj           +
+Object Modules [.OBJ]:  msdosme.obj          +
+Object Modules [.OBJ]:  time.obj             +
+Object Modules [.OBJ]:  getset.obj           +
+Object Modules [.OBJ]:  parse.obj            +
+Object Modules [.OBJ]:  misc.obj             +
+Object Modules [.OBJ]:  misc2.obj            +
+Object Modules [.OBJ]:  crit.obj             +
+Object Modules [.OBJ]:  cpmio.obj            +
+Object Modules [.OBJ]:  cpmio2.obj           +
+Object Modules [.OBJ]:  fcbio.obj            +
+Object Modules [.OBJ]:  fcbio2.obj           +
+Object Modules [.OBJ]:  search.obj           +
+Object Modules [.OBJ]:  path.obj             +
+Object Modules [.OBJ]:  ioctl.obj            +
+Object Modules [.OBJ]:  delete.obj           +
+Object Modules [.OBJ]:  rename.obj           +
+Object Modules [.OBJ]:  finfo.obj            +
+Object Modules [.OBJ]:  dup.obj              +
+Object Modules [.OBJ]:  create.obj           +
+Object Modules [.OBJ]:  open.obj             +
+Object Modules [.OBJ]:  dinfo.obj            +
+Object Modules [.OBJ]:  isearch.obj          +
+Object Modules [.OBJ]:  abort.obj            +
+Object Modules [.OBJ]:  close.obj            +
+Object Modules [.OBJ]:  dircall.obj          +
+Object Modules [.OBJ]:  disk.obj             +
+Object Modules [.OBJ]:  diskset.obj            +
+Object Modules [.OBJ]:  dir.obj              +
+Object Modules [.OBJ]:  dir2.obj             +
+Object Modules [.OBJ]:  dev.obj              +
+Object Modules [.OBJ]:  mknode.obj           +
+Object Modules [.OBJ]:  fcb.obj              +
+Object Modules [.OBJ]:  msctrlc.obj          +
+Object Modules [.OBJ]:  msproc.obj           +
+Object Modules [.OBJ]:  alloc.obj            +
+Object Modules [.OBJ]:  srvcall.obj          +
+Object Modules [.OBJ]:  segcheck.obj	      +
+Object Modules [.OBJ]:  dosprint.obj	      +
+Object Modules [.OBJ]:  util.obj             +
+Object Modules [.OBJ]:  handle.obj           +
+Object Modules [.OBJ]:  macro.obj            +
+Object Modules [.OBJ]:  macro2.obj           +
+Object Modules [.OBJ]:  file.obj             +
+Object Modules [.OBJ]:  lock.obj             +
+Object Modules [.OBJ]:  romfind.obj	      +
+Object Modules [.OBJ]:  share.obj            +
+Object Modules [.OBJ]:  lfn.obj              +
+Object Modules [.OBJ]:  exechot.obj         +
+Object Modules [.OBJ]:  idle.obj            +
+Object Modules [.OBJ]:  diskio.obj          +
+Object Modules [.OBJ]:  disk2.obj           +
+Object Modules [.OBJ]:  disk3.obj            +
+Object Modules [.OBJ]:  dircmp.obj           +
+Object Modules [.OBJ]:  devcache.obj         +
+Object Modules [.OBJ]:  rom.obj              +
+Object Modules [.OBJ]:  fat.obj              +
+Object Modules [.OBJ]:  buf.obj              +
+Object Modules [.OBJ]:  lockio.obj           +
+Object Modules [.OBJ]:  exepatch.obj	      +
+Object Modules [.OBJ]:  msinit.obj
+Run File [origin.exe]: MSDOS.EXE
+List File [C:MSDOS.map]: MSDOS.MAP;
+LINK : warning L4021: no stack segment
+LINK : warning L4038: program has no starting address
+	reloc msdos.exe msdos.bin
+	stripz msdos.bin msdos.sys
