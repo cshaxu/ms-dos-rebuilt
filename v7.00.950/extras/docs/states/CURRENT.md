@@ -56,10 +56,10 @@ IO.SYS, MSDOS.SYS and COMMAND.COM all equal. This is an existing-asset check,
 not a claim that a new build has run. The accepted six-byte MSDOS.SYS config
 remains the target; other media provenance does not silently change it.
 
-## Current prefix: 121/293
+## Current prefix: 122/293
 
-Modified source/build files 52, exact 21, necessary unchanged 12,
-no same-name reference unchanged 36. Next: 122, cmd/command/stub.asm. Tooling modified
+Modified source/build files 52, exact 21, necessary unchanged 13,
+no same-name reference unchanged 36. Next: 123, cmd/command/tbatch.asm. Tooling modified
 1 (ioimage.c case-insensitive map symbol lookup), outside source count.
 See etc/T25/part1.md. BIOSTAIL.OBJ is unchanged; all compiler/link phases ran,
 then packaging failure was diagnosed and repaired. Fresh three-output FC/B
@@ -223,4 +223,7 @@ File 121 removes RUCODE's duplicate export and obsolete disk-message input
 contract, restores inherited MsgRetriever comments and ten DOS service symbols.
 COMMAND rebuild/repack and all target/input checks pass;
 extras/build/t25-rucode-13899-32129; see part30.md.
-Next: 122 stub.asm. Full automatic final build remains pending.
+File 122 retains required STUB relocation, A20 alias check, additional resident
+entry pointers and pre-EXEC message checksum. Complete diff/caller review found
+no safe unnecessary change; no edit or redundant build. See part31.md.
+Next: 123 tbatch.asm. Full automatic final build remains pending.
