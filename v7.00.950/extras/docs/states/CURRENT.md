@@ -56,10 +56,10 @@ IO.SYS, MSDOS.SYS and COMMAND.COM all equal. This is an existing-asset check,
 not a claim that a new build has run. The accepted six-byte MSDOS.SYS config
 remains the target; other media provenance does not silently change it.
 
-## Current prefix: 212/293
+## Current prefix: 217/293
 
-Modified source/build files 111, exact 36, necessary unchanged 28,
-no same-name reference unchanged 37. Next: 213, dos/rom.asm. Tooling modified
+Modified source/build files 112, exact 40, necessary unchanged 28,
+no same-name reference unchanged 37. Next: 218, dos/share.asm. Tooling modified
 1 (ioimage.c case-insensitive map symbol lookup), outside source count.
 See etc/T25/part1.md. BIOSTAIL.OBJ is unchanged; all compiler/link phases ran,
 then packaging failure was diagnosed and repaired. Fresh three-output FC/B
@@ -537,3 +537,7 @@ Next: 210 dos/path.asm. Final full build pending.
 P86 accepts 210-212. PATH and RENAME separately rebuilt and verified.
 RESTRICT matched the effective reference. See part86.md.
 Next: 213 dos/rom.asm. Final full build pending.
+
+P87 accepts 213-217. ROM sector-write comments clarified and bytes verified.
+Four following files match the effective reference. See part87.md.
+Next: 218 dos/share.asm. Final full build pending.

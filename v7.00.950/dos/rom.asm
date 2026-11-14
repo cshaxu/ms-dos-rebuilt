@@ -285,9 +285,9 @@ procedure BUFWRT,NEAR
 
 	Assert	ISDPB,<ES,BP>,"BufWrt"
         PUSH    ES
-        PUSH    WORD PTR ES:[BP.dpb_sector_size]
+        PUSH    WORD PTR ES:[BP.dpb_sector_size] ; Save length for zero fill
         MOV     AX,WORD PTR [SECPOS]
-        DB      083h,0c0h,1     ; ADD AX,1 - target encoding            ; Set for next sector
+        DB      083h,0C0h,1     ; ADD AX,1 to select the next sector
         MOV     WORD PTR [SECPOS],AX      ;F.C. >32mb                           ;AN000;
         ADC     WORD PTR [SECPOS+2],0     ;F.C. >32mb                           ;AN000;
         MOV     AX,WORD PTR [SECPOS+2]    ;F.C. >32mb                           ;AN000;
@@ -314,7 +314,7 @@ NOREAD:
         XCHG    AX,CX
         SHR     CX,1
         XOR     AX,AX
-        SUB     DI,SS:[BYTSECPOS]
+        SUB     DI,SS:[BYTSECPOS] ; Back up to the start of the sector
         REP     STOSW
         POP     DI
         POP     CX
