@@ -308,7 +308,7 @@ ConProc:
 	call	RPrint
 	mov	ax,es
 	cmp	es:PDB_Parent_Pid,ax		; if COMMAND is own parent,
-Here:	jz	Here			; if so, wait here
+Here:	jz	Here				;  loop forever
 
 	int	20h				; otherwise, exit
 okdos:
@@ -1428,7 +1428,7 @@ Copyright:
 
 	cmp	SingleCom,0
 	jnz	Drv0				; don't print header if singlecom
-	mov	dx,offset ResGroup:CopyrightMsg
+	mov	dx,offset ResGroup:CopyrightMsg	; dx = ptr to msg
 	call	RPrint
 
 Drv0:						; Reset APPEND state

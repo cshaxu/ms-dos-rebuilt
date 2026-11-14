@@ -702,7 +702,8 @@ OldErrNo	dw	?
 
 MsgBuffer	label	byte		; buffer for messages from disk
 SafePathBuffer	label	byte		; resident pathname for EXEC
-		db	64+3+13 dup (0)	; pathname buffer
+;		Bugbug:	Why so big a buffer?
+		db	64+3+13 dup (0)	; path + 'd:\' 'file.ext' + null
 LenMsgOrPathBuf	equ	$ - MsgBuffer
 
 

@@ -824,7 +824,7 @@ entry   RELBLKS
 
         invoke  UNPACK
         retc
-	retz
+        retz
         MOV     AX,DI
         PUSH    DX
         invoke  PACK
@@ -838,7 +838,7 @@ entry   RELBLKS
 NO_DEALLOC:
         MOV     BX,AX
         dec     ax              ; check for "1"
-	retz	; is last cluster of incomplete chain
+        retz                    ; is last cluster of incomplete chain
         Invoke  IsEOF
         JB      RELEASE         ; Carry clear if JMP not taken
 

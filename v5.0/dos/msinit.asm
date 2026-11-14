@@ -80,7 +80,7 @@ endm
 
 DOSDATA SEGMENT
 	extrn	dmaadd:dword		; current dma address
-	extrn	DPBHead:dword           ; long pointer to physical DPB chain
+	extrn	DPBHead:dword		; long pointer to dpb chain
 	extrn	sft_addr:dword		; pointer to open file list
 	extrn	numio:byte		; number of physical drives
 	extrn	endmem:word		; first unavailable address in memory
@@ -178,7 +178,7 @@ DOSCODE	SEGMENT
 	extrn	IsCopyProt:near 	; M068
 
 	extrn	LowInt23Addr:dword
-	extrn	LowInt24Addr:dword
+	extrn	LowInt24Addr:dword	
 	extrn	LowInt28Addr:dword
 
 	extrn	dosdseg:word		; used by InitGetDseg macro
@@ -193,7 +193,7 @@ sysbuf	label	word
 
 ; temp iret instruction
 
-initiret:
+initiret:				
 	iret
 
 ; pointer to the BIOS data segment that will be available just to the
@@ -222,12 +222,10 @@ ParaRound	endp
 	cli
 	cld
 
-; save parameters from BIOS
-
-	push	dx			; dx = memory size
-	push	si			; ds:si = device list
-	push	ds			; ds = device list segment
-	push	di			; es:di = BiosComBlock
+	push	dx			; save parameters from BIOS
+	push	si
+	push	ds
+	push	di			;save di (ptr to BiosComBlock)
 	mov	bx,es			;bx:di = ptr to BiosComBlock
 
 
@@ -238,7 +236,7 @@ ParaRound	endp
 	add	ax, 15			; round to nearest paragraph
 	and	ax, not	15		; boudary
 
-	mov	si, ax			; si = offset of DOSDATA in current
+	mov	si, ax			; si = offset of DOSDATA in current 
 					; code segment
 	mov	ax, cs
 	mov	ds, ax			; ds = current code segment
@@ -268,14 +266,14 @@ ParaRound	endp
 
 	assume	ds:dosdata
 
-;We get a ptr to the BIOS exchange data block. This has been setup right
+;We get a ptr to the BIOS exchange data block. This has been setup right 
 ;now so that the EXEC call knows when SysInit is present to do the special
 ;lie table handling for device drivers. This can be expanded later on to
 ;establish a communication block from the BIOS to the DOS.
 ;
 
-	mov	word ptr BiosDataPtr,di	; save ptr to BiosComBlock
-	mov	word ptr BiosDataPtr+2,bx
+	mov	word ptr BiosDataPtr,di
+	mov	word ptr BiosDataPtr+2,bx	;save ptr to BiosComBlock
 
 
 	mov	[dosdseg], ds		; set pointer to dosdata in code seg
@@ -315,7 +313,7 @@ ParaRound	endp
 
 
 	mov	word ptr [nuldev+2],es 	; nuldev -> points to device chain
-	mov	word ptr [nuldev],si
+	mov	word ptr [nuldev],si   
 
 ; There are some locations in the Win386 instance data structures
 ; which need to be set up with the DOS data segment.  First, initialize
@@ -581,7 +579,7 @@ assume	ds:nothing,es:nothing
 
 	; set default divide trap offset
 
-	mov	word ptr ds:[0],offset doscode:divov
+	mov	word ptr ds:[0],offset doscode:divov	
 
 	; set vectors 20-28 and 2a-3f to point to iret.
 
@@ -636,8 +634,8 @@ endif
 	mov	word ptr ds:[addr_int_command],offset doscode:command
 	mov	word ptr ds:[addr_int_terminate],100h
 	mov	word ptr ds:[addr_int_terminate+2],dx
-	mov	word ptr ds:[addr_int_disk_read],offset doscode:absdrd
-	mov	word ptr ds:[addr_int_disk_write],offset doscode:absdwrt
+	mov	word ptr ds:[addr_int_disk_read],offset doscode:absdrd   
+	mov	word ptr ds:[addr_int_disk_write],offset doscode:absdwrt  
 	mov	word ptr ds:[addr_int_keep_process],offset doscode:stay_resident
 
 	push	ss
@@ -681,7 +679,7 @@ assume	ds:dosdata,es:dosdata
 	pop	es
 	assume	es:dosdata
 					; must be set to print messages
-	mov	word ptr [sft_addr+2],ds
+	mov	word ptr [sft_addr+2],ds     
 
 
 ; after this point the char device functions for con will work for
@@ -718,7 +716,7 @@ endif
 	mov	word ptr es:[si.sysi_country_tab + 2],es
 	mov	word ptr es:[si.sysi_initvars + 2],es
 
-	; buffhead -> dosdata:hashinitvar
+	; buffhead -> dosdata:hashinitvar 
 
 	mov	word ptr es:[buffhead+2],es
 	mov	si,offset dosdata:hashinitvar
@@ -747,7 +745,7 @@ endif
 
 	; es:di is shared data area i.e., es:di -> dosdata:sysinttable
 
-        mov     di,offset dosdata:sysinittable
+        mov     di,offset dosdata:sysinittable	
 
 	inc	dx			; advance dx from arena to psp
 	mov	ds, dx			; point ds to psp
@@ -1102,19 +1100,19 @@ no_share_patch:
 
 					; BUGBUG patching the country info 
 					; with dosdata can be done inline
-                                        ; in .dosinit.
+					; in dosinit.
 					; for dos 3.3 country info
 					; table address
-	mov	si,offset dosdata:country_cdpg
+	mov	si,offset dosdata:country_cdpg   
 
 					; initialize double word
 					; pointers with dosdata in ds
-	mov	word ptr [si.ccucase_ptr + 2],ds
-	mov	word ptr [si.ccfileucase_ptr + 2],ds
+	mov	word ptr [si.ccucase_ptr + 2],ds    
+	mov	word ptr [si.ccfileucase_ptr + 2],ds 
 	mov	word ptr [si.ccfilechar_ptr + 2],ds
 	mov	word ptr [si.cccollate_ptr + 2],ds
 	mov	word ptr [si.ccmono_ptr + 2],ds
-	mov	word ptr [si.ccdbcs_ptr + 2],ds
+	mov	word ptr [si.ccdbcs_ptr + 2],ds	
 
 					; fastopen routines are in doscode
 					; so patch with doscode seg in ax
@@ -1162,7 +1160,7 @@ patch_offset	proc	near
 assume	ds:nothing,es:nothing
 
 				; set default divide trap address
-	mov	word ptr es:[0],offset dosdata:ldivov
+	mov	word ptr es:[0],offset dosdata:ldivov	
 
 	mov	di,intbase	; di-> offset of int 20 handler
 	mov	ax,offset dosdata:lirett
@@ -1224,8 +1222,8 @@ endif
 
 	mov	word ptr es:[addr_int_abort],offset dosdata:lquit
 	mov	word ptr es:[addr_int_command],offset dosdata:lcommand
-	mov	word ptr es:[addr_int_disk_read],offset dosdata:labsdrd
-	mov	word ptr es:[addr_int_disk_write],offset dosdata:labsdwrt
+	mov	word ptr es:[addr_int_disk_read],offset dosdata:labsdrd   
+	mov	word ptr es:[addr_int_disk_write],offset dosdata:labsdwrt 
 	mov	word ptr es:[addr_int_keep_process],offset dosdata:lstay_resident
 
 	pop	es		; restore es

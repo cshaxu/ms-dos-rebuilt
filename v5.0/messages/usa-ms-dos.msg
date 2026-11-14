@@ -167,7 +167,7 @@ COMMAND  000014d4 0147
 1037 U 0000 "Enter new time: "
 1038 U 0000 ",    Delete (Y/N)?"
 1039 U 0000 "All files in directory will be deleted!",CR,LF,"Are you sure (Y/N)?"
-1040 U 0000 "MS-DOS Version %1.%2.500"
+1040 U 0000 "MS-DOS Version %1.%2"
 1044 U 0000 "Invalid directory",CR,LF
 1046 U 0000 "Invalid path, not directory,",CR,LF,"or directory not empty",CR,LF
 1047 U 0000 "Must specify ON or OFF",CR,LF
@@ -764,3 +764,7 @@ SHARE    00009733 0005
 0301 U 0000 "SHARE [/F:space] [/L:locks]",CR,LF,CR,LF
 0302 U 0000 "  /F:space   Allocates file space (in bytes) for file-sharing information.",CR,LF
 0303 U 0000 "  /L:locks   Sets the number of files that can be locked at one time.",CR,LF
+
+BOOT     5907 0001
+0001 U 0000 13,10,"Non-System disk or disk error",13,10
+	"Replace and press any key when ready",13,10,0

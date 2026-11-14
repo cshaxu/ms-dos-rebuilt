@@ -28,7 +28,6 @@ TITLE	Part1 COMMAND Transient Routines
 .cref
 
 
-
 CODERES 	SEGMENT PUBLIC BYTE	;AC000;
 	EXTRN	EXEC_WAIT:NEAR
 CODERES ENDS
@@ -85,10 +84,7 @@ TRANSPACE	SEGMENT PUBLIC BYTE	;AC000;
 	EXTRN	ROM_IP:WORD
 	ENDIF
 
-
 TRANSPACE	ENDS
-
-
 
 ; ********************************************************************
 ; START OF TRANSIENT PORTION
@@ -117,10 +113,6 @@ ASSUME	CS:TRANGROUP,DS:NOTHING,ES:NOTHING,SS:NOTHING
 	PUBLIC	ROM_EXEC
 	PUBLIC	ROM_SCAN
 	ENDIF
-
-
-
-
 
 	ORG	0
 ZERO	=	$
@@ -188,8 +180,6 @@ ASSUME	DS:RESGROUP
 
 	MOV	[UCOMBUF],COMBUFLEN		; Init UCOMBUF
 	MOV	[COMBUF],COMBUFLEN		; Init COMBUF (Autoexec doing DATE)
-
-
 ;
 ; If we have just loaded the transient, then we do NOT need to initialize the
 ; command buffer.  ????  DO WE NEED TO RESTORE THE USERS DIRECTORY ????  I
@@ -365,7 +355,7 @@ ASSUME	DS:TRANGROUP
 	JMP	SHORT DOCOM1
 
 ;
-; We have a normal command.
+; We have a normal command.  
 ; Printers are a bizarre quantity.  Sometimes they are a stream and
 ; sometimes they aren't.  At this point, we automatically close all spool
 ; files and turn on truncation mode.
@@ -479,8 +469,8 @@ DRVGD:
 	invoke	scanoff
 ;SR;
 ; We are going to skip over the first char always. The logic is that the
-;command tail can never start from the first character. The code below is
-;trying to figure out the command tail and copy it to the command line
+;command tail can never start from the first character. The code below is 
+;trying to figure out the command tail and copy it to the command line 
 ;buffer in the PSP. However, if the first character happens to be a switch
 ;character and the user given command line is a full 128 bytes, we try to
 ;copy 128 bytes to the PSP while it can take only 127 chars. This extra
@@ -587,3 +577,4 @@ ENDIF
 
 TRANCODE	ENDS
 	END
+

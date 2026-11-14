@@ -1,0 +1,47 @@
+command1.obj: add comseg.asm
+command1.obj: add $(inc)\version.inc via comsw.asm
+command2.obj: add comseg.asm
+command2.obj: add $(inc)\version.inc via comsw.asm
+rucode.obj: add $(inc)\arena.inc
+rucode.obj: add $(inc)\version.inc via comsw.asm
+stub.obj: add $(inc)\xmm.inc
+rdata.obj: add $(inc)\dossym.inc
+rdata.obj: add $(inc)\pdb.inc
+rdata.obj: add $(inc)\syscall.inc
+rdata.obj: add comequ.asm
+rdata.obj: add $(inc)\version.inc via comsw.asm
+init.obj: add envdata.asm
+init.obj: add $(inc)\xmm.inc
+init.obj: add $(inc)\version.inc via comsw.asm
+uinit.obj: add resmsg.equ
+uinit.obj: add $(inc)\version.inc via comsw.asm
+tcode.obj: add $(inc)\version.inc via comsw.asm
+tbatch.obj: add $(inc)\version.inc
+tbatch2.obj: add $(inc)\version.inc via comsw.asm
+tfor.obj: add $(inc)\version.inc via comsw.asm
+dir.obj: add $(inc)\doscntry.inc
+dir.obj: add $(inc)\version.inc via comsw.asm
+tcmd1b.obj: add $(inc)\version.inc via comsw.asm
+tcmd2a.obj: add $(inc)\version.inc via comsw.asm
+tcmd2b.obj: add $(inc)\version.inc via comsw.asm
+tenv.obj: add resmsg.equ
+tenv.obj: add $(inc)\version.inc via comsw.asm
+tenv2.obj: add $(inc)\version.inc via comsw.asm
+tmisc1.obj: add $(inc)\version.inc via comsw.asm
+tmisc2.obj: add $(inc)\bpb.inc
+tmisc2.obj: add $(inc)\version.inc via comsw.asm
+tpipe.obj: add $(inc)\version.inc via comsw.asm
+parse2.obj: add $(inc)\version.inc via comsw.asm
+path1.obj: add $(inc)\version.inc via comsw.asm
+path2.obj: add $(inc)\version.inc via comsw.asm
+tucode.obj: add $(inc)\version.inc via comsw.asm
+copy.obj: add $(inc)\version.inc via comsw.asm
+copypr1.obj: add $(inc)\version.inc via comsw.asm
+copypr2.obj: add $(inc)\version.inc via comsw.asm
+cparse.obj: add $(inc)\version.inc via comsw.asm
+tparse.obj: add $(inc)\version.inc via comsw.asm
+tprintf.obj: add $(inc)\dossym.inc
+tprintf.obj: add $(inc)\version.inc via comsw.asm
+tdata.obj: add $(inc)\version.inc via comsw.asm
+tspc.obj: add $(inc)\version.inc via comsw.asm
+Formatted 34 object dependency blocks.

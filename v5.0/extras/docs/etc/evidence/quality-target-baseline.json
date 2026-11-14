@@ -1,0 +1,47 @@
+{
+  "image": {
+    "size": 258048,
+    "sha256": "168bd67f0d0feaca7f47c0677e64aab51666460c116dd8bbaf8343e83364948c",
+    "bpb_bytes": 1474560,
+    "bytes_per_sector": 512,
+    "sectors_per_cluster": 1,
+    "reserved_sectors": 1,
+    "fat_count": 2,
+    "fat_sectors": 9,
+    "root_entries": 224,
+    "data_offset": 16896,
+    "fat_copies_equal": true
+  },
+  "files": {
+    "IO.SYS": {
+      "size": 33430,
+      "sha256": "dd0915ed366b3f640284df4be30ed35f413dfd5b6966c1f25eee9598a5bf53e0",
+      "first_cluster": 29,
+      "clusters": 66,
+      "last_cluster": 94,
+      "attributes": 39
+    },
+    "MSDOS.SYS": {
+      "size": 37394,
+      "sha256": "4e41ca4e5893d4cf293f81ad01adbdbd12f7039534f59148214a9cca309529a2",
+      "first_cluster": 95,
+      "clusters": 74,
+      "last_cluster": 168,
+      "attributes": 39
+    },
+    "COMMAND.COM": {
+      "size": 47845,
+      "sha256": "74ad25067e7d9f5c3a0ac2f2967347defb0ffef9e6ed60b60e6499f0b1a8cc89",
+      "first_cluster": 169,
+      "clusters": 94,
+      "last_cluster": 262,
+      "attributes": 32
+    }
+  },
+  "source_image": "E:\\core\\collection\\systems\\x86_16_dos\\msdos_5xx\\msdos500_boot.img",
+  "target_directory": "extras/baselines/targets",
+  "historical_hashes_match": true,
+  "read_only": true,
+  "mounted": false,
+  "build_executed": false
+}

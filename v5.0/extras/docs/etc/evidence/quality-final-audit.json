@@ -1,0 +1,59 @@
+{
+  "task": "M6 T8 S1",
+  "status": "verified",
+  "universe": 602,
+  "status_counts": {
+    "reference_identical": 221,
+    "prior_review_reused": 44,
+    "retired_generated_reference": 2,
+    "retired_generated_artifact": 3,
+    "retired_obsolete_build_route": 1,
+    "verified_modified": 4,
+    "retired_completed_research": 156,
+    "reviewed_retained_metadata": 1,
+    "retired_non_cmd_script": 159,
+    "reviewed_retained_native_tool": 1,
+    "verified_added": 9,
+    "reviewed_updated_document": 1
+  },
+  "pending": 0,
+  "existing_build_resource_files_modified": 4,
+  "new_build_files": 9,
+  "updated_existing_document": 1,
+  "assembly_instruction_changes": 0,
+  "source_build": "quality-cmd-build.json",
+  "post_build_removed_unused_inputs": [
+    "dos/msdos-debug.lnk",
+    "messages/state.rst"
+  ],
+  "post_build_document_only_changes": [
+    "cmd/command/RECONSTRUCTION.md"
+  ],
+  "other_accepted_inputs_unchanged": 251,
+  "no_rebuild_reason": "Only unused debug/editor files and explanatory Markdown changed after accepted build. No selected recipe reads these files.",
+  "outputs": {
+    "IO.SYS": {
+      "size": 33430,
+      "sha256": "dd0915ed366b3f640284df4be30ed35f413dfd5b6966c1f25eee9598a5bf53e0"
+    },
+    "MSDOS.SYS": {
+      "size": 37394,
+      "sha256": "4e41ca4e5893d4cf293f81ad01adbdbd12f7039534f59148214a9cca309529a2"
+    },
+    "COMMAND.COM": {
+      "size": 47845,
+      "sha256": "74ad25067e7d9f5c3a0ac2f2967347defb0ffef9e6ed60b60e6499f0b1a8cc89"
+    }
+  },
+  "negative_tests": "quality-cmd-negative.json",
+  "native_runner_rebuild": "quality-runner-rebuild.json",
+  "scripts_removed": "quality-script-retirement.json",
+  "research_retired": "quality-research-retirement.json",
+  "no_vm_acceptance_required": true,
+  "provenance_limitation": "Output equality does not establish exact original Microsoft source provenance.",
+  "reference_identical_files_reconfirmed": 221,
+  "ledger_existence_errors": [],
+  "unregistered_nonmetadata_files": [],
+  "non_cmd_script_residue": [],
+  "ignored_build_and_targets_tracked_files": 0
+}

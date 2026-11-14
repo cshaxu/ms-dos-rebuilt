@@ -307,7 +307,7 @@ WRTMID:
 	ADD     WORD PTR [SECPOS],AX
 	ADC     WORD PTR [SECPOS+2],0    ;F.C. >32mb                            ;AN000;
 	invoke  NEXTSEC
-	DLJC    SET_ACC_ERRW             ;M039
+	JC      SET_ACC_ERRW             ;M039
 	MOV     BYTE PTR [TRANS],1       ; A transfer is taking place
 	MOV     DL,[SECCLUSPOS]
 	MOV     BX,[CLUSNUM]

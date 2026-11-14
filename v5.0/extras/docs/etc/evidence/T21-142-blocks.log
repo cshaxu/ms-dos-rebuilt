@@ -1,0 +1,63 @@
+origin.obj: exact DOS6 dependency block
+msdata.obj: DOS6 format, retaining DOS5 dependency differences
+  - mpatch.asm
+mstable.obj: DOS6 format, retaining DOS5 dependency differences
+  - $(inc)\ea.inc
+msdisp.obj: exact DOS6 dependency block
+mscode.obj: exact DOS6 dependency block
+msdosme.obj: exact DOS6 dependency block
+time.obj: exact DOS6 dependency block
+getset.obj: exact DOS6 dependency block
+parse.obj: exact DOS6 dependency block
+misc.obj: exact DOS6 dependency block
+misc2.obj: exact DOS6 dependency block
+crit.obj: exact DOS6 dependency block
+cpmio.obj: exact DOS6 dependency block
+cpmio2.obj: exact DOS6 dependency block
+fcbio.obj: exact DOS6 dependency block
+fcbio2.obj: exact DOS6 dependency block
+search.obj: exact DOS6 dependency block
+path.obj: exact DOS6 dependency block
+ioctl.obj: exact DOS6 dependency block
+delete.obj: exact DOS6 dependency block
+rename.obj: exact DOS6 dependency block
+finfo.obj: exact DOS6 dependency block
+dup.obj: exact DOS6 dependency block
+create.obj: exact DOS6 dependency block
+open.obj: exact DOS6 dependency block
+dinfo.obj: exact DOS6 dependency block
+isearch.obj: exact DOS6 dependency block
+abort.obj: exact DOS6 dependency block
+close.obj: exact DOS6 dependency block
+dircall.obj: exact DOS6 dependency block
+disk.obj: exact DOS6 dependency block
+disk2.obj: exact DOS6 dependency block
+disk3.obj: exact DOS6 dependency block
+dir.obj: exact DOS6 dependency block
+dir2.obj: exact DOS6 dependency block
+dev.obj: exact DOS6 dependency block
+mknode.obj: exact DOS6 dependency block
+rom.obj: DOS6 format, retaining DOS5 dependency differences
+  - $(inc)\ea.inc
+fcb.obj: exact DOS6 dependency block
+msctrlc.obj: exact DOS6 dependency block
+fat.obj: exact DOS6 dependency block
+buf.obj: exact DOS6 dependency block
+msproc.obj: DOS6 format, retaining DOS5 dependency differences
+  - $(inc)\ea.inc
+  - restrict.inc
+alloc.obj: exact DOS6 dependency block
+srvcall.obj: exact DOS6 dependency block
+segcheck.obj: exact DOS6 dependency block
+util.obj: exact DOS6 dependency block
+handle.obj: DOS6 format, retaining DOS5 dependency differences
+  - $(inc)\ea.inc
+macro.obj: exact DOS6 dependency block
+macro2.obj: exact DOS6 dependency block
+file.obj: DOS6 format, retaining DOS5 dependency differences
+  - $(inc)\ea.inc
+lock.obj: exact DOS6 dependency block
+share.obj: exact DOS6 dependency block
+exepatch.obj: exact DOS6 dependency block
+msinit.obj: exact DOS6 dependency block
+Reused 49 of 55 object dependency blocks.

@@ -431,7 +431,7 @@ ASSUME	ES:RESGROUP
 	MOV	DI,OFFSET RESGROUP:SAFEPATHBUFFER
 	MOV	CX,LenMsgOrPathBuf
 	CLD
-	REP	MOVSB			; copy pathname to resident buffer
+	REP	MOVSB			; copy program pathname to resident
 
 	MOV	DI,FCB
 	MOV	SI,DI

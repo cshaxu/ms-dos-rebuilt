@@ -806,7 +806,7 @@ Exec_Norm_Alloc:
 
 	cmp	AX,BX			; enough space?
 
-	DLJA	Exec_Chk_Mem		; M000: nope...
+	ja	Exec_Chk_Mem		; M000: nope...	
 ;	ja	Exec_No_Mem		; M000: nope...
 
 
@@ -1121,7 +1121,7 @@ Exec_Norm_Com_Alloc:			; M000
 	mov	AX,BX			; convert size to bytes
 	mov	CL,4
 	shl	AX,CL
-        cmp     AX,100h                 ; enough memory for PSP?
+	cmp	AX,100h 		; enough memory for PSP?
 
 	jbe	Exec_Chk_Com_Mem	; M000: jump if not
 ;	jbe	Exec_No_Memj		; M000: jump if not

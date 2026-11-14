@@ -7,3 +7,6 @@ This is the project documentation entry point. Read [current state](states/CURRE
 These rules adapt the neighboring SoftPC project's governance and execution documents to this DOS reconstruction. SoftPC-specific CMake, dual-host architecture, mirror and INI restrictions are not imported as DOS requirements.
 
 Owner-directed sequential source review follows [FILE-REVIEW.md](design/FILE-REVIEW.md); its frozen progress is in [file-review-ledger.json](etc/file-review-ledger.json).
+
+Current manual build: [build and comparison guide](etc/build-and-compare.md).
+Latest completed source/tool audit: [M6 T8](history/M6-T8-completion-audit.md).

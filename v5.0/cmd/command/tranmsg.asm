@@ -347,7 +347,7 @@ VerMes_Ptr	dw	1040				;AN000;message number
 		dw	0				;AN000;segment of arg
 		db	1				;AN000;first subst
 		db	Right_Align+Unsgn_Bin_Word	;AN000;binary to decimal
-		db	1				; width of major version
+		db	1				;AN000;maximum width
 		db	1				;AN000;minimum width
 		db	blank				;AN000;pad character
 		db	parm_block_size 		;AN000;size of sublist

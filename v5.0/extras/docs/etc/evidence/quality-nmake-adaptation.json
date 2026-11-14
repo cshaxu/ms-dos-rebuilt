@@ -1,0 +1,123 @@
+{
+  "changed": [
+    "messages/usa-ms-dos.msg",
+    "messages/makefile",
+    "dos/makefile",
+    "cmd/command/makefile"
+  ],
+  "added": [
+    "bios/makefile"
+  ],
+  "dependency_adaptations": [
+    {
+      "component": "bios",
+      "module": "msinit",
+      "omitted_missing_dependency": "$(inc)\\romloc.inc"
+    },
+    {
+      "component": "bios",
+      "module": "sysinit1",
+      "omitted_missing_dependency": "$(inc)\\smifssym.inc"
+    },
+    {
+      "component": "bios",
+      "module": "sysconf",
+      "omitted_missing_dependency": "$(inc)\\smifssym.inc"
+    },
+    {
+      "component": "bios",
+      "module": "sysconf",
+      "omitted_missing_dependency": "$(inc)\\highvar.inc"
+    },
+    {
+      "component": "bios",
+      "module": "sysconf",
+      "omitted_missing_dependency": "$(inc)\\highload.inc"
+    },
+    {
+      "component": "bios",
+      "module": "sysconf",
+      "omitted_missing_dependency": "$(inc)\\highexit.inc"
+    },
+    {
+      "component": "bios",
+      "module": "sysconf",
+      "omitted_missing_dependency": "$(inc)\\magicdrv.inc"
+    },
+    {
+      "component": "dos",
+      "module": "msdata",
+      "omitted_missing_dependency": "mpatch.asm"
+    },
+    {
+      "component": "dos",
+      "module": "mstable",
+      "omitted_missing_dependency": "$(inc)\\EA.inc"
+    },
+    {
+      "component": "dos",
+      "module": "rom",
+      "omitted_missing_dependency": "$(inc)/EA.inc"
+    },
+    {
+      "component": "dos",
+      "module": "msproc",
+      "omitted_missing_dependency": "$(inc)/EA.INC"
+    },
+    {
+      "component": "dos",
+      "module": "msproc",
+      "omitted_missing_dependency": "restrict.inc"
+    },
+    {
+      "component": "dos",
+      "module": "handle",
+      "omitted_missing_dependency": "$(inc)/EA.inc"
+    },
+    {
+      "component": "dos",
+      "module": "file",
+      "omitted_missing_dependency": "$(inc)/EA.inc"
+    },
+    {
+      "component": "cmd/command",
+      "module": "init",
+      "omitted_missing_dependency": "$(cinc)\\cmdsvc.inc"
+    },
+    {
+      "component": "cmd/command",
+      "module": "tcode",
+      "omitted_missing_dependency": "$(cinc)\\cmdsvc.inc"
+    },
+    {
+      "component": "cmd/command",
+      "module": "tcode",
+      "omitted_missing_dependency": "$(cinc)\\vint.inc"
+    },
+    {
+      "component": "cmd/command",
+      "module": "tcmd1b",
+      "omitted_missing_dependency": "$(inc)\\ea.inc"
+    },
+    {
+      "component": "cmd/command",
+      "module": "tcmd2b",
+      "omitted_missing_dependency": "$(cinc)\\cmdsvc.inc"
+    },
+    {
+      "component": "cmd/command",
+      "module": "tdata",
+      "omitted_missing_dependency": "$(inc)\\ea.inc"
+    },
+    {
+      "component": "cmd/command",
+      "module": "tspc",
+      "omitted_missing_dependency": "$(inc)\\ea.inc"
+    }
+  ],
+  "message_rule": "BOOT section is now explicit source text, copied exactly from usa-ibm.msg, instead of being discovered/appended by each Python build.",
+  "assembly_sources_changed": 0,
+  "status": "verified",
+  "verification": "quality-cmd-build.json",
+  "assembler_instruction_changes": 0
+}

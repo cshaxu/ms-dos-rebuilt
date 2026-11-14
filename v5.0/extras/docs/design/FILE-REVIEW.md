@@ -71,3 +71,15 @@ content merely to obtain an exact reference match. A changed active source
 requires a fresh integrated build and all three exact target comparisons; update
 the original classification and matching evidence only after verification.
 Prior reviews remain preserved.
+
+## Current owner-authorized quality audit
+
+M6/T8/S1 explicitly authorizes the new whole-tree source/tool quality audit.
+The previous no-revisit restriction does not block this newly requested work.
+Reuse earlier reviews when hashes and evidence remain valid; do not repeat
+completed reviews merely to count them again. quality-audit-queue.json is the
+current finite scope; the original ledgers remain historical evidence.
+Effective instruction/data/macro/condition and build-rule changes require
+appropriate verification. Comments/formatting alone do not require rebuilding.
+Current host scripting must be pure CMD; older Python commands above are
+historical and will be retired during this task.

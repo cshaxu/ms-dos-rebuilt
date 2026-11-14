@@ -10,7 +10,7 @@ sysinitseg segment
 	public	insufmemory,badcountrycom
 	public	badorder,errorcmd
 	public	badparm
-	public	toomanydrivesmsg			;M029
+        public  toomanydrivesmsg			;M029
 
 	include msbio.cl3
 

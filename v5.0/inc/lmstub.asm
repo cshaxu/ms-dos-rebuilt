@@ -13,13 +13,15 @@
 ;
 ;	M020 - Fix for Rational Bug - see exepatch.asm for details
 ;
-;	M011 - check for wrap rather than do an XMS query
+;	M011 - check for wrap rather than do an XMS query 
 ;	       A20 after int 23,24 and 28
 ;
 ;	M012 - Rearranged stuff to make Share build with msdata
 ;
-;	M023 - Added variable UmbSave1 for preserving umb_head arena across
+;	M023 - Added variable UmbSave1 for preserving umb_head arena across 
 ;	       win /3 session for win ver < 3.1
+;
+;       M032 - Correct length of Exec data block in Win 2.x instance table.
 ;
 ;
 ;============================================================================
@@ -88,15 +90,15 @@ DOSINTTABLE	LABEL	DWORD
 ;
 ; LOW MEM STUB:
 ;
-; The low mem stub contains the entry points into DOS for all interrupts
-; handled by DOS. This stub is installed if the user specifies that the
+; The low mem stub contains the entry points into DOS for all interrupts 
+; handled by DOS. This stub is installed if the user specifies that the 
 ; DOS load in HIMEM. Each entry point does this.
 ;
 ;
 ; 	1. if jmp to 8 has been patched out
 ;	   2. if A20 OFF
 ;	      3. Enable A20
-;	   4. else
+;	   4. else 
 ;	      5. just go to dos entry
 ;	   6. endif
 ;	7. else
@@ -115,8 +117,8 @@ DOSINTTABLE	LABEL	DWORD
 
 ldivov:
 	;
-	; The following jump, skipping the XMS calls will be patched to
-	; NOPS by SEG_REINIT if DOS successfully loads high. This jump is
+	; The following jump, skipping the XMS calls will be patched to 
+	; NOPS by SEG_REINIT if DOS successfully loads high. This jump is 
 	; needed because the stub is installed even before the XMS driver
 	; is loaded if the user specifies dos=high in the config.sys
 	;
@@ -141,8 +143,8 @@ divov_cont:
 
 lquit:
 	;
-	; The following jump, skipping the XMS calls will be patched to
-	; NOPS by SEG_REINIT if DOS successfully loads high. This jump is
+	; The following jump, skipping the XMS calls will be patched to 
+	; NOPS by SEG_REINIT if DOS successfully loads high. This jump is 
 	; needed because the stub is installed even before the XMS driver
 	; is loaded if the user specifies dos=high in the config.sys
 	;
@@ -162,15 +164,15 @@ quit_cont:
 lcommand:
 
 	;
-	; The following jump, skipping the XMS calls will be patched to
-	; NOPS by SEG_REINIT if DOS successfully loads high. This jump is
+	; The following jump, skipping the XMS calls will be patched to 
+	; NOPS by SEG_REINIT if DOS successfully loads high. This jump is 
 	; needed because the stub is installed even before the XMS driver
 	; is loaded if the user specifies dos=high in the config.sys
 	;
 i21patch:
 	jmp	short command_cont	
 
-	call	EnsureA20ON		; we must turn on A20 if OFF
+	call	EnsureA20ON		; we must turn on A20 if OFF	
 
 
 command_cont:
@@ -178,14 +180,14 @@ command_cont:
 
 ;------------------------------------------------------------------------
 ;
-; INT 25
+; INT 25 
 ;
 ;----------------------------------------------------------------------------
 
 labsdrd:
 	;
-	; The following jump, skipping the XMS calls will be patched to
-	; NOPS by SEG_REINIT if DOS successfully loads high. This jump is
+	; The following jump, skipping the XMS calls will be patched to 
+	; NOPS by SEG_REINIT if DOS successfully loads high. This jump is 
 	; needed because the stub is installed even before the XMS driver
 	; is loaded if the user specifies dos=high in the config.sys
 	;
@@ -206,8 +208,8 @@ absdrd_cont:
 labsdwrt:
 
 	;
-	; The following jump, skipping the XMS calls will be patched to
-	; NOPS by SEG_REINIT if DOS successfully loads high. This jump is
+	; The following jump, skipping the XMS calls will be patched to 
+	; NOPS by SEG_REINIT if DOS successfully loads high. This jump is 
 	; needed because the stub is installed even before the XMS driver
 	; is loaded if the user specifies dos=high in the config.sys
 	;
@@ -228,8 +230,8 @@ absdwrt_cont:
 lStay_resident:
 
 	;
-	; The following jump, skipping the XMS calls will be patched to
-	; NOPS by SEG_REINIT if DOS successfully loads high. This jump is
+	; The following jump, skipping the XMS calls will be patched to 
+	; NOPS by SEG_REINIT if DOS successfully loads high. This jump is 
 	; needed because the stub is installed even before the XMS driver
 	; is loaded if the user specifies dos=high in the config.sys
 	;
@@ -250,8 +252,8 @@ sr_cont:
 lint2f:
 
 	;
-	; The following jump, skipping the XMS calls will be patched to
-	; NOPS by SEG_REINIT if DOS successfully loads high. This jump is
+	; The following jump, skipping the XMS calls will be patched to 
+	; NOPS by SEG_REINIT if DOS successfully loads high. This jump is 
 	; needed because the stub is installed even before the XMS driver
 	; is loaded if the user specifies dos=high in the config.sys
 	;
@@ -272,8 +274,8 @@ int2f_cont:
 lcall_entry:
 
 	;
-	; The following jump, skipping the XMS calls will be patched to
-	; NOPS by SEG_REINIT if DOS successfully loads high. This jump is
+	; The following jump, skipping the XMS calls will be patched to 
+	; NOPS by SEG_REINIT if DOS successfully loads high. This jump is 
 	; needed because the stub is installed even before the XMS driver
 	; is loaded if the user specifies dos=high in the config.sys
 	;
@@ -455,14 +457,14 @@ disa20_iret:
 	assume	ds:NOTHING
 
 ;*****************************************************************************
-;***	XMMDisableA20 - switch 20th address line			
+;***	XMMDisableA20 - switch 20th address line			      
 ;									
-;	This routine is used to disable the 20th address line in 	
-;	the system using XMM calls.					
+;	This routine is used to disable the 20th address line in 	      
+;	the system using XMM calls.					      
 ;									
-;	ENTRY	none		;ds = _DATA				
-;	EXIT	A20 line disabled					
-;	USES	NOTHING					
+;	ENTRY	none		;ds = _DATA				      
+;	EXIT	A20 line disabled					      
+;	USES	NOTHING					      
 ;									
 ;*****************************************************************************
 
@@ -489,15 +491,15 @@ public	XMMcontrol
 ;
 ;***	EnsureA20ON - Ensures that A20 is ON
 ;									
-;	This routine is used to query the A20 state in		 	
-;	the system using XMM calls.					
+;	This routine is used to query the A20 state in		 	      
+;	the system using XMM calls.					      
 ;									
 ;	ENTRY: none		
 ;
 ;	EXIT : A20 will be ON
 ;		
 ;									
-; 	USES : NONE								
+; 	USES : NONE								      
 ;									
 ;---------------------------------------------------------------------------
 
@@ -608,6 +610,10 @@ XMMStall:
 
 
 
+;
+;This has been put in for WIN386 2.XX support. The format of the instance 
+;table was different for this. Segments will be patched in at init time.
+;
 public  OldInstanceJunk
 OldInstanceJunk	dw	70h	;segment of BIOS
 		dw	0	;indicate stacks in SYSINIT area
@@ -675,9 +681,9 @@ ENDIF
 ;
 ; The dos 4.X redir requires that country_cdpg is at offset 0122ah. Any new
 ; data variable that is to be added to DOSDATA must go in between Mark3
-; COUNTRY_CDPG if it can.
+; COUNTRY_CDPG if it can. 
 ;
-; MARK3 SHOULD NOT BE > 122AH
+; MARK3 SHOULD NOT BE > 122AH 
 ;
 ; As of 9/6/90, this area is FULL!
 ;
@@ -809,10 +815,6 @@ else
 endif
 ; ------------------------------------------------<MSKK01>----------------------
 
-;
-;This has been put in for WIN386 2.XX support. The format of the instance
-;table was different for this. Segments will be patched in at init time.
-;
 include	msdos.cl2			; XMMERRMSG
 
 DOSDATA	ends

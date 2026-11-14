@@ -241,7 +241,7 @@ TESTRAW:
 	test	BL,devid_device_raw	; Raw mode?
 	JNZ	DVRDRAW 		; Yes, let the device do all local editing
 	test	BL,devid_device_con_in	; Is it console device?
-	DLJZ	NOTRDCON
+	JZ	NOTRDCON
 	JMP	READCON
 
 DVRDRAW:

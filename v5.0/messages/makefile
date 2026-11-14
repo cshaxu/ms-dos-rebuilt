@@ -11,4 +11,4 @@ COUNTRY =usa-ms
 all: $(COUNTRY).idx
 
 $(COUNTRY).idx: $(COUNTRY).msg
-    -$(_NTBINDIR)\private\mvdm\tools16\buildidx $(COUNTRY).msg
+    buildidx $(COUNTRY).msg

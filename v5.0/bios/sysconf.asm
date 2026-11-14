@@ -788,25 +788,25 @@ not_init_pass:
 	je	multi_pass_coff
 	cmp	multi_pass_id,3		; the third pass for install= ?
 	je	multi_try_i
-	cmp	ah,'H'
+        cmp     ah, CONFIG_DOS
 	je	multi_pass_coff
-	cmp	ah,'I'			; install= command?
+        cmp     ah,CONFIG_INSTALL               ; install= command?
 	jne	tryb			; the first pass is for normal operation.
 	or	install_flag,have_install_cmd	; set the flag
 	jmp	coff				; and handles the next command
 
 multi_try_i:
-	cmp	ah,'I'			; install= command?
+        cmp     ah, CONFIG_INSTALL      ; install= command?
         jne	multi_pass_filter	; no. ignore this.
 	call	do_install_exec 	;install it.
 	jmp	coff			;to handle next install= command.
 
 multi_pass_filter:
-	cmp	ah,'Y'			; comment?
+        cmp     ah, CONFIG_COMMENT      ; comment?
 	je	multi_pass_adjust
-	cmp	ah,'Z'			; bad command?
+        cmp     ah, CONFIG_UNKNOWN      ; bad command?
 	je	multi_pass_adjust
-	cmp	ah,'0'			; rem?
+        cmp     ah, CONFIG_REM          ; rem?
 	jne	multi_pass_coff 	; ignore the rest of the commands.
 
 multi_pass_adjust:			; these commands need to
@@ -1098,7 +1098,7 @@ h_end:
 ;
 	assume	ds:nothing
 tryu:
-	cmp	ah, 'U'
+        cmp     ah,CONFIG_DEVICEHIGH
 	jne	tryd
 	mov	badparm_off, si		; stash it there in case of an error
 	mov	badparm_seg, es
@@ -2188,12 +2188,6 @@ tryff:				;skip this command.
 	jmp	donothing
 
 doconf	endp
-
-;***	CheckProtmanArena -- special hack for adjusting alloclim with Protman$
-;
-;	adjusts alloclim if Protman$ reduced our arena through a manual hack.
-;
-
 
 ;------------------------------------------------------------------------------
 
