@@ -56,10 +56,10 @@ IO.SYS, MSDOS.SYS and COMMAND.COM all equal. This is an existing-asset check,
 not a claim that a new build has run. The accepted six-byte MSDOS.SYS config
 remains the target; other media provenance does not silently change it.
 
-## Current prefix: 174/293
+## Current prefix: 176/293
 
-Modified source/build files 89, exact 26, necessary unchanged 23,
-no same-name reference unchanged 36. Next: 175, dos/finfo.asm. Tooling modified
+Modified source/build files 90, exact 26, necessary unchanged 24,
+no same-name reference unchanged 36. Next: 177, dos/handle.asm. Tooling modified
 1 (ioimage.c case-insensitive map symbol lookup), outside source count.
 See etc/T25/part1.md. BIOSTAIL.OBJ is unchanged; all compiler/link phases ran,
 then packaging failure was diagnosed and repaired. Fresh three-output FC/B
@@ -460,3 +460,9 @@ differences. FILE aligns added formatting and corrects stale error-path
 comment. Fresh kernel link unchanged, fresh IO.SYS and inherited other
 outputs target-exact; 293 inputs checked. See part69.md/file174-build.txt.
 Next: 175 dos/finfo.asm. Full clean build and completion audit pending.
+
+P70 accepts 175-176: FINFO retains shared deferred flush; GETSET aligns
+added blocks and uses curdir_isnet instead of two numeric flags. Fresh
+kernel link unchanged, fresh IO.SYS and inherited other outputs target-exact;
+293 inputs checked. See part70.md/file176-build.txt.
+Next: 177 dos/handle.asm. Full clean build and completion audit pending.

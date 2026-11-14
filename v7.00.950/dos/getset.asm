@@ -394,58 +394,58 @@ EndProc $INTERNATIONAL
 
 ; Internal table transfer, INT 21h function 70h.
 procedure $InternalTable,NEAR
-        cmp     al,0
-        je      internal_read
-        cmp     al,1
-        je      internal_write
-        cmp     al,2
-        jne     internal_error
-        jmp     short internal_country
+	cmp     al,0
+	je      internal_read
+	cmp     al,1
+	je      internal_write
+	cmp     al,2
+	jne     internal_error
+	jmp     short internal_country
 internal_error:
-        mov     al,error_invalid_function
-        jmp     short errtn2+2
+	mov     al,error_invalid_function
+	jmp     short errtn2+2
 internal_country:
-        push    es
-        push    ss
-        pop     es
-        mov     di,OFFSET DOSDATA:COUNTRY_CDPG
-        mov     ax,es:[di.ccCountryInfoLen]
-        cmp     cx,ax
-        jb      internal_country_copy
-        mov     cx,ax
+	push    es
+	push    ss
+	pop     es
+	mov     di,OFFSET DOSDATA:COUNTRY_CDPG
+	mov     ax,es:[di.ccCountryInfoLen]
+	cmp     cx,ax
+	jb      internal_country_copy
+	mov     cx,ax
 internal_country_copy:
-        add     di,ccDosCountry
-        add     si,3
-        push    cx
-        sub     cx,3
-        rep     movsb
-        pop     cx
-        pop     es
-        call    Get_User_Stack
-        mov     [si.user_CX],cx
-        transfer SYS_RET_OK
+	add     di,ccDosCountry
+	add     si,3
+	push    cx
+	sub     cx,3
+	rep     movsb
+	pop     cx
+	pop     es
+	call    Get_User_Stack
+	mov     [si.user_CX],cx
+	transfer SYS_RET_OK
 internal_read:
-        push    ss
-        pop     ds
-        mov     si,OFFSET DOSDATA:LocaleInfo
+	push    ss
+	pop     ds
+	mov     si,OFFSET DOSDATA:LocaleInfo
 internal_length:
-        mov     ax,OFFSET DOSDATA:LocaleInfoEnd
-        sub     ax,OFFSET DOSDATA:LocaleInfo
-        cmp     cx,ax
-        jb      internal_copy
-        mov     cx,ax
+	mov     ax,OFFSET DOSDATA:LocaleInfoEnd
+	sub     ax,OFFSET DOSDATA:LocaleInfo
+	cmp     cx,ax
+	jb      internal_copy
+	mov     cx,ax
 internal_copy:
-        push    cx
-        rep     movsb
-        pop     cx
-        call    Get_User_Stack
-        mov     [si.user_CX],cx
-        transfer SYS_RET_OK
+	push    cx
+	rep     movsb
+	pop     cx
+	call    Get_User_Stack
+	mov     [si.user_CX],cx
+	transfer SYS_RET_OK
 internal_write:
-        push    ss
-        pop     es
-        mov     di,OFFSET DOSDATA:LocaleInfo
-        jmp     short internal_length
+	push    ss
+	pop     es
+	mov     di,OFFSET DOSDATA:LocaleInfo
+	jmp     short internal_length
 EndProc $InternalTable
 
 BREAK <$GetExtCntry - return extended country-dependent information>
@@ -677,23 +677,23 @@ NLSNXT: CallInstall GetExtInfo,NLSFUNC,2  ;get extended info
 	MOV	AX,[SI.ccSysCodePage]	; ax = sys code page id;smr;use ds;BUGBUG;check whether DS is OK after the above calls
 	JMP	GETDONE
 gec_store:
-        SUB     CX,7
-        JBE     capinval
-        MOV     BX,[SI.ccSysCodePage]
-        LEA     SI,[SI.ccCountryInfoLen]
-        MOV     AX,[SI]
-        db      83h,0E8h,4      ; sub ax,4
-        CMP     CX,AX
-        JBE     gec_store_length
-        MOV     CX,AX
+	SUB     CX,7
+	JBE     capinval
+	MOV     BX,[SI.ccSysCodePage]
+	LEA     SI,[SI.ccCountryInfoLen]
+	MOV     AX,[SI]
+	db      83h,0E8h,4      ; sub ax,4
+	CMP     CX,AX
+	JBE     gec_store_length
+	MOV     CX,AX
 gec_store_length:
-        MOV     AX,CX
-        db      83h,0C0h,4      ; add ax,4
-        MOV     ES:[DI+1],AX
-        ADD     SI,6
-        ADD     DI,7
-        invoke  XCHGP
-        JMP     OK_RETN
+	MOV     AX,CX
+	db      83h,0C0h,4      ; add ax,4
+	MOV     ES:[DI+1],AX
+	ADD     SI,6
+	ADD     DI,7
+	invoke  XCHGP
+	JMP     OK_RETN
 NLSERROR:
 	JMP      SYS_RET_ERR		; return what is got from NLSFUNC
 
@@ -797,40 +797,40 @@ procedure   $GET_DRIVE_FREESPACE,NEAR
 	MOV	AL,DL
 	invoke	GetThisDrv		; Get drive
 SET_AX_RET:
-        JC      BADFDRV
-        push    bx
-        push    es
-        les     bx,ThisCDS
-        test    word ptr es:[bx.CURDIR_FLAGS],8000h
-        jnz     free_query
-        mov     bl,es:[bx]
-        xor     bh,bh
-        test    byte ptr ss:[bx+NlsBuffer+20-'A'],10h
-        jz      free_query
-        test    byte ptr ss:[bx+NlsBuffer+20-'A'],1
-        jz      free_query
-        and     byte ptr ss:[bx+NlsBuffer+20-'A'],0FEh
-        or      byte ptr ss:[bx+NlsBuffer+20-'A'],20h
+	JC      BADFDRV
+	push    bx
+	push    es
+	les     bx,ThisCDS
+	test    word ptr es:[bx.CURDIR_FLAGS],curdir_isnet
+	jnz     free_query
+	mov     bl,es:[bx]
+	xor     bh,bh
+	test    byte ptr ss:[bx+NlsBuffer+20-'A'],10h
+	jz      free_query
+	test    byte ptr ss:[bx+NlsBuffer+20-'A'],1
+	jz      free_query
+	and     byte ptr ss:[bx+NlsBuffer+20-'A'],0FEh
+	or      byte ptr ss:[bx+NlsBuffer+20-'A'],20h
 free_query:
-        pop     es
-        pop     bx
-        invoke  DISK_INFO
-        pushf
-        push    bx
-        push    es
-        les     bx,ThisCDS
-        test    word ptr es:[bx.CURDIR_FLAGS],8000h
-        jnz     free_restore_done
-        mov     bl,es:[bx]
-        xor     bh,bh
-        test    byte ptr ss:[bx+NlsBuffer+20-'A'],20h
-        jz      free_restore_done
-        and     byte ptr ss:[bx+NlsBuffer+20-'A'],0DFh
-        or      byte ptr ss:[bx+NlsBuffer+20-'A'],1
+	pop     es
+	pop     bx
+	invoke  DISK_INFO
+	pushf
+	push    bx
+	push    es
+	les     bx,ThisCDS
+	test    word ptr es:[bx.CURDIR_FLAGS],curdir_isnet
+	jnz     free_restore_done
+	mov     bl,es:[bx]
+	xor     bh,bh
+	test    byte ptr ss:[bx+NlsBuffer+20-'A'],20h
+	jz      free_restore_done
+	and     byte ptr ss:[bx+NlsBuffer+20-'A'],0DFh
+	or      byte ptr ss:[bx+NlsBuffer+20-'A'],1
 free_restore_done:
-        pop     es
-        pop     bx
-        popf
+	pop     es
+	pop     bx
+	popf
 	XCHG	DX,BX
 	JC	SET_AX_RET		; User FAILed to I 24
 	XOR	AH,AH			; Chuck Fat ID byte
