@@ -56,10 +56,10 @@ IO.SYS, MSDOS.SYS and COMMAND.COM all equal. This is an existing-asset check,
 not a claim that a new build has run. The accepted six-byte MSDOS.SYS config
 remains the target; other media provenance does not silently change it.
 
-## Current prefix: 140/293
+## Current prefix: 141/293
 
-Modified source/build files 69, exact 21, necessary unchanged 14,
-no same-name reference unchanged 36. Next: 141, cmd/command/uinit.asm. Tooling modified
+Modified source/build files 70, exact 21, necessary unchanged 14,
+no same-name reference unchanged 36. Next: 142, dos/abort.asm. Tooling modified
 1 (ioimage.c case-insensitive map symbol lookup), outside source count.
 See etc/T25/part1.md. BIOSTAIL.OBJ is unchanged; all compiler/link phases ran,
 then packaging failure was diagnosed and repaired. Fresh three-output FC/B
@@ -332,3 +332,11 @@ ON_OFF's parsed-input contract. XP DEM confirms 7141h DS:DX/CH/CL and SI
 wildcard-selection roles. COMMAND rebuild/repack and all target/input checks
 pass; extras/build/t25-tucode-23741-28320; see part49.md.
 Next sequential file: 141 uinit.asm. Final build and LFN completion audit pending.
+
+P50 accepts file 141 UINIT: restore inherited parser-result comments, expand
+two range descriptors, split exports and replace eleven DOS service literals.
+The new syscall.inc include is registered in the already-counted COMMAND
+makefile dependency list. Initial missing-symbol failure is retained; both
+corrected UINIT and subsequent dependency build pass all target/input checks.
+Latest: extras/build/t25-uinit-dep-24731-8287; see part50.md.
+Next: 142 dos/abort.asm. Final full build and semantic completion work pending.

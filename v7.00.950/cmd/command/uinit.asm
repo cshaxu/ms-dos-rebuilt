@@ -20,6 +20,7 @@ TITLE	COMMAND Initialization messages
 .XLIST
 include comsw.asm
 include dossym.inc
+include syscall.inc
 include pdb.inc
 include comseg.asm
 include ifequ.asm
@@ -188,14 +189,16 @@ initend 	DW	0				;eg segment address of end of init
 ;End of data that shouldn't be separated.
 
 trnsize 	DW	0				;eg size of transient in paragraphs
-	public	RequestedCmdSize, RequestedInputSize
+	public	RequestedCmdSize
+	public	RequestedInputSize
 RequestedCmdSize dw	0
 RequestedInputSize dw	0
 resetenv	DB	0				;eg set if we need to setblck env at endinit
 ext_msg 	DB	0				;AN000; set if /MSG switch entered
 eswitch 	db	0				;AN018; set if /e was entered
 dswitch 	db	0				;AN018; set if /d was entered
-	public	Lswitch, Uswitch
+	public	Lswitch
+	public	Uswitch
 Lswitch	db	0
 Uswitch	db	0
 LoadLow	db	0		; retain resident data in low memory
@@ -368,9 +371,12 @@ COMMAND_SWITCH11 LABEL BYTE
 		DB	1
 COMMAND_L_SYN DB "/L",0
 COMMAND_L_VAL LABEL BYTE
-		DB	1,1,1
+		DB	1
+		DB	1			; 1 range
+		DB	1			; returned if result
 		DD	128,1024
-		DB	0,0
+		DB	0			; no numeric values
+		DB	0			; no string values
 
 	public	COMMAND_LOW_SYN
 COMMAND_SWITCH12 LABEL BYTE
@@ -390,9 +396,12 @@ COMMAND_SWITCH13 LABEL BYTE
 		DB	1
 COMMAND_U_SYN DB "/U",0
 COMMAND_U_VAL LABEL BYTE
-		DB	1,1,1
+		DB	1
+		DB	1			; 1 range
+		DB	1			; returned if result
 		DD	128,255
-		DB	0,0
+		DB	0			; no numeric values
+		DB	0			; no string values
 
 	public	COMMAND_T_SYN
 COMMAND_SWITCH14 LABEL BYTE
@@ -403,20 +412,23 @@ COMMAND_SWITCH14 LABEL BYTE
 		DB	1
 COMMAND_T_SYN DB "/T",0
 
-COMND1_OUTPUT	LABEL	BYTE
-COMND1_TYPE	DB	0
-COMND1_CODE	DB	0
-COMND1_SYN	DW	0
-COMND1_ADDR	DD	0
+COMND1_OUTPUT	LABEL	BYTE			;AN000;
+COMND1_TYPE	DB	0			;AN000; type
+COMND1_CODE	DB	0			;AN000; return value
+COMND1_SYN	DW	0			;AN000; synonym pointer
+COMND1_ADDR	DD	0			;AN000; numeric value / address
+						;	of string value
 
 	public	NO_VAL
-NO_VAL		DB	0
-num_positionals DW	0
-old_parse_ptr	DW	0
+NO_VAL		DB	0			;AN000; no values
+num_positionals DW	0			;AN000; counter for positionals
+old_parse_ptr	DW	0			;AN057; SI position before calling parser
 
 ;   Initial CMDLINE program name.
 ;
-	public	ParseInitCommand, InitCommandParms, InitCommandFile
+	public	ParseInitCommand
+	public	InitCommandParms
+	public	InitCommandFile
 ParseInitCommand	dw	RESGROUP:InitCommandParms
 		db	0
 InitCommandParms db	0,1
@@ -441,9 +453,16 @@ MsgReadHandle	dw	0
 MsgFileOffset	dd	0
 MsgReadReserved dw	0
 MsgFallbackPath dd	0
-	public	MsgReadHeader,MsgEnvPath,MsgEnvName
-	public	MsgReadSegment,MsgReadOffset,MsgReadLimit,MsgReadClass
-	public	MsgReadHandle,MsgFileOffset,MsgFallbackPath
+	public	MsgReadHeader
+	public	MsgEnvPath
+	public	MsgEnvName
+	public	MsgReadSegment
+	public	MsgReadOffset
+	public	MsgReadLimit
+	public	MsgReadClass
+	public	MsgReadHandle
+	public	MsgFileOffset
+	public	MsgFallbackPath
 
 ; Resident identification and initialization resource loading.
 	include copyrigh.inc
@@ -456,7 +475,10 @@ MsgFallbackPath dd	0
 ;   Exit:  Carry reports failure; CX:DX identifies the resource data.
 ;   Uses:  CX, DX, flags; AX, BX, ES and DI are preserved.
 ;
-        public  ReadMessageClass,ReadMessageHeader,ScanMessageClass,FindMessageFile
+        public  ReadMessageClass
+	public	ReadMessageHeader
+	public	ScanMessageClass
+	public	FindMessageFile
 ReadMessageClass proc near
 	push	ax
 	push	bx
@@ -466,8 +488,8 @@ ReadMessageClass proc near
 	mov	[MsgReadOffset],di
 	mov	[MsgReadLimit],cx
 	mov	[MsgReadClass],ax
-	mov	ah,051h
-	int	byte ptr 021h
+	mov	ah,Get_Current_PDB
+	int	21h
 	xor	di,di
 	mov	es,bx
 	cmp	word ptr [MsgFallbackPath+2],di
@@ -484,22 +506,22 @@ rmEnvironment:
 	push	es
 	pop	ds
 	mov	dx,di
-	mov	ax,03d00h
-	int	byte ptr 021h
+	mov	ax,(OPEN SHL 8)
+	int	21h
 	pop	ds
 	jc	rmFallback
 	mov	[MsgReadHandle],ax
 	xchg	ax,bx
 	call	ReadMessageHeader
 	jnc	rmClose
-	mov	ah,03eh
+	mov	ah,CLOSE
 	mov	bx,[MsgReadHandle]
-	int	byte ptr 021h
+	int	21h
 rmFallback:
 	push	ds
 	lds	dx,dword ptr [MsgFallbackPath]
-	mov	ax,03d00h
-	int	byte ptr 021h
+	mov	ax,(OPEN SHL 8)
+	int	21h
 	pop	ds
 	jc	rmReturn
 	mov	[MsgReadHandle],ax
@@ -507,9 +529,9 @@ rmFallback:
 	call	ReadMessageHeader
 rmClose:
 	pushf
-	mov	ah,03eh
+	mov	ah,CLOSE
 	mov	bx,[MsgReadHandle]
-	int	byte ptr 021h
+	int	21h
 	popf
 	mov	dx,word ptr [MsgFileOffset]
 	mov	cx,word ptr [MsgFileOffset+2]
@@ -524,9 +546,9 @@ ReadMessageClass endp
 ReadMessageHeader proc near
 	push	es
 	mov	cx,01ah
-	mov	ax,03f00h
+	mov	ax,(READ SHL 8)
 	lea	dx,[MsgReadHeader]
-	int	byte ptr 021h
+	int	21h
 	jnc	rhSignature
 rhBadRead:
 	jmp	short rhError
@@ -538,12 +560,12 @@ rhSignature:
 	xor	dx,dx
 	sub	dx,07h
 	sbb	cx,00h
-	mov	ax,04202h
-	int	byte ptr 021h
+	mov	ax,(LSEEK SHL 8) OR 2
+	int	21h
 	mov	cx,07h
-	mov	ax,03f00h
+	mov	ax,(READ SHL 8)
 	lea	dx,[MsgReadHeader]
-	int	byte ptr 021h
+	int	21h
 	jc	rhBadRead
 	cmp	word ptr [MsgReadHeader+3],0534eh
 	jnz	rhBadRead
@@ -582,12 +604,12 @@ ScanMessageClass proc near
 smNext:
 	push	cx
 	push	dx
-	mov	ax,04200h
-	int	byte ptr 021h
+	mov	ax,(LSEEK SHL 8)
+	int	21h
 	mov	cx,010h
-	mov	ah,03fh
+	mov	ah,READ
 	lea	dx,[MsgReadHeader]
-	int	byte ptr 021h
+	int	21h
 	jc	smError
 	cmp	ax,cx
 	jnz	smError
@@ -631,8 +653,8 @@ smFound:
 	mov	ax,[MsgReadSegment]
 	mov	es,ax
 	mov	dx,[MsgReadOffset]
-	mov	ah,03fh
-	int	byte ptr 021h
+	mov	ah,READ
+	int	21h
 	pop	ds
 	jc	smFailure
 smReturn:
@@ -767,7 +789,8 @@ FirstCom		db	0		;flag set if first command.com
 DevFlag		db	0
 PathFlag		db	0
 
-	public	ResidentCodeOffset, LoadLow
+	public	ResidentCodeOffset
+	public	LoadLow
 ResidentCodeOffset dw	0		; source of resident code
 
 INIT	ends

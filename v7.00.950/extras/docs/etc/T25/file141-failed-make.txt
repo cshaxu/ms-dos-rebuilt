@@ -1,0 +1,25 @@
+	masm /Mx /t /W1 /DUSA /DDBLSPACE_HOOKS /I. /I..\..\inc /I..\..\lang\usa\messages command1.asm,command1.obj,command1.lst;
+	masm /Mx /t /W1 /DUSA /DDBLSPACE_HOOKS /I. /I..\..\inc /I..\..\lang\usa\messages command2.asm,command2.obj,command2.lst;
+	masm /Mx /t /W1 /DUSA /DDBLSPACE_HOOKS /I. /I..\..\inc /I..\..\lang\usa\messages rucode.asm,rucode.obj,rucode.lst;
+	masm /Mx /t /W1 /DUSA /DDBLSPACE_HOOKS /I. /I..\..\inc /I..\..\lang\usa\messages stub.asm,stub.obj,stub.lst;
+	masm /Mx /t /W1 /DUSA /DDBLSPACE_HOOKS /I. /I..\..\inc /I..\..\lang\usa\messages rdata.asm,rdata.obj,rdata.lst;
+	masm /Mx /t /W1 /DUSA /DDBLSPACE_HOOKS /I. /I..\..\inc /I..\..\lang\usa\messages init.asm,init.obj,init.lst;
+	masm /Mx /t /W1 /DUSA /DDBLSPACE_HOOKS /I. /I..\..\inc /I..\..\lang\usa\messages iparse.asm,iparse.obj,iparse.lst;
+	masm /Mx /t /W1 /DUSA /DDBLSPACE_HOOKS /I. /I..\..\inc /I..\..\lang\usa\messages uinit.asm,uinit.obj,uinit.lst;
+DBCS Enabled IBM  version 
+uinit.asm(490): error A2009: Symbol not defined: GET_CURRENT_PDB
+uinit.asm(508): error A2009: Symbol not defined: OPEN
+uinit.asm(516): error A2009: Symbol not defined: CLOSE
+uinit.asm(522): error A2009: Symbol not defined: OPEN
+uinit.asm(531): error A2009: Symbol not defined: CLOSE
+uinit.asm(548): error A2009: Symbol not defined: READ
+uinit.asm(562): error A2009: Symbol not defined: LSEEK
+uinit.asm(565): error A2009: Symbol not defined: READ
+uinit.asm(606): error A2009: Symbol not defined: LSEEK
+uinit.asm(609): error A2009: Symbol not defined: READ
+uinit.asm(655): error A2009: Symbol not defined: READ
+
+  43084 + 372048 Bytes symbol space free
+
+      0 Warning Errors
+     11 Severe  Errors

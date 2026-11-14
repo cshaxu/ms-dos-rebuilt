@@ -582,6 +582,7 @@ uinit.obj:     uinit.asm                \
 	       $(inc)\dossym.inc          \
 	       $(inc)\error.inc           \
 	       $(inc)\pdb.inc             \
+	       $(inc)\syscall.inc         \
 	       $(inc)\versiona.inc        
 
 loadhi.obj:     loadhi.asm              \
