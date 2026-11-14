@@ -56,10 +56,10 @@ IO.SYS, MSDOS.SYS and COMMAND.COM all equal. This is an existing-asset check,
 not a claim that a new build has run. The accepted six-byte MSDOS.SYS config
 remains the target; other media provenance does not silently change it.
 
-## Current prefix: 186/293
+## Current prefix: 187/293
 
-Modified source/build files 97, exact 27, necessary unchanged 26,
-no same-name reference unchanged 36. Next: 187, dos/makefile. Tooling modified
+Modified source/build files 98, exact 27, necessary unchanged 26,
+no same-name reference unchanged 36. Next: 188, dos/misc.asm. Tooling modified
 1 (ioimage.c case-insensitive map symbol lookup), outside source count.
 See etc/T25/part1.md. BIOSTAIL.OBJ is unchanged; all compiler/link phases ran,
 then packaging failure was diagnosed and repaired. Fresh three-output FC/B
@@ -496,3 +496,7 @@ Next: 186 dos/macro2.asm. Final full build pending.
 P76 accepts file 186 MACRO2. Aligned the data declaration and restored the
 UNC comparison comment. Rebuilt kernel and three output byte checks passed.
 See part76.md. Next: 187 dos/makefile. Final full build pending.
+
+P77 accepts file 187. Removed seven stale dependencies from IDLE and DIRCMP.
+Both objects were rebuilt, the kernel linked, and all target comparisons passed.
+See part77.md. Next: 188 dos/misc.asm. Final full build pending.
