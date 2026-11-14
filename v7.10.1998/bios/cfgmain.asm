@@ -19,6 +19,7 @@ _DATA	segment	word public 'DATA'
 	extrn	ConfigInitialState:byte
 	extrn	ConfigInfoSize:word
 	extrn	ConfigReturnCode:word
+	extrn	ConfigWindowsPath:dword
 	extrn	ConfigArgPaths:dword
 	extrn	ConfigArgValues:dword
 	extrn	ConfigArgPath0:byte
@@ -62,77 +63,91 @@ ConfigSetError	endp
 
 ;	Read up to eight bootstrap values from the DOS command tail.
 ;	Far C argument: command-tail pointer.
-;
+;	The first record can also supply the Windows directory.
 ConfigReadArguments	proc	far
 	push	bp
 	mov	bp,sp
-	sub	sp,0Ch
+	sub	sp,0Eh
 	push	di
 	push	si
 	les	bx,[bp+06h]
 	inc	word ptr [bp+06h]
 	mov	al,es:[bx]
 	cbw
-	mov	di,ax
-	cmp	di,08h
-	jnl	short cfgargs_args_loc_01C
-	jmp	cfgargs_args_loc_0E7
-cfgargs_args_loc_01C:
+	mov	cx,ax
+	cmp	cx,8
+	jnl	short cfgargs_marker
+	jmp	near ptr cfgargs_done
+cfgargs_marker:
 	mov	bx,[bp+06h]
 	inc	word ptr [bp+06h]
 	cmp	byte ptr es:[bx],0FFh
-	jz	short cfgargs_args_loc_02B
-	jmp	cfgargs_args_loc_0E7
-cfgargs_args_loc_02B:
-	sub	di,02h
-	mov	word ptr [bp-02h],00h
+	jz	short cfgargs_count
+	jmp	near ptr cfgargs_done
+cfgargs_count:
+	sub	cx,2
+	mov	[bp-04h],cx
 	mov	bx,[bp+06h]
 	inc	word ptr [bp+06h]
 	mov	al,es:[bx]
 	cbw
-	sub	ax,08h
+	sub	ax,8
 	sbb	dx,dx
 	and	ax,dx
-	add	ax,08h
-	mov	cx,ax
-	or	cx,ax
-	jg	short cfgargs_args_loc_050
-	jmp	cfgargs_args_loc_0E7
-cfgargs_args_loc_050:
-	mov	[bp-04h],cx
-	xor	si,si
-cfgargs_args_loc_055:
-	cmp	di,06h
-	jnl	short cfgargs_args_loc_05D
-	jmp	cfgargs_args_loc_0E7
-cfgargs_args_loc_05D:
-	lea	ax,[bp-08h]
+	add	ax,8
+	mov	si,ax
+	or	si,ax
+	jz	short cfgargs_begin
+	cmp	cx,6
+	jl	short cfgargs_begin
+	mov	bx,[bp+06h]
+	mov	ax,es:[bx+2]
+	mov	dx,es:[bx+4]
+	mov	word ptr ConfigWindowsPath,ax
+	mov	word ptr ConfigWindowsPath+2,dx
+cfgargs_begin:
+	xor	di,di
+	or	si,si
+	jg	short cfgargs_setup
+	jmp	near ptr cfgargs_done
+cfgargs_setup:
+	mov	[bp-06h],si
+	xor	dx,dx
+	mov	[bp-02h],dx
+	mov	si,dx
+cfgargs_next:
+	cmp	word ptr [bp-04h],6
+	jnl	short cfgargs_open
+	jmp	near ptr cfgargs_done
+cfgargs_open:
+	lea	ax,[bp-0Ah]
 	push	ss
 	push	ax
 	push	word ptr ConfigArgPaths[si+2]
 	push	word ptr ConfigArgPaths[si]
-	mov	ax,02h
-	mov	dx,08000h
+	mov	ax,2
+	mov	dx,8000h
 	push	dx
 	push	ax
 	call	far ptr RegOpenKey
 	add	sp,0Ch
 	or	dx,ax
-	jz	short cfgargs_args_loc_084
-	add	word ptr [bp+06h],06h
-	jmp	short cfgargs_args_loc_0D3
-cfgargs_args_loc_084:
+	jz	short cfgargs_query
+	add	word ptr [bp+06h],6
+	jmp	short cfgargs_advance
+	even
+cfgargs_query:
 	les	bx,[bp+06h]
-	add	word ptr [bp+06h],02h
+	add	word ptr [bp+06h],2
 	mov	ax,es:[bx]
-	mov	[bp-0Ch],ax
-	mov	word ptr [bp-0Ah],00h
-	lea	ax,[bp-0Ch]
+	mov	[bp-0Eh],ax
+	mov	word ptr [bp-0Ch],0
+	lea	ax,[bp-0Eh]
 	push	ss
 	push	ax
 	mov	bx,[bp+06h]
-	add	word ptr [bp+06h],04h
-	push	word ptr es:[bx+02h]
+	add	word ptr [bp+06h],4
+	push	word ptr es:[bx+2]
 	push	word ptr es:[bx]
 	sub	ax,ax
 	push	ax
@@ -141,23 +156,22 @@ cfgargs_args_loc_084:
 	push	ax
 	push	word ptr ConfigArgValues[si+2]
 	push	word ptr ConfigArgValues[si]
-	push	word ptr [bp-06h]
 	push	word ptr [bp-08h]
+	push	word ptr [bp-0Ah]
 	call	far ptr RegQueryValueEx
-	add	sp,018h
-	push	word ptr [bp-06h]
+	add	sp,18h
 	push	word ptr [bp-08h]
+	push	word ptr [bp-0Ah]
 	call	far ptr RegCloseKey
-	add	sp,04h
-cfgargs_args_loc_0D3:
-	add	si,04h
-	sub	di,06h
-	mov	ax,[bp-04h]
-	inc	word ptr [bp-02h]
-	cmp	[bp-02h],ax
-	jnl	short cfgargs_args_loc_0E7
-	jmp	cfgargs_args_loc_055
-cfgargs_args_loc_0E7:
+	add	sp,4
+cfgargs_advance:
+	add	si,4
+	sub	word ptr [bp-04h],6
+	inc	di
+	cmp	di,[bp-06h]
+	jnl	short cfgargs_done
+	jmp	near ptr cfgargs_next
+cfgargs_done:
 	pop	si
 	pop	di
 	mov	sp,bp

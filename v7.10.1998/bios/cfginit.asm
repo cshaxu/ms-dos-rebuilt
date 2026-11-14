@@ -82,6 +82,11 @@ ConfigInitialState label byte
         dd 200h
 ConfigInfoSize dw 0
 ConfigReturnCode dw 0
+; Default directory when the command tail has no path record.
+        public ConfigWindowsPath
+ConfigWindowsDir db 'C:\WINDOWS',0
+        even
+ConfigWindowsPath dw offset DGROUP:ConfigWindowsDir,DGROUP
 ; CFGARGS data.
         public ConfigArgPaths,ConfigArgValues
         public ConfigArgPath0

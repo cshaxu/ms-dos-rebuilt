@@ -115,7 +115,7 @@ call :order regread --procedures
 if errorlevel 1 goto failed
 call :order regroot --data RegTransferBuffer
 if errorlevel 1 goto failed
-call :order cfginit --data ConfigArgPaths
+call :order cfginit --data ConfigWindowsPath ConfigArgPaths
 if errorlevel 1 goto failed
 call :order cfgtail --data PnPProbeTable
 if errorlevel 1 goto failed
