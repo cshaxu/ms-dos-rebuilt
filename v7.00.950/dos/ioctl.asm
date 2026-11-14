@@ -470,7 +470,7 @@ GenericHandleValid:
 	jz	GenericHandleLocal
 	jmp	ioctl_bad_fun		; Cannot do this over net.
 GenericHandleLocal:
-	mov	CS:IoctlDrive,0FFh
+	mov	CS:IoctlDrive,0FFh	; no drive number for handle requests
 
 	mov	[EXTERR_LOCUS],ErrLOC_Serdev
 	les	di,es:[di.sf_devptr]	; Get pointer to device.
@@ -482,7 +482,7 @@ GENERICIOCTL:
 	mov	[EXTERR_LOCUS],ErrLOC_Disk
 	cmp	ch,IOC_DC		; Only disk devices are allowed to use
 	je	GenericDiskClass
-	jmp	ioctl_bad_fun		; no handles with Generic IOCTL.
+	jmp	ioctl_bad_fun		; reject other categories for drive calls
 GenericDiskClass:
 	mov	CS:IoctlDrive,BL
 
@@ -756,7 +756,6 @@ ControlDriveReady:
 	JNZ	ioctl_bad_funj		; There are no "net devices", and they
 					;   certainly don't know how to do this
 					;   call.
-ioctl_do_string:
 	PUSH	BX
 	PUSH	ES
 	LES	BX,[THISCDS]

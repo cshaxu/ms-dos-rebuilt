@@ -56,10 +56,10 @@ IO.SYS, MSDOS.SYS and COMMAND.COM all equal. This is an existing-asset check,
 not a claim that a new build has run. The accepted six-byte MSDOS.SYS config
 remains the target; other media provenance does not silently change it.
 
-## Current prefix: 178/293
+## Current prefix: 181/293
 
-Modified source/build files 92, exact 26, necessary unchanged 24,
-no same-name reference unchanged 36. Next: 179, dos/ioctl.asm. Tooling modified
+Modified source/build files 93, exact 27, necessary unchanged 25,
+no same-name reference unchanged 36. Next: 182, dos/lfn.asm. Tooling modified
 1 (ioimage.c case-insensitive map symbol lookup), outside source count.
 See etc/T25/part1.md. BIOSTAIL.OBJ is unchanged; all compiler/link phases ran,
 then packaging failure was diagnosed and repaired. Fresh three-output FC/B
@@ -478,3 +478,8 @@ module description. C stderr-capture probe executes original NMAKE; fresh
 kernel link unchanged, fresh IO.SYS and inherited outputs target-exact.
 293 inputs checked. See part72.md/file178-build.txt and diagnostic caveat.
 Next: 179 dos/ioctl.asm. Full clean build and completion audit pending.
+
+P73 accepts files 179-181. IOCTL removes an unused label and clarifies
+request comments. ISEARCH retains the required CDS redirect and KSTRIN is
+reference-exact. Rebuilt kernel and freshly packed IO.SYS pass byte checks.
+See part73.md. Next: 182 dos/lfn.asm. Final full build pending.
