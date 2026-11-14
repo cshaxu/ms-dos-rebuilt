@@ -86,11 +86,12 @@ break <Parseline:  Munch on the command line>
 ; each argument element.
 ;---------------
 ; ENTRY:
-;	(BL	     special delimiter for cparse -- not implemented)
+;	ComBufPtr   points to the command line
+;	CmdBufferLength gives the size of each dynamic buffer
 ;---------------
 ; EXIT:
 ;	CF	    set if error
-;	AL	    error code (carry set).  Note AH clobbered in any event.
+;	AX, BX      preserved by the parseline entry
 ;	argv[]	    array of cparse flags and pointers to arguments
 ;	argvcnt     argument count
 ;---------------
@@ -102,7 +103,7 @@ break <Parseline:  Munch on the command line>
 ;		path_sep	--	maybe it was a pathname
 ;		unused		--	for future expansion
 ;		special_delim	--	was there an initial special delimiter?
-;	*   argv[] and argvcnt are undefined if CF/AL indicates an error.
+;	*   argv[] and argvcnt are undefined if CF indicates an error.
 ;	*   Relationship between input, cparse output, and comtail can be
 ;	    found in the following chart.  Despite the claim of the cparse
 ;	    documentation that, "Token buffer always starts d:  for non switch
@@ -260,29 +261,36 @@ pcont:
         MOV     DI,OFFSET TRANGROUP:TranSpaceEnd+2
         MOV     BL,' '
 parseloop:
-        MOV     comptr,SI
-        XOR     BP,BP
-        MOV     expand_star,0
-        invoke  SCANOFF
-        invoke  CPARSE
-        JNC     SHORT More_prse
-        OR      BP,BP
-        JZ      SHORT parsedone
-        CALL    newarg
-        JMP     SHORT parsedone
+	mov	comptr,si			; save ptr into original command buffer
+	xor	BP, BP				; switch information put here by cparse
+	mov	byte ptr [expand_star],0	; don't expand *'s to ?'s
+	invoke	scanoff 			; skip leading blanks...
+	invoke	cparse				; byte off a token (args in SI, DI, BL)
+	jnc	short More_prse
+	or	BP,BP				; Check for trailing switch character
+	jz	short parsedone
+	call	newarg				; We hit CR but BP is non-zero. The
+						;   typical cause of this is that a
+						;   switch char IMMEDIATELY preceeds
+						;   the CR. We have an argument, but it
+						;   is sort of an error.
+	jmp	short parsedone 		; We're done (found the CR).
+
 More_prse:
-        MOV     cpyflag,2
-        CALL    newarg
-        JNC     parseloop
-        JMP     SHORT parse_error
-parsedone:
-        POPF
-        CLC
-        JMP     SHORT parse_exit
-parse_error:
-        POPF
-        STC
-parse_exit:
+	mov	cpyflag,2			; tell CPARSE that 1st token is done
+	call	newarg				; add to argv array (CX has char count)
+	jnc	parseloop			; was everything OK?
+	jmp	short parse_error		; NO, it wasn't -- bug out (CF set)
+
+parsedone:					; successful completion of parseline
+	popf
+	clc
+	jmp	short parse_exit
+
+parse_error:					; error entry (er, exit) point
+	popf
+	stc
+parse_exit:					; depend on not changing CF
         MOV     comptr,SI
         POP     SI
         POP     DI
@@ -302,7 +310,7 @@ break <NewArg>
 ;   [STARTEL]		cparse's answer to where the last element starts
 ; EXIT:
 ;   argbufptr		points to next free section of argbuffer
-;   arg.argbuf		contains null-terminated argument strings
+;   argument buffer	contains null-terminated argument strings
 ;   arg.argvcnt 	argument count
 ;   arg.argv[]		array of flags and pointers
 ;   arg.arg_ocomptr	ptr to starting loc of current token in original command

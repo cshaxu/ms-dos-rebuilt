@@ -132,35 +132,35 @@ assume	ds:trangroup,es:trangroup
 ; ****************************************************************
 
 CTTY:
-        push    ds
-        pop     es
-        mov     di,offset TRANGROUP:parse_ctty
-        mov     ParseArgIndex,1
-        invoke  ParseArgument
-        jc      short ctty_error
-        push    si
-        mov     di,offset TRANGROUP:srcbuf
+	push	ds
+	pop	es
+	mov	di,offset TRANGROUP:parse_ctty
+	mov	ParseArgIndex,1
+	invoke	ParseArgument
+	jc	short ctty_error
+	push	si
+	mov	di,offset TRANGROUP:srcbuf
 ctty_move_filename:
-        lodsb
-        stosb
-        cmp     al,end_of_line_out
-        jnz     ctty_move_filename
-        cmp     byte ptr [di-2],colon_char
-        jnz     short ctty_name_done
-        mov     byte ptr [di-2],0
+	lodsb
+	stosb
+	cmp	al,end_of_line_out
+	jnz	ctty_move_filename
+	cmp	byte ptr [di-2],colon_char
+	jnz	short ctty_name_done
+	mov	byte ptr [di-2],0
 ctty_name_done:
-        pop     si
-        invoke  CheckParsedArgs
-        jc      short ctty_open
+	pop	si
+	invoke	CheckParsedArgs
+	jc	short ctty_open
 ctty_error:
-        jmp     short ISBADDEV
+	jmp	short ISBADDEV
 ctty_open:
-        mov     si,offset TRANGROUP:srcbuf
-        mov     ax,6C00H
-        mov     bx,42H
-        xor     cx,cx
-        mov     dx,0101H
-        int     21h
+	mov	si,offset TRANGROUP:srcbuf
+	mov	ax,ExtOpen SHL 8
+	mov	bx,42H
+	xor	cx,cx
+	mov	dx,0101H
+	int	21h
 	JC	ISBADDEV
 	MOV	BX,AX
 	MOV	AX,IOCTL SHL 8
@@ -254,24 +254,24 @@ get_global_cp		equ    1
 assume	ds:trangroup,es:trangroup
 
 CHCP:
-        push    ds
-        pop     es
-        mov     ParseArgIndex,1
-        mov     di,offset TRANGROUP:parse_chcp
-        invoke  ParseArgument
-        jnc     short setcp
-        or      ax,ax
-        jz      getcp
-        jmp     short cp_error
+	push	ds
+	pop	es
+	mov	ParseArgIndex,1
+	mov	di,offset TRANGROUP:parse_chcp
+	invoke	ParseArgument
+	jnc	short setcp
+	or	ax,ax
+	jz	getcp
+	jmp	short cp_error
 setcp:
-        mov     ax,word ptr ParseResultValue
-        cmp     ax,100
-        jb      chcp_invalid
-        cmp     ax,999
-        ja      chcp_invalid
-        mov     system_cpage,ax
-        invoke  CheckParsedArgs
-        jnc     chcp_extra
+	mov	ax,word ptr ParseResultValue
+	cmp	ax,100
+	jb	chcp_invalid
+	cmp	ax,999
+	ja	chcp_invalid
+	mov	system_cpage,ax
+	invoke	CheckParsedArgs
+	jnc	chcp_extra
 
 okset:
 	mov	ah,NLSFUNC			;AN000; see if NLSFUNC installed
@@ -324,14 +324,14 @@ chcp_other_error:
 	jmp	short cp_error			;AC000; error exit
 
 chcp_invalid:
-        mov     ax,6
-        jmp     short chcp_setup_error
+	mov	ax,6
+	jmp	short chcp_setup_error
 chcp_extra:
-        invoke  GetParsedArg
-        mov     ax,1
+	invoke	GetParsedArg
+	mov	ax,1
 chcp_setup_error:
-        invoke  DirSetupParamError
-        jmp     short cp_error
+	invoke	DirSetupParamError
+	jmp	short cp_error
 
 none_set:
 	mov	dx,offset trangroup:cp_not_set_ptr ;set up message
@@ -377,52 +377,52 @@ chcp_return:
 assume	ds:trangroup,es:trangroup		;AN000;
 
 TRUENAME:
-        push    ds
-        pop     es
-        mov     ParseArgIndex,1
-        mov     di,offset TRANGROUP:parse_chdir
-        invoke  ParseArgument
-        jnc     short tn_argument
-        or      ax,ax
-        jz      short tn_eol
-        jmp     short tn_parse_error
+	push	ds
+	pop	es
+	mov	ParseArgIndex,1
+	mov	di,offset TRANGROUP:parse_chdir
+	invoke	ParseArgument
+	jnc	short tn_argument
+	or	ax,ax
+	jz	short tn_eol
+	jmp	short tn_parse_error
 tn_eol:
-        mov     di,offset TRANGROUP:srcxname
-        mov     ah,end_of_line_out
-        mov     al,dot_chr
-        stosw
-        jmp     short tn_doit
+	mov	di,offset TRANGROUP:srcxname
+	mov	ah,end_of_line_out
+	mov	al,dot_chr
+	stosw
+	jmp	short tn_doit
 tn_argument:
-        mov     di,offset TRANGROUP:srcxname
-        cmp     [bx].arglen,2
-        jnz     short tn_filespec
-        cmp     byte ptr [si+1],colon_char
-        jnz     short tn_filespec
-        push    si
-        lodsb
-        stosb
-        mov     ax,dot_colon
-        stosw
-        mov     al,end_of_line_out
-        stosb
-        pop     si
-        jmp     short tn_check_eol
+	mov	di,offset TRANGROUP:srcxname
+	cmp	[bx].arglen,2
+	jnz	short tn_filespec
+	cmp	byte ptr [si+1],colon_char
+	jnz	short tn_filespec
+	push	si
+	lodsb
+	stosb
+	mov	ax,dot_colon
+	stosw
+	mov	al,end_of_line_out
+	stosb
+	pop	si
+	jmp	short tn_check_eol
 tn_filespec:
-        push    si
+	push	si
 tn_move_filename:
-        lodsb
-        stosb
-        cmp     al,end_of_line_out
-        jnz     tn_move_filename
-        pop     si
+	lodsb
+	stosb
+	cmp	al,end_of_line_out
+	jnz	tn_move_filename
+	pop	si
 tn_check_eol:
-        invoke  CheckParsedArgs
-        jc      short tn_doit
-        invoke  GetParsedArg
-        mov     ax,1
-        invoke  DirSetupParamError
+	invoke	CheckParsedArgs
+	jc	short tn_doit
+	invoke	GetParsedArg
+	mov	ax,1
+	invoke	DirSetupParamError
 tn_parse_error:
-        jmp     cerror
+	jmp	cerror
 
 tn_doit:					;AN000;
 	mov	si,offset trangroup:srcxname	;AN000; set up srcxname as source
@@ -450,43 +450,43 @@ tn_print_xname: 				;AN000;
 assume	ds:trangroup,es:trangroup
 
 $EXIT:
-        push    ds
-        mov     ds,[resseg]
-        ASSUME  DS:RESGROUP
-        cmp     [permcom],0
-        jnz     short ExitPermanent
-        cmp     word ptr [Int_2e_Ret+2],0
-        jz      short free_com
-        push    ds
-        mov     ax,offset RESGROUP:LodCom_Trap
-        push    ax
-        retf
+	push	ds
+	mov	ds,[resseg]
+	ASSUME	DS:RESGROUP
+	cmp	[permcom],0
+	jnz	short ExitPermanent
+	cmp	word ptr [Int_2e_Ret+2],0
+	jz	short free_com
+	push	ds
+	mov	ax,offset RESGROUP:LodCom_Trap
+	push	ax
+	retf
 ExitPermanent:
-        cmp     word ptr [singlecom],-1
-        jz      short no_reset
-        jmp     TCommand
+	cmp	word ptr [singlecom],-1
+	jz	short no_reset
+	jmp	TCommand
 free_com:
-        mov     ax,(multdos shl 8 or message_2f)
-        mov     dl,set_critical_msg
-        mov     di,crit_msg_off
-        mov     es,crit_msg_seg
-        int     2fh
+	mov	ax,(multdos shl 8 or message_2f)
+	mov	dl,set_critical_msg
+	mov	di,crit_msg_off
+	mov	es,crit_msg_seg
+	int	2fh
 no_reset:
-        pop     ds
-        ASSUME  DS:TRANGROUP
-        invoke  RestUDir1
-        mov     es,[RESSEG]
-        ASSUME  ES:RESGROUP
-        mov     ax,ES:[PARENT]
-        mov     word ptr ES:[PDB_Parent_PID],ax
-        mov     ax,word ptr ES:[OldTerm]
-        mov     word ptr ES:[PDB_Exit],ax
-        mov     ax,word ptr ES:[OldTerm+2]
-        mov     word ptr ES:[PDB_Exit+2],ax
-        mov     ax,ES:[RetCode]
-        cmp     ah,0FFH
-        jnz     short ExitSaveCode
-        mov     al,0
+	pop	ds
+	ASSUME	DS:TRANGROUP
+	invoke	RestUDir1
+	mov	es,[RESSEG]
+	ASSUME	ES:RESGROUP
+	mov	ax,ES:[PARENT]
+	mov	word ptr ES:[PDB_Parent_PID],ax
+	mov	ax,word ptr ES:[OldTerm]
+	mov	word ptr ES:[PDB_Exit],ax
+	mov	ax,word ptr ES:[OldTerm+2]
+	mov	word ptr ES:[PDB_Exit+2],ax
+	mov	ax,ES:[RetCode]
+	cmp	ah,0FFH
+	jnz	short ExitSaveCode
+	mov	al,0
 ExitSaveCode:
         push    ax
         push    ds
@@ -518,15 +518,15 @@ ExitRestoreInt2f:
         mov     ax,252FH
         int     21h
 ExitRestoreDone:
-        pop     ds
-        push    es
-        mov     es,[TRAN_TPA]
-        mov     ah,DEALLOC
-        int     21h
-        pop     es
-        pop     ax
-        mov     ah,Exit
-        int     21h
+	pop	ds
+	push	es
+	mov	es,[TRAN_TPA]
+	mov	ah,DEALLOC
+	int	21h
+	pop	es
+	pop	ax
+	mov	ah,Exit
+	int	21h
 ExitKeepResident:
         mov     es,dx
         pop     ds
@@ -562,8 +562,8 @@ SETUP_PARSE_ERROR_MSG endp
 ; LOCK and UNLOCK enable or disable direct access to a logical drive.
 ; A missing drive selects all drives; LOCK first asks for confirmation.
 LockDrive:
-        MOV     DX,OFFSET TRANGROUP:LockWarn_Ptr
-        INVOKE  STD_PRINTF
+	MOV	DX,OFFSET TRANGROUP:LockWarn_Ptr
+	INVOKE	STD_PRINTF
 LockQuestion:
         MOV     DX,OFFSET TRANGROUP:LockPrompt_Ptr
         INVOKE  STD_PRINTF
@@ -585,7 +585,7 @@ LockQuestion:
         MOV     CX,084AH
         JMP     SHORT LockOperation
 UnlockDrive:
-        MOV     CX,086AH
+	MOV	CX,086AH
 LockOperation:
         PUSH    CX
         CALL    GETARG
@@ -595,19 +595,19 @@ LockOperation:
         MOV     DX,011AH
         JMP     SHORT LockNextDrive
 LockSpecifiedDrive:
-        CMP     BYTE PTR [SI+1],':'
-        JNZ     SHORT LockError
-        MOV     AL,[SI]
-        PUSH    AX
-        MOV     AX,1213H
-        INT     2FH
-        INC     SP
-        INC     SP
-        SUB     AL,40H
-        JC      SHORT LockError
-        CMP     AL,20H
-        JA      SHORT LockError
-        MOV     DX,1
+	CMP	BYTE PTR [SI+1],':'
+	JNZ	SHORT LockError
+	MOV	AL,[SI]
+	PUSH	AX
+	MOV	AX,1213H
+	INT	2FH
+	INC	SP
+	INC	SP
+	SUB	AL,40H
+	JC	SHORT LockError
+	CMP	AL,20H
+	JA	SHORT LockError
+	MOV	DX,1
 LockNextDrive:
         PUSH    AX
         MOV     BL,AL
@@ -622,20 +622,20 @@ LockNextDrive:
         INT     21H
         POP     DX
 LockResult:
-        POP     AX
-        JC      SHORT LockFailure
+	POP	AX
+	JC	SHORT LockFailure
 LockContinue:
-        INC     AX
-        DEC     DL
-        JNZ     LockNextDrive
+	INC	AX
+	DEC	DL
+	JNZ	LockNextDrive
 LockDone:
-        RET
+	RET
 LockFailure:
-        TEST    DH,DH
-        JNZ     LockContinue
+	TEST	DH,DH
+	JNZ	LockContinue
 LockError:
-        MOV     DX,OFFSET TRANGROUP:LockErr_Ptr
-        JMP     CERROR
+	MOV	DX,OFFSET TRANGROUP:LockErr_Ptr
+	JMP	CERROR
 trancode    ends
 	    end
 

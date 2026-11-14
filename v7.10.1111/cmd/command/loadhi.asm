@@ -114,7 +114,8 @@ TRANSPACE	ends
 
 TRANCODE		segment
 
-	extrn	SCANOFF:near,DELIM:near
+	extrn	SCANOFF:near
+	extrn	DELIM:near
 	extrn	Cerror:near
 	extrn	Lh_Entry:near			;new execute label; M051
 	extrn	Path_Search:near
@@ -134,7 +135,7 @@ iCmdLine	equ	81h		; PSP:81h points to command-line
 
 ;****	LoadHigh -- Main routine for Loadhigh command
 ;
-;	ENTRY	Command line tail is at PSP:iCmdLine terminated by 0dh
+;	ENTRY	ComBufPtr points to the command line terminated by 0dh
 ;		CS = DS = SS = TRANGROUP
 ;
 ;	EXIT	None

@@ -112,3 +112,18 @@ ordinal,path,disposition,verification
 111,cmd/command/iniclass.asm,exact,Byte comparison with frozen 950
 112,cmd/command/init.asm,reduced,Restored INIT service symbols and comments; retained target message offsets
 113,cmd/command/iparse.asm,exact,Byte comparison with frozen 950
+114,cmd/command/loadhi.asm,reduced-to-exact,Restored LOADHIGH entry contract from its ComBufPtr read and inherited extern declarations
+115,cmd/command/makefile,reduced,Restored 950 include and message-directory variables; retained 1111 dependency membership and production rules
+116,cmd/command/parse2.asm,reduced-to-exact,Restored parser entry contract and trailing-switch flow comments and expressions
+117,cmd/command/path1.asm,reduced-to-exact,Restored path-search comments and extern declarations
+118,cmd/command/path2.asm,reduced-to-exact,Removed unused FOR include and stale extern declarations; Save_Args is implemented by TFOR
+119,cmd/command/rdata.asm,reduced-to-exact,Restored allocation service names and resident buffer documentation
+120,cmd/command/resclass.asm,exact,Byte comparison with frozen 950
+121,cmd/command/resmsg.equ,exact,Byte comparison with frozen 950
+122,cmd/command/rucode.asm,reduced,Restored DOS calls in resident execution; retained the CRLF public export used by COMMAND
+123,cmd/command/stub.asm,exact,Byte comparison with frozen 950
+124,cmd/command/tbatch.asm,reduced,Restored batch reader comments and declarations; retained the explicit short MOVPARM branch
+125,cmd/command/tbatch2.asm,reduced-to-exact,Restored batch path and IF EXIST declarations and formatting
+126,cmd/command/tcmd1b.asm,reduced,Restored directory and parser declarations and moved the Volume header to its routine; retained 1111 source symbols
+127,cmd/command/tcmd2a.asm,reduced,Restored unchanged procedure formatting; retained the 1111 version resource selection
+128,cmd/command/tcmd2b.asm,reduced,Restored inherited formatting and extended-open service name; kept the target LOCK handling and encodings
