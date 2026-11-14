@@ -1029,7 +1029,7 @@ RegBindRoot proc near
 	les bx,[bp-4]
 	mov al,es:[bx+0Bh]
 	mov es,word ptr [bp+6]
-	mov es:[si+14h],al
+	mov es:[si+16h],al
 	db 66h
 	push word ptr es:[si+6]
 	db 66h

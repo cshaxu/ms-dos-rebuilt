@@ -11,6 +11,7 @@ KeyRoot macro rootid
         dd -1
         dd -1
         dw 0
+        dw 0
         db 0,rootid
         dd 0
         dd 0

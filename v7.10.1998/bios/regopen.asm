@@ -29,6 +29,9 @@ RegistryCode label byte
 	extrn RegAllocateDataRecord:near
 	extrn RegNameChecksum:near
 	extrn RegCompareName:near
+	extrn RegAllocate:near
+	extrn RegDosFree:near
+	extrn RegEnumValueRecord:near
 	public RegCheckPath
 RegCheckPath proc near
 	enter 6,0
@@ -191,7 +194,7 @@ ropt_component:
 	mov [bp-4],ax
 	mov [bp-2],dx
 	cmp dword ptr [bp-18h],0FFFFFFh
-	jae short ropt_nochild
+	jae near ptr ropt_nochild
 	mov si,[bp-8]
 ropt_find:
 	push word ptr [bp-6]
@@ -208,9 +211,9 @@ ropt_find:
 	sub dx,dx
 	mov ax,es:[bx+0Eh]
 	cmp ax,[bp-4]
-	jnz short ropt_next
+	jnz near ptr ropt_next
 	cmp dx,[bp-2]
-	jnz short ropt_next
+	jnz near ptr ropt_next
 	push word ptr [bp-6]
 	push si
 	push word ptr es:[bx+0Ch]
@@ -224,6 +227,18 @@ ropt_find:
 	mov [bp-0Eh],ax
 	or ax,ax
 	jnz ropt_data_error
+	les bx,[bp-1Ch]
+	test word ptr es:[bx+2],400h
+	jnz short ropt_ordinary_key
+	xor ax,ax
+	jmp short ropt_key_class
+ropt_ordinary_key:
+	mov ax,4
+ropt_key_class:
+	mov cx,[bp+4]
+	and cx,4
+	cmp ax,cx
+	jne short ropt_nomatch
 	mov ax,[bp-10h]
 	les bx,[bp-20h]
 	cmp es:[bx+0Ch],ax
@@ -317,7 +332,7 @@ ropt_create_check:
 	jmp ropt_exit
 ropt_permission:
 	les di,[bp+0Eh]
-	cmp byte ptr es:[di+15h],6
+	cmp byte ptr es:[di+17h],6
 	jnz short ropt_readonly
 	test bl,2
 	jz short ropt_denied
@@ -565,11 +580,16 @@ ropt_init_handle:
 	les bx,[bp-1Ch]
 	mov al,es:[bx+0Bh]
 	mov es,word ptr [bp-2]
-	mov es:[di+14h],al
+	mov es:[di+16h],al
 	les bx,[bp+0Eh]
-	mov al,es:[bx+15h]
+	mov al,es:[bx+17h]
 	mov es,word ptr [bp-2]
-	mov es:[di+15h],al
+	mov es:[di+17h],al
+	les bx,[bp-1Ch]
+	test word ptr es:[bx+2],200h
+	jz short ropt_release_key
+	mov es,[bp-2]
+	or byte ptr es:[di+3],1
 ropt_release_key:
 	push dword ptr [bp-8]
 	push dword ptr [bp-18h]
@@ -720,6 +740,104 @@ RegCloseKey endp
 	db 0
 	endif
 
+; Search the current key and, for a chained key, its linked records.
+	public RegFindChainedValue
+RegFindChainedValue proc near
+	enter 10h,0
+	push di
+	push si
+	mov si,[bp+010h]
+	mov es,[bp+012h]
+	mov ax,es:[si+012h]
+	mov es:[si+014h],ax
+	push es
+	push si
+	push dword ptr [bp+0Ch]
+	push dword ptr [bp+8]
+	push dword ptr [bp+4]
+	call RegFindValue
+	mov di,ax
+	mov [bp-4],ax
+	cmp di,03F4h
+	jnz short rcv_return_search
+	mov es,[bp+012h]
+	test byte ptr es:[si+3],1
+	jz short rcv_return_search
+	push 0100h
+	call RegAllocate
+	mov di,ax
+	mov [bp-6],dx
+	or dx,ax
+	jnz short rcv_start
+	mov ax,0Eh
+	jmp near ptr rcv_done
+rcv_return_search:
+	mov si,ax
+	jmp near ptr rcv_result
+rcv_start:
+	mov word ptr [bp-2],0
+	mov si,[bp+010h]
+	mov [bp-8],ax
+rcv_enumerate:
+	mov dword ptr [bp-010h],0100h
+	push word ptr [bp+012h]
+	push si
+	push word ptr [bp-2]
+	inc word ptr [bp-2]
+	push word ptr [bp-6]
+	push di
+	lea ax,[bp-010h]
+	push ss
+	push ax
+	push 4
+	call RegEnumValueRecord
+	or ax,ax
+	jnz short rcv_missing
+	push word ptr [bp+012h]
+	push si
+	push word ptr [bp-6]
+	push di
+	lea ax,[bp-0Ch]
+	push ss
+	push ax
+	push 4
+	call RegOpenPath
+	or ax,ax
+	jnz short rcv_missing
+	les bx,[bp-0Ch]
+	mov ax,es:[bx+012h]
+	mov es,[bp+012h]
+	mov es:[si+014h],ax
+	push dword ptr [bp-0Ch]
+	push dword ptr [bp+0Ch]
+	push dword ptr [bp+8]
+	push dword ptr [bp+4]
+	call RegFindValue
+	mov [bp-4],ax
+	push dword ptr [bp-0Ch]
+	call RegReleaseKeyHandle
+	cmp word ptr [bp-4],03F4h
+	jz short rcv_enumerate
+	mov si,[bp-4]
+	jmp short rcv_free
+rcv_missing:
+	mov si,03F4h
+rcv_free:
+	push word ptr [bp-6]
+	push di
+	call RegDosFree
+rcv_result:
+	mov ax,si
+rcv_done:
+	pop si
+	pop di
+	leave
+	ret 10h
+RegFindChainedValue endp
+	if ($ - RegistryCode) and 1
+	db 0
+	endif
+
 	public RegFindValue
 RegFindValue proc near
 	enter 0Ch,0
@@ -734,7 +852,7 @@ rfvt_load:
 	db 66h
 	push word ptr es:[bx+6]
 	push word ptr es:[bx+12h]
-	mov al,es:[bx+14h]
+	mov al,es:[bx+16h]
 	push ax
 	lea ax,[bp-0Ch]
 	push ss
@@ -975,7 +1093,7 @@ rqvt_validate:
 	lea ax,[bp-6]
 	push ss
 	push ax
-	call RegFindValue
+	call RegFindChainedValue
 	mov [bp-2],ax
 	or ax,ax
 	jnz short rqvt_missing
@@ -995,7 +1113,7 @@ rqvt_validate:
 	les bx,[bp+6]
 	db 66h
 	push word ptr es:[bx+6]
-	push word ptr es:[bx+12h]
+	push word ptr es:[bx+14h]
 	push 0
 	call RegUnlockDataCache
 	jmp short rqvt_result

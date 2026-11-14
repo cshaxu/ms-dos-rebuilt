@@ -24,6 +24,8 @@ CGROUP group _TEXT,REGTEXT
 	extrn RegMoveMemory:near
 	extrn RegZeroMemory:near
 	extrn RegDosFree:near
+	extrn RegForEachFile:near
+	extrn RegMaintainCache:near
 RegistryCode label byte
 	extrn RegAllocate:near
 	extrn RegReallocRetry:near
@@ -3001,6 +3003,231 @@ rcfr_done:
 	leave
 	ret 10h
 RegCopyFileRange endp
+	if ($ - RegistryCode) and 1
+	db 0
+	endif
+
+; Enumerate a registry key through its cached chain of value records.
+; Return the name length and remember the last key visited on the handle.
+	public RegEnumValueRecord
+RegEnumValueRecord proc near
+	enter 16h,0
+	push di
+	push si
+	mov cx,[bp+0Eh]
+	mov di,[bp+010h]
+	mov es,[bp+012h]
+	db 66h
+	mov ax,es:[di+6]
+	mov dx,es:[di+8]
+	mov [bp-0Ch],eax
+	mov bx,cx
+	test byte ptr es:[di+2],010h
+	jz short rev_first_key
+	mov ah,es:[di+3]
+	and ax,0200h
+	cmp ax,1
+	sbb ax,ax
+	neg ax
+	mov dl,[bp+4]
+	and dx,4
+	cmp dx,1
+	sbb dx,dx
+	neg dx
+	cmp ax,dx
+	jnz short rev_first_key
+	cmp es:[di+020h],cx
+	ja short rev_first_key
+	sub bx,es:[di+020h]
+	db 66h
+	mov ax,es:[di+022h]
+	mov dx,es:[di+024h]
+	mov [bp-8],eax
+	mov [bp-0Eh],bx
+	jmp short rev_check_key
+rev_first_key:
+	mov [bp-0Eh],bx
+	mov es,[bp+012h]
+	db 66h
+	mov ax,es:[di+0Eh]
+	mov dx,es:[di+010h]
+	mov [bp-8],eax
+rev_check_key:
+	cmp dx,0FFh
+	ja near ptr rev_no_value
+	jc short rev_next_key
+	cmp ax,0FFFFh
+	jnc near ptr rev_no_value
+rev_next_key:
+	mov word ptr [bp-2],0
+	mov si,[bp-0Ch]
+rev_fetch_key:
+	push word ptr [bp-0Ah]
+	push si
+	push dword ptr [bp-8]
+	lea ax,[bp-012h]
+	push ss
+	push ax
+	call RegFetchKeyRecord
+	mov di,ax
+	or di,ax
+	jnz near ptr rev_load_error
+	les bx,[bp-012h]
+	test word ptr es:[bx+2],0400h
+	jnz short rev_key_filtered
+	mov ax,1
+	jmp short rev_key_class
+rev_key_filtered:
+	xor ax,ax
+rev_key_class:
+	mov cl,[bp+4]
+	and cx,4
+	cmp cx,1
+	sbb cx,cx
+	neg cx
+	cmp ax,cx
+	jnz short rev_follow_link
+	cmp word ptr [bp-0Eh],0
+	jnz short rev_follow_link
+	push word ptr [bp-0Ah]
+	push si
+	push word ptr es:[bx+0Ch]
+	mov al,es:[bx+0Bh]
+	sub ah,ah
+	push ax
+	lea ax,[bp-016h]
+	push ss
+	push ax
+	call RegFetchDataRecord
+	mov di,ax
+	or di,ax
+	jz near ptr rev_copy_value
+	mov [bp-4],di
+	cmp word ptr [bp-2],0
+	jnz near ptr rev_unlock_key
+	mov word ptr [bp-2],1
+	push word ptr [bp-0Ah]
+	push si
+	push dword ptr [bp-8]
+	push 0
+	call RegUnlockKeyCache
+	push offset CGROUP:RegMaintainCache
+	call RegForEachFile
+	push offset CGROUP:RegMaintainCache
+	call RegForEachFile
+	jmp near ptr rev_fetch_key
+rev_follow_link:
+	mov di,[bp-0Ch]
+	mov ax,es:[bx]
+	mov dx,es:[bx+2]
+	sub dh,dh
+	mov [bp-4],ax
+	mov [bp-2],dx
+	push word ptr [bp-0Ah]
+	push di
+	push dword ptr [bp-8]
+	push 0
+	call RegUnlockKeyCache
+	mov eax,[bp-4]
+	mov [bp-8],eax
+	les bx,[bp-012h]
+	test word ptr es:[bx+2],0400h
+	jnz short rev_link_filtered
+	mov ax,1
+	jmp short rev_link_class
+rev_link_filtered:
+	xor ax,ax
+rev_link_class:
+	mov cl,[bp+4]
+	and cx,4
+	cmp cx,1
+	sbb cx,cx
+	neg cx
+	cmp ax,cx
+	jnz short rev_check_link
+	dec word ptr [bp-0Eh]
+rev_check_link:
+	cmp dword ptr [bp-8],0FFFFFFh
+	jc near ptr rev_next_key
+	jmp near ptr rev_no_value
+rev_load_error:
+	mov ax,di
+	jmp near ptr rev_done
+rev_copy_value:
+	mov [bp-4],di
+	mov si,[bp+0Ah]
+	mov ax,[bp+0Ch]
+	or ax,si
+	jz short rev_save_length
+	les bx,[bp-016h]
+	sub dx,dx
+	mov ax,es:[bx+0Ch]
+	les bx,[bp+6]
+	cmp dx,es:[bx+2]
+	jc short rev_read_name
+	ja short rev_short_buffer
+	cmp ax,es:[bx]
+	jc short rev_read_name
+rev_short_buffer:
+	mov word ptr [bp-4],0EAh
+	jmp short rev_save_length
+rev_read_name:
+	push word ptr [bp+0Ch]
+	push si
+	mov eax,[bp-016h]
+	add ax,014h
+	push eax
+	les bx,[bp-016h]
+	push word ptr es:[bx+0Ch]
+	call RegMoveMemory
+	mov di,si
+	les bx,[bp-016h]
+	mov bx,es:[bx+0Ch]
+	mov es,[bp+0Ch]
+	mov byte ptr es:[bx+di],0
+rev_save_length:
+	les bx,[bp-016h]
+	mov ax,es:[bx+0Ch]
+	les bx,[bp+6]
+	mov es:[bx],ax
+	mov word ptr es:[bx+2],0
+	push dword ptr [bp-0Ch]
+	les bx,[bp-012h]
+	push word ptr es:[bx+0Ch]
+	push 0
+	call RegUnlockDataCache
+rev_unlock_key:
+	mov di,[bp+010h]
+	push dword ptr [bp-0Ch]
+	push dword ptr [bp-8]
+	push 0
+	call RegUnlockKeyCache
+	mov ax,[bp+0Eh]
+	mov es,[bp+012h]
+	mov es:[di+020h],ax
+	mov eax,[bp-8]
+	db 66h
+	mov es:[di+022h],ax
+	or byte ptr es:[di+2],010h
+	test byte ptr [bp+4],4
+	jz short rev_clear_class
+	mov es,[bp+012h]
+	or byte ptr es:[di+3],2
+	jmp short rev_result
+rev_clear_class:
+	mov es,[bp+012h]
+	and byte ptr es:[di+3],0FDh
+rev_result:
+	mov ax,[bp-4]
+	jmp short rev_done
+rev_no_value:
+	mov ax,0103h
+rev_done:
+	pop si
+	pop di
+	leave
+	ret 10h
+RegEnumValueRecord endp
 	if ($ - RegistryCode) and 1
 	db 0
 	endif

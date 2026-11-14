@@ -124,7 +124,7 @@ RegReallocRetry endp
 	public RegInitKeyPool
 RegInitKeyPool proc near
 	enter 4,0
-	push 480h
+	push 4C0h
 	call RegAllocate
 	mov word ptr RegKeyPool,ax
 	mov word ptr RegKeyPool+2,dx
@@ -145,7 +145,7 @@ rikp_next:
 	mov word ptr es:[bx],4B48h
 	dw 000Ch
 	mov word ptr es:[bx+4],0
-	add bx,24h
+	add bx,26h
 	loop rikp_next
 	mov ax,1
 	leave
@@ -169,8 +169,8 @@ RegFreeKeyPool proc near
 rfkp_next:
 	mov es,word ptr [bp-6]
 	mov di,si
-	mov ax,es:[si+16h]
-	mov dx,es:[si+18h]
+	mov ax,es:[si+18h]
+	mov dx,es:[si+1Ah]
 	mov si,ax
 	mov [bp-6],dx
 	push es
@@ -213,10 +213,10 @@ rakh_scan:
 	mov es,word ptr [bp-2]
 	test byte ptr es:[bx+2],4
 	jnz short rakh_slot
-	add bx,24h
+	add bx,26h
 	loop rakh_scan
 rakh_dynamic:
-	push 24h
+	push 26h
 	call RegAllocate
 	mov si,ax
 	mov [bp-2],dx
@@ -231,10 +231,10 @@ rakh_dynamic:
 	jnz short rakh_link
 	mov ax,[bp-2]
 	mov es,ax
-	mov es:[si+1Ah],si
-	mov es:[si+1Ch],ax
-	mov es:[si+16h],si
-	mov es:[si+18h],ax
+	mov es:[si+1Ch],si
+	mov es:[si+1Eh],ax
+	mov es:[si+18h],si
+	mov es:[si+1Ah],ax
 	jmp short rakh_head
 rakh_slot:
 	and byte ptr es:[bx+2],0E9h
@@ -253,20 +253,20 @@ rakh_insert:
 	mov eax,RegDynamicKeys
 	mov es,word ptr [bp-2]
 	db 66h
-	mov es:[si+16h],ax
+	mov es:[si+18h],ax
 	les bx,RegDynamicKeys
-	les bx,es:[bx+1Ah]
+	les bx,es:[bx+1Ch]
 	mov ax,es
 	mov es,word ptr [bp-2]
-	mov es:[si+1Ah],bx
-	mov es:[si+1Ch],ax
+	mov es:[si+1Ch],bx
+	mov es:[si+1Eh],ax
 	mov cx,es
 	mov es,ax
-	mov es:[bx+16h],si
-	mov es:[bx+18h],cx
+	mov es:[bx+18h],si
+	mov es:[bx+1Ah],cx
 	les bx,RegDynamicKeys
-	mov es:[bx+1Ah],si
-	mov es:[bx+1Ch],cx
+	mov es:[bx+1Ch],si
+	mov es:[bx+1Eh],cx
 rakh_head:
 	mov ax,[bp-2]
 	mov word ptr RegDynamicKeys,si
@@ -304,24 +304,24 @@ rrkh_count:
 	jmp short rrkh_done
 rrkh_dynamic:
 	mov ax,es
-	cmp es:[si+16h],si
+	cmp es:[si+18h],si
 	jnz short rrkh_unlink
-	cmp es:[si+18h],ax
+	cmp es:[si+1Ah],ax
 	jnz short rrkh_unlink
 	mov RegDynamicKeys,0
 	jmp short rrkh_free
 rrkh_unlink:
 	db 66h
-	mov ax,es:[si+16h]
-	les bx,es:[si+1Ah]
+	mov ax,es:[si+18h]
+	les bx,es:[si+1Ch]
 	db 66h
-	mov es:[bx+16h],ax
+	mov es:[bx+18h],ax
 	mov es,word ptr [bp+6]
 	db 66h
-	mov ax,es:[si+1Ah]
-	les bx,es:[si+16h]
+	mov ax,es:[si+1Ch]
+	les bx,es:[si+18h]
 	db 66h
-	mov es:[bx+1Ah],ax
+	mov es:[bx+1Ch],ax
 	mov ax,[bp+6]
 	cmp si,word ptr RegDynamicKeys
 	jnz short rrkh_free
@@ -329,7 +329,7 @@ rrkh_unlink:
 	jnz short rrkh_free
 	mov es,ax
 	db 66h
-	mov ax,es:[si+16h]
+	mov ax,es:[si+18h]
 	mov RegDynamicKeys,eax
 rrkh_free:
 	mov es,word ptr [bp+6]
@@ -426,7 +426,7 @@ rvht_open:
 	or byte ptr es:[bx+2],1
 	mov ax,si
 	les bx,[bp-0Ch]
-	mov es:[bx+15h],al
+	mov es:[bx+17h],al
 rvht_set:
 	mov eax,[bp-0Ch]
 	mov es,word ptr [bp+6]
@@ -537,7 +537,7 @@ rlkh_pool:
 	test byte ptr es:[bx+2],6
 	jz short rlkh_found
 rlkh_next_pool:
-	add bx,24h
+	add bx,26h
 	loop rlkh_pool
 rlkh_dynamic:
 	mov ax,word ptr RegDynamicKeys
@@ -560,8 +560,8 @@ rlkh_list:
 	test byte ptr es:[bx+2],2
 	jz short rlkh_found
 rlkh_next:
-	mov ax,es:[bx+16h]
-	mov dx,es:[bx+18h]
+	mov ax,es:[bx+18h]
+	mov dx,es:[bx+1Ah]
 	mov bx,ax
 	mov [bp-6],dx
 	mov ax,dx
@@ -608,7 +608,7 @@ rikh_root:
 	cmp es:[bx+6],ax
 	jz short rikh_mark_root
 	mov al,[bp+4]
-	cmp es:[bx+15h],al
+	cmp es:[bx+17h],al
 	jnz short rikh_next_root
 rikh_mark_root:
 	or byte ptr es:[bx+2],6
@@ -631,14 +631,14 @@ rikh_pool:
 	cmp es:[bx+8],ax
 	jz short rikh_mark_pool
 rikh_pool_root:
-	mov al,es:[bx+15h]
+	mov al,es:[bx+17h]
 	sub ah,ah
 	cmp ax,[bp+4]
 	jnz short rikh_next_pool
 rikh_mark_pool:
 	or byte ptr es:[bx+2],6
 rikh_next_pool:
-	add bx,24h
+	add bx,26h
 	loop rikh_pool
 rikh_dynamic:
 	mov ax,word ptr RegDynamicKeys
@@ -656,14 +656,14 @@ rikh_list:
 	cmp es:[bx+8],ax
 	jz short rikh_mark_list
 rikh_list_root:
-	cmp es:[bx+15h],cl
+	cmp es:[bx+17h],cl
 	jnz short rikh_next
 rikh_mark_list:
 	or byte ptr es:[bx+2],6
 rikh_next:
 	mov es,word ptr [bp-2]
-	mov ax,es:[bx+16h]
-	mov dx,es:[bx+18h]
+	mov ax,es:[bx+18h]
+	mov dx,es:[bx+1Ah]
 	mov bx,ax
 	mov [bp-2],dx
 	mov ax,dx
