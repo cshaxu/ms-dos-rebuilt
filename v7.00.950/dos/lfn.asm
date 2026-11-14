@@ -1,7 +1,7 @@
         TITLE   LFN - Long filename directory state
         NAME    LFN
 ;
-; Reconstructed from the DOS 7.0a target. Procedure names are assigned.
+; Maintain long filename directory entries and return unsupported calls.
 ;
         include version.inc
         include dosseg.inc
@@ -30,7 +30,7 @@ procedure LfnScanEntry,near
         ASSUME  DS:DOSDATA
         test    ah,ah
         jz      lfn_scan_other
-        cmp     ah,0e5h
+        cmp     ah,DIRFREE
         jz      lfn_scan_deleted
         and     al,0fh
         cmp     al,0fh
@@ -110,32 +110,32 @@ lfn_delete_entry:
         mov     al,es:[bx]
         or      al,al
         jz      lfn_delete_restore
-        cmp     al,0e5h
+        cmp     al,DIRFREE
         jz      lfn_delete_next
         mov     al,0fh
-        and     al,es:[bx+11]
+        and     al,es:[bx.dir_attr]
         cmp     al,0fh
         jz      lfn_delete_mark
         cmp     WORD PTR [di],1
         jnz     lfn_delete_failed
 lfn_delete_mark:
-        mov     BYTE PTR es:[bx],0e5h
-        or      ah,40h
+        mov     BYTE PTR es:[bx],DIRFREE
+        or      ah,buf_dirty
 lfn_delete_next:
         inc     LastEnt
         dec     WORD PTR [di]
         jz      lfn_delete_dirty
-        add     bx,32
+        add     bx,SIZE dir_entry
         cmp     bx,dx
         jb      lfn_delete_entry
 lfn_delete_dirty:
-        test    BYTE PTR es:[bp+5],40h
+        test    es:[bp.buf_flags],buf_dirty
         jnz     lfn_delete_flush
         test    ah,ah
         jz      lfn_delete_read
         invoke  INC_DIRTY_COUNT
 lfn_delete_flush:
-        or      BYTE PTR es:[bp+5],44h
+        or      es:[bp.buf_flags],buf_dirty+buf_isDIR
         les     bp,ThisDPB
         mov     al,es:[bp.dpb_drive]
         push    di
@@ -190,7 +190,7 @@ lfn_save_done:
         ret
 EndProc LfnSaveState
 
-; Unsupported extended calls return the complete function code.
+; Return carry set with AL clear and AH equal to the function number.
         EXTRN   From_GetSet:NEAR
 procedure $LfnCall,near
         mov     ax,7100h

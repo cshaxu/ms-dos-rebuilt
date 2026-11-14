@@ -9,8 +9,6 @@
 
 ;**	LOCK.ASM - File Locking Routines
 ;
-;	LOCK_CHECK
-;	LOCK_VIOLATION
 ;	$LockOper
 ;
 ;	Revision history:
@@ -34,10 +32,7 @@ AsmVars <IBM, Installed>
 Installed = TRUE
 
 	i_need	THISSFT,DWORD
-	i_need	THISDPB,DWORD
 	i_need	EXTERR,WORD
-	i_need	ALLOWED,BYTE
-	i_need	RetryCount,WORD
 	I_need	fShare,BYTE
 	I_Need	EXTERR_LOCUS,BYTE	; Extended Error Locus
 	i_need	JShare,DWORD
