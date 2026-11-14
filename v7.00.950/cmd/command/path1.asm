@@ -112,7 +112,8 @@ path_sep_char	equ	';'
 
 TRANSPACE	SEGMENT PUBLIC BYTE	;AC000;
 	EXTRN	fbuf:byte
-	EXTRN	PathFindMode:BYTE,TranSpaceEnd:BYTE
+	EXTRN	PathFindMode:byte
+	EXTRN	TranSpaceEnd:byte
 	EXTRN	pathinfo:word
 	EXTRN	psep_char:byte
 TRANSPACE	ENDS
@@ -161,8 +162,8 @@ path_search_ok:
 	mov	SI, DS:arg.argv[0].argpointer
 	mov	CX, DS:arg.argv[0].argstartel
 	sub	CX, SI				; compute prefix bytes to copy
-	CMP	PathFindMode,0
-	JNE	CopyPath
+	cmp	PathFindMode,0
+	jne	CopyPath			; preserve long pathname
 ;
 ; We have the number of bytes in the prefix (up to the final component).
 ; We need to form the complete pathname including leading drive and current
@@ -178,8 +179,8 @@ path_search_ok:
 	jz	MoveDrive			; yes, just move it
 
 AddDrive:
-	CMP	WORD PTR [SI],5C5CH
-	JE	CopyPath
+	cmp	word ptr [SI],5C5Ch
+	je	CopyPath			; do not prefix a UNC pathname
 	mov	al,curdrv			; get current drive
 	add	al,"A"                          ; convert to uppercase letter
 	stosw					; store d:
@@ -281,8 +282,8 @@ path_found:					; pathinfo[] points to winner
 	mov	DI, OFFSET TRANGROUP:EXECPATH
 	mov	CX, pathinfo[4] 		; "new" pointer -- end of string
 	mov	SI, pathinfo[2] 		; "old" pointer -- beginning of string
-	CMP	PathFindMode,0
-	JNE	path_copy_segment
+	cmp	PathFindMode,0
+	jne	path_copy_segment		; use returned long pathname
 
 ;
 ;	BAS Nov 20/84

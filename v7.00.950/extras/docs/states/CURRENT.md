@@ -56,10 +56,10 @@ IO.SYS, MSDOS.SYS and COMMAND.COM all equal. This is an existing-asset check,
 not a claim that a new build has run. The accepted six-byte MSDOS.SYS config
 remains the target; other media provenance does not silently change it.
 
-## Current prefix: 115/293
+## Current prefix: 116/293
 
-Modified source/build files 48, exact 20, necessary unchanged 12,
-no same-name reference unchanged 35. Next: 116, cmd/command/path1.asm. Tooling modified
+Modified source/build files 49, exact 20, necessary unchanged 12,
+no same-name reference unchanged 35. Next: 117, cmd/command/path2.asm. Tooling modified
 1 (ioimage.c case-insensitive map symbol lookup), outside source count.
 See etc/T25/part1.md. BIOSTAIL.OBJ is unchanged; all compiler/link phases ran,
 then packaging failure was diagnosed and repaired. Fresh three-output FC/B
@@ -208,4 +208,7 @@ extras/build/t25-command-make-10562-24538; see part25.md.
 File 115 restores the inherited PARSE2 token loop and updates stale interface
 comments. Original COMMAND rebuild/repack and all target/input checks pass;
 extras/build/t25-parse2-11809-1661; see part26.md.
-Next: 116 path1.asm. Full automatic final build remains pending.
+File 116 normalizes PATH1's necessary LFN/UNC branches and declarations to the
+surrounding reference style. COMMAND rebuild/repack and all target/input checks
+pass; extras/build/t25-path1-12286-30833; see part27.md.
+Next: 117 path2.asm. Full automatic final build remains pending.
