@@ -13,7 +13,7 @@
 ;	StrCmp
 ;	StrLen
 ;	DStrLen
-;	Idle
+;	CheckCDSDrive
 ;	TableDispatch
 ;	FastInit			  ; DOS 4.0
 ;	FastRet			  ; DOS 4.0
@@ -48,8 +48,6 @@
 	.list
 
 	i_need	THISCDS,DWORD
-	I_Need	RetryLoop,WORD
-	I_need	fSharing,BYTE		; TRUE => server-issued call
 	I_need	FastTable,BYTE		;AN000;
 	I_need	FastFlg,BYTE		;AN000;
 	I_need	User_SP_2F,WORD 	;AN000;
@@ -70,13 +68,13 @@ DOSCODE	SEGMENT
 
 
 
-Break <CheckCDSDrive - test the local drive state>
+Break	<CheckCDSDrive - test the local drive state>
 ; Inputs: DS is DOSDATA, ES:DI points to the CDS.
 ; Outputs: Z if the drive is available. Registers preserved.
 
 	EXTRN	DosDSeg:WORD
 
-Procedure CheckCDSDrive,NEAR
+Procedure   CheckCDSDrive,NEAR
 	ASSUME DS:DOSDATA
 	PUSH	BX
 	MOV	BX,ES

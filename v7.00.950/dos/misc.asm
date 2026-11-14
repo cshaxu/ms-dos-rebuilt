@@ -71,7 +71,7 @@
 
 
 DOSCODE	SEGMENT
-        EXTRN SC_STATUS:WORD
+	EXTRN	SC_STATUS:WORD
 
 	allow_getdseg
 
@@ -525,64 +525,64 @@ EndProc $SETDPB
 
 ; AL = 0 query, 1 set; DL = drive (0 default); CL = flag group.
 ; CH supplies new flags. Query returns the group and flags in CX.
-; Procedure name assigned from target behavior.
-        EXTRN   SYS_RET_OK:NEAR,SYS_RET_ERR:NEAR
-procedure $DriveFlags,near
-        ASSUME  DS:NOTHING,SS:DOSDATA
-        cmp     al,1
-        ja      drive_flags_bad_function
-        cmp     dl,26
-        ja      drive_flags_bad_drive
-        dec     dl
-        jns     drive_flags_number
-        mov     dl,CURDRV
+; Group 0 controls access and group 1 controls deferred writes.
+	EXTRN   SYS_RET_OK:NEAR,SYS_RET_ERR:NEAR
+procedure   $DriveFlags,NEAR
+	ASSUME  DS:NOTHING,SS:DOSDATA
+	cmp     al,1
+	ja      drive_flags_bad_function
+	cmp     dl,26
+	ja      drive_flags_bad_drive
+	dec     dl
+	jns     drive_flags_number
+	mov     dl,CURDRV
 drive_flags_number:
-        mov     dh,0
-        mov     bx,dx
-        cmp     cl,1
-        ja      drive_flags_bad_function
-        mov     ah,BYTE PTR [bx+NlsBuffer+20]
-        cmp     cl,0
-        je      drive_flags_access
-        test    al,al
-        jz      drive_flags_get_flush
-        and     ah,0F7h
-        and     ch,8
-        or      ah,ch
-        mov     BYTE PTR [bx+NlsBuffer+20],ah
-        test    ah,8
-        jnz     drive_flags_done
-        mov     al,0FFh
-        invoke  DeferredFlush
-        jmp     short drive_flags_done
+	mov     dh,0
+	mov     bx,dx
+	cmp     cl,1
+	ja      drive_flags_bad_function
+	mov     ah,BYTE PTR [bx+NlsBuffer+20]
+	cmp     cl,0
+	je      drive_flags_access
+	test    al,al
+	jz      drive_flags_get_flush
+	and     ah,0F7h
+	and     ch,8
+	or      ah,ch
+	mov     BYTE PTR [bx+NlsBuffer+20],ah
+	test    ah,8
+	jnz     drive_flags_done
+	mov     al,0FFh
+	invoke  DeferredFlush
+	jmp     short drive_flags_done
 drive_flags_get_flush:
-        and     ah,8
-        jmp     short drive_flags_result
+	and     ah,8
+	jmp     short drive_flags_result
 drive_flags_access:
-        test    al,al
-        jz      drive_flags_get_access
-        and     ah,0F9h
-        test    ch,2
-        jz      drive_flags_store
-        or      ah,6
+	test    al,al
+	jz      drive_flags_get_access
+	and     ah,0F9h
+	test    ch,2
+	jz      drive_flags_store
+	or      ah,6
 drive_flags_store:
-        mov     BYTE PTR [bx+NlsBuffer+20],ah
-        jmp     short drive_flags_done
+	mov     BYTE PTR [bx+NlsBuffer+20],ah
+	jmp     short drive_flags_done
 drive_flags_get_access:
-        and     ah,6
+	and     ah,6
 drive_flags_result:
-        mov     al,cl
-        invoke  Get_User_Stack
-        mov     [si.user_CX],ax
+	mov     al,cl
+	invoke  Get_User_Stack
+	mov     [si.user_CX],ax
 drive_flags_done:
-        jmp     SYS_RET_OK
+	jmp     SYS_RET_OK
 drive_flags_bad_drive:
-        mov     al,error_invalid_drive
+	mov     al,error_invalid_drive
 drive_flags_error:
-        jmp     SYS_RET_ERR
+	jmp     SYS_RET_ERR
 drive_flags_bad_function:
-        mov     al,error_invalid_function
-        jmp     short drive_flags_error
+	mov     al,error_invalid_function
+	jmp     short drive_flags_error
 EndProc $DriveFlags
 
 BREAK <$Create_Process_Data_Block,SetMem -- Set up process data block>
