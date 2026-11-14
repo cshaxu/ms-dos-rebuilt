@@ -50,7 +50,7 @@ TITLE	COMMAND Transient Printf routine
 	INCLUDE DOSSYM.INC
 	INCLUDE comseg.asm
 	INCLUDE comequ.asm		;AN000;
-DOS7_TRANSIENT_MSG EQU 1
+DOS7_TRANSIENT_MSG	EQU	1
 	INCLUDE SYSMSG.INC		;AN000;
 .list
 .cref
@@ -76,15 +76,16 @@ TRANDATA	SEGMENT PUBLIC BYTE	;AC000;
 	EXTRN	Subst_buffer:byte	;AN061;
 ;AD061; EXTRN	String_ptr_2_sb:word	;AN000;
 
-	; include data area for message services
+	; declare data used by message services
 
 	MSG_UTILNAME <COMMAND>		;AN000; define utility name
 
 	EXTRN	PrimaryMsgDirectory:BYTE
-	EXTRN	DirOutputPtr:DWORD,DirOutputActive:BYTE
+	EXTRN	DirOutputPtr:DWORD
+	EXTRN	DirOutputActive:BYTE
 
 TRANDATA	ENDS
-TRANSPACE	SEGMENT PUBLIC BYTE
+TRANSPACE	SEGMENT PUBLIC BYTE	;AC000;
 
 PRINTF_HANDLE	DW  ?			;AC000;
 
@@ -338,7 +339,6 @@ PRINT_ERR_EXIT: 				;AC000;
 
 
 TSYSLOADMSG	LABEL	NEAR		; shared SYSLOADMSG entry
-
 
 DOS7_DEFER_COMMON = TRUE
 
