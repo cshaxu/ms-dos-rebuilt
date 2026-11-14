@@ -56,10 +56,10 @@ IO.SYS, MSDOS.SYS and COMMAND.COM all equal. This is an existing-asset check,
 not a claim that a new build has run. The accepted six-byte MSDOS.SYS config
 remains the target; other media provenance does not silently change it.
 
-## Current prefix: 144/293
+## Current prefix: 145/293
 
-Modified source/build files 71, exact 21, necessary unchanged 16,
-no same-name reference unchanged 36. Next: 145, dos/close.asm. Tooling modified
+Modified source/build files 72, exact 21, necessary unchanged 16,
+no same-name reference unchanged 36. Next: 146, dos/cpmio.asm. Tooling modified
 1 (ioimage.c case-insensitive map symbol lookup), outside source count.
 See etc/T25/part1.md. BIOSTAIL.OBJ is unchanged; all compiler/link phases ran,
 then packaging failure was diagnosed and repaired. Fresh three-output FC/B
@@ -347,3 +347,10 @@ restored); normalize BUF's added formatting and remove stale comments.
 Fresh BUF.OBJ is unchanged; 293 inputs match; inherited triple target-exact.
 Latest: extras/build/t25-buf-26292-1449; see part51.md.
 Next: 145 dos/close.asm. Final full build and completion audit pending.
+
+P52 accepts file 145 CLOSE: remove four unused declarations and orphan
+DirFromSFT documentation; normalize added paragraphs and correct contracts.
+Object metadata changed as expected; stronger fresh kernel link is byte-exact.
+Freshly repacked IO.SYS and both inherited outputs match frozen targets.
+All 293 inputs match extras/build/t25-close-26984-19119; see part52.md.
+Next: 146 dos/cpmio.asm. Final full build and completion audit pending.

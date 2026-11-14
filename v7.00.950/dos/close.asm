@@ -35,20 +35,16 @@
 
 Installed = TRUE
 
-	I_need	Attrib,BYTE
 	i_need	DOS_FLAG,BYTE
 	i_need	EXTOPEN_ON,BYTE
 	i_need	NlsBuffer,BYTE
 	i_need	THISSFT,DWORD
 	i_need	CURBUF,DWORD
 	i_need	THISDRV,BYTE
-	i_need	ALLOWED,BYTE
-	i_need	EXTERR_LOCUS,BYTE
 	I_need	FailErr,BYTE
 	I_Need	PROC_ID,WORD
 	I_Need	USER_ID,WORD
 	i_need	JShare,DWORD
-	i_need	HIGH_SECTOR,WORD	 ;F.C. >32mb
 	i_need	OLD_FIRSTCLUS,WORD	  ;F.O. >32mb
 
 DOSCODE SEGMENT
@@ -69,29 +65,29 @@ Break <DOS_CLOSE -- CLOSE FILE from SFT>
 ;	ES:DI point to SFT
 ;	Carry set if error
 ;	    AX has error code
-; DS preserved, others destroyed
+; DS = DOSDATA on return, others destroyed
 ;---------------------------------------------------------------------------
 
 ;hkn; DOS_CLOSE called from fcbio.asm and handle.asm. DS alreday set up.
 
-        PUBLIC CloseClean
+	PUBLIC	CloseClean
 CloseClean:
-        push ds
-        pop es
-        mov di,si
+	push	ds
+	pop	es
+	mov	di,si
 CloseDevice:
-        clc
-        jmp CloseFinish
+	clc
+	jmp	CloseFinish
 CloseReadError:
-        test bp,devid_file_clean
-        jnz CloseReadDone
-        mov al,error_access_denied
-        stc
+	test	bp,devid_file_clean
+	jnz	CloseReadDone
+	mov	al,error_access_denied
+	stc
 CloseReadDone:
-        jmp CloseFinish
+	jmp	CloseFinish
 CloseAccessDate:
-        mov es:[di+12h],ax
-        jmp short clook
+	mov	es:[di+12h],ax
+	jmp	short clook
 
 procedure   DOS_CLOSE,NEAR
 	DOSAssume   <DS>,"DOS_Close"
@@ -132,42 +128,42 @@ LocalClose:
 CloseEntry:
 	PUSH	AX
 ;
-; File clean or device does not get stamped nor disk looked at.
+; Devices bypass directory access. Clean files may update the access date.
 ;
-	TEST BX,devid_device
-	jnz CloseDevice
-	push bx
-	invoke DirFromSFT
-	pop bp
-	jc CloseReadError
-	ASSUME DS:NOTHING
-	test DOS_FLAG,40h
-	jnz CloseCheckClean
-	test [si].sf_mode,4
-	jnz CloseCheckClean
-	push ds
-	push bx
-	lds bx,[si].sf_devptr
-	mov bl,[bx]
-	mov bh,0
-	test BYTE PTR ss:[bx+NlsBuffer+20],4
-	pop bx
-	pop ds
-	jz CloseCheckClean
-	test bp,devid_file_clean
-	jz CloseGetDate
-	or EXTOPEN_ON,2
+	TEST	BX,devid_device
+	jnz	CloseDevice
+	push	bx
+	invoke	DirFromSFT
+	pop	bp
+	jc	CloseReadError
+	ASSUME	DS:NOTHING
+	test	DOS_FLAG,40h
+	jnz	CloseCheckClean
+	test	[si].sf_mode,4
+	jnz	CloseCheckClean
+	push	ds
+	push	bx
+	lds	bx,[si].sf_devptr
+	mov	bl,[bx]
+	mov	bh,0
+	test	BYTE PTR ss:[bx+NlsBuffer+20],4
+	pop	bx
+	pop	ds
+	jz	CloseCheckClean
+	test	bp,devid_file_clean
+	jz	CloseGetDate
+	or	EXTOPEN_ON,2
 CloseGetDate:
-	push ds
-	invoke DATE16
-	pop ds
-	ASSUME DS:NOTHING
-	cmp ax,es:[di+12h]
-	jnz CloseAccessDate
+	push	ds
+	invoke	DATE16
+	pop	ds
+	ASSUME	DS:NOTHING
+	cmp	ax,es:[di+12h]
+	jnz	CloseAccessDate
 CloseCheckClean:
-	test bp,devid_file_clean
-	jz clook
-	jmp CloseClean
+	test	bp,devid_file_clean
+	jz	clook
+	jmp	CloseClean
 clook:
 ;
 ; ES:DI points to entry
@@ -199,14 +195,14 @@ Bye:	MOV	DI,SI
 	JMP	CloseFinish
 
 CLOSE_GO:
-	test bp,devid_file_clean
-	jnz CloseSetFields
-	TEST [SI].sf_mode,sf_isfcb
-	jnz setattr
-	MOV AL,[SI].sf_attr
-	MOV ES:[DI].dir_attr,AL
+	test	bp,devid_file_clean
+	jnz	CloseSetFields
+	TEST	[SI].sf_mode,sf_isfcb
+	jnz	setattr
+	MOV	AL,[SI].sf_attr
+	MOV	ES:[DI].dir_attr,AL
 setattr:
-	OR BYTE PTR ES:[DI.dir_attr],attr_archive
+	OR	BYTE PTR ES:[DI.dir_attr],attr_archive	;Set archive
 CloseSetFields:
 	MOV	AX,ES:[DI.dir_first]	;AN011;F.O. save old first clusetr
 
@@ -271,18 +267,18 @@ do_update:				  ;AN005;
 ;;; 10/1/86  update fastopen cache
 	invoke	DeferredFlush		; flush all relevant buffers
 	RESTORE <DI,ES>
-	jnc CloseFinish
-	push ds
-	push bx
-	lds bx,es:[di].sf_devptr
-	mov bl,[bx]
-	mov bh,0
-	ASSUME DS:DOSDATA
-	and BYTE PTR [bx+NlsBuffer+20],0FBh
-	pop bx
-	pop ds
-	ASSUME DS:NOTHING
-	mov al,error_access_denied
+	jnc	CloseFinish
+	push	ds
+	push	bx
+	lds	bx,es:[di].sf_devptr
+	mov	bl,[bx]
+	mov	bh,0
+	ASSUME	DS:DOSDATA
+	and	BYTE PTR [bx+NlsBuffer+20],0FBh
+	pop	bx
+	pop	ds
+	ASSUME	DS:NOTHING
+	mov	al,error_access_denied
 	stc
 CloseFinish:
 ;
@@ -339,28 +335,6 @@ SetCount:
 	return
 
 EndProc Free_SFT
-
-;----------------------------------------------------------------------------
-;
-; Procedure Name : DirFromSFT
-;
-;   DirFromSFT - locate a directory entry given an SFT.
-;
-;   Inputs:	ES:DI point to SFT
-;		DS = DOSDATA
-;   Outputs:
-;		EXTERR_LOCUS = errLOC_Disk
-;		CurBuf points to buffer
-;		Carry Clear -> operation OK
-;		    ES:DI point to entry
-;		    ES:BX point to buffer
-;		    DS:SI point to SFT
-;		Carry SET   -> operation failed
-;		    registers trashified
-;   Registers modified: ALL
-;----------------------------------------------------------------------------
-
-
 
 	Break	<DOS_Commit - update directory entries>
 ;
