@@ -56,10 +56,10 @@ IO.SYS, MSDOS.SYS and COMMAND.COM all equal. This is an existing-asset check,
 not a claim that a new build has run. The accepted six-byte MSDOS.SYS config
 remains the target; other media provenance does not silently change it.
 
-## Current prefix: 156/293
+## Current prefix: 157/293
 
-Modified source/build files 78, exact 22, necessary unchanged 20,
-no same-name reference unchanged 36. Next: 157, dos/dircmp.asm. Tooling modified
+Modified source/build files 79, exact 22, necessary unchanged 20,
+no same-name reference unchanged 36. Next: 158, dos/disk.asm. Tooling modified
 1 (ioimage.c case-insensitive map symbol lookup), outside source count.
 See etc/T25/part1.md. BIOSTAIL.OBJ is unchanged; all compiler/link phases ran,
 then packaging failure was diagnosed and repaired. Fresh three-output FC/B
@@ -392,3 +392,9 @@ differences; normalize DIRCALL LFN paragraphs and explain short-entry counting.
 Fresh kernel link unchanged; fresh IO.SYS and both inherited outputs exact.
 All 293 inputs verified; see part58.md and file156-build.txt.
 Next: 157 dos/dircmp.asm. Final full build and completion audit pending.
+
+P59 accepts file 157 DIRCMP: full MetaCompare text equals its effective
+reference procedure; restore original contract and remove copied module-list
+and include remnants. Fresh kernel link unchanged; fresh IO.SYS and inherited
+other outputs exact; all 293 inputs verified. See part59.md/file157-build.txt.
+Next: 158 dos/disk.asm. Final full build and completion audit pending.
