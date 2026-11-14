@@ -46,6 +46,7 @@
 	include sf.inc
 	include cpmfcb.inc
 	include syscall.inc
+	include curdir.inc
 	include filemode.inc
 	include dpb.inc
 	include mult.inc
@@ -78,6 +79,7 @@
 
 DOSCODE	SEGMENT
 	ASSUME	CS:DOSCODE
+	EXTRN	PathLenLimit:WORD
 
 	extrn	CheckShare:near
 	extrn	GetExtended:near
@@ -362,6 +364,7 @@ Procedure $FCB_Rename,NEAR
 					;  back to the ORIGINAL FCB so
 					;  SATTRIB gets set correctly
 	JC	fren90			; error
+	MOV	CS:PathLenLimit,DirStrLen
 	invoke	DOS_Rename
 	JC	fren90
 	transfer    FCB_Ret_OK

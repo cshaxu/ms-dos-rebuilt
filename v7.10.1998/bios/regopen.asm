@@ -644,6 +644,28 @@ RegFindOrCreate endp
 	db 0
 	endif
 
+; Create or open a key through the common path resolver.
+	public RegCreateKey
+RegCreateKey proc far
+	mov ax,DGROUP
+	push bp
+	mov bp,sp
+	push ds
+	mov ds,ax
+	push dword ptr [bp+6]
+	push dword ptr [bp+0Ah]
+	push dword ptr [bp+0Eh]
+	push 1
+	call RegFindOrCreate
+	cwd
+	pop ds
+	leave
+	retf
+RegCreateKey endp
+	if ($ - RegistryCode) and 1
+	db 0
+	endif
+
 	public RegOpenKey
 RegOpenKey proc far
 	mov ax,DGROUP

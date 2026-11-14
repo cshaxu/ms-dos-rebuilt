@@ -53,6 +53,8 @@
 	include dossym.inc
 	include devsym.inc
 	include sf.inc
+	include curdir.inc
+	include syscall.inc
 	include filemode.inc
 	include bugtyp.inc
 	.cref
@@ -91,7 +93,8 @@ DOSCODE	SEGMENT
 	ASSUME	SS:DOSDATA,CS:DOSCODE
 	EXTRN	DOS_OPEN:NEAR,DOS_CREATE:NEAR,DOS_Create_New:NEAR
 
-	EXTRN	SFNFree:near
+	EXTRN	SFNFree:near,MkDirWithLimit:near
+	PUBLIC	PathLenLimit
         extrn	Set_EXT_mode:near               ;M022 conditional removed
 
 	BREAK <$Open - open a file from a path string>
@@ -110,6 +113,7 @@ DOSCODE	SEGMENT
 ;		  (ax) = error code
 ;	USES	all
 
+PathLenLimit	dw	0		; Path limit selected by directory calls.
 Procedure   $Open,NEAR
 	DOSAssume   <SS>,"Open"
 
@@ -317,8 +321,31 @@ EndProc $Creat, NoCheck
 ;	    AX = error_access_denied
 ;
 
-procedure $CHMOD,NEAR
-	ASSUME	CS:DOSCODE,SS:DOSDATA
+; AH=43h, AL=FFh accepts the extended path limit for mkdir and rename.
+ChModLongPath:
+	CMP	BP,5053h
+	JNE	ChModLongError
+	CMP	CL,Mkdir
+	JNE	ChModLongRename
+	MOV	AH,CL
+	MOV	CS:PathLenLimit,128
+	JMP	MkDirWithLimit
+ChModLongRename:
+	CMP	CL,Rename
+	JNE	ChModLongError
+	MOV	AH,CL
+	MOV	CS:PathLenLimit,128
+	JMP	SHORT RenameWithLimit
+ChModLongError:
+	MOV	AL,error_invalid_function
+ChModReturnError:
+	JMP	SHORT NORERR
+
+	PUBLIC	$CHMOD
+$CHMOD	LABEL	NEAR
+	ASSUME	DS:NOTHING,ES:NOTHING,CS:DOSCODE,SS:DOSDATA
+	CMP	AL,0FFh
+	JE	ChModLongPath
 	MOV	DI,OFFSET DOSDATA:OpenBuf  ; appropriate buffer
 	SAVE	<AX,CX> 		; save function and attributes
 	MOV	SI,DX			; get things in appropriate places
@@ -333,7 +360,9 @@ procedure $CHMOD,NEAR
 	JB	ChModGet		; 0 -> go get value
 	JZ	ChModSet		; 1 -> go set value
 	MOV	EXTERR_LOCUS,errLoc_Unk ; Extended Error Locus
-	error	error_invalid_function	; bad value
+	MOV	AL,error_invalid_function
+ChModFileError:
+	JMP	SHORT ChModReturnError
 ChModGet:
 	invoke	Get_File_Info		; suck out the ol' info
 	JC	ChModE			; error codes are already set for ret
@@ -351,8 +380,7 @@ ChModSetReturn:
 ChModErr:
 	mov	al,error_path_not_found
 ChmodE:
-	Transfer    SYS_RET_ERR
-EndProc $ChMod
+	JMP	SHORT ChModFileError
 
 	BREAK <$UNLINK - delete a file entry>
 
@@ -394,7 +422,7 @@ procedure $UNLINK,NEAR
 NotFound:
 	MOV	AL,error_path_not_found
 UnlinkE:
-	transfer    Sys_Ret_Err 	; bye
+	JMP	SHORT ChModE	; return the error
 
 EndProc $UnLink
 
@@ -415,6 +443,8 @@ BREAK <$RENAME - move directory entries around>
 
 procedure $RENAME,NEAR
 	ASSUME	CS:DOSCODE,SS:DOSDATA
+	MOV	CS:PathLenLimit,DirStrLen
+RenameWithLimit:
 	SAVE	<CX,DS,DX>		; save source and possible CX arg
 	PUSH	ES
 	POP	DS			; move dest to source

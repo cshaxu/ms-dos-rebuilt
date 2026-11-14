@@ -59,6 +59,7 @@ DOSCODE	SEGMENT
 
 
 	EXTRN	DOS_MkDir:NEAR,DOS_RmDir:NEAR
+	EXTRN	PathLenLimit:WORD
 
 
 BREAK <$CURRENT_DIR - dump the current directory into user space>
@@ -217,6 +218,7 @@ rmcont:
 
 ;hkn; DOS_RmDIR is in DOSCODE
 	MOV	SI,OFFSET DOSCODE:DOS_RmDIR
+	MOV	CS:PathLenLimit,128
 	JMP	DoDirCall
 EndProc $RMDIR
 
@@ -251,6 +253,7 @@ BREAK <$ChDir -- Change current directory on a drive>
 
 procedure $CHDIR,NEAR
 	ASSUME	CS:DOSCODE,SS:DOSDATA
+	MOV	CS:PathLenLimit,DirStrLen
 
 ;hkn; OpenBuf is in DOSDATA
 	MOV	DI,OFFSET DOSDATA:OpenBuf  ; spot for translated name
@@ -374,6 +377,8 @@ procedure $MKDIR,NEAR
 	ASSUME	CS:DOSCODE,SS:DOSDATA
 
 ;hkn; DOS_MkDir is in DOSCODE
+	MOV	CS:PathLenLimit,DirStrLen
+	entry	MkDirWithLimit
 	MOV	SI,OFFSET DOSCODE:DOS_MkDir
 DoDirCall:
 
@@ -415,9 +420,9 @@ EndProc $MKDIR
 ; Inputs:
 ;	nothing
 ; Function:
-;	check if final path length greater than 67
+;	check the final path against the limit selected by the caller
 ; Returns:
-;	Above flag set if > 67
+;	Above flag set if the path exceeds PathLenLimit
 ;---------------------------------------------------------------------------
 
 procedure Check_PathLen,NEAR
@@ -432,7 +437,7 @@ procedure Check_PathLen,NEAR
 
 	SAVE	<CX,DX>
 	invoke	DStrLen
-	CMP	CX,DirStrLen
+	CMP	CX,CS:PathLenLimit
 	RESTORE <DX,CX>
 	ret
 
