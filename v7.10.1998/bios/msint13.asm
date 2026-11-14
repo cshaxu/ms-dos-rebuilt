@@ -36,6 +36,7 @@ multMULTALLOCHMA	equ	2
 
 	extrn	call_orig13:far		; M030
 	extrn	i13_ds:word
+	extrn	boot_minute:byte,boot_seconds:word
 	extrn	bios_flags:word
 	extrn	int16_limit:word,int16_limit2:word
 	extrn	palette_index:byte,palette_count:byte,palette_config:word
@@ -76,6 +77,7 @@ win386_text_buffer label byte
 		db	'C:\SYSTEM.DAT',0
 		db	4eh-14 dup (0)
 win386_instance_aux dw	1,501h,Bios_Data
+	public	win386_instance
 win386_instance dw	4
 win386_instance_next dw	0
 win386_instance_next_seg dw 0
@@ -493,8 +495,20 @@ mult_check18:
 	iret
 mult_check21:
 	cmp	al,21h
-	jnz	mult_check31
+	jnz	mult_check50
 	call	mult_call21
+	iret
+mult_check50:
+	cmp	al,50h
+	jnz	mult_check31
+	push	ds
+	mov	ds,cs:Bios_Data_Word
+	assume	ds:Bios_Data
+	sub	ax,ax
+	mov	cl,boot_minute
+	mov	dx,boot_seconds
+	pop	ds
+	assume	ds:nothing
 	iret
 mult_check31:
 	cmp	al,31h

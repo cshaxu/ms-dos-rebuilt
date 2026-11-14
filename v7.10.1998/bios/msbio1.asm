@@ -912,6 +912,10 @@ int16_limit2	dw	200
 int16_active	dw	0
 
 	db	0
+	public	boot_minute,boot_seconds
+boot_minute	db	0
+boot_seconds	dw	0
+	db	0
 	public	i13_ds
 i13_ds	dw	?
 

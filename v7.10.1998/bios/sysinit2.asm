@@ -260,6 +260,7 @@ boot_msdos_status db 'C:\MSDOSSYS.STS',0
 
 ; Startup option file names, including length bytes used by startup.
 boot_io_entry db 3
+	public	boot_io_file
 boot_io_file db 'IO.SYS',0
 boot_msdos_entry db 6
 boot_msdos_name db 'MSDOS.SYS',0

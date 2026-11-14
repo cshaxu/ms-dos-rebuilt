@@ -272,13 +272,13 @@ config_restore	endp
 ;
 	.386
 	assume	ds:sysinitseg,es:nothing
-	extrn	boot_config_flags:byte,bCRTPage:byte
+	extrn	boot_config_flags:byte,boot_system_flags:byte
 	extrn	memhi:word
 	public	boot_exec_system
 boot_exec_system	proc	near
 	test	boot_config_flags,1
 	jnz	short system_mcb_checked
-	test	bCRTPage,2
+	test	boot_system_flags,2
 	jnz	short system_mcb_checked
 	mov	ax,memhi
 	dec	ax

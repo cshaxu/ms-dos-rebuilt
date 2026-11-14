@@ -66,6 +66,7 @@ break	macro	; dummy empty macro
 
 Bios_Code	segment
 	extrn   eot:byte,ec35_flag:byte
+	extrn	Bios_Data_Word:word,win386_instance:word
 	extrn   bootlog_device:word
 	extrn	win386_stack_seg:word,win386_stack_size:word
 	extrn	win386_nextstack:word
@@ -176,6 +177,7 @@ clobbered   equ     3
 
 	extrn	bios_flags:word,int16_count:word
 	extrn	disksector_ptr:dword
+	extrn	boot_minute:byte,boot_seconds:word
 	extrn	start_bds:dword
 	extrn	cdev:dword,bios_hook_1:dword
 	extrn	BiosOld4F:dword,int4f_old:dword
@@ -536,6 +538,7 @@ has_installed equ 00000010b
 
 	extrn   toomanydrivesflag:byte
 	extrn   boot_config_app:byte,boot_config_wos:byte,boot_msdos_status:byte
+	extrn	boot_io_file:byte,boot_system_flags:byte
 	extrn   config_device_table_ptr:dword
 	extrn   new_psp_segment:word
 	extrn   compressed_dest_segment:word,compressed_reserved_paras:word
@@ -1036,6 +1039,135 @@ nodrvset:
 	mov     [command_line+2],dl
 	mov     [command_line2+2],dl
 	mov     [command_line3+2],dl
+	.286
+	mov	ah,get_date
+	int	21h
+	xchg	ax,cx
+	sub	ax,1980
+	shl	ax,9
+	or	al,dl
+	shr	dx,3
+	and	dl,0e0h
+	or	ax,dx
+	.8086
+
+; The loader supplies the warning and expiration dates in DOS format.
+	mov	cx,[boot_data_low]
+	test	cx,cx
+	jnz	short boot_date_present
+	jmp	near ptr boot_save_time
+boot_date_present:
+	cmp	cx,-1
+	jne	short boot_date_check
+	jmp	near ptr boot_date_disabled
+boot_date_check:
+	cmp	cx,ax
+	jb	short boot_date_expired
+	mov	cx,[boot_data_high]
+	test	cx,cx
+	jnz	short boot_date_warn_check
+	jmp	near ptr boot_save_time
+boot_date_warn_check:
+	cmp	cx,ax
+	jbe	short boot_date_warn
+	jmp	near ptr boot_save_time
+boot_date_warn:
+	mov	dx,offset sysinit_msg_base
+	add	dx,word ptr [sysinit_msg_table+92]
+	call	print
+	.286
+	mov	ax,[boot_data_low]
+	shr	ax,5
+	and	ax,0fh
+	cmp	al,12
+	jbe	short boot_date_month
+	mov	al,12
+boot_date_month:
+	dec	ax
+	add	ax,ax
+	add	ax,ax
+	mov	dx,offset sysinit_msg_base
+	add	dx,word ptr [sysinit_msg_table+98]
+	add	dx,ax
+	call	print
+	mov	dl,' '
+	mov	ah,std_con_output
+	int	21h
+	mov	ax,[boot_data_low]
+	and	ax,1fh
+	call	show_line_number
+	mov	dl,','
+	mov	ah,std_con_output
+	int	21h
+	mov	dl,' '
+	mov	ah,std_con_output
+	int	21h
+	mov	ax,[boot_data_low]
+	shr	ax,9
+	add	ax,1980
+	.8086
+	call	show_line_number
+	mov	dx,offset sysinit_msg_base
+	add	dx,word ptr [sysinit_msg_table+94]
+	call	print
+	jmp	short boot_date_prompt
+
+; Save the expired state in the date word at the end of the loader.
+boot_date_expired:
+	mov	ax,(chmod shl 8) or 1
+	sub	cx,cx
+	mov	dx,offset boot_io_file
+	int	21h
+	jc	short boot_date_disabled
+	mov	ax,(open shl 8) or 2
+	int	21h
+	jc	short boot_date_attributes
+	xchg	ax,bx
+	mov	dx,05fch
+	sub	cx,cx
+	mov	ax,lseek shl 8
+	int	21h
+	jc	short boot_date_close
+	mov	[boot_data_low],-1
+	mov	dx,offset boot_data_low
+	mov	cx,2
+	mov	ah,write
+	int	21h
+boot_date_close:
+	mov	ah,close
+	int	21h
+boot_date_attributes:
+	mov	ax,(chmod shl 8) or 1
+	mov	cx,7
+	mov	dx,offset boot_io_file
+	int	21h
+boot_date_disabled:
+	mov	dx,offset sysinit_msg_base
+	add	dx,word ptr [sysinit_msg_table+100]
+	call	print
+	mov	es,[BCodeSeg]
+	assume	es:Bios_Code
+	mov	byte ptr es:[win386_instance],0
+	assume	es:nothing
+	or	byte ptr [boot_system_flags],1
+boot_date_prompt:
+	mov	dx,offset sysinit_msg_base
+	add	dx,word ptr [sysinit_msg_table+96]
+	call	print
+	mov	ax,(std_con_input_flush shl 8) or 8
+	int	21h
+boot_save_time:
+	push	ds
+	mov	ds,[BCodeSeg]
+	assume	ds:Bios_Code
+	mov	ds,Bios_Data_Word
+	assume	ds:Bios_Data
+	mov	ah,get_time
+	int	21h
+	mov	boot_minute,cl
+	mov	boot_seconds,dx
+	pop	ds
+	assume	ds:sysinitseg
 	sub     dx,dx
 	call    boot_option_open
 ; Select the startup message and detect a restart into MS-DOS mode.
@@ -1062,21 +1194,13 @@ boot_intro_retry:
 	add     bx,word ptr [sysinit_msg_table+4]
 	test    byte ptr [boot_runtime_flags],1
 	jnz     boot_intro_print
-	cmp     word ptr [boot_delay],0
-	je      boot_intro_done
-	jmp     short boot_intro_print
+	jmp	short boot_intro_done
 boot_intro_dos_mode:
 	mov     byte ptr [boot_mode],1
 	or      byte ptr [boot_runtime_flags],1
 boot_intro_print:
 	mov     dx,bx
 	call    print
-	cmp     byte ptr [boot_mode],1
-	jne     boot_intro_done
-	mov     dx,offset sysinit_msg_base
-	add     dx,word ptr [sysinit_msg_table+10]
-	call    print
-	shl     word ptr [boot_delay],1
 boot_intro_done:
 	mov     bx,offset boot_dos_file_table
 	call    boot_old_file_table

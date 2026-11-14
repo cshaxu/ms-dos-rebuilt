@@ -4026,8 +4026,8 @@ bDisableUI      db      0               ; 1=disable clean/interactive
 boot_config_flags db     1
         public  boot_runtime_flags
 boot_runtime_flags db   80h
-        public  bCRTPage
-bCRTPage        db      ?               ; value saved from BIOS data area
+        public  boot_system_flags
+boot_system_flags db    0               ; startup state flags
 wCRTStart       dw      ?               ; value saved from BIOS data area
 bQueryOpt       db      0               ; 0=off, 1=prompt all, 2=prompt none, 4=skip all
         public  query_mode_flags
