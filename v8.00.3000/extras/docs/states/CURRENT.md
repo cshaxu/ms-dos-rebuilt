@@ -28,3 +28,5 @@ P2 decodes the IO.SYS payload and localizes exact block reuse in the BIOS, DOS k
 P3 integrates the Windows Millennium banner and 4.90.3000 version string into the historical build. Stage `cmd-10845-25468` produced a 93,906-byte COMMAND.COM with unchanged source snapshots. Three of the 120 baseline paths in cmd/command, inc and lang/usa/messages differ. The target byte comparison remains open, and no asset was published.
 
 P4 restores the CHCP query-only path, CHCP help and restart messages, and the target resident stub layout. Stage `cmd-11626-5666` produced 93,833 bytes and matched the complete 3000 message resource area. The linked code still requires the remaining startup and DIR changes. Seven source paths are changed against the 120-path baseline in this delivery.
+
+P5 connects the DOS 8.00 startup check and VDM restart prompt, completes the resident stub stack layout, and applies the existing uncompressed-volume DIR configuration. Stage `cmd-12713-13173` assembled and linked 92,963 bytes with an exact message resource area. The byte gate remains open. Eleven of the 120 baseline source paths differ.
