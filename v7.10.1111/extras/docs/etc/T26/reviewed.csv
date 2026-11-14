@@ -25,3 +25,19 @@ ordinal,path,disposition,verification
 24,bios/crtcmp.asm,exact,Byte comparison with frozen 950
 25,bios/crtcomit.asm,exact,Byte comparison with frozen 950
 26,bios/crtend.asm,retained,Paragraph alignment precedes __end at 062E:1D70 in exact configuration link
+27,bios/crtflush.asm,exact,Byte comparison with frozen 950
+28,bios/crtpaths.asm,exact,Byte comparison with frozen 950
+29,bios/crtprint.asm,exact,Byte comparison with frozen 950
+30,bios/crtread.asm,exact,Byte comparison with frozen 950
+31,bios/crtstart.asm,added,Configuration map entry __astart at 014E:0242 is implemented by crtstart.obj in place of the 950 CRT library member
+32,bios/devmark.inc,exact,Byte comparison with frozen 950
+33,bios/drivechk.asm,exact,Byte comparison with frozen 950
+34,bios/inc.asm,exact,Byte comparison with frozen 950
+35,bios/initclk.asm,retained,Target-matching BIOS listing emits immediate shifts in the BCD check and conversions and omits CX saves in bin_to_bcd
+36,bios/logocode.asm,exact,Byte comparison with frozen 950
+37,bios/logpart.asm,exact,Byte comparison with frozen 950
+38,bios/makefile,reduced,Restored 950 link_opts and message rule formatting; retained added include dependencies and MSBIO2 ML rule
+39,bios/mblate.asm,retained,Target-matching BIOS listing has the extra FAT32 EXEC record and capability handoff; shifts and message indices also differ
+40,bios/mrcf.inc,exact,Byte comparison with frozen 950
+41,bios/msbio.lnk,exact,Byte comparison with frozen 950
+42,bios/msbio.skl,exact,Byte comparison with frozen 950

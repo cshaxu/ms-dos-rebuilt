@@ -4,6 +4,7 @@
 #
 inc     =..\inc
 msg     =..\messages
+link_opts = /MAP
 extasw  =-I. -I$(inc) -DUSA -DDBLSPACE_HOOKS -DDOS7_CONFIG $(MFLAGS)
 mlasw   =/c /nologo /Zm /I. /I$(inc) /DUSA /DDBLSPACE_HOOKS /DDOS7_CONFIG $(MFLAGS)
 
@@ -12,8 +13,10 @@ all: msload.exe msbio.bin
 .asm.obj:
 	masm -Mx -t -W1 $(extasw) $*.asm,$*.obj,$*.lst;
 
-msbio.cl1 msbio.cl2 msbio.cl3 msbio.cl4 msbio.cl5 \
-msbio.cl6 msbio.cl7 msbio.cl8 msbio.cl9: msbio.skl $(msg)\USA.MSG
+msbio.cl1 msbio.cl2 msbio.cl3 \
+msbio.cl4 msbio.cl5 msbio.cl6 \
+msbio.cl7 msbio.cl8 msbio.cl9 : msbio.skl \
+        $(msg)\USA.MSG
 	nosrvbld msbio.skl $(msg)\USA.MSG
 
 stkinit.obj: stkinit.asm \
@@ -384,8 +387,8 @@ msbio.bin: stkinit.obj msbio1.obj \
                 biosmsg.obj sysinit2.obj sysconf.obj \
                 syspre.obj logocode.obj logpart.obj pathsrc.obj mblate.obj \
                 drivechk.obj msend.obj sysimes.obj power.obj ptime.obj msbio.lnk
-	link /MAP @msbio.lnk
+	link $(link_opts) @msbio.lnk
 	reloc msbio.exe msbio.bin 70
 
 msload.exe: msload.obj
-	link /MAP msload.obj,msload,msload,;
+	link $(link_opts) msload.obj,msload,msload,;
