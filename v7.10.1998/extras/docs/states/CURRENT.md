@@ -50,3 +50,5 @@ P12 restores DOS commit and the registry header update in the existing RegSaveFi
 P13 restores FE root handle reset and teaches the inherited key record encoder and decoder to persist chained key types. Root reset matches the full 178-byte target block. Stage cmd-19644-4741 builds IO.SYS at 222374 bytes against 222390. COMMAND.COM and MSDOS.SYS remain exact. IO.SYS still has target code and layout differences.
 
 P14 restores the FE startup modifier keys and the early menu scan in the existing SI2FRONT module. Stage cmd-20333-11663 builds all three images. The 364-byte keyboard block aligns to the target by one byte and has 36 operand differences. COMMAND.COM and MSDOS.SYS match in full. IO.SYS remains open.
+
+P15 restores FE key allocation inside the inherited REGREAD allocator, retaining its shared cache services. Its complete 720-byte target block differs in six linked call bytes. Stage cmd-21456-6331 produces 222422 IO.SYS bytes and full matches for COMMAND.COM and MSDOS.SYS. IO.SYS still differs from the frozen image.

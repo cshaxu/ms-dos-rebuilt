@@ -679,14 +679,14 @@ RegAllocateKeyRecord proc near
 	push di
 	push si
 	mov si,[bp+0Ch]
-	mov es,word ptr [bp+0Eh]
+	mov es,[bp+0Eh]
 	db 66h
-	mov ax,es:[si+42h]
-	mov [bp-0Eh],eax
-	mov dx,[bp-0Ch]
+	mov ax,es:[si+042h]
+	mov [bp-8],eax
+	mov dx,[bp-6]
 	cmp eax,0FFFFFFh
-	jb rakr_load
-	test byte ptr es:[si+56h],8
+	jc near ptr rakr_load_existing
+	test byte ptr es:[si+056h],8
 	jz short rakr_packed
 	mov ax,es:[si+0Ch]
 	mov dx,es:[si+0Eh]
@@ -695,17 +695,17 @@ RegAllocateKeyRecord proc near
 	and ax,0F00Fh
 	mov cl,4
 	call __aFulshr
-	mov [bp-0Eh],ax
-	mov [bp-0Ch],dx
-	mov word ptr [bp-0Ah],1000h
+	mov [bp-8],ax
+	mov [bp-6],dx
+	mov word ptr [bp-0Eh],01000h
 	xor di,di
 	jmp short rakr_block
 rakr_packed:
 	db 66h
-	cmp word ptr es:[si+0Ch],20h
+	cmp word ptr es:[si+0Ch],020h
 	jnz short rakr_align
-	mov dword ptr [bp-4],20h
-	mov word ptr [bp-0Ah],0FC0h
+	mov dword ptr [bp-4],020h
+	mov word ptr [bp-0Eh],0FC0h
 	jmp short rakr_zero_gap
 rakr_align:
 	mov ax,es:[si+0Ch]
@@ -716,18 +716,18 @@ rakr_align:
 	and ax,0F000h
 	mov [bp-4],ax
 	mov [bp-2],dx
-	mov word ptr [bp-0Ah],1000h
+	mov word ptr [bp-0Eh],01000h
 	mov di,ax
 	sub di,cx
-	cmp di,1Ch
+	cmp di,01Ch
 	ja short rakr_extend
-	cmp ax,1000h
+	cmp ax,01000h
 	jnz short rakr_convert
 	or dx,dx
 	jnz short rakr_convert
 rakr_extend:
-	lea ax,[di+1000h]
-	mov [bp-0Ah],ax
+	lea ax,[di+01000h]
+	mov [bp-0Eh],ax
 	db 66h
 	mov ax,es:[si+0Ch]
 	mov [bp-4],eax
@@ -736,16 +736,16 @@ rakr_zero_gap:
 rakr_convert:
 	push dword ptr [bp-4]
 	call RegKeyOffsetToIndex
-	mov [bp-0Eh],ax
-	mov [bp-0Ch],dx
+	mov [bp-8],ax
+	mov [bp-6],dx
 rakr_block:
-	mov [bp-10h],di
-	mov cl,10
+	mov [bp-010h],di
+	mov cl,0Ah
 	call __aFulshr
 	mov [bp-2],ax
-	mov es,word ptr [bp+0Eh]
+	mov es,[bp+0Eh]
 	cmp ax,es:[si+0Ah]
-	jb short rakr_count
+	jc short rakr_cache_count
 	db 66h
 	push word ptr es:[si+4]
 	add ax,4
@@ -753,124 +753,138 @@ rakr_block:
 	imul ax,ax,6
 	push ax
 	call RegReallocRetry
-	mov [bp-8],ax
-	mov [bp-6],dx
+	mov [bp-0Ch],ax
+	mov [bp-0Ah],dx
 	or dx,ax
-	jnz short rakr_clear
+	jnz short rakr_grow_table
 	mov ax,0Eh
-	jmp rakr_done
-rakr_clear:
-	mov es,word ptr [bp+0Eh]
-	imul ax,word ptr es:[si+0Ah],6
-	add ax,[bp-8]
-	mov dx,[bp-6]
+	jmp near ptr rakr_done
+rakr_grow_table:
+	mov di,[bp-4]
+	mov es,[bp+0Eh]
+	imul ax,es:[si+0Ah],6
+	add ax,[bp-0Ch]
+	mov dx,[bp-0Ah]
 	push dx
 	push ax
-	mov ax,[bp-4]
-	sub ax,es:[si+0Ah]
-	imul ax,ax,6
-	push ax
+	mov ax,di
+	sub di,es:[si+0Ah]
+	imul cx,di,6
+	push cx
+	mov di,ax
 	call RegZeroMemory
-	mov eax,[bp-8]
-	mov es,word ptr [bp+0Eh]
+	mov eax,[bp-0Ch]
+	mov es,[bp+0Eh]
 	db 66h
 	mov es:[si+4],ax
-	mov ax,[bp-4]
-	mov es:[si+0Ah],ax
-rakr_count:
+	mov es:[si+0Ah],di
+rakr_cache_count:
 	mov ax,[bp-2]
-	mov es,word ptr [bp+0Eh]
+	mov es,[bp+0Eh]
 	cmp es:[si+8],ax
-	ja short rakr_size
-	inc ax
-	mov es:[si+8],ax
-rakr_size:
-	mov ax,[bp-10h]
-	add ax,[bp-0Ah]
+	jna short rakr_load_new
+	mov ax,[bp-010h]
+	add ax,[bp-0Eh]
 	sub dx,dx
-	mov es,word ptr [bp+0Eh]
 	add es:[si+0Ch],ax
 	adc es:[si+0Eh],dx
-	or byte ptr es:[si+56h],4
-	mov eax,[bp-0Eh]
-	mov dx,[bp-0Ch]
+	or byte ptr es:[si+056h],4
+	mov eax,[bp-8]
 	db 66h
-	mov es:[si+42h],ax
-	push es
+	mov es:[si+042h],ax
+rakr_load_new:
+	push word ptr [bp+0Eh]
 	push si
-	push dx
-	push ax
-	lea ax,[bp-14h]
+	push dword ptr [bp-8]
+	lea ax,[bp-014h]
 	push ss
 	push ax
 	call RegLoadKeyCache
 	mov di,ax
 	or di,ax
-	jz short rakr_new
-rakr_failure:
+	jz short rakr_install_new
+rakr_load_error:
 	mov ax,di
-	jmp rakr_done
-rakr_new:
-	les bx,[bp-14h]
-	; OR DWORD PTR ES:[BX],00FFFFFFh, operand prefix first.
-	db 66h,26h,81h,0Fh
+	jmp near ptr rakr_done
+rakr_install_new:
+	mov cx,[bp-2]
+	mov bx,[bp-0Eh]
+	mov es,[bp+0Eh]
+	cmp es:[si+8],cx
+	ja short rakr_init_free
+	mov ax,cx
+	inc ax
+	mov es:[si+8],ax
+	mov bx,[bp-0Eh]
+	mov ax,[bp-010h]
+	add ax,bx
+	sub dx,dx
+	add es:[si+0Ch],ax
+	adc es:[si+0Eh],dx
+	or byte ptr es:[si+056h],4
+	mov eax,[bp-8]
+	db 66h
+	mov es:[si+042h],ax
+rakr_init_free:
+	les di,[bp-014h]
+	; OR DWORD PTR ES:[DI],00FFFFFFh, operand prefix first.
+	db 66h,26h,81h,0Dh
 	dd 0FFFFFFh
-	les bx,[bp-14h]
-	mov byte ptr es:[bx+3],0
-	mov ax,[bp-0Ah]
-	les bx,[bp-14h]
-	mov es:[bx+8],ax
-	mov word ptr es:[bx+0Ah],0
+	les di,[bp-014h]
+	mov byte ptr es:[di+3],0
+	les di,[bp-014h]
+	mov es:[di+8],bx
+	mov word ptr es:[di+0Ah],0
 	jmp short rakr_have
-rakr_load:
+rakr_load_existing:
 	push es
 	push si
 	push dx
 	push ax
-	lea ax,[bp-14h]
+	lea ax,[bp-014h]
 	push ss
 	push ax
 	call RegLoadKeyCache
 	mov di,ax
 	or di,ax
-	jnz short rakr_failure
+	jnz short rakr_load_error
 rakr_have:
-	les bx,[bp-14h]
+	les bx,[bp-014h]
 	mov ax,es:[bx]
 	mov dx,es:[bx+2]
 	sub dh,dh
 	mov [bp-4],ax
 	mov [bp-2],dx
-	mov es,word ptr [bp+0Eh]
-	mov al,es:[si+56h]
+	mov es,[bp+0Eh]
+	mov al,es:[si+056h]
 	and ax,8
 	cmp ax,1
 	sbb ax,ax
 	and ax,0Ch
-	add ax,10h
+	add ax,010h
 	mov di,ax
 	add ax,ax
 	sub dx,dx
-	mov es,word ptr [bp-12h]
+	mov es,[bp-012h]
 	cmp dx,es:[bx+0Ah]
 	ja short rakr_finish
-	jb short rakr_split
+	jc short rakr_split
 	cmp ax,es:[bx+8]
 	ja short rakr_finish
 rakr_split:
 	push word ptr [bp+0Eh]
 	push si
-	mov eax,[bp-0Eh]
+	mov eax,[bp-8]
 	inc eax
-	mov [bp-1Ch],eax
+	mov [bp-01Ch],eax
 	push eax
-	lea ax,[bp-18h]
+	lea ax,[bp-018h]
 	push ss
 	push ax
 	call RegLoadKeyCache
 	or ax,ax
 	jnz short rakr_finish
-	les bx,[bp-18h]
+	les bx,[bp-018h]
 	mov ax,es:[bx]
 	mov dx,es:[bx+2]
 	xor ax,[bp-4]
@@ -878,18 +892,18 @@ rakr_split:
 	sub dh,dh
 	xor es:[bx],ax
 	xor es:[bx+2],dx
-	les bx,[bp-18h]
+	les bx,[bp-018h]
 	mov es:[bx+3],dh
-	les bx,[bp-14h]
+	les bx,[bp-014h]
 	mov ax,es:[bx+8]
 	mov dx,es:[bx+0Ah]
 	sub ax,di
 	sbb dx,0
-	les bx,[bp-18h]
+	les bx,[bp-018h]
 	mov es:[bx+8],ax
 	mov es:[bx+0Ah],dx
-	mov eax,[bp-1Ch]
-	mov dx,[bp-1Ah]
+	mov eax,[bp-01Ch]
+	mov dx,[bp-01Ah]
 	mov [bp-4],eax
 	push word ptr [bp+0Eh]
 	push si
@@ -899,26 +913,26 @@ rakr_split:
 	call RegUnlockKeyCache
 rakr_finish:
 	mov eax,[bp-4]
-	mov es,word ptr [bp+0Eh]
+	mov es,[bp+0Eh]
 	db 66h
-	mov es:[si+42h],ax
-	les bx,[bp-14h]
+	mov es:[si+042h],ax
+	les bx,[bp-014h]
 	or byte ptr es:[bx+3],1
-	mov ax,[bp-0Eh]
-	mov dx,[bp-0Ch]
-	mov cl,10
+	mov ax,[bp-8]
+	mov dx,[bp-6]
+	mov cl,0Ah
 	call __aFulshr
 	imul di,ax,6
-	mov es,word ptr [bp+0Eh]
+	mov es,[bp+0Eh]
 	les bx,es:[si+4]
 	or byte ptr es:[bx+di+4],2
-	mov es,word ptr [bp+0Eh]
-	or byte ptr es:[si+56h],3
-	mov eax,[bp-0Eh]
+	mov es,[bp+0Eh]
+	or byte ptr es:[si+056h],3
+	mov eax,[bp-8]
 	les bx,[bp+8]
 	db 66h
 	mov es:[bx],ax
-	mov eax,[bp-14h]
+	mov eax,[bp-014h]
 	les bx,[bp+4]
 	db 66h
 	mov es:[bx],ax
