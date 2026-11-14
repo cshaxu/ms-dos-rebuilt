@@ -14,13 +14,6 @@
 ;	DOS_READ
 ;	DOS_WRITE
 ;	get_io_sft
-;	DirRead
-;	FIRSTCLUSTER
-;	SET_BUF_AS_DIR
-;	FATSecRd
-;	DREAD
-;	CHECK_WRITE_LOCK
-;	CHECK_READ_LOCK
 ;
 ;	Revision history:
 ;
@@ -52,7 +45,6 @@
 
 Installed = TRUE
 
-	I_need	DirStart,WORD
 	I_Need	CONSft,DWORD		; SFT for swapped console In/Out
 	i_need	DOS_FLAG,BYTE
 	i_need	CONSWAP,BYTE
@@ -65,20 +57,9 @@ Installed = TRUE
 	i_need	CONTPOS,WORD
 	i_need	NEXTADD,WORD
 	i_need	CONBUF,BYTE
-	i_need	ClusFac,BYTE
-	i_need	SecClusPos,BYTE
-	i_need	DirSec,DWORD
-	i_need	ClusNum,WORD
-	i_need	NxtClusNum,WORD
-	i_need	ReadOp,BYTE
-	i_need	CURBUF,DWORD
-	i_need	ALLOWED,BYTE
 	i_need	EXTERR_LOCUS,BYTE
 
 
-	i_need	HIGH_SECTOR,WORD
-	I_need	JShare,DWORD
-	i_need	DOS34_FLAG,WORD
 ;
 ;Flag to indicate WIN386 presence
 ;
@@ -875,33 +856,6 @@ GetRedir:
 	CLC
 	return
 EndProc get_io_sft
-
-Break	<DIRREAD -- READ A DIRECTORY SECTOR>
-;---------------------------------------------------------------------------
-;
-; Procedure Name : DIRREAD
-;
-; Inputs:
-;	AX = Directory block number (relative to first block of directory)
-;	ES:BP = Base of drive parameters
-;	[DIRSEC] = First sector of first cluster of directory
-;	[CLUSNUM] = Next cluster
-;	[CLUSFAC] = Sectors/Cluster
-; Function:
-;	Read the directory block into [CURBUF].
-; Outputs:
-;	[NXTCLUSNUM] = Next cluster (after the one skipped to)
-;	[SECCLUSPOS] Set
-;	ES:BP unchanged
-;	[CURBUF] Points to Buffer with dir sector
-;	Carry set if error (user said FAIL to I 24)
-; DS preserved, all other registers destroyed.
-;---------------------------------------------------------------------------
-
-;hkn; called from dir.asm. DS already set up to DOSDATA.
-
-
-
 
 DOSCODE	ENDS
     END
