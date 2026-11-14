@@ -56,10 +56,10 @@ IO.SYS, MSDOS.SYS and COMMAND.COM all equal. This is an existing-asset check,
 not a claim that a new build has run. The accepted six-byte MSDOS.SYS config
 remains the target; other media provenance does not silently change it.
 
-## Current prefix: 117/293
+## Current prefix: 120/293
 
-Modified source/build files 50, exact 20, necessary unchanged 12,
-no same-name reference unchanged 35. Next: 118, cmd/command/rdata.asm. Tooling modified
+Modified source/build files 51, exact 21, necessary unchanged 12,
+no same-name reference unchanged 36. Next: 121, cmd/command/rucode.asm. Tooling modified
 1 (ioimage.c case-insensitive map symbol lookup), outside source count.
 See etc/T25/part1.md. BIOSTAIL.OBJ is unchanged; all compiler/link phases ran,
 then packaging failure was diagnosed and repaired. Fresh three-output FC/B
@@ -215,4 +215,8 @@ File 117 removes PATH2's unused FORDATA include and ten unused added external
 declarations; restores inherited search formatting and corrects interface notes.
 COMMAND rebuild/repack and all target/input checks pass;
 extras/build/t25-path2-12746-6262; see part28.md.
-Next: 118 rdata.asm. Full automatic final build remains pending.
+Files 118-120: restore RDATA inherited conditional/comment forms and service
+symbols without layout changes; retain RESCLASS resource boundary and verify
+RESMSG reference-exact. COMMAND rebuild/repack and all target/input checks pass;
+extras/build/t25-rdata-13269-22071; see part29.md.
+Next: 121 rucode.asm. Full automatic final build remains pending.

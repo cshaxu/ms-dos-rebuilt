@@ -448,6 +448,15 @@ Pipe2		db	67+12 dup (?)
 PipePtr 	dd	0		; offset and segment of allocated pipe text
 
 Re_OutStr	db	260 dup (?)	; redirection pathname
+;*		NOTE:  MsgBuffer and SafePathBuffer use the same
+;		memory.  MsgBuffer is only used while a command
+;		is being executed.  SafePathBuffer is no longer
+;		needed, since it is used for unsuccessful program
+;		launches.
+
+
+
+
 MsgBuffer	label	byte
 SafePathBuffer	label	byte
 		db	260 dup (?)	; pathname for EXEC
@@ -543,7 +552,7 @@ eiStrategy:
 	jz	eiSetStrategy
 	mov	bl,1
 eiSetStrategy:
-	mov	ax,5801h
+	mov	ax,(ALLOCOPER shl 8) or 1
 	int	21h
 	cmp	PermCom,0
 	je	adjust_env
@@ -641,10 +650,10 @@ eiSetEnv:
 	mov	word ptr ds:PDB_Environ,es
 eiEnvReady:
 	mov	EnvirSeg,es
-	mov	ax,5803h
+	mov	ax,(ALLOCOPER shl 8) or 3
 	xor	bx,bx
 	int	21h
-	mov	ax,5801h
+	mov	ax,(ALLOCOPER shl 8) or 1
 	mov	bx,0
 	int	21h
 	mov	TrnMvFlg,1
@@ -681,6 +690,10 @@ eiEnvReady:
 	shr	bx,1
 	add	si,bx
 	mov	ds,si
+;
+; Everything is set for a move. We need to move in the reverse direction to
+; make sure we dont overwrite ourselves while copying
+;
 	mov	si,cx
 	dec	si
 	mov	di,si
@@ -691,7 +704,7 @@ eiEnvReady:
 	mov	es,ax
 	mov	ah,DEALLOC
 	int	21h
-	mov	cs:InitFlag,0
+	mov	cs:InitFlag,FALSE	;indicate INIT is done
 	jmp	LodCom_Trap
 nomem_err:
 	jmp	BadMem_Trap
@@ -808,15 +821,6 @@ TranVarEnd	label	byte
 OldErrNo	dw	?
 
 
-;*		NOTE:  MsgBuffer and SafePathBuffer use the same
-;		memory.  MsgBuffer is only used while a command
-;		is being executed.  SafePathBuffer is no longer
-;		needed, since it is used for unsuccessful program
-;		launches.
-
-
-
-
 	public	Int2eHandler
 Int2eHandler	dd	0	; address of previous int 2e handler
 Int2fHandler	dd	?	; address of next int 2f handler
@@ -843,16 +847,22 @@ OldDS		dw	?		; saved data segment for critical errors
 	public	DosCommandState
 DosCommandState dd	0
 
-ifdef BETA3WARN
+ifdef	BETA3WARN
 	%out	Take this out before we ship
-public Beta3Warned
-Beta3Warned db 0
+public	Beta3Warned
+Beta3Warned	db	0
 endif
 
-; LoadHigh state follows the resident command state.
-include highvar.inc
+;
+; -----------------------------------------------------------------------------
+;
+include highvar.inc		;Add variables for 6.0 loadhigh functionality
+;
+; -----------------------------------------------------------------------------
+;
 
-;*** MESSAGES and other translatable text
+;***	MESSAGES
+;	and other translatable text
 
 		db	6 dup (0)	; reserved resident message state
 ResidentMsgId	dw	0		; requested resident resource message
