@@ -138,17 +138,11 @@ AsmVars <Debug>
 ; Win386 2.xx instance table
 ;
 
-	I_need	BootDrive,byte		; M018
 
 
         I_need  TEMP_VAR,WORD           ; M039
         I_need  TEMP_VAR2,WORD          ; M039
 
-	I_need	CurrentPDB,WORD		; M044
-	I_need	WinoldPatch1,BYTE	; M044
-	I_need	WinoldPatch2,BYTE	; M044
-	I_need  UmbSave2,BYTE		; M062
-	I_need	UmbSaveFlag,BYTE	; M062
 
 	I_need	umb_head,WORD
 
@@ -167,8 +161,7 @@ BData	ends				; M023
 
 
 DOSCODE	SEGMENT
-        EXTRN CURSC_DRIVE:BYTE
-        EXTRN SC_DRIVE:BYTE
+	EXTRN	CURSC_DRIVE:BYTE
 	ASSUME	CS:DOSCODE,DS:NOTHING,ES:NOTHING,SS:NOTHING
 
     	extrn FOO:WORD			; return address for dos 2f dispatch
@@ -1008,7 +1001,7 @@ Win386_Leaving:
 	test	dx, 1			; is this really win386?
 	JZ	win_leaving_real
 	JMP	SHORT win_nexti2f
-win_leaving_real:		; NO!  It's win 286 dos extender! M002
+win_leaving_real:		; Windows enhanced mode is leaving
 
 	and	ds:[IsWIN386],0		; Win386 is gone
 	and	ds:redir_patch,0	; Disable critical sections ; M002

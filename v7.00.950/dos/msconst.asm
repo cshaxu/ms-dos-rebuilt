@@ -68,8 +68,8 @@ DOSDATA	SEGMENT
 ;hkn; add 4 bytes to get correct offsets since jmp has been removed in START
 
 	db	2 dup (?)
-        PUBLIC DeferredFlushFlags
-DeferredFlushFlags db ?
+	PUBLIC	DeferredFlushFlags
+DeferredFlushFlags	db	?
         db ?	
 
 	EVEN
@@ -177,13 +177,9 @@ HASHINITVAR  LABEL   WORD		; [SYSTEM]				;AN000;
 ; manager ---- MOHANS
 ;
 
-        I_am    NlsBufferPtr,WORD,<<OFFSET DOSDATA:NlsBuffer>>
-        I_am    NlsResponsePtr,WORD,<<OFFSET DOSDATA:NlsResponseTable>>
-        db      0  
-						; holds the first page above 
-						; 640K
-;**	I_am	UU_BUF_EMS_NPA640,WORD,<0>	; holds the number of pages 
-						; above 640K		
+	I_am	NlsBufferPtr,WORD,<<OFFSET DOSDATA:NlsBuffer>>
+	I_am	NlsResponsePtr,WORD,<<OFFSET DOSDATA:NlsResponseTable>>
+	db	0			; reserved
 
 ; CL0FATENTRY is resident in DOSCODE.		; M014:	Holds the data that
 						; is used in pack/unpack rts.

@@ -56,10 +56,10 @@ IO.SYS, MSDOS.SYS and COMMAND.COM all equal. This is an existing-asset check,
 not a claim that a new build has run. The accepted six-byte MSDOS.SYS config
 remains the target; other media provenance does not silently change it.
 
-## Current prefix: 191/293
+## Current prefix: 193/293
 
-Modified source/build files 101, exact 28, necessary unchanged 26,
-no same-name reference unchanged 36. Next: 192, dos/mscode.asm. Tooling modified
+Modified source/build files 103, exact 28, necessary unchanged 26,
+no same-name reference unchanged 36. Next: 194, dos/msctrlc.asm. Tooling modified
 1 (ioimage.c case-insensitive map symbol lookup), outside source count.
 See etc/T25/part1.md. BIOSTAIL.OBJ is unchanged; all compiler/link phases ran,
 then packaging failure was diagnosed and repaired. Fresh three-output FC/B
@@ -508,3 +508,7 @@ See part78.md. Next: 190 dos/mknode.asm. Final full build pending.
 P79 accepts 190-191. MKNODE formatting aligned and target bytes verified.
 MPATCH is reference-exact. See part79.md. Next: 192 dos/mscode.asm.
 Final full build pending.
+
+P80 accepts 192-193. Removed stale MSCODE declarations and aligned MSCONST data notation.
+Both builds passed the three target byte comparisons. See part80.md.
+Next: 194 dos/msctrlc.asm. Final full build pending.
