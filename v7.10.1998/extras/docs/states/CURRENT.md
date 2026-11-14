@@ -68,3 +68,5 @@ P21 restores the shared local rename error exit in FILE. Stage cmd-26799-27076 m
 P22 restores FE default disk buffering, JO.SYS execution, the Windows path flag, and the BIOS initialization values in the inherited modules. Formal stage cmd-28007-6290 matches all 187392 bytes from the BIOS start through the configuration boundary, including the embedded kernel and logo. COMMAND.COM and MSDOS.SYS match. The outer header and configuration still differ.
 
 P23 restores FE configuration messages, the original registry path and key record logic, and the historical object relocation grouping. Stage `cmd-30048-6604` exits 0 with all three file comparisons, identical input snapshots, and publication to `extras/assets`. The complete configuration payload and the complete IO.SYS now match. The source ledger has 36 modified and 255 identical files across 291 frozen paths.
+
+S1 and T27 are closed. The [closure audit](T27-closure.md) maps the owner request to the frozen media, source ledger, exact build evidence and pushed implementation.
