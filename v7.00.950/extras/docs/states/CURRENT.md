@@ -317,3 +317,11 @@ and reconciled with target evidence, never silently patched against that gate.
 Earlier LFN reviews predate this instruction and are not claimed XP-validated;
 track their focused semantic cross-check in the completion audit without
 restarting the frozen sequential file audit.
+
+P48 applies the owner's requested focused LFN follow-up: TMISC2's PathFindNext
+contract now states that closing a failed LFN search can overwrite AX while
+find-next carry is preserved. No executable instruction changed. COMMAND
+rebuild/repack and all target/input checks pass at
+extras/build/t25-lfn-contract-23137-5945. See part48.md and lfn-xp-contracts.md.
+This is a correction to already-counted file 134; prefix stays 139/293 and
+modified count stays 68. Next sequential file remains 140 tucode.asm.

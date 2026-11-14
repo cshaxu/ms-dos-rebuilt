@@ -844,7 +844,8 @@ PathFindFirst ENDP
 ;*** PathFindNext -- Continue a pathname search.
 ;
 ;       ENTRY   ES:DI = search buffer, saved mode and handle from first call
-;       EXIT    Carry and AX returned by DOS
+;       EXIT    Carry returned by the find-next call
+;               AX may be changed by closing a failed long filename search
 ;               SI = filename offset; failed long filename search closed
 ;
 PathFindNext PROC NEAR
