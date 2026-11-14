@@ -75,7 +75,8 @@ BadNam_Ptr	dw	1011				;AN000;message number
 
 ;  Windows startup and disk locking errors
 ;
-	PUBLIC	NoWin_Ptr,LockErr_Ptr
+	PUBLIC	NoWin_Ptr
+	PUBLIC	LockErr_Ptr
 NoWin_Ptr	dw	1012
 		db	no_subst
 LockErr_Ptr	dw	1013
@@ -860,7 +861,8 @@ DirContRoot_Ptr dw 1084
 
 ;  "%1 dir(s)  " and "%1 bytes allocated",13,10
 ;
-	public	DirCount_Ptr,DirAllocated_Ptr
+	public	DirCount_Ptr
+	public	DirAllocated_Ptr
 DirCount_Ptr	dw	1085
 	db	1,parm_block_size,0
 	dw	offset TRANGROUP:DirCountOutput,0
@@ -1045,7 +1047,8 @@ endif
 
 ;  Warning and confirmation for LOCK
 ;
-	PUBLIC	LockWarn_Ptr,LockPrompt_Ptr
+	PUBLIC	LockWarn_Ptr
+	PUBLIC	LockPrompt_Ptr
 LockWarn_Ptr	dw	1107
 		db	no_subst
 LockPrompt_Ptr	dw	1108
@@ -1069,7 +1072,8 @@ DirSortOverflow_Ptr dw	1110
 PipeMemErr_Ptr	dw	1111
 		db	no_subst
 
-	public	FilePrefix,CmdLineName
+	public	FilePrefix
+	public	CmdLineName
 FilePrefix	db	5,"FILE "
 CmdLineName	db	7,"CMDLINE="
 

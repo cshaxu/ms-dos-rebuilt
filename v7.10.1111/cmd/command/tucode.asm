@@ -21,11 +21,13 @@ Title	COMMAND Language midifiable Code Transient
 
 
 DATARES 	SEGMENT PUBLIC BYTE	;AC000;
-	EXTRN	ECHOFLAG:BYTE,LFNForFlag:BYTE
+	EXTRN	ECHOFLAG:BYTE
+	EXTRN	LFNForFlag:BYTE
 DATARES ENDS
 
 TRANDATA	SEGMENT PUBLIC BYTE	;AC000;
-	EXTRN	OnOffControl:BYTE,OnOffWords:BYTE
+	EXTRN	OnOffControl:BYTE
+	EXTRN	OnOffWords:BYTE
 	EXTRN	EchoOnOffControl:BYTE
 	EXTRN	BAD_ON_OFF_ptr:word
 	EXTRN	ctrlcmes_ptr:word
@@ -55,7 +57,8 @@ TRANSPACE	SEGMENT PUBLIC BYTE	;AC000;
 	EXTRN	dirchar:byte
 	EXTRN	PARSE1_CODE:BYTE	;AN000;
 	EXTRN	RESSEG:WORD
-	EXTRN	arg:BYTE,ParseArgIndex:WORD
+	EXTRN	arg:BYTE
+	EXTRN	ParseArgIndex:WORD
 	EXTRN	msg_disp_class:BYTE
 	EXTRN	string_ptr_2:word
 
@@ -63,9 +66,11 @@ TRANSPACE	ENDS
 
 TRANCODE	SEGMENT PUBLIC BYTE
 
-	EXTRN	ParseArgument:NEAR,CheckParsedArgs:NEAR
+	EXTRN	ParseArgument:NEAR
+	EXTRN	CheckParsedArgs:NEAR
 	EXTRN	CERROR:NEAR
-	EXTRN	PathFindFirst:NEAR,PathFindNext:NEAR
+	EXTRN	PathFindFirst:NEAR
+	EXTRN	PathFindNext:NEAR
 	EXTRN	DirAppendEntryName:NEAR
 	EXTRN	Set_ext_error_from_ax:NEAR
 	EXTRN	CRLF2:NEAR
@@ -98,29 +103,29 @@ ASSUME	CS:TRANGROUP,DS:TRANGROUP,ES:TRANGROUP,SS:NOTHING
 ; ARE YOU SURE prompt when deleting *.*
 
 NOTEST2:
-        CALL    EraseConfirmAll
-        JNC     SHORT EraseStart
-        RET
+	CALL	EraseConfirmAll
+	JNC	SHORT EraseStart
+	RET
 EraseStart:
-        CMP     BYTE PTR [COMSW],0
-        JNZ     SHORT EraseFind
-        CMP     PathFindMode,0
-        JZ      SHORT EraseFind
-        MOV     DX,OFFSET TRANGROUP:DirSearchPath
-        MOV     AX,7141H
-        XOR     CX,CX
-        MOV     SI,1
-        INT     21H
-        JC      SHORT EraseError
-        JMP     SHORT EraseDone
+	CMP	BYTE PTR [COMSW],0
+	JNZ	SHORT EraseFind
+	CMP	PathFindMode,0
+	JZ	SHORT EraseFind
+	MOV	DX,OFFSET TRANGROUP:DirSearchPath
+	MOV	AX,7141H
+	XOR	CX,CX
+	MOV	SI,1
+	INT	21H
+	JC	SHORT EraseError
+	JMP	SHORT EraseDone
 EraseFind:
-        MOV     DeleteCount,0
-        MOV     DX,OFFSET TRANGROUP:DirSearchPath
-        MOV     CX,21H
-        MOV     DI,OFFSET TRANGROUP:DirBuf
-        CALL    PathFindFirst
-        JNC     SHORT EraseNextFile
-        JMP     SHORT EraseError
+	MOV	DeleteCount,0
+	MOV	DX,OFFSET TRANGROUP:DirSearchPath
+	MOV	CX,21H
+	MOV	DI,OFFSET TRANGROUP:DirBuf
+	CALL	PathFindFirst
+	JNC	SHORT EraseNextFile
+	JMP	SHORT EraseError
 EraseNextFile:
         PUSH    DS
         PUSH    DX
@@ -135,44 +140,44 @@ EraseNextFile:
         JZ      SHORT EraseDoDelete
         MOV     AX,7141H
 EraseDoDelete:
-        XOR     SI,SI
-        INT     21H
+	XOR	SI,SI
+	INT	21H
 EraseSkipped:
-        POP     DX
-        POP     DS
-        JNC     SHORT EraseCount
-        INVOKE  Get_ext_error_number
-        MOV     DeleteError,AX
-        JMP     SHORT EraseContinue
+	POP	DX
+	POP	DS
+	JNC	SHORT EraseCount
+	INVOKE	Get_ext_error_number
+	MOV	DeleteError,AX
+	JMP	SHORT EraseContinue
 EraseCount:
-        INC     DeleteCount
+	INC	DeleteCount
 EraseContinue:
-        MOV     DI,OFFSET TRANGROUP:DirBuf
-        CALL    PathFindNext
-        JNC     EraseNextFile
-        CMP     DeleteCount,0
-        JNZ     SHORT EraseAny
-        MOV     AX,DeleteError
-        JMP     SHORT EraseErrorNumber
+	MOV	DI,OFFSET TRANGROUP:DirBuf
+	CALL	PathFindNext
+	JNC	EraseNextFile
+	CMP	DeleteCount,0
+	JNZ	SHORT EraseAny
+	MOV	AX,DeleteError
+	JMP	SHORT EraseErrorNumber
 EraseAny:
-        CMP     BYTE PTR [COMSW],0
-        JZ      SHORT EraseDone
-        INVOKE  CRLF2
+	CMP	BYTE PTR [COMSW],0
+	JZ	SHORT EraseDone
+	INVOKE	CRLF2
 EraseDone:
-        INVOKE  RESTUDIR
-        RET
+	INVOKE	RESTUDIR
+	RET
 EraseError:
-        INVOKE  Get_ext_error_number
+	INVOKE	Get_ext_error_number
 EraseErrorNumber:
-        CALL    Set_ext_error_from_ax
-        PUSH    DX
-        INVOKE  RESTUDIR
-        POP     DX
-        CMP     Extend_Buf_Ptr,error_no_more_files
-        JNZ     SHORT EraseReport
-        MOV     Extend_Buf_Ptr,error_file_not_found
+	CALL	Set_ext_error_from_ax
+	PUSH	DX
+	INVOKE	RESTUDIR
+	POP	DX
+	CMP	Extend_Buf_Ptr,error_no_more_files
+	JNZ	SHORT EraseReport
+	MOV	Extend_Buf_Ptr,error_file_not_found
 EraseReport:
-        JMP     CERROR
+	JMP	CERROR
 
 
 ;************************************************
@@ -251,7 +256,7 @@ pccont:
 	MOV	BL,DL
 	MOV	DX,OFFSET TRANGROUP:CTRLCMES_ptr
 
-        PUBLIC  PYN
+	PUBLIC	PYN
 PYN:
 	mov	si,offset trangroup:onmes_ptr	;AC000; get ON pointer
 	OR	BL,BL
@@ -300,34 +305,34 @@ VerifyStatus:
 	JMP	PYN
 
 ; LFNFOR controls long filename expansion in FOR commands.
-        PUBLIC  LFNFOR
+	PUBLIC	LFNFOR
 LFNFOR:
-        CALL    ON_OFF
-        JC      SHORT LFNForQuery
-        PUSH    DS
-        MOV     DS,[RESSEG]
-        ASSUME  DS:RESGROUP
-        MOV     DL,0
-        JNZ     SHORT LFNForSet
-        MOV     DL,1
+	CALL	ON_OFF
+	JC	SHORT LFNForQuery
+	PUSH	DS
+	MOV	DS,[RESSEG]
+	ASSUME	DS:RESGROUP
+	MOV	DL,0
+	JNZ	SHORT LFNForSet
+	MOV	DL,1
 LFNForSet:
-        MOV     LFNForFlag,DL
-        POP     DS
-        ASSUME  DS:TRANGROUP
-        RET
+	MOV	LFNForFlag,DL
+	POP	DS
+	ASSUME	DS:TRANGROUP
+	RET
 LFNForQuery:
-        CMP     CL,0
-        JE      SHORT LFNForShow
-        JMP     CERROR
+	CMP	CL,0
+	JE	SHORT LFNForShow
+	JMP	CERROR
 LFNForShow:
-        PUSH    DS
-        MOV     DS,ES:[RESSEG]
-        ASSUME  DS:RESGROUP
-        MOV     BL,LFNForFlag
-        POP     DS
-        ASSUME  DS:TRANGROUP
-        MOV     DX,OFFSET TRANGROUP:LFNForMes_ptr
-        JMP     PYN
+	PUSH	DS
+	MOV	DS,ES:[RESSEG]
+	ASSUME	DS:RESGROUP
+	MOV	BL,LFNForFlag
+	POP	DS
+	ASSUME	DS:TRANGROUP
+	MOV	DX,OFFSET TRANGROUP:LFNForMes_ptr
+	JMP	PYN
 
 ; ****************************************************************
 ; *
@@ -335,10 +340,10 @@ LFNForShow:
 ; *
 ; * FUNCTION:	 Parse the command line for an optional ON or
 ; *		 OFF string for the BREAK, VERIFY, and ECHO
-; *		 routines.
+; *		 routines, and LFNFOR.
 ; *
-; * INPUT:	 command line at offset 81H
-; *		 PARSE_BREAK control block
+; * INPUT:	 parsed command arguments in arg
+; *		 OnOffControl or EchoOnOffControl control block
 ; *
 ; * OUTPUT:	 If carry is clear
 ; *		    If ON is found
@@ -349,128 +354,130 @@ LFNForShow:
 ; *		    If nothing on command line
 ; *		       CL set to zero
 ; *		    If error
-; *		       CL contains error value from parse
+; *		       CL is nonzero for rejected input
 ; *
 ; ****************************************************************
 
 assume	ds:trangroup,es:trangroup
 
-        PUBLIC  ON_OFF,OnOffChar,OnOffSpace
+	PUBLIC	ON_OFF
+	PUBLIC	OnOffChar
+	PUBLIC	OnOffSpace
 ON_OFF:
-        MOV     DI,OFFSET TRANGROUP:OnOffControl
+	MOV	DI,OFFSET TRANGROUP:OnOffControl
 OnOffParse:
-        MOV     ParseArgIndex,1
-        CALL    ParseArgument
-        JC      OnOffNoMatch
-        MOV     DI,OFFSET TRANGROUP:OnOffWords
-        MOV     AX,0
-        XOR     CH,CH
-        MOV     BX,[BX].arglen
+	MOV	ParseArgIndex,1
+	CALL	ParseArgument
+	JC	OnOffNoMatch
+	MOV	DI,OFFSET TRANGROUP:OnOffWords
+	MOV	AX,0
+	XOR	CH,CH
+	MOV	BX,[BX].arglen
 OnOffCompare:
-        MOV     CL,[DI]
-        JCXZ    OnOffNoMatch
-        INC     DI
-        CMP     CL,BL
-        JNE     SHORT OnOffNext
-        PUSH    CX
-        PUSH    SI
-        PUSH    DI
-        REPE    CMPSB
-        POP     DI
-        POP     SI
-        POP     CX
-        JE      SHORT OnOffMatched
+	MOV	CL,[DI]
+	JCXZ	OnOffNoMatch
+	INC	DI
+	CMP	CL,BL
+	JNE	SHORT OnOffNext
+	PUSH	CX
+	PUSH	SI
+	PUSH	DI
+	REPE	CMPSB
+	POP	DI
+	POP	SI
+	POP	CX
+	JE	SHORT OnOffMatched
 OnOffNext:
-        ADD     DI,CX
-        INC     AX
-        JMP     SHORT OnOffCompare
+	ADD	DI,CX
+	INC	AX
+	JMP	SHORT OnOffCompare
 OnOffMatched:
-        OR      AX,AX
-        PUSHF
-        CALL    CheckParsedArgs
-        JNC     SHORT OnOffExtra
-        POPF
-        CLC
-        JMP     SHORT OnOffReturn
+	OR	AX,AX
+	PUSHF
+	CALL	CheckParsedArgs
+	JNC	SHORT OnOffExtra
+	POPF
+	CLC
+	JMP	SHORT OnOffReturn
 OnOffNoMatch:
-        MOV     SI,OFFSET TRANGROUP:arg
-        MOV     SI,[SI].arg_ocomptr
-        XOR     CL,CL
-        CLD
+	MOV	SI,OFFSET TRANGROUP:arg
+	MOV	SI,[SI].arg_ocomptr
+	XOR	CL,CL
+	CLD
 OnOffSkip:
-        LODSB
-        CALL    OnOffSpace
-        JE      SHORT OnOffSkip
-        DEC     SI
+	LODSB
+	CALL	OnOffSpace
+	JE	SHORT OnOffSkip
+	DEC	SI
 OnOffScan:
-        LODSB
-        CMP     AL,0DH
-        JE      SHORT OnOffBad
-        CALL    OnOffSpace
-        JE      SHORT OnOffTrailing
-        CALL    OnOffChar
-        JNE     SHORT OnOffScan
-        MOV     CL,1
-        JMP     SHORT OnOffBad
+	LODSB
+	CMP	AL,0DH
+	JE	SHORT OnOffBad
+	CALL	OnOffSpace
+	JE	SHORT OnOffTrailing
+	CALL	OnOffChar
+	JNE	SHORT OnOffScan
+	MOV	CL,1
+	JMP	SHORT OnOffBad
 OnOffTrailing:
-        PUSH    SI
+	PUSH	SI
 OnOffTrailingScan:
-        LODSB
-        CMP     AL,0DH
-        JE      SHORT OnOffTrailingEnd
-        CALL    OnOffSpace
-        JE      SHORT OnOffTrailingScan
+	LODSB
+	CMP	AL,0DH
+	JE	SHORT OnOffTrailingEnd
+	CALL	OnOffSpace
+	JE	SHORT OnOffTrailingScan
 OnOffTrailingEnd:
-        POP     SI
-        JE      SHORT OnOffBad
-        MOV     CL,1
-        JMP     SHORT OnOffBad
+	POP	SI
+	JE	SHORT OnOffBad
+	MOV	CL,1
+	JMP	SHORT OnOffBad
 OnOffExtra:
-        POPF
-        MOV     CX,AX
+	POPF
+	MOV	CX,AX
 OnOffBad:
         MOV     msg_disp_class,3
         MOV     DX,OFFSET TRANGROUP:BAD_ON_OFF_ptr
         STC
 OnOffReturn:
-        RET
+	RET
 
 ; Return zero for characters that delimit an ON/OFF token.
 OnOffChar:
-        CMP     AL,' '
-        JB      SHORT OnOffControlChar
-        CMP     AL,'/'
-        JE      SHORT OnOffCharReturn
-        CMP     AL,'"'
-        JE      SHORT OnOffCharReturn
-        CMP     AL,5CH
-        JE      SHORT OnOffCharReturn
-        CMP     AL,':'
-        JE      SHORT OnOffCharReturn
-        CMP     AL,'.'
-        JE      SHORT OnOffCharReturn
-        CMP     AL,'['
-        JE      SHORT OnOffCharReturn
-        CMP     AL,']'
-        JE      SHORT OnOffCharReturn
-        CMP     AL,'+'
-        JE      SHORT OnOffCharReturn
-        CMP     AL,','
-        JE      SHORT OnOffCharReturn
-        CMP     AL,';'
-        JE      SHORT OnOffCharReturn
-        CMP     AL,'='
+	CMP	AL,' '
+	JB	SHORT OnOffControlChar
+	CMP	AL,'/'
+	JE	SHORT OnOffCharReturn
+	CMP	AL,'"'
+	JE	SHORT OnOffCharReturn
+	CMP	AL,5CH
+	JE	SHORT OnOffCharReturn
+	CMP	AL,':'
+	JE	SHORT OnOffCharReturn
+	CMP	AL,'.'
+	JE	SHORT OnOffCharReturn
+	CMP	AL,'['
+	JE	SHORT OnOffCharReturn
+	CMP	AL,']'
+	JE	SHORT OnOffCharReturn
+	CMP	AL,'+'
+	JE	SHORT OnOffCharReturn
+	CMP	AL,','
+	JE	SHORT OnOffCharReturn
+	CMP	AL,';'
+	JE	SHORT OnOffCharReturn
+	CMP	AL,'='
 OnOffCharReturn:
-        RET
+	RET
 OnOffControlChar:
-        CMP     AL,AL
-        RET
+	CMP	AL,AL
+	RET
 OnOffSpace:
-        CMP     AL,' '
-        JE      SHORT OnOffSpaceReturn
-        CMP     AL,9
+	CMP	AL,' '
+	JE	SHORT OnOffSpaceReturn
+	CMP	AL,9
 OnOffSpaceReturn:
-        RET
+	RET
 
 
 ;*************************************************************************
@@ -520,7 +527,7 @@ IFNDEF DBCS
 	SHL	SI,1				; SI=AX*6
     ENDIF
     ifdef KOREA
-        shl     si,1
+	shl	si,1
     endif
 ENDIF
 	mov	cx,si				;AN000; save si
@@ -540,7 +547,7 @@ IFNDEF DBCS
 	MOV	CX,6
     ENDIF
     ifdef KOREA
-        mov     cx,2                            ; MSCH 90/9/6
+	mov	cx,2                            ; MSCH 90/9/6
     endif
 ENDIF
 	REP	MOVSB
@@ -629,16 +636,16 @@ EraseAskAll:
         POPF
         JNZ     EraseAskAll
 EraseConfirmYes:
-        CLC
-        RET
+	CLC
+	RET
 EraseConfirmNo:
-        STC
-        RET
+	STC
+	RET
 
 ; Confirm an individual filename for DEL /P.
 EraseConfirmFile:
-        CMP     BYTE PTR [COMSW],0
-        JZ      SHORT EraseFileYes
+	CMP	BYTE PTR [COMSW],0
+	JZ	SHORT EraseFileYes
 EraseAskFile:
         INVOKE  CRLF2
         MOV     DX,OFFSET TRANGROUP:DirEntryPath
@@ -656,11 +663,11 @@ EraseAskFile:
         CMP     AL,1
         JNZ     EraseAskFile
 EraseFileYes:
-        CLC
-        RET
+	CLC
+	RET
 EraseFileNo:
-        STC
-        RET
+	STC
+	RET
 
 TRANCODE	ENDS
 	END

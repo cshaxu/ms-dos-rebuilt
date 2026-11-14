@@ -127,3 +127,17 @@ ordinal,path,disposition,verification
 126,cmd/command/tcmd1b.asm,reduced,Restored directory and parser declarations and moved the Volume header to its routine; retained 1111 source symbols
 127,cmd/command/tcmd2a.asm,reduced,Restored unchanged procedure formatting; retained the 1111 version resource selection
 128,cmd/command/tcmd2b.asm,reduced,Restored inherited formatting and extended-open service name; kept the target LOCK handling and encodings
+129,cmd/command/tcode.asm,reduced-to-exact,Restored inherited COMMAND transient declarations and formatting
+130,cmd/command/tdata.asm,reduced,Restored equivalent parser table entries and declarations; retained 1111 data additions and alignment
+131,cmd/command/tenv.asm,reduced-to-exact,Restored SET and long-command procedure comments and section placement
+132,cmd/command/tenv2.asm,reduced,Restored named DOS directory services and original formatting
+133,cmd/command/tfor.asm,reduced-to-exact,Restored inherited FOR declarations and source form
+134,cmd/command/tmisc1.asm,reduced-to-exact,Restored LenMsgOrPathBuf for the 104h byte copy and procedure formatting
+135,cmd/command/tmisc2.asm,reduced,Restored DOS service names and declarations; kept 1111 wildcard handling
+136,cmd/command/tparse.asm,exact,Byte comparison with frozen 950
+137,cmd/command/tpipe.asm,reduced-to-exact,Removed unused externs and restored inherited pipe formatting
+138,cmd/command/tprintf.asm,reduced-to-exact,Restored transient output declarations and comments
+139,cmd/command/tranmsg.asm,reduced,Restored inherited public declarations; kept 1111 version and large-volume message records
+140,cmd/command/tspc.asm,reduced,Restored substitution block size name and public declarations; kept widened DIR fields
+141,cmd/command/tucode.asm,reduced,Restored formatting and unchanged declarations; kept 1111 argument processing
+142,cmd/command/uinit.asm,reduced,Restored DOS names and parameter table declarations; retained 1111 initialization options and header data

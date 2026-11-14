@@ -122,7 +122,7 @@ GETPATH:
         PUSH    CX                      ; save string length
         PUSH    SI                      ; save ptr to string
         POP     BX                      ; BX = ptr to original string
-        SUB     BX,SI                   ; BX = -(# chars scanned by Switch)
+        SUB     BX,SI                   ; BX = zero; no switch scan here
         POP     CX                      ; CX = string length
         ADD     CX,BX                   ; CX = string length from current SI
         MOV     DX,SI                   ; DX = ptr to current string
@@ -186,14 +186,14 @@ NOPSTORE:
         return
 
 PGETARG:
-        MOV     SI,OFFSET TRANGROUP:arg
-        MOV     CX,[SI].arglen
-        MOV     SI,[SI].arg_ocomptr
-        CALL    PSCANOFF
-        ADD     SI,CX
-        CALL    PSCANOFF
-        CMP     AL,13
-        return
+	MOV	SI,OFFSET TRANGROUP:arg
+	MOV	CX,[SI].arglen
+	MOV	SI,[SI].arg_ocomptr
+	CALL	PSCANOFF
+	ADD	SI,CX
+	CALL	PSCANOFF
+	CMP	AL,13
+	return
 
 PSCANOFF:
 	LODSB
@@ -206,7 +206,8 @@ PSCANOFFD:
 	DEC	SI				; Point to first non-delimiter
 	return
 
-	PUBLIC	REDIRERR,NOREOUT
+	PUBLIC	REDIRERR
+	PUBLIC	NOREOUT
 IOSET:
 ;
 ; ALL REGISTERS PRESERVED
@@ -704,106 +705,108 @@ DirNormalizePattern endp
 ;       EXIT    AL = nonzero for long filename calls, zero otherwise
 ;               AX and flags changed; other registers preserved
 ;
-        PUBLIC  SelectPathInterface,SelectDriveInterface,IsNetworkPath
+	PUBLIC	SelectPathInterface
+	PUBLIC	SelectDriveInterface
+	PUBLIC	IsNetworkPath
 assume  ds:nothing,es:nothing
 SelectDriveInterface PROC NEAR
-        PUSH    DX
-        PUSH    CX
-        PUSH    BX
-        OR      AL,AL
-        JNZ     SHORT QueryDrivePath
-        JMP     SHORT QueryCurrentDrive
+	PUSH	DX
+	PUSH	CX
+	PUSH	BX
+	OR	AL,AL
+	JNZ	SHORT QueryDrivePath
+	JMP	SHORT QueryCurrentDrive
 SelectDriveInterface ENDP
 SelectPathInterface PROC NEAR
-        PUSH    DX
-        PUSH    CX
-        PUSH    BX
-        CALL    IsNetworkPath
-        OR      AL,AL
-        JNZ     SHORT QueryNetworkPath
-        CMP     BYTE PTR [SI+1],':'
-        MOV     AL,[SI]
-        JE      SHORT QueryDrivePath
+	PUSH	DX
+	PUSH	CX
+	PUSH	BX
+	CALL	IsNetworkPath
+	OR	AL,AL
+	JNZ	SHORT QueryNetworkPath
+	CMP	BYTE PTR [SI+1],':'
+	MOV	AL,[SI]
+	JE	SHORT QueryDrivePath
 QueryCurrentDrive:
-        MOV     AH,19H
-        INT     21H
-        ADD     AL,'A'
+	MOV	AH,Get_Default_Drive
+	INT	21H
+	ADD	AL,'A'
 QueryDrivePath:
-        MOV     AH,':'
-        MOV     WORD PTR CS:PathQueryRoot,AX
-        MOV     WORD PTR CS:PathQueryRoot+2,005CH
-        PUSH    SI
-        PUSH    DS
-        PUSH    CS
-        POP     DS
-        MOV     SI,OFFSET TRANGROUP:PathQueryRoot
-        MOV     DX,SI
-        XOR     BX,BX
-        MOV     AX,71A0H
-        XOR     CX,CX
-        STC
-        INT     21H
-        POP     DS
-        POP     SI
+	MOV	AH,':'
+	MOV	WORD PTR CS:PathQueryRoot,AX
+	MOV	WORD PTR CS:PathQueryRoot+2,005CH
+	PUSH	SI
+	PUSH	DS
+	PUSH	CS
+	POP	DS
+	MOV	SI,OFFSET TRANGROUP:PathQueryRoot
+	MOV	DX,SI
+	XOR	BX,BX
+	MOV	AX,71A0H
+	XOR	CX,CX
+	STC
+	INT	21H
+	POP	DS
+	POP	SI
 CheckPathInterface:
-        JC      SHORT UseShortNames
-        TEST    BX,4000H
-        JZ      SHORT UseShortNames
-        MOV     AL,1
-        MOV     CS:PathChdirFunction,713BH
-        MOV     CS:PathGetdirFunction,7147H
-        MOV     CS:PathOpenFunction,716CH
-        MOV     CS:PathAttribFunction,7143H
-        JMP     SHORT PathInterfaceDone
+	JC	SHORT UseShortNames
+	TEST	BX,4000H
+	JZ	SHORT UseShortNames
+	MOV	AL,1
+	MOV	CS:PathChdirFunction,713BH
+	MOV	CS:PathGetdirFunction,7147H
+	MOV	CS:PathOpenFunction,716CH
+	MOV	CS:PathAttribFunction,7143H
+	JMP	SHORT PathInterfaceDone
 QueryNetworkPath:
-        PUSH    DI
-        PUSH    ES
-        PUSH    DS
-        POP     ES
-        LEA     DI,[SI+2]
-        CMP     WORD PTR [SI],5C5CH
-        JE      SHORT FindShareRoot
-        INC     DI
-        INC     DI
+	PUSH	DI
+	PUSH	ES
+	PUSH	DS
+	POP	ES
+	LEA	DI,[SI+2]
+	CMP	WORD PTR [SI],5C5CH
+	JE	SHORT FindShareRoot
+	INC	DI
+	INC	DI
 FindShareRoot:
-        CLD
-        XOR     AL,AL
-        MOV     CX,0FFFFH
-        REPNE   SCASB
-        NOT     CX
-        MOV     AL,5CH
-        LEA     DI,[SI+2]
-        REPNE   SCASB
-        MOV     BX,0
-        JNZ     SHORT NetworkQueryDone
-        REPNE   SCASB
-        DEC     DI
-        XOR     AL,AL
-        XCHG    AL,ES:[DI]
-        PUSH    AX
-        MOV     DX,SI
-        XOR     BX,BX
-        MOV     AX,71A0H
-        XOR     CX,CX
-        STC
-        INT     21H
-        POP     AX
-        XCHG    AL,ES:[DI]
+	CLD
+	XOR	AL,AL
+	MOV	CX,0FFFFH
+	REPNE	SCASB
+	NOT	CX
+	MOV	AL,5CH
+	LEA	DI,[SI+2]
+	REPNE	SCASB
+	MOV	BX,0
+	JNZ	SHORT NetworkQueryDone
+	REPNE	SCASB
+	DEC	DI
+	XOR	AL,AL
+	XCHG	AL,ES:[DI]
+	PUSH	AX
+	MOV	DX,SI
+	XOR	BX,BX
+	MOV	AX,71A0H
+	XOR	CX,CX
+	STC
+	INT	21H
+	POP	AX
+	XCHG	AL,ES:[DI]
 NetworkQueryDone:
-        POP     ES
-        POP     DI
-        JMP     SHORT CheckPathInterface
+	POP	ES
+	POP	DI
+	JMP	SHORT CheckPathInterface
 UseShortNames:
-        MOV     CS:PathChdirFunction,3B00H
-        MOV     CS:PathGetdirFunction,4700H
-        MOV     CS:PathOpenFunction,6C00H
-        MOV     CS:PathAttribFunction,4300H
-        XOR     AL,AL
+	MOV	CS:PathChdirFunction,(CHDir SHL 8)
+	MOV	CS:PathGetdirFunction,(Current_Dir SHL 8)
+	MOV	CS:PathOpenFunction,(ExtOpen SHL 8)
+	MOV	CS:PathAttribFunction,(CHMod SHL 8)
+	XOR	AL,AL
 PathInterfaceDone:
-        POP     BX
-        POP     CX
-        POP     DX
-        RET
+	POP	BX
+	POP	CX
+	POP	DX
+	RET
 SelectPathInterface ENDP
 
 ;*** PathFindFirst -- Find a pathname using the selected interface.
@@ -820,25 +823,26 @@ PathFindFirst PROC NEAR
         CALL    SetPathDTA
         MOV     AX,4E00H
 PathFindFirstCall:
-        XOR     SI,SI
-        INT     21H
-        LEA     SI,[DI+1EH]
-        PUSHF
-        JC      SHORT PathFindFirstName
-        MOV     CS:PathFindHandle,AX
+	XOR	SI,SI
+	INT	21H
+	LEA	SI,[DI+1EH]
+	PUSHF
+	JC	SHORT PathFindFirstName
+	MOV	CS:PathFindHandle,AX
 PathFindFirstName:
-        CMP     CS:PathFindMode,0
-        JE      SHORT PathFindFirstDone
-        LEA     SI,[DI+2CH]
+	CMP	CS:PathFindMode,0
+	JE	SHORT PathFindFirstDone
+	LEA	SI,[DI+2CH]
 PathFindFirstDone:
-        POPF
-        RET
+	POPF
+	RET
 PathFindFirst ENDP
 
 ;*** PathFindNext -- Continue a pathname search.
 ;
 ;       ENTRY   ES:DI = search buffer, saved mode and handle from first call
-;       EXIT    Carry and AX returned by DOS
+;       EXIT    Carry returned by the find-next call
+;               AX may be changed by closing a failed long filename search
 ;               SI = filename offset; failed long filename search closed
 ;
 PathFindNext PROC NEAR
@@ -850,24 +854,24 @@ PathFindNext PROC NEAR
         CALL    SetPathDTA
         MOV     AX,4F00H
 PathFindNextCall:
-        XOR     SI,SI
-        INT     21H
-        PUSHF
-        LEA     SI,[DI+1EH]
-        CMP     CS:PathFindMode,0
-        JE      SHORT PathFindNextName
-        LEA     SI,[DI+2CH]
+	XOR	SI,SI
+	INT	21H
+	PUSHF
+	LEA	SI,[DI+1EH]
+	CMP	CS:PathFindMode,0
+	JE	SHORT PathFindNextName
+	LEA	SI,[DI+2CH]
 PathFindNextName:
-        POPF
-        PUSHF
-        JNC     SHORT PathFindNextDone
-        CMP     CS:PathFindMode,0
-        JE      SHORT PathFindNextDone
-        CALL    ClosePathFind
+	POPF
+	PUSHF
+	JNC	SHORT PathFindNextDone
+	CMP	CS:PathFindMode,0
+	JE	SHORT PathFindNextDone
+	CALL	ClosePathFind
 PathFindNextDone:
-        POPF
-        POP     BX
-        RET
+	POPF
+	POP	BX
+	RET
 PathFindNext ENDP
 
 ;*** IsNetworkPath -- Check for a network pathname prefix.
@@ -877,17 +881,17 @@ PathFindNext ENDP
 ;               AH and flags changed
 ;
 IsNetworkPath PROC NEAR
-        MOV     AX,5C5CH
-        CMP     [SI],AX
-        JE      SHORT NetworkPathDone
-        CMP     BYTE PTR [SI+1],':'
-        JNE     SHORT LocalPath
-        CMP     [SI+2],AX
-        JE      SHORT NetworkPathDone
+	MOV	AX,5C5CH
+	CMP	[SI],AX
+	JE	SHORT NetworkPathDone
+	CMP	BYTE PTR [SI+1],':'
+	JNE	SHORT LocalPath
+	CMP	[SI+2],AX
+	JE	SHORT NetworkPathDone
 LocalPath:
-        XOR     AL,AL
+	XOR	AL,AL
 NetworkPathDone:
-        RET
+	RET
 IsNetworkPath ENDP
 
 ;*** SetPathDTA -- Set the DOS search buffer.
@@ -895,7 +899,10 @@ IsNetworkPath ENDP
 ;       ENTRY   ES:DI = search buffer
 ;       EXIT    AX and flags changed
 ;
-        PUBLIC  SetPathDTA,ClosePathFind,PathFindFirst,PathFindNext
+	PUBLIC	SetPathDTA
+	PUBLIC	ClosePathFind
+	PUBLIC	PathFindFirst
+	PUBLIC	PathFindNext
 SetPathDTA PROC NEAR
         PUSH    DX
         PUSH    DS
@@ -914,16 +921,16 @@ SetPathDTA ENDP
 ;       EXIT    Saved handle cleared; AX and flags changed
 ;
 ClosePathFind PROC NEAR
-        PUSH    BX
-        XOR     BX,BX
-        XCHG    BX,CS:PathFindHandle
-        OR      BX,BX
-        JZ      SHORT ClosePathFindDone
-        MOV     AX,71A1H
-        INT     21H
+	PUSH	BX
+	XOR	BX,BX
+	XCHG	BX,CS:PathFindHandle
+	OR	BX,BX
+	JZ	SHORT ClosePathFindDone
+	MOV	AX,71A1H
+	INT	21H
 ClosePathFindDone:
-        POP     BX
-        RET
+	POP	BX
+	RET
 ClosePathFind ENDP
 
 ;*** SelectReturnedName -- Use the long name if the short name is empty.
@@ -932,18 +939,18 @@ ClosePathFind ENDP
 ;       EXIT    SI = nonempty filename field, flags changed
 ;
 ; Select the source name from COPY's search result.
-        PUBLIC  CopyReturnedName
+	PUBLIC	CopyReturnedName
 CopyReturnedName:
-        MOV     SI,OFFSET TRANGROUP:DirBuf
-        ADD     SI,CS:CopyFindDataOffset
+	MOV	SI,OFFSET TRANGROUP:DirBuf
+	ADD	SI,CS:CopyFindDataOffset
 
-        PUBLIC  SelectReturnedName
+	PUBLIC	SelectReturnedName
 SelectReturnedName PROC NEAR
-        CMP     BYTE PTR [SI],0
-        JNE     SHORT ReturnedNameReady
-        SUB     SI,104H
+	CMP	BYTE PTR [SI],0
+	JNE	SHORT ReturnedNameReady
+	SUB	SI,104H
 ReturnedNameReady:
-        RET
+	RET
 SelectReturnedName ENDP
 
 

@@ -118,56 +118,55 @@ PromptDelete:
 	CALL	DELETE_PROMPT
 	JMP	SHORT PromptDone
 
-	break	The SET command
 assume	ds:trangroup,es:trangroup
 
-;
-; Input: DS:SI points to a CR terminated string
-; Output: carry flag is set if no room
-;	  otherwise name is added to environment
-;
 
 
 ; Preserve a long command line in the environment for a child COMMAND.
 ; DS and ES address TRANGROUP on entry.
 
-        PUBLIC  PrepareLongCommand
+	PUBLIC	PrepareLongCommand
 PrepareLongCommand PROC NEAR
-        CMP     [CmdBufferLength],80H
-        JBE     SHORT LongCommandDone
-        PUSH    ES
-        PUSH    CX
-        PUSH    SI
-        PUSH    DI
-        MOV     SI,OFFSET TRANGROUP:arg
-        MOV     SI,[SI].arg_ocomptr
-        INVOKE  SCANOFF
-        MOV     DI,SI
-        MOV     AL,0DH
-        CALL    SCASBX
-        MOV     AX,DI
-        SUB     AX,SI
-        MOV     DX,OFFSET TRANGROUP:CmdLineName
-        XCHG    SI,DX
-        ADD     AL,[SI]
-        ADC     AH,0
-        INC     SI
-        ADD     AL,[FilePrefix]
-        ADC     AH,0
-        XOR     BX,BX
-        CALL    SetEnvironmentValue
-        POP     DI
-        POP     SI
-        POP     CX
-        POP     ES
+	CMP	[CmdBufferLength],80H
+	JBE	SHORT LongCommandDone
+	PUSH	ES
+	PUSH	CX
+	PUSH	SI
+	PUSH	DI
+	MOV	SI,OFFSET TRANGROUP:arg
+	MOV	SI,[SI].arg_ocomptr
+	INVOKE	SCANOFF
+	MOV	DI,SI
+	MOV	AL,0DH
+	CALL	SCASBX
+	MOV	AX,DI
+	SUB	AX,SI
+	MOV	DX,OFFSET TRANGROUP:CmdLineName
+	XCHG	SI,DX
+	ADD	AL,[SI]
+	ADC	AH,0
+	INC	SI
+	ADD	AL,[FilePrefix]
+	ADC	AH,0
+	XOR	BX,BX
+	CALL	SetEnvironmentValue
+	POP	DI
+	POP	SI
+	POP	CX
+	POP	ES
 LongCommandDone:
-        RET
+	RET
 PrepareLongCommand ENDP
 
 DISP_ENVj:
 	jmp	DISP_ENV
 
 
+	break	The SET command
+;
+; Input: DS and ES address the transient segment; argv holds the command.
+; Output: environment displayed or changed; errors reported by CERROR.
+;
 ADD_NAME_TO_ENVIRONMENT:
 	CALL	GETARG
 	JZ	DISP_ENVj
@@ -764,18 +763,18 @@ ResizeEnvironment PROC NEAR
 	PUSH	CX
 	PUSH	ES
 	PUSH	BX
-	INVOKE	FREE_TPA
+	invoke	FREE_TPA
 	POP	BX
 	PUSH	BX
 	ADD	BX,2				; Include the final double null
-	CMP	BX,8000H
+	CMP	BX, 8000H			; Don't let environment grow > 32K
 	JB	SHORT ResizeEnvCheck
 ResizeEnvFail:
 	STC
 	JMP	SHORT ResizeEnvRestore
 ResizeEnvCheck:
 	MOV	CL,4
-	SHR	BX,CL				; Convert bytes to paragraphs
+	SHR	BX,CL				; Convert back to paragraphs
 	MOV	AX,CS
 	MOV	CX,ES
 	CMP	CX,AX
@@ -786,12 +785,12 @@ ResizeEnvCheck:
 	JNB	SHORT ResizeEnvFail
 ResizeEnvSet:
 	MOV	AH,SETBLOCK
-	INT	21H
+	INT	21h
 ResizeEnvRestore:
 	PUSHF
 	PUSH	ES
 	MOV	ES,[RESSEG]
-	INVOKE	ALLOC_TPA
+	invoke	ALLOC_TPA
 	POP	ES
 	POPF
 	JNC	SHORT ResizeEnvDone
