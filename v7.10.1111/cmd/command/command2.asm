@@ -216,10 +216,10 @@ ReadPrimaryResource proc near
 	push	es
 	xor	cx,cx
 	mov	dx,cx
-	mov	ax,4200h
+	mov	ax,LSEEK shl 8
 	int	21h
 	mov	cx,1Ah
-	mov	ax,3F00h
+	mov	ax,READ shl 8
 	mov	dx,offset TRANGROUP:PrimaryResourceHeader
 	int	21h
 	jnc	short PrimaryCheckExe
@@ -234,10 +234,10 @@ PrimaryCheckExe:
 	xor	dx,dx
 	sub	dx,7
 	sbb	cx,0
-	mov	ax,4202h
+	mov	ax,(LSEEK shl 8) or 2
 	int	21h
 	mov	cx,7
-	mov	ax,3F00h
+	mov	ax,READ shl 8
 	mov	dx,offset TRANGROUP:PrimaryResourceHeader
 	int	21h
 	jc	short PrimaryReadError
@@ -279,10 +279,10 @@ ReadPrimaryClass proc near
 	mov	dx,ax
 	push	cx
 	push	dx
-	mov	ax,4200h
+	mov	ax,LSEEK shl 8
 	int	21h
 	mov	cx,10h
-	mov	ah,3Fh
+	mov	ah,READ
 	mov	dx,offset TRANGROUP:PrimaryResourceHeader
 	int	21h
 	jc	short PrimaryBadHeader
@@ -314,7 +314,7 @@ PrimaryHeaderOK:
 	mov	ax,ds
 	mov	es,ax
 	mov	dx,offset TRANGROUP:PrimaryMsgDirectory
-	mov	ah,3Fh
+	mov	ah,READ
 	int	21h
 	pop	ds
 	jc	short PrimaryClassError
@@ -384,7 +384,7 @@ MsgCountryBuffer EQU	55h
 
 	public	InitMessageCountry
 InitMessageCountry proc near
-	mov	ah,38h
+	mov	ah,INTERNATIONAL
 	mov	al,0
 	mov	dx,offset TRANGROUP:$M_RT + MsgCountryBuffer
 	int	21h
@@ -1057,9 +1057,9 @@ GetReloadPath:
 	xor	al,al
 	mov	[si],al
 	inc	si
-	mov	ah,0Ch
+	mov	ah,STD_CON_INPUT_FLUSH
 	int	21h
-	mov	ah,0Ah
+	mov	ah,STD_CON_STRING_INPUT
 	int	21h
 	call	Crlf
 	mov	dx,si
@@ -1075,7 +1075,7 @@ GetReloadPath:
 
 LoadCom:
 	assume	ds:DATARES
-ifndef ROMDOS
+ifndef	ROMDOS
 	mov	dx,offset DATARES:ComSpec
 	call	TryLoadCom
 	jc	short TryOriginalComSpec
@@ -1086,7 +1086,7 @@ TryOriginalComSpec:
 	jc	short TryBootComSpec
 	jz	short LoadComDone
 TryBootComSpec:
-	mov	ax,3305h		; get boot drive
+	mov	ax,(SET_CTRL_C_TRAPPING shl 8) or 5		; get boot drive
 	int	21h
 	dec	dl
 	add	dl,'A'

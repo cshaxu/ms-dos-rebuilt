@@ -25,13 +25,13 @@ ifdef dblspace_hooks
 	.cref
 
 TRANSPACE segment public byte
-        extrn   csecPerCluster:byte
+	extrn	csecPerCluster:byte	; sectors/cluster for ratio calculation
         extrn   DirCompressionMask:dword
         extrn   DirCompressionShift:byte
 TRANSPACE ends
 
 TRANCODE segment public byte
-        assume  cs:TRANGROUP,ds:TRANGROUP,es:nothing,ss:TRANGROUP
+	assume	cs:TRANGROUP,ds:TRANGROUP,es:nothing,ss:TRANGROUP
 
 ;***	ComputeRatio - calculate ratio of compressed sectors used to
 ;		       (would be) DOS sectors used
@@ -39,7 +39,7 @@ TRANCODE segment public byte
 ;	Entry
 ;		AX = DOS clusters used, cx:bx = compressed sectors used
 ;	Exit
-;		AX = packed ratio (whole number in high nibble, tenths in low nibble)
+;		AX = packed ratio (whole number shifted left 4 bits, low nibble = tenths)
 ;
 ;	Used	BX, CX, DX
 ;
@@ -118,7 +118,8 @@ ComputeRatio	endp
 ;	Exit	DX:AX = quotient, CX:BX = reminder
 
 Div32	proc
-	jcxz	d32_16bit
+
+	jcxz	d32_16bit		; differently if 16bit divisor
 	.386
 	shl	eax,16
 	shrd	eax,edx,16
@@ -131,11 +132,13 @@ Div32	proc
 	shld	edx,eax,16
 	ret
 d32_16bit:
-	div	bx
-	mov	bx,dx
-	xor	dx,dx
-	mov	cx,dx
+	div	bx			; divide dx:ax by bx
+
+	mov	bx, dx			; remainder to cx:bx
+	xor	dx, dx			; quotient to dx:ax
+	mov	cx, dx
 	ret
+
 Div32	endp
 
 

@@ -844,7 +844,7 @@ parse_line_error_disp:
 	public	InitSwitchHandlers
 InitSwitchHandlers:
 SetYSwitch:
-	or	YSwitchFlags,10h
+	or	YSwitchFlags,10h		; indicate /Y entered
 	jmp	short Parse_command_line
 SetZSwitch:
 	or	YSwitchFlags,1
@@ -855,10 +855,13 @@ SetFSwitch:
 	mov	ax,Moreargs_ptr
 	jmp	short parse_line_error
 setfailok:
-	mov	fFail,-1
+	mov	fFail,-1			; fail all INT 24s.
 	jmp	Parse_command_line
 SetDSwitch:
-	cmp	Dswitch,0
+;
+; Flag no date/time prompting.
+;
+	cmp	Dswitch,0			; has /D switch been set?
 	je	setdateok
 	mov	ax,Moreargs_ptr
 	jmp	short parse_line_error
@@ -894,7 +897,11 @@ parse_cont:
 	jmp	short CheckBufferSwitches
 
 SetPSwitch:
-	cmp	PermCom,0
+;
+; We have a permanent COMMAND switch /P.  Flag this and stash the
+; termination address.
+;
+	cmp	PermCom,0			; has /p switch been set?
 	jne	MoreInitArgs
 permcomok:
 	inc	PermCom
@@ -1281,20 +1288,20 @@ PrepareOriginalPSP:
         mov     bx,ds
         mov     es,bx
         int     21h
-        mov     di,PDB_EXIT
-        mov     ax,offset DATARES:LodCom_Trap
-        stosw
-        mov     ax,ds
-        stosw
-        mov     ax,offset DATARES:Ctrlc_Trap
-        stosw
-        mov     ax,ds
-        stosw
-        mov     ax,offset DATARES:CritErr_Trap
-        stosw
-        mov     ax,ds
-        stosw
-        mov     word ptr ds:PDB_Parent_Pid,ds
+	mov	di,PDB_EXIT			; Diddle the addresses in my header
+	mov	ax,offset DATARES:LodCom_Trap
+	stosw
+	mov	ax,ds
+	stosw
+	mov	ax,offset DATARES:Ctrlc_Trap
+	stosw
+	mov	ax,ds
+	stosw
+	mov	ax,offset DATARES:CritErr_Trap
+	stosw
+	mov	ax,ds
+	stosw
+	mov	word ptr ds:PDB_Parent_Pid,ds 	; Parent is me forever
         pop     es
 
         public  ComReturns
@@ -1578,7 +1585,7 @@ OpenAutoexec:
         int     21h
         jc      NoAbat
         mov     bx,ax
-        mov     ax,5700h
+        mov     ax,FILE_TIMES shl 8
         int     21h
         push    es
         push    bx
@@ -1625,12 +1632,12 @@ AccDenErr:
         mov     dx,ResMsg127Ptr
         call    RPrint
 OpenErr:
-        mov     es,Batch
-        mov     ah,DEALLOC
-        int     21h
-        mov     Batch,0
-        mov     EchoFlag,1
-        mov     Nest,0
+	mov	es,Batch			; not found--turn off batch job
+	mov	ah,DEALLOC
+	int	21h
+	mov	Batch,0			; after dealloc in case of ^c
+	mov	EchoFlag,1
+	mov	Nest,0				;g indicate no batch in progress
 
         public  NoDttm
 NoDttm:
@@ -2081,18 +2088,33 @@ smSaveVector:
 	or	al,al
 	je	smDone
 ;
-; Keep the interrupt segment distinct from the resident PSP for Carousel.
+; M005; !!!SLIMIEST CAROUSEL HACK OFF ALL!!!
+; M005; Carousel plays around with the interrupt vector tables. He saves it
+; M005; before loading a new command.com. Then, it takes hold of the current
+; M005; command.com's PSP and then looks at all interrupt vectors whose
+; M005; segment matches the command.com PSP and then updates these segments
+; M005; to the new command.com's PSP in his saved vector table. Whenever we
+; M005; we pop into his menu, he puts this saved table into the vector table.
+; M005; If we now quit, Carousel just wipes out command.com's arena and then
+; M005; issues a terminate. Unfortunately, the int 2fh vector is pointing at
+; M005; the command.com that was wiped out and so the next int 2fh call will
+; M005; bomb. To prevent Carousel from doing this clever(1**$$#) patching, we
+; M005; renormalize our int 2fh pointer so that its cs is not the same as the
+; M005; command.com PSP. Now, he does no such patching and our int 2fh vector
+; M005; remains nice and happy. The renormalized pointer points at a far
+; M005; jump to the actual int 2fh entry point.
 ;
-	push	ds
-	mov	dx,offset DATARES:Carousel_i2f_Hook
-	sub	dx,10h
-	mov	ax,ds
-	inc	ax
-	mov	ds,ax
+	push	ds				; M005
+	mov	dx,offset DATARES:Carousel_i2f_Hook ; M005
+	sub	dx,10h				; renormalize offset; M005
+	mov	ax,ds				; M005
+	inc	ax				; Relocated cs ; M005
+	mov	ds,ax				; M005
 	mov	ax,(SET_INTERRUPT_VECTOR shl 8) or 2Fh
 	int	21h
-	pop	ds
-	mov	word ptr Carousel_i2f_Hook+3,ds
+	pop	ds				; M005
+	mov	word ptr Carousel_i2f_Hook+3,ds	; M005
+						; patch in the cs for jump
 smDone:
 	ret
 setup_for_messages	endp
@@ -2894,7 +2916,7 @@ get_XMMAddr	endp
 	public	GetCommandState
 GetCommandState proc near
 	push	es
-	mov	ah,52h
+	mov	ah,GET_IN_VARS
 	int	21h
 	les	bx,es:[bx+12h]
 	mov	bx,es:[bx+13h]
@@ -2918,11 +2940,11 @@ ProtmanName	db	"PROTMAN$",0
 	public	CheckProtman, Move_res_data
 CheckProtman	proc	near
 	mov	dx,offset RESGROUP:ProtmanName
-	mov	ax,3D00h
+	mov	ax,OPEN shl 8
 	int	21h
 	jc	cpDone
 	mov	bx,ax
-	mov	ah,3Eh
+	mov	ah,CLOSE
 	int	21h
 cpDone:
 	ret
@@ -3004,13 +3026,13 @@ mdCheckNetwork:
 	mov	Reloc_Table+8,bx
 	jmp	short mdAllocated
 mdUpper:
-	mov	ax,5803h
+	mov	ax,(ALLOCOPER shl 8) or 3
 	mov	bx,1
 	int	21h
 	jnc	mdStrategy
 	jmp	mdDone
 mdStrategy:
-	mov	ah,58h
+	mov	ah,ALLOCOPER
 	mov	al,1
 	mov	bx,41h
 	int	21h
@@ -3089,7 +3111,7 @@ mdStack:
 	pop	es
 	mov	ss,bx
 mdRestoreStrategy:
-	mov	ah,58h
+	mov	ah,ALLOCOPER
 	mov	al,1
 	mov	bx,0
 	int	21h

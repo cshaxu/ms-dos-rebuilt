@@ -5,7 +5,7 @@
 ; */
 ;	SCCSID = @(#)fordata.asm	1.1 85/05/14
 ;	SCCSID = @(#)fordata.asm	1.1 85/05/14
-; Saved FOR arguments, control information and file search state.
+; Data structure definitions included by tfor.asm
 ; The fixed argument header contains argv[] and five words.
 ; Dynamic argument strings follow for_info.
 

@@ -95,3 +95,20 @@ ordinal,path,disposition,verification
 94,cmd/command/buildmsg.c,exact,Byte comparison with frozen 950
 95,cmd/command/comequ.asm,exact,Byte comparison with frozen 950
 96,cmd/command/command.lnk,exact,Byte comparison with frozen 950
+97,cmd/command/command.skl,reduced,Restored inherited resource annotations; retained the version and large-disk strings found in the target
+98,cmd/command/command1.asm,reduced-to-exact,Restored named console input function and subfunction for 0C08h
+99,cmd/command/command2.asm,reduced-to-exact,Restored DOS and console service symbols and ROMDOS directive formatting
+100,cmd/command/comseg.asm,exact,Byte comparison with frozen 950
+101,cmd/command/comsw.asm,exact,Byte comparison with frozen 950
+102,cmd/command/copy.asm,reduced,Restored COPY setup comments and DOS service equates; retained source open retry for the added flag
+103,cmd/command/copypr1.asm,retained,The target tries destination open with bit 1000h and retries without it for invalid function
+104,cmd/command/copypr2.asm,reduced,Restored identical instructions and comments around target file probe and retry
+105,cmd/command/cparse.asm,reduced,Restored token parser contract and instruction comments; kept the shorter target parser body
+106,cmd/command/cratio.asm,reduced-to-exact,Restored inherited Div32 comments and formatting
+107,cmd/command/dir.asm,reduced,Restored DIR service names and unchanged comments; retained expanded disk and cluster arithmetic
+108,cmd/command/envdata.asm,exact,Byte comparison with frozen 950
+109,cmd/command/fordata.asm,reduced-to-exact,Restored the FOR storage header
+110,cmd/command/ifequ.asm,exact,Byte comparison with frozen 950
+111,cmd/command/iniclass.asm,exact,Byte comparison with frozen 950
+112,cmd/command/init.asm,reduced,Restored INIT service symbols and comments; retained target message offsets
+113,cmd/command/iparse.asm,exact,Byte comparison with frozen 950

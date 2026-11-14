@@ -562,7 +562,7 @@ CmdIret:
 NotAtInit:
 	test	byte ptr YSwitchFlags,4
 	jz	short CheckNestedCtrlC
-	cmp	ax,0C08h
+	cmp	ax,(STD_CON_INPUT_FLUSH SHL 8) OR STD_CON_INPUT_NO_ECHO
 	jne	CmdIRet
 	and	byte ptr YSwitchFlags,0DBh
 CheckNestedCtrlC:

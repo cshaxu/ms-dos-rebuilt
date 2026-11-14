@@ -64,20 +64,20 @@ SWCOUNT EQU	8			; Must agree with length of switch_list
 ;	CX	Character count 					;
 ;	BH	Condition Code						;
 ;			Bit 1H of BH set if switch character		;
-;				Token buffer contains char after	;
-;				switch character			;
+;				Token buffer contains the complete	;
+;				switch, including the switch character	;
 ;				BP has switch bits set (ORing only)	;
 ;			Bit 2H of BH set if ? or * in token		;
-;				if * found element ? filled		;
+;				* expanded only when EXPAND_STAR is set	;
 ;			Bit 4H of BH set if path sep in token		;
 ;			Bit 80H of BH set if the special delimiter	;
 ;			   was skipped at the start of this token	;
-;		Token buffer always starts d: for non switch tokens	;
+;		Rooted paths receive d: except for UNC names		;
 ;	CARRY SET							;
-;	    if CR on input						;
-;		token buffer not altered				;
+;	    if CR or NUL on input, or a malformed switch token		;
+;		token buffer not altered on CR or NUL				;
 ;									;
-;	DOES NOT RETURN ON BAD PATH, OR TRAILING SWITCH CHAR ERROR	;
+;	DOES NOT RETURN ON BAD PATH				;
 ; MODIFIES:								;
 ;	CX, SI, AX, BH, DX and the Carry Flag				;	;
 ;									;
@@ -340,7 +340,7 @@ cperror:
 	dec	si				; adjust the pointer
 	pop	di				; restore token buffer address
 	popf					; restore flags
-	stc
+	stc					; set the carry bit
 	return
 
 x_done:
@@ -348,9 +348,9 @@ x_done:
 	stosb					; null at the end
 	dec	si				; adjust for next round
 cp_finish:
-	pop	di				; restore token buffer pointer
+	pop	di			; restore token buffer pointer
 	popf
-	clc
+	clc				; clear carry flag
 	return
 
 ; Alternate token exits present after the normal parser return.

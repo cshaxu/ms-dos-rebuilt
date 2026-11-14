@@ -66,7 +66,8 @@ M031 SR 10/11/90  Bug #3069. Use deny write sharing mode to open files
 
 
 DATARES 	segment public byte
-	extrn	VerVal:word, EnvirSeg:word, CopyNonInteractive:word
+	extrn	VerVal:word
+	extrn	EnvirSeg:word, CopyNonInteractive:word
 DATARES 	ends
 
 TRANDATA 	segment public byte
@@ -185,31 +186,31 @@ Copy:
 
 ; 	Initialize internal variables.
 
-	xor	ax,ax
+	xor	ax,ax		; AX = 0
 	mov	di,offset TRANGROUP:SrcHand
 	mov	cx,30
 	rep	stosb			; clear COPY state through OCtrlZ
-	mov	Copy_Num,ax
-	mov	SrcTail,ax
-	mov	CFlag,al
-	mov	NxtAdd,ax
-	mov	DestSwitch,ax
-	mov	StartEl,ax
-	mov	DestTail,ax
-	mov	DestClosed,al
-	mov	DestSiz,al
-	mov	SrcSiz,al
-	mov	DestInfo,al
-	mov	SrcInfo,al
-	mov	DestVars,al
-	mov	SrcVars,al
-	mov	UserDir1,al
-	mov	RdEof,al
-	mov	Msg_Flag,al
-	mov	AllSwitch,ax
-	mov	ArgC,al
-	mov	FileCnt,ax
-	mov	Concat,al
+	mov	Copy_Num,ax	; # files copied (destinations) = 0
+	mov	SrcTail,ax	; ptr to last element of source pathname = 0
+	mov	CFlag,al	; 'destination file created' = false
+	mov	NxtAdd,ax	; ptr into TPA buffer = 0
+	mov	DestSwitch,ax	; destination switches = none
+	mov	StartEl,ax	; CParse ptr to last pathname element = 0
+	mov	DestTail,ax	; ptr to last element of dest pathname = 0
+	mov	DestClosed,al	; 'destination file closed' = false
+	mov	DestSiz,al	; length of destination pathname = 0
+	mov	SrcSiz,al	; length of source pathname = 0
+	mov	DestInfo,al	; destination pathname flags = none
+	mov	SrcInfo,al	; source pathname flags = none
+	mov	DestVars,al	; 'dest pathname is directory' = false
+	mov	SrcVars,al	; 'source pathname is directory' = false
+	mov	UserDir1,al	; saved working directory = null
+	mov	RdEof,al	; 'read end of file' = false
+	mov	Msg_Flag,al	;AN022; 'non-utility msg issued' = false
+	mov	AllSwitch,ax	; all switches = none
+	mov	ArgC,al		; source/dest argument count = 0
+	mov	FileCnt,ax	; # files copied (destinations) = 0
+	mov	Concat,al	; 'concatenating' = false
 	mov	dest_exists,al
 	mov	copy_state,al
 	mov	word ptr ScanBuf,ax
@@ -218,11 +219,11 @@ Copy:
 	mov	word ptr SDirBuf,ax
 	mov	word ptr DirBuf,ax
 	mov	word ptr DestFcb,ax
-	dec	ax
-	mov	DestHand,ax
-	mov	FrstSrch,al
-	mov	FirstDest,al
-	mov	DestIsDir,al
+	dec	ax		; AX = 0FFFFh
+	mov	DestHand,ax	; destination handle = 'never opened'
+	mov	FrstSrch,al	; 'first search for source' = true
+	mov	FirstDest,al	; 'first time for dest' = true
+	mov	DestIsDir,al	; 'haven't analyzed destination'
 
 	call	copycmd_init
 	mov	si,SIZE argv_ele
@@ -1165,8 +1166,8 @@ Source_Set	endp
 
 ; Select source and destination open calls for their file systems.
 CopySelectFileCalls proc near
-	mov	CopySourceOpenFunction,6C00h
-	mov	CopyDestOpenFunction,6C00h
+	mov	CopySourceOpenFunction,EXTOPEN shl 8
+	mov	CopyDestOpenFunction,EXTOPEN shl 8
 	cmp	PathFindMode,0
 	je	short csfcDest
 	mov	CopySourceOpenFunction,716Ch
@@ -1196,9 +1197,9 @@ CopySelectPathCalls proc near
 	mov	PathAttribFunction,7143h
 	or	al,al
 	jnz	short cspcDone
-	mov	PathChdirFunction,3B00h
-	mov	PathGetdirFunction,4700h
-	mov	PathAttribFunction,4300h
+	mov	PathChdirFunction,CHDIR shl 8
+	mov	PathGetdirFunction,CURRENT_DIR shl 8
+	mov	PathAttribFunction,CHMOD shl 8
 cspcDone:
 	ret
 CopySelectPathCalls endp

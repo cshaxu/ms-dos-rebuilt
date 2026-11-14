@@ -116,7 +116,7 @@ LoadSw:
 
 BuildDest:
 	cmp	DestIsDir,-1
-	jne	KnowAboutDest
+	jne	KnowAboutDest			; figuring already done
 	mov	di,offset TRANGROUP:UserDir1
 	mov	bp,offset TRANGROUP:DestVars
 	mov	al,CopyDestMode
@@ -137,64 +137,65 @@ bdSavePattern:
 	stosb
 	or	al,al
 	jnz	bdSavePattern
-	mov	ax,word ptr DestBuf
+	mov	ax,word ptr DestBuf		; AX = possible "d:"
 	cmp	ah,':'
 	je	short bdHaveDrive
 	mov	al,'@'
 bdHaveDrive:
-	mov	cl,Ascii
+	mov	cl,Ascii		; CL = saved Ascii flag
 	or	al,20h
 	sub	al,60h
-	mov	DestFcb,al
-	mov	al,DestInfo
-	mov	ah,SrcInfo
-	and	ax,0202h
+	mov	DestFcb,al		; store drive # in FCB
+	mov	al,DestInfo		; AL = destination CParse flags
+	mov	ah,SrcInfo		; AH = source CParse flags
+	and	ax,0202h		; AH,AL = source,dest wildcard flags
 	or	al,al
-	jz	NotMelCopy
+	jz	NotMelCopy		; no destination wildcard
 	cmp	al,ah
-	jne	NotMelCopy
+	jne	NotMelCopy		; no source wildcard
 	cmp	Plus,0
-	je	NotMelCopy
-	inc	MelCopy
+	je	NotMelCopy		; no +'s in source
+	inc	MelCopy			; 'Mel copy' = true
 	xor	al,al
 	jmp	short SetConc
 NotMelCopy:
-	xor	al,2
+	xor	al,2		; AL=0 -> ambiguous destination, 2 otherwise
 	and	al,ah
-	shr	al,1
+	shr	al,1		; AL=1 -> ambiguous source, unambiguous dest
+				;   (implies concatenation)
 SetConc:
-	or	al,Plus
+	or	al,Plus		; "+" always infers concatenation
 	mov	Concat,al
 	shl	al,1
 	shl	al,1
-	mov	Inexact,al
+	mov	Inexact,al		; concatenation -> inexact copy
 	cmp	Binary,0
 	jne	NotFirstDest
 	or	cl,cl
-	jnz	NotFirstDest
+	jnz	NotFirstDest		; Ascii flag set before, data read correctly
 	mov	Ascii,al
 	or	al,al
-	jz	NotFirstDest
+	jz	NotFirstDest		; Ascii flag did not change state
 	mov	cx,NxtAdd
-	jcxz	NotFirstDest
+	jcxz	NotFirstDest		; no data, everything ok
 	mov	al,1Ah
 	push	es
 	xor	di,di
 	mov	es,Tpa
-	repne	scasb
+	repne	scasb			; scan for EOF
 	pop	es
 	jne	NotFirstDest
 	dec	di
-	mov	NxtAdd,di
-NotFirstDest:
+	mov	NxtAdd,di		; new buffer length
+NOTFIRSTDEST:
 	invoke	CopyReturnedName
 	mov	bx,si
-	cmp	Concat,0
+	cmp	CONCAT,0
 	jz	short bdNameSource
 	mov	bx,offset TRANGROUP:SDirBuf
 bdNameSource:
 	mov	si,offset TRANGROUP:DirBasePath
-	mov	di,DestTail
+	mov	di,DESTTAIL			; Where to put result
 	public	CopyMakeTargetName
 CopyMakeTargetName:
 	call	CopySplitExtensions
@@ -218,8 +219,8 @@ bdReturn:
 	return
 
 ; Substitute source characters into one part of the destination pattern.
-	public	BuildName
-BuildName:
+public buildname
+BUILDNAME:
 bnNext:
 	lodsb
 	or	al,al
@@ -285,7 +286,7 @@ cseReturn:
 
 BUILDPATH:
 	test	[BP.INFO],2
-	jnz	NOTPFILE
+	jnz	NOTPFILE			; If ambig don't bother with open
 	mov	dx,bp
 	add	dx,BUF
 	mov	bx,1000h or DENY_NONE or READ_OPEN_MODE
@@ -310,7 +311,7 @@ bpOpen:
 	jmp	short bpRetryOpen
 bpOpenError:
 	invoke	get_ext_error_number
-	cmp	ax,error_file_not_found
+	cmp	ax,error_file_not_found 	;AN022; if file not found - okay
 	jz	NOTPFILE
 	cmp	ax,error_path_not_found
 	jz	NOTPFILE
@@ -319,23 +320,23 @@ bpOpenError:
 	jmp	Extend_Setup
 
 pure_file:
-	mov	bx,ax
-	mov	ax,IOCTL shl 8
+	mov	bx,ax				; Is pure file
+	mov	ax,IOCTL SHL 8
 	int	21h
 	mov	ah,CLOSE
 	int	21h
 	test	dl,devid_ISDEV
-	jnz	ISADEV
+	jnz	ISADEV				; If device, done
 	test	[BP.INFO],4
-	jz	ISSIMPFILE
+	jz	ISSIMPFILE			; If no path seps, done
 
 NOTPFILE:
 	mov	dx,bp
 	add	dx,BUF
 	mov	bh,[BP.INFO]
 	and	bh,6
-	cmp	bh,6
-	jnz	CHECKAMB
+	cmp	bh,6				; Ambig and path ?
+	jnz	CHECKAMB			; jmp if no
 	mov	si,[BP.TTAIL]
 	mov	bl,':'
 	cmp	byte ptr [si-2],bl
@@ -346,7 +347,7 @@ KNOWNOTSPEC:
 	mov	[BP.ISDIR],1
 	dec	si
 DOPCDJ:
-	jmp	DOPCD
+	jmp	DOPCD				;AC022; need long jump
 
 CHECKAMB:
 	cmp	bh,2
@@ -362,31 +363,31 @@ CHECKCD:
 	int	21h
 	jc	NOTPDIR
 	test	cl,18h
-	jz	notpdir_try
+	jz	notpdir_try			;AN022;
 	mov	di,dx
 	xor	ax,ax
 	mov	cx,ax
 	dec	cx
-Kloop:
-	mov	al,es:[di]
+Kloop:						;AN000;  3/3/KK
+	MOV	AL,ES:[DI]			;AN000;  3/3/KK
 	inc	di
 	or	al,al
-	jz	Done
-	xor	ah,ah
+	JZ	Done				;AN000;  3/3/KK
+	xor	ah,ah				;AN000;  3/3/KK
 	invoke	Testkanj
-	jz	Kloop
+	JZ	Kloop				;AN000;  3/3/KK
 	inc	di
 	inc	ah
-	jmp	Kloop
-Done:
+	jmp	Kloop				;AN000;  3/3/KK
+Done:						;AN000;  3/3/KK
 	dec	di
-	mov	al,DirChar
+	mov	al,DIRCHAR
 	mov	[bp.ISDIR],2
-	or	ah,ah
-	jnz	Store_pchar
+	OR	AH, AH				;AN000; 3/3/KK
+	JNZ	Store_pchar			;AN000; 3/3/KK	 this is the trailing byte of ECS code
 	cmp	al,[di-1]
 	jz	GOTSRCSLSH
-Store_pchar:
+Store_pchar:					;AN000; 3/3/KK
 	stosb
 	mov	[bp.ISDIR],1
 GOTSRCSLSH:
@@ -397,13 +398,13 @@ bpReturn:
 
 NOTPDIR:
 	invoke	get_ext_error_number
-	cmp	ax,error_file_not_found
-	jz	notpdir_try
+	cmp	ax,error_file_not_found 	;AN022; if file not found - okay
+	jz	notpdir_try			;AN022;
 	cmp	ax,error_path_not_found
-	jz	notpdir_try
+	jz	notpdir_try			;AN022;
 	cmp	ax,error_access_denied
-	jnz	EXTEND_SETUPJ
-notpdir_try:
+	jnz	extend_setupj			;AN022; otherwise - exit error
+notpdir_try:					;AN022;
 	mov	[bp.ISDIR],0
 	mov	bh,[bp.INFO]
 	test	bh,4
@@ -417,47 +418,48 @@ notpdir_try:
 	jz	BADCDERRJ2
 	mov	bl,':'
 	cmp	byte ptr [si-2],bl
-	jz	DOPCD
+	jz	DOPCD				; Know d:/file
 	mov	[bp.ISDIR],1
 	dec	si
 DOPCD:
 	xor	bl,bl
 	xchg	bl,[si]
-	cmp	dx,si
-	jae	LookBack
-	push	si
-	push	cx
-	mov	cx,si
+	CMP	DX,SI				;AN000;  3/3/KK
+	JAE	LookBack			;AN000;  3/3/KK
+	PUSH	SI				;AN000;  3/3/KK
+	PUSH	CX				;AN000;  3/3/KK
+	MOV	CX,SI				;AN000;  3/3/KK
 	mov	si,dx
-Kloop2:
+Kloop2: 					;AN000;  3/3/KK
 	lodsb
 	invoke	TestKanj
-	jz	NotKanj4
+	jz	NotKanj4			;AN000;  3/3/KK
 	lodsb
 	cmp	si,cx
 	jb	Kloop2
 	pop	cx
 	pop	si
-	jmp	short DoCdr
-NotKanj4:
+	JMP	SHORT DoCdr			;AN000;  3/3/KK  Last char is ECS code, don't check for
+						;		 trailing path sep
+NotKanj4:					;AN000;  3/3/KK
 	cmp	si,cx
 	jb	Kloop2
 	pop	cx
 	pop	si
-LookBack:
-	cmp	bl,[si-1]
+LookBack:					;AN000;  3/3/KK
+	CMP	BL,[SI-1]			; if double slash, then complain.
 	jz	BADCDERRJ2
-DoCdr:
+DoCdr:						;AN000;  3/3/KK
 	xchg	bl,[si]
 DonePath:
 	return
-EXTEND_SETUPJ:
+EXTEND_SETUPJ:					;AN022;
 	jmp	Extend_Setup
 BADCDERRJ2:
-	jmp	BadPath_Err
+	jmp	badpath_err			;AC022; go issue path not found message
 
 SETSTARS:
-	mov	[bp.TTAIL],di
+	mov	[bp.TTAIL],DI
 	add	[bp.SIZ],4
 	mov	ax,2E2Ah
 	stosw
@@ -467,7 +469,7 @@ SETSTARS:
 
 PUBLIC CompName
 COMPNAME:
-	mov	si,offset TRANGROUP:DestBuf
+	mov	si,offset trangroup:DESTBUF	;g do name translate of target
 	mov	di,offset TRANGROUP:TrgXName
 	mov	al,CopyDestMode
 	invoke	CanonicalizePath
@@ -475,7 +477,7 @@ COMPNAME:
 	or	ah,1
 	jmp	short cnDone
 cnCompare:
-	mov	si,offset TRANGROUP:SrcXName
+	MOV	si,offset trangroup:SRCXNAME	;g get name translate of source
 	mov	di,offset TRANGROUP:TrgXName
 	invoke	STRCOMP
 cnDone:

@@ -23,6 +23,6 @@ The inventory was frozen with `dir /a /b /s bios cmd dos inc lang` in each versi
 
 T20 S4 is archived [here](../history/T20-S4.md). Its verified registry work is part of the production baseline.
 
-P7 completed ordinals 85–96. Of 96 reviewed paths, 40 distinct source files were edited and 56 now match 950, including 17 made exact by audit edits. Continue with ordinal 97.
+P8 completed ordinals 97–113. Of 113 reviewed paths, 50 distinct source files were edited and 66 now match 950, including 21 made exact by audit edits. Continue with ordinal 114.
 
-[Verified P7 build](../etc/T26/P7.md).
+[Verified P8 build](../etc/T26/P8.md).

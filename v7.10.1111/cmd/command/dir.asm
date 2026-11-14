@@ -534,7 +534,7 @@ ifdef DBLSPACE_HOOKS
 	jz	@f
 
 	call	DirInitCompression	; yes, initialize volume geometry
-	jnc	@f			; CY clear if open worked
+	jnc	@f			; CY clear if geometry is available
 
 	and	Bits, not (mask cratio) ; failed, clear cratio option bit
 @@:
@@ -573,7 +573,7 @@ endif
 	cmp	DirCountTotal,0
 	.8086
 	jz	catNoFiles
-catHaveFiles:	; no files found
+catHaveFiles:
 
 	call	DisplayTotals	; display trailing grand totals
 	jmp	short catRet	; all done
@@ -1942,7 +1942,7 @@ gdiShift:
 	mov	DirSectorShift,al
 gdiFreeCount:
 	mov	bl,byte ptr ds:[FCB]
-	mov	ax,4409h
+	mov	ax,(IOCTL shl 8) or 9
 	int	21h
 	jc	short gdiDone
 	test	dh,10h
@@ -2417,7 +2417,7 @@ DirFindFirst proc near
 	push	ds
 	push	cx
 	mov	dx,offset TRANGROUP:DirSearchPath
-	mov	ah,4Eh
+	mov	ah,FIND_FIRST
 	mov	cx,16h
 	int	21h
 	jc	short dffShortDone
@@ -2428,7 +2428,7 @@ DirFindNext label near
 	push	ds
 	push	cx
 dffShortNext:
-	mov	ah,4Fh
+	mov	ah,FIND_NEXT
 	int	21h
 	jc	short dffShortDone
 dffShortAttr:
@@ -2703,17 +2703,17 @@ DirLoadAccessDate label near
 	call	DirAppendEntryName
 	pop	es
 	mov	si,offset TRANGROUP:DirEntryPath
-	mov	ax,6C00h
+	mov	ax,EXTOPEN shl 8
 	mov	bx,44h
 	mov	cx,2Fh
 	mov	dx,1
 	int	21h
 	jc	short dladFallback
 	xchg	ax,bx
-	mov	ax,5704h
+	mov	ax,(FILE_TIMES shl 8) or 4
 	int	21h
 	pushf
-	mov	ah,3Eh
+	mov	ah,CLOSE
 	int	21h
 	popf
 	jc	short dladFallback
@@ -3026,8 +3026,8 @@ OnOffSw	endp
 
 	public	DirParseAttr
 DirParseAttr proc near
-	push	si
-	mov	AttrSpecified,0
+	push	si			; save SI
+	mov	AttrSpecified,0		; cancel all attribute conditions
 	cmp	byte ptr [si],':'
 	jne	short paLoop
 	inc	si
@@ -3040,25 +3040,25 @@ paLoop:
 	jz	short paOk
 	cmp	al,'-'
 	jne	short paFind
-	dec	dx
+	dec	dx			; DX = 0 (for negated attribute)
 	lodsb
 paFind:
-	mov	di,offset TRANGROUP:AttrLtrs
-	mov	cx,NUM_ATTR_LTRS
-	repne	scasb
+	mov	di,offset TRANGROUP:AttrLtrs  ; DI = ptr to attrib letter list
+	mov	cx,NUM_ATTR_LTRS	; CX = length of attrib letter list
+	repne	scasb			; look for our letter in the list
 	jne	short paErr
 	not	cx
-	add	cx,NUM_ATTR_LTRS
+	add	cx,NUM_ATTR_LTRS	; CX = attrib bit #, 0-5
 	mov	al,1
-	shl	al,cl
-	or	AttrSpecified,al
-	not	al
-	and	AttrSelect,al
-	shl	dl,cl
-	or	AttrSelect,dl
+	shl	al,cl			; AL = mask for our bit
+	or	AttrSpecified,al	; set it in the 'specified' mask
+	not	al			; AL = mask for all other bits
+	and	AttrSelect,al		; clear our bit
+	shl	dl,cl			; DL = our bit state in position
+	or	AttrSelect,dl		; set selected attr state
 	jmp	short paLoop
 paErr:
-	stc
+	stc		   		; return error
 	jmp	short paExit
 paOk:
 	clc
@@ -3080,25 +3080,25 @@ DirParseAttr endp
 ; Parse the sort letters at DS:SI and return carry on invalid input.
 	public	DirParseOrder
 DirParseOrder proc near
-	push	si
-	push	bx
+	push	si				; save SI
+	push	bx				; save BX
 	cmp	byte ptr [si],':'
 	jne	short poStart
 	inc	si
 	cmp	byte ptr [si],0
 	je	poErr
 poStart:
-	mov	bx,offset TRANGROUP:DestBuf
-	mov	al,[si]
+	mov	bx,offset TRANGROUP:DestBuf	; BX = ptr to sort code buffer
+	mov	al,[si]				; AL = 1st char of order string
 	or	al,al
 	jnz	short poLtr
-	mov	byte ptr [bx],5
+	mov	byte ptr [bx],5		; sort 1st by group (subdirs 1st)
 	inc	bx
-	mov	byte ptr [bx],1
+	mov	byte ptr [bx],1		; then by name
 	inc	bx
-	mov	byte ptr [bx],2
+	mov	byte ptr [bx],2		; then by extension
 	inc	bx
-	jmp	short poOk
+	jmp	short poOk		; return success
 poLtr:
 	xor	dl,dl
 	lodsb
@@ -3106,35 +3106,35 @@ poLtr:
 	jz	short poOk
 	cmp	al,'-'
 	jne	short poFind
-	mov	dl,80h
+	mov	dl,80h			; DL = downward sort mask
 	lodsb
 poFind:
-	mov	di,offset TRANGROUP:OrderLtrs
-	mov	cx,NUM_ORDER_LTRS
-	repne	scasb
+	mov	di,offset TRANGROUP:OrderLtrs  ; DI = ptr to list of letters
+	mov	cx,NUM_ORDER_LTRS	; CX = length of list
+	repne	scasb			; look for our letter in the list
 	jne	short poErr
 	neg	cx
-	add	cx,NUM_ORDER_LTRS
+	add	cx,NUM_ORDER_LTRS	; CL = sort order code
 ifdef DBLSPACE_HOOKS
-	cmp	cl,CRATIO_ORDER
+	cmp	cl, CRATIO_ORDER	; force compression ratio reporting
 	jne	short poSet
-	or	Bits,mask cratio
+	or	Bits, mask cratio
 poSet:
 endif
-	or	cl,dl
-	mov	[bx],cl
+	or	cl,dl			; CL = sort code with up/dn bit
+	mov	[bx],cl			; store sort order code in buffer
 	inc	bx
 	cmp	bx,offset TRANGROUP:EndDestBuf
 	jae	short poErr
 	jmp	short poLtr
 poErr:
-	stc
+	stc				; return failure
 	jmp	short poExit
 poOk:
 	mov	byte ptr [bx],0
-	clc
+	clc				; return success
 poExit:
-	pop	bx
+	pop	bx			; restore BX
 	pop	si
 	ret
 DirParseOrder endp
@@ -3273,8 +3273,8 @@ CmpAscz	endp
 
 	.386
 CountFile	proc
-	push	es
-	mov	es,Tpa
+	push	es			; save TRANGROUP seg addr
+	mov	es,Tpa			; ES = TPA seg addr
 	inc	DirEntryCount
 	test	es:[bx].fileattr,ATTR_DIRECTORY
 	jnz	short cfDirectory
@@ -3302,7 +3302,7 @@ cfDirectory:
 	inc	DirCount
 	inc	DirCountTotal
 cfDone:
-	pop	es
+	pop	es			; ES = TRANGROUP seg addr again
 	ret
 CountFile	endp
 	.8086
@@ -3812,13 +3812,13 @@ DirPrintPageHeader endp
 ;	  Cursor is left at end of extension.
 
 	public	DisplayName
-DisplayName proc
-	push	ds
-	mov	ds,Tpa
+DisplayName	proc
+	push	ds				; save TRANGROUP seg addr
+	mov	ds,Tpa				; DS:BX = ptr to entry
 	assume	ds:nothing
-	mov	si,bx
-	add	si,filename
-	mov	di,offset TRANGROUP:CharBuf
+	mov	si,bx				; DS:SI = ptr to entry
+	add	si,filename			; DS:SI = ptr to filename
+	mov	di,offset TRANGROUP:CharBuf	; ES:DI = ptr to CharBuf
 	mov	cx,8
 	cld
 	rep	movsb
@@ -3828,13 +3828,13 @@ DisplayName proc
 	rep	movsb
 	xor	al,al
 	stosb
-	pop	ds
+	pop	ds				; DS = TRANGROUP seg addr again
 	assume	ds:TRANGROUP
-	mov	si,offset TRANGROUP:CharBuf
-	test	Bits,mask lcase
+	mov	si,offset TRANGROUP:CharBuf	;M010;DS:SI --> ASCIIZ string
+	test	Bits,mask lcase			;M010;check for lowercase option
 	jz	short dnCopy
 	push	si
-	call	LowercaseString
+	call	LowercaseString			;M010;filename.ext string is in CharBuf
 	pop	si
 dnCopy:
 	mov	cx,12
@@ -4061,21 +4061,21 @@ endif
 ; AX = packed date, returns CX = year and DX = month/day.
 	public	DirDecodeDate
 DirDecodeDate proc
-	mov	bx,ax
-	and	ax,1Fh
-	mov	dl,al
-	mov	ax,bx
+	mov	bx,ax			; BX = date word
+	and	ax,1Fh			; AX = day of month
+	mov	dl,al			; DL = day of month
+	mov	ax,bx			; AX = date word
 	mov	cl,5
-	shr	ax,cl
-	and	al,0Fh
-	mov	dh,al
+	shr	ax,cl			; shift day out
+	and	al,0Fh			; AL = month
+	mov	dh,al			; DH = month
 	mov	cl,bh
 	shr	cl,1
-	xor	ch,ch
-	add	cx,80
+	xor	ch,ch			; CX = year - 1980
+	add	cx,80			; CX = 2-digit year
 	cmp	cl,100
 	jb	datedone
-	sub	cl,100
+	sub	cl,100			; adjust for 21st century
 datedone:
 	xchg	dh,dl
 	ret
@@ -4599,7 +4599,7 @@ dmrpNext:
 	jnz	short dmrpNext
 	or	dl,dl
 	jnz	short dmrpDrive
-	mov	ah,19h
+	mov	ah,GET_DEFAULT_DRIVE
 	int	21h
 	add	al,'A'
 	mov	dl,al
@@ -4718,7 +4718,7 @@ ChangeDirBasePath endp
 DirSearchDrive proc near
 	cmp	byte ptr ss:DirSearchPath+1,':'
 	jz	short dsdSpecified
-	mov	ah,19h
+	mov	ah,GET_DEFAULT_DRIVE
 	int	21h
 	inc	al
 	mov	dl,al
@@ -4745,7 +4745,7 @@ DirShiftBytes proc near
 	ret
 DirShiftBytes endp
 
-; Convert a cluster count in EAX to bytes in EDX:EAX.
+; Convert a cluster count in AX to bytes in DX:AX.
 	public	DirClusterBytes
 DirClusterBytes proc near
 	movzx	ecx,word ptr ss:DirClusterSize
@@ -4760,7 +4760,7 @@ dcbDone:
 	ret
 DirClusterBytes endp
 
-; Return the number of clusters needed for an EDX:EAX byte length.
+; Return the number of clusters needed for a DX:AX byte length.
 	public	DirFileClusters
 DirFileClusters proc near
 	push	ebx
@@ -4870,7 +4870,7 @@ dicHost:
 	jz	short dicSpace
 	mov	dl,bl
 dicSpace:
-	mov	ah,36h
+	mov	ah,GET_DRIVE_FREESPACE
 	inc	dx
 	int	21h
 	cmp	ax,-1
