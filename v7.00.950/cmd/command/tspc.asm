@@ -41,9 +41,12 @@ endif
 ; Uninitialized transient data
 TRANSPACE	SEGMENT PUBLIC BYTE
 
-	PUBLIC	msg_disp_class, msg_cont_flag
-	PUBLIC	Extend_Buf_ptr, Extend_Buf_sub
-	PUBLIC	Extend_Buf_off, Extend_Buf_seg
+	PUBLIC	msg_disp_class
+	PUBLIC	msg_cont_flag
+	PUBLIC	Extend_Buf_ptr
+	PUBLIC	Extend_Buf_sub
+	PUBLIC	Extend_Buf_off
+	PUBLIC	Extend_Buf_seg
 	PUBLIC	ALLSWITCH
 	PUBLIC	append_exec		;AN041;
 	PUBLIC	arg
@@ -262,11 +265,15 @@ EXEC_ADDR	DD	?
 RCH_ADDR	DD	?
 		DW	?			; resident test word
 TRAN_TPA	DW	?
-	PUBLIC	fTest, TraceReturnCode, TracePrinted
+	PUBLIC	fTest
+	PUBLIC	TraceReturnCode
+	PUBLIC	TracePrinted
 fTest		DW	?
 TraceReturnCode DB	?
 TracePrinted	DB	?
-	PUBLIC	CmdBufferLength, InputBufferLength, ComBufPtr
+	PUBLIC	CmdBufferLength
+	PUBLIC	InputBufferLength
+	PUBLIC	ComBufPtr
 CmdBufferLength DW	?
 InputBufferLength DW	?
 
@@ -296,12 +303,16 @@ PerLine         DB      ?                       ; entries/line u.b. DIR
 LeftOnPage      DW      ?                       ; lines left on page u.b. DIR
 FileCnt         DW      ?                       ; file count u.b. DIR
 FileSiz         DD      ?                       ; file size u.b. DIR
-	PUBLIC	DirEntryCount,DirCount,DirCountTotal
+	PUBLIC	DirEntryCount
+	PUBLIC	DirCount
+	PUBLIC	DirCountTotal
 DirEntryCount   DW      ?			; entries in this directory
 DirCount        DW      ?			; directories in this directory
-	PUBLIC	DirAllocatedBytes,DirCountOutput
+	PUBLIC	DirAllocatedBytes
+	PUBLIC	DirCountOutput
 DirAllocatedBytes DD    ?
-	PUBLIC	DirAllocatedClusters,DirAllocatedClustersTotal
+	PUBLIC	DirAllocatedClusters
+	PUBLIC	DirAllocatedClustersTotal
 DirAllocatedClusters DW ?
 DirAllocatedClustersTotal DW ?
 
@@ -315,7 +326,8 @@ DirHeaderPending    DB  ?
 DirClusterInvalid   DB  ?
 DirNeedInfo         DB  ?
 ParseSwitchFlag	DB	?		; switch mask 0008h present
-	PUBLIC	DirArgumentCount, ExecState
+	PUBLIC	DirArgumentCount
+	PUBLIC	ExecState
 DirArgumentCount DB	?
 ParseArgIndex      DW  ?       ; next parsed argument
 ParseFileArg       DW  ?       ; parsed file argument
@@ -337,7 +349,8 @@ ccluUsedTotal	DW	?
 csecUsed	DD	?			; count of comp sectors used
 csecUsedDir	DD	?
 csecUsedTotal	DD	?
-	PUBLIC	DirCompressionMask,DirCompressionShift
+	PUBLIC	DirCompressionMask
+	PUBLIC	DirCompressionShift
 DirCompressionMask DD	?
 DirCompressionShift DB	?
 		DB	?			; reserved
@@ -370,7 +383,8 @@ PATHSW		DW	?
 AttrSpecified   db      ?                       ; attribute bits u.b. DIR
 AttrSelect      db      ?                       ; attribute bits u.b. DIR
 dirflag 	db	0			;AN015; set when pathcrunch called from DIR
-	PUBLIC	ForTokenFound,ForVariable
+	PUBLIC	ForTokenFound
+	PUBLIC	ForVariable
 ForTokenFound	DB	?
 parse_last	dw	0			;AN018; used to hold parsing position
 
@@ -395,7 +409,8 @@ Dir_CRatio_2	db	?
 endif
 bytes_free	dw	?
 		dw	?
-	PUBLIC	DirTotalBytes,DirUsedPercent
+	PUBLIC	DirTotalBytes
+	PUBLIC	DirUsedPercent
 DirTotalBytes	dd	?
 major_ver_num	dw	?
 minor_ver_num	dw	?
@@ -462,7 +477,7 @@ OFilePtr_Lo	DW	?		; original file ptr for COPY when
 OFilePtr_Hi	DW	?		; 1st source is also destination
 OCtrlZ		DB	?		; original ctrl+Z for COPY when ditto
 
-prompt_sublist	DB	13 DUP (?)	; COPY overwrite message substitution
+prompt_sublist	DB	parm_block_size DUP (?)	; COPY overwrite message substitution
 confirm_overwrite DB	?		; prompt before overwriting
 dest_exists	DB	?		; destination exists
 copy_state	DB	?		; COPY control state
@@ -510,9 +525,13 @@ KPARSE		DB	?
 ; Data declarations taken out of parse.asm
 
 arg	arg_unit	<>			; pointers, arg count, string buffer
-	PUBLIC	ArgBufferEnd,ParseSwitchFlag
-        PUBLIC  ParseArgIndex,ParseFileArg,ParseResultType,ParseResultValue
-        PUBLIC  ParseDateParts
+	PUBLIC	ArgBufferEnd
+	PUBLIC	ParseSwitchFlag
+	PUBLIC	ParseArgIndex
+	PUBLIC	ParseFileArg
+	PUBLIC	ParseResultType
+	PUBLIC	ParseResultValue
+	PUBLIC	ParseDateParts
 		DW	?			; reserved parser word
 ArgBufferEnd	DW	?
 		DW	?			; reserved parser word
@@ -536,7 +555,7 @@ if_not_count	DW	?
 
 zflag		db	?			; Used by typefil to indicate ^Z's
 
-		PUBLIC	StackGuard
+	PUBLIC	StackGuard
 StackGuard	DW	55AAh			; transient stack boundary
 		DW	100H DUP(55AAh)		; transient stack
 STACK		LABEL	WORD
@@ -573,7 +592,7 @@ Extend_Buf_sub	db	0				;AN000;set to no substitutions
 Extend_Buf_off	dw	OFFSET	TranGroup:String_ptr_2	;AN000;offset of arg
 Extend_Buf_seg	dw	0				;AN000;segment of arg
 		db	0				;AN000;first subst
-		db	0		;AN000;character string
+		db	0				; message format byte
 		dw	128				;AN000;maximum width
 		dw	0				;AN000;minimum width
 		db	blank				;AN000;pad character
@@ -640,28 +659,45 @@ DRIVE_NUMBER	DB	0			;AN000;  drive number
 		DB	0,0,0			;AN000;  reserved
 
 ; File system pathname interface, initialized by SelectPathInterface.
-        PUBLIC  PathQueryRoot
-        PUBLIC  PathChdirFunction,PathGetdirFunction
-        PUBLIC  PathOpenFunction,PathAttribFunction
-        PUBLIC  PathFindMode,PathFindHandle
-        PUBLIC  DirBasePath, DirTraversalActive, DirOutputBuffer
-        PUBLIC  DeleteCount,DeleteError
-        PUBLIC  DirSearchPath, DirEntryPath
-        PUBLIC  DirSearchPos, DirEntryPos, DirSearchLength
-        PUBLIC  DirAttributeText
-        PUBLIC  DirDateTimeBuffer, DirSavedByteCount
-        PUBLIC  DirHeaderPending, DirClusterSize
-        PUBLIC  DirClusterInvalid, DirNeedInfo
-        PUBLIC  DirSectorShift,DirBytesPerSector
-        PUBLIC  DirFreeClusters,DirTotalClusters
-        PUBLIC  PathFindBuffer
-        PUBLIC  CopyDestMode
-        PUBLIC  RenameSourceArg
-        PUBLIC  PathRmdirFunction,PathMkdirFunction,PathRenameFunction
-        PUBLIC  CopySourceOpenFunction,CopyDestOpenFunction,CopyFindDataOffset
-        PUBLIC  CopyPatternExt,CopySourceExt
-        PUBLIC  DirNetworkPath
-        PUBLIC  CopyDestOpenAction
+	PUBLIC	PathQueryRoot
+	PUBLIC	PathChdirFunction
+	PUBLIC	PathGetdirFunction
+	PUBLIC	PathOpenFunction
+	PUBLIC	PathAttribFunction
+	PUBLIC	PathFindMode
+	PUBLIC	PathFindHandle
+	PUBLIC	DirBasePath
+	PUBLIC	DirTraversalActive
+	PUBLIC	DirOutputBuffer
+	PUBLIC	DeleteCount
+	PUBLIC	DeleteError
+	PUBLIC	DirSearchPath
+	PUBLIC	DirEntryPath
+	PUBLIC	DirSearchPos
+	PUBLIC	DirEntryPos
+	PUBLIC	DirSearchLength
+	PUBLIC	DirSavedByteCount
+	PUBLIC	DirHeaderPending
+	PUBLIC	DirClusterSize
+	PUBLIC	DirClusterInvalid
+	PUBLIC	DirNeedInfo
+	PUBLIC	DirSectorShift
+	PUBLIC	DirBytesPerSector
+	PUBLIC	DirFreeClusters
+	PUBLIC	DirTotalClusters
+	PUBLIC	PathFindBuffer
+	PUBLIC	CopyDestMode
+	PUBLIC	RenameSourceArg
+	PUBLIC	PathRmdirFunction
+	PUBLIC	PathMkdirFunction
+	PUBLIC	PathRenameFunction
+	PUBLIC	CopySourceOpenFunction
+	PUBLIC	CopyDestOpenFunction
+	PUBLIC	CopyFindDataOffset
+	PUBLIC	CopyPatternExt
+	PUBLIC	CopySourceExt
+	PUBLIC	DirNetworkPath
+	PUBLIC	CopyDestOpenAction
 DirBasePath	DB	104h DUP (?)
 DirSearchPos	DW	?
 DirEntryPos	DW	?
@@ -694,7 +730,9 @@ DeleteCount	EQU	DirOutputBuffer+156h
 DeleteError	EQU	DirOutputBuffer+158h
 DirTraversalActive DB	?
 DirSavedByteCount DW	?
-	PUBLIC	answer_yes,answer_no,answer_all
+	PUBLIC	answer_yes
+	PUBLIC	answer_no
+	PUBLIC	answer_all
 answer_yes	DB	?
 answer_no	DB	?
 answer_all	DB	?

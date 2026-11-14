@@ -8,10 +8,10 @@ Identifier Mode | New; T25 follows closed T24
 Admission And Approval | Owner requested same audit/repair standard for v7.00.950 and explicitly replaced DOS6.0 reference with v6.22
 Objective | Minimize unnecessary differences from effective v6.22 source while retaining required 950 behavior, current structure and exact three outputs
 Non-goals | No independent DOS6.0/OpenNT/DOS4/other-version source comparison, no retargeting the accepted 950 triple, no full reference copy or worktree
-Reference Baseline | Effective v6.22: 225 baseline paths with its local overlays selected first; each hash verified against accepted cmd-19618-967 build copy
+Reference Baseline | General quality baseline: effective v6.22, 225 frozen supplier paths. Owner amendment: LFN interface and semantic authority is the Microsoft XP SP1 NTDOS guest source and its called DEM implementation at O:/repos.external/winxpscodes/Source/XPSP1/NT/base/mvdm/dos; this overrides the former exclusive-reference restriction for LFN semantics only
 Candidate Proposal | Freeze actual DIR order; classify equality only against effective reference; audit all nonidentical/new files sequentially; compile each modified file before accepting later files
 Files And ABI Surface | All 293 files under bios, cmd, dos, inc, lang; extras tools/resources are build dependencies and evidence, not part of this frozen source universe
-Applicable Rules | Latest v6.22-only owner requirement overrides historical broader references; CMD/BAT/C only; no Computer Use or forbidden temp paths; preserve existing Microsoft-style structures and empty conditions
+Applicable Rules | Effective v6.22 remains the general style/structure reference; latest owner instruction makes XP NTDOS authoritative for LFN interfaces/semantics. CMD/BAT/C only; no Computer Use or forbidden temp paths; preserve existing Microsoft-style structures and empty conditions
 Verification | Frozen source/reference hashes, per-file disposition, affected compilation after each edit, all three outputs against own 950 targets; unchanged files need no redundant build
 Expected Markers | Raw DIR ordinal, source hash, effective reference supplier/hash, disposition, compile/object/output evidence for every edit
 Asset Needs | Existing original tools and accepted CMD build, isolated compiler desktop, ignored extras/build; assets remain extras/assets
@@ -56,10 +56,10 @@ IO.SYS, MSDOS.SYS and COMMAND.COM all equal. This is an existing-asset check,
 not a claim that a new build has run. The accepted six-byte MSDOS.SYS config
 remains the target; other media provenance does not silently change it.
 
-## Current prefix: 138/293
+## Current prefix: 139/293
 
-Modified source/build files 67, exact 21, necessary unchanged 14,
-no same-name reference unchanged 36. Next: 139, cmd/command/tspc.asm. Tooling modified
+Modified source/build files 68, exact 21, necessary unchanged 14,
+no same-name reference unchanged 36. Next: 140, cmd/command/tucode.asm. Tooling modified
 1 (ioimage.c case-insensitive map symbol lookup), outside source count.
 See etc/T25/part1.md. BIOSTAIL.OBJ is unchanged; all compiler/link phases ran,
 then packaging failure was diagnosed and repaired. Fresh three-output FC/B
@@ -292,4 +292,28 @@ field-by-field declarations, reuses message type/length/padding symbols and
 splits four export lists. All field values and ordering remain unchanged.
 COMMAND rebuild/repack and all target/input checks pass;
 extras/build/t25-tranmsg-21717-16212; see part46.md.
-Next: 139 tspc.asm. Full automatic final build remains pending.
+File 139 removes duplicate workspace exports, normalizes added declarations,
+and uses parm_block_size for the COPY substitution buffer. No layout changes.
+COMMAND rebuild/repack and all target/input checks pass;
+extras/build/t25-tspc-22428-68; see part47.md.
+Next: 140 tucode.asm. Full automatic final build remains pending.
+
+## Owner amendment: authoritative LFN semantics
+
+The owner explicitly requires Microsoft XP NTDOS as the authority for LFN
+interfaces and semantic handling. General source-quality comparison remains
+effective v6.22; frozen inventory and counts do not change. XP source is at
+O:/repos.external/winxpscodes/Source/XPSP1/NT/base/mvdm/dos.
+Guest v86/doskrnl/dos/mstable.asm maps function 71h to $LongFileNameAPI;
+file.asm:906 dispatches via HRDSVC SVC_DEMLFNENTRY. DEM demdisp.c:175 maps that
+service to demLFNEntry; demlfn.c:5240 and demlfn.h contain the dispatcher,
+contracts and actual host-side implementation. Review both sides together.
+Use this authority for register contracts, error/flag semantics, name conversion,
+filesystem capability queries and search-handle lifecycle. NT host services
+are reference implementation mechanisms, not dependencies to import into DOS.
+The 950 frozen target triple remains the mandatory byte-identity gate. Any
+semantic discrepancy versus XP must be recorded as a version-specific finding
+and reconciled with target evidence, never silently patched against that gate.
+Earlier LFN reviews predate this instruction and are not claimed XP-validated;
+track their focused semantic cross-check in the completion audit without
+restarting the frozen sequential file audit.
