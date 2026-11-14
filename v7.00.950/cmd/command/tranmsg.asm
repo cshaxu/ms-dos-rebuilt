@@ -37,10 +37,16 @@ NoSpace_Ptr	dw	1004				;AN000;message number
 ;  "Return code (ERRORLEVEL): %1",13,10
 ;
 TraceReturn_Ptr dw	1005			; message number
-		db	1,13,0			; one substitution
+		db	1				; number of subst
+		db	parm_block_size			; size of sublist
+		db	0				; reserved
 		dw	offset TRANGROUP:TraceReturnCode
 		dw	0			; segment of argument
-		db	1,91h,3,0,3,0,20h	; unsigned decimal
+		db	1				; first subst
+		db	Right_Align+Unsgn_Bin_Byte	; binary to decimal
+		dw	3				; maximum width
+		dw	3				; minimum width
+		db	blank				; pad character
 
 ;  "WARNING: Reloaded COMMAND.COM transient",13,10
 ;
@@ -75,7 +81,8 @@ BadNam_Ptr	dw	1011				;AN000;message number
 
 ;  Windows startup and disk locking errors
 ;
-	PUBLIC	NoWin_Ptr,LockErr_Ptr
+	PUBLIC	NoWin_Ptr
+	PUBLIC	LockErr_Ptr
 NoWin_Ptr	dw	1012
 		db	no_subst
 LockErr_Ptr	dw	1013
@@ -461,9 +468,16 @@ DirHead_Ptr	dw	1048				;AN000;message number
 
 	public	DirRootHead_Ptr
 DirRootHead_Ptr	dw	1048
-	db	1,parm_block_size,0
-	dw	offset TRANGROUP:DirBasePath,0
-	db	1,10h,4,1,0,0,blank
+		db	1				; number of subst
+		db	parm_block_size			; size of sublist
+		db	0				; reserved
+		dw	OFFSET	TranGroup:DirBasePath	; offset of arg
+		dw	0				; segment of arg
+		db	1				; substitution number
+		db	Char_field_ASCIIZ		; character string
+		dw	104h				; maximum width
+		dw	0				; minimum width
+		db	blank				; pad character
 
 ;  "No Path",13,10
 ;
@@ -538,10 +552,17 @@ EchoMes_Ptr	dw	1057				;AN000;message number
 		db	blank				;AN000;pad character
 
 ;  "LFNFOR is %1",13,10
-LFNForMes_Ptr   dw      1058
-                db      1,13,0
-                dw      0,0
-                db      1,Char_field_ASCIIZ,0,0,1,0,blank
+LFNForMes_Ptr	dw	1058				; message number
+		db	1				; number of subst
+		db	parm_block_size			; size of sublist
+		db	0				; reserved
+		dw	0				; offset of arg
+		dw	0				; segment of arg
+		db	1				; substitution number
+		db	Char_field_ASCIIZ		; character string
+		dw	0				; maximum width
+		dw	1				; minimum width
+		db	blank				; pad character
 
 ;  "off"
 ;
@@ -742,23 +763,51 @@ PromTim_Sec_hn	dw	0				;AN000;seconds,hundredths
  ; Date and time substitution templates copied to transient workspace.
 DirDateTimeTemplate label byte
 	dw	1076
-	db	1,13,0
-	dw	0,0
-	db	1,0A4h,10,0,10,0,' '
+		db	1				; number of subst
+		db	parm_block_size			; size of sublist
+		db	0				; reserved
+		dw	0				; offset of arg
+		dw	0				; segment of arg
+		db	1				; substitution number
+		db	Right_Align+DATE_MDY_2		; date
+		dw	10				; maximum width
+		dw	10				; minimum width
+		db	blank				; pad character
 	dw	1077
-	db	1,13,0
-	dw	0,0
-	db	2,85h,6,0,6,0,' '
+		db	1				; number of subst
+		db	parm_block_size			; size of sublist
+		db	0				; reserved
+		dw	0				; offset of arg
+		dw	0				; segment of arg
+		db	2				; substitution number
+		db	Right_Align+TIME_HHMM_Cty	; time
+		dw	6				; maximum width
+		dw	6				; minimum width
+		db	blank				; pad character
 	dw	1076
-	db	1,13,0
-	dw	offset TRANGROUP:DirDateBlank,0
-	db	1,0,1,0,1,0,' '
+		db	1				; number of subst
+		db	parm_block_size			; size of sublist
+		db	0				; reserved
+		dw	OFFSET	TranGroup:DirDateBlank	; offset of arg
+		dw	0				; segment of arg
+		db	1				; substitution number
+		db	Char_field_Char			; character
+		dw	1				; maximum width
+		dw	1				; minimum width
+		db	blank				; pad character
 
  ; Attribute text displayed by DIR /V.
 DirAttributePtr dw	1076
-	db	1,13,0
-	dw	offset TRANGROUP:DirAttributeText,0
-	db	1,90h,8,0,8,0,' '
+		db	1				; number of subst
+		db	parm_block_size			; size of sublist
+		db	0				; reserved
+		dw	OFFSET	TranGroup:DirAttributeText	; offset of arg
+		dw	0				; segment of arg
+		db	1				; substitution number
+		db	Right_Align+Char_field_ASCIIZ		; character string
+		dw	8				; maximum width
+		dw	8				; minimum width
+		db	blank				; pad character
 
 ;  "Directory already exists"
 ;
@@ -797,44 +846,78 @@ BatchStepYN_Ptr dw      1083                            ; confirmation character
 
  ; Continuation messages for the initial and current directory.
 DirContCurrent_Ptr dw 1084
-	db	1,13,0
-	dw	offset TRANGROUP:BWDBUF,0
-	db	1,10h,4,1,0,0,' '
+		db	1				; number of subst
+		db	parm_block_size			; size of sublist
+		db	0				; reserved
+		dw	OFFSET	TranGroup:BWDBUF	; offset of arg
+		dw	0				; segment of arg
+		db	1				; substitution number
+		db	Char_field_ASCIIZ		; character string
+		dw	104h				; maximum width
+		dw	0				; minimum width
+		db	blank				; pad character
 DirContRoot_Ptr dw 1084
-	db	1,13,0
-	dw	offset TRANGROUP:DirBasePath,0
-	db	1,10h,4,1,0,0,' '
+		db	1				; number of subst
+		db	parm_block_size			; size of sublist
+		db	0				; reserved
+		dw	OFFSET	TranGroup:DirBasePath	; offset of arg
+		dw	0				; segment of arg
+		db	1				; substitution number
+		db	Char_field_ASCIIZ		; character string
+		dw	104h				; maximum width
+		dw	0				; minimum width
+		db	blank				; pad character
 
 ;  "%1 dir(s)  " and "%1 bytes allocated",13,10
 ;
-	public	DirCount_Ptr,DirAllocated_Ptr
+	public	DirCount_Ptr
+	public	DirAllocated_Ptr
 DirCount_Ptr	dw	1085
-	db	1,parm_block_size,0
-	dw	offset TRANGROUP:DirCountOutput,0
-	db	1,0A1h
-	dw	10,10
-	db	blank
+		db	1				; number of subst
+		db	parm_block_size			; size of sublist
+		db	0				; reserved
+		dw	OFFSET	TranGroup:DirCountOutput	; offset of arg
+		dw	0				; segment of arg
+		db	1				; substitution number
+		db	Right_Align+Unsgn_Bin_Word	; binary to decimal
+		dw	10				; maximum width
+		dw	10				; minimum width
+		db	blank				; pad character
 DirAllocated_Ptr dw	1086
-	db	1,parm_block_size,0
-	dw	offset TRANGROUP:DirAllocatedBytes,0
-	db	1,0B1h
-	dw	14,14
-	db	blank
+		db	1				; number of subst
+		db	parm_block_size			; size of sublist
+		db	0				; reserved
+		dw	OFFSET	TranGroup:DirAllocatedBytes	; offset of arg
+		dw	0				; segment of arg
+		db	1				; substitution number
+		db	Right_Align+Unsgn_Bin_DWord	; long binary to decimal
+		dw	14				; maximum width
+		dw	14				; minimum width
+		db	blank				; pad character
 
 ;  "%1 bytes total disk space, %2% in use",13,10
 ;
 	public	DirDiskUsage_Ptr
 DirDiskUsage_Ptr dw 1087
-	db	2,parm_block_size,0
-	dw	offset TRANGROUP:Bytes_Free,0
-	db	1,0B1h
-	dw	14,14
-	db	blank
-	db	parm_block_size,0
-	dw	offset TRANGROUP:DirUsedPercent,0
-	db	2,0A1h
-	dw	3,3
-	db	blank
+		db	2				; number of subst
+		db	parm_block_size			; size of sublist
+		db	0				; reserved
+		dw	OFFSET	TranGroup:Bytes_Free	; offset of arg
+		dw	0				; segment of arg
+		db	1				; substitution number
+		db	Right_Align+Unsgn_Bin_DWord	; long binary to decimal
+		dw	14				; maximum width
+		dw	14				; minimum width
+		db	blank				; pad character
+		db	parm_block_size			; size of sublist
+		db	0				; reserved
+		dw	OFFSET	TranGroup:DirUsedPercent	; offset of arg
+		dw	0				; segment of arg
+		db	2				; substitution number
+		db	Right_Align+Unsgn_Bin_Word	; binary to decimal
+		dw	3				; maximum width
+		dw	3				; minimum width
+		db	blank				; pad character
 
  ; Column headings for DIR /V.
 DirVerboseHeader_Ptr dw 1088
@@ -961,7 +1044,8 @@ endif
 
 ;  Warning and confirmation for LOCK
 ;
-	PUBLIC	LockWarn_Ptr,LockPrompt_Ptr
+	PUBLIC	LockWarn_Ptr
+	PUBLIC	LockPrompt_Ptr
 LockWarn_Ptr	dw	1107
 		db	no_subst
 LockPrompt_Ptr	dw	1108
@@ -985,7 +1069,8 @@ DirSortOverflow_Ptr dw	1110
 PipeMemErr_Ptr	dw	1111
 		db	no_subst
 
-	public	FilePrefix,CmdLineName
+	public	FilePrefix
+	public	CmdLineName
 FilePrefix	db	5,"FILE "
 CmdLineName	db	7,"CMDLINE="
 

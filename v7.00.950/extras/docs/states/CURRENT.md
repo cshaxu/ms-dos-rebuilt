@@ -56,10 +56,10 @@ IO.SYS, MSDOS.SYS and COMMAND.COM all equal. This is an existing-asset check,
 not a claim that a new build has run. The accepted six-byte MSDOS.SYS config
 remains the target; other media provenance does not silently change it.
 
-## Current prefix: 137/293
+## Current prefix: 138/293
 
-Modified source/build files 66, exact 21, necessary unchanged 14,
-no same-name reference unchanged 36. Next: 138, cmd/command/tranmsg.asm. Tooling modified
+Modified source/build files 67, exact 21, necessary unchanged 14,
+no same-name reference unchanged 36. Next: 139, cmd/command/tspc.asm. Tooling modified
 1 (ioimage.c case-insensitive map symbol lookup), outside source count.
 See etc/T25/part1.md. BIOSTAIL.OBJ is unchanged; all compiler/link phases ran,
 then packaging failure was diagnosed and repaired. Fresh three-output FC/B
@@ -287,4 +287,9 @@ File 137 restores TPRINTF declaration/equate conventions and corrects its
 obsolete data-allocation comment. Resource layout, shared loading and message
 service order remain intact. COMMAND rebuild/repack and all target/input
 checks pass; extras/build/t25-tprintf-20962-23698; see part45.md.
-Next: 138 tranmsg.asm. Full automatic final build remains pending.
+File 138 expands thirteen compact substitution records into inherited
+field-by-field declarations, reuses message type/length/padding symbols and
+splits four export lists. All field values and ordering remain unchanged.
+COMMAND rebuild/repack and all target/input checks pass;
+extras/build/t25-tranmsg-21717-16212; see part46.md.
+Next: 139 tspc.asm. Full automatic final build remains pending.
