@@ -66,8 +66,10 @@ TRANSPACE	SEGMENT PUBLIC BYTE	;AC000;
 	EXTRN	BatBufEnd:WORD
 	EXTRN	BatBufPos:WORD
 	EXTRN	BATHAND:WORD
-	EXTRN	PathFindMode:BYTE,PathFindBuffer:BYTE
-	EXTRN	ComBufPtr:WORD,CmdBufferLength:WORD
+	EXTRN	PathFindMode:BYTE
+	EXTRN	PathFindBuffer:BYTE
+	EXTRN	ComBufPtr:WORD
+	EXTRN	CmdBufferLength:WORD
 	EXTRN	GOTOLEN:WORD
 	EXTRN	if_not_count:word
 	EXTRN	IFNOTFLAG:BYTE
@@ -81,7 +83,9 @@ ASSUME	CS:TRANGROUP,DS:NOTHING,ES:NOTHING,SS:NOTHING
 	EXTRN	cerror:near
 	EXTRN	docom1:near
 	EXTRN	tcommand:near
-	EXTRN	SelectPathInterface:NEAR,PathFindFirst:NEAR,ClosePathFind:NEAR
+	EXTRN	SelectPathInterface:NEAR
+	EXTRN	PathFindFirst:NEAR
+	EXTRN	ClosePathFind:NEAR
 	PUBLIC	IFTRUE
 
 	public	$if,iferlev,goto,shift,ifexists,ifnot,forerror,$call
@@ -152,8 +156,8 @@ assume	ds:trangroup				;AN022;
 	invoke	std_eprintf			;AN022; print out the error
 	PUSH	SI
 	MOV	SI,ComBufPtr
-	MOV	BYTE PTR [SI],end_of_line_in
-	MOV	BYTE PTR [SI+1],end_of_line_out
+	MOV	BYTE PTR [SI],end_of_line_in ; terminate the batch line for parsing
+	MOV	BYTE PTR [SI+1],end_of_line_out ; terminate the batch line for output
 	POP	SI
 ;M020;
 ;Old bug! We jump to BatEof from here without ds=RESGROUP. Probably, this
@@ -445,50 +449,50 @@ MATCH:
 	JMP	SHORT IFRET
 
 IFEXISTS:
-        XOR     DL,DL                   ; track quoted pathname text
+	XOR	DL,DL                   ; track quoted pathname text
 moredelim:
-        LODSB
-        CMP     AL,0DH
-        JE      SHORT IfExistsEndLine
-        CMP     AL,'"'
-        JNE     SHORT IfExistsDelim
-        XOR     DL,1
-        JMP     SHORT moredelim
+	lodsb					; move command line pointer over
+	CMP	AL,0DH
+	JE	SHORT IfExistsEndLine
+	CMP	AL,'"'
+	JNE	SHORT IfExistsDelim
+	XOR	DL,1
+	JMP	SHORT moredelim
 IfExistsEndLine:
-        DEC     SI
-        JMP     SHORT IfExistsName
+	DEC	SI
+	JMP	SHORT IfExistsName
 IfExistsDelim:
-        TEST    DL,1
-        JNZ     SHORT moredelim
-        invoke  DELIM
-        JNZ     SHORT moredelim
+	TEST	DL,1
+	JNZ	SHORT moredelim
+	invoke	delim				; pathname -- have to do it ourselves
+	JNZ	SHORT moredelim
 IfExistsName:
-        MOV     BX,2
-        ADD     BX,[if_not_count]
-        MOV     AX,OFFSET TRANGROUP:arg.argv
-        invoke  argv_calc
-        MOV     DX,[BX].argpointer
-        PUSH    SI
-        MOV     SI,DX
-        XOR     CX,CX
-        CMP     WORD PTR [SI],5C5CH
-        JNE     SHORT IfExistsSelect
-        OR      CX,attr_directory
+	mov	BX, 2				; if(0) [|not](|1) exist[1|2] file(2|3)
+	add	BX, [if_not_count]
+	mov	AX, OFFSET TRANGROUP:arg.argv
+	invoke	argv_calc			; convert arg index to pointer
+	mov	DX, [BX].argpointer		; get pointer to supposed filename
+	PUSH	SI
+	MOV	SI,DX
+	XOR	CX,CX
+	CMP	WORD PTR [SI],5C5CH
+	JNE	SHORT IfExistsSelect
+	OR	CX,attr_directory
 IfExistsSelect:
-        CALL    SelectPathInterface
-        MOV     PathFindMode,AL
-        MOV     DI,OFFSET TRANGROUP:PathFindBuffer
-        OR      CX,attr_hidden+attr_system
-        CALL    PathFindFirst
-        POP     SI
-        PUSHF
-        CMP     PathFindMode,0
-        JE      SHORT IfExistsResult
-        CALL    ClosePathFind
+	CALL	SelectPathInterface
+	MOV	PathFindMode,AL
+	MOV	DI,OFFSET TRANGROUP:PathFindBuffer
+	OR	CX,attr_hidden+attr_system
+	CALL	PathFindFirst
+	POP	SI
+	PUSHF
+	CMP	PathFindMode,0
+	JE	SHORT IfExistsResult
+	CALL	ClosePathFind
 IfExistsResult:
-        POPF
-        MOV     AL,0
-        SBB     AL,0
+	POPF
+	MOV	AL,0
+	SBB	AL,0
 
 IFRET:
 	TEST	[IFNOTFLAG],-1
@@ -501,18 +505,18 @@ REALTEST:
 	JMP	TCOMMAND
 
 IFTRUE:
-        invoke  SCANOFF
-        MOV     CX,SI
-        MOV     DI,OFFSET TRANGROUP:arg.argv
-        MOV     DI,[DI].arg_ocomptr
-        SUB     CX,DI
-        MOV     DI,ComBufPtr
-        SUB     ES:[DI-2],CX
-        MOV     CX,ES:[DI-2]
-        CLD
-        REP     MOVSB
-        MOV     AL,0DH
-        STOSB
+	invoke	SCANOFF
+	MOV	CX,SI
+	MOV	DI,OFFSET TRANGROUP:arg.argv
+	MOV	DI,[DI].arg_ocomptr
+	SUB	CX,DI
+	MOV	DI,ComBufPtr
+	SUB	ES:[DI-2],CX
+	MOV	CX,ES:[DI-2]
+	CLD
+	REP	MOVSB
+	MOV	AL,0DH
+	STOSB
 ;
 ; Signal that an IF was done.  This prevents the redirections from getting
 ; lost.
