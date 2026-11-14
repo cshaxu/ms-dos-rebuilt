@@ -56,10 +56,10 @@ IO.SYS, MSDOS.SYS and COMMAND.COM all equal. This is an existing-asset check,
 not a claim that a new build has run. The accepted six-byte MSDOS.SYS config
 remains the target; other media provenance does not silently change it.
 
-## Current prefix: 169/293
+## Current prefix: 171/293
 
-Modified source/build files 87, exact 25, necessary unchanged 21,
-no same-name reference unchanged 36. Next: 170, dos/fat.asm. Tooling modified
+Modified source/build files 88, exact 26, necessary unchanged 21,
+no same-name reference unchanged 36. Next: 172, dos/fcbio.asm. Tooling modified
 1 (ioimage.c case-insensitive map symbol lookup), outside source count.
 See etc/T25/part1.md. BIOSTAIL.OBJ is unchanged; all compiler/link phases ran,
 then packaging failure was diagnosed and repaired. Fresh three-output FC/B
@@ -448,3 +448,9 @@ normalize segment wrapper; exepatch_start through EOF is reference-exact.
 Fresh kernel link unchanged, freshly packed IO.SYS and inherited other
 outputs target-exact; 293 inputs checked. See part67.md/file169-build.txt.
 Next: 170 dos/fat.asm. Final full build and completion audit pending.
+
+P68 accepts 170 FAT and 171 FCB. FAT declaration formatting aligned; RETZ
+restoration rejected by actual kernel byte comparison and reverted. FCB
+reference-exact. Final FAT kernel link unchanged and freshly packed IO.SYS
+target-exact; other inherited outputs exact, 293 inputs checked. See part68.md.
+Next: 172 dos/fcbio.asm. Final full build and completion audit pending.
