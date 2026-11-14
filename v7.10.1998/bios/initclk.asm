@@ -228,7 +228,17 @@ Bios_Code segment
 	public	read_real_date,read_real_time
 
 IFNDEF	POWER				; M083
-	align	2			; cas -- trash aligns!
+
+; Refresh the BIOS tick count from the real-time clock.
+	public	int6c_update
+int6c_update	proc	near
+	call	read_real_date
+	call	read_real_time
+	mov	ah,1
+	int	1ah
+	ret
+int6c_update	endp
+
 
 ; the k09 requires the routines for reading the clock because of the suspend/
 ; resume facility. the system clock needs to be reset after resume.
@@ -280,10 +290,20 @@ read_ok:			; ******* get bcd values in binary *****
 
 	mov	es:daycnt2,2	; read of r-t clock successful
 	call	bcd_verify	; verify bcd values in range
-	jc	r_d_ret 	; jmp some value out of range
+	jnc	short date_bcd_ok
+	jmp	near ptr r_d_ret
+date_bcd_ok:
 	mov	es:daycnt2,3	; read of r-t clock successful
 	call	date_verify	; verify date values in range
 	jc	r_d_ret 	; jmp some value out of range
+	jz	short date_verified
+	mov	cx,word ptr bin_date_time
+	xchg	ch,cl
+	mov	dx,word ptr bin_date_time+2
+	xchg	dh,dl
+	mov	ah,5		; write the corrected RTC date
+	int	1ah
+date_verified:
 	mov	es:daycnt2,0	; verify successful
 	call	in_bin		; convert date to binary
 				; ******* years since 1-1-80 *********
@@ -424,16 +444,30 @@ in_bin	endp
 
 ;   date_verify loosely checks bcd date values to be in range in bin_date_time
 
+; Returns carry on an invalid date, or NZ if the century was corrected.
 date_verify proc near
 	assume	ds:datagrp,es:nothing
 	assume	ds:Bios_Code
 
+	push	ax
+	.286
+	push	0		; date correction flag
+	.8086
 	cmp	byte ptr bin_date_time+0,20h  ; century check
 	ja	date_error		      ;	error
 	jz	century_20		      ; jmp in 20th century
 
 	cmp	byte ptr bin_date_time+0,19h  ; century check
 	jb	date_error		      ;  error
+	cmp	byte ptr bin_date_time+1,0
+	jne	short century_19_year
+	mov	byte ptr bin_date_time+0,20h
+	add	sp,2
+	.286
+	push	1		; report the corrected century
+	.8086
+	jmp	short century_20
+century_19_year:
 	cmp	byte ptr bin_date_time+1,80h  ; year check
 	jb	date_error		      ;  error
 
@@ -448,9 +482,13 @@ century_20:
 	ja	date_error		      ;  error
 	cmp	byte ptr bin_date_time+3,00h  ; day check
 	jbe	date_error		      ;  error
-	clc				      ; set success flag
+	pop	ax
+	or	al,al		; NZ if the RTC date needs correction
+	pop	ax
 	ret
 date_error:
+	add	sp,2
+	pop	ax
 	stc				      ; set error flag
 	ret
 
@@ -644,6 +682,7 @@ bin_to_bcd	endp
 
 endcmosclockset label byte		; end of cmos clock support routines
 
+	public	bcd_to_bin
 bcd_to_bin proc	near
 	assume	ds:nothing,es:nothing
 

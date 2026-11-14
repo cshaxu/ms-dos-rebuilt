@@ -1166,9 +1166,35 @@ ELSE
 ;	changes in the version that is built with the power manager driver.
 ;	See ptime.asm.
 
+	extrn	bcd_to_bin:near
+rtc_sync_reads	db	0ffh
+rtc_sync:
+	test	bios_flags,20h	; real-time clock present?
+	jz	short rtc_sync_done
+	mov	ah,2		; read the real-time clock
+	int	1ah
+	mov	al,ch
+	call	bcd_to_bin
+	mov	ch,al
+	mov	al,cl
+	call	bcd_to_bin
+	mov	cl,al
+	mov	al,dh
+	call	bcd_to_bin
+	mov	dh,al
+	shr	dl,1		; daylight saving time flag
+	adc	ch,0
+	call	time_to_ticks
+	mov	ah,1		; set the BIOS tick count
+	int	1ah
+rtc_sync_done:
+	dec	cs:rtc_sync_reads
+	jmp	short tim_read_ticks
 tim_read proc	near
-
 	inc	int16_count
+	cmp	cs:rtc_sync_reads,0
+	jnz	rtc_sync
+tim_read_ticks:
 	call	GetTickCnt	; M059 does INT 1A with ah=0 & updates daycnt
 
 ; we now need to convert the time in tick to the time in 100th of
@@ -1319,21 +1345,14 @@ GetTickCnt	endp
 
 ;	Refresh the BIOS tick count from the real-time clock.
 ;
-	extrn	read_real_date:near,read_real_time:near
-	public	int6c_code,int6c_update
+	extrn	int6c_update:near
+	public	int6c_code
 
 int6c_code	proc	far
 	call	int6c_update
 	ret	2
 int6c_code	endp
 
-int6c_update	proc	near
-	call	read_real_date
-	call	read_real_time
-	mov	ah,1
-	int	1ah
-	ret
-int6c_update	endp
 
 Bios_Code	ends
 	end
