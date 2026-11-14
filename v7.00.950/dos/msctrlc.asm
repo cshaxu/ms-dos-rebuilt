@@ -151,16 +151,6 @@ LowInt28Addr	LABEL	DWORD
 endif ; ROMDOS
 
 
-Break	<Checks for ^C in CON I/O>
-
-;---------------------------------------------------------------------------
-;
-; Procedure Name : DSKSTATCHK
-;
-; Check for ^C if only one level in
-;
-;---------------------------------------------------------------------------
-
         PUBLIC ConsoleStatePtr
 ConsoleStatePtr DD 0
 SpoolRestore:
@@ -200,7 +190,17 @@ POPFRET:
 	return
 EndProc SPOOLINT
 
-procedure DSKSTATCHK,NEAR
+Break	<Checks for ^C in CON I/O>
+
+;---------------------------------------------------------------------------
+;
+; Procedure Name : DSKSTATCHK
+;
+; Check for ^C if only one level in
+;
+;---------------------------------------------------------------------------
+
+procedure   DSKSTATCHK,NEAR
         ASSUME DS:NOTHING,SS:DOSDATA
         cmp InDos,1
         jne POPFRET+1
@@ -263,7 +263,7 @@ GotCh:
         jmp CNTCHAND
 EndProc DSKSTATCHK
 
-procedure STATCHK,NEAR
+procedure   STATCHK,NEAR
         ASSUME DS:NOTHING,SS:DOSDATA
         push bx
         push ax
@@ -1152,7 +1152,7 @@ FIRST_BUFF_ADDR dw 0
 
 ; DS addresses DOSDATA; defer writes when the target flag requests it.
         i_need  DeferredFlushFlags,BYTE
-procedure DeferredFlush,near
+procedure   DeferredFlush,NEAR
         ASSUME  DS:DOSDATA
         test    DeferredFlushFlags,1
         jnz     deferred_flush_done
