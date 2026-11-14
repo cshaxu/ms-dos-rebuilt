@@ -56,10 +56,10 @@ IO.SYS, MSDOS.SYS and COMMAND.COM all equal. This is an existing-asset check,
 not a claim that a new build has run. The accepted six-byte MSDOS.SYS config
 remains the target; other media provenance does not silently change it.
 
-## Current prefix: 201/293
+## Current prefix: 203/293
 
-Modified source/build files 105, exact 31, necessary unchanged 28,
-no same-name reference unchanged 37. Next: 202, dos/msinit.asm. Tooling modified
+Modified source/build files 106, exact 32, necessary unchanged 28,
+no same-name reference unchanged 37. Next: 204, dos/msproc.asm. Tooling modified
 1 (ioimage.c case-insensitive map symbol lookup), outside source count.
 See etc/T25/part1.md. BIOSTAIL.OBJ is unchanged; all compiler/link phases ran,
 then packaging failure was diagnosed and repaired. Fresh three-output FC/B
@@ -520,4 +520,8 @@ Next: 196 dos/msdisp.asm. Final full build pending.
 P82 accepts 196-201. MSDISP comments aligned and target bytes verified.
 Configuration matches the frozen target and link order is preserved.
 Three files are reference-exact. See part82.md. Next: 202 dos/msinit.asm.
+Final full build pending.
+
+P83 accepts 202-203. MSINIT heading and debug labels aligned. MSIOCTL is
+reference-exact. See part83.md. Next: 204 dos/msproc.asm.
 Final full build pending.

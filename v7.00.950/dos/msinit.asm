@@ -1152,21 +1152,6 @@ endif
 patch_vec_segments	endp
 
 
-;---------------------------------------------------------------------------
-;
-; Procedure Name : patch_misc_segments
-;
-; Inputs	 : es = segment to patch in
-;		   ds = dosdata
-;
-; outputs	 : patches in the sharer and other tables in the dos
-;		   with right dos code segment in es
-;
-; Regs Mod	 : DI,SI,CX
-;
-;---------------------------------------------------------------------------
-
-
 ;--------------------------------------------------------------------------
 ;
 ; Procedure Name : patch_offset
@@ -1211,6 +1196,21 @@ po_iset4:
 	pop	es
 	ret
 patch_offset	endp
+
+;---------------------------------------------------------------------------
+;
+; Procedure Name : patch_misc_segments
+;
+; Inputs	 : es = segment to patch in
+;		   ds = dosdata
+;
+; outputs	 : patches in the sharer and other tables in the dos
+;		   with right dos code segment in es
+;
+; Regs Mod	 : DI,SI,CX
+;
+;---------------------------------------------------------------------------
+
 
 patch_misc_segments	proc	near
 	assume	ds:dosdata
@@ -1399,10 +1399,10 @@ endif ; ROMDOS
 
 
  DPUBLIC <ParaRound, cXMM_no_driver, cXMMexit, char_init_loop, charinit>
- DPUBLIC <check_XMM, continit, dosinttabloop, endlist>
+ DPUBLIC <check_XMM, continit, InitSavedVector, endlist>
  DPUBLIC <iset1, iset2, jumptabloop, nxtentry>
  DPUBLIC <notmax,  patch_offset, perdrv>
- DPUBLIC <perunit, po_iset1, po_iset2, po_iset3>
+ DPUBLIC <perunit, po_iset3, po_iset4>
  DPUBLIC <ps_set1, ps_set2, ps_set3, seg_reinit>
  DPUBLIC <sr_done, version_fake_table, xxx>
 
