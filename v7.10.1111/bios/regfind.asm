@@ -1,5 +1,7 @@
-;** regfind.ASM
+; Registry key handles and file descriptor lists.
 ;
+; Near entries take stack arguments and use DS = DGROUP.
+; Pointer results are returned in DX:AX where specified.
 ;
 	.386
 _DATA segment word public use16 'DATA'

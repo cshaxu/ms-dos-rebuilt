@@ -1,8 +1,8 @@
-;** REGPDIFF.ASM - Two FAR pointers. Return linear byte difference; callee removes arguments.
+;** REGPDIFF - Linear difference between two far pointers
 ;
-; FAR C entry: Two FAR pointers. Return linear byte difference; callee removes arguments.
-; Uses the completed record storage and value access routines.
-; Local instruction flow follows the target; final layout is linked.
+; ENTRY: [BP+6] = first FAR pointer, [BP+0Ah] = second FAR pointer.
+; EXIT:  DX:AX = signed byte difference (first minus second).
+;        Callee removes both pointers from the stack.
 ;
 _DATA segment word public 'DATA'
 ; No private initialized data.

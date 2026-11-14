@@ -1,5 +1,7 @@
-;** regopen.ASM
+;** REGOPEN - Registry paths and values
 ;
+; FAR C entries call the key cache and record services through near entries.
+; Path and value-name operations use the shared registry state in DGROUP.
 ;
 	.386
 _DATA segment word public use16 'DATA'

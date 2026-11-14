@@ -1,5 +1,7 @@
-;** regstart.ASM
+;** REGSTART - Registry root initialization and lifetime
 ;
+; FAR C entries initialize predefined roots and release their storage.
+; Local registry files share the key pool and transfer buffer.
 ;
 	.386
 _DATA segment word public use16 'DATA'

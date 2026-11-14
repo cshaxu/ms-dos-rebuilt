@@ -36,16 +36,13 @@ REGFINAL	segment	word public 'CODE'
 REGFINAL	ends
 DGROUP	group	_DATA,c_common
 _DATA	segment	word public 'DATA'
-	extrn	RegCheckPolicy:word
 	extrn	RegIOInhibit:word
 _DATA	ends
 c_common	segment	word public 'BSS'
 	extrn	RegPathBuffer:byte
-	extrn	RegVMEntry:dword
 c_common	ends
 REGFILE	segment	word public 'CODE'
-	extrn	RegValidateHeader:near,RegValidateKeyBlock:near
-	extrn	RegValidateDataBlock:near
+	extrn	RegValidateHeader:near
 REGFILE	ends
 REGFINAL	segment	word public 'CODE'
 	assume	cs:REGFINAL

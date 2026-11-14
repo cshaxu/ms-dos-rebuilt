@@ -1,6 +1,20 @@
-;** REGIO.ASM - Registry calls through the Windows service entry
+;** REGVMCAL - Registry calls through the Windows service entry
 ;
 ; Preserve original FAR entry argument cleanup and AX service numbers.
+; All service entries use the same frame; service and argument size vary.
+;
+RegVMCall macro entry,service,argbytes
+        public entry
+entry proc far
+        push bp
+        mov bp,sp
+        mov ax,service
+        call dword ptr RegVMEntry
+        pop bp
+        ret argbytes
+entry endp
+endm
+
 _DATA segment word public 'DATA'
 _DATA ends
 c_common segment word public 'BSS'
@@ -9,165 +23,37 @@ c_common ends
 DGROUP group _DATA,c_common
 REGIO segment word public 'CODE'
         assume cs:REGIO,ds:DGROUP
-        public RegVMOpenKey
-RegVMOpenKey proc far
-        push bp
-        mov bp,sp
-        mov ax,0100h
-        call dword ptr RegVMEntry
-        pop bp
-        ret 12
-RegVMOpenKey endp
+        RegVMCall RegVMOpenKey,0100h,12
 
-        public RegVMCloseKey
-RegVMCloseKey proc far
-        push bp
-        mov bp,sp
-        mov ax,0102h
-        call dword ptr RegVMEntry
-        pop bp
-        ret 4
-RegVMCloseKey endp
+        RegVMCall RegVMCloseKey,0102h,4
 
-        public RegVMQueryValue
-RegVMQueryValue proc far
-        push bp
-        mov bp,sp
-        mov ax,0105h
-        call dword ptr RegVMEntry
-        pop bp
-        ret 16
-RegVMQueryValue endp
+        RegVMCall RegVMQueryValue,0105h,16
 
-        public RegVMQueryValueEx
-RegVMQueryValueEx proc far
-        push bp
-        mov bp,sp
-        mov ax,0109h
-        call dword ptr RegVMEntry
-        pop bp
-        ret 24
-RegVMQueryValueEx endp
+        RegVMCall RegVMQueryValueEx,0109h,24
 
-        public RegVMCreateKey
-RegVMCreateKey proc far
-        push bp
-        mov bp,sp
-        mov ax,0101h
-        call dword ptr RegVMEntry
-        pop bp
-        ret 12
-RegVMCreateKey endp
+        RegVMCall RegVMCreateKey,0101h,12
 
-        public RegVMDeleteKey
-RegVMDeleteKey proc far
-        push bp
-        mov bp,sp
-        mov ax,0103h
-        call dword ptr RegVMEntry
-        pop bp
-        ret 8
-RegVMDeleteKey endp
+        RegVMCall RegVMDeleteKey,0103h,8
 
-        public RegVMDeleteValue
-RegVMDeleteValue proc far
-        push bp
-        mov bp,sp
-        mov ax,0107h
-        call dword ptr RegVMEntry
-        pop bp
-        ret 8
-RegVMDeleteValue endp
+        RegVMCall RegVMDeleteValue,0107h,8
 
-        public RegVMSetValue
-RegVMSetValue proc far
-        push bp
-        mov bp,sp
-        mov ax,0104h
-        call dword ptr RegVMEntry
-        pop bp
-        ret 20
-RegVMSetValue endp
+        RegVMCall RegVMSetValue,0104h,20
 
-        public RegVMSetValueEx
-RegVMSetValueEx proc far
-        push bp
-        mov bp,sp
-        mov ax,010Ah
-        call dword ptr RegVMEntry
-        pop bp
-        ret 24
-RegVMSetValueEx endp
+        RegVMCall RegVMSetValueEx,010Ah,24
 
-        public RegVMEnumKey
-RegVMEnumKey proc far
-        push bp
-        mov bp,sp
-        mov ax,0106h
-        call dword ptr RegVMEntry
-        pop bp
-        ret 16
-RegVMEnumKey endp
+        RegVMCall RegVMEnumKey,0106h,16
 
-        public RegVMEnumValue
-RegVMEnumValue proc far
-        push bp
-        mov bp,sp
-        mov ax,0108h
-        call dword ptr RegVMEntry
-        pop bp
-        ret 32
-RegVMEnumValue endp
+        RegVMCall RegVMEnumValue,0108h,32
 
-        public RegVMFlushKey
-RegVMFlushKey proc far
-        push bp
-        mov bp,sp
-        mov ax,010Bh
-        call dword ptr RegVMEntry
-        pop bp
-        ret 4
-RegVMFlushKey endp
+        RegVMCall RegVMFlushKey,010Bh,4
 
-        public RegVMRemapKey
-RegVMRemapKey proc far
-        push bp
-        mov bp,sp
-        mov ax,0110h
-        call dword ptr RegVMEntry
-        pop bp
-        ret 8
-RegVMRemapKey endp
+        RegVMCall RegVMRemapKey,0110h,8
 
-        public RegVMLoadKey
-RegVMLoadKey proc far
-        push bp
-        mov bp,sp
-        mov ax,010Ch
-        call dword ptr RegVMEntry
-        pop bp
-        ret 12
-RegVMLoadKey endp
+        RegVMCall RegVMLoadKey,010Ch,12
 
-        public RegVMUnloadKey
-RegVMUnloadKey proc far
-        push bp
-        mov bp,sp
-        mov ax,010Dh
-        call dword ptr RegVMEntry
-        pop bp
-        ret 8
-RegVMUnloadKey endp
+        RegVMCall RegVMUnloadKey,010Dh,8
 
-        public RegVMSaveKey
-RegVMSaveKey proc far
-        push bp
-        mov bp,sp
-        mov ax,010Eh
-        call dword ptr RegVMEntry
-        pop bp
-        ret 12
-RegVMSaveKey endp
+        RegVMCall RegVMSaveKey,010Eh,12
 
         public RegInvalidBlock,RegNotifyLoad
 RegInvalidBlock proc far

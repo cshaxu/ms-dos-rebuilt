@@ -1,13 +1,23 @@
-;** REGROOT - Registry roots and shared storage state
-
+;** REGROOT.ASM - Predefined registry roots and initialized state
+;
+; Define the machine and user root handles, followed by the predefined
+; handle table and the shared file and key storage pointers.
+;
 KeyRoot macro rootid
-        dw 4B48h,25h,0
-        dd 0,-1,-1
+        dw 4B48h                ; handle signature
+        dw 25h                  ; initial flags
+        dw 0
+        dd 0                    ; file pointer
+        dd -1
+        dd -1
         dw 0
         db 0,rootid
-        dd 0,0,-1
+        dd 0
+        dd 0
+        dd -1
         dw -1
 endm
+
 _DATA segment word public 'DATA'
         public RegTransferBuffer,RegActiveFiles,RegCurrentDirectory
 RegTransferBuffer dd 0

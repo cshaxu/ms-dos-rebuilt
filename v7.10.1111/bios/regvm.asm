@@ -1,4 +1,4 @@
-;** REGIO.ASM - Windows registry service detection
+;** REGVM - Windows registry service detection
 ;
 ; FAR C entry takes a FAR path at BP+6. Return -1 when the running
 ; Windows instance owns that path; otherwise return zero.

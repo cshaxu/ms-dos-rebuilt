@@ -1,5 +1,7 @@
-;** regread.ASM
+;** REGREAD - Registry file storage, cache and block validation
 ;
+; Near entries share the file and block services in REGTEXT.
+; Load, save and cache maintenance use the same block index and validators.
 ;
 	.386
 _DATA segment word public use16 'DATA'

@@ -66,3 +66,20 @@ ordinal,path,disposition,verification
 65,bios/power.inc,exact,Byte comparison with frozen 950
 66,bios/ptime.asm,exact,Byte comparison with frozen 950
 67,bios/rapiopen.asm,absent,1111 links the registry open entry from regopen.obj and omits rapiopen.obj; the 950 module would duplicate the open path
+68,bios/regfind.asm,reduced,Restored 950 module description with the target near calling convention; linked key pool and predefined handle validation use the 1111 layout
+69,bios/reginit.asm,reduced-to-exact,Removed unused extern declarations; this inherited module is omitted by config.mak and config.lnk
+70,bios/regopen.asm,reduced,Restored module contract; RegOpenKey and RegQueryValueEx call near record services in the single target-matching configuration
+71,bios/regpdiff.asm,reduced-to-exact,Restored 950 far pointer difference contract; file is omitted from the production configuration
+72,bios/regread.asm,reduced,Restored 950 storage and cache description for REGTEXT; target block indices and operand prefix order retained
+73,bios/regroot.asm,reduced,Restored the per-field root declaration structure; target has two predefined root records and uppercase path data
+74,bios/regstart.asm,reduced,Restored 950 lifetime description for the target layout; RegInitialize and RegMountRoot are distinct linked entries for one initialization chain
+75,bios/regstr.asm,absent,The target links RegNameChecksum and RegCompareName in regread.obj; count-based near interfaces replace the 950 string helpers
+76,bios/regvm.asm,reduced-to-exact,Restored 950 Windows-provider module header; config.mak and config.lnk omit the module
+77,bios/regvmcal.asm,reduced-to-exact,Restored 950 RegVMCall macro for all 16 inherited service stubs; production configuration omits the module
+78,bios/rom8k.inc,exact,Byte comparison with frozen 950
+79,bios/romdinit.asm,exact,Byte comparison with frozen 950
+80,bios/romdrive.asm,exact,Byte comparison with frozen 950
+81,bios/romrd.asm,exact,Byte comparison with frozen 950
+82,bios/romrdhi.asm,exact,Byte comparison with frozen 950
+83,bios/romrdlo.asm,exact,Byte comparison with frozen 950
+84,bios/rqvalue.asm,absent,RegQueryValueEx is provided by regopen.obj in the 1111 configuration; 950 rqvalue.obj is absent
