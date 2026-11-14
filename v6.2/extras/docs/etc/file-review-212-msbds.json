@@ -1,0 +1,14 @@
+{
+  "index": 212,
+  "path": "inc/msbds.inc",
+  "reviewed_sha256": "641a8c8ad5a1d611d72342fdf40e20f91ce4a02f89cd83b47d041cebc4265e75",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical BIOS disk structure and flags.",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "MSBIO1, MSDISK, MSDIOCTL, MSBIO2 and other selected BIOS modules include msbds.inc.",
+    "Prior MSDISK and MSDIOCTL contributions match 1945 and 1733 target IO.SYS bytes respectively (reviews 012 and 011).",
+    "Prior MSBIO1 reconstruction sets the second logical drive initializer in its own source; its BIOS_DATA contribution then differs at only one later external pointer byte (review 008)."
+  ],
+  "limitations": "Prior comparisons cover the selected configuration and exercised fields, not all possible device configurations or final relocation values. Complete IO.SYS identity remains unverified."
+}

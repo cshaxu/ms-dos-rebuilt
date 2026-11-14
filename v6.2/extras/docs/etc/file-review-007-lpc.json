@@ -1,0 +1,18 @@
+{
+  "index": 7,
+  "file": "bios/lpc.asm",
+  "reviewed_sha256": "caef0b8c1ab35b1a62375c1abac6f6e60613440e4f19e77cca8cc30b435c3890",
+  "decision": "excluded from three core components; retained under research",
+  "archive": "extras/research/excluded/bios/lpc.asm",
+  "reference": {
+    "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\lpc.asm",
+    "sha256": "caef0b8c1ab35b1a62375c1abac6f6e60613440e4f19e77cca8cc30b435c3890"
+  },
+  "checks": [
+    "Source identifies itself as the transient command-line portion of the separate POWER.EXE utility.",
+    "LPC.OBJ is absent from all three reference core link lists.",
+    "Fresh BIOS reference build after archival matches the prior IO.SYS reference and all 16 object hashes."
+  ],
+  "limitations": "This does not remove the separate BIOS-resident POWER code or assess every optional build configuration.",
+  "build_report": "extras/docs/etc/bios-without-lpc-build.json"
+}

@@ -1,0 +1,39 @@
+{
+  "index": 44,
+  "file": "dos/buf.asm",
+  "reviewed_sha256": "b162899aabcec71289e34b82326457544fd0e794fd20ee97a2f063ce1542ba21",
+  "decision": "retain reference-identical buffer management module",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\buf.asm",
+      "sha256": "b162899aabcec71289e34b82326457544fd0e794fd20ee97a2f063ce1542ba21"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\buf.asm",
+      "sha256": "b162899aabcec71289e34b82326457544fd0e794fd20ee97a2f063ce1542ba21"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/kernel-local-baseline-build.json",
+    "reference_module_file_offset": 23281,
+    "target_module_file_offset": 23282,
+    "module_length": 643,
+    "differing_module_offsets": [
+      236,
+      243,
+      580
+    ],
+    "external_call_symbols": [
+      "FATSECRD",
+      "DREAD",
+      "DWRITE"
+    ]
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and astro.",
+    "Listing places GetCurHead at module offset 0000h and ends DOSCODE at 0283h; map resolves it at 0000:98E1 with -15856 file bias.",
+    "After alignment one byte later, all three differing bytes are assembler-marked external call displacements."
+  ],
+  "limitations": "The one-byte preceding layout difference and final external target positions remain unresolved; full kernel equality is not established.",
+  "change": "No source change."
+}

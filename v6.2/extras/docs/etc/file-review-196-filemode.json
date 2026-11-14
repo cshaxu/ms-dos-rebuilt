@@ -1,0 +1,14 @@
+{
+  "index": 196,
+  "path": "inc/filemode.inc",
+  "reviewed_sha256": "1ed4f86e30874fd29bbf1db7d8d7bf541b3e29f9b52e3eb9cf62b007f6c88a05",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical file access and sharing mode definitions.",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "DOS and COMMAND sources include filemode.inc.",
+    "DOS DISK uses access_mask, open_for_write and open_for_read; all 1206 bytes of its previously compared contribution match target MSDOS.SYS.",
+    "The previously compared OPEN contribution matches all 373 bytes at the target offset (review 095)."
+  ],
+  "limitations": "The module comparisons support constants exercised in the selected build, not every declared flag or structure. Final core links and whole-file identity remain unverified."
+}

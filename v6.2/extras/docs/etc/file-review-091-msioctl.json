@@ -1,0 +1,22 @@
+{
+  "index": 91,
+  "file": "dos/msioctl.asm",
+  "reviewed_sha256": "39228d3934d865562191950ef45a9347c9d998a6d59a2f323c5c2f0d8e35a65b",
+  "decision": "retain reference-identical legacy IOCTL wrapper",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\msioctl.asm",
+      "sha256": "39228d3934d865562191950ef45a9347c9d998a6d59a2f323c5c2f0d8e35a65b"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\msioctl.asm",
+      "sha256": "39228d3934d865562191950ef45a9347c9d998a6d59a2f323c5c2f0d8e35a65b"
+    }
+  ],
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and Astro.",
+    "The short source defines IBM and includes IOCTL.INC; it is not independently assembled in the selected kernel link, which uses ioctl.obj from ioctl.asm."
+  ],
+  "limitations": "No target byte range is attributed to this wrapper. Target behavior outside the selected build has not been established.",
+  "change": "No source change."
+}

@@ -1,0 +1,42 @@
+{
+  "index": 85,
+  "file": "dos/msctrlc.asm",
+  "reviewed_sha256": "251d8ede15d74e063a9f5a065366b9db06b3c6890f2a0d7a8ee553489d403143",
+  "decision": "retain reference-identical Ctrl+C and error handling module",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\msctrlc.asm",
+      "sha256": "251d8ede15d74e063a9f5a065366b9db06b3c6890f2a0d7a8ee553489d403143"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\msctrlc.asm",
+      "sha256": "251d8ede15d74e063a9f5a065366b9db06b3c6890f2a0d7a8ee553489d403143"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/kernel-dir-getentry-branch-build.json",
+    "module_file_offset": 21140,
+    "module_length": 1158,
+    "difference_offsets_in_module": [
+      186,
+      381,
+      419,
+      428,
+      473,
+      484,
+      489,
+      494,
+      806,
+      1083,
+      1130
+    ],
+    "target_sha256": "1ff320e7fdb3de707370e18d48d52b724b6f40f86ae7b70469bb130d754a904f"
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and Astro.",
+    "Listing and map place the 0486h-byte DOSCODE contribution at 0000:9084 with -15856 file bias.",
+    "Eleven differing bytes lie in assembler-marked external or relocatable word fields; each is 10h above the target. All remaining aligned bytes match."
+  ],
+  "limitations": "Address values require final kernel layout; module and full kernel are not yet proven byte-identical.",
+  "change": "No source change."
+}

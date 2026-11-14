@@ -1,0 +1,14 @@
+{
+  "index": 185,
+  "path": "inc/dossym.inc",
+  "reviewed_sha256": "7251b43759082b218b6216a267c69efe1adc46da7e5a8bdf75ddd94d366de6a9",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical shared DOS symbols and include aggregation.",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "BIOS, DOS and COMMAND sources include dossym.inc; it in turn includes dbcs.sw, dosmac.inc, version files, buffer.inc, dirent.inc and error.inc.",
+    "The previously compared BIOS MSDISK and DOS DIR2 contributions match all 1945 and 1413 target bytes respectively (reviews 012 and 054).",
+    "The COMMAND LOADHI comparison matched 1697 non-relocation bytes and 73 internal branches at an inferred target location (review 128)."
+  ],
+  "limitations": "The file aggregates independently tracked dependencies: retaining its text does not prove those dependencies or all conditional configurations. VERSIONA, VERSION and final links require their own sequential review and verification."
+}

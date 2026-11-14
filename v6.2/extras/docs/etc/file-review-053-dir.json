@@ -1,0 +1,31 @@
+{
+  "index": 53,
+  "file": "dos/dir.asm",
+  "reviewed_sha256": "89e596037f89ae5485daf29c2a782cb9512bd3845d5bcfb1f932cf9a5a9be890",
+  "decision": "reconstruct directory search comparison and GETENTRY carry handling",
+  "reference_sha256": "03ef140acfbe6288adb7d6571a839d8089daa7d6d00e531abaae6735419dc63b",
+  "changes": [
+    "Replace JB HAVIT with JNZ HAVIT to match target directory boundary branch.",
+    "Add CLC before successful GETENTRY return, matching target and restoring the one-byte downstream layout."
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/kernel-dir-getentry-branch-build.json",
+    "module_file_offset": 16106,
+    "module_length": 434,
+    "target_sha256": "7bd882239175da585e97a51da09ab535fc1c272e8bae40f4553a273cf7fd27b0",
+    "module_equal": true,
+    "overall_differing_bytes_before": 17037,
+    "overall_differing_bytes_after": 425,
+    "other_modules_now_byte_equal": [
+      "dos/abort.asm",
+      "dos/close.asm",
+      "dos/buf.asm",
+      "dos/alloc.asm"
+    ]
+  },
+  "checks": [
+    "Fresh kernel build succeeds with target-identical 434-byte directory module.",
+    "Restored CLC resolves previously observed one-byte layout displacement."
+  ],
+  "limitations": "Current whole kernel still has 425 differing bytes; references and messages are provisional, so no whole-file equality claim."
+}

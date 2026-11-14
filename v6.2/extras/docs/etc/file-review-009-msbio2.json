@@ -1,0 +1,38 @@
+{
+  "index": 9,
+  "file": "bios/msbio2.asm",
+  "reviewed_sha256": "8defab0e0d512284119cb44a933664315d3c5745ced1e826eb5e5ca7edf5fd32",
+  "decision": "retain reference-identical module with matching linked segment contributions",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\msbio2.asm",
+      "sha256": "8defab0e0d512284119cb44a933664315d3c5745ced1e826eb5e5ca7edf5fd32"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\bios\\msbio2.asm",
+      "sha256": "8defab0e0d512284119cb44a933664315d3c5745ced1e826eb5e5ca7edf5fd32"
+    }
+  ],
+  "object_sha256": "dc286af1ddc5f32893c8003e3da2e2f47aebc3213cdc34b1141a2e6d0e6b0bff",
+  "target_segment_checks": [
+    {
+      "segment": "BIOS_CODE",
+      "offset": 17064,
+      "length": 807,
+      "sha256": "a6f5bbb47e1e54057609ec7da65a72772a32341db6f1ab0ab6cca608327a4cf8"
+    },
+    {
+      "segment": "BIOS_DATA_INIT",
+      "offset": 6276,
+      "length": 335,
+      "sha256": "19107b7ca1ed3160e10ee6a2fc01e773354353ff008c633be14ba7c37f7bfd6b"
+    }
+  ],
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and astro.",
+    "Assembler listing ends BIOS_CODE at 0327h and BIOS_DATA_INIT at 014Fh.",
+    "Reference MAP publics dsk_init and ibm_disk_io locate their segment contributions; each entire contribution matches target IO.SYS byte for byte at the same offsets."
+  ],
+  "limitations": "Comparison covers the selected USA/DBLSPACE_HOOKS reference configuration and linked segment contributions; other configurations and historical source identity are not established.",
+  "change": "No source change."
+}

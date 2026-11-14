@@ -1,0 +1,49 @@
+{
+  "index": 60,
+  "file": "dos/dosmes.inc",
+  "reviewed_sha256": "c5f7b697c97a672d659b143c50d48fc78fa16adc739a160b955ff51c2859188c",
+  "decision": "retain reference-identical message and editing table wrapper",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dosmes.inc",
+      "sha256": "c5f7b697c97a672d659b143c50d48fc78fa16adc739a160b955ff51c2859188c"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\dosmes.inc",
+      "sha256": "c5f7b697c97a672d659b143c50d48fc78fa16adc739a160b955ff51c2859188c"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/kernel-dir-getentry-branch-build.json",
+    "module_file_offset": 2456,
+    "module_length": 193,
+    "differing_module_offsets": [
+      140,
+      142,
+      144,
+      146,
+      148,
+      150,
+      151,
+      152,
+      153,
+      154,
+      156,
+      158,
+      160,
+      162,
+      164,
+      166,
+      175,
+      176,
+      191
+    ]
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and astro; msdosme.asm includes it.",
+    "Listing places DMES002S at module offset zero and ends DOSCODE at 00C1h; map resolves 0000:4788 with -15856 file bias.",
+    "All 19 differing bytes occur in assembler-marked pointers and address fields of the editing function table or its dispatcher; first 120 message bytes match target as recorded in review 059."
+  ],
+  "limitations": "Final code-address relocation values and complete kernel equality remain unverified.",
+  "change": "No source change."
+}

@@ -1,0 +1,30 @@
+{
+  "index": 12,
+  "file": "bios/msdisk.asm",
+  "reviewed_sha256": "0c166896c215dddd08f7440f462d07a9191c2ff06283139dd15081f09a234038",
+  "decision": "retain reference-identical disk module",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\msdisk.asm",
+      "sha256": "0c166896c215dddd08f7440f462d07a9191c2ff06283139dd15081f09a234038"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\bios\\msdisk.asm",
+      "sha256": "0c166896c215dddd08f7440f462d07a9191c2ff06283139dd15081f09a234038"
+    }
+  ],
+  "object_sha256": "83699866d4997c2bd56193d3c8183717fd64b7b62e4d1a00467e34ee9b483f84",
+  "target_segment": {
+    "segment": "BIOS_CODE",
+    "offset": 12296,
+    "length": 1945,
+    "sha256": "c63c3625c8a72311d2bad866e70b510a417b2a519e49c6db8adebc70ba858e83"
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and astro.",
+    "Assembler listing places SetDrive at 0035h and ends BIOS_CODE at 0799h; link map places SetDrive at 025C:04D7, giving module offset 04A2h.",
+    "All 1945 linked bytes match target IO.SYS at the same file offsets."
+  ],
+  "limitations": "Applies to the selected reference configuration; does not establish all optional builds or original source identity.",
+  "change": "No source change."
+}

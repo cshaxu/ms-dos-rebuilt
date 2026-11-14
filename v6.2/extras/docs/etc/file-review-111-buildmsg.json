@@ -1,0 +1,27 @@
+{
+  "index": 111,
+  "file": "cmd/command/buildmsg.c",
+  "reviewed_sha256": "7e14fd26348180f23687243b17ec63248d1bdadafe8877dfb24ec41a0fc6e2ea",
+  "decision": "retain reference-identical message generator source",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\buildmsg.c",
+      "sha256": "7e14fd26348180f23687243b17ec63248d1bdadafe8877dfb24ec41a0fc6e2ea"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\cmd\\command\\buildmsg.c",
+      "sha256": "7e14fd26348180f23687243b17ec63248d1bdadafe8877dfb24ec41a0fc6e2ea"
+    }
+  ],
+  "verification": {
+    "build_script": "extras/tools/build_command_reference.py",
+    "build_report": "extras/docs/etc/command-reference-build.json"
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and Astro.",
+    "The selected COMMAND reference build invokes a pinned prebuilt tools16/buildmsg.exe to process provisional message inputs and command.skl; it does not compile this C source.",
+    "The source begins with semicolon-prefixed lines before the C body, preserved as found in both references."
+  ],
+  "limitations": "Equivalence between this source and the prebuilt tool, the historical source preprocessing, the 6.20 messages, and full COMMAND.COM identity are not yet established.",
+  "change": "No source change."
+}

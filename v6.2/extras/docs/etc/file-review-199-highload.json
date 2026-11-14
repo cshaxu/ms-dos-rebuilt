@@ -1,0 +1,14 @@
+{
+  "index": 199,
+  "path": "inc/highload.inc",
+  "reviewed_sha256": "019526349ea2dfdb2c00fbe3cf125334b535701186485052e28376028940689b",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical high-memory load preparation implementation.",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "COMMAND LOADHI and BIOS SYSCONF include highload.inc.",
+    "The prior LOADHI comparison covered all 2001 module bytes including HIGHLOAD.INC, with 1697 matching non-relocation bytes and 73 matching internal near branches (review 128).",
+    "The prior SYSCONF comparison covered 9192 aligned bytes and classified remaining differences as relocation fields or two short branches across a restored call (review 037)."
+  ],
+  "limitations": "LOADHI target module location is inferred, relocation fields and all conditional configurations are not proven, and final IO.SYS/COMMAND.COM links remain unverified."
+}

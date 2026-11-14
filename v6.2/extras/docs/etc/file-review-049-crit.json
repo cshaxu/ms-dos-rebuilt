@@ -1,0 +1,29 @@
+{
+  "index": 49,
+  "file": "dos/crit.asm",
+  "reviewed_sha256": "8f95042897a5d39cc514fa965f79e7f3538a213703ed98fb45d0d4cb7a9e3af1",
+  "decision": "retain reference-identical critical-section module",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\crit.asm",
+      "sha256": "8f95042897a5d39cc514fa965f79e7f3538a213703ed98fb45d0d4cb7a9e3af1"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\crit.asm",
+      "sha256": "8f95042897a5d39cc514fa965f79e7f3538a213703ed98fb45d0d4cb7a9e3af1"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/kernel-local-baseline-build.json",
+    "module_file_offset": 4954,
+    "module_length": 128,
+    "target_sha256": "011a77d82d898830e755030928133f26a5a9e8466714ec5514a53b9a2b5dec90"
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and astro.",
+    "Listing places EcritDisk at module offset zero and ends DOSCODE at 0080h; map resolves 0000:514A with -15856 file bias.",
+    "All 128 linked bytes match target MSDOS.SYS at the same offsets."
+  ],
+  "limitations": "Evidence covers the selected reference configuration, not all optional builds or original source identity.",
+  "change": "No source change."
+}

@@ -1,0 +1,14 @@
+{
+  "index": 183,
+  "path": "inc/dosmac.inc",
+  "reviewed_sha256": "30acfd9ff4cfa69f2719bc61a4416c3c37fc4cb3ae2b5cdaed64096dfbc67675",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical shared DOS assembler macro library.",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "The file defines assembler macros including I_NEED, INVOKE, I_AM, procedure and conditional transfer helpers; it is included directly or through DOS symbol includes in selected BIOS and DOS modules.",
+    "Previously compared DIR2 and FAT modules match all 1413 and 984 target MSDOS.SYS bytes respectively (reviews 054 and 065).",
+    "The previous MSLOAD comparison found only the shared version byte differing across 1446 bytes (review 019)."
+  ],
+  "limitations": "Module comparisons support macro expansions exercised in the selected builds, not every macro or option. Final linking and complete core file identity remain unverified."
+}

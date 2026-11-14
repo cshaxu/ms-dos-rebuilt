@@ -1,0 +1,21 @@
+{
+  "index": 210,
+  "path": "inc/ms_data.asm",
+  "reviewed_sha256": "70639e0589480cac1a87c8318d7a0906e383febf9b58856021d14019216cf5dd",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical DOS working data declarations.",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "Selected DOS msdata.asm includes ms_data.asm.",
+    "The saved msdata.lst places the DOSDATA contribution at offsets 03B6h\u20130AACh; the file then declares an empty DOSDATALAST boundary.",
+    "The 1783 aligned output bytes at target file offset 8546h match the saved reference build byte for byte."
+  ],
+  "comparison": {
+    "build": "extras/build/kernel-reference-0_jps7ao/MSDOS.SYS",
+    "target": "extras/baselines/targets/MSDOS.SYS",
+    "start": 34118,
+    "length": 1783,
+    "differing_bytes": 0
+  },
+  "limitations": "Much of this region is declared uninitialized; matching materialized bytes does not establish their historical source initialization. The comparison uses the prior linked build and does not prove final data placement or complete MSDOS.SYS identity."
+}

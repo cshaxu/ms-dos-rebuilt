@@ -1,0 +1,50 @@
+{
+  "index": 46,
+  "file": "dos/cpmio.asm",
+  "reviewed_sha256": "451b22d70c1cc590390c4f997a26ab9c7d5facbc132905684acfc59c6baaa24f",
+  "decision": "retain reference-identical console input/output module",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\cpmio.asm",
+      "sha256": "451b22d70c1cc590390c4f997a26ab9c7d5facbc132905684acfc59c6baaa24f"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\cpmio.asm",
+      "sha256": "451b22d70c1cc590390c4f997a26ab9c7d5facbc132905684acfc59c6baaa24f"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/kernel-local-baseline-build.json",
+    "module_file_offset": 5082,
+    "module_length": 806,
+    "differing_module_offsets": [
+      3,
+      18,
+      69,
+      171,
+      172,
+      202,
+      203,
+      453,
+      454,
+      525,
+      526,
+      634,
+      639,
+      655,
+      669,
+      682,
+      737,
+      747,
+      752,
+      763
+    ]
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and astro.",
+    "Listing places $STD_CON_INPUT_NO_ECHO at module offset 0000h and ends DOSCODE at 0326h; link map resolves 0000:51CA with -15856 file bias.",
+    "All 20 differing bytes lie in assembler-marked external call or data reference fields, including console escape character variables and I/O helpers."
+  ],
+  "limitations": "External symbols and final kernel layout are not yet target-identical; whole-kernel comparison remains necessary.",
+  "change": "No source change."
+}

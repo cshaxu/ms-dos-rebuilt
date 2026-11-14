@@ -1,0 +1,18 @@
+{
+  "index": 159,
+  "path": "cmd/command/tpipe.asm",
+  "reference_sha256": "8212af6332ff32ff97a743371f24e9a7c0119bd3809a870c339ce287e7005310",
+  "reviewed_sha256": "8212af6332ff32ff97a743371f24e9a7c0119bd3809a870c339ce287e7005310",
+  "reference_astro_identical": true,
+  "decision": "Retain reference-identical source; assembled module matches target outside relocation fields.",
+  "target": "extras/baselines/targets/COMMAND.COM",
+  "target_sha256": "9b1d77119ac6fe4f949f574db1445b2848683c3a5aaa2bb09f52d0b538df3541",
+  "inferred_target_offset_hex": "0x5954",
+  "module_length": 951,
+  "listing_coverage": 951,
+  "non_relocation_bytes_matching": 689,
+  "relocation_bytes": 262,
+  "internal_near_branches_matching": 18,
+  "verifier": "extras/tools/verify_tpipe_listing.py",
+  "limitations": "Target range is inferred; relocation values and complete COMMAND.COM identity require final linking."
+}

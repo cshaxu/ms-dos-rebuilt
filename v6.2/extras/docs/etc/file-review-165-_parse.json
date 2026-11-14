@@ -1,0 +1,13 @@
+{
+  "index": 165,
+  "path": "inc/_parse.asm",
+  "reviewed_sha256": "528b3202bcc7bcd11d02f517f3e528a353d1206cb393ac1ee63d5b9452bd0e91",
+  "decision": "Excluded from the selected three-component core build and retained under research: C-language interface wrapper is not a selected core module.",
+  "archive": "extras/research/excluded/inc/_parse.asm",
+  "evidence": [
+    "The module declares itself a C to PARSER interface and exports _parse.",
+    "The three selected reference-build object lists omit _parse.obj.",
+    "No other selected core source or include references _parse.asm or _parse; COMMAND uses tparse.asm and the shared parse.asm instead."
+  ],
+  "limitations": "Exclusion applies to the selected three-component build; this does not establish that the wrapper was absent from other DOS 6.20 products."
+}

@@ -1,0 +1,45 @@
+{
+  "index": 51,
+  "file": "dos/dev.asm",
+  "reviewed_sha256": "1fdd4f63b181b3575c649caf13ddc29b0d79c6ddc45a60957971a22a678f21a1",
+  "decision": "retain reference-identical device I/O module",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dev.asm",
+      "sha256": "1fdd4f63b181b3575c649caf13ddc29b0d79c6ddc45a60957971a22a678f21a1"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\dev.asm",
+      "sha256": "1fdd4f63b181b3575c649caf13ddc29b0d79c6ddc45a60957971a22a678f21a1"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/kernel-local-baseline-build.json",
+    "reference_module_file_offset": 17952,
+    "target_module_file_offset": 17953,
+    "module_length": 1092,
+    "differing_module_offsets": [
+      61,
+      97,
+      104,
+      156,
+      193,
+      249,
+      265,
+      294,
+      352,
+      362,
+      370,
+      485,
+      493,
+      613
+    ]
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and astro.",
+    "Listing places IOFUNC at module offset 0012h and ends DOSCODE at 0444h; map resolves 0000:8422 with -15856 file bias.",
+    "After alignment one byte later, all 14 differing bytes lie in assembler-marked external call or relocated code-table fields."
+  ],
+  "limitations": "Final target addresses and complete kernel equality require later module reconstruction.",
+  "change": "No source change."
+}

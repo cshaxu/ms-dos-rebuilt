@@ -1,0 +1,19 @@
+{
+  "index": 23,
+  "file": "bios/power21/power.asm",
+  "reviewed_sha256": "d8e8154461b80671365ae7cc0e98355a69d7e4076cd4eddf1b318e289ed3a5ae",
+  "decision": "archive alternate POWER source not used by core reference build",
+  "archive": "extras/research/excluded/bios/power21/power.asm",
+  "reference": {
+    "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\power21\\power.asm",
+    "sha256": "d8e8154461b80671365ae7cc0e98355a69d7e4076cd4eddf1b318e289ed3a5ae"
+  },
+  "checks": [
+    "The file is a distinct alternate copy of BIOS power source; the selected BIOS build explicitly assembles bios/power.asm.",
+    "No core build link list or build script references the power21 directory.",
+    "A fresh BIOS build after archival has identical output and all 16 object hashes compared with the previous build."
+  ],
+  "build_report": "extras/docs/etc/bios-without-power21-power-build.json",
+  "limitations": "This proves absence from the selected build, not equivalence of the two power variants or optional builds.",
+  "change": "Archived alternate source under extras."
+}

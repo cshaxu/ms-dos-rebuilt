@@ -1,0 +1,1646 @@
+{
+  "scope": "DOS 6.20 source quality versus DOS 6.00; binary identity mandatory",
+  "powershell_files": [],
+  "files": [
+    {
+      "number": 1,
+      "path": "bios/apmequ.inc",
+      "sha256": "6ea83b5c2ad1a1bc2f95d9a1b2f84762cb305f589cd06b2c6a9bf37e1aa23258",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 2,
+      "path": "bios/biosseg.inc",
+      "sha256": "d81bdc2ca6e1638c581e21afb6d4aaa59e5ba65fc02bb15df2d9c22208e5d335",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 3,
+      "path": "bios/biostruc.inc",
+      "sha256": "df66a5bce6e1d8f3fa5101cdf5a4901ea060a3aa8f919e1a9a92b347c135b7f1",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 4,
+      "path": "bios/config.inc",
+      "sha256": "c5df5eae47f4cff75bbf315cfa01b8d5f356c10ffccfe792da301ecf23969efa",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 5,
+      "path": "bios/devmark.inc",
+      "sha256": "d6f3dfbcb520b51e6a3b1d0a4bb5b7a2aa5fa268eca22dda1f23f8347f4c7c22",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 6,
+      "path": "bios/inc.asm",
+      "sha256": "e6c87373edd2407dce762f47b09b187572fc77c0071f81f19da74a3954307b20",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 7,
+      "path": "bios/msbio.lnk",
+      "sha256": "0f6159cd77ca1f8d62040c44192a42c2ccddf376ee63ad17e97bcf3c8031df9f",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 8,
+      "path": "bios/msbio.skl",
+      "sha256": "6a0b44c877ad3e7edc3c3e324bcbf3afa50d44f08abc7809dff80ec4deea35d0",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 9,
+      "path": "bios/msbio1.asm",
+      "sha256": "d944d49f615e6639cb88e0198e266119031817ca0b3f3bc2553513a4814a62a6",
+      "reference_identical": false,
+      "status": "reviewed_retained",
+      "audit_number": 1,
+      "review": "Target bds2 initialization; preserve original declaration form.",
+      "current_sha256": "d944d49f615e6639cb88e0198e266119031817ca0b3f3bc2553513a4814a62a6"
+    },
+    {
+      "number": 10,
+      "path": "bios/msbio2.asm",
+      "sha256": "8defab0e0d512284119cb44a933664315d3c5745ced1e826eb5e5ca7edf5fd32",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 11,
+      "path": "bios/mschar.asm",
+      "sha256": "1c6d2aaa8f16c8349bc7d38c9fcf52307fd2791a928e7c7dc9a773cda85aaae7",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 12,
+      "path": "bios/msdioctl.asm",
+      "sha256": "3a3b6b72573f02a1d582d08cee53af5b7eaa031beb0ed70939563d2d0f80e606",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 13,
+      "path": "bios/msdisk.asm",
+      "sha256": "0c166896c215dddd08f7440f462d07a9191c2ff06283139dd15081f09a234038",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 14,
+      "path": "bios/msdskpr.inc",
+      "sha256": "e8dd92dced3a3c098cddefa5ca73804cae9dac8cd0870d6ba51ef10b7c1ebd59",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 15,
+      "path": "bios/msend.asm",
+      "sha256": "ceb3f2072658c8dc153e2274c42b75d8578426ebe84078779209ba62bce00e34",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 16,
+      "path": "bios/msequ.inc",
+      "sha256": "ce05581d636a79dbb1429fae1375adecd83afee6881bc22527df054aece8ec8b",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 17,
+      "path": "bios/msgroup.inc",
+      "sha256": "e3784b1333bf98e632ce3ee94b41dc7ffa7b8da3ed6c7e27b8eaf0f2dee8fe34",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 18,
+      "path": "bios/msinit.asm",
+      "sha256": "6a82485be5fdc5084957000a7b7800a600ae40a06c8d4d8ac6f34cea672167e6",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 19,
+      "path": "bios/msint13.asm",
+      "sha256": "4c7241c46f47c45bd728f40f6b3eb2f9b8784197b3cf1e752be3961c5a17aeec",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 20,
+      "path": "bios/msload.asm",
+      "sha256": "29acc768be4c4bec6bcf4152a1330ecf6aee4ae3edfa544e88256e674d8658d5",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 21,
+      "path": "bios/power.asm",
+      "sha256": "d3090363616ba41069834f7796b7f719c8c40ee82c1ec48ecfb5ee3aa373f95d",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 22,
+      "path": "bios/power.inc",
+      "sha256": "7ba90c01066279b1dd7540226449e47b5d10cf0ecbf28ca06bbfb4100ec74f93",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 23,
+      "path": "bios/ptime.asm",
+      "sha256": "dc40f17b2330fd64ce85d9b4d2a35c8f0d716790762a99f3ed64089652e255ee",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 24,
+      "path": "bios/rom8k.inc",
+      "sha256": "a59c6fd2ce8ef9e9499300946e4885d2b0bccbea278b987e57b822dc94061ecd",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 25,
+      "path": "bios/romdinit.asm",
+      "sha256": "15045b982405f4f1b30cdfce760751ae306d4dc2211671a87d5f96c249e7fe38",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 26,
+      "path": "bios/romdrive.asm",
+      "sha256": "7900155468a5aa13a7fe24b401e0ffc9774a2446fb62663179620b74e43a1f62",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 27,
+      "path": "bios/romrd.asm",
+      "sha256": "6873dba81f979c322dbaea758090c2765b3f84e00ee4772053d255f895456426",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 28,
+      "path": "bios/romrdhi.asm",
+      "sha256": "437bc818effd18711fb2550c72cc6678cc8cfcbd1217fabfe994e032e09f38d6",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 29,
+      "path": "bios/romrdlo.asm",
+      "sha256": "6c69f056db340a22dee6aaecfa1a5714420b7ef3a6073ea799a2e3342581b413",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 30,
+      "path": "bios/sysconf.asm",
+      "sha256": "7f1501d354f1ed27ec4f87801c6d50d806d9d963d16109b5b9f2cb794e0528d0",
+      "reference_identical": false,
+      "status": "reviewed_retained",
+      "audit_number": 2,
+      "review": "Keep moved CheckDoubleSpace call and original empty ELSE; absent NOPs must not be restored.",
+      "current_sha256": "7f1501d354f1ed27ec4f87801c6d50d806d9d963d16109b5b9f2cb794e0528d0"
+    },
+    {
+      "number": 31,
+      "path": "bios/sysimes.asm",
+      "sha256": "f81889db61617ea4610405cac043074344e111c5b24132ff4d497fcf13468059",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 32,
+      "path": "bios/sysinit1.asm",
+      "sha256": "36e9b2ce7f749899cabd7777ce4e14b4d55c0d8d2b4b10d69648cbc55d5c6fe4",
+      "reference_identical": false,
+      "status": "reviewed_modified",
+      "audit_number": 3,
+      "review": "Original AUTOEXEC-disable comment restored; retain BootTicks and /Y state.",
+      "current_sha256": "e251b3c15af38be1c931f6d08c800a1046a49a8aeee22ba332eb8b600c15d30b"
+    },
+    {
+      "number": 33,
+      "path": "bios/sysinit2.asm",
+      "sha256": "274cec6ff8215f741efea160487b0285026540b01eeb70c7f667d5c9bd05ed1d",
+      "reference_identical": false,
+      "status": "reviewed_modified",
+      "audit_number": 4,
+      "review": "Five original shell-insertion comments restored; retain shared /D and /Y path.",
+      "current_sha256": "b4b7f03fff3ded4e7e8c4642f40446ad24d3eb86287cffd91154d1b802f02b11"
+    },
+    {
+      "number": 34,
+      "path": "bios/syspre.asm",
+      "sha256": "5eecc48d2dc62e0834d5fb62656a6a9eb0bef005f305acbfdc3796603f862a14",
+      "reference_identical": false,
+      "status": "reviewed_retained",
+      "audit_number": 5,
+      "review": "Target removes two device-mark writes; no duplicate path.",
+      "current_sha256": "5eecc48d2dc62e0834d5fb62656a6a9eb0bef005f305acbfdc3796603f862a14"
+    },
+    {
+      "number": 35,
+      "path": "dos/abort.asm",
+      "sha256": "13462864fcadc38f3fd0a910aab6abac0a68257d6fdb9e0ed77258fa9254c995",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 36,
+      "path": "dos/alloc.asm",
+      "sha256": "98c929ded7a515871ecf464ec96bbfda483b3ea4295c739ce1afcbd78ffdb450",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 37,
+      "path": "dos/buf.asm",
+      "sha256": "b162899aabcec71289e34b82326457544fd0e794fd20ee97a2f063ce1542ba21",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 38,
+      "path": "dos/close.asm",
+      "sha256": "b9bcb41f70577e9bf407eabfbca3f974cc0c428b93a7574b54be27581821b46b",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 39,
+      "path": "dos/cpmio.asm",
+      "sha256": "451b22d70c1cc590390c4f997a26ab9c7d5facbc132905684acfc59c6baaa24f",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 40,
+      "path": "dos/cpmio2.asm",
+      "sha256": "d2a5a4ef5121bb9a8928c83d54499e3e239d182939a062b5a0f02fa7d234265f",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 41,
+      "path": "dos/create.asm",
+      "sha256": "4a76a4fb11682cd81daca1dd2af9afe79fcf21db428a3e19d32af51ea902e9bb",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 42,
+      "path": "dos/crit.asm",
+      "sha256": "8f95042897a5d39cc514fa965f79e7f3538a213703ed98fb45d0d4cb7a9e3af1",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 43,
+      "path": "dos/delete.asm",
+      "sha256": "5fe514092accffa110a13a4f05dd2104664cfad87479f21bb57ea411d1cf1d77",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 44,
+      "path": "dos/dev.asm",
+      "sha256": "1fdd4f63b181b3575c649caf13ddc29b0d79c6ddc45a60957971a22a678f21a1",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 45,
+      "path": "dos/dinfo.asm",
+      "sha256": "3bc73774ddcecfc61214336f65449da0331edfd9513c5752100fcfd6fd481c51",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 46,
+      "path": "dos/dir.asm",
+      "sha256": "89e596037f89ae5485daf29c2a782cb9512bd3845d5bcfb1f932cf9a5a9be890",
+      "reference_identical": false,
+      "status": "reviewed_retained",
+      "audit_number": 6,
+      "review": "Target JNZ and CLC fixes; old Always clears carry comment would be incorrect.",
+      "current_sha256": "89e596037f89ae5485daf29c2a782cb9512bd3845d5bcfb1f932cf9a5a9be890"
+    },
+    {
+      "number": 47,
+      "path": "dos/dir2.asm",
+      "sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 48,
+      "path": "dos/dircall.asm",
+      "sha256": "769049ce7d690ab8be44205a66cf4d8c900048ef7ec230655599e2b8a5e47a19",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 49,
+      "path": "dos/disk.asm",
+      "sha256": "d4a7a2cbda59cc693754529806c4e6b7fcbde376a42e647eacefecef87cd9cca",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 50,
+      "path": "dos/disk2.asm",
+      "sha256": "0876bb2c21d9232c3de57ee681c39b028003c09eeb58db36f6f2d9bda4527cb8",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 51,
+      "path": "dos/disk3.asm",
+      "sha256": "9576ede44a7a1ff86d46cd8ed02749d783a48ff2d39b703a26d007139f821fdd",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 52,
+      "path": "dos/divmes.inc",
+      "sha256": "7c97a1fd07befd5d0861306e0573369d33caf84ea3190bdbae65889b7e816192",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 53,
+      "path": "dos/dosmes.inc",
+      "sha256": "c5f7b697c97a672d659b143c50d48fc78fa16adc739a160b955ff51c2859188c",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 54,
+      "path": "dos/dosprint.asm",
+      "sha256": "96412d605a3e19ccfaa9a4fdd57a8949eca7fce3950cf81bc4e3c6bf491b05ba",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 55,
+      "path": "dos/dostab.asm",
+      "sha256": "6b9c684c2096e5e1c1b2c8e94a3a41d9fba7fe85289f8d0ce6e03ac2dd9f397d",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 56,
+      "path": "dos/dup.asm",
+      "sha256": "e12500722670edd6faa184679039b09225c9f6756c2a2fc644dfabb5e2536b09",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 57,
+      "path": "dos/exepatch.asm",
+      "sha256": "ab3b9501d4ef3401a360692c5a4c59c24d19c6590231173c6cabba59d723d99a",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 58,
+      "path": "dos/fat.asm",
+      "sha256": "69b434ab7d945e6de0fbfe9e6a657de2d622a54f92661d4117721a5be15f385f",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 59,
+      "path": "dos/fcb.asm",
+      "sha256": "dd7c6d6b85d08585be900b91f329821a81c6ee9b5f1cb71268382af4fb39a01c",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 60,
+      "path": "dos/fcbio.asm",
+      "sha256": "826fb2b0c8bfb9d2da36c8722270d68bd62a0c205699941f0a66471ee0720608",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 61,
+      "path": "dos/fcbio2.asm",
+      "sha256": "2faabcea11b9476c1e6108db7eef581c9e1c46793313b2c358343dca31912293",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 62,
+      "path": "dos/file.asm",
+      "sha256": "28f25db8a2d344b22f3e6cf9618b5f85458c16b497978a2862283dbe721c7c77",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 63,
+      "path": "dos/finfo.asm",
+      "sha256": "58ba5d206fe7c20eea409db6ac39ebcf2e59db19b5fc691f942b3ca90ec02c39",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 64,
+      "path": "dos/getset.asm",
+      "sha256": "b26b12fcd432ca80055e4aec8f222942ab05625b7b9621f232ae8f20464783d7",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 65,
+      "path": "dos/handle.asm",
+      "sha256": "f42fa91329b674864a5421b40be415b348a18f0793221b9c07d526b12924e90f",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 66,
+      "path": "dos/ioctl.asm",
+      "sha256": "5d2e75742cba4d8f45f5c05ff731b1ee32de092cd01b8aa01442b6ab10d8e5b8",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 67,
+      "path": "dos/isearch.asm",
+      "sha256": "ec0bb3be4beec3c99e8931d737222a09f1c5f728009ea4efd27a09d2936cc039",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 68,
+      "path": "dos/kstrin.asm",
+      "sha256": "973c9453988f7d2148fca526a478069b6a34a197715321f20624aee615928e51",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 69,
+      "path": "dos/lock.asm",
+      "sha256": "99dc1dbc2c37e6b2461d1c7921da39d54e81736e3424d2c95c5912a6351f0891",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 70,
+      "path": "dos/macro.asm",
+      "sha256": "86b39aee4b10eb6bec74ad5427047c348fb8270a3d6a3dc5818d6c8222a8a788",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 71,
+      "path": "dos/macro2.asm",
+      "sha256": "599c74d3c01f65985e9ffa75fe6bf3eea8a5b36bdf8ef6808634f17deaab77d2",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 72,
+      "path": "dos/misc.asm",
+      "sha256": "43d8d906b97b40370705b3ae1ca004a545bb622cd9a36f3855d762d793e0758f",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 73,
+      "path": "dos/misc2.asm",
+      "sha256": "0b41797df70242773aee7d72b6cd4a25c415ca6c5b9cc23d9b20082044e3ba7d",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 74,
+      "path": "dos/mknode.asm",
+      "sha256": "e3c479c9179857e03b6c360931201a1db68af23234dd92408e84c11a50854158",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 75,
+      "path": "dos/mpatch.asm",
+      "sha256": "8af243919b9d2044c6ccc4341233065ccf3a441e6bae8881f9d1065e1cd74d40",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 76,
+      "path": "dos/mscode.asm",
+      "sha256": "dc4d766c2238e9d9045e9ea6917593c0d2d1c2bb7fb634b49df405d19a898ff3",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 77,
+      "path": "dos/msconst.asm",
+      "sha256": "5e32f377e8f336bd307e318a010c9a77d787f79fa8fe16a33f2376ff0828f359",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 78,
+      "path": "dos/msctrlc.asm",
+      "sha256": "251d8ede15d74e063a9f5a065366b9db06b3c6890f2a0d7a8ee553489d403143",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 79,
+      "path": "dos/msdata.asm",
+      "sha256": "8cfd6b65393186faa1f6ac8015bea073b6594c98c706a004a696cc413d590da7",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 80,
+      "path": "dos/msdisp.asm",
+      "sha256": "441cfe675ac62e37a2967631e0b6a0a63b5cf979af8c48e3d671ce7d9bfd215d",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 81,
+      "path": "dos/msdos.lnk",
+      "sha256": "7fc32dd2e361db355e3c591b1619fac0f68232afe4012948c9359b73d2294c0c",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 82,
+      "path": "dos/msdos.skl",
+      "sha256": "a5605f538cce0c44d6eee650a50cc82b991e4f5743d804e9abe17e12c6e27a9a",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 83,
+      "path": "dos/msdosme.asm",
+      "sha256": "9a1c7e0320fb80626151eab55fc628aa377768490bb1e415b65dbaae3393f099",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 84,
+      "path": "dos/mshalo.asm",
+      "sha256": "89dbe90c55b755472d8f2834b9ac4e415fce6e9f0376e50b3da0821f9c964250",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 85,
+      "path": "dos/msinit.asm",
+      "sha256": "67a662e3c6c186fd2fe0604624557077dcd7f8be65f85e3be01f26f250a0c2a0",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 86,
+      "path": "dos/msioctl.asm",
+      "sha256": "39228d3934d865562191950ef45a9347c9d998a6d59a2f323c5c2f0d8e35a65b",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 87,
+      "path": "dos/msproc.asm",
+      "sha256": "4aa312105af8582066ac6fe55f47755f6192ac7f9f21a9f2658ab68050a65a98",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 88,
+      "path": "dos/mssw.asm",
+      "sha256": "e0490c29ff1a0415385516faeb3172e13b7e3eec546bbf02cce8ae4d752728ab",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 89,
+      "path": "dos/mstable.asm",
+      "sha256": "a21d8332e3ae890095231455fe281a02e7d3330b4d7f3422164bdd382b5b6949",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 90,
+      "path": "dos/open.asm",
+      "sha256": "ec819887cd3e79ee1e4cc9b010fc8c4f0918699f277477a95196134e0d6cdc94",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 91,
+      "path": "dos/origin.asm",
+      "sha256": "9e02ec81b78bd3249c55cb46fa7aa3693e64bdd4ef57bc2ef7566f754d4b03b6",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 92,
+      "path": "dos/parse.asm",
+      "sha256": "0d8ff2285e63f56c2f5c0064199a9b54cafed39d1a064ed2d0739c5b2efabba1",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 93,
+      "path": "dos/path.asm",
+      "sha256": "f93d8c15498c8751c0de278267f8d80bf328559f34bb70494a1a303ef3cef5f2",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 94,
+      "path": "dos/rename.asm",
+      "sha256": "e6b1bc6274952b29234230fb72dff9e2cb601558d75af5a298079df93b101dbd",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 95,
+      "path": "dos/restrict.inc",
+      "sha256": "a5f68b20aba15a124f3e6f9af99638505e0112edd94a72f8aac7db9160560a76",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 96,
+      "path": "dos/rom.asm",
+      "sha256": "870a70fa594015cf46864fee33e861cfa5d4367631c832d16b509718c4cc294c",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 97,
+      "path": "dos/romfind.asm",
+      "sha256": "f334bb028ed5ab0ae924865ce21be8b98c43ea2ab59d8624ff5bb51b99d4fb51",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 98,
+      "path": "dos/scnam.inc",
+      "sha256": "45dc2dc00161d605fe96e1f4962e7ef6fb5af495359b46f9da3a167dfbe9b3e8",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 99,
+      "path": "dos/search.asm",
+      "sha256": "13196cd660edcafb10477fab1a6d807649e7be86f6f4a9c6e436161f0e60d82c",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 100,
+      "path": "dos/segcheck.asm",
+      "sha256": "b5bbcf41397409b980277292477b75cca01212ba20909767273ffb9a34956da7",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 101,
+      "path": "dos/share.asm",
+      "sha256": "0eb75b8acef5c5dd2bd86d0c7b26ae885ba72d18c2e5bc2d2b01476ef46f1aa7",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 102,
+      "path": "dos/shrprint.asm",
+      "sha256": "2262e4a31bd4a2e5f4a4e71d62377068ab0956811691b7c84399ca2b1221cd6d",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 103,
+      "path": "dos/srvcall.asm",
+      "sha256": "2074931698e50d0f41e9584334b72fd622b49ed3c7595f2606acc584ed41a2f3",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 104,
+      "path": "dos/time.asm",
+      "sha256": "7ea358d51ad44c3bc09e06c81cc468c9d9ff646abac04c619b377606f38cb336",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 105,
+      "path": "dos/util.asm",
+      "sha256": "664389bd28b8c9455b32c2021d6a04ee2400931326d355f9604eff5ced23ab1e",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 106,
+      "path": "inc/arena.inc",
+      "sha256": "8b7e1038bdde542ff71fe320fd666788a3f517bed0ba90d3cad146e001933589",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 107,
+      "path": "inc/bdsize.inc",
+      "sha256": "33a862fb4b05d71a2f8307f231dcb08491fed700343db8c9e56efcae00455ca2",
+      "reference_identical": false,
+      "status": "reviewed_retained",
+      "audit_number": 7,
+      "review": "Target sizes; original EQU form unchanged.",
+      "current_sha256": "33a862fb4b05d71a2f8307f231dcb08491fed700343db8c9e56efcae00455ca2"
+    },
+    {
+      "number": 108,
+      "path": "inc/bootform.inc",
+      "sha256": "4b965419b9fb2c035961b8042f7a494a6a8baeb1df63c270bb068658e2f1bea9",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 109,
+      "path": "inc/bpb.inc",
+      "sha256": "43452ad264b7242d892634f19bfcd036f8a2f1c926745466b27039e8c5f960a8",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 110,
+      "path": "inc/buffer.inc",
+      "sha256": "dd480d8e43f47d3ba741498ee67dae60716c3fe7fdba92afb73e14f302897b16",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 111,
+      "path": "inc/bugtyp.inc",
+      "sha256": "5ca6cab9f8de58819470837484d8da1a1f044356f5dbb4d3206dbcfebc92ac87",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 112,
+      "path": "inc/const2.asm",
+      "sha256": "d6fd5b7d1c74ab28e361b4854cc431e321abe93e79e2682964681c6b63957100",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 113,
+      "path": "inc/copyrigh.inc",
+      "sha256": "662a03f0834c5e8dd8f8cd6480cfc2b80bbe89ef9ae1cb2beb539e999dada769",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 114,
+      "path": "inc/cpmfcb.inc",
+      "sha256": "ca2cb0e7a884aca307590d3eb9f4620a5ce3455ccb862d4e19fbd5a4c1e3501f",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 115,
+      "path": "inc/cputype.inc",
+      "sha256": "e9bf8b0a5ee0e10936d5403cddadacc898ce1f8b6807ab955b2d0639e5b50cb0",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 116,
+      "path": "inc/curdir.inc",
+      "sha256": "35ce4c7f4511ccd82b0080f769f1efee90853f42c93a1c9d98a7ab930e618aaf",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 117,
+      "path": "inc/dbcs.sw",
+      "sha256": "ca8e10fb6de72593568aa21cb1e24b36a180c64fff0a49ceb8194c75e79737dd",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 118,
+      "path": "inc/devsym.inc",
+      "sha256": "fc490d94869f327034ac3224f7f3bad918ee643041e3f939b4b65693f24e3071",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 119,
+      "path": "inc/dirent.inc",
+      "sha256": "72797ae77d98550ea6ad11aa4a9d46d8ddd88d3dfbb1872aca0c1cd6a52adaa9",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 120,
+      "path": "inc/doscntry.inc",
+      "sha256": "0afc8359d8e51c0da06b15cf725c15a1600b8a4a44f68a74964c78c1b4864a33",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 121,
+      "path": "inc/dosmac.inc",
+      "sha256": "30acfd9ff4cfa69f2719bc61a4416c3c37fc4cb3ae2b5cdaed64096dfbc67675",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 122,
+      "path": "inc/dosseg.inc",
+      "sha256": "b57bb8fe4cdbd0e215a0fb4c34dd21aff2f300ab6228788a3e3912144f86b0ef",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 123,
+      "path": "inc/dossym.inc",
+      "sha256": "7251b43759082b218b6216a267c69efe1adc46da7e5a8bdf75ddd94d366de6a9",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 124,
+      "path": "inc/dpb.inc",
+      "sha256": "78a9717b8fe123d31651d6351adeb6789501ef273ce2476316f5d4ec7c450ec0",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 125,
+      "path": "inc/dpl.asm",
+      "sha256": "3c05ff68a98c953d5cba320d81aecd0e813db044477fef11ac38fd599520f9da",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 126,
+      "path": "inc/ds_vers.inc",
+      "sha256": "f06ac61a0f4bf2dc72ed1f8b79b1aefe1125c1e92978381068d7a49d5bf6eeed",
+      "reference_identical": false,
+      "status": "reviewed_retained",
+      "audit_number": 8,
+      "review": "Revision 10; original layout retained.",
+      "current_sha256": "f06ac61a0f4bf2dc72ed1f8b79b1aefe1125c1e92978381068d7a49d5bf6eeed"
+    },
+    {
+      "number": 127,
+      "path": "inc/ea.inc",
+      "sha256": "b18162e19f3c81a5982740cc7a5285e0c89d386507b567da61df0e3dddf2549b",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 128,
+      "path": "inc/error.inc",
+      "sha256": "f175053c01e3e4108cab8ac0cef34f5a53e70e050c93216f12182154a2a8968b",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 129,
+      "path": "inc/exe.inc",
+      "sha256": "9823aec6d6bf327ca248ae828bf213aa053f1a466e5d27ffaad455758fd05b36",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 130,
+      "path": "inc/fastopen.inc",
+      "sha256": "64f83d23612ac77f7f1a40e4b5c2dbbb93e6daf65d96106f1d45c8ee6e2cbea3",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 131,
+      "path": "inc/fastxxxx.inc",
+      "sha256": "6e89fb864fb75b1e89bf3c049ead0167d481377ce6fa6986f9e53b30a30331f6",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 132,
+      "path": "inc/filemode.inc",
+      "sha256": "1ed4f86e30874fd29bbf1db7d8d7bf541b3e29f9b52e3eb9cf62b007f6c88a05",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 133,
+      "path": "inc/find.inc",
+      "sha256": "9ffe3c32ba76131086cf11465ac666ff369382bd89193202b2ab1a998e8f2bef",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 134,
+      "path": "inc/highexit.inc",
+      "sha256": "e1df06058140691c7e5fdcc0da2d536d56368aa2331737a15e10ad06c17d7ddc",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 135,
+      "path": "inc/highload.inc",
+      "sha256": "019526349ea2dfdb2c00fbe3cf125334b535701186485052e28376028940689b",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 136,
+      "path": "inc/highvar.inc",
+      "sha256": "79c6e82987d716b33e73e956b0b1a11689dfaad60a8b55e8c39238cf09c5892d",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 137,
+      "path": "inc/int2a.inc",
+      "sha256": "6af97498ea576a05abb7e58183c2daa8d494e231d931c141bc7fc4c7e756c896",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 138,
+      "path": "inc/intnat.inc",
+      "sha256": "2e198e650d88204dcb6b94dfbb8ed7a9abe629b23e5a9313a8cbd21a0738a809",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 139,
+      "path": "inc/ioctl.inc",
+      "sha256": "3578ed8c51c3856a05bb9dabac438feb9e4bf3ddacd98befa0d90b96e244464c",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 140,
+      "path": "inc/lmstub.asm",
+      "sha256": "a0783d6f103220cbc6eff5ae371fbc9316e53b1e99ff74e4afc418496d4012f8",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 141,
+      "path": "inc/lock.inc",
+      "sha256": "798fc526d01fb124e6b459a034500a2b214f03c32184d4de7b023d8d51fe8841",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 142,
+      "path": "inc/magicdrv.inc",
+      "sha256": "3df074a18ae69121c0f691a0880c4b94d245bc3e25839a30a987cd343e336e0a",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 143,
+      "path": "inc/mi.inc",
+      "sha256": "dc9226da8ca79d71ac339ef92d8deeeae8b0b7414ab671b2075419432fb63f9d",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 144,
+      "path": "inc/ms_data.asm",
+      "sha256": "70639e0589480cac1a87c8318d7a0906e383febf9b58856021d14019216cf5dd",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 145,
+      "path": "inc/msbdata.inc",
+      "sha256": "9e324c8a49c1487c2dff0dccbe1350f5bbc82dc3aa1843b0e71d4b71ad6dc827",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 146,
+      "path": "inc/msbds.inc",
+      "sha256": "641a8c8ad5a1d611d72342fdf40e20f91ce4a02f89cd83b47d041cebc4265e75",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 147,
+      "path": "inc/msgdcl.inc",
+      "sha256": "2da1a5b96b9a283fadf3d438d0039f729dc7f837c96eff507f8f5411ebb62a12",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 148,
+      "path": "inc/msgserv.asm",
+      "sha256": "627b204f2e96fbd84c8a8b6513fd8a56ae3b2fa56c8a5bc736b5cdf0181cbbf4",
+      "reference_identical": false,
+      "status": "reviewed_retained",
+      "audit_number": 9,
+      "review": "COMT grouping/input support in existing shared provider; retain necessary conditions.",
+      "current_sha256": "627b204f2e96fbd84c8a8b6513fd8a56ae3b2fa56c8a5bc736b5cdf0181cbbf4"
+    },
+    {
+      "number": 149,
+      "path": "inc/mshalo.asm",
+      "sha256": "ea61a90d0190128ee5dfcb9a6f2a07f3fed11d37a510896b0e1865c258de0694",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 150,
+      "path": "inc/mshead.asm",
+      "sha256": "a1572e2b8b0b2b840df0c6317d7072901f381ce2c1fe793cd5966a2e07309d29",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 151,
+      "path": "inc/mult.inc",
+      "sha256": "73037418e659c1eab2d3e67fc7e29eebed8fc6f1fe5790848ee22f9870ef89a6",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 152,
+      "path": "inc/oemconf.inc",
+      "sha256": "aff9b69a014044feb6f8261a1bb7fd5a453a5aa85c10633e0d8c707ddf1cc46d",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 153,
+      "path": "inc/origin.inc",
+      "sha256": "5e0e96fdffccfb760dc650c056aca15a48a5927eb15f7a7d7bf9b5c30b7dbf96",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 154,
+      "path": "inc/parse.asm",
+      "sha256": "65ecd960668b4bddb74a6b1bff25a21a15d20b3b7efac0183218a334c39e959a",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 155,
+      "path": "inc/pdb.inc",
+      "sha256": "e5d7f79a89904b334b869292e28596adbdac23e26d953d12bc0a6cb46a1e4b29",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 156,
+      "path": "inc/psdata.inc",
+      "sha256": "071642bb031b8a932578bd294f2f4527b2a89442f7a3caeb5f1bd446b59b4381",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 157,
+      "path": "inc/rombios.inc",
+      "sha256": "14aa46d7fdbefc03488bf91eb69815d292c61042580419a033622ed367aa564f",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 158,
+      "path": "inc/sf.inc",
+      "sha256": "98f38dad3562b516b4232ceb309a16f6b3ec8f4a899f99a7e433380f466df98d",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 159,
+      "path": "inc/smifssym.inc",
+      "sha256": "bfd832bcd928d692b1b7250b98680ae2dd3b1864a55018ed0e4852631b8bc13b",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 160,
+      "path": "inc/syscall.inc",
+      "sha256": "6c48280825687958d53d845e42cf9abbc7a35231108b59787da902160bc955be",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 161,
+      "path": "inc/sysmsg.inc",
+      "sha256": "e5cf275e81b07172232b6a8fbfe7214aa32d0e5a754a999fc7a423a674d81b49",
+      "reference_identical": false,
+      "status": "reviewed_retained",
+      "audit_number": 10,
+      "review": "Grouping indices 7 and 11; original declaration style.",
+      "current_sha256": "e5cf275e81b07172232b6a8fbfe7214aa32d0e5a754a999fc7a423a674d81b49"
+    },
+    {
+      "number": 162,
+      "path": "inc/sysvar.inc",
+      "sha256": "e10451b7564ef7f5fe100cfd85d2f873a076ad9ad37ab09a53f95acc42577f2e",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 163,
+      "path": "inc/umb.inc",
+      "sha256": "c53551ce1da16fff455029aea3e38ce029db4d4bb1e61c971c63d7ea8f338c73",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 164,
+      "path": "inc/vector.inc",
+      "sha256": "f254af16d59d41e7f4862c2c21f5ac75fbcdd6022df2f42d9c88d5f3c8b028b0",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 165,
+      "path": "inc/version.inc",
+      "sha256": "b9ce9a6d7b82c2203ac9c5643d8b255c2d3cf7363defa1220ea8c15f3f1cdb61",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 166,
+      "path": "inc/versiona.inc",
+      "sha256": "4b56ec4f42749a17bb46aa27c5e0fbc99ff3d2d5e0e3931cf00acd6690c1d141",
+      "reference_identical": false,
+      "status": "reviewed_retained",
+      "audit_number": 11,
+      "review": "Version 20; original expression and formatting.",
+      "current_sha256": "4b56ec4f42749a17bb46aa27c5e0fbc99ff3d2d5e0e3931cf00acd6690c1d141"
+    },
+    {
+      "number": 167,
+      "path": "inc/win386.inc",
+      "sha256": "f93d2bd1d1c4be0bb0474a4e0ed8796e0f10fdc8e424fc0ffcd64890e599219c",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 168,
+      "path": "inc/wpatch.inc",
+      "sha256": "5195c65222fd02b5f462e058ddbef9eaaebe577907563e1171863c19c583b1d3",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 169,
+      "path": "inc/xmm.inc",
+      "sha256": "166f5796fa0122255f2ef7013b89de089db4dff1c61e9a6c107838e73c5b7acb",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 170,
+      "path": "inc/yesno.asm",
+      "sha256": "c06e759028108eb655662c8c5231075b145854d14f166c44720298e505546e7b",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 171,
+      "path": "cmd/command/buildmsg.c",
+      "sha256": "7e14fd26348180f23687243b17ec63248d1bdadafe8877dfb24ec41a0fc6e2ea",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 172,
+      "path": "cmd/command/comequ.asm",
+      "sha256": "603e4aaa70fa25ac486f4dc5ab3f462ad1c87eae4d6966b8577b710fe8abeecf",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 173,
+      "path": "cmd/command/command.lnk",
+      "sha256": "043586cd7a15e3e2c753369194c49c60c18548a4fba65f4fdb3d1478a28c5d11",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 174,
+      "path": "cmd/command/command.skl",
+      "sha256": "8ee27b220b583012afedb472f654bcec1d537504294e5f21f146a0b839a8e296",
+      "reference_identical": false,
+      "status": "reviewed_retained",
+      "audit_number": 12,
+      "review": "Required 6.20 message IDs; original skeleton syntax.",
+      "current_sha256": "8ee27b220b583012afedb472f654bcec1d537504294e5f21f146a0b839a8e296"
+    },
+    {
+      "number": 175,
+      "path": "cmd/command/command1.asm",
+      "sha256": "f06136213c6bb00c156eee0876a4ae821166567027f18c22c71196a1ffa1e40d",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 176,
+      "path": "cmd/command/command2.asm",
+      "sha256": "aac1b9cad1f30e9df6ea1e9f8d463e365d068e77be200e44b9a2103251ee28a7",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 177,
+      "path": "cmd/command/comseg.asm",
+      "sha256": "14ede618cfbcba077bb368574af6a1fc56bb07535980d95d8ba146c9bce9e4e3",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 178,
+      "path": "cmd/command/comsw.asm",
+      "sha256": "d6bf33dfafcc6170a7f38e3dedc164910ed0ee1e6e6133200b11c53c49589b37",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 179,
+      "path": "cmd/command/copy.asm",
+      "sha256": "fc34cda03a81fe7ae571faa76cf0b0c86d1e23a61572f0646efd27a374e92c54",
+      "reference_identical": false,
+      "status": "reviewed_retained",
+      "audit_number": 13,
+      "review": "Required overwrite/COPYCMD handling; shared confirmation and environment helpers.",
+      "current_sha256": "fc34cda03a81fe7ae571faa76cf0b0c86d1e23a61572f0646efd27a374e92c54"
+    },
+    {
+      "number": 180,
+      "path": "cmd/command/copypr1.asm",
+      "sha256": "af82e6aa29923b6d8b3be87d83fb7ff4ce790d256451fe75f8628f8ac00bceab",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 181,
+      "path": "cmd/command/copypr2.asm",
+      "sha256": "04c55a37f1200b2a108c8c0249b3752beea54e1bdfb5aeea05098b36a2f424e9",
+      "reference_identical": false,
+      "status": "reviewed_retained",
+      "audit_number": 14,
+      "review": "Target OR replaces MOV; original structure.",
+      "current_sha256": "04c55a37f1200b2a108c8c0249b3752beea54e1bdfb5aeea05098b36a2f424e9"
+    },
+    {
+      "number": 182,
+      "path": "cmd/command/cparse.asm",
+      "sha256": "0529153998cf547c0be1d8ae678dfac182f2e9470a01bace26be2df2d0479add",
+      "reference_identical": false,
+      "status": "reviewed_retained",
+      "audit_number": 15,
+      "review": "Eight switches match switch_list; original SWCOUNT form.",
+      "current_sha256": "0529153998cf547c0be1d8ae678dfac182f2e9470a01bace26be2df2d0479add"
+    },
+    {
+      "number": 183,
+      "path": "cmd/command/cratio.asm",
+      "sha256": "7d6618709b62f84687ea8e0da8f174b751d1c173725ecb8be73f6a9f215aa410",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 184,
+      "path": "cmd/command/dir.asm",
+      "sha256": "82d02e6bbc1dd96eb074f473e89fadf6300ae23b9df2598ffd7d91d79c8293fe",
+      "reference_identical": false,
+      "status": "reviewed_retained",
+      "audit_number": 16,
+      "review": "Required display-width/padding; original common formatting retained.",
+      "current_sha256": "82d02e6bbc1dd96eb074f473e89fadf6300ae23b9df2598ffd7d91d79c8293fe"
+    },
+    {
+      "number": 185,
+      "path": "cmd/command/envdata.asm",
+      "sha256": "79fe75fb0ce61dad7f9956b594e2bf8a7480f8559ec96a1ab598bbfe38afc805",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 186,
+      "path": "cmd/command/fordata.asm",
+      "sha256": "90544898349730457c124055dcd13c536866360f50a63fd3242c6af823f88d0b",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 187,
+      "path": "cmd/command/ifequ.asm",
+      "sha256": "658d692385d05f90d21f5212a4e3f4dd95717eefa9c6a2bd44ca2e97a4cda3be",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 188,
+      "path": "cmd/command/init.asm",
+      "sha256": "6432fd23c892a50261d6899c845f75f2178677b49142211c62626b049fa513da",
+      "reference_identical": false,
+      "status": "reviewed_retained",
+      "audit_number": 17,
+      "review": "Required /Y parser and branch expansion; original switch parser.",
+      "current_sha256": "6432fd23c892a50261d6899c845f75f2178677b49142211c62626b049fa513da"
+    },
+    {
+      "number": 189,
+      "path": "cmd/command/iparse.asm",
+      "sha256": "212d981c0338012fe96849a7ea569bea2172d267beeb57415d702d603e7d2e7e",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 190,
+      "path": "cmd/command/loadhi.asm",
+      "sha256": "f3276d251f387197d2bf089da98e8f690fa60c9d7def3b0c93d511994a73e65f",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 191,
+      "path": "cmd/command/parse2.asm",
+      "sha256": "d885de9709a598f2e1b635986a7cedf6d2ae00321155cf4e465d360b114da283",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 192,
+      "path": "cmd/command/path1.asm",
+      "sha256": "eb2126371c40ddd0e13fd28da8f0dd3cc652d5c1b69d52ab1481641ffea04826",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 193,
+      "path": "cmd/command/path2.asm",
+      "sha256": "c230a86460f0677b0b51a1657428161f1c3f05d1857c6573cfc4132457c398d3",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 194,
+      "path": "cmd/command/rdata.asm",
+      "sha256": "4ee560f3295ac70062ccb9e5e43e3a17763c95c668eedac6cb87be27d28d5f83",
+      "reference_identical": false,
+      "status": "reviewed_retained",
+      "audit_number": 18,
+      "review": "Required resident fields in target order; no duplicate state.",
+      "current_sha256": "4ee560f3295ac70062ccb9e5e43e3a17763c95c668eedac6cb87be27d28d5f83"
+    },
+    {
+      "number": 195,
+      "path": "cmd/command/resmsg.equ",
+      "sha256": "e9944d068ccdc0d10b6fea4a387aa3a127388082ef05d07a146741eb2babb49a",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 196,
+      "path": "cmd/command/rucode.asm",
+      "sha256": "fc7b22775027fe13379317ffe2586ef6d058afa9c3c87d51f94c88e2c66cbec9",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 197,
+      "path": "cmd/command/stub.asm",
+      "sha256": "2679057c107cb8daba7f762f6f3f151948bd059460d7712f70954185c729d7a0",
+      "reference_identical": false,
+      "status": "reviewed_retained",
+      "audit_number": 19,
+      "review": "Three target-required reconstructed tail bytes; origin remains explicitly unknown.",
+      "current_sha256": "2679057c107cb8daba7f762f6f3f151948bd059460d7712f70954185c729d7a0"
+    },
+    {
+      "number": 198,
+      "path": "cmd/command/tbatch.asm",
+      "sha256": "acb6e1ca668f484e6634add3615828593eba2c1aa320f4dc29b3d698ce9c3113",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 199,
+      "path": "cmd/command/tbatch2.asm",
+      "sha256": "a347cc53c8db8d9e54e2783e510fe52d2d816f108ccb7005f47c5acc97e661e6",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 200,
+      "path": "cmd/command/tcmd1b.asm",
+      "sha256": "052c9e921800c18fd1055bbe2cecd4a2a06999204781f31349636fcafb98da75",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 201,
+      "path": "cmd/command/tcmd2a.asm",
+      "sha256": "1e1b18ba34ff9fefe6e6c0535f574ff037dd7095189639464c641a45d886af9d",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 202,
+      "path": "cmd/command/tcmd2b.asm",
+      "sha256": "516e4020c448f98a5e8186994b174740995e1b325774fee94d8ea3882f8636c4",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 203,
+      "path": "cmd/command/tcode.asm",
+      "sha256": "62eb49c335e1ee521236ade2c0651c7682627c787e4e77adbdc4383fb82f49ae",
+      "reference_identical": false,
+      "status": "reviewed_retained",
+      "audit_number": 20,
+      "review": "Required batch stepping and command-origin state; one main command path.",
+      "current_sha256": "62eb49c335e1ee521236ade2c0651c7682627c787e4e77adbdc4383fb82f49ae"
+    },
+    {
+      "number": 204,
+      "path": "cmd/command/tdata.asm",
+      "sha256": "7b81403c81c1f426906df09e8e0e45eaf52ea33b7c55b5be349e56313f79e92c",
+      "reference_identical": false,
+      "status": "reviewed_retained",
+      "audit_number": 21,
+      "review": "Required help/switch data; aliases reuse generated message storage.",
+      "current_sha256": "7b81403c81c1f426906df09e8e0e45eaf52ea33b7c55b5be349e56313f79e92c"
+    },
+    {
+      "number": 205,
+      "path": "cmd/command/tenv.asm",
+      "sha256": "d0bc63bd712fb3ba820eae4ced701f9a2883375df709e802c12c7156d6dd4293",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 206,
+      "path": "cmd/command/tenv2.asm",
+      "sha256": "46a0c1a731bb73e4afe4d17c40f48b96f78817a18483f210fe59c2994fd0affd",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 207,
+      "path": "cmd/command/tfor.asm",
+      "sha256": "93cd89114a467bce48900d36c81897f5f739a091280c17a6560d7b953dd519ae",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 208,
+      "path": "cmd/command/tmisc1.asm",
+      "sha256": "93e31313dcb247d9c2e661a22d5376374318d13121f41867ed48e03e134174db",
+      "reference_identical": false,
+      "status": "reviewed_retained",
+      "audit_number": 22,
+      "review": "Eight switches agree with CPARSE and switch_list.",
+      "current_sha256": "93e31313dcb247d9c2e661a22d5376374318d13121f41867ed48e03e134174db"
+    },
+    {
+      "number": 209,
+      "path": "cmd/command/tmisc2.asm",
+      "sha256": "27e4410c0a0b9b246dd7057830dec354689b91067bc27d0dd6d6a96377710e4c",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 210,
+      "path": "cmd/command/tparse.asm",
+      "sha256": "6b5e17ff0428e5b9d7d87ec076ef92c2b8f6dbb8e0f09a9e325af0c2e55ba51d",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 211,
+      "path": "cmd/command/tpipe.asm",
+      "sha256": "8212af6332ff32ff97a743371f24e9a7c0119bd3809a870c339ce287e7005310",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 212,
+      "path": "cmd/command/tprintf.asm",
+      "sha256": "1ae606de31ba92d03ba7e0c013dc7bcc2e0e6430882454220154130905aec0ce",
+      "reference_identical": false,
+      "status": "reviewed_retained",
+      "audit_number": 23,
+      "review": "Public SYSDISPMSG required by COPY; one display implementation.",
+      "current_sha256": "1ae606de31ba92d03ba7e0c013dc7bcc2e0e6430882454220154130905aec0ce"
+    },
+    {
+      "number": 213,
+      "path": "cmd/command/tranmsg.asm",
+      "sha256": "afbe89f42762de33ad60c124419611108c37fcb17fecc06602c840fc5816d36d",
+      "reference_identical": false,
+      "status": "reviewed_retained",
+      "audit_number": 24,
+      "review": "Required grouping fields and descriptors; original table form.",
+      "current_sha256": "afbe89f42762de33ad60c124419611108c37fcb17fecc06602c840fc5816d36d"
+    },
+    {
+      "number": 214,
+      "path": "cmd/command/tspc.asm",
+      "sha256": "40c97115aa6c3565f7804bd50f8a553f68538eebcadcc107234dfd9414279092",
+      "reference_identical": false,
+      "status": "reviewed_retained",
+      "audit_number": 25,
+      "review": "Required COPY storage in existing transient workspace.",
+      "current_sha256": "40c97115aa6c3565f7804bd50f8a553f68538eebcadcc107234dfd9414279092"
+    },
+    {
+      "number": 215,
+      "path": "cmd/command/tucode.asm",
+      "sha256": "33a7ef94560d9b04bb431842426cd83e79c654ffef6b8faff414eded486b7628",
+      "reference_identical": true,
+      "status": "reference_identical"
+    },
+    {
+      "number": 216,
+      "path": "cmd/command/uinit.asm",
+      "sha256": "ed1be0649ee7fa647f9b7af48c53f74e5305d74bbf30cacc51986059c262baed",
+      "reference_identical": false,
+      "status": "reviewed_retained",
+      "audit_number": 26,
+      "review": "Ninth /Y entry agrees with INIT; original table form.",
+      "current_sha256": "ed1be0649ee7fa647f9b7af48c53f74e5305d74bbf30cacc51986059c262baed"
+    },
+    {
+      "number": 217,
+      "path": "lang/usa/messages/comimsg.inc",
+      "sha256": "93f2945e25741a60fc54bec5cc478dac163a34f4dfcd3041885cda8a4cd99989",
+      "reference_identical": false,
+      "status": "reviewed_retained",
+      "audit_number": 27,
+      "review": "Primary DOS6 file missing; historical msg macro format retained, target text preserved.",
+      "current_sha256": "93f2945e25741a60fc54bec5cc478dac163a34f4dfcd3041885cda8a4cd99989"
+    },
+    {
+      "number": 218,
+      "path": "lang/usa/messages/comrmsg.inc",
+      "sha256": "711e8b6e73fcc7c2cb62c47eca75730bc8779a824cc5b9039bfc4692322435e2",
+      "reference_identical": false,
+      "status": "reviewed_retained",
+      "audit_number": 28,
+      "review": "Primary DOS6 file missing; identical to supplemental Astro, not primary DOS6 identity.",
+      "current_sha256": "711e8b6e73fcc7c2cb62c47eca75730bc8779a824cc5b9039bfc4692322435e2"
+    },
+    {
+      "number": 219,
+      "path": "lang/usa/messages/usa-ms-command.msg",
+      "sha256": "63635d82ffc4456f580a03bb8c5a6f7edfed9059500a793c757531737778e8bd",
+      "reference_identical": false,
+      "status": "reviewed_retained",
+      "audit_number": 29,
+      "review": "Primary DOS6 catalog missing; historical format and target texts retained.",
+      "current_sha256": "63635d82ffc4456f580a03bb8c5a6f7edfed9059500a793c757531737778e8bd"
+    },
+    {
+      "number": 220,
+      "path": "lang/usa/messages/usa-ms-dos.msg",
+      "sha256": "add37a31fcf9d045615618681fd11f240b6523234a44992bc2844ffc472ced77",
+      "reference_identical": false,
+      "status": "reviewed_retained",
+      "audit_number": 30,
+      "review": "Primary DOS6 catalog missing; historical format and target texts retained.",
+      "current_sha256": "add37a31fcf9d045615618681fd11f240b6523234a44992bc2844ffc472ced77"
+    }
+  ],
+  "reference_identical": 190,
+  "pending_review": 30,
+  "quality_review_summary": {
+    "reviewed": 30,
+    "modified_this_audit": 2,
+    "retained_this_audit": 28,
+    "original_text_identity_claimed": false,
+    "binary_evidence": "extras/build/three-core-zpued8dd/summary.json"
+  },
+  "remaining_scope": "Project tooling and original-form build recipes."
+}

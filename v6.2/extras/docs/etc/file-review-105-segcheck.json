@@ -1,0 +1,26 @@
+{
+  "index": 105,
+  "file": "dos/segcheck.asm",
+  "reviewed_sha256": "b5bbcf41397409b980277292477b75cca01212ba20909767273ffb9a34956da7",
+  "decision": "retain reference-identical debug consistency checker",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\segcheck.asm",
+      "sha256": "b5bbcf41397409b980277292477b75cca01212ba20909767273ffb9a34956da7"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\segcheck.asm",
+      "sha256": "b5bbcf41397409b980277292477b75cca01212ba20909767273ffb9a34956da7"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/kernel-dir-getentry-branch-build.json",
+    "listing": "extras/build/kernel-reference-0_jps7ao/segcheck.lst"
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and Astro.",
+    "The kernel link includes segcheck.obj. Its implementation is guarded by IF DEBUG, and the selected build listing shows DEBUG=0000h and DOSCODE ending at offset 0000h."
+  ],
+  "limitations": "No code is emitted by this module in the selected build; debug builds and full kernel identity are not established.",
+  "change": "No source change."
+}

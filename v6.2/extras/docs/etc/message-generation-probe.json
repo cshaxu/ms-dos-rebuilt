@@ -1,0 +1,29 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-rebuilt\\v6.2\\extras\\build\\message-probe-4bgm36om",
+  "inputs": {
+    "command.skl": {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\command.skl",
+      "sha256": "26bec288e4d1f43e468070ddd65e14ac5148e7f73b219bc66fcebf8acd7b3542"
+    },
+    "usa-ms.msg": {
+      "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\messages\\usa-ms.msg",
+      "sha256": "c20f76c518d8248f5a9fe47259e80c9ce95f15fff6b86bad1a4d03f65161b037"
+    },
+    "buildidx.exe": {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\c6ers\\tools6\\bin\\buildidx.exe",
+      "sha256": "6a301eaee8ea8516e541da2a61a22f1db7d09b15c278a88a8d73083aac0f4d91"
+    },
+    "buildmsg.exe": {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\c6ers\\tools6\\bin\\buildmsg.exe",
+      "sha256": "0cdcb1e36d9017f7f0e66fd4c539eb34ddeb74073e74f50733943a54cf7c707c"
+    }
+  },
+  "runner_sha256": "ae195ddf68aedff2fab5130e1368cb5c585e5264b84d142d4f79dc9f973f85b9",
+  "dosbox_sha256": "dcfd46fa521f5ce89dce3bf026056f3a1d15533f80321ee887403e30d7949f5e",
+  "exit_code": 0,
+  "guest_status": "FAIL",
+  "generated": [],
+  "idx_log": "Can not find index file of the same message file level.\nMessage file and index file will be updated.\nMessage file updated.\nIndex file updated.\n",
+  "msg_log": "BuildMsg - PSP at 0192\nProgram memory size is 5612\nAllocatable memory size is 565536\nProcessing [command.skl]\n Utility Name = [COMMAND]\n Loading messages from USA-MS.MSG\n (Available message memory space: 32000 bytes)\n\nERROR: Utility message number too large, 150\n",
+  "scope": "Probe of DOS 6.0 COMMAND template and OpenNT message candidate. This does not establish DOS 6.20 output or message provenance."
+}

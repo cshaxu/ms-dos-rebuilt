@@ -1,0 +1,52 @@
+{
+  "index": 3,
+  "file": "bios/biostruc.inc",
+  "reviewed_sha256": "df66a5bce6e1d8f3fa5101cdf5a4901ea060a3aa8f919e1a9a92b347c135b7f1",
+  "decision": "reference-identical BIOS descriptor structure retained",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\biostruc.inc",
+      "sha256": "df66a5bce6e1d8f3fa5101cdf5a4901ea060a3aa8f919e1a9a92b347c135b7f1"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\bios\\biostruc.inc",
+      "sha256": "df66a5bce6e1d8f3fa5101cdf5a4901ea060a3aa8f919e1a9a92b347c135b7f1"
+    },
+    {
+      "path": "O:\\repos.hobby\\ms-dos-rebuilt\\v5.0\\bios\\biostruc.inc",
+      "sha256": "df66a5bce6e1d8f3fa5101cdf5a4901ea060a3aa8f919e1a9a92b347c135b7f1"
+    }
+  ],
+  "target_instruction_checks": [
+    {
+      "field": "bios_sd_modelbyte",
+      "listing": "sysinit1.lst",
+      "listing_offset": 1051,
+      "reference_offset": 18929,
+      "target_offset": 18931,
+      "instruction_hex": "268a4702"
+    },
+    {
+      "field": "bios_sd_scnd_modelbyte",
+      "listing": "sysinit1.lst",
+      "listing_offset": 1059,
+      "reference_offset": 18937,
+      "target_offset": 18939,
+      "instruction_hex": "268a4703"
+    },
+    {
+      "field": "bios_sd_featurebyte1/scndintcontroller",
+      "listing": "sysinit1.lst",
+      "listing_offset": 4397,
+      "reference_offset": 22275,
+      "target_offset": 22294,
+      "instruction_hex": "26f6470540"
+    }
+  ],
+  "checks": [
+    "Current file is byte-identical to the DOS 6.0, astro and v5.0 references.",
+    "Three field access instructions from the reference listing map to equal target bytes through exact blocks."
+  ],
+  "limitations": "Three instruction checks support the listed field offsets only; they do not prove every structure use or all conditional configurations.",
+  "change": "No source change."
+}

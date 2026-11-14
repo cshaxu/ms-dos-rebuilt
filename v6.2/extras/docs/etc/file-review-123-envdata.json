@@ -1,0 +1,31 @@
+{
+  "index": 123,
+  "path": "cmd/command/envdata.asm",
+  "reference_sha256": "79fe75fb0ce61dad7f9956b594e2bf8a7480f8559ec96a1ab598bbfe38afc805",
+  "reviewed_sha256": "79fe75fb0ce61dad7f9956b594e2bf8a7480f8559ec96a1ab598bbfe38afc805",
+  "reference_astro_identical": true,
+  "decision": "Retain unchanged source: included structure definitions match DOS 6.0 and Astro, and target instruction constants support its size and COMSPEC limit.",
+  "reference_listing": "extras/build/command-reference-l_ua1x5q/init.lst",
+  "structure_size": 180,
+  "max_comspec": 146,
+  "target": "extras/baselines/targets/COMMAND.COM",
+  "target_sha256": "9b1d77119ac6fe4f949f574db1445b2848683c3a5aaa2bb09f52d0b538df3541",
+  "target_instruction_evidence": [
+    {
+      "description": "MAX_COMSPEC-derived copy bounds",
+      "offset_hex": "0x16cc",
+      "bytes": "8db58f008dbd9100b99000f3a4"
+    },
+    {
+      "description": "SIZE Environment allocation",
+      "offset_hex": "0x1e52",
+      "bytes": "2bffbbb400803e"
+    },
+    {
+      "description": "SIZE Environment growth",
+      "offset_hex": "0x1ec6",
+      "bytes": "4f8d9db400"
+    }
+  ],
+  "limitations": "Evidence confirms selected values used by INIT, not a complete target comparison of all default structure fields; INIT and final linking remain unverified."
+}

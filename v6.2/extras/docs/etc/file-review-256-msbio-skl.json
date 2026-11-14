@@ -1,0 +1,12 @@
+{
+  "index": 256,
+  "path": "bios/msbio.skl",
+  "reviewed_sha256": "6a0b44c877ad3e7edc3c3e324bcbf3afa50d44f08abc7809dff80ec4deea35d0",
+  "reference_sha256": "6a0b44c877ad3e7edc3c3e324bcbf3afa50d44f08abc7809dff80ec4deea35d0",
+  "decision": "Retain build input; byte-identical to DOS 6.0 reference.",
+  "evidence": [
+    "Imported reference build inputs; input used in fresh target-identical three-core build.",
+    "extras/docs/etc/three-core-local-runner-build.json"
+  ],
+  "limitations": "Build success establishes selected configuration only; original 6.20 source attribution is not independently established."
+}

@@ -1,0 +1,29 @@
+{
+  "index": 104,
+  "file": "dos/search.asm",
+  "reviewed_sha256": "13196cd660edcafb10477fab1a6d807649e7be86f6f4a9c6e436161f0e60d82c",
+  "decision": "retain reference-identical directory search module",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\search.asm",
+      "sha256": "13196cd660edcafb10477fab1a6d807649e7be86f6f4a9c6e436161f0e60d82c"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\search.asm",
+      "sha256": "13196cd660edcafb10477fab1a6d807649e7be86f6f4a9c6e436161f0e60d82c"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/kernel-dir-getentry-branch-build.json",
+    "module_file_offset": 8191,
+    "module_length": 465,
+    "target_sha256": "1ff320e7fdb3de707370e18d48d52b724b6f40f86ae7b70469bb130d754a904f"
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and Astro.",
+    "Listing and map locate the 01D1h-byte DOSCODE contribution at 0000:5DEF with -15856 file bias.",
+    "All 465 linked bytes match target MSDOS.SYS at the same offsets."
+  ],
+  "limitations": "Evidence covers the selected build configuration; full kernel remains unequal.",
+  "change": "No source change."
+}

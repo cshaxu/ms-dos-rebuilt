@@ -1,0 +1,18 @@
+{
+  "index": 36,
+  "file": "bios/setcds/sysvar.inc",
+  "reviewed_sha256": "e10451b7564ef7f5fe100cfd85d2f873a076ad9ad37ab09a53f95acc42577f2e",
+  "decision": "archive duplicate system-variable header for standalone SETCDS",
+  "archive": "extras/research/excluded/bios/setcds/sysvar.inc",
+  "reference": {
+    "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\setcds\\sysvar.inc",
+    "sha256": "e10451b7564ef7f5fe100cfd85d2f873a076ad9ad37ab09a53f95acc42577f2e"
+  },
+  "checks": [
+    "File matches DOS 6.0 reference and core inc/sysvar.inc byte for byte.",
+    "The local copy supports the standalone SETCDS program already archived.",
+    "Selected core include paths resolve the separate inc/sysvar.inc and do not include bios/setcds."
+  ],
+  "limitations": "Core system variable definitions and their target effects remain to be assessed in their own sequence.",
+  "change": "Archived duplicate under extras."
+}

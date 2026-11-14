@@ -1,0 +1,13 @@
+{
+  "index": 130,
+  "path": "cmd/command/minicmd/dataseg.inc",
+  "reviewed_sha256": "b649221e20c1342894280fe83f5966c337154347254b522bc902c7a781166b3b",
+  "reference_astro_identical": true,
+  "decision": "Excluded from the three core components and retained under research: messages are included by the separate MINICMD.COM data segment.",
+  "archive": "extras/research/excluded/cmd/command/minicmd/dataseg.inc",
+  "evidence": [
+    "extras/research/excluded/cmd/command/minicmd/dataseg.asm includes dataseg.inc.",
+    "The selected core COMMAND link list contains no MINICMD object."
+  ],
+  "limitations": "Applies to the selected three-component target and selected reference build."
+}

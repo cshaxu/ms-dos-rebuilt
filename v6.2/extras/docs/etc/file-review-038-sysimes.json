@@ -1,0 +1,29 @@
+{
+  "index": 38,
+  "file": "bios/sysimes.asm",
+  "reviewed_sha256": "f81889db61617ea4610405cac043074344e111c5b24132ff4d497fcf13468059",
+  "decision": "retain reference message wrapper; target message resources remain unresolved",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\sysimes.asm",
+      "sha256": "f81889db61617ea4610405cac043074344e111c5b24132ff4d497fcf13468059"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\bios\\sysimes.asm",
+      "sha256": "f81889db61617ea4610405cac043074344e111c5b24132ff4d497fcf13468059"
+    }
+  ],
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and astro and exports symbols from generated msbio.cl3.",
+    "First 608 linked message bytes match target exactly at target offset 0x9AA8; target module begins 0x46 bytes later than the reference.",
+    "StartMsg has identical text and module-relative offset 0x1A1; this accounts for the previously observed external address shift.",
+    "Target menu header says MS-DOS 6.2 and uses two extra line-drawing characters; target status line mentions CONFIG.SYS and AUTOEXEC.BAT and has different spacing.",
+    "Generated messages 34 and 36 currently come from provisional Astro-based input, not from this wrapper source."
+  ],
+  "unresolved_dependencies": [
+    "Replace provisional message inputs with source-form 6.20 target messages during ordered message-resource work; regenerate and revalidate entire IO.SYS.",
+    "Full placement depends on prior modules."
+  ],
+  "limitations": "Exact matching range does not establish remaining messages or final linked address.",
+  "change": "No wrapper source change."
+}

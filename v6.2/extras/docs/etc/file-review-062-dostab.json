@@ -1,0 +1,47 @@
+{
+  "index": 62,
+  "file": "dos/dostab.asm",
+  "reviewed_sha256": "6b9c684c2096e5e1c1b2c8e94a3a41d9fba7fe85289f8d0ce6e03ac2dd9f397d",
+  "decision": "retain reference-identical DOS data tables",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dostab.asm",
+      "sha256": "6b9c684c2096e5e1c1b2c8e94a3a41d9fba7fe85289f8d0ce6e03ac2dd9f397d"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\dostab.asm",
+      "sha256": "6b9c684c2096e5e1c1b2c8e94a3a41d9fba7fe85289f8d0ce6e03ac2dd9f397d"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/kernel-dir-getentry-branch-build.json",
+    "module_file_offset": 35901,
+    "module_length": 1460,
+    "differences": [
+      {
+        "offset": 614,
+        "symbol": "MINOR_VERSION",
+        "reference": 0,
+        "target": 20,
+        "dependency": "inc/versiona.inc, ledger index 245"
+      },
+      {
+        "offset": 645,
+        "symbol": "FastRet",
+        "kind": "external DOSCODE offset"
+      },
+      {
+        "offset": 649,
+        "symbol": "FastRet",
+        "kind": "external DOSCODE offset"
+      }
+    ]
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and astro.",
+    "msdata listing places this included DOSDATA range at 0AADh..1061h; link DOSDATA linear start BF80h and file bias -15856 yield offset 8C3Dh.",
+    "Only three bytes differ across 1460 bytes; one is minor version and two are assembler-marked FastRet address fields."
+  ],
+  "limitations": "Version and FastRet address remain to be resolved in their own ordered files; complete kernel equality unproven.",
+  "change": "No source change."
+}

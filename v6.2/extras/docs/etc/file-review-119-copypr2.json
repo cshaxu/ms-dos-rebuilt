@@ -1,0 +1,17 @@
+{
+  "index": 119,
+  "path": "cmd/command/copypr2.asm",
+  "reference_sha256": "8519fdc7f922e5dfbf1a0c4c33d578e1f72c0517572f4ece6546e14b160e15ee",
+  "reviewed_sha256": "04c55a37f1200b2a108c8c0249b3752beea54e1bdfb5aeea05098b36a2f424e9",
+  "change": "Replace mov Ascii,al with or Ascii,al in NotFirstDest path; retain the separate SetAsc assignment.",
+  "target": "extras/baselines/targets/COMMAND.COM",
+  "target_sha256": "9b1d77119ac6fe4f949f574db1445b2848683c3a5aaa2bb09f52d0b538df3541",
+  "inferred_target_offset_hex": "0x6e1e",
+  "module_length": 651,
+  "listing_coverage": 651,
+  "non_relocation_bytes_matching": 539,
+  "relocation_bytes": 112,
+  "internal_near_branches_matching": 4,
+  "assembler": "Microsoft Macro Assembler 5.NT.02",
+  "limitations": "Module range inferred by binary alignment; remaining relocation values and complete COMMAND.COM identity require final link verification."
+}

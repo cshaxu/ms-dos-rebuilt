@@ -1,0 +1,40 @@
+{
+  "index": 160,
+  "path": "cmd/command/tprintf.asm",
+  "reference_sha256": "8d26916986436081d862eac4d9988b47f846da6180c69d80a1a9d730ff46829e",
+  "reviewed_sha256": "1ae606de31ba92d03ba7e0c013dc7bcc2e0e6430882454220154130905aec0ce",
+  "reference_astro_identical": true,
+  "change": "Export existing macro-generated SYSDISPMSG entry to resolve reconstructed COPY reference; no instruction bytes change.",
+  "target": "extras/baselines/targets/COMMAND.COM",
+  "target_sha256": "9b1d77119ac6fe4f949f574db1445b2848683c3a5aaa2bb09f52d0b538df3541",
+  "inferred_target_offset_hex": "0x7d89",
+  "authored_prefix_bytes": 264,
+  "authored_prefix_non_relocation_matching": 198,
+  "authored_prefix_internal_branch_fixups_matching": 5,
+  "target_entry_file_offsets": {
+    "TSYSGETMSG": "0x7e8b",
+    "SYSDISPMSG": "0x8091"
+  },
+  "generated_macro_differences": [
+    {
+      "target_offset_hex": "0x80bd",
+      "bytes_hex": "0ad27403e82506",
+      "description": "Additional input-dependent call in SYSDISPMSG."
+    },
+    {
+      "target_offset_hex": "0x80d5",
+      "bytes_hex": "83c402",
+      "description": "Discard saved AX rather than restoring it on the successful path."
+    },
+    {
+      "description": "Further differences in macro-generated service routines require complete comparison at their source file."
+    }
+  ],
+  "dependency": {
+    "index": 216,
+    "path": "inc/msgserv.asm",
+    "issue": "Reconstruct target MSG_SERVICES macro changes, including SYSDISPMSG and later differences; verify all consumers and relocations."
+  },
+  "verifier": "extras/tools/verify_tprintf_prefix.py",
+  "limitations": "Only hand-authored prefix and export verified; macro-generated code and complete COMMAND.COM identity require later reconstruction and final link."
+}

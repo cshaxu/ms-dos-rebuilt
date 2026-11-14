@@ -1,0 +1,13 @@
+{
+  "index": 132,
+  "path": "cmd/command/minicmd/minicmd.inc",
+  "reviewed_sha256": "d545f7ff61578d26aa6888ed0f4c2c9d9824edc35d49470e5219773ed6642916",
+  "reference_astro_identical": true,
+  "decision": "Excluded from the three core components and retained under research: constants include for separate MINICMD.COM.",
+  "archive": "extras/research/excluded/cmd/command/minicmd/minicmd.inc",
+  "evidence": [
+    "The file identifies its constants as used in minicmd.com.",
+    "Archived minicmd.asm includes minicmd.inc; the selected core COMMAND link list omits minicmd.obj."
+  ],
+  "limitations": "Applies to the selected three-component target and selected reference build."
+}

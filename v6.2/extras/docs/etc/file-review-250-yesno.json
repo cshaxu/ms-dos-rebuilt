@@ -1,0 +1,14 @@
+{
+  "index": 250,
+  "path": "inc/yesno.asm",
+  "reviewed_sha256": "c06e759028108eb655662c8c5231075b145854d14f166c44720298e505546e7b",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical wrapper exporting generated yes/no country characters.",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "DOS MSDOSME includes DOSMES, which includes this wrapper and generated msdos.cl3.",
+    "The existing generated candidate defines Y, N, y and n; review 060 reports the first 120 DOS message bytes match the inferred target range, while review 071 identifies the four NLS symbol relocations.",
+    "A targeted lexical search found no NT/BOP markers."
+  ],
+  "limitations": "The generated message inputs and symbol addresses still require final provenance and link verification; retaining this wrapper does not establish whole kernel identity."
+}

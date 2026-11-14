@@ -1,0 +1,29 @@
+{
+  "index": 99,
+  "file": "dos/rename.asm",
+  "reviewed_sha256": "e6b1bc6274952b29234230fb72dff9e2cb601558d75af5a298079df93b101dbd",
+  "decision": "retain reference-identical rename module",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\rename.asm",
+      "sha256": "e6b1bc6274952b29234230fb72dff9e2cb601558d75af5a298079df93b101dbd"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\rename.asm",
+      "sha256": "e6b1bc6274952b29234230fb72dff9e2cb601558d75af5a298079df93b101dbd"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/kernel-dir-getentry-branch-build.json",
+    "module_file_offset": 10237,
+    "module_length": 573,
+    "target_sha256": "1ff320e7fdb3de707370e18d48d52b724b6f40f86ae7b70469bb130d754a904f"
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and Astro.",
+    "Listing and map locate the 023Dh-byte DOSCODE contribution at 0000:65ED with -15856 file bias.",
+    "All 573 linked bytes match target MSDOS.SYS at the same offsets."
+  ],
+  "limitations": "Evidence covers the selected build configuration; full kernel remains unequal.",
+  "change": "No source change."
+}

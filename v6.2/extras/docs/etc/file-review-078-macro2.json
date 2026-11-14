@@ -1,0 +1,29 @@
+{
+  "index": 78,
+  "file": "dos/macro2.asm",
+  "reviewed_sha256": "599c74d3c01f65985e9ffa75fe6bf3eea8a5b36bdf8ef6808634f17deaab77d2",
+  "decision": "retain reference-identical pathname conversion module",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\macro2.asm",
+      "sha256": "599c74d3c01f65985e9ffa75fe6bf3eea8a5b36bdf8ef6808634f17deaab77d2"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\macro2.asm",
+      "sha256": "599c74d3c01f65985e9ffa75fe6bf3eea8a5b36bdf8ef6808634f17deaab77d2"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/kernel-dir-getentry-branch-build.json",
+    "module_file_offset": 27991,
+    "module_length": 985,
+    "target_sha256": "6caa289756bb7885e869867f0c47df6fa54ae836015fbebb734c57da8c26998f"
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and astro.",
+    "Listing places TransFCB at module offset zero and ends DOSCODE at 03D9h; map resolves 0000:AB47 with -15856 file bias.",
+    "All 985 linked bytes match target MSDOS.SYS at the same offsets."
+  ],
+  "limitations": "Evidence covers selected build configuration; full kernel remains unequal.",
+  "change": "No source change."
+}

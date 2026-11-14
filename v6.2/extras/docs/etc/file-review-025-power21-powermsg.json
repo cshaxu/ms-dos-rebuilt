@@ -1,0 +1,18 @@
+{
+  "index": 25,
+  "file": "bios/power21/powermsg.inc",
+  "reviewed_sha256": "204d384f5ca033e2ddcc9557cc6e35ea390132763ef35367b20b4e7593cac4cb",
+  "decision": "archive POWER.EXE command-line message definitions",
+  "archive": "extras/research/excluded/bios/power21/powermsg.inc",
+  "reference": {
+    "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\power21\\powermsg.inc",
+    "sha256": "204d384f5ca033e2ddcc9557cc6e35ea390132763ef35367b20b4e7593cac4cb"
+  },
+  "checks": [
+    "File matches DOS 6.0 power21 reference.",
+    "Defines POWER.EXE control program strings; the only source references found are in the archived standalone lpc.asm copies.",
+    "The selected core build does not search the power21 directory or assemble those control modules."
+  ],
+  "limitations": "This decision does not apply to BIOS message generation or other POWER resources.",
+  "change": "Archived standalone utility messages under extras."
+}

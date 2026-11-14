@@ -1,0 +1,29 @@
+{
+  "index": 97,
+  "file": "dos/parse.asm",
+  "reviewed_sha256": "0d8ff2285e63f56c2f5c0064199a9b54cafed39d1a064ed2d0739c5b2efabba1",
+  "decision": "retain reference-identical FCB parse entry",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\parse.asm",
+      "sha256": "0d8ff2285e63f56c2f5c0064199a9b54cafed39d1a064ed2d0739c5b2efabba1"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\parse.asm",
+      "sha256": "0d8ff2285e63f56c2f5c0064199a9b54cafed39d1a064ed2d0739c5b2efabba1"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/kernel-dir-getentry-branch-build.json",
+    "module_file_offset": 3906,
+    "module_length": 11,
+    "target_sha256": "1ff320e7fdb3de707370e18d48d52b724b6f40f86ae7b70469bb130d754a904f"
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and Astro.",
+    "Listing and map locate the 000Bh-byte DOSCODE contribution at 0000:4D32 with -15856 file bias.",
+    "All eleven linked bytes match target MSDOS.SYS at the same offsets."
+  ],
+  "limitations": "This covers the FCB parsing entry in the selected build, not all parsing dependencies or complete kernel identity.",
+  "change": "No source change."
+}

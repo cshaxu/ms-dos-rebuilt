@@ -1,0 +1,15 @@
+{
+  "index": 180,
+  "path": "inc/devsym.inc",
+  "reviewed_sha256": "fc490d94869f327034ac3224f7f3bad918ee643041e3f939b4b65693f24e3071",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical device structures and constants.",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "The file declares device headers, request headers, status and function constants and is included by BIOS, DOS and COMMAND modules.",
+    "The previously compared BIOS MSDIOCTL contribution matches all 1733 target IO.SYS bytes (review 011).",
+    "The prior DOS IOCTL comparison covers 735 bytes, with all 22 differing bytes in marked relocation fields (review 073).",
+    "The prior DOS DIRCALL comparison matches all 521 target bytes (review 055)."
+  ],
+  "limitations": "These comparisons support definitions exercised in the selected builds; they do not validate every declared device operation, optional build or final linked address. Complete core file identity remains unverified."
+}

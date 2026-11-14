@@ -1,0 +1,23 @@
+{
+  "index": 21,
+  "file": "bios/power.inc",
+  "reviewed_sha256": "7ba90c01066279b1dd7540226449e47b5d10cf0ecbf28ca06bbfb4100ec74f93",
+  "decision": "retain reference-identical conditional power definitions",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\power.inc",
+      "sha256": "7ba90c01066279b1dd7540226449e47b5d10cf0ecbf28ca06bbfb4100ec74f93"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\bios\\power.inc",
+      "sha256": "7ba90c01066279b1dd7540226449e47b5d10cf0ecbf28ca06bbfb4100ec74f93"
+    }
+  ],
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and astro.",
+    "Defines power driver request structures and API constants, used by power.asm and ptime.asm within POWER conditional compilation.",
+    "POWER is not defined in the selected reference configuration; both linked objects are 26-byte empty modules."
+  ],
+  "limitations": "No target bytes establish the correctness of inactive POWER branches or optional configurations.",
+  "change": "No source change."
+}

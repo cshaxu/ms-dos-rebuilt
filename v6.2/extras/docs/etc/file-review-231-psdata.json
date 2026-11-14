@@ -1,0 +1,13 @@
+{
+  "index": 231,
+  "path": "inc/psdata.inc",
+  "reviewed_sha256": "071642bb031b8a932578bd294f2f4527b2a89442f7a3caeb5f1bd446b59b4381",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical parser switches and data definitions.",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "COMMAND TPARSE explicitly includes psdata.inc and sets incsw=0 to avoid duplicate inclusion by parse.asm; BIOS parser can include it through parse.asm.",
+    "The current TPARSE OMF comparison rerun in review 224 covers 2840 bytes, with 2412 matching non-relocation bytes and 70 matching internal branches; its recorded included-source hash matches this file."
+  ],
+  "limitations": "The comparison uses an inferred target module base and excludes relocation values. Parser options, uninitialized data and complete final links require independent verification."
+}

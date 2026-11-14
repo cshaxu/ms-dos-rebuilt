@@ -1,0 +1,61 @@
+{
+  "index": 113,
+  "file": "cmd/command/command1.asm",
+  "reviewed_sha256": "f06136213c6bb00c156eee0876a4ae821166567027f18c22c71196a1ffa1e40d",
+  "decision": "retain reference-identical resident command control source",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\command1.asm",
+      "sha256": "f06136213c6bb00c156eee0876a4ae821166567027f18c22c71196a1ffa1e40d"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\cmd\\command\\command1.asm",
+      "sha256": "f06136213c6bb00c156eee0876a4ae821166567027f18c22c71196a1ffa1e40d"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/command-reference-build.json",
+    "reference_module_file_offset": 3392,
+    "target_candidate_file_offset": 3408,
+    "module_length": 267,
+    "difference_offsets_in_module": [
+      1,
+      8,
+      15,
+      22,
+      29,
+      32,
+      33,
+      48,
+      56,
+      63,
+      70,
+      76,
+      101,
+      107,
+      121,
+      141,
+      146,
+      185,
+      189,
+      196,
+      200,
+      214,
+      217,
+      224,
+      230,
+      236,
+      241,
+      255,
+      263
+    ],
+    "target_sha256": "9b1d77119ac6fe4f949f574db1445b2848683c3a5aaa2bb09f52d0b538df3541"
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and Astro.",
+    "Listing and map place the 010Bh-byte CODERES contribution at 0000:0E40; reference file offset is 0D40h.",
+    "Instruction matches identify a candidate aligned target range at 0D50h. All 29 differing bytes in that range fall within assembler-marked address operands; all remaining aligned bytes match."
+  ],
+  "limitations": "The target range is inferred from instruction alignment, not a target link map. Final link addresses, messages, and complete COMMAND.COM identity remain unresolved.",
+  "change": "No source change."
+}

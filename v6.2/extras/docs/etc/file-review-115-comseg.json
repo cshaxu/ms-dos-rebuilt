@@ -1,0 +1,29 @@
+{
+  "index": 115,
+  "file": "cmd/command/comseg.asm",
+  "reviewed_sha256": "14ede618cfbcba077bb368574af6a1fc56bb07535980d95d8ba146c9bce9e4e3",
+  "decision": "retain reference-identical COMMAND segment declarations",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\comseg.asm",
+      "sha256": "14ede618cfbcba077bb368574af6a1fc56bb07535980d95d8ba146c9bce9e4e3"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\cmd\\command\\comseg.asm",
+      "sha256": "14ede618cfbcba077bb368574af6a1fc56bb07535980d95d8ba146c9bce9e4e3"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/command-reference-build.json",
+    "link_map": "extras/build/command-reference-l_ua1x5q/COMMAND.MAP",
+    "reference_coderes_linear": 3648,
+    "reference_trancode_linear": 9664
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and Astro.",
+    "The file defines the resident and transient segment order and groups. The reference link map places CODERES at 0E40h and TRANCODE at 25C0h.",
+    "Reviews 113 and 114 identify candidate corresponding target resident instructions at a 10h later file position; their address operands still differ."
+  ],
+  "limitations": "Target segment boundaries are inferred from binary alignment, not a target map; complete 6.20 COMMAND layout and binary equality remain unresolved.",
+  "change": "No source change."
+}

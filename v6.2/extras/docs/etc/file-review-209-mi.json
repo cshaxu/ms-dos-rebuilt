@@ -1,0 +1,14 @@
+{
+  "index": 209,
+  "path": "inc/mi.inc",
+  "reviewed_sha256": "dc9226da8ca79d71ac339ef92d8deeeae8b0b7414ab671b2075419432fb63f9d",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical machine instruction and processor flag constants.",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "DOS MSDISP, MISC, MSINIT and other modules include mi.inc.",
+    "MISC uses mi_INT, mi_Long_CALL and mi_Long_RET; the previous 682-byte comparison found five address bytes and one version byte differing (review 079).",
+    "MSDISP uses f_Carry; its previous 570-byte comparison found twelve marked relocation bytes and one version byte differing (review 087)."
+  ],
+  "limitations": "Selected module comparisons support exercised constants only. Version definition, final addresses, other configurations and full core binary equality remain unverified."
+}

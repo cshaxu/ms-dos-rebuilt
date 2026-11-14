@@ -1,0 +1,52 @@
+{
+  "acceptance": "original-make-production-build.json",
+  "all_core_outputs_exact": true,
+  "all_other_inputs_unchanged": true,
+  "format_only_addendum": "quality-runner-review.json",
+  "final_export_checks": [
+    "SYSDISPMSG",
+    "COMMAND_Y_SYN",
+    "CopyNonInteractive",
+    "YSwitchFlags",
+    "TranVarEnd",
+    "OldErrNo"
+  ],
+  "core_rebuild": false,
+  "retired": [
+    {
+      "path": "extras/tools/verify_copy_listing.py",
+      "sha256": "a0eaeaeb7b17929d74ac82531a5b5bfe9ed895a55b8a5b8633ff7f1bf8d9801e",
+      "reason": "Full source-linked output supersedes partial COPY operands and masked relocations."
+    },
+    {
+      "path": "extras/tools/verify_init_listing.py",
+      "sha256": "739ed83163f8ee2aa7b31f5602af74ce0a4afc5078b21dab2632d75330ad83df",
+      "reason": "Full INIT output and minor-version byte verified."
+    },
+    {
+      "path": "extras/tools/verify_rdata_listing.py",
+      "sha256": "74d162397be65ea3535ab85c0baa4286ad635eda7ff4f79ccaf84abe70bdcb79",
+      "reason": "Four final state symbols and complete resolved data verified."
+    },
+    {
+      "path": "extras/tools/verify_tcode_listing.py",
+      "sha256": "eb74a33ec2d35f6a6d2e44521dd45bf6b75525a207e297c48746a0216185e32a",
+      "reason": "Full code, state operands, prompts and message-service call verified."
+    },
+    {
+      "path": "extras/tools/verify_tparse_omf.py",
+      "sha256": "325f1fbc6af3620918170e26c29580a76a8de8a24fc8ebe8244f1714fd6f3e61",
+      "reason": "Complete parser including formerly deferred relocation bytes verified."
+    },
+    {
+      "path": "extras/tools/verify_tprintf_prefix.py",
+      "sha256": "41f23bd493f9e2305094fb3b8ec3efe4a9ae1ed609b2adf3da7de07fcb82ed2a",
+      "reason": "Full message implementation exact; SYSDISPMSG exported."
+    },
+    {
+      "path": "extras/tools/verify_uinit_prefix.py",
+      "sha256": "1fa583fe6cf05c903c350a64b437a7b1486bb0c140f1efc48aeebb5b4d0457bd",
+      "reason": "Full messages and /Y table exact; COMMAND_Y_SYN exported, switch count nine."
+    }
+  ]
+}

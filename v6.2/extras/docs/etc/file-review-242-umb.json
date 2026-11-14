@@ -1,0 +1,14 @@
+{
+  "index": 242,
+  "path": "inc/umb.inc",
+  "reviewed_sha256": "c53551ce1da16fff455029aea3e38ce029db4d4bb1e61c971c63d7ea8f338c73",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical upper memory and XMM definitions.",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "BIOS SYSCONF includes this file and uses XMM_REQUEST_UMB, UMB_ARENA, DOS_ARENA, arena fields and signatures.",
+    "Review 037 compares the reconstructed SYSCONF module against its inferred target range; remaining differing positions were classified as relocations or two branch displacements.",
+    "A targeted lexical search found no NT/BOP markers."
+  ],
+  "limitations": "The SYSCONF comparison supports only exercised definitions and a provisional module alignment; relocation values, remaining definitions and complete IO.SYS identity require final verification."
+}

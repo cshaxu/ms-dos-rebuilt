@@ -1,0 +1,98 @@
+{
+  "index": 144,
+  "path": "cmd/command/stub.asm",
+  "status": "source_reviewed",
+  "reference_sha256": "577878c59d37691882a662e3ff6a07f3063e04406a121439271383885843184a",
+  "working_sha256": "a6c177a5750fd8785a0ff5642d6241a5bf39fabf3126ce57ef63bce266ecbb32",
+  "reference_astro_identical": true,
+  "reference_stub_length": 450,
+  "listing_bytes_covered": 421,
+  "non_relocation_bytes_matching": 332,
+  "known_non_relocation_difference": {
+    "file_offset_hex": "0x3",
+    "reference_hex": "60",
+    "target_hex": "64",
+    "reason": "DOS minor version in versiona.inc; ledger index 245"
+  },
+  "relocation_bytes": 88,
+  "internal_near_branches_matching": 20,
+  "target_extra_bytes": {
+    "file_offset_hex": "0x1c2",
+    "hex": "636f78",
+    "length": 3,
+    "interpretation": "Emitted at end of STUB to match target and make inferred RDATA start 0x02c5. Original source ownership and meaning remain unproven."
+  },
+  "verifier": "extras/tools/verify_stub_listing.py",
+  "remaining": [
+    "Confirm historical attribution and semantics of boundary bytes if further source evidence becomes available.",
+    "Update DOS version constant in sequence and validate complete three-component builds."
+  ],
+  "limitations": "Three boundary bytes are an evidence-based reconstruction choice, not a proven historical source declaration. Diagnostic build is not the complete 6.20 build.",
+  "cross_version_boundary_evidence": [
+    {
+      "image": "E:\\core\\collection\\systems\\x86_16_dos\\msdos_6xx\\msdos600_en_boot.img",
+      "image_sha256": "a0f8a7c46d8981cf13760cc7743f64e0a483cf729620bf2cc9e75578eda1cfd4",
+      "command_sha256": "8969c296d4aa4b2fc9d5456444020e60f022f76de539655282e894ddfd699da3",
+      "offset_hex": "0x1c2",
+      "boundary_bytes_hex": "02000001c8024102000002"
+    },
+    {
+      "image": "E:\\core\\collection\\systems\\x86_16_dos\\msdos_6xx\\msdos620_en_boot.img",
+      "image_sha256": "c04538391f889d340918e1c2a4da0a8c4cedd063a5cbbc200e9b133f769ceff0",
+      "command_sha256": "9b1d77119ac6fe4f949f574db1445b2848683c3a5aaa2bb09f52d0b538df3541",
+      "offset_hex": "0x1c2",
+      "boundary_bytes_hex": "636f78000002000001cd02"
+    },
+    {
+      "image": "E:\\core\\collection\\systems\\x86_16_dos\\msdos_6xx\\msdos621_en_boot.img",
+      "image_sha256": "c9adff049e37166320e2b3111cd3f16b699dcb7244330b03282fab1e3c89633b",
+      "command_sha256": "d8a0777930d8ded8a3e8bca732f32360c3bd6896394d5f938b1a0d85287d11dd",
+      "offset_hex": "0x1c2",
+      "boundary_bytes_hex": "636f78000002000001cd02"
+    },
+    {
+      "image": "E:\\core\\collection\\systems\\x86_16_dos\\msdos_6xx\\msdos622_en_boot.img",
+      "image_sha256": "1ab300a0a54b8f384cc457424ea0d2f3f46bef11c0172429c6b207b2ec539e6e",
+      "command_sha256": "65fa71b0a34e91feffc31297fb5e24d40767c72fb513e46aaac721bda7836110",
+      "offset_hex": "0x1c2",
+      "boundary_bytes_hex": "636f78000002000001cd02"
+    }
+  ],
+  "unlisted_bytes_check": {
+    "count": 32,
+    "result": "All match aligned bytes of retained reference linked image.",
+    "verifier": "extras/tools/verify_stub_listing.py",
+    "limitations": "Matches a reference binary; no claim that all bytes are initialized source data."
+  },
+  "change": "Emit target boundary bytes 63 6F 78 at the end of STUB; location is an explicit reconstruction choice, not proven original attribution.",
+  "reconstructed_stub_length": 453,
+  "reviewed_sha256": "2679057c107cb8daba7f762f6f3f151948bd059460d7712f70954185c729d7a0",
+  "diagnostic_link": {
+    "stage": "extras/build/temp/stub-link-probe",
+    "scope": "DOS 6.0 reference objects with reconstructed STUB and RDATA only; not a final target build",
+    "output_sha256": "02df4f1bd549b9afe5b7133e24f527ccd458a4a598f33e2df5d368d6708c3c3e",
+    "output_size": 52941,
+    "target_sha256": "9b1d77119ac6fe4f949f574db1445b2848683c3a5aaa2bb09f52d0b538df3541",
+    "stub_prefix_length": 453,
+    "stub_prefix_byte_differences": [
+      {
+        "offset_hex": "0x3",
+        "build_hex": "60",
+        "target_hex": "64",
+        "cause": "pending DOS version constant"
+      }
+    ],
+    "linked_resgroup_symbols": {
+      "CopyNonInteractive": "0x02c5",
+      "YSwitchFlags": "0x0531",
+      "TranVarEnd": "0x0533",
+      "OldErrNo": "0x0533"
+    },
+    "initial_attempt": "The first batch name exceeded DOS 8.3 and failed; retry used a valid name."
+  },
+  "comment_clarification": {
+    "change": "Label cox as reconstructed with unknown origin; emitted data unchanged.",
+    "verification": "Reassembled STUB object is byte-identical to prior target-matching build object.",
+    "object_sha256": "3429dfee7c36eeeeb7de69e25037f1690bd99c45a3017df76c9270fc58962bdd"
+  }
+}

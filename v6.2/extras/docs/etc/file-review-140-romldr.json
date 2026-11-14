@@ -1,0 +1,14 @@
+{
+  "index": 140,
+  "path": "cmd/command/romldr.asm",
+  "reviewed_sha256": "bea59520030bc3bf4f33b53e4f62a16b0263dff39122ab9f3699e15304011983",
+  "reference_astro_identical": true,
+  "decision": "Excluded from selected floppy core components and retained under research: loader for ROM COMMAND images.",
+  "archive": "extras/research/excluded/cmd/command/romldr.asm",
+  "evidence": [
+    "Source describes OEM-replaceable LoadFromROM routines and ROM build configurations.",
+    "Reference makefile lists romldr.obj for ROM build dependencies.",
+    "Selected floppy COMMAND link list omits romldr.obj."
+  ],
+  "limitations": "Exclusion applies to the selected floppy target, not ROM-oriented configurations."
+}

@@ -1,0 +1,43 @@
+{
+  "index": 216,
+  "path": "inc/msgserv.asm",
+  "reference_sha256": "d9000eb03ce2b96821555b10df0975a5da1b83967e17e2a2d6378b41e1dfdfeb",
+  "reviewed_sha256": "627b204f2e96fbd84c8a8b6513fd8a56ae3b2fa56c8a5bc736b5cdf0181cbbf4",
+  "decision": "Restore COMMAND transient message input and grouped numeric substitution using existing message-service structure.",
+  "changes": [
+    "Enable existing INPUTmsg service when the transient COMMAND display service is included.",
+    "When substitution flag 40h is set, obtain country information, use the thousands separator for numeric conversion, and restore the original pad character; preserve the observed branch and NOP layout."
+  ],
+  "verification": {
+    "stage": "extras/build/temp/copy-merge-stage",
+    "assembler": "pinned MASM, USA and DBLSPACE_HOOKS",
+    "target": "extras/baselines/targets/COMMAND.COM",
+    "inferred_module_offset": "0x7d89",
+    "object_bytes_covered": 2460,
+    "relocation_bytes": 398,
+    "non_relocation_differences": [
+      {
+        "module_offset": "0x4b7",
+        "reference": 6,
+        "target": 7,
+        "symbol": "$M_SECOND_THOU"
+      },
+      {
+        "module_offset": "0x4c9",
+        "reference": 9,
+        "target": 11,
+        "symbol": "$M_THIRD_THOU"
+      }
+    ],
+    "internal_near_branches_checked": 66,
+    "internal_near_branch_mismatches": 0
+  },
+  "dependencies": [
+    {
+      "index": 240,
+      "path": "inc/sysmsg.inc",
+      "issue": "Restore and verify $M_SECOND_THOU=7 and $M_THIRD_THOU=11 in ledger order."
+    }
+  ],
+  "limitations": "Target module base is inferred; comparison excludes external relocation values. Enabling INPUTmsg inside the COMT display macro is a reconstruction choice to preserve the already reviewed caller; historical placement of that option is unproven. Generated message data and complete COMMAND.COM link remain unresolved."
+}

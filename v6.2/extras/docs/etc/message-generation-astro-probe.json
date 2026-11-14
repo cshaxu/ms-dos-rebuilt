@@ -1,0 +1,60 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-rebuilt\\v6.2\\extras\\build\\message-probe-lu_lsmmt",
+  "inputs": {
+    "command.skl": {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\command.skl",
+      "sha256": "26bec288e4d1f43e468070ddd65e14ac5148e7f73b219bc66fcebf8acd7b3542"
+    },
+    "usa-ms.msg": {
+      "path": "O:\\repos.external\\astro\\messages\\usa.msg",
+      "sha256": "5ef300ec3c41199f0271ce01625e3fdb7f57caaab836d2ba67672d2bedff75a1"
+    },
+    "buildidx.exe": {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\c6ers\\tools6\\bin\\buildidx.exe",
+      "sha256": "6a301eaee8ea8516e541da2a61a22f1db7d09b15c278a88a8d73083aac0f4d91"
+    },
+    "buildmsg.exe": {
+      "path": "O:\\repos.hobby\\ntvdm64\\tools\\opennt\\tools16\\buildmsg.exe",
+      "sha256": "0d8ea59396a769e440549322a2ec9d1ab70423147e702ef1b1f42606cadd50cd"
+    }
+  },
+  "runner_sha256": "ae195ddf68aedff2fab5130e1368cb5c585e5264b84d142d4f79dc9f973f85b9",
+  "dosbox_sha256": "dcfd46fa521f5ce89dce3bf026056f3a1d15533f80321ee887403e30d7949f5e",
+  "exit_code": 0,
+  "guest_status": "PASS",
+  "generated": [
+    {
+      "name": "COMMAND.CL1",
+      "size": 2000,
+      "sha256": "9162c031d609799abcfbb8b2c0808aad8a8e52e2f8402cf543b692482d050f9d"
+    },
+    {
+      "name": "COMMAND.CL2",
+      "size": 1281,
+      "sha256": "4d7debffaff48325ed12f0657e2bc1201e9a110bc0d51d7a50275c8eb2c148c7"
+    },
+    {
+      "name": "COMMAND.CL3",
+      "size": 1176,
+      "sha256": "df7ca28570386425254fc078ae37f5469ccf566fcebd63f50221da5c118bc92a"
+    },
+    {
+      "name": "COMMAND.CL4",
+      "size": 1173,
+      "sha256": "ea9453cf4538ed99dec5be95a80283b1ba7a4f870e3ce9a56d48299300805e2d"
+    },
+    {
+      "name": "COMMAND.CLF",
+      "size": 54285,
+      "sha256": "1b080c3d04570d19ffffb0ca23018fb0145a9d23e88f68840f3b0caff42d674a"
+    },
+    {
+      "name": "COMMAND.CTL",
+      "size": 19,
+      "sha256": "4d383bb90e7a065ea209e15e1d08e0fee41138659102436f333a5540ddd919ab"
+    }
+  ],
+  "idx_log": "Can not find index file of the same message file level.\nMessage file and index file will be updated.\nMessage file updated.\nIndex file updated.\n",
+  "msg_log": "BuildMsg - PSP at 0192\nProgram memory size is 5725\nAllocatable memory size is 563728\nProcessing [command.skl]\n Utility Name = [COMMAND]\n Loading messages from USA-MS.MSG\n (Available message memory space: 32000 bytes)\n (Still available message memory space: 32000 bytes)\n Created include file [COMMAND.CL1]\n Created include file [COMMAND.CL2]\n Created include file [COMMAND.CL3]\n Created include file [COMMAND.CL4]\n Created include file [COMMAND.CLF]\n Completed [COMMAND.CL1]\n Completed [COMMAND.CL2]\n Completed [COMMAND.CL3]\n Completed [COMMAND.CL4]\n Completed [COMMAND.CLF]\n",
+  "scope": "Probe of DOS 6.0 COMMAND template and selected message candidate. This does not establish DOS 6.20 output or message provenance."
+}

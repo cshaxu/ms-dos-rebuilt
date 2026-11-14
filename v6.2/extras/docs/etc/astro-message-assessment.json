@@ -1,0 +1,280 @@
+{
+  "source": "O:\\repos.external\\astro\\messages\\usa.msg",
+  "source_sha256": "5ef300ec3c41199f0271ce01625e3fdb7f57caaab836d2ba67672d2bedff75a1",
+  "reference_warning": "astro README describes a DOS 6.0.500 beta tree with some reconstructed missing pieces; this is not proof of DOS 6.20 provenance.",
+  "command_probe": "extras/docs/etc/message-generation-astro-probe.json",
+  "previously_missing_entries": [
+    {
+      "id": 1097,
+      "payload_lines": 1,
+      "target_matches": [
+        {
+          "text": "LoadHigh: Invalid argument",
+          "target_offsets": [
+            39143
+          ]
+        }
+      ]
+    },
+    {
+      "id": 1098,
+      "payload_lines": 1,
+      "target_matches": [
+        {
+          "text": "Required parameter missing",
+          "target_offsets": [
+            2390,
+            39172
+          ]
+        }
+      ]
+    },
+    {
+      "id": 1099,
+      "payload_lines": 1,
+      "target_matches": [
+        {
+          "text": "Unrecognized switch",
+          "target_offsets": [
+            39201
+          ]
+        }
+      ]
+    },
+    {
+      "id": 1100,
+      "payload_lines": 1,
+      "target_matches": [
+        {
+          "text": "A bad UMB number has been specified",
+          "target_offsets": [
+            39223
+          ]
+        }
+      ]
+    },
+    {
+      "id": 1101,
+      "payload_lines": 1,
+      "target_matches": []
+    },
+    {
+      "id": 1102,
+      "payload_lines": 1,
+      "target_matches": []
+    },
+    {
+      "id": 1200,
+      "payload_lines": 0,
+      "target_matches": []
+    },
+    {
+      "id": 1489,
+      "payload_lines": 1,
+      "target_matches": [
+        {
+          "text": "  /B      Uses bare format (no heading information or summary).",
+          "target_offsets": [
+            42546
+          ]
+        }
+      ]
+    },
+    {
+      "id": 1490,
+      "payload_lines": 1,
+      "target_matches": [
+        {
+          "text": "  /L      Uses lowercase.",
+          "target_offsets": [
+            42612,
+            42893
+          ]
+        }
+      ]
+    },
+    {
+      "id": 1491,
+      "payload_lines": 1,
+      "target_matches": [
+        {
+          "text": "  /C[H]   Displays file compression ratio; /CH uses host allocation unit size.",
+          "target_offsets": [
+            42640
+          ]
+        }
+      ]
+    },
+    {
+      "id": 1492,
+      "payload_lines": 2,
+      "target_matches": [
+        {
+          "text": "Switches may be preset in the DIRCMD environment variable.  Override",
+          "target_offsets": [
+            42723
+          ]
+        },
+        {
+          "text": "preset switches by prefixing any switch with - (hyphen)--for example, /-W.",
+          "target_offsets": [
+            42793
+          ]
+        }
+      ]
+    },
+    {
+      "id": 1493,
+      "payload_lines": 1,
+      "target_matches": [
+        {
+          "text": "    [/S] [/B] [/L]",
+          "target_offsets": [
+            41744,
+            42870
+          ]
+        }
+      ]
+    },
+    {
+      "id": 1494,
+      "payload_lines": 1,
+      "target_matches": [
+        {
+          "text": "  /L      Uses lowercase.",
+          "target_offsets": [
+            42612,
+            42893
+          ]
+        }
+      ]
+    },
+    {
+      "id": 1923,
+      "payload_lines": 2,
+      "target_matches": [
+        {
+          "text": "            memory region; minsize1 specifies the minimum size, if",
+          "target_offsets": [
+            47647
+          ]
+        },
+        {
+          "text": "            any, for region1.  Region2 and minsize2 specify the",
+          "target_offsets": [
+            47715
+          ]
+        }
+      ]
+    },
+    {
+      "id": 1924,
+      "payload_lines": 2,
+      "target_matches": [
+        {
+          "text": "            number and minimum size of the second region, if any.",
+          "target_offsets": [
+            47781
+          ]
+        },
+        {
+          "text": "            You can specify as many regions as you want.",
+          "target_offsets": [
+            47848
+          ]
+        }
+      ]
+    },
+    {
+      "id": 1925,
+      "payload_lines": 2,
+      "target_matches": [
+        {
+          "text": "/S          Shrinks a UMB to its minimum size while the program",
+          "target_offsets": [
+            47909
+          ]
+        },
+        {
+          "text": "            is loading.  /S is normally used only by MemMaker.",
+          "target_offsets": [
+            47974
+          ]
+        }
+      ]
+    },
+    {
+      "id": 1926,
+      "payload_lines": 2,
+      "target_matches": [
+        {
+          "text": "[drive:][path]filename",
+          "target_offsets": [
+            41327,
+            41362,
+            41396,
+            44049,
+            44088,
+            44805,
+            45175,
+            47315,
+            47424,
+            48041
+          ]
+        },
+        {
+          "text": "            Specifies the location and name of the program.",
+          "target_offsets": [
+            48065
+          ]
+        }
+      ]
+    },
+    {
+      "id": 1927,
+      "payload_lines": 2,
+      "target_matches": [
+        {
+          "text": "parameters  Specifies any command-line information required by",
+          "target_offsets": [
+            48129
+          ]
+        },
+        {
+          "text": "            the program.",
+          "target_offsets": [
+            47577,
+            48193
+          ]
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "previously_missing": 18,
+    "now_nonempty": 17,
+    "still_empty": [
+      1200
+    ],
+    "some_target_text_present": [
+      1097,
+      1098,
+      1099,
+      1100,
+      1489,
+      1490,
+      1491,
+      1492,
+      1493,
+      1494,
+      1923,
+      1924,
+      1925,
+      1926,
+      1927
+    ]
+  },
+  "bios_probe": "extras/docs/etc/system-message-astro-probe.json",
+  "bios_limitation": "Generated MSBIO.CL9 labels an unrelated file-allocation-table error as PowerSignOn; successful tool exit does not prove correct resources.",
+  "scope": "One message candidate and one generated build configuration; target string presence is evidence of shared text, not complete 6.20 source recovery."
+}

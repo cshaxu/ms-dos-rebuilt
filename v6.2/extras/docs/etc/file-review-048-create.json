@@ -1,0 +1,45 @@
+{
+  "index": 48,
+  "file": "dos/create.asm",
+  "reviewed_sha256": "4a76a4fb11682cd81daca1dd2af9afe79fcf21db428a3e19d32af51ea902e9bb",
+  "decision": "retain reference-identical file creation module",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\create.asm",
+      "sha256": "4a76a4fb11682cd81daca1dd2af9afe79fcf21db428a3e19d32af51ea902e9bb"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\create.asm",
+      "sha256": "4a76a4fb11682cd81daca1dd2af9afe79fcf21db428a3e19d32af51ea902e9bb"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/kernel-local-baseline-build.json",
+    "module_file_offset": 11092,
+    "module_length": 300,
+    "differences": [
+      {
+        "offset": 125,
+        "symbol": "MakeNode",
+        "kind": "external call displacement"
+      },
+      {
+        "offset": 138,
+        "symbol": "CRTERRTAB",
+        "kind": "relocated code offset"
+      },
+      {
+        "offset": 185,
+        "symbol": "FatRead_CDS",
+        "kind": "external call displacement"
+      }
+    ]
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and astro.",
+    "Listing places DOS_Create at module offset zero and ends DOSCODE at 012Ch; link map resolves it at 0000:6944 with -15856 file bias.",
+    "Only three differing bytes in the 300-byte module, each within an assembler-marked relocation field."
+  ],
+  "limitations": "Final relocation values and whole-kernel byte identity remain unverified.",
+  "change": "No source change."
+}

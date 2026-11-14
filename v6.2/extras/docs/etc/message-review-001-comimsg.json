@@ -1,0 +1,13 @@
+{
+  "file": "lang/usa/messages/comimsg.inc",
+  "source_sha256": "93f2945e25741a60fc54bec5cc478dac163a34f4dfcd3041885cda8a4cd99989",
+  "astro_reference_sha256": "15eff619cbb2e2f5e6681c23d821df98f2e169b1398ca9c0e823e81db4cbbfca",
+  "change": "Restore 6.20 version banner and thirteen initialization help message fragments, including /Y and /MSG guidance.",
+  "verification": {
+    "linked_probe": "extras/build/command-reference-ef18qj4j/command.com",
+    "probe_sha256": "9b1d77119ac6fe4f949f574db1445b2848683c3a5aaa2bb09f52d0b538df3541",
+    "target_equal": true,
+    "probe_uses_additional_temporary_messages": true
+  },
+  "limitations": "Source text and pointer order reproduce target in a diagnostic link; historical label names and placement are reconstructed. Clean build and remaining message sources still pending."
+}

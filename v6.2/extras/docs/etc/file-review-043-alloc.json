@@ -1,0 +1,43 @@
+{
+  "index": 43,
+  "file": "dos/alloc.asm",
+  "reviewed_sha256": "98c929ded7a515871ecf464ec96bbfda483b3ea4295c739ce1afcbd78ffdb450",
+  "decision": "retain reference-identical memory allocation module",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\alloc.asm",
+      "sha256": "98c929ded7a515871ecf464ec96bbfda483b3ea4295c739ce1afcbd78ffdb450"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\alloc.asm",
+      "sha256": "98c929ded7a515871ecf464ec96bbfda483b3ea4295c739ce1afcbd78ffdb450"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/kernel-local-baseline-build.json",
+    "reference_module_file_offset": 25665,
+    "target_module_file_offset": 25666,
+    "module_length": 757,
+    "differing_module_offsets": [
+      109,
+      225,
+      230,
+      269,
+      276,
+      456,
+      459,
+      462,
+      498,
+      539,
+      544,
+      549
+    ]
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and astro.",
+    "Listing places $ALLOC at module offset 006Ch and ends DOSCODE at 02F5h; map places $ALLOC at 0000:A29D, with -15856 file bias.",
+    "After aligning target one byte later, all 12 differing bytes occur in assembler-marked external near call or jump displacements and are each one lower."
+  ],
+  "limitations": "The one-byte preceding layout difference and final external addresses require later kernel reconstruction; module bytes are not currently identical.",
+  "change": "No source change."
+}

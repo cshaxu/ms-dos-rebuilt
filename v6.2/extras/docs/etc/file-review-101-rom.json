@@ -1,0 +1,29 @@
+{
+  "index": 101,
+  "file": "dos/rom.asm",
+  "reviewed_sha256": "870a70fa594015cf46864fee33e861cfa5d4367631c832d16b509718c4cc294c",
+  "decision": "retain reference-identical low-level FAT and buffer routines",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\rom.asm",
+      "sha256": "870a70fa594015cf46864fee33e861cfa5d4367631c832d16b509718c4cc294c"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\rom.asm",
+      "sha256": "870a70fa594015cf46864fee33e861cfa5d4367631c832d16b509718c4cc294c"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/kernel-dir-getentry-branch-build.json",
+    "module_file_offset": 19986,
+    "module_length": 737,
+    "target_sha256": "1ff320e7fdb3de707370e18d48d52b724b6f40f86ae7b70469bb130d754a904f"
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and Astro.",
+    "Listing and map locate the 02E1h-byte DOSCODE contribution at 0000:8C02 with -15856 file bias.",
+    "All 737 linked bytes match target MSDOS.SYS at the same offsets."
+  ],
+  "limitations": "Evidence covers the selected build configuration; full kernel remains unequal.",
+  "change": "No source change."
+}

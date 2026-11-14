@@ -1,0 +1,18 @@
+{
+  "index": 156,
+  "path": "cmd/command/tmisc1.asm",
+  "reference_sha256": "47cedfe55759e8b91640bb819283e51b66bac039cf9e287d65ef36f7a333588e",
+  "reviewed_sha256": "93e31313dcb247d9c2e661a22d5376374318d13121f41867ed48e03e134174db",
+  "reference_astro_identical": true,
+  "change": "Restore SWCOUNT from 6 to 8 to match target switch_list length and instruction.",
+  "target": "extras/baselines/targets/COMMAND.COM",
+  "target_sha256": "9b1d77119ac6fe4f949f574db1445b2848683c3a5aaa2bb09f52d0b538df3541",
+  "inferred_target_offset_hex": "0x53d9",
+  "module_length": 902,
+  "listing_coverage": 902,
+  "non_relocation_bytes_matching": 684,
+  "relocation_bytes": 218,
+  "internal_near_branches_matching": 12,
+  "verifier": "extras/tools/verify_tmisc1_listing.py",
+  "limitations": "Target range is inferred; relocation values and complete COMMAND.COM identity require final linking."
+}

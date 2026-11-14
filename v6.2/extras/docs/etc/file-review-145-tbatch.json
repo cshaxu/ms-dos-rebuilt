@@ -1,0 +1,18 @@
+{
+  "index": 145,
+  "path": "cmd/command/tbatch.asm",
+  "reference_sha256": "acb6e1ca668f484e6634add3615828593eba2c1aa320f4dc29b3d698ce9c3113",
+  "reviewed_sha256": "acb6e1ca668f484e6634add3615828593eba2c1aa320f4dc29b3d698ce9c3113",
+  "reference_astro_identical": true,
+  "decision": "Retain reference-identical source; assembled module matches target outside relocation fields.",
+  "target": "extras/baselines/targets/COMMAND.COM",
+  "target_sha256": "9b1d77119ac6fe4f949f574db1445b2848683c3a5aaa2bb09f52d0b538df3541",
+  "inferred_target_offset_hex": "0x2b9c",
+  "module_length": 1173,
+  "listing_coverage": 1173,
+  "non_relocation_bytes_matching": 903,
+  "relocation_bytes": 270,
+  "internal_near_branches_matching": 17,
+  "verifier": "extras/tools/verify_tbatch_listing.py",
+  "limitations": "Target range is inferred; relocation values and complete COMMAND.COM identity require final linking."
+}

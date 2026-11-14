@@ -1,0 +1,13 @@
+{
+  "index": 217,
+  "path": "inc/mshalo.asm",
+  "reviewed_sha256": "ea61a90d0190128ee5dfcb9a6f2a07f3fed11d37a510896b0e1865c258de0694",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical COMMAND ROM cartridge scanning and execution code.",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte; inc/mshalo.asm is distinct from dos/mshalo.asm.",
+    "COMMAND TCODE conditionally includes this file under IBM_ROM_FIND; the saved selected-build TCODE listing includes the source and identifies ROM_SCAN and ROM_EXEC in TRANCODE.",
+    "Prior TCODE comparison covers 1212 bytes with 940 matching non-relocation bytes and seven matching internal near branches at an inferred target location (review 151)."
+  ],
+  "limitations": "The selected module comparison excludes relocation values and the target range is inferred. Other conditional configurations and complete COMMAND.COM linking remain unverified."
+}

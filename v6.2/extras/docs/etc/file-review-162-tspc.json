@@ -1,0 +1,29 @@
+{
+  "index": 162,
+  "path": "cmd/command/tspc.asm",
+  "reference_sha256": "3dc9ce6f801dd4f1c01fa47676783b4758b2ff3605e7fc8668c3bc658c8e7ffa",
+  "reviewed_sha256": "40c97115aa6c3565f7804bd50f8a553f68538eebcadcc107234dfd9414279092",
+  "reference_astro_identical": true,
+  "change": "Restore and export 11-byte COPY substitution buffer and three control bytes before BATHAND.",
+  "target": "extras/baselines/targets/COMMAND.COM",
+  "target_sha256": "9b1d77119ac6fe4f949f574db1445b2848683c3a5aaa2bb09f52d0b538df3541",
+  "inferred_target_file_offset_hex": "0xc5f9",
+  "inferred_target_group_offset_hex": "0xa019",
+  "target_length": 3938,
+  "reference_length": 3924,
+  "unchanged_reference_bytes_matching": 3924,
+  "inserted_zero_bytes": 14,
+  "symbols_group_offsets": {
+    "prompt_sublist": "0xa751",
+    "confirm_overwrite": "0xa75c",
+    "dest_exists": "0xa75d",
+    "copy_state": "0xa75e",
+    "BATHAND": "0xa75f",
+    "STARTEL": "0xa761"
+  },
+  "other_dependency": {
+    "issue": "COPY answer_buffer/answer_yes/answer_no/answer_all map to target generated message resource bytes at file offset 0x99c0 (03 59 4e 41); their eventual symbolic exports and localized generation must be reconstructed with message inputs. They are not allocated in TSPC."
+  },
+  "verifier": "extras/tools/verify_tspc_layout.py",
+  "limitations": "Data bases inferred from aligned reference maps; complete COMMAND.COM and message-resource linkage require final link verification."
+}

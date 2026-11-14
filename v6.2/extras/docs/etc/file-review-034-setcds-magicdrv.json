@@ -1,0 +1,18 @@
+{
+  "index": 34,
+  "file": "bios/setcds/magicdrv.inc",
+  "reviewed_sha256": "3df074a18ae69121c0f691a0880c4b94d245bc3e25839a30a987cd343e336e0a",
+  "decision": "archive duplicate header belonging to standalone SETCDS program",
+  "archive": "extras/research/excluded/bios/setcds/magicdrv.inc",
+  "reference": {
+    "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\setcds\\magicdrv.inc",
+    "sha256": "3df074a18ae69121c0f691a0880c4b94d245bc3e25839a30a987cd343e336e0a"
+  },
+  "checks": [
+    "File matches the DOS 6.0 reference and core inc/magicdrv.inc byte for byte.",
+    "Local duplicate is included by standalone setcds.asm; BIOS and COMMAND core sources use the separate inc/magicdrv.inc.",
+    "Selected build include paths do not include bios/setcds."
+  ],
+  "limitations": "Core MagicDrv definitions and target behavior are preserved and remain to be evaluated in their own sequence.",
+  "change": "Archived duplicate under extras."
+}

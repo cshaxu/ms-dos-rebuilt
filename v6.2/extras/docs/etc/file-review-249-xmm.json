@@ -1,0 +1,14 @@
+{
+  "index": 249,
+  "path": "inc/xmm.inc",
+  "reviewed_sha256": "166f5796fa0122255f2ef7013b89de089db4dff1c61e9a6c107838e73c5b7acb",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical extended memory manager interface definitions.",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "COMMAND INIT and STUB and DOS MSINIT include this file and use selected XMM multiplex and A20 function constants.",
+    "After version restoration, reviews 245 and 090 document target comparisons for these modules and selected non-relocation instructions.",
+    "A targeted lexical search found no NT/BOP markers."
+  ],
+  "limitations": "Comparisons support selected emitted constants at inferred module alignments, not all definitions or alternative execution paths; final links and binary identity remain unverified."
+}

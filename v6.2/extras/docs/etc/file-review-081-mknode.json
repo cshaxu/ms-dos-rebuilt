@@ -1,0 +1,29 @@
+{
+  "index": 81,
+  "file": "dos/mknode.asm",
+  "reviewed_sha256": "e3c479c9179857e03b6c360931201a1db68af23234dd92408e84c11a50854158",
+  "decision": "retain reference-identical directory entry creation module",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\mknode.asm",
+      "sha256": "e3c479c9179857e03b6c360931201a1db68af23234dd92408e84c11a50854158"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\mknode.asm",
+      "sha256": "e3c479c9179857e03b6c360931201a1db68af23234dd92408e84c11a50854158"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/kernel-dir-getentry-branch-build.json",
+    "module_file_offset": 19045,
+    "module_length": 941,
+    "target_sha256": "cf313b66ddee561b623ddbdec587f43e9f153459c4eabb9d7419f626bc4f866f"
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and astro.",
+    "Listing places BUILDDIR at module offset zero and ends DOSCODE at 03ADh; map resolves 0000:8855 with -15856 file bias.",
+    "All 941 linked bytes match target MSDOS.SYS at the same offsets."
+  ],
+  "limitations": "Evidence covers selected build configuration; full kernel remains unequal.",
+  "change": "No source change."
+}

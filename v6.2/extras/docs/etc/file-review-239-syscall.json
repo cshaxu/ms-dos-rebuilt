@@ -1,0 +1,12 @@
+{
+  "index": 239,
+  "path": "inc/syscall.inc",
+  "reviewed_sha256": "6c48280825687958d53d845e42cf9abbc7a35231108b59787da902160bc955be",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical system call definitions.",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "COMMAND PATH2 includes syscall.inc and uses Alloc (72); review 136 compares the assembled PATH2 module to the inferred target range."
+  ],
+  "limitations": "The PATH2 target location is inferred, relocation values and final links remain pending; the comparison does not establish every system call definition."
+}

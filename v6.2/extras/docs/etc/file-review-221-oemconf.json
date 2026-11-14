@@ -1,0 +1,14 @@
+{
+  "index": 221,
+  "path": "inc/oemconf.inc",
+  "reviewed_sha256": "aff9b69a014044feb6f8261a1bb7fd5a453a5aa85c10633e0d8c707ddf1cc46d",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical OEM default configuration definitions.",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "BIOS SYSINIT1 includes oemconf.inc and uses its DEFAULT_BUFFERS, DEFAULT_FILES, DEFAULT_FCBS and DEFAULT_CDSS definitions.",
+    "The saved SYSINIT1 probe listing places the four variables at module offsets 0299h, 029Fh, 02A0h and 02A2h; the prior module comparison maps target base to file offset 17878.",
+    "Direct comparison confirms target values FFFFh, 08h, 04h and 05h respectively match the probe."
+  ],
+  "limitations": "The probe used temporary stub symbols for unresolved links and is not a full functional or target-identical BIOS build. ROMEXEC-specific configuration and complete core binary identity remain unverified."
+}

@@ -1,0 +1,11 @@
+{
+  "index": 127,
+  "path": "cmd/command/iparse.asm",
+  "reference_sha256": "212d981c0338012fe96849a7ea569bea2172d267beeb57415d702d603e7d2e7e",
+  "reviewed_sha256": "212d981c0338012fe96849a7ea569bea2172d267beeb57415d702d603e7d2e7e",
+  "reference_astro_identical": true,
+  "decision": "Retain unchanged reference file; the parser include is commented out and reference assembly emits an empty INIT segment.",
+  "reference_listing": "extras/build/command-reference-l_ua1x5q/iparse.lst",
+  "reference_init_segment_length": 0,
+  "limitations": "Reference configuration emits no bytes attributable to this module; this does not verify final COMMAND.COM link or prove every possible conditional configuration."
+}

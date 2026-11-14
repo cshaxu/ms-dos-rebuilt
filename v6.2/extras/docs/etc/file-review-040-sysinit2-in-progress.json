@@ -1,0 +1,59 @@
+{
+  "index": 40,
+  "file": "bios/sysinit2.asm",
+  "status": "in_progress",
+  "source_sha256": "274cec6ff8215f741efea160487b0285026540b01eeb70c7f667d5c9bd05ed1d",
+  "changes": [
+    "Reconstruct /D and /Y command-line insertion paths and their shared status flag.",
+    "Export bQueryOpt, shell_opt_flags and enable_autoexec_query for sysinit1."
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/bios-sysinit2-shell-options-build.json",
+    "build": "BIOS linked successfully without probe stubs",
+    "candidate_routine_offset": 19415,
+    "target_routine_offset": 19426,
+    "compared_bytes": 96,
+    "differences": [
+      2,
+      9,
+      16,
+      21,
+      29,
+      37,
+      53,
+      57,
+      77,
+      84,
+      91
+    ],
+    "interpretation": "All 11 differing bytes are low bytes of internal addresses, each shifted by 11 due to preceding layout differences."
+  },
+  "remaining": [
+    "Classify remaining SYSINIT2 differences and preceding link layout; validate key paths and messages against target."
+  ],
+  "limitations": "Reconstructed symbol names are descriptive; final target identity not achieved.",
+  "keyboard_reconstruction": {
+    "changes": [
+      "Measure 37 ticks from saved BootTicks using 16-bit subtraction and comparison.",
+      "Set query-option bit 4 on shift or F5 clean boot.",
+      "Recognize alternate scan codes 62h and 65h alongside F5 and F8."
+    ],
+    "build_report": "extras/docs/etc/bios-sysinit2-keyboard-build.json",
+    "candidate_kbd_segment_offset": 17108,
+    "target_kbd_segment_offset": 17096,
+    "comparison_length": 160,
+    "difference_count": 11,
+    "limitations": "The 11 bytes lie at address or external-call positions but final attribution and other SYSINIT2 regions need complete analysis. Candidate module placement and later data addresses differ."
+  },
+  "menu_reconstruction": {
+    "changes": [
+      "Set bQueryOpt bit 4 on menu F5 clean boot.",
+      "Remove sub si,si from menu exit, absent from target."
+    ],
+    "build_report": "extras/docs/etc/bios-sysinit2-menu-exit-build.json",
+    "output_bytes": 40566,
+    "target_bytes": 40566,
+    "output_equal": false,
+    "limitations": "Equal file size is only a layout milestone; remaining differences and target identity require full verification."
+  }
+}

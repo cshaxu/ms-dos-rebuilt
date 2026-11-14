@@ -1,0 +1,23 @@
+{
+  "index": 16,
+  "file": "bios/msgroup.inc",
+  "reviewed_sha256": "e3784b1333bf98e632ce3ee94b41dc7ffa7b8da3ed6c7e27b8eaf0f2dee8fe34",
+  "decision": "retain reference-identical segment switching macros",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\msgroup.inc",
+      "sha256": "e3784b1333bf98e632ce3ee94b41dc7ffa7b8da3ed6c7e27b8eaf0f2dee8fe34"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\bios\\msgroup.inc",
+      "sha256": "e3784b1333bf98e632ce3ee94b41dc7ffa7b8da3ed6c7e27b8eaf0f2dee8fe34"
+    }
+  ],
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and astro.",
+    "Defines tocode and todata macros to switch between BIOS code and data segments and opens Bios_Data.",
+    "Selected msbio2, mschar, msdioctl and msdisk linked contributions match target as recorded in reviews 009–012."
+  ],
+  "limitations": "Macros have no independently linked byte range; segment layout and effects in other modules remain to be determined against the target.",
+  "change": "No source change."
+}

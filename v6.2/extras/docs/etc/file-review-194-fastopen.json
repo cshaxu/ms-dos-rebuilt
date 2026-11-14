@@ -1,0 +1,14 @@
+{
+  "index": 194,
+  "path": "inc/fastopen.inc",
+  "reviewed_sha256": "64f83d23612ac77f7f1a40e4b5c2dbbb93e6daf65d96106f1d45c8ee6e2cbea3",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical FASTOPEN interface constants and structures.",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "Selected DOS directory, search and initialization sources include fastopen.inc.",
+    "DOS DIR2 uses FastOpen_Set, Lookup_Success, FONC_look_up and FONC_insert.",
+    "The previous DIR2 comparison matched all 1413 target MSDOS.SYS bytes; DIRCALL matched 521 bytes (reviews 054 and 055)."
+  ],
+  "limitations": "The selected comparisons support constants exercised in these modules but do not prove all definitions or the separate FASTOPEN utility. Final core links remain unverified."
+}

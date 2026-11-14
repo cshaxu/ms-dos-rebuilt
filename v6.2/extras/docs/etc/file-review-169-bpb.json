@@ -1,0 +1,15 @@
+{
+  "index": 169,
+  "path": "inc/bpb.inc",
+  "reviewed_sha256": "43452ad264b7242d892634f19bfcd036f8a2f1c926745466b27039e8c5f960a8",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical BIOS parameter block structure.",
+  "evidence": [
+    "The file matches DOS 6.0 and astro byte for byte.",
+    "BIOS, DOS and COMMAND sources include bpb.inc, which declares the BPB fields and six trailing bytes.",
+    "Previously selected BIOS MSDISK and MSDIOCTL module contributions match the corresponding IO.SYS target bytes (reviews 011 and 012).",
+    "In the DOS IOCTL module comparison all 22 differing bytes are assembler-marked relocations, among 735 compared bytes (review 073).",
+    "Reconstructed COMMAND DIR comparison matches 2114 non-relocation bytes and 78 internal branches at an inferred target location (review 122)."
+  ],
+  "limitations": "Prior module comparisons support only BPB definitions exercised by those selected configurations, and do not establish historical source identity or final whole-file equality."
+}

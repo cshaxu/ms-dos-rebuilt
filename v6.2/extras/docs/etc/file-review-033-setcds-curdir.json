@@ -1,0 +1,18 @@
+{
+  "index": 33,
+  "file": "bios/setcds/curdir.inc",
+  "reviewed_sha256": "35ce4c7f4511ccd82b0080f769f1efee90853f42c93a1c9d98a7ab930e618aaf",
+  "decision": "archive duplicate header belonging to standalone SETCDS test program",
+  "archive": "extras/research/excluded/bios/setcds/curdir.inc",
+  "reference": {
+    "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\setcds\\curdir.inc",
+    "sha256": "35ce4c7f4511ccd82b0080f769f1efee90853f42c93a1c9d98a7ab930e618aaf"
+  },
+  "checks": [
+    "File matches the DOS 6.0 reference and the core inc/curdir.inc byte for byte.",
+    "The local copy is used by the standalone bios/setcds/setcds.asm program, which calls INT 21h 4C00h to terminate.",
+    "The selected core BIOS build searches bios/ and inc/, not bios/setcds/; core modules use inc/curdir.inc."
+  ],
+  "limitations": "Archiving the duplicate does not alter the retained core header or establish target correctness of its consumers.",
+  "change": "Archived duplicate under extras."
+}

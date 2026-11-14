@@ -1,0 +1,19 @@
+{
+  "index": 179,
+  "path": "inc/dbcs.sw",
+  "reviewed_sha256": "ca8e10fb6de72593568aa21cb1e24b36a180c64fff0a49ceb8194c75e79737dd",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical DBCS build-switch notice.",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "dossym.inc includes dbcs.sw; the frozen dependency inventory records the include in the reference component dependency chains.",
+    "The file itself does not define DBCS or emit object bytes: during assembler pass one it prints a notice only if the build already defines DBCS.",
+    "The selected kernel reference build report records USA configuration; no DBCS notice was found in its saved logs or listings."
+  ],
+  "dependency_components": [
+    "bios",
+    "dos",
+    "cmd/command"
+  ],
+  "limitations": "Absence of a notice in saved output is not proof of all assembler command-line settings. DBCS-conditioned code elsewhere and final English target equality require verification in the complete builds."
+}

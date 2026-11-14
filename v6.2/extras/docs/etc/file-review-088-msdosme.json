@@ -1,0 +1,50 @@
+{
+  "index": 88,
+  "file": "dos/msdosme.asm",
+  "reviewed_sha256": "9a1c7e0320fb80626151eab55fc628aa377768490bb1e415b65dbaae3393f099",
+  "decision": "retain reference-identical message aggregation source",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\msdosme.asm",
+      "sha256": "9a1c7e0320fb80626151eab55fc628aa377768490bb1e415b65dbaae3393f099"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\msdosme.asm",
+      "sha256": "9a1c7e0320fb80626151eab55fc628aa377768490bb1e415b65dbaae3393f099"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/kernel-dir-getentry-branch-build.json",
+    "module_file_offset": 2456,
+    "module_length": 193,
+    "difference_offsets_in_module": [
+      140,
+      142,
+      144,
+      146,
+      148,
+      150,
+      151,
+      152,
+      153,
+      154,
+      156,
+      158,
+      160,
+      162,
+      164,
+      166,
+      175,
+      176,
+      191
+    ],
+    "target_sha256": "1ff320e7fdb3de707370e18d48d52b724b6f40f86ae7b70469bb130d754a904f"
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and Astro and includes dosmes.inc.",
+    "Listing and map place the 00C1h-byte DOSCODE contribution at 0000:4788 with -15856 file bias.",
+    "Nineteen differing bytes occur in sixteen assembler-marked address words: fourteen ESCFUNC entries plus two offsets in OEMFunctionKey; each whole word is 10h above target. All other aligned bytes match, including the selected divide-overflow and WINA20 messages."
+  ],
+  "limitations": "The generated message resources are provisional and referenced include files remain independently tracked; final linked identity is not yet established.",
+  "change": "No source change."
+}

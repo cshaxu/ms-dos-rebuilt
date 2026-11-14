@@ -1,0 +1,29 @@
+{
+  "index": 56,
+  "file": "dos/disk.asm",
+  "reviewed_sha256": "d4a7a2cbda59cc693754529806c4e6b7fcbde376a42e647eacefecef87cd9cca",
+  "decision": "retain reference-identical disk operations module",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\disk.asm",
+      "sha256": "d4a7a2cbda59cc693754529806c4e6b7fcbde376a42e647eacefecef87cd9cca"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\disk.asm",
+      "sha256": "d4a7a2cbda59cc693754529806c4e6b7fcbde376a42e647eacefecef87cd9cca"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/kernel-dir-getentry-branch-build.json",
+    "module_file_offset": 13315,
+    "module_length": 1206,
+    "target_sha256": "a3adc0692dad3f93204ba6a74e1db5175bbd9fc1873866088ffbdc7bd1c6117a"
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and astro.",
+    "Listing places SWAPBACK at module offset zero and ends DOSCODE at 04B6h; map resolves 0000:71F3 with -15856 file bias.",
+    "All 1206 linked bytes match target MSDOS.SYS at the same offsets."
+  ],
+  "limitations": "Evidence covers selected build configuration; full kernel remains unequal.",
+  "change": "No source change."
+}

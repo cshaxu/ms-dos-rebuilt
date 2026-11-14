@@ -1,0 +1,15 @@
+{
+  "index": 238,
+  "path": "inc/struc.inc",
+  "reviewed_sha256": "e6cfbcc832f6ce6feeb493ce1355e93b5c155ebb61665d93a735426035f818c2",
+  "reference_astro_identical": true,
+  "decision": "Exclude the unreferenced structured-assembly macro library from the selected core build and retain it under research.",
+  "archive": "extras/research/excluded/inc/struc.inc",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "The file defines an optimizing structured assembly macro library.",
+    "The only exact references in retained core sources are comments in parse.asm stating that its include and macro use were removed.",
+    "The frozen selected dependency inventory contains no struc.inc include edge; bios/biostruc.inc is a separate file and remains untouched."
+  ],
+  "limitations": "Exclusion applies to the selected three-component build only; other DOS sources may use the library."
+}

@@ -1,0 +1,22 @@
+{
+  "index": 158,
+  "path": "cmd/command/tparse.asm",
+  "reference_sha256": "6b5e17ff0428e5b9d7d87ec076ef92c2b8f6dbb8e0f09a9e325af0c2e55ba51d",
+  "reviewed_sha256": "6b5e17ff0428e5b9d7d87ec076ef92c2b8f6dbb8e0f09a9e325af0c2e55ba51d",
+  "reference_astro_identical": true,
+  "decision": "Retain reference-identical parser interface; OMF comparison includes assembled parse.asm code.",
+  "target": "extras/baselines/targets/COMMAND.COM",
+  "target_sha256": "9b1d77119ac6fe4f949f574db1445b2848683c3a5aaa2bb09f52d0b538df3541",
+  "inferred_target_offset_hex": "0x7271",
+  "module_length": 2840,
+  "object_coverage": 2840,
+  "non_relocation_bytes_matching": 2412,
+  "relocation_bytes": 428,
+  "internal_near_branch_fixups_matching": 70,
+  "included_sources": {
+    "parse.asm": "65ecd960668b4bddb74a6b1bff25a21a15d20b3b7efac0183218a334c39e959a",
+    "psdata.inc": "071642bb031b8a932578bd294f2f4527b2a89442f7a3caeb5f1bd446b59b4381"
+  },
+  "verifier": "extras/tools/verify_tparse_omf.py",
+  "limitations": "Target range is inferred; non-local relocation values and complete COMMAND.COM identity require final linking."
+}

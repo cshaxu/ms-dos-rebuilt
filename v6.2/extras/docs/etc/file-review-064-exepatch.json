@@ -1,0 +1,68 @@
+{
+  "index": 64,
+  "file": "dos/exepatch.asm",
+  "reviewed_sha256": "ab3b9501d4ef3401a360692c5a4c59c24d19c6590231173c6cabba59d723d99a",
+  "decision": "retain reference-identical EXE compatibility patch module",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\exepatch.asm",
+      "sha256": "ab3b9501d4ef3401a360692c5a4c59c24d19c6590231173c6cabba59d723d99a"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\exepatch.asm",
+      "sha256": "ab3b9501d4ef3401a360692c5a4c59c24d19c6590231173c6cabba59d723d99a"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/kernel-dir-getentry-branch-build.json",
+    "module_file_offset": 30205,
+    "module_length": 1643,
+    "differing_module_offsets": [
+      237,
+      241,
+      247,
+      251,
+      257,
+      261,
+      267,
+      271,
+      361,
+      372,
+      396,
+      419,
+      449,
+      468,
+      485,
+      505,
+      542,
+      554,
+      572,
+      585,
+      601,
+      615,
+      631,
+      1205,
+      1230,
+      1249,
+      1269,
+      1286,
+      1325,
+      1326,
+      1345,
+      1381,
+      1473,
+      1516,
+      1527,
+      1624,
+      1625
+    ],
+    "differing_bytes_in_marked_relocations": 37
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and astro.",
+    "Listing places ExePatch at module offset 0475h and ends DOSCODE at 066Bh; map resolves ExePatch at 0000:B862 with -15856 file bias.",
+    "All 37 differing bytes lie in assembler-marked relocation fields."
+  ],
+  "limitations": "Final relocation values and full kernel byte equality remain unresolved.",
+  "change": "No source change."
+}

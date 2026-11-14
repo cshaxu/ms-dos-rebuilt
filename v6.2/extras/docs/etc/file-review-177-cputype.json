@@ -1,0 +1,21 @@
+{
+  "index": 177,
+  "path": "inc/cputype.inc",
+  "reviewed_sha256": "e9bf8b0a5ee0e10936d5403cddadacc898ce1f8b6807ab955b2d0639e5b50cb0",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical CPU type detection macro.",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "dos/msinit.asm and bios/sysinit1.asm include and invoke Get_CPU_Type.",
+    "The saved msinit.lst places the macro expansion at module offsets 03C5h\u201303E8h; prior review 090 locates the module at target file offset 31848.",
+    "All 36 bytes of that expansion match target MSDOS.SYS at file offset 802Dh."
+  ],
+  "comparison": {
+    "build": "extras/build/kernel-reference-0_jps7ao/MSDOS.SYS",
+    "target": "extras/baselines/targets/MSDOS.SYS",
+    "start": 32813,
+    "length": 36,
+    "differing_bytes": 0
+  },
+  "limitations": "The direct comparison covers the selected DOS initialization macro expansion, not every build configuration or complete core files. Final links remain unverified."
+}

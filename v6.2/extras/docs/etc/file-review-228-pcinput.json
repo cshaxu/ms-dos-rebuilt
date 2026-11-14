@@ -1,0 +1,14 @@
+{
+  "index": 228,
+  "path": "inc/pcinput.inc",
+  "reviewed_sha256": "899dcb6e96d8e04d9850116e0b2ee54422ba25d42b36a9f2af7f8c7b01073c2f",
+  "reference_astro_identical": true,
+  "decision": "Exclude the unreferenced full-screen input implementation from the selected core build and retain it under research.",
+  "archive": "extras/research/excluded/inc/pcinput.inc",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "The file implements display/input field editing using ICB and screen-related structures.",
+    "No reference to pcinput.inc occurs in retained BIOS, DOS, COMMAND and include trees or the frozen selected dependency inventory."
+  ],
+  "limitations": "Exclusion applies only to the selected three-component build; it does not establish that the source is unused by other DOS utilities."
+}

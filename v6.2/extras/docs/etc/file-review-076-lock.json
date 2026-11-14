@@ -1,0 +1,32 @@
+{
+  "index": 76,
+  "file": "dos/lock.asm",
+  "reviewed_sha256": "99dc1dbc2c37e6b2461d1c7921da39d54e81736e3424d2c95c5912a6351f0891",
+  "decision": "retain reference-identical file lock module",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\lock.asm",
+      "sha256": "99dc1dbc2c37e6b2461d1c7921da39d54e81736e3424d2c95c5912a6351f0891"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\lock.asm",
+      "sha256": "99dc1dbc2c37e6b2461d1c7921da39d54e81736e3424d2c95c5912a6351f0891"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/kernel-dir-getentry-branch-build.json",
+    "module_file_offset": 29945,
+    "module_length": 178,
+    "differing_module_offsets": [
+      169
+    ],
+    "relocation_symbol": "DosDseg"
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and astro.",
+    "Listing places $LockOper at module offset zero and ends DOSCODE at 00B2h; map resolves 0000:B2E9 with -15856 file bias.",
+    "The sole differing byte lies in an assembler-marked DosDseg address operand."
+  ],
+  "limitations": "Final data segment address and complete kernel byte identity remain unresolved.",
+  "change": "No source change."
+}

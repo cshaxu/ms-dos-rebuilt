@@ -1,0 +1,36 @@
+{
+  "index": 124,
+  "path": "cmd/command/fordata.asm",
+  "reference_sha256": "90544898349730457c124055dcd13c536866360f50a63fd3242c6af823f88d0b",
+  "reviewed_sha256": "90544898349730457c124055dcd13c536866360f50a63fd3242c6af823f88d0b",
+  "reference_astro_identical": true,
+  "decision": "Retain reference-identical structure include; target TFOR instructions support its field offsets and extra allocation.",
+  "reference_listing": "extras/build/command-reference-l_ua1x5q/tfor.lst",
+  "structure_size": 1612,
+  "extra_allocation_bytes": 264,
+  "target": "extras/baselines/targets/COMMAND.COM",
+  "target_sha256": "9b1d77119ac6fe4f949f574db1445b2848683c3a5aaa2bb09f52d0b538df3541",
+  "target_instruction_evidence": [
+    {
+      "description": "DMA and expansion cursors",
+      "offset_hex": "0x34ba",
+      "bytes": "bacb05b8001acd21833e4505007404ff0647058b1e47053b1e4905"
+    },
+    {
+      "description": "temporary buffer",
+      "offset_hex": "0x3531",
+      "bytes": "bf4b05f3a4833e450500"
+    },
+    {
+      "description": "FOR state initialization",
+      "offset_hex": "0x36ac",
+      "bytes": "26890e470526893e4905268816440526c7064505ffff"
+    },
+    {
+      "description": "extra allocation",
+      "offset_hex": "0x368b",
+      "bytes": "bb0801e8"
+    }
+  ],
+  "limitations": "Selected field offsets and allocation are verified; complete TFOR reconstruction and final linking remain pending."
+}

@@ -1,0 +1,18 @@
+{
+  "index": 24,
+  "file": "bios/power21/power.inc",
+  "reviewed_sha256": "5250149901aecc317e54649824119ddceb7f1829aad696a1232e006e6f943b67",
+  "decision": "archive alternate header unused by selected core build",
+  "archive": "extras/research/excluded/bios/power21/power.inc",
+  "reference": {
+    "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\power21\\power.inc",
+    "sha256": "5250149901aecc317e54649824119ddceb7f1829aad696a1232e006e6f943b67"
+  },
+  "checks": [
+    "The header matches the DOS 6.0 power21 reference and differs from bios/power.inc.",
+    "The selected BIOS build assembles modules from bios/ and searches the stage, bios/ and inc/; it does not add bios/power21 to the include path.",
+    "Both power21 source consumers were already archived; selected POWER branches are inactive in the reference configuration."
+  ],
+  "limitations": "This establishes use in the selected build only; archived alternate headers and power code remain available for research.",
+  "change": "Archived alternate header under extras."
+}

@@ -1,0 +1,58 @@
+{
+  "index": 8,
+  "file": "bios/msbio1.asm",
+  "before_sha256": "788082936b0f9eeb6149fee894781e55768904701040f7d5e65bc6a65e76b79c",
+  "reviewed_sha256": "d944d49f615e6639cb88e0198e266119031817ca0b3f3bc2553513a4814a62a6",
+  "decision": "reconstructed BDS2 initial logical drive",
+  "change": {
+    "old": "bds2\tbds_str <bds3,seg Bios_Data>",
+    "new": "bds2\tbds_str <bds3,seg Bios_Data,0,1>",
+    "reason": "Target second BDS initializes logical drive byte to 1; other three BDS initial values remain 0."
+  },
+  "verification": {
+    "build_report": "extras/docs/etc/bios-msbio1-bds2-build.json",
+    "changed_output_offsets": [
+      2397
+    ],
+    "target_byte_offset": 2397,
+    "before": 0,
+    "after": 1,
+    "target": 1,
+    "changed_objects": [
+      "msbio1"
+    ],
+    "segments": [
+      {
+        "name": "BIOS_DATA",
+        "reference_offset": 1446,
+        "length": 2302,
+        "difference_offsets": [
+          3743
+        ]
+      },
+      {
+        "name": "BIOS_DATA_INIT",
+        "reference_offset": 3750,
+        "length": 2525,
+        "difference_offsets": []
+      },
+      {
+        "name": "BIOS_CODE",
+        "reference_offset": 11110,
+        "length": 227,
+        "difference_offsets": []
+      }
+    ],
+    "remaining_pointer": {
+      "file_offset": 3743,
+      "reference_pointer": 2937,
+      "target_pointer": 2956,
+      "reference_procedure_offset": 20815,
+      "target_procedure_offset": 20834,
+      "equal_procedure_prefix_bytes": 32,
+      "interpretation": "FTryToMovDOSHi is an external SYSINIT symbol; the relocation differs with its later module position. Do not hard-code the address."
+    }
+  },
+  "limitations": "The current BIOS as a whole is not target-identical. Segment contribution comparison uses the reference link layout; unresolved later-module layout can change relocation values.",
+  "source_style": "Existing BDS structure initializer syntax; no invented comments."
+}

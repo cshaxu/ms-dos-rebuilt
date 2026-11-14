@@ -1,0 +1,14 @@
+{
+  "index": 181,
+  "path": "inc/dirent.inc",
+  "reviewed_sha256": "72797ae77d98550ea6ad11aa4a9d46d8ddd88d3dfbb1872aca0c1cd6a52adaa9",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical FAT directory entry structure and attribute masks.",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "dossym.inc and smdossym.inc include dirent.inc; COMMAND tdata.asm includes it directly.",
+    "DOS dir2.asm uses directory entry fields including dir_attr, dir_time and dir_first.",
+    "The previously compared DIR2 contribution matches all 1413 target MSDOS.SYS bytes (review 054); the FAT module matches all 984 bytes (review 065)."
+  ],
+  "limitations": "These selected-build comparisons support the field definitions exercised by the compared code, not all declarations or build configurations. Final linking and complete core file identity remain unverified."
+}

@@ -1,0 +1,14 @@
+{
+  "index": 192,
+  "path": "inc/error.inc",
+  "reviewed_sha256": "f175053c01e3e4108cab8ac0cef34f5a53e70e050c93216f12182154a2a8968b",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical DOS error and INT 24 definitions.",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "dossym.inc includes error.inc; BIOS MSCHAR and COMMAND TDATA also include it directly.",
+    "DOS DIRCALL uses error_access_denied and error_path_not_found constants; its previously compared 521-byte contribution matches target MSDOS.SYS (review 055).",
+    "Previously compared BIOS MSDISK and DOS FAT contributions match their 1945 and 984 target bytes respectively (reviews 012 and 065)."
+  ],
+  "limitations": "These comparisons support only constants exercised by selected modules; they do not individually prove every error code or complete binary identity. Final links remain pending."
+}

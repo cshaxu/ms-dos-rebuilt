@@ -1,0 +1,18 @@
+{
+  "index": 22,
+  "file": "bios/power21/lpc.asm",
+  "reviewed_sha256": "caef0b8c1ab35b1a62375c1abac6f6e60613440e4f19e77cca8cc30b435c3890",
+  "decision": "excluded standalone POWER.EXE command-line code from core source tree",
+  "archive": "extras/research/excluded/bios/power21/lpc.asm",
+  "reference": {
+    "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\power21\\lpc.asm",
+    "sha256": "caef0b8c1ab35b1a62375c1abac6f6e60613440e4f19e77cca8cc30b435c3890"
+  },
+  "checks": [
+    "Source identifies itself as the transient command-line module for standalone POWER.EXE.",
+    "The three core component link lists do not contain this module.",
+    "Fresh local BIOS build after archival produced the identical prior IO.SYS reference hash and all 16 object hashes."
+  ],
+  "build_report": "extras/docs/etc/bios-without-power21-lpc-build.json",
+  "limitations": "Does not exclude BIOS-resident conditional POWER code; BIOS output is still not target-identical."
+}

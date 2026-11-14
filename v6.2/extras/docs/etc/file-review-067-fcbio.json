@@ -1,0 +1,34 @@
+{
+  "index": 67,
+  "file": "dos/fcbio.asm",
+  "reviewed_sha256": "826fb2b0c8bfb9d2da36c8722270d68bd62a0c205699941f0a66471ee0720608",
+  "decision": "retain reference-identical FCB input/output module",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\fcbio.asm",
+      "sha256": "826fb2b0c8bfb9d2da36c8722270d68bd62a0c205699941f0a66471ee0720608"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\fcbio.asm",
+      "sha256": "826fb2b0c8bfb9d2da36c8722270d68bd62a0c205699941f0a66471ee0720608"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/kernel-dir-getentry-branch-build.json",
+    "module_file_offset": 6189,
+    "module_length": 1224,
+    "differing_module_offsets": [
+      511,
+      729,
+      1194
+    ],
+    "relocation_symbol": "DosDseg"
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and astro.",
+    "Listing places $Get_FCB_Position at module offset zero and ends DOSCODE at 04C8h; map resolves 0000:561D with -15856 file bias.",
+    "All three differing bytes lie in assembler-marked DosDseg address operands."
+  ],
+  "limitations": "Final DOS data segment address and complete kernel equality remain unverified.",
+  "change": "No source change."
+}

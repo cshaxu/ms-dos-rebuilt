@@ -1,0 +1,36 @@
+{
+  "index": 98,
+  "file": "dos/path.asm",
+  "reviewed_sha256": "f93d8c15498c8751c0de278267f8d80bf328559f34bb70494a1a303ef3cef5f2",
+  "decision": "retain reference-identical directory system call module",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\path.asm",
+      "sha256": "f93d8c15498c8751c0de278267f8d80bf328559f34bb70494a1a303ef3cef5f2"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\path.asm",
+      "sha256": "f93d8c15498c8751c0de278267f8d80bf328559f34bb70494a1a303ef3cef5f2"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/kernel-dir-getentry-branch-build.json",
+    "module_file_offset": 8656,
+    "module_length": 366,
+    "difference_offsets_in_module": [
+      17,
+      31,
+      48,
+      176,
+      306
+    ],
+    "target_sha256": "1ff320e7fdb3de707370e18d48d52b724b6f40f86ae7b70469bb130d754a904f"
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and Astro.",
+    "Listing and map locate its 016Eh-byte DOSCODE contribution at 0000:5FC0 with -15856 file bias.",
+    "All five differing bytes are in assembler-marked address fields and each is 10h above target; other aligned bytes match."
+  ],
+  "limitations": "Full layout and final target identity require a later verified build.",
+  "change": "No source change."
+}

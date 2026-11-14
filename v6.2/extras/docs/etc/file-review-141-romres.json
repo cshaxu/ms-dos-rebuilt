@@ -1,0 +1,14 @@
+{
+  "index": 141,
+  "path": "cmd/command/romres.asm",
+  "reviewed_sha256": "e6e82928812fd0339555adc923d9a7966891b789f88caae14981b2e6c1362c8f",
+  "reference_astro_identical": true,
+  "decision": "Excluded from selected floppy core components and retained under research: ROM-resident COMMAND image locator.",
+  "archive": "extras/research/excluded/cmd/command/romres.asm",
+  "evidence": [
+    "Source describes FindROMRes locating COMMAND code in ROM and depends on ROM location definitions.",
+    "Reference makefile lists romres.obj for ROM build dependencies.",
+    "Selected floppy COMMAND link list omits romres.obj."
+  ],
+  "limitations": "Exclusion applies to the selected floppy target, not ROM-oriented configurations."
+}

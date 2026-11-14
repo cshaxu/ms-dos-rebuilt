@@ -1,0 +1,14 @@
+{
+  "index": 214,
+  "path": "inc/msgdcl.inc",
+  "reviewed_sha256": "2da1a5b96b9a283fadf3d438d0039f729dc7f837c96eff507f8f5411ebb62a12",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical message symbol declaration macros.",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "COMMAND TDATA and TPRINTF include msgdcl.inc.",
+    "The file generates PUBLIC/EXTRN declarations for message tables and service symbols on assembler pass one, rather than directly emitting message text or service instructions.",
+    "Prior TPRINTF review identified target differences in the separately tracked MSG_SERVICES macro (index 216), and TDATA review records unresolved generated message inputs (reviews 160 and 152)."
+  ],
+  "limitations": "Reference identity does not prove target message-service declarations or linkage in all configurations. Generated message sources, the service macro and complete COMMAND.COM link remain to be reconstructed and verified in order."
+}

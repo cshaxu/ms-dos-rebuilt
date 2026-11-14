@@ -1,0 +1,45 @@
+{
+  "before": {
+    "build.cmd": "462a4d3593ecd62e2903dc1fcbdb3ca6876da14643e9b98dc4ee6270268456f9",
+    "extras\\tools\\build.cmd": "43c12d6c6031335053416edfb14892d8ee5a8731b93e67f1354ac4ee3eeab54f"
+  },
+  "entry": "extras/build.cmd",
+  "merged_wrapper_and_helper": true,
+  "after_sha256": "614bd7ffb781cbeba531a3f24d25abbe56ae8a3ca231a565188c4cdff2dc119f",
+  "historical_copies_renamed": [
+    {
+      "old": "extras/build/pause-test-0kmqod7i/build.cmd",
+      "new": "extras/build/pause-test-0kmqod7i/build-entry.cmd",
+      "sha256": "462a4d3593ecd62e2903dc1fcbdb3ca6876da14643e9b98dc4ee6270268456f9"
+    },
+    {
+      "old": "extras/build/progress-update/extras/tools/build.cmd",
+      "new": "extras/build/progress-update/extras/tools/build-entry.cmd",
+      "sha256": "a9393cc8cd51a53c75dfd9462c3426e06aeeacc197e1d555cc8920ca11fe1c6c"
+    },
+    {
+      "old": "extras/build/pause-test-0kmqod7i/extras/tools/build.cmd",
+      "new": "extras/build/pause-test-0kmqod7i/extras/tools/build-entry.cmd",
+      "sha256": "a0285f3191f0ea24bdf682204922e7ac5300d97d0c1e0b0fd39ce16c700ca39e"
+    }
+  ],
+  "status": "verified",
+  "tests": [
+    {
+      "exit_code": 0,
+      "root_and_support_paths_correct": true,
+      "pause": true,
+      "lock_released": true
+    },
+    {
+      "exit_code": 7,
+      "root_and_support_paths_correct": true,
+      "pause": true,
+      "lock_released": true
+    }
+  ],
+  "unique_build_cmd": [
+    "extras/build.cmd"
+  ],
+  "dos_rebuild": false
+}

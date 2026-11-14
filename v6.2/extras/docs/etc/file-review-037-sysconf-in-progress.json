@@ -1,0 +1,69 @@
+{
+  "index": 37,
+  "file": "bios/sysconf.asm",
+  "status": "in_progress",
+  "source_sha256": "174c2f07c822c104abf5b33ab725e3326a66455448c2864b198d6a6baefd4071",
+  "reference_build": "extras/build/bios-reference-5r5_nhyf/io.sys",
+  "reference_module_offset": 23888,
+  "reference_module_length": 9192,
+  "candidate_target_offset": 23906,
+  "anchor": {
+    "exact_initial_bytes": 185
+  },
+  "aligned_difference_count": 862,
+  "observations": [
+    "Listing places setdevmarkflag at module offset 0009h; link map places it at 0403:1783h, establishing reference module start 0403:177Ah.",
+    "Target contains exact first 185 module bytes 18 bytes later.",
+    "After alignment 862 bytes differ; numerous early low bytes increase by 18, consistent with relocations, but not all differences have been classified."
+  ],
+  "next_action": "Continue classifying remaining differences before completing file 37.",
+  "limitations": "Target module boundary and all relocation causes remain provisional; file remains pending.",
+  "reconstruction": {
+    "changes": [
+      "Call CheckDoubleSpace after printing badblock.",
+      "Remove three padding NOPs after call DevBreak, absent in target."
+    ],
+    "target_call_offset": 28049,
+    "call_bytes": "e8 64 01",
+    "build_report": "extras/docs/etc/bios-sysconf-call-no-padding-build.json",
+    "reference_build": "extras/build/bios-reference-e7vmpbi6/io.sys",
+    "aligned_difference_count_after": 545,
+    "limitations": "Remaining aligned differences include link-address changes and have not been fully classified."
+  },
+  "difference_analysis": {
+    "aligned_difference_count": 545,
+    "byte_delta_histogram": {
+      "plus_18": 414,
+      "plus_1": 39,
+      "plus_51": 29,
+      "plus_69": 21,
+      "plus_11": 18,
+      "plus_70": 15,
+      "minus_12": 5,
+      "minus_3": 2,
+      "plus_6": 1,
+      "plus_8": 1
+    },
+    "verified_examples": [
+      "Two minus-3 differences are short branches to erase_dev_do, whose location moved when the CheckDoubleSpace call was inserted.",
+      "Five minus-12 differences include external calls kbd_read, organize, parseline, setparms and diddleback.",
+      "Plus-6 and plus-8 differences occur in external calls copy_envvar and set_numlock."
+    ],
+    "limitations": "Delta categories alone do not prove fixup attribution; listing hides some macro expansions. Every remaining difference still needs coverage or independently justified attribution."
+  },
+  "expanded_listing_analysis": {
+    "listing": "extras/build/sysconf-list-k73n_wie/sysconf.lst",
+    "method": "In an isolated copy, enable listing directives; MASM object SHA-256 equals unmodified build object. Parse R/E marked fields, including structure continuation rows.",
+    "total_differing_bytes": 545,
+    "differing_bytes_in_marked_fields": 538,
+    "remaining_unmarked_offsets": [
+      2425,
+      4217,
+      4254,
+      5409,
+      5410,
+      5426,
+      5443
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "index": 77,
+  "file": "dos/macro.asm",
+  "reviewed_sha256": "86b39aee4b10eb6bec74ad5427047c348fb8270a3d6a3dc5818d6c8222a8a788",
+  "decision": "retain reference-identical pathname translation module",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\macro.asm",
+      "sha256": "86b39aee4b10eb6bec74ad5427047c348fb8270a3d6a3dc5818d6c8222a8a788"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\macro.asm",
+      "sha256": "86b39aee4b10eb6bec74ad5427047c348fb8270a3d6a3dc5818d6c8222a8a788"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/kernel-dir-getentry-branch-build.json",
+    "module_file_offset": 27595,
+    "module_length": 396,
+    "target_sha256": "1ee715b82e1fd880522bc8adb96ac764a9129709ff6442007ac079f10ca96bda"
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and astro.",
+    "Listing places $AssignOper at module offset zero and ends DOSCODE at 018Ch; map resolves 0000:A9BB with -15856 file bias.",
+    "All 396 linked bytes match target MSDOS.SYS at the same offsets."
+  ],
+  "limitations": "Evidence covers selected build configuration; full kernel remains unequal.",
+  "change": "No source change."
+}

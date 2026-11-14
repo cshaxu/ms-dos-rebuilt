@@ -1,0 +1,29 @@
+{
+  "index": 70,
+  "file": "dos/finfo.asm",
+  "reviewed_sha256": "58ba5d206fe7c20eea409db6ac39ebcf2e59db19b5fc691f942b3ca90ec02c39",
+  "decision": "retain reference-identical file information module",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\finfo.asm",
+      "sha256": "58ba5d206fe7c20eea409db6ac39ebcf2e59db19b5fc691f942b3ca90ec02c39"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\finfo.asm",
+      "sha256": "58ba5d206fe7c20eea409db6ac39ebcf2e59db19b5fc691f942b3ca90ec02c39"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/kernel-dir-getentry-branch-build.json",
+    "module_file_offset": 10810,
+    "module_length": 260,
+    "target_sha256": "7aa236cb7d5b6deb6f731a596089ca22b69a7fceb59e9e609bf285a9a90c2332"
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and astro.",
+    "Listing places GET_FILE_INFO at module offset zero and ends DOSCODE at 0104h; map resolves 0000:682A with -15856 file bias.",
+    "All 260 linked bytes match target MSDOS.SYS at the same offsets."
+  ],
+  "limitations": "Evidence covers selected build configuration; full kernel remains unequal.",
+  "change": "No source change."
+}

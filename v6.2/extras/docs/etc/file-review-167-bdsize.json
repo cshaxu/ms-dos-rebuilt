@@ -1,0 +1,20 @@
+{
+  "index": 167,
+  "path": "inc/bdsize.inc",
+  "reference_sha256": "d78f9b7e372f14f69158414ce43856d033431829ea356e71fc47221f090db4c2",
+  "reviewed_sha256": "33a862fb4b05d71a2f8307f231dcb08491fed700343db8c9e56efcae00455ca2",
+  "decision": "Adopt the exact astro size-equate file to restore the target kernel origin.",
+  "changes": [
+    "BIODATASIZ 0910h to 0900h",
+    "DOSDATASIZ 1370h to 136Ah",
+    "BIOCODESIZ remains 1A70h"
+  ],
+  "evidence": [
+    "origin.inc computes PARASTART by adding 0700h and the three equates then rounding up to a paragraph.",
+    "The DOS 6.0 values give 3DF0h; the astro values give an unrounded 3DDAh and a rounded 3DE0h.",
+    "Target MSDOS.SYS bytes at offsets 3\u20134 encode 3DE0h little-endian.",
+    "kernel-reference-comparison.json records DOSDATA linked segment size 136Ah.",
+    "The source now matches O:/repos.external/astro/inc/bdsize.inc byte for byte."
+  ],
+  "limitations": "The target header constrains only the rounded sum, not each individual BIOS size. Astro provides the candidate values; their historical individual values and complete final links remain unverified. The DOSDATA size cited is a reference build, not a directly measured target segment."
+}

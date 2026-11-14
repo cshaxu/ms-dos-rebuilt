@@ -1,0 +1,32 @@
+{
+  "index": 19,
+  "file": "bios/msload.asm",
+  "reviewed_sha256": "29acc768be4c4bec6bcf4152a1330ecf6aee4ae3edfa544e88256e674d8658d5",
+  "decision": "retain loader; version difference belongs to shared version definition",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\msload.asm",
+      "sha256": "29acc768be4c4bec6bcf4152a1330ecf6aee4ae3edfa544e88256e674d8658d5"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\bios\\msload.asm",
+      "sha256": "29acc768be4c4bec6bcf4152a1330ecf6aee4ae3edfa544e88256e674d8658d5"
+    }
+  ],
+  "target_segment": {
+    "segment": "CSEG",
+    "offset": 0,
+    "length": 1446,
+    "differing_byte_offsets": [
+      4
+    ]
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and astro.",
+    "Loader listing defines SysVersion at offset 0003h from expected_version and ends CSEG at 05A6h.",
+    "The only difference in 1446 loader bytes is minor version byte at offset 0004h: reference 00h, target 14h.",
+    "expected_version derives from MINOR_VERSION and MAJOR_VERSION in inc/versiona.inc, ledger index 245; update there in sequence."
+  ],
+  "limitations": "The version definition is shared and its full effects must be verified when handled; complete IO.SYS equality remains unresolved.",
+  "change": "No change to loader source."
+}

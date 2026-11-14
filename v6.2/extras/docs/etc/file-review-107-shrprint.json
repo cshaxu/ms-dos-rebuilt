@@ -1,0 +1,23 @@
+{
+  "index": 107,
+  "file": "dos/shrprint.asm",
+  "reviewed_sha256": "2262e4a31bd4a2e5f4a4e71d62377068ab0956811691b7c84399ca2b1221cd6d",
+  "decision": "retain reference-identical SHARE-level debug output source",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\shrprint.asm",
+      "sha256": "2262e4a31bd4a2e5f4a4e71d62377068ab0956811691b7c84399ca2b1221cd6d"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\shrprint.asm",
+      "sha256": "2262e4a31bd4a2e5f4a4e71d62377068ab0956811691b7c84399ca2b1221cd6d"
+    }
+  ],
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and Astro.",
+    "The source defines formatted debug output in the SHARE segment. The selected kernel link does not include shrprint.obj and its map contains no PFMT public symbol.",
+    "The potential PFMT use in segcheck.asm is under the disabled DEBUG path in the selected configuration."
+  ],
+  "limitations": "No target byte range is attributed to this source in the selected core build; other configurations are not established.",
+  "change": "No source change."
+}

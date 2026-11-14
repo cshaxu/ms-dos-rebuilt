@@ -1,0 +1,54 @@
+{
+  "scope": "Read-only FAT12 extraction; no mounting or image modification.",
+  "results": [
+    {
+      "image": "msdos600_en_boot.img",
+      "image_sha256": "a0f8a7c46d8981cf13760cc7743f64e0a483cf729620bf2cc9e75578eda1cfd4",
+      "command_sha256": "8969c296d4aa4b2fc9d5456444020e60f022f76de539655282e894ddfd699da3",
+      "boundary_0x1bf": "e99efe020000",
+      "follows_near_jump": true,
+      "tail_hex": "020000"
+    },
+    {
+      "image": "msdos620_en_boot.img",
+      "image_sha256": "c04538391f889d340918e1c2a4da0a8c4cedd063a5cbbc200e9b133f769ceff0",
+      "command_sha256": "9b1d77119ac6fe4f949f574db1445b2848683c3a5aaa2bb09f52d0b538df3541",
+      "boundary_0x1bf": "e99efe636f78",
+      "follows_near_jump": true,
+      "tail_hex": "636f78"
+    },
+    {
+      "image": "msdos621_en_boot.img",
+      "image_sha256": "c9adff049e37166320e2b3111cd3f16b699dcb7244330b03282fab1e3c89633b",
+      "command_sha256": "d8a0777930d8ded8a3e8bca732f32360c3bd6896394d5f938b1a0d85287d11dd",
+      "boundary_0x1bf": "e99efe636f78",
+      "follows_near_jump": true,
+      "tail_hex": "636f78"
+    },
+    {
+      "image": "msdos622_en_boot.img",
+      "image_sha256": "1ab300a0a54b8f384cc457424ea0d2f3f46bef11c0172429c6b207b2ec539e6e",
+      "command_sha256": "65fa71b0a34e91feffc31297fb5e24d40767c72fb513e46aaac721bda7836110",
+      "boundary_0x1bf": "e99efe636f78",
+      "follows_near_jump": true,
+      "tail_hex": "636f78"
+    },
+    {
+      "image": "msdos622_en_boot_flp525.img",
+      "image_sha256": "22249a57d2569b2bcad48490f3d5edcc2856afb9858abbe4d93245d52ea4fedd",
+      "command_sha256": "65fa71b0a34e91feffc31297fb5e24d40767c72fb513e46aaac721bda7836110",
+      "boundary_0x1bf": "e99efe636f78",
+      "follows_near_jump": true,
+      "tail_hex": "636f78"
+    },
+    {
+      "image": "msdos622_cn_boot.ima",
+      "image_sha256": "257b57ee33c7bd19e8b3a2c25b6a08fbf621806d144a4ffa03efd4daf239cf7e",
+      "command_sha256": "65fa71b0a34e91feffc31297fb5e24d40767c72fb513e46aaac721bda7836110",
+      "boundary_0x1bf": "e99efe636f78",
+      "follows_near_jump": true,
+      "tail_hex": "636f78"
+    }
+  ],
+  "limitations": "Matching bytes across versions and locales show repetition, not source ownership or runtime semantics."
+}

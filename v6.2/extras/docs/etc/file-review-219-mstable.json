@@ -1,0 +1,14 @@
+{
+  "index": 219,
+  "path": "inc/mstable.asm",
+  "reviewed_sha256": "050306a1539c363ab87c9964b4b45f8fb530b3493bcac85707476145d82b734b",
+  "reference_astro_identical": true,
+  "decision": "Exclude the unreferenced alternate table assembly wrapper from the selected core build and retain it under research.",
+  "archive": "extras/research/excluded/inc/mstable.asm",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "The selected kernel build copies and assembles dos/mstable.asm and links mstable.obj; that source is distinct and was reviewed at index 94.",
+    "No selected dependency inventory edge chooses inc/mstable.asm, and retained core sources do not reference this alternate wrapper."
+  ],
+  "limitations": "Exclusion applies to the selected core build only. The actual DOS dispatch table and final kernel link remain subject to their recorded verification limits."
+}

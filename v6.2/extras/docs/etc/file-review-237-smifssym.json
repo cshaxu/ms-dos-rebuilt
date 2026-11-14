@@ -1,0 +1,13 @@
+{
+  "index": 237,
+  "path": "inc/smifssym.inc",
+  "reviewed_sha256": "bfd832bcd928d692b1b7250b98680ae2dd3b1864a55018ed0e4852631b8bc13b",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical BIOS IFS initialization structures required by the retained BIOS include-listing auxiliary.",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "bios/inc.asm includes smifssym.inc; review 006 retains that source as an include-listing auxiliary.",
+    "No selected core dependency inventory edge references smifssym.inc, and no other retained core include reference was found."
+  ],
+  "limitations": "The include-listing auxiliary is not linked in the selected core build; target binary comparison does not independently verify these structures or IFS functionality. Retention preserves that auxiliary dependency."
+}

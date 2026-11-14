@@ -1,0 +1,15 @@
+{
+  "index": 213,
+  "path": "inc/msdata2.asm",
+  "reviewed_sha256": "01edeab0e841c0c20619b96a30210f85279a9e0d5a864f22770eda5ded1c9c65",
+  "reference_astro_identical": true,
+  "decision": "Exclude the unreferenced alternate data aggregation unit from the selected core build and retain it under research.",
+  "archive": "extras/research/excluded/inc/msdata2.asm",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "The file is an assembly aggregation unit that includes msdata.asm and msinit.asm.",
+    "No include of msdata2.asm is present in the retained core source trees or frozen selected dependency inventory.",
+    "The selected kernel build links msdata, not msdata2; existing project build tools contain no msdata2 reference."
+  ],
+  "limitations": "Exclusion applies to the selected three-component build and does not establish absence from other DOS configurations."
+}

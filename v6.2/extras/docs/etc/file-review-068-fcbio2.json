@@ -1,0 +1,41 @@
+{
+  "index": 68,
+  "file": "dos/fcbio2.asm",
+  "reviewed_sha256": "2faabcea11b9476c1e6108db7eef581c9e1c46793313b2c358343dca31912293",
+  "decision": "retain reference-identical FCB I/O and open module",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\fcbio2.asm",
+      "sha256": "2faabcea11b9476c1e6108db7eef581c9e1c46793313b2c358343dca31912293"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\fcbio2.asm",
+      "sha256": "2faabcea11b9476c1e6108db7eef581c9e1c46793313b2c358343dca31912293"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/kernel-dir-getentry-branch-build.json",
+    "module_file_offset": 7413,
+    "module_length": 778,
+    "differing_module_offsets": [
+      275,
+      276,
+      284,
+      507,
+      733
+    ],
+    "relocation_symbols": [
+      "DOS_Read",
+      "DOS_Write",
+      "DOS_Open",
+      "DOS_Create"
+    ]
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and astro.",
+    "Listing places GetRR at module offset zero and ends DOSCODE at 030Ah; map resolves 0000:5AE5 with -15856 file bias.",
+    "All five differing bytes lie in assembler-marked DOSCODE function address fields."
+  ],
+  "limitations": "Final address values and complete kernel identity remain unverified.",
+  "change": "No source change."
+}

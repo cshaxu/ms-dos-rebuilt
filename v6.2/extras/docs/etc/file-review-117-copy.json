@@ -1,0 +1,55 @@
+{
+  "index": 117,
+  "file": "cmd/command/copy.asm",
+  "reviewed_sha256": "fc34cda03a81fe7ae571faa76cf0b0c86d1e23a61572f0646efd27a374e92c54",
+  "decision": "retain reconstructed 6.20 COPY source with explicit cross-file link obligations",
+  "verification": {
+    "tool": "extras/tools/verify_copy_listing.py",
+    "investigation": "extras/docs/etc/file-review-117-copy-investigation.json",
+    "target_module_file_offset": 25651,
+    "module_length": 2112,
+    "non_relocation_bytes_match": 1432,
+    "internal_near_fixups_match": 40,
+    "target_data_operands_checked": 180
+  },
+  "deferred_link_obligations": {
+    "unresolved_symbols": [
+      "answer_all",
+      "CopyNonInteractive",
+      "answer_yes",
+      "answer_no",
+      "confirm_overwrite",
+      "dest_exists",
+      "answer_buffer",
+      "prompt_sublist",
+      "copy_state",
+      "copycmd_name",
+      "sysdispmsg"
+    ],
+    "source_order_owner_hints": {
+      "copypr2.asm": 119,
+      "rdata.asm": 137,
+      "tcode.asm": 151,
+      "tprintf.asm": 160,
+      "tranmsg.asm": 161,
+      "tspc.asm": 162
+    },
+    "status": "open; no final binary identity claim"
+  },
+  "limitations": "Source-level reconstruction has been processed; final external symbol resolution, message definitions, full link and target byte identity are not established. Provisional identifiers remain documented.",
+  "change": "Restored COPY overwrite confirmation, /Y handling, COPYCMD lookup and corresponding control flow.",
+  "link_probe": {
+    "change": "Declare answer characters in TRANDATA and use OFFSET TRANGROUP:answer_buffer.",
+    "generated_message_probe": "extras/build/command-reference-ef18qj4j/COMMAND.CLF",
+    "link_log": "extras/build/command-reference-ef18qj4j/lncp2.log",
+    "result": "Diagnostic full link succeeds when inferred messages 1103\u20131105 and answer aliases are added to generated messages. Output is 54056 bytes versus target 54619.",
+    "limitations": "Generated messages were modified only in ignored probe storage; exact message source, other target differences and final link remain open."
+  },
+  "full_probe": {
+    "stage": "extras/build/command-reference-ef18qj4j",
+    "result": "byte-identical COMMAND.COM after restoring diagnostic initialization and transient messages and qualifying six offsets by TRANGROUP",
+    "target_sha256": "9b1d77119ac6fe4f949f574db1445b2848683c3a5aaa2bb09f52d0b538df3541",
+    "output_length": 54619,
+    "limitation": "The staged message includes and generated class were edited in ignored probe storage; final project message sources and reproducible clean build remain open."
+  }
+}

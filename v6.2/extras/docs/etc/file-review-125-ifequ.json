@@ -1,0 +1,18 @@
+{
+  "index": 125,
+  "path": "cmd/command/ifequ.asm",
+  "reference_sha256": "658d692385d05f90d21f5212a4e3f4dd95717eefa9c6a2bd44ca2e97a4cda3be",
+  "reviewed_sha256": "658d692385d05f90d21f5212a4e3f4dd95717eefa9c6a2bd44ca2e97a4cda3be",
+  "reference_astro_identical": true,
+  "decision": "Retain unchanged include: its only active directives conditionally print assembler messages and produce no binary code or data.",
+  "included_by": [
+    "cmd/command/tdata.asm",
+    "cmd/command/uinit.asm"
+  ],
+  "reference_assembly_logs": [
+    "extras/build/command-reference-l_ua1x5q/tdata.log",
+    "extras/build/command-reference-l_ua1x5q/uinit.log"
+  ],
+  "observed_message": "DBCS Enabled IBM  version",
+  "limitations": "Assembly-time source only; no direct target binary bytes exist to compare. Overall configuration and linked component identity remain pending."
+}

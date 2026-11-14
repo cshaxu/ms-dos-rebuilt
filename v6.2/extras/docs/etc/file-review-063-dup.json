@@ -1,0 +1,32 @@
+{
+  "index": 63,
+  "file": "dos/dup.asm",
+  "reviewed_sha256": "e12500722670edd6faa184679039b09225c9f6756c2a2fc644dfabb5e2536b09",
+  "decision": "retain reference-identical handle duplication module",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dup.asm",
+      "sha256": "e12500722670edd6faa184679039b09225c9f6756c2a2fc644dfabb5e2536b09"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\dup.asm",
+      "sha256": "e12500722670edd6faa184679039b09225c9f6756c2a2fc644dfabb5e2536b09"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/kernel-dir-getentry-branch-build.json",
+    "module_file_offset": 11070,
+    "module_length": 22,
+    "differing_module_offsets": [
+      3
+    ],
+    "relocation_symbol": "DosDseg"
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and astro.",
+    "Listing places DOS_DUP at module offset zero and ends DOSCODE at 0016h; map resolves 0000:692E with -15856 file bias.",
+    "The sole differing byte belongs to assembler-marked DosDseg address in getdseg expansion."
+  ],
+  "limitations": "The address and whole-kernel equality remain unverified until remaining code layout is reconstructed.",
+  "change": "No source change."
+}

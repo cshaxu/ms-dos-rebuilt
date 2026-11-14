@@ -1,0 +1,14 @@
+{
+  "index": 227,
+  "path": "inc/pcgequ.inc",
+  "reviewed_sha256": "e4c4105928697d9936634fb6f506b57a266d560c2d42a354115c71873d38ec80",
+  "reference_astro_identical": true,
+  "decision": "Exclude the unreferenced graphics register and icon definitions from the selected core build and retain them under research.",
+  "archive": "extras/research/excluded/inc/pcgequ.inc",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "The file contains video register, graphics icon and long conditional-jump definitions.",
+    "No reference to pcgequ.inc appears in retained BIOS, DOS, COMMAND and include source trees or the frozen selected dependency inventory."
+  ],
+  "limitations": "The exclusion applies to the selected three-component build only; other DOS graphics components may use this file."
+}

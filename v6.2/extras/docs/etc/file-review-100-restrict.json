@@ -1,0 +1,23 @@
+{
+  "index": 100,
+  "file": "dos/restrict.inc",
+  "reviewed_sha256": "a5f68b20aba15a124f3e6f9af99638505e0112edd94a72f8aac7db9160560a76",
+  "decision": "retain reference-identical conditional restricted-build list",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\restrict.inc",
+      "sha256": "a5f68b20aba15a124f3e6f9af99638505e0112edd94a72f8aac7db9160560a76"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\restrict.inc",
+      "sha256": "a5f68b20aba15a124f3e6f9af99638505e0112edd94a72f8aac7db9160560a76"
+    }
+  ],
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and Astro.",
+    "msproc.asm includes the filename list only under RESTRICTED_BUILD. The selected USA kernel assembly does not expand the include and does not emit its INSTALL.EXE entry.",
+    "The selected msproc linked bytes and remaining target differences are documented in file-review-092-msproc.json."
+  ],
+  "limitations": "No claim is made about restricted-build variants; this file emits no bytes in the selected build.",
+  "change": "No source change."
+}

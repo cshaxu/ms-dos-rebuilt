@@ -1,0 +1,36 @@
+{
+  "index": 39,
+  "file": "bios/sysinit1.asm",
+  "reviewed_sha256": "36e9b2ce7f749899cabd7777ce4e14b4d55c0d8d2b4b10d69648cbc55d5c6fe4",
+  "decision": "reconstruct BIOS tick capture and AUTOEXEC shell option control flow",
+  "analysis": "extras/docs/etc/file-review-039-sysinit1-in-progress.json",
+  "changes": [
+    "Add BootTicks word and save BIOS tick counter before ProcessConfig.",
+    "Reconstruct target /D and /Y calling paths using symbolic external references."
+  ],
+  "probe": {
+    "build_stage": "extras/build/sysinit1-link-probe-6x3u79bf",
+    "length": 6028,
+    "target_offset": 17878,
+    "differing_bytes": 124,
+    "difference_attribution": {
+      "relocation_marked_same_line": 89,
+      "relocation_wrapped_continuation": 2,
+      "version_constant": 1,
+      "provisional_message_bytes": 32
+    },
+    "limitations": "Probe supplies temporary stub symbols in a copy of sysinit2 solely to link and classify byte locations; it is not a functioning or target-identical build."
+  },
+  "unresolved_dependencies": [
+    "sysinit2 must implement and export bQueryOpt, shell_opt_flags, enable_autoexec_query and the DOS 6.20 disable_autoexec implementation.",
+    "inc/versiona.inc minor version must be set to 20 when its turn is reached.",
+    "Generated BIOS message IDs 18 and 23 need target punctuation and spacing.",
+    "The full BIOS link, final address values and exact target equality remain unverified."
+  ],
+  "checks": [
+    "Probe assembly places FTryToMovDOSHi at target offset 0B8Ch.",
+    "The BIOS timer capture instruction matches target byte for byte.",
+    "All 124 remaining differing byte positions lie in relocation fields, one version immediate, or two generated message strings."
+  ],
+  "limitations": "BootTicks and new interface names are descriptive reconstructed names, not recovered original symbols."
+}

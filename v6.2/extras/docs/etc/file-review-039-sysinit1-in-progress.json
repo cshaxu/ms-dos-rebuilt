@@ -1,0 +1,83 @@
+{
+  "index": 39,
+  "file": "bios/sysinit1.asm",
+  "status": "in_progress",
+  "source_sha256": "36e9b2ce7f749899cabd7777ce4e14b4d55c0d8d2b4b10d69648cbc55d5c6fe4",
+  "reconstruction": {
+    "change": "Define BootTicks word and record BIOS tick count at 0040:006C before ProcessConfig.",
+    "boot_ticks_segment_offset": 908,
+    "target_instruction_file_offset": 19637,
+    "target_instruction_hex": "1e2bc08ed8a16c041f2ea38c03",
+    "build_report": "extras/docs/etc/bios-sysinit1-bootticks-build.json",
+    "observed_pointer_before": 2937,
+    "observed_pointer_after": 2952,
+    "target_pointer": 2956
+  },
+  "remaining": [
+    "Classify other sysinit1 target differences; resolve later SYSINIT2 interfaces in sequence."
+  ],
+  "limitations": "BootTicks is a descriptive reconstructed name; target does not reveal the original symbol name. BIOS output as a whole is not target-identical.",
+  "autoexec_analysis": {
+    "target_segment_base_file_offset": 17878,
+    "conditional_path": {
+      "branch_offset": 2077,
+      "branch_bytes": "73 08",
+      "set_flag_offset": 2079,
+      "set_flag_bytes": "80 0e dc 51 04",
+      "calls": [
+        {
+          "offset": 2084,
+          "target_segment_offset": 19426
+        },
+        {
+          "offset": 2087,
+          "target_segment_offset": 19501
+        }
+      ]
+    },
+    "alternate_command_path": {
+      "clear_flag_bytes": "c6 06 d2 51 00",
+      "calls": [
+        {
+          "offset": 2457,
+          "target_segment_offset": 19426
+        },
+        {
+          "offset": 2460,
+          "target_segment_offset": 19501
+        }
+      ]
+    },
+    "observations": [
+      "The same two target routines are called from both paths; target 4BE2 begins with test of flag at 51DCh and target 4C2D lies inside a new sequence.",
+      "Neither target routine is identical to the current DOS 6 disable_autoexec entry; their full source and symbol semantics are unresolved.",
+      "These targets lie in later SYSINIT code; adding calls to guessed aliases would falsely claim source fidelity."
+    ],
+    "next_action": "Reconstruct a buildable current-file interface and corresponding later-module implementation without altering later source out of order; verify target call and final link values.",
+    "semantic_evidence": {
+      "routine_4be2": "Tests option bit 04h, checks and sets bit 01h in a new per-option byte, sets query-option bits and uses immediate word 2044h (characters D and space) in shared command-line insertion logic.",
+      "routine_4c2d": "Tests query option state, checks and sets bit 02h in the same new byte, then uses immediate word 2059h (characters Y and space) and jumps into the shared insertion logic.",
+      "reference": "DOS 6 sysinit2 disable_autoexec prepends /D using the default switch character and existing bQueryOpt; target has expanded D/Y handling and a separate per-option flag.",
+      "cross_file_constraint": "New symbols and definitions are absent from the current sysinit2 source; do not invent fixed addresses or relabel existing function as equivalent."
+    }
+  },
+  "autoexec_reconstruction": {
+    "changes": [
+      "In query-rejected path set bQueryOpt bit 4, then call disable_autoexec; invoke enable_autoexec_query after the conditional.",
+      "On alternate shell path clear shell_opt_flags and call both routines."
+    ],
+    "assembly_listing": "extras/build/sysinit1-asm-s39lowif/sysinit1.lst",
+    "verification": [
+      "MASM assembles the current module successfully.",
+      "Listing places both calls and external flag instructions at exactly the target SYSINIT offsets 081Fh, 0824h, 0827h, 0994h, 0999h, 099Ch.",
+      "The target relocation values cannot yet be checked by a complete link."
+    ],
+    "unresolved_external_symbols": [
+      "bQueryOpt must be exported by sysinit2",
+      "shell_opt_flags must be defined and exported by sysinit2",
+      "enable_autoexec_query must be implemented and exported by sysinit2",
+      "disable_autoexec requires DOS 6.20 implementation in sysinit2"
+    ],
+    "limitations": "Current three-core BIOS link is incomplete until these explicit later-file dependencies are implemented; newly named symbols are descriptive reconstructions."
+  }
+}

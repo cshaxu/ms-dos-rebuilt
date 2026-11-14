@@ -1,0 +1,24 @@
+{
+  "index": 138,
+  "path": "cmd/command/resmsg.equ",
+  "reference_sha256": "e9944d068ccdc0d10b6fea4a387aa3a127388082ef05d07a146741eb2babb49a",
+  "reviewed_sha256": "e9944d068ccdc0d10b6fea4a387aa3a127388082ef05d07a146741eb2babb49a",
+  "reference_astro_identical": true,
+  "decision": "Retain reference-identical resident message structure and macro definitions.",
+  "usage": [
+    "command1.asm",
+    "command2.asm",
+    "init.asm",
+    "rdata.asm",
+    "rucode.asm",
+    "tenv.asm",
+    "uinit.asm"
+  ],
+  "verification": [
+    "RDATA was assembled with a byte-identical staged copy of this include.",
+    "Pre-message substitution data matches target outside relocation fields.",
+    "In 2050 aligned message bytes all 86 differences occur in 83 MASM-marked relocation words, each shifted by seven."
+  ],
+  "evidence": "extras/docs/etc/file-review-137-rdata.json",
+  "limitations": "This verifies selected uses in the provisional reference configuration; other consumers, generated-message provenance, and final linking remain pending."
+}

@@ -1,0 +1,14 @@
+{
+  "index": 195,
+  "path": "inc/fastxxxx.inc",
+  "reviewed_sha256": "6e89fb864fb75b1e89bf3c049ead0167d481377ce6fa6986f9e53b30a30331f6",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical FASTOPEN/FASTSEEK flags and entry structure.",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "Selected DOS directory, disk and search sources include fastxxxx.inc.",
+    "DIRCALL uses Fast_yes; its previously compared 521-byte contribution matches target MSDOS.SYS (review 055).",
+    "The previously compared DOS DISK and SEARCH contributions match all 1206 and 465 target bytes respectively (their individual reviews)."
+  ],
+  "limitations": "These comparisons cover selected uses and do not prove all declared fields or optional build configurations. Final core links and whole-file identity remain unverified."
+}

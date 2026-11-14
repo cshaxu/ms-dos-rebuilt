@@ -1,0 +1,3403 @@
+{
+  "index": 117,
+  "file": "cmd/command/copy.asm",
+  "status": "investigating",
+  "reviewed_sha256": "10de61fd6fb514a2dbf7c133d0aa600346a519faba9a2f3b7a3615f281500817",
+  "reference_build": "extras/docs/etc/command-reference-build.json",
+  "module_reference_offset": 25037,
+  "module_length": 1575,
+  "target_alignment_anchors": [
+    {
+      "module_offset": 416,
+      "inferred_target_module_base": 25747,
+      "exact_match_bytes": 10
+    },
+    {
+      "module_offset": 720,
+      "inferred_target_module_base": 25747,
+      "exact_match_bytes": 10
+    },
+    {
+      "module_offset": 984,
+      "inferred_target_module_base": 25868,
+      "exact_match_bytes": 10
+    }
+  ],
+  "finding": "Target COPY contains a layout change between the early and late anchors: the inferred target base shifts by 79h bytes between module offsets 02D0h and 03D8h. The exact change boundary and cause are not established.",
+  "limitations": "The module is not approved or marked reviewed. Matching fragments are insufficient to distinguish inserted code from other layout differences; source reconstruction and build verification remain.",
+  "boundary_analysis": {
+    "reference_listing": "extras/build/command-reference-l_ua1x5q/copy.lst",
+    "reference_label": "MelDo",
+    "reference_module_offset": 782,
+    "target_file_offset": 26529,
+    "target_added_control_flow_end": 26649,
+    "target_prefix_hex": "803e5ca7007471e88d06be8ca6bf19a0",
+    "observations": [
+      "At the aligned MelDo position the target begins CMP byte ptr [A75C],0; JZ to the later original-style display/copy path.",
+      "The intervening target sequence performs DOS INT 21h function 60h, several calls and tests of additional state, then rejoins the copy path.",
+      "The observed block is consistent with a 6.20 COPY behavior addition, but its data symbols, called routines and complete source-level reconstruction have not been proven."
+    ]
+  },
+  "symbol_analysis": {
+    "aligned_trandata_shift": 1392,
+    "matched_data_symbols": [
+      {
+        "name": "NoWrite",
+        "reference_offset": 41424,
+        "target_offset": 42816
+      },
+      {
+        "name": "SrcTail",
+        "reference_offset": 41241,
+        "target_offset": 42633
+      },
+      {
+        "name": "DirBuf+1",
+        "reference_offset": 40885,
+        "target_offset": 42277
+      },
+      {
+        "name": "SrcInfo",
+        "reference_offset": 41243,
+        "target_offset": 42635
+      },
+      {
+        "name": "Concat",
+        "reference_offset": 40336,
+        "target_offset": 41728
+      }
+    ],
+    "confirmed_target_call": {
+      "symbol": "fcb_to_ascz",
+      "target_file_offset": 21075,
+      "reference_file_offset": 20461,
+      "matched_prefix_bytes": 12
+    },
+    "unresolved_target_data_offsets": [
+      42844,
+      42845,
+      42846
+    ],
+    "observations": [
+      "Target data addresses for several pre-existing COPY variables consistently shift by 0570h.",
+      "The target contains additional control state at A75Ch\u2013A75Eh; the source declarations and initialization are not established."
+    ]
+  },
+  "copycmd_analysis": {
+    "target_sha256": "9b1d77119ac6fe4f949f574db1445b2848683c3a5aaa2bb09f52d0b538df3541",
+    "target_copycmd_string_file_offset": 50183,
+    "target_trangroup_file_base_inferred": 9696,
+    "target_copycmd_string_group_offset": 40487,
+    "reference_copycmd_string_present": false,
+    "target_environment_scan_routine_file_offset": 27648,
+    "target_switch_parse_file_offset": 25914,
+    "target_prompt_text_file_offset": 39334,
+    "evidence": [
+      "At file 6C0Fh the target loads offset 9E27h before scanning environment entries; 25E0h + 9E27h points to COPYCMD=.",
+      "The code at 653Ah accepts y or Y following a switch and updates byte A75Ch; the environment scanner at 6C2Ah also clears that byte for Y.",
+      "The target contains an Overwrite...Yes/No message and destination attribute check via INT 21h AX=4300h at 6B38h.",
+      "This supports identifying the new control flow as COPY overwrite confirmation and COPYCMD handling, but the complete source, symbol names, dependencies, and binary layout are not yet reconstructed."
+    ]
+  },
+  "added_routines": {
+    "target_file_start": 27443,
+    "target_file_end_exclusive": 27763,
+    "length": 320,
+    "reference_next_module_file_offset": 26612,
+    "observations": [
+      "Target routine at 6B33h checks destination attributes with INT 21h AX=4300h and presents a choice through the message service.",
+      "The input loop reads characters through INT 21h AH=0Ch/AL=08h, compares three response characters after DOS uppercase conversion, and returns carry for one response; the third accepted response clears the overwrite-confirmation flag.",
+      "The environment routine at 6C00h searches COPYCMD=, scans for /Y, and adjusts the same flag; a fallback checks a resident-state word.",
+      "At 6C73h target code resumes with the same instruction structure as the next reference module at 67F4h, supporting the identified added-routine boundary."
+    ],
+    "limitations": "The response labels, message structures, environment access symbols, and historical source spelling are not established. Target routines cannot be faithfully built until dependent data and message definitions are resolved."
+  },
+  "message_interface_analysis": {
+    "target_display_entry_file_offset": 32913,
+    "reference_entry_file_offset": 31761,
+    "reference_symbol": "SYSDISPMSG",
+    "reference_listing": "extras/build/command-reference-l_ua1x5q/tprintf.lst",
+    "prompt_message_id": 1103,
+    "newline_message_id": 1070,
+    "observations": [
+      "The call at 6B7Eh and the later call at 6BE4h share the same target at file offset 8091h.",
+      "The target entry matches the first eight bytes of reference SYSDISPMSG; its reference offset is independently derived from the tprintf listing and link map.",
+      "The target passes message numbers 044Fh and 042Eh respectively, and builds an 11-byte substitution block containing the destination path.",
+      "These observations identify the historical message-service interface; exact message definitions and target placement remain unresolved."
+    ]
+  },
+  "overwrite_interaction": {
+    "target_prompt_file_offset": 39334,
+    "target_prompt_text": "Overwrite %1 (Yes/No/All)?",
+    "target_response_characters_file_offset": 39361,
+    "target_response_characters": "YNA",
+    "target_message_block_offset": 42833,
+    "reference_structure": "$M_SUBLIST_STRUC",
+    "reference_structure_listing": "extras/build/command-reference-l_ua1x5q/tprintf.lst",
+    "observations": [
+      "The target message stores the permitted response bytes Y, N and A immediately after the prompt.",
+      "After DOS case conversion, Y returns with carry clear; N returns with carry set; A clears the overwrite-confirmation flag and returns with carry clear.",
+      "The 11-byte runtime substitution block uses the existing Microsoft $M_SUBLIST_STRUC layout and points to DestBuf.",
+      "This identifies behavior and structure, but source symbol names and all cross-file definitions remain unproven."
+    ]
+  },
+  "isolated_instruction_probe": {
+    "source": "extras/build/temp/copy-tail-probe.asm",
+    "output": "extras/build/temp/copy-tail-probe.bin",
+    "target_range_start": 27443,
+    "length": 320,
+    "sha256": "cb1762303b0e7e09ab2de4e31576635d222f2d7541050a6a2696b32866867a9f",
+    "byte_equal": true,
+    "alternate_encoding_instruction_count": 10,
+    "limitations": "Probe fixes target numeric addresses and uses db for alternate instruction encodings; it is a diagnostic artifact, not reconstructed Microsoft source or a relocatable build."
+  },
+  "symbolic_instruction_probe": {
+    "source": "extras/research/copy-confirmation-probe.asm",
+    "target_range_start": 27443,
+    "length": 320,
+    "sha256": "cb1762303b0e7e09ab2de4e31576635d222f2d7541050a6a2696b32866867a9f",
+    "byte_equal": true,
+    "internal_branch_labels": 19,
+    "limitations": "Diagnostic NASM source uses target-layout equates and ten explicit alternate instruction encodings; not the final Microsoft-style relocatable source."
+  },
+  "entry_and_switch_analysis": {
+    "target_copy_entry_file_offset": 25651,
+    "reference_copy_entry_file_offset": 25037,
+    "target_initialization_call_file_offset": 25813,
+    "target_switch_processing_range": [
+      25865,
+      25965
+    ],
+    "findings": [
+      "Masking reference relocation fields yields identical instruction bytes for the first 70h bytes at target file offset 6433h, identifying the COPY entry.",
+      "After initialization, target calls the COPYCMD/environment routine at 6C00h from 64D5h.",
+      "The switch parser handles masks 0040h and 0080h, checks for conflicting options, accepts y/Y after one form, and writes overwrite-confirmation flag A75Ch to zero or one.",
+      "These paths and their data declarations must be reconstructed along with the 320-byte tail; source-level names remain provisional."
+    ],
+    "alignment_correction": "Earlier inferred target module bases 6493h and 650Ch are local alignment offsets, not actual module starts; COPY entry is 6433h and insertion(s) change alignment thereafter."
+  },
+  "masm_register_encoding_check": {
+    "source": "extras/research/copy-masm-encoding-probe.asm",
+    "assembler": "O:\\repos.hobby\\ntvdm64\\tools\\opennt\\tools16\\masm.exe",
+    "assembler_sha256": "e54afaa9565e046cd862c29a015d685de43311acccf796469030e162ced6d00d",
+    "listing": "extras/build/temp/encprobe.lst",
+    "tested_instruction_count": 10,
+    "target_bytes_hex": "32d233db8ad88ad08afb8ad733c932d233ff32c0",
+    "listing_bytes_match": true,
+    "conclusion": "All ten instruction encodings requiring explicit bytes in the NASM diagnostic are naturally emitted by the pinned Microsoft assembler from ordinary XOR and MOV instructions. The explicit byte directives are not needed when these instructions are restored in Microsoft assembly syntax."
+  },
+  "masm_message_head_probe": {
+    "source": "extras/research/copy-message-head-masm-probe.asm",
+    "listing": "extras/build/temp/copy-head-masm.lst",
+    "target_file_offset": 27443,
+    "target_relative_near_jump": 182,
+    "observations": [
+      "Microsoft assembler accepts the prompt head with typed external data symbols and ordinary instructions, producing relocatable operands.",
+      "When the forward destination is positioned at module offset 00C8h, the assembler emits a relocatable near jump at 000Fh; its linked displacement is 00B6h, matching the target.",
+      "The 11-byte substitution block initialization matches the observed instruction encodings apart from unresolved address fields.",
+      "Padding is a diagnostic stand-in for the not-yet-restored intervening routine, not an implementation."
+    ],
+    "limitations": "This is an isolated partial assembly probe, not an integrated COMMAND source or proof of complete binary identity."
+  },
+  "masm_complete_prompt_probe": {
+    "source": "extras/research/copy-prompt-masm-probe.asm",
+    "listing": "extras/build/temp/copy-prompt-masm.lst",
+    "target_file_offset": 27443,
+    "length": 205,
+    "relocation_field_bytes": 36,
+    "non_relocation_bytes_match": true,
+    "observations": [
+      "Complete Yes/No/All prompt routine assembles with typed external data symbols and ordinary instructions.",
+      "All bytes outside 36 assembler-marked relocation-field bytes match the target."
+    ],
+    "limitations": "External symbols and message data still require real definitions and link verification. Names in this diagnostic are descriptive rather than claimed original identifiers."
+  },
+  "masm_complete_tail_probe": {
+    "source": "extras/research/copy-full-masm-probe.asm",
+    "listing": "extras/build/temp/copy-full-masm.lst",
+    "target_file_offset": 27443,
+    "length": 320,
+    "relocation_field_bytes": 50,
+    "non_relocation_bytes_match": true,
+    "observations": [
+      "The full overwrite prompt and COPYCMD environment scan assemble as ordinary Microsoft assembly instructions with typed external symbols.",
+      "All 270 bytes outside the 50 assembler-marked relocation bytes match target."
+    ],
+    "limitations": "Probe identifiers are descriptive; numeric structure offsets, real external definitions, final link addresses and integration remain unresolved."
+  },
+  "masm_switch_probe": {
+    "source": "extras/research/copy-switch-masm-probe.asm",
+    "listing": "extras/build/temp/copy-switch-masm.lst",
+    "target_file_offset": 25865,
+    "length": 100,
+    "relocation_field_bytes": 14,
+    "non_relocation_bytes_match": true,
+    "observations": [
+      "The existing AllSwitch symbol maps to the target switch state.",
+      "A Microsoft-assembler reconstruction of the switch tests, conflict paths and overwrite flag writes matches all 86 non-relocation bytes."
+    ],
+    "limitations": "ConfirmOverwrite is a provisional descriptive external symbol; real data declaration, calling context and final link are not established."
+  },
+  "main_flow_symbols": {
+    "target_range": [
+      26529,
+      26649
+    ],
+    "matched_existing_symbols": {
+      "A300h": "Concat",
+      "A30Ah": "CFlag",
+      "A30Bh": "DestClosed",
+      "A684h": "MelCopy",
+      "A68Ch": "SrcBuf",
+      "A019h": "srcxname",
+      "A629h": "DestBuf"
+    },
+    "target_helper_file_offset": 28821,
+    "observations": [
+      "When confirmation is enabled, target code canonicalizes SrcBuf using INT 21h AH=60h.",
+      "The helper at 7095h canonicalizes DestBuf and passes the two resulting paths to a comparison routine.",
+      "A positive confirmation path tests the existing CFlag and Concat state; a negative response updates DestClosed when concatenation or MelCopy requires it.",
+      "These symbol assignments use the reference link map plus the previously verified 0570h transient-data offset difference; original names for new flags and helper routines are not proven."
+    ]
+  },
+  "masm_main_flow_probe": {
+    "source": "extras/research/copy-flow-masm-probe.asm",
+    "listing": "extras/build/temp/copy-flow-masm.lst",
+    "target_file_offset": 26529,
+    "length": 120,
+    "relocation_field_bytes": 48,
+    "non_relocation_bytes_match": true,
+    "observations": [
+      "The complete additional main-flow block assembles with named existing state variables and provisional external helper names.",
+      "All 72 bytes outside the 48 assembler-marked relocation-field bytes match the target.",
+      "Diagnostic padding reproduces the local short-branch destinations but is not part of the recovered implementation."
+    ],
+    "limitations": "External calls, message references, new state, source naming and integration remain unresolved; the final binary has not been matched."
+  },
+  "isolated_module_merge": {
+    "stage_source": "extras/build/temp/copy-merge-stage/copy.asm",
+    "stage_listing": "extras/build/temp/copy-merge-stage/copy.lst",
+    "stage_object": "extras/build/temp/copy-merge-stage/copy.obj",
+    "source_sha256": "adb728888d5b40c66eb7beec7553367bcc7cb14f5986b5ef8e0decf99f2a2815",
+    "assembler_exit_code": 0,
+    "scope": "Experimental merge of overwrite switch code and prompt/COPYCMD routines into COPY source; includes target-required jump expansions.",
+    "limitations": "Experimental source uses provisional externals and identifiers, has not been linked, and still requires original-style cleanup, real definitions and final verification.",
+    "main_flow_integrated": true,
+    "main_flow_target_offset": 26529,
+    "main_flow_non_relocation_match": true,
+    "observations": [
+      "The experimental integrated module has the same 0840h-byte length as the inferred target COPY range.",
+      "All 1436 non-relocation bytes match target; 676 relocation-field bytes await target symbol resolution.",
+      "Correct target initialization order places MelStart before the two new state bytes.",
+      "Allowing masks 0040h and 0080h changes the compiled bad-switch mask from 7FE3h to target 7F23h."
+    ],
+    "target_module_start": 25651,
+    "target_module_length": 2112,
+    "covered_listing_bytes": 2112,
+    "relocation_field_bytes": 680,
+    "non_relocation_differences": 0,
+    "working_source": "extras/research/copy-reconstruction-work.asm",
+    "style_cleanup": "Address-derived labels renamed to descriptive labels; helper procedures and brief comments added. Names are reconstructed, not claimed historical.",
+    "environment_symbols": "Replaced provisional resident segment pointer with existing ResSeg and target-specific 050Fh environment offset with existing EnvirSeg; target offset is supported by reference map and +5h resident-data shift.",
+    "message_symbols": "CopyMessage and CopyError placeholders replaced by existing File_Name_Ptr and Overwr_Ptr. Their target message control block IDs and structures match reference definitions, including the File_Name_Ptr source substitution.",
+    "command_origin_symbol": "Replaced hardcoded resident offset 02C5h with provisional external word CopyNonInteractive, based on observed interactive versus batch/single-command writes; name and definition remain to be reconstructed in ledger order.",
+    "path_comparison_symbol": "Replaced ComparePath with existing public CompName from copypr2.asm. The target helper canonicalizes DestBuf, then calls StrComp on SrcXName and TrgXName, matching reference CompName.",
+    "line_endings": "Normalized to CRLF, matching the DOS 6.0 reference.",
+    "formatting": "Normalized added instruction indentation to the reference tab-separated style and restored indentation of the original Copy_Num declaration.",
+    "constant_style": "Reused existing SwitchV, FBadSwitch and XNameTrans; added provisional SwitchY and SwitchNoY equates in the current file.",
+    "comments": "Restored reference SwitchV historical comments and added concise reconstructed procedure and control-flow comments.",
+    "message_parameter_style": "Reused CHMOD, parm_block_size, ONE_SUBST, STD_CON_INPUT_FLUSH and STD_CON_INPUT_NO_ECHO from existing reference symbols.",
+    "response_parameter_style": "Use existing GetExtCntry and WRITE DOS syscall names in the response loop; subfunction 20h retains its observed value.",
+    "return_style": "Reused the existing return macro for four restored return points; assembler output is checked against the target."
+  },
+  "resident_fallback_dependency": {
+    "target_resgroup_offset": 709,
+    "target_file_offset": 453,
+    "target_initial_word": 0,
+    "target_inserted_five_bytes_file_offset": 450,
+    "target_inserted_five_bytes_hex": "636f780000",
+    "reference_data_resumption_file_offset": 450,
+    "target_data_resumption_file_offset": 455,
+    "evidence": [
+      "The COPYCMD fallback compares the target RESGROUP word at 02C5h with zero.",
+      "At corresponding file positions, the target has five bytes 63 6F 78 00 00 before the reference data resumes; the tested word lies in the last two inserted bytes.",
+      "This indicates a target-specific resident-data dependency, rather than a safely identifiable existing reference symbol."
+    ],
+    "limitations": "The observed batch, single-command and interactive paths are established; other command sources, original symbol name and integration remain unverified. Later source files are not modified out of order.",
+    "writer_file_offset": 10455,
+    "writer_paths": {
+      "interactive_input_fallthrough_sets": 0,
+      "alternate_entry_sets": 1
+    },
+    "observations": [
+      "The target copies UCOMBUF to COMBUF, emits CRLF, clears AX, and writes AX into RESGROUP:02C5h.",
+      "An alternate entry emits CRLF, sets AX to one, and joins the same write.",
+      "The existing tcode.asm source has analogous interactive input and DOCOM/DOCOM1 paths, so the state appears to distinguish the origin of the command; exact coverage of the alternate path remains to be verified.",
+      "The batch-read completion at 2873h and the single-command buffer path at 2899h both jump directly to 28D4h, which loads AX=1 before storing the resident word.",
+      "The interactive input path instead loads AX=0; with COPYCMD absent, COPY reads that word to decide whether to suppress overwrite confirmation."
+    ]
+  },
+  "internal_relocation_verification": {
+    "target_module_file_offset": 25651,
+    "near_relative_instruction_count": 40,
+    "verified_relocation_bytes": 80,
+    "all_displacements_match": true,
+    "comparisons": [
+      {
+        "module_offset": 162,
+        "destination_offset": 1997,
+        "expected_displacement": 1832,
+        "target_displacement": 1832
+      },
+      {
+        "module_offset": 211,
+        "destination_offset": 344,
+        "expected_displacement": 130,
+        "target_displacement": 130
+      },
+      {
+        "module_offset": 341,
+        "destination_offset": 179,
+        "expected_displacement": -165,
+        "target_displacement": -165
+      },
+      {
+        "module_offset": 391,
+        "destination_offset": 179,
+        "expected_displacement": -215,
+        "target_displacement": -215
+      },
+      {
+        "module_offset": 637,
+        "destination_offset": 1726,
+        "expected_displacement": 1086,
+        "target_displacement": 1086
+      },
+      {
+        "module_offset": 640,
+        "destination_offset": 711,
+        "expected_displacement": 68,
+        "target_displacement": 68
+      },
+      {
+        "module_offset": 643,
+        "destination_offset": 797,
+        "expected_displacement": 151,
+        "target_displacement": 151
+      },
+      {
+        "module_offset": 646,
+        "destination_offset": 1486,
+        "expected_displacement": 837,
+        "target_displacement": 837
+      },
+      {
+        "module_offset": 701,
+        "destination_offset": 1726,
+        "expected_displacement": 1022,
+        "target_displacement": 1022
+      },
+      {
+        "module_offset": 775,
+        "destination_offset": 701,
+        "expected_displacement": -77,
+        "target_displacement": -77
+      },
+      {
+        "module_offset": 829,
+        "destination_offset": 1207,
+        "expected_displacement": 375,
+        "target_displacement": 375
+      },
+      {
+        "module_offset": 839,
+        "destination_offset": 666,
+        "expected_displacement": -176,
+        "target_displacement": -176
+      },
+      {
+        "module_offset": 932,
+        "destination_offset": 1792,
+        "expected_displacement": 857,
+        "target_displacement": 857
+      },
+      {
+        "module_offset": 972,
+        "destination_offset": 646,
+        "expected_displacement": -329,
+        "target_displacement": -329
+      },
+      {
+        "module_offset": 975,
+        "destination_offset": 1195,
+        "expected_displacement": 217,
+        "target_displacement": 217
+      },
+      {
+        "module_offset": 987,
+        "destination_offset": 740,
+        "expected_displacement": -250,
+        "target_displacement": -250
+      },
+      {
+        "module_offset": 995,
+        "destination_offset": 740,
+        "expected_displacement": -258,
+        "target_displacement": -258
+      },
+      {
+        "module_offset": 1021,
+        "destination_offset": 1224,
+        "expected_displacement": 200,
+        "target_displacement": 200
+      },
+      {
+        "module_offset": 1031,
+        "destination_offset": 1486,
+        "expected_displacement": 452,
+        "target_displacement": 452
+      },
+      {
+        "module_offset": 1060,
+        "destination_offset": 1195,
+        "expected_displacement": 132,
+        "target_displacement": 132
+      },
+      {
+        "module_offset": 1070,
+        "destination_offset": 863,
+        "expected_displacement": -210,
+        "target_displacement": -210
+      },
+      {
+        "module_offset": 1117,
+        "destination_offset": 701,
+        "expected_displacement": -419,
+        "target_displacement": -419
+      },
+      {
+        "module_offset": 1156,
+        "destination_offset": 878,
+        "expected_displacement": -281,
+        "target_displacement": -281
+      },
+      {
+        "module_offset": 1159,
+        "destination_offset": 740,
+        "expected_displacement": -422,
+        "target_displacement": -422
+      },
+      {
+        "module_offset": 1162,
+        "destination_offset": 1486,
+        "expected_displacement": 321,
+        "target_displacement": 321
+      },
+      {
+        "module_offset": 1184,
+        "destination_offset": 1195,
+        "expected_displacement": 8,
+        "target_displacement": 8
+      },
+      {
+        "module_offset": 1189,
+        "destination_offset": 649,
+        "expected_displacement": -543,
+        "target_displacement": -543
+      },
+      {
+        "module_offset": 1192,
+        "destination_offset": 852,
+        "expected_displacement": -343,
+        "target_displacement": -343
+      },
+      {
+        "module_offset": 1303,
+        "destination_offset": 1477,
+        "expected_displacement": 171,
+        "target_displacement": 171
+      },
+      {
+        "module_offset": 1313,
+        "destination_offset": 646,
+        "expected_displacement": -670,
+        "target_displacement": -670
+      },
+      {
+        "module_offset": 1316,
+        "destination_offset": 649,
+        "expected_displacement": -670,
+        "target_displacement": -670
+      },
+      {
+        "module_offset": 1559,
+        "destination_offset": 1700,
+        "expected_displacement": 138,
+        "target_displacement": 138
+      },
+      {
+        "module_offset": 1668,
+        "destination_offset": 1767,
+        "expected_displacement": 96,
+        "target_displacement": 96
+      },
+      {
+        "module_offset": 1671,
+        "destination_offset": 1718,
+        "expected_displacement": 44,
+        "target_displacement": 44
+      },
+      {
+        "module_offset": 1685,
+        "destination_offset": 1718,
+        "expected_displacement": 30,
+        "target_displacement": 30
+      },
+      {
+        "module_offset": 1704,
+        "destination_offset": 1630,
+        "expected_displacement": -77,
+        "target_displacement": -77
+      },
+      {
+        "module_offset": 1707,
+        "destination_offset": 1718,
+        "expected_displacement": 8,
+        "target_displacement": 8
+      },
+      {
+        "module_offset": 1807,
+        "destination_offset": 1992,
+        "expected_displacement": 182,
+        "target_displacement": 182
+      },
+      {
+        "module_offset": 2019,
+        "destination_offset": 2080,
+        "expected_displacement": 58,
+        "target_displacement": 58
+      },
+      {
+        "module_offset": 2024,
+        "destination_offset": 2060,
+        "expected_displacement": 33,
+        "target_displacement": 33
+      }
+    ],
+    "limitations": "Only assembler-marked internal E8/E9 near-relative fixups are covered; external symbols and final full link remain unresolved."
+  },
+  "external_call_signature_evidence": {
+    "method": "For each external call or jump, calculate the target entry from the target displacement and compare its entry prefix with the same public symbol in the reference link map.",
+    "matches": [
+      {
+        "symbol": "SetStars",
+        "module_offset": 509,
+        "reference_entry": 27641,
+        "target_entry": 28793,
+        "exact_prefix_bytes": 16
+      },
+      {
+        "symbol": "SetStars",
+        "module_offset": 537,
+        "reference_entry": 27641,
+        "target_entry": 28793,
+        "exact_prefix_bytes": 16
+      },
+      {
+        "symbol": "SetStars",
+        "module_offset": 566,
+        "reference_entry": 27641,
+        "target_entry": 28793,
+        "exact_prefix_bytes": 16
+      },
+      {
+        "symbol": "BuildPath",
+        "module_offset": 732,
+        "reference_entry": 27305,
+        "target_entry": 28457,
+        "exact_prefix_bytes": 16
+      },
+      {
+        "symbol": "Fcb_To_Ascz",
+        "module_offset": 875,
+        "reference_entry": 20461,
+        "target_entry": 21075,
+        "exact_prefix_bytes": 16
+      },
+      {
+        "symbol": "BuildName",
+        "module_offset": 1141,
+        "reference_entry": 27257,
+        "target_entry": 28409,
+        "exact_prefix_bytes": 16
+      },
+      {
+        "symbol": "SetAsc",
+        "module_offset": 1496,
+        "reference_entry": 27039,
+        "target_entry": 28190,
+        "exact_prefix_bytes": 8
+      },
+      {
+        "symbol": "SetAsc",
+        "module_offset": 1757,
+        "reference_entry": 27039,
+        "target_entry": 28190,
+        "exact_prefix_bytes": 8
+      },
+      {
+        "symbol": "SetAsc",
+        "module_offset": 1763,
+        "reference_entry": 27039,
+        "target_entry": 28190,
+        "exact_prefix_bytes": 8
+      }
+    ],
+    "limitations": "Entry-prefix matches are corroborating evidence rather than final linked relocation verification; short or absent matches and all data relocations remain unresolved."
+  },
+  "data_reference_alignment": {
+    "expected_group_offset_delta": 1392,
+    "matching_operand_count": 155,
+    "operands": [
+      {
+        "symbol": "copy_num",
+        "module_offset": 2,
+        "operand_offset": 1,
+        "reference_group_offset": 41117,
+        "target_group_offset": 42509
+      },
+      {
+        "symbol": "cflag",
+        "module_offset": 11,
+        "operand_offset": 1,
+        "reference_group_offset": 40346,
+        "target_group_offset": 41738
+      },
+      {
+        "symbol": "destswitch",
+        "module_offset": 17,
+        "operand_offset": 1,
+        "reference_group_offset": 40342,
+        "target_group_offset": 41734
+      },
+      {
+        "symbol": "destclosed",
+        "module_offset": 26,
+        "operand_offset": 1,
+        "reference_group_offset": 40347,
+        "target_group_offset": 41739
+      },
+      {
+        "symbol": "destsiz",
+        "module_offset": 29,
+        "operand_offset": 1,
+        "reference_group_offset": 41141,
+        "target_group_offset": 42533
+      },
+      {
+        "symbol": "destinfo",
+        "module_offset": 35,
+        "operand_offset": 1,
+        "reference_group_offset": 41144,
+        "target_group_offset": 42536
+      },
+      {
+        "symbol": "userdir1",
+        "module_offset": 50,
+        "operand_offset": 1,
+        "reference_group_offset": 40029,
+        "target_group_offset": 41421
+      },
+      {
+        "symbol": "rdeof",
+        "module_offset": 56,
+        "operand_offset": 1,
+        "reference_group_offset": 40334,
+        "target_group_offset": 41726
+      },
+      {
+        "symbol": "octrlz",
+        "module_offset": 71,
+        "operand_offset": 1,
+        "reference_group_offset": 41440,
+        "target_group_offset": 42832
+      },
+      {
+        "symbol": "ofileptr_lo",
+        "module_offset": 74,
+        "operand_offset": 1,
+        "reference_group_offset": 41436,
+        "target_group_offset": 42828
+      },
+      {
+        "symbol": "ofileptr_hi",
+        "module_offset": 77,
+        "operand_offset": 1,
+        "reference_group_offset": 41438,
+        "target_group_offset": 42830
+      },
+      {
+        "symbol": "termread",
+        "module_offset": 80,
+        "operand_offset": 1,
+        "reference_group_offset": 41428,
+        "target_group_offset": 42820
+      },
+      {
+        "symbol": "comma",
+        "module_offset": 83,
+        "operand_offset": 1,
+        "reference_group_offset": 40976,
+        "target_group_offset": 42368
+      },
+      {
+        "symbol": "plus_comma",
+        "module_offset": 86,
+        "operand_offset": 1,
+        "reference_group_offset": 40977,
+        "target_group_offset": 42369
+      },
+      {
+        "symbol": "allswitch",
+        "module_offset": 92,
+        "operand_offset": 1,
+        "reference_group_offset": 40344,
+        "target_group_offset": 41736
+      },
+      {
+        "symbol": "filecnt",
+        "module_offset": 107,
+        "operand_offset": 1,
+        "reference_group_offset": 40359,
+        "target_group_offset": 41751
+      },
+      {
+        "symbol": "written",
+        "module_offset": 110,
+        "operand_offset": 1,
+        "reference_group_offset": 41426,
+        "target_group_offset": 42818
+      },
+      {
+        "symbol": "concat",
+        "module_offset": 113,
+        "operand_offset": 1,
+        "reference_group_offset": 40336,
+        "target_group_offset": 41728
+      },
+      {
+        "symbol": "melstart",
+        "module_offset": 119,
+        "operand_offset": 1,
+        "reference_group_offset": 41237,
+        "target_group_offset": 42629
+      },
+      {
+        "symbol": "scanbuf",
+        "module_offset": 128,
+        "operand_offset": 1,
+        "reference_group_offset": 41334,
+        "target_group_offset": 42726
+      },
+      {
+        "symbol": "destbuf",
+        "module_offset": 131,
+        "operand_offset": 1,
+        "reference_group_offset": 41145,
+        "target_group_offset": 42537
+      },
+      {
+        "symbol": "srcbuf",
+        "module_offset": 134,
+        "operand_offset": 1,
+        "reference_group_offset": 41244,
+        "target_group_offset": 42636
+      },
+      {
+        "symbol": "sdirbuf",
+        "module_offset": 137,
+        "operand_offset": 1,
+        "reference_group_offset": 40954,
+        "target_group_offset": 42346
+      },
+      {
+        "symbol": "dirbuf",
+        "module_offset": 140,
+        "operand_offset": 1,
+        "reference_group_offset": 40884,
+        "target_group_offset": 42276
+      },
+      {
+        "symbol": "destfcb",
+        "module_offset": 143,
+        "operand_offset": 1,
+        "reference_group_offset": 40817,
+        "target_group_offset": 42209
+      },
+      {
+        "symbol": "desthand",
+        "module_offset": 150,
+        "operand_offset": 1,
+        "reference_group_offset": 41232,
+        "target_group_offset": 42624
+      },
+      {
+        "symbol": "destisdir",
+        "module_offset": 159,
+        "operand_offset": 1,
+        "reference_group_offset": 41140,
+        "target_group_offset": 42532
+      },
+      {
+        "symbol": "scanbuf",
+        "module_offset": 181,
+        "operand_offset": 1,
+        "reference_group_offset": 41334,
+        "target_group_offset": 42726
+      },
+      {
+        "symbol": "parse_last",
+        "module_offset": 184,
+        "operand_offset": 2,
+        "reference_group_offset": 40979,
+        "target_group_offset": 42371
+      },
+      {
+        "symbol": "objcnt",
+        "module_offset": 192,
+        "operand_offset": 2,
+        "reference_group_offset": 41431,
+        "target_group_offset": 42823
+      },
+      {
+        "symbol": "plus",
+        "module_offset": 201,
+        "operand_offset": 2,
+        "reference_group_offset": 41430,
+        "target_group_offset": 42822
+      },
+      {
+        "symbol": "allswitch",
+        "module_offset": 220,
+        "operand_offset": 2,
+        "reference_group_offset": 40344,
+        "target_group_offset": 41736
+      },
+      {
+        "symbol": "allswitch",
+        "module_offset": 238,
+        "operand_offset": 2,
+        "reference_group_offset": 40344,
+        "target_group_offset": 41736
+      },
+      {
+        "symbol": "allswitch",
+        "module_offset": 246,
+        "operand_offset": 2,
+        "reference_group_offset": 40344,
+        "target_group_offset": 41736
+      },
+      {
+        "symbol": "allswitch",
+        "module_offset": 289,
+        "operand_offset": 2,
+        "reference_group_offset": 40344,
+        "target_group_offset": 41736
+      },
+      {
+        "symbol": "allswitch",
+        "module_offset": 297,
+        "operand_offset": 2,
+        "reference_group_offset": 40344,
+        "target_group_offset": 41736
+      },
+      {
+        "symbol": "destswitch",
+        "module_offset": 314,
+        "operand_offset": 2,
+        "reference_group_offset": 40342,
+        "target_group_offset": 41734
+      },
+      {
+        "symbol": "allswitch",
+        "module_offset": 318,
+        "operand_offset": 2,
+        "reference_group_offset": 40344,
+        "target_group_offset": 41736
+      },
+      {
+        "symbol": "argc",
+        "module_offset": 352,
+        "operand_offset": 2,
+        "reference_group_offset": 40337,
+        "target_group_offset": 41729
+      },
+      {
+        "symbol": "destbuf",
+        "module_offset": 365,
+        "operand_offset": 1,
+        "reference_group_offset": 41145,
+        "target_group_offset": 42537
+      },
+      {
+        "symbol": "desttail",
+        "module_offset": 370,
+        "operand_offset": 1,
+        "reference_group_offset": 41142,
+        "target_group_offset": 42534
+      },
+      {
+        "symbol": "destswitch",
+        "module_offset": 384,
+        "operand_offset": 2,
+        "reference_group_offset": 40342,
+        "target_group_offset": 41734
+      },
+      {
+        "symbol": "plus",
+        "module_offset": 394,
+        "operand_offset": 2,
+        "reference_group_offset": 41430,
+        "target_group_offset": 42822
+      },
+      {
+        "symbol": "objcnt",
+        "module_offset": 408,
+        "operand_offset": 2,
+        "reference_group_offset": 41431,
+        "target_group_offset": 42823
+      },
+      {
+        "symbol": "plus",
+        "module_offset": 421,
+        "operand_offset": 1,
+        "reference_group_offset": 41430,
+        "target_group_offset": 42822
+      },
+      {
+        "symbol": "concat",
+        "module_offset": 424,
+        "operand_offset": 1,
+        "reference_group_offset": 40336,
+        "target_group_offset": 41728
+      },
+      {
+        "symbol": "argc",
+        "module_offset": 434,
+        "operand_offset": 1,
+        "reference_group_offset": 40337,
+        "target_group_offset": 41729
+      },
+      {
+        "symbol": "curdrv",
+        "module_offset": 480,
+        "operand_offset": 1,
+        "reference_group_offset": 40335,
+        "target_group_offset": 41727
+      },
+      {
+        "symbol": "destswitch",
+        "module_offset": 495,
+        "operand_offset": 2,
+        "reference_group_offset": 40342,
+        "target_group_offset": 41734
+      },
+      {
+        "symbol": "resseg",
+        "module_offset": 582,
+        "operand_offset": 2,
+        "reference_group_offset": 40315,
+        "target_group_offset": 41707
+      },
+      {
+        "symbol": "scanbuf",
+        "module_offset": 604,
+        "operand_offset": 1,
+        "reference_group_offset": 41334,
+        "target_group_offset": 42726
+      },
+      {
+        "symbol": "concat",
+        "module_offset": 625,
+        "operand_offset": 2,
+        "reference_group_offset": 40336,
+        "target_group_offset": 41728
+      },
+      {
+        "symbol": "filecnt",
+        "module_offset": 652,
+        "operand_offset": 2,
+        "reference_group_offset": 40359,
+        "target_group_offset": 41751
+      },
+      {
+        "symbol": "copy_num",
+        "module_offset": 656,
+        "operand_offset": 2,
+        "reference_group_offset": 41117,
+        "target_group_offset": 42509
+      },
+      {
+        "symbol": "concat",
+        "module_offset": 666,
+        "operand_offset": 2,
+        "reference_group_offset": 40336,
+        "target_group_offset": 41728
+      },
+      {
+        "symbol": "concat",
+        "module_offset": 704,
+        "operand_offset": 2,
+        "reference_group_offset": 40336,
+        "target_group_offset": 41728
+      },
+      {
+        "symbol": "cflag",
+        "module_offset": 713,
+        "operand_offset": 1,
+        "reference_group_offset": 40346,
+        "target_group_offset": 41738
+      },
+      {
+        "symbol": "destclosed",
+        "module_offset": 719,
+        "operand_offset": 1,
+        "reference_group_offset": 40347,
+        "target_group_offset": 41739
+      },
+      {
+        "symbol": "srcpt",
+        "module_offset": 722,
+        "operand_offset": 2,
+        "reference_group_offset": 41421,
+        "target_group_offset": 42813
+      },
+      {
+        "symbol": "userdir1",
+        "module_offset": 726,
+        "operand_offset": 1,
+        "reference_group_offset": 40029,
+        "target_group_offset": 41421
+      },
+      {
+        "symbol": "plus",
+        "module_offset": 740,
+        "operand_offset": 2,
+        "reference_group_offset": 41430,
+        "target_group_offset": 42822
+      },
+      {
+        "symbol": "srcpt",
+        "module_offset": 751,
+        "operand_offset": 2,
+        "reference_group_offset": 41421,
+        "target_group_offset": 42813
+      },
+      {
+        "symbol": "scanbuf",
+        "module_offset": 757,
+        "operand_offset": 1,
+        "reference_group_offset": 41334,
+        "target_group_offset": 42726
+      },
+      {
+        "symbol": "comma",
+        "module_offset": 778,
+        "operand_offset": 2,
+        "reference_group_offset": 40976,
+        "target_group_offset": 42368
+      },
+      {
+        "symbol": "plus_comma",
+        "module_offset": 785,
+        "operand_offset": 2,
+        "reference_group_offset": 40977,
+        "target_group_offset": 42369
+      },
+      {
+        "symbol": "plus_comma",
+        "module_offset": 792,
+        "operand_offset": 2,
+        "reference_group_offset": 40977,
+        "target_group_offset": 42369
+      },
+      {
+        "symbol": "srcbuf",
+        "module_offset": 810,
+        "operand_offset": 1,
+        "reference_group_offset": 41244,
+        "target_group_offset": 42636
+      },
+      {
+        "symbol": "frstsrch",
+        "module_offset": 844,
+        "operand_offset": 2,
+        "reference_group_offset": 40354,
+        "target_group_offset": 41746
+      },
+      {
+        "symbol": "sdirbuf",
+        "module_offset": 855,
+        "operand_offset": 1,
+        "reference_group_offset": 40954,
+        "target_group_offset": 42346
+      },
+      {
+        "symbol": "dirbuf",
+        "module_offset": 858,
+        "operand_offset": 1,
+        "reference_group_offset": 40884,
+        "target_group_offset": 42276
+      },
+      {
+        "symbol": "nowrite",
+        "module_offset": 865,
+        "operand_offset": 1,
+        "reference_group_offset": 41424,
+        "target_group_offset": 42816
+      },
+      {
+        "symbol": "srctail",
+        "module_offset": 868,
+        "operand_offset": 2,
+        "reference_group_offset": 41241,
+        "target_group_offset": 42633
+      },
+      {
+        "symbol": "srcbuf",
+        "module_offset": 888,
+        "operand_offset": 1,
+        "reference_group_offset": 41244,
+        "target_group_offset": 42636
+      },
+      {
+        "symbol": "srcxname",
+        "module_offset": 891,
+        "operand_offset": 1,
+        "reference_group_offset": 39593,
+        "target_group_offset": 40985
+      },
+      {
+        "symbol": "concat",
+        "module_offset": 903,
+        "operand_offset": 2,
+        "reference_group_offset": 40336,
+        "target_group_offset": 41728
+      },
+      {
+        "symbol": "cflag",
+        "module_offset": 925,
+        "operand_offset": 2,
+        "reference_group_offset": 40346,
+        "target_group_offset": 41738
+      },
+      {
+        "symbol": "concat",
+        "module_offset": 937,
+        "operand_offset": 2,
+        "reference_group_offset": 40336,
+        "target_group_offset": 41728
+      },
+      {
+        "symbol": "melcopy",
+        "module_offset": 953,
+        "operand_offset": 2,
+        "reference_group_offset": 41236,
+        "target_group_offset": 42628
+      },
+      {
+        "symbol": "concat",
+        "module_offset": 960,
+        "operand_offset": 2,
+        "reference_group_offset": 40336,
+        "target_group_offset": 41728
+      },
+      {
+        "symbol": "destclosed",
+        "module_offset": 967,
+        "operand_offset": 2,
+        "reference_group_offset": 40347,
+        "target_group_offset": 41739
+      },
+      {
+        "symbol": "destclosed",
+        "module_offset": 990,
+        "operand_offset": 2,
+        "reference_group_offset": 40347,
+        "target_group_offset": 41739
+      },
+      {
+        "symbol": "concat",
+        "module_offset": 998,
+        "operand_offset": 2,
+        "reference_group_offset": 40336,
+        "target_group_offset": 41728
+      },
+      {
+        "symbol": "srcinfo",
+        "module_offset": 1005,
+        "operand_offset": 2,
+        "reference_group_offset": 41243,
+        "target_group_offset": 42635
+      },
+      {
+        "symbol": "concat",
+        "module_offset": 1024,
+        "operand_offset": 2,
+        "reference_group_offset": 40336,
+        "target_group_offset": 41728
+      },
+      {
+        "symbol": "cflag",
+        "module_offset": 1036,
+        "operand_offset": 2,
+        "reference_group_offset": 40346,
+        "target_group_offset": 41738
+      },
+      {
+        "symbol": "concat",
+        "module_offset": 1041,
+        "operand_offset": 2,
+        "reference_group_offset": 40336,
+        "target_group_offset": 41728
+      },
+      {
+        "symbol": "melcopy",
+        "module_offset": 1051,
+        "operand_offset": 2,
+        "reference_group_offset": 41236,
+        "target_group_offset": 42628
+      },
+      {
+        "symbol": "destclosed",
+        "module_offset": 1065,
+        "operand_offset": 2,
+        "reference_group_offset": 40347,
+        "target_group_offset": 41739
+      },
+      {
+        "symbol": "melcopy",
+        "module_offset": 1073,
+        "operand_offset": 2,
+        "reference_group_offset": 41236,
+        "target_group_offset": 42628
+      },
+      {
+        "symbol": "srcpt",
+        "module_offset": 1080,
+        "operand_offset": 2,
+        "reference_group_offset": 41421,
+        "target_group_offset": 42813
+      },
+      {
+        "symbol": "melstart",
+        "module_offset": 1084,
+        "operand_offset": 2,
+        "reference_group_offset": 41237,
+        "target_group_offset": 42629
+      },
+      {
+        "symbol": "melcopy",
+        "module_offset": 1088,
+        "operand_offset": 2,
+        "reference_group_offset": 41236,
+        "target_group_offset": 42628
+      },
+      {
+        "symbol": "srcpt",
+        "module_offset": 1095,
+        "operand_offset": 2,
+        "reference_group_offset": 41421,
+        "target_group_offset": 42813
+      },
+      {
+        "symbol": "scanbuf",
+        "module_offset": 1101,
+        "operand_offset": 1,
+        "reference_group_offset": 41334,
+        "target_group_offset": 42726
+      },
+      {
+        "symbol": "destfcb2",
+        "module_offset": 1123,
+        "operand_offset": 1,
+        "reference_group_offset": 40757,
+        "target_group_offset": 42149
+      },
+      {
+        "symbol": "srctail",
+        "module_offset": 1137,
+        "operand_offset": 2,
+        "reference_group_offset": 41241,
+        "target_group_offset": 42633
+      },
+      {
+        "symbol": "concat",
+        "module_offset": 1144,
+        "operand_offset": 2,
+        "reference_group_offset": 40336,
+        "target_group_offset": 41728
+      },
+      {
+        "symbol": "nowrite",
+        "module_offset": 1151,
+        "operand_offset": 2,
+        "reference_group_offset": 41424,
+        "target_group_offset": 42816
+      },
+      {
+        "symbol": "cflag",
+        "module_offset": 1167,
+        "operand_offset": 1,
+        "reference_group_offset": 40346,
+        "target_group_offset": 41738
+      },
+      {
+        "symbol": "nxtadd",
+        "module_offset": 1170,
+        "operand_offset": 1,
+        "reference_group_offset": 40352,
+        "target_group_offset": 41744
+      },
+      {
+        "symbol": "destclosed",
+        "module_offset": 1173,
+        "operand_offset": 1,
+        "reference_group_offset": 40347,
+        "target_group_offset": 41739
+      },
+      {
+        "symbol": "melstart",
+        "module_offset": 1176,
+        "operand_offset": 2,
+        "reference_group_offset": 41237,
+        "target_group_offset": 42629
+      },
+      {
+        "symbol": "srcpt",
+        "module_offset": 1180,
+        "operand_offset": 2,
+        "reference_group_offset": 41421,
+        "target_group_offset": 42813
+      },
+      {
+        "symbol": "srcinfo",
+        "module_offset": 1197,
+        "operand_offset": 2,
+        "reference_group_offset": 41243,
+        "target_group_offset": 42635
+      },
+      {
+        "symbol": "dirbuf",
+        "module_offset": 1210,
+        "operand_offset": 1,
+        "reference_group_offset": 40884,
+        "target_group_offset": 42276
+      },
+      {
+        "symbol": "srcxname",
+        "module_offset": 1227,
+        "operand_offset": 1,
+        "reference_group_offset": 39593,
+        "target_group_offset": 40985
+      },
+      {
+        "symbol": "rdeof",
+        "module_offset": 1234,
+        "operand_offset": 2,
+        "reference_group_offset": 40334,
+        "target_group_offset": 41726
+      },
+      {
+        "symbol": "srchand",
+        "module_offset": 1258,
+        "operand_offset": 2,
+        "reference_group_offset": 41331,
+        "target_group_offset": 42723
+      },
+      {
+        "symbol": "cptime",
+        "module_offset": 1273,
+        "operand_offset": 2,
+        "reference_group_offset": 41434,
+        "target_group_offset": 42826
+      },
+      {
+        "symbol": "srchand",
+        "module_offset": 1296,
+        "operand_offset": 2,
+        "reference_group_offset": 41331,
+        "target_group_offset": 42723
+      },
+      {
+        "symbol": "cflag",
+        "module_offset": 1306,
+        "operand_offset": 2,
+        "reference_group_offset": 40346,
+        "target_group_offset": 41738
+      },
+      {
+        "symbol": "srchand",
+        "module_offset": 1319,
+        "operand_offset": 2,
+        "reference_group_offset": 41331,
+        "target_group_offset": 42723
+      },
+      {
+        "symbol": "binary",
+        "module_offset": 1337,
+        "operand_offset": 2,
+        "reference_group_offset": 41425,
+        "target_group_offset": 42817
+      },
+      {
+        "symbol": "srchand",
+        "module_offset": 1350,
+        "operand_offset": 2,
+        "reference_group_offset": 41331,
+        "target_group_offset": 42723
+      },
+      {
+        "symbol": "bytcnt",
+        "module_offset": 1354,
+        "operand_offset": 2,
+        "reference_group_offset": 40348,
+        "target_group_offset": 41740
+      },
+      {
+        "symbol": "nxtadd",
+        "module_offset": 1358,
+        "operand_offset": 2,
+        "reference_group_offset": 40352,
+        "target_group_offset": 41744
+      },
+      {
+        "symbol": "termread",
+        "module_offset": 1369,
+        "operand_offset": 2,
+        "reference_group_offset": 41428,
+        "target_group_offset": 42820
+      },
+      {
+        "symbol": "bytcnt",
+        "module_offset": 1376,
+        "operand_offset": 2,
+        "reference_group_offset": 40348,
+        "target_group_offset": 41740
+      },
+      {
+        "symbol": "tpa",
+        "module_offset": 1381,
+        "operand_offset": 2,
+        "reference_group_offset": 40317,
+        "target_group_offset": 41709
+      },
+      {
+        "symbol": "srcisdev",
+        "module_offset": 1396,
+        "operand_offset": 2,
+        "reference_group_offset": 41333,
+        "target_group_offset": 42725
+      },
+      {
+        "symbol": "ascii",
+        "module_offset": 1403,
+        "operand_offset": 2,
+        "reference_group_offset": 41429,
+        "target_group_offset": 42821
+      },
+      {
+        "symbol": "nxtadd",
+        "module_offset": 1412,
+        "operand_offset": 2,
+        "reference_group_offset": 40352,
+        "target_group_offset": 41744
+      },
+      {
+        "symbol": "tpa",
+        "module_offset": 1419,
+        "operand_offset": 2,
+        "reference_group_offset": 40317,
+        "target_group_offset": 41709
+      },
+      {
+        "symbol": "rdeof",
+        "module_offset": 1428,
+        "operand_offset": 2,
+        "reference_group_offset": 40334,
+        "target_group_offset": 41726
+      },
+      {
+        "symbol": "nxtadd",
+        "module_offset": 1437,
+        "operand_offset": 2,
+        "reference_group_offset": 40352,
+        "target_group_offset": 41744
+      },
+      {
+        "symbol": "nxtadd",
+        "module_offset": 1441,
+        "operand_offset": 2,
+        "reference_group_offset": 40352,
+        "target_group_offset": 41744
+      },
+      {
+        "symbol": "bytcnt",
+        "module_offset": 1445,
+        "operand_offset": 2,
+        "reference_group_offset": 40348,
+        "target_group_offset": 41740
+      },
+      {
+        "symbol": "termread",
+        "module_offset": 1454,
+        "operand_offset": 2,
+        "reference_group_offset": 41428,
+        "target_group_offset": 42820
+      },
+      {
+        "symbol": "srcisdev",
+        "module_offset": 1463,
+        "operand_offset": 2,
+        "reference_group_offset": 41333,
+        "target_group_offset": 42725
+      },
+      {
+        "symbol": "rdeof",
+        "module_offset": 1470,
+        "operand_offset": 2,
+        "reference_group_offset": 40334,
+        "target_group_offset": 41726
+      },
+      {
+        "symbol": "srchand",
+        "module_offset": 1477,
+        "operand_offset": 2,
+        "reference_group_offset": 41331,
+        "target_group_offset": 42723
+      },
+      {
+        "symbol": "destclosed",
+        "module_offset": 1486,
+        "operand_offset": 2,
+        "reference_group_offset": 40347,
+        "target_group_offset": 41739
+      },
+      {
+        "symbol": "destswitch",
+        "module_offset": 1493,
+        "operand_offset": 1,
+        "reference_group_offset": 40342,
+        "target_group_offset": 41734
+      },
+      {
+        "symbol": "nxtadd",
+        "module_offset": 1501,
+        "operand_offset": 2,
+        "reference_group_offset": 40352,
+        "target_group_offset": 41744
+      },
+      {
+        "symbol": "tpa",
+        "module_offset": 1515,
+        "operand_offset": 2,
+        "reference_group_offset": 40317,
+        "target_group_offset": 41709
+      },
+      {
+        "symbol": "nxtadd",
+        "module_offset": 1524,
+        "operand_offset": 2,
+        "reference_group_offset": 40352,
+        "target_group_offset": 41744
+      },
+      {
+        "symbol": "written",
+        "module_offset": 1533,
+        "operand_offset": 1,
+        "reference_group_offset": 41426,
+        "target_group_offset": 42818
+      },
+      {
+        "symbol": "nxtadd",
+        "module_offset": 1536,
+        "operand_offset": 2,
+        "reference_group_offset": 40352,
+        "target_group_offset": 41744
+      },
+      {
+        "symbol": "written",
+        "module_offset": 1552,
+        "operand_offset": 2,
+        "reference_group_offset": 41426,
+        "target_group_offset": 42818
+      },
+      {
+        "symbol": "desthand",
+        "module_offset": 1562,
+        "operand_offset": 2,
+        "reference_group_offset": 41232,
+        "target_group_offset": 42624
+      },
+      {
+        "symbol": "cptime",
+        "module_offset": 1566,
+        "operand_offset": 2,
+        "reference_group_offset": 41434,
+        "target_group_offset": 42826
+      },
+      {
+        "symbol": "cpdate",
+        "module_offset": 1570,
+        "operand_offset": 2,
+        "reference_group_offset": 41432,
+        "target_group_offset": 42824
+      },
+      {
+        "symbol": "filecnt",
+        "module_offset": 1690,
+        "operand_offset": 2,
+        "reference_group_offset": 40359,
+        "target_group_offset": 41751
+      },
+      {
+        "symbol": "destclosed",
+        "module_offset": 1694,
+        "operand_offset": 2,
+        "reference_group_offset": 40347,
+        "target_group_offset": 41739
+      },
+      {
+        "symbol": "desthand",
+        "module_offset": 1700,
+        "operand_offset": 2,
+        "reference_group_offset": 41232,
+        "target_group_offset": 42624
+      },
+      {
+        "symbol": "filecnt",
+        "module_offset": 1710,
+        "operand_offset": 2,
+        "reference_group_offset": 40359,
+        "target_group_offset": 41751
+      },
+      {
+        "symbol": "destbuf",
+        "module_offset": 1718,
+        "operand_offset": 1,
+        "reference_group_offset": 41145,
+        "target_group_offset": 42537
+      },
+      {
+        "symbol": "srcbuf",
+        "module_offset": 1735,
+        "operand_offset": 1,
+        "reference_group_offset": 41244,
+        "target_group_offset": 42636
+      },
+      {
+        "symbol": "srctail",
+        "module_offset": 1740,
+        "operand_offset": 1,
+        "reference_group_offset": 41241,
+        "target_group_offset": 42633
+      },
+      {
+        "symbol": "srcsiz",
+        "module_offset": 1743,
+        "operand_offset": 2,
+        "reference_group_offset": 41240,
+        "target_group_offset": 42632
+      },
+      {
+        "symbol": "srcinfo",
+        "module_offset": 1750,
+        "operand_offset": 2,
+        "reference_group_offset": 41243,
+        "target_group_offset": 42635
+      },
+      {
+        "symbol": "destbuf",
+        "module_offset": 1800,
+        "operand_offset": 1,
+        "reference_group_offset": 41145,
+        "target_group_offset": 42537
+      },
+      {
+        "symbol": "destbuf",
+        "module_offset": 1822,
+        "operand_offset": 3,
+        "reference_group_offset": 41145,
+        "target_group_offset": 42537
+      },
+      {
+        "symbol": "resseg",
+        "module_offset": 2003,
+        "operand_offset": 2,
+        "reference_group_offset": 40315,
+        "target_group_offset": 41707
+      },
+      {
+        "symbol": "resseg",
+        "module_offset": 2046,
+        "operand_offset": 2,
+        "reference_group_offset": 40315,
+        "target_group_offset": 41707
+      }
+    ],
+    "limitations": "The common shift is inferred from target comparison, not an independently linked target symbol table. Other variables and operands have different offsets or expressions and are not covered."
+  },
+  "inserted_transient_state_analysis": {
+    "target_block_group_offset": 42833,
+    "target_block_length": 14,
+    "block_layout": [
+      {
+        "offset": 0,
+        "length": 11,
+        "role": "message substitution block"
+      },
+      {
+        "offset": 11,
+        "length": 1,
+        "role": "overwrite confirmation flag"
+      },
+      {
+        "offset": 12,
+        "length": 1,
+        "role": "destination existence state"
+      },
+      {
+        "offset": 13,
+        "length": 1,
+        "role": "additional COPY control state"
+      }
+    ],
+    "reference_following_symbol": "BATHAND",
+    "reference_following_offset": 41441,
+    "target_following_offset_inferred": 42847,
+    "reference_next_symbol": "STARTEL",
+    "reference_next_offset": 41443,
+    "target_next_offset": 42849,
+    "observations": [
+      "The common 0570h data shift places reference BATHAND at target A751h, where the new 11-byte block and three flags are accessed.",
+      "The target STARTEL address is A761h, which is exactly 14 bytes beyond its common-shift prediction A753h.",
+      "Together these observations indicate a 14-byte insertion immediately before BATHAND in the target transient data layout."
+    ],
+    "limitations": "The BATHAND target position is inferred from adjacent data and alignment, not verified by an independent target symbol table. Actual variable declarations belong to a later ledger file."
+  },
+  "later_dependency_ledger": {
+    "copypr2.asm": 119,
+    "rdata.asm": 137,
+    "tcode.asm": 151,
+    "tprintf.asm": 160,
+    "tranmsg.asm": 161,
+    "tspc.asm": 162,
+    "limitations": "These ownership hints do not authorize modifying later files out of sequence; exact symbol ownership for new data and message records remains provisional."
+  },
+  "sysdispmsg_link_dependency": {
+    "reference_module": "cmd/command/tprintf.asm",
+    "ledger_index": 160,
+    "reference_listing": "extras/build/command-reference-l_ua1x5q/tprintf.lst",
+    "reference_visibility": "local near procedure",
+    "reference_module_offset": 776,
+    "target_entry_file_offset": 32913,
+    "observations": [
+      "The selected reference listing contains a local SYSDISPMSG procedure; the reference link map does not export it.",
+      "The target COPY routine makes a near call to the corresponding message service entry.",
+      "The isolated COPY source therefore cannot resolve its SYSDISPMSG external against the unmodified reference object."
+    ],
+    "limitations": "Exporting or wrapping this entry, or reconstructing a different target linkage, must be decided when the message module is handled; no later source is changed out of order."
+  },
+  "diagnostic_link": {
+    "log": "extras/build/temp/copy-link-check/cpl2.log",
+    "unresolved_symbols": [
+      "answer_all",
+      "CopyNonInteractive",
+      "answer_yes",
+      "answer_no",
+      "confirm_overwrite",
+      "dest_exists",
+      "answer_buffer",
+      "prompt_sublist",
+      "copy_state",
+      "copycmd_name",
+      "sysdispmsg"
+    ],
+    "unresolved_count": 11,
+    "observations": [
+      "A diagnostic link against reference objects detected a fixup overflow for EnvirSeg when the assembler used the transient group frame.",
+      "An ES:RESGROUP assembler assumption around the EnvirSeg reference removed the overflow.",
+      "Unused temporary CopyMessage and CopyError declarations were removed.",
+      "The remaining eleven unresolved names represent target-specific data and the non-exported message service; they are not resolved by the reference objects."
+    ],
+    "limitations": "This reference-object diagnostic link does not produce a completed 6.20 executable; actual definitions and full target link remain outstanding."
+  },
+  "diagnostic_link_with_stubs": {
+    "link_log": "extras/build/temp/copy-link-check/cpl3.log",
+    "stub_source": "extras/build/temp/copy-link-check/probe.asm",
+    "link_status": "passed",
+    "warning": "L4021 no stack segment",
+    "experimental_copy_object_sha256": "1050e34ed2d7b312878175ba3ee28fba9dac2a8bf46e81936911718c6e4e3c81",
+    "limitations": "Diagnostic symbol definitions are synthetic, including an empty message service; the linked output is not functional target software, not a deliverable, and provides no binary-identity evidence. Real definitions and source-ordered integration remain required."
+  },
+  "repeatable_verifier": {
+    "tool": "extras/tools/verify_copy_listing.py",
+    "last_result": "passed with fresh assembly and recorded data mapping checks",
+    "coverage_bytes": 2112,
+    "non_relocation_bytes": 1432,
+    "relocation_bytes": 680,
+    "internal_relative_fixups": 40,
+    "limitations": "Checks target operand values against inferred recorded mappings and verifies the named relocation fields exist; it does not independently establish target symbol addresses or validate final linked relocations.",
+    "assembler_hash_checked": true,
+    "target_hash_checked": true,
+    "target_data_operands_checked": 180
+  },
+  "new_symbol_reference_alignment": {
+    "operand_count": 25,
+    "symbols": {
+      "dest_exists": 42845,
+      "confirm_overwrite": 42844,
+      "copy_state": 42846,
+      "prompt_sublist": 42833,
+      "answer_buffer": 29664,
+      "answer_yes": 29665,
+      "answer_no": 29666,
+      "answer_all": 29667,
+      "copycmd_name": 40487,
+      "copynoninteractive": 709,
+      "envirseg": 1295
+    },
+    "references": [
+      {
+        "symbol": "dest_exists",
+        "module_instruction_offset": 122,
+        "operand_offset": 1,
+        "inferred_target_offset": 42845,
+        "target_word": 42845
+      },
+      {
+        "symbol": "copy_state",
+        "module_instruction_offset": 125,
+        "operand_offset": 1,
+        "inferred_target_offset": 42846,
+        "target_word": 42846
+      },
+      {
+        "symbol": "confirm_overwrite",
+        "module_instruction_offset": 258,
+        "operand_offset": 2,
+        "inferred_target_offset": 42844,
+        "target_word": 42844
+      },
+      {
+        "symbol": "confirm_overwrite",
+        "module_instruction_offset": 309,
+        "operand_offset": 2,
+        "inferred_target_offset": 42844,
+        "target_word": 42844
+      },
+      {
+        "symbol": "confirm_overwrite",
+        "module_instruction_offset": 878,
+        "operand_offset": 2,
+        "inferred_target_offset": 42844,
+        "target_word": 42844
+      },
+      {
+        "symbol": "dest_exists",
+        "module_instruction_offset": 944,
+        "operand_offset": 2,
+        "inferred_target_offset": 42845,
+        "target_word": 42845
+      },
+      {
+        "symbol": "copy_state",
+        "module_instruction_offset": 980,
+        "operand_offset": 2,
+        "inferred_target_offset": 42846,
+        "target_word": 42846
+      },
+      {
+        "symbol": "dest_exists",
+        "module_instruction_offset": 1792,
+        "operand_offset": 2,
+        "inferred_target_offset": 42845,
+        "target_word": 42845
+      },
+      {
+        "symbol": "dest_exists",
+        "module_instruction_offset": 1810,
+        "operand_offset": 2,
+        "inferred_target_offset": 42845,
+        "target_word": 42845
+      },
+      {
+        "symbol": "prompt_sublist",
+        "module_instruction_offset": 1814,
+        "operand_offset": 2,
+        "inferred_target_offset": 42833,
+        "target_word": 42833
+      },
+      {
+        "symbol": "prompt_sublist",
+        "module_instruction_offset": 1850,
+        "operand_offset": 2,
+        "inferred_target_offset": 42833,
+        "target_word": 42833
+      },
+      {
+        "symbol": "answer_yes",
+        "module_instruction_offset": 1894,
+        "operand_offset": 2,
+        "inferred_target_offset": 29665,
+        "target_word": 29665
+      },
+      {
+        "symbol": "answer_no",
+        "module_instruction_offset": 1900,
+        "operand_offset": 2,
+        "inferred_target_offset": 29666,
+        "target_word": 29666
+      },
+      {
+        "symbol": "answer_all",
+        "module_instruction_offset": 1906,
+        "operand_offset": 2,
+        "inferred_target_offset": 29667,
+        "target_word": 29667
+      },
+      {
+        "symbol": "answer_buffer",
+        "module_instruction_offset": 1915,
+        "operand_offset": 2,
+        "inferred_target_offset": 29664,
+        "target_word": 29664
+      },
+      {
+        "symbol": "answer_buffer",
+        "module_instruction_offset": 1927,
+        "operand_offset": 1,
+        "inferred_target_offset": 29664,
+        "target_word": 29664
+      },
+      {
+        "symbol": "answer_buffer",
+        "module_instruction_offset": 1934,
+        "operand_offset": 2,
+        "inferred_target_offset": 29664,
+        "target_word": 29664
+      },
+      {
+        "symbol": "answer_yes",
+        "module_instruction_offset": 1973,
+        "operand_offset": 2,
+        "inferred_target_offset": 29665,
+        "target_word": 29665
+      },
+      {
+        "symbol": "answer_no",
+        "module_instruction_offset": 1979,
+        "operand_offset": 2,
+        "inferred_target_offset": 29666,
+        "target_word": 29666
+      },
+      {
+        "symbol": "confirm_overwrite",
+        "module_instruction_offset": 1985,
+        "operand_offset": 2,
+        "inferred_target_offset": 42844,
+        "target_word": 42844
+      },
+      {
+        "symbol": "confirm_overwrite",
+        "module_instruction_offset": 1997,
+        "operand_offset": 2,
+        "inferred_target_offset": 42844,
+        "target_word": 42844
+      },
+      {
+        "symbol": "envirseg",
+        "module_instruction_offset": 2007,
+        "operand_offset": 3,
+        "inferred_target_offset": 1295,
+        "target_word": 1295
+      },
+      {
+        "symbol": "copycmd_name",
+        "module_instruction_offset": 2012,
+        "operand_offset": 2,
+        "inferred_target_offset": 40487,
+        "target_word": 40487
+      },
+      {
+        "symbol": "confirm_overwrite",
+        "module_instruction_offset": 2039,
+        "operand_offset": 2,
+        "inferred_target_offset": 42844,
+        "target_word": 42844
+      },
+      {
+        "symbol": "copynoninteractive",
+        "module_instruction_offset": 2050,
+        "operand_offset": 3,
+        "inferred_target_offset": 709,
+        "target_word": 709
+      }
+    ],
+    "limitations": "Target offsets are inferred from binary structure and behavior; proposed names are not verified historical names and no real 6.20 linker definitions exist yet."
+  },
+  "working_tree_integration": {
+    "source": "cmd/command/copy.asm",
+    "sha256": "adb728888d5b40c66eb7beec7553367bcc7cb14f5986b5ef8e0decf99f2a2815",
+    "status": "reconstruction_in_progress",
+    "verification": "Fresh MASM assembly, target non-relocation-byte comparison and internal branch checks; unresolved external symbols prevent real target link.",
+    "limitations": "Formal source is provisional until required dependencies and full binary identity are verified. Later files remain untouched."
+  },
+  "external_reference_consistency": {
+    "data_symbols": 77,
+    "data_fields": 243,
+    "data_references": {
+      "copy_num": [
+        {
+          "module_offset": 2,
+          "target_group_offset": 42509
+        },
+        {
+          "module_offset": 656,
+          "target_group_offset": 42509
+        }
+      ],
+      "srcpt": [
+        {
+          "module_offset": 5,
+          "target_group_offset": 42813
+        },
+        {
+          "module_offset": 722,
+          "target_group_offset": 42813
+        },
+        {
+          "module_offset": 751,
+          "target_group_offset": 42813
+        },
+        {
+          "module_offset": 1080,
+          "target_group_offset": 42813
+        },
+        {
+          "module_offset": 1095,
+          "target_group_offset": 42813
+        },
+        {
+          "module_offset": 1180,
+          "target_group_offset": 42813
+        }
+      ],
+      "srctail": [
+        {
+          "module_offset": 8,
+          "target_group_offset": 42633
+        },
+        {
+          "module_offset": 735,
+          "target_group_offset": 42633
+        },
+        {
+          "module_offset": 868,
+          "target_group_offset": 42633
+        },
+        {
+          "module_offset": 1137,
+          "target_group_offset": 42633
+        },
+        {
+          "module_offset": 1740,
+          "target_group_offset": 42633
+        }
+      ],
+      "cflag": [
+        {
+          "module_offset": 11,
+          "target_group_offset": 41738
+        },
+        {
+          "module_offset": 713,
+          "target_group_offset": 41738
+        },
+        {
+          "module_offset": 925,
+          "target_group_offset": 41738
+        },
+        {
+          "module_offset": 1036,
+          "target_group_offset": 41738
+        },
+        {
+          "module_offset": 1167,
+          "target_group_offset": 41738
+        },
+        {
+          "module_offset": 1306,
+          "target_group_offset": 41738
+        }
+      ],
+      "destswitch": [
+        {
+          "module_offset": 17,
+          "target_group_offset": 41734
+        },
+        {
+          "module_offset": 314,
+          "target_group_offset": 41734
+        },
+        {
+          "module_offset": 384,
+          "target_group_offset": 41734
+        },
+        {
+          "module_offset": 495,
+          "target_group_offset": 41734
+        },
+        {
+          "module_offset": 615,
+          "target_group_offset": 41734
+        },
+        {
+          "module_offset": 1493,
+          "target_group_offset": 41734
+        }
+      ],
+      "desttail": [
+        {
+          "module_offset": 23,
+          "target_group_offset": 42534
+        },
+        {
+          "module_offset": 370,
+          "target_group_offset": 42534
+        }
+      ],
+      "destclosed": [
+        {
+          "module_offset": 26,
+          "target_group_offset": 41739
+        },
+        {
+          "module_offset": 719,
+          "target_group_offset": 41739
+        },
+        {
+          "module_offset": 967,
+          "target_group_offset": 41739
+        },
+        {
+          "module_offset": 990,
+          "target_group_offset": 41739
+        },
+        {
+          "module_offset": 1065,
+          "target_group_offset": 41739
+        },
+        {
+          "module_offset": 1173,
+          "target_group_offset": 41739
+        },
+        {
+          "module_offset": 1486,
+          "target_group_offset": 41739
+        },
+        {
+          "module_offset": 1694,
+          "target_group_offset": 41739
+        }
+      ],
+      "destsiz": [
+        {
+          "module_offset": 29,
+          "target_group_offset": 42533
+        },
+        {
+          "module_offset": 373,
+          "target_group_offset": 42533
+        }
+      ],
+      "srcsiz": [
+        {
+          "module_offset": 32,
+          "target_group_offset": 42632
+        },
+        {
+          "module_offset": 1743,
+          "target_group_offset": 42632
+        }
+      ],
+      "destinfo": [
+        {
+          "module_offset": 35,
+          "target_group_offset": 42536
+        }
+      ],
+      "srcinfo": [
+        {
+          "module_offset": 38,
+          "target_group_offset": 42635
+        },
+        {
+          "module_offset": 1005,
+          "target_group_offset": 42635
+        },
+        {
+          "module_offset": 1197,
+          "target_group_offset": 42635
+        },
+        {
+          "module_offset": 1750,
+          "target_group_offset": 42635
+        }
+      ],
+      "inexact": [
+        {
+          "module_offset": 41,
+          "target_group_offset": 42815
+        },
+        {
+          "module_offset": 431,
+          "target_group_offset": 42815
+        },
+        {
+          "module_offset": 1574,
+          "target_group_offset": 42815
+        }
+      ],
+      "destvars": [
+        {
+          "module_offset": 44,
+          "target_group_offset": 42532
+        },
+        {
+          "module_offset": 473,
+          "target_group_offset": 42532
+        }
+      ],
+      "srcvars": [
+        {
+          "module_offset": 47,
+          "target_group_offset": 42631
+        },
+        {
+          "module_offset": 729,
+          "target_group_offset": 42631
+        }
+      ],
+      "userdir1": [
+        {
+          "module_offset": 50,
+          "target_group_offset": 41421
+        },
+        {
+          "module_offset": 726,
+          "target_group_offset": 41421
+        }
+      ],
+      "nowrite": [
+        {
+          "module_offset": 53,
+          "target_group_offset": 42816
+        },
+        {
+          "module_offset": 865,
+          "target_group_offset": 42816
+        },
+        {
+          "module_offset": 1151,
+          "target_group_offset": 42816
+        }
+      ],
+      "rdeof": [
+        {
+          "module_offset": 56,
+          "target_group_offset": 41726
+        },
+        {
+          "module_offset": 1234,
+          "target_group_offset": 41726
+        },
+        {
+          "module_offset": 1428,
+          "target_group_offset": 41726
+        },
+        {
+          "module_offset": 1470,
+          "target_group_offset": 41726
+        }
+      ],
+      "srchand": [
+        {
+          "module_offset": 59,
+          "target_group_offset": 42723
+        },
+        {
+          "module_offset": 1258,
+          "target_group_offset": 42723
+        },
+        {
+          "module_offset": 1296,
+          "target_group_offset": 42723
+        },
+        {
+          "module_offset": 1319,
+          "target_group_offset": 42723
+        },
+        {
+          "module_offset": 1350,
+          "target_group_offset": 42723
+        },
+        {
+          "module_offset": 1477,
+          "target_group_offset": 42723
+        }
+      ],
+      "cpdate": [
+        {
+          "module_offset": 62,
+          "target_group_offset": 42824
+        },
+        {
+          "module_offset": 1269,
+          "target_group_offset": 42824
+        },
+        {
+          "module_offset": 1570,
+          "target_group_offset": 42824
+        }
+      ],
+      "cptime": [
+        {
+          "module_offset": 65,
+          "target_group_offset": 42826
+        },
+        {
+          "module_offset": 1273,
+          "target_group_offset": 42826
+        },
+        {
+          "module_offset": 1566,
+          "target_group_offset": 42826
+        }
+      ],
+      "srcisdev": [
+        {
+          "module_offset": 68,
+          "target_group_offset": 42725
+        },
+        {
+          "module_offset": 1331,
+          "target_group_offset": 42725
+        },
+        {
+          "module_offset": 1396,
+          "target_group_offset": 42725
+        },
+        {
+          "module_offset": 1463,
+          "target_group_offset": 42725
+        }
+      ],
+      "octrlz": [
+        {
+          "module_offset": 71,
+          "target_group_offset": 42832
+        }
+      ],
+      "ofileptr_lo": [
+        {
+          "module_offset": 74,
+          "target_group_offset": 42828
+        }
+      ],
+      "ofileptr_hi": [
+        {
+          "module_offset": 77,
+          "target_group_offset": 42830
+        }
+      ],
+      "termread": [
+        {
+          "module_offset": 80,
+          "target_group_offset": 42820
+        },
+        {
+          "module_offset": 1369,
+          "target_group_offset": 42820
+        },
+        {
+          "module_offset": 1454,
+          "target_group_offset": 42820
+        }
+      ],
+      "comma": [
+        {
+          "module_offset": 83,
+          "target_group_offset": 42368
+        },
+        {
+          "module_offset": 778,
+          "target_group_offset": 42368
+        }
+      ],
+      "plus_comma": [
+        {
+          "module_offset": 86,
+          "target_group_offset": 42369
+        },
+        {
+          "module_offset": 785,
+          "target_group_offset": 42369
+        },
+        {
+          "module_offset": 792,
+          "target_group_offset": 42369
+        }
+      ],
+      "msg_flag": [
+        {
+          "module_offset": 89,
+          "target_group_offset": 42910
+        },
+        {
+          "module_offset": 1767,
+          "target_group_offset": 42910
+        }
+      ],
+      "allswitch": [
+        {
+          "module_offset": 92,
+          "target_group_offset": 41736
+        },
+        {
+          "module_offset": 220,
+          "target_group_offset": 41736
+        },
+        {
+          "module_offset": 238,
+          "target_group_offset": 41736
+        },
+        {
+          "module_offset": 246,
+          "target_group_offset": 41736
+        },
+        {
+          "module_offset": 289,
+          "target_group_offset": 41736
+        },
+        {
+          "module_offset": 297,
+          "target_group_offset": 41736
+        },
+        {
+          "module_offset": 318,
+          "target_group_offset": 41736
+        }
+      ],
+      "argc": [
+        {
+          "module_offset": 95,
+          "target_group_offset": 41729
+        },
+        {
+          "module_offset": 352,
+          "target_group_offset": 41729
+        },
+        {
+          "module_offset": 401,
+          "target_group_offset": 41729
+        },
+        {
+          "module_offset": 434,
+          "target_group_offset": 41729
+        }
+      ],
+      "plus": [
+        {
+          "module_offset": 98,
+          "target_group_offset": 42822
+        },
+        {
+          "module_offset": 201,
+          "target_group_offset": 42822
+        },
+        {
+          "module_offset": 394,
+          "target_group_offset": 42822
+        },
+        {
+          "module_offset": 421,
+          "target_group_offset": 42822
+        },
+        {
+          "module_offset": 740,
+          "target_group_offset": 42822
+        }
+      ],
+      "binary": [
+        {
+          "module_offset": 101,
+          "target_group_offset": 42817
+        },
+        {
+          "module_offset": 1337,
+          "target_group_offset": 42817
+        }
+      ],
+      "ascii": [
+        {
+          "module_offset": 104,
+          "target_group_offset": 42821
+        },
+        {
+          "module_offset": 632,
+          "target_group_offset": 42821
+        },
+        {
+          "module_offset": 1403,
+          "target_group_offset": 42821
+        }
+      ],
+      "filecnt": [
+        {
+          "module_offset": 107,
+          "target_group_offset": 41751
+        },
+        {
+          "module_offset": 652,
+          "target_group_offset": 41751
+        },
+        {
+          "module_offset": 1690,
+          "target_group_offset": 41751
+        },
+        {
+          "module_offset": 1710,
+          "target_group_offset": 41751
+        }
+      ],
+      "written": [
+        {
+          "module_offset": 110,
+          "target_group_offset": 42818
+        },
+        {
+          "module_offset": 1533,
+          "target_group_offset": 42818
+        },
+        {
+          "module_offset": 1552,
+          "target_group_offset": 42818
+        }
+      ],
+      "concat": [
+        {
+          "module_offset": 113,
+          "target_group_offset": 41728
+        },
+        {
+          "module_offset": 424,
+          "target_group_offset": 41728
+        },
+        {
+          "module_offset": 625,
+          "target_group_offset": 41728
+        },
+        {
+          "module_offset": 666,
+          "target_group_offset": 41728
+        },
+        {
+          "module_offset": 704,
+          "target_group_offset": 41728
+        },
+        {
+          "module_offset": 903,
+          "target_group_offset": 41728
+        },
+        {
+          "module_offset": 937,
+          "target_group_offset": 41728
+        },
+        {
+          "module_offset": 960,
+          "target_group_offset": 41728
+        },
+        {
+          "module_offset": 998,
+          "target_group_offset": 41728
+        },
+        {
+          "module_offset": 1024,
+          "target_group_offset": 41728
+        },
+        {
+          "module_offset": 1041,
+          "target_group_offset": 41728
+        },
+        {
+          "module_offset": 1144,
+          "target_group_offset": 41728
+        }
+      ],
+      "melcopy": [
+        {
+          "module_offset": 116,
+          "target_group_offset": 42628
+        },
+        {
+          "module_offset": 953,
+          "target_group_offset": 42628
+        },
+        {
+          "module_offset": 1051,
+          "target_group_offset": 42628
+        },
+        {
+          "module_offset": 1073,
+          "target_group_offset": 42628
+        },
+        {
+          "module_offset": 1088,
+          "target_group_offset": 42628
+        }
+      ],
+      "melstart": [
+        {
+          "module_offset": 119,
+          "target_group_offset": 42629
+        },
+        {
+          "module_offset": 1084,
+          "target_group_offset": 42629
+        },
+        {
+          "module_offset": 1176,
+          "target_group_offset": 42629
+        }
+      ],
+      "dest_exists": [
+        {
+          "module_offset": 122,
+          "target_group_offset": 42845
+        },
+        {
+          "module_offset": 944,
+          "target_group_offset": 42845
+        },
+        {
+          "module_offset": 1792,
+          "target_group_offset": 42845
+        },
+        {
+          "module_offset": 1810,
+          "target_group_offset": 42845
+        }
+      ],
+      "copy_state": [
+        {
+          "module_offset": 125,
+          "target_group_offset": 42846
+        },
+        {
+          "module_offset": 980,
+          "target_group_offset": 42846
+        }
+      ],
+      "scanbuf": [
+        {
+          "module_offset": 128,
+          "target_group_offset": 42726
+        },
+        {
+          "module_offset": 181,
+          "target_group_offset": 42726
+        },
+        {
+          "module_offset": 360,
+          "target_group_offset": 42726
+        },
+        {
+          "module_offset": 604,
+          "target_group_offset": 42726
+        },
+        {
+          "module_offset": 757,
+          "target_group_offset": 42726
+        },
+        {
+          "module_offset": 1101,
+          "target_group_offset": 42726
+        },
+        {
+          "module_offset": 1730,
+          "target_group_offset": 42726
+        }
+      ],
+      "destbuf": [
+        {
+          "module_offset": 131,
+          "target_group_offset": 42537
+        },
+        {
+          "module_offset": 365,
+          "target_group_offset": 42537
+        },
+        {
+          "module_offset": 491,
+          "target_group_offset": 42537
+        },
+        {
+          "module_offset": 520,
+          "target_group_offset": 42537
+        },
+        {
+          "module_offset": 530,
+          "target_group_offset": 42537
+        },
+        {
+          "module_offset": 1718,
+          "target_group_offset": 42537
+        },
+        {
+          "module_offset": 1800,
+          "target_group_offset": 42537
+        },
+        {
+          "module_offset": 1822,
+          "target_group_offset": 42537
+        }
+      ],
+      "srcbuf": [
+        {
+          "module_offset": 134,
+          "target_group_offset": 42636
+        },
+        {
+          "module_offset": 810,
+          "target_group_offset": 42636
+        },
+        {
+          "module_offset": 888,
+          "target_group_offset": 42636
+        },
+        {
+          "module_offset": 1224,
+          "target_group_offset": 42636
+        },
+        {
+          "module_offset": 1735,
+          "target_group_offset": 42636
+        }
+      ],
+      "sdirbuf": [
+        {
+          "module_offset": 137,
+          "target_group_offset": 42346
+        },
+        {
+          "module_offset": 855,
+          "target_group_offset": 42346
+        },
+        {
+          "module_offset": 1131,
+          "target_group_offset": 42346
+        }
+      ],
+      "dirbuf": [
+        {
+          "module_offset": 140,
+          "target_group_offset": 42276
+        },
+        {
+          "module_offset": 858,
+          "target_group_offset": 42276
+        },
+        {
+          "module_offset": 872,
+          "target_group_offset": 42276
+        },
+        {
+          "module_offset": 1210,
+          "target_group_offset": 42276
+        }
+      ],
+      "destfcb": [
+        {
+          "module_offset": 143,
+          "target_group_offset": 42209
+        }
+      ],
+      "desthand": [
+        {
+          "module_offset": 150,
+          "target_group_offset": 42624
+        },
+        {
+          "module_offset": 1562,
+          "target_group_offset": 42624
+        },
+        {
+          "module_offset": 1700,
+          "target_group_offset": 42624
+        }
+      ],
+      "frstsrch": [
+        {
+          "module_offset": 153,
+          "target_group_offset": 41746
+        },
+        {
+          "module_offset": 844,
+          "target_group_offset": 41746
+        }
+      ],
+      "firstdest": [
+        {
+          "module_offset": 156,
+          "target_group_offset": 42627
+        }
+      ],
+      "destisdir": [
+        {
+          "module_offset": 159,
+          "target_group_offset": 42532
+        }
+      ],
+      "parse_last": [
+        {
+          "module_offset": 184,
+          "target_group_offset": 42371
+        }
+      ],
+      "objcnt": [
+        {
+          "module_offset": 192,
+          "target_group_offset": 42823
+        },
+        {
+          "module_offset": 408,
+          "target_group_offset": 42823
+        }
+      ],
+      "confirm_overwrite": [
+        {
+          "module_offset": 258,
+          "target_group_offset": 42844
+        },
+        {
+          "module_offset": 309,
+          "target_group_offset": 42844
+        },
+        {
+          "module_offset": 878,
+          "target_group_offset": 42844
+        },
+        {
+          "module_offset": 1985,
+          "target_group_offset": 42844
+        },
+        {
+          "module_offset": 1997,
+          "target_group_offset": 42844
+        },
+        {
+          "module_offset": 2039,
+          "target_group_offset": 42844
+        }
+      ],
+      "startel": [
+        {
+          "module_offset": 357,
+          "target_group_offset": 42849
+        },
+        {
+          "module_offset": 1727,
+          "target_group_offset": 42849
+        }
+      ],
+      "overwr_ptr": [
+        {
+          "module_offset": 415,
+          "target_group_offset": 38708
+        },
+        {
+          "module_offset": 919,
+          "target_group_offset": 38708
+        }
+      ],
+      "extend_buf_ptr": [
+        {
+          "module_offset": 441,
+          "target_group_offset": 38667
+        },
+        {
+          "module_offset": 444,
+          "target_group_offset": 38667
+        },
+        {
+          "module_offset": 456,
+          "target_group_offset": 38667
+        },
+        {
+          "module_offset": 459,
+          "target_group_offset": 38667
+        },
+        {
+          "module_offset": 678,
+          "target_group_offset": 38667
+        },
+        {
+          "module_offset": 681,
+          "target_group_offset": 38667
+        }
+      ],
+      "msg_disp_class": [
+        {
+          "module_offset": 465,
+          "target_group_offset": 38665
+        },
+        {
+          "module_offset": 673,
+          "target_group_offset": 38665
+        }
+      ],
+      "curdrv": [
+        {
+          "module_offset": 480,
+          "target_group_offset": 41727
+        }
+      ],
+      "badcd_ptr": [
+        {
+          "module_offset": 548,
+          "target_group_offset": 38982
+        }
+      ],
+      "resseg": [
+        {
+          "module_offset": 582,
+          "target_group_offset": 41707
+        },
+        {
+          "module_offset": 2003,
+          "target_group_offset": 41707
+        },
+        {
+          "module_offset": 2046,
+          "target_group_offset": 41707
+        }
+      ],
+      "verval": [
+        {
+          "module_offset": 588,
+          "target_group_offset": 888
+        }
+      ],
+      "copied_ptr": [
+        {
+          "module_offset": 649,
+          "target_group_offset": 38717
+        }
+      ],
+      "extend_buf_sub": [
+        {
+          "module_offset": 693,
+          "target_group_offset": 38669
+        },
+        {
+          "module_offset": 1288,
+          "target_group_offset": 38669
+        },
+        {
+          "module_offset": 1783,
+          "target_group_offset": 38669
+        }
+      ],
+      "nxtadd": [
+        {
+          "module_offset": 716,
+          "target_group_offset": 41744
+        },
+        {
+          "module_offset": 1170,
+          "target_group_offset": 41744
+        },
+        {
+          "module_offset": 1358,
+          "target_group_offset": 41744
+        },
+        {
+          "module_offset": 1412,
+          "target_group_offset": 41744
+        },
+        {
+          "module_offset": 1437,
+          "target_group_offset": 41744
+        },
+        {
+          "module_offset": 1441,
+          "target_group_offset": 41744
+        },
+        {
+          "module_offset": 1501,
+          "target_group_offset": 41744
+        },
+        {
+          "module_offset": 1524,
+          "target_group_offset": 41744
+        },
+        {
+          "module_offset": 1536,
+          "target_group_offset": 41744
+        }
+      ],
+      "srcxname": [
+        {
+          "module_offset": 891,
+          "target_group_offset": 40985
+        },
+        {
+          "module_offset": 1227,
+          "target_group_offset": 40985
+        }
+      ],
+      "file_name_ptr": [
+        {
+          "module_offset": 910,
+          "target_group_offset": 39094
+        },
+        {
+          "module_offset": 1012,
+          "target_group_offset": 39094
+        }
+      ],
+      "destfcb2": [
+        {
+          "module_offset": 1123,
+          "target_group_offset": 42149
+        },
+        {
+          "module_offset": 1134,
+          "target_group_offset": 42149
+        }
+      ],
+      "bytcnt": [
+        {
+          "module_offset": 1354,
+          "target_group_offset": 41740
+        },
+        {
+          "module_offset": 1376,
+          "target_group_offset": 41740
+        },
+        {
+          "module_offset": 1445,
+          "target_group_offset": 41740
+        }
+      ],
+      "tpa": [
+        {
+          "module_offset": 1381,
+          "target_group_offset": 41709
+        },
+        {
+          "module_offset": 1419,
+          "target_group_offset": 41709
+        },
+        {
+          "module_offset": 1515,
+          "target_group_offset": 41709
+        }
+      ],
+      "prompt_sublist": [
+        {
+          "module_offset": 1814,
+          "target_group_offset": 42833
+        },
+        {
+          "module_offset": 1850,
+          "target_group_offset": 42833
+        }
+      ],
+      "answer_yes": [
+        {
+          "module_offset": 1894,
+          "target_group_offset": 29665
+        },
+        {
+          "module_offset": 1973,
+          "target_group_offset": 29665
+        }
+      ],
+      "answer_no": [
+        {
+          "module_offset": 1900,
+          "target_group_offset": 29666
+        },
+        {
+          "module_offset": 1979,
+          "target_group_offset": 29666
+        }
+      ],
+      "answer_all": [
+        {
+          "module_offset": 1906,
+          "target_group_offset": 29667
+        }
+      ],
+      "answer_buffer": [
+        {
+          "module_offset": 1915,
+          "target_group_offset": 29664
+        },
+        {
+          "module_offset": 1927,
+          "target_group_offset": 29664
+        },
+        {
+          "module_offset": 1934,
+          "target_group_offset": 29664
+        }
+      ],
+      "envirseg": [
+        {
+          "module_offset": 2007,
+          "target_group_offset": 1295
+        }
+      ],
+      "copycmd_name": [
+        {
+          "module_offset": 2012,
+          "target_group_offset": 40487
+        }
+      ],
+      "copynoninteractive": [
+        {
+          "module_offset": 2050,
+          "target_group_offset": 709
+        }
+      ]
+    },
+    "code_symbols": 21,
+    "code_fields": 42,
+    "code_references": {
+      "cparse": [
+        {
+          "module_offset": 188,
+          "target_file_offset": 28841
+        },
+        {
+          "module_offset": 607,
+          "target_file_offset": 28841
+        },
+        {
+          "module_offset": 760,
+          "target_file_offset": 28841
+        },
+        {
+          "module_offset": 1104,
+          "target_file_offset": 28841
+        }
+      ],
+      "setup_parse_error_msg": [
+        {
+          "module_offset": 332,
+          "target_file_offset": 19979
+        }
+      ],
+      "cerror": [
+        {
+          "module_offset": 335,
+          "target_file_offset": 21947
+        },
+        {
+          "module_offset": 470,
+          "target_file_offset": 21947
+        }
+      ],
+      "coperr": [
+        {
+          "module_offset": 418,
+          "target_file_offset": 28098
+        },
+        {
+          "module_offset": 698,
+          "target_file_offset": 28098
+        },
+        {
+          "module_offset": 922,
+          "target_file_offset": 28098
+        },
+        {
+          "module_offset": 1347,
+          "target_file_offset": 28098
+        }
+      ],
+      "setstars": [
+        {
+          "module_offset": 509,
+          "target_file_offset": 28793
+        },
+        {
+          "module_offset": 537,
+          "target_file_offset": 28793
+        },
+        {
+          "module_offset": 566,
+          "target_file_offset": 28793
+        }
+      ],
+      "std_printf": [
+        {
+          "module_offset": 660,
+          "target_file_offset": 32156
+        },
+        {
+          "module_offset": 913,
+          "target_file_offset": 32156
+        },
+        {
+          "module_offset": 1015,
+          "target_file_offset": 32156
+        }
+      ],
+      "tcommand": [
+        {
+          "module_offset": 663,
+          "target_file_offset": 9956
+        }
+      ],
+      "buildpath": [
+        {
+          "module_offset": 732,
+          "target_file_offset": 28457
+        }
+      ],
+      "restudir1": [
+        {
+          "module_offset": 833,
+          "target_file_offset": 20685
+        },
+        {
+          "module_offset": 1120,
+          "target_file_offset": 20685
+        }
+      ],
+      "fcb_to_ascz": [
+        {
+          "module_offset": 875,
+          "target_file_offset": 21075
+        }
+      ],
+      "builddest": [
+        {
+          "module_offset": 885,
+          "target_file_offset": 28216
+        }
+      ],
+      "compname": [
+        {
+          "module_offset": 898,
+          "target_file_offset": 28821
+        }
+      ],
+      "crlf2": [
+        {
+          "module_offset": 916,
+          "target_file_offset": 21031
+        },
+        {
+          "module_offset": 1018,
+          "target_file_offset": 21031
+        }
+      ],
+      "flshfil": [
+        {
+          "module_offset": 1048,
+          "target_file_offset": 27776
+        },
+        {
+          "module_offset": 1366,
+          "target_file_offset": 27776
+        },
+        {
+          "module_offset": 1451,
+          "target_file_offset": 27776
+        }
+      ],
+      "buildname": [
+        {
+          "module_offset": 1141,
+          "target_file_offset": 28409
+        }
+      ],
+      "set_ext_error_msg": [
+        {
+          "module_offset": 1279,
+          "target_file_offset": 18688
+        },
+        {
+          "module_offset": 1774,
+          "target_file_offset": 18688
+        }
+      ],
+      "std_eprintf": [
+        {
+          "module_offset": 1293,
+          "target_file_offset": 32148
+        },
+        {
+          "module_offset": 1788,
+          "target_file_offset": 32148
+        }
+      ],
+      "setasc": [
+        {
+          "module_offset": 1496,
+          "target_file_offset": 28190
+        },
+        {
+          "module_offset": 1757,
+          "target_file_offset": 28190
+        },
+        {
+          "module_offset": 1763,
+          "target_file_offset": 28190
+        }
+      ],
+      "tryflush": [
+        {
+          "module_offset": 1505,
+          "target_file_offset": 27763
+        },
+        {
+          "module_offset": 1547,
+          "target_file_offset": 27763
+        }
+      ],
+      "switch": [
+        {
+          "module_offset": 1760,
+          "target_file_offset": 21467
+        }
+      ],
+      "sysdispmsg": [
+        {
+          "module_offset": 1867,
+          "target_file_offset": 32913
+        },
+        {
+          "module_offset": 1969,
+          "target_file_offset": 32913
+        }
+      ]
+    },
+    "limitations": "Offsets are derived from the same target binary and assembler listing and establish consistency, not independent proof of final linker bindings. References with ambiguous source expressions are excluded."
+  }
+}

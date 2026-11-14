@@ -1,0 +1,14 @@
+{
+  "index": 220,
+  "path": "inc/mult.inc",
+  "reviewed_sha256": "73037418e659c1eab2d3e67fc7e29eebed8fc6f1fe5790848ee22f9870ef89a6",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical multiplex channel definitions.",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "BIOS, DOS and COMMAND sources include mult.inc.",
+    "DOS DIRCALL uses multNET in emitted instructions; its previously compared 521-byte contribution matches target MSDOS.SYS (review 055).",
+    "BIOS MSLOAD uses multMULT and multMULTRPLTOM; the prior 1446-byte comparison differed only in the separately tracked minor-version byte (review 019)."
+  ],
+  "limitations": "Selected comparisons support exercised channel constants, not every listed external service or optional configuration. Final links and whole-file identity remain unverified."
+}

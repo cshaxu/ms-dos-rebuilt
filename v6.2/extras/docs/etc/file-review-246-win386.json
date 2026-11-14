@@ -1,0 +1,14 @@
+{
+  "index": 246,
+  "path": "inc/win386.inc",
+  "reviewed_sha256": "f93d2bd1d1c4be0bb0474a4e0ed8796e0f10fdc8e424fc0ffcd64890e599219c",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical Windows 386 interface definitions used by core DOS and BIOS.",
+  "evidence": [
+    "The file is byte-identical to DOS 6.0 and astro.",
+    "DOS MSCODE uses multiplex numbers and subfunctions; DOS MSINIT uses the Win386_IIS structure size, while BIOS MSINT13 uses multiplex and initialization constants.",
+    "Reviews 083 and 090 compare the corresponding DOS modules to inferred target ranges, with listed differences attributed to relocations.",
+    "A targeted lexical search found no NT/BOP markers."
+  ],
+  "limitations": "Prior comparisons support exercised definitions only; alternative paths, relocation values, target alignment and full linked identity remain unverified."
+}

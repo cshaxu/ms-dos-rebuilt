@@ -1,0 +1,21 @@
+{
+  "index": 174,
+  "path": "inc/const2.asm",
+  "reviewed_sha256": "d6fd5b7d1c74ab28e361b4854cc431e321abe93e79e2682964681c6b63957100",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical initialized DOS data declarations.",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "dos/msdata.asm includes const2.asm as part of the selected kernel data aggregation.",
+    "The saved msdata.lst places CONST001s at DOSDATA offset 00CCh and CONST001e at 03B1h.",
+    "Using the DOSDATA file offset 33168 documented in review 086, the 741 bytes between those labels at file offsets 825Ch\u20138540h match the target MSDOS.SYS byte for byte."
+  ],
+  "comparison": {
+    "build": "extras/build/kernel-reference-0_jps7ao/MSDOS.SYS",
+    "target": "extras/baselines/targets/MSDOS.SYS",
+    "start": 33372,
+    "length": 741,
+    "differing_bytes": 0
+  },
+  "limitations": "The compared range covers the labelled contribution in the selected prior build. Other contributions, final linked addresses, and complete MSDOS.SYS identity remain unverified."
+}

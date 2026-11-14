@@ -1,0 +1,25 @@
+{
+  "index": 240,
+  "path": "inc/sysmsg.inc",
+  "reference_sha256": "820648c2e48a0a8360ef4057fbd3913e211293a5f3240aca897210ae81175ba0",
+  "reviewed_sha256": "e5cf275e81b07172232b6a8fbfe7214aa32d0e5a754a999fc7a423a674d81b49",
+  "decision": "Restore target thousands-separator positions in the existing DOS 6 message service definitions.",
+  "changes": [
+    "Set $M_SECOND_THOU to 7 and $M_THIRD_THOU to 11, preserving DOS 6 source formatting and comments."
+  ],
+  "verification": {
+    "assembler": "pinned MASM, USA and DBLSPACE_HOOKS",
+    "target": "extras/baselines/targets/COMMAND.COM",
+    "target_sha256": "9b1d77119ac6fe4f949f574db1445b2848683c3a5aaa2bb09f52d0b538df3541",
+    "inferred_module_offset": "0x7d89",
+    "object_bytes_covered": 2460,
+    "relocation_bytes": 398,
+    "non_relocation_differences": 0,
+    "internal_near_branches_matching": 66,
+    "target_constant_bytes": [
+      7,
+      11
+    ]
+  },
+  "limitations": "Target module base is inferred; external relocation values, generated message resources and full COMMAND.COM link remain unresolved. Other definitions are retained from DOS 6 and are not independently established by this comparison."
+}

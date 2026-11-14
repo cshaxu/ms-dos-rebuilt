@@ -1,0 +1,14 @@
+{
+  "index": 204,
+  "path": "inc/keybshar.inc",
+  "reviewed_sha256": "fa4aab9c0e1df0e3038fd6975955299c953462910dc9b597a17577dd64a02171",
+  "reference_astro_identical": true,
+  "decision": "Exclude the unreferenced KEYB shared-data definitions from the selected core build and retain them under research.",
+  "archive": "extras/research/excluded/inc/keybshar.inc",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "The header identifies the structures as shared between resident and transient KEYB code.",
+    "No include of keybshar.inc was found in retained BIOS, DOS, COMMAND and include trees or the frozen selected dependency inventory."
+  ],
+  "limitations": "Exclusion covers the selected three-component build only; KEYB itself is not part of the reconstruction scope."
+}

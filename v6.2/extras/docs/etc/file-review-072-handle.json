@@ -1,0 +1,37 @@
+{
+  "index": 72,
+  "file": "dos/handle.asm",
+  "reviewed_sha256": "f42fa91329b674864a5421b40be415b348a18f0793221b9c07d526b12924e90f",
+  "decision": "retain reference-identical handle dispatch module",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\handle.asm",
+      "sha256": "f42fa91329b674864a5421b40be415b348a18f0793221b9c07d526b12924e90f"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\handle.asm",
+      "sha256": "f42fa91329b674864a5421b40be415b348a18f0793221b9c07d526b12924e90f"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/kernel-dir-getentry-branch-build.json",
+    "module_file_offset": 26955,
+    "module_length": 640,
+    "differing_module_offsets": [
+      272,
+      273,
+      374
+    ],
+    "relocation_symbols": [
+      "DOS_Read",
+      "DOS_Write"
+    ]
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and astro.",
+    "Listing places $Close at module offset zero and ends DOSCODE at 0280h; map resolves 0000:A73B with -15856 file bias.",
+    "All three differing bytes occur in assembler-marked function address operands."
+  ],
+  "limitations": "Final target function addresses and whole-kernel byte identity remain unresolved.",
+  "change": "No source change."
+}

@@ -1,0 +1,23 @@
+{
+  "index": 32,
+  "file": "bios/romrdlo.asm",
+  "reviewed_sha256": "6c69f056db340a22dee6aaecfa1a5714420b7ef3a6073ea799a2e3342581b413",
+  "decision": "retain optional low-memory ROM access variant",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\romrdlo.asm",
+      "sha256": "6c69f056db340a22dee6aaecfa1a5714420b7ef3a6073ea799a2e3342581b413"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\bios\\romrdlo.asm",
+      "sha256": "6c69f056db340a22dee6aaecfa1a5714420b7ef3a6073ea799a2e3342581b413"
+    }
+  ],
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and astro.",
+    "Defines ROM transfer logic with an optional FAKEROMDRIVE branch using rom8k.inc.",
+    "romrdlo is absent from the selected BIOS link list, which does not enable ROMDRIVE."
+  ],
+  "limitations": "Optional variant and any target contribution are not established by this reference comparison.",
+  "change": "No source change."
+}

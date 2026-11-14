@@ -1,0 +1,23 @@
+{
+  "index": 89,
+  "file": "dos/mshalo.asm",
+  "reviewed_sha256": "89dbe90c55b755472d8f2834b9ac4e415fce6e9f0376e50b3da0821f9c964250",
+  "decision": "retain reference-identical alternate ROM support source",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\mshalo.asm",
+      "sha256": "89dbe90c55b755472d8f2834b9ac4e415fce6e9f0376e50b3da0821f9c964250"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\mshalo.asm",
+      "sha256": "89dbe90c55b755472d8f2834b9ac4e415fce6e9f0376e50b3da0821f9c964250"
+    }
+  ],
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and Astro.",
+    "COMMAND tcode.asm conditionally includes mshalo.asm. The provisional reference build stages cmd and inc, not dos, and resolves that include from inc; dos/mshalo.asm is not an input to that selected build.",
+    "The independently tracked inc/mshalo.asm differs in SHA-256 and must not be treated as an identical duplicate."
+  ],
+  "limitations": "No target byte comparison is attributed to dos/mshalo.asm; relevance outside the selected build and the inc version remain to be established.",
+  "change": "No source change."
+}

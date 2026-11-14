@@ -1,0 +1,40 @@
+{
+  "index": 66,
+  "file": "dos/fcb.asm",
+  "reviewed_sha256": "dd7c6d6b85d08585be900b91f329821a81c6ee9b5f1cb71268382af4fb39a01c",
+  "decision": "retain reference-identical FCB name parsing module",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\fcb.asm",
+      "sha256": "dd7c6d6b85d08585be900b91f329821a81c6ee9b5f1cb71268382af4fb39a01c"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\fcb.asm",
+      "sha256": "dd7c6d6b85d08585be900b91f329821a81c6ee9b5f1cb71268382af4fb39a01c"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/kernel-dir-getentry-branch-build.json",
+    "module_file_offset": 20723,
+    "module_length": 417,
+    "differences": [
+      {
+        "offset": 343,
+        "symbol": "DosDseg",
+        "kind": "external address"
+      },
+      {
+        "offset": 381,
+        "symbol": "CharType",
+        "kind": "relocated code offset"
+      }
+    ]
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and astro.",
+    "Listing places MakeFcb at module offset zero and ends DOSCODE at 01A1h; map resolves 0000:8EE3 with -15856 file bias.",
+    "The two differing bytes belong to assembler-marked address fields."
+  ],
+  "limitations": "Final relocation values and whole-kernel equality remain unverified.",
+  "change": "No source change."
+}

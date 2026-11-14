@@ -1,0 +1,47 @@
+{
+  "index": 84,
+  "file": "dos/msconst.asm",
+  "reviewed_sha256": "5e32f377e8f336bd307e318a010c9a77d787f79fa8fe16a33f2376ff0828f359",
+  "decision": "retain reference-identical initialized kernel data",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\msconst.asm",
+      "sha256": "5e32f377e8f336bd307e318a010c9a77d787f79fa8fe16a33f2376ff0828f359"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\msconst.asm",
+      "sha256": "5e32f377e8f336bd307e318a010c9a77d787f79fa8fe16a33f2376ff0828f359"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/kernel-dir-getentry-branch-build.json",
+    "data_file_offset": 33168,
+    "data_length": 204,
+    "difference_offsets_in_data": [
+      24,
+      144,
+      148,
+      152,
+      156,
+      160,
+      164,
+      168,
+      172,
+      176,
+      180,
+      184,
+      188,
+      192,
+      196,
+      200
+    ],
+    "target_sha256": "1ff320e7fdb3de707370e18d48d52b724b6f40f86ae7b70469bb130d754a904f"
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and Astro.",
+    "MSDATA listing places the MSCONST DOSDATA contribution at 0000h\u201300CBh, mapped at 0BF8:0000 with -15856 file bias.",
+    "Sixteen differing bytes are the low bytes of the LeaveDOS pointer and fifteen JShare BadCall/OKCall pointers; each differs by 10h. Remaining data bytes match at aligned offsets."
+  ],
+  "limitations": "Pointer values depend on unresolved kernel layout; this comparison does not establish full kernel identity.",
+  "change": "No source change."
+}

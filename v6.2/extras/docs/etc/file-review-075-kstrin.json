@@ -1,0 +1,42 @@
+{
+  "index": 75,
+  "file": "dos/kstrin.asm",
+  "reviewed_sha256": "973c9453988f7d2148fca526a478069b6a34a197715321f20624aee615928e51",
+  "decision": "retain reference-identical buffered keyboard input code",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\kstrin.asm",
+      "sha256": "973c9453988f7d2148fca526a478069b6a34a197715321f20624aee615928e51"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\kstrin.asm",
+      "sha256": "973c9453988f7d2148fca526a478069b6a34a197715321f20624aee615928e51"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/kernel-dir-getentry-branch-build.json",
+    "module_file_offset": 5184,
+    "module_length": 508,
+    "differing_module_offsets": [
+      69,
+      70,
+      100,
+      101,
+      351,
+      352,
+      423,
+      424
+    ],
+    "relocation_symbols": [
+      "ESCCHAR",
+      "CANCHAR"
+    ]
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and astro; cpmio.asm includes this file.",
+    "Assembler listing places $STD_CON_STRING_INPUT at CPMIO offset 0066h and ends it at 0262h, yielding file offset 1440h.",
+    "All eight differing bytes are four assembler-marked address words for ESCCHAR or CANCHAR."
+  ],
+  "limitations": "Final relocated code addresses and full kernel equality remain unverified.",
+  "change": "No source change."
+}

@@ -1,0 +1,15 @@
+{
+  "index": 188,
+  "path": "inc/ds_vers.h",
+  "reviewed_sha256": "5110813e46a3534ca3c7dc60613de10e27c037e862ef88a472862081678c43b0",
+  "reference_astro_identical": true,
+  "decision": "Exclude the DBLSPACE.EXE C version header from the selected core build and retain it under research.",
+  "archive": "extras/research/excluded/inc/ds_vers.h",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "The header describes its use by DBLSPACE.EXE to check the internal DBLSPACE.BIN revision.",
+    "No include of ds_vers.h was found in the retained BIOS, DOS, COMMAND and include source trees or selected build reports.",
+    "The separate assembler ds_vers.inc remains in the core source tree for its own ordered review."
+  ],
+  "limitations": "Exclusion applies to the selected IO.SYS, MSDOS.SYS and COMMAND.COM build; it does not cover building DBLSPACE.EXE or DBLSPACE.BIN."
+}

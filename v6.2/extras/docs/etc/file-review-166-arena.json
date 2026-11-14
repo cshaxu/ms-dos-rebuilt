@@ -1,0 +1,15 @@
+{
+  "index": 166,
+  "path": "inc/arena.inc",
+  "reviewed_sha256": "8b7e1038bdde542ff71fe320fd666788a3f517bed0ba90d3cad146e001933589",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical shared memory arena structure and allocation constants.",
+  "evidence": [
+    "The source is byte-identical to DOS 6.0 and astro.",
+    "The file defines a 16-byte arena header with signature, owner, size, reserved bytes and owner name, as well as allocation strategy masks.",
+    "dos/alloc.asm and several BIOS and COMMAND modules include this file.",
+    "The prior ALLOC comparison matched target bytes except external branch displacement bytes (file-review-043-alloc.json).",
+    "The prior COMMAND LOADHI comparison, including highload.inc which uses arena definitions, matched 1697 non-relocation bytes and 73 internal branches (file-review-128-loadhi.json)."
+  ],
+  "limitations": "Existing module comparisons support the definitions exercised there, not every use of this shared include; complete target binary identity and relocation values require final builds."
+}

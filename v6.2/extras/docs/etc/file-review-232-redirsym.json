@@ -1,0 +1,14 @@
+{
+  "index": 232,
+  "path": "inc/redirsym.inc",
+  "reviewed_sha256": "3ec77d71cb7c8ca9f065336f4389d33203f781f1f5b5e1e79d4f5fd1cc3d69c6",
+  "reference_astro_identical": true,
+  "decision": "Exclude the unreferenced redirector implementation symbol header from the selected core build and retain it under research.",
+  "archive": "extras/research/excluded/inc/redirsym.inc",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "The file defines redirector-specific macros and structures, including its own IFSSYM dependency.",
+    "No reference to redirsym.inc appears in retained BIOS, DOS, COMMAND and include trees or the frozen selected dependency inventory."
+  ],
+  "limitations": "Exclusion applies to this implementation header in the selected core build; DOS redirector interfaces already used by core sources remain in scope, and separate redirector products are not being reconstructed."
+}

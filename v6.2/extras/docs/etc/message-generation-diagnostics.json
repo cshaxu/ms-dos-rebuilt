@@ -1,0 +1,19 @@
+{
+  "command_missing_message_target_offsets": {
+    "LoadHigh: Invalid argument": 39143,
+    "Unrecognized switch": 39201
+  },
+  "command_empty_entry_evidence": "extras/docs/etc/message-default-behavior.json",
+  "bios_success_status_but_invalid_generated_files": {
+    "MSBIO.CL3": {
+      "sha256": "fa6703530713edd2530b6c005bb6d9f8408c212c75fc1a2e25db6c17fb21117d",
+      "observation": "Contains raw source message record 0025 rather than an assembly declaration."
+    },
+    "MSBIO.CL9": {
+      "sha256": "896442afe7546c104ba49e921b4aa20a7033a53f01a299fd2c1cd5ead5a84e79",
+      "observation": "Contains raw MSDOS section header and lacks PowerSignOn declaration."
+    }
+  },
+  "bios_and_dos_probe": "extras/docs/etc/system-message-probe.json",
+  "limitations": "Findings apply to this tool and OpenNT candidate with these templates; no conclusion about all alternative messages or optional target configuration."
+}

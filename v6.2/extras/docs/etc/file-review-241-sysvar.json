@@ -1,0 +1,14 @@
+{
+  "index": 241,
+  "path": "inc/sysvar.inc",
+  "reviewed_sha256": "e10451b7564ef7f5fe100cfd85d2f873a076ad9ad37ab09a53f95acc42577f2e",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical system initialization and buffer structures.",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "SYSINIT1 and DOS MSINIT include this file and access SysInitVars or SysInitVars_Ext fields.",
+    "Review 039 compares SYSINIT1 with the inferred target and classifies remaining differences as relocations, version or provisional messages; review 090 compares MSINIT and classifies differences as relocatable fields.",
+    "No NT/BOP marker was found in a targeted lexical search."
+  ],
+  "limitations": "Comparisons support only exercised structure fields and inferred module ranges; they do not independently establish every definition, relocated address, or complete final binary identity."
+}

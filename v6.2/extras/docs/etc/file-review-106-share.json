@@ -1,0 +1,29 @@
+{
+  "index": 106,
+  "file": "dos/share.asm",
+  "reviewed_sha256": "0eb75b8acef5c5dd2bd86d0c7b26ae885ba72d18c2e5bc2d2b01476ef46f1aa7",
+  "decision": "retain reference-identical file sharing interface",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\share.asm",
+      "sha256": "0eb75b8acef5c5dd2bd86d0c7b26ae885ba72d18c2e5bc2d2b01476ef46f1aa7"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\share.asm",
+      "sha256": "0eb75b8acef5c5dd2bd86d0c7b26ae885ba72d18c2e5bc2d2b01476ef46f1aa7"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/kernel-dir-getentry-branch-build.json",
+    "module_file_offset": 30123,
+    "module_length": 82,
+    "target_sha256": "1ff320e7fdb3de707370e18d48d52b724b6f40f86ae7b70469bb130d754a904f"
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and Astro.",
+    "Listing and map locate the 0052h-byte DOSCODE contribution at 0000:B39B with -15856 file bias.",
+    "All 82 linked bytes match target MSDOS.SYS at the same offsets."
+  ],
+  "limitations": "Evidence covers the selected build configuration; full kernel remains unequal.",
+  "change": "No source change."
+}

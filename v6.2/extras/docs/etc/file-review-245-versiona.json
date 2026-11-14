@@ -1,0 +1,21 @@
+{
+  "index": 245,
+  "path": "inc/versiona.inc",
+  "reference_sha256": "b3d882010c35ec2fa4d8fc5faa124c866a4ed08b9559b6ffac1eaf713177dc83",
+  "reviewed_sha256": "4b56ec4f42749a17bb46aa27c5e0fbc99ff3d2d5e0e3931cf00acd6690c1d141",
+  "decision": "Restore the DOS 6.20 minor version while preserving DOS 6 source style.",
+  "changes": [
+    "Set minor_version from 00 to decimal 20; major_version remains 6."
+  ],
+  "verification": [
+    "MSLOAD assembles SysVersion as 1406h; target IO.SYS offset 4 is 14h.",
+    "MSDATA assembles DOSTAB MINOR_VERSION as 14h; target MSDOS.SYS offset 8EA3h is 14h at the previously inferred module alignment.",
+    "INIT has 2689 listing bytes covered, 2027 non-relocation bytes match and 51 internal branches match; minor version is 14h.",
+    "STUB has 333 listed non-relocation bytes and 20 internal branches matching; packed version byte 64h matches target COMMAND.COM offset 3."
+  ],
+  "verifiers": [
+    "extras/tools/verify_init_listing.py",
+    "extras/tools/verify_stub_listing.py"
+  ],
+  "limitations": "DOS target module position is inferred. BIOS and DOS individual version fields were assembled, not full-linked; complete binaries, relocations and generated messages remain unresolved."
+}

@@ -1,0 +1,60 @@
+{
+  "index": 86,
+  "file": "dos/msdata.asm",
+  "reviewed_sha256": "8cfd6b65393186faa1f6ac8015bea073b6594c98c706a004a696cc413d590da7",
+  "decision": "retain reference-identical data aggregation source",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\msdata.asm",
+      "sha256": "8cfd6b65393186faa1f6ac8015bea073b6594c98c706a004a696cc413d590da7"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\msdata.asm",
+      "sha256": "8cfd6b65393186faa1f6ac8015bea073b6594c98c706a004a696cc413d590da7"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/kernel-dir-getentry-branch-build.json",
+    "dosdata_file_offset": 33168,
+    "dosdata_length": 4970,
+    "difference_offsets_in_data": [
+      24,
+      144,
+      148,
+      152,
+      156,
+      160,
+      164,
+      168,
+      172,
+      176,
+      180,
+      184,
+      188,
+      192,
+      196,
+      200,
+      3347,
+      3378,
+      3382,
+      4194,
+      4198,
+      4202,
+      4203,
+      4206,
+      4210,
+      4214,
+      4218,
+      4222,
+      4226
+    ],
+    "target_sha256": "1ff320e7fdb3de707370e18d48d52b724b6f40f86ae7b70469bb130d754a904f"
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and Astro.",
+    "MSDATA is an aggregation source: it includes the component data modules in the reference order and directly emits no standalone data declarations.",
+    "The selected build listing places the resulting DOSDATA contribution at 0000h\u20131369h; it differs from aligned target data at 29 byte positions."
+  ],
+  "limitations": "Differences belong to included data and linked addresses; the aggregation source comparison alone does not establish full target identity. Included files are tracked independently in ledger order.",
+  "change": "No source change."
+}

@@ -1,0 +1,28 @@
+{
+  "index": 116,
+  "file": "cmd/command/comsw.asm",
+  "reviewed_sha256": "d6bf33dfafcc6170a7f38e3dedc164910ed0ee1e6e6133200b11c53c49589b37",
+  "decision": "retain reference-identical COMMAND conditional switch",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\comsw.asm",
+      "sha256": "d6bf33dfafcc6170a7f38e3dedc164910ed0ee1e6e6133200b11c53c49589b37"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\cmd\\command\\comsw.asm",
+      "sha256": "d6bf33dfafcc6170a7f38e3dedc164910ed0ee1e6e6133200b11c53c49589b37"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/command-reference-build.json",
+    "listing": "extras/build/command-reference-l_ua1x5q/tcode.lst",
+    "target_symbol_evidence": "extras/docs/etc/reference-target-public-map.json"
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and Astro.",
+    "For the selected non-ROM reference build, the assembler listing resolves IBM_ROM_FIND to TRUE and includes ROM_SCAN.",
+    "Existing symbol comparison identifies a 16-byte ROM_SCAN prefix match in the target, consistent with but not by itself proving the complete conditional configuration."
+  ],
+  "limitations": "Final 6.20 COMMAND configuration and binary identity remain to be verified.",
+  "change": "No source change."
+}

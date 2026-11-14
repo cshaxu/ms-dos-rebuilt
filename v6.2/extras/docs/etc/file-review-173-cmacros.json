@@ -1,0 +1,15 @@
+{
+  "index": 173,
+  "path": "inc/cmacros.inc",
+  "reviewed_sha256": "1fa3e803200691163e2e23a30d0a3e00b8aff1979dd5db136a41974fe72320bc",
+  "reference_astro_identical": true,
+  "decision": "Exclude the unreferenced high-level-language interface macro library from the selected three-component build and retain it under research.",
+  "archive": "extras/research/excluded/inc/cmacros.inc",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "No include of cmacros.inc appears in the retained BIOS, DOS, COMMAND and include trees or frozen dependency inventory; version.inc mentions it only in a comment.",
+    "Searches for representative C-interface macro invocations found no uses outside cmacros.inc in the selected source trees.",
+    "The three selected reference build reports have no cmacros input."
+  ],
+  "limitations": "Exclusion applies to the selected three-component build; it does not establish that this library was absent from other DOS products or build configurations."
+}

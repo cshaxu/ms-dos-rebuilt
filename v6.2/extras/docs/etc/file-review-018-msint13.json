@@ -1,0 +1,30 @@
+{
+  "index": 18,
+  "file": "bios/msint13.asm",
+  "reviewed_sha256": "4c7241c46f47c45bd728f40f6b3eb2f9b8784197b3cf1e752be3961c5a17aeec",
+  "decision": "retain reference-identical interrupt handler module",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\msint13.asm",
+      "sha256": "4c7241c46f47c45bd728f40f6b3eb2f9b8784197b3cf1e752be3961c5a17aeec"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\bios\\msint13.asm",
+      "sha256": "4c7241c46f47c45bd728f40f6b3eb2f9b8784197b3cf1e752be3961c5a17aeec"
+    }
+  ],
+  "object_sha256": "05eee01fc17b43d2c7dc7a9808b06ea436ae12166deb1ec613284c8421521849",
+  "target_segment": {
+    "segment": "BIOS_CODE",
+    "offset": 15976,
+    "length": 1087,
+    "sha256": "a11ebaba35d415727c70543141ef216ef6d66caadff31321b55e9b8e58551152"
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and astro.",
+    "Listing gives i2f_handler offset 0000h and BIOS_CODE length 043Fh; link map places it at 025C:1302.",
+    "All 1087 linked bytes match target IO.SYS at the same file offsets."
+  ],
+  "limitations": "Applies to the selected reference configuration; does not establish optional builds or original source identity.",
+  "change": "No source change."
+}

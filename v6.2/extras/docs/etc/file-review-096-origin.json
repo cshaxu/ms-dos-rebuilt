@@ -1,0 +1,31 @@
+{
+  "index": 96,
+  "file": "dos/origin.asm",
+  "reviewed_sha256": "9e02ec81b78bd3249c55cb46fa7aa3693e64bdd4ef57bc2ef7566f754d4b03b6",
+  "decision": "retain reference-identical origin layout source",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\origin.asm",
+      "sha256": "9e02ec81b78bd3249c55cb46fa7aa3693e64bdd4ef57bc2ef7566f754d4b03b6"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\origin.asm",
+      "sha256": "9e02ec81b78bd3249c55cb46fa7aa3693e64bdd4ef57bc2ef7566f754d4b03b6"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/kernel-dir-getentry-branch-build.json",
+    "intermediate_origin_word": 15856,
+    "stripped_prefix_length": 15856,
+    "built_header_origin": 15856,
+    "target_header_origin": 15840,
+    "target_sha256": "1ff320e7fdb3de707370e18d48d52b724b6f40f86ae7b70469bb130d754a904f"
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and Astro.",
+    "The assembler listing resolves PARASTART to 3DF0h and ORGs DOSCODE to that offset; relocation output begins with the 3DF0h word and stripping removes exactly 3DF0h bytes.",
+    "The built MSDOS.SYS header at file offsets 3\u20134 contains 3DF0h; the corresponding target header contains 3DE0h. origin.inc computes this value from bdsize.inc and is tracked independently."
+  ],
+  "limitations": "A matching wrapper source does not establish the correct target layout. The dependency values and final linked addresses remain to be resolved in ledger order.",
+  "change": "No source change."
+}

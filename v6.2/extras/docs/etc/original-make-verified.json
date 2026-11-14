@@ -1,0 +1,112 @@
+{
+  "status": "verified",
+  "stage": "O:\\repos.hobby\\ms-dos-rebuilt\\v6.2\\extras\\build\\original-make-t2s5g81e",
+  "restored_files": [
+    {
+      "path": "bios/makefile",
+      "reference": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\makefile",
+      "sha256": "1c66bb998c0117183e1873299c6309c46a3c067d0a1d8e0c1aafaa89d32efebd",
+      "byte_identical": true
+    },
+    {
+      "path": "dos/makefile",
+      "reference": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\makefile",
+      "sha256": "99591fe7023f41f98b54808a11f8354be1d2a6040fdc270679be72bb88b3b4ad",
+      "byte_identical": true
+    },
+    {
+      "path": "cmd/command/makefile",
+      "reference": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\makefile",
+      "sha256": "b0c8e90f2add1188836b5b7215609d8f3636d5de9b8ebc5872c17c1e27afc3a7",
+      "byte_identical": true
+    },
+    {
+      "path": "inc/romloc.inc",
+      "reference": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\inc\\romloc.inc",
+      "sha256": "90e1dddb00b03d1647ea469ed8d7b178ee54cf7266311afb4b80f1d982f552ab",
+      "byte_identical": true
+    },
+    {
+      "path": "bios/msbior.lnk",
+      "reference": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\msbior.lnk",
+      "sha256": "a7286ba596499a0a225d907177f88c7afda4cf925f0283077c231ed50fa2a3d5",
+      "byte_identical": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "IO.SYS",
+      "artifact": "O:\\repos.hobby\\ms-dos-rebuilt\\v6.2\\extras\\build\\original-make-t2s5g81e\\bios\\io.sys",
+      "bytes": 40566,
+      "sha256": "a96905f6a7358dbddafbe1128e49e9996e7d416e007801b007573c1f0acf9bbf",
+      "target_sha256": "a96905f6a7358dbddafbe1128e49e9996e7d416e007801b007573c1f0acf9bbf",
+      "byte_equal": true
+    },
+    {
+      "name": "MSDOS.SYS",
+      "artifact": "O:\\repos.hobby\\ms-dos-rebuilt\\v6.2\\extras\\build\\original-make-t2s5g81e\\dos\\msdos.sys",
+      "bytes": 38138,
+      "sha256": "1ff320e7fdb3de707370e18d48d52b724b6f40f86ae7b70469bb130d754a904f",
+      "target_sha256": "1ff320e7fdb3de707370e18d48d52b724b6f40f86ae7b70469bb130d754a904f",
+      "byte_equal": true
+    },
+    {
+      "name": "COMMAND.COM",
+      "artifact": "O:\\repos.hobby\\ms-dos-rebuilt\\v6.2\\extras\\build\\original-make-t2s5g81e\\cmd\\command\\command.com",
+      "bytes": 54619,
+      "sha256": "9b1d77119ac6fe4f949f574db1445b2848683c3a5aaa2bb09f52d0b538df3541",
+      "target_sha256": "9b1d77119ac6fe4f949f574db1445b2848683c3a5aaa2bb09f52d0b538df3541",
+      "byte_equal": true
+    }
+  ],
+  "tools": [
+    {
+      "name": "buildidx.exe",
+      "sha256": "6a301eaee8ea8516e541da2a61a22f1db7d09b15c278a88a8d73083aac0f4d91"
+    },
+    {
+      "name": "buildmsg.exe",
+      "sha256": "0d8ea59396a769e440549322a2ec9d1ab70423147e702ef1b1f42606cadd50cd"
+    },
+    {
+      "name": "link.exe",
+      "sha256": "163d8b86c18b93ccae9b2380d850cd42a9a5e1fd89a163b16170979afbbabb07"
+    },
+    {
+      "name": "masm.exe",
+      "sha256": "245b608e0ba51a815ec9501e657e534b4a39ed793824b5eff7267e6e5be20391"
+    },
+    {
+      "name": "nmake.exe",
+      "sha256": "0d3dc09354ff71978861c1058c5190b916ff0cfb57cc2fd42c1153edd92f1b87"
+    },
+    {
+      "name": "nosrv.bat",
+      "sha256": "60b1028b408dadaac310542c6816818759e9274155e65b562a4253474dcfd1bc"
+    },
+    {
+      "name": "nosrvbld.exe",
+      "sha256": "a41d7d5c5b4b0806d0e9c75d7f53810af7e308d04821b8c4a0957b6fce49ab04"
+    },
+    {
+      "name": "reloc.exe",
+      "sha256": "300b58668d46c3281ef2c017409aa9300499155d6593a8a9552781d2d96cc2b3"
+    },
+    {
+      "name": "stripz.exe",
+      "sha256": "6d424555368e2f61d201dd249532672a12164c35afb507a3e3556595511ea689"
+    },
+    {
+      "name": "tools.ini",
+      "sha256": "2897bc51cbccf0306c2154a91ffc386f20e5713e0e009ee9dfee615ec53440c1"
+    }
+  ],
+  "makefiles_unmodified": true,
+  "configuration": "USA, DBLSPACE_HOOKS",
+  "command_message_tool": "Pinned tools16 BUILDMSG; primary DOS6 copy rejected message 150.",
+  "notes": [
+    "NMAKE, MASM, LINK and RELOC ran under existing private-desktop DOSBox.",
+    "Missing nosrv wrapper supplied in probe; COMMAND messages generated with historical BUILDMSG before make.",
+    "Current production wrapper migration remains open; this is direct recipe verification."
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "scope": "Current 260-entry ordered ledger and existing per-file evidence; no new source audit performed.",
+  "reviewed": 220,
+  "reference_exact": 190,
+  "modified_from_dos6": 26,
+  "new_message_sources": 4,
+  "excluded": 40,
+  "pending": 0,
+  "evidence": "extras/docs/etc/file-review-ledger.json",
+  "limitations": [
+    "The ledger records the final disposition and per-file review evidence; it does not separately encode historical first-, second- and third-round statuses for every file.",
+    "No claim is made that each reconstructed file equals original 6.20 source text.",
+    "Owner clarified that documented uncertainty in reconstructed bytes is normal and is not a project blocker."
+  ],
+  "next": "Use existing final dispositions and direct full-build evidence for delivery; do not create a redundant re-review round."
+}

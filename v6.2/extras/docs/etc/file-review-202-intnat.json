@@ -1,0 +1,13 @@
+{
+  "index": 202,
+  "path": "inc/intnat.inc",
+  "reviewed_sha256": "2e198e650d88204dcb6b94dfbb8ed7a9abe629b23e5a9313a8cbd21a0738a809",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical international information structure.",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "COMMAND TSPC includes intnat.inc and allocates INTERNATVARS as internat_block padded to internat_block_max.",
+    "The previous TSPC layout investigation compared 3924 unchanged reference bytes against the inferred target layout after accounting for 14 inserted COPY-state bytes (review 162)."
+  ],
+  "limitations": "The TSPC layout comparison relies on inferred data bases and does not establish semantic values of every uninitialized field. Country data, final COMMAND.COM linkage and whole-file identity remain unverified."
+}

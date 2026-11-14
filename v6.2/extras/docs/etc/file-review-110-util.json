@@ -1,0 +1,33 @@
+{
+  "index": 110,
+  "file": "dos/util.asm",
+  "reviewed_sha256": "664389bd28b8c9455b32c2021d6a04ee2400931326d355f9604eff5ced23ab1e",
+  "decision": "retain reference-identical handle utilities",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\util.asm",
+      "sha256": "664389bd28b8c9455b32c2021d6a04ee2400931326d355f9604eff5ced23ab1e"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\util.asm",
+      "sha256": "664389bd28b8c9455b32c2021d6a04ee2400931326d355f9604eff5ced23ab1e"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/kernel-dir-getentry-branch-build.json",
+    "module_file_offset": 26765,
+    "module_length": 190,
+    "difference_offsets_in_module": [
+      3,
+      58
+    ],
+    "target_sha256": "1ff320e7fdb3de707370e18d48d52b724b6f40f86ae7b70469bb130d754a904f"
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and Astro.",
+    "Listing and map locate its 00BEh-byte DOSCODE contribution at 0000:A67D with -15856 file bias.",
+    "Both differing bytes lie in assembler-marked address fields and each is 10h above target; all other aligned bytes match."
+  ],
+  "limitations": "Final address values and overall kernel identity remain to be verified.",
+  "change": "No source change."
+}

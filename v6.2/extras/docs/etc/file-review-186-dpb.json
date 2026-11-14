@@ -1,0 +1,14 @@
+{
+  "index": 186,
+  "path": "inc/dpb.inc",
+  "reviewed_sha256": "78a9717b8fe123d31651d6351adeb6789501ef273ce2476316f5d4ec7c450ec0",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical drive parameter block layout.",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "Selected BIOS and DOS sources include dpb.inc; DOS FAT and BUF use DPB sector size, FAT size, maximum cluster and other fields.",
+    "All 984 bytes of the previously compared FAT contribution match target MSDOS.SYS (review 065).",
+    "The 643-byte BUF comparison differs in only three marked external call displacements after alignment (review 044)."
+  ],
+  "limitations": "Prior comparisons support the DPB fields exercised in the selected modules, not all structure uses or final linking. Historical source identity and complete core binary equality remain unverified."
+}

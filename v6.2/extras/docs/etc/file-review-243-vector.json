@@ -1,0 +1,14 @@
+{
+  "index": 243,
+  "path": "inc/vector.inc",
+  "reviewed_sha256": "f254af16d59d41e7f4862c2c21f5ac75fbcdd6022df2f42d9c88d5f3c8b028b0",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical DOS interrupt vector definitions.",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "DOS MSINIT includes the file and uses int_fatal_abort, addr_int_command and addr_int_terminate.",
+    "Review 090 compares the MSINIT module with its inferred target range and classifies differing bytes as relocatable fields.",
+    "A targeted lexical search found no NT/BOP markers."
+  ],
+  "limitations": "The MSINIT comparison supports only exercised definitions and an inferred module alignment; alternative vector configuration, relocation values and final binary identity remain unverified."
+}

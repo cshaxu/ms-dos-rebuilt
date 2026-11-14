@@ -1,0 +1,14 @@
+{
+  "index": 170,
+  "path": "inc/buffer.inc",
+  "reviewed_sha256": "dd480d8e43f47d3ba741498ee67dae60716c3fe7fdba92afb73e14f302897b16",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical disk buffer header and flag definitions.",
+  "evidence": [
+    "The file matches DOS 6.0 and astro byte for byte.",
+    "dossym.inc and smdossym.inc include buffer.inc; dos/buf.asm uses the structure fields and flags.",
+    "Prior DOS BUF module comparison covered 643 bytes; after alignment the only three differing bytes were marked external call displacements (review 044).",
+    "Prior FAT module comparison matched all 984 linked bytes at the target offsets (review 065)."
+  ],
+  "limitations": "These selected-build comparisons do not establish all possible structure uses or original historical source identity. Final linked addresses and complete MSDOS.SYS equality remain unverified."
+}

@@ -1,0 +1,76 @@
+{
+  "objective": "MS-DOS 6.20 core source reconstruction",
+  "status": "verified_with_documented_limitations",
+  "requirements": [
+    {
+      "id": "target_origin",
+      "status": "verified",
+      "evidence": [
+        "extras/docs/etc/target-baseline.json",
+        "extras/docs/etc/image-build-direct-audit.json"
+      ],
+      "scope": "Three complete FAT chains in the supplied truncated image."
+    },
+    {
+      "id": "three_complete_binary_matches",
+      "status": "verified",
+      "evidence": [
+        "extras/docs/etc/three-core-local-runner-build.json",
+        "extras/docs/etc/image-build-direct-audit.json"
+      ],
+      "scope": "Selected USA configuration and pinned tools; direct comparison for each entire output."
+    },
+    {
+      "id": "ordered_source_inventory",
+      "status": "verified_with_limitations",
+      "evidence": [
+        "extras/docs/etc/file-review-ledger.json",
+        "extras/tools/file_review_status.py"
+      ],
+      "scope": "260 registered entries; reviewed means recorded source disposition, not independent proof of every historical 6.20 line."
+    },
+    {
+      "id": "project_structure_and_ignored_build",
+      "status": "verified_with_limitations",
+      "evidence": [
+        ".gitignore",
+        "extras/docs/states/BUILD.md"
+      ],
+      "scope": "Core directories and required messages; v6.2 is untracked in the parent repository and has not been committed."
+    },
+    {
+      "id": "source_reconstruction_no_target_binary_fragments",
+      "status": "verified_with_limitations",
+      "evidence": [
+        "extras/docs/etc/file-review-144-stub.json",
+        "extras/docs/etc/stub-tail-origin-investigation.json",
+        "extras/docs/etc/build-input-bounded-screen.json"
+      ],
+      "scope": "No target binary is consumed as a build input and no generated binary is patched; the three handwritten source data bytes are reconstructed from target observation, with historical meaning and original ownership unknown.",
+      "owner_direction": "Owner clarified that this kind of uncertainty is normal and should not block continued work."
+    },
+    {
+      "id": "reproducible_build_dependencies",
+      "status": "verified_with_limitations",
+      "evidence": [
+        "extras/docs/states/BUILD.md",
+        "extras/docs/etc/local-runner-provenance.json"
+      ],
+      "scope": "Project message inputs and local runner source are present; GCC, DOSBox, historical tools and target files are external pinned dependencies."
+    },
+    {
+      "id": "mtsp_task_closure",
+      "status": "verified_with_limitations",
+      "evidence": [
+        "extras/docs/states/CURRENT.md",
+        "extras/docs/reconstruction-plan.md",
+        "extras/docs/history/M1-T2-completion.md",
+        "extras/docs/history/M2-T3-disposition.md",
+        "extras/docs/history/M3-T4-completion.md",
+        "extras/docs/history/M4-T5-delivery.md"
+      ],
+      "scope": "M0 T1, M1 T2 and M3 T4 have completion evidence; final M2 source disposition and M4 delivery are documented. Historical per-file pass labels were not individually retained."
+    }
+  ],
+  "note": "No acceptance gate is waived by output equality; do not interpret a reviewed ledger entry as an automatic proof of historical source attribution."
+}

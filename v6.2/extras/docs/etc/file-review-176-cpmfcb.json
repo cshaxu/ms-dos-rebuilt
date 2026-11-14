@@ -1,0 +1,14 @@
+{
+  "index": 176,
+  "path": "inc/cpmfcb.inc",
+  "reviewed_sha256": "ca2cb0e7a884aca307590d3eb9f4620a5ce3455ccb862d4e19fbd5a4c1e3501f",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical FCB structure and related masks.",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "dos/fcbio.asm and dos/fcbio2.asm include cpmfcb.inc.",
+    "The prior FCBIO comparison covered 1224 bytes with only three marked DosDseg address bytes differing (review 067).",
+    "The prior FCBIO2 comparison covered 778 bytes with five differing bytes in marked function address fields (review 068)."
+  ],
+  "limitations": "The comparisons support fields used by the selected modules, but do not establish all FCB variants or original historical source identity. Final addresses and complete kernel equality remain unverified."
+}

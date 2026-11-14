@@ -1,0 +1,39 @@
+{
+  "stage": "O:\\repos.hobby\\ms-dos-rebuilt\\v6.2\\extras\\build\\bios-msg-source-6qradd3j",
+  "output": "O:\\repos.hobby\\ms-dos-rebuilt\\v6.2\\extras\\build\\bios-msg-source-6qradd3j\\usa-ms.msg",
+  "output_sha256": "fd3812ed9d101cd339de346b2a41748c0d17ce25f4a0aa4bf11e88bc71f84442",
+  "inputs": [
+    {
+      "path": "O:\\repos.external\\astro\\messages\\usa.msg",
+      "sha256": "5ef300ec3c41199f0271ce01625e3fdb7f57caaab836d2ba67672d2bedff75a1"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\messages\\usa\\msbio.msg",
+      "sha256": "80dac2278e5938e4af7085d7a29e58055faeb2f2615d81bb166f6e9e00f77c3e"
+    },
+    {
+      "path": "O:\\repos.hobby\\ms-dos-rebuilt\\v5.0\\messages\\usa-ms-dos.msg",
+      "sha256": "c8684099859fbb3829b2ab62a3e09bd396afa626928fdc4795dde0bf4b1afacb"
+    }
+  ],
+  "added_ids": [
+    26,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43
+  ],
+  "basis": "IDs 29-43 from astro component messages; ID 26 from prior v5 inferred reconstruction, also present in DOS 6 POWER source comment.",
+  "limitations": "Diagnostic source only: POWER message and DOS 6.20 wording not independently established; this is not a production source or target-derived binary patch."
+}

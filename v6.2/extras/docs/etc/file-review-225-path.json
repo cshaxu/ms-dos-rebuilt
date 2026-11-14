@@ -1,0 +1,14 @@
+{
+  "index": 225,
+  "path": "inc/path.asm",
+  "reviewed_sha256": "0abe723ebcf3865f88b946c1cd923c2d911b349963cc8afdf6d70602d69f7c19",
+  "reference_astro_identical": true,
+  "decision": "Exclude the unreferenced standalone path-search implementation from the selected core build and retain it under research.",
+  "archive": "extras/research/excluded/inc/path.asm",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte and describes itself as adapted from COMMAND.COM path-search code.",
+    "No retained core source or frozen selected dependency edge references inc/path.asm.",
+    "The kernel build assembles the distinct dos/path.asm, while the COMMAND build uses path1 and path2; all remain in their original locations."
+  ],
+  "limitations": "Exclusion applies to the selected three-component build, not to other utilities that might use this standalone source."
+}

@@ -1,0 +1,48 @@
+{
+  "index": 83,
+  "file": "dos/mscode.asm",
+  "reviewed_sha256": "dc4d766c2238e9d9045e9ea6917593c0d2d1c2bb7fb634b49df405d19a898ff3",
+  "decision": "retain reference-identical absolute disk and multiplex handlers",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\mscode.asm",
+      "sha256": "dc4d766c2238e9d9045e9ea6917593c0d2d1c2bb7fb634b49df405d19a898ff3"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\mscode.asm",
+      "sha256": "dc4d766c2238e9d9045e9ea6917593c0d2d1c2bb7fb634b49df405d19a898ff3"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/kernel-dir-getentry-branch-build.json",
+    "module_file_offset": 1196,
+    "module_length": 1260,
+    "difference_offsets_in_module": [
+      96,
+      114,
+      178,
+      231,
+      249,
+      430,
+      489,
+      545,
+      617,
+      780,
+      1056,
+      1127,
+      1132,
+      1151,
+      1193,
+      1211,
+      1235
+    ],
+    "target_sha256": "1ff320e7fdb3de707370e18d48d52b724b6f40f86ae7b70469bb130d754a904f"
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and Astro.",
+    "The listing and link map locate the 04ECh-byte DOSCODE contribution at 0000:429C with -15856 file bias.",
+    "Seventeen differing bytes fall in word operands marked external or relocatable in the listing; each differs by 10h. All other bytes match at the aligned offsets."
+  ],
+  "limitations": "The relocation values depend on unresolved full kernel layout. The module and full kernel are not yet byte-identical to target.",
+  "change": "No source change."
+}

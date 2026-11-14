@@ -1,0 +1,13 @@
+{
+  "index": 129,
+  "path": "cmd/command/minicmd/dataseg.asm",
+  "reviewed_sha256": "d5c057a494e7d98dcbc721ca7bd79a56d330537c63fe949f5fe5b45171b1d068",
+  "reference_astro_identical": true,
+  "decision": "Excluded from three core components and retained under research: source identifies its data segment as belonging to the separate MINICMD.COM program.",
+  "archive": "extras/research/excluded/cmd/command/minicmd/dataseg.asm",
+  "evidence": [
+    "cmd/command/minicmd/minicmd.asm includes dataseg.asm and identifies itself as MINICMD.COM.",
+    "Selected core COMMAND link list extras/build/command-reference-l_ua1x5q/cmd/command.lnk contains no MINICMD object."
+  ],
+  "limitations": "Exclusion applies to the selected three-component target and selected reference build, not every possible DOS configuration."
+}

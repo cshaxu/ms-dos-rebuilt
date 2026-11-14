@@ -1,0 +1,14 @@
+{
+  "index": 230,
+  "path": "inc/postequ.inc",
+  "reviewed_sha256": "59dec5f5c68cb83ab59407e9eee73694e0a6a4417e6d8c7f946fff243473712e",
+  "reference_astro_identical": true,
+  "decision": "Exclude unreferenced BIOS POST and keyboard hardware equates from the selected core build and retain them under research.",
+  "archive": "extras/research/excluded/inc/postequ.inc",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "The file declares BIOS POST and keyboard hardware constants.",
+    "No reference to postequ.inc was found in retained BIOS, DOS, COMMAND and include source trees or the frozen selected dependency inventory."
+  ],
+  "limitations": "Exclusion applies to the selected core build only; it does not establish whether other BIOS-related sources use the file."
+}

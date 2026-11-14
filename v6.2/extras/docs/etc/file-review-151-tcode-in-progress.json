@@ -1,0 +1,27 @@
+{
+  "index": 151,
+  "path": "cmd/command/tcode.asm",
+  "status": "in_progress",
+  "reference_sha256": "c3365e7a9cecaa60fe7469f7b14c2a1c7153f22865b9542ad7e3e33bc5571f6c",
+  "working_sha256": "c0bda030c8d2e6cfe3441662152a8b6d1e37adb2565abf410890291393fbe3d4",
+  "reference_astro_identical": true,
+  "target_sha256": "9b1d77119ac6fe4f949f574db1445b2848683c3a5aaa2bb09f52d0b538df3541",
+  "target_tcode_start_inferred_hex": "0x25e0",
+  "target_first_instruction_hex": "0x26e0",
+  "target_end_inferred_hex": "0x2b9c",
+  "changes": [
+    "Restore clearing the /Y flag when neither a batch nor single command is active.",
+    "Restore storing interactive versus batch/single-command state in CopyNonInteractive."
+  ],
+  "partial_verification": "Modified source assembles successfully with pinned Microsoft MASM. Full target module is not yet matched.",
+  "target_new_routine": {
+    "file_offset_hex": "0x2a16",
+    "end_hex_exclusive": "0x2ab5",
+    "observations": "Checks /Y and command text, consults resident flags, displays a prompt and reads a response; semantics and message/country interfaces remain to be reconstructed."
+  },
+  "remaining": [
+    "Reconstruct target command precheck and /Y confirmation routine in this file.",
+    "Check all internal branches, external operands, and complete target module.",
+    "Validate final link once later message and shared definitions are restored."
+  ]
+}

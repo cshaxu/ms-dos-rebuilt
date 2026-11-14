@@ -1,0 +1,23 @@
+{
+  "index": 31,
+  "file": "bios/romrdhi.asm",
+  "reviewed_sha256": "437bc818effd18711fb2550c72cc6678cc8cfcbd1217fabfe994e032e09f38d6",
+  "decision": "retain optional high-memory ROM access variant",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\romrdhi.asm",
+      "sha256": "437bc818effd18711fb2550c72cc6678cc8cfcbd1217fabfe994e032e09f38d6"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\bios\\romrdhi.asm",
+      "sha256": "437bc818effd18711fb2550c72cc6678cc8cfcbd1217fabfe994e032e09f38d6"
+    }
+  ],
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and astro.",
+    "Describes an extended-memory ROM access variant using BIOS INT 15h block moves; differs from bios/romrd.asm.",
+    "romrdhi is absent from the selected BIOS link list, which does not enable ROMDRIVE."
+  ],
+  "limitations": "Optional variant and target contribution are not established by this reference comparison.",
+  "change": "No source change."
+}

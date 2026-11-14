@@ -1,0 +1,24 @@
+{
+  "index": 161,
+  "path": "cmd/command/tranmsg.asm",
+  "reference_sha256": "852e422b2c35100004d4211aac44860e8489a727aae9b8bf75574a322ee48fe6",
+  "reviewed_sha256": "afbe89f42762de33ad60c124419611108c37fcb17fecc06602c840fc5816d36d",
+  "reference_astro_identical": true,
+  "changes": [
+    "Restore target numeric-format flag and width fields for DIR counts and sizes.",
+    "Define and export DMesWide_Ptr (message 1105).",
+    "Define and export BatchStep_Ptr (message 1082), and define the adjacent 1083 message block."
+  ],
+  "target": "extras/baselines/targets/COMMAND.COM",
+  "target_sha256": "9b1d77119ac6fe4f949f574db1445b2848683c3a5aaa2bb09f52d0b538df3541",
+  "inferred_tdata_target_offset_hex": "0xbce9",
+  "combined_tdata_emitted_bytes": 1840,
+  "combined_non_relocation_bytes_matching": 1456,
+  "combined_relocation_bytes": 384,
+  "public_offsets_in_tdata": {
+    "DMesWide_Ptr": "0x01de",
+    "BatchStep_Ptr": "0x0247"
+  },
+  "verifier": "extras/tools/verify_tranmsg_omf.py",
+  "limitations": "Target data base inferred. Message texts, external relocation values, macro behavior and complete COMMAND.COM identity require later source restoration and final linking."
+}

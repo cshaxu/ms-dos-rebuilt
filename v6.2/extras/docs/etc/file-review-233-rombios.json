@@ -1,0 +1,13 @@
+{
+  "index": 233,
+  "path": "inc/rombios.inc",
+  "reviewed_sha256": "14aa46d7fdbefc03488bf91eb69815d292c61042580419a033622ed367aa564f",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical absolute ROM BIOS screen-data definitions.",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "COMMAND DIR and TCMD2A and BIOS SYSINIT2 include rombios.inc and refer to CRT_Cols or CRT_Rows.",
+    "The prior DIR comparison matched 2114 non-relocation bytes and 78 internal branches at an inferred target location (review 122)."
+  ],
+  "limitations": "Module comparison excludes relocation fields and does not establish every configuration or final absolute reference. Complete BIOS and COMMAND links remain unverified."
+}

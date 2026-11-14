@@ -1,0 +1,13 @@
+{
+  "index": 206,
+  "path": "inc/lock.inc",
+  "reviewed_sha256": "798fc526d01fb124e6b459a034500a2b214f03c32184d4de7b023d8d51fe8841",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical record-lock function and buffer definitions.",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "Selected DOS lock.asm includes lock.inc and uses Lock_position, Lock_length and Unlock_all.",
+    "The previous 178-byte LOCK module comparison had one differing byte, within a marked DosDseg address operand (review 076)."
+  ],
+  "limitations": "The module comparison supports the definitions exercised in the selected build; the final data-segment address and whole-kernel identity remain unverified."
+}

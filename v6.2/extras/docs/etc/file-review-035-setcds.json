@@ -1,0 +1,18 @@
+{
+  "index": 35,
+  "file": "bios/setcds/setcds.asm",
+  "reviewed_sha256": "495ea2ee7a33df36e5862419bd2751bbd5b09a59b1dddaa08806c32a0ef577d7",
+  "decision": "archive standalone SETCDS program",
+  "archive": "extras/research/excluded/bios/setcds/setcds.asm",
+  "reference": {
+    "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\setcds\\setcds.asm",
+    "sha256": "495ea2ee7a33df36e5862419bd2751bbd5b09a59b1dddaa08806c32a0ef577d7"
+  },
+  "checks": [
+    "Source matches DOS 6.0 reference.",
+    "Entry calls MagicSetCdss then terminates with DOS INT 21h function 4Ch; comments identify the routine as extracted from SYSPRE.ASM.",
+    "The BIOS link list uses syspre, which retains its own MagicSetCdss; standalone setcds is not linked."
+  ],
+  "limitations": "The retained BIOS routine still requires its own target comparison in sequence.",
+  "change": "Archived independent program under extras."
+}

@@ -1,0 +1,14 @@
+{
+  "index": 198,
+  "path": "inc/highexit.inc",
+  "reviewed_sha256": "e1df06058140691c7e5fdcc0da2d536d56368aa2331737a15e10ad06c17d7ddc",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical high-memory cleanup implementation.",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "BIOS SYSCONF and COMMAND STUB include highexit.inc.",
+    "Prior SYSCONF comparison covered 9192 aligned bytes; remaining differences were classified as relocation fields or two short branches across a restored call (review 037).",
+    "Prior STUB comparison covered its included instructions, with 332 matching non-relocation bytes and 20 matching internal near branches; the shared version byte and relocation fields require final verification (review 144)."
+  ],
+  "limitations": "The comparisons cover selected expansions and configurations, and relocation classification does not prove final addresses. The prior STUB boundary bytes have unproven historical attribution; complete core binary equality remains unverified."
+}

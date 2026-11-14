@@ -1,0 +1,14 @@
+{
+  "index": 229,
+  "path": "inc/pdb.inc",
+  "reviewed_sha256": "e5d7f79a89904b334b869292e28596adbdac23e26d953d12bc0a6cb46a1e4b29",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical process data block layout.",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "BIOS, DOS and COMMAND sources include pdb.inc; DOS MISC and MSPROC and COMMAND INIT use its fields.",
+    "The prior 1741-byte MSPROC comparison found two address-byte differences and one separately tracked minor-version byte (review 092).",
+    "The prior MISC comparison found five marked address bytes and one separately tracked version byte differing among 682 bytes (review 079)."
+  ],
+  "limitations": "Selected comparisons support the field offsets exercised in those modules, not every structure field or configuration. Version, final addresses and complete core binary identity remain unverified."
+}

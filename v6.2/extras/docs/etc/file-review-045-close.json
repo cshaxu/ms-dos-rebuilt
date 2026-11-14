@@ -1,0 +1,46 @@
+{
+  "index": 45,
+  "file": "dos/close.asm",
+  "reviewed_sha256": "b9bcb41f70577e9bf407eabfbca3f974cc0c428b93a7574b54be27581821b46b",
+  "decision": "retain reference-identical close and commit module",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\close.asm",
+      "sha256": "b9bcb41f70577e9bf407eabfbca3f974cc0c428b93a7574b54be27581821b46b"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\close.asm",
+      "sha256": "b9bcb41f70577e9bf407eabfbca3f974cc0c428b93a7574b54be27581821b46b"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/kernel-local-baseline-build.json",
+    "module_file_offset": 12366,
+    "module_length": 428,
+    "differing_module_offsets": [
+      34,
+      171,
+      230,
+      241,
+      295,
+      312,
+      387
+    ],
+    "external_call_symbols": [
+      "ShareEnd",
+      "INC_DIRTY_COUNT",
+      "FLUSHBUF",
+      "Dev_Close_SFT",
+      "FATREAD_SFT",
+      "GETBUFFR",
+      "DEV_OPEN_SFT"
+    ]
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and astro.",
+    "Listing places DOS_CLOSE at module offset 0000h and ends DOSCODE at 01ACh; map resolves DOS_CLOSE at 0000:6E3E, with -15856 file bias.",
+    "All seven differing bytes are assembler-marked external near call displacements and each differs by one."
+  ],
+  "limitations": "External target offsets and full kernel equality remain unverified until other modules are reconstructed.",
+  "change": "No source change."
+}

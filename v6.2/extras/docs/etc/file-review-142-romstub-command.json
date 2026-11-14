@@ -1,0 +1,13 @@
+{
+  "index": 142,
+  "path": "cmd/command/romstub/command.asm",
+  "reviewed_sha256": "ffd556c363aa8dcf8d553f1f1a511879e887b690a1e5524c439a10fcb2ed6d79",
+  "reference_astro_identical": true,
+  "decision": "Excluded from selected floppy core components and retained under research: separate disk stub for ROM COMMAND.",
+  "archive": "extras/research/excluded/cmd/command/romstub/command.asm",
+  "evidence": [
+    "Source describes a separate on-disk stub that locates ROM COMMAND and jumps to it.",
+    "Selected floppy link list uses stub.obj built from cmd/command/stub.asm, not romstub/command.asm."
+  ],
+  "limitations": "Exclusion applies to the selected floppy target, not ROM DOS configurations."
+}

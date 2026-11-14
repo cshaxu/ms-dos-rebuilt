@@ -1,0 +1,46 @@
+{
+  "index": 108,
+  "file": "dos/srvcall.asm",
+  "reviewed_sha256": "2074931698e50d0f41e9584334b72fd622b49ed3c7595f2606acc584ed41a2f3",
+  "decision": "retain reference-identical server call dispatcher",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\srvcall.asm",
+      "sha256": "2074931698e50d0f41e9584334b72fd622b49ed3c7595f2606acc584ed41a2f3"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\srvcall.asm",
+      "sha256": "2074931698e50d0f41e9584334b72fd622b49ed3c7595f2606acc584ed41a2f3"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/kernel-dir-getentry-branch-build.json",
+    "module_file_offset": 26423,
+    "module_length": 342,
+    "difference_offsets_in_module": [
+      0,
+      2,
+      5,
+      7,
+      9,
+      11,
+      13,
+      15,
+      17,
+      19,
+      21,
+      23,
+      25,
+      64,
+      69
+    ],
+    "target_sha256": "1ff320e7fdb3de707370e18d48d52b724b6f40f86ae7b70469bb130d754a904f"
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and Astro.",
+    "Listing and map locate its 0156h-byte DOSCODE contribution at 0000:A527 with -15856 file bias.",
+    "All fifteen differing bytes lie in assembler-marked address fields, each 10h above target; all remaining aligned bytes match."
+  ],
+  "limitations": "Address values require final layout verification; full kernel remains unequal.",
+  "change": "No source change."
+}

@@ -1,0 +1,15 @@
+{
+  "index": 248,
+  "path": "inc/wpatch.inc",
+  "reviewed_sha256": "5195c65222fd02b5f462e058ddbef9eaaebe577907563e1171863c19c583b1d3",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical Windows DOS patch signature data included in the kernel data segment.",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "DOS MSDATA includes the file directly.",
+    "After assembling current MSDATA in an isolated stage, 134 bytes explicitly extracted from the listing in DOSDATA offsets 12CFh\u20131361h match target MSDOS.SYS at inferred DOSDATA file base 8190h; 13 wrapped bytes were not parsed by this check.",
+    "Review 086 compares the larger DOSDATA range and reports no differing byte in this patch-data range.",
+    "A targeted lexical search found no NT/BOP markers."
+  ],
+  "limitations": "DOSDATA base is inferred from prior module layout. This comparison does not establish Windows patch runtime semantics or final linked kernel identity."
+}

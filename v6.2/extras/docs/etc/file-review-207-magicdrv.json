@@ -1,0 +1,15 @@
+{
+  "index": 207,
+  "path": "inc/magicdrv.inc",
+  "reviewed_sha256": "3df074a18ae69121c0f691a0880c4b94d245bc3e25839a30a987cd343e336e0a",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical MagicDrv interface and compressed volume structures.",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "BIOS SYSPRE and SYSCONF and COMMAND CRATIO and TSPC include magicdrv.inc.",
+    "SYSPRE and CRATIO use multMagicdrv and driver version or mapping function codes; CRATIO also uses compressed-volume structure fields.",
+    "Prior CRATIO comparison matched 663 non-relocation bytes and 9 internal branches at its inferred target location (review 121).",
+    "Prior SYSPRE comparison classified remaining differences as the separate internal revision constant and generated-message placement (review 041); revision constant was subsequently restored in review 189."
+  ],
+  "limitations": "The CRATIO range is inferred, relocation fields remain unresolved, and no separate DoubleSpace driver is reconstructed or validated. Final core links and whole-file identity remain unverified."
+}

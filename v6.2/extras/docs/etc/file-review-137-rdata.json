@@ -1,0 +1,50 @@
+{
+  "index": 137,
+  "path": "cmd/command/rdata.asm",
+  "status": "source_reviewed",
+  "reference_sha256": "3101420207a251880f4eacc22d56beb819a0987ea2698e87e3bea3d27fe6e685",
+  "working_sha256": "4ee560f3295ac70062ccb9e5e43e3a17763c95c668eedac6cb87be27d28d5f83",
+  "reference_astro_identical": true,
+  "changes": [
+    "Define CopyNonInteractive as a zero-initialized word at start of DATARES.",
+    "Define YSwitchFlags as a zero-initialized word before TranVarEnd."
+  ],
+  "target_resgroup_base_inferred_hex": "0x02c5",
+  "symbol_offsets": {
+    "CopyNonInteractive": "0x02c5",
+    "YSwitchFlags": "0x0531",
+    "TranVarEnd": "0x0533",
+    "OldErrNo": "0x0533"
+  },
+  "prefix_length": 622,
+  "prefix_listing_coverage": 330,
+  "prefix_non_relocation_bytes_matching": 280,
+  "prefix_relocation_bytes": 50,
+  "prefix_bytes_not_covered": 292,
+  "verifier": "extras/tools/verify_rdata_listing.py",
+  "remaining": [
+    "Resolve the preceding three bytes and confirm target DATARES base in the actual final link.",
+    "Verify external fixups and full linking with restored dependencies and message inputs."
+  ],
+  "limitations": "DATARES base inferred as 0x02c5; uninitialized gaps compared to retained reference image; actual linked segment layout, relocation values and generated-message provenance remain pending.",
+  "pre_message_omf_verification": {
+    "segment_offset_end_hex": "0x37c",
+    "bytes": 892,
+    "omf_coverage": 536,
+    "non_relocation_matching": 470,
+    "relocation_bytes": 66,
+    "unrecorded_bytes_matching_reference_after_alignment": 356,
+    "verifier": "extras/tools/verify_rdata_omf.py",
+    "reference_image": "extras/build/command-reference-l_ua1x5q/command.com",
+    "limitations": "Unrecorded byte comparison is to a linked reference, not a semantic proof of uninitialized data; relocation fields await final link."
+  },
+  "message_area_investigation": {
+    "reference_length_examined": 2050,
+    "aligned_raw_byte_differences": 86,
+    "differing_relocation_words": 83,
+    "result": "Every difference is within a MASM-marked relocation word; each changed word is target reference plus 7.",
+    "verifier": "extras/tools/verify_rdata_messages.py",
+    "limitations": "This verifies aligned generated output from the retained provisional include, not provenance of the message sources or final link."
+  },
+  "reviewed_sha256": "4ee560f3295ac70062ccb9e5e43e3a17763c95c668eedac6cb87be27d28d5f83"
+}

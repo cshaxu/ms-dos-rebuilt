@@ -1,0 +1,14 @@
+{
+  "index": 235,
+  "path": "inc/sf.inc",
+  "reviewed_sha256": "98f38dad3562b516b4232ceb309a16f6b3ec8f4a899f99a7e433380f466df98d",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical system file table structures and masks.",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "Selected DOS, BIOS and COMMAND sources include sf.inc.",
+    "DOS DISK uses sf_mode and sf_flags; its previously compared 1206-byte contribution matches target MSDOS.SYS.",
+    "The previous comparison of CONST2, which allocates default SFT entries using SIZE sf_entry, matches 741 aligned data bytes (review 174)."
+  ],
+  "limitations": "The prior data comparison includes allocated or uninitialized storage and does not prove every SFT field use. Final link addresses and complete core binary identity remain unverified."
+}

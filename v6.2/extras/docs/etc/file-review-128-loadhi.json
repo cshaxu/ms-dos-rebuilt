@@ -1,0 +1,20 @@
+{
+  "index": 128,
+  "path": "cmd/command/loadhi.asm",
+  "reference_sha256": "f3276d251f387197d2bf089da98e8f690fa60c9d7def3b0c93d511994a73e65f",
+  "reviewed_sha256": "f3276d251f387197d2bf089da98e8f690fa60c9d7def3b0c93d511994a73e65f",
+  "reference_astro_identical": true,
+  "decision": "Retain reference-identical source; complete assembled module including HIGHLOAD.INC matches target outside relocation fields.",
+  "target": "extras/baselines/targets/COMMAND.COM",
+  "target_sha256": "9b1d77119ac6fe4f949f574db1445b2848683c3a5aaa2bb09f52d0b538df3541",
+  "inferred_target_offset_hex": "0x8725",
+  "module_length": 2001,
+  "listing_coverage": 2001,
+  "non_relocation_bytes_matching": 1697,
+  "relocation_bytes": 304,
+  "internal_near_branches_matching": 73,
+  "included_source": "inc/highload.inc",
+  "included_source_sha256": "019526349ea2dfdb2c00fbe3cf125334b535701186485052e28376028940689b",
+  "verifier": "extras/tools/verify_loadhi_listing.py",
+  "limitations": "The target module location is inferred; relocation values and complete COMMAND.COM identity require final link verification."
+}

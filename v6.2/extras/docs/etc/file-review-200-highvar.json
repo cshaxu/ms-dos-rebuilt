@@ -1,0 +1,14 @@
+{
+  "index": 200,
+  "path": "inc/highvar.inc",
+  "reviewed_sha256": "79c6e82987d716b33e73e956b0b1a11689dfaad60a8b55e8c39238cf09c5892d",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical high-memory variables and access macros.",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "BIOS SYSCONF and COMMAND RDATA, STUB and LOADHI include highvar.inc; conditional macros select definitions or external declarations.",
+    "The previous LOADHI comparison matched 1697 non-relocation bytes and 73 internal branches at an inferred target location (review 128).",
+    "The RDATA pre-message OMF comparison matched 470 non-relocation bytes and compared 356 unrecorded bytes to a linked reference after alignment; 66 relocation bytes remain unresolved (review 137)."
+  ],
+  "limitations": "The unrecorded RDATA comparison is not semantic proof of uninitialized data, and target data base is inferred. These comparisons do not validate every conditional definition or final addresses; complete core binary identity remains unverified."
+}

@@ -1,0 +1,30 @@
+{
+  "index": 11,
+  "file": "bios/msdioctl.asm",
+  "reviewed_sha256": "3a3b6b72573f02a1d582d08cee53af5b7eaa031beb0ed70939563d2d0f80e606",
+  "decision": "retain reference-identical IOCTL module",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\msdioctl.asm",
+      "sha256": "3a3b6b72573f02a1d582d08cee53af5b7eaa031beb0ed70939563d2d0f80e606"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\bios\\msdioctl.asm",
+      "sha256": "3a3b6b72573f02a1d582d08cee53af5b7eaa031beb0ed70939563d2d0f80e606"
+    }
+  ],
+  "object_sha256": "70b6579ad1f7fb9b493787fde59ba4f620984b057c1846b150f8c84876806180",
+  "target_segment": {
+    "segment": "BIOS_CODE",
+    "offset": 14242,
+    "length": 1733,
+    "sha256": "134f53495ef63843a687ad0872b799e28b01f504be93a4bbf2af760cde747609"
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and astro.",
+    "Assembler listing gives Ioctl_Support_Query at 065Eh and BIOS_CODE length 06C5h; link map places it at 025C:129A, giving module offset 0C3Ch.",
+    "All 1733 linked bytes match target IO.SYS at the same file offsets."
+  ],
+  "limitations": "Applies to the selected reference configuration; does not establish all optional builds or original source identity.",
+  "change": "No source change."
+}

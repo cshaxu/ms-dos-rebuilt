@@ -1,0 +1,18 @@
+{
+  "index": 157,
+  "path": "cmd/command/tmisc2.asm",
+  "reference_sha256": "27e4410c0a0b9b246dd7057830dec354689b91067bc27d0dd6d6a96377710e4c",
+  "reviewed_sha256": "27e4410c0a0b9b246dd7057830dec354689b91067bc27d0dd6d6a96377710e4c",
+  "reference_astro_identical": true,
+  "decision": "Retain reference-identical source; assembled module matches target outside relocation fields.",
+  "target": "extras/baselines/targets/COMMAND.COM",
+  "target_sha256": "9b1d77119ac6fe4f949f574db1445b2848683c3a5aaa2bb09f52d0b538df3541",
+  "inferred_target_offset_hex": "0x575f",
+  "module_length": 501,
+  "listing_coverage": 501,
+  "non_relocation_bytes_matching": 399,
+  "relocation_bytes": 102,
+  "internal_near_branches_matching": 8,
+  "verifier": "extras/tools/verify_tmisc2_listing.py",
+  "limitations": "Target range is inferred; relocation values and complete COMMAND.COM identity require final linking."
+}

@@ -1,0 +1,37 @@
+{
+  "index": 79,
+  "file": "dos/misc.asm",
+  "reviewed_sha256": "43d8d906b97b40370705b3ae1ca004a545bb622cd9a36f3855d762d793e0758f",
+  "decision": "retain reference-identical kernel miscellaneous module",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\misc.asm",
+      "sha256": "43d8d906b97b40370705b3ae1ca004a545bb622cd9a36f3855d762d793e0758f"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\misc.asm",
+      "sha256": "43d8d906b97b40370705b3ae1ca004a545bb622cd9a36f3855d762d793e0758f"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/kernel-dir-getentry-branch-build.json",
+    "module_file_offset": 3917,
+    "module_length": 682,
+    "differing_module_offsets": [
+      350,
+      379,
+      431,
+      443,
+      521,
+      655
+    ],
+    "differences": "five assembler-marked code/data addresses and one MINOR_VERSION immediate"
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and astro.",
+    "Listing places $SLEAZEFUNC at module offset zero and ends DOSCODE at 02AAh; map resolves 0000:4D3D with -15856 file bias.",
+    "Five differing bytes lie in marked word3 or DosDseg address fields; the final difference is the shared minor-version byte in PDB_Version."
+  ],
+  "limitations": "Final address values and the version definition remain to be resolved; full kernel equality remains unverified.",
+  "change": "No source change."
+}

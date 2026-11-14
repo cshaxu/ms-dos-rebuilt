@@ -1,0 +1,29 @@
+{
+  "index": 59,
+  "file": "dos/divmes.inc",
+  "reviewed_sha256": "7c97a1fd07befd5d0861306e0573369d33caf84ea3190bdbae65889b7e816192",
+  "decision": "retain reference-identical exception message wrapper",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\divmes.inc",
+      "sha256": "7c97a1fd07befd5d0861306e0573369d33caf84ea3190bdbae65889b7e816192"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\divmes.inc",
+      "sha256": "7c97a1fd07befd5d0861306e0573369d33caf84ea3190bdbae65889b7e816192"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/kernel-dir-getentry-branch-build.json",
+    "file_offset": 2456,
+    "length": 120,
+    "target_sha256": "b1e8e6f24d75ec490e9dabc3081d5bd3dcaec83054c934ca1c7e61c4fb09d134"
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and astro.",
+    "Wrapper includes generated MSDOS.CL1 and MSDOS.CL4, defines the divide-message length word, and is used by dosmes.inc.",
+    "The complete divide message (19 bytes), its 2-byte length, and 99-byte WINA20.386 message match the target at the same offsets."
+  ],
+  "limitations": "Evidence covers selected English build; other generated messages and full kernel remain unequal.",
+  "change": "No source change."
+}

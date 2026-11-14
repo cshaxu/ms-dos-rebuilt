@@ -1,0 +1,43 @@
+{
+  "scope": "DOS 6.0 reference comparison builds with provisional candidate messages; overlap counts do not infer semantic module alignment.",
+  "components": [
+    {
+      "component": "bios",
+      "reference_file": "O:\\repos.hobby\\ms-dos-rebuilt\\v6.2\\extras\\build\\bios-reference-n94v7a2x\\io.sys",
+      "reference_sha256": "b81f0246496dc0606a63a10597b4d8109a8646b5f4887d6d09a1eaf605712c24",
+      "reference_length": 40470,
+      "target_sha256": "a96905f6a7358dbddafbe1128e49e9996e7d416e007801b007573c1f0acf9bbf",
+      "target_length": 40566,
+      "overlap_byte_differences": 20189,
+      "length_delta": -96,
+      "first_difference": 4,
+      "object_count": 16
+    },
+    {
+      "component": "kernel",
+      "reference_file": "O:\\repos.hobby\\ms-dos-rebuilt\\v6.2\\extras\\build\\kernel-reference-m1jeg3_3\\msdos.sys",
+      "reference_sha256": "79ab9c631bbd83e5e427c490abb5b8702763ba70c3f0073c31bee1d57d4f434c",
+      "reference_length": 38138,
+      "target_sha256": "1ff320e7fdb3de707370e18d48d52b724b6f40f86ae7b70469bb130d754a904f",
+      "target_length": 38138,
+      "overlap_byte_differences": 17037,
+      "length_delta": 0,
+      "first_difference": 1,
+      "object_count": 57
+    },
+    {
+      "component": "command",
+      "reference_file": "O:\\repos.hobby\\ms-dos-rebuilt\\v6.2\\extras\\build\\command-reference-6udguqd1\\command.com",
+      "reference_sha256": "8969c296d4aa4b2fc9d5456444020e60f022f76de539655282e894ddfd699da3",
+      "reference_length": 52925,
+      "target_sha256": "9b1d77119ac6fe4f949f574db1445b2848683c3a5aaa2bb09f52d0b538df3541",
+      "target_length": 54619,
+      "overlap_byte_differences": 47893,
+      "length_delta": -1694,
+      "first_difference": 1,
+      "object_count": 35
+    }
+  ],
+  "reference_evidence": "extras/docs/etc/local-baseline-reproduction.json",
+  "limitations": "Reference candidate messages are not proof of original DOS 6.0 or 6.20 message provenance. Counts are raw same-offset comparisons."
+}

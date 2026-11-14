@@ -1,0 +1,14 @@
+{
+  "index": 147,
+  "path": "cmd/command/tcmd1a.asm",
+  "reviewed_sha256": "3e9ab435fa8d765aba25fa1705dccd465566a78d4be8cc2c56fc61f250ec5a21",
+  "reference_astro_identical": true,
+  "decision": "Excluded from the selected core build and retained under research: obsolete predecessor superseded by DIR.ASM.",
+  "archive": "extras/research/excluded/cmd/command/tcmd1a.asm",
+  "evidence": [
+    "The source explicitly marks itself obsolete and points to DIR.ASM.",
+    "DIR.ASM states it replaces TCMD1A.ASM.",
+    "Selected COMMAND link list includes dir.obj and omits tcmd1a.obj."
+  ],
+  "limitations": "Exclusion applies to the selected 6.20 target and reference build."
+}

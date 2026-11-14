@@ -1,0 +1,30 @@
+{
+  "index": 120,
+  "path": "cmd/command/cparse.asm",
+  "reference_sha256": "1a355a2d1194d98b26bf448b1e85a522ea5a0e8ded4071aa11f0d69c2895d5a0",
+  "reviewed_sha256": "0529153998cf547c0be1d8ae678dfac182f2e9470a01bace26be2df2d0479add",
+  "reference_astro_identical": true,
+  "change": "Change SWCOUNT from 6 to 8 to match the target instruction immediate.",
+  "target": "extras/baselines/targets/COMMAND.COM",
+  "target_sha256": "9b1d77119ac6fe4f949f574db1445b2848683c3a5aaa2bb09f52d0b538df3541",
+  "inferred_target_offset_hex": "0x70a9",
+  "module_length": 456,
+  "listing_coverage": 456,
+  "non_relocation_bytes_matching": 332,
+  "relocation_bytes": 124,
+  "internal_near_branches_matching": 17,
+  "verifier": "extras/tools/verify_cparse_listing.py",
+  "dependencies": [
+    {
+      "index": 152,
+      "path": "cmd/command/tdata.asm",
+      "issue": "switch_list must be investigated and reconciled with target switch count 8"
+    },
+    {
+      "index": 156,
+      "path": "cmd/command/tmisc1.asm",
+      "issue": "independent SWCOUNT reference is 6 and must be compared with target"
+    }
+  ],
+  "limitations": "Module range inferred by binary alignment; relocation values, switch table contents and complete COMMAND.COM identity require later verification."
+}

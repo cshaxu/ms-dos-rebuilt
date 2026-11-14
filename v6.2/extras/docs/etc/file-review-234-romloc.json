@@ -1,0 +1,14 @@
+{
+  "index": 234,
+  "path": "inc/romloc.inc",
+  "reviewed_sha256": "90e1dddb00b03d1647ea469ed8d7b178ee54cf7266311afb4b80f1d982f552ab",
+  "reference_astro_identical": true,
+  "decision": "Exclude the unreferenced ROM DOS location constants from the selected core build and retain them under research.",
+  "archive": "extras/research/excluded/inc/romloc.inc",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "The file defines ROM DOS module segment locations and sizes.",
+    "No reference to romloc.inc occurs in retained BIOS, DOS, COMMAND and include trees or the frozen selected dependency inventory."
+  ],
+  "limitations": "Exclusion covers the selected disk-based three-component build only and does not establish requirements of a ROM DOS build."
+}

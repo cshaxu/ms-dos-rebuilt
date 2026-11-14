@@ -1,0 +1,29 @@
+{
+  "index": 57,
+  "file": "dos/disk2.asm",
+  "reviewed_sha256": "0876bb2c21d9232c3de57ee681c39b028003c09eeb58db36f6f2d9bda4527cb8",
+  "decision": "retain reference-identical disk read module",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\disk2.asm",
+      "sha256": "0876bb2c21d9232c3de57ee681c39b028003c09eeb58db36f6f2d9bda4527cb8"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\disk2.asm",
+      "sha256": "0876bb2c21d9232c3de57ee681c39b028003c09eeb58db36f6f2d9bda4527cb8"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/kernel-dir-getentry-branch-build.json",
+    "module_file_offset": 14521,
+    "module_length": 737,
+    "target_sha256": "5da86f98a2a8693267ff5e65855bb70bdfef91b98a1e18585b2b1c4a8fc060e6"
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and astro.",
+    "Listing places DskRead at module offset zero and ends DOSCODE at 02E1h; map resolves 0000:76A9 with -15856 file bias.",
+    "All 737 linked bytes match target MSDOS.SYS at the same offsets."
+  ],
+  "limitations": "Evidence covers selected build configuration; full kernel remains unequal.",
+  "change": "No source change."
+}

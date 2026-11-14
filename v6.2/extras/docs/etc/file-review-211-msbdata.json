@@ -1,0 +1,21 @@
+{
+  "index": 211,
+  "path": "inc/msbdata.inc",
+  "reviewed_sha256": "9e324c8a49c1487c2dff0dccbe1350f5bbc82dc3aa1843b0e71d4b71ad6dc827",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical BIOS data interface.",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "BIOS MSBIO1 defines In_Bios and includes msbdata.inc; DOS MSDATA and COMMAND INIT also include it for fixed-address interface declarations.",
+    "Prior MSBIO1 review places its BIOS_DATA contribution at IO.SYS offset 1446.",
+    "The ten bytes corresponding to DosDataSg, bios_i2f, romstartaddr and altah at file offset 0x5A9 in a saved BIOS build match target IO.SYS byte for byte."
+  ],
+  "comparison": {
+    "build": "extras/build/bios-reference-cnzv2o_n/io.sys",
+    "target": "extras/baselines/targets/IO.SYS",
+    "start": 1449,
+    "length": 10,
+    "differing_bytes": 0
+  },
+  "limitations": "This directly checks the selected disk-DOS BIOS layout only; ROMDOS branches and final linked segment or pointer values require separate verification. Complete core binary identity remains unverified."
+}

@@ -1,0 +1,18 @@
+{
+  "index": 148,
+  "path": "cmd/command/tcmd1b.asm",
+  "reference_sha256": "052c9e921800c18fd1055bbe2cecd4a2a06999204781f31349636fcafb98da75",
+  "reviewed_sha256": "052c9e921800c18fd1055bbe2cecd4a2a06999204781f31349636fcafb98da75",
+  "reference_astro_identical": true,
+  "decision": "Retain reference-identical source; assembled module matches target outside relocation fields.",
+  "target": "extras/baselines/targets/COMMAND.COM",
+  "target_sha256": "9b1d77119ac6fe4f949f574db1445b2848683c3a5aaa2bb09f52d0b538df3541",
+  "inferred_target_offset_hex": "0x45ba",
+  "module_length": 877,
+  "listing_coverage": 877,
+  "non_relocation_bytes_matching": 653,
+  "relocation_bytes": 224,
+  "internal_near_branches_matching": 8,
+  "verifier": "extras/tools/verify_tcmd1b_listing.py",
+  "limitations": "Target range is inferred; relocation values and complete COMMAND.COM identity require final linking."
+}

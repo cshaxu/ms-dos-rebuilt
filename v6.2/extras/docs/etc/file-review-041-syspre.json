@@ -1,0 +1,33 @@
+{
+  "index": 41,
+  "file": "bios/syspre.asm",
+  "reviewed_sha256": "5eecc48d2dc62e0834d5fb62656a6a9eb0bef005f305acbfdc3796603f862a14",
+  "decision": "remove two DEVMark flag instructions absent from target",
+  "reference_sha256": "72d583fdc16cabd295272dd8f98948521bcf81a921d5bf8e11d9dacea2ecf5fb",
+  "changes": [
+    "Remove two or cs:[setdevmarkflag],for_devmark instructions preceding DevSetBreak calls, matching target code and reducing module length by 12 bytes."
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/bios-syspre-devmark-build.json",
+    "file_offset": 33098,
+    "length": 772,
+    "remaining_byte_offsets": [
+      168,
+      180
+    ],
+    "differences": [
+      {
+        "relative_offset": 168,
+        "reference_value": 6,
+        "target_value": 10,
+        "cause": "DS_INTERNAL_REVISION in inc/ds_vers.inc, ledger index 189."
+      },
+      {
+        "relative_offset": 180,
+        "cause": "External offset baddblspace, dependent on generated message placement."
+      }
+    ],
+    "downstream_symbols": "kbd_read, disable_autoexec, bQueryOpt and StartMsg now match target segment offsets."
+  },
+  "limitations": "Remaining values require later version header and message-resource reconstruction; complete IO.SYS remains unequal."
+}

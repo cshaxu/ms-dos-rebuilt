@@ -1,0 +1,23 @@
+{
+  "index": 28,
+  "file": "bios/romdinit.asm",
+  "reviewed_sha256": "15045b982405f4f1b30cdfce760751ae306d4dc2211671a87d5f96c249e7fe38",
+  "decision": "retain optional ROM drive initialization source",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\romdinit.asm",
+      "sha256": "15045b982405f4f1b30cdfce760751ae306d4dc2211671a87d5f96c249e7fe38"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\bios\\romdinit.asm",
+      "sha256": "15045b982405f4f1b30cdfce760751ae306d4dc2211671a87d5f96c249e7fe38"
+    }
+  ],
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and astro.",
+    "Implements ROMDrive initialization for both standalone and BIOS-resident configurations.",
+    "The module is absent from the selected BIOS link list, and the reference build does not define ROMDRIVE."
+  ],
+  "limitations": "Not used to claim a ROM drive exists in target IO.SYS; optional configurations are not validated.",
+  "change": "No source change."
+}

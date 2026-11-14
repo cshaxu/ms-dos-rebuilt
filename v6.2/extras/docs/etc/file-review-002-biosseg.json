@@ -1,0 +1,27 @@
+{
+  "index": 2,
+  "file": "bios/biosseg.inc",
+  "reviewed_sha256": "d81bdc2ca6e1638c581e21afb6d4aaa59e5ba65fc02bb15df2d9c22208e5d335",
+  "decision": "reference-identical; retain BIOS segment declarations",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\biosseg.inc",
+      "sha256": "d81bdc2ca6e1638c581e21afb6d4aaa59e5ba65fc02bb15df2d9c22208e5d335"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\bios\\biosseg.inc",
+      "sha256": "d81bdc2ca6e1638c581e21afb6d4aaa59e5ba65fc02bb15df2d9c22208e5d335"
+    },
+    {
+      "path": "O:\\repos.hobby\\ms-dos-rebuilt\\v5.0\\bios\\biosseg.inc",
+      "sha256": "d81bdc2ca6e1638c581e21afb6d4aaa59e5ba65fc02bb15df2d9c22208e5d335"
+    }
+  ],
+  "checks": [
+    "Current file is byte-identical to DOS 6.0, astro and v5.0.",
+    "Normal reference link map orders BIOS_DATA, BIOS_DATA_INIT, FILLER, BIOS_CODE, FILLER2 and SYSINITSEG as declared.",
+    "A 7,369-byte BIOS code interval matches the 6.20 target at the same file offsets, supporting but not proving the reference layout."
+  ],
+  "limitations": "Identical source and partial exact target bytes do not prove every target segment boundary or optional ROMDOS configuration. This is a reference-qualified file, not proof of whole 6.20 BIOS identity.",
+  "change": "No source change."
+}

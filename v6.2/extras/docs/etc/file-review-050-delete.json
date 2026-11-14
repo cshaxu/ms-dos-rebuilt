@@ -1,0 +1,50 @@
+{
+  "index": 50,
+  "file": "dos/delete.asm",
+  "reviewed_sha256": "5fe514092accffa110a13a4f05dd2104664cfad87479f21bb57ea411d1cf1d77",
+  "decision": "retain reference-identical file deletion module",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\delete.asm",
+      "sha256": "5fe514092accffa110a13a4f05dd2104664cfad87479f21bb57ea411d1cf1d77"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\delete.asm",
+      "sha256": "5fe514092accffa110a13a4f05dd2104664cfad87479f21bb57ea411d1cf1d77"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/kernel-local-baseline-build.json",
+    "module_file_offset": 9757,
+    "module_length": 480,
+    "differing_module_offsets": [
+      100,
+      187,
+      215,
+      245,
+      286,
+      339,
+      373,
+      391,
+      405
+    ],
+    "external_call_symbols": [
+      "GetPathNoSet",
+      "INC_DIRTY_COUNT",
+      "RELEASE",
+      "FLUSHBUF",
+      "FATRead_CDS",
+      "SkipBack",
+      "DOOPEN",
+      "ShareEnter",
+      "SHAREEND"
+    ]
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and astro.",
+    "Listing places DOS_DELETE at module offset zero and ends DOSCODE at 01E0h; map resolves 0000:640D with -15856 file bias.",
+    "All nine differing bytes are assembler-marked external near call displacements and each differs by one."
+  ],
+  "limitations": "Final external call positions and full kernel equality remain unverified.",
+  "change": "No source change."
+}

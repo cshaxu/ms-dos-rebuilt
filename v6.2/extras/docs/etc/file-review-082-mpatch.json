@@ -1,0 +1,29 @@
+{
+  "index": 82,
+  "file": "dos/mpatch.asm",
+  "reviewed_sha256": "8af243919b9d2044c6ccc4341233065ccf3a441e6bae8881f9d1065e1cd74d40",
+  "decision": "retain reference-identical patch area",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\mpatch.asm",
+      "sha256": "8af243919b9d2044c6ccc4341233065ccf3a441e6bae8881f9d1065e1cd74d40"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\mpatch.asm",
+      "sha256": "8af243919b9d2044c6ccc4341233065ccf3a441e6bae8881f9d1065e1cd74d40"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/kernel-dir-getentry-branch-build.json",
+    "module_file_offset": 38130,
+    "module_length": 8,
+    "target_sha256": "1ff320e7fdb3de707370e18d48d52b724b6f40f86ae7b70469bb130d754a904f"
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and Astro.",
+    "The selected build includes this file in msdata; the listing and map locate its eight bytes in DOSDATA.",
+    "All eight linked bytes match target MSDOS.SYS at the same offsets."
+  ],
+  "limitations": "Evidence covers the selected configuration; the full kernel remains unequal.",
+  "change": "No source change."
+}

@@ -1,0 +1,43 @@
+{
+  "index": 126,
+  "path": "cmd/command/init.asm",
+  "reference_sha256": "787796985fce83b27799eea24d3d48f94e82bfaad4bddb1ebbc3ce713372bc83",
+  "reviewed_sha256": "6432fd23c892a50261d6899c845f75f2178677b49142211c62626b049fa513da",
+  "reference_astro_identical": true,
+  "target": "extras/baselines/targets/COMMAND.COM",
+  "target_sha256": "9b1d77119ac6fe4f949f574db1445b2848683c3a5aaa2bb09f52d0b538df3541",
+  "inferred_target_offset_hex": "0x1570",
+  "module_length": 2689,
+  "changes": [
+    "Restore COMMAND /Y parsing and setting bit 0x10 in an external state byte.",
+    "Expand three conditional branches to match target near-jump sequences."
+  ],
+  "listing_coverage": 2689,
+  "non_relocation_bytes_matching": 2026,
+  "known_non_relocation_difference": {
+    "offset_hex": "0x10",
+    "reason": "staged reference versiona.inc emits DOS minor 0x00; target minor is 0x14",
+    "ledger_index": 245
+  },
+  "relocation_bytes": 662,
+  "internal_near_branches_matching": 51,
+  "verifier": "extras/tools/verify_init_listing.py",
+  "dependencies": [
+    {
+      "index": 137,
+      "path": "cmd/command/rdata.asm",
+      "issue": "Investigate and define YSwitchFlags corresponding to target RESGROUP offset 0x0531; verify its lifetime, meaning, and possible storage alias."
+    },
+    {
+      "index": 164,
+      "path": "cmd/command/uinit.asm",
+      "issue": "Restore COMMAND_Y_SYN and its parse-control-block entry; target switch text is /Y at file offset 0x2143."
+    },
+    {
+      "index": 245,
+      "path": "inc/versiona.inc",
+      "issue": "Set and validate DOS 6.20 version constants in sequence."
+    }
+  ],
+  "limitations": "YSwitchFlags is a provisional name; module range inferred. External relocation values, switch-state semantics, and final COMMAND.COM link remain unverified."
+}

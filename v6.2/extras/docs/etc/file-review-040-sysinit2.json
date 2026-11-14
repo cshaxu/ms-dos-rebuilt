@@ -1,0 +1,23 @@
+{
+  "index": 40,
+  "file": "bios/sysinit2.asm",
+  "reviewed_sha256": "274cec6ff8215f741efea160487b0285026540b01eeb70c7f667d5c9bd05ed1d",
+  "decision": "reconstruct 6.20 keyboard, startup menu and shell option paths",
+  "changes": [
+    "Use BootTicks for startup delay and recognize alternate F5/F8 scan codes.",
+    "Restore clean-boot option flags in keyboard and menu paths; remove target-absent menu exit instruction.",
+    "Implement and export shell option /D and /Y interfaces needed by sysinit1."
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/bios-sysinit2-menu-exit-build.json",
+    "candidate_module_offset": 33882,
+    "target_module_offset": 33870,
+    "length": 5721,
+    "aligned_differing_bytes": 211,
+    "differences_in_assembler_marked_relocation_fields": 211,
+    "listing": "extras/build/sysinit2-list-q1c6paqz/sysinit2.lst",
+    "listing_object_identical": true
+  },
+  "limitations": "The 12-byte module placement difference and final relocation values require preceding module reconstruction; generated messages and final IO.SYS equality remain unresolved. Reconstructed symbol names may differ from Microsoft originals.",
+  "analysis": "extras/docs/etc/file-review-040-sysinit2-in-progress.json"
+}

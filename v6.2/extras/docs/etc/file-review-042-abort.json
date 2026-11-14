@@ -1,0 +1,44 @@
+{
+  "index": 42,
+  "file": "dos/abort.asm",
+  "reviewed_sha256": "13462864fcadc38f3fd0a910aab6abac0a68257d6fdb9e0ed77258fa9254c995",
+  "decision": "retain reference-identical process abort module",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\abort.asm",
+      "sha256": "13462864fcadc38f3fd0a910aab6abac0a68257d6fdb9e0ed77258fa9254c995"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\abort.asm",
+      "sha256": "13462864fcadc38f3fd0a910aab6abac0a68257d6fdb9e0ed77258fa9254c995"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/kernel-local-baseline-build.json",
+    "module_file_offset": 12257,
+    "module_length": 109,
+    "differing_module_offsets": [
+      15,
+      69
+    ],
+    "differences": [
+      {
+        "offset": 15,
+        "symbol": "$close",
+        "kind": "external near call displacement"
+      },
+      {
+        "offset": 69,
+        "symbol": "SFFromSFN",
+        "kind": "external near call displacement"
+      }
+    ]
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and astro.",
+    "MASM listing gives DOS_ABORT at module offset 0000h and DOSCODE length 006Dh; link map gives 0000:6DD1 and kernel output bias is -15856 bytes.",
+    "Both differing bytes are in assembler-marked external near calls, each shifted by one."
+  ],
+  "limitations": "Call target positions and complete kernel equality require reconstruction of later modules; exact source origin is not established.",
+  "change": "No source change."
+}

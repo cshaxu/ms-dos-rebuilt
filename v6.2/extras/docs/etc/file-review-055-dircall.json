@@ -1,0 +1,29 @@
+{
+  "index": 55,
+  "file": "dos/dircall.asm",
+  "reviewed_sha256": "769049ce7d690ab8be44205a66cf4d8c900048ef7ec230655599e2b8a5e47a19",
+  "decision": "retain reference-identical directory call module",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dircall.asm",
+      "sha256": "769049ce7d690ab8be44205a66cf4d8c900048ef7ec230655599e2b8a5e47a19"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\dircall.asm",
+      "sha256": "769049ce7d690ab8be44205a66cf4d8c900048ef7ec230655599e2b8a5e47a19"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/kernel-dir-getentry-branch-build.json",
+    "module_file_offset": 12794,
+    "module_length": 521,
+    "target_sha256": "faf3ed10d44c4389827bbcc3b9aa301b08d9004a59fc3e67959bf0b61fba4f3c"
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and astro.",
+    "Listing places DOS_MKDIR at module offset zero and ends DOSCODE at 0209h; map resolves 0000:6FEA with -15856 file bias.",
+    "All 521 linked bytes match target MSDOS.SYS at the same offsets."
+  ],
+  "limitations": "Evidence covers selected build configuration; full kernel remains unequal.",
+  "change": "No source change."
+}

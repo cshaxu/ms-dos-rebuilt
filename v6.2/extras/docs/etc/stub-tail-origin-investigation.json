@@ -1,0 +1,110 @@
+{
+  "question": "Origin and significance of three bytes at COMMAND.COM offsets 0x1c2\u20130x1c4",
+  "observations": [
+    "Target bytes immediately follow a three-byte unconditional near jump; the nearby original DOS 6.0 and Astro STUB sources end after this jump.",
+    "The bytes appear at linked EXE offset 0x4c2 before the RELOC post-processing step, because the present STUB explicitly emits them.",
+    "Target and linked artifact have the same nearby bytes; this does not prove historical source ownership or semantic meaning.",
+    "The three checked DOS 6 source variants do not contain the present declaration."
+  ],
+  "target_hex": "e99efe636f78",
+  "linked_exe_hex": "e99efe636f78",
+  "source_references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\stub.asm",
+      "sha256": "577878c59d37691882a662e3ff6a07f3063e04406a121439271383885843184a"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\cmd\\command\\stub.asm",
+      "sha256": "577878c59d37691882a662e3ff6a07f3063e04406a121439271383885843184a"
+    },
+    {
+      "path": "O:\\repos.external\\ms-dos-6\\cmd\\command\\stub.asm",
+      "sha256": "577878c59d37691882a662e3ff6a07f3063e04406a121439271383885843184a"
+    }
+  ],
+  "decision": "Do not invent an explanation or claim that the source reconstructs historical ownership. Keep the issue open under the no-target-binary-fragment build rule.",
+  "limitations": "An unconditional predecessor does not establish that no other indirect transfer can enter the bytes; linker history and original 6.20 source are unknown.",
+  "uninitialized_probe": {
+    "stage": "extras/build/stub-tail-cssnrace",
+    "source_change": "Replace the explicit tail with db 3 dup(?) in isolated STUB only.",
+    "linkers": [
+      {
+        "file": "c6ers/tools6/bin/link.exe",
+        "sha256": "163d8b86c18b93ccae9b2380d850cd42a9a5e1fd89a163b16170979afbbabb07"
+      },
+      {
+        "file": "45/tl/bin/link.exe",
+        "sha256": "124a3c800edc16b60f696d35a9dfec798b68b78fe2ca90c5988ea76bdeab1a8a"
+      }
+    ],
+    "result": "Both linkers emit 00 00 00; output differs from target only at offsets 0x1c2\u20130x1c4.",
+    "limitation": "This rules out those linker/configuration combinations as an explanation, not other historical builds or source changes."
+  },
+  "public_source_check": {
+    "source": "https://github.com/microsoft/MS-DOS",
+    "observation": "Microsoft repository identifies published original source versions 1.25, 2.0 and 4.0 and lists no 6.2 directory.",
+    "result": "This repository does not provide a 6.2 STUB source to establish the tail bytes.",
+    "limitation": "This is not a proof that no other original source or historical documentation exists."
+  },
+  "later_reference_comparison": {
+    "references": [
+      {
+        "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\cmd\\command\\stub.asm",
+        "sha256": "650b4c89fe06e647f461bd2f5b634c2cf5e850b772bde6ab902c96fbf862c7f4",
+        "content_between_final_jump_and_segment_end": ""
+      },
+      {
+        "path": "O:\\repos.external\\winxpscodes\\Source\\XPSP1\\NT\\base\\mvdm\\dos\\v86\\cmd\\command\\stub.asm",
+        "sha256": "650b4c89fe06e647f461bd2f5b634c2cf5e850b772bde6ab902c96fbf862c7f4",
+        "content_between_final_jump_and_segment_end": ""
+      },
+      {
+        "path": "O:\\repos.hobby\\ms-dos-rebuilt\\v5.0\\cmd\\command\\stub.asm",
+        "sha256": "06bef972296b25751563239325c008e4cce3de3d482fb658a19514d4c2b58147",
+        "content_between_final_jump_and_segment_end": ""
+      }
+    ],
+    "result": "The checked derived STUB sources end the segment after the corresponding jump; they do not provide a cox declaration.",
+    "limitations": "These sources differ in UMB handling and cannot establish the missing 6.20 source."
+  },
+  "reference_text_search": {
+    "scope": [
+      "DOS 6.0 reference tree and Astro assembly, include, C, header and text files",
+      "OpenNT DOS MVDM assembly, include, C, header and text files",
+      "Windows XP MVDM and OpenNT assembly/include files for equivalent hex or string declarations"
+    ],
+    "queries": [
+      "case-insensitive whole word cox",
+      "assembly db cox string or 63h,6fh,78h"
+    ],
+    "result": "No matches in the searched files.",
+    "limitations": "Search excludes unenumerated formats, binaries, archives and unavailable original DOS 6.20 sources; a negative match cannot identify intent or prove absence elsewhere."
+  },
+  "local_source_archive_check": {
+    "archive": "E:/core/collection/systems/x86_16_dos/msdos_6xx/msdos600_en_source.rar",
+    "member": "cmd/command/stub.asm",
+    "member_sha256": "577878c59d37691882a662e3ff6a07f3063e04406a121439271383885843184a",
+    "result": "The archived DOS 6.00 STUB is byte-identical to the existing DOS 6.0 reference; it supplies no independent 6.20 tail source.",
+    "method": "Read-only archive listing and member streamed to memory; no extraction or archive modification.",
+    "limitations": "No conclusion about other archives or unlocated 6.20 source."
+  },
+  "local_620_archives": {
+    "zip": "E:\\core\\collection\\systems\\x86_16_dos\\msdos_6xx\\msdos620.zip",
+    "zip_sha256": "c7f1105b612aba53915b63de6b5c7dc5cbaa3c90946a66d1e02a91754cc2e927",
+    "source_or_object_candidates": "No STUB source, object or map file in ZIP member names.",
+    "command_members": [
+      {
+        "member": "msdos620/COMMAND.COM",
+        "size": 54619,
+        "sha256": "9b1d77119ac6fe4f949f574db1445b2848683c3a5aaa2bb09f52d0b538df3541"
+      },
+      {
+        "member": "msdos620/DOS/COMMAND.COM",
+        "size": 54619,
+        "sha256": "9b1d77119ac6fe4f949f574db1445b2848683c3a5aaa2bb09f52d0b538df3541"
+      }
+    ],
+    "rar": "msdos620_en_ima.rar contains installer executables and a text file at the top level.",
+    "limitation": "ZIP and RAR were inspected by directory listing only except the two COMMAND members, which were read in memory; nested executables were not inspected."
+  }
+}

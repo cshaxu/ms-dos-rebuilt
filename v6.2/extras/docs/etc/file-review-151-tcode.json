@@ -1,0 +1,49 @@
+{
+  "index": 151,
+  "path": "cmd/command/tcode.asm",
+  "reference_sha256": "c3365e7a9cecaa60fe7469f7b14c2a1c7153f22865b9542ad7e3e33bc5571f6c",
+  "reviewed_sha256": "62eb49c335e1ee521236ade2c0651c7682627c787e4e77adbdc4383fb82f49ae",
+  "reference_astro_identical": true,
+  "decision": "Reconstruct 6.20 /Y batch-step prompt and interactive COPY state while preserving reference assembly conventions.",
+  "target": "extras/baselines/targets/COMMAND.COM",
+  "target_sha256": "9b1d77119ac6fe4f949f574db1445b2848683c3a5aaa2bb09f52d0b538df3541",
+  "inferred_target_offset_hex": "0x25e0",
+  "code_offset_hex": "0x100",
+  "code_length": 1212,
+  "listing_coverage": 1212,
+  "non_relocation_bytes_matching": 940,
+  "relocation_bytes": 272,
+  "internal_near_branches_matching": 7,
+  "checked_target_operands": {
+    "CopyNonInteractive": "0x02c5",
+    "YSwitchFlags": "0x0531",
+    "BatchStep_Ptr": "0x9950",
+    "TSYSGETMSG_file_offset": "0x7e8b"
+  },
+  "changes": [
+    "Clear /Y mode when neither batch nor single command is active.",
+    "Set COPY interaction state according to the command source.",
+    "Restore command precheck and /Y step prompt, localized Y/N and escape/F5 behavior."
+  ],
+  "dependencies": [
+    {
+      "index": 152,
+      "path": "cmd/command/tdata.asm",
+      "issue": "Reconstruct BatchStep_Ptr message block at inferred target TRANGROUP offset 0x9950."
+    },
+    {
+      "index": 160,
+      "path": "cmd/command/tprintf.asm",
+      "issue": "Validate TSYSGETMSG and STD_EPRINTF final addresses against target."
+    }
+  ],
+  "verifier": "extras/tools/verify_tcode_listing.py",
+  "limitations": "Routine and symbol names are reconstructed; external relocations, target message definitions and complete COMMAND.COM identity require final linking.",
+  "link_probe": {
+    "change": "Declare ASSUME ES:RESGROUP within BatchStep and restore ES:NOTHING afterward, following existing COMMAND conventions.",
+    "stage": "extras/build/command-reference-ef18qj4j",
+    "log": "extras/build/command-reference-ef18qj4j/lnkasm.log",
+    "result": "Six TRANCODE fix-up overflow diagnostics disappeared; four answer_* symbols remain unresolved.",
+    "limitations": "Diagnostic stage uses provisional messages; full COMMAND link and output remain incomplete."
+  }
+}

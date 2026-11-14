@@ -1,0 +1,40 @@
+{
+  "index": 69,
+  "file": "dos/file.asm",
+  "reviewed_sha256": "28f25db8a2d344b22f3e6cf9618b5f85458c16b497978a2862283dbe721c7c77",
+  "decision": "retain reference-identical file operation module",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\file.asm",
+      "sha256": "28f25db8a2d344b22f3e6cf9618b5f85458c16b497978a2862283dbe721c7c77"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\file.asm",
+      "sha256": "28f25db8a2d344b22f3e6cf9618b5f85458c16b497978a2862283dbe721c7c77"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/kernel-dir-getentry-branch-build.json",
+    "module_file_offset": 28976,
+    "module_length": 969,
+    "differing_module_offsets": [
+      8,
+      108,
+      217,
+      452
+    ],
+    "relocation_symbols": [
+      "DOS_Open",
+      "DOS_Open",
+      "DOS_Create",
+      "DOS_Create_New"
+    ]
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and astro.",
+    "Listing places $Open at module offset zero and ends DOSCODE at 03C9h; map resolves 0000:AF20 with -15856 file bias.",
+    "All four differing bytes are assembler-marked function-address fields."
+  ],
+  "limitations": "Final code addresses and full kernel identity remain unverified.",
+  "change": "No source change."
+}

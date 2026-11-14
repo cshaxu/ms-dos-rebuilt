@@ -1,0 +1,33 @@
+{
+  "index": 109,
+  "file": "dos/time.asm",
+  "reviewed_sha256": "7ea358d51ad44c3bc09e06c81cc468c9d9ff646abac04c619b377606f38cb336",
+  "decision": "retain reference-identical date and time system calls",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\time.asm",
+      "sha256": "7ea358d51ad44c3bc09e06c81cc468c9d9ff646abac04c619b377606f38cb336"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\time.asm",
+      "sha256": "7ea358d51ad44c3bc09e06c81cc468c9d9ff646abac04c619b377606f38cb336"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/kernel-dir-getentry-branch-build.json",
+    "module_file_offset": 2649,
+    "module_length": 483,
+    "difference_offsets_in_module": [
+      152,
+      322
+    ],
+    "target_sha256": "1ff320e7fdb3de707370e18d48d52b724b6f40f86ae7b70469bb130d754a904f"
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and Astro.",
+    "Listing and map locate the 01E3h-byte DOSCODE contribution at 0000:4849 with -15856 file bias.",
+    "Both differing bytes lie in assembler-marked address fields and each is 10h above target; all other aligned bytes match."
+  ],
+  "limitations": "Final address values and overall kernel identity remain to be verified.",
+  "change": "No source change."
+}

@@ -1,0 +1,29 @@
+{
+  "index": 65,
+  "file": "dos/fat.asm",
+  "reviewed_sha256": "69b434ab7d945e6de0fbfe9e6a657de2d622a54f92661d4117721a5be15f385f",
+  "decision": "retain reference-identical FAT module",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\fat.asm",
+      "sha256": "69b434ab7d945e6de0fbfe9e6a657de2d622a54f92661d4117721a5be15f385f"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\fat.asm",
+      "sha256": "69b434ab7d945e6de0fbfe9e6a657de2d622a54f92661d4117721a5be15f385f"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/kernel-dir-getentry-branch-build.json",
+    "module_file_offset": 22298,
+    "module_length": 984,
+    "target_sha256": "4652043828cfeee8ec8599f634f135ad0194f54ff22c28c471ba20b49b2c2983"
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and astro.",
+    "Listing places IsEof at module offset zero and ends DOSCODE at 03D8h; map resolves 0000:950A with -15856 file bias.",
+    "All 984 linked bytes match target MSDOS.SYS at the same offsets."
+  ],
+  "limitations": "Evidence covers selected build configuration; full kernel remains unequal.",
+  "change": "No source change."
+}

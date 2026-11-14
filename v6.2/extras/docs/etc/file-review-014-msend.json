@@ -1,0 +1,23 @@
+{
+  "index": 14,
+  "file": "bios/msend.asm",
+  "reviewed_sha256": "ceb3f2072658c8dc153e2274c42b75d8578426ebe84078779209ba62bce00e34",
+  "decision": "retain reference-identical segment-end declarations",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\msend.asm",
+      "sha256": "ceb3f2072658c8dc153e2274c42b75d8578426ebe84078779209ba62bce00e34"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\bios\\msend.asm",
+      "sha256": "ceb3f2072658c8dc153e2274c42b75d8578426ebe84078779209ba62bce00e34"
+    }
+  ],
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and astro.",
+    "Assembler listing shows zero-length Bios_Data, Bios_Code, sysinitseg and dos_load_seg contributions; the module defines paragraph-aligned end labels.",
+    "Reference link map resolves BData_end 0000:0900, BCode_end 025C:1A70, SI_end 0403:5840, and DOS_LOAD_SEG 09870h."
+  ],
+  "limitations": "Label values depend on the complete link layout; the reference SYSINIT and target differ, so these reference addresses are not asserted to be target values. Target placement remains to be resolved by component reconstruction.",
+  "change": "No source change."
+}

@@ -1,0 +1,26 @@
+{
+  "index": 20,
+  "file": "bios/power.asm",
+  "reviewed_sha256": "d3090363616ba41069834f7796b7f719c8c40ee82c1ec48ecfb5ee3aa373f95d",
+  "decision": "retain conditional BIOS-resident power source",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\power.asm",
+      "sha256": "d3090363616ba41069834f7796b7f719c8c40ee82c1ec48ecfb5ee3aa373f95d",
+      "identical": true
+    },
+    {
+      "path": "O:\\repos.external\\astro\\bios\\power.asm",
+      "sha256": "0f7317d6bae963f164f77e26dabf25815ae5229d19d65f34dcde4c931eb33cfb",
+      "identical": false
+    }
+  ],
+  "object_sha256": "8f343f1a7e161196f0aaefe817b15aa03670fba9e3920d1a71d6a82d9a7e55b6",
+  "checks": [
+    "Source is byte-identical to DOS 6.0; Astro copy differs.",
+    "The source contains both standalone and BIOS-resident variants and remains in the BIOS link list.",
+    "Its code is guarded by IFDEF POWER; the selected reference build defines USA and DBLSPACE_HOOKS, not POWER, and produces a 26-byte object with no assembled module segments."
+  ],
+  "limitations": "This is evidence for the chosen build configuration only, not a general determination that 6.20 has no resident power option. No target bytes can be assigned to the inactive branch.",
+  "change": "No source change."
+}

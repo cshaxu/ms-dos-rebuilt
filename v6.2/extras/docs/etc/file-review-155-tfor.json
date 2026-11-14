@@ -1,0 +1,19 @@
+{
+  "index": 155,
+  "path": "cmd/command/tfor.asm",
+  "reference_sha256": "93cd89114a467bce48900d36c81897f5f739a091280c17a6560d7b953dd519ae",
+  "reviewed_sha256": "93cd89114a467bce48900d36c81897f5f739a091280c17a6560d7b953dd519ae",
+  "reference_astro_identical": true,
+  "decision": "Retain reference-identical source; assembled module matches target outside relocation fields.",
+  "target": "extras/baselines/targets/COMMAND.COM",
+  "target_sha256": "9b1d77119ac6fe4f949f574db1445b2848683c3a5aaa2bb09f52d0b538df3541",
+  "inferred_target_offset_hex": "0x3479",
+  "module_length": 718,
+  "listing_coverage": 718,
+  "non_relocation_bytes_matching": 552,
+  "relocation_bytes": 166,
+  "internal_near_branches_matching": 13,
+  "included_structure_evidence": "extras/docs/etc/file-review-124-fordata.json",
+  "verifier": "extras/tools/verify_tfor_listing.py",
+  "limitations": "Target range is inferred; relocation values and complete COMMAND.COM identity require final linking."
+}

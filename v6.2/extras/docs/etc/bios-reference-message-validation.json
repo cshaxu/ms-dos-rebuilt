@@ -1,0 +1,29 @@
+{
+  "bios_probe": "extras/docs/etc/system-message-completed-probe.json",
+  "provisional_source": "extras/docs/etc/bios-reference-message-input.json",
+  "verified_declarations": [
+    "OnOff",
+    "StartMsg",
+    "$PauseMsg",
+    "$CleanMsg",
+    "$InterMsg",
+    "$MenuHeader",
+    "$MenuPrmpt",
+    "$Statusline",
+    "$InterPrmpt",
+    "$YES",
+    "$NO",
+    "$TimeOut",
+    "BadComPrmpt",
+    "$AutoPrmpt",
+    "baddblspace"
+  ],
+  "power_class_valid_declaration": true,
+  "unexpected_raw_message_line_0025": false,
+  "target_difference": {
+    "reference_literal": "F5=Bypass startup files    F8=Confirm each CONFIG.SYS line [ ]",
+    "target_literal": "F5=Bypass startup files F8=Confirm each line of CONFIG.SYS and AUTOEXEC.BAT [ ]",
+    "target_offset": 40264
+  },
+  "limitations": "This validates message-generation structure using a provisional DOS 6.0 reference input. POWER content is inferred and target-specific BIOS messages are not yet reconstructed."
+}

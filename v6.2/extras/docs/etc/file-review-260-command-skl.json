@@ -1,0 +1,13 @@
+{
+  "index": 260,
+  "path": "cmd/command/command.skl",
+  "reviewed_sha256": "8ee27b220b583012afedb472f654bcec1d537504294e5f21f146a0b839a8e296",
+  "reference_sha256": "26bec288e4d1f43e468070ddd65e14ac5148e7f73b219bc66fcebf8acd7b3542",
+  "decision": "Retain build input; restore message identifiers required by the target COMMAND build.",
+  "evidence": [
+    "Imported reference build inputs; input used in fresh target-identical three-core build.",
+    "extras/docs/etc/three-core-local-runner-build.json",
+    "extras/docs/etc/message-review-004-command.json"
+  ],
+  "limitations": "Build success establishes selected configuration only; original 6.20 source attribution is not independently established."
+}

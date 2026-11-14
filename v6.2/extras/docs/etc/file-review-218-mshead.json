@@ -1,0 +1,14 @@
+{
+  "index": 218,
+  "path": "inc/mshead.asm",
+  "reviewed_sha256": "a1572e2b8b0b2b840df0c6317d7072901f381ce2c1fe793cd5966a2e07309d29",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical kernel entry and header declarations.",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "DOS msconst.asm includes mshead.asm, which emits the DOSINIT near jump, PARASTART origin word and BIOS data segment word in the selected disk configuration.",
+    "The first 32 bytes of the prior saved kernel build differ from target only at offsets 3 and 10: origin low byte and the separately emitted minor version byte.",
+    "Review 167 changed bdsize.inc values so origin.inc calculates target PARASTART 3DE0h; versiona.inc remains scheduled at index 245."
+  ],
+  "limitations": "The prior saved build predates the bdsize.inc update, so corrected header and DOSINIT relocation have not yet been verified together in a fresh final link. The version byte is outside this source. Full MSDOS.SYS identity remains unverified."
+}

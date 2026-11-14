@@ -1,0 +1,29 @@
+{
+  "index": 54,
+  "file": "dos/dir2.asm",
+  "reviewed_sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40",
+  "decision": "retain reference-identical directory path module",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dir2.asm",
+      "sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\dir2.asm",
+      "sha256": "d3faf1d8c5897d8ba818837209724f635b60ceb5a252ab39aacbe0b02789bd40"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/kernel-dir-getentry-branch-build.json",
+    "module_file_offset": 16540,
+    "module_length": 1413,
+    "target_sha256": "7b3cc65cae93c61013fd617719d0ce46b210f2b4874efc6f8514fa06f134771f"
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and astro.",
+    "Listing places GetPath at module offset zero and ends DOSCODE at 0585h; map resolves 0000:7E8C with -15856 file bias.",
+    "All 1413 linked bytes match target MSDOS.SYS at the same offsets."
+  ],
+  "limitations": "Selected reference build configuration only; full kernel remains unequal.",
+  "change": "No source change."
+}

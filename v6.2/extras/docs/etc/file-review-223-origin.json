@@ -1,0 +1,15 @@
+{
+  "index": 223,
+  "path": "inc/origin.inc",
+  "reviewed_sha256": "5e0e96fdffccfb760dc650c056aca15a48a5927eb15f7a7d7bf9b5c30b7dbf96",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical origin calculation.",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "DOS origin.asm and mshead.asm include origin.inc.",
+    "With current bdsize.inc values from review 167, isolated MASM assembly of current origin.asm resolves PARASTART to 3DE0h and emits that word.",
+    "Target MSDOS.SYS header bytes at offsets 3\u20134 encode 3DE0h."
+  ],
+  "isolated_listing": "extras/build/origin223-f2zedeqk/origin.lst",
+  "limitations": "This verifies origin calculation and an isolated assembly, not full kernel linking, individual historical BIOS sizes or complete binary identity. Version definition remains separately pending."
+}

@@ -1,0 +1,23 @@
+{
+  "index": 15,
+  "file": "bios/msequ.inc",
+  "reviewed_sha256": "ce05581d636a79dbb1429fae1375adecd83afee6881bc22527df054aece8ec8b",
+  "decision": "retain reference-identical BIOS equates",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\msequ.inc",
+      "sha256": "ce05581d636a79dbb1429fae1375adecd83afee6881bc22527df054aece8ec8b"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\bios\\msequ.inc",
+      "sha256": "ce05581d636a79dbb1429fae1375adecd83afee6881bc22527df054aece8ec8b"
+    }
+  ],
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and astro.",
+    "Defines BIOS service numbers, request-header offsets, hardware constants, and conditional ROMDOS boot flags.",
+    "Used by multiple BIOS modules; selected linked msbio2, mschar, msdioctl and msdisk contributions match target as recorded in reviews 009–012."
+  ],
+  "limitations": "Equates do not provide an independently linked byte range; effects in other modules and optional configurations remain unverified.",
+  "change": "No source change."
+}

@@ -1,0 +1,14 @@
+{
+  "index": 182,
+  "path": "inc/doscntry.inc",
+  "reviewed_sha256": "0afc8359d8e51c0da06b15cf725c15a1600b8a4a44f68a74964c78c1b4864a33",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical country and code-page interface definitions.",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "BIOS, DOS and COMMAND modules include the file; it declares country/code-page information structures and NLS function constants.",
+    "The prior 774-byte DOS GETSET comparison found nine differences, all in marked NLS character or DosDseg address fields (review 071).",
+    "The prior COMMAND TENV comparison matched 546 non-relocation bytes and 31 internal branches at its inferred target location (review 153)."
+  ],
+  "limitations": "These comparisons support only selected uses of the structures; actual country data, all conditional configurations, final addresses and whole-file binary equality remain unverified."
+}

@@ -1,0 +1,49 @@
+{
+  "index": 5,
+  "file": "bios/devmark.inc",
+  "reviewed_sha256": "d6f3dfbcb520b51e6a3b1d0a4bb5b7a2aa5fa268eca22dda1f23f8347f4c7c22",
+  "decision": "retain reference-identical device marker structure",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\devmark.inc",
+      "sha256": "d6f3dfbcb520b51e6a3b1d0a4bb5b7a2aa5fa268eca22dda1f23f8347f4c7c22"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\bios\\devmark.inc",
+      "sha256": "d6f3dfbcb520b51e6a3b1d0a4bb5b7a2aa5fa268eca22dda1f23f8347f4c7c22"
+    },
+    {
+      "path": "O:\\repos.hobby\\ms-dos-rebuilt\\v5.0\\bios\\devmark.inc",
+      "sha256": "d6f3dfbcb520b51e6a3b1d0a4bb5b7a2aa5fa268eca22dda1f23f8347f4c7c22"
+    }
+  ],
+  "target_instruction_checks": [
+    {
+      "name": "devmark_files",
+      "listing_offset": 3607,
+      "reference_offset": 21485,
+      "target_offset": 21504,
+      "instruction_hex": "b046"
+    },
+    {
+      "name": "devmark_fcbs",
+      "listing_offset": 3693,
+      "reference_offset": 21571,
+      "target_offset": 21590,
+      "instruction_hex": "b058"
+    },
+    {
+      "name": "devmark_inst",
+      "listing_offset": 4434,
+      "reference_offset": 22312,
+      "target_offset": 22331,
+      "instruction_hex": "b054"
+    }
+  ],
+  "checks": [
+    "The current header equals DOS 6.0, astro and v5.0 byte for byte.",
+    "The selected FILES, FCBS and INSTALL marker values assemble to the same instructions in 6.20 target byte anchors."
+  ],
+  "limitations": "The three target instruction checks do not establish every marker or optional configuration.",
+  "change": "No source change."
+}

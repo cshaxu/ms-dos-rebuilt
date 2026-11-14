@@ -1,0 +1,13 @@
+{
+  "index": 187,
+  "path": "inc/dpl.asm",
+  "reviewed_sha256": "3c05ff68a98c953d5cba320d81aecd0e813db044477fef11ac38fd599520f9da",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical server-call parameter layout.",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "Selected DOS srvcall.asm includes dpl.asm and uses the register, user and process ID fields.",
+    "Prior SRVCALL comparison covered 342 bytes; all 15 differing bytes were in marked address fields, with remaining aligned bytes matching (review 108)."
+  ],
+  "limitations": "The selected-module comparison supports fields exercised there; it does not prove every possible structure use, final addresses or complete kernel identity."
+}

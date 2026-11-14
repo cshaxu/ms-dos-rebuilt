@@ -1,0 +1,53 @@
+{
+  "index": 73,
+  "file": "dos/ioctl.asm",
+  "reviewed_sha256": "5d2e75742cba4d8f45f5c05ff731b1ee32de092cd01b8aa01442b6ab10d8e5b8",
+  "decision": "retain reference-identical kernel IOCTL module",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\ioctl.asm",
+      "sha256": "5d2e75742cba4d8f45f5c05ff731b1ee32de092cd01b8aa01442b6ab10d8e5b8"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\ioctl.asm",
+      "sha256": "5d2e75742cba4d8f45f5c05ff731b1ee32de092cd01b8aa01442b6ab10d8e5b8"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/kernel-dir-getentry-branch-build.json",
+    "module_file_offset": 9022,
+    "module_length": 735,
+    "differing_module_offsets": [
+      0,
+      2,
+      4,
+      6,
+      8,
+      10,
+      12,
+      14,
+      16,
+      18,
+      20,
+      21,
+      22,
+      24,
+      25,
+      26,
+      28,
+      30,
+      32,
+      33,
+      34,
+      57
+    ],
+    "differing_bytes_in_marked_relocations": 22
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and astro.",
+    "Listing places $IOCTL at module offset 0024h and ends DOSCODE at 02DFh; map resolves 0000:6152 with -15856 file bias.",
+    "All 22 differing bytes lie in assembler-marked relocations, primarily dispatch-table code addresses."
+  ],
+  "limitations": "Final address values and full kernel identity remain unverified.",
+  "change": "No source change."
+}

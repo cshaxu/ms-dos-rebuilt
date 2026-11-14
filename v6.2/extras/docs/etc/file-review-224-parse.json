@@ -1,0 +1,15 @@
+{
+  "index": 224,
+  "path": "inc/parse.asm",
+  "reviewed_sha256": "65ecd960668b4bddb74a6b1bff25a21a15d20b3b7efac0183218a334c39e959a",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical shared command parser implementation.",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "COMMAND TPARSE and BIOS SYSCONF include parse.asm; the separate psdata.inc remains an independently tracked dependency.",
+    "Re-ran verify_tparse_omf.py on the current parser and TPARSE: all 2840 object bytes covered, 2412 non-relocation bytes and 70 internal near branches match the inferred target; 428 relocation bytes await final linking.",
+    "Prior SYSCONF comparison also covers its selected parser expansion with remaining relocation and branch-layout differences described in review 037."
+  ],
+  "verification": "extras/tools/verify_tparse_omf.py",
+  "limitations": "The target COMMAND module location is inferred and non-local relocations are not validated. Other parser configurations, final links and complete core binary identity remain unverified."
+}

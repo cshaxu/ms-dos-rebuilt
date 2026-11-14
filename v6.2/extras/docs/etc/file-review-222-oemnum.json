@@ -1,0 +1,14 @@
+{
+  "index": 222,
+  "path": "inc/oemnum.inc",
+  "reviewed_sha256": "e6a08b522830f1622f559ce0c9a5f6f2e5e3e760cae938082cc53b7e94c5795f",
+  "reference_astro_identical": true,
+  "decision": "Exclude the unreferenced documentary OEM number list from the selected core build and retain it under research.",
+  "archive": "extras/research/excluded/inc/oemnum.inc",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "The file explicitly describes itself as documentation only and consists entirely of comments.",
+    "No reference to oemnum.inc occurs in retained BIOS, DOS, COMMAND and include trees or the frozen selected dependency inventory."
+  ],
+  "limitations": "This decision concerns the documentary list only; actual OEM version values in core build configuration must be verified separately."
+}

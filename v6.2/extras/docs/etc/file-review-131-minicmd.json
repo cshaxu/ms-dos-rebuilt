@@ -1,0 +1,14 @@
+{
+  "index": 131,
+  "path": "cmd/command/minicmd/minicmd.asm",
+  "reviewed_sha256": "a8ba3f24c29c7ec0ac9dbabd736962f9a511778c4e32957f6852b4332d325d87",
+  "reference_astro_identical": true,
+  "decision": "Excluded from the three target components and retained under research: this is the separate MINICMD.COM ROM-oriented program.",
+  "archive": "extras/research/excluded/cmd/command/minicmd/minicmd.asm",
+  "evidence": [
+    "The source explicitly describes itself as MINICMD.COM for dedicated ROM systems.",
+    "The MINICMD makefile links minicmd.obj separately into minicmd.exe and produces a ROM image.",
+    "The selected core COMMAND link list does not include minicmd.obj."
+  ],
+  "limitations": "Applies to the selected three-component target and reference build."
+}

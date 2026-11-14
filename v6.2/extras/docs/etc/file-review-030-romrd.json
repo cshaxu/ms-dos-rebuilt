@@ -1,0 +1,23 @@
+{
+  "index": 30,
+  "file": "bios/romrd.asm",
+  "reviewed_sha256": "6873dba81f979c322dbaea758090c2765b3f84e00ee4772053d255f895456426",
+  "decision": "retain optional ROM drive access module",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\romrd.asm",
+      "sha256": "6873dba81f979c322dbaea758090c2765b3f84e00ee4772053d255f895456426"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\bios\\romrd.asm",
+      "sha256": "6873dba81f979c322dbaea758090c2765b3f84e00ee4772053d255f895456426"
+    }
+  ],
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and astro.",
+    "Implements physical ROM transfer using BIOS INT 15h, with optional FAKEROM data from rom8k.inc.",
+    "romrd is absent from the selected BIOS link list and ROMDRIVE is not enabled by the reference build."
+  ],
+  "limitations": "No claim about optional ROM build behavior or a target IO.SYS contribution.",
+  "change": "No source change."
+}

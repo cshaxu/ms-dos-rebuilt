@@ -1,0 +1,19 @@
+{
+  "index": 134,
+  "path": "cmd/command/parse2.asm",
+  "reference_sha256": "d885de9709a598f2e1b635986a7cedf6d2ae00321155cf4e465d360b114da283",
+  "reviewed_sha256": "d885de9709a598f2e1b635986a7cedf6d2ae00321155cf4e465d360b114da283",
+  "reference_astro_identical": true,
+  "decision": "Retain reference-identical source; assembled module matches target outside relocation fields.",
+  "target": "extras/baselines/targets/COMMAND.COM",
+  "target_sha256": "9b1d77119ac6fe4f949f574db1445b2848683c3a5aaa2bb09f52d0b538df3541",
+  "inferred_target_offset_hex": "0x5d0b",
+  "module_length": 310,
+  "listing_coverage": 310,
+  "non_relocation_bytes_matching": 230,
+  "relocation_bytes": 80,
+  "internal_near_branches_matching": 5,
+  "switch_count_review": "switch_count is defined but not referenced by instructions in this module; later switch_list definition remains to be verified in tdata.asm.",
+  "verifier": "extras/tools/verify_parse2_listing.py",
+  "limitations": "The target module location is inferred; relocation values and complete COMMAND.COM identity require final link verification."
+}

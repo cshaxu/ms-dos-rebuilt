@@ -1,0 +1,15 @@
+{
+  "index": 189,
+  "path": "inc/ds_vers.inc",
+  "reference_sha256": "136355293ccd3beabb91785cf85ee7f23e376906480c97586d86fe0329250dae",
+  "reviewed_sha256": "f06ac61a0f4bf2dc72ed1f8b79b1aefe1125c1e92978381068d7a49d5bf6eeed",
+  "decision": "Restore the target IO.SYS DoubleSpace internal revision constant from 6 to 10.",
+  "evidence": [
+    "SYSPRE includes ds_vers.inc and loads DS_INTERNAL_REVISION into AX before calling the DoubleSpace initialization entry.",
+    "Prior SYSPRE comparison locates the module at IO.SYS offset 33098 and identifies the differing immediate at relative offset 168 (review 041).",
+    "Target IO.SYS at file offset 0x81F1 contains B8 0A 00, the instruction mov ax,000Ah.",
+    "Isolated MASM assembly of the current SYSPRE source using the updated include lists B8 000A at module offset 00A7h and DS_INTERNAL_REVISION as 000Ah."
+  ],
+  "isolated_assembly_listing": "extras/build/bios-reference-n7jurw5x/syspre.lst",
+  "limitations": "This verifies the single assembled instruction, not a fresh complete IO.SYS link. DBLSPACE.EXE and DBLSPACE.BIN are outside project scope; their separate version files were not changed."
+}

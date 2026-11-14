@@ -1,0 +1,15 @@
+{
+  "index": 203,
+  "path": "inc/ioctl.inc",
+  "reviewed_sha256": "3578ed8c51c3856a05bb9dabac438feb9e4bf3ddacd98befa0d90b96e244464c",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical IOCTL codes and packet structures.",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "BIOS, DOS and COMMAND modules include ioctl.inc.",
+    "BIOS MSDIOCTL emits a table using GET_DEVICE_PARAMETERS, SET_DEVICE_PARAMETERS, GET_MEDIA_ID, SET_MEDIA_ID and SENSE_MEDIA_TYPE.",
+    "All 1733 bytes of the previously compared MSDIOCTL contribution match target IO.SYS (review 011).",
+    "The prior DOS IOCTL comparison covered 735 bytes, with all 22 differences in marked relocation fields (review 073)."
+  ],
+  "limitations": "Selected module comparisons support codes and structures exercised there; not every packet, optional configuration or final link address is proven. Complete core binary identity remains unverified."
+}

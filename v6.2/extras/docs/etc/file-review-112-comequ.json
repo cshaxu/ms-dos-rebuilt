@@ -1,0 +1,26 @@
+{
+  "index": 112,
+  "file": "cmd/command/comequ.asm",
+  "reviewed_sha256": "603e4aaa70fa25ac486f4dc5ab3f462ad1c87eae4d6966b8577b710fe8abeecf",
+  "decision": "retain reference-identical COMMAND shared definitions",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\comequ.asm",
+      "sha256": "603e4aaa70fa25ac486f4dc5ab3f462ad1c87eae4d6966b8577b710fe8abeecf"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\cmd\\command\\comequ.asm",
+      "sha256": "603e4aaa70fa25ac486f4dc5ab3f462ad1c87eae4d6966b8577b710fe8abeecf"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/command-reference-build.json"
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and Astro.",
+    "COMMAND modules including command2.asm include this file for shared constants and conditional definitions.",
+    "The selected COMMAND reference build currently uses DOS 6.0 source and provisional message inputs; this review does not equate that build with the target."
+  ],
+  "limitations": "The effect of definitions on a complete 6.20 build must be verified with the individual COMMAND modules and final binary.",
+  "change": "No source change."
+}

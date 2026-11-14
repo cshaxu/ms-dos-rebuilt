@@ -1,0 +1,67 @@
+{
+  "files": [
+    {
+      "path": "extras/tools/audit_message_candidates.py",
+      "sha256": "4959594a7511f48935534ea6e3ad548d44eba93f1ae1054981fc993cbc23f890",
+      "disposition": "retired",
+      "reason": "One-shot search over old v5/OpenNT paths; final message sources and provenance are already frozen."
+    },
+    {
+      "path": "extras/tools/import_reference_baseline.py",
+      "sha256": "a5295b782b880e6d3146c8a5af1aedc13af30175b66739b8295c8145c3ebb636",
+      "disposition": "retired",
+      "reason": "One-shot pre-review source import; phase completed and final sources must not be reimported."
+    },
+    {
+      "path": "extras/tools/prepare_bios_reference_messages.py",
+      "sha256": "21962b6f824dc3d508957f4753614821c33430c43ef89f5fa96ceca9b50ca8a0",
+      "disposition": "retired",
+      "reason": "Creates provisional mixed Astro/v5 catalog for obsolete reference probes."
+    },
+    {
+      "path": "extras/tools/probe_message_generation.py",
+      "sha256": "f3098dcb197329bbf7a8eb1025473ff8668db79a5d3eb9a66cb3cd076935578a",
+      "disposition": "retired",
+      "reason": "Alternative message-generator/candidate build matrix; historical results retained, production chain now singular."
+    },
+    {
+      "path": "extras/tools/probe_system_messages.py",
+      "sha256": "5d2364c56b55d25642f644bacf30ba717c47f95335196117b315e871767c28f1",
+      "disposition": "retired",
+      "reason": "Old candidate path appends BOOT and duplicates build launcher; superseded by original-make production messages."
+    },
+    {
+      "path": "extras/tools/screen_reference_import.py",
+      "sha256": "05e591d4409fc7609a339c6fbf3b3918ae7eb854f7aad5f0e0419580980fc08d",
+      "disposition": "retired",
+      "reason": "Requires every file to still equal the initial import; incompatible with restored source tree after reconstruction."
+    },
+    {
+      "path": "extras/tools/reference_inventory.py",
+      "sha256": "94004d4b154dd3a2e4c2a4ab1632a46dde71a6abe6862cdab90a9802a3cdfb87",
+      "disposition": "retained_unchanged",
+      "reason": "Deterministic read-only original-reference inventory; unchanged output matched frozen reference."
+    },
+    {
+      "path": "extras/tools/inspect_reference_dependencies.py",
+      "sha256": "ee155c4bb6705dcfe110142723eca6a01760ae509a429a12c6d7e8953be3ad0d",
+      "disposition": "retained_unchanged",
+      "reason": "Read-only conservative INCLUDE analysis; explicit inactive/dynamic/search-order limitations and exclusive report output."
+    },
+    {
+      "path": "extras/tools/map_reference_blocks.py",
+      "sha256": "6218e0809036bfcfaefe1b6321a2fae28823a31543d0be8a0f61cfe8ff4123f8",
+      "disposition": "retained_unchanged",
+      "reason": "Read-only unique byte anchors; hashes checked, overlap counting correct, no source-identity claim."
+    },
+    {
+      "path": "extras/tools/map_reference_publics.py",
+      "sha256": "67c6c28a26379a02988c21dcff28924ef2f931a955af103054a0199729c4498f",
+      "disposition": "retained_unchanged",
+      "reason": "Read-only historical symbol anchors; every accepted prefix compared and ambiguity retained; no whole-function claim."
+    }
+  ],
+  "reference_inventory_reproduced": true,
+  "block_mapping_checks_passed": true,
+  "core_rebuild": false
+}

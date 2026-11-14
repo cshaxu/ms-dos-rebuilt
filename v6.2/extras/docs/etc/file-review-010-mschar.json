@@ -1,0 +1,30 @@
+{
+  "index": 10,
+  "file": "bios/mschar.asm",
+  "reviewed_sha256": "1c6d2aaa8f16c8349bc7d38c9fcf52307fd2791a928e7c7dc9a773cda85aaae7",
+  "decision": "retain reference-identical character device module",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\mschar.asm",
+      "sha256": "1c6d2aaa8f16c8349bc7d38c9fcf52307fd2791a928e7c7dc9a773cda85aaae7"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\bios\\mschar.asm",
+      "sha256": "1c6d2aaa8f16c8349bc7d38c9fcf52307fd2791a928e7c7dc9a773cda85aaae7"
+    }
+  ],
+  "object_sha256": "afc86f7c4a0f81dde2bb019a7f55c6d6ba2131556bdabc539608c4b7413eb051",
+  "target_segment": {
+    "segment": "BIOS_CODE",
+    "offset": 11338,
+    "length": 957,
+    "sha256": "0e95861fed320ed46be70f5c80b1bb1d5a99f8cc12a4d1900e07a2cedbd2de40"
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and astro.",
+    "Assembler listing places con_table at offset 0 and ends BIOS_CODE at 03BDh; link map resolves con_table at 025C:00E4.",
+    "All 957 bytes of this linked code contribution match target IO.SYS at the same file offsets."
+  ],
+  "limitations": "Applies to the selected USA/DBLSPACE_HOOKS configuration; does not establish all optional builds or original source identity.",
+  "change": "No source change."
+}

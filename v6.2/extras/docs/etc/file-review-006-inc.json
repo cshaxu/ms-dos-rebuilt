@@ -1,0 +1,23 @@
+{
+  "index": 6,
+  "file": "bios/inc.asm",
+  "reviewed_sha256": "e6c87373edd2407dce762f47b09b187572fc77c0071f81f19da74a3954307b20",
+  "decision": "retain reference-identical include-listing auxiliary",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\inc.asm",
+      "sha256": "e6c87373edd2407dce762f47b09b187572fc77c0071f81f19da74a3954307b20"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\bios\\inc.asm",
+      "sha256": "e6c87373edd2407dce762f47b09b187572fc77c0071f81f19da74a3954307b20"
+    }
+  ],
+  "checks": [
+    "Current file is byte-identical to DOS 6.0 and astro.",
+    "DOS 6.0 BIOS makefile identifies it as the source for inc.lst/inc.obj; none of the three reference core link lists contains inc.obj.",
+    "Literal INCLUDE inc.asm was not found in the imported BIOS, kernel, COMMAND or shared includes."
+  ],
+  "limitations": "This establishes its role in the inspected reference build; it does not prove all possible makefile configurations or historical DOS 6.20 source contents.",
+  "change": "No source change."
+}

@@ -1,0 +1,124 @@
+{
+  "index": 152,
+  "path": "cmd/command/tdata.asm",
+  "status": "source_reviewed",
+  "reference_sha256": "b3f3568bfc63a280ac08283587f951aa837da97adc099c8d90ab1ae13a51f03d",
+  "working_sha256": "eaf0b0fbbeb1b7fe78ce5ecd1b264fc379f1e715674086f7117c72aa559ddd3c",
+  "reference_astro_identical": true,
+  "target_sha256": "9b1d77119ac6fe4f949f574db1445b2848683c3a5aaa2bb09f52d0b538df3541",
+  "changes": [
+    {
+      "description": "Restore eight-character switch_list, including -Y.",
+      "target_offset_hex": "0xc279",
+      "bytes_hex": "2d593f5642415057"
+    },
+    {
+      "description": "Restore COPY help message IDs 1405 through 1407.",
+      "target_offset_hex": "0xbfd3",
+      "values": [
+        1400,
+        1401,
+        1402,
+        1403,
+        1404,
+        1405,
+        1406,
+        1407,
+        0
+      ]
+    },
+    {
+      "description": "Define and export the eight-byte COPYCMD= environment name immediately after TEMP=.",
+      "target_offset_hex": "0xc407",
+      "bytes_hex": "434f5059434d443d"
+    }
+  ],
+  "partial_verification": "Current source assembles with pinned MASM and retained provisional generated message inputs; specified target values and ordering verified.",
+  "later_included_source": {
+    "index": 161,
+    "path": "cmd/command/tranmsg.asm",
+    "outstanding": [
+      "Define and export DMesWide_Ptr and BatchStep_Ptr in tranmsg.asm.",
+      "Restore the 9 target message-block bytes and 10 formatting fields recorded in the TRANDATA comparison."
+    ]
+  },
+  "remaining": [
+    "Reconstruct and validate included TRANMSG and target message-generation inputs in their ledger order.",
+    "Verify all relocation values and the complete COMMAND.COM final link."
+  ],
+  "limitations": "TDATA-owned data is source-reviewed; its included/generated message content, all real relocation values and complete COMMAND.COM identity remain unverified.",
+  "trandata_omf_verification": {
+    "emitted_bytes": 1831,
+    "omf_relocation_bytes": 384,
+    "matching_non_relocation_bytes": 1437,
+    "non_relocation_differences": 10,
+    "differences_owner": "included cmd/command/tranmsg.asm (index 161), message alignment and width fields",
+    "target_additional_included_bytes": [
+      {
+        "aligned_offset_hex": "0x1de",
+        "hex": "510400",
+        "meaning": "wide DIR message block"
+      },
+      {
+        "aligned_offset_hex": "0x247",
+        "hex": "3a04003b0400",
+        "meaning": "batch step prompt and localized answer messages"
+      }
+    ],
+    "verifier": "extras/tools/verify_tdata_omf.py",
+    "limitations": "Alignment and target DATA base inferred; generated message include remains provisional and relocations not validated by final link."
+  },
+  "reviewed_sha256": "7b81403c81c1f426906df09e8e0e45eaf52ea33b7c55b5be349e56313f79e92c",
+  "generated_message_service": {
+    "reference_file_offset_hex": "0x8a02",
+    "reference_length": 11376,
+    "target_inferred_file_offset_hex": "0x8ef6",
+    "target_inferred_length": 11763,
+    "sequence_aligned_matching_bytes": 11094,
+    "target_additional_bytes": 387,
+    "target_new_message_samples": [
+      {
+        "name": "batch_step_prompt",
+        "target_offset_hex": "0x9822",
+        "bytes_hex": "205b592f4e5d3f"
+      },
+      {
+        "name": "batch_step_answers",
+        "target_offset_hex": "0x9829",
+        "bytes_hex": "02594e"
+      },
+      {
+        "name": "copy_overwrite_prompt",
+        "target_offset_hex": "0x99a6",
+        "bytes_hex": "4f766572777269746520253120285965732f4e6f2f416c6c293f"
+      },
+      {
+        "name": "copy_overwrite_answers",
+        "target_offset_hex": "0x99c0",
+        "bytes_hex": "03594e41"
+      },
+      {
+        "name": "copy_help_y",
+        "target_offset_hex": "0x9e2d",
+        "bytes_hex": "20202f592020202020202020202020537570707265737365732070726f6d7074696e6720746f20636f6e6669726d20796f752077616e7420746f206f766572777269746520616e"
+      },
+      {
+        "name": "copy_help_noy",
+        "target_offset_hex": "0x9ea2",
+        "bytes_hex": "20202f2d59202020202020202020204361757365732070726f6d7074696e6720746f20636f6e6669726d20796f752077616e7420746f206f766572777269746520616e"
+      },
+      {
+        "name": "copycmd_help",
+        "target_offset_hex": "0x9f15",
+        "bytes_hex": "54686520737769746368202f59206d61792062652070726573657420696e2074686520434f5059434d4420656e7669726f6e6d656e74207661726961626c652e"
+      }
+    ],
+    "interpretation": "Differences include new /Y, overwrite and COPY help resources, as well as relocation and message table changes. Matching count is only an alignment diagnostic, not byte-equivalence proof.",
+    "dependencies": "Reconstruct generated message inputs and templates in their own ledger order; actual link is pending."
+  },
+  "message_alias_verification": {
+    "change": "Export answer buffer and Y/N/A aliases at the generated message 1104 data.",
+    "report": "extras/docs/etc/command-project-messages-clean-build.json",
+    "limitations": "Alias names and exact historical source placement are reconstructed."
+  }
+}

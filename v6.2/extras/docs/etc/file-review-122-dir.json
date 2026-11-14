@@ -1,0 +1,28 @@
+{
+  "index": 122,
+  "path": "cmd/command/dir.asm",
+  "reference_sha256": "d01bf2bcc1f37c88de1bd8c0c84838c3a01fff1cc03d70d33ec5ba3643b49954",
+  "reviewed_sha256": "82d02e6bbc1dd96eb074f473e89fadf6300ae23b9df2598ffd7d91d79c8293fe",
+  "reference_astro_identical": true,
+  "target": "extras/baselines/targets/COMMAND.COM",
+  "target_sha256": "9b1d77119ac6fe4f949f574db1445b2848683c3a5aaa2bb09f52d0b538df3541",
+  "inferred_target_offset_hex": "0x3747",
+  "module_length": 2874,
+  "changes": [
+    "Restore entry call and display width adjustment based on BIOS columns.",
+    "Restore conditional directory padding message display."
+  ],
+  "listing_coverage": 2874,
+  "non_relocation_bytes_matching": 2114,
+  "relocation_bytes": 760,
+  "internal_near_branches_matching": 78,
+  "verifier": "extras/tools/verify_dir_listing.py",
+  "dependencies": [
+    {
+      "index": 152,
+      "path": "cmd/command/tdata.asm",
+      "issue": "Define and validate DMesWide_Ptr at inferred target address 0x98e7; confirm message parameter layout used by width adjustment."
+    }
+  ],
+  "limitations": "Target module range is inferred; symbol names are reconstructed, external relocation values and full COMMAND.COM identity remain to be validated."
+}

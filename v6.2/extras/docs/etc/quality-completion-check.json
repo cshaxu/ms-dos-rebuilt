@@ -1,0 +1,53 @@
+{
+  "status": "verified",
+  "core_rebuild": false,
+  "accepted_build": "original-make-production-build.json",
+  "build_input_count": 232,
+  "only_input_changes": [
+    "extras/tools/build_isolated_runner.py",
+    "extras/tools/isolated_tool_runner.c"
+  ],
+  "format_only_addendum": "quality-runner-review.json",
+  "outputs": [
+    {
+      "file": "IO.SYS",
+      "output": "O:\\repos.hobby\\ms-dos-rebuilt\\v6.2\\extras\\build\\three-core-g6q84xby\\bios\\io.sys",
+      "target": "O:\\repos.hobby\\ms-dos-rebuilt\\v6.2\\extras\\baselines\\targets\\IO.SYS",
+      "length": 40566,
+      "target_length": 40566,
+      "sha256": "a96905f6a7358dbddafbe1128e49e9996e7d416e007801b007573c1f0acf9bbf",
+      "target_sha256": "a96905f6a7358dbddafbe1128e49e9996e7d416e007801b007573c1f0acf9bbf",
+      "byte_equal": true
+    },
+    {
+      "file": "MSDOS.SYS",
+      "output": "O:\\repos.hobby\\ms-dos-rebuilt\\v6.2\\extras\\build\\three-core-g6q84xby\\dos\\msdos.sys",
+      "target": "O:\\repos.hobby\\ms-dos-rebuilt\\v6.2\\extras\\baselines\\targets\\MSDOS.SYS",
+      "length": 38138,
+      "target_length": 38138,
+      "sha256": "1ff320e7fdb3de707370e18d48d52b724b6f40f86ae7b70469bb130d754a904f",
+      "target_sha256": "1ff320e7fdb3de707370e18d48d52b724b6f40f86ae7b70469bb130d754a904f",
+      "byte_equal": true
+    },
+    {
+      "file": "COMMAND.COM",
+      "output": "O:\\repos.hobby\\ms-dos-rebuilt\\v6.2\\extras\\build\\three-core-g6q84xby\\cmd\\command\\command.com",
+      "target": "O:\\repos.hobby\\ms-dos-rebuilt\\v6.2\\extras\\baselines\\targets\\COMMAND.COM",
+      "length": 54619,
+      "target_length": 54619,
+      "sha256": "9b1d77119ac6fe4f949f574db1445b2848683c3a5aaa2bb09f52d0b538df3541",
+      "target_sha256": "9b1d77119ac6fe4f949f574db1445b2848683c3a5aaa2bb09f52d0b538df3541",
+      "byte_equal": true
+    }
+  ],
+  "source_image_unchanged": true,
+  "reference_identity_revalidated": true,
+  "git": {
+    "tracked_build": "",
+    "ignored_build": "v6.2/extras/build/three-core-g6q84xby/summary.json"
+  },
+  "added_listing_files": {
+    "extras/tools/verify_listing.py": "ded3d78ab866764e4ecea1fad903137be86eec5f856a8bc20db4abbef5c7f433",
+    "extras/tools/listing-regions.json": "d1a281a6a47d4de9df49437fefc950792ce7a5ad67c78daa750b4906cfc68f15"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "scope": "Target-path reads in the four current build scripts and source lines matching six or more comma-separated hexadecimal DB/DW values.",
+  "build_findings": [
+    "The three component scripts read target files for comparison after producing their outputs.",
+    "BIOS construction concatenates the freshly built MSLOAD and BIOS outputs; DOS STRIPZ and COMMAND RELOC process newly linked outputs."
+  ],
+  "long_hex_table_files": [
+    {
+      "file": "bios/rom8k.inc",
+      "ledger_index": 27,
+      "reference_exact": true,
+      "evidence": "extras/docs/etc/file-review-027-rom8k.json"
+    },
+    {
+      "file": "dos/dostab.asm",
+      "ledger_index": 62,
+      "reference_exact": true,
+      "evidence": "extras/docs/etc/file-review-062-dostab.json"
+    },
+    {
+      "file": "dos/exepatch.asm",
+      "ledger_index": 64,
+      "reference_exact": true,
+      "evidence": "extras/docs/etc/file-review-064-exepatch.json"
+    },
+    {
+      "file": "inc/wpatch.inc",
+      "ledger_index": 248,
+      "reference_exact": true,
+      "evidence": "extras/docs/etc/file-review-248-wpatch.json"
+    }
+  ],
+  "other_known_issue": "cmd/command/stub.asm emits the documented three-byte target-derived tail; historical source ownership remains unresolved.",
+  "limitations": "This is not a proof that every short raw-byte sequence or every possible source transformation has legitimate historical provenance; it is a bounded screening check.",
+  "full_build_evidence": "extras/docs/etc/three-core-local-runner-build.json"
+}

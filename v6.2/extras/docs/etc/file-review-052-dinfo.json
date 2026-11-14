@@ -1,0 +1,38 @@
+{
+  "index": 52,
+  "file": "dos/dinfo.asm",
+  "reviewed_sha256": "3bc73774ddcecfc61214336f65449da0331edfd9513c5752100fcfd6fd481c51",
+  "decision": "retain reference-identical disk information module",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\dinfo.asm",
+      "sha256": "3bc73774ddcecfc61214336f65449da0331edfd9513c5752100fcfd6fd481c51"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\dinfo.asm",
+      "sha256": "3bc73774ddcecfc61214336f65449da0331edfd9513c5752100fcfd6fd481c51"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/kernel-local-baseline-build.json",
+    "module_file_offset": 11765,
+    "module_length": 97,
+    "differing_module_offsets": [
+      20,
+      28,
+      62
+    ],
+    "external_call_symbols": [
+      "FATREAD_CDS",
+      "UNPACK",
+      "UNPACK"
+    ]
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and astro.",
+    "Listing places DISK_INFO at module offset zero and ends DOSCODE at 0061h; map resolves 0000:6BE5 with -15856 file bias.",
+    "All three differing bytes are assembler-marked external near call displacements and each differs by one."
+  ],
+  "limitations": "Final call displacements and full kernel equality remain unverified.",
+  "change": "No source change."
+}

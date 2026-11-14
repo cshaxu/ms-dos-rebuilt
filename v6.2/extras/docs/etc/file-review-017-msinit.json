@@ -1,0 +1,49 @@
+{
+  "index": 17,
+  "file": "bios/msinit.asm",
+  "reviewed_sha256": "6a82485be5fdc5084957000a7b7800a600ae40a06c8d4d8ac6f34cea672167e6",
+  "decision": "retain source; two differences are externally resolved link values",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\msinit.asm",
+      "sha256": "6a82485be5fdc5084957000a7b7800a600ae40a06c8d4d8ac6f34cea672167e6"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\bios\\msinit.asm",
+      "sha256": "6a82485be5fdc5084957000a7b7800a600ae40a06c8d4d8ac6f34cea672167e6"
+    }
+  ],
+  "object_sha256": "01f2d3c999f813015a724a8768e73da3d5173076d3675438adb40779ed77518a",
+  "target_segment": {
+    "segment": "BIOS_DATA_INIT",
+    "offset": 6612,
+    "length": 4484,
+    "differing_byte_offsets": [
+      7612,
+      8089
+    ]
+  },
+  "relocations": [
+    {
+      "file_offset": 7612,
+      "symbol": "StartMsg",
+      "reference_value": 22061,
+      "target_value": 22131,
+      "definition": "bios/sysimes.asm"
+    },
+    {
+      "file_offset": 8089,
+      "symbol": "dos_load_seg",
+      "reference_value": 2551,
+      "target_value": 2557,
+      "definition": "link segment placement"
+    }
+  ],
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and astro.",
+    "Listing places daycnt_to_day at 0000h, segment length 1184h; link map resolves daycnt_to_day at 0000:142E.",
+    "Only two bytes differ among 4484 linked bytes; both are low bytes of external or link-layout-dependent relocation words."
+  ],
+  "limitations": "The target relocation values depend on later SYSINIT and message layout; final equality is unresolved and must arise naturally from the complete link.",
+  "change": "No source change; no address hard-coding."
+}

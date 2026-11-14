@@ -1,0 +1,23 @@
+{
+  "index": 13,
+  "file": "bios/msdskpr.inc",
+  "reviewed_sha256": "e8dd92dced3a3c098cddefa5ca73804cae9dac8cd0870d6ba51ef10b7c1ebd59",
+  "decision": "retain reference-identical disk parameter definitions",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\msdskpr.inc",
+      "sha256": "e8dd92dced3a3c098cddefa5ca73804cae9dac8cd0870d6ba51ef10b7c1ebd59"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\bios\\msdskpr.inc",
+      "sha256": "e8dd92dced3a3c098cddefa5ca73804cae9dac8cd0870d6ba51ef10b7c1ebd59"
+    }
+  ],
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and astro.",
+    "Defines the 11-byte interrupt 1Eh disk parameter structure and BIOS disk service numbers; used by msdisk, msdioctl and msinit.",
+    "Selected linked msdisk and msdioctl module bytes match target IO.SYS, as recorded in reviews 011 and 012."
+  ],
+  "limitations": "Definitions do not constitute an independently linked byte range; effects in msinit and optional configurations are not established by the two module comparisons.",
+  "change": "No source change."
+}

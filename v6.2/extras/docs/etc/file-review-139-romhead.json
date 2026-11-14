@@ -1,0 +1,14 @@
+{
+  "index": 139,
+  "path": "cmd/command/romhead.asm",
+  "reviewed_sha256": "90fc3a7b3ee8fb04d3579baa97949325312233f74b6fb1cf5ed94f6197001b88",
+  "reference_astro_identical": true,
+  "decision": "Excluded from selected floppy core components and retained under research: separate ROM COMMAND header.",
+  "archive": "extras/research/excluded/cmd/command/romhead.asm",
+  "evidence": [
+    "Source describes a BIOS-compatible ROM COMMAND header.",
+    "COMMAND makefile builds romhead.bin as a separate ROM artifact.",
+    "Selected floppy COMMAND link list does not include romhead.obj."
+  ],
+  "limitations": "Exclusion applies to the selected floppy target, not ROM-oriented configurations."
+}

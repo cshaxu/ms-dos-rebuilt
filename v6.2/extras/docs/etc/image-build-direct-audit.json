@@ -1,0 +1,27 @@
+{
+  "image": "E:\\core\\collection\\systems\\x86_16_dos\\msdos_6xx\\msdos620_en_boot.img",
+  "image_sha256": "c04538391f889d340918e1c2a4da0a8c4cedd063a5cbbc200e9b133f769ceff0",
+  "scope": "Read-only FAT12 extraction of three core files; image was not mounted or modified.",
+  "missing_tail_bytes": 1179648,
+  "files": [
+    {
+      "name": "IO.SYS",
+      "bytes": 40566,
+      "sha256": "a96905f6a7358dbddafbe1128e49e9996e7d416e007801b007573c1f0acf9bbf",
+      "image_baseline_build_equal": true
+    },
+    {
+      "name": "MSDOS.SYS",
+      "bytes": 38138,
+      "sha256": "1ff320e7fdb3de707370e18d48d52b724b6f40f86ae7b70469bb130d754a904f",
+      "image_baseline_build_equal": true
+    },
+    {
+      "name": "COMMAND.COM",
+      "bytes": 54619,
+      "sha256": "9b1d77119ac6fe4f949f574db1445b2848683c3a5aaa2bb09f52d0b538df3541",
+      "image_baseline_build_equal": true
+    }
+  ],
+  "build_evidence": "extras/docs/etc/three-core-local-runner-build.json"
+}

@@ -1,0 +1,14 @@
+{
+  "index": 208,
+  "path": "inc/mft.inc",
+  "reviewed_sha256": "5df36db5d62c9e67959a8b44bf1e08483e80bab8e3829061bd5b1e8c3cefc435",
+  "reference_astro_identical": true,
+  "decision": "Exclude unreferenced master-file-table and record-lock structures from the selected core build and retain them under research.",
+  "archive": "extras/research/excluded/inc/mft.inc",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "No include of mft.inc was found in retained BIOS, DOS, COMMAND and include source trees or the frozen selected dependency inventory.",
+    "Representative MFT and RLR structure symbols occur only within this file in those retained source trees."
+  ],
+  "limitations": "Exclusion is limited to the selected core build; it does not establish that MFT definitions were absent from other DOS components or configurations."
+}

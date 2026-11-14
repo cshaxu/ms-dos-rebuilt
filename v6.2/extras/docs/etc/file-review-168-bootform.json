@@ -1,0 +1,14 @@
+{
+  "index": 168,
+  "path": "inc/bootform.inc",
+  "reviewed_sha256": "4b965419b9fb2c035961b8042f7a494a6a8baeb1df63c270bb068658e2f1bea9",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical boot-record structure definitions.",
+  "evidence": [
+    "The file matches DOS 6.0 and astro byte for byte.",
+    "BIOS loader, disk, IOCTL and initialization sources include bootform.inc.",
+    "Previously compared selected IO.SYS contributions of MSDISK (1945 bytes), MSDIOCTL (1733 bytes), and MSBIO2 (807 code bytes and 335 initialized data bytes) match the target; see reviews 009, 011 and 012.",
+    "The prior MSLOAD comparison differs only in the shared version byte among 1446 bytes; see review 019."
+  ],
+  "limitations": "These module comparisons support definitions used in the selected build, not every structure field or other configuration. Final IO.SYS linking and whole-file equality remain pending."
+}

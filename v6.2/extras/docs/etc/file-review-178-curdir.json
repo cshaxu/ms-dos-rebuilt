@@ -1,0 +1,14 @@
+{
+  "index": 178,
+  "path": "inc/curdir.inc",
+  "reviewed_sha256": "35ce4c7f4511ccd82b0080f769f1efee90853f42c93a1c9d98a7ab930e618aaf",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical current directory structure and flags.",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "The file is included by selected DOS directory modules, BIOS initialization sources and COMMAND comequ.asm.",
+    "Previously compared DIR2 and DIRCALL contributions match all 1413 and 521 bytes respectively at their target MSDOS.SYS offsets (reviews 054 and 055).",
+    "Prior PATH comparison has five differing bytes, all in marked address fields, among 366 bytes (review 098)."
+  ],
+  "limitations": "These comparisons support definitions exercised in selected modules; they do not establish every field use or final linked addresses. Complete core file identity remains unverified."
+}

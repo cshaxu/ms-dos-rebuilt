@@ -1,0 +1,21 @@
+{
+  "file": "lang/usa/messages/usa-ms-dos.msg",
+  "sha256": "add37a31fcf9d045615618681fd11f240b6523234a44992bc2844ffc472ced77",
+  "sections": [
+    "MSBIO",
+    "MSDOS",
+    "BOOT"
+  ],
+  "decision": "Project-owned source for selected USA BIOS and DOS messages; retains only the three core-related message sections.",
+  "basis": [
+    "MSBIO and MSDOS sections derive from the previously documented Astro and v5 diagnostic candidate; MSBIO message IDs 18, 23, 34 and 36 were reconstructed against the target.",
+    "BOOT section derives from the documented Astro USA IBM message input.",
+    "Optional POWER entry is inferred from prior v5 research; its exact historical provenance remains unproven."
+  ],
+  "builds": [
+    "extras/docs/etc/bios-local-system-message-build.json",
+    "extras/docs/etc/kernel-local-system-message-build.json"
+  ],
+  "verification": "Fresh IO.SYS and MSDOS.SYS builds from this project message file match their target files byte for byte.",
+  "limitations": "Tool executables and build runner remain external pinned dependencies. COMMAND messages and fully self-contained reproducible build remain open."
+}

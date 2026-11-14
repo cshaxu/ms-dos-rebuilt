@@ -1,0 +1,14 @@
+{
+  "index": 201,
+  "path": "inc/int2a.inc",
+  "reviewed_sha256": "6af97498ea576a05abb7e58183c2daa8d494e231d931c141bc7fc4c7e756c896",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical INT 2Ah critical-section definitions.",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "DOS CRIT and SEGCHECK include int2a.inc; CRIT uses critDisk and critDevice in generated instructions.",
+    "All 128 linked bytes of the previously compared CRIT module match target MSDOS.SYS (review 049).",
+    "The selected SEGCHECK build has DEBUG=0 and emits no code (review 105)."
+  ],
+  "limitations": "The target comparison supports constants exercised by CRIT, not all documented network functions or debug configurations. Full kernel linking and equality remain unverified."
+}

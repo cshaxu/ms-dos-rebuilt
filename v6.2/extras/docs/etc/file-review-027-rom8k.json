@@ -1,0 +1,23 @@
+{
+  "index": 27,
+  "file": "bios/rom8k.inc",
+  "reviewed_sha256": "a59c6fd2ce8ef9e9499300946e4885d2b0bccbea278b987e57b822dc94061ecd",
+  "decision": "retain ROM drive data for optional ROM sources",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\rom8k.inc",
+      "sha256": "a59c6fd2ce8ef9e9499300946e4885d2b0bccbea278b987e57b822dc94061ecd"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\bios\\rom8k.inc",
+      "sha256": "a59c6fd2ce8ef9e9499300946e4885d2b0bccbea278b987e57b822dc94061ecd"
+    }
+  ],
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and astro.",
+    "Contains a ROM drive byte image, referenced by romrd.asm, romrdhi.asm and romrdlo.asm.",
+    "Those ROM modules are absent from the selected BIOS link list; no target contribution from this file is established."
+  ],
+  "limitations": "Retained as an optional-source dependency; it is not evidence that the selected 6.20 target contains the ROM drive image.",
+  "change": "No source change."
+}

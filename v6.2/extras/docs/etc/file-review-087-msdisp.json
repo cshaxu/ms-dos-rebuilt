@@ -1,0 +1,44 @@
+{
+  "index": 87,
+  "file": "dos/msdisp.asm",
+  "reviewed_sha256": "441cfe675ac62e37a2967631e0b6a0a63b5cf979af8c48e3d671ce7d9bfd215d",
+  "decision": "retain reference-identical system call dispatcher",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\msdisp.asm",
+      "sha256": "441cfe675ac62e37a2967631e0b6a0a63b5cf979af8c48e3d671ce7d9bfd215d"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\msdisp.asm",
+      "sha256": "441cfe675ac62e37a2967631e0b6a0a63b5cf979af8c48e3d671ce7d9bfd215d"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/kernel-dir-getentry-branch-build.json",
+    "module_file_offset": 626,
+    "module_length": 570,
+    "difference_offsets_in_module": [
+      11,
+      66,
+      91,
+      103,
+      115,
+      133,
+      215,
+      284,
+      411,
+      438,
+      509,
+      532,
+      563
+    ],
+    "target_sha256": "1ff320e7fdb3de707370e18d48d52b724b6f40f86ae7b70469bb130d754a904f"
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and Astro.",
+    "Listing and map place the 023Ah-byte DOSCODE contribution at 0000:4062 with -15856 file bias.",
+    "Twelve differences are assembler-marked relocatable or external word fields, each 10h above target. The remaining difference is the minor version byte of mov BX,(Minor_Version SHL 8) + Major_Version: 00h in the current build versus 14h in the target."
+  ],
+  "limitations": "Version definitions are handled in ledger order; address and version values require final build verification. Full kernel remains unequal.",
+  "change": "No source change."
+}

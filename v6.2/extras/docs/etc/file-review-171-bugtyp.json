@@ -1,0 +1,14 @@
+{
+  "index": 171,
+  "path": "inc/bugtyp.inc",
+  "reviewed_sha256": "5ca6cab9f8de58819470837484d8da1a1f044356f5dbb4d3206dbcfebc92ac87",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical debug type and level definitions used by DOS source.",
+  "evidence": [
+    "The file matches DOS 6.0 and astro byte for byte.",
+    "Multiple DOS modules include bugtyp.inc, including msconst.asm and misc.asm.",
+    "dossym.inc defaults DEBUG to FALSE if undefined; msconst.asm selects definitions conditionally on DEBUG.",
+    "The prior 682-byte MISC module comparison found only five marked address bytes and one minor-version byte differing from the target (review 079)."
+  ],
+  "limitations": "The source comparison and prior module evidence do not establish every DEBUG configuration or historical 6.20 source identity. Final kernel link and whole-file equality remain unverified."
+}

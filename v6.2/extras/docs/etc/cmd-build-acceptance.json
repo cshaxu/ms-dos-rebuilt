@@ -1,0 +1,48 @@
+{
+  "status": "verified",
+  "task": "M5 T7 S1",
+  "entry": "build.cmd",
+  "host_script_language": "CMD only",
+  "run": "extras/build/cmd-1151-13977",
+  "core_files_unchanged": 225,
+  "input_snapshot_count": 234,
+  "outputs": [
+    {
+      "file": "IO.SYS",
+      "bytes": 40566,
+      "sha256": "a96905f6a7358dbddafbe1128e49e9996e7d416e007801b007573c1f0acf9bbf",
+      "byte_equal": true
+    },
+    {
+      "file": "MSDOS.SYS",
+      "bytes": 38138,
+      "sha256": "1ff320e7fdb3de707370e18d48d52b724b6f40f86ae7b70469bb130d754a904f",
+      "byte_equal": true
+    },
+    {
+      "file": "COMMAND.COM",
+      "bytes": 54619,
+      "sha256": "9b1d77119ac6fe4f949f574db1445b2848683c3a5aaa2bb09f52d0b538df3541",
+      "byte_equal": true
+    }
+  ],
+  "negative_tests": [
+    "wrong hash rejected",
+    "wrong output rejected",
+    "failed second publication restored all three previous files"
+  ],
+  "native_runner_rebuilt_exact": true,
+  "remaining_python_powershell": [],
+  "retirement": "cmd-script-retirement.json",
+  "current_inputs": {
+    "extras/tools/dosbuild/build.bat": "d5c415856612e29a08053d9fc10c6835f47bddda66cad61a6b9a5f631aee7782",
+    "extras/tools/dosbuild/host-tools.cmd": "6aef4ff8990a26ce17e7e70189b56f8825a948ded61bc26728572b70a1e48c7d",
+    "extras/tools/dosbuild/nosrv.bat": "60b1028b408dadaac310542c6816818759e9274155e65b562a4253474dcfd1bc",
+    "extras/tools/dosbuild/targets.sha256": "96152097c242a71b770cf0208e3d49cb00f7b4c147e89909a7979d11e6a0202c",
+    "extras/tools/dosbuild/tools.ini": "2897bc51cbccf0306c2154a91ffc386f20e5713e0e009ee9dfee615ec53440c1",
+    "extras/tools/dosbuild/tools.lst": "a620e917451d7243fa6fb6ec9335360e505c48e7a7ae55ccb8d1a92fb6bef029",
+    "build.cmd": "606ca04cb4baff2d85474515a190ed5b26bd8cd0cd5365c2dad40402a0a5a6c5",
+    "extras/tools/build.cmd": "a9393cc8cd51a53c75dfd9462c3426e06aeeacc197e1d555cc8920ca11fe1c6c",
+    "extras/tools/isolated_tool_runner.c": "39fcd07d5de6c59273a46159046f01a0a5f2e2494c698c6d2487532c78d33312"
+  }
+}

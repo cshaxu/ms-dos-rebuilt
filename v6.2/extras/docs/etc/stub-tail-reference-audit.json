@@ -1,0 +1,15 @@
+{
+  "scope": "Linked map publics in RESGROUP addresses 02C2h\u201302C4h and exact textual numeric references in selected source; bounded static check only.",
+  "public_symbols_in_range": [],
+  "neighboring_publics": {
+    "Issue_Exec_Call": "0000:02AF",
+    "CopyNonInteractive": "0000:02C5"
+  },
+  "observations": [
+    "No public symbol in the three-byte interval in the linked MAP.",
+    "No exact 02C2h\u201302C4h numeric address references found by targeted source search in cmd/command and inc.",
+    "A direct unconditional jump immediately precedes the bytes."
+  ],
+  "limitations": "Public map and textual search do not establish absence of private, computed, indirect, segment-relative, or binary references, and do not identify historical source meaning.",
+  "map": "extras/build/command-reference-jefi1s4v/COMMAND.MAP"
+}

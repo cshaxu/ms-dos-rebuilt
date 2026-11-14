@@ -1,0 +1,20 @@
+{
+  "changes": [
+    {
+      "path": "bios/sysinit1.asm",
+      "before_sha256": "36e9b2ce7f749899cabd7777ce4e14b4d55c0d8d2b4b10d69648cbc55d5c6fe4",
+      "after_sha256": "e251b3c15af38be1c931f6d08c800a1046a49a8aeee22ba332eb8b600c15d30b",
+      "code_lines_identical": true
+    },
+    {
+      "path": "bios/sysinit2.asm",
+      "before_sha256": "274cec6ff8215f741efea160487b0285026540b01eeb70c7f667d5c9bd05ed1d",
+      "after_sha256": "b4b7f03fff3ded4e7e8c4642f40446ad24d3eb86287cffd91154d1b802f02b11",
+      "code_lines_identical": true
+    }
+  ],
+  "status": "verified",
+  "reason": "Restore original 6.00 comments and alignment on retained instructions; preserve all conditional branch structure.",
+  "build_report": "extras/build/three-core-zpued8dd/summary.json",
+  "verification_policy": "Effective-content check only for comment/format-only edits; rebuild after instruction, data, macro, condition or build-rule changes."
+}

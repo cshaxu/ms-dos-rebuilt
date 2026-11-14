@@ -1,0 +1,14 @@
+{
+  "index": 197,
+  "path": "inc/find.inc",
+  "reviewed_sha256": "9ffe3c32ba76131086cf11465ac666ff369382bd89193202b2ab1a998e8f2bef",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical FindFirst/FindNext buffer layout.",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "COMMAND DIR, PATH2 and TFOR and several DOS modules include find.inc; DIR and PATH2 use find_buf_pname, and DIR also uses find_buf_attr.",
+    "The prior DIR comparison matched 2114 non-relocation bytes and 78 internal branches at an inferred target location (review 122).",
+    "The prior PATH2 comparison matched 353 non-relocation bytes and one internal branch at an inferred target location (review 136)."
+  ],
+  "limitations": "These module comparisons exclude relocation bytes and cover only exercised fields; inferred target ranges and full COMMAND.COM identity require final linking."
+}

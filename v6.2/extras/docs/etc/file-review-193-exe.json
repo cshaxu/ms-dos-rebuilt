@@ -1,0 +1,14 @@
+{
+  "index": 193,
+  "path": "inc/exe.inc",
+  "reviewed_sha256": "9823aec6d6bf327ca248ae828bf213aa053f1a466e5d27ffaad455758fd05b36",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical EXEC parameter and EXE header definitions.",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "DOS MSPROC, EXEPATCH and BIOS SYSINIT1 include exe.inc.",
+    "The previous 1741-byte MSPROC comparison found two address bytes and one minor-version byte differing, with all other aligned bytes matching (review 092).",
+    "The previous 1643-byte EXEPATCH comparison found 37 differing bytes, all in marked relocations (review 064)."
+  ],
+  "limitations": "Selected module comparisons support definitions exercised in those modules but not every declared field. Final version definition, link addresses and full core binary equality remain unverified."
+}

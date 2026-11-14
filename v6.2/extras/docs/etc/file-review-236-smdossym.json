@@ -1,0 +1,15 @@
+{
+  "index": 236,
+  "path": "inc/smdossym.inc",
+  "reviewed_sha256": "e0846a097aa83276d5608151e1cb6a99c9b8fd2a4547823be8651d8239816ed9",
+  "reference_astro_identical": true,
+  "decision": "Exclude the unreferenced obsolete DOS-symbol aggregation header from the selected core build and retain it under research.",
+  "archive": "extras/research/excluded/inc/smdossym.inc",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "The file itself contains an ERROR directive stating that DOS and kernel should use DOSSYM instead.",
+    "No reference to smdossym.inc appears in retained BIOS, DOS, COMMAND and include trees or the frozen selected dependency inventory.",
+    "The active dossym.inc remains in the core tree and was independently reviewed at index 185."
+  ],
+  "limitations": "Exclusion applies to the selected core build; it does not establish requirements of unrelated historical build configurations."
+}

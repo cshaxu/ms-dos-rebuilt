@@ -1,0 +1,27 @@
+{
+  "index": 102,
+  "file": "dos/romfind.asm",
+  "reviewed_sha256": "f334bb028ed5ab0ae924865ce21be8b98c43ea2ab59d8624ff5bb51b99d4fb51",
+  "decision": "retain reference-identical conditional ROM search module",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\romfind.asm",
+      "sha256": "f334bb028ed5ab0ae924865ce21be8b98c43ea2ab59d8624ff5bb51b99d4fb51"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\romfind.asm",
+      "sha256": "f334bb028ed5ab0ae924865ce21be8b98c43ea2ab59d8624ff5bb51b99d4fb51"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/kernel-dir-getentry-branch-build.json",
+    "listing": "extras/build/kernel-reference-0_jps7ao/romfind.lst"
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and Astro.",
+    "ROM search implementation is conditional on ROMEXEC; version.inc defines ROMEXEC only for ROMDOS.",
+    "The selected non-ROM kernel link includes romfind.obj, but the assembly listing does not emit the ROM find procedures."
+  ],
+  "limitations": "This establishes selected-build conditional inclusion only; it does not validate ROMDOS variants or final kernel identity.",
+  "change": "No source change."
+}

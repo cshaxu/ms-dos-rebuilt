@@ -1,0 +1,23 @@
+{
+  "index": 29,
+  "file": "bios/romdrive.asm",
+  "reviewed_sha256": "7900155468a5aa13a7fe24b401e0ffc9774a2446fb62663179620b74e43a1f62",
+  "decision": "retain optional ROM drive device module",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\romdrive.asm",
+      "sha256": "7900155468a5aa13a7fe24b401e0ffc9774a2446fb62663179620b74e43a1f62"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\bios\\romdrive.asm",
+      "sha256": "7900155468a5aa13a7fe24b401e0ffc9774a2446fb62663179620b74e43a1f62"
+    }
+  ],
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and astro.",
+    "Defines ROMDRIVE device header and read, media and BPB handling.",
+    "romdrive is absent from the selected BIOS link list; reference configuration does not enable ROMDRIVE."
+  ],
+  "limitations": "No target IO.SYS bytes establish the optional ROM drive implementation or its build configurations.",
+  "change": "No source change."
+}

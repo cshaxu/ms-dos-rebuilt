@@ -1,0 +1,24 @@
+{
+  "index": 26,
+  "file": "bios/ptime.asm",
+  "reviewed_sha256": "dc40f17b2330fd64ce85d9b4d2a35c8f0d716790762a99f3ed64089652e255ee",
+  "decision": "retain conditional BIOS power clock source",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\ptime.asm",
+      "sha256": "dc40f17b2330fd64ce85d9b4d2a35c8f0d716790762a99f3ed64089652e255ee"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\bios\\ptime.asm",
+      "sha256": "dc40f17b2330fd64ce85d9b4d2a35c8f0d716790762a99f3ed64089652e255ee"
+    }
+  ],
+  "object_sha256": "81c2131534d607d8393a5a14edce15728de9971d6e355059a6a66d94ce01dab3",
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and astro.",
+    "The BIOS link list includes ptime, whose code is guarded by IFDEF POWER.",
+    "Selected reference build does not define POWER and generates a 26-byte empty ptime object."
+  ],
+  "limitations": "No target bytes can establish inactive POWER code or optional build correctness.",
+  "change": "No source change."
+}

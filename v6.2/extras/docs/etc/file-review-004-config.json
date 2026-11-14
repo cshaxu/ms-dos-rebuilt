@@ -1,0 +1,160 @@
+{
+  "index": 4,
+  "file": "bios/config.inc",
+  "reviewed_sha256": "c5df5eae47f4cff75bbf315cfa01b8d5f356c10ffccfe792da301ecf23969efa",
+  "decision": "retain DOS 6 multi-configuration definitions",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\config.inc",
+      "sha256": "c5df5eae47f4cff75bbf315cfa01b8d5f356c10ffccfe792da301ecf23969efa"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\bios\\config.inc",
+      "sha256": "c5df5eae47f4cff75bbf315cfa01b8d5f356c10ffccfe792da301ecf23969efa"
+    }
+  ],
+  "target_table": {
+    "file": "IO.SYS",
+    "offset": 38911,
+    "length": 227,
+    "sha256": "95eeafe118c83bcafc35263fe239f5a6f0eba884b894297dd78d4f5f59d42b5d",
+    "entries": [
+      {
+        "name": "[",
+        "constant": "CONFIG_BEGIN",
+        "value": "["
+      },
+      {
+        "name": "BREAK",
+        "constant": "CONFIG_BREAK",
+        "value": "C"
+      },
+      {
+        "name": "BUFFERS",
+        "constant": "CONFIG_BUFFERS",
+        "value": "B"
+      },
+      {
+        "name": "COMMENT",
+        "constant": "CONFIG_COMMENT",
+        "value": "Y"
+      },
+      {
+        "name": "COUNTRY",
+        "constant": "CONFIG_COUNTRY",
+        "value": "Q"
+      },
+      {
+        "name": "DEVICE",
+        "constant": "CONFIG_DEVICE",
+        "value": "D"
+      },
+      {
+        "name": "DEVICEHIGH",
+        "constant": "CONFIG_DEVICEHIGH",
+        "value": "U"
+      },
+      {
+        "name": "DOS",
+        "constant": "CONFIG_DOS",
+        "value": "H"
+      },
+      {
+        "name": "DRIVPARM",
+        "constant": "CONFIG_DRIVPARM",
+        "value": "P"
+      },
+      {
+        "name": "FCBS",
+        "constant": "CONFIG_FCBS",
+        "value": "X"
+      },
+      {
+        "name": "FILES",
+        "constant": "CONFIG_FILES",
+        "value": "F"
+      },
+      {
+        "name": "INCLUDE",
+        "constant": "CONFIG_INCLUDE",
+        "value": "J"
+      },
+      {
+        "name": "INSTALL",
+        "constant": "CONFIG_INSTALL",
+        "value": "I"
+      },
+      {
+        "name": "INSTALLHIGH",
+        "constant": "CONFIG_INSTALLHIGH",
+        "value": "W"
+      },
+      {
+        "name": "LASTDRIVE",
+        "constant": "CONFIG_LASTDRIVE",
+        "value": "L"
+      },
+      {
+        "name": "SUBMENU",
+        "constant": "CONFIG_SUBMENU",
+        "value": "O"
+      },
+      {
+        "name": "MENUCOLOR",
+        "constant": "CONFIG_MENUCOLOR",
+        "value": "R"
+      },
+      {
+        "name": "MENUDEFAULT",
+        "constant": "CONFIG_MENUDEFAULT",
+        "value": "A"
+      },
+      {
+        "name": "MENUITEM",
+        "constant": "CONFIG_MENUITEM",
+        "value": "E"
+      },
+      {
+        "name": "MULTITRACK",
+        "constant": "CONFIG_MULTITRACK",
+        "value": "M"
+      },
+      {
+        "name": "NUMLOCK",
+        "constant": "CONFIG_NUMLOCK",
+        "value": "N"
+      },
+      {
+        "name": "REM",
+        "constant": "CONFIG_REM",
+        "value": "0"
+      },
+      {
+        "name": "SET",
+        "constant": "CONFIG_SET",
+        "value": "V"
+      },
+      {
+        "name": "SHELL",
+        "constant": "CONFIG_SHELL",
+        "value": "S"
+      },
+      {
+        "name": "STACKS",
+        "constant": "CONFIG_STACKS",
+        "value": "K"
+      },
+      {
+        "name": "SWITCHES",
+        "constant": "CONFIG_SWITCHES",
+        "value": "1"
+      }
+    ]
+  },
+  "checks": [
+    "The current file is byte-identical to DOS 6.0 and astro.",
+    "All 26 reference command table entries, including menu and high-loading commands, occur consecutively with the same length bytes and constant values in target IO.SYS."
+  ],
+  "limitations": "This establishes the named command table values, not every use of every constant or optional configuration.",
+  "change": "No source change."
+}

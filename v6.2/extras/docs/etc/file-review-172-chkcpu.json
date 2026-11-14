@@ -1,0 +1,15 @@
+{
+  "index": 172,
+  "path": "inc/chkcpu.inc",
+  "reviewed_sha256": "286d074885051fb2d02deed015114ffd1407b842c1ec6bdaa15a7f06a2d6cd55",
+  "reference_astro_identical": true,
+  "decision": "Exclude the unreferenced CPU-check macro from the selected three-component build and retain it under research.",
+  "archive": "extras/research/excluded/inc/chkcpu.inc",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "The only chkcpu macro declaration or invocation found in the retained BIOS, DOS, COMMAND and include source trees is the declaration in this file.",
+    "No include of chkcpu.inc appears in the selected source trees or frozen reference dependency inventory.",
+    "The three selected reference build reports have no chkcpu input."
+  ],
+  "limitations": "Exclusion applies to this selected three-component build; it does not imply this reference file was absent from other DOS products or configurations."
+}

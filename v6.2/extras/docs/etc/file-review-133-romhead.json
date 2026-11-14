@@ -1,0 +1,14 @@
+{
+  "index": 133,
+  "path": "cmd/command/minicmd/romhead.asm",
+  "reviewed_sha256": "0b260418ee73a33a2c8c79c46929765671d0bb8b674dc530d696424e2ad4491e",
+  "reference_astro_identical": true,
+  "decision": "Excluded from the three selected core components and retained under research: separate ROM COMMAND header for MINICMD build.",
+  "archive": "extras/research/excluded/cmd/command/minicmd/romhead.asm",
+  "evidence": [
+    "Source identifies itself as a BIOS-compatible ROM COMMAND header.",
+    "MINICMD makefile builds romhead.bin separately from romhead.asm.",
+    "The selected core COMMAND link list has no romhead.obj."
+  ],
+  "limitations": "Applies to the selected floppy-based three-component target and selected reference build."
+}

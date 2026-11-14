@@ -1,0 +1,90 @@
+{
+  "retired": [
+    {
+      "path": "extras/tools/verify_rdata_messages.py",
+      "sha256": "730e22dc36ab7e300c95b7b3f3f0f7d9c1670d525d55459192d02991d0b97f9e",
+      "reason": "Compares retired 6.00 linked message image with target using insertion alignment; superseded by exact current linked message bytes."
+    },
+    {
+      "path": "extras/tools/verify_rdata_omf.py",
+      "sha256": "e418c3c8e23d13d259d6255375bb9a8f67c2747bdef22b21af2fbc4caa1a2f97",
+      "reason": "Fills partial OMF gaps from a fixed old linked image; complete current output now verifies those bytes directly."
+    },
+    {
+      "path": "extras/tools/verify_stub_listing.py",
+      "sha256": "8ed1b7821d7fa0352d15a3bc45e437497e8ff3ba1440834c4b36286b46122dda",
+      "reason": "Completes listing gaps using a fixed old reference build; full current COMMAND includes all stub bytes."
+    },
+    {
+      "path": "extras/tools/verify_tdata_omf.py",
+      "sha256": "64add032eff4da7af5a6cf0624157a6d35fbc3ec11117b58117bc803a62aa82e",
+      "reason": "Intentionally injects old TRANMSG and expects ten remaining differences; obsolete intermediate experiment."
+    },
+    {
+      "path": "extras/tools/verify_tranmsg_omf.py",
+      "sha256": "62a658d840f641af37cb79890f2b2652db3378332a982d303f08bcf6a7cc14aa",
+      "reason": "Mixes current data with generated headers copied from a fixed old build; final source message generation now matches target."
+    },
+    {
+      "path": "extras/tools/verify_tspc_layout.py",
+      "sha256": "af38c6c8803fccbcfc3ff514aba09001b83d83a064368ab92a912b7d7b8412d5",
+      "reason": "Compares old/new workspace images and inferred base; final map and exact output prove actual layout."
+    }
+  ],
+  "acceptance_evidence": "original-make-production-build.json",
+  "current_inputs_rechecked": true,
+  "full_outputs_recompared": true,
+  "final_publics": {
+    "CopyNonInteractive": [
+      0,
+      709
+    ],
+    "YSwitchFlags": [
+      0,
+      1329
+    ],
+    "TranVarEnd": [
+      0,
+      1331
+    ],
+    "OldErrNo": [
+      0,
+      1331
+    ],
+    "DMesWide_Ptr": [
+      622,
+      39143
+    ],
+    "BatchStep_Ptr": [
+      622,
+      39248
+    ],
+    "prompt_sublist": [
+      622,
+      42833
+    ],
+    "confirm_overwrite": [
+      622,
+      42844
+    ],
+    "dest_exists": [
+      622,
+      42845
+    ],
+    "copy_state": [
+      622,
+      42846
+    ],
+    "BATHAND": [
+      622,
+      42847
+    ],
+    "STARTEL": [
+      622,
+      42849
+    ]
+  },
+  "map_sha256": "dc51ecaf95a4e319c46f9e04cf008afdebf5aa75dcfa8a6954118c092fc786cf",
+  "scope": "Obsolete intermediate experiments retired; their historical comparison algorithms are not claimed equivalent to final-build acceptance.",
+  "core_rebuild": false
+}

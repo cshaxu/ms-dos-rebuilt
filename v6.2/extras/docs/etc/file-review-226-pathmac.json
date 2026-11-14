@@ -1,0 +1,14 @@
+{
+  "index": 226,
+  "path": "inc/pathmac.inc",
+  "reviewed_sha256": "f5ab8e21bd6ad16c113414ed8d57bfd0b47161583e6da06c256dfac82eb70d1a",
+  "reference_astro_identical": true,
+  "decision": "Exclude the unreferenced path-label macro from the selected core build and retain it under research.",
+  "archive": "extras/research/excluded/inc/pathmac.inc",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "The file defines PATHLABL, a macro for emitting public start and stop labels.",
+    "No include of pathmac.inc or invocation of PATHLABL was found in retained BIOS, DOS, COMMAND and include trees; the selected dependency inventory has no edge to it."
+  ],
+  "limitations": "The exclusion covers only the selected core build and does not establish whether other DOS components use this macro."
+}

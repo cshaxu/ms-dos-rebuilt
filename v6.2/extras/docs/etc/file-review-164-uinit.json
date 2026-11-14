@@ -1,0 +1,34 @@
+{
+  "index": 164,
+  "path": "cmd/command/uinit.asm",
+  "reference_sha256": "71fe34ddc30f096c3d2bfd7fda28e2ac269fb45e81900400302305b2c9631dfd",
+  "reviewed_sha256": "ed1be0649ee7fa647f9b7af48c53f74e5305d74bbf30cacc51986059c262baed",
+  "reference_astro_identical": true,
+  "change": "Restore ninth COMMAND switch /Y, its control block, pointer and public synonym.",
+  "target": "extras/baselines/targets/COMMAND.COM",
+  "target_sha256": "9b1d77119ac6fe4f949f574db1445b2848683c3a5aaa2bb09f52d0b538df3541",
+  "inferred_target_file_offset_hex": "0x2000",
+  "authored_prefix_bytes": 339,
+  "non_relocation_bytes_matching": 269,
+  "prefix_relocation_bytes": 70,
+  "target_switch_count": 9,
+  "target_command_y_syn_group_offset_hex": "0x2243",
+  "diagnostic_link": {
+    "stage": "extras/build/temp/stub-link-probe",
+    "scope": "6.0 reference objects with reconstructed STUB, RDATA, INIT and UINIT; not a complete 6.20 build",
+    "output_sha256": "6df5cd55ab9772428f5141b7d40ce001e27e9cd873ba0f3386254272a41f4593",
+    "linked_symbol_offsets": {
+      "COMMAND_P_SYN": "0x21d4",
+      "COMMAND_K_SYN": "0x2237",
+      "COMMAND_Y_SYN": "0x2243",
+      "COMND1_SYN": "0x2248"
+    },
+    "prefix_byte_differences": 6,
+    "prefix_difference_reason": "transient external pointers depend on later reconstructed modules",
+    "authored_tail_bytes_matching": 29,
+    "target_tail_offset_hex": "0x25c1"
+  },
+  "generated_messages": "Initialization text comes from provisional comimsg.inc and differs from target; message source reconstruction and help pointers remain pending.",
+  "verifier": "extras/tools/verify_uinit_prefix.py",
+  "limitations": "Diagnostic link is not the final target build; generated messages, transient relocations and full COMMAND.COM identity remain unverified."
+}

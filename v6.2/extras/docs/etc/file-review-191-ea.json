@@ -1,0 +1,13 @@
+{
+  "index": 191,
+  "path": "inc/ea.inc",
+  "reviewed_sha256": "b18162e19f3c81a5982740cc7a5285e0c89d386507b567da61df0e3dddf2549b",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical extended-attribute definitions required by the retained BIOS include-listing auxiliary.",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "bios/inc.asm includes ea.inc; review 006 retains bios/inc.asm as a reference include-listing auxiliary.",
+    "The frozen selected core dependency inventory contains no ea.inc edge, and no other direct include was found in the retained core source trees."
+  ],
+  "limitations": "The selected target binaries do not independently prove these definitions because the retained include-listing auxiliary is not linked in the three selected core lists. Retention preserves that auxiliary dependency; it is not evidence of target extended-attribute functionality."
+}

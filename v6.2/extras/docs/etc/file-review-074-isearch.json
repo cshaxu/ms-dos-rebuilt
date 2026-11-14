@@ -1,0 +1,29 @@
+{
+  "index": 74,
+  "file": "dos/isearch.asm",
+  "reviewed_sha256": "ec0bb3be4beec3c99e8931d737222a09f1c5f728009ea4efd27a09d2936cc039",
+  "decision": "retain reference-identical search call module",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\isearch.asm",
+      "sha256": "ec0bb3be4beec3c99e8931d737222a09f1c5f728009ea4efd27a09d2936cc039"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\isearch.asm",
+      "sha256": "ec0bb3be4beec3c99e8931d737222a09f1c5f728009ea4efd27a09d2936cc039"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/kernel-dir-getentry-branch-build.json",
+    "module_file_offset": 11862,
+    "module_length": 395,
+    "target_sha256": "3fa874c4c0f0b57e958789a534c1b9a5373066398ba1bd8fea45671edec1add5"
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and astro.",
+    "Listing places DOS_SEARCH_FIRST at module offset zero and ends DOSCODE at 018Bh; map resolves 0000:6C46 with -15856 file bias.",
+    "All 395 linked bytes match target MSDOS.SYS at the same offsets."
+  ],
+  "limitations": "Evidence covers selected build configuration; full kernel remains unequal.",
+  "change": "No source change."
+}

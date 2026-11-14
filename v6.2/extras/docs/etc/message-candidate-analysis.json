@@ -1,0 +1,115 @@
+{
+  "template": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\cmd\\command\\command.skl",
+  "template_sha256": "26bec288e4d1f43e468070ddd65e14ac5148e7f73b219bc66fcebf8acd7b3542",
+  "numbered_template_defs": 165,
+  "message_candidates": [
+    {
+      "label": "opennt",
+      "path": "O:\\repos.external\\OpenNT\\base\\mvdm\\dos\\v86\\messages\\usa-ms.msg",
+      "sha256": "c20f76c518d8248f5a9fe47259e80c9ce95f15fff6b86bad1a4d03f65161b037",
+      "command_ids": 147,
+      "template_def_ids_absent": [
+        1097,
+        1098,
+        1099,
+        1100,
+        1101,
+        1102,
+        1200,
+        1489,
+        1490,
+        1491,
+        1492,
+        1493,
+        1494,
+        1923,
+        1924,
+        1925,
+        1926,
+        1927
+      ]
+    },
+    {
+      "label": "v5-command",
+      "path": "O:\\repos.hobby\\ms-dos-rebuilt\\v5.0\\messages\\usa-ms.msg",
+      "sha256": "95ceffb90e39d116bd1ec5bfe8ce1536797c619342ca8ce61743025364660006",
+      "command_ids": 147,
+      "template_def_ids_absent": [
+        1097,
+        1098,
+        1099,
+        1100,
+        1101,
+        1102,
+        1200,
+        1489,
+        1490,
+        1491,
+        1492,
+        1493,
+        1494,
+        1923,
+        1924,
+        1925,
+        1926,
+        1927
+      ]
+    },
+    {
+      "label": "v5-dos",
+      "path": "O:\\repos.hobby\\ms-dos-rebuilt\\v5.0\\messages\\usa-ms-dos.msg",
+      "sha256": "c8684099859fbb3829b2ab62a3e09bd396afa626928fdc4795dde0bf4b1afacb",
+      "command_ids": 147,
+      "template_def_ids_absent": [
+        1097,
+        1098,
+        1099,
+        1100,
+        1101,
+        1102,
+        1200,
+        1489,
+        1490,
+        1491,
+        1492,
+        1493,
+        1494,
+        1923,
+        1924,
+        1925,
+        1926,
+        1927
+      ]
+    }
+  ],
+  "header_candidates": [
+    {
+      "name": "comrmsg.inc",
+      "opennt_sha256": "711e8b6e73fcc7c2cb62c47eca75730bc8779a824cc5b9039bfc4692322435e2",
+      "v5_sha256": "711e8b6e73fcc7c2cb62c47eca75730bc8779a824cc5b9039bfc4692322435e2",
+      "byte_equal": true
+    },
+    {
+      "name": "comimsg.inc",
+      "opennt_sha256": "c006bbcfc0dcfbabded1648f8f0efa1f769cabf9cebcf1ceb8940ae54027c644",
+      "v5_sha256": "84e82d3db774b3a102cc4b901a7b035d05c1848591c00c145ed08ba4eb4b65d1",
+      "byte_equal": false
+    }
+  ],
+  "target_command_sha256": "9b1d77119ac6fe4f949f574db1445b2848683c3a5aaa2bb09f52d0b538df3541",
+  "target_strings": [
+    {
+      "ascii": "Microsoft(R) MS-DOS(R) Version 6.20",
+      "file_offset": 8587
+    },
+    {
+      "ascii": "(C)Copyright Microsoft Corp 1981-1993.",
+      "file_offset": 8637
+    }
+  ],
+  "scope": "A numbered :def missing from a message source may use the template default; absence alone does not prove a failed build or incorrect target output.",
+  "limitations": [
+    "Does not evaluate conditional compilation, BUILDMSG behavior, all :use references, translations or generated output.",
+    "Version/copyright text is direct target evidence; it does not recover exact historical source wording."
+  ]
+}

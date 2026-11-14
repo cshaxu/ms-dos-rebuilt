@@ -1,0 +1,23 @@
+{
+  "index": 1,
+  "file": "bios/apmequ.inc",
+  "reviewed_sha256": "6ea83b5c2ad1a1bc2f95d9a1b2f84762cb305f589cd06b2c6a9bf37e1aa23258",
+  "decision": "reference-identical; accepted as optional APM declarations",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\bios\\apmequ.inc",
+      "sha256": "6ea83b5c2ad1a1bc2f95d9a1b2f84762cb305f589cd06b2c6a9bf37e1aa23258"
+    },
+    {
+      "path": "O:\\repos.hobby\\ms-dos-rebuilt\\v5.0\\bios\\apmequ.inc",
+      "sha256": "6ea83b5c2ad1a1bc2f95d9a1b2f84762cb305f589cd06b2c6a9bf37e1aa23258"
+    }
+  ],
+  "checks": [
+    "The imported file is byte-identical to the DOS 6.0 and v5.0 references.",
+    "The POWER and PTIME modules compile to 26-byte empty object files in the current selected reference build and their listings do not expand APM_INSTALLCHK_FUNC.",
+    "The file only defines APM interface constants and has no executable statements."
+  ],
+  "limitations": "The current build is a provisional DOS 6.0 reference, not an exact 6.20 build. The optional POWER/APM configuration and original 6.20 source text are not established by this review.",
+  "change": "No source change."
+}

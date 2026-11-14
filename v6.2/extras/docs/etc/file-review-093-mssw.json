@@ -1,0 +1,36 @@
+{
+  "index": 93,
+  "file": "dos/mssw.asm",
+  "reviewed_sha256": "e0490c29ff1a0415385516faeb3172e13b7e3eec546bbf02cce8ae4d752728ab",
+  "decision": "retain reference-identical conditional switches",
+  "references": [
+    {
+      "path": "O:\\repos.hobby\\ms-dos-archaeology\\v6.0\\dos\\mssw.asm",
+      "sha256": "e0490c29ff1a0415385516faeb3172e13b7e3eec546bbf02cce8ae4d752728ab"
+    },
+    {
+      "path": "O:\\repos.external\\astro\\dos\\mssw.asm",
+      "sha256": "e0490c29ff1a0415385516faeb3172e13b7e3eec546bbf02cce8ae4d752728ab"
+    }
+  ],
+  "verification": {
+    "build_report": "extras/docs/etc/kernel-dir-getentry-branch-build.json",
+    "listing": "extras/build/kernel-reference-0_jps7ao/mscode.lst",
+    "observed_switches": {
+      "IBMVER": true,
+      "WANG": false,
+      "HIGHMEM": false,
+      "ESCCH": 0,
+      "CANCEL": 27,
+      "TOGLPRN": true,
+      "ZEROEXT": true
+    }
+  },
+  "checks": [
+    "Source is byte-identical to DOS 6.0 and Astro.",
+    "The file defines assembler switches and emits no standalone bytes. The selected build listing records the IBM branch and listed values.",
+    "Target-module comparisons for included source files have been recorded separately; those comparisons do not prove every conditional path."
+  ],
+  "limitations": "Final target configuration remains subject to full component byte identity; this review does not establish unused branches.",
+  "change": "No source change."
+}

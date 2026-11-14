@@ -1,0 +1,15 @@
+{
+  "index": 190,
+  "path": "inc/dseg.inc",
+  "reviewed_sha256": "e0c21bd6dfe3205e90a3b0afa9a760406468ceaec0f9ee0625fde674f0fa0a5e",
+  "reference_astro_identical": true,
+  "decision": "Exclude the unreferenced absolute BIOS data-area declaration file from the selected core build and retain it under research.",
+  "archive": "extras/research/excluded/inc/dseg.inc",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "The file declares absolute interrupt vector and BIOS data areas.",
+    "No include of dseg.inc was found in the retained BIOS, DOS, COMMAND and include source trees or the frozen selected reference dependency inventory.",
+    "Selected reference build reports do not list this file as an input."
+  ],
+  "limitations": "Exclusion is limited to the selected three-component build and does not establish absence from other DOS or BIOS configurations."
+}

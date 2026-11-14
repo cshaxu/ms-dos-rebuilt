@@ -1,0 +1,19 @@
+{
+  "index": 175,
+  "path": "inc/copyrigh.inc",
+  "reviewed_sha256": "662a03f0834c5e8dd8f8cd6480cfc2b80bbe89ef9ae1cb2beb539e999dada769",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical copyright definitions.",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte, including the original code-page bytes.",
+    "bios/sysinit2.asm, dos/mstable.asm and inc/msgserv.asm include the file.",
+    "The concatenated USA DB strings appear byte for byte once in each target core file."
+  ],
+  "target_usa_string_length": 117,
+  "target_file_offsets": {
+    "IO.SYS": 38265,
+    "MSDOS.SYS": 509,
+    "COMMAND.COM": 50562
+  },
+  "limitations": "Only the USA branch is checked against the specified English target binaries; other language branches and final complete links remain unverified."
+}

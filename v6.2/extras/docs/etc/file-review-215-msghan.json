@@ -1,0 +1,15 @@
+{
+  "index": 215,
+  "path": "inc/msghan.inc",
+  "reviewed_sha256": "f6f2e5626621b289353e9785df39419a8a5355a0240c7705ea4f1115bcc08b0f",
+  "reference_astro_identical": true,
+  "decision": "Exclude the unreferenced utility message-handler definitions from the selected core build and retain them under research.",
+  "archive": "extras/research/excluded/inc/msghan.inc",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "The file describes message descriptors used by external utilities including TREE, GRAFTABL, DISKCOMP and DISKCOPY.",
+    "No include of msghan.inc is found in retained BIOS, DOS, COMMAND and include source trees or the frozen selected dependency inventory.",
+    "The separate msgserv.asm message-service implementation remains in the core tree for its own next ordered review."
+  ],
+  "limitations": "Exclusion applies only to the selected core build; it does not establish that this file is absent or unnecessary when building other DOS utilities."
+}

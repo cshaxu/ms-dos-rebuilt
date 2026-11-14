@@ -1,0 +1,14 @@
+{
+  "index": 184,
+  "path": "inc/dosseg.inc",
+  "reviewed_sha256": "b57bb8fe4cdbd0e215a0fb4c34dd21aff2f300ab6228788a3e3912144f86b0ef",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical DOS segment ordering declarations.",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "It declares DOSCODE, DUM, DOSDATA, DOSDATALAST and DOSGRP, with conditional ROMDOS declarations; many selected DOS sources include it.",
+    "The saved selected kernel map reports DOSDATA size 136Ah (kernel-reference-comparison.json).",
+    "Selected DIR2 and FAT linked contributions match 1413 and 984 target bytes respectively (reviews 054 and 065); MSDATA data comparison still has 29 differing byte positions (review 086)."
+  ],
+  "limitations": "Matching component contributions and reference segment sizes do not establish final segment placement or complete target identity. ROMDOS and SHARE configurations are outside the selected build."
+}

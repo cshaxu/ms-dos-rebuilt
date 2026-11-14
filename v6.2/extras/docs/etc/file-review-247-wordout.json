@@ -1,0 +1,15 @@
+{
+  "index": 247,
+  "path": "inc/wordout.inc",
+  "reviewed_sha256": "af4438e3283677db0141135531da26a023e98817a50dca60cc506b23cbe0753c",
+  "reference_astro_identical": true,
+  "decision": "Exclude the unused diagnostic display routines from the selected core build and retain them under research.",
+  "archive": "extras/research/excluded/inc/wordout.inc",
+  "evidence": [
+    "The file is byte-identical to DOS 6.0 and astro.",
+    "The selected dependency inventory has no wordout.inc include edge.",
+    "HIGHLOAD includes an optional DEBUG_PRTABLE routine with wordout calls; it is disabled in the selected builds and its comment says an explicit include would be needed.",
+    "No definition of DEBUG_PRTABLE or active wordout.inc include was found in retained core sources and tools."
+  ],
+  "limitations": "Exclusion concerns the selected non-debug three-component configuration; optional debugging and other utilities may need this file."
+}

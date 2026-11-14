@@ -1,0 +1,72 @@
+{
+  "index": 152,
+  "path": "cmd/command/tdata.asm",
+  "status": "in_progress",
+  "reference_sha256": "b3f3568bfc63a280ac08283587f951aa837da97adc099c8d90ab1ae13a51f03d",
+  "working_sha256": "eaf0b0fbbeb1b7fe78ce5ecd1b264fc379f1e715674086f7117c72aa559ddd3c",
+  "reference_astro_identical": true,
+  "target_sha256": "9b1d77119ac6fe4f949f574db1445b2848683c3a5aaa2bb09f52d0b538df3541",
+  "changes": [
+    {
+      "description": "Restore eight-character switch_list, including -Y.",
+      "target_offset_hex": "0xc279",
+      "bytes_hex": "2d593f5642415057"
+    },
+    {
+      "description": "Restore COPY help message IDs 1405 through 1407.",
+      "target_offset_hex": "0xbfd3",
+      "values": [
+        1400,
+        1401,
+        1402,
+        1403,
+        1404,
+        1405,
+        1406,
+        1407,
+        0
+      ]
+    },
+    {
+      "description": "Define and export the eight-byte COPYCMD= environment name immediately after TEMP=.",
+      "target_offset_hex": "0xc407",
+      "bytes_hex": "434f5059434d443d"
+    }
+  ],
+  "partial_verification": "Current source assembles with pinned MASM and retained provisional generated message inputs; specified target values and ordering verified.",
+  "later_included_source": {
+    "index": 161,
+    "path": "cmd/command/tranmsg.asm",
+    "outstanding": [
+      "Restore wide DIR message block 51 04 00.",
+      "Restore batch-step prompt and answer blocks 3a 04 00 3b 04 00.",
+      "Align the ten formatting fields identified by OMF comparison."
+    ]
+  },
+  "remaining": [
+    "Assess TDATA-generated TRANCODE message-service area and message-generation dependencies; direct TRANDATA source fields are verified apart from deferred included TRANMSG.",
+    "Verify final messages, external symbol link and three complete target outputs."
+  ],
+  "limitations": "TDATA remains in progress; generated message inputs are provisional and target locations are inferred.",
+  "trandata_omf_verification": {
+    "emitted_bytes": 1831,
+    "omf_relocation_bytes": 384,
+    "matching_non_relocation_bytes": 1437,
+    "non_relocation_differences": 10,
+    "differences_owner": "included cmd/command/tranmsg.asm (index 161), message alignment and width fields",
+    "target_additional_included_bytes": [
+      {
+        "aligned_offset_hex": "0x1de",
+        "hex": "510400",
+        "meaning": "wide DIR message block"
+      },
+      {
+        "aligned_offset_hex": "0x247",
+        "hex": "3a04003b0400",
+        "meaning": "batch step prompt and localized answer messages"
+      }
+    ],
+    "verifier": "extras/tools/verify_tdata_omf.py",
+    "limitations": "Alignment and target DATA base inferred; generated message include remains provisional and relocations not validated by final link."
+  }
+}

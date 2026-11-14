@@ -1,0 +1,18 @@
+{
+  "index": 135,
+  "path": "cmd/command/path1.asm",
+  "reference_sha256": "eb2126371c40ddd0e13fd28da8f0dd3cc652d5c1b69d52ab1481641ffea04826",
+  "reviewed_sha256": "eb2126371c40ddd0e13fd28da8f0dd3cc652d5c1b69d52ab1481641ffea04826",
+  "reference_astro_identical": true,
+  "decision": "Retain reference-identical source; assembled module matches target outside relocation fields.",
+  "target": "extras/baselines/targets/COMMAND.COM",
+  "target_sha256": "9b1d77119ac6fe4f949f574db1445b2848683c3a5aaa2bb09f52d0b538df3541",
+  "inferred_target_offset_hex": "0x5e41",
+  "module_length": 504,
+  "listing_coverage": 504,
+  "non_relocation_bytes_matching": 396,
+  "relocation_bytes": 108,
+  "internal_near_branches_matching": 6,
+  "verifier": "extras/tools/verify_path1_listing.py",
+  "limitations": "Target range is inferred from linkage and byte alignment; relocation values and complete COMMAND.COM identity require final linking."
+}

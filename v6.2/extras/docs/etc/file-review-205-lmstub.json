@@ -1,0 +1,32 @@
+{
+  "index": 205,
+  "path": "inc/lmstub.asm",
+  "reviewed_sha256": "a0783d6f103220cbc6eff5ae371fbc9316e53b1e99ff74e4afc418496d4012f8",
+  "reference_astro_identical": true,
+  "decision": "Retain the DOS 6.0-identical low-memory stub for DOS running in HMA.",
+  "evidence": [
+    "The source matches DOS 6.0 and astro byte for byte.",
+    "Selected DOS MSDATA includes lmstub.asm.",
+    "The saved msdata.lst places this contribution at DOSDATA offsets 1061h\u20131361h, followed by mpatch.asm.",
+    "Of 769 bytes compared at the aligned target file range, ten differ; all are in DOSINTTABLE external DOSCODE address words marked relocatable in the listing."
+  ],
+  "comparison": {
+    "build": "extras/build/kernel-reference-0_jps7ao/MSDOS.SYS",
+    "target": "extras/baselines/targets/MSDOS.SYS",
+    "target_file_offset": 37361,
+    "length": 769,
+    "differing_data_offsets": [
+      4194,
+      4198,
+      4202,
+      4203,
+      4206,
+      4210,
+      4214,
+      4218,
+      4222,
+      4226
+    ]
+  },
+  "limitations": "Relocation classification does not prove final pointer values. Some uninitialized bytes depend on the linker and are compared only as existing output. Final segment layout and complete MSDOS.SYS identity remain unverified."
+}
