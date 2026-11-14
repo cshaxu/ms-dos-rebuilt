@@ -60,3 +60,5 @@ P17 removes the two obsolete BOOTDELAY writes from the initial menu scan in SI2F
 P18 restores WINVER acceptance, leaves the obsolete BOOTDELAY option as a no-op, and aligns the existing startup stack entry. It initializes the optional registry query type output through the inherited RegQueryValueEx. The 14-byte startup block matches at its exact FE image address. The isolated configuration link matches the 250-byte query block apart from two address operand bytes. Stage cmd-23961-25591 builds all three images; IO.SYS remains open.
 
 P19 removes unused BOOTDELAY storage and the default SETVER driver entry, and restores JO.SYS in the existing earlier-system filename table. The linked filename starts at target offset A752h. Stage cmd-25290-9280 builds all three files; COMMAND.COM and MSDOS.SYS match in full. IO.SYS remains open.
+
+P20 restores FE restart menu selection and the extended DPB check on the boot volume. Stage cmd-26041-23814 matches the 37-byte FAT32 check exactly at BD4Ch, restores the BIOS message marker at 72799 and the boot logo at 122928, and verifies COMMAND.COM and MSDOS.SYS in full. IO.SYS remains open.

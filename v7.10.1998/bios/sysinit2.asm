@@ -1899,10 +1899,17 @@ boot_previous_check_runtime:
 	jz      short boot_previous_select_title
 	jmp     boot_previous_done
 boot_previous_select_title:
-	mov     di,offset sysinit_msg_base
-	add     di,word ptr [sysinit_msg_table+82]
 	cmp     byte ptr [boot_previous_status],0dh
 	jne     short boot_previous_check_host
+boot_previous_resume:
+	mov     di,offset sysinit_msg_base
+	add     di,word ptr [sysinit_msg_table+82]
+	mov     byte ptr [boot_previous_menu],6
+	cmp     byte ptr [exec_value],'0'
+	je      short boot_previous_resume_nonetwork
+	jmp     boot_previous_show_menu
+boot_previous_resume_nonetwork:
+	dec     byte ptr [boot_previous_menu]
 	jmp     boot_previous_show_menu
 boot_previous_check_host:
 	cmp     byte ptr [boot_previous_status],1
@@ -1958,7 +1965,8 @@ boot_previous_check_windows_drive:
 	pop     cx
 	pop     di
 	pop     es
-	jnc     short boot_previous_show_menu
+	jc      short boot_previous_restart_file
+	jmp     boot_previous_resume
 boot_previous_restart_file:
 	mov     si,offset boot_restart_status
 	mov     di,offset boot_device_scratch
@@ -1976,6 +1984,8 @@ boot_previous_restart_file:
 	jc      short boot_previous_done
 	mov     ah,unlink
 	int     21h
+	cmp     byte ptr [boot_previous_status],2
+	je      short boot_previous_done
 	mov     di,offset sysinit_msg_base
 	add     di,word ptr [sysinit_msg_table+86]
 boot_previous_show_menu:
@@ -2555,6 +2565,19 @@ boot_check_double_buffer:
 	mov     byte ptr [boot_driver_entry1],0dh
 	mov     byte ptr [boot_driver_entry2],0dh
 boot_paths_end:
+	test    byte ptr [boot_runtime_flags],80h
+	jnz     short boot_paths_return
+	mov     ax,3305h               ; Get boot drive.
+	int     21h
+	mov     di,offset boot_drive_dpb
+	mov     cx,size boot_drive_dpb
+	mov     ax,7302h               ; Read the extended DPB.
+	int     21h
+	jc      short boot_paths_return
+	cmp     word ptr [di+11h],0    ; FAT32 has no fixed root directory sector.
+	jne     short boot_paths_return
+	or      byte ptr [boot_runtime_flags],80h
+boot_paths_return:
 	ret
 boot_prepare_paths endp
 	assume  ds:nothing,es:nothing
