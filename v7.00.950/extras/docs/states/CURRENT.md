@@ -56,10 +56,10 @@ IO.SYS, MSDOS.SYS and COMMAND.COM all equal. This is an existing-asset check,
 not a claim that a new build has run. The accepted six-byte MSDOS.SYS config
 remains the target; other media provenance does not silently change it.
 
-## Current prefix: 287/293
+## Current prefix: 293/293
 
-Modified source/build files 117, exact 90, necessary unchanged 43,
-no same-name reference unchanged 37. Next: 288, lang/usa/messages/biosmsg.inc. Tooling modified
+Modified source/build files 117, exact 90, necessary unchanged 47,
+no same-name reference unchanged 39. Next: clean production build and completion audit. Tooling modified
 1 (ioimage.c case-insensitive map symbol lookup), outside source count.
 See etc/T25/part1.md. BIOSTAIL.OBJ is unchanged; all compiler/link phases ran,
 then packaging failure was diagnosed and repaired. Fresh three-output FC/B
@@ -561,3 +561,7 @@ Next: 267 inc/ms_data.asm. Final full build pending.
 P92 accepts 267-287. MSDATA rebuilt for the MS_DATA comment change.
 Fourteen files are reference-exact and six retain necessary differences.
 Next: 288 lang/usa/messages/biosmsg.inc. Final full build pending.
+
+P93 accepts 288-293. Four message sources retain target data differences
+and two resource includes have no same-name supplier. See part93.md.
+Final full build pending.
