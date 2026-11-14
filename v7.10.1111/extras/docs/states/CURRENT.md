@@ -1,37 +1,28 @@
-# Owner priority change: DOS 5 audit
-
-The owner admitted M6 T21 for v5.0. T20 S4 is deferred, not closed;
-no active S remains in v7.10.1111. Its P1 byte-exact result remains valid.
-The prior packet below is retained as a deferred handoff record; references
-to active work in that packet no longer describe the current priority.
-
----
-
-# M6 T20 - Registry reduction follow-up
-
-The byte-exact reconstruction S1/S2/S3 remains verified. The owner reopened
-source reduction against v7.00.950; this follow-up is not yet closed.
-
-## M6 T20 S4 Packet
+# M6 T26 S1 - Audit v7.10.1111 against v7.00.950
 
 | Field | Required record |
 | --- | --- |
-| Identifier Mode | Owner-Reopen |
-| Admission And Approval | Owner explicitly requested actual registry simplification, integration and all-three byte verification. |
-| Objective | Reduce unnecessary implementation differences against 950 without altering 1111 outputs. |
-| Non-goals | No formatting-only sweep, output patches, new second paths or other-version source references. |
-| Reference Baseline | v7.00.950 and frozen 1111 targets. |
-| Candidate Proposal | P1 implemented and verified; broader procedure reuse analysis remains active. |
-| Files And ABI Surface | P1: bios/regread.asm; four instruction expressions in three existing procedures; ABI unchanged. |
-| Applicable Rules | CODING.md; EXECUTION.md; owner requires Microsoft structure/style, CMD/BAT/C only and isolated execution. |
-| Verification | Clean build cmd-14133-21559 returned zero; IO.SYS, MSDOS.SYS and COMMAND.COM MATCH; input snapshots match. |
-| Expected Markers | All-three MATCH and publication PASS. |
-| Asset Needs | Verified outputs published to extras/assets. |
-| Reporting Requirements | P1 changes one source file; zero newly identical files. Whole core: 174 identical to 950, 116 modified, one added, three removed. |
-| Stop Conditions | Reject any simplification that changes target bytes or introduces a second implementation. |
-| Exit Criteria | Each retained source change has integrated build evidence; broader registry reduction needs a separate completion assessment. |
-| Original Owner Request | Simplify registry against the original 950 implementation, integrate actual changes and verify all three outputs. |
-| Similar-Issue Sweep | Examined explicit operand-size encodings in regstart/regopen/regfind/regread and configio; retain ES cases whose ordinary MASM encoding changes prefix order. |
+| Identifier Mode | New |
+| Admission And Approval | Owner admitted a new T using only v7.00.950 as the audit baseline. |
+| Objective | Remove avoidable 1111 differences in the original source paths and restore 950 structure, style and comments wherever the 1111 target permits. |
+| Non-goals | Other DOS versions as evidence, parallel implementations, output patches, and guest execution. |
+| Reference Baseline | 950 source and binary reference at `a99af370ce0432c0f0bca04c271c97c70b09a7e3`; 1111 source before edits at `db7ee2e`; byte acceptance from [frozen 1111 media](../etc/target-baseline.json). |
+| Candidate Proposal | Read files in the frozen order. Accept exact files by byte comparison. For differences, trace edited code and data to corresponding linked regions; retain only changes with evidence. |
+| Files And ABI Surface | Core source in bios, cmd, dos, inc, lang. Record each exact, reduced, retained, added or absent path. Keep demonstrated 1111 layout, interfaces and behavior. |
+| Applicable Rules | [Coding](../rules/CODING.md), [execution](../rules/EXECUTION.md). Use inherited build tools and CMD/BAT/C build support. |
+| Verification | For each assembler-affecting edit, build the affected component and directly compare its outputs. Review comment and formatting changes against emitted source statements. Clean builds verify all three products at delivery and closure. |
+| Expected Markers | IO.SYS, MSDOS.SYS and COMMAND.COM show MATCH; input snapshot and publication pass. |
+| Asset Needs | Verified binaries in extras/assets; frozen inputs remain in extras/baselines/targets. |
+| Reporting Requirements | Report the current ordinal, files modified by this audit, files byte-identical to 950 and retained differences. Commit and push each verified P. |
+| Stop Conditions | Reject edits that change frozen 1111 bytes or create another implementation of an existing path. |
+| Exit Criteria | All 294 paths have a justified disposition, all three products match the targets, and the last P is pushed. |
+| Original Owner Request | Use only v7.00.950 to audit and reduce v7.10.1111 differences in binary-corresponding source, code style and structure. |
+| Similar-Issue Sweep | During each file review, check adjacent declarations, alternate entry points, duplicate implementations and equivalent statement forms. |
 
-P1 evidence: [registry reduction](../tracking/registry-reduction-2026-11-13.md).
-Prior reconstruction closure: [T20-CLOSURE.md](../T20-CLOSURE.md).
+The inventory was frozen with `dir /a /b /s bios cmd dos inc lang` in each version root, filtering directory entries. The three 950-only entries were inserted at their 950 positions relative to common paths. Of 291 files present in 1111, 126 initially matched 950, 164 differed and one was added. See [ordered inventory](../etc/T26/inventory.csv), [reviewed files](../etc/T26/reviewed.csv) and [baseline evidence](../etc/T26/baseline.md).
+
+T20 S4 is archived [here](../history/T20-S4.md). Its verified registry work is part of the production baseline.
+
+P2 reviewed ordinals 1–13. Three source files were edited, two now match 950, six were already exact, and five still differ. Continue with ordinal 14.
+
+[Verified P2 build](../etc/T26/P2.md).

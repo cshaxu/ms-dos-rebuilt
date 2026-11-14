@@ -1,8 +1,8 @@
-;** CFGMATCH.ASM - Output, mapping table and two identifiers. Collect up to nine matching profile IDs.
+;** CFGMATCH.ASM - Collect matching configuration profile IDs.
 ;
-; FAR C entry: Output, mapping table and two identifiers. Collect up to nine matching profile IDs.
-; Preserve profile bounds and original data segment restoration.
-; Local instruction flow follows the target; final layout is linked.
+; FAR C arguments: output buffer, mapping table and two DWORD identifiers.
+; Stores up to nine profile IDs, their count and a multiple-match flag.
+; Returns DX:AX = 0 and restores DS from SS.
 ;
 _DATA segment word public 'DATA'
 ; No private data dependencies.

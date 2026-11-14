@@ -1,0 +1,14 @@
+ordinal,path,disposition,verification
+1,bios/apmequ.inc,exact,Byte comparison with frozen 950
+2,bios/biosmsg.asm,retained,MPAD record increases from 396 to 576 bytes in the frozen IO.SYS images; REPT changes from 99 to 144
+3,bios/biosseg.inc,exact,Byte comparison with frozen 950
+4,bios/biostail.asm,reduced-to-exact,Restored 950 boot log return contract comments; assembler statements unchanged
+5,bios/biostruc.inc,exact,Byte comparison with frozen 950
+6,bios/cfgdata.asm,retained,Removed 950 common registry storage is absent from the 1111 link map and active module list
+7,bios/cfginit.asm,retained,1111 link map includes the eighth argument and the emitted GetDevParmsIoctl string; old RegSaveName symbol is absent
+8,bios/cfgioctl.asm,exact,Byte comparison with frozen 950
+9,bios/cfgline.asm,exact,Byte comparison with frozen 950
+10,bios/cfgmain.asm,retained,Eight argument limit and RegInitialize plus RegMountRoot flow correspond to the 1111 linked configuration
+11,bios/cfgmatch.asm,reduced-to-exact,Restored 950 procedure contract comments; assembler statements unchanged
+12,bios/cfgmem.asm,reduced,Restored 950 surviving procedure documentation and declaration style; kept byte segment alignment and omitted realloc entry as in the 1111 link map
+13,bios/cfgmenu.asm,exact,Byte comparison with frozen 950

@@ -1,10 +1,7 @@
-# MS-DOS 7.10.1111 reconstruction
+# MS-DOS 7.10.1111
 
-M6 T20 is active. This is a complete source tree seeded from audited v7.00.950,
-not an overlay. DOS 7.10.1111 executable restoration is not yet complete.
+The complete core source tree builds the three Dell OSR2 boot-disk targets byte for byte. M6 T26 audits the source against v7.00.950.
 
-Build entry: `extras\build.cmd`. It prints progress, pauses for review, and
-publishes to `extras/assets` only when all three outputs match the pinned Dell
-OSR2 boot-disk targets. The initial 950 source seed does not meet that test.
+Run `extras\build.cmd` to build, verify and publish to `extras/assets`. The build prints progress and pauses for review.
 
-See [plan](extras/docs/design/PLAN.md) and [current status](extras/docs/states/CURRENT.md).
+See [current status](extras/docs/states/CURRENT.md) and [target provenance](extras/docs/etc/target-baseline.json).

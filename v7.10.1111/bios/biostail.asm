@@ -35,8 +35,9 @@ bootlog_extra	db	'(Logo disabled)',13,10
 
 	assume	ds:Bios_Code
 
-; Open the boot log when logging is enabled.  The multiple-call interface
-; returns zero for success, or FFFFh when no usable log handle is available.
+; Open the boot log when logging is enabled.
+; Returns AX = 0 when the handle is ready, or FFFFh when logging is disabled.
+; Open errors return the DOS error code with carry set.
 	public	mult_call16
 mult_call16	proc	near
 	push	ds

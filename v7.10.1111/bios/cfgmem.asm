@@ -1,11 +1,15 @@
-;** CFGMEM.ASM - Configuration DOS memory services
+;** CFGMEM.ASM - Configuration program DOS memory services
 ;
-; FAR C entries; caller removes arguments.
+; FAR C entries; arguments follow the saved return address at BP+6.
+; ConfigAlloc takes a DWORD byte count and returns a paragraph-aligned
+; pointer in DX:AX, or zero on failure. ConfigFree takes a FAR pointer.
 ;
-REGIO segment byte public 'CODE'
+
+REGIO	segment	byte public 'CODE'
 	.386
-	assume cs:REGIO
-	public ConfigAlloc
+	assume	cs:REGIO
+	public	ConfigAlloc,ConfigFree
+
 ConfigAlloc	proc	far
 ca_alloc	label	near
 	enter	0,0
@@ -48,7 +52,7 @@ ca_exit:
 	leave
 	ret
 ConfigAlloc	endp
-	public ConfigFree
+
 ConfigFree	proc	far
 	enter	0,0
 	push	bx
@@ -65,5 +69,5 @@ cf_exit:
 	leave
 	ret
 ConfigFree	endp
-REGIO ends
+REGIO	ends
 	end
