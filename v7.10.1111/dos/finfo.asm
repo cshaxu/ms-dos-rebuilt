@@ -238,7 +238,7 @@ LOCAL_SET:
 	EnterCrit   critDisk
 	PUSH	AX			; Save new attributes
 	MOV	[NoSetDir],1		; if we find a dir, don't change to it
-	invoke	GetPath		; Find directory entry
+	invoke	GetPath 		; get path through fastopen if there	 ;AC000;
 	JNC	set_check_device
 	POP	BX			; Clean stack (don't zap AX)
 	JMP	NO_PATH

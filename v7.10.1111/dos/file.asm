@@ -219,7 +219,7 @@ DoOper:
 	RESTORE <CX>
 	LDS	SI,ThisSFT
 	ASSUME	DS:NOTHING
-	JC	OpenE			;AN000;FT. chek extended open hooks first
+	JC	OpenE			; release the SFT on open failure
 
 ;	The SFT was successfully opened.  Remove busy mark.
 
@@ -232,7 +232,12 @@ OpenOK:
 	mov	di,si
 	invoke	SaveDirSft
 
-; Return the handle for the newly opened SFT.
+; If the open mode is 70, we scan the system for other SFT's with the same
+; contents.  If we find one, then we can 'collapse' thissft onto the already
+; opened one.  Otherwise we use this new one.  We compare uid/pid/mode/mft
+;
+; Since this is only relevant on sharer systems, we stick this code into the
+; sharer.
 
 	MOV	AX,JFN						;smr;SS Override
 	CLC
@@ -336,7 +341,7 @@ ChModGet:
 	assume	DS:NOTHING		;smr;PBUGBUG
 	MOV	[SI.User_CX],AX 	; return the attributes
 ChModReturn:
-	JMP         Sys_Ret_OK		; return attributes
+	JMP	Sys_Ret_OK		; return attributes
 ChModSet:
 	MOV	AX,CX			; get attrs in position
 	invoke	Set_File_Attribute	; go set
@@ -459,7 +464,7 @@ dorn:					   ;AN000;
 	JC	UnlinkE 		; errors
 
 
-	JMP    Sys_Ret_OK
+	JMP	Sys_Ret_OK
 EndProc $Rename
 
 Break <$CreateNewFile - Create a new directory entry>
@@ -621,18 +626,18 @@ ASSUME	DS:NOTHING
 ; The operation failed and the error has been mapped in AX.  Grab the extended
 ; error and figure out what to do.
 ;
-        MOV     AX,ExtErr               ; use the original extended error
-        CMP     AL,error_file_exists
-        JZ      CreateLoop
-        CMP     AL,error_access_denied
-        JNZ     SETTMPERR
-        LDS     DX,FilPtr
-        XOR     AL,AL                   ; query the conflicting name
-        PUSH    BP
-        CALL    $CHMOD
-        POP     BP
-        JNC     CreateLoop              ; existing file: choose another name
-        MOV     AL,error_access_denied
+	MOV     AX,ExtErr               ; use the original extended error
+	CMP     AL,error_file_exists
+	JZ      CreateLoop
+	CMP     AL,error_access_denied
+	JNZ     SETTMPERR
+	LDS     DX,FilPtr
+	XOR     AL,AL                   ; query the conflicting name
+	PUSH    BP
+	CALL    $CHMOD
+	POP     BP
+	JNC     CreateLoop              ; existing file: choose another name
+	MOV     AL,error_access_denied
 
 SETTMPERR:
 	STC

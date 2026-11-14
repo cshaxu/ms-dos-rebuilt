@@ -140,9 +140,6 @@ endif
 ; ------------------------------------------------<MSKK01>----------------------
 
 ;
-; file char list
-;
-;
 ; collate table
 ;
 COLLATE_TAB    label   byte
@@ -434,6 +431,9 @@ MSVERSION	LABEL BYTE
 	I_am    YRTAB,8,<200,166,200,165,200,165,200,165>   
 	I_am    MONTAB,12,<31,28,31,30,31,30,31,31,30,31,30,31> 
 
+;
+; file char list
+;
 FILE_CHAR_TAB  label  byte
 		dw	22				; length
 		db	1,0,255 			; include all
@@ -494,7 +494,8 @@ L_RET:	RET
 EndProc MAP_CASE
 
 
-;
+; Dir_Info_Buff is a dir entry buffer which is filled by FastOPen
+; when calling FastOpen Lookup
 
 	PUBLIC  Dir_Info_Buff
 
@@ -581,7 +582,7 @@ ENDIF
 ; MARK2 SHOULD NOT BE >= 0DDBH. IF SOME VARIABLE IS TO BE ADDED ABOVE DO SO
 ; WITHOUT VIOLATING THIS AND UPDATE THE FOLL. LINE
 ;
-; CURRENTLY MARK2 = 0DD4H
+; CURRENTLY MARK2 = 0DD0H
 ;
 ;##########################################################################
 
@@ -754,16 +755,16 @@ Instance_Table	dw	offset dosdata:contpos, -1, 2
 		dw	offset dosdata:bcon, -1, 4
 		dw	offset dosdata:carpos, -1, 106h
 		dw	offset dosdata:charco, -1, 1
-		dw	offset dosdata:exec_init_sp, -1, 34
-		dw	offset dosdata:umbflag, -1, 1
-		dw	offset dosdata:umb_head, -1, 2
+		dw	offset dosdata:exec_init_sp, -1, 34      ; M074
+		dw	offset dosdata:umbflag, -1, 1		; M019
+		dw	offset dosdata:umb_head, -1, 2		; M019
 		dw	offset dosdata:DOS_FLAG, -1, 1
 		dw	offset dosdata:DosCallDepth, -1, 1
 		dw	offset dosdata:DeviceCallDepth, -1, 1
 		dw	5 dup (0)
 
-public Instance_Table2
-Instance_Table2 dw	0, -1, 0cch
+public	Instance_Table2
+Instance_Table2	dw	0, -1, 0cch
 		dw	offset dosdata:carpos, -1, 114dh
 		dw	0, 0
 

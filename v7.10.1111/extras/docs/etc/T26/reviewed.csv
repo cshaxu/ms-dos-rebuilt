@@ -162,3 +162,22 @@ ordinal,path,disposition,verification
 161,dos/disk3.asm,retained,The target write arithmetic uses 32-bit cluster positions and explicit carry and interrupt handling
 162,dos/diskio.asm,reduced,Restored module contract and removed unreferenced device declarations; kept target directory and FAT32 sector reads
 163,dos/diskset.asm,reduced,Restored setup procedure contract and removed unrelated externs; kept target 32-bit seek and FAT32 bounds
+164,dos/divmes.inc,exact,Byte comparison with frozen 950
+165,dos/dosmes.inc,exact,Byte comparison with frozen 950
+166,dos/dosprint.asm,exact,Byte comparison with frozen 950
+167,dos/dostab.asm,reduced,Restored common table comments; retained the target case-map dispatch changes
+168,dos/dup.asm,exact,Byte comparison with frozen 950
+169,dos/exechot.asm,reduced-to-exact,Removed unused unpack definitions and restored the execution and Rational 386 patch module
+170,dos/exepatch.asm,reduced,Removed unused declarations copied from EXECHOT; retained the target PUSHA and POPA
+171,dos/fat.asm,retained,FAT32 lookup writeback and cluster chaining use extended entry and sector state
+172,dos/fcb.asm,retained,The target emits an immediate four-bit character type shift
+173,dos/fcbio.asm,retained,The target FCB file-length computation uses 32-bit position and FAT32 sector state
+174,dos/fcbio2.asm,retained,The target uses 32-bit record offset multiplication and extended DPB data
+175,dos/file.asm,reduced,Restored inherited file-open comments; retained target sharing and open mode behavior
+176,dos/finfo.asm,reduced,Restored the inherited error path annotation; retained direct GetPath and absent FASTOPEN updates
+177,dos/getset.asm,reduced,Restored common get/set instructions and declarations; retained expanded space queries and internal calls
+178,dos/handle.asm,reduced,Restored common handle-path formatting; retained target buffer align and handle processing
+179,dos/idle.asm,reduced-to-exact,Restored IDLE module source and removed unrelated MISC2 includes and declarations
+180,dos/ioctl.asm,reduced,Restored common IOCTL formatter and comments; retained shared error stubs and target categories
+181,dos/isearch.asm,reduced,Restored common search formatting; kept dword directory start and target search state
+182,dos/kstrin.asm,exact,Byte comparison with frozen 950

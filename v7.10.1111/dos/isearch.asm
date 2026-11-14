@@ -84,8 +84,8 @@ DOSCODE	SEGMENT
 ;	    11 byte search name with Meta chars in it
 ;	    Search Attribute Byte, attribute of search
 ;	    WORD LastEnt value
-;	    DWORD DirStart
-;	    2 byte pad
+;	    WORD DirStart
+;	    4 byte pad
 ;	    32 bytes of the directory entry found
 ;	NET
 ;	    21 bytes First byte has high bit set
