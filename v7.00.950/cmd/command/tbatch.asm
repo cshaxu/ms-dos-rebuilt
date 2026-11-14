@@ -71,8 +71,10 @@ TRANSPACE	SEGMENT PUBLIC BYTE	;AC000;
 	EXTRN	bwdbuf:byte		;AN022;
 	EXTRN	BYTCNT:WORD
 	EXTRN	EnvCaseMode:BYTE
-	EXTRN	ComBufPtr:WORD, CmdBufferLength:WORD
-	EXTRN	ForTokenFound:BYTE, ForVariable:BYTE
+	EXTRN	ComBufPtr:WORD
+	EXTRN	CmdBufferLength:WORD
+	EXTRN	ForTokenFound:BYTE
+	EXTRN	ForVariable:BYTE
 	EXTRN	EXECPATH:BYTE
 	EXTRN	ID:BYTE
 	EXTRN	RCH_ADDR:DWORD
@@ -245,6 +247,11 @@ ASSUME	DS:RESGROUP,ES:TRANGROUP
 	TEST	[Batch_Abort],-1
 	JNZ	SHORT Trying_To_Abort
 	MOV	[In_Batch],1
+; We check here if we have set the flag indicating that the batchfile is at
+;EOF. In this case, we do not want to continue with the normal processing.
+;We call GetBatByt once more so that the batch segment gets freed up, the
+;batch file gets closed etc. and then return as if everything is done.
+;
 	PUSH	DS
 	MOV	DS,[BATCH]
 ASSUME	DS:NOTHING
@@ -268,10 +275,14 @@ TESTNOP:
 	MOV	DS,[BATCH]
 ASSUME	DS:NOTHING
 	PUSH	WORD PTR DS:[BatSeek]
-	PUSH	WORD PTR DS:[BatSeek+2]
+	PUSH	WORD PTR DS:[BatSeek+2] 	; save current location.
 	MOV	DS,AX
 ASSUME	DS:RESGROUP
 	INVOKE	SkipDelim
+;
+; If the first non-delimiter is not a :  (label), we reseek back to the
+; beginning and read the line.
+;
 	CMP	AL,':'
 	POP	CX
 	POP	DX
@@ -286,15 +297,20 @@ SET_BAT_POS:
 	PUSH	DS
 	MOV	DS,[BATCH]
 ASSUME	DS:NOTHING
-	MOV	WORD PTR DS:[BatSeek],DX
+	MOV	WORD PTR DS:[BatSeek],DX	; reseek back to beginning
 	MOV	WORD PTR DS:[BatSeek+2],CX
 	POP	DS
 ASSUME	DS:RESGROUP
-	MOV	AX,LSEEK SHL 8
+	MOV	AX,(LSEEK SHL 8) + 0		; seek back
 	INT	21H
 	MOV	ES:[BatBufPos],-1
 	XOR	CX,CX
 	JMP	SHORT RDBAT
+;
+; The first non-delimiter is a :.  This line is not echoed and is ignored.
+; We eat characters until a CR is seen.
+;
+
 NOPLINE:
 	CALL	SkipToEOL
 	INVOKE	GetBatByt
@@ -320,6 +336,11 @@ SAVBATBYT:
 	STOSB
 	CMP	AL,13
 	JNZ	SHORT RDBAT
+;
+; We have read in an entire line.  Decide whether we should echo the command
+; line or not.
+;
+
 Found_EOL:
 	SUB	DI,ES:[ComBufPtr]
 	DEC	DI
@@ -361,6 +382,9 @@ ASSUME	DS:TRANGROUP
 	RET
 BatchLongPair:
 	DEC	CX
+;
+; The line was too long.  Eat remainder of input text up until the CR
+;
 TooLong:
 ASSUME	DS:RESGROUP
 	CMP	AL,13
@@ -686,22 +710,22 @@ ASSUME DS:TRANGROUP,ES:RESGROUP
 ;
 ; Attempt to align TPA on 64K boundary
 ;
-        POP     BX                      ; Restore size of block
-        PUSH    ES
-        PUSH    BX
-        MOV     BX,41H                  ; reserve a small block temporarily
-        MOV     ES,AX
-        MOV     AH,SetBlock
-        INT     21H
-        POP     BX
-        SUB     BX,42H
-        MOV     AH,ALLOC
-        INT     21H
-        PUSH    AX
-        MOV     AH,DEALLOC
-        INT     21H
-        POP     AX
-        POP     ES
+	POP	BX				; Restore size of block
+	PUSH	ES
+	PUSH	BX
+	MOV	BX,41H                  ; reserve a small block temporarily
+	MOV	ES,AX
+	MOV	AH,SetBlock
+	INT	21H
+	POP	BX
+	SUB	BX,42H
+	MOV	AH,ALLOC
+	INT	21H
+	PUSH	AX
+	MOV	AH,DEALLOC
+	INT	21H
+	POP	AX
+	POP	ES
 	MOV	[RES_TPA], AX			; Save segment to beginning of block
 	MOV	[TRAN_TPA], AX
 ;
@@ -1057,8 +1081,8 @@ EACHPARM:
 	PUSH	BX
 	JMP	MOVPARM
 StoreBatchArgument:
-	MOV	ES:[BX],DI
-	ADD	BX,2
+	MOV	ES:[BX],DI			; store batch pointer
+	ADD	BX,2				; advance arg counter
 	PUSH	BX
 	XOR	BX,BX
 MOVPARM:
@@ -1073,6 +1097,11 @@ BatchArgumentDelim:
 	CMP	AL,13
 	JZ	SHORT LastBatchArgument
 	JMP	SHORT MOVPARM
+;
+; We have copied a parameter up until the first separator.  Terminate it with
+; CR
+;
+
 ENDPARM:
 	POP	BX
 	MOV	AL,13

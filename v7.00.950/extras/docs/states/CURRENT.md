@@ -56,10 +56,10 @@ IO.SYS, MSDOS.SYS and COMMAND.COM all equal. This is an existing-asset check,
 not a claim that a new build has run. The accepted six-byte MSDOS.SYS config
 remains the target; other media provenance does not silently change it.
 
-## Current prefix: 122/293
+## Current prefix: 123/293
 
-Modified source/build files 52, exact 21, necessary unchanged 13,
-no same-name reference unchanged 36. Next: 123, cmd/command/tbatch.asm. Tooling modified
+Modified source/build files 53, exact 21, necessary unchanged 13,
+no same-name reference unchanged 36. Next: 124, cmd/command/tbatch2.asm. Tooling modified
 1 (ioimage.c case-insensitive map symbol lookup), outside source count.
 See etc/T25/part1.md. BIOSTAIL.OBJ is unchanged; all compiler/link phases ran,
 then packaging failure was diagnosed and repaired. Fresh three-output FC/B
@@ -226,4 +226,9 @@ extras/build/t25-rucode-13899-32129; see part30.md.
 File 122 retains required STUB relocation, A20 alias check, additional resident
 entry pointers and pre-EXEC message checksum. Complete diff/caller review found
 no safe unnecessary change; no edit or redundant build. See part31.md.
-Next: 123 tbatch.asm. Full automatic final build remains pending.
+File 123 restores TBATCH's inherited EOF/label/echo/overflow/argument comments,
+declaration and allocation-block formatting, and seek expression. Shared percent
+expansion and required dynamic-buffer/path/notification behavior remain intact.
+COMMAND rebuild/repack and all target/input checks pass;
+extras/build/t25-tbatch-15022-26797; see part32.md.
+Next: 124 tbatch2.asm. Full automatic final build remains pending.
