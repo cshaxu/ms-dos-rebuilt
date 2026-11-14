@@ -17,11 +17,6 @@
 ;	DEVIOCALL2
 ;	DEV_OPEN_SFT
 ;	DEV_CLOSE_SFT
-;	RW_SC
-;	IN_SC
-;	INVALIDATE_SC
-;	VIRREAD
-;	SC2BUF
 ;
 ;	Revision history:
 ;
@@ -39,7 +34,7 @@
 	.cref
 	.list
 
-        i_need  DeviceCallDepth,BYTE
+	i_need	DeviceCallDepth,BYTE
 	i_need	IOXAD,DWORD
 	i_need	IOSCNT,WORD
 	i_need	DEVIOBUF,4
@@ -58,14 +53,9 @@
 	i_need	HIGH_SECTOR,WORD	       ;AN000;
 	i_need	CALLSSEC,WORD		       ;AN000;
 	i_need	CALLNEWSC,DWORD 	       ;AN000;
-	i_need	SC_CACHE_COUNT,WORD	       ;AN000;
-	i_need	SC_CACHE_PTR,DWORD	       ;AN000;
-	i_need	TEMP_VAR,WORD		       ;AN000;
-	i_need	TEMP_VAR2,WORD		       ;AN000;
 	i_need	InterChar,BYTE	;AN000; interim character flag 2/13/KK
 	i_need	InterCon,BYTE	;AN000; Console mode flag(1:interim mode) 2/13/KK
 	i_need	SaveCurFlg,BYTE ;AN000; Console out mode(1:print & don't adv cursor) 2 /13/KK
-	i_need	DDMOVE,BYTE	;AN000; flag for DWORD move
 	i_need	DOS34_FLAG,WORD ;AN000;
 	i_need	fshare,BYTE	;AN010; share flag
 
@@ -73,15 +63,23 @@
 
 
 DOSCODE	Segment
-        EXTRN RW_SC:NEAR,VIRREAD:NEAR
-        EXTRN EcritDevice:NEAR,LcritDevice:NEAR
-        EXTRN EcritConsole:NEAR,LcritConsole:NEAR
+	EXTRN	RW_SC:NEAR
+	EXTRN	VIRREAD:NEAR
+	EXTRN	EcritDevice:NEAR
+	EXTRN	LcritDevice:NEAR
+	EXTRN	EcritConsole:NEAR
+	EXTRN	LcritConsole:NEAR
 
 	ASSUME	CS:DOSCODE
 
 ; Secondary-cache state is resident with the device code in DOS 7.
-        PUBLIC SEQ_SECTOR,SC_SECTOR_SIZE,SC_DRIVE,CURSC_DRIVE
-        PUBLIC CURSC_SECTOR,SC_STATUS,SC_FLAG
+	PUBLIC	SEQ_SECTOR
+	PUBLIC	SC_SECTOR_SIZE
+	PUBLIC	SC_DRIVE
+	PUBLIC	CURSC_DRIVE
+	PUBLIC	CURSC_SECTOR
+	PUBLIC	SC_STATUS
+	PUBLIC	SC_FLAG
 SEQ_SECTOR      dd -1
 SC_SECTOR_SIZE  dw 0
 SC_DRIVE        db 0
@@ -264,7 +262,7 @@ ASSUME	DS:NOTHING
 	pushf
 	mov	al,ss:IoStatFail	;assume fail error
 	cbw				;sign extend to word
-        DB      083h,0f8h,0ffh   ; CMP AX,-1 - target short immediate
+	DB	083h,0f8h,0ffh   ; CMP AX,-1 - target short immediate
 	jne	not_fail_ret
 	inc	ss:IoStatFail
 	popf
@@ -337,11 +335,11 @@ ASSUME	DS:NOTHING
 	return				; NON ZERO FLAG FOR OUTPUT STATUS
 
 IOIST:
-        ; Compare the two DWORDs of the DOS 7 pipe name signature.
-        DB      066h,081h,07ch,sf_name,'PIPE'
-        JNZ     io_file_status
-        DB      066h,081h,07ch,sf_name+4,'STDX'
-        JZ      io_pipe_status
+	; Compare the two DWORDs of the DOS 7 pipe name signature.
+	DB	066h,081h,07ch,sf_name,'PIPE'
+	JNZ	io_file_status
+	DB	066h,081h,07ch,sf_name+4,'STDX'
+	JZ	io_pipe_status
 io_file_status:
 	PUSH	WORD PTR [SI.sf_position]   ; Save position
 	PUSH	WORD PTR [SI.sf_position+2]
@@ -351,22 +349,22 @@ io_file_status:
 	return
 
 io_pipe_status:
-        CALL    SETXADDR
-        MOV     CX,1
-        MOV     AX,1131h
-        LES     DI,SS:[THISSFT]
-        INT     2fh
-        JC      io_pipe_empty
-        JCXZ    io_pipe_empty
-        MOV     BP,SP
-        MOV     [BP+4],DX
-        OR      AL,1
-        CALL    RESTXADDR
-        RET
+	CALL	SETXADDR
+	MOV	CX,1
+	MOV	AX,1131h
+	LES	DI,SS:[THISSFT]
+	INT	2fh
+	JC	io_pipe_empty
+	JCXZ	io_pipe_empty
+	MOV	BP,SP
+	MOV	[BP+4],DX
+	OR	AL,1
+	CALL	RESTXADDR
+	RET
 io_pipe_empty:
-        CALL    RESTXADDR
-        XOR     AL,AL
-        RET
+	CALL	RESTXADDR
+	XOR	AL,AL
+	RET
 
 IOUT:
 	CALL	SETXADDR
@@ -486,13 +484,13 @@ procedure   DEV_CLOSE_SFT,NEAR
 	XOR	AH,AH			; Unit
 	TESTB	ES:[DI].SF_FLAGS,devid_device
 	LES	DI,ES:[DI.sf_devptr]	; Get DPB or device
-        PUSHF
-        PUSH    AX
-        MOV     AX,ES
-        OR      AX,DI
-        POP     AX
-        JZ      OPCLS_DONEP      ; Null driver pointer; discard saved flags
-        POPF
+	PUSHF
+	PUSH	AX
+	MOV	AX,ES
+	OR	AX,DI
+	POP	AX
+	JZ	OPCLS_DONEP      ; Null driver pointer; discard saved flags
+	POPF
 	JNZ	Got_Dev_Addr
 
 	; We are about to call device open/close on a block driver.  If no 
@@ -585,14 +583,14 @@ procedure   DEVIOCALL,NEAR
 
 entry	DEVIOCALL2
 
-        MOV     AX,OFFSET DOSCODE:EcritDevice
-        TEST    WORD PTR [SI.SDEVATT],8000h
-        JZ      dev_enter_selected
-        TEST    WORD PTR [SI.SDEVATT],3
-        JZ      dev_enter_selected
-        MOV     AX,OFFSET DOSCODE:EcritConsole
+	MOV	AX,OFFSET DOSCODE:EcritDevice
+	TEST	WORD PTR [SI.SDEVATT],DevTyp
+	JZ	dev_enter_selected
+	TEST	WORD PTR [SI.SDEVATT],ISCIN+ISCOUT
+	JZ	dev_enter_selected
+	MOV	AX,OFFSET DOSCODE:EcritConsole
 dev_enter_selected:
-        CALL    AX
+	CALL	AX
 
 	TESTB	[SI.SDEVATT],DevTyp    ;AN000; >32mb   block device ?
 	JNZ	chardev2	       ;AN000; >32mb   no
@@ -622,7 +620,7 @@ chksector:			       ;AN000; >32mb
 	JMP	SHORT dev_exit	       ;AN000; >32mb
 
 chardev2:			       ;AN000;
-        INC     DeviceCallDepth
+	INC	DeviceCallDepth
 
 	;
 	; As above only DS:SI points to device header on entry, and DS:SI is 
@@ -636,20 +634,20 @@ chardev2:			       ;AN000;
 	MOV	AX,[SI.SDEVINT]
 	MOV	WORD PTR [CALLDEVAD],AX
 	CALL	DWORD PTR [CALLDEVAD]
-        DEC     DeviceCallDepth
-        CMP     CS:[SC_FLAG],0
-        JZ      dev_exit
+	DEC	DeviceCallDepth
+	CMP	CS:[SC_FLAG],0
+	JZ	dev_exit
 	CALL	VIRREAD 		;AN000;LB. move data from SC to buffer
 	JC	chardev2		;AN000;LB. bad sector or exceeds max sec
 dev_exit:
-        MOV     AX,OFFSET DOSCODE:LcritDevice
-        TEST    WORD PTR [SI.SDEVATT],8000h
-        JZ      dev_leave_selected
-        TEST    WORD PTR [SI.SDEVATT],3
-        JZ      dev_leave_selected
-        MOV     AX,OFFSET DOSCODE:LcritConsole
+	MOV	AX,OFFSET DOSCODE:LcritDevice
+	TEST	WORD PTR [SI.SDEVATT],DevTyp
+	JZ	dev_leave_selected
+	TEST	WORD PTR [SI.SDEVATT],ISCIN+ISCOUT
+	JZ	dev_leave_selected
+	MOV	AX,OFFSET DOSCODE:LcritConsole
 dev_leave_selected:
-        CALL    AX
+	CALL	AX
 	return
 EndProc DEVIOCALL
 
