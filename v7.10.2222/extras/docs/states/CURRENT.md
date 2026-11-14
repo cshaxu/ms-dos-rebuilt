@@ -26,3 +26,5 @@ P1 freezes both baselines, selects the overlay, and restores the Windows build s
 P2 reuses the RTC refresh routine, restores the SE BIOS flags and expands two-digit years in the existing SYSPARSE date path. Stage cmd-1022-3510 builds all three files. MSDOS.SYS matches. IO.SYS differs only at 13E2h and COMMAND.COM still has a one-byte length difference and linked operand differences.
 
 P3 restores the SYSINIT load segment, the leading byte of the transient parser workspace and the copyright year in the inherited message source. Stage `cmd-2557-8989` exited 0, verified matching input snapshots, matched all three targets by direct byte comparison and SHA-256, and published the verified copies. The staged source tree has seven modified and 284 identical files out of 291 baseline paths.
+
+P4 closes S1 and T28. See the [closure audit](T28-closure.md) for verification and source accounting.
