@@ -793,7 +793,7 @@ dosinit_con_entry:
 	mov     word ptr cs:[config_device_table_ptr],bx
 
 ; Initialize the localized responses used by SYSINIT and DOS.
-	mov     ah,52h
+	mov     ah,GET_IN_VARS
 	int     21h
 	les     bx,es:[bx+12h]
 	mov     bx,es:[bx+13h]
@@ -1235,7 +1235,7 @@ sysinit_exec_start:
 	mov     ds,cs:[new_psp_segment]
 	assume  ds:nothing
 	mov     dx,80h
-	mov     ah,1ah
+	mov     ah,set_dma
 	int     21h
 	mov     ax,Bios_Data
 	mov     ds,ax
@@ -1259,7 +1259,7 @@ sysinit_exec_ready:
 	je      short sysinit_check_menu
 	test    byte ptr [query_mode_flags],1
 	jnz     short sysinit_check_menu
-	mov     ah,52h
+	mov     ah,GET_IN_VARS
 	int     21h
 	and     byte ptr es:[bx+60h],0bfh
 sysinit_check_menu:
@@ -1662,7 +1662,7 @@ ebda_arena_next:
 	cmp     ax,cx
 	jne     short ebda_done
 	shr     dx,4
-	add     es:[3],dx
+	add     es:[arena_size],dx
 	shr     dx,6
 	mov     ax,40h
 	mov     es,ax

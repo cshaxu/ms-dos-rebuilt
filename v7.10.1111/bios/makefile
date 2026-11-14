@@ -268,6 +268,7 @@ sysconf.obj: sysconf.asm \
                 $(inc)\bpb.inc \
                 $(inc)\arena.inc \
                 $(inc)\buffer.inc \
+                $(inc)\curdir.inc \
                 $(inc)\dbcs.sw \
                 $(inc)\devsym.inc \
                 $(inc)\dirent.inc \

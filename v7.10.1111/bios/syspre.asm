@@ -206,14 +206,14 @@ pre7_drvspace:
         test    bx,bx
         js      short pre7_drv_ini
         mov     si,dx
-        jmp     short pre_name_found
+	jmp	short pre_name_found
 pre7_drv_ini:
         mov     dx,offset DrvIniName
         mov     ax,4300h
         int     21h
         jc      short pre7_dblspace
         mov     si,offset DrvDDName
-        jmp     short pre_name_found
+	jmp	short pre_name_found
 pre7_dblspace:
         test    byte ptr [boot_runtime_flags],2
         jnz     short pre7_badfile
@@ -226,18 +226,18 @@ pre7_dblspace:
         int     21h
         jc      short pre7_stacker
         mov     si,dx
-        jmp     short pre_name_found
+	jmp	short pre_name_found
 pre7_stacker:
         mov     si,offset StackerDDName
-        jmp     short pre_name_found
+	jmp	short pre_name_found
 pre7_badfile:
-        mov     ax,40h
+	mov	ax,SYSPRE_BADFILE_ERROR
         jmp     short pre_exit1
 pre7_disabled:
         test    byte ptr [boot_runtime_flags],2
         jnz     short pre7_badfile
 pre7_dbl_relative:
-        mov     si,offset MagicDDName+2
+	mov	si,offset MagicDDName+2
 pre_name_found:
 
 ;	MagicDrv won't actually look at the <null> command tail.
@@ -603,7 +603,7 @@ pre_set_dpb:
 	push	cs			; restore addressability
 	pop	ds
 
-ifdef	COPYCDS
+	ifdef	COPYCDS
 	xor	al, al			; build CDSs incrementally
 endif ; COPYCDS
 
@@ -665,16 +665,16 @@ magic7_temporary:
         int     2fh
         cmp     ax,cs:[compressed_reserved_paras]
         ja      magic7_alloc
-        mov     cx,ax
+	mov	cx,ax
         mov     es,cs:[compressed_dest_segment]
-        mov     ax,multMagicdrv
+	mov	ax,multMagicdrv
         mov     bx,-3
-        int     2fh
+	int	2fh
         or      ax,ax
         jz      magic7_done
         xchg    ax,cx
 magic7_alloc:
-        add     ax,((offset tiny_stub_end - offset tiny_stub_start)+15)/16
+	add	ax,((offset tiny_stub_end - offset tiny_stub_start)+15)/16
         mov     cs:[DevSize],ax
         mov     byte ptr cs:[DeviceHi],0
         mov     word ptr cs:[DevSizeOption],0
@@ -698,9 +698,9 @@ magic7_alloc:
         mov     es,ax
         mov     ax,multMagicdrv
         mov     bx,-2
-        int     2fh
+	int	2fh
         call    DevSetBreak
-        call    DevBreak
+	call	DevBreak
 magic7_done:
         ret
 MagicPostload endp

@@ -294,16 +294,16 @@ do_int_stacks proc near
 	push	es
 	mov	es,word ptr cs:[stacks+2]
 	mov	bp,cs:[nextentry]
-	mov	al,1
-	xchg	es:byte ptr [bp],al
-	cmp	al,0
+	mov	al,allocated
+	xchg	es:byte ptr allocbyte[bp],al
+	cmp	al,free
 	jne	short notfree02
-	sub	word ptr cs:[nextentry],8
+	sub	word ptr cs:[nextentry],entrysize
 found02:
-	mov	es:word ptr [bp+2],sp
-	mov	es:word ptr [bp+4],ss
+	mov	es:word ptr savedsp[bp],sp
+	mov	es:word ptr savedss[bp],ss
 	mov	ax,bp
-	mov	bp,es:word ptr [bp+6]
+	mov	bp,es:word ptr newsp[bp]
 	cmp	es:[bp],ax
 	jne	short foundbad02
 	mov	ax,es
@@ -318,9 +318,9 @@ found02:
 	call	dword ptr cs:[bp]
 	mov	bp,sp
 	mov	bp,es:[bp]
-	mov	ss,es:word ptr [bp+4]
-	mov	sp,es:word ptr [bp+2]
-	mov	es:byte ptr [bp],0
+	mov	ss,es:word ptr savedss[bp]
+	mov	sp,es:word ptr savedsp[bp]
+	mov	es:byte ptr allocbyte[bp],free
 	mov	cs:[nextentry],bp
 	pop	es
 	pop	bp
@@ -328,31 +328,31 @@ found02:
 	add	sp,2
 	iret
 notfree02:
-	cmp	al,1
+	cmp	al,allocated
 	je	short findnext02
-	xchg	es:byte ptr [bp],al
+	xchg	es:byte ptr allocbyte[bp],al
 	jmp	short findnext02
 foundbad02:
 	cmp	bp,cs:[firstentry]
 	jc	short findnext02
 	mov	bp,ax
-	mov	es:byte ptr [bp],3
+	mov	es:byte ptr allocbyte[bp],clobbered
 findnext02:
 	mov	bp,cs:[lastentry]
 lploopp:
-	cmp	es:byte ptr [bp],0
+	cmp	es:byte ptr allocbyte[bp],free
 	jne	short inuse
-	mov	al,1
-	xchg	es:byte ptr [bp],al
-	cmp	al,0
+	mov	al,allocated
+	xchg	es:byte ptr allocbyte[bp],al
+	cmp	al,free
 	je	short found02
-	cmp	al,1
+	cmp	al,allocated
 	je	short inuse
-	mov	es:byte ptr [bp],al
+	mov	es:byte ptr allocbyte[bp],al
 inuse:
 	cmp	bp,cs:[firstentry]
 	je	short fatal
-	sub	bp,8
+	sub	bp,entrysize
 	jmp	short lploopp
 do_int_stacks endp
 ; Display the stack failure message after setting the VM focus.

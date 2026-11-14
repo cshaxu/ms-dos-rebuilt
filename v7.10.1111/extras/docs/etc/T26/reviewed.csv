@@ -83,3 +83,15 @@ ordinal,path,disposition,verification
 82,bios/romrdhi.asm,exact,Byte comparison with frozen 950
 83,bios/romrdlo.asm,exact,Byte comparison with frozen 950
 84,bios/rqvalue.asm,absent,RegQueryValueEx is provided by regopen.obj in the 1111 configuration; 950 rqvalue.obj is absent
+85,bios/si1tail.asm,reduced,Restored HMA service equates; retained larger BDS links and the SFT walk
+86,bios/si2front.asm,reduced,Restored boot_mode references; both link addresses resolve to drivenumber plus one; retained target branch sizes and FAT tables
+87,bios/stkinit.asm,reduced,Restored stack frame offsets and allocation constants; retained the extended IOCTL parameter structure
+88,bios/ststate.asm,reduced,Restored buffer count comment; retained the 1111 load segment and reservation size
+89,bios/sysconf.asm,reduced,Restored parser fields and DOS device and directory structure symbols; retained extended BPB conversion and its different control flow
+90,bios/sysimes.asm,retained,The linked SYSINITMSG contribution is separate from SysInitSeg in the 1111 map
+91,bios/sysinit1.asm,reduced,Restored DOS service and arena field names; retained extended sector reads and FAT32 handoff
+92,bios/sysinit2.asm,reduced,Restored inherited DOS function names; retained AX=7302h DPB calls and changed startup paths
+93,bios/syspre.asm,reduced,Restored inherited formatting and error constant; kept extended compression and BPB path
+94,cmd/command/buildmsg.c,exact,Byte comparison with frozen 950
+95,cmd/command/comequ.asm,exact,Byte comparison with frozen 950
+96,cmd/command/command.lnk,exact,Byte comparison with frozen 950

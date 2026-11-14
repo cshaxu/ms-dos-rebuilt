@@ -739,9 +739,9 @@ kbd7_have_key:
         je      short kbd7_escape
         jmp     kbd7_finish
 kbd7_escape:
-        cmp     byte ptr [drivenumber+1],1 ; boot_mode follows drivenumber
+        cmp     byte ptr [boot_mode],1
         jne     short kbd7_escape_flag
-        inc     byte ptr [drivenumber+1]
+        inc     byte ptr [boot_mode]
         mov     dx,offset sysinit_msg_base
         add     dx,word ptr [sysinit_msg_table+8]
         jmp     kbd7_consume
@@ -838,7 +838,7 @@ kbd7_consume:
         int     16h
         mov     byte ptr [secElapsed],-1
 kbd7_finish:
-        cmp     byte ptr [drivenumber+1],0 ; boot_mode
+        cmp     byte ptr [boot_mode],0
         je      short kbd7_message
         push    dx
         mov     dl,cr

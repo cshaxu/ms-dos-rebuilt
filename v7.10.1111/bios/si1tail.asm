@@ -847,7 +847,7 @@ cds_count_ready:
 	add	ax,15h
 	and	ax,0fff0h
 	mov	bx,ax
-	mov	ax,4a03h
+	mov	ax,(multMULT shl 8)+multMULTALLOCHMA7
 	mov	dl,0
 	mov	cx,0fffbh
 	int	2fh
@@ -1014,7 +1014,7 @@ buffer_default:
 	mov	[h_buffers],0
 	cmp	byte ptr [dos_umb_flag],0
 	je	buffer_save_count
-	mov	ax,4a01h
+	mov	ax,(multMULT shl 8)+multMULTGETHMAPTR
 	int	2fh
 	xchg	ax,bx
 	or	ax,ax

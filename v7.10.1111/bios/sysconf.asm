@@ -83,6 +83,7 @@ default_filenum = 8
 	include sysvar.inc
 	include bpb.inc
 	include dpb.inc
+	include curdir.inc
 	include	pdb.inc			; M020
 	include syscall.inc
 	include doscntry.inc
@@ -583,18 +584,18 @@ swit_parmsx dw  0                       ; no positionals
 	    db  0                       ; no keywords
 
 	public  swit_n,swit_f
-swit_k_ctrl p_pos <0,0,result_val,noval,1>
-swit_k  db      '/K',0
-swit_t_ctrl p_pos <0,0,result_val,noval,1>
-swit_t  db      '/T',0
-swit_w_ctrl p_pos <0,0,result_val,noval,1>
-swit_w  db      '/W',0
+swit_k_ctrl p_pos <0,0,result_val,noval,1> ; switch string follows
+swit_k db	'/K',0
+swit_t_ctrl p_pos <0,0,result_val,noval,1> ; switch string follows	M059
+swit_t db	'/T',0			   ;				M059
+swit_w_ctrl p_pos <0,0,result_val,noval,1> ; switch string follows	M063
+swit_w db	'/W',0			   ;				M063
 swit_c_ctrl p_pos <0,0,result_val,noval,1>
 swit_c  db      '/C',0
-swit_n_ctrl p_pos <0,0,result_val,noval,1>
-swit_n  db      '/N',0
-swit_f_ctrl p_pos <0,0,result_val,noval,1>
-swit_f  db      '/F',0
+swit_n_ctrl p_pos <0,0,result_val,noval,1> ; switch string follows
+swit_n db       '/N',0
+swit_f_ctrl p_pos <0,0,result_val,noval,1> ; switch string follows
+swit_f db       '/F',0
 swit_d_ctrl p_pos <0,0,result_val,noval,1>
 swit_d  db      '/D',0
 swit_e_ctrl p_pos <8001h,0,result_val,swit_e_range,1>
@@ -1505,9 +1506,9 @@ parse_switch_e:
 	cmp     result_val.$p_synonym_ptr,offset swit_e
 	jne     do110
 	mov     ax,0ffffh
-	cmp     byte ptr [result_val+1],2
+	cmp     result_val.$p_item_tag,2
 	jne     short set_ebda_limit
-	mov     ax,word ptr [result_val+4]
+	mov     ax,word ptr result_val.$p_picked_val
 	add     ax,0fh
 	and     al,0f0h
 set_ebda_limit:
@@ -2104,8 +2105,8 @@ linkit:
 	mov	word ptr ds:[si+2],dx
 
 	push    ax                      ; save next device offset
-	mov     al,[si+0ah]             ; block device unit count
-	test    word ptr [si+4],8000h   ; character device?
+	mov     al,[si.sdevname]        ; block device unit count
+	test    word ptr [si.sdevatt],devtyp   ; character device?
 	jz      short record_loaded_device
 	xor     al,al
 record_loaded_device:
@@ -2960,7 +2961,7 @@ apply_switch_t:
 	or      byte ptr [bios_flags],al
 	push    es
 	push    bx
-	mov     ah,52h
+	mov     ah,GET_IN_VARS
 	int     21h
 	cmp     byte ptr cs:[p_swit_w],0
 	je      short apply_switch_c
@@ -3808,7 +3809,7 @@ dcc_clear_buffers:
 		push	es
 		mov	ah,0dh
 		int	21h
-		mov	ah,52h
+		mov	ah,GET_IN_VARS
 		int	21h
 		mov	cx,es:[bx+10h]
 		shr	cx,1
@@ -4298,7 +4299,7 @@ ENDIF						; M045
 		mov	dx, cx			; to end of file
 		int	21h
 		jc	sd_close		; did seek fail (impossible)
-	        add     ax,15
+		add	ax, 15			; para convert
 		adc	dx, 0
 		test	dx, 0fff0h		; size > 0ffff paras ?
 		jz	@f			; no
@@ -4660,7 +4661,7 @@ ghn_shift1:
 		inc	si
 		jmp	ghn_next
 ghn_into_paras:
-		add	ax,15
+		add	ax, 15
 		adc	dx, 0
 		test	dx, 0fff0h
 		jnz	ghn_err
@@ -4800,7 +4801,7 @@ umb_allocate	proc	near
 		mov	ah, XMM_REQUEST_UMB
 		call	dword ptr DevXMSAddr
 
-		cmp	ax,1		; Q: was the reqst successful
+		cmp	ax, 1			; Q: was the reqst successful
 		jne	ua_err			; N: error
 
 		clc
@@ -5503,7 +5504,7 @@ config_scsi_entry proc near
 	push    ds
 	push    es
 	push    cx
-	lea     si,[bx+0ah]
+	lea     si,[bx.sdevname]
 	mov     di,offset scsi_device_name
 	push    cs
 	pop     es
@@ -5513,7 +5514,7 @@ config_scsi_entry proc near
 	push    cs
 	pop     ds
 	mov     dx,offset scsi_device_name
-	mov     ax,3d00h
+	mov     ax,open shl 8
 	int     21h
 	jc      config_scsi_fail
 	push    ax
@@ -5523,7 +5524,7 @@ config_scsi_entry proc near
 	mov     ax,4402h
 	int     21h
 	pop     bx
-	mov     ah,3eh
+	mov     ah,close
 	int     21h
 	mov     bx,cs:word ptr [scsi_device_entry]
 	mov     dx,cs:word ptr [scsi_device_entry+2]
@@ -5562,9 +5563,9 @@ config_record_drives proc near
 config_drive_loop:
 	push    ds
 	push    bx
-	test    word ptr [bx+43h],4000h
+	test    word ptr [bx.curdir_flags],curdir_inuse
 	jz      short config_drive_next
-	lds     bx,[bx+45h]
+	lds     bx,[bx.curdir_devptr]
 	mov     ax,cs:[si]
 	cmp     word ptr [bx].dpb_driver_addr,ax
 	jne     short config_drive_changed
@@ -5589,7 +5590,7 @@ config_drive_next:
 	inc     dx
 	pop     bx
 	pop     ds
-	add     bx,58h
+	add     bx,curdirlen
 	loop    config_drive_loop
 config_drives_done:
 	pop     cx
@@ -5719,9 +5720,9 @@ config_snapshot_drives proc near
 config_snapshot_loop:
 	push    ds
 	push    bx
-	test    word ptr [bx+43h],4000h
+	test    word ptr [bx.curdir_flags],curdir_inuse
 	jz      short config_snapshot_next
-	lds     bx,[bx+45h]
+	lds     bx,[bx.curdir_devptr]
 	mov     ax,word ptr [bx].dpb_driver_addr
 	mov     es:[di],ax
 	mov     ax,word ptr [bx].dpb_driver_addr+2
@@ -5729,7 +5730,7 @@ config_snapshot_loop:
 config_snapshot_next:
 	pop     bx
 	pop     ds
-	add     bx,58h
+	add     bx,curdirlen
 	add     di,4
 	loop    config_snapshot_loop
 config_snapshot_done:
@@ -5873,7 +5874,7 @@ config_check_qemm	proc	near
 	mov	ah,es:[di]
 config_qemm_scan:
 	lodsb
-	cmp	al,0ah
+	cmp	al,lf
 	je	short config_qemm_done
 	db	38h,0e0h               ; cmp al,ah
 	jne	config_qemm_scan

@@ -119,7 +119,7 @@ rpl_memory_size label word
 RPLMemTop	dw	0
 default_drive	db	0		;initialized by ibminit.
 buffers         dw      -1
-h_buffers       dw      0
+h_buffers	dw	0		; # of the heuristic buffers. initially 0.
 singlebuffersize dw	?		; maximum sector size + buffer header
 
 files	db	DEFAULT_FILES		; enough files for pipe

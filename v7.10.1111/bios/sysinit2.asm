@@ -357,7 +357,7 @@ shell_drive_done:
 	cmp     byte ptr [boot_mode],2
 	jne     short shell_safe_check
 	mov     dx,offset boot_msdos_status
-	mov     ah,41h
+	mov     ah,unlink
 	int     21h
 shell_safe_check:
 	test    byte ptr [query_mode_flags],1
@@ -451,7 +451,7 @@ shell_error_name:
 shell_show_error:
 	call    badfil
 shell_prompt:
-	mov     ah,19h
+	mov     ah,get_default_drive
 	int     21h
 	add     al,'A'
 	mov     dl,al
@@ -466,7 +466,7 @@ shell_prompt:
 	dw      801bh
 	pop     dx
 shell_prompt_input:
-	mov     ah,2
+	mov     ah,std_con_output
 	int     21h
 	push    dx
 	mov     dl,'>'
@@ -475,7 +475,7 @@ shell_prompt_input:
 	mov     bh,0
 	mov     byte ptr [commnd+bx],0dh
 	mov     dx,offset commnd-2
-	mov     ah,0ah
+	mov     ah,std_con_string_input
 	int     21h
 	call    print_indexed
 	dw      8007h
@@ -533,7 +533,7 @@ path_use_drive:
 	xchg    al,[bx]
 	mov     dx,bx
 	push    ax
-	mov     ax,4300h
+	mov     ax,chmod shl 8
 	int     21h
 	pop     ax
 	jnc     short path_done
@@ -554,7 +554,7 @@ path_use_drive:
 	mov     byte ptr [di],'0'
 	push    di
 	mov     dx,bx
-	mov     ax,4300h
+	mov     ax,chmod shl 8
 	int     21h
 	pop     di
 	pop     ax
@@ -577,7 +577,7 @@ path_next_drive:
 	mov     [di],al
 	push    dx
 	mov     dx,di
-	mov     ax,4300h
+	mov     ax,chmod shl 8
 	int     21h
 	pop     dx
 	jnc     short path_restore
@@ -687,7 +687,7 @@ boot_size_shell proc near
 	call    AllocFreeMem
 	jc      short shell_size_memory_error
 	mov     es,ax
-	mov     ah,49h
+	mov     ah,dealloc
 	int     21h
 	mov     bp,bx
 	mov     ax,cs
@@ -709,7 +709,7 @@ shell_size_memory_error:
 	jae     short shell_size_open
 	jmp     near ptr shell_size_no_memory
 shell_size_open:
-	mov     ax,3d00h
+	mov     ax,open shl 8
 	stc
 	int     21h
 	jnc     short shell_size_opened
@@ -720,7 +720,7 @@ shell_size_opened:
 	jne     short shell_size_seek_end
 	mov     dx,offset boot_shell_scratch-1
 	mov     cx,2
-	mov     ah,3fh
+	mov     ah,read
 	int     21h
 	jc      short shell_size_close
 	cmp     word ptr [boot_shell_scratch-1],5a4dh
@@ -728,12 +728,12 @@ shell_size_opened:
 	jne     short shell_size_close
 	mov     dx,8
 	xor     cx,cx
-	mov     ax,4200h
+	mov     ax,lseek shl 8
 	int     21h
 	jc      short shell_size_close
 	mov     dx,offset boot_shell_scratch-1
 	mov     cx,2
-	mov     ah,3fh
+	mov     ah,read
 	int     21h
 	jc      short shell_size_close
 	cmp     ax,cx
@@ -742,12 +742,12 @@ shell_size_opened:
 	mov     dx,word ptr [boot_shell_scratch-1]
 	shl     dx,4
 	xor     cx,cx
-	mov     ax,4200h
+	mov     ax,lseek shl 8
 	int     21h
 	jc      short shell_size_close
 	mov     dx,offset boot_shell_scratch
 	mov     cx,1
-	mov     ah,3fh
+	mov     ah,read
 	int     21h
 	jc      short shell_size_close
 	cmp     byte ptr [boot_shell_scratch],7ah
@@ -756,13 +756,13 @@ shell_size_opened:
 shell_size_seek_end:
 	xor     cx,cx
 	xor     dx,dx
-	mov     ax,4202h
+	mov     ax,(lseek shl 8) or 2
 	stc
 	int     21h
 shell_size_close:
 	pushf
 	push    ax
-	mov     ah,3eh
+	mov     ah,close
 	int     21h
 	pop     ax
 	popf
@@ -860,7 +860,7 @@ boot_umb_stack_enabled:
 	mov     ax,3307h
 	int     21h
 	pop     dx
-	mov     ax,3d00h
+	mov     ax,open shl 8
 	int     21h
 	jc      boot_umb_stack_no_file
 	xchg    ax,bx
@@ -885,7 +885,7 @@ boot_umb_stack_enabled:
 	jae     boot_umb_stack_close
 	mov     byte ptr [stack_high],0
 boot_umb_stack_close:
-	mov     ax,3e00h
+	mov     ax,close shl 8
 	int     21h
 boot_umb_stack_no_file:
 	jmp     short boot_umb_stack_done
@@ -980,11 +980,11 @@ boot_check_device proc near
 	mov     ax,3307h
 	int     21h
 	pop     dx
-	mov     ax,3d00h
+	mov     ax,open shl 8
 	int     21h
 	jc      boot_check_device_done
 	xchg    ax,bx
-	mov     ah,3eh
+	mov     ah,close
 	int     21h
 boot_check_device_done:
 	sbb     ax,ax
@@ -997,13 +997,13 @@ boot_check_device endp
 	public  boot_load_old_dos
 boot_load_old_dos proc near
 	push    ds
-	mov     ah,2fh
+	mov     ah,get_dma
 	int     21h
 	push    es
 	push    bx
 	mov     ds,[memhi]
 	sub     dx,dx
-	mov     ah,1ah
+	mov     ah,set_dma
 	int     21h
 	push    ds
 	pop     es
@@ -1035,7 +1035,7 @@ old_load_second_found:
 	mov     es:[51ah],bx
 	mov     es:[53ah],cx
 	mov     dx,di
-	mov     ax,3d00h
+	mov     ax,open shl 8
 	int     21h
 	jc      short old_load_restore
 	mov     bx,ax
@@ -1045,7 +1045,7 @@ old_load_second_found:
 	assume  ds:nothing
 	sub     dx,dx
 	mov     cx,600h
-	mov     ah,3fh
+	mov     ah,read
 	int     21h
 	jc      short old_load_bad_image
 	cmp     ax,cx
@@ -1078,7 +1078,7 @@ old_load_bad_image:
 	call    print_indexed
 	dw      803ch
 old_load_close:
-	mov     ah,3eh
+	mov     ah,close
 	int     21h
 	jmp     short old_load_restore
 old_load_not_found:
@@ -1092,7 +1092,7 @@ old_load_restore:
 	pop     dx
 	pop     ds
 	assume  ds:nothing
-	mov     ah,1ah
+	mov     ah,set_dma
 	int     21h
 	pop     ds
 	ret
@@ -1147,7 +1147,7 @@ old_table_name:
 	mov     di,dx
 	call    boot_old_filename
 	mov     dx,di
-	mov     ax,4300h
+	mov     ax,chmod shl 8
 	int     21h
 	pop     di
 	pop     dx
@@ -1178,21 +1178,21 @@ old_table_rename:
 	stosb
 	mov     di,offset boot_old_app+3
 	call    boot_old_filename
-	mov     ah,56h
+	mov     ah,rename
 	int     21h
 	jnc     short old_table_restore
 	cmp     ax,2
 	jne     short old_table_error
 	mov     dx,di
-	mov     ax,4300h
+	mov     ax,chmod shl 8
 	int     21h
 	jnc     short old_table_restore
 	mov     cx,2
-	mov     ah,3ch
+	mov     ah,creat
 	int     21h
 	jc      short old_table_restore
 	xchg    ax,bx
-	mov     ah,3eh
+	mov     ah,close
 	int     21h
 	jmp     short old_table_restore
 old_table_error:
@@ -1220,13 +1220,13 @@ old_table_restore:
 	jz      short old_table_final_rename
 	test    cx,cx
 	jnz     short old_table_final_rename
-	mov     ah,41h
+	mov     ah,unlink
 	int     21h
 	jmp     short old_table_advance
 old_table_final_rename:
 	mov     di,[bx]
 	inc     di
-	mov     ah,56h
+	mov     ah,rename
 	int     21h
 old_table_advance:
 	inc     bx
@@ -1239,7 +1239,7 @@ boot_old_file_table endp
 
 ; Return zero if the file named by DS:DX is empty.
 boot_old_file_size proc near
-	mov     ax,3d00h
+	mov     ax,open shl 8
 	int     21h
 	jc      short boot_old_size_done
 	push    bx
@@ -1248,13 +1248,13 @@ boot_old_file_size proc near
 	xchg    ax,bx
 	sub     cx,cx
 	sub     dx,dx
-	mov     ax,4202h
+	mov     ax,(lseek shl 8) or 2
 	int     21h
 	add     dx,-1
 	sbb     dx,dx
 	or      ax,dx
 	xchg    ax,cx
-	mov     ah,3eh
+	mov     ah,close
 	int     21h
 	xchg    ax,cx
 	pop     dx
@@ -1327,7 +1327,7 @@ boot_find_old_file proc near
 	pop     di
 	pop     es
 	mov     dx,offset boot_find_fcb
-	mov     ah,11h
+	mov     ah,dir_search_first
 	int     21h
 	test    al,al
 	ret
@@ -1386,10 +1386,10 @@ boot_process_driver_record proc near
 	mov     dx,[bx+4]
 	movzx   cx,dl
 	rep     movsb
-	mov     cl,'U'
+	mov     cl,CONFIG_DEVICEHIGH
 	test    dh,80h
 	jz      short boot_driver_install
-	mov     cl,'D'
+	mov     cl,CONFIG_DEVICE
 	and     dh,7fh
 	mov     al,0ah
 	stosb
@@ -1516,7 +1516,7 @@ boot_shell_autoexec:
 	jnz     boot_shell_copy_bios
 	mov     cx,15
 	mov     si,offset boot_autoexec_cmd
-	mov     ax,3d00h
+	mov     ax,open shl 8
 	mov     dx,offset boot_autoexec_name
 	int     21h
 	jnc     boot_shell_append_autoexec
@@ -1564,18 +1564,18 @@ boot_shell_test_mode:
 	jnz     boot_shell_done
 	test    byte ptr [query_mode_flags],1
 	jnz     boot_shell_rotate
-	mov     ax,3d00h
+	mov     ax,open shl 8
 	mov     dx,offset boot_autoexec_name
 	int     21h
 	jc      boot_shell_rotate
 	xchg    ax,bx
 	sub     cx,cx
 	sub     dx,dx
-	mov     ax,4202h
+	mov     ax,(lseek shl 8) or 2
 	int     21h
 	or      ax,dx
 	xchg    ax,cx
-	mov     ah,3eh
+	mov     ah,close
 	int     21h
 	jcxz    boot_shell_rotate
 	inc     byte ptr [boot_autoexec_exists]
@@ -1598,7 +1598,7 @@ rotate_shell_records proc near
 	jnz	rotate_shell_done
 	test	byte ptr [boot_config_flags],4
 	jz	rotate_shell_copy
-	mov	ah,0eh
+	mov	ah,set_default_drive
 	mov	dl,2
 	int	21h
 rotate_shell_copy:
@@ -1646,7 +1646,7 @@ boot_env_check_tmp:
 	push    ds
 	mov     ds,[new_psp_segment]
 	mov     dx,80h
-	mov     ah,1ah
+	mov     ah,set_dma
 	int     21h
 	pop     ds
 	mov     di,offset boot_device_scratch+1
@@ -1660,7 +1660,7 @@ boot_env_check_tmp:
 	mov     si,offset boot_temp_dir
 	mov     cx,5
 	rep     movsb
-	mov     ax,4e00h
+	mov     ax,find_first shl 8
 	stosb
 	dec     di
 	mov     cx,10h
@@ -1673,7 +1673,7 @@ boot_env_check_tmp:
 	jz      short boot_env_temp_parent
 	jmp     short boot_env_set_tmp
 boot_env_make_temp:
-	mov     ah,39h
+	mov     ah,mkdir
 	int     21h
 	jnc      short boot_env_set_tmp
 boot_env_temp_parent:
@@ -1974,10 +1974,10 @@ boot_previous_restart_file:
 	mov     dx,78
 	call    boot_insert_path
 	pop     dx
-	mov     ax,4300h
+	mov     ax,chmod shl 8
 	int     21h
 	jc      short boot_previous_done
-	mov     ah,41h
+	mov     ah,unlink
 	int     21h
 	mov     di,offset sysinit_msg_base
 	add     di,word ptr [sysinit_msg_table+86]
@@ -2226,7 +2226,7 @@ boot_option_open proc near
 	jnz     boot_open_first
 	mov     dx,offset boot_winboot_ini
 boot_open_first:
-	mov     ax,3d00h
+	mov     ax,open shl 8
 	int     21h
 	jc      boot_open_w40
 	and     byte ptr [boot_runtime_flags],7fh
@@ -2234,16 +2234,16 @@ boot_open_first:
 boot_open_w40:
 	mov     byte ptr [boot_winboot_ini-1],0
 	mov     dx,offset boot_msdos_w40
-	mov     ax,3d00h
+	mov     ax,open shl 8
 	int     21h
 	jnc     boot_open_found
 	mov     byte ptr [boot_msdos_w40-1],0
 	mov     dx,offset boot_msdos_name
-	mov     ax,3d00h
+	mov     ax,open shl 8
 	int     21h
 	jnc     boot_open_found
 	mov     dx,offset boot_msdos_root
-	mov     ax,3d00h
+	mov     ax,open shl 8
 	int     21h
 	jnc     boot_open_root
 	jmp     near ptr boot_option_no_file
@@ -2430,7 +2430,7 @@ boot_section_options endp
 
 ; Display the invalid startup option and its diagnostic.
 boot_option_error proc near
-	mov     ah,9
+	mov     ah,std_con_string_output
 	mov     dx,offset sysinit_msg_base
 	add     dx,word ptr [sysinit_msg_table+124]
 	int     21h
@@ -2438,19 +2438,19 @@ boot_option_error proc near
 boot_error_char:
 	lodsb
 	mov     dl,al
-	mov     ah,2
+	mov     ah,std_con_output
 	int     21h
 	cmp     dl,0dh
 	jne     boot_error_char
 	mov     dl,0ah
-	mov     ah,2
+	mov     ah,std_con_output
 	int     21h
 	ret
 boot_option_error endp
 
 ; Close the options file and finish preparing the startup paths.
 boot_option_close proc near
-	mov     ah,3eh
+	mov     ah,close
 	mov     bx,[boot_option_handle]
 	int     21h
 boot_option_no_file:
@@ -2467,7 +2467,7 @@ boot_prepare_paths proc near
 	cmp     byte ptr [di],0
 	jne     boot_windows_length
 	or      byte ptr [boot_config_flags],20h
-	mov     ah,19h
+	mov     ah,get_default_drive
 	int     21h
 	add     al,'A'
 	mov     [di],al
@@ -2616,7 +2616,7 @@ boot_option_getchar proc near
 	mov     bx,[boot_option_handle]
 	mov     dx,offset boot_option_buffer
 	mov     cx,80h
-	mov     ah,3fh
+	mov     ah,read
 	int     21h
 	jc      boot_char_eof
 	test    ax,ax
