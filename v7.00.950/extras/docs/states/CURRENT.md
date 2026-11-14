@@ -56,10 +56,10 @@ IO.SYS, MSDOS.SYS and COMMAND.COM all equal. This is an existing-asset check,
 not a claim that a new build has run. The accepted six-byte MSDOS.SYS config
 remains the target; other media provenance does not silently change it.
 
-## Current prefix: 129/293
+## Current prefix: 130/293
 
-Modified source/build files 59, exact 21, necessary unchanged 13,
-no same-name reference unchanged 36. Next: 130, cmd/command/tenv.asm. Tooling modified
+Modified source/build files 60, exact 21, necessary unchanged 13,
+no same-name reference unchanged 36. Next: 131, cmd/command/tenv2.asm. Tooling modified
 1 (ioimage.c case-insensitive map symbol lookup), outside source count.
 See etc/T25/part1.md. BIOSTAIL.OBJ is unchanged; all compiler/link phases ran,
 then packaging failure was diagnosed and repaired. Fresh three-output FC/B
@@ -255,4 +255,8 @@ File 129 cleans TDATA's orphan/misplaced parser descriptions and corrects
 result-buffer and switch notes; restores declaration style. All data layout,
 control bytes and resource boundaries remain unchanged. COMMAND rebuild/repack
 and all target/input checks pass; extras/build/t25-tdata-17988-21486; see part38.md.
-Next: 130 tenv.asm. Full automatic final build remains pending.
+File 130 restores TENV's inherited allocation formatting/comments and corrects
+the misplaced SET contract. Shared environment writing, reservation and resize
+paths remain intact. COMMAND rebuild/repack and all target/input checks pass;
+extras/build/t25-tenv-18412-9755; see part39.md.
+Next: 131 tenv2.asm. Full automatic final build remains pending.
