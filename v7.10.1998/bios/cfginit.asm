@@ -87,6 +87,11 @@ ConfigReturnCode dw 0
 ConfigWindowsDir db 'C:\WINDOWS',0
         even
 ConfigWindowsPath dw offset DGROUP:ConfigWindowsDir,DGROUP
+        public AsdWizardValue,AsdWizardCommand
+AsdWizardValue db 'ASD_Wizard',0
+        even
+AsdWizardCommand db 'ASD.EXE /w',0
+        even
 ; CFGARGS data.
         public ConfigArgPaths,ConfigArgValues
         public ConfigArgPath0
@@ -142,6 +147,16 @@ ConfigArgValues label dword
         dw offset DGROUP:ConfigArgValue5,DGROUP
         dw offset DGROUP:ConfigArgValue6,DGROUP
         dw offset DGROUP:ConfigArgValue7,DGROUP
+        public AsdRunOnceKey,AsdHexDigits,AsdGuidFormat
+        public AsdValueName,AsdFileName,AsdProblemsKey
+AsdRunOnceKey db 'Software\Microsoft\Windows\CurrentVersion\RunOnce',0
+AsdHexDigits db '0123456789ABCDEF',0
+        even
+AsdGuidFormat db '{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}',0
+AsdValueName dw 'P'
+AsdFileName db 'ASD.dat',0
+AsdProblemsKey db 'System\CurrentControlSet\Control\ASD\Prob',0
+        even
 ; CFGPUB data.
         public ConfigRecordHead,ConfigRecordCount,ConfigDeviceName
 ConfigRecordHead dd 0

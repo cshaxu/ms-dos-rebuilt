@@ -19,8 +19,10 @@ ConfigSelectedName db 80 dup (?)
 ConfigStoredProfiles db 110 dup (?)
 ConfigInfoData dd 1 dup (?)
         db 2D0h dup (?)          ; Original storage; purpose unresolved.
-ConfigPathBuffer db 40h dup (?)
-        db 1C4h dup (?)          ; Original storage; purpose unresolved.
+        public AsdPath,AsdRecord
+AsdPath label byte
+ConfigPathBuffer db 200h dup (?)
+AsdRecord db 118h dup (?)
 ConfigNameBuffer db 1000h dup (?)
         db 8 dup (?)             ; Original storage; purpose unresolved.
 ConfigCommonEnd label byte
