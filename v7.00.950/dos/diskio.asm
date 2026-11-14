@@ -1,5 +1,5 @@
-	TITLE	DISK - Disk utility routines
-	NAME	Disk
+	TITLE	DISKIO - Directory and FAT reads
+	NAME	DiskIO
 
 ;
 ;	Microsoft Confidential
@@ -7,20 +7,14 @@
 ;	All Rights Reserved.
 ;
 
-;**	Low level Read and write routines for local SFT I/O on files and devs
+;**	DISKIO.ASM - Directory and FAT reads
 ;
-;	SWAPCON
-;	SWAPBACK
-;	DOS_READ
-;	DOS_WRITE
-;	get_io_sft
+;	DirFromSFT
 ;	DirRead
 ;	FIRSTCLUSTER
 ;	SET_BUF_AS_DIR
 ;	FATSecRd
 ;	DREAD
-;	CHECK_WRITE_LOCK
-;	CHECK_READ_LOCK
 ;
 ;	Revision history:
 ;
@@ -53,18 +47,6 @@
 Installed = TRUE
 
 	I_need	DirStart,WORD
-	I_Need	CONSft,DWORD		; SFT for swapped console In/Out
-	i_need	CONSWAP,BYTE
-	i_need	IDLEINT,BYTE
-	i_need	THISSFT,DWORD
-	i_need	DMAADD,DWORD
-	i_need	DEVCALL,BYTE
-	i_need	CALLSCNT,WORD
-	i_need	CALLXAD,DWORD
-	i_need	CONTPOS,WORD
-	i_need	NEXTADD,WORD
-	i_need	CONBUF,BYTE
-	i_need	ClusFac,BYTE
 	i_need	SecClusPos,BYTE
 	i_need	DirSec,DWORD
 	i_need	ClusNum,WORD
@@ -76,23 +58,32 @@ Installed = TRUE
 
 
 	i_need	HIGH_SECTOR,WORD
-	I_need	JShare,DWORD
-	i_need	DOS34_FLAG,WORD
-;
-;Flag to indicate WIN386 presence
-;
-	I_need	IsWin386,BYTE
 
 
 DOSCODE	Segment
 	ASSUME	SS:DOSDATA,CS:DOSCODE
 
-	EXTRN	CharHard:near
-	EXTRN	DevIoCall:near
-	EXTRN	DevIoCall2:near
-	EXTRN	Outt:near
-	EXTRN	Setup:near
 
+
+;----------------------------------------------------------------------------
+;
+; Procedure Name : DirFromSFT
+;
+;   DirFromSFT - locate a directory entry given an SFT.
+;
+;   Inputs:	ES:DI point to SFT
+;		DS = DOSDATA
+;   Outputs:
+;		EXTERR_LOCUS = errLOC_Disk
+;		CurBuf points to buffer
+;		Carry Clear -> operation OK
+;		    ES:DI point to entry
+;		    ES:BX point to buffer
+;		    DS:SI point to SFT
+;		Carry SET   -> operation failed
+;		    registers trashified
+;   Registers modified: ALL
+;----------------------------------------------------------------------------
 
 Procedure   DirFromSFT,NEAR
 	DOSAssume   <DS>,"DOS_Close"
@@ -132,6 +123,30 @@ PopDone:
 	RESTORE <DI,ES>
 	return
 EndProc DirFromSFT,NoCheck
+
+Break	<DIRREAD -- READ A DIRECTORY SECTOR>
+;---------------------------------------------------------------------------
+;
+; Procedure Name : DIRREAD
+;
+; Inputs:
+;	AX = Directory block number (relative to first block of directory)
+;	ES:BP = Base of drive parameters
+;	[DIRSEC] = First sector of first cluster of directory
+;	[CLUSNUM] = Next cluster
+;	[CLUSFAC] = Sectors/Cluster
+; Function:
+;	Read the directory block into [CURBUF].
+; Outputs:
+;	[NXTCLUSNUM] = Next cluster (after the one skipped to)
+;	[SECCLUSPOS] Set
+;	ES:BP unchanged
+;	[CURBUF] Points to Buffer with dir sector
+;	Carry set if error (user said FAIL to I 24)
+; DS preserved, all other registers destroyed.
+;---------------------------------------------------------------------------
+
+;hkn; called from dir.asm. DS already set up to DOSDATA.
 
 procedure   DirRead,NEAR
 
@@ -308,5 +323,5 @@ RET41P: POP	DX
 	return
 EndProc FATSecRd
 
-DOSCODE ENDS
-        END
+DOSCODE	ENDS
+	END

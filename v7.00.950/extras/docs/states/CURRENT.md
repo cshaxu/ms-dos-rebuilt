@@ -56,10 +56,10 @@ IO.SYS, MSDOS.SYS and COMMAND.COM all equal. This is an existing-asset check,
 not a claim that a new build has run. The accepted six-byte MSDOS.SYS config
 remains the target; other media provenance does not silently change it.
 
-## Current prefix: 160/293
+## Current prefix: 161/293
 
-Modified source/build files 82, exact 22, necessary unchanged 20,
-no same-name reference unchanged 36. Next: 161, dos/diskio.asm. Tooling modified
+Modified source/build files 83, exact 22, necessary unchanged 20,
+no same-name reference unchanged 36. Next: 162, dos/diskset.asm. Tooling modified
 1 (ioimage.c case-insensitive map symbol lookup), outside source count.
 See etc/T25/part1.md. BIOSTAIL.OBJ is unchanged; all compiler/link phases ran,
 then packaging failure was diagnosed and repaired. Fresh three-output FC/B
@@ -416,3 +416,9 @@ declaration/instruction-comment formatting. Required cache addressing and
 short-immediate encoding remain. Fresh kernel link unchanged; fresh IO.SYS
 and inherited other outputs exact; all 293 inputs verified. See part62.md.
 Next: 161 dos/diskio.asm. Final full build and completion audit pending.
+
+P63 accepts file 161 DISKIO: remove 20 unused copied declarations, correct
+module identity and restore two original procedure contracts. Existing code
+is preserved; fresh kernel link unchanged, fresh IO.SYS and inherited other
+outputs exact; all 293 inputs verified. See part63.md/file161-build.txt.
+Next: 162 dos/diskset.asm. Final full build and completion audit pending.
