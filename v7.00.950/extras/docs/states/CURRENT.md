@@ -56,10 +56,10 @@ IO.SYS, MSDOS.SYS and COMMAND.COM all equal. This is an existing-asset check,
 not a claim that a new build has run. The accepted six-byte MSDOS.SYS config
 remains the target; other media provenance does not silently change it.
 
-## Current prefix: 132/293
+## Current prefix: 133/293
 
-Modified source/build files 62, exact 21, necessary unchanged 13,
-no same-name reference unchanged 36. Next: 133, cmd/command/tmisc1.asm. Tooling modified
+Modified source/build files 63, exact 21, necessary unchanged 13,
+no same-name reference unchanged 36. Next: 134, cmd/command/tmisc2.asm. Tooling modified
 1 (ioimage.c case-insensitive map symbol lookup), outside source count.
 See etc/T25/part1.md. BIOSTAIL.OBJ is unchanged; all compiler/link phases ran,
 then packaging failure was diagnosed and repaired. Fresh three-output FC/B
@@ -267,4 +267,9 @@ File 132 restores TFOR's external/search and inherited Save_Args conventions;
 corrects the obsolete allocation-input note. Required dynamic FOR state and
 search ownership remain intact. COMMAND rebuild/repack and all target/input
 checks pass; extras/build/t25-tfor-19274-29286; see part41.md.
-Next: 133 tmisc1.asm. Full automatic final build remains pending.
+File 133 restores TMISC1's dispatch/redirection comments and instruction layout;
+reuses LenMsgOrPathBuf for the shared resident-path copy. Required dynamic
+command-tail, quoted-path, pipe and notification behavior remains intact.
+COMMAND rebuild/repack and all target/input checks pass;
+extras/build/t25-tmisc1-19369-21356; see part42.md.
+Next: 134 tmisc2.asm. Full automatic final build remains pending.

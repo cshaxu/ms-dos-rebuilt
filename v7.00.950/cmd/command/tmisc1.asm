@@ -80,8 +80,8 @@ endif
 
 TRANDATA	ENDS
 
-TRANSPACE	SEGMENT PUBLIC BYTE
-	EXTRN	PathFindMode:BYTE	;AC000;
+TRANSPACE	SEGMENT PUBLIC BYTE	;AC000;
+	EXTRN	PathFindMode:BYTE
 	EXTRN	arg:byte		; the arg structure!
 	EXTRN	ALLSWITCH:WORD
 	EXTRN	APPEND_EXEC:BYTE	;AN041;
@@ -235,13 +235,13 @@ contcom:					; continue with internal scan
     XOR     CX,CX
     XOR     BX,BX
 findcom:
-    mov     SI, offset TRANGROUP:IDLEN+1
-    mov     CL, [DI]
-    inc     DI
-    jcxz    externalj
-    cmp     CL, IDLEN
-    jnz     nextcom
-    mov     PathPos,CX
+    mov     SI, offset TRANGROUP:IDLEN+1	; pointer to command argument
+    mov     CL, [DI]				; load length of internal command
+    inc     di					; advance past length
+    jcxz    externalj				; if it's zero, we're out of internals
+    cmp     CL, IDLEN				; that of the command argument
+    jnz     nextcom				; lengths not equal ==> strings not eq
+    MOV     PathPos,CX				; store length of command
     repz    cmpsb
     jz      foundcom
 nextcom:
@@ -254,12 +254,12 @@ foundcom:
     mov     DI,OFFSET TRANGROUP:COMTAB
     add     DI,AX
     mov     AL,[DI]
-    mov     [CHKDRV],AL
+    mov     [CHKDRV], AL			; save command flag byte in chkdrv
     inc     DI
-    mov     BX,WORD PTR [DI]
+    mov     BX, WORD PTR [DI]			; load internal command address
     inc     DI
     inc     DI
-    mov     DX,WORD PTR [DI]
+    mov     DX, WORD PTR [DI]			; load ptr to help msg #s
 ;
 ; All messages get redirected.
 ;
@@ -493,10 +493,10 @@ NeoExecute:
 ;
 Lh_Execute:				;M051
 
-        CALL    BuildExternalTail
-        MOV     ES,[RESSEG]
+	CALL	BuildExternalTail
+	MOV	ES,[RESSEG]
 ASSUME  ES:RESGROUP
-        MOV     BYTE PTR ES:[RetCode+2],1
+	MOV	BYTE PTR ES:[RetCode+2],1
 	MOV	ES,[TRAN_TPA]
 	MOV	AH,DEALLOC
 	INT	21h			; Now running in "free" space
@@ -611,15 +611,15 @@ ExecStarting DB ' starting',13,10
 BADCOM:
 	PUSH	CS
 	POP	DS
-        TEST    BYTE PTR [fTest],8      ; Was WIN requested?
-        JZ      SHORT BadCommandName
-        AND     BYTE PTR [fTest],NOT 8
-        MOV     AX,3305H                ; Get boot drive
-        INT     21H
-        CMP     DL,3
-        JB      SHORT BadCommandDone
-        MOV     DX,OFFSET TRANGROUP:NoWin_Ptr
-        JMP     SHORT CERROR
+	TEST	BYTE PTR [fTest],8      ; Was WIN requested?
+	JZ	SHORT BadCommandName
+	AND	BYTE PTR [fTest],NOT 8
+	MOV	AX,3305H                ; Get boot drive
+	INT	21H
+	CMP	DL,3
+	JB	SHORT BadCommandDone
+	MOV	DX,OFFSET TRANGROUP:NoWin_Ptr
+	JMP	SHORT CERROR
 BadCommandName:
 	MOV	DX,OFFSET TRANGROUP:BADNAM_ptr
 
@@ -777,14 +777,14 @@ RedirNotQuote:
 	JZ	GOTRESTR_J
 	CMP	AL,[SWITCHAR]
 	JZ	GOTRESTR_J
-	CMP	AL,labracket
-	JZ	ABRACKET_TERM
-	CMP	AL,rabracket
-	JNZ	NO_ABRACKET
+	CMP	AL,labracket			;AN002; Is char for input redirection
+	JZ	ABRACKET_TERM			;AN002; yes - end of string
+	CMP	AL,rabracket			;AN002; Is char for output redirection
+	JNZ	NO_ABRACKET			;AN002; no - not end of string
 
-ABRACKET_TERM:
-	DEC	SI				; Leave the redirection character
-	MOV	AL,BLANK
+ABRACKET_TERM:					;AN002; have end of string by < or >
+	DEC	SI				;AN002; back up over symbol
+	MOV	AL,BLANK			;AN002; show delimiter as char
 GOTRESTR_J:
 	POP	CX
 	JMP	SHORT GOTRESTR
@@ -917,41 +917,41 @@ PipeNoMemory:
 	MOV	DX,OFFSET TRANGROUP:PipeMemErr_Ptr
 	JMP	CERROR
 
-        PUBLIC  BuildExternalTail
+	PUBLIC	BuildExternalTail
 BuildExternalTail proc near
-        MOV     DI,81H
-        MOV     SI,[ComBufPtr]
-        MOV     AX,[SI-2]
-        MOV     SI,OFFSET TRANGROUP:arg
-        MOV     SI,[SI].arg_ocomptr
-        ADD     AX,SI
-        PUSH    AX
-        INVOKE  Scanoff
-        POP     AX
-        CALL    CountCommandName
-        ADD     SI,CX
-        SUB     AX,SI
-        MOV     CX,AX
-        CALL    PrepareLongCommand
-        CMP     CX,7FH
-        JB      SHORT CopyTail
-        MOV     CX,7EH
-        REP     MOVSB
-        MOV     AL,0DH
-        STOSB
-        INC     DI
-        JMP     SHORT CopyDone
+	MOV	DI,81H
+	MOV	SI,[ComBufPtr]
+	MOV	AX,[SI-2]
+	MOV	SI,OFFSET TRANGROUP:arg
+	MOV	SI,[SI].arg_ocomptr
+	ADD	AX,SI
+	PUSH	AX
+	INVOKE	Scanoff
+	POP	AX
+	CALL	CountCommandName
+	ADD	SI,CX
+	SUB	AX,SI
+	MOV	CX,AX
+	CALL	PrepareLongCommand
+	CMP	CX,7FH
+	JB	SHORT CopyTail
+	MOV	CX,7EH
+	REP	MOVSB
+	MOV	AL,0DH
+	STOSB
+	INC	DI
+	JMP	SHORT CopyDone
 CopyTail:
-        LODSB
-        STOSB
-        CMP     AL,0DH
-        JZ      SHORT CopyDone
-        JMP     SHORT CopyTail
+	LODSB
+	STOSB
+	CMP	AL,0DH
+	JZ	SHORT CopyDone
+	JMP	SHORT CopyTail
 CopyDone:
-        MOV     CX,DI
-        SUB     CX,82H
-        MOV     ES:[80H],CL
-        RET
+	MOV	CX,DI
+	SUB	CX,82H
+	MOV	ES:[80H],CL
+	RET
 BuildExternalTail endp
 
 test_append	proc near
@@ -973,57 +973,57 @@ test_append	endp
 ;               DS = TRANGROUP, PathFindMode selects pathname conversion
 ;       EXIT    SI and DI preserved; AX, CX and flags changed
 ;
-        PUBLIC  CopyCanonicalPath
+	PUBLIC	CopyCanonicalPath
 assume  ds:trangroup
 CopyCanonicalPath PROC NEAR
-        MOV     AL,PathFindMode
-        OR      AL,AL
-        JZ      SHORT CopyPathBuffer
-        PUSH    SI
-        PUSH    DI
-        CALL    CanonicalizePath
-        POP     DI
-        POP     SI
-        JNC     SHORT CopyCanonicalDone
+	MOV	AL,PathFindMode
+	OR	AL,AL
+	JZ	SHORT CopyPathBuffer
+	PUSH	SI
+	PUSH	DI
+	CALL	CanonicalizePath
+	POP	DI
+	POP	SI
+	JNC	SHORT CopyCanonicalDone
 CopyPathBuffer:
-        MOV     CX,104H
-        CLD
-        PUSH    SI
-        PUSH    DI
-        REP     MOVSB
-        POP     DI
-        POP     SI
+	MOV	CX,LenMsgOrPathBuf
+	CLD
+	PUSH	SI
+	PUSH	DI
+	REP	MOVSB
+	POP	DI
+	POP	SI
 CopyCanonicalDone:
-        RET
+	RET
 CopyCanonicalPath ENDP
 
 ; Count the command name, allowing delimiters inside quotation marks.
-        PUBLIC  CountCommandName
+	PUBLIC	CountCommandName
 CountCommandName PROC NEAR
-        PUSH    AX
-        PUSH    SI
-        XOR     CX,CX
-        XOR     BX,BX
+	PUSH	AX
+	PUSH	SI
+	XOR	CX,CX
+	XOR	BX,BX
 CountNameChar:
-        LODSB
-        CALL    QuoteDelim
-        JZ      SHORT CountNameDone
-        CMP     AL,0DH
-        JZ      SHORT CountNameDone
-        TEST    BH,20H
-        JNZ     SHORT CountNameNext
-        CMP     AL,[SWITCHAR]
-        JZ      SHORT CountNameDone
+	LODSB
+	CALL	QuoteDelim
+	JZ	SHORT CountNameDone
+	CMP	AL,0DH
+	JZ	SHORT CountNameDone
+	TEST	BH,20H
+	JNZ	SHORT CountNameNext
+	CMP	AL,[SWITCHAR]
+	JZ	SHORT CountNameDone
 CountNameNext:
-        INC     CX
-        CMP     AL,'"'
-        JNZ     SHORT CountNameChar
-        XOR     BH,20H
-        JMP     SHORT CountNameChar
+	INC	CX
+	CMP	AL,'"'
+	JNZ	SHORT CountNameChar
+	XOR	BH,20H
+	JMP	SHORT CountNameChar
 CountNameDone:
-        POP     SI
-        POP     AX
-        RET
+	POP	SI
+	POP	AX
+	RET
 CountCommandName ENDP
 
 
