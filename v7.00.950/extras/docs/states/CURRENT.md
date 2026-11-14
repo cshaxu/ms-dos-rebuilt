@@ -56,10 +56,10 @@ IO.SYS, MSDOS.SYS and COMMAND.COM all equal. This is an existing-asset check,
 not a claim that a new build has run. The accepted six-byte MSDOS.SYS config
 remains the target; other media provenance does not silently change it.
 
-## Current prefix: 256/293
+## Current prefix: 263/293
 
-Modified source/build files 114, exact 69, necessary unchanged 36,
-no same-name reference unchanged 37. Next: 257, inc/lmstub.asm. Tooling modified
+Modified source/build files 115, exact 74, necessary unchanged 37,
+no same-name reference unchanged 37. Next: 264, inc/msgserv.asm. Tooling modified
 1 (ioimage.c case-insensitive map symbol lookup), outside source count.
 See etc/T25/part1.md. BIOSTAIL.OBJ is unchanged; all compiler/link phases ran,
 then packaging failure was diagnosed and repaired. Fresh three-output FC/B
@@ -549,3 +549,7 @@ See part88.md. Next: 225 inc/bootform.inc. Final full build pending.
 P89 accepts 225-256. Twenty-six include files match effective v6.22.
 Six retain necessary differences. See part89.md.
 Next: 257 inc/lmstub.asm. Final full build pending.
+
+P90 accepts 257-263. LMSTUB source aligned and MSDATA rebuilt. Five files
+are reference-exact and MSGDCL retains COMT guard differences. See part90.md.
+Next: 264 inc/msgserv.asm. Final full build pending.
