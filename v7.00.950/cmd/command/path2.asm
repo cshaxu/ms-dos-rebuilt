@@ -15,7 +15,6 @@
 	include comsw.asm
 	include comseg.asm
 	include comequ.asm
-	include fordata.asm
 .list
 .cref
 
@@ -38,7 +37,7 @@ break <Path.Asm>
 ;    <Path_Search>.  Alternatively, the command name and appropriate
 ;    information could be placed in argv[0], or <Path_Search> could be
 ;    (easily) modified to make no assumptions about where its input is found.
-;    Please find enclosed yet another important routine, <Save_Args>, which
+;    The <Save_Args> routine in TFOR.ASM
 ;    places the entire arg/argv[]/argbuf structure on a piece of newly
 ;    allocated memory.	This is handy for for-loop processing, and anything
 ;    else that wants to save the whole shebang and then process other command
@@ -72,7 +71,6 @@ break <Path.Asm>
 
 TRANSPACE	SEGMENT PUBLIC BYTE	;AC000;
 	EXTRN	arg:byte
-	EXTRN	ComBufPtr:WORD,CmdBufferLength:WORD
 	EXTRN	BADPMES_ptr:word
 	EXTRN	curdrv:byte
 	EXTRN	EXECPATH:byte
@@ -81,11 +79,8 @@ TRANSPACE	SEGMENT PUBLIC BYTE	;AC000;
 	EXTRN	pathinfo:word
 	EXTRN	psep_char:byte
 	EXTRN	string_ptr_2:word
-	EXTRN	PathFindMode:BYTE,PathFindBuffer:BYTE,PathFindHandle:WORD
-	EXTRN	DirBuf:BYTE,CopyFindDataOffset:WORD
-	EXTRN	PathQueryRoot:BYTE
-	EXTRN	PathChdirFunction:WORD,PathGetdirFunction:WORD
-	EXTRN	PathOpenFunction:WORD,PathAttribFunction:WORD
+	EXTRN	PathFindMode:byte
+	EXTRN	PathFindBuffer:byte
 TRANSPACE	ENDS
 
 TRANCODE	SEGMENT PUBLIC BYTE	;AC000;
@@ -162,14 +157,14 @@ search_loop:
         ADD     SI,104H                 ; prefer returned short name
         CALL    SelectReturnedName
 search_type:
-        CALL    search_ftype
+	call	search_ftype			; determine if .com, &c...
         CMP     AX,search_best
         JLE     SHORT search_next
         MOV     search_best,AX
-        MOV     DI,OFFSET TRANGROUP:search_best_buf
-        MOV     CX,fname_max_len
-        CLD
-        REP     MOVSB
+	mov	DI, OFFSET TRANGROUP:search_best_buf
+	mov	CX, fname_max_len
+	cld
+	rep	movsb				; save complete pathname representation
         CMP     AL,search_com
         JNE     SHORT search_next
         CALL    ClosePathFind
@@ -187,7 +182,7 @@ search_done:
         MOV     AX,search_best
         CMP     ext_entered,1
         JE      SHORT search_exit
-        MOV     AL,ext_entered
+	mov	al,ext_entered			;AN005; yes - get the real file type back
         MOV     search_best,AX
         JMP     SHORT search_exit
 
@@ -214,7 +209,7 @@ break <Search_Ftype>
 ;----------------------------------------------------------------------------
 ;   SEARCH_FTYPE determines the type of a file by examining its extension.
 ; ENTRY:
-;   fbuf    --	    dma buffer containing filename
+;   DS:SI   --	    pointer to filename
 ; EXIT:
 ;   AX	    --	    file code, as given in search header
 ; NOTE(S):

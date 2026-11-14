@@ -56,10 +56,10 @@ IO.SYS, MSDOS.SYS and COMMAND.COM all equal. This is an existing-asset check,
 not a claim that a new build has run. The accepted six-byte MSDOS.SYS config
 remains the target; other media provenance does not silently change it.
 
-## Current prefix: 116/293
+## Current prefix: 117/293
 
-Modified source/build files 49, exact 20, necessary unchanged 12,
-no same-name reference unchanged 35. Next: 117, cmd/command/path2.asm. Tooling modified
+Modified source/build files 50, exact 20, necessary unchanged 12,
+no same-name reference unchanged 35. Next: 118, cmd/command/rdata.asm. Tooling modified
 1 (ioimage.c case-insensitive map symbol lookup), outside source count.
 See etc/T25/part1.md. BIOSTAIL.OBJ is unchanged; all compiler/link phases ran,
 then packaging failure was diagnosed and repaired. Fresh three-output FC/B
@@ -211,4 +211,8 @@ extras/build/t25-parse2-11809-1661; see part26.md.
 File 116 normalizes PATH1's necessary LFN/UNC branches and declarations to the
 surrounding reference style. COMMAND rebuild/repack and all target/input checks
 pass; extras/build/t25-path1-12286-30833; see part27.md.
-Next: 117 path2.asm. Full automatic final build remains pending.
+File 117 removes PATH2's unused FORDATA include and ten unused added external
+declarations; restores inherited search formatting and corrects interface notes.
+COMMAND rebuild/repack and all target/input checks pass;
+extras/build/t25-path2-12746-6262; see part28.md.
+Next: 118 rdata.asm. Full automatic final build remains pending.
