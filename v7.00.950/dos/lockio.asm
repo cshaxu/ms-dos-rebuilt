@@ -1,4 +1,4 @@
-	TITLE	LOCK ROUTINES - Routines for file locking
+	TITLE	LOCKIO - Lock checks for local I/O
 	NAME	LOCKIO
 
 ;
@@ -7,11 +7,10 @@
 ;	All Rights Reserved.
 ;
 
-;**	LOCK.ASM - File Locking Routines
+;**	LOCKIO.ASM - Local I/O Lock Checks
 ;
 ;	LOCK_CHECK
 ;	LOCK_VIOLATION
-;	$LockOper
 ;
 ;	Revision history:
 ;	  A000	 version 4.00	Jan. 1988
@@ -33,16 +32,10 @@ AsmVars <IBM, Installed>
 
 Installed = TRUE
 
-	i_need	THISSFT,DWORD
 	i_need	THISDPB,DWORD
-	i_need	EXTERR,WORD
 	i_need	ALLOWED,BYTE
 	i_need	RetryCount,WORD
-	I_need	fShare,BYTE
-	I_Need	EXTERR_LOCUS,BYTE	; Extended Error Locus
 	i_need	JShare,DWORD
-	i_need	Lock_Buffer,DWORD	; DOS 4.00
-	i_need	Temp_Var,WORD		; DOS 4.00
 
 
 DOSCODE SEGMENT

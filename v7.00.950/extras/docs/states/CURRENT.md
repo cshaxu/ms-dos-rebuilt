@@ -56,10 +56,10 @@ IO.SYS, MSDOS.SYS and COMMAND.COM all equal. This is an existing-asset check,
 not a claim that a new build has run. The accepted six-byte MSDOS.SYS config
 remains the target; other media provenance does not silently change it.
 
-## Current prefix: 183/293
+## Current prefix: 185/293
 
-Modified source/build files 95, exact 27, necessary unchanged 25,
-no same-name reference unchanged 36. Next: 184, dos/lockio.asm. Tooling modified
+Modified source/build files 96, exact 27, necessary unchanged 26,
+no same-name reference unchanged 36. Next: 186, dos/macro2.asm. Tooling modified
 1 (ioimage.c case-insensitive map symbol lookup), outside source count.
 See etc/T25/part1.md. BIOSTAIL.OBJ is unchanged; all compiler/link phases ran,
 then packaging failure was diagnosed and repaired. Fresh three-output FC/B
@@ -488,3 +488,7 @@ P74 accepts files 182-183. LFN uses inherited directory and buffer symbols.
 LOCK removes stale declarations after the LOCKIO split. Both affected links
 and freshly packed IO.SYS pass byte checks. See part74.md.
 Next: 184 dos/lockio.asm. Final full build pending.
+
+P75 accepts files 184-185. LOCKIO cleans declarations after separation
+from LOCK. MACRO preserves 950 dispatch and return encodings. See part75.md.
+Next: 186 dos/macro2.asm. Final full build pending.
