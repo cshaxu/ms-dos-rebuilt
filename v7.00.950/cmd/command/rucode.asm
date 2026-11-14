@@ -114,7 +114,6 @@ CODERES segment public byte
 	public	DskErr
 	public	MsgInt2fHandler
 	public	MsgRetriever
-	public	Crlf
 	public	RPrint
 
 	ifdef	DBCS
@@ -1081,7 +1080,6 @@ MsgInt2fHandler	endp
 ;
 ;	ENTRY	AX = message #
 ;		DI = offset in RESGROUP of msg ptr list
-;		ComSpec = asciiz pathname to our disk image
 ;
 ;	EXIT	CY clear for success
 ;		ES:DI = ptr to count byte, followed by message text
@@ -1112,21 +1110,21 @@ MsgInt2fHandler	endp
 MsgRetriever	proc	far
 
 	assume	cs:CODERES,ds:NOTHING,es:NOTHING,ss:NOTHING
-	pop	ds
+	pop	ds			;ds = DATARES
 	assume	ds:DATARES
-	push	ax
+	push	ax			; preserve registers
 	push	bx
 	push	cx
 	push	dx
 	push	si
-	push	ds
-	pop	es
+	push	ds			; get es from ds
+	pop	es			; ES = DATARES seg addr
 	mov	cx,300			; parse message resource base
-	mov	bx,NUMPARSMSGS
+	mov	bx,NUMPARSMSGS		; BX = # parse error msgs in list
 	cmp	di,offset DATARES:ParsMsgPtrs
 	je	mrCheck
 	mov	cx,200			; extended error resource base
-	mov	bx,NUMEXTMSGS
+	mov	bx,NUMEXTMSGS		; BX = # extended error msgs in list
 mrCheck:
 	cmp	bx,ax
 	jnc	mrValid
@@ -1135,8 +1133,8 @@ mrValid:
 	add	cx,ax
 	mov	ResidentMsgId,cx
 	dec	ax
-	shl	ax,1
-	add	di,ax
+	shl	ax,1			; AX = offset into msg ptr list
+	add	di,ax			; DI = ptr to msg ptr
 	cmp	di,ResMsgEnd
 	jae	mrNoMsg
 	mov	di,es:[di]		; pointer to resource pointer field
@@ -1148,7 +1146,7 @@ mrValid:
 mrNoMsg:
 	stc
 mrRet:
-	pop	si
+	pop	si			;restore all registers
 	pop	dx
 	pop	cx
 	pop	bx
@@ -1246,36 +1244,36 @@ ExecTopOptionEnd label byte
 ExecTopOpen:
 	pop	di
 	lds	dx,cs:[di]
-	mov	ax,4300h
+	mov	ax,CHMOD shl 8
 	int	21h
 	jc	ExecTopContinue
 	mov	si,cx
 	xor	cx,cx
-	mov	ax,4301h
+	mov	ax,(CHMOD shl 8) or 1
 	int	21h
 	jc	ExecTopContinue
-	mov	ax,3D12h
+	mov	ax,(OPEN shl 8) or 12h
 	int	21h
 	jc	ExecTopRestore
 	mov	bx,ax
 	xor	cx,cx
 	xor	dx,dx
-	mov	ax,4202h
+	mov	ax,(LSEEK shl 8) or 2
 	int	21h
 	jc	ExecTopClose
 	mov	cx,ExecTopOptionEnd-ExecTopOption
 	push	cs
 	pop	ds
 	lea	dx,[di+4]
-	mov	ah,40h
+	mov	ah,WRITE
 	int	21h
-	mov	ah,3Eh
+	mov	ah,CLOSE
 	int	21h
 	lds	dx,[di]
-	mov	ax,4301h
+	mov	ax,(CHMOD shl 8) or 1
 	mov	cx,si
 	int	21h
-	mov	ah,0Dh
+	mov	ah,DISK_RESET
 	int	21h
 	sub	cx,cx
 	mov	es,cx
@@ -1291,11 +1289,11 @@ ExecTopReset:
 	db	0EAh			; far jump to reset entry
 	dw	0,0FFFFh
 ExecTopClose:
-	mov	ah,3Eh
+	mov	ah,CLOSE
 	int	21h
 ExecTopRestore:
 	lds	dx,[di]
-	mov	ax,4301h
+	mov	ax,(CHMOD shl 8) or 1
 	mov	cx,si
 	int	21h
 	jmp	ExecTopContinue
