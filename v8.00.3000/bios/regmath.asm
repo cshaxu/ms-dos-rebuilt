@@ -60,6 +60,64 @@ LshlDone:
 	ret
 __aFlshl endp
 
+	db 0
+; Unsigned long remainder, with the same far stack convention as ULDIV.
+	public __aFulrem
+__aFulrem proc far
+	push	bp
+	mov	bp,sp
+	push	bx
+	mov	ax,[bp+0ch]
+	or	ax,ax
+	jnz	short ulrem_wide
+	mov	cx,[bp+0ah]
+	mov	ax,[bp+8]
+	xor	dx,dx
+	div	cx
+	mov	ax,[bp+6]
+	div	cx
+	mov	ax,dx
+	xor	dx,dx
+	jmp	short ulrem_done
+ulrem_wide:
+	mov	cx,ax
+	mov	bx,[bp+0ah]
+	mov	dx,[bp+8]
+	mov	ax,[bp+6]
+ulrem_shift:
+	shr	cx,1
+	rcr	bx,1
+	shr	dx,1
+	rcr	ax,1
+	or	cx,cx
+	jnz	short ulrem_shift
+	div	bx
+	mov	cx,ax
+	mul	word ptr [bp+0ch]
+	xchg	ax,cx
+	mul	word ptr [bp+0ah]
+	add	dx,cx
+	jc	short ulrem_adjust
+	cmp	dx,[bp+8]
+	ja	short ulrem_adjust
+	jc	short ulrem_result
+	cmp	ax,[bp+6]
+	jna	short ulrem_result
+ulrem_adjust:
+	sub	ax,[bp+0ah]
+	sbb	dx,[bp+0ch]
+ulrem_result:
+	sub	ax,[bp+6]
+	sbb	dx,[bp+8]
+	neg	dx
+	neg	ax
+	sbb	dx,0
+ulrem_done:
+	pop	bx
+	pop	bp
+	retf	8
+__aFulrem endp
+
 __aFulshr proc far
 	xor	ch,ch
 	jcxz	LshrDone
@@ -71,6 +129,7 @@ LshrDone:
 	ret
 __aFulshr endp
 
+	db 0
 __aFuldiv proc far
 	public	__aFuldiv
 
@@ -191,6 +250,56 @@ L2:
         pop     bp
 	ret	8
 __aFuldiv endp
+
+	db 0
+__aFlmul proc far
+        public  __aFlmul
+
+MUL_A equ 6
+MUL_B equ 10
+
+;
+;	AHI, BHI : upper 16 bits of A and B
+;	ALO, BLO : lower 16 bits of A and B
+;
+;	      ALO * BLO
+;	ALO * BHI
+; +	BLO * AHI
+; ---------------------
+
+        push    bp
+        mov     bp,sp
+
+	mov	ax,[bp+MUL_A+2]
+	mov	cx,[bp+MUL_B+2]
+	or	cx,ax		;test for both hiwords zero.
+	mov	cx,[bp+MUL_B]
+	jnz	short lmul_wide		;both are zero, just mult ALO and BLO
+
+	mov	ax,[bp+MUL_A]
+	mul	cx
+
+	pop	bp
+	ret 8
+
+lmul_wide:
+	push	bx
+
+	mul	cx		;ax has AHI, cx has BLO, so AHI * BLO
+	mov	bx,ax		;save result
+
+	mov	ax,[bp+MUL_A]
+	mul	word ptr [bp+MUL_B+2] ;ALO * BHI
+	add	bx,ax		;bx = ((ALO * BHI) + (AHI * BLO))
+
+	mov	ax,[bp+MUL_A]	;cx = BLO
+	mul	cx		;so dx:ax = ALO*BLO
+	add	dx,bx		;now dx has all the LO*HI stuff
+
+	pop	bx
+        pop     bp
+        ret 8
+__aFlmul endp
 
 _TEXT	ends
 	end

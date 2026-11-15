@@ -131,8 +131,8 @@ ConfigXmsSize dw 0
         dw 0
 _DATA ends
 ; The work area follows the initialized resume data.
-RESWORK segment para public 'RESUME_BSS'
-        db 4 dup (?)
+RESWORK segment word public 'RESUME_BSS'
+        db 16 dup (?)
         public ConfigPathBuffer,AsdRecord,AsdOutputRecord
 ConfigPathBuffer db 200h dup (?)
 AsdRecord db 118h dup (?)

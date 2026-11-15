@@ -10,7 +10,7 @@ _DATA segment word public use16 'RESUME_DATA'
 	extrn AsdProblemsKey:byte,AsdRunOnceKey:byte
 	extrn AsdWizardCommand:byte,AsdWizardValue:byte
 _DATA ends
-RESWORK segment para public use16 'RESUME_BSS'
+RESWORK segment word public use16 'RESUME_BSS'
 	extrn ConfigPathBuffer:byte,AsdRecord:byte,AsdOutputRecord:byte
 RESWORK ends
 DGROUP group _DATA,RESWORK

@@ -1037,7 +1037,7 @@ boot_time_done:
 	mov	bx,548h
 	add	bx,31
 	shr	bx,4
-	add	bx,(seg ConfigPathBuffer)+4Ch
+	add	bx,seg ConfigPathBuffer
 	sub	bx,[area]
 	mov	ah,setblock
 	int	21h

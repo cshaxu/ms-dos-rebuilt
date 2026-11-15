@@ -21,5 +21,11 @@ sysinit_resource label byte
 	dw	sysinit_msg_end - sysinit_msg_base
 	include ..\lang\usa\messages\sysimsg.inc
 
+; The loader locates the message resource from its trailing signature.
+	db	'IOSYSMSG'
+	dw	sysinit_msg_end - sysinit_resource
+	db	1419 dup ('MPAD')
+	db	3 dup (0)
+
 SysInitSeg	ends
 	end

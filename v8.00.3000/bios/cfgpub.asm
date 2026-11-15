@@ -4,7 +4,7 @@
 BootRegistryInfo equ 2d46h
 _DATA segment word public use16 'RESUME_DATA'
 	extrn ConfigXmsMove:byte,ConfigXmsHandle:word,ConfigXmsDriver:dword
-	extrn ConfigFileLength:dword,ConfigXmsSize:word
+	extrn ConfigFileLength:dword,ConfigXmsSize:word,ConfigFileOffset:dword
 _DATA ends
 DGROUP group _DATA
 SysResume segment byte public use16 'RESUME_CODE'
@@ -204,6 +204,107 @@ cwr_done:
 	pop	bp
 	retf
 ConfigWriteRecord endp
+
+; The read-only XMS file services use a logical position within the copy.
+
+ConfigReadXmsFile proc near
+	push	bp
+	mov	bp,sp
+	push	si
+	mov	si,3a6h
+	xor	ax,ax
+	mov	[si+0ah],ax
+	mov	ebx,[ConfigFileOffset]
+	mov	[si+6],ebx
+	movzx	ecx,word ptr [bp+0ah]
+	mov	[si],ecx
+	mov	edx,ebx
+	add	edx,ecx
+	cmp	edx,[ConfigFileLength]
+	ja	short crxf_done
+	mov	ax,[ConfigXmsHandle]
+	mov	[si+4],ax
+	mov	eax,[bp+6]
+	mov	[si+0ch],eax
+	mov	ah,0bh
+	call	dword ptr [ConfigXmsDriver]
+	or	ax,ax
+	jz	short crxf_done
+	movzx	ecx,word ptr [bp+0ah]
+	add	[ConfigFileOffset],ecx
+crxf_done:
+	pop	si
+	pop	bp
+	ret
+ConfigReadXmsFile endp
+
+ConfigCloseXmsFile proc near
+	push	bp
+	mov	bp,sp
+	xor	ax,ax
+	pop	bp
+	ret
+ConfigCloseXmsFile endp
+
+ConfigSeekXmsFile proc near
+	push	bp
+	mov	bp,sp
+	xor	ax,ax
+	mov	ecx,[bp+6]
+	cmp	ecx,[ConfigFileLength]
+	jnc	short csxf_done
+	mov	[ConfigFileOffset],ecx
+	inc	ax
+csxf_done:
+	pop	bp
+	ret
+ConfigSeekXmsFile endp
+
+RegMemoryFileCreate proc near
+	mov	ax,0ffffh
+	ret	4
+RegMemoryFileCreate endp
+
+RegMemoryFileOpen proc near
+	mov	ax,0fffeh
+	mov	dword ptr [ConfigFileOffset],0
+	ret	6
+RegMemoryFileOpen endp
+
+RegMemoryFileCommit proc near
+	mov	ax,1
+	ret	2
+RegMemoryFileCommit endp
+
+RegMemoryFileClose proc near
+	ret	2
+RegMemoryFileClose endp
+
+RegMemoryFileGetAttr proc near
+	mov	ax,0ffffh
+	mov	dx,ax
+	ret	4
+RegMemoryFileGetAttr endp
+
+RegMemoryFileSetAttr proc near
+	xor	ax,ax
+	ret	6
+RegMemoryFileSetAttr endp
+
+RegMemoryFileDelete proc near
+	mov	ax,0ffffh
+	ret	4
+RegMemoryFileDelete endp
+
+RegMemoryFileTemp proc near
+	xor	ax,ax
+	ret	4
+RegMemoryFileTemp endp
+
+RegMemoryFileRename proc near
+	xor	ax,ax
+	ret	8
+RegMemoryFileRename endp
 
 SysResume ends
 	end
