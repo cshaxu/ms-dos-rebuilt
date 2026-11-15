@@ -711,8 +711,9 @@ kbd7_check_key:
         int     16h
         jnz     short kbd7_have_key
         test    byte ptr [boot_menu],1
-        jnz     short kbd7_show_menu
-        jmp     kbd7_finish
+	.386
+	jz	near ptr kbd7_finish
+	.8086
 kbd7_show_menu:
         jmp     kbd7_menu
 kbd7_have_key:
@@ -1130,7 +1131,7 @@ menu_getdefault:
         or      dl,dl           ; where there any valid blocks at all?
         jnz     short menu_valid ; yes
         sub     bx,bx           ; no, so force autoselect of 0
-        jmp     menu_autoselect ; (meaning: process common blocks only)
+        jmp     short menu_autoselect ; process common blocks only
 menu_valid:
         sub     bx,bx           ;
         mov     [bMaxBlock],dl  ; first, record how many blocks we found
@@ -2059,7 +2060,6 @@ print_other:                    ;
         inc     dl              ; increment column
         mov     ah,02h          ;
         int     10h             ;
-        push    es              ;
 print_loop:                     ;
         mov     al,es:[di]      ; get a character of the description
         inc     di              ;
@@ -2080,7 +2080,6 @@ print_nontab:                   ;
         int     10h             ;
         jmp     print_loop      ;
 print_done:                     ;
-        pop     es              ;
         pop     dx              ;
         mov     ah,02h          ;
         int     10h             ; restore previous row/col
@@ -2195,8 +2194,9 @@ got_key:
 timeout_disabled:
         pop     ax              ;
         or      al,al           ; extended key pressed?
-        jz      short extended_key
-        jmp     normal_key
+	.386
+	jnz	near ptr normal_key
+	.8086
 extended_key:
         int     21h             ; get the next part of the key then
         jz      input_key       ; hmmm, what happened to the second part?
@@ -2705,8 +2705,9 @@ query_user  proc near
 	.8086
 query_check_skip:
         test    byte ptr [query_mode_flags],2
-        jz      query_check_done
-        jmp     skip_all
+	.386
+	jnz	near ptr skip_all
+	.8086
 query_check_done:
         test    byte ptr [query_mode_flags],50h
         jnz     nearby_ret

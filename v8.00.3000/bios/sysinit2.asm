@@ -1958,7 +1958,7 @@ boot_previous_check_host:
 	mov     byte ptr [boot_previous_menu],7
 	cmp     byte ptr [exec_value],'0'
 	jne     short boot_previous_old_title
-	dec     byte ptr [boot_previous_menu]
+	sub     byte ptr [boot_previous_menu],1
 boot_previous_old_title:
 	mov     di,offset sysinit_msg_base
 	add     di,word ptr [sysinit_msg_table+100]
@@ -2768,12 +2768,14 @@ boot_match_number:
 	.8086
 boot_number_value:
 	call    boot_option_number
-	jnc     boot_number_limit
-	jmp     near ptr boot_option_error
+	.386
+	jc	near ptr boot_option_error
+	.8086
 boot_number_limit:
 	cmp     ax,90
-	jbe     boot_number_store
-	jmp     near ptr boot_option_error
+	.386
+	ja	near ptr boot_option_error
+	.8086
 boot_number_store:
 	mov     di,[di]
 	mov     [di],al
@@ -2781,8 +2783,9 @@ boot_number_store:
 boot_match_flag:
 	lodsb
 	cmp     al,'='
-	je      boot_flag_value
-	jmp     near ptr boot_option_error
+	.386
+	jne	near ptr boot_option_error
+	.8086
 boot_flag_value:
 	call    boot_option_number
 	.386

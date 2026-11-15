@@ -395,8 +395,6 @@ DDHighInfo	ends
 	extrn   temp_bcode_seg:word
 	extrn   no_floppy_report:byte
 	extrn   fake_floppy_drv:byte
-	extrn   runhigh:byte
-	extrn   dos_low_message:byte
 	extrn   dos_umb_flag:byte
 	extrn   exec_boot_state:byte
 	extrn   sysinit_memory_size:word

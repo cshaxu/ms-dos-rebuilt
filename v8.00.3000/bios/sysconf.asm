@@ -262,9 +262,6 @@ config_wrkseg   dw  0                   ; segment of work area
 
         public  config_cmd              ; current config cmd
 config_cmd      db  0                   ; (with CONFIG_OPTION_QUERY bit intact)
-	public	runhigh,dos_low_message
-runhigh	db	0ffh		; DOS loading option
-dos_low_message db 0		; display low-memory message
 
         public  config_multi            ;
 config_multi    db  0                   ; non-zero if multi-config config.sys
@@ -707,7 +704,6 @@ DevSavedDelim	db	?	; The delimiter which was replaced with null
 				; to use the file name in the command line
 ;
 	ifdef	dblspace_hooks
-MagicHomeFlag	db	0	; set non-zero when MagicDrv is final placed
 	endif
 
 ; State used while recording device and interrupt-vector changes.
@@ -817,10 +813,10 @@ ifdef   MULTI_CONFIG
 ;   Reserve the environment workspace in addition to the space needed
 ;   to rebuild the in-memory CONFIG.SYS image.
 ;
-	sub     dx,20h                  ;reserve environment workspace
+	sub     dx,word ptr 20h         ;reserve environment workspace
 	mov     [config_wrkseg],dx
 	mov     es,dx
-	mov     byte ptr es:[0],0
+	mov     word ptr es:[0],0
 	sub     dx,ax
 endif  ;MULTI_CONFIG
 
@@ -1036,8 +1032,9 @@ check_logo_pass:
 ;       but don't process them now.        
         
 	cmp     ah,'q'                  ; LOGO= handled on initial pass
-	jne     short check_install_pass
-	jmp     multi_pass_coff
+	.386
+	je	near ptr multi_pass_coff
+	.8086
 check_install_pass:
 
 	cmp     ah,CONFIG_ACCDATE
@@ -1045,8 +1042,9 @@ check_install_pass:
         cmp     ah,CONFIG_INSTALL               ; install= command?
 	je      mark_install_command
 	cmp     ah,CONFIG_INSTALLHIGH
-	je      mark_install_command
-	jmp     tryb
+	.386
+	jne	near ptr tryb
+	.8086
 mark_install_command:
 	or      install_flag,have_install_cmd
 multi_pass_coff2:
@@ -1385,8 +1383,9 @@ sr22:
 
 trym:
         cmp     ah,CONFIG_MULTITRACK
-	je      short multi_track_command
-	jmp     tryu
+	.386
+	jne	near ptr tryu
+	.8086
 multi_track_command:
 ifdef   MULTI_CONFIG
 	call    query_user      ; query the user if config_cmd
@@ -1913,6 +1912,8 @@ device_counts_saved:
 ;----------------------------------------------------------------------------
 ;
 badnumblock:
+	push	cs
+	pop	ds
 	call	print_indexed
 	dw	8012h
 
@@ -3701,8 +3702,9 @@ TrueInt12Mem	endp
 
 DeviceCompatCheck proc near
 		test	ax,ax
-		jz	short dcc_first
-		jmp	near ptr DeviceCompatRestore
+	.386
+	jnz	near ptr DeviceCompatRestore
+	.8086
 dcc_first:
 		mov	di,offset ProTName
 		mov	cx,1
@@ -3712,8 +3714,9 @@ dcc_first:
 		mov	di,offset ATIVideoName
 		mov	cx,1
 		call	FindDeviceName
-		jnz	short dcc_stac
-		jmp	near ptr DeviceCompatSwitch
+	.386
+	jz	near ptr DeviceCompatSwitch
+	.8086
 dcc_stac:
 		mov	di,offset StacCDName
 		mov	cx,1
@@ -3722,8 +3725,9 @@ dcc_stac:
 		mov	di,offset QEMMName
 		mov	cx,1
 		call	FindDeviceName
-		jnz	short dcc_qloader
-		jmp	near ptr DeviceCompatSwitch
+	.386
+	jz	near ptr DeviceCompatSwitch
+	.8086
 dcc_qloader:
 		mov	di,offset QLoaderName
 		mov	cx,1
