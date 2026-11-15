@@ -8,7 +8,7 @@ _DATA segment word public use16 'RESUME_DATA'
 	extrn RegClassesPath:byte
 	extrn RegDefaultUser:byte
 	extrn RegKeyPool:dword
-	extrn RegDynamicKeys:dword
+	extrn RegDynamicKeys:dword,RegDeferredKeys:dword,RegDeferredCount:dword
 	extrn RegMachineRoot:byte
 	extrn RegUserRoot:byte
 	extrn RegPredefinedKeys:dword
@@ -203,32 +203,46 @@ RegResetRootHandles endp
 	endif
 
 	public RegInitKeyPool
+	public RegFreeKeyPool,RegAcquireKeyHandle,RegReleaseKeyHandle
+	public RegFlushDeferredKeys
+
+KeySize		equ	28h
+KeyFlags		equ	4
+KeyReference	equ	8
+KeyFile equ 0Ah
+KeyCell equ 0Eh
+KeyRootId equ 19h
+KeyNext		equ	1ah
+KeyPrevious	equ	1eh
+
+; Allocate and initialize the 32 fixed-size key records.
 RegInitKeyPool proc near
-	enter 4,0
-	push 4C0h
-	call RegAllocate
-	mov word ptr RegKeyPool,ax
-	mov word ptr RegKeyPool+2,dx
-	mov ax,dx
-	or ax,word ptr RegKeyPool
-	jnz short rikp_fill
-	xor ax,ax
+	enter	4,0
+	push	32*KeySize
+	call	RegAllocate
+	mov	word ptr [RegKeyPool],ax
+	mov	word ptr [RegKeyPool+2],dx
+	mov	ax,dx
+	or	ax,word ptr [RegKeyPool]
+	jnz	short rikp_ready
+	xor	ax,ax
 	leave
 	ret
-rikp_fill:
-	mov cx,20h
-	mov ax,word ptr RegKeyPool
-	mov bx,ax
-	mov [bp-2],dx
-	mov es,word ptr [bp-2]
+rikp_ready:
+	mov	cx,20h
+	mov	ax,word ptr [RegKeyPool]
+	mov	bx,ax
+	mov	[bp-2],dx
+	mov	es,word ptr [bp-2]
 rikp_next:
+	mov	word ptr es:[bx],4b48h
 	db 66h
-	mov word ptr es:[bx],4B48h
-	dw 000Ch
-	mov word ptr es:[bx+4],0
-	add bx,26h
-	loop rikp_next
-	mov ax,1
+	mov	word ptr es:[bx+KeyFlags],0ch
+	dw	0			; high word of the prefixed immediate
+	mov	word ptr es:[bx+KeyReference],0
+	add	bx,KeySize
+	loop	rikp_next
+	mov	ax,1
 	leave
 	ret
 RegInitKeyPool endp
@@ -236,42 +250,42 @@ RegInitKeyPool endp
 	db 0
 	endif
 
-	public RegFreeKeyPool
+; Release the active dynamic handles and the fixed key pool.
 RegFreeKeyPool proc near
-	enter 8,0
-	push di
-	push si
-	mov ax,word ptr RegDynamicKeys
-	mov dx,word ptr RegDynamicKeys+2
-	mov si,ax
-	mov [bp-6],dx
-	or dx,ax
-	jz short rfkp_pool
+	enter	8,0
+	push	di
+	push	si
+	mov	ax,word ptr [RegDynamicKeys]
+	mov	dx,word ptr [RegDynamicKeys+2]
+	mov	si,ax
+	mov	[bp-6],dx
+	or	dx,ax
+	jz	short rfkp_pool
 rfkp_next:
-	mov es,word ptr [bp-6]
-	mov di,si
-	mov ax,es:[si+18h]
-	mov dx,es:[si+1Ah]
-	mov si,ax
-	mov [bp-6],dx
-	push es
-	push di
-	call RegDosFree
-	mov ax,[bp-6]
-	cmp si,word ptr RegDynamicKeys
-	jnz short rfkp_next
-	cmp ax,word ptr RegDynamicKeys+2
-	jnz short rfkp_next
+	mov	es,word ptr [bp-6]
+	mov	di,si
+	mov	ax,es:[si+KeyNext]
+	mov	dx,es:[si+KeyNext+2]
+	mov	si,ax
+	mov	[bp-6],dx
+	push	es
+	push	di
+	call	RegDosFree
+	mov	ax,[bp-6]
+	cmp	si,word ptr [RegDynamicKeys]
+	jnz	short rfkp_next
+	cmp	ax,word ptr [RegDynamicKeys+2]
+	jnz	short rfkp_next
 rfkp_pool:
-	mov RegDynamicKeys,0
-	cmp RegKeyPool,0
-	jz short rfkp_done
-	push RegKeyPool
-	call RegDosFree
-	mov RegKeyPool,0
+	mov	dword ptr [RegDynamicKeys],0
+	cmp	dword ptr [RegKeyPool],0
+	jz	short rfkp_done
+	push	dword ptr [RegKeyPool]
+	call	RegDosFree
+	mov	dword ptr [RegKeyPool],0
 rfkp_done:
-	pop si
-	pop di
+	pop	si
+	pop	di
 	leave
 	ret
 RegFreeKeyPool endp
@@ -279,83 +293,84 @@ RegFreeKeyPool endp
 	db 0
 	endif
 
-	public RegAcquireKeyHandle
+; Acquire an unused pool entry or link a newly allocated key.
 RegAcquireKeyHandle proc near
-	enter 4,0
-	push si
-	cmp RegKeyPool,0
-	jz short rakh_dynamic
-	mov cx,20h
-	mov ax,word ptr RegKeyPool
-	mov dx,word ptr RegKeyPool+2
-	mov bx,ax
-	mov [bp-2],dx
+	enter	4,0
+	push	si
+	cmp	dword ptr [RegKeyPool],0
+	jz	short rakh_dynamic
+	mov	cx,20h
+	mov	ax,word ptr [RegKeyPool]
+	mov	dx,word ptr [RegKeyPool+2]
+	mov	bx,ax
+	mov	[bp-2],dx
 rakh_scan:
-	mov es,word ptr [bp-2]
-	test byte ptr es:[bx+2],4
-	jnz short rakh_slot
-	add bx,26h
-	loop rakh_scan
+	mov	es,word ptr [bp-2]
+	test	byte ptr es:[bx+KeyFlags],4
+	jnz	short rakh_reuse
+	add	bx,KeySize
+	loop	rakh_scan
 rakh_dynamic:
-	push 26h
-	call RegAllocate
-	mov si,ax
-	mov [bp-2],dx
-	or dx,ax
-	jz rakh_result
-	mov es,word ptr [bp-2]
-	mov word ptr es:[si],4B48h
-	xor ax,ax
-	mov es:[si+2],ax
-	mov es:[si+4],ax
-	cmp RegDynamicKeys,0
-	jnz short rakh_link
-	mov ax,[bp-2]
-	mov es,ax
-	mov es:[si+1Ch],si
-	mov es:[si+1Eh],ax
-	mov es:[si+18h],si
-	mov es:[si+1Ah],ax
-	jmp short rakh_head
-rakh_slot:
-	and byte ptr es:[bx+2],0E9h
-	mov ax,bx
-	mov dx,es
-	pop si
+	push	KeySize
+	call	RegAllocate
+	mov	si,ax
+	mov	[bp-2],dx
+	or	dx,ax
+	jz	near ptr rakh_done
+	mov	es,word ptr [bp-2]
+	mov	word ptr es:[si],4b48h
+	sub	eax,eax
+	db 66h
+	mov	es:[si+KeyFlags],ax
+	mov	es:[si+KeyReference],ax
+	cmp	dword ptr [RegDynamicKeys],0
+	jnz	short rakh_has_list
+	mov	ax,[bp-2]
+	mov	es,ax
+	mov	es:[si+KeyPrevious],si
+	mov	es:[si+KeyPrevious+2],ax
+	mov	es:[si+KeyNext],si
+	mov	es:[si+KeyNext+2],ax
+	jmp	short rakh_save_list
+rakh_reuse:
+	and	word ptr es:[bx+KeyFlags],0fbe9h
+	mov	ax,bx
+	mov	dx,es
+	pop	si
 	leave
 	ret
-rakh_link:
-	mov ax,[bp-2]
-	cmp si,word ptr RegDynamicKeys
-	jnz short rakh_insert
-	cmp ax,word ptr RegDynamicKeys+2
-	jz short rakh_head
+rakh_has_list:
+	mov	ax,[bp-2]
+	cmp	si,word ptr [RegDynamicKeys]
+	jnz	short rakh_insert
+	cmp	ax,word ptr [RegDynamicKeys+2]
+	jz	short rakh_save_list
 rakh_insert:
-	mov eax,RegDynamicKeys
-	mov es,word ptr [bp-2]
+	mov	eax,[RegDynamicKeys]
+	mov	es,word ptr [bp-2]
 	db 66h
-	mov es:[si+18h],ax
-	les bx,RegDynamicKeys
-	les bx,es:[bx+1Ch]
-	mov ax,es
-	mov es,word ptr [bp-2]
-	mov es:[si+1Ch],bx
-	mov es:[si+1Eh],ax
-	mov cx,es
-	mov es,ax
-	mov es:[bx+18h],si
-	mov es:[bx+1Ah],cx
-	les bx,RegDynamicKeys
-	mov es:[bx+1Ch],si
-	mov es:[bx+1Eh],cx
-rakh_head:
-	mov ax,[bp-2]
-	mov word ptr RegDynamicKeys,si
-	mov word ptr RegDynamicKeys+2,ax
-rakh_result:
-	mov ax,si
-	mov dx,[bp-2]
-	pop si
+	mov	es:[si+KeyNext],ax
+	les	bx,dword ptr [RegDynamicKeys]
+	les	bx,dword ptr es:[bx+KeyPrevious]
+	mov	ax,es
+	mov	es,word ptr [bp-2]
+	mov	es:[si+KeyPrevious],bx
+	mov	es:[si+KeyPrevious+2],ax
+	mov	cx,es
+	mov	es,ax
+	mov	es:[bx+KeyNext],si
+	mov	es:[bx+KeyNext+2],cx
+	les	bx,dword ptr [RegDynamicKeys]
+	mov	es:[bx+KeyPrevious],si
+	mov	es:[bx+KeyPrevious+2],cx
+rakh_save_list:
+	mov	ax,[bp-2]
+	mov	word ptr [RegDynamicKeys],si
+	mov	word ptr [RegDynamicKeys+2],ax
+rakh_done:
+	mov	ax,si
+	mov	dx,[bp-2]
+	pop	si
 	leave
 	ret
 RegAcquireKeyHandle endp
@@ -363,66 +378,145 @@ RegAcquireKeyHandle endp
 	db 0
 	endif
 
-	public RegReleaseKeyHandle
+; Queue an unlinked key for deferred release.
+RegQueueFreeKey proc near
+	enter	4,0
+	push	si
+	mov	si,[bp+4]
+	inc	dword ptr [RegDeferredCount]
+	mov	eax,[RegDeferredKeys]
+	mov	es,word ptr [bp+6]
+	db 66h
+	mov	es:[si+KeyNext],ax
+	mov	word ptr [RegDeferredKeys],si
+	mov	word ptr [RegDeferredKeys+2],es
+	pop	si
+	leave
+	ret	4
+RegQueueFreeKey endp
+	if ($ - RegistryCode) and 1
+	db 0
+	endif
+
+; Drop a reference and unlink the key when its last reference is gone.
 RegReleaseKeyHandle proc near
-	push bp
-	mov bp,sp
-	push si
-	mov si,[bp+4]
-	mov es,word ptr [bp+6]
-	cmp word ptr es:[si+4],0
-	jz short rrkh_count
-	dec word ptr es:[si+4]
+	enter	4,0
+	push	si
+	mov	si,[bp+4]
+	mov	es,word ptr [bp+6]
+	mov	ax,es:[si+KeyReference]
+	sub	dx,dx
+	mov	[bp-4],ax
+	mov	[bp-2],dx
+	or	dx,ax
+	jz	short rrkh_no_refs
+	mov	dx,[bp-2]
+	sub	ax,1
+	sbb	dx,0
+	mov	es:[si+KeyReference],ax
+	mov	es:[si+KeyReference+2],dx
+	jmp	short rrkh_count
+rrkh_no_refs:
+	inc	dword ptr [bp-4]
 rrkh_count:
-	mov es,word ptr [bp+6]
-	cmp word ptr es:[si+4],0
-	jnz short rrkh_done
-	test byte ptr es:[si+2],81h
-	jnz short rrkh_done
-	test byte ptr es:[si+2],8
-	jz short rrkh_dynamic
-	or byte ptr es:[si+2],4
-	jmp short rrkh_done
+	cmp	dword ptr [bp-4],1
+	jnz	short rrkh_done
+	mov	es,word ptr [bp+6]
+	test	byte ptr es:[si+KeyFlags],81h
+	jnz	short rrkh_done
+	test	byte ptr es:[si+KeyFlags],8
+	jz	short rrkh_dynamic
+	or	byte ptr es:[si+KeyFlags],4
+	jmp	short rrkh_done
 rrkh_dynamic:
-	mov ax,es
-	cmp es:[si+18h],si
-	jnz short rrkh_unlink
-	cmp es:[si+1Ah],ax
-	jnz short rrkh_unlink
-	mov RegDynamicKeys,0
-	jmp short rrkh_free
+	mov	ax,es
+	cmp	es:[si+KeyNext],si
+	jnz	short rrkh_unlink
+	cmp	es:[si+KeyNext+2],ax
+	jnz	short rrkh_unlink
+	mov	dword ptr [RegDynamicKeys],0
+	jmp	short rrkh_release
 rrkh_unlink:
 	db 66h
-	mov ax,es:[si+18h]
-	les bx,es:[si+1Ch]
+	mov	ax,es:[si+KeyNext]
+	les	bx,dword ptr es:[si+KeyPrevious]
 	db 66h
-	mov es:[bx+18h],ax
-	mov es,word ptr [bp+6]
+	mov	es:[bx+KeyNext],ax
+	mov	es,word ptr [bp+6]
 	db 66h
-	mov ax,es:[si+1Ch]
-	les bx,es:[si+18h]
+	mov	ax,es:[si+KeyPrevious]
+	les	bx,dword ptr es:[si+KeyNext]
 	db 66h
-	mov es:[bx+1Ch],ax
-	mov ax,[bp+6]
-	cmp si,word ptr RegDynamicKeys
-	jnz short rrkh_free
-	cmp ax,word ptr RegDynamicKeys+2
-	jnz short rrkh_free
-	mov es,ax
+	mov	es:[bx+KeyPrevious],ax
+	mov	ax,[bp+6]
+	cmp	si,word ptr [RegDynamicKeys]
+	jnz	short rrkh_release
+	cmp	ax,word ptr [RegDynamicKeys+2]
+	jnz	short rrkh_release
+	mov	es,ax
 	db 66h
-	mov ax,es:[si+18h]
-	mov RegDynamicKeys,eax
-rrkh_free:
-	mov es,word ptr [bp+6]
-	mov word ptr es:[si],0
-	push es
-	push si
-	call RegDosFree
+	mov	ax,es:[si+KeyNext]
+	mov	[RegDynamicKeys],eax
+rrkh_release:
+	mov	es,word ptr [bp+6]
+	mov	word ptr es:[si],0
+	push	es
+	push	si
+	call	RegQueueFreeKey
 rrkh_done:
-	pop si
+	pop	si
 	leave
-	ret 4
+	ret	4
 RegReleaseKeyHandle endp
+	if ($ - RegistryCode) and 1
+	db 0
+	endif
+
+; Release a dynamic record when no flags pin it.
+RegFreeHandleMemory proc near
+	push	bp
+	mov	bp,sp
+	push	si
+	mov	si,[bp+4]
+	mov	es,word ptr [bp+6]
+	test	byte ptr es:[si+KeyFlags],89h
+	jnz	short rfhm_done
+	push	es
+	push	si
+	call	RegDosFree
+rfhm_done:
+	pop	si
+	leave
+	ret	4
+RegFreeHandleMemory endp
+	if ($ - RegistryCode) and 1
+	db 0
+	endif
+
+; Drain the deferred-release list.
+RegFlushDeferredKeys proc near
+	push	si
+	cmp	dword ptr [RegDeferredKeys],0
+	jz	short rfdk_done
+rfdk_next:
+	mov	ax,word ptr [RegDeferredKeys]
+	mov	dx,word ptr [RegDeferredKeys+2]
+	mov	si,ax
+	mov	bx,ax
+	mov	es,dx
+	db 66h
+	mov	ax,es:[bx+KeyNext]
+	mov	[RegDeferredKeys],eax
+	dec	dword ptr [RegDeferredCount]
+	push	es
+	push	si
+	call	RegFreeHandleMemory
+	cmp	dword ptr [RegDeferredKeys],0
+	jnz	short rfdk_next
+rfdk_done:
+	pop	si
+	ret
+RegFlushDeferredKeys endp
 	if ($ - RegistryCode) and 1
 	db 0
 	endif
@@ -548,19 +642,32 @@ RegValidateKeyHandle endp
 
 	public RegRetainKeyHandle
 RegRetainKeyHandle proc near
-	push bp
-	mov bp,sp
-	mov bx,[bp+4]
-	mov es,word ptr [bp+6]
-	cmp word ptr es:[bx+4],-1
-	jz short rrkh_saturated
-	inc word ptr es:[bx+4]
-	jmp short rrkh_retained
+	enter	4,0
+	mov	bx,[bp+4]
+	mov	es,word ptr [bp+6]
+	mov	ax,es:[bx+KeyReference]
+	sub	dx,dx
+	mov	[bp-2],dx
+	cmp	ax,-1
+	jnz	short rrkh_increment
+	mov	al,es:[bx+KeyFlags]
+	and	al,80h
+	cmp	al,80h
+	jnz	short rrkh_saturated
+	xor	cx,cx
+	jmp	short rrkh_retained
+rrkh_increment:
+	mov	dx,[bp-2]
+	add	ax,1
+	adc	dx,0
+	mov	es:[bx+KeyReference],ax
+	mov	es:[bx+KeyReference+2],dx
+	jmp	short rrkh_retained
 rrkh_saturated:
-	or byte ptr es:[bx+2],80h
+	or	byte ptr es:[bx+KeyFlags],80h
 rrkh_retained:
 	leave
-	ret 4
+	ret	4
 RegRetainKeyHandle endp
 	if ($ - RegistryCode) and 1
 	db 0
@@ -585,13 +692,13 @@ rlkh_root:
 	mov es,word ptr [bp-6]
 	mov eax,[bp+8]
 	db 66h
-	cmp es:[bx+6],ax
+	cmp es:[bx+KeyFile],ax
 	jnz short rlkh_next_root
 	mov eax,[bp+4]
 	db 66h
-	cmp es:[bx+0Ah],ax
+	cmp es:[bx+KeyCell],ax
 	jnz short rlkh_next_root
-	test byte ptr es:[bx+2],6
+	test byte ptr es:[bx+KeyFlags],6
 	jz rlkh_found
 rlkh_next_root:
 	add di,4
@@ -607,18 +714,18 @@ rlkh_next_root:
 rlkh_pool:
 	mov es,word ptr [bp-6]
 	mov ax,[bp+0Ah]
-	cmp es:[bx+6],di
+	cmp es:[bx+KeyFile],di
 	jnz short rlkh_next_pool
-	cmp es:[bx+8],ax
+	cmp es:[bx+KeyFile+2],ax
 	jnz short rlkh_next_pool
 	mov eax,[bp+4]
 	db 66h
-	cmp es:[bx+0Ah],ax
+	cmp es:[bx+KeyCell],ax
 	jnz short rlkh_next_pool
-	test byte ptr es:[bx+2],6
+	test byte ptr es:[bx+KeyFlags],6
 	jz short rlkh_found
 rlkh_next_pool:
-	add bx,26h
+	add bx,KeySize
 	loop rlkh_pool
 rlkh_dynamic:
 	mov ax,word ptr RegDynamicKeys
@@ -631,18 +738,18 @@ rlkh_list:
 	mov eax,[bp+4]
 	mov es,word ptr [bp-6]
 	db 66h
-	cmp es:[bx+0Ah],ax
+	cmp es:[bx+KeyCell],ax
 	jnz short rlkh_next
 	mov ax,[bp+0Ah]
-	cmp es:[bx+6],di
+	cmp es:[bx+KeyFile],di
 	jnz short rlkh_next
-	cmp es:[bx+8],ax
+	cmp es:[bx+KeyFile+2],ax
 	jnz short rlkh_next
-	test byte ptr es:[bx+2],2
+	test byte ptr es:[bx+KeyFlags],2
 	jz short rlkh_found
 rlkh_next:
-	mov ax,es:[bx+18h]
-	mov dx,es:[bx+1Ah]
+	mov ax,es:[bx+KeyNext]
+	mov dx,es:[bx+KeyNext+2]
 	mov bx,ax
 	mov [bp-6],dx
 	mov ax,dx
@@ -650,15 +757,14 @@ rlkh_next:
 	jnz short rlkh_list
 	cmp ax,word ptr RegDynamicKeys+2
 	jnz short rlkh_list
-	jmp short rlkh_missing
-rlkh_found:
-	mov ax,bx
-	mov dx,[bp-6]
-	jmp short rlkh_done
 rlkh_missing:
 	xor ax,ax
 	cwd
-rlkh_done:
+	mov bx,ax
+	mov [bp-6],dx
+rlkh_found:
+	mov ax,bx
+	mov dx,[bp-6]
 	pop di
 	leave
 	ret 8
@@ -686,13 +792,13 @@ rikh_root:
 	mov es,word ptr [bp-2]
 	mov eax,[bp+6]
 	db 66h
-	cmp es:[bx+6],ax
+	cmp es:[bx+KeyFile],ax
 	jz short rikh_mark_root
 	mov al,[bp+4]
-	cmp es:[bx+17h],al
+	cmp es:[bx+KeyRootId],al
 	jnz short rikh_next_root
 rikh_mark_root:
-	or byte ptr es:[bx+2],6
+	or byte ptr es:[bx+KeyFlags],6
 rikh_next_root:
 	add di,4
 	loop rikh_root
@@ -707,19 +813,19 @@ rikh_next_root:
 rikh_pool:
 	mov es,word ptr [bp-2]
 	mov ax,[bp+8]
-	cmp es:[bx+6],di
+	cmp es:[bx+KeyFile],di
 	jnz short rikh_pool_root
-	cmp es:[bx+8],ax
+	cmp es:[bx+KeyFile+2],ax
 	jz short rikh_mark_pool
 rikh_pool_root:
-	mov al,es:[bx+17h]
+	mov al,es:[bx+KeyRootId]
 	sub ah,ah
 	cmp ax,[bp+4]
 	jnz short rikh_next_pool
 rikh_mark_pool:
-	or byte ptr es:[bx+2],6
+	or byte ptr es:[bx+KeyFlags],6
 rikh_next_pool:
-	add bx,26h
+	add bx,KeySize
 	loop rikh_pool
 rikh_dynamic:
 	mov ax,word ptr RegDynamicKeys
@@ -732,19 +838,19 @@ rikh_dynamic:
 rikh_list:
 	mov es,word ptr [bp-2]
 	mov ax,[bp+8]
-	cmp es:[bx+6],di
+	cmp es:[bx+KeyFile],di
 	jnz short rikh_list_root
-	cmp es:[bx+8],ax
+	cmp es:[bx+KeyFile+2],ax
 	jz short rikh_mark_list
 rikh_list_root:
-	cmp es:[bx+17h],cl
+	cmp es:[bx+KeyRootId],cl
 	jnz short rikh_next
 rikh_mark_list:
-	or byte ptr es:[bx+2],6
+	or byte ptr es:[bx+KeyFlags],6
 rikh_next:
 	mov es,word ptr [bp-2]
-	mov ax,es:[bx+18h]
-	mov dx,es:[bx+1Ah]
+	mov ax,es:[bx+KeyNext]
+	mov dx,es:[bx+KeyNext+2]
 	mov bx,ax
 	mov [bp-2],dx
 	mov ax,dx

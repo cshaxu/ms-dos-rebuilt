@@ -9,7 +9,7 @@ _DATA segment word public use16 'RESUME_DATA'
 	extrn RegActiveFiles:dword
 	extrn RegCurrentDirectory:byte
 	extrn RegMachineRoot:byte
-	extrn RegUserRoot:byte
+	extrn RegUserRoot:byte,RegAuxRoot:byte
 _DATA ends
 DGROUP group _DATA
 _TEXT segment word public use16 'RESUME_CODE'
@@ -37,7 +37,7 @@ RegistryCode label byte
 	extrn RegAllocate:near
 	extrn RegInitKeyPool:near
 	extrn RegResetRootHandles:near
-	extrn RegFreeKeyPool:near
+	extrn RegFreeKeyPool:near,RegFlushDeferredKeys:near
 	extrn RegValidateKeyHandle:near
 	extrn RegInvalidateKeyHandles:near
 	extrn RegFetchKeyRecord:near
@@ -70,9 +70,11 @@ RegInitialize proc far
 	or ax,ax
 	jz short rit_error
 	call RegResetRootHandles
+	call RegFlushDeferredKeys
 	xor ax,ax
 	jmp short rit_done
 rit_error:
+	call RegFlushDeferredKeys
 	call far ptr RegTerminate
 	mov ax,0Eh
 rit_done:
@@ -92,13 +94,13 @@ RegCloseRoot proc near
 	push si
 	mov si,[bp+4]
 	mov es,word ptr [bp+6]
-	test byte ptr es:[si+2],4
+	test byte ptr es:[si+4],4
 	jnz short rcrt_done
 	db 66h
-	push word ptr es:[si+6]
+	push word ptr es:[si+0ah]
 	call RegReleaseFileBuffers
 	mov es,word ptr [bp+6]
-	or byte ptr es:[si+2],4
+	or byte ptr es:[si+4],4
 rcrt_done:
 	pop si
 	leave
@@ -123,12 +125,16 @@ RegTerminate proc far
 	push ds
 	push offset DGROUP:RegUserRoot
 	call RegCloseRoot
+	push ds
+	push offset DGROUP:RegAuxRoot
+	call RegCloseRoot
 	call RegFreeKeyPool
 	cmp dword ptr RegTransferBuffer,0
 	jz short rtt_done
 	push RegTransferBuffer
 	call RegDosFree
 rtt_done:
+	call RegFlushDeferredKeys
 	pop ds
 	leave
 	retf
