@@ -751,12 +751,15 @@ shell_size_open:
 	mov     ah,read
 	int     21h
 	jc      short shell_size_close
-	cmp     byte ptr [boot_shell_scratch],7ah
+	cmp     byte ptr [boot_shell_scratch],80h
 	stc
 	jne     short shell_size_close
 shell_size_seek_end:
 	xor     cx,cx
 	xor     dx,dx
+	mov     ax,100h
+	cmp     byte ptr [newcmd],2
+	je      short shell_size_close
 	mov     ax,(lseek shl 8) or 2
 	stc
 	int     21h

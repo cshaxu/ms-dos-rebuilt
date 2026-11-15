@@ -15,7 +15,6 @@ MULTI_CONFIG equ 1
 SysInitSeg segment
 	.386
 	assume cs:SysInitSeg
-	db 0
 
 ; Format a long value in decimal or hexadecimal in the caller's buffer.
 	public SysInitFormatLong

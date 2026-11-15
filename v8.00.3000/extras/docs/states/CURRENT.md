@@ -98,7 +98,7 @@ P1 closed S3. The C encoder produced the [exact 111,840-byte CM stream](../etc/i
 | Asset Needs | Retain linked binaries, maps and listings under ignored extras/build. |
 | Reporting Requirements | Modified and identical source counts, relevant aligned block bytes and remaining instruction or reference changes. |
 | Stop Conditions | Resolve link errors and unsupported target mappings before accepting a block. |
-| Exit Criteria | Covered BIOS and kernel service blocks linked and verified against their target positions, with real driver coupling recorded for S5ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂS7. |
+| Exit Criteria | Covered BIOS and kernel service blocks linked and verified against their target positions, with real driver coupling recorded for S5ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂS7. |
 | Original Owner Request | Continue until IO.SYS is fully rebuilt. |
 | Similar-Issue Sweep | Check related branch encodings, calling conventions and duplicate entry paths in each audited group. |
 
@@ -269,3 +269,5 @@ P84-P85 restored the DBCS lookup, removed the external HIMEM startup record, and
 P86 restored the shell interrupt-vector setup, stack allocation and the low INSTALL= checksum storage. The DOS startup names now precede the old-image pointer and the original country path workspace is restored. Native stage `io-8245-30230` assembles, links and packages the complete IO.SYS. The low EXEC stub has the target 110-byte extent. Its checksum upper bound still needs the linked end-of-image symbol. The complete image comparison differs. Three source files changed. Of 242 baseline paths, 98 are modified, one was removed, and 143 match.
 
 P87 restored the default switch character, DOS= option dispatch, and startup option order. The low INSTALL= checksum now takes its upper bound from the linked SYSINIT image and temporary buffer. Stage `io-9163-3109` assembled, linked and packaged the image. The message index begins 83 bytes after the target offset. The complete image comparison still differs. Four source files changed. Of 242 baseline paths, 98 are modified, one was removed, and 143 match.
+
+P88-P89 restored the device-load failure and completion paths, the CDS count, and SYSINIT startup control and data alignment. Stage `io-10698-8588` built the complete packed image. The first 77,881 linked bytes have 77,880 direct matches. The sole difference in that interval is the boot-copy buffer address. The message index begins 50 bytes after the target. The complete image still differs. Eight source files changed. Of 242 baseline paths, 99 are modified, one was removed from the link, and 142 are unchanged in the active source set.

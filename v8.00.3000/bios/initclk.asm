@@ -142,7 +142,6 @@ sysinitseg segment
 	extrn	dskdrvs:word
 	extrn	boot_data_high:word,boot_data_low:word
 	extrn	no_floppy_report:byte
-	extrn	sys_model_byte:byte,sys_scnd_model_byte:byte
 	extrn	rpl_memory_size:word,boot_copy_buffer:byte
 	extrn	buffers:word
 	extrn	SI_start:far

@@ -870,25 +870,20 @@ nodrvset:
 	.8086
 
 ; The loader supplies the warning and expiration dates in DOS format.
+	.386
 	mov	cx,[boot_data_low]
 	test	cx,cx
-	jnz	short boot_date_present
-	jmp	near ptr boot_save_time
-boot_date_present:
+	jz	boot_save_time
 	cmp	cx,-1
-	jne	short boot_date_check
-	jmp	near ptr boot_date_disabled
-boot_date_check:
+	je	boot_date_disabled
 	cmp	cx,ax
 	jb	short boot_date_expired
 	mov	cx,[boot_data_high]
 	test	cx,cx
-	jnz	short boot_date_warn_check
-	jmp	near ptr boot_save_time
-boot_date_warn_check:
+	jz	boot_save_time
 	cmp	cx,ax
-	jbe	short boot_date_warn
-	jmp	near ptr boot_save_time
+	ja	boot_save_time
+	.8086
 boot_date_warn:
 	mov	dx,offset sysinit_msg_base
 	add	dx,word ptr [sysinit_msg_table+92]
@@ -1058,13 +1053,13 @@ boot_time_done:
 	jnz     boot_intro_done
 boot_intro_retry:
 	mov     bx,offset sysinit_msg_base
-	add     bx,word ptr [sysinit_msg_table+8]
+	add     bx,word ptr [sysinit_msg_table+4]
 	mov     dx,offset boot_config_app
 	mov     ax,4300h
 	int     21h
 	jnc     boot_intro_print
 	mov     bx,offset sysinit_msg_base
-	add     bx,word ptr [sysinit_msg_table+6]
+	add     bx,word ptr [sysinit_msg_table+2]
 	mov     dx,offset boot_config_wos
 	mov     ax,4300h
 	int     21h
@@ -1074,10 +1069,13 @@ boot_intro_retry:
 	int     21h
 	jnc     boot_intro_dos_mode
 	mov     bx,offset sysinit_msg_base
-	add     bx,word ptr [sysinit_msg_table+4]
+	add     bx,word ptr [sysinit_msg_table+44]
+	jmp     short boot_intro_print
+boot_intro_default:
+	mov     bx,offset sysinit_msg_base
+	add     bx,word ptr [sysinit_msg_table]
 	test    byte ptr [boot_runtime_flags],1
-	jnz     boot_intro_print
-	jmp	short boot_intro_done
+	jz      short boot_intro_done
 boot_intro_dos_mode:
 	mov     byte ptr [boot_mode],1
 	or      byte ptr [boot_runtime_flags],1
@@ -1151,8 +1149,6 @@ endif ; ROMDOS
 	
 ProcessConfig:
 
-	push    cs
-	pop     ds
 	assume  ds:sysinitseg
 	call    boot_start_old_dos
 	cmp     byte ptr [boot_mode],2
@@ -1185,6 +1181,9 @@ sysinit_exec_start:
 	test    byte ptr [bios_flags+1],20h
 	jnz     short sysinit_exec_done
 	mov     int16_count,0
+	push    cs
+	pop     ds
+	assume  ds:sysinitseg
 	mov     dx,1
 	call    boot_logo_display
 sysinit_exec_done:
@@ -1321,10 +1320,21 @@ IFDEF	CONFIGPROC
 ; Now, process config.sys some more.  
 ; Load the device drivers and install programs
 
-	inc	cs:multi_pass_id	; multi_pass_id = 1
+	test	byte ptr [query_mode_flags],1
+	jnz	short config_device_pass
+config_device_pass:
+	inc	[multi_pass_id]		; multi_pass_id = 1
 	call	multi_pass		; process configuration options
-	inc	cs:multi_pass_id	; multi_pass_id = 2
+	inc	[multi_pass_id]		; multi_pass_id = 2
 	call    boot_process_drivers   ; built-in startup drivers
+	push	ds
+	mov	ds,[new_psp_segment]
+	assume	ds:nothing
+	mov	dx,80h
+	mov	ah,set_dma
+	int	21h
+	pop	ds
+	assume	ds:sysinitseg
 	mov     ax,4a18h
 	int     2fh
 
@@ -1344,16 +1354,14 @@ ENDIF
 ; End configuration allocation and restore the resident HMA callback before
 ; running installed programs.
 ;
-	mov     es,cs:[BCodeSeg]
-	assume  es:Bios_Code
-	mov     es,cs:[bios_data_segment]
+	mov     es,[bios_data_segment]
 	assume  es:Bios_Data
 	and     byte ptr es:[bios_flags+1],7fh
 
 IFDEF	CONFIGPROC
-	test	cs:[install_flag],have_install_cmd ; are there install commands?
+	test	[install_flag],have_install_cmd ; are there install commands?
 	jz	dolast			; no, no need for further processing
-	inc	cs:multi_pass_id	; mult_pass_id = 3
+	inc	[multi_pass_id]	; mult_pass_id = 3
 	call	multi_pass		; execute install= commands
 ENDIF ; CONFIGPROC
 
@@ -1368,23 +1376,23 @@ dolast:
 
 ConfigDone:
 
-	mov	cs:[donotshownum],1	; done with config.sys. do not show line number message.
-	mov	es,cs:[area]
+	mov	[donotshownum],1	; done with config.sys. do not show line number message.
+	mov	es,[area]
 
 	assume	es:nothing
 
         mov     ah,Dealloc              ; free allocated memory for command.com
 	int	21h
 
-	test	cs:[install_flag],has_installed ; sysinit_base installed?
+	test	[install_flag],has_installed ; sysinit_base installed?
 	jz	skip_free_sysinitbase	; no.
 
 ;set block from the old_area with impossible_owner_size.
 ;this will free the unnecessary sysinit_base that had been put in memory to
 ;handle install= command.
 
-	mov	es,cs:[old_area]
-	mov	bx,cs:[impossible_owner_size]
+	mov	es,[old_area]
+	mov	bx,[impossible_owner_size]
 	mov	ah,setblock
 	int	21h
 	mov	ax,es
@@ -1629,10 +1637,10 @@ InstVDiskHeader	proc	near
 ;
 ;-------------- save old int 19 vector
 ;
-		mov	ax, word ptr ds:[19h*4]
-		mov	word ptr OldVDint19, ax
-		mov	ax, word ptr ds:[19h*4+2]
-		mov	word ptr OldVDint19+2, ax
+		db	66h
+		mov	ax,word ptr ds:[19h*4]
+		db	66h
+		mov	word ptr OldVDint19,ax
 ;
 ;-------------- calculate seg of new int 19 handler
 ;

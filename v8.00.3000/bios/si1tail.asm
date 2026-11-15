@@ -279,11 +279,6 @@ ENDIF ; CONFIGPROC
 
 	extrn	toomanydrivesmsg:byte				; M029
 
-	public	sys_model_byte,sys_scnd_model_byte
-sys_model_byte db 0ffh
-sys_scnd_model_byte db 0
-	dw	0,0
-
 IFDEF	POWER
 	extrn	Power_Init:near				; M072
 ENDIF
@@ -454,8 +449,9 @@ ifdef	COPYCDS
 endif ; COPYCDS
 
 	les	di,dosinfo
-	mov	cl,byte ptr es:[di.sysi_numio]
-	xor	ch,ch			; (cx) = # of block devices
+	.386
+	movzx	cx,byte ptr es:[di.sysi_numio]	; number of block devices
+	.8086
 
 	mov	es:[di.sysi_ncds],cl	; one CDS per device
 	mov	al,cl

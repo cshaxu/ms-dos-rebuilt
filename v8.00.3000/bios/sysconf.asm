@@ -1698,7 +1698,6 @@ device_line_saved:
 	mov	word ptr DevCmdLine+2, es
 
 	mov	[driver_units], 0	; clear total block units for driver
-	call    config_log_device
 
 	call	SizeDevice
 	jc	BadFile
@@ -1752,9 +1751,6 @@ NoMem:
 	jmp	low_memory_error
 
 BadFile:
-	mov     al,0ffh
-	call    log_device_result
-	call	RetFromUM		; Does nothing if didn't call HideUMBs
 
         cmp     byte ptr es:[si], ' '
         jae     @f
@@ -1886,10 +1882,12 @@ device_counts_saved:
 	or	ax,-1
 	call	DeviceCompatCheck
 
-	mov	ax, word ptr break_addr	; move break addr from the req packet
-	mov	word ptr DevBrkAddr, ax
-	mov	ax, word ptr break_addr+2
-	mov	word ptr DevBrkAddr+2, ax
+	.386
+	db	66h
+	mov	ax,word ptr break_addr	; copy the returned break address
+	db	66h
+	mov	word ptr DevBrkAddr,ax
+	.8086
 
 	assume	ds:nothing
 
@@ -1912,17 +1910,13 @@ device_counts_saved:
 ;----------------------------------------------------------------------------
 ;
 badnumblock:
-	push	cs
-	pop	ds
 	call	print_indexed
-	dw	8011h
+	dw	8012h
 
 ;
 ;------ fall thru -----------------------------------------------------------
 ;
 erase_dev_do:				; modified to show message "error in config.sys..."
-	mov	al,0ffh
-	call	log_device_result
 	lds	bx,cs:DevEntry
 	cmp	cs:config_device_segment,0
 	jz	erase_dev_record
@@ -2170,9 +2164,11 @@ coffj3: mov	cs:multdeviceflag,0	; reset the flag
 ;					;  created a bogus arena to try
 ;					;  to protect some of its resident-
 ;					;  init code.
-	xor     al,al
-	call    log_device_result
+	call	config_finish_device
 	jmp	coff
+
+config_finish_device:
+	ret
 
 ; Check the new DPB's sector size and enlarge the temporary buffer if needed.
 ; SI is zero for a CONFIG.SYS device and nonzero for the preload driver.
@@ -5731,7 +5727,6 @@ config_interrupt_next:
 config_compare_interrupts endp
 	.8086
 
-extrn config_log_device:near,log_device_result:near
 
 ENDIF ; CONFIGPROC
 ;	Track CONFIG$ device loads and the QEMM memory limit.
