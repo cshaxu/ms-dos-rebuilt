@@ -220,8 +220,6 @@ IBMPATCH    label byte
  
 ; Following 4 variables moved to MSDATA.asm from MSTABLE.asm (P4986)
 ;      I_am     UU_ACT_PAGE,WORD,<-1>       ;;;;;;; ;BL ; active EMS page                       ;AN000;
-      I_am     TEMP_DOSLOC,WORD,<0>    ;stores the temporary location of dos
-					;at SYSINIT time.
  
  
 ; Saved directory scan states for LFN lookup and rename.
@@ -244,7 +242,7 @@ IBMPATCH    label byte
 ;
 ; Reserved bytes at the end of the swap area.
 ;
-        I_am    SwapTail,3,<3 dup (0)>
+        I_am    SwapTail,5,<5 dup (0)>
 
 SWAP_END    LABEL   BYTE
 PUBLIC  SWAP_END

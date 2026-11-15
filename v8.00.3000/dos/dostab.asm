@@ -762,7 +762,7 @@ Instance_Table	dw	offset dosdata:contpos, -1, 2
 
 public	Instance_Table2
 Instance_Table2	dw	0, -1, 0cch
-		dw	offset dosdata:carpos, -1, 114dh
+		dw	offset dosdata:carpos, -1, 114bh
 		dw	0, 0
 
 ; M001; SR;

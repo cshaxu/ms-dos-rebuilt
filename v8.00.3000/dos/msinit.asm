@@ -132,7 +132,6 @@ DOSDATA SEGMENT
 
 
 	extrn	dskstack:byte
-	extrn	temp_dosloc:word	; stores the temp. location of DOS seg
 
 ;SR;
 ; WIN386 instance table variables

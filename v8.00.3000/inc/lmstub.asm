@@ -114,19 +114,19 @@ endif
 	 dw   6 		      ; number of entries
 	 db   SetUcase		      ; Ucase type
 	 dw   OFFSET DOSDATA:UCASE_TAB    ;pointer to upper case table
-	 dw   0 			   ; segment of poiter
+	 dw   DOSDATA 			   ; segment of poiter
 	 db   SetUcaseFile	      ; Ucase file char type
 	 dw   OFFSET DOSDATA:FILE_UCASE_TAB	;pointer to file upper case table
-	 dw   0 			   ; segment of poiter
+	 dw   DOSDATA 			   ; segment of poiter
 	 db   SetFileList	      ; valid file chars type
 	 dw   OFFSET DOSDATA:FILE_CHAR_TAB   ;pointer to valid file char tab
-	 dw   0 			   ; segment of poiter
+	 dw   DOSDATA 			   ; segment of poiter
 	 db   SetCollate	      ; collate type
 	 dw   OFFSET DOSDATA:COLLATE_TAB  ;pointer to collate table
-	 dw   0 			   ; segment of poiter
+	 dw   DOSDATA 			   ; segment of poiter
 	 db   SetDBCS		      ;AN000; DBCS Ev			  2/12/KK
 	 dw   OFFSET DOSDATA:DBCS_TAB ;AN000;;pointer to DBCS Ev table   2/12/KK
-	 dw   0 		       ;AN000; segment of poiter	 2/12/KK
+	 dw   DOSDATA 		       ;AN000; segment of poiter	 2/12/KK
 	 db   SetCountryInfo	      ; country info type
 	 dw   NEW_COUNTRY_SIZE	      ; extended country info size
 ; ------------------------------------------------<MSKK01>----------------------
@@ -195,7 +195,7 @@ else
 	 db   2 		      ; # of disgit in currency
 	 db   0 		      ; time format
 	 dw   OFFSET DOSDATA:MAP_CASE	;mono case routine entry point
-	 dw   0 			; segment of entry point
+	 dw   DOSDATA 			; segment of entry point
 	 db   ',',0                    ; data list separator
 	 dw   0,0,0,0,0 	       ; reserved
 endif
