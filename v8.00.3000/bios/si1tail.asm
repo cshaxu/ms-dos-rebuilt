@@ -252,7 +252,7 @@ endif
 	endif
 
 	extrn	crlfm:byte
-	extrn	SI_end:byte
+	extrn	sysinit_image_end:byte
 	extrn	condev:byte
 	extrn	auxdev:byte
 	extrn	prndev:byte
@@ -1675,7 +1675,7 @@ sum1:
 ;now,sum up sysinit module.
 sum_sys_code:
 	xor	si,si
-	mov	cx,offset SI_end+200h ; include the temporary disk buffer
+	mov	cx,offset sysinit_image_end+200h ; include the temporary disk buffer
 	sub	cx,si
 	shr	cx,1
 sum2:

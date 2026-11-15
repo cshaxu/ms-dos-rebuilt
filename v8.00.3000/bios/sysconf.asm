@@ -195,7 +195,7 @@ assume	cs:sysinitseg,ds:nothing,es:nothing,ss:nothing
 	extrn	badload:near,calldev:near,prnerr:near
 
 	extrn   boot_umb_driver_record:word,boot_process_driver_record:near
-	extrn	boot_loading_ifshlp:byte
+	extrn	boot_loading_ifshlp:byte,default_switch_char:byte
 	extrn	sysinit_msg_base:byte,sysinit_msg_table:word
 
 ifndef ROMDOS
@@ -771,6 +771,9 @@ config_missing:
 	mov     [alloclim],ax
 
 	mov	multi_pass_id,11	; set it to unreasonable number
+	mov	ax,3700h		; get DOS switch character
+	int	21h
+	mov	[default_switch_char],dl
 	ret
 noprob: 				;get file size (note < 64k!!)
 	xchg    ax,bx
@@ -3087,32 +3090,12 @@ sysinit_parse	endp
 ;
 ;----------------------------------------------------------------------------
 ;
-; procedure : badop_p
-;
-;             same thing as badop,but will make sure to set ds register back
-;             to sysinitseg and return back to the caller.
-;
-;----------------------------------------------------------------------------
-;
-badop_p proc	near
-
-	push	cs
-	pop	ds			;set ds to configsys seg.
-	call	print_indexed		; unrecognized command
-	dw	8006h
-	call	error_line
-	ret
-
-badop_p endp
-;
-;----------------------------------------------------------------------------
-;
 ; label : badop
 ;
 ;----------------------------------------------------------------------------
 ;
 badop:	call	print_indexed		; unrecognized command
-	dw	8006h
+	dw	8004h
 	jmp	err			; show line number and continue
 
 
@@ -3138,7 +3121,7 @@ badparm_p	proc	near
 	pop	ds
 
 	call	print_indexed
-	dw	8008h			; "bad command or parameters - "
+	dw	8006h			; "bad command or parameters - "
 	assume	ds:sysinitseg
 	lds	si,badparm_ptr
 	assume	ds:nothing
@@ -3552,13 +3535,12 @@ ProcDOS	proc	near
 	cwd
 	inc	cs:[dos_opt_count]
 	jnz	short pd_option
-	xchg	dl,cs:[runhigh]
 pd_option:
 	mov	al,cs:result_val.$p_item_tag
 	dec	ax
-	jz	short pd_hi
+	jz	short pd_done
 	dec	ax
-	jz	short pd_lo
+	jz	short pd_done
 	dec	ax
 	jz	short pd_umb
 	dec	ax
@@ -3590,7 +3572,6 @@ pd_auto_done:
 pd_single:
 	dec	cs:[dos_opt_count]
 	jge	short pd_single_flags
-	mov	cs:[runhigh],dl
 pd_single_flags:
 	or	byte ptr cs:[query_mode_flags],80h
 	or	byte ptr cs:[boot_runtime_flags],40h
@@ -3606,12 +3587,7 @@ pd_noumb:
 	ret
 pd_umb:
 	mov	cs:[DevUMB],0ffh
-	ret
-pd_lo:
-	mov	cs:[runhigh],0
-	ret
-pd_hi:
-	mov	word ptr cs:[runhigh],0ffffh
+pd_done:
 	ret
 ProcDOS	endp
 

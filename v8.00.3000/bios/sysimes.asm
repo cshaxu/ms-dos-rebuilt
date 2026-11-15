@@ -139,6 +139,8 @@ sysinit_resource label byte
 	dw	sysinit_msg_end - sysinit_resource
 	db	1419 dup ('MPAD')
 	db	3 dup (0)
+	public	sysinit_image_end
+sysinit_image_end label byte
 
 SysInitSeg	ends
 	end

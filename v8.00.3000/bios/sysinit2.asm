@@ -710,15 +710,12 @@ shell_size_env_ready:
 	add     cx,bx
 	cmp     ax,cx
 shell_size_memory_error:
-	jae     short shell_size_open
-	jmp     near ptr shell_size_no_memory
+	jc      near ptr shell_size_no_memory
 shell_size_open:
 	mov     ax,open shl 8
 	stc
 	int     21h
-	jnc     short shell_size_opened
-	jmp     near ptr shell_size_bad_file
-shell_size_opened:
+	jc      near ptr shell_size_bad_file
 	mov     bx,ax
 	cmp     byte ptr [newcmd],0
 	jne     short shell_size_seek_end
@@ -2345,6 +2342,7 @@ boot_option_loop_dispatch:
 	jmp     short boot_option_next
 boot_option_readloop endp
 
+	.386
 ; Parse the Windows directory, boot directory, and host drive options.
 boot_option_windir proc near
 	lodsb
@@ -2397,6 +2395,21 @@ boot_option_delay proc near
 	ret
 boot_option_delay endp
 
+; The boot timing option takes the same numeric value as the other flags.
+boot_option_perf proc near
+	lodsb
+	cmp	al,'='
+	jne	boot_option_error
+	call	boot_option_number
+	jc	boot_option_error
+	or	al,al
+	jz	short boot_perf_done
+	mov	[boot_performance],1
+boot_perf_done:
+	ret
+boot_option_perf endp
+	.8086
+
 	assume  ds:sysinitseg
 ; Store the automatic disk checking mode (0, 1 or 2).
 ; The scan flags follow the extended system information fields.
@@ -2437,21 +2450,6 @@ boot_option_winver proc near
 	jne     boot_option_error
 	ret
 boot_option_winver endp
-
-; The boot timing option takes the same numeric value as the other flags.
-boot_option_perf proc near
-	lodsb
-	cmp	al,'='
-	jne	boot_option_error
-	call	boot_option_number
-	jc	boot_option_error
-	or	al,al
-	jz	short boot_perf_done
-	mov	[boot_performance],1
-boot_perf_done:
-	ret
-boot_option_perf endp
-
 
 ; Store the DISABLELOG option in the BIOS startup state.
 boot_option_disablelog proc near
