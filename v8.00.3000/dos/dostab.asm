@@ -450,9 +450,9 @@ FILE_CHAR_TAB  label  byte
 
 SysInitTable  	label  byte
 	dw      OFFSET DOSDATA:SYSINITVAR	; pointer to sysinit var
-        dw      0                             	; segment
+	dw	SEG SYSINITVAR			; segment of pointer
         dw      OFFSET DOSDATA:COUNTRY_CDPG   	; pointer to country tabl
-        dw      0                            	; segment of pointer
+	dw	SEG COUNTRY_CDPG		; segment of pointer
 
         I_AM    InterChar, byte         ; Interim character flag ( 1= interim)  ;AN000;
                                                                                 ;AN000;

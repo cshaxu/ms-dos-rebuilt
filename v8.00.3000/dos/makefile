@@ -480,7 +480,7 @@ msdos.bin: msdos.cl1 msdos.cl2 \
     fat.obj buf.obj lockio.obj exepatch.obj msinit.obj \
     makefile msdos.lnk
 	link $(link_opts) @msdos.lnk
-	reloc msdos.exe msdos.bin
+	reloc msdos.exe msdos.bin 0
 
 
 $(dest): msdos.bin

@@ -293,26 +293,36 @@ ParaRound	endp
 	mov	WORD PTR CS:ConsoleStatePtr+2,bx
 
 ; Move DOSDATA to its low-memory location.
-	mov	si,offset memstrt
-	add	si,15
-	and	si,not 15
-	mov	ax,cs
+	mov	ax,SEG COUNTRY_CDPG
 	mov	ds,ax
-	mov	es,ds:[InitBioDataSeg]
+	mov	ax,70h			; BIOS data segment
+	mov	es,ax
 	assume	es:BData
 	mov	es,es:[DosDataSg]
 	assume	es:nothing
+	xor	si,si
 	xor	di,di
 	mov	cx,offset MSDAT001e
-	rep	movsb
+	.386
+	shr	cx,2
+	rep	movsd
 	push	es
 	pop	ds
 	assume	ds:dosdata
-	pop	word ptr [nuldev]
-	pop	word ptr [nuldev+2]
+
+	mov	si,offset dosdata:country_cdpg
+	mov	word ptr [si.ccucase_ptr + 2],ds
+	mov	word ptr [si.ccfileucase_ptr + 2],ds
+	mov	word ptr [si.ccfilechar_ptr + 2],ds
+	mov	word ptr [si.cccollate_ptr + 2],ds
+	mov	word ptr [si.ccmono_ptr + 2],ds
+	mov	word ptr [si.ccdbcs_ptr + 2],ds
+
+	pop	dword ptr [nuldev]
+	.8086
 	mov	[endmem],dx
-	mov	[dosdseg],ds
-	mov	[temp_dosloc],ax
+	mov	cs:[dosdseg],es
+	mov	ax,cs
 	call	InitLowVectors
 
 	mov	[user_sp],sp
@@ -733,7 +743,7 @@ endif ;ROMDOS
 ; after this point the char device functions for con will work for
 ; printing messages
 
-	if	(not ibm) or (debug)
+	if	(ibm EQ FALSE) or (debug)
 	mov	si,offset doscode:header
 outmes:
 	lods	cs:byte ptr [si]
@@ -798,7 +808,7 @@ endif
 	inc	dx			; advance dx from arena to psp
 	mov	ds, dx			; point ds to psp
 
-        if      not installed
+        if      installed EQ FALSE
         invoke  netwinit
         endif
 
