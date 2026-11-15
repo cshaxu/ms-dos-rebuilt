@@ -195,7 +195,6 @@ assume	cs:sysinitseg,ds:nothing,es:nothing,ss:nothing
 	extrn	diddleback:near,parseline:near,setparms:near
 	extrn	badload:near,calldev:near,prnerr:near
 
-	extrn	runhigh:byte
 	extrn	IsXMSLoaded:near
 	extrn   boot_umb_driver_record:word,boot_process_driver_record:near
 
@@ -263,6 +262,9 @@ config_wrkseg   dw  0                   ; segment of work area
 
         public  config_cmd              ; current config cmd
 config_cmd      db  0                   ; (with CONFIG_OPTION_QUERY bit intact)
+	public	runhigh,dos_low_message
+runhigh	db	0ffh		; DOS loading option
+dos_low_message db 0		; display low-memory message
 
         public  config_multi            ;
 config_multi    db  0                   ; non-zero if multi-config config.sys

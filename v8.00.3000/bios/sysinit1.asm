@@ -399,10 +399,6 @@ DDHighInfo	ends
 
 
 	extrn   dosinfo:dword
-	extrn   dos_temp_location:dword
-	extrn   DosInitOffset:word
-	extrn   sysinit_reserve_count:word
-	extrn   current_dos_location:word
 	extrn   device_list:dword
 	extrn   sysi_country:dword
 	extrn   dos_segreinit:word
@@ -417,10 +413,6 @@ DDHighInfo	ends
 	extrn   dos_low_message:byte
 	extrn   dos_umb_flag:byte
 	extrn   exec_boot_state:byte
-	extrn   sysinit_bios_start:word
-	extrn   dos_image_size:word
-	extrn   sysinit_bios_paras:word
-	extrn   dos_image_paras:word
 	extrn   sysinit_memory_size:word
 	extrn   rpl_memory_size:word
 	extrn   RPLMemTop:word

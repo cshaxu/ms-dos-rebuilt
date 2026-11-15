@@ -11,7 +11,7 @@ Bios_Code	ends
 sysinitseg	segment	public
 	assume	cs:sysinitseg,ds:nothing,es:nothing
 	extrn	BCodeSeg:word,boot_runtime_flags:byte,boot_config_flags:byte,boot_mode:byte,query_mode_flags:byte
-	extrn	boot_load_segment:word,boot_reloc_segment:word,bios_data_segment:word,memhi:word
+	extrn	bios_data_segment:word,memhi:word
 boot_logo_name	db	'\LOGO.SYS',0
 boot_logo_checksum	dw	0                ; sum of displayed image bytes
 
@@ -596,6 +596,11 @@ boot_logo_read_raw:
 boot_logo_read_return:
 	ret
 boot_logo_read_file	endp
+
+	public	boot_load_segment,boot_reloc_offset,boot_reloc_segment
+boot_load_segment dw 0		; remaining image paragraphs
+boot_reloc_offset dw 0		; relocated image pointer
+boot_reloc_segment dw 0
 
 ; Decode compressed startup image blocks.
 	db	0                       ; padding before decoder workspace

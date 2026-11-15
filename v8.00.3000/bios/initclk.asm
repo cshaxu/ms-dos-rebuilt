@@ -135,7 +135,6 @@ endif
 
 sysinitseg segment 
 	assume	cs:sysinitseg
-	extrn	current_dos_location:word
 	extrn	device_list:dword
 	extrn	memory_size:word
 	extrn	default_drive:byte
@@ -145,8 +144,6 @@ sysinitseg segment
 	extrn	no_floppy_report:byte
 	extrn	sys_model_byte:byte,sys_scnd_model_byte:byte
 	extrn	rpl_memory_size:word,boot_copy_buffer:byte
-	extrn	sysinit_bios_start:word,sysinit_bios_paras:word
-	extrn	sysinit_reserve_count:word,sysinit_reserve_size:byte
 	extrn	boot_reloc_segment:word
 	extrn	buffers:word
 	extrn	SI_start:far

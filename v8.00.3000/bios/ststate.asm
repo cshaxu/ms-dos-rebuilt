@@ -19,10 +19,6 @@ CR equ 13
 LF equ 10
 stacksw equ 1
 	public  dosinfo
-	public  dos_temp_location
-	public  DosInitOffset
-	public  sysinit_reserve_count
-	public  current_dos_location
 	public  device_list
 	public  sysi_country
 	public  dos_segreinit
@@ -33,14 +29,8 @@ stacksw equ 1
 	public  temp_bcode_seg
 	public  no_floppy_report
 	public  fake_floppy_drv
-	public  runhigh
-	public  dos_low_message
 	public  dos_umb_flag
 	public  exec_boot_state
-	public  sysinit_bios_start
-	public  dos_image_size
-	public  sysinit_bios_paras
-	public  dos_image_paras
 	public  sysinit_memory_size
 	public  rpl_memory_size
 	public  RPLMemTop
@@ -61,21 +51,12 @@ stacksw equ 1
 	public  linecount
 	public  showcount
 	public  buffer_linenum
-	public  sys_model_byte
-	public  sys_scnd_model_byte
 	public  buf_prev_off
 	public  default_num_cds
-	public sysinit_reserve_size
 ifdef COPYCDS
 	public oldnum_cdss,newnum_cdss
 endif
 dosinfo	dd	0		; address of the DOS Sysini Variables
-
-dos_temp_location label	dword
-DosInitOffset	dw	0
-sysinit_reserve_size equ 12D5h          ; DOS image load segment
-sysinit_reserve_count label word
-current_dos_location dw 0
 
 device_list dd	0
 
@@ -95,14 +76,8 @@ no_floppy_report label byte
 fake_floppy_drv db 0			;set to 1 if this machine
 					;does not have any floppies!!!
 
-runhigh         db      0ffh
-dos_low_message db      0               ; display low-memory message
 dos_umb_flag    db      1               ; DOS=UMB enabled
 exec_boot_state db      0
-sysinit_bios_start label word
-dos_image_size  dw      0c000h          ; bytes to move for DOS
-sysinit_bios_paras label word
-dos_image_paras dw      0c00h           ; reserved paragraphs for DOS
 
 ; CDS counts for device initialization.
 
@@ -125,12 +100,14 @@ buffers         dw      -1
 h_buffers	dw	0		; # of the heuristic buffers. initially 0.
 singlebuffersize dw	?		; maximum sector size + buffer header
 
-files	db	DEFAULT_FILES		; enough files for pipe
-fcbs	db	DEFAULT_FCBS		; performance for recycling
+files	db	30		; enough files for pipe
+fcbs	db	4		; performance for recycling
 keep	db	0			; keep original set
-num_cds db	DEFAULT_CDSS		; 5 net drives
+num_cds db	26		; 5 net drives
 confbot dw	?
 alloclim dw	?
+	public	boot_buffer_segment
+boot_buffer_segment dw 0		; segment of the temporary boot buffer
 top_of_cdss	dw	?
 DirStrng db	"A:\",0                 ; string for the root directory of a drive
 zero	db	0
@@ -139,8 +116,6 @@ linecount dw    0                       ; line count in config.sys
 showcount db    '     ',cr,lf,'$'       ; used to convert linecount to ascii.
 buffer_linenum dw 0			; line count for "buffers=" command if entered.
 
-sys_model_byte db 0ffh			;model byte used in sysinit
-sys_scnd_model_byte db 0		;secondary model byte used in sysinit
 
 buf_prev_off dw 0
 default_num_cds db 26                   ; default drive count for DOS=UMB
@@ -148,15 +123,11 @@ default_num_cds db 26                   ; default drive count for DOS=UMB
 ;	Boot image segments and temporary buffer storage.
 ;
 	public	bios_data_segment,BCodeSeg
-	public	boot_load_segment,boot_reloc_offset,boot_reloc_segment
 	public	memory_size,temp_buffer_segment,temp_buffer_size
 	public	boot_data_high,boot_data_low
 
 bios_data_segment dw	Bios_Data
 BCodeSeg	dw	Bios_Code
-boot_load_segment dw	0		; remaining boot image paragraphs
-boot_reloc_offset dw	0		; boot image relocation offset
-boot_reloc_segment dw	0		; boot image relocation segment
 memory_size	dw	1
 temp_buffer_segment dw	0		; temporary DOS buffer segment
 temp_buffer_size dw	4018h		; bytes reserved for temporary buffers

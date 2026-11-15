@@ -283,6 +283,10 @@ ENDIF ; CONFIGPROC
 
 	extrn	toomanydrivesmsg:byte				; M029
 
+	public	sys_model_byte,sys_scnd_model_byte
+sys_model_byte db 0ffh
+sys_scnd_model_byte db 0
+
 IFDEF	POWER
 	extrn	Power_Init:near				; M072
 ENDIF
@@ -324,10 +328,6 @@ DDHighInfo	ends
 
 
 	extrn	dosinfo:dword
-	extrn	dos_temp_location:dword
-	extrn	DosInitOffset:word
-	extrn	sysinit_reserve_count:word
-	extrn	current_dos_location:word
 	extrn	device_list:dword
 	extrn	sysi_country:dword
 	extrn	dos_segreinit:word
@@ -342,10 +342,6 @@ DDHighInfo	ends
 	extrn	dos_low_message:byte
 	extrn	dos_umb_flag:byte
 	extrn	exec_boot_state:byte
-	extrn	sysinit_bios_start:word
-	extrn	dos_image_size:word
-	extrn	sysinit_bios_paras:word
-	extrn	dos_image_paras:word
 	extrn	sysinit_memory_size:word
 	extrn	rpl_memory_size:word
 	extrn	RPLMemTop:word
@@ -366,8 +362,6 @@ DDHighInfo	ends
 	extrn	linecount:word
 	extrn	showcount:byte
 	extrn	buffer_linenum:word
-	extrn	sys_model_byte:byte
-	extrn	sys_scnd_model_byte:byte
 	extrn	buf_prev_off:word
 	extrn	default_num_cds:byte
 ifdef COPYCDS
