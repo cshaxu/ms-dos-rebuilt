@@ -3,6 +3,7 @@ setlocal EnableExtensions DisableDelayedExpansion
 set "COMPONENT="
 set "SOURCE_DIRS=bios dev dos inc lang"
 if /i "%~1"=="core" set "COMPONENT=core"
+if /i "%~1"=="image" set "COMPONENT=image"
 pushd "%~dp0..\.."
 if errorlevel 1 goto entry_failed
 if not exist extras\build mkdir extras\build
@@ -180,8 +181,33 @@ call :snapshot "%STAGE%\inputs-after.txt"
 if errorlevel 1 goto failed
 fc /b "%STAGE%\inputs-before.txt" "%STAGE%\inputs-after.txt" > "%STAGE%\inputs-compare.log"
 if errorlevel 1 goto failed
+if /i "%COMPONENT%"=="image" (
+    call :pack_image
+    if errorlevel 1 goto failed
+)
 echo PASS: %COMPONENT% linked with unchanged inputs. > "%STAGE%\result.txt"
 echo %COMPONENT% build directory: %STAGE%
+exit /b 0
+
+:pack_image
+echo Compressing the linked BIOS and DOS payload...
+"%STAGE%\cmencode.exe" --pack "%STAGE%\bios\MSBIO.BIN" "%STAGE%\bios\MSLOAD.EXE" "%STAGE%\bios\MSCM.EXE" "%STAGE%\out\IO.SYS"
+if errorlevel 1 exit /b 1
+echo Comparing IO.SYS with the OAK boot disk...
+fc /b "%STAGE%\out\IO.SYS" "%TARGETS%\IO.SYS" > "%STAGE%\IO.SYS.compare.log"
+if errorlevel 1 (
+    echo IO.SYS differs. Inspect %STAGE%\IO.SYS.compare.log
+    exit /b 1
+)
+call :hash "%STAGE%\out\IO.SYS"
+if errorlevel 1 exit /b 1
+>> "%STAGE%\outputs.sha256" echo %DIGEST%  IO.SYS
+if not exist "%ROOT%\extras\assets" mkdir "%ROOT%\extras\assets"
+copy /b /y "%STAGE%\out\IO.SYS" "%ROOT%\extras\assets\IO.SYS.new" >nul
+if errorlevel 1 exit /b 1
+move /y "%ROOT%\extras\assets\IO.SYS.new" "%ROOT%\extras\assets\IO.SYS" >nul
+if errorlevel 1 exit /b 1
+echo IO.SYS: MATCH
 exit /b 0
 
 :phase

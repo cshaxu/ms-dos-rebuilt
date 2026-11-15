@@ -1,5 +1,6 @@
 @echo off
 if /i "%~1"=="io-baseline" goto io_baseline
+if /i "%~1"=="io" goto io_image
 if /i "%~1"=="io-core" goto io_core
 if /i "%~1"=="io-kernel" goto io_core
 if /i "%~1"=="io-bios" goto io_core
@@ -230,4 +231,8 @@ exit /b %errorlevel%
 
 :io_core
 call "%~dp0tools\iobase.cmd" core
+exit /b %errorlevel%
+
+:io_image
+call "%~dp0tools\iobase.cmd" image
 exit /b %errorlevel%

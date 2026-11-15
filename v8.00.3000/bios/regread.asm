@@ -4,6 +4,9 @@
 ; Load, save and cache maintenance use the same block index and validators.
 ;
 	.386
+
+DataBlockSize equ 1Ah
+DataBlockLocks equ 16h
 _DATA segment word public use16 'RESUME_DATA'
 	extrn RegTransferBuffer:dword
 _DATA ends
@@ -1633,95 +1636,110 @@ RegIndexBlock endp
 
 	public RegLoadDataBlock
 RegLoadDataBlock proc near
-	enter 6,0
-	push di
-	push si
-	mov bx,[bp+4]
-	mov word ptr [bp-2],-1
-	les si,[bp+6]
-	cmp es:[si+26h],bx
-	ja short rldc_entry
-	mov ax,3F1h
-	jmp rldc_done
+	enter	8,0
+	push	di
+	push	si
+	mov	bx,[bp+4]
+	mov	word ptr [bp-4],0ffffh
+	les	si,dword ptr [bp+6]
+	cmp	es:[si+26h],bx
+	ja	short rldc_entry
+	mov	ax,3f1h
+	jmp	near ptr rldc_done
 rldc_entry:
-	imul ax,bx,14h
-	mov di,si
-	les di,es:[di+10h]
-	add di,ax
-	mov si,di
-	mov [bp-4],es
-	test byte ptr es:[di+12h],1
-	jnz rldc_pin
-	push es
-	push di
-	call RegNewDataBlock
-	mov di,ax
-	or di,ax
-	jnz short rldc_error
-	mov eax,[bp+6]
-	add ax,58h
-	push eax
-	push 0
-	call RegDosOpen
-	mov [bp-2],ax
-	inc ax
-	jz short rldc_ioerror
-	push word ptr [bp-2]
-	mov es,word ptr [bp-4]
+	imul	ax,bx,DataBlockSize
+	mov	di,si
+	les	di,dword ptr es:[di+10h]
+	add	di,ax
+	mov	si,di
+	mov	word ptr [bp-6],es
+	test	byte ptr es:[di+12h],1
+	jnz	near ptr rldc_pin
+	test	byte ptr es:[si+12h],1
+	jnz	near ptr rldc_pin
+	push	es
+	push	di
+	call	RegNewDataBlock
+	mov	[bp-2],ax
+	or	ax,ax
+	jnz	short rldc_error
+	mov	eax,[bp+6]
+	add	ax,58h
+	push	eax
+	push	0
+	call	RegDosOpen
+	mov	[bp-4],ax
+	inc	ax
+	jz	short rldc_ioerror
+	push	word ptr [bp-4]
+	mov	es,word ptr [bp-6]
 	db 66h
-	push word ptr es:[si+0Eh]
-	call RegDosSeek
-	or ax,ax
-	jz short rldc_ioerror
-	push word ptr [bp-2]
-	mov es,word ptr [bp-4]
+	push	word ptr es:[si+0eh]
+	call	RegDosSeek
+	or	ax,ax
+	jz	short rldc_ioerror
+	push	word ptr [bp-4]
+	mov	es,word ptr [bp-6]
 	db 66h
-	push word ptr es:[si]
-	push word ptr es:[si+8]
-	call RegDosRead
-	or ax,ax
-	jz short rldc_ioerror
-	mov es,word ptr [bp-4]
+	push	word ptr es:[si]
+	push	word ptr es:[si+8]
+	call	RegDosRead
+	or	ax,ax
+	jz	short rldc_ioerror
+	mov	es,word ptr [bp-6]
 	db 66h
-	push word ptr es:[si]
-	call RegValidateDataBlock
-	or ax,ax
-	jnz short rldc_index
-	mov di,3F1h
-	jmp short rldc_error
+	push	word ptr es:[si]
+	call	RegValidateDataBlock
+	or	ax,ax
+	jnz	short rldc_index
+	mov	word ptr [bp-2],3f1h
+	jmp	short rldc_error
 rldc_index:
-	push word ptr [bp-4]
-	push si
-	call RegIndexBlock
-	mov di,ax
-	or di,ax
-	jnz short rldc_error
-	push word ptr [bp-2]
-	call RegDosClose
-	jmp short rldc_pin
+	push	word ptr [bp-6]
+	push	si
+	call	RegIndexBlock
+	mov	[bp-2],ax
+	or	ax,ax
+	jnz	short rldc_error
+	push	word ptr [bp-4]
+	call	RegDosClose
+	mov	es,word ptr [bp-6]
+	mov	al,es:[si+12h]
+	and	al,1
+	cmp	al,1
+	jz	short rldc_pin
+	or	byte ptr es:[si+12h],1
+	jmp	short rldc_pin
 rldc_ioerror:
-	mov di,3F8h
+	mov	word ptr [bp-2],3F8h
 rldc_error:
-	cmp word ptr [bp-2],-1
-	jz short rldc_release
-	push word ptr [bp-2]
-	call RegDosClose
+	cmp	word ptr [bp-4],-1
+	jz	short rldc_release
+	push	word ptr [bp-4]
+	call	RegDosClose
 rldc_release:
-	push word ptr [bp-4]
-	push si
-	call RegFreeDataBlock
-	mov ax,di
-	jmp short rldc_done
+	push	word ptr [bp-6]
+	push	si
+	call	RegFreeDataBlock
+	mov	ax,[bp-2]
+	jmp	short rldc_done
 rldc_pin:
-	mov es,word ptr [bp-4]
-	or byte ptr es:[si+12h],3
-	inc byte ptr es:[si+13h]
-	xor ax,ax
+	mov	es,word ptr [bp-6]
+	mov	al,es:[si+12h]
+	and	al,2
+	cmp	al,2
+	jz	short rldc_pinned
+	or	byte ptr es:[si+12h],2
+rldc_pinned:
+	mov	es,word ptr [bp-6]
+	db 66h
+	inc	word ptr es:[si+DataBlockLocks]
+	xor	ax,ax
 rldc_done:
-	pop si
-	pop di
+	pop	si
+	pop	di
 	leave
-	ret 6
+	ret	6
 RegLoadDataBlock endp
 	if ($ - RegistryCode) and 1
 	db 0
@@ -1729,31 +1747,32 @@ RegLoadDataBlock endp
 
 	public RegUnlockDataCache
 RegUnlockDataCache proc near
-	enter 4,0
-	push di
-	push si
-	mov si,[bp+8]
-	mov es,word ptr [bp+0Ah]
-	mov ax,es:[si+10h]
-	mov dx,es:[si+12h]
-	imul cx,[bp+6],14h
-	add ax,cx
-	mov di,ax
-	mov [bp-2],dx
-	mov bx,ax
-	mov es,dx
-	dec byte ptr es:[bx+13h]
-	cmp word ptr [bp+4],0
-	jz short rudc_done
-	mov es,word ptr [bp-2]
-	or byte ptr es:[di+12h],4
-	mov es,word ptr [bp+0Ah]
-	or byte ptr es:[si+56h],1
+	enter	4,0
+	push	di
+	push	si
+	mov	bx,[bp+8]
+	mov	es,word ptr [bp+0ah]
+	mov	ax,es:[bx+10h]
+	mov	dx,es:[bx+12h]
+	imul	cx,[bp+6],DataBlockSize
+	add	ax,cx
+	mov	di,ax
+	mov	[bp-2],dx
+	mov	si,ax
+	mov	es,dx
+	db 66h
+	dec	word ptr es:[si+DataBlockLocks]
+	cmp	word ptr [bp+4],0
+	jz	short rudc_done
+	mov	es,word ptr [bp-2]
+	or	byte ptr es:[di+12h],4
+	mov	es,word ptr [bp+0ah]
+	or	byte ptr es:[bx+56h],1
 rudc_done:
-	pop si
-	pop di
+	pop	si
+	pop	di
 	leave
-	ret 8
+	ret	8
 RegUnlockDataCache endp
 	if ($ - RegistryCode) and 1
 	db 0
@@ -1775,7 +1794,7 @@ RegFetchDataRecord proc near
 	sub ah,ah
 	add ax,ax
 	mov [bp-8],ax
-	imul cx,[bp+0Ah],14h
+	imul cx,[bp+0Ah],DataBlockSize
 	les bx,[bp+0Ch]
 	les bx,es:[bx+10h]
 	add bx,cx
@@ -1984,7 +2003,7 @@ rcdb_room:
 	db 66h
 	push word ptr es:[si+10h]
 	lea ax,[di+4]
-	imul ax,ax,14h
+	imul ax,ax,DataBlockSize
 	push ax
 	call RegReallocRetry
 	mov [bp-8],ax
@@ -2001,7 +2020,7 @@ rcdb_entry:
 	mov es,word ptr [bp+8]
 	mov ax,es:[si+10h]
 	mov dx,es:[si+12h]
-	imul cx,[bp-0Ah],14h
+	imul cx,[bp-0Ah],DataBlockSize
 	add ax,cx
 	mov di,ax
 	mov [bp-6],dx
@@ -2027,7 +2046,9 @@ rcdb_entry:
 	dw 0FFFFh
 	mov word ptr es:[bx+10h],-1
 	mov byte ptr es:[bx+12h],7
-	mov byte ptr es:[bx+13h],1
+	db 66h
+	mov word ptr es:[bx+DataBlockLocks],1
+	dw 0
 	mov ax,es:[bx]
 	mov dx,es:[bx+2]
 	mov si,ax
@@ -2088,7 +2109,7 @@ RegGrowDataBlock proc near
 	push di
 	push si
 	mov ax,[bp+4]
-	imul cx,[bp+6],14h
+	imul cx,[bp+6],DataBlockSize
 	les bx,[bp+8]
 	les bx,es:[bx+10h]
 	add bx,cx
@@ -2187,7 +2208,7 @@ RegTakeDataExtent proc near
 	push di
 	push si
 	mov ax,[bp+8]
-	imul cx,[bp+0Ah],14h
+	imul cx,[bp+0Ah],DataBlockSize
 	les bx,[bp+0Ch]
 	les bx,es:[bx+10h]
 	add bx,cx
@@ -2341,7 +2362,7 @@ RegAllocateDataRecord proc near
 radr_pass:
 	mov es,word ptr [bp+0Ch]
 	mov si,es:[bx+26h]
-	imul ax,si,14h
+	imul ax,si,DataBlockSize
 	add ax,es:[bx+10h]
 	mov dx,es:[bx+12h]
 	mov [bp-6],ax
@@ -2352,7 +2373,7 @@ radr_next:
 	dec si
 	or ax,ax
 	jz radr_retry
-	sub di,14h
+	sub di,DataBlockSize
 	mov es,word ptr [bp-4]
 	cmp word ptr es:[di+0Ch],0FFh
 	jae short radr_next
@@ -2436,7 +2457,7 @@ radr_create:
 	mov ax,es:[bx+26h]
 	dec ax
 	mov di,ax
-	imul ax,ax,14h
+	imul ax,ax,DataBlockSize
 	add ax,es:[bx+10h]
 	mov dx,es:[bx+12h]
 	mov [bp-6],ax
@@ -2466,216 +2487,6 @@ RegAllocateDataRecord endp
 	endif
 
 ; Expand a record into the following free extent when it is large enough.
-	public RegGrowDataExtent
-RegGrowDataExtent proc near
-	enter 1Eh,0
-	push di
-	push si
-	mov bx,[bp+4]
-	les si,[bp+0Ch]
-	mov ax,es:[si+010h]
-	mov dx,es:[si+012h]
-	imul cx,[bp+0Ah],014h
-	add ax,cx
-	mov [bp-014h],ax
-	mov [bp-012h],dx
-	mov si,ax
-	mov es,dx
-	db 66h
-	mov cx,es:[si]
-	mov [bp-0Ch],ecx
-	mov es,[bp+6]
-	mov [bp-01Eh],cx
-	mov ax,es:[bx]
-	mov di,ax
-	mov cx,dx
-	add ax,bx
-	mov [bp-01Ah],ax
-	mov word ptr [bp-018h],es
-	sub ax,[bp-01Eh]
-	mov [bp-016h],ax
-	mov es,cx
-	cmp ax,es:[si+8]
-	jnc short rgde_loc_6ed2
-	les bx,[bp-01Ah]
-	db 66h
-	cmp word ptr es:[bx+4],-1
-	jnz short rgde_loc_6ed2
-	mov cx,[bp+8]
-	sub cx,di
-	mov di,es:[bx]
-	cmp di,cx
-	jnc short rgde_enough
-rgde_loc_6ed2:
-	jmp near ptr rgde_no_space
-rgde_enough:
-	mov si,cx
-	mov bx,di
-	sub bx,cx
-	cmp bx,022h
-	jc short rgde_use_whole
-	add ax,cx
-	mov [bp-010h],ax
-	mov word ptr [bp-0Eh],0
-	mov cx,[bp-01Ah]
-	mov di,cx
-	db 66h
-	mov ax,es:[di+8]
-	add di,si
-	db 66h
-	mov es:[di+8],ax
-	db 66h
-	mov word ptr es:[di+4],-1
-	dw -1
-	mov es:[di],bx
-	mov word ptr es:[di+2],0
-	jmp short rgde_update_size
-rgde_use_whole:
-	mov cx,[bp-01Ah]
-	mov di,cx
-	db 66h
-	mov ax,es:[di+8]
-	mov [bp-010h],eax
-	add si,bx
-rgde_update_size:
-	sub cx,cx
-	les bx,[bp+4]
-	add es:[bx],si
-	adc es:[bx+2],cx
-	les bx,[bp-014h]
-	sub es:[bx+0Ah],si
-	les bx,[bp-0Ch]
-	mov ax,es:[bx+010h]
-	mov dx,es:[bx+012h]
-	mov cx,[bp-016h]
-	sub bx,bx
-	cmp ax,cx
-	jnz short rgde_find_previous
-	cmp dx,bx
-	jnz short rgde_find_previous
-	mov ax,[bp-010h]
-	mov bx,[bp-0Ch]
-	mov dx,[bp-0Eh]
-	mov es:[bx+010h],ax
-	mov es:[bx+012h],dx
-	jmp short rgde_success
-rgde_find_previous:
-	mov di,[bp-0Ch]
-rgde_loc_6f60:
-	cmp ax,0FFFFh
-	jnz short rgde_next_free
-	cmp dx,ax
-	jz short rgde_success
-rgde_next_free:
-	mov si,ax
-	mov ax,[bp-0Ah]
-	mov es,ax
-	add si,di
-	mov bx,si
-	mov ax,es:[si+8]
-	mov dx,es:[si+0Ah]
-	sub si,si
-	cmp ax,cx
-	jnz short rgde_loc_6f60
-	cmp dx,si
-	jnz short rgde_loc_6f60
-	mov eax,[bp-010h]
-	db 66h
-	mov es:[bx+8],ax
-rgde_success:
-	xor ax,ax
-	jmp short rgde_done
-rgde_no_space:
-	mov ax,0Eh
-rgde_done:
-	pop si
-	pop di
-	leave
-	ret 0Ch
-RegGrowDataExtent endp
-	if ($ - RegistryCode) and 1
-	db 0
-	endif
-
-; Return a data extent to the free chain and update the available byte count.
-	public RegFreeDataExtent
-RegFreeDataExtent proc near
-	enter 0Ch,0
-	push di
-	push si
-	mov cx,[bp+8]
-	mov di,[bp+4]
-	mov si,cx
-	mov es,[bp+0Ah]
-	mov ax,es:[si]
-	mov dx,es:[si+2]
-	mov bx,ax
-	mov [bp-2],dx
-	mov es,[bp+6]
-	db 66h
-	mov word ptr es:[di+4],-1
-	dw -1
-	mov ax,es
-	mov es,[bp-2]
-	mov cx,es:[bx+010h]
-	mov dx,es:[bx+012h]
-	push ax
-	lea ax,[bx+010h]
-	mov [bp-8],ax
-	mov word ptr [bp-6],es
-	pop ax
-	mov [bp-0Ch],bx
-	mov es,ax
-	mov es:[di+8],cx
-	mov es:[di+0Ah],dx
-	mov cx,di
-	sub cx,[bp-0Ch]
-	sbb dx,dx
-	les bx,[bp-8]
-	mov es:[bx],cx
-	mov es:[bx+2],dx
-	mov es,ax
-	mov ax,es:[di]
-	mov es,[bp+0Ah]
-	add es:[si+0Ah],ax
-	pop si
-	pop di
-	leave
-	ret 8
-RegFreeDataExtent endp
-	if ($ - RegistryCode) and 1
-	db 0
-	endif
-
-; Clear a record slot and adjust the last used slot.
-	public RegTrimDataSlots
-RegTrimDataSlots proc near
-	push bp
-	mov bp,sp
-	push di
-	push si
-	mov di,[bp+6]
-	mov bx,[bp+4]
-	mov es,[bp+8]
-	cmp es:[di+0Ch],bx
-	jna short rtds_clear_slot
-	mov es:[di+0Ch],bx
-rtds_clear_slot:
-	mov ax,bx
-	add ax,bx
-	mov es,[bp+8]
-	les si,es:[di+4]
-	add si,ax
-	mov word ptr es:[si],0
-	pop si
-	pop di
-	leave
-	ret 6
-RegTrimDataSlots endp
-	if ($ - RegistryCode) and 1
-	db 0
-	endif
-
 	public RegWriteDataBlock
 RegWriteDataBlock proc near
 	enter 0Eh,0
@@ -2756,7 +2567,7 @@ rwdb_advance:
 	sub dx,dx
 	add [bp-8],ax
 	adc [bp-6],dx
-	add si,14h
+	add si,DataBlockSize
 	inc word ptr [bp-0Eh]
 	mov ax,[bp-0Eh]
 	les bx,[bp+8]
@@ -2800,7 +2611,7 @@ rcd_next:
 	sub dx,dx
 	add [bp-4],ax
 	adc [bp-2],dx
-	add bx,14h
+	add bx,DataBlockSize
 	inc cx
 	mov es,word ptr [bp+6]
 	cmp es:[di+26h],cx
@@ -2835,7 +2646,8 @@ rtd_next:
 	and al,7
 	dec al
 	jnz short rtd_clear
-	cmp byte ptr es:[si+13h],0
+	db 66h
+	cmp word ptr es:[si+DataBlockLocks],0
 	jnz short rtd_clear
 	push es
 	push si
@@ -2845,7 +2657,7 @@ rtd_next:
 rtd_clear:
 	mov es,word ptr [bp-2]
 	and byte ptr es:[si+12h],0FDh
-	add si,14h
+	add si,DataBlockSize
 	dec di
 	jnz short rtd_next
 rtd_done:
@@ -2893,7 +2705,7 @@ RegInitDataCache proc near
 	mov es,word ptr [bp+8]
 	mov si,es:[di+26h]
 	lea ax,[si+4]
-	imul ax,ax,14h
+	imul ax,ax,DataBlockSize
 	push ax
 	call RegAllocate
 	mov [bp-8],ax
@@ -2905,7 +2717,7 @@ RegInitDataCache proc near
 rid_init:
 	push word ptr [bp-6]
 	push ax
-	imul ax,si,14h
+	imul ax,si,DataBlockSize
 	push ax
 	call RegZeroMemory
 	mov eax,[bp-8]
@@ -2957,7 +2769,7 @@ rid_next:
 	sub dx,dx
 	add [bp-4],ax
 	adc [bp-2],dx
-	add si,14h
+	add si,DataBlockSize
 	mov ax,[bp-0Ch]
 	inc word ptr [bp-0Ah]
 	cmp [bp-0Ah],ax
@@ -3020,96 +2832,6 @@ rncs_done:
         leave
         ret 6
 RegNameChecksum endp
-	if ($ - RegistryCode) and 1
-	db 0
-	endif
-
-; Convert the decimal value name at the supplied far pointer.
-	public RegValueNameNumber
-RegValueNameNumber proc near
-	push bp
-	mov bp,sp
-	push di
-	push si
-	mov si,[bp+4]
-	xor di,di
-	mov es,[bp+6]
-	cmp byte ptr es:[si],'0'
-	jl short rvnn_done
-rvnn_digit:
-	cmp byte ptr es:[si],'9'
-	jg short rvnn_done
-	mov ax,10
-	mul di
-	mov di,ax
-	mov al,es:[si]
-	cbw
-	sub ax,'0'
-	add di,ax
-	inc si
-	cmp byte ptr es:[si],'0'
-	jnl short rvnn_digit
-rvnn_done:
-	mov ax,di
-	pop si
-	pop di
-	leave
-	ret 4
-RegValueNameNumber endp
-	if ($ - RegistryCode) and 1
-	db 0
-	endif
-
-; Store a decimal value name in the supplied far buffer.
-	public RegFormatValueName
-RegFormatValueName proc near
-	enter 2,0
-	push di
-	push si
-	mov word ptr [bp-2],0
-	mov bx,10000
-	cmp word ptr [bp+8],0
-	jnz short rfvn_digit
-	mov bx,[bp+4]
-	mov es,[bp+6]
-	mov si,bx
-	inc bx
-	mov byte ptr es:[si],'0'
-	jmp short rfvn_end
-rfvn_digit:
-	mov ax,[bp+8]
-	sub dx,dx
-	div bx
-	mov di,ax
-	mul bx
-	sub [bp+8],ax
-	or di,di
-	jz short rfvn_emit
-	mov word ptr [bp-2],1
-rfvn_emit:
-	cmp word ptr [bp-2],0
-	jz short rfvn_next
-	lea ax,[di+'0']
-	les si,[bp+4]
-	inc word ptr [bp+4]
-	mov es:[si],al
-rfvn_next:
-	mov cx,10
-	mov ax,bx
-	sub dx,dx
-	div cx
-	mov bx,ax
-	or ax,bx
-	jnz short rfvn_digit
-	mov bx,[bp+4]
-rfvn_end:
-	mov es,[bp+6]
-	mov byte ptr es:[bx],0
-	pop si
-	pop di
-	leave
-	ret 6
-RegFormatValueName endp
 	if ($ - RegistryCode) and 1
 	db 0
 	endif
@@ -3240,272 +2962,6 @@ RegCopyFileRange endp
 
 ; Enumerate a registry key through its cached chain of value records.
 ; Return the name length and remember the last key visited on the handle.
-	public RegEnumValueRecord
-RegEnumValueRecord proc near
-	enter 16h,0
-	push di
-	push si
-	mov cx,[bp+0Eh]
-	mov di,[bp+010h]
-	mov es,[bp+012h]
-	db 66h
-	mov ax,es:[di+6]
-	mov dx,es:[di+8]
-	mov [bp-0Ch],eax
-	mov bx,cx
-	test byte ptr es:[di+2],010h
-	jz short rev_first_key
-	mov ah,es:[di+3]
-	and ax,0200h
-	cmp ax,1
-	sbb ax,ax
-	neg ax
-	mov dl,[bp+4]
-	and dx,4
-	cmp dx,1
-	sbb dx,dx
-	neg dx
-	cmp ax,dx
-	jnz short rev_first_key
-	cmp es:[di+020h],cx
-	ja short rev_first_key
-	sub bx,es:[di+020h]
-	db 66h
-	mov ax,es:[di+022h]
-	mov dx,es:[di+024h]
-	mov [bp-8],eax
-	mov [bp-0Eh],bx
-	jmp short rev_check_key
-rev_first_key:
-	mov [bp-0Eh],bx
-	mov es,[bp+012h]
-	db 66h
-	mov ax,es:[di+0Eh]
-	mov dx,es:[di+010h]
-	mov [bp-8],eax
-rev_check_key:
-	cmp dx,0FFh
-	ja near ptr rev_no_value
-	jc short rev_next_key
-	cmp ax,0FFFFh
-	jnc near ptr rev_no_value
-rev_next_key:
-	mov word ptr [bp-2],0
-	mov si,[bp-0Ch]
-rev_fetch_key:
-	push word ptr [bp-0Ah]
-	push si
-	push dword ptr [bp-8]
-	lea ax,[bp-012h]
-	push ss
-	push ax
-	call RegFetchKeyRecord
-	mov di,ax
-	or di,ax
-	jnz near ptr rev_load_error
-	les bx,[bp-012h]
-	test word ptr es:[bx+2],0400h
-	jnz short rev_key_filtered
-	mov ax,1
-	jmp short rev_key_class
-rev_key_filtered:
-	xor ax,ax
-rev_key_class:
-	mov cl,[bp+4]
-	and cx,4
-	cmp cx,1
-	sbb cx,cx
-	neg cx
-	cmp ax,cx
-	jnz short rev_follow_link
-	cmp word ptr [bp-0Eh],0
-	jnz short rev_follow_link
-	push word ptr [bp-0Ah]
-	push si
-	push word ptr es:[bx+0Ch]
-	mov al,es:[bx+0Bh]
-	sub ah,ah
-	push ax
-	lea ax,[bp-016h]
-	push ss
-	push ax
-	call RegFetchDataRecord
-	mov di,ax
-	or di,ax
-	jz near ptr rev_copy_value
-	mov [bp-4],di
-	cmp word ptr [bp-2],0
-	jnz near ptr rev_unlock_key
-	mov word ptr [bp-2],1
-	push word ptr [bp-0Ah]
-	push si
-	push dword ptr [bp-8]
-	push 0
-	call RegUnlockKeyCache
-	push offset CGROUP:RegMaintainCache
-	call RegForEachFile
-	push offset CGROUP:RegMaintainCache
-	call RegForEachFile
-	jmp near ptr rev_fetch_key
-rev_follow_link:
-	mov di,[bp-0Ch]
-	mov ax,es:[bx]
-	mov dx,es:[bx+2]
-	sub dh,dh
-	mov [bp-4],ax
-	mov [bp-2],dx
-	push word ptr [bp-0Ah]
-	push di
-	push dword ptr [bp-8]
-	push 0
-	call RegUnlockKeyCache
-	mov eax,[bp-4]
-	mov [bp-8],eax
-	les bx,[bp-012h]
-	test word ptr es:[bx+2],0400h
-	jnz short rev_link_filtered
-	mov ax,1
-	jmp short rev_link_class
-rev_link_filtered:
-	xor ax,ax
-rev_link_class:
-	mov cl,[bp+4]
-	and cx,4
-	cmp cx,1
-	sbb cx,cx
-	neg cx
-	cmp ax,cx
-	jnz short rev_check_link
-	dec word ptr [bp-0Eh]
-rev_check_link:
-	cmp dword ptr [bp-8],0FFFFFFh
-	jc near ptr rev_next_key
-	jmp near ptr rev_no_value
-rev_load_error:
-	mov ax,di
-	jmp near ptr rev_done
-rev_copy_value:
-	mov [bp-4],di
-	mov si,[bp+0Ah]
-	mov ax,[bp+0Ch]
-	or ax,si
-	jz short rev_save_length
-	les bx,[bp-016h]
-	sub dx,dx
-	mov ax,es:[bx+0Ch]
-	les bx,[bp+6]
-	cmp dx,es:[bx+2]
-	jc short rev_read_name
-	ja short rev_short_buffer
-	cmp ax,es:[bx]
-	jc short rev_read_name
-rev_short_buffer:
-	mov word ptr [bp-4],0EAh
-	jmp short rev_save_length
-rev_read_name:
-	push word ptr [bp+0Ch]
-	push si
-	mov eax,[bp-016h]
-	add ax,014h
-	push eax
-	les bx,[bp-016h]
-	push word ptr es:[bx+0Ch]
-	call RegMoveMemory
-	mov di,si
-	les bx,[bp-016h]
-	mov bx,es:[bx+0Ch]
-	mov es,[bp+0Ch]
-	mov byte ptr es:[bx+di],0
-rev_save_length:
-	les bx,[bp-016h]
-	mov ax,es:[bx+0Ch]
-	les bx,[bp+6]
-	mov es:[bx],ax
-	mov word ptr es:[bx+2],0
-	push dword ptr [bp-0Ch]
-	les bx,[bp-012h]
-	push word ptr es:[bx+0Ch]
-	push 0
-	call RegUnlockDataCache
-rev_unlock_key:
-	mov di,[bp+010h]
-	push dword ptr [bp-0Ch]
-	push dword ptr [bp-8]
-	push 0
-	call RegUnlockKeyCache
-	mov ax,[bp+0Eh]
-	mov es,[bp+012h]
-	mov es:[di+020h],ax
-	mov eax,[bp-8]
-	db 66h
-	mov es:[di+022h],ax
-	or byte ptr es:[di+2],010h
-	test byte ptr [bp+4],4
-	jz short rev_clear_class
-	mov es,[bp+012h]
-	or byte ptr es:[di+3],2
-	jmp short rev_result
-rev_clear_class:
-	mov es,[bp+012h]
-	and byte ptr es:[di+3],0FDh
-rev_result:
-	mov ax,[bp-4]
-	jmp short rev_done
-rev_no_value:
-	mov ax,0103h
-rev_done:
-	pop si
-	pop di
-	leave
-	ret 10h
-RegEnumValueRecord endp
-	if ($ - RegistryCode) and 1
-	db 0
-	endif
-
-; Remove a value from a locked data record and close the resulting gap.
-; The far value pointer precedes the far record pointer on the stack.
-	public RegRemoveValueRecord
-RegRemoveValueRecord proc near
-	push bp
-	mov bp,sp
-	push di
-	push si
-	mov si,[bp+4]
-	mov es,[bp+6]
-	mov di,es:[si+8]
-	add di,es:[si+0Ah]
-	add di,0Ch
-	les bx,[bp+8]
-	dec word ptr es:[bx+0Eh]
-	jz short rrvr_size
-	push word ptr [bp+6]
-	push si
-	mov ax,si
-	mov dx,[bp+6]
-	add ax,di
-	push dx
-	push ax
-	les bx,[bp+8]
-	sub ax,es:[bx+8]
-	neg ax
-	add ax,bx
-	push ax
-	call RegMoveMemory
-rrvr_size:
-	sub cx,cx
-	les bx,[bp+8]
-	sub es:[bx+8],di
-	sbb es:[bx+0Ah],cx
-	pop si
-	pop di
-	leave
-	ret 8
-RegRemoveValueRecord endp
-	if ($ - RegistryCode) and 1
-	db 0
-	endif
-
 ; Return the last occurrence of a character in an ASCIIZ path.
 	public RegLastPathSeparator
 RegLastPathSeparator proc near
@@ -3558,6 +3014,240 @@ rlps_done:
 	leave
 	ret	6
 RegLastPathSeparator endp
+	if ($ - RegistryCode) and 1
+	db 0
+	endif
+
+	public RegEnumValueRecord
+RegEnumValueRecord proc near
+	enter	16h,0
+	push	di
+	push	si
+	mov	cx,[bp+0eh]
+	mov	bx,[bp+10h]
+	mov	es,word ptr [bp+12h]
+	db 66h
+	mov	ax,es:[bx+0ah]
+	mov	dx,es:[bx+0ch]
+	mov	[bp-0ch],eax
+	mov	si,cx
+	mov	word ptr [bp-2],1
+	test	byte ptr es:[bx+4],10h
+	jz	short rev_first_key
+	mov	ah,es:[bx+5]
+	and	ax,200h
+	cmp	ax,1
+	sbb	ax,ax
+	neg	ax
+	mov	dl,[bp+4]
+	and	dx,4
+	cmp	dx,1
+	sbb	dx,dx
+	neg	dx
+	cmp	ax,dx
+	jnz	short rev_first_key
+	cmp	es:[bx+22h],cx
+	ja	short rev_first_key
+	sub	si,es:[bx+22h]
+	db 66h
+	mov	ax,es:[bx+24h]
+	mov	dx,es:[bx+26h]
+	mov	[bp-8],eax
+	mov	[bp-0eh],si
+	jmp	short rev_check_key
+rev_first_key:
+	mov	[bp-0eh],si
+	mov	es,word ptr [bp+12h]
+	db 66h
+	mov	ax,es:[bx+12h]
+	mov	dx,es:[bx+14h]
+	mov	[bp-8],eax
+rev_check_key:
+	cmp	dx,0ffh
+	ja	near ptr rev_no_value
+	jc	short rev_next_key
+	cmp	ax,0ffffh
+	jnc	near ptr rev_no_value
+rev_next_key:
+	mov	word ptr [bp-2],0
+	mov	si,[bp-0ch]
+rev_fetch_key:
+	push	word ptr [bp-0ah]
+	push	si
+	push	dword ptr [bp-8]
+	lea	ax,[bp-12h]
+	push	ss
+	push	ax
+	call	RegFetchKeyRecord
+	mov	di,ax
+	or	di,ax
+	jnz	near ptr rev_load_error
+	les	bx,dword ptr [bp-12h]
+	test	word ptr es:[bx+2],400h
+	jnz	short rev_key_filtered
+	mov	ax,1
+	jmp	short rev_key_class
+rev_key_filtered:
+	xor	ax,ax
+rev_key_class:
+	mov	cl,[bp+4]
+	and	cx,4
+	cmp	cx,1
+	sbb	cx,cx
+	neg	cx
+	cmp	ax,cx
+	jnz	short rev_follow_link
+	cmp	word ptr [bp-0eh],0
+	jnz	short rev_follow_link
+	push	word ptr [bp-0ah]
+	push	si
+	push	word ptr es:[bx+0ch]
+	mov	al,es:[bx+0bh]
+	sub	ah,ah
+	push	ax
+	lea	ax,[bp-16h]
+	push	ss
+	push	ax
+	call	RegFetchDataRecord
+	mov	di,ax
+	or	di,ax
+	jz	near ptr rev_copy_value
+	mov	[bp-4],di
+	cmp	word ptr [bp-2],0
+	jnz	near ptr rev_unlock_key
+	mov	word ptr [bp-2],1
+	push	word ptr [bp-0ah]
+	push	si
+	push	dword ptr [bp-8]
+	push	0
+	call	RegUnlockKeyCache
+	push	offset CGROUP:RegMaintainCache
+	call	RegForEachFile
+	push	offset CGROUP:RegMaintainCache
+	call	RegForEachFile
+	jmp	near ptr rev_fetch_key
+rev_follow_link:
+	mov	di,[bp-0ch]
+	mov	ax,es:[bx]
+	mov	dx,es:[bx+2]
+	sub	dh,dh
+	mov	[bp-4],ax
+	mov	[bp-2],dx
+	push	word ptr [bp-0ah]
+	push	di
+	push	dword ptr [bp-8]
+	push	0
+	call	RegUnlockKeyCache
+	mov	eax,[bp-4]
+	mov	[bp-8],eax
+	les	bx,dword ptr [bp-12h]
+	test	word ptr es:[bx+2],400h
+	jnz	short rev_link_filtered
+	mov	ax,1
+	jmp	short rev_link_class
+rev_link_filtered:
+	xor	ax,ax
+rev_link_class:
+	mov	cl,[bp+4]
+	and	cx,4
+	cmp	cx,1
+	sbb	cx,cx
+	neg	cx
+	cmp	ax,cx
+	jnz	short rev_check_link
+	dec	word ptr [bp-0eh]
+rev_check_link:
+	cmp	dword ptr [bp-8],0ffffffh
+	jc	near ptr rev_next_key
+rev_no_value:
+	mov	word ptr [bp-4],103h
+	jmp	near ptr rev_done
+rev_copy_value:
+	mov	[bp-4],di
+	mov	si,[bp+0ah]
+	mov	ax,[bp+0ch]
+	or	ax,si
+	jz	short rev_save_length
+	les	bx,dword ptr [bp-16h]
+	sub	dx,dx
+	mov	ax,es:[bx+0ch]
+	les	bx,dword ptr [bp+6]
+	cmp	dx,es:[bx+2]
+	jc	short rev_read_name
+	ja	short rev_short_buffer
+	cmp	ax,es:[bx]
+	jc	short rev_read_name
+rev_short_buffer:
+	mov	word ptr [bp-4],0eah
+	jmp	short rev_save_length
+rev_read_name:
+	push	word ptr [bp+0ch]
+	push	si
+	mov	eax,[bp-16h]
+	add	ax,14h
+	push	eax
+	les	bx,dword ptr [bp-16h]
+	push	word ptr es:[bx+0ch]
+	call	RegMoveMemory
+	mov	di,si
+	les	bx,dword ptr [bp-16h]
+	mov	bx,es:[bx+0ch]
+	mov	es,word ptr [bp+0ch]
+	mov	byte ptr es:[bx+di],0
+rev_save_length:
+	les	bx,dword ptr [bp-16h]
+	mov	ax,es:[bx+0ch]
+	les	bx,dword ptr [bp+6]
+	mov	es:[bx],ax
+	mov	word ptr es:[bx+2],0
+	push	dword ptr [bp-0ch]
+	les	bx,dword ptr [bp-12h]
+	push	word ptr es:[bx+0ch]
+	push	0
+	call	RegUnlockDataCache
+rev_unlock_key:
+	push	dword ptr [bp-0ch]
+	push	dword ptr [bp-8]
+	push	0
+	call	RegUnlockKeyCache
+	mov	bx,[bp+10h]
+	mov	ax,[bp+0eh]
+	mov	es,word ptr [bp+12h]
+	mov	es:[bx+22h],ax
+	mov	eax,[bp-8]
+	db 66h
+	mov	es:[bx+24h],ax
+	mov	al,es:[bx+4]
+	and	al,10h
+	cmp	al,10h
+	jz	short rev_cache_index
+	mov	es,word ptr [bp+12h]
+	or	byte ptr es:[bx+4],10h
+rev_cache_index:
+	test	byte ptr [bp+4],4
+	jz	short rev_cache_key
+	mov	es,word ptr [bp+12h]
+	mov	ah,es:[bx+5]
+	and	ah,2
+	cmp	ah,2
+	jz	short rev_done
+	or	byte ptr es:[bx+5],2
+	jmp	short rev_done
+rev_cache_key:
+	mov	es,word ptr [bp+12h]
+	test	byte ptr es:[bx+5],2
+	jz	short rev_done
+	and	byte ptr es:[bx+5],0fdh
+	jmp	short rev_done
+rev_load_error:
+	mov	[bp-4],di
+rev_done:
+	mov	ax,[bp-4]
+	pop	si
+	pop	di
+	leave
+	ret	10h
+RegEnumValueRecord endp
 	if ($ - RegistryCode) and 1
 	db 0
 	endif

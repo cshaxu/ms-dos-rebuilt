@@ -203,6 +203,12 @@ int main(int argc, char **argv)
     while ((count = fread(input, 1, sizeof(input), source)) != 0) {
         unsigned char header[5];
         size_t packed;
+        if (pack && count < sizeof(input)) {
+            size_t sector_end = (count + SECTOR_SIZE - 1) & ~(size_t)(SECTOR_SIZE - 1);
+
+            memset(input + count, 0, sector_end - count);
+            count = sector_end;
+        }
         encode_block(&stream, dictionary, input, count);
         packed = (stream.bits + 7) / 8;
         header[0] = 1;
