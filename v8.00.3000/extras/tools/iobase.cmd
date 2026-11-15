@@ -193,21 +193,36 @@ exit /b 0
 echo Compressing the linked BIOS and DOS payload...
 "%STAGE%\cmencode.exe" --pack "%STAGE%\bios\MSBIO.BIN" "%STAGE%\bios\MSLOAD.EXE" "%STAGE%\bios\MSCM.EXE" "%STAGE%\out\IO.SYS"
 if errorlevel 1 exit /b 1
-echo Comparing IO.SYS with the OAK boot disk...
-fc /b "%STAGE%\out\IO.SYS" "%TARGETS%\IO.SYS" > "%STAGE%\IO.SYS.compare.log"
+rem Windows Me keeps the DOS kernel in IO.SYS. MSDOS.SYS is a text marker.
+set "DOS_MARKER=; "
+> "%STAGE%\out\MSDOS.SYS" echo(%DOS_MARKER%
+if errorlevel 1 exit /b 1
+echo Comparing IO.SYS and MSDOS.SYS with the OAK boot disk...
+for %%N in (IO.SYS MSDOS.SYS) do (
+    call :verify_image %%N
+    if errorlevel 1 exit /b 1
+)
+if not exist "%ROOT%\extras\assets" mkdir "%ROOT%\extras\assets"
+for %%N in (IO.SYS MSDOS.SYS) do (
+    copy /b /y "%STAGE%\out\%%N" "%ROOT%\extras\assets\%%N.new" >nul
+    if errorlevel 1 exit /b 1
+)
+for %%N in (IO.SYS MSDOS.SYS) do (
+    move /y "%ROOT%\extras\assets\%%N.new" "%ROOT%\extras\assets\%%N" >nul
+    if errorlevel 1 exit /b 1
+)
+exit /b 0
+
+:verify_image
+fc /b "%STAGE%\out\%~1" "%TARGETS%\%~1" > "%STAGE%\%~1.compare.log"
 if errorlevel 1 (
-    echo IO.SYS differs. Inspect %STAGE%\IO.SYS.compare.log
+    echo %~1 differs. Inspect %STAGE%\%~1.compare.log
     exit /b 1
 )
-call :hash "%STAGE%\out\IO.SYS"
+call :hash "%STAGE%\out\%~1"
 if errorlevel 1 exit /b 1
->> "%STAGE%\outputs.sha256" echo %DIGEST%  IO.SYS
-if not exist "%ROOT%\extras\assets" mkdir "%ROOT%\extras\assets"
-copy /b /y "%STAGE%\out\IO.SYS" "%ROOT%\extras\assets\IO.SYS.new" >nul
-if errorlevel 1 exit /b 1
-move /y "%ROOT%\extras\assets\IO.SYS.new" "%ROOT%\extras\assets\IO.SYS" >nul
-if errorlevel 1 exit /b 1
-echo IO.SYS: MATCH
+>> "%STAGE%\outputs.sha256" echo %DIGEST%  %~1
+echo %~1: MATCH
 exit /b 0
 
 :phase
