@@ -34,3 +34,26 @@ P5 connects the DOS 8.00 startup check and VDM restart prompt, completes the res
 P6 aligns DIR with the target, retaining the inherited switch and sort table and restoring the UNC disk-space query and directory entry layout. It removes obsolete APPEND command hooks, aligns the transient parser and stack, and restores the embedded DOS 8 copyright strings. Build stage `cmd-15535-26452` exited 0. All input snapshots match. Full byte comparison and SHA-256 passed for the 93,040-byte COMMAND.COM. An independent comparison confirmed that the published copy and the file extracted from the OAK floppy are identical. The effective 2222 source universe in cmd/command, inc and lang/usa/messages has 16 modified and 104 identical paths, with no additions or deletions.
 
 S1 closed after the COMMAND source overlay, historical build entry, direct byte match, target hash and publication were verified. T29 remains open for the remaining core files, including the Astro component work identified for IO.SYS.
+
+## M6 T29 S2 Packet
+
+| Field | Required record |
+| --- | --- |
+| Identifier Mode | New |
+| Admission And Approval | Owner admitted the IO.SYS build and mapping baseline. |
+| Objective | Establish a reproducible historical IO build and a source-linked comparison map for the decoded 3000 target. |
+| Non-goals | Implementation of 3000 changes or exact recompression. |
+| Reference Baseline | Effective 2222 source at `0e557eb928f84339d1718c82e15fbfe163526aa8` and the [frozen Windows Me floppy](../etc/target-baseline.json). Astro references remain pinned as recorded in the component comparison. |
+| Candidate Proposal | Reuse the historical command-line toolchain with the io-baseline entry. Compare compiled component images and the target payload in explicit address spaces. |
+| Files And ABI Surface | IO loader, BIOS, DOS kernel, SYSINIT and configuration maps. No DOS source edits in this packet. |
+| Applicable Rules | [Execution](../../../../v7.10.1998/extras/docs/rules/EXECUTION.md) and [coding](../../../../v7.10.1998/extras/docs/rules/CODING.md). |
+| Verification | Rerun the independent build, verify linked outputs and hashes, directly check anchor bytes and match source and tool input snapshots. |
+| Expected Markers | 2222 IO.SYS identity, 278,016-byte decoded target identity and usable link maps. |
+| Asset Needs | Original target in extras/baselines/targets and stage outputs in ignored extras/build. |
+| Reporting Requirements | Track modified and identical product source paths, exact same-origin byte ranges, and still unassigned boundaries. |
+| Stop Conditions | Flag any reference mismatch or unsupported object attribution before advancing. |
+| Exit Criteria | Reproducible IO baseline build and source-linked block maps, with provenance and outstanding boundaries recorded. |
+| Original Owner Request | Admit S2 and execute the first IO.SYS subtask. |
+| Similar-Issue Sweep | Cross-check offset spaces, stripped and EXEPACK images, and linker contributions that are only present in memory. |
+
+P1 built and verified the [IO.SYS baseline and object maps](../etc/io-build-baseline.md) in stage `io-17513-19154`. It changed zero product source paths and verified 242 identical paths in the build scope. S2 is closed. Exact CM/DS re-encoding is the next S.

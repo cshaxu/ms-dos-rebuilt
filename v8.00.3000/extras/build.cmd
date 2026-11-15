@@ -1,4 +1,5 @@
 @echo off
+if /i "%~1"=="io-baseline" goto io_baseline
 setlocal EnableExtensions DisableDelayedExpansion
 pushd "%~dp0.."
 if errorlevel 1 goto entry_failed
@@ -219,3 +220,7 @@ for %%N in (COMMAND.COM) do (
 echo FAIL: inspect logs in this directory. > "%STAGE%\result.txt"
 echo ERROR: Build failed. Logs: %STAGE%
 exit /b 1
+
+:io_baseline
+call "%~dp0tools\iobase.cmd"
+exit /b %errorlevel%
