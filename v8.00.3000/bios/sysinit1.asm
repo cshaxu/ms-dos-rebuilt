@@ -181,7 +181,7 @@ clobbered   equ     3
 
 ;	 external variables in ibmbio for int19h handling rouitne.
 
-	extrn	bios_flags:word,int16_count:word
+	extrn	bios_flags:word,int16_count:word,keyboard_status:byte
 	extrn	disksector_ptr:dword
 	extrn	boot_minute:byte,boot_seconds:word
 	extrn	start_bds:dword
@@ -340,7 +340,7 @@ IFDEF	CONFIGPROC
 	extrn	pathstring:byte			; this is not being referenced
 ENDIF ; CONFIGPROC
 	extrn   print:near,badmem:byte,badfil:near,showlinenum:near
-	extrn	int24:near
+	extrn	int24:near,boot_old_int24:dword
 	if	noexec
 	extrn	mem_err:near
 	endif
@@ -634,23 +634,23 @@ dosinit_con_entry:
 	push    bx
 	mov     bx,es:[bx+6]
 	mov     si,offset sysinit_msg_base
-	add     si,cs:[sysinit_msg_table+50]
-	mov     al,cs:[si]
-	mov     cs:[query_yes],al
+	add     si,[sysinit_msg_table+50]
+	mov     al,[si]
+	mov     [query_yes],al
 	mov     es:[bx],al
-	mov     al,cs:[si+3]
-	mov     cs:[query_yes_lower],al
+	mov     al,[si+3]
+	mov     [query_yes_lower],al
 	mov     es:[bx+2],al
-	mov     al,cs:[si+1]
-	mov     cs:[query_no],al
+	mov     al,[si+1]
+	mov     [query_no],al
 	mov     es:[bx+1],al
-	mov     al,cs:[si+4]
-	mov     cs:[query_no_lower],al
+	mov     al,[si+4]
+	mov     [query_no_lower],al
 	mov     es:[bx+3],al
-	mov     al,cs:[si+2]
-	mov     cs:[query_all_char],al
-	mov     al,cs:[si+5]
-	mov     cs:[query_all_lower],al
+	mov     al,[si+2]
+	mov     [query_all_char],al
+	mov     al,[si+5]
+	mov     [query_all_lower],al
 	pop     bx
 	mov     bx,es:[bx+8]
 	mov     word ptr es:[bx],offset Bios_Data:bios_error_entry
@@ -708,27 +708,7 @@ NoRPLArena:
 ;
 ;M056 - END
 ;
-	les	di,dosinfo		;es:di -> dosinfo
-
-	clc				;get the extended memory size
-
-;	execute the get extended memory size subfunction in the bios int 15h
-;	if the function reports an error do nothing else store the extended
-;	memory size reported at the appropriate location in the dosinfo buffer
-;	currently pointed to by es:di.	use the offsets specified in the
-;	definition of the sysinitvars struct in inc\sysvar.inc
-
-
-	mov	ah,88h
-	int	15h			;check extended memory size
-	jc	no_ext_memory
-	mov	es:[di].sysi_ext_mem,ax ;save extended memory size
-	or	ax, ax
-	jz	no_ext_memory
-	call	ClrVDISKHeader
-no_ext_memory:
-	push	cs
-	pop	ds
+	les	di,dosinfo		; es:di -> DOS initialization variables
 	assume	ds:sysinitseg
 	mov	ax,es:[di.sysi_maxsec]	; get the sector size
 	add	ax,bufinsiz		; size of buffer header
@@ -736,6 +716,13 @@ no_ext_memory:
 
 	mov	al,default_drive	; get the 1 based boot drive number set by msinit
 	mov	es:[di.sysi_boot_drive],al ; set sysi_boot_drive
+	push	ds
+	mov	cx,Bios_Data
+	mov	ds,cx
+	assume	ds:Bios_Data
+	mov	[keyboard_status],al
+	pop	ds
+	assume	ds:sysinitseg
 
 ; Reserve space for the PSP and device records below SYSINIT.
 
@@ -778,8 +765,9 @@ temp_buffer_loop:
 	mov     [si.buf_next],bx
 	mov     [si.buf_prev],dx
 	mov     word ptr [si.buf_id],00ffh
-	mov     word ptr [si.buf_sector],0
-	mov     word ptr [si.buf_sector+2],0
+	.386
+	mov	dword ptr [si.buf_sector],0
+	.8086
 	mov     dx,si
 	mov     si,bx
 	add     bx,cs:[singlebuffersize]
@@ -824,10 +812,14 @@ endif ; COPYCDS
 	mov	es,bx
 	xor	si,si
 	mov	di,si
-	mov	cx,80h
-	rep	movsw
+	.386
+	mov	cx,40h
+	rep	movsd
+	.8086
 
 	mov	word ptr es:[pdb_jfn_pointer + 2],es ; relocate
+	mov	es:[PDB_Parent_PID],0
+	mov	es:[PDB_environ],0
 	mov     cs:[new_psp_segment],bx
 	mov     ah,set_current_pdb
 	int     21h
@@ -841,10 +833,29 @@ endif ; COPYCDS
 
 	assume	ds:sysinitseg
 
-	; set up temp. critical error handler
-	mov	dx,offset int24 	;set up int 24 handler
+
+;	Save the boot error vector, install SYSINIT's handler and set up
+;	the relocated PSP return vectors.
+;
+	mov	ax,(get_interrupt_vector shl 8) or 24h
+	int	21h
+	mov	word ptr [boot_old_int24],bx
+	mov	word ptr [boot_old_int24+2],es
+	mov	dx,offset int24
 	mov	ax,(set_interrupt_vector shl 8) or 24h
 	int	21h
+	mov	es,[new_psp_segment]
+	mov	word ptr es:[PDB_Fatal_abort],bx
+	mov	bx,word ptr [boot_old_int24+2]
+	mov	word ptr es:[PDB_Fatal_abort+2],bx
+	mov	ax,(get_interrupt_vector shl 8) or 23h
+	int	21h
+	mov	ax,es
+	mov	es,[new_psp_segment]
+	mov	word ptr es:[PDB_Ctrl_C],bx
+	mov	word ptr es:[PDB_Ctrl_C+2],ax
+	mov	word ptr es:[PDB_Exit],0
+	mov	word ptr es:[PDB_Exit+2],es
 
         cmp     byte ptr [TooManyDrivesFlag],0  ;Q: >24 partitions? M029
         je      no_err                          ;  N: continue      M029
