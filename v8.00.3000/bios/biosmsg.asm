@@ -1,4 +1,6 @@
-Bios_Code	segment word public 'Bios_Code'
+	include	bioscode.inc
+
+Bios_Code	segment byte public 'CODE'
 	assume	cs:Bios_Code
 	public	BCode_end,bios_msg_descriptor
 

@@ -11,6 +11,8 @@
 ; by specifying the segment name, with no attribute, class, or align type.
 
 
+	include	bioscode.inc
+
 datagrp	group	Bios_Data,Bios_Data_Init
 
 
@@ -29,7 +31,7 @@ Bios_Data_Init	ends
 Filler		segment para public 'Filler'
 Filler		ends
 
-Bios_Code	segment byte public 'Bios_Code'
+Bios_Code	segment byte public 'CODE'
 Bios_Code	ends
 
 Filler2		segment para public 'Filler2'
@@ -71,7 +73,7 @@ SysInitSeg	ends
 Filler2		segment para public 'Filler2'
 Filler2		ends
 
-Bios_Code	segment word public 'Bios_Code'
+Bios_Code	segment word public 'CODE'
 Bios_Code	ends
 
 

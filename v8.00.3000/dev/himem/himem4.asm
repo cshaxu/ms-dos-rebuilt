@@ -8,7 +8,9 @@
 
 	include	himem.inc
 
-Bios_Code	segment byte public 'Bios_Code'
+	include	bioscode.inc
+
+Bios_Code	segment byte public 'CODE'
 	.386
 	assume	cs:Bios_Code,ds:Bios_Code
 

@@ -1,9 +1,11 @@
+	include	bioscode.inc
+
 	include	version.inc
 Bios_Data	segment word public 'Bios_Data'
 Bios_Data	ends
 SysInitSeg	segment word public 'system_init'
 SysInitSeg	ends
-Bios_Code	segment byte public 'Bios_Code'
+Bios_Code	segment byte public 'CODE'
 	assume	cs:Bios_Code
 	extrn	Bios_Data_Word:word
 

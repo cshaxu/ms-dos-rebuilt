@@ -1,3 +1,5 @@
+	include	bioscode.inc
+
 ;
 ; SYSINIT state, boot image storage and configuration workspace.
 ;
@@ -9,7 +11,7 @@ break	macro	arg
 	include	exe.inc
 Bios_Data	segment byte public 'bios_data'
 Bios_Data	ends
-Bios_Code	segment byte public 'bios_code'
+Bios_Code	segment byte public 'CODE'
 Bios_Code	ends
 sysinitseg segment byte public 'system_init'
 CR equ 13
