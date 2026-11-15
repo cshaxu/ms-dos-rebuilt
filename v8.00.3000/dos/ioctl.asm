@@ -465,7 +465,6 @@ query_handle_support:	; Entry point for handles
 GENERICIOCTLHANDLE:
 
 	invoke	SFFromHandle		; Get SFT for device.
-	MOV	AL,3Ah			; Bad network response
 	.386
 	JC	NEAR PTR ioctl_bad_handlej
 	.8086

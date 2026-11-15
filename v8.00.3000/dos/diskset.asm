@@ -198,7 +198,6 @@ setup_check_cluster:
 ;M039
 
 NOSETSTUFF:
-	STI
 	MOV	AX,CX		; AX = Byte count.
 	ADD	AX,WORD PTR DMAAdd	 ; See if it will fit in one segment
 	JNC	OK		; Must be less than 64K
@@ -215,7 +214,6 @@ OK:
 	return
 
 EOFERR:
-	STI
 	POP	ES		; ES:DI point to SFT
 	XOR	CX,CX		; No bytes read
 ;;;;;;;;;;; 7/18/86
