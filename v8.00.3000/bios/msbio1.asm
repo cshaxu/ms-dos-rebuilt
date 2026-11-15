@@ -1512,23 +1512,10 @@ keyboard_vector_next:
 	cmp	byte ptr [bx],0cfh
 	jz	short keyboard_vector_skip
 	lods	word ptr cs:[si]
-	xchg	ax,bx
-	cmp	eax,es:[bx]
-	jz	short keyboard_vector_restore
-	xchg	ax,bx
 	lods	word ptr cs:[si]
 	xchg	ax,di
 	mov	edx,[di]
 	mov	[bx+1],edx
-	jmp	short keyboard_vector_next
-keyboard_vector_restore:
-	xchg	ax,bx
-	mov	byte ptr [bx],0cfh
-	xchg	ax,bx
-	lods	word ptr cs:[si]
-	xchg	ax,di
-	mov	edx,[di]
-	mov	es:[bx],edx
 	jmp	short keyboard_vector_next
 keyboard_vector_skip:
 	add	si,4
@@ -1562,7 +1549,6 @@ video_state_save proc near
 	pop	di
 	ret
 video_state_save endp
-	nop
 keyboard_stack db 512 dup (0)
 keyboard_sp dw 0
 keyboard_ss dw 0
@@ -1817,7 +1803,6 @@ bios_error_report_done:
 	pop	si
 	retf
 bios_error_report endp
-	db	0			; align character data
 	public	printdev,wait_count,auxnum,auxbuf
 	public	base_century,base_year,month_tab,bin_date_time,month_table
 printdev	dw	0
