@@ -303,6 +303,8 @@ mini_seclim	dw	0
 
 
 
+bios_date db	'01/10/84',0
+
 ; the following are the recommended bpbs for the media that we know of so
 ; far.
 
@@ -368,8 +370,6 @@ bpbtable dw	offset datagrp:bpb48t	; 48tpi drives
 flp_drvs	db	0
 rom_floppy_drives db	0
 bios_call_return	dw	0
-addr_of_bcretf	dw	bc_retf
-bios_call_segment	dw	Bios_Code
 
 call_bios_code proc near
 	assume	ds:nothing, es:nothing
@@ -377,8 +377,10 @@ call_bios_code proc near
 	pop	cs:bios_call_return
 	push	cs
 	push	cs:bios_call_return
-	push	cs:addr_of_bcretf
-	push	cs:bios_call_segment
+	.286
+	push	offset bc_retf
+	push	Bios_Code
+	.8086
 	push	bp
 	retf
 
@@ -481,7 +483,6 @@ ENDIF
 	mov	cs:boot_drive_copy,dx
 	mov	ds,cs:init_sysinit_seg
 	assume	ds:sysinitseg
-	mov	boot_load_segment,di
 	mov	boot_data_high,ax
 	mov	boot_data_low,bx
 	mov	ds,si
@@ -606,114 +607,40 @@ init_debug_vectors:
 	stosw
 
 	sti
-	int	11h			;get equipment status
 
-; we have to support a system that does not have any diskette
-;drives but only hardfiles.  this system will ipl from the hardfile.
-;if the equipment flag bit 0 is 1, then the system has diskette drive(s).
-;otherwise, the system has only hardfiles.
+;	Determine the number of physical floppy drives. Some BIOSes only
+;	report the number of drives in their equipment word.
 ;
-;important thing is that still, for compatibility reason, the drive letter
-;for the hardfiles start from "c".  so, we still need to allocate dummy bds
-;drive a and drive b.	at sysinit time, we are going to set cds table entry
-;of dpb pointer for these drives to 0, so any user attempt to access this
-;drives will get "invalid drive letter ..." message.  we are going to
-;establish "fakefloppydrv" flag.  ***sysinit module should call int 11h to
-;determine whether there are any diskette drivers in the system or not.!!!***
-
-;	check the register returned by the equipment determination interrupt
-;	we have to handle the case of no diskettes in the system by faking
-;	two dummy drives.
-;
-;	if the register indicates that we do have floppy drives we don't need
-;	to do anything special.
-;
-;	if the register indicates that we don't have any floppy drives then
-;	what we need to do is set the fakefloppydrv variable, change the
-;	register to say that we do have floppy drives and then go to execute
-;	the code which starts at notsingle.  this is because we can skip the
-;	code given below which tries to find if there are one or two drives
-;	since we already know about this.
-
-
-	if	ibmcopyright
-
-;************************************************************************
-; p????
-;
-; the following fix for lloyds of london does work correctly but it
-; causes a regression in the ripl machine. machines with no ipl
-; diskette will have ax bit 0 = 0. the cds structure is stomped on
-; later to insure that a: is a invalid drive. this is where ripl fails.
-; it wants the a: drive to be valid because it intercepts requests
-; to the drive and returns info from it's memory image. but, if ibmbio
-; finds no ipl drive, it tells ibmdos never to request anything from
-; that drive.
-;
-; for the meantime, we will take out the support for lloyds of london
-; by setting up a false condition. (ie. ax=1).
-; (they have a special build, dos 3.31 to use). architecture needs to
-; get the ripl machine to set bit 0 to say that there is in fact an
-; virtual ipl diskette.
-;
-; the next 4 lines of code should be removed when the ripl people have
-; gotten their act together. the unique identifier is used in case in
-; the future, we want to dynamically patch ibmbio to work on the lloyds
-; machine. the program could be written to scan for:
-;
-;	ebh,03h,52h,50h,53h,0dh,01h
-;	 "jmp"	"R" "P" "S"  or  1
-;
-; and dynamically change the 0dh,01h to 90h,90h. note: that this string
-; must be changed twice in ibmbio.com.
-;************************************************************************
-
-	jmp    short set_bit		; jmup over db
-	db     "RPS"			; unique identifier
-
-set_bit:
-	or     ax,1			; turn on the ipl bit
-;************************************************************************
-
-	endif
-
-
-	test	ax,1
-	jnz	normalfloppydrv
-	push	ax
+	.386
 	xor	cl,cl
 	mov	ah,8
 	mov	dl,0
 	int	13h
-	jc	init_floppy_result
+	jnc	short init_floppy_count
+	int	11h
+	test	ax,1
+	jnz	short init_floppy_equipment
+	xor	dl,dl
+	jmp	short init_floppy_count
+init_floppy_equipment:
+	shr	al,6
+	mov	dl,al
+	inc	dl
+init_floppy_count:
 	mov	cs:rom_floppy_drives,dl
-init_floppy_result:
-	test	cl,cl
-	jz	init_floppy_probe_done
-	test	dl,dl
-	jnz	init_floppy_probe_done
+	movzx	ax,cs:rom_floppy_drives
+	or	ax,ax
+	jnz	short init_have_floppy
+	inc	ax
+	mov	cs:fakefloppydrv,al
 	mov	es,cs:init_sysinit_seg
 	assume	es:sysinitseg
-	mov	es:no_floppy_report,1
-init_floppy_probe_done:
-	pop	ax
-	jc	normalfloppydrv
-	cmp	cs:rom_floppy_drives,0
-	jz	init_no_floppy
-	mov	al,cs:rom_floppy_drives
-	dec	ax
-	jmp	short got_num_flp_drvs
-init_no_floppy:
-	mov	ax,1
-	mov	cs:fakefloppydrv,al
+	mov	es:no_floppy_report,al
 	jmp	short settwodrive
-normalfloppydrv:
-	.286
-	rol	al,2
-	.8086
-got_num_flp_drvs:
+init_have_floppy:
+	dec	ax
 	and	ax,3
-	jnz	notsingle
+	jnz	short notsingle
 	inc	ax
 settwodrive:
 	inc	cs:flp_drvs
@@ -721,101 +648,42 @@ notsingle:
 	inc	ax
 	mov	cs:drvmax,al
 	test	byte ptr cs:drvfat,80h
-	jnz	gothrd
+	jnz	short gothrd
 	xor	ax,ax
 gothrd:
 	mov	byte ptr cs:drvfat,al
 
-; let model_byte, secondary_model_byte be set here!!!
+;	Read the system configuration when the BIOS supplies it.
+;
+	mov	ah,0c0h
+	int	15h
+	jc	short init_mem_size
+	assume	es:nothing
+	mov	al,es:[bx.bios_sd_modelbyte]
+	mov	cs:model_byte,al
+	mov	al,es:[bx.bios_sd_scnd_modelbyte]
+	mov	cs:secondary_model_byte,al
 
-	mov	ah,0c0h 		; return system environment
-	int	15h			; call rom-bios routine
-
-	jc	no_rom_system_conf	; just use model_byte
-	or	ah,ah			; double check
-	jne	no_rom_system_conf
-
-	mov	al,es:[bx.bios_sd_modelbyte] ;get the model byte
-	mov	cs:[model_byte],al
-	mov	al,es:[bx.bios_sd_scnd_modelbyte] ;secondary model byte
-	mov	cs:[secondary_model_byte],al
-	jmp	short turn_timer_on
-
-no_rom_system_conf:
-	mov	si,0ffffh
-	mov	es,si
-	mov	al,es:[0eh]		; get model byte
-	mov	cs:model_byte,al		; save model byte
-
-turn_timer_on:
-	mov	al,eoi
-	out	akport,al		;turn on the timer
-
-;	some olivetti m24 machines have an 8530 serial communications
-;	  chip installed at io address 50h and 52h.  if we're running
-;	  on one of those, we must inhibit the normal aux port initialization
-
-	cmp	cs:model_byte,0		; next to last byte in rom bios
-	jnz	not_olivetti_m24	; skip for all other machines
-
-;	now we know we're on an m24.  read the configuration switch to
-;	  see if we think we have an 8530 chip.
-
-	in	al,66h
-	test	al,20h			; is 8530 installed?
-	jz	not_olivetti_m24	;  we're done if not
-
-;	now double check to make sure the device is really there
-
-	mov	al,0fh
-	out	50h,al
-	in	al,50h
-	test	al,1			; this test was copied from olivetti
-	jz	skip_aux_port_init	; take this branch if 8530 installed
-
-not_olivetti_m24:
-
-	mov	al,3		; init com4
-	call	aux_init
-	mov	al,2		; init com3
-	call	aux_init
-	mov	al,1		; init com2
-	call	aux_init
-	xor	al,al		; init com1
-	call	aux_init
-
-skip_aux_port_init:
-	mov	al,2		; init lpt3
-	call	print_init
-	mov	al,1		; init lpt2
-	call	print_init
-	xor	al,al		; init lpt1
-	call	print_init
-
-
-	cmp	cs:model_byte,0fdh
-	jb	no_diddle
-	mov	word ptr ds:(sec9 + disk_head_sttl),0200h+normsettle
-	mov	ds:(sec9 + disk_specify_1),0dfh
-no_diddle:
+;	Reserve the boot and disk-sector buffers below conventional memory
+;	or below the area occupied by an installed RPL loader.
+;
+init_mem_size:
 	int	12h
-	.286
 	shl	ax,6
-	.8086
 	mov	dx,ax
 	push	ax
 	lds	bx,ds:dword ptr [2fh*4]
 	assume	ds:nothing
-	cmp	word ptr ds:[bx+3],'PR'
-	jne	SkipRPL
-	cmp	byte ptr ds:[bx+5],'L'
-	jne	SkipRPL
+	cmp	word ptr [bx+3],'PR'
+	jnz	short SkipRPL
+	cmp	byte ptr [bx+5],'L'
+	jnz	short SkipRPL
 	mov	cx,ax
-	mov	ax,(multMULT shl 8) + multMULTRPLTOM
+	mov	ax,(multMULT shl 8)+multMULTRPLTOM
 	int	2fh
 	mov	ax,dx
 	cmp	ax,cx
-	jne	init_memory_set
+	jnz	short init_memory_set
 SkipRPL:
 	sub	dx,dx
 init_memory_set:
@@ -831,10 +699,6 @@ init_memory_set:
 	mov	word ptr device_list+2,cs
 	mov	memory_size,ax
 	mov	rpl_memory_size,dx
-	mov	al,cs:model_byte
-	mov	sys_model_byte,al
-	mov	al,cs:secondary_model_byte
-	mov	sys_scnd_model_byte,al
 	mov	ax,cs:drvfat
 	inc	ax
 	mov	default_drive,al
@@ -848,43 +712,8 @@ init_memory_set:
 	mov	cx,31h
 	rep	movsw
 	pop	ds
-	assume	ds:sysinitseg
 	stosw
-	mov	ax,cs:dosdatasg
-	mov	sysinit_bios_start,ax
-	add	ax,15
-	.286
-	shr	ax,4
-	.8086
-	mov	sysinit_bios_paras,ax
-	mov	cx,offset sysinit_reserve_size
-	mov	sysinit_reserve_count,cx
-	add	boot_load_segment,70h
-	sub	boot_load_segment,cx
-	sub	boot_load_segment,ax
-	add	ax,sysinit_reserve_count
-	mov	es,ax
-	sub	cx,cx
-	cmp	es:[0],cx
-	xchg	cx,boot_load_segment
-	jcxz	init_load_ready
-	jz	init_load_ready
-	mov	boot_load_segment,cx
-	mov	boot_reloc_segment,ax
-init_load_ready:
 
-; Protect against spurious interrupt 0Fh from old printer adapters.
-
-	assume	ss:nothing
-	mov	ax,word ptr ss:[0fh*4+2]
-	cmp	ax,memory_size
-	jb	resetintf
-	cmp	ax,0f000h
-	jne	keepintf
-resetintf:
-	mov	word ptr ss:[0fh*4],offset intret
-	mov	word ptr ss:[0fh*4+2],cs
-keepintf:
 	push	cs
 	pop	ds
 	push	cs
@@ -892,10 +721,11 @@ keepintf:
 	assume	ds:datagrp,es:datagrp
 	mov	cl,ss:[496h]
 	test	cl,10h
-	jz	org_key
+	jz	short org_key
 	mov	keyrd_func,10h
 	mov	keysts_func,11h
 org_key:
+	or	bios_flags,20h
 	mov	bp,offset read_real_date
 	call	call_bios_code
 	mov	hdrv_pat,offset harddrv
@@ -903,78 +733,12 @@ org_key:
 	mov	dsktnum,al
 	xor	ax,ax
 	mov	hnum,al
-
-;  The following code is to support dual hard disk controllers on
-;  Compaq systems ('mode 2').
-;
-;  Here we attempt to setup INT 13h, mode 2
-;  We must execute this code before any INT 13h to fixed disks
-
-	push	ds
-	mov	ax,0f000h
-	mov	ds,ax
-	assume	ds:nothing
-	.386
-	cmp	dword ptr ds:[0ffeah],'PMOC'
 	.8086
-	jnz	init_not_compaq
-	cmp	word ptr ds:[0ffeeh],'QA'
-	jnz	init_not_compaq
-	jmp	short init_compaq
-init_not_compaq:
-	pop	ds
-	jmp	short skip_mode2
-init_compaq:
-	pop	ds
-	assume	ds:datagrp
-	mov	ax,0e400h
-	int	15h
-	jc	skip_mode2
-	test	bx,40h
-	jnz	skip_mode2
+
 	mov	dl,80h
 	mov	ah,8
 	int	13h
-	jc	init_cmos_disks
-	mov	hnum,dl
-init_cmos_disks:
-	cli
-	mov	al,19h
-	out	70h,al
-	in	al,71h
-	sti
-	xor	ah,ah
-	test	al,0ffh
-	jz	init_cmos_disk2
-	inc	ah
-init_cmos_disk2:
-	cli
-	mov	al,1ah
-	out	70h,al
-	in	al,71h
-	sti
-	test	al,0ffh
-	jz	init_cmos_count
-	inc	ah
-init_cmos_count:
-	mov	al,hnum
-	sub	al,ah
-	mov	hnum,al
-	push	ds
-	push	dx
-	mov	dx,40h
-	mov	ds,dx
-	mov	ds:[75h],ah
-	pop	dx
-	pop	ds
-	or	bx,40h
-	mov	ax,0e480h
-	int	15h
-skip_mode2:
-	mov	dl,80h
-	mov	ah,8
-	int	13h
-	jnc	init_count_disks
+	jnc	short init_count_disks
 	mov	dl,0
 init_count_disks:
 	add	dl,hnum
