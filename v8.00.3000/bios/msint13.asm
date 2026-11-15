@@ -60,6 +60,7 @@ multMULTALLOCHMA	equ	2
 	tocode
 
 	extrn	Bios_Data_Word:word
+	extrn	bios_msg_descriptor:word
 	extrn	media_set_for_format:byte
 	extrn	set_changed_dl:near
 	extrn	install_bds:near
@@ -164,6 +165,10 @@ i2f_handler proc far
 	jz	near ptr win386call
 	.8086
 
+	cmp	ax,4b29h
+	.386
+	jz	near ptr mult_get_bios_msgs
+	.8086
 	cmp	ah,multMULT
 	.386
 	jz	near ptr handle_multmult
@@ -507,6 +512,14 @@ mult_check50:
 	mov	dx,boot_seconds
 	pop	ds
 	assume	ds:nothing
+	iret
+; Return the BIOS message descriptor and its installation status.
+mult_get_bios_msgs:
+	mov	bx,offset bios_msg_descriptor
+	push	cs
+	pop	es
+	mov	ax,es:[bx+8]
+	inc	ax
 	iret
 mult_check31:
 	cmp	al,31h
