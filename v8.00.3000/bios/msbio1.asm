@@ -909,7 +909,16 @@ int16_active	dw	0
 	public	boot_minute,boot_seconds
 boot_minute	db	0
 boot_seconds	dw	0
-	db	0
+
+; BIOS information returned by multiplex function 4B28h.
+	public	bios_info,keyboard_status
+bios_info label byte
+	dw	bios_info_end - bios_info
+	dw	1b5h
+	db	1
+	db	122 dup (0)
+bios_info_end label byte
+keyboard_status db 3
 	public	i13_ds
 i13_ds	dw	?
 

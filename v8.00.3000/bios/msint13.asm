@@ -37,6 +37,7 @@ multMULTALLOCHMA	equ	2
 	extrn	call_orig13:far		; M030
 	extrn	i13_ds:word
 	extrn	boot_minute:byte,boot_seconds:word
+	extrn	bios_info:byte,keyboard_status:byte
 	extrn	bios_flags:word
 	extrn	int16_limit:word,int16_limit2:word
 	extrn	palette_index:byte,palette_count:byte,palette_config:word
@@ -69,9 +70,8 @@ multMULTALLOCHMA	equ	2
 	extrn	mult_call16:near,mult_call17:near,mult_call18:near,mult_call21:near
 
 ; Windows initialization information and instance data.
+	public	keyboard_info
 keyboard_info	dw	0
-	public	hma_init_ptr
-hma_init_ptr	dd	0
 	public	win386_text_length,win386_text_buffer
 win386_text_length dw	14
 win386_text_buffer label byte
@@ -165,8 +165,10 @@ i2f_handler proc far
 	jz	near ptr win386call
 	.8086
 
-	cmp	ax,4b29h
 	.386
+	cmp	ax,4b28h
+	jz	near ptr mult_get_bios_info
+	cmp	ax,4b29h
 	jz	near ptr mult_get_bios_msgs
 	.8086
 	cmp	ah,multMULT
@@ -419,10 +421,16 @@ win386_call0e:
 	jz	win_iret
 	dec	ax
 	jmp	short win_iret
+win_keyboard_status:
+	cmp	bl,6
+	ja	win_iret
+	mov	dl,keyboard_status
+	xor	ax,ax
+	jmp	short win_iret
 win_keyboard_45:
 	cmp	bl,5
 	jb	win_keyboard_enable
-	ja	win_iret
+	ja	win_keyboard_status
 	and	byte ptr bios_flags+1,0dfh
 	jmp	short win_keyboard_setup
 win_keyboard_enable:
@@ -513,6 +521,13 @@ mult_check50:
 	pop	ds
 	assume	ds:nothing
 	iret
+; Return the BIOS information block in ES:DI.
+mult_get_bios_info:
+	sub	ax,ax
+	mov	es,cs:Bios_Data_Word
+	mov	di,offset bios_info
+	iret
+
 ; Return the BIOS message descriptor and its installation status.
 mult_get_bios_msgs:
 	mov	bx,offset bios_msg_descriptor
@@ -1035,22 +1050,6 @@ ec35_special_stuff:
 ;will issue ah=1 (read status) call to reset the buses.
 
 
-ps2_special_stuff:
-	assume	ds:Bios_Data,es:nothing
-	cmp	[prevoper],8		; read driver parm ?
-	jz	ps2_30_problem
-	cmp	prevoper,15h		; apparently function 15h fails, too
-	jnz	ps2_special_stuff_done	; it isn't one of the problem functions
-
-ps2_30_problem: 			; ps2_30 = ps2 model 30.
-	push	ax			; preserve ax result from int13
-	mov	ah,1			; read status call resets the bus
-; M030	pushf				; simulate int 13h
-; M030	call	orig13			; as a side effect
-	call	call_orig13		; M030
-	pop	ax			; restore results of initial int13
-	jmp	short ps2_special_stuff_done
-
 ;	here is the actual int13 handler
 
 	public i13z
@@ -1080,12 +1079,6 @@ ec35_special_stuff_done:
 ; M030	call	orig13
 
 	call	call_orig13		; M030
-
-	pushf				; save result flags
-	cmp	[model_byte],mdl_ps2_30 ; is this a ps2/30?
-	jz	ps2_special_stuff	;  exit mainline to address special
-ps2_special_stuff_done:			;   ps2/30 problem if so
-	popf
 
 	jc	goterr13		; error on original orig13 call-thru?
 ret_from_i13:
