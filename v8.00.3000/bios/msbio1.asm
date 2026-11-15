@@ -283,7 +283,6 @@ int15_esc_ptr dd int15_esc
 int16_check_ptr dd int16_check
 int19_code_ptr dd int19_restore
 outchr_code_ptr dd outchr_code
-int6c_code_ptr dd int6c_code
 	public	bios_error_vector
 bios_error_vector dd Bios_Code:bios_error_report
 bcode_i2f dd	i2f_handler
@@ -794,11 +793,6 @@ i2f_dskentry proc far
 	jmp	dsk_entry
 i2f_dskentry endp
 
-	public	int6c_entry
-int6c_entry proc far
-	call	EnsureA20On
-	jmp	int6c_code_ptr
-int6c_entry endp
 
 HiMem	label	dword
 	dw	90h
@@ -1832,7 +1826,7 @@ month_table:
 	dw	304
 	dw	334		; december
 	.8086
-	extrn	int6c_code:far,int6c_update:near
+	extrn	int6c_update:near
 
 	extrn	config_table:byte,sysinit_seg:word,exec_bios_word:byte
 
