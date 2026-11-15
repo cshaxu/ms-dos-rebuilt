@@ -205,7 +205,7 @@ cmos_shut_down	equ	00fh		; shutdown status command byte
 	extrn	mov_media_ids:near
 	extrn	clear_ids:near
 	extrn	base_century:byte,base_year:byte,month_tab:byte
-	extrn	eot:byte,motorstartup:byte
+	extrn	eot:byte
 	extrn	bin_date_time:byte,month_table:word
 	extrn	Bios_Data_Word:word
 	extrn	time_to_ticks:near
@@ -1086,14 +1086,6 @@ skip_aux_port_init:
 	call	print_init
 
 
-;	we need to initalize the cs:motorstartup variable from the disk
-;	parameter table at sec9.  the offsets in this table are defined in
-;	the disk_parms struc in msdskprm.inc.  2 locs
-
-	mov	es,word ptr cs:[cdev+2]	; BIOS code segment
-	assume	es:nothing
-	mov	al,ds:sec9 + disk_motor_strt
-	mov	es:motorstartup,al
 	cmp	cs:model_byte,0fdh
 	jb	no_diddle
 	mov	word ptr ds:(sec9 + disk_head_sttl),0200h+normsettle

@@ -211,7 +211,7 @@ cmos_shut_down	equ	00fh		; shutdown status command byte
 	extrn	mov_media_ids:near
 	extrn	clear_ids:near
 	extrn	base_century:byte,base_year:byte,month_tab:byte
-	extrn	eot:byte,motorstartup:byte
+	extrn	eot:byte
 	extrn	bin_date_time:byte,month_table:word
 	extrn	Bios_Data_Word:word
 	extrn	time_to_ticks:near

@@ -138,7 +138,7 @@ multrk_off2	equ	00000001b	;user specified multitrack=off.
 	tocode
 
 	public	step_drv,accesscount,tim_drv,medbyt,wrtverify,rflag,seccnt
-	public	motorstartup,settlecurrent,settleslow,save_head_sttl,save_eot,eot,dpt
+	public	save_eot,eot,dpt
 	public	cursec,curhd,curtrk,spsav,temp_h,start_sec_h,saved_word
 	public	vretry_cnt,soft_ecc_cnt,set_id_flag,fat_12_id,fat_16_id,vol_no_name,sm92
 	public	errin,lsterr,errout,numerr
@@ -150,10 +150,6 @@ wrtverify	label	word
 rflag		db	romread 	;2 for read, 3 for write
 verify		db	0
 seccnt		dw	0
-motorstartup	db	?
-settlecurrent	db	?
-settleslow	db	?
-save_head_sttl	db	?
 save_eot	db	?
 eot		db	9
 dpt		dd	?
@@ -1180,7 +1176,8 @@ check_own:
 	push	ES
 	sub	bx,bx
 	mov	es,bx
-	mov	BYTE PTR ES:[lstdrv],al 	; & set up sdsb
+	db	67h,26h,0a2h		; mov es:[lstdrv],al
+	dd	lstdrv
 	pop	ES				; restore bds pointer
 	jmp	short singleret
 ;
@@ -1200,7 +1197,8 @@ not_fsetowner:
 	push	es
 	sub	bx,bx
 	mov	es,bx
-	xchg	al,es:byte ptr lstdrv	    ;	     then swap(curr_drv,req_drv)
+	db	67h,26h,86h,05h	; xchg al,es:[lstdrv]
+	dd	lstdrv
 	pop	es
 	db 38h,0c4h	; cmp ah,al (r/m8,r8); else
 	pop	ax			    ;		  swap(curr_drv,req_drv)
@@ -1327,13 +1325,11 @@ sanity32:
 	add	si,cs:[start_sec_h]
 	cmp	si,word ptr es:[di].BDS_BPB.BPB_BIGTOTALSECTORS+2
 	jb	sanityok
-	jbe	@f
-	jmp	baddrive
-@@:
+	.386
+	ja	near ptr baddrive
 	cmp	dx,word ptr es:[di].BDS_BPB.BPB_BIGTOTALSECTORS
-	jbe	@f
-	jmp	baddrive
-@@:
+	ja	near ptr baddrive
+	.8086
 
 sanityok:
 	mov	dx,cs:[start_sec_h]
@@ -1352,7 +1348,8 @@ sanityok:
 	push	es
 	sub	ax,ax
 	mov	es,ax
-	les	si,dword ptr es:[dskadr]; current disk parm table
+	db	67h,26h,0c4h,35h	; les si,es:[dskadr]
+	dd	dskadr
 	mov	word ptr cs:dpt,si
 	mov	word ptr cs:dpt+2,es
 	pop	es			; restore bds
@@ -1446,20 +1443,9 @@ iosetup proc	near
 	lds	si,cs:[dpt]
 	assume	ds:nothing
 	xchg	al,[si].disk_eot
-	mov	ah,[si].disk_motor_strt
 	mov	cs:save_eot,al
-	mov	cs:motorstartup,ah
-	cmp	es:[di].bds_formfactor,ffsmall
-	jnz	iosetup7_motor_ok
-	mov	[si].disk_motor_strt,4
-iosetup7_motor_ok:
-	mov	al,1
-	xchg	al,[si].disk_head_sttl
 	pop	ds
 	assume	ds:Bios_Data
-	mov	cs:settlecurrent,al
-	mov	al,normsettle
-	mov	cs:settleslow,al
 iosetup7_done:
 	ret
 iosetup	endp
@@ -1496,11 +1482,7 @@ diddleback proc	near
 	mov	al, cs:save_eot		; M033
 	mov	es:[si].disk_eot, al	; M033
 
-	mov	al,cs:settlecurrent
-	mov	ah,cs:motorstartup
-	mov	es:[si].disk_head_sttl,al
 	mov	es:[si].disk_sector_siz,2
-	mov	es:[si].disk_motor_strt,ah
 	pop	es			; restore bds pointer
 	pop	ax
 nodiddleback:
@@ -1729,7 +1711,7 @@ do_write proc	near
 	jz	do_fast 		; we are still on the same track
 
 do_norm:
-	call	normspeed
+	call	fastspeed
 	jmp	short testerr		; test for error
 do_write endp
 
@@ -1836,32 +1818,6 @@ harderr2 proc	near
 harderr2 endp
 
 ;--------------------------------------------------------------------
-
-; change settle value from settlecurrent to whatever is appropriate
-; note that this routine is never called for a fixed disk.
-
-normspeed proc	near
-	assume	ds:Bios_Data,es:nothing
-
-	cmp	cs:[media_set_for_format],0
-	jne	fastspeed
-
-	push	es
-	push	ax
-	mov	al,cs:settleslow
-	les	si,cs:dpt			; current disk parm table
-	mov	es:[si].disk_head_sttl,al
-	pop	ax
-	pop	es
-
-	call	fastspeed
-
-	push	es
-	les	si,cs:dpt
-	mov	es:[si].disk_head_sttl,1	; 1 is fast settle value
-	pop	es
-	ret
-normspeed endp
 
 fastspeed proc	near
 	assume	ds:Bios_Data,es:nothing
