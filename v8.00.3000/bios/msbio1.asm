@@ -700,6 +700,8 @@ int16_entry proc far
 int16_call:
 	cli
 	call	int16_old
+	public	int16_count_entry
+int16_count_entry label near
 	pushf
 	dec	int16_active
 	jnz	short int16_done
@@ -1276,7 +1278,7 @@ keyboard_stack_ready:
 	mov	bl,30h
 	pushf
 	cli
-	call	dword ptr ds:[870h]
+	call	dword ptr ds:[int10_old + (70h shl 4)]
 	mov	dx,ds:[488h]
 keyboard_mode:
 	mov	ah,0
@@ -1284,7 +1286,7 @@ keyboard_mode:
 	or	al,80h
 	pushf
 	cli
-	call	dword ptr ds:[870h]
+	call	dword ptr ds:[int10_old + (70h shl 4)]
 	call	video_state_restore
 	add	sp,26h
 	cmp	byte ptr es:[484h],2ah
@@ -1296,7 +1298,7 @@ keyboard_font:
 	mov	bl,0
 	pushf
 	cli
-	call	dword ptr es:[870h]
+	call	dword ptr es:[int10_old + (70h shl 4)]
 keyboard_cursor:
 	movzx	bx,byte ptr es:[462h]
 	mov	di,bx
@@ -1305,7 +1307,7 @@ keyboard_cursor:
 	mov	ah,2
 	pushf
 	cli
-	call	dword ptr es:[870h]
+	call	dword ptr es:[int10_old + (70h shl 4)]
 	pop	es
 	pop	ds
 	popa

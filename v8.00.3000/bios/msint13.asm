@@ -40,6 +40,7 @@ multMULTALLOCHMA	equ	2
 	extrn	bios_info:byte,keyboard_status:byte
 	extrn	bios_flags:word
 	extrn	int16_limit:word,int16_limit2:word
+	extrn	daycnt:word,altah:byte,int16_count_entry:near
 	extrn	palette_index:byte,palette_count:byte,palette_config:word
 	extrn	palette_cycles:byte
 	extrn	int10_stub:byte,int10_vector:dword,int10_old:dword
@@ -77,7 +78,7 @@ win386_text_length dw	14
 win386_text_buffer label byte
 		db	'C:\SYSTEM.DAT',0
 		db	4eh-14 dup (0)
-win386_instance_aux dw	1,501h,Bios_Data
+win386_instance_aux dw	1,offset daycnt,Bios_Data
 	public	win386_instance
 win386_instance dw	4
 win386_instance_next dw	0
@@ -93,7 +94,7 @@ win386_instance_table label word
 		dw	0eh,50h,14h
 		dw	30h,50h,4
 		dw	12h,Bios_Data,4
-		dw	45eh,Bios_Data,1
+		dw	offset altah,Bios_Data,1
 	public	win386_stack_seg,win386_stack_size,win386_nextstack
 		dw	0
 win386_stack_seg dw	0
@@ -101,7 +102,7 @@ win386_stack_size dw	0
 win386_nextstack dw	0,0
 		dw	0,0,0
 win386_instance_table2 label word
-		dw	0,50h,200h,0,Bios_Data,540h
+		dw	0,50h,200h,0,Bios_Data,1500h
 	public	win386_stack_code_seg,win386_stack_code_size
 		dw	0
 win386_stack_code_seg dw 0
@@ -327,7 +328,7 @@ win_info7:
 	jnz	win_iret
 	push	ds
 	pop	es
-	mov	di,43dh
+	mov	di,offset int16_count_entry
 	jmp	short win_iret
 Win386Init:
 	test	dx, 1			; is it win386 or win286 dos extender?

@@ -1632,12 +1632,11 @@ disk_not_mini:
 ; been moved to another cylinder - the problem crops up with 3.5" drives.
 
 	cmp	cs:[step_drv],-1
-	jz	do_writej
+	jz	do_write
 	cmp	ah,romread
 	je	do_fast
 	cmp	ah,romverify
 	je	do_fast
-do_writej:
 
 ; reads always fast, unless we have just done a disk reset operation
 
