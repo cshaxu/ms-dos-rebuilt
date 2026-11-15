@@ -2547,8 +2547,11 @@ endif	; end of non-ROMDOS-only code
 
 
 	.8086
-BiosInitEnd label byte
-
 Bios_Data_Init	ends
+
+Filler	segment
+BiosInitEnd label byte
+	db	8000 dup (?)	; transient space following BIOS initialization
+Filler	ends
 	end
 

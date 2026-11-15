@@ -234,13 +234,14 @@ GET_DOS_DATA:
 	MOV     [SI.user_SI],DI
 	MOV     [SI.user_DX],DX
 	MOV     [SI.user_CX],CX
+get_data_done:
 	JMP     SHORT CallReturnOK
 
 SPOOL_OPER:
 ASSUME	DS:NOTHING,ES:NOTHING
 	CallInstall NETSpoolOper,multNet,37,AX,BX
 	JC	func_err2
-	transfer SYS_RET_OK
+	JMP	SHORT get_data_done
 func_err2:
 	transfer SYS_RET_ERR
 

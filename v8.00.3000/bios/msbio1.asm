@@ -829,11 +829,6 @@ call_orig13 proc far
 	lea	bp,[bp]
 	ret
 call_orig13 endp
-	public	config_flags,config_count,config_value,config_xms
-config_flags	db	0
-config_count	dw	0
-config_value	dw	0
-config_xms	dd	0
 
 ;*********************************************************************
 ;	"bds" contains information for each drive in the system.
@@ -1771,7 +1766,6 @@ dskdrvs dw	(4+2+max_mini_dsk_num) dup (0) ; pointers to drive BPBs
 SI_start:
 	jmp	move_myself
 
-	extrn	config_init_entry:far
 sysinitseg	ends
 
 	end

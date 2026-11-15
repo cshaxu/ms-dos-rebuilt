@@ -469,6 +469,7 @@ make_save:
         ret
 make_save_error:
         MOV     AL,2            ; create failed case 2
+make_save_return:
         return
 
 make_new:
@@ -506,7 +507,7 @@ MakeEndShare:
         POP     CX
         POP     AX
         CALL    make_save
-        retc
+        JC      SHORT make_save_return
         LES     DI,ThisSFT
         MOV     ES:[DI.sf_MFT],0
         return

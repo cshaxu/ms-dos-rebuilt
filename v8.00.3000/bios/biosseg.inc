@@ -13,7 +13,7 @@
 
 	include	bioscode.inc
 
-datagrp	group	Bios_Data,Bios_Data_Init
+datagrp	group	Bios_Data,Bios_Data_Init,Filler
 
 
 IFNDEF ROMDOS
@@ -30,6 +30,11 @@ Bios_Data_Init	ends
 
 Filler		segment para public 'Filler'
 Filler		ends
+
+DOSDATA		segment word public 'DATA'
+DOSDATA		ends
+DOSDATALAST	segment para public 'DATA'
+DOSDATALAST	ends
 
 Bios_Code	segment byte public 'CODE'
 Bios_Code	ends

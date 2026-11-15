@@ -361,7 +361,8 @@ Instance_init_done:
 	stosw
 	.386
 	xor	eax,eax
-	mov	DWORD PTR es:[di+sf_firclus32-sf_firclus],eax
+	db	66h			; dword operand for the following store
+	mov	WORD PTR es:[di+sf_firclus32-sf_firclus],ax
 	.errnz	sf_firclus-(sf_devptr+4)
 	stosd				; first cluster and time
 	stosw				; date
@@ -543,7 +544,7 @@ continit:
 
 	mov	ax,bp
 	.386
-	add	ax,15			; round up to a paragraph
+	db	83h,0c0h,15		; add ax,15 to round up to a paragraph
 	shr	ax,4
 	.8086
 
