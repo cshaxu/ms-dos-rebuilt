@@ -72,6 +72,9 @@ for %%N in (ioimage crtlib omforder) do (
 )
 gcc -O2 -Wall -Wextra -Werror "%ROOT%\extras\tools\cmdecode.c" -o "%STAGE%\cmdecode.exe" >> "%STAGE%\gcc.log" 2>&1
 if errorlevel 1 goto failed
+echo [tools] Compiling cmencode...
+gcc -O2 -Wall -Wextra -Werror "%ROOT%\extras\tools\cmencode.c" -o "%STAGE%\cmencode.exe" >> "%STAGE%\gcc.log" 2>&1
+if errorlevel 1 goto failed
 echo [2/7] Snapshotting and staging source inputs...
 call :snapshot "%STAGE%\inputs-before.txt"
 if errorlevel 1 goto failed
@@ -134,12 +137,19 @@ echo [6/7] Decoding the 3000 target payload...
 if errorlevel 1 goto failed
 call :check "%STAGE%\out\3000-payload.bin" "0d6ebe0add967e12d2974c636636bc2b2da00602e26bdafb2312fea118abf3bb"
 if errorlevel 1 goto failed
+echo Re-encoding the frozen 3000 payload for byte comparison...
+"%STAGE%\cmencode.exe" "%STAGE%\out\3000-payload.bin" "%STAGE%\out\3000-cm.bin" "%TARGETS%\IO.SYS" > "%STAGE%\cm-compare.log"
+if errorlevel 1 (
+    type "%STAGE%\cm-compare.log"
+    goto failed
+)
+type "%STAGE%\cm-compare.log"
 echo [7/7] Checking unchanged input snapshots...
 call :snapshot "%STAGE%\inputs-after.txt"
 if errorlevel 1 goto failed
 fc /b "%STAGE%\inputs-before.txt" "%STAGE%\inputs-after.txt" > "%STAGE%\inputs-compare.log"
 if errorlevel 1 goto failed
-echo PASS: 2222 IO.SYS and 3000 decoded payload match frozen SHA-256 values. > "%STAGE%\result.txt"
+echo PASS: 2222 IO.SYS, 3000 decoded payload and exact CM stream verified. > "%STAGE%\result.txt"
 echo Verified IO baseline and target payload: %STAGE%
 exit /b 0
 
@@ -200,7 +210,7 @@ exit /b %errorlevel%
 :snapshot
 set "SNAPSHOT=%~1"
 type nul > "%SNAPSHOT%"
-for %%F in ("%STAGE%\base.tar" "%TARGETS%\IO.SYS" "%ROOT%\extras\tools\cmdecode.c" "%ROOT%\extras\tools\cfglinkraw.bat" "%~f0") do (
+for %%F in ("%STAGE%\base.tar" "%TARGETS%\IO.SYS" "%ROOT%\extras\tools\cmdecode.c" "%ROOT%\extras\tools\cmencode.c" "%ROOT%\extras\tools\cfglinkraw.bat" "%~f0") do (
     call :record "%%~fF"
     if errorlevel 1 exit /b 1
 )

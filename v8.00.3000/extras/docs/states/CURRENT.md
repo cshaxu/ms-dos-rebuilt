@@ -57,3 +57,26 @@ S1 closed after the COMMAND source overlay, historical build entry, direct byte 
 | Similar-Issue Sweep | Cross-check offset spaces, stripped and EXEPACK images, and linker contributions that are only present in memory. |
 
 P1 built and verified the [IO.SYS baseline and object maps](../etc/io-build-baseline.md) in stage `io-17513-19154`. It changed zero product source paths and verified 242 identical paths in the build scope. S2 is closed. Exact CM/DS re-encoding is the next S.
+
+## M6 T29 S3 Packet
+
+| Field | Required record |
+| --- | --- |
+| Identifier Mode | New |
+| Admission And Approval | Owner authorized continuous IO.SYS recovery through final verification. |
+| Objective | Reproduce the 3000 CM/DS stream exactly and identify its container boundaries. |
+| Non-goals | Loader and trailer assembly recovery and full IO integration belong to the later implementation packets. |
+| Reference Baseline | [S2 IO baseline](../etc/io-build-baseline.md) and the [Windows Me OAK target](../etc/target-baseline.json). |
+| Candidate Proposal | Implement the proved longest-match policy in C and run it from the existing baseline entry. |
+| Files And ABI Surface | CM/DS block headers, match coding, sector markers, alignment and trailer boundary. |
+| Applicable Rules | [Execution](../../../../v7.10.1998/extras/docs/rules/EXECUTION.md) and [coding](../../../../v7.10.1998/extras/docs/rules/CODING.md). |
+| Verification | Compare the encoded 3000 stream directly against the frozen file and round-trip a separate input. |
+| Expected Markers | All six DS blocks and the aligned CM terminator match. |
+| Asset Needs | Use the existing ignored target and stage paths. |
+| Reporting Requirements | Record exact stream bytes, block counts, source file counts and separately mapped code extents. |
+| Stop Conditions | Locate the first mismatching token or compare offset before accepting the encoder. |
+| Exit Criteria | Exact CM stream generated from the payload and the output boundaries recorded. |
+| Original Owner Request | Continue to fully recover IO.SYS using the established S route. |
+| Similar-Issue Sweep | Verify all six target chunks, cross-block dictionary reset and a partial final sector. |
+
+P1 closed S3. The C encoder produced the [exact 111,840-byte CM stream](../etc/io-cm-encoder.md) in stage `io-20237-4893`. Zero product source paths changed and all 242 baseline paths match. The loader and startup decompressor are retained as explicit assembly recovery items in the subsequent IO work.
