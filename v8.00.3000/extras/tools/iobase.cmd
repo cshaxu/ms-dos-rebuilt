@@ -167,6 +167,12 @@ echo Verified IO baseline and target payload: %STAGE%
 exit /b 0
 
 :component_only
+echo [tools] Compiling resobj...
+gcc -O2 -Wall -Wextra -Werror "%ROOT%\extras\tools\resobj.c" -o "%STAGE%\resobj.exe" >> "%STAGE%\gcc.log" 2>&1
+if errorlevel 1 goto failed
+echo Assembling the startup bitmap resource...
+"%STAGE%\resobj.exe" "%STAGE%\bios\logo.bmp" "%STAGE%\bios\logo.obj"
+if errorlevel 1 goto failed
 echo Linking the 3000 %COMPONENT%...
 call :phase bios "%ROOT%\extras\tools"
 if errorlevel 1 goto failed
@@ -241,6 +247,8 @@ for %%F in ("%STAGE%\base.tar" "%TARGETS%\IO.SYS" "%ROOT%\extras\tools\cmdecode.
 )
 if defined COMPONENT (
     call :record "%ROOT%\extras\tools\bios.bat"
+    if errorlevel 1 exit /b 1
+    call :record "%ROOT%\extras\tools\resobj.c"
     if errorlevel 1 exit /b 1
 )
 if defined COMPONENT (
