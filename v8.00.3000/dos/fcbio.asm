@@ -81,7 +81,6 @@ DOSCODE	SEGMENT
 	ASSUME	CS:DOSCODE
 	EXTRN	PathLenLimit:WORD
 
-	extrn	CheckShare:near
 	extrn	GetExtended:near
 ifdef DBCS
 	extrn	TestKanj:near
