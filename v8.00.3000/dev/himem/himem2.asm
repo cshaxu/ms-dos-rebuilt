@@ -359,6 +359,6 @@ InitGDT proc near
 	assume	ds:HimemInitSeg
 InitGDT endp
 
-	db	17 dup (0)
+	db	0
 HimemInitSeg	ends
 	end

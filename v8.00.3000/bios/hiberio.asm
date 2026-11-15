@@ -3,7 +3,8 @@
 
 	include	syscall.inc
 
-SysResume	segment byte public 'RESUME_CODE'
+	.386p
+SysResume	segment byte public use16 'RESUME_CODE'
 	assume	cs:SysResume,ds:nothing,es:nothing
 
 ; Far C calls leave the first word argument at BP+6.
@@ -190,5 +191,154 @@ ResumeReadKey proc far
 	ret
 ResumeReadKey endp
 
-SysResume	ends
+; GDT for the page-copy transition.
+ResumeGdt label byte
+	dq	0
+	dw	0FFFFh
+ResumeCodeBase dw 0
+ResumeCodeBaseHigh db 0
+	db	9Fh,0,0
+	dw	0FFFFh,0
+	db	0,93h,0CFh,0
+ResumeGdtPointer label fword
+	dw	$-ResumeGdt-1
+ResumeGdtAddress dd 0
+	dw	3 dup (0)
+
+; Sum the saved doublewords.
+	public ResumeChecksum
+ResumeChecksum proc far
+	push	bp
+	mov	bp,sp
+	push	ds
+	push	si
+	lds	si,dword ptr [bp+6]
+	mov	ecx,[bp+0ah]
+	shr	ecx,2
+	xor	edx,edx
+	cld
+rchs_next:
+	lodsd
+	add	edx,eax
+	loop	rchs_next
+	movzx	eax,dx
+	shr	edx,10h
+	pop	si
+	pop	ds
+	pop	bp
+	retf
+ResumeChecksum endp
+
+; Copy saved pages to their physical addresses in protected mode.
+	public ResumeCopyPages
+ResumeCopyPages proc far
+	push	bp
+	mov	bp,sp
+	push	ds
+	push	es
+	push	esi
+	push	edi
+	push	ebx
+	pushf
+	cli
+	mov	ebx,[bp+6]
+	mov	esi,[bp+0ah]
+	mov	edx,[bp+0eh]
+	xor	eax,eax
+	mov	ax,cs
+	shl	eax,4
+	mov	cs:ResumeCodeBase,ax
+	rol	eax,10h
+	mov	cs:ResumeCodeBaseHigh,al
+	rol	eax,10h
+	add	eax,offset ResumeGdt
+	db 66h
+	mov word ptr cs:ResumeGdtAddress,ax
+	db 66h
+	lgdt fword ptr cs:ResumeGdtPointer
+	mov	eax,cr0
+	or	al,1
+	mov	cr0,eax
+	db 0EAh			; far jump to the protected-mode code selector
+	dw offset rcp_protected,8
+rcp_protected:
+	mov	ax,10h
+	mov	es,ax
+	mov	ds,ax
+	cld
+	xor	ecx,ecx
+	xor	ebp,ebp
+rcp_run:
+	mov	edi,[ebx]
+	inc	ecx
+	add	ebx,4
+	inc	edi
+rcp_count:
+	cmp	ecx,edx
+	jz	short rcp_copy_run
+	cmp	[ebx],edi
+	jnz	short rcp_copy_run
+	inc	ecx
+	add	ebx,4
+	inc	edi
+	jmp	short rcp_count
+rcp_copy_run:
+	sub	edx,ecx
+	sub	edi,ecx
+	shl	ecx,0ah
+	shl	edi,0ch
+rcp_copy_page:
+	db 67h
+	lodsd
+	add	ebp,eax
+	db 67h
+	stosd
+	db 67h
+	loop rcp_copy_page
+	or	edx,edx
+	jnz	short rcp_run
+	mov	eax,cr0
+	and	al,0feh
+	mov	cr0,eax
+	db 0EAh			; reload CS after returning to real mode
+	dw offset rcp_real,seg rcp_real
+rcp_real:
+	mov	edx,ebp
+	movzx	ebp,bp
+	mov	ax,bp
+	shr	edx,10h
+	popf
+	pop	ebx
+	pop	edi
+	pop	esi
+	pop	es
+	pop	ds
+	pop	bp
+	retf
+ResumeCopyPages endp
+
+; Set up the descending final copy and return to the resumed system.
+	public ResumeTransferControl
+ResumeTransferControl proc far
+	push bp
+	mov	bp,sp
+	les	di,dword ptr [bp+6]
+	xor	ax,ax
+	lds	si,dword ptr [bp+0ch]
+	mov	cx,[bp+0ah]
+	mov	ss,ax
+	mov	sp,700h
+	push	es
+	push	di
+	add	si,cx
+	add	di,cx
+	dec	si
+	dec	di
+	cli
+	std
+	db 0EAh			; execute the transfer stub at physical address zero
+	dw 0,0
+ResumeTransferControl endp
+
+SysResume ends
 	end

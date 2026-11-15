@@ -7,6 +7,8 @@ SysResume segment byte public 'RESUME_CODE'
 	assume cs:SysResume
 	public ConfigPreparePath
 
+	db 16 dup (0)
+
 ConfigPreparePath	proc	far
 	push	bp
 	mov	bp,sp

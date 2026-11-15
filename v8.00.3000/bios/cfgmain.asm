@@ -5,12 +5,21 @@ HKEY_LOCAL_MACHINE equ 80000002h
 _DATA segment word public use16 'RESUME_DATA'
 	extrn ConfigReturnCode:word,AsdHexDigits:byte
 	extrn ConfigWindowsPath:dword,ConfigArgPaths:dword,ConfigArgValues:dword
+	extrn ConfigRecordCount:word
+	extrn AsdGuidFormat:byte,AsdValueName:word,AsdFileName:byte
+	extrn AsdProblemsKey:byte,AsdRunOnceKey:byte
+	extrn AsdWizardCommand:byte,AsdWizardValue:byte
 _DATA ends
-DGROUP group _DATA
+RESWORK segment para public use16 'RESUME_BSS'
+	extrn ConfigPathBuffer:byte,AsdRecord:byte,AsdOutputRecord:byte
+RESWORK ends
+DGROUP group _DATA,RESWORK
 SysResume segment byte public use16 'RESUME_CODE'
 	assume cs:SysResume,ds:DGROUP
 	extrn RegOpenKey:far,RegCloseKey:far,RegQueryValueEx:far
 	extrn RegQueryInfoKey:far,RegEnumValue:far
+	extrn RegInitialize:far,RegMountRoot:far,RegTerminate:far
+	extrn ConfigPreparePath:far,ConfigBeginRecordFile:far,ConfigWriteRecord:far
 	public	ConfigSetError
 
 ;	Save the first nonzero configuration error.
@@ -368,6 +377,403 @@ asdformatbytes_done:
 AsdFormatBytes endp
 	nop
 
+; Build the ASD problem key from the identifier and root path.
+	public AsdOpenProblem
+AsdOpenProblem proc far
+	enter	100h,0
+	push	di
+	push	si
+	push	ds
+	mov	ax,DGROUP
+	mov	ds,ax
+	mov	si,[bp+0eh]
+	mov	ax,[bp+10h]
+	or	ax,si
+	jz	near ptr asdproblem_base
+	mov	es,word ptr [bp+10h]
+	db 66h
+	push	word ptr es:[si]
+	push	8
+	push	ds
+	push	offset DGROUP:AsdGuidFormat+1
+	push	cs
+	call	near ptr AsdFormatHex
+	add	sp,0ah
+	mov	es,word ptr [bp+10h]
+	push	0
+	push	word ptr es:[si+4]
+	push	4
+	push	ds
+	push	offset DGROUP:AsdGuidFormat+0Ah
+	push	cs
+	call	near ptr AsdFormatHex
+	add	sp,0ah
+	mov	es,word ptr [bp+10h]
+	push	0
+	push	word ptr es:[si+6]
+	push	4
+	push	ds
+	push	offset DGROUP:AsdGuidFormat+0Fh
+	push	cs
+	call	near ptr AsdFormatHex
+	add	sp,0ah
+	db 66h
+	push 2
+	mov	ax,si
+	mov	dx,[bp+10h]
+	add	ax,8
+	push	dx
+	push	ax
+	push	ds
+	push	offset DGROUP:AsdGuidFormat+14h
+	push	cs
+	call	near ptr AsdFormatBytes
+	add	sp,0ch
+	db 66h
+	push 6
+	mov	ax,si
+	mov	dx,[bp+10h]
+	add	ax,0ah
+	push	dx
+	push	ax
+	push	ds
+	push	offset DGROUP:AsdGuidFormat+19h
+	push	cs
+	call	near ptr AsdFormatBytes
+	add	sp,0ch
+	push	ds
+	push	offset DGROUP:AsdGuidFormat
+	push	dword ptr [bp+0ah]
+	lea	ax,[bp-100h]
+	push	ss
+	push	ax
+	call	far ptr AsdJoinPath
+	add	sp,0ch
+	jmp	short asdproblem_result
+asdproblem_base:
+	push	ds
+	lea	si,[bp-100h]
+	mov	cx,ss
+	mov	ds,cx
+	les	di,dword ptr [bp+0ah]
+	mov	cx,0ffffh
+	xor	ax,ax
+	repne	scasb
+	not	cx
+	sub	di,cx
+	xchg	di,si
+	push	ds
+	push	es
+	pop	ds
+	pop	es
+	shr	cx,1
+	rep	movsw
+	adc	cx,cx
+	rep	movsb
+	pop	ds
+asdproblem_result:
+	lea	ax,[bp-100h]
+	push	ss
+	push	ax
+	push	dword ptr [bp+6]
+	push	cs
+	call	near ptr AsdCopyString
+	add	sp,8
+	mov	ax,1
+	pop	ds
+	pop	si
+	pop	di
+	leave
+	retf
+	nop
+AsdOpenProblem endp
+
+; Import a pending ASD boot record into the XMS update area.
+	public AsdImport
+AsdImport proc far
+	enter	10ah,0
+	push	di
+	push	si
+	push	ds
+	mov	ax,DGROUP
+	mov	ds,ax
+	mov	word ptr [bp-4],0ffffh
+	mov	byte ptr [bp-6],0
+	mov	ax,[AsdValueName]
+	mov	[bp-106h],ax
+	xor	eax,eax
+	mov	ecx,3fh
+	lea	di,[bp-104h]
+	push	ss
+	pop	es
+	rep	stosd
+	stosw
+	push	ds
+	push	offset DGROUP:AsdFileName
+	push	dword ptr [ConfigWindowsPath]
+	push	ds
+	push	offset DGROUP:ConfigPathBuffer
+	call	far ptr AsdJoinPath
+	add	sp,0ch
+	and	byte ptr [ConfigPathBuffer],7fh
+	push	si
+	mov	si,offset DGROUP:ConfigPathBuffer
+	mov	bx,10h
+	mov	dx,1
+	mov	ax,6c00h
+	mov	cx,6
+	push	bp
+	int	21h
+	pop	bp
+	jc	short asdimport_opened
+	mov	[bp-4],ax
+asdimport_opened:
+	pop	si
+	cmp	word ptr [bp-4],-1
+	jz	near ptr asdimport_done
+	mov	ah,3fh
+	mov	bx,[bp-4]
+	mov	cx,118h
+	mov	dx,offset DGROUP:AsdRecord
+	push	bp
+	int	21h
+	pop	bp
+	jc	short asdimport_read
+	cmp	ax,118h
+	jz	short asdimport_read
+	stc
+asdimport_read:
+	pushf
+	mov	ax,3e00h
+	mov	bx,[bp-4]
+	push	bp
+	int	21h
+	pop	bp
+	popf
+	jc	short asdimport_close_file
+	mov	byte ptr [bp-6],1
+asdimport_close_file:
+	cmp	byte ptr [bp-6],0
+	jz	near ptr asdimport_done
+	push	ds
+	push	offset DGROUP:AsdRecord
+	push	ds
+	push	offset DGROUP:AsdProblemsKey
+	push	ds
+	push	offset DGROUP:AsdOutputRecord
+	push	cs
+	call	near ptr AsdOpenProblem
+	add	sp,0ch
+	or	ax,ax
+	jz	near ptr asdimport_remove_file
+	mov	eax,dword ptr [AsdRecord+14h]
+	mov	dx,word ptr [AsdRecord+16h]
+	cmp	eax,100h
+	jna	short asdimport_limit_length
+	mov	ax,100h
+asdimport_limit_length:
+	mov	[bp-108h],ax
+	mov	cx,ax
+	lea	di,[bp-106h]
+	mov	si,offset DGROUP:AsdRecord+18h
+	mov	ax,ss
+	mov	es,ax
+	shr	cx,1
+	rep	movsw
+	adc	cx,cx
+	rep	movsb
+	mov	ax,word ptr [AsdRecord+14h]
+	or	dx,dx
+	jnz	short asdimport_limit_name
+	cmp	ax,100h
+	jna	short asdimport_end_name
+asdimport_limit_name:
+	xor	dx,dx
+	mov	ax,100h
+asdimport_end_name:
+	mov	si,ax
+	mov	byte ptr [bp+si-106h],0
+	cmp	dword ptr [AsdRecord+14h],100h
+	jna	short asdimport_publish
+	mov	byte ptr [bp-0ch],2dh
+	push	0
+	push	word ptr [AsdRecord+116h]
+	push	4
+	lea	ax,[bp-0ah]
+	push	ss
+	push	ax
+	push	cs
+	call	near ptr AsdFormatHex
+	add	sp,0ah
+asdimport_publish:
+	mov	byte ptr [bp-2],2
+	db 66h
+	push 1
+	lea	ax,[bp-2]
+	push	ss
+	push	ax
+	db 66h
+	push 3
+	lea	ax,[bp-106h]
+	push	ss
+	push	ax
+	push	ds
+	push	offset DGROUP:AsdOutputRecord
+	push	cs
+	call	near ptr AsdSetRecord
+	add	sp,14h
+	db 66h,68h		; PUSH dword immediate
+	dd 21ch
+	mov	ax,[ConfigRecordCount]
+	inc	word ptr [ConfigRecordCount]
+	imul	ax,ax,21ch
+	add	ax,2
+	push	0
+	push	ax
+	push	ds
+	push	offset DGROUP:AsdOutputRecord
+	push	cs
+	call	near ptr ConfigWriteRecords
+	add	sp,0ch
+	push	ds
+	push	offset DGROUP:AsdRunOnceKey
+	push	ds
+	push	offset DGROUP:AsdOutputRecord
+	push	cs
+	call	near ptr AsdCopyString
+	add	sp,8
+	db 66h
+	push 11
+	push	ds
+	push	offset DGROUP:AsdWizardCommand
+	db 66h
+	push 1
+	push	ds
+	push	offset DGROUP:AsdWizardValue
+	push	ds
+	push	offset DGROUP:AsdOutputRecord
+	push	cs
+	call	near ptr AsdSetRecord
+	add	sp,14h
+	db 66h,68h		; PUSH dword immediate
+	dd 21ch
+	mov	ax,[ConfigRecordCount]
+	inc	word ptr [ConfigRecordCount]
+	imul	ax,ax,21ch
+	add	ax,2
+	push	0
+	push	ax
+	push	ds
+	push	offset DGROUP:AsdOutputRecord
+	push	cs
+	call	near ptr ConfigWriteRecords
+	add	sp,0ch
+asdimport_remove_file:
+	mov	ah,41h
+	mov	dx,offset DGROUP:ConfigPathBuffer
+	push	bp
+	int	21h
+	pop	bp
+	push	2
+	push	cs
+	call	near ptr ConfigSetError
+	add	sp,2
+asdimport_done:
+	pop	ds
+	pop	si
+	pop	di
+	leave
+	retf
+	nop
+AsdImport endp
+
+; Load boot configuration from the system registry.
+	public BootConfig
+BootConfig proc far
+	push	bp
+	mov	bp,sp
+	push	di
+	push	si
+	push	ds
+	mov	ax,DGROUP
+	mov	ds,ax
+	mov	di,[bp+6]
+	push	1
+	push	word ptr [bp+8]
+	push	di
+	push	cs
+	call	near ptr ConfigReadArguments
+	add	sp,6
+	push	ds
+	push	offset DGROUP:ConfigPathBuffer
+	call	far ptr ConfigPreparePath
+	add	sp,4
+	db 66h,68h		; PUSH dword immediate
+	dd 43ah
+	push	ds
+	push	offset DGROUP:ConfigPathBuffer
+	call	far ptr ConfigBeginRecordFile
+	add	sp,8
+	mov	si,ax
+	or	si,ax
+	jz	short cfgboot_mount
+	push	1
+	push	cs
+	call	near ptr ConfigSetError
+	add	sp,2
+cfgboot_mount:
+	or	si,si
+	jnz	short cfgboot_read
+	push	si
+	call	far ptr RegInitialize
+	add	sp,2
+	or	dx,ax
+	jnz	short cfgboot_error
+	push	si
+	push	ds
+	push	offset DGROUP:ConfigPathBuffer
+	db 66h,68h		; PUSH dword immediate
+	dd 80000002h
+	call	far ptr RegMountRoot
+	add	sp,0ah
+	or	dx,ax
+	jz	short cfgboot_read
+cfgboot_error:
+	push	1
+	push	cs
+	call	near ptr ConfigSetError
+	add	sp,2
+cfgboot_read:
+	push	0
+	push	word ptr [bp+8]
+	push	di
+	push	cs
+	call	near ptr ConfigReadArguments
+	add	sp,6
+	cmp	word ptr [ConfigReturnCode],0
+	jnz	short cfgboot_publish
+	push	cs
+	call	near ptr AsdImport
+cfgboot_publish:
+	db 66h
+	push 2
+	db 66h
+	push 0
+	push	ds
+	push	offset DGROUP:ConfigRecordCount
+	push	cs
+	call	near ptr ConfigWriteRecords
+	add	sp,0ch
+	call	far ptr RegTerminate
+	mov	ax,[ConfigReturnCode]
+	pop	ds
+	pop	si
+	pop	di
+	leave
+	retf
+	nop
+BootConfig endp
+
 ; Read registry environment values into the caller's ASCIIZ table.
 	public ConfigReadEnvironment
 ConfigReadEnvironment proc far
@@ -628,6 +1034,203 @@ cenv_invalid:
 	retf
 	nop
 ConfigReadEnvironment endp
+
+; Copy an ASCIIZ string between far buffers.
+	public AsdCopyString
+AsdCopyString proc far
+	push	bp
+	mov	bp,sp
+	push	di
+	push	si
+	push	ds
+	mov	ax,DGROUP
+	mov	ds,ax
+	les	di,dword ptr [bp+0ah]
+	push	ax
+	lds	si,dword ptr [bp+6]
+	mov	cx,0ffffh
+	xor	ax,ax
+	repne	scasb
+	not	cx
+	sub	di,cx
+	xchg	di,si
+	push	ds
+	push	es
+	pop	ds
+	pop	es
+	shr	cx,1
+	rep	movsw
+	adc	cx,cx
+	rep	movsb
+	pop	ds
+	pop	ds
+	pop	si
+	pop	di
+	leave
+	retf
+	nop
+AsdCopyString endp
+
+; Fill the name, type and data fields in an ASD update record.
+	public AsdSetRecord
+AsdSetRecord proc far
+	push	bp
+	mov	bp,sp
+	push	di
+	push	si
+	push	ds
+	mov	ax,DGROUP
+	mov	ds,ax
+	mov	bx,[bp+6]
+	mov	cx,[bp+8]
+	add	bh,1
+	push	ax
+	mov	si,bx
+	mov	ds,cx
+	les	di,dword ptr [bp+0ah]
+	mov	cx,0ffffh
+	xor	ax,ax
+	repne	scasb
+	not	cx
+	sub	di,cx
+	xchg	di,si
+	push	ds
+	push	es
+	pop	ds
+	pop	es
+	shr	cx,1
+	rep	movsw
+	adc	cx,cx
+	rep	movsb
+	pop	ds
+	mov	eax,[bp+0eh]
+	les	bx,dword ptr [bp+6]
+	db 66h
+	mov	es:[bx+200h],ax
+	mov	eax,[bp+16h]
+	db 66h
+	mov	es:[bx+204h],ax
+	mov	si,[bp+12h]
+	mov	di,[bp+14h]
+	les	bx,dword ptr [bp+6]
+	mov	ecx,[bp+16h]
+	cmp	ecx,14h
+	jna	short asdrecord_copy
+	mov	cx,14h
+asdrecord_copy:
+	push	ds
+	push	di
+	lea	di,[bx+208h]
+	pop	ds
+	shr	cx,1
+	rep	movsw
+	adc	cx,cx
+	rep	movsb
+	pop	ds
+	pop	ds
+	pop	si
+	pop	di
+	leave
+	retf
+AsdSetRecord endp
+
+; Publish a record within the allocated update area.
+	public ConfigWriteRecords
+ConfigWriteRecords proc far
+	push	bp
+	mov	bp,sp
+	push	ds
+	mov	ax,DGROUP
+	mov	ds,ax
+	mov	eax,[bp+0eh]
+	add	eax,[bp+0ah]
+	cmp	eax,43ah
+	ja	short cfgpublish_done
+	push	dword ptr [bp+0eh]
+	push	dword ptr [bp+0ah]
+	push	dword ptr [bp+6]
+	call	far ptr ConfigWriteRecord
+	add	sp,0ch
+cfgpublish_done:
+	pop	ds
+	leave
+	retf
+ConfigWriteRecords endp
+
+; Append a filename to the configuration directory.
+	public AsdJoinPath
+AsdJoinPath proc far
+	enter	4,0
+	push	di
+	push	si
+	push	ds
+	mov	ax,DGROUP
+	mov	ds,ax
+	les	di,dword ptr [bp+0ah]
+	push	ax
+	lds	si,dword ptr [bp+6]
+	mov	cx,0ffffh
+	xor	ax,ax
+	repne	scasb
+	not	cx
+	sub	di,cx
+	xchg	di,si
+	push	ds
+	push	es
+	pop	ds
+	pop	es
+	shr	cx,1
+	rep	movsw
+	adc	cx,cx
+	rep	movsb
+	pop	ds
+	mov	ax,[bp+6]
+	mov	dx,[bp+8]
+	mov	bx,ax
+	mov	di,ax
+	mov	es,dx
+	mov	cx,0ffffh
+	xor	ax,ax
+	repne	scasb
+	not	cx
+	dec	cx
+	add	bx,cx
+	mov	[bp-4],bx
+	mov	ds,dx
+	cmp	bx,[bp+6]
+	jna	short asdjoinpath_append
+	cmp	byte ptr [bx-1],5ch
+	jz	short asdjoinpath_append
+	mov	byte ptr [bx],5ch
+	inc	word ptr [bp-4]
+asdjoinpath_append:
+	mov	bx,[bp-4]
+	push	ds
+	mov	si,bx
+	les	di,dword ptr [bp+0eh]
+	mov	cx,0ffffh
+	repne	scasb
+	not	cx
+	sub	di,cx
+	xchg	di,si
+	push	ds
+	push	es
+	pop	ds
+	pop	es
+	shr	cx,1
+	rep	movsw
+	adc	cx,cx
+	rep	movsb
+	pop	ds
+	mov	ax,[bp+6]
+	mov	dx,[bp+8]
+	pop	ds
+	pop	si
+	pop	di
+	leave
+	retf
+	nop
+AsdJoinPath endp
 
 SysResume ends
 	end

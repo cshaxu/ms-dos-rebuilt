@@ -130,5 +130,13 @@ ConfigFileLength dd 0
 ConfigXmsSize dw 0
         dw 0
 _DATA ends
-DGROUP group _DATA
+; The work area follows the initialized resume data.
+RESWORK segment para public 'RESUME_BSS'
+        db 4 dup (?)
+        public ConfigPathBuffer,AsdRecord,AsdOutputRecord
+ConfigPathBuffer db 200h dup (?)
+AsdRecord db 118h dup (?)
+AsdOutputRecord db 21Ch dup (?)
+RESWORK ends
+DGROUP group _DATA,RESWORK
         end
