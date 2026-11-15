@@ -139,7 +139,6 @@ assume	cs:sysinitseg,ds:nothing,es:nothing,ss:nothing
 	extrn	area:word
 
 	ifdef	dblspace_hooks
-	extrn	MagicBackdoor:dword
 	endif
 
 	extrn   bios_data_segment:word,BCodeSeg:word
@@ -1900,7 +1899,6 @@ badnumblock:
 ;------ fall thru -----------------------------------------------------------
 ;
 erase_dev_do:				; modified to show message "error in config.sys..."
-	call	CheckDoubleSpace
 	mov	al,0ffh
 	call	log_device_result
 	lds	bx,cs:DevEntry
@@ -2120,7 +2118,6 @@ enddev:
 	call	DevBreak		; M009
 ifdef BREAK_HARD_CARDS_WILDLY
 ;BUGBUG 16-Mar-1993 bens Need to fix this correctly in next release!!!
-	call	CheckDoubleSpace
 else
 endif
 	jmp	goodld			; otherwise pretend we loaded it in
@@ -2136,75 +2133,9 @@ coffj3: mov	cs:multdeviceflag,0	; reset the flag
 ;					;  created a bogus arena to try
 ;					;  to protect some of its resident-
 ;					;  init code.
-
-	call	CheckDoubleSpace
 	xor     al,al
 	call    log_device_result
 	jmp	coff
-
-CheckDoubleSpace:
-	ifdef	dblspace_hooks
-
-;	Now check for two special MagicDrv cases:
-;
-;       a) the last driver load was MagicDrv final placement:
-;	   -> add number of MagicDrv reserved drives to drivenumber
-;
-;       b) MagicDrv is currently in temporary home:
-;          -> call it to give it a chance to mount and shuffle drives
-
-	cmp	cs:MagicHomeFlag,0	; already home?
-	jnz	no_more_magic_calls	;  nothing more to do if so
-
-;	Now inquire of driver whether it is present, and final located
-
-	mov	ax,multMagicdrv
-	mov	bx,MD_VERSION
-	int	2fh			; ch = number of MagicDrv drive letters
-	or	ax,ax			; is it there?
-	jnz	no_more_magic_calls	; done if not
-
-	test	dx,8000h		; is it final placed?
-	jnz	magic_not_yet_home	;  skip if not
-
-;	Okay, now the driver is final placed!  Set the flag so we
-;	don't keep checking it, and add its number of drive letters
-;	to drivenumber.
-
-	mov	cs:MagicHomeFlag,0ffh	; set the flag!
-	add	cs:drivenumber,ch	; add number of MagicDrv volumes to
-;					;  the drive number we'll pass to the
-;					;  next loadable block device.
-
-	jmp	short no_more_magic_calls ; and finished.
-
-
-magic_not_yet_home:
-	push	es
-	push	si
-
-	mov	cx, cs:[memhi]		; pass it a work buffer
-	mov	dx, cs:[alloclim]	;   address in cx (segment)
-	sub	dx, cx			;   for len dx (paragraphs)
-
-	mov	bx,2
-	mov	al,cs:[driver_units]	; shuffle magicdrives and new drives
-;					;   by this many units
-
-;BUGBUG 29-Oct-1992 bens Take this 55h out after Beta 4
-	mov	ah,55h			; backdoor won't shuffle unless it
-;					;  sees this, to prevent bad things
-;					;  from happening if people run the
-;					;  new driver with an old BIOS
-	call	cs:MagicBackdoor
-
-	pop	si
-	pop	es
-
-no_more_magic_calls:
-
-	endif
-	ret
 
 ; Check the new DPB's sector size and enlarge the temporary buffer if needed.
 ; SI is zero for a CONFIG.SYS device and nonzero for the preload driver.

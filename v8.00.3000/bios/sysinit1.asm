@@ -220,8 +220,6 @@ sysinitseg segment
 	.386
 	assume	cs:sysinitseg,ds:nothing,es:nothing
 
-	extrn	MagicBackdoor:dword,NullBackdoor:far
-
 ; Move SYSINIT and its messages below the top of conventional memory.
 ; Keep the decompressed resident BIOS and DOS at their linked addresses.
 ;
@@ -313,9 +311,6 @@ endif
 	extrn	DevEntry:dword
 
 	ifdef	dblspace_hooks
-	extrn	MagicPreload:near
-	extrn	MagicPostload:near
-	extrn	MagicSetCdss:near
 	endif
 
         extrn   crlfm:byte
@@ -1019,6 +1014,7 @@ boot_time_done:
 	assume	ds:sysinitseg
 	push	word ptr [dos_segreinit+2]
 	call	InitMemory
+	call	AllocFreeMem
 	call	MovDOSHi
 ; Select the startup message and detect a restart into MS-DOS mode.
 	test    byte ptr [boot_runtime_flags],10h
@@ -1117,67 +1113,6 @@ endif ; ROMDOS
 
 	
 ProcessConfig:
-	mov     [boot_load_segment],0
-
-	ifdef	dblspace_hooks
-	mov     word ptr [MagicBackdoor],offset NullBackdoor
-	mov     word ptr [MagicBackdoor+2],cs
-
-	call	AllocFreeMem		; get the largest free block from DOS
-	call	MagicPreload		; **** PRE-LOAD MAGICDRV!!! ****
-	jnz	short PreloadFailed
-
-	mov	es,cs:[area]
-	mov	bx,cs:[memhi]
-	sub	bx,cs:[area]		; get desired block size in paras
-	mov	ah,setblock
-	int	21h
-	mov	ax,es
-	dec	ax
-	mov	es,ax			; point to arena
-	mov	es:[arena_owner],8	;set impossible owner
-	mov	word ptr es:[arena_name], 'DS'	; System Data
-
-;	BUGBUG -- 3 Aug 92 -- chuckst -- Device drivers like PROTMAN$ (part
-;					 of Microsoft's networking products)
-;					 assume that their arena is the first
-;					 one.  Therefore, we must remove
-;					 MagicDrv from the arena list.  The
-;					 problem with this is that MagicDrv's
-;					 stub will not show up in a MEM
-;					 listing.
-
-	mov	ax,es			; get Magicdrv arena
-	add	ax,es:word ptr [3]	; get MCB length
-	inc	ax			; get addr of next MCB
-	les	si,cs:dosinfo		; get to arena header
-	mov	es:word ptr [si-2],ax	; store that
-	inc	ax
-	mov	cs:[memhi],ax
-	call	check_low_memory
-	test	byte ptr cs:[query_mode_flags],9
-	jnz	short preload_no_logo
-	sub	dx,dx
-	call	boot_logo_display
-preload_no_logo:
-	mov	bx,offset boot_dos_file_table
-	call	boot_old_file_table
-	push	ds
-	mov	ds,cs:[BCodeSeg]
-	assume	ds:Bios_Code
-	or	byte ptr [win386_info_flags],10h
-	pop	ds
-	assume	ds:sysinitseg
-
-	jmp	short PreloadCommon
-
-PreloadFailed:
-	mov	ah,Dealloc		; free the block if no load
-	mov	es,cs:[area]
-	int	21h
-
-PreloadCommon:
-	endif
 
 	push    cs
 	pop     ds
@@ -1193,15 +1128,8 @@ PreloadCommon:
 	call    boot_old_file_table
 sysinit_previous_done:
 
-; Use the initialization stack space already passed before running the
-; optional system file.  Restore the DTA and startup display afterwards.
-	cli
-	mov     sp,offset sysinit_exec_start
-	jmp     short sysinit_exec_start
-	nop                             ; Align the startup stack entry.
 	public	sysinit_exec_start
 sysinit_exec_start:
-	sti
 	mov     al,[query_mode_flags]
 	and     al,0dh
 	cmp     al,1
@@ -1227,11 +1155,12 @@ sysinit_exec_done:
 	pop     ds
 	assume  ds:sysinitseg
 sysinit_exec_ready:
+	mov	ah,Dealloc
+	mov	es,[area]
+	int	21h
 
 ; Restore the DOS startup flag when a system file did not handle it,
 ; then select the previous startup menu if appropriate.
-	cmp     byte ptr [exec_boot_state],1
-	je      short sysinit_check_menu
 	test    byte ptr [query_mode_flags],1
 	jnz     short sysinit_check_menu
 	mov     ah,GET_IN_VARS
@@ -1340,18 +1269,12 @@ endif
 					;  & update [memhi] & [area]
 					; start of free memory.
 
-	ifdef	dblspace_hooks
-	mov	bx,0			; magic backdoor to place int hooks
-	call	cs:MagicBackdoor
-	endif
-
 	call    boot_record_compressed_boot
 
 	mov     ax,4a16h
 	int     2fh
-	test    byte ptr cs:[query_mode_flags],1
-	jnz     short skip_ebda_recovery
-	call    recover_ebda
+	test	byte ptr [query_mode_flags],1
+	jnz	short skip_ebda_recovery
 skip_ebda_recovery:
 
 ; M025 end
@@ -1369,17 +1292,11 @@ IFDEF	CONFIGPROC
 
 ENDIF ; CONFIGPROC
 
-	ifdef	dblspace_hooks
-	call	MagicPostload		; make sure Magicdrv is final placed
-	endif
 
 	call	endfile			; setup fcbs, files, buffers etc
 	call    boot_prepare_shell
 	call    boot_prepare_environment
 
-	ifdef	dblspace_hooks
-	call	MagicSetCdss		; disable CDSs of reserved drives
-	endif
 IFDEF CONFIGPROC
 	call    ShrinkUMB
 	call    UnlinkUMB
@@ -1465,116 +1382,6 @@ show_line_number endp
 
 ; Recover unused space following a relocated extended BIOS data area.
 	.286
-	public  recover_ebda
-recover_ebda proc near
-	push    cs
-	pop     ds
-	cmp     [config_ebda_limit],-1
-	je      short ebda_abort
-	mov     ax,40h
-	mov     es,ax
-	mov     cx,es:[0eh]
-	stc
-	jcxz    ebda_abort
-	cmp     ch,98h
-	jae     short ebda_check_bios
-ebda_abort:
-	jmp     ebda_done
-ebda_check_bios:
-	mov     ah,0c1h
-	stc
-	int     15h
-	jc      short ebda_check_memory
-	mov     ax,es
-	cmp     ax,cx
-	jne     ebda_abort
-ebda_check_memory:
-	int     12h
-	shl     ax,6
-	cmp     ax,cx
-	jne     ebda_abort
-	mov     dx,0a000h
-	sub     dx,cx
-	shl     dx,4
-	cmp     dx,400h
-	ja      ebda_abort
-	jne     short ebda_use_all
-	mov     bx,cs:[config_ebda_limit]
-	cmp     bx,dx
-	jae     short ebda_use_all
-	mov     es,cx
-	mov     di,bx
-	mov     cx,dx
-	sub     cx,di
-	cld
-	xor     al,al
-	repe    scasb
-	je      short ebda_allocate
-ebda_use_all:
-	mov     bx,dx
-ebda_allocate:
-	push    bx
-	push    dx
-	shr     bx,4
-	mov     ax,bx
-	mov     bx,5200h
-	call    alloc_marked_block
-	pop     dx
-	pop     bx
-	cli
-	push    ds
-	mov     ax,40h
-	mov     ds,ax
-	mov     es,cx
-	xchg    cx,word ptr ds:[0eh]
-	mov     ds,cx
-	mov     cx,bx
-	xor     si,si
-	xor     di,di
-	cld
-	rep     movsb
-	mov     cx,ds
-	pop     ds
-	sti
-	mov     bx,es
-	xor     di,di
-	mov     es,di
-	dec     di
-	dec     di
-ebda_vector_next:
-	add     di,4
-	cmp     di,200h
-	ja      short ebda_find_arena
-	cmp     es:[di],cx
-	jne     ebda_vector_next
-	cmp     di,0c2h
-	je      ebda_vector_next
-	cmp     di,0c6h
-	je      ebda_vector_next
-	mov     es:[di],bx
-	jmp     short ebda_vector_next
-ebda_find_arena:
-	mov     ax,cs:[area]
-	dec     ax
-ebda_arena_next:
-	mov     es,ax
-	inc     ax
-	add     ax,es:[3]
-	cmp     byte ptr es:[0],5ah
-	jne     ebda_arena_next
-	cmp     ax,cx
-	jne     short ebda_done
-	shr     dx,4
-	add     es:[arena_size],dx
-	shr     dx,6
-	mov     ax,40h
-	mov     es,ax
-	add     es:[13h],dx
-	mov     es,cs:[BCodeSeg]
-	mov     es:[5f8h],dx
-ebda_done:
-	ret
-recover_ebda endp
 	.8086
 
 ;----------------------------------------------------------------------------
