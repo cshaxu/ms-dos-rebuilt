@@ -130,8 +130,6 @@ DOSDATA SEGMENT
 	extrn	msdat001e:byte		; end of dosdata segment
 	extrn	msct001s:byte		; start of dosdata segment	
 
-	extrn	XMMcontrol:dword	; entry into BIOS xmm driver
-	extrn	dosinttable:dword	; int vec table for DOS
 
 	extrn	dskstack:byte
 	extrn	temp_dosloc:word	; stores the temp. location of DOS seg
@@ -146,14 +144,6 @@ DOSDATA SEGMENT
 ;
 
 
-	extrn	i0patch:word
-	extrn	i20patch:word
-	extrn	i21patch:word
-	extrn	i25patch:word
-	extrn	i26patch:word
-	extrn	i27patch:word
-	extrn	i2fpatch:word
-	extrn	cpmpatch:word
 	extrn	fixexepatch:word
 	extrn	ChkCopyProt:word	; M068
 
@@ -177,15 +167,6 @@ DOSCODE	SEGMENT
 	extrn	DivOvEntry:near
 	extrn	stay_resident:near
 
-	extrn	lirett:near
-	extrn	lint2f:near
-	extrn	lcall_entry:near
-	extrn	lquit:near
-	extrn	lcommand:near
-	extrn	labsdrd:near
-	extrn	labsdwrt:near
-	extrn	ldivov:near
-	extrn	lstay_resident:near
 
 	extrn	$startcode:word
 	extrn	header:byte
