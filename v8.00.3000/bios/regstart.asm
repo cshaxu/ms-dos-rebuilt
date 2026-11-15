@@ -643,300 +643,277 @@ RegReleaseFileBuffers endp
 
 	public RegSaveFile
 RegSaveFile proc near
-	enter 10Ch,0
-	push di
-	push si
-	mov si,[bp+4]
-	mov es,word ptr [bp+6]
-	test byte ptr es:[si+56h],1
-	jnz short rsfs_check
+	enter	10ch,0
+	push	di
+	push	si
+	mov	si,[bp+4]
+	mov	es,word ptr [bp+6]
+	test	byte ptr es:[si+56h],1
+	jnz	short rsfs_check
 rsfs_clean:
-	xor ax,ax
-	jmp rsfs_done
+	xor	ax,ax
+	jmp	near ptr rsfs_done
 rsfs_check:
-	test byte ptr es:[si+56h],50h
-	jnz short rsfs_clean
-	mov bx,si
-	or byte ptr es:[bx+56h],10h
-	mov word ptr [bp-8],3F8h
-	mov ax,-1
-	mov [bp-6],ax
-	mov [bp-4],ax
-	lea ax,[bx+58h]
-	push es
-	push ax
-	push 0
-	call RegDosSetAttr
-	or ax,ax
-	jz rsfs_path_error
-	les bx,[bp+4]
-	test byte ptr es:[bx+56h],4
-	jz rsfs_inplace
-	mov ax,bx
-	add ax,58h
-	mov di,ax
-	mov cx,-1
-	xor ax,ax
-	repne scasb
-	not cx
-	dec cx
-	mov [bp-2],cx
-	cmp cx,104h
-	jae rsfs_path_error
-	mov bx,[bp+4]
-	add bx,58h
-	push ds
-	mov di,bx
-	lea si,[bp-10Ch]
-	push ss
-	pop ds
-	mov cx,-1
-	repne scasb
-	not cx
-	sub di,cx
-	xchg di,si
-	push ds
-	push es
-	pop ds
-	pop es
-	shr cx,1
-	rep movsw
-	adc cx,cx
-	rep movsb
-	pop ds
-	mov bx,[bp-2]
+	test	byte ptr es:[si+56h],50h
+	jnz	short rsfs_clean
+	mov	bx,si
+	or	byte ptr es:[bx+56h],10h
+	mov	word ptr [bp-8],3f8h
+	mov	ax,0ffffh
+	mov	[bp-6],ax
+	mov	[bp-4],ax
+	lea	ax,[bx+58h]
+	push	es
+	push	ax
+	push	0
+	call	RegDosSetAttr
+	or	ax,ax
+	jz	near ptr rsfs_path_error
+	les	bx,dword ptr [bp+4]
+	test	byte ptr es:[bx+56h],4
+	jz	near ptr rsfs_inplace
+	mov	ax,bx
+	add	ax,58h
+	mov	di,ax
+	mov	cx,0ffffh
+	xor	ax,ax
+	repne	scasb
+	not	cx
+	dec	cx
+	mov	[bp-2],cx
+	cmp	cx,104h
+	jnc	near ptr rsfs_path_error
+	mov	bx,[bp+4]
+	add	bx,58h
+	push	ds
+	mov	di,bx
+	lea	si,[bp-10ch]
+	push	ss
+	pop	ds
+	mov	cx,0ffffh
+	repne	scasb
+	not	cx
+	sub	di,cx
+	xchg	di,si
+	push	ds
+	push	es
+	pop	ds
+	pop	es
+	shr	cx,1
+	rep	movsw
+	adc	cx,cx
+	rep	movsb
+	pop	ds
+	mov	bx,[bp-2]
 rsfs_separator:
-	dec bx
-	jz short rsfs_directory
-	mov si,bx
-	cmp byte ptr [bp+si-10Ch],'\'
-	jnz short rsfs_separator
+	dec	bx
+	jz	short rsfs_directory
+	mov	si,bx
+	cmp	byte ptr [bp+si-10ch],5ch
+	jnz	short rsfs_separator
 rsfs_directory:
-	or bx,bx
-	jz short rsfs_default
-	mov si,bx
-	mov byte ptr [bp+si-10Bh],0
-	jmp short rsfs_temp
+	or	bx,bx
+	jz	short rsfs_default
+	mov	si,bx
+	mov	byte ptr [bp+si-10bh],0
+	jmp	short rsfs_temp
 rsfs_default:
-	push ds
-	mov di,offset DGROUP:RegCurrentDirectory
-	lea si,[bp-10Ch]
-	push ds
-	pop es
-	push ss
-	pop ds
-	mov cx,-1
-	xor ax,ax
-	repne scasb
-	not cx
-	sub di,cx
-	xchg di,si
-	push ds
-	push es
-	pop ds
-	pop es
-	shr cx,1
-	rep movsw
-	adc cx,cx
-	rep movsb
-	pop ds
+	push	ds
+	mov	di,offset DGROUP:RegCurrentDirectory
+	lea	si,[bp-10ch]
+	push	ds
+	pop	es
+	push	ss
+	pop	ds
+	mov	cx,0ffffh
+	xor	ax,ax
+	repne	scasb
+	not	cx
+	sub	di,cx
+	xchg	di,si
+	push	ds
+	push	es
+	pop	ds
+	pop	es
+	shr	cx,1
+	rep	movsw
+	adc	cx,cx
+	rep	movsb
+	pop	ds
 rsfs_temp:
-	lea ax,[bp-10Ch]
-	push ss
-	push ax
-	call RegDosTempFile
-	mov [bp-4],ax
-	inc ax
-	jz short rsfs_path_error
-	mov eax,[bp+4]
-	add ax,58h
-	push eax
-	push 0
-	call RegDosOpen
-	mov [bp-6],ax
-	inc ax
-	jnz short rsfs_have_input
+	lea	ax,[bp-10ch]
+	push	ss
+	push	ax
+	call	RegDosTempFile
+	mov	[bp-4],ax
+	inc	ax
+	jz	short rsfs_path_error
+	mov	eax,[bp+4]
+	add	ax,58h
+	push	eax
+	push	0
+	call	RegDosOpen
+	mov	[bp-6],ax
+	inc	ax
+	jnz	short rsfs_have_input
 rsfs_path_error:
-	mov si,[bp+4]
-	jmp rsfs_error
+	mov	si,[bp+4]
+	jmp	near ptr rsfs_error
 rsfs_have_input:
-	mov si,[bp+4]
-	jmp short rsfs_header
+	mov	si,[bp+4]
+	jmp	short rsfs_output
 rsfs_inplace:
-	mov si,bx
-	lea ax,[bx+58h]
-	push es
-	push ax
-	push 1
-	call RegDosOpen
-	mov [bp-4],ax
-	inc ax
-	jz rsfs_error
-	mov es,[bp+6]
-	or byte ptr es:[si+28h],9
-rsfs_header:
-	cmp word ptr [bp-6],-1
-	jnz short rsfs_extent
-	mov es,word ptr [bp+6]
-	test byte ptr es:[si+28h],1
-	jz short rsfs_keys
-rsfs_extent:
-	mov es,word ptr [bp+6]
-	or byte ptr es:[si+28h],20h
-	test byte ptr es:[si+56h],8
-	jz short rsfs_packed
-	mov es,[bp+6]
-	mov ax,es:[si+0Ch]
-	mov dx,es:[si+0Eh]
-	add ah,10h
-	jmp short rsfs_position
-rsfs_packed:
-	mov es,[bp+6]
-	mov ax,es:[si+0Ch]
-	mov dx,es:[si+0Eh]
-	add ax,20h
-rsfs_position:
-	adc dx,0
-	mov es:[si+1Eh],ax
-	mov es:[si+20h],dx
-	push word ptr [bp-4]
-	mov ax,si
-	mov dx,[bp+6]
-	add ax,16h
-	push dx
-	push ax
-	push 20h
-	call RegDosWrite
-	or ax,ax
-	jz rsfs_error
-	mov es,[bp+6]
-	test byte ptr es:[si+28h],8
-	jz short rsfs_keys
-	push word ptr [bp-4]
-	call RegDosCommit
-	or ax,ax
-	jz short rsfs_commit_error
-rsfs_keys:
-	push word ptr [bp+6]
-	push si
-	push word ptr [bp-6]
-	push word ptr [bp-4]
-	call RegWriteKeyBlocks
-	mov [bp-8],ax
-	or ax,ax
-	jnz short rsfs_commit_error
-	push word ptr [bp+6]
-	push si
-	push word ptr [bp-6]
-	push word ptr [bp-4]
-	call RegWriteDataBlock
-	mov [bp-8],ax
-	or ax,ax
-	jnz short rsfs_commit_error
-	push word ptr [bp-4]
-	call RegDosCommit
-	or ax,ax
-	jnz short rsfs_head_done
-rsfs_commit_error:
-	jmp rsfs_error
-rsfs_head_done:
-	mov es,[bp+6]
-	test byte ptr es:[si+28h],8
-	jz short rsfs_close
-	and byte ptr es:[si+28h],0F7h
-	push word ptr [bp-4]
-	push 0
-	push 0
-	call RegDosSeek
-	or ax,ax
-	jz short rsfs_error
-	push word ptr [bp-4]
-	mov ax,si
-	mov dx,[bp+6]
-	add ax,16h
-	push dx
-	push ax
-	push 20h
-	call RegDosWrite
-	or ax,ax
-	jz short rsfs_error
-rsfs_close:
-	push word ptr [bp-4]
-	call RegDosClose
-	cmp word ptr [bp-6],-1
-	jz short rsfs_commit
-	push word ptr [bp-6]
-	call RegDosClose
-	mov word ptr [bp-8],3F8h
-	mov ax,si
-	mov dx,[bp+6]
-	add ax,58h
-	push dx
-	push ax
-	call RegDosDelete
-	or ax,ax
-	jz short rsfs_attributes
-	lea ax,[bp-10Ch]
-	push ss
-	push ax
-	mov ax,si
-	mov dx,[bp+6]
-	add ax,58h
-	push dx
-	push ax
-	call RegDosRename
-	or ax,ax
-	jz short rsfs_attributes
-rsfs_commit:
-	push word ptr [bp+6]
-	push si
-	call RegCommitDataCache
-	push word ptr [bp+6]
-	push si
-	call RegCommitKeyCache
-	mov es,word ptr [bp+6]
-	and word ptr es:[si+28h],0FFFEh
-	and word ptr es:[si+56h],0FFFAh
-	mov word ptr [bp-8],0
-	jmp short rsfs_attributes
-rsfs_error:
-	cmp word ptr [bp-6],-1
-	jz short rsfs_output
-	push word ptr [bp-6]
-	call RegDosClose
+	mov	si,bx
+	lea	ax,[bx+58h]
+	push	es
+	push	ax
+	push	1
+	call	RegDosOpen
+	mov	[bp-4],ax
+	inc	ax
+	jz	near ptr rsfs_error
 rsfs_output:
-	cmp word ptr [bp-4],-1
-	jz short rsfs_attributes
-	cmp word ptr [bp-6],-1
-	jz short rsfs_restore
-	lea ax,[bp-10Ch]
-	push ss
-	push ax
-	call RegDosDelete
-rsfs_restore:
-	mov ax,si
-	mov dx,[bp+6]
-	add ax,58h
-	push dx
-	push ax
-	push 3
-	call RegDosSetAttr
-rsfs_attributes:
-	mov ax,si
-	mov dx,[bp+6]
-	add ax,58h
-	push dx
-	push ax
-	push 3
-	call RegDosSetAttr
-	mov es,word ptr [bp+6]
-	and byte ptr es:[si+56h],0EFh
-	mov ax,[bp-8]
+	cmp	word ptr [bp-6],-1
+	jnz	short rsfs_status
+	mov	es,word ptr [bp+6]
+	test	byte ptr es:[si+28h],1
+	jz	short rsfs_key_blocks
+rsfs_status:
+	mov	es,word ptr [bp+6]
+	or	byte ptr es:[si+28h],20h
+	test	byte ptr es:[si+56h],8
+	jz	short rsfs_flags
+	mov	es,word ptr [bp+6]
+	mov	ax,es:[si+0ch]
+	mov	dx,es:[si+0eh]
+	add	ah,10h
+	jmp	short rsfs_header
+rsfs_flags:
+	mov	es,word ptr [bp+6]
+	mov	ax,es:[si+0ch]
+	mov	dx,es:[si+0eh]
+	add	ax,20h
+rsfs_header:
+	adc	dx,0
+	mov	es:[si+1eh],ax
+	mov	es:[si+20h],dx
+	push	word ptr [bp-4]
+	mov	ax,si
+	mov	dx,[bp+6]
+	add	ax,16h
+	push	dx
+	push	ax
+	push	20h
+	call	RegDosWrite
+	or	ax,ax
+	jz	short rsfs_write_error
+rsfs_key_blocks:
+	push	word ptr [bp+6]
+	push	si
+	push	word ptr [bp-6]
+	push	word ptr [bp-4]
+	call	RegWriteKeyBlocks
+	mov	[bp-8],ax
+	or	ax,ax
+	jnz	short rsfs_write_error
+	push	word ptr [bp+6]
+	push	si
+	push	word ptr [bp-6]
+	push	word ptr [bp-4]
+	call	RegWriteDataBlock
+	mov	[bp-8],ax
+	or	ax,ax
+	jz	short rsfs_commit
+rsfs_write_error:
+	jmp	short rsfs_error
+rsfs_commit:
+	mov	es,word ptr [bp+6]
+	test	byte ptr es:[si+57h],2
+	jnz	short rsfs_flush
+	cmp	word ptr [bp-6],-1
+	jz	short rsfs_close
+rsfs_flush:
+	push	word ptr [bp-4]
+	call	RegDosCommit
+	or	ax,ax
+	jz	short rsfs_error
+rsfs_close:
+	push	word ptr [bp-4]
+	call	RegDosClose
+	cmp	word ptr [bp-6],-1
+	jz	short rsfs_commit_cache
+	push	word ptr [bp-6]
+	call	RegDosClose
+	mov	word ptr [bp-8],3f8h
+	mov	ax,si
+	mov	dx,[bp+6]
+	add	ax,58h
+	push	dx
+	push	ax
+	call	RegDosDelete
+	or	ax,ax
+	jz	short rsfs_restore_attr
+	lea	ax,[bp-10ch]
+	push	ss
+	push	ax
+	mov	ax,si
+	mov	dx,[bp+6]
+	add	ax,58h
+	push	dx
+	push	ax
+	call	RegDosRename
+	or	ax,ax
+	jz	short rsfs_restore_attr
+rsfs_commit_cache:
+	push	word ptr [bp+6]
+	push	si
+	call	RegCommitDataCache
+	push	word ptr [bp+6]
+	push	si
+	call	RegCommitKeyCache
+	mov	es,word ptr [bp+6]
+	and	word ptr es:[si+28h],-2
+	and	word ptr es:[si+56h],-6
+	mov	word ptr [bp-8],0
+	jmp	short rsfs_restore_attr
+rsfs_error:
+	cmp	word ptr [bp-6],-1
+	jz	short rsfs_remove_temp
+	push	word ptr [bp-6]
+	call	RegDosClose
+rsfs_remove_temp:
+	cmp	word ptr [bp-4],-1
+	jz	short rsfs_restore_attr
+	cmp	word ptr [bp-6],-1
+	jz	short rsfs_temp_attrs
+	lea	ax,[bp-10ch]
+	push	ss
+	push	ax
+	call	RegDosDelete
+rsfs_temp_attrs:
+	mov	ax,si
+	mov	dx,[bp+6]
+	add	ax,58h
+	push	dx
+	push	ax
+	push	3
+	call	RegDosSetAttr
+rsfs_restore_attr:
+	mov	ax,si
+	mov	dx,[bp+6]
+	add	ax,58h
+	push	dx
+	push	ax
+	push	3
+	call	RegDosSetAttr
+	mov	es,word ptr [bp+6]
+	and	byte ptr es:[si+56h],0efh
+	mov	ax,[bp-8]
 rsfs_done:
-	pop si
-	pop di
+	pop	si
+	pop	di
 	leave
-	ret 4
+	ret	4
 RegSaveFile endp
 	if ($ - RegistryCode) and 1
 	db 0

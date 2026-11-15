@@ -98,7 +98,7 @@ P1 closed S3. The C encoder produced the [exact 111,840-byte CM stream](../etc/i
 | Asset Needs | Retain linked binaries, maps and listings under ignored extras/build. |
 | Reporting Requirements | Modified and identical source counts, relevant aligned block bytes and remaining instruction or reference changes. |
 | Stop Conditions | Resolve link errors and unsupported target mappings before accepting a block. |
-| Exit Criteria | Covered BIOS and kernel service blocks linked and verified against their target positions, with real driver coupling recorded for S5–S7. |
+| Exit Criteria | Covered BIOS and kernel service blocks linked and verified against their target positions, with real driver coupling recorded for S5âS7. |
 | Original Owner Request | Continue until IO.SYS is fully rebuilt. |
 | Similar-Issue Sweep | Check related branch encodings, calling conventions and duplicate entry paths in each audited group. |
 
@@ -259,3 +259,5 @@ P76-P77 removed the old compressed startup-image decoder and the unused compress
 P78-P79 restored the target registry data-block and enumeration interfaces and removed superseded 2222 write helpers. Stage `io-2034-1225` linked the native BIOS and DOS payload and built a complete IO.SYS through MSLOAD, CM/DS and MSCM. The built file and the OAK file are both 116,736 bytes. The 1,886-byte loader body matches directly. The complete IO.SYS comparison still differs and the build leaves the output in the ignored stage. The packer restores the final sector padding from the linked length. A separate check with the frozen decoded reference, shortened to its initialized data boundary, reproduces the original image. The source-build path exclusively uses the native compiled components.
 
 P80 restored the WIN.COM command-tail workspace and the Me startup menu display sequence. The obsolete CONFIG$ default-choice search and its buffers were removed. In native stage `io-2684-10238`, the startup image routine now has the target 932-byte extent and matches 915 bytes directly. The message table begins 190 bytes before the target, down from 238. The first 72,320 payload bytes retain their one known address difference. Six existing source files changed. The complete source-built IO.SYS still differs from the OAK file.
+
+P81 restored the registry save sequence, the SYSINIT numeric formatter, and the startup menu register widths. Stage `io-3830-14609` matched 614 of 618 bytes in RegSaveFile, 255 of 256 bytes in the formatter, and 395 of 433 bytes in the startup menu. The complete source-built IO.SYS still differs. The message index starts 67 bytes after its target offset. Three source files changed. Of 242 baseline paths, 98 are modified, one was removed, and 143 match.

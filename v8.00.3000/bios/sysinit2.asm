@@ -2057,6 +2057,8 @@ boot_menu_previous:
 	mov     byte ptr [bDefBlock],4
 boot_menu_set_time:
 	mov     word ptr [secTimeOut],ax
+	push    cs
+	pop     es
 	call    display_menu
 	sub     cx,cx
 	sub     dx,dx
@@ -2066,11 +2068,10 @@ boot_menu_set_time:
 	jb      short boot_menu_selection_number
 	cmp     byte ptr [exec_value],'0'
 	jne     short boot_menu_selection_number
-	inc     bx
+	add     bx,1
 boot_menu_selection_number:
 	cmp     bx,1
-	jne     short boot_menu_selection_log
-	jmp     boot_menu_selection_message
+	je      short boot_menu_selection_message
 boot_menu_selection_log:
 	cmp     bx,2
 	jne     short boot_menu_selection_safe
@@ -2123,7 +2124,6 @@ boot_menu_selection_standard:
 	add     dx,word ptr [sysinit_msg_table+46]
 boot_menu_selection_message:
 	inc     cx
-	jmp     short boot_menu_selection_done
 boot_menu_selection_done:
 	jcxz	boot_menu_selection_return
 	.286
