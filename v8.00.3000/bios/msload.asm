@@ -271,12 +271,10 @@ loader_cluster_ready:
 	adc	[bp+68h],dx
 	sub	ax,1h
 	sbb	dx,0h
-	cli
 	shl	eax,10h
 	shrd	eax,edx,10h
 	movzx	ecx,word ptr [bp+62h]
 	mul	ecx
-	sti
 	mov	si,800h
 	sub	ax,si
 	xchg	ax,cx
@@ -292,7 +290,12 @@ loader_cluster_ready:
 	mov	ds,ax
 	mov	es,ax
 	xor	di,di
-	rep	movsb
+	mov	ax,cx
+	add	ax,0fh
+	shr	ax,4
+	mov	[bp+8eh],ax
+	shr	cx,2
+	rep	movsd
 	pop	ds
 	mov	[bp+72h],di
 	mov	word ptr [bp+74h],es
@@ -302,14 +305,11 @@ loader_cluster_ready:
 	sub	ax,20h
 	mov	[bp+70h],ax
 	push	ax
-	mov	[bp+84h],cx
-	mov	[bp+86h],cx
-	mov	[bp+88h],cx
-	mov	[bp+8ah],cx
+	mov	[bp+84h],ecx
+	mov	[bp+88h],ecx
 loader_next_run:
 	call	loader_next_cluster
 	jnc	short loader_last_run
-	cli
 	shl	eax,10h
 	shrd	eax,edx,10h
 	mov	edx,[bp+84h]
@@ -325,46 +325,60 @@ loader_flush_run:
 	mov	ecx,[bp+88h]
 	shld	edx,eax,10h
 	shld	ebx,ecx,10h
-	sti
 	call	loader_read_clusters
 	mov	ax,[bp+8ch]
 	add	[bp+74h],ax
-	cli
 	pop	eax
 loader_begin_run:
 	mov	[bp+84h],eax
 	sub	eax,eax
 	mov	[bp+88h],eax
-	sti
 	mov	[bp+8ch],ax
 loader_extend_run:
-	sti
 	inc	dword ptr [bp+88h]
 	mov	ax,[bp+64h]
 	add	[bp+8ch],ax
 	sub	[bp+70h],ax
 	ja	short loader_next_run
 loader_last_run:
-	cli
 	mov	eax,[bp+84h]
 	test	eax,eax
 	jz	short loader_transfer
 	mov	ecx,[bp+88h]
 	shld	edx,eax,10h
 	shld	ebx,ecx,10h
-	sti
 	call	loader_read_clusters
 loader_transfer:
+	push	ds
+	push	si
+	mov	si,70h
+	mov	ds,si
+	xor	si,si
+	cmp	word ptr [si],'MC'
+	jnz	short loader_handoff
+	pop	ax
+	pop	bx
+	pop	di
+	push	bx
+	push	ax
+	call	loader_expand
+	pop	ax
+	pop	bx
+	push	di
+	push	bx
+	push	ax
+loader_handoff:
+	pop	si
+	pop	ds
 	mov	dl,[bp+40h]
 	mov	dh,[bp+15h]
 	pop	di
-	mov	ax,ds:loader_boot_data_high
-	mov	bx,ds:loader_boot_data_low
+	mov	ax,cs:loader_boot_data_high
+	mov	bx,cs:loader_boot_data_low
 	jmp	IoSysAddr
 
 ; Fetch the next FAT12, FAT16 or FAT32 cluster entry.
 loader_next_cluster proc near
-	cli
 	mov	eax,[bp+66h]
 	xor	edx,edx
 	cmp	byte ptr [bp+96h],1h
@@ -374,7 +388,6 @@ loader_next_cluster proc near
 	add	eax,eax
 	mov	esi,eax
 	call	loader_fat_sector
-	cli
 	movzx	eax,word ptr es:[bx+di]
 	mov	edx,0fff8h
 	jmp	short loader_fat_compare
@@ -383,13 +396,11 @@ loader_fat12:
 	shr	ax,1
 	add	si,ax
 	call	loader_fat_sector
-	cli
 	movzx	eax,word ptr es:[bx+di]
 	jnz	short loader_fat12_value
 	inc	si
 	xor	edx,edx
 	call	loader_fat_sector
-	cli
 	mov	ah,es:[di]
 loader_fat12_value:
 	mov	edx,0ff8h
@@ -407,15 +418,15 @@ loader_fat32:
 	adc	edx,edx
 	mov	esi,eax
 	call	loader_fat_sector
-	cli
 	mov	eax,es:[bx+di]
 	and	eax,0fffffffh
-	mov	edx,0fffffff8h
+	mov	edx,0ffffff8h
 loader_fat_compare:
 	mov	[bp+66h],eax
-	shld	edx,eax,10h
 	cmp	eax,edx
-	sti
+	pushf
+	shld	edx,eax,10h
+	popf
 	ret
 loader_next_cluster endp
 
@@ -446,7 +457,6 @@ loader_fat_sector proc near
 	add	eax,ecx
 loader_fat_address:
 	shld	edx,eax,10h
-	sti
 	mov	cx,1h
 	call	loader_read_sectors
 	pop	dx
@@ -494,7 +504,6 @@ loader_read_lba:
 	jmp	short loader_read_done
 loader_read_chs:
 	push	cx
-	cli
 	mov	eax,[bp+6ah]
 	movzx	esi,word ptr [bp+18h]
 	xor	edx,edx
@@ -509,7 +518,6 @@ loader_read_count:
 	xor	edx,edx
 	movzx	ecx,word ptr [bp+1ah]
 	div	ecx
-	sti
 	mov	dh,dl
 	shl	ah,6h
 	or	ah,bl
@@ -544,10 +552,8 @@ loader_read_error:
 	pop	di
 	pop	cx
 	dec	cx
-	jz	short loader_read_failed
-	jmp	loader_read_retry
-loader_read_failed:
-	lea	si,[bp+90h]
+	jnz	near ptr loader_read_retry
+	lea	si,[bp+98h]
 	jmp	loader_error
 loader_read_done:
 	pop	bx
@@ -556,7 +562,6 @@ loader_read_sectors endp
 
 ; Read a run of clusters, using the transfer buffer when needed.
 loader_read_clusters proc near
-	cli
 	shl	eax,10h
 	shrd	eax,edx,10h
 	shl	ecx,10h
@@ -582,23 +587,172 @@ loader_read_clusters proc near
 	les	di,dword ptr [bp+78h]
 loader_cluster_read:
 	shld	edx,eax,10h
-	sti
+	push	cx
 	call	loader_read_sectors
+	pop	cx
 	mov	ax,es
 	cmp	ax,[bp+7ah]
-	jnz	short loader_cluster_done
+	jz	short loader_cluster_copy
+	mov	ax,[bp+0bh]
+	shr	ax,4
+	mul	cx
+	add	[bp+8eh],ax
+	jmp	short loader_cluster_done
+loader_cluster_copy:
 	push	ds
 	lds	si,dword ptr [bp+78h]
 	les	di,dword ptr [bp+72h]
 	mov	cx,bx
-	shr	cx,1
-	rep	movsw
+	shr	cx,4
+	add	[bp+8eh],cx
+	shl	cx,2
+	rep	movsd
 	pop	ds
 loader_cluster_done:
 	ret
 loader_read_clusters endp
 
 ; The first four sectors contain the loader and boot handoff data.
+;
+; Expand the compressed BIOS image at 70h. Move the input below the
+; loader, then locate the decompressor following the last CM chunk.
+;
+loader_expand proc near
+	mov	ax,[bp+8eh]
+	mov	bx,cs
+	sub	bx,10h
+	mov	dx,ds
+	add	dx,ax
+loader_move_cm:
+	mov	cx,400h
+	cmp	cx,ax
+	jbe	short loader_move_count
+	mov	cx,ax
+loader_move_count:
+	sub	dx,cx
+	sub	bx,cx
+	sub	ax,cx
+	mov	es,bx
+	mov	ds,dx
+	xor	si,si
+	xor	di,di
+	shl	cx,2
+	cld
+	rep	movsd
+	or	ax,ax
+	jnz	short loader_move_cm
+
+	push	es
+	pop	ds
+	mov	si,2
+	push	ds
+	push	si
+loader_find_cm:
+	lodsb
+	mov	bl,al
+	lodsw
+	test	ax,ax
+	jz	short loader_found_cm
+	or	bl,bl
+	jz	short loader_skip_cm
+	add	ax,2
+loader_skip_cm:
+	add	si,ax
+	mov	ax,si
+	and	si,0fh
+	shr	ax,4
+	mov	di,ds
+	add	di,ax
+	mov	ds,di
+	jmp	short loader_find_cm
+loader_found_cm:
+	mov	ax,si
+	add	ax,0fh
+	shr	ax,4
+	mov	si,ds
+	add	si,ax
+	mov	ds,si
+	xor	si,si
+	lodsw
+	cmp	ax,'MC'
+	jnz	short loader_bad_cm
+	mov	word ptr [bp+94h],ds
+	lodsw
+	mov	[bp+92h],ax
+	pop	si
+	pop	ds
+	mov	ax,70h
+	mov	es,ax
+	xor	di,di
+
+; Copy an uncompressed chunk or call the resident CM decompressor.
+loader_expand_next:
+	lodsb
+	mov	bl,al
+	lodsw
+	or	bl,bl
+	jnz	short loader_expand_cm
+	test	ax,ax
+	jz	short loader_expand_done
+	mov	cx,ax
+	rep	movsb
+loader_expand_advance:
+	mov	ax,si
+	shr	si,4
+	and	ax,0fh
+	xchg	ax,si
+	mov	bx,ds
+	add	bx,ax
+	mov	ds,bx
+	mov	ax,di
+	shr	di,4
+	and	ax,0fh
+	xchg	ax,di
+	mov	bx,es
+	add	bx,ax
+	mov	es,bx
+	jmp	short loader_expand_next
+loader_expand_done:
+	add	di,0fh
+	shr	di,4
+	mov	ax,es
+	add	di,ax
+	sub	di,70h
+	ret
+
+loader_bad_cm:
+	push	cs
+	pop	ds
+	lea	si,[bp+99h]
+	jmp	loader_error
+
+loader_expand_cm:
+	mov	cx,ax
+	lodsw
+	mov	dx,ax
+	shr	ax,9
+	and	dx,1ffh
+	jz	short loader_expand_count
+	inc	ax
+loader_expand_count:
+	mov	[bp+90h],ax
+	push	si
+	push	cx
+	lodsw
+	cmp	ax,'SD'
+	jnz	short loader_bad_cm
+	lodsw
+	lodsw
+	sub	dx,dx
+	mov	cx,[bp+90h]
+	call	dword ptr [bp+92h]
+	jc	short loader_bad_cm
+	pop	cx
+	pop	si
+	add	si,cx
+	jmp	short loader_expand_advance
+loader_expand endp
+
 	ORG	7fah
 loader_boot_data_high dw 0
 loader_boot_data_low  dw 0
