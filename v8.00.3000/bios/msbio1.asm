@@ -181,7 +181,7 @@ ENDIF	;ROMDOS
 
 lpt2dev sysdev <lpt3dev,p_attr,strategy,prn2_entry,"LPT2    ">
 
-lpt3dev sysdev <configdev,p_attr,strategy,prn3_entry,"LPT3    ">
+lpt3dev sysdev <com2dev,p_attr,strategy,prn3_entry,"LPT3    ">
 	public	keysts_func
 keysts_func db	1		; conventional keyboard status
 	db	0eah
@@ -200,7 +200,7 @@ IFDEF	ROMDRIVE
 	extrn	rdrive:near
 after_com4	equ	rdrive
 ELSE
-after_com4	equ	0ffffh
+after_com4	equ	xmsdev
 ENDIF
 ENDIF
 
@@ -271,7 +271,6 @@ EndRomVectors	equ	$
 		public	NUMROMVECTORS
 NUMROMVECTORS	equ	((EndRomVectors - RomVectors)/5)
 
-configdev sysdev <com2dev,0c000h,strategy,config_entry,"CONFIG$ ">
 	public	harddrv
 harddrv db	80h		; physical drive number of first hardfile
 	public	cdev
@@ -359,6 +358,12 @@ strategy proc	far
 	mov	word ptr cs:[ptrsav+2],es
 	ret
 strategy endp
+
+xms_entry proc	near
+	assume	ds:nothing,es:nothing
+	call	cdev_entry
+	dw	xms_table
+xms_entry endp
 
 ;************************************************************************
 ;*									*
@@ -492,12 +497,6 @@ ENDIF
 ;*	A20 is already on.						*
 ;*									*
 ;************************************************************************
-
-config_entry proc near
-	assume	ds:nothing,es:nothing
-	call	cdev_entry
-	dw	config_table
-config_entry endp
 
 cdev_entry proc	near
 	assume	ds:nothing,es:nothing
@@ -905,7 +904,9 @@ int16_limit	dw	200
 int16_limit2	dw	200
 int16_active	dw	0
 
-	db	0
+xmsdev	dw	0ffffh,Bios_Data,0a000h,strategy,xms_entry
+	db	'XMSXXXX0'
+
 	public	boot_minute,boot_seconds
 boot_minute	db	0
 boot_seconds	dw	0
@@ -1837,7 +1838,7 @@ month_table:
 	.8086
 	extrn	int6c_update:near
 
-	extrn	config_table:byte,sysinit_seg:word,exec_bios_word:byte
+	extrn	xms_table:byte,sysinit_seg:word,exec_bios_word:byte
 
 	extrn	bios_msg_base:byte
 	extrn	bios_msg_1:word,bios_msg_2:word,bios_msg_3:word
