@@ -1195,6 +1195,10 @@ sysinit_exec_ready:
 	mov	ah,Dealloc
 	mov	es,[area]
 	int	21h
+	call	ProbeFreeMemory
+	mov	ah,Dealloc
+	mov	es,[boot_buffer_segment]
+	int	21h
 
 ; Restore the DOS startup flag when a system file did not handle it,
 ; then select the previous startup menu if appropriate.
@@ -1454,6 +1458,29 @@ alloc_free_done:
 					; start of free memory
 AllocFreeMem	endp
 
+; Test the largest free block and release it if allocation succeeds.
+; Preserve AX, BX, and ES.
+;
+ProbeFreeMemory proc near
+	push	bx
+	push	ax
+	push	es
+	mov	bx,0ffffh
+	mov	ah,Alloc
+	int	21h
+	mov	ah,Alloc
+	int	21h
+	jc	short pfm_exit
+	mov	es,ax
+	mov	ah,Dealloc
+	int	21h
+pfm_exit:
+	pop	es
+	pop	ax
+	pop	bx
+	ret
+ProbeFreeMemory endp
+
 
 ;----------------------------------------------------------------------------
 ;
@@ -1701,41 +1728,6 @@ InstVDiskHeader	proc	near
 
 InstVDiskHeader	endp
 
-;
-;----------------------------------------------------------------------------
-;
-; procedure : IsVDiskInstalled
-;
-;		Checks for the presence of VDISK header at 1MB boundary
-;		& INT 19 vector
-;
-; Inputs  : A20 flag should be ON
-; Outputs : Zero set if VDISK header found else Zero cleared
-;
-;----------------------------------------------------------------------------
-;
-IsVDiskInstalled proc	near
-		xor	ax, ax
-		mov	ds, ax
-		mov	ds, word ptr ds:[19*4+2]
-		mov	si, offset VDiskSig1 - offset StartVDHead
-		mov	cx, VLEN1
-		push	cs
-		pop	es
-		mov	di, offset VDiskSig1
-		rep	cmpsb
-		je	@f
-		mov	ax, 0ffffh
-		mov	ds, ax
-		mov	si, 10h+(offset VDiskSig2 - offset VDiskHMAHead)
-		mov	di, offset VDiskSig2
-		mov	cx, VLEN2
-		rep	cmpsb
-@@: 
-		ret			; returns the Zero flag
-IsVDiskInstalled endp
-
-
 ; Update the BIOS data entry vectors after moving BIOS code.
 ; AX is the new BIOS code segment; preserve DI and ES, use CX.
 ; Leave an installed configuration hook in place.
@@ -1765,6 +1757,29 @@ reinit_bios_next:
 	ret
 reinit_bios_code endp
 
+
+; Print the message whose word index follows the near CALL.
+; The low 15 bits select sysinit_msg_table; skip the inline word on return.
+; Preserve SI and BX; use AX and DX, return with DF clear.
+
+print_indexed proc near
+	xchg	si,dx
+	pop	si
+	cld
+	lods	word ptr cs:[si]
+	push	si
+	xchg	si,dx
+	push	bx
+	and	ax,7fffh
+	mov	bx,ax
+	shl	bx,1
+	mov	dx,offset sysinit_msg_base
+	add	dx,cs:[bx+sysinit_msg_table]
+	mov	ah,std_con_string_output
+	int	21h
+	pop	bx
+	ret
+print_indexed endp
 
 ;
 ; DispHimemMsg - print a diagnostic or prompt during early initialization.
@@ -1863,29 +1878,6 @@ dhm_done:
 	ret
 	.8086
 DispHimemMsg endp
-
-; Print the message whose word index follows the near CALL.
-; The low 15 bits select sysinit_msg_table; skip the inline word on return.
-; Preserve SI and BX; use AX and DX, return with DF clear.
-
-print_indexed proc near
-	xchg	si,dx
-	pop	si
-	cld
-	lods	word ptr cs:[si]
-	push	si
-	xchg	si,dx
-	push	bx
-	and	ax,7fffh
-	mov	bx,ax
-	shl	bx,1
-	mov	dx,offset sysinit_msg_base
-	add	dx,cs:[bx+sysinit_msg_table]
-	mov	ah,std_con_string_output
-	int	21h
-	pop	bx
-	ret
-print_indexed endp
 
 ; Record the compressed boot drive for the BIOS startup state.
 	public  boot_record_compressed_boot

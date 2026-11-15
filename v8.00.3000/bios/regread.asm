@@ -458,14 +458,17 @@ RegLoadKeyCache proc near
 rlkc_entry:
 	mov ax,es:[di+4]
 	mov dx,es:[di+6]
-	imul cx,si,6
+	imul cx,si,0Ch
 	add ax,cx
 	mov [bp-14h],ax
 	mov [bp-12h],dx
 	mov bx,ax
 	mov es,dx
-	db 66h
-	mov ax,es:[bx]
+	mov eax,es:[bx]
+	mov [bp-6],eax
+	or eax,eax
+	jnz rlkc_pin
+	mov eax,es:[bx]
 	mov [bp-6],eax
 	or eax,eax
 	jnz rlkc_pin
@@ -475,8 +478,8 @@ rlkc_entry:
 	mov [bp-4],dx
 	or dx,ax
 	jnz short rlkc_extent
-	mov ax,0Eh
-	jmp rlkc_done
+	mov si,0Eh
+	jmp rlkc_failed
 rlkc_extent:
 	mov es,word ptr [bp+0Eh]
 	mov al,es:[di+56h]
@@ -538,7 +541,7 @@ rlkc_count:
 	or ax,ax
 	jnz short rlkc_close
 rlkc_error:
-	mov word ptr [bp-8],3F8h
+	mov si,3F8h
 	push dword ptr [bp-6]
 	call RegDosFree
 	cmp word ptr [bp-2],-1
@@ -546,7 +549,7 @@ rlkc_error:
 	push word ptr [bp-2]
 	call RegDosClose
 rlkc_failed:
-	mov ax,3F8h
+	mov ax,si
 	jmp rlkc_done
 rlkc_decode:
 	push word ptr [bp-2]
@@ -575,13 +578,12 @@ rlkc_close:
 	push word ptr [bp-2]
 	call RegDosClose
 rlkc_install:
-	mov eax,[bp-6]
 	les bx,[bp-14h]
-	db 66h
-	mov es:[bx],ax
-	xor al,al
-	mov es:[bx+4],al
-	mov es:[bx+5],al
+	sub eax,eax
+	mov es:[bx+4],eax
+	mov es:[bx+8],eax
+	mov eax,[bp-6]
+	mov es:[bx],eax
 rlkc_pin:
 	mov ax,[bp+8]
 	and ah,3
@@ -592,8 +594,14 @@ rlkc_pin:
 	mov es:[bx],ax
 	mov es:[bx+2],dx
 	les bx,[bp-14h]
+	mov al,es:[bx+4]
+	and al,1
+	cmp al,1
+	je short rlkc_lock
 	or byte ptr es:[bx+4],1
-	inc byte ptr es:[bx+5]
+rlkc_lock:
+	les bx,[bp-14h]
+	inc dword ptr es:[bx+8]
 	xor ax,ax
 rlkc_done:
 	pop si
@@ -650,7 +658,7 @@ RegUnlockKeyCache proc near
 	mov dx,[bp+8]
 	mov cl,10
 	call __aFulshr
-	imul ax,ax,6
+	imul ax,ax,0Ch
 	mov es,word ptr [bp+0Ch]
 	add ax,es:[si+4]
 	mov dx,es:[si+6]
@@ -658,7 +666,7 @@ RegUnlockKeyCache proc near
 	mov [bp-2],dx
 	mov bx,ax
 	mov es,dx
-	dec byte ptr es:[bx+5]
+	dec dword ptr es:[bx+8]
 	cmp word ptr [bp+4],0
 	jz short rukc_done
 	mov es,word ptr [bp-2]
@@ -752,7 +760,7 @@ rakr_block:
 	push word ptr es:[si+4]
 	add ax,4
 	mov [bp-4],ax
-	imul ax,ax,6
+	imul ax,ax,0Ch
 	push ax
 	call RegReallocRetry
 	mov [bp-0Ch],ax
@@ -764,14 +772,14 @@ rakr_block:
 rakr_grow_table:
 	mov di,[bp-4]
 	mov es,[bp+0Eh]
-	imul ax,es:[si+0Ah],6
+	imul ax,es:[si+0Ah],0Ch
 	add ax,[bp-0Ch]
 	mov dx,[bp-0Ah]
 	push dx
 	push ax
 	mov ax,di
 	sub di,es:[si+0Ah]
-	imul cx,di,6
+	imul cx,di,0Ch
 	push cx
 	mov di,ax
 	call RegZeroMemory
@@ -926,7 +934,7 @@ rakr_finish:
 	mov dx,[bp-6]
 	mov cl,0Ah
 	call __aFulshr
-	imul di,ax,6
+	imul di,ax,0Ch
 	mov es,[bp+0Eh]
 	les bx,es:[si+4]
 	or byte ptr es:[bx+di+4],2
@@ -1296,7 +1304,7 @@ rwks_copy:
 	jnz rwks_error
 rwks_advance:
 	add byte ptr [bp-0Bh],4
-	add word ptr [bp-4],6
+	add word ptr [bp-4],0Ch
 	inc word ptr [bp-0Ah]
 	mov ax,[bp-0Ah]
 	les bx,[bp+8]
@@ -1335,7 +1343,7 @@ RegCommitKeyCache proc near
 	mov es,word ptr [bp-2]
 rck_next:
 	and byte ptr es:[bx+4],0FDh
-	add bx,6
+	add bx,0Ch
 	loop rck_next
 rck_done:
 	pop di
@@ -1368,7 +1376,7 @@ rtk_next:
 	jz short rtk_advance
 	test byte ptr es:[si+4],3
 	jnz short rtk_clear
-	cmp byte ptr es:[si+5],0
+	cmp dword ptr es:[si+8],0
 	jnz short rtk_clear
 	db 66h
 	push word ptr es:[si]
@@ -1381,7 +1389,7 @@ rtk_clear:
 	mov es,word ptr [bp-2]
 	and byte ptr es:[si+4],0FEh
 rtk_advance:
-	add si,6
+	add si,0Ch
 	dec di
 	jnz short rtk_next
 rtk_done:
@@ -1420,7 +1428,7 @@ RegInitKeyCache proc near
 	mov [bp-6],ax
 	mov di,ax
 	add di,4
-	imul ax,di,6
+	imul ax,di,0Ch
 	mov [bp-8],ax
 	push ax
 	call RegAllocate
