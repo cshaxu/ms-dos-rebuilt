@@ -51,6 +51,7 @@
 ;----------------------------------------------------------------------------
 ;
 	include version.inc	; set build flags
+BYTE_SYSINIT equ 1
 	include biosseg.inc	; define BIOS segments
 
 	include	devsym.inc
@@ -85,11 +86,11 @@ hdrv_pat label	word			; patched by msinit
 In_Bios	=	0ffffh	; define flag for msbdata.inc
 	include	oemconf.inc
 	public	dosdatasg,bios_i2f,bios_flags,romstartaddr,altah
-DosDataSg	dw	0b1a6h		; initial value, reset by init
+DosDataSg	dw	0		; initial value, reset by init
 bios_i2f proc far
 	jmp	near ptr int_2f
 bios_i2f endp
-bios_flags dw 1265h
+bios_flags dw 1000h
 	public	a20_mask,changeline_mask,single_drive_mask,setowner_mask
 	public	k09_mask,int19_init_mask,multrk_mask,format_multitrk_mask
 	public	multrk_configured_mask
@@ -1760,7 +1761,6 @@ bdss	BDS_STRUC (2+max_mini_dsk_num) dup (<-1>)	;currently max. 25
 bds_count dw	0
 dskdrvs dw	(4+2+max_mini_dsk_num) dup (0) ; pointers to drive BPBs
 
-	even
 	extrn	move_myself:near
 	public	SI_start
 SI_start:

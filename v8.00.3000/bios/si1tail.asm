@@ -73,7 +73,7 @@ Bios_Code	segment
 	extrn	hma_initial_size:word,hma_allocate:near
 	extrn	sysinit_seg:word
 	extrn	win386_stack_code_seg:word,win386_stack_code_size:word
-	irp	aa,<02,08,09,0a,0b,0c,0d,0e,70,72,73,74,76,77>
+	irp	aa,<08,09,0a,0b,0c,0d,0e,70,72,73,74,76,77>
 	extrn	int19old&aa:dword
 	endm
 	extrn	BCode_start:near
@@ -305,8 +305,8 @@ ENDIF ; CONFIGPROC
 	extrn	firstentry:word,lastentry:word,nextentry:word
 	extrn	stack_count:word,stack_size:word,stack_addr:dword
 	extrn	endstackcode:byte
-	extrn	int02:far,int08:far,int09:far,int70:far
-	extrn	old02:dword,old08:dword,old09:dword,old70:dword
+	extrn	int08:far,int09:far,int70:far
+	extrn	old08:dword,old09:dword,old70:dword
 	irp	a,<0a,0b,0c,0d,0e,72,73,74,76,77>
 	extrn	int&a:far,old&a:dword,firstflag&a:byte
 	endm
@@ -2009,7 +2009,7 @@ buildloop7:
 	mov	es,ax
 	cli
 
-	irp	aa,<02,08,09,70>
+	irp	aa,<08,09,70>
 
 	mov	si,aa&h*4		;pass where vector is to be adjusted
 	mov	di, offset int19old&aa	;we have to set old&aa for int19 handler too.
