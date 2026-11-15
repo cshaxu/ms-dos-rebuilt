@@ -160,14 +160,14 @@ i2f_handler proc far
 ;Check for WIN386 startup and return the BIOS instance data
 ;
 	cmp	ah,MULTWIN386
-	jnz	check_multmult
-	jmp	near ptr win386call
-check_multmult:
+	.386
+	jz	near ptr win386call
+	.8086
 
-	cmp	ah, multMULT
-	jne	@f
-	jmp	handle_multmult
-@@:
+	cmp	ah,multMULT
+	.386
+	jz	near ptr handle_multmult
+	.8086
 	iret
 
 int2f_replace_int13:
@@ -445,14 +445,12 @@ win_keyboard_service:
 
 ; Read or change the saved video interrupt vector.
 win386_call0f:
+	.386
 	cmp	int10_stub,0cfh
-	jnz	win_video_check
-	jmp	win_iret
-win_video_check:
+	jz	near ptr win_iret
 	cmp	bl,1
-	jbe	win_video_valid
-	jmp	win_iret
-win_video_valid:
+	ja	near ptr win_iret
+	.8086
 	cli
 	mov	ax,0
 	jz	win_video_set
