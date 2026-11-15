@@ -1,7 +1,15 @@
 @echo off
 setlocal EnableExtensions DisableDelayedExpansion
-set "KERNEL_ONLY="
-if /i "%~1"=="kernel" set "KERNEL_ONLY=1"
+set "COMPONENT="
+set "SOURCE_DIRS="
+if /i "%~1"=="kernel" (
+    set "COMPONENT=kernel"
+    set "SOURCE_DIRS=dos inc lang"
+)
+if /i "%~1"=="bios" (
+    set "COMPONENT=bios"
+    set "SOURCE_DIRS=bios inc lang"
+)
 pushd "%~dp0..\.."
 if errorlevel 1 goto entry_failed
 if not exist extras\build mkdir extras\build
@@ -91,9 +99,9 @@ for %%D in (bios dos inc lang) do (
 for %%N in (tools.ini nosrv.bat) do copy /b "%SUPPORT%\%%N" "%STAGE%\tools\%%N" >nul
 mkdir "%STAGE%\messages" "%STAGE%\crtlib" "%STAGE%\crt" "%STAGE%\out"
 if errorlevel 1 goto failed
-if defined KERNEL_ONLY (
-    echo Staging the 3000 DOS kernel source overlay...
-    for %%D in (dos inc lang) do (
+if defined COMPONENT (
+    echo Staging the 3000 %COMPONENT% source overlay...
+    for %%D in (%SOURCE_DIRS%) do (
         if exist "%ROOT%\%%D\" (
             xcopy "%ROOT%\%%D" "%STAGE%\%%D\" /E /I /Q /Y >nul
             if errorlevel 1 goto failed
@@ -102,7 +110,7 @@ if defined KERNEL_ONLY (
 )
 copy /b "%STAGE%\lang\usa\messages\usa-ms-dos.msg" "%STAGE%\messages\USA.MSG" >nul
 if errorlevel 1 goto failed
-if defined KERNEL_ONLY goto kernel_only
+if defined COMPONENT goto component_only
 echo [3/7] Building BIOS, loader and DOS kernel...
 call :phase bios
 if errorlevel 1 goto failed
@@ -165,16 +173,16 @@ echo PASS: 2222 IO.SYS, 3000 decoded payload and exact CM stream verified. > "%S
 echo Verified IO baseline and target payload: %STAGE%
 exit /b 0
 
-:kernel_only
-echo Linking the 3000 DOS kernel...
-call :phase kernel
+:component_only
+echo Linking the 3000 %COMPONENT%...
+call :phase %COMPONENT%
 if errorlevel 1 goto failed
 call :snapshot "%STAGE%\inputs-after.txt"
 if errorlevel 1 goto failed
 fc /b "%STAGE%\inputs-before.txt" "%STAGE%\inputs-after.txt" > "%STAGE%\inputs-compare.log"
 if errorlevel 1 goto failed
-echo PASS: DOS kernel linked with unchanged inputs. > "%STAGE%\result.txt"
-echo Kernel binary and map: %STAGE%\dos
+echo PASS: %COMPONENT% linked with unchanged inputs. > "%STAGE%\result.txt"
+echo %COMPONENT% build directory: %STAGE%
 exit /b 0
 
 :phase
@@ -238,8 +246,8 @@ for %%F in ("%STAGE%\base.tar" "%TARGETS%\IO.SYS" "%ROOT%\extras\tools\cmdecode.
     call :record "%%~fF"
     if errorlevel 1 exit /b 1
 )
-if defined KERNEL_ONLY (
-    for %%D in (dos inc lang) do (
+if defined COMPONENT (
+    for %%D in (%SOURCE_DIRS%) do (
         if exist "%ROOT%\%%D\" (
             call :record_tree "%ROOT%\%%D"
             if errorlevel 1 exit /b 1
