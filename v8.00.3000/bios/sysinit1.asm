@@ -269,7 +269,7 @@ dos7_memory_ready:
 	public	print_indexed
 	extrn   query_keyboard_service:near,query_check_skip:near,query_result:byte
 	extrn	default_switch_char:byte,command_line2:byte,command_line3:byte
-	extrn	boot_option_open:near
+	extrn	boot_option_open:near,boot_performance:byte
 	extrn	query_check_done:near
 	extrn	xms_driver_index:word
 	extrn	xms_memory_index:word
@@ -986,14 +986,23 @@ boot_save_time:
 	sub	dx,dx
 	call	boot_option_open
 	push	ds
-	mov	ds,[BCodeSeg]
-	assume	ds:Bios_Code
-	mov	ds,Bios_Data_Word
+	mov	ax,Bios_Data
+	mov	ds,ax
 	assume	ds:Bios_Data
 	mov	ah,get_time
 	int	21h
+	cmp	byte ptr cs:[boot_performance],0
+	jz	short boot_store_time
+	mov	cx,0100h		; use 01:00:00 for boot timing
+	xor	dx,dx
+boot_store_time:
 	mov	boot_minute,cl
 	mov	boot_seconds,dx
+	cmp	byte ptr cs:[boot_performance],0
+	jz	short boot_time_done
+	mov	ah,set_time
+	int	21h
+boot_time_done:
 	pop	ds
 	assume	ds:sysinitseg
 

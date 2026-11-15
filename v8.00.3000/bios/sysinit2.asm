@@ -326,6 +326,8 @@ winboot_shell_pending db 0
 boot_old_int24 dd 0		; SYSINIT saves the original INT 24h vector
 
 boot_autoexec_exists db 0
+	public	boot_performance
+boot_performance db 0		; initialize the DOS clock for boot timing
 	public  boot_safe_message
 boot_safe_message db '(Safe boot)',13,10
 boot_drive_dpb db 3fh dup (0)          ; extended Get DPB return buffer
@@ -2221,6 +2223,8 @@ boot_option_options label byte
 	dw      offset boot_option_autoscan
 	db      'WINVER',0
 	dw      offset boot_option_winver
+	db      'BOOTPERF',0
+	dw      offset boot_option_perf
 	db      0
 	dw      offset boot_section_restart
 
@@ -2394,6 +2398,21 @@ boot_option_winver proc near
 	jne     boot_option_error
 	ret
 boot_option_winver endp
+
+; The boot timing option takes the same numeric value as the other flags.
+boot_option_perf proc near
+	lodsb
+	cmp	al,'='
+	jne	boot_option_error
+	call	boot_option_number
+	jc	boot_option_error
+	or	al,al
+	jz	short boot_perf_done
+	mov	[boot_performance],1
+boot_perf_done:
+	ret
+boot_option_perf endp
+
 
 ; Store the DISABLELOG option in the BIOS startup state.
 boot_option_disablelog proc near
