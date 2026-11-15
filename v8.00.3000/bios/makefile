@@ -291,22 +291,8 @@ sysconf.obj: sysconf.asm \
                 $(inc)\versiona.inc
 	ml $(mlasw) /Flsysconf.lst sysconf.asm
 
-syspre.obj: syspre.asm \
-                biosseg.inc \
-                devmark.inc \
-                $(inc)\bpb.inc \
-                $(inc)\curdir.inc \
-                $(inc)\devsym.inc \
-                $(inc)\dpb.inc \
-                $(inc)\ds_vers.inc \
-                $(inc)\magicdrv.inc \
-                $(inc)\syscall.inc \
-                $(inc)\sysvar.inc \
-                $(inc)\version.inc
-
 logocode.obj: logocode.asm \
                 biosseg.inc \
-                mrcf.inc \
                 $(inc)\syscall.inc \
                 $(inc)\sysvar.inc
 
@@ -387,7 +373,7 @@ msbio.bin: stkinit.obj msbio1.obj \
                 msdioctl.obj msint13.obj msbio2.obj msinit.obj biostail.obj \
                 biosmsg.obj himem.obj himem4.obj himem4b.obj himem1.obj himem2.obj hiber.obj hiberio.obj cfgmain.obj cpath.obj cfgpub.obj sysinit2.obj sysconf.obj \
                 configio.obj crtcmp.obj regmath.obj regstart.obj regopen.obj regfind.obj regread.obj cfginit.obj regroot.obj logo.obj \
-                syspre.obj logocode.obj logpart.obj pathsrc.obj mblate.obj \
+                logocode.obj logpart.obj pathsrc.obj mblate.obj \
                 drivechk.obj msend.obj sysimes.obj power.obj ptime.obj msbio.lnk
 	link $(link_opts) @msbio.lnk
 	reloc msbio.exe msbio.bin 70

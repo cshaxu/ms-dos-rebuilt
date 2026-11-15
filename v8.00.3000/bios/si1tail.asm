@@ -250,9 +250,6 @@ endif
 	extrn	DevEntry:dword
 
 	ifdef	dblspace_hooks
-	extrn	MagicPreload:near
-	extrn	MagicPostload:near
-	extrn	MagicSetCdss:near
 	endif
 
 	extrn	crlfm:byte
@@ -372,9 +369,6 @@ endif
 
 	extrn	bios_data_segment:word
 	extrn	BCodeSeg:word
-	extrn	boot_load_segment:word
-	extrn	boot_reloc_offset:word
-	extrn	boot_reloc_segment:word
 	extrn	memory_size:word
 	extrn	temp_buffer_segment:word
 	extrn	temp_buffer_size:word
@@ -432,12 +426,9 @@ has_installed equ 00000010b
 	extrn	boot_config_app:byte,boot_config_wos:byte,boot_msdos_status:byte
 	extrn	config_device_table_ptr:dword
 	extrn	new_psp_segment:word
-	extrn	compressed_dest_segment:word,compressed_reserved_paras:word
-	extrn	compressed_reserve:word ; paragraphs reserved for compression
 
 
 	ifdef	dblspace_hooks
-	extrn	MagicBackdoor:dword,NullBackdoor:far
 	endif
 
 

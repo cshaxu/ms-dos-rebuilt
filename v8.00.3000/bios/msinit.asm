@@ -142,7 +142,6 @@ sysinitseg segment
 	extrn	no_floppy_report:byte
 	extrn	sys_model_byte:byte,sys_scnd_model_byte:byte
 	extrn	rpl_memory_size:word,boot_copy_buffer:byte
-	extrn	boot_reloc_segment:word
 	extrn	buffers:word
 	extrn	SI_start:far
 	extrn	temp_bcode_seg:word

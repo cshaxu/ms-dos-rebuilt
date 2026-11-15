@@ -126,7 +126,6 @@ sysinitseg segment public
 	extrn	sysinit_msg_table:word,sysinit_msg_base:byte
 	extrn	sysinit_prompt_index:word
 	extrn	sysinit_badld_index:word,sysinit_crlf_index:word
-	extrn   boot_reloc_segment:word
         extrn   IsXMSLoaded:near
 	extrn	print_indexed:near,boot_record_compressed_boot:near
 
@@ -136,10 +135,8 @@ ifdef   MULTI_CONFIG
 
         MAX_MULTI_CONFIG equ 9          ; max # of multi-config menu items supported
 
-        extrn   BCodeSeg:word, bios_data_segment:word,boot_load_segment:word
+        extrn   BCodeSeg:word, bios_data_segment:word
         extrn   config_buffer_segment:word
-        extrn   compression_skip:byte
-        extrn   MagicMoveInfo:dword
         extrn   boot_check_redirected_drive:near,boot_check_drive_map:near
         extrn   DevUMB:byte
         extrn   stack_high:byte
@@ -761,7 +758,6 @@ kbd7_f12:
         assume  ds:sysinitseg
         jmp     short kbd7_f5
 kbd7_f5_shift:
-        or      byte ptr [compression_skip],1
         jmp     short kbd7_f12
 kbd7_command:
         or      byte ptr [boot_runtime_flags],61h
@@ -774,8 +770,6 @@ kbd7_command:
         mov     dx,offset sysinit_msg_base
         add     dx,word ptr [sysinit_msg_table+62]
         jmp     short kbd7_consume
-kbd7_old_shift:
-        or      byte ptr [compression_skip],1
 kbd7_old:
         or      byte ptr [boot_config_flags],10h
         test    byte ptr [boot_runtime_flags],10h
@@ -796,7 +790,7 @@ kbd7_old_key:
         cmp     ah,3eh
         je      short kbd7_old
         cmp     ah,61h
-        je      short kbd7_old_shift
+        je      short kbd7_old
 kbd7_f8_test:
         cmp     ah,42h
         jne     short kbd7_step_test
@@ -2295,8 +2289,7 @@ not_down:
 menu_key_62:
         cmp     al,62h
         jne     short menu_key_5b
-        or      byte ptr [compression_skip],1
-        jmp     short menu_key_skip
+        jmp     short menu_key_command_mode
 menu_key_5b:
         cmp     al,5bh
         jne     short menu_key_3f
@@ -2316,6 +2309,7 @@ menu_key_58:
         cmp     al,58h
         jne     short menu_key_6c
 menu_key_skip:
+menu_key_command_mode:
         or      ah,2
         jmp     short menu_key_set
 menu_key_6c:

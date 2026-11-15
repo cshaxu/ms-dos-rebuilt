@@ -80,7 +80,6 @@ ifdef   MULTI_CONFIG
 	MAX_MULTI_CONFIG equ 9          ; max # of multi-config menu items supported
 
 	extrn	BCodeSeg:word
-	extrn	MagicMoveInfo:dword
 	extrn	boot_check_redirected_drive:near,boot_check_drive_map:near
 	extrn	DevUMB:byte
 	extrn	stack_high:byte
@@ -636,15 +635,7 @@ boot_resolve_mapped_drive proc near
 	int     2fh
 	test    ax,ax
 	jz      short resolve_drive_number
-	lds     bx,MagicMoveInfo
-	cmp     bx,-1
-	je      short resolve_drive_fail
-	mov     dh,0
-	add     bx,dx
-	add     bx,dx
-	mov     bx,[bx]
-	test    bl,80h
-	jz      short resolve_drive_fail
+	jmp     short resolve_drive_fail
 resolve_drive_number:
 	mov     al,bl
 	and     al,7fh
