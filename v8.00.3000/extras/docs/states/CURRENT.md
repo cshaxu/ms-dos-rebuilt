@@ -80,3 +80,26 @@ P1 built and verified the [IO.SYS baseline and object maps](../etc/io-build-base
 | Similar-Issue Sweep | Verify all six target chunks, cross-block dictionary reset and a partial final sector. |
 
 P1 closed S3. The C encoder produced the [exact 111,840-byte CM stream](../etc/io-cm-encoder.md) in stage `io-20237-4893`. Zero product source paths changed and all 242 baseline paths match. The loader and startup decompressor are retained as explicit assembly recovery items in the subsequent IO work.
+
+## M6 T29 S4 Packet
+
+| Field | Required record |
+| --- | --- |
+| Identifier Mode | New |
+| Admission And Approval | Owner authorized continuous IO.SYS recovery. |
+| Objective | Restore DOS BIOS and DOS kernel code and service interfaces against the decoded 3000 target using the 2222 layout and symbols. |
+| Non-goals | Integrated Astro driver implementations and final container assembly are covered in later S packets. |
+| Reference Baseline | [S2 linked objects and target anchors](../etc/io-build-baseline.md) and the frozen 2222 source. |
+| Candidate Proposal | Link the DOS kernel from the 3000 source overlay. Resolve coherent interrupt and dependency groups against the decoded payload. |
+| Files And ABI Surface | DOS dispatch, disk/DPB/FAT services, and the BIOS and kernel interface. |
+| Applicable Rules | [Execution](../../../../v7.10.1998/extras/docs/rules/EXECUTION.md) and [coding](../../../../v7.10.1998/extras/docs/rules/CODING.md). |
+| Verification | Actual assembly and link, stable source snapshots, and block comparisons that distinguish relocated operands from instruction changes. |
+| Expected Markers | Exact blocks and independently identified remaining references. |
+| Asset Needs | Retain linked binaries, maps and listings under ignored extras/build. |
+| Reporting Requirements | Modified and identical source counts, relevant aligned block bytes and remaining instruction or reference changes. |
+| Stop Conditions | Resolve link errors and unsupported target mappings before accepting a block. |
+| Exit Criteria | Covered BIOS and kernel service blocks linked and verified against their target positions, with real driver coupling recorded for S5–S7. |
+| Original Owner Request | Continue until IO.SYS is fully rebuilt. |
+| Similar-Issue Sweep | Check related branch encodings, calling conventions and duplicate entry paths in each audited group. |
+
+P1 introduced `extras/build.cmd io-kernel` and rebuilt the DOS kernel with the 3000 source overlay in stage `io-21207-18674`. The 185-byte version and error-map prefix matches target payload offset 34,356 in full. The 1,344-byte Get/Set object aligns at target offset 36,793. Three near branches have the exact 3000 encodings, four interrupt-mask instructions were removed, and 1,293 bytes directly match at corresponding local offsets. The 51 other bytes remain for linked-reference verification. One source file changed in P1. The staged 242-path scope has five changed and 237 identical files against 2222, including four inherited S1 changes.

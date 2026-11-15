@@ -1,5 +1,6 @@
 @echo off
 if /i "%~1"=="io-baseline" goto io_baseline
+if /i "%~1"=="io-kernel" goto io_kernel
 setlocal EnableExtensions DisableDelayedExpansion
 pushd "%~dp0.."
 if errorlevel 1 goto entry_failed
@@ -223,4 +224,8 @@ exit /b 1
 
 :io_baseline
 call "%~dp0tools\iobase.cmd"
+exit /b %errorlevel%
+
+:io_kernel
+call "%~dp0tools\iobase.cmd" kernel
 exit /b %errorlevel%
