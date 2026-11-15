@@ -385,7 +385,7 @@ msbio.bin: stkinit.obj msbio1.obj \
                 sysinit1.obj si2front.obj \
                 si1tail.obj mschar.obj initclk.obj msdisk.obj \
                 msdioctl.obj msint13.obj msbio2.obj msinit.obj biostail.obj \
-                biosmsg.obj himem.obj himem4.obj himem4b.obj sysinit2.obj sysconf.obj \
+                biosmsg.obj himem.obj himem4.obj himem4b.obj himem1.obj himem2.obj sysinit2.obj sysconf.obj \
                 syspre.obj logocode.obj logpart.obj pathsrc.obj mblate.obj \
                 drivechk.obj msend.obj sysimes.obj power.obj ptime.obj msbio.lnk
 	link $(link_opts) @msbio.lnk

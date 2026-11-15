@@ -14,7 +14,7 @@ Bios_Code	segment byte public 'CODE'
 	.386
 	assume	cs:Bios_Code,ds:Bios_Code
 
-	public	HandleInfo,cHandles,KiddValley,KiddValleyTop
+	public	HandleInfo,cHandles,KiddValley,KiddValleyTop,segKiddValley
 	public	Version,LockExtMemory,UnlockExtMemory,ValidateHandle
 
 HandleTable	Handle	DEFHANDLES dup (<0,0,0,0>)
