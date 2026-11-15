@@ -1,15 +1,8 @@
 @echo off
 setlocal EnableExtensions DisableDelayedExpansion
 set "COMPONENT="
-set "SOURCE_DIRS="
-if /i "%~1"=="kernel" (
-    set "COMPONENT=kernel"
-    set "SOURCE_DIRS=dos inc lang"
-)
-if /i "%~1"=="bios" (
-    set "COMPONENT=bios"
-    set "SOURCE_DIRS=bios dev inc lang"
-)
+set "SOURCE_DIRS=bios dev dos inc lang"
+if /i "%~1"=="core" set "COMPONENT=core"
 pushd "%~dp0..\.."
 if errorlevel 1 goto entry_failed
 if not exist extras\build mkdir extras\build
@@ -175,9 +168,7 @@ exit /b 0
 
 :component_only
 echo Linking the 3000 %COMPONENT%...
-set "COMPONENT_SUPPORT=%SUPPORT%"
-if /i "%COMPONENT%"=="bios" set "COMPONENT_SUPPORT=%ROOT%\extras\tools"
-call :phase %COMPONENT% "%COMPONENT_SUPPORT%"
+call :phase bios "%ROOT%\extras\tools"
 if errorlevel 1 goto failed
 call :snapshot "%STAGE%\inputs-after.txt"
 if errorlevel 1 goto failed
@@ -248,7 +239,7 @@ for %%F in ("%STAGE%\base.tar" "%TARGETS%\IO.SYS" "%ROOT%\extras\tools\cmdecode.
     call :record "%%~fF"
     if errorlevel 1 exit /b 1
 )
-if /i "%COMPONENT%"=="bios" (
+if defined COMPONENT (
     call :record "%ROOT%\extras\tools\bios.bat"
     if errorlevel 1 exit /b 1
 )

@@ -1046,6 +1046,11 @@ Bios_Data_Word	dw	Bios_Data
 ; high.
 ;----------------------------------------------------------------------------
 ;
+	org	0cch
+	extrn	DIVOV:near
+	public	DivOvEntry
+DivOvEntry:
+	jmp	near ptr DIVOV
 	org	0d0h
 
 	public	off_d0

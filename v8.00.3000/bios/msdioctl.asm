@@ -72,7 +72,7 @@ MULTI_TRK_ON		EQU	10000000b ; User spcified mutitrack=on,
 	EXTRN	CurHd:BYTE
 
 	EXTRN	SpSav:WORD
-	EXTRN	SecCnt:WORD
+	EXTRN	BiosSecCnt:WORD
 	EXTRN	Eot:BYTE
 	EXTRN	Step_Drv:BYTE
 	EXTRN	Start_Bds:DWORD
@@ -901,7 +901,7 @@ IoNextSector:
 	test	Bios_Flags,0200h		; Allow multi-track operation?
 	jz	IoRemovable			; No,don't do that.
 
-	mov	CS:[SecCnt],DX			; # of sectors to i/o
+	mov	CS:[BiosSecCnt],DX			; # of sectors to i/o
 	mov	AX,DX
 	call	Disk
 
@@ -928,7 +928,7 @@ IoRemovable:
 	pop	DS			; Restore Bios_Data
 	ASSUME	DS:Bios_Data
 	mov	AL,DL
-	mov	CS:[SecCnt],AX		; Set up the count of sectors to i/o
+	mov	CS:[BiosSecCnt],AX		; Set up the count of sectors to i/o
 	call	Disk
 
 	pop	si			; Advance buffer pointer by adding

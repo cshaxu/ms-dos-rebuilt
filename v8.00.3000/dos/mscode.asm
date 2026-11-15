@@ -153,18 +153,18 @@ AsmVars <Debug>
 	I_need	Dos_Flag,BYTE		; M066
 
 ;
-; Include bios data segment declaration. Used for accessing DOS data segment 
-; at 70:3 & bios int 2F entry point at 70:5
+; Include BIOS data segment declaration for the DOS data segment at 70:3.
 ;
 
-BData	segment at 70H			; M023
+Bios_Data	segment word public 'Bios_Data'			; M023
+	extrn	DosDataSg:word
 			
-	extrn	bios_i2f:far		; M023
 
-BData	ends				; M023
+Bios_Data	ends				; M023
 
 
 DOSCODE	SEGMENT
+	extrn	i2f_handler:near
         EXTRN CURSC_DRIVE:BYTE
         EXTRN SC_DRIVE:BYTE
 	ASSUME	CS:DOSCODE,DS:NOTHING,ES:NOTHING,SS:NOTHING
@@ -237,7 +237,7 @@ AbsSetupReady:
 	PUSH	DS
 
 	Context DS			; SS is DOSDATA
-	CALL	GETBP
+	CALL	GetDriveBP
 	JC	errdriv 		; PM. error drive			;AN000;
 	cmp	ES:[BP.dpb_fat_size],0
 	clc
@@ -341,7 +341,7 @@ ifndef ROMDOS
 	getdseg	<ss>				; cli in entry of routine
 else
 	mov	ds, cs:[BioDataSeg]
-	assume	ds:bdata
+	assume	ds:Bios_Data
 
 	mov	ss, ds:[DosDataSg]
 	assume	ss:DOSDATA
@@ -564,7 +564,7 @@ ifndef ROMDOS
 	getdseg	<ss>				; cli in entry of routine
 else
 	mov	ds, cs:[BioDataSeg]
-	assume	ds:bdata
+	assume	ds:Bios_Data
 
 	mov	ss, ds:[DosDataSg]
 	ASSUME	SS:DOSDATA
@@ -636,7 +636,7 @@ EndProc ABSDWRT
 
 ;----------------------------------------------------------------------------
 ;
-; Procedure Name : GETBP
+; Procedure Name : GetDriveBP
 ;
 ; Inputs:
 ;	AL = Logical unit number (A = 0)
@@ -651,8 +651,8 @@ EndProc ABSDWRT
 ;
 ;----------------------------------------------------------------------------
 
-Procedure GETBP,NEAR
-	DOSAssume   <DS>,"GetBP"
+Procedure GetDriveBP,NEAR
+	DOSAssume   <DS>,"GetDriveBP"
 
 	PUSH	AX
 	ADD	AL,1			; No increment; need carry flag
@@ -693,7 +693,7 @@ entry	GOTDPB
 	MOV	WORD PTR [THISDPB],BP
 	MOV	WORD PTR [THISDPB+2],ES
 	return
-EndProc GetBP
+EndProc GetDriveBP
 
 BREAK <SYS_RET_OK SYS_RET_ERR CAL_LK ETAB_LK set system call returns>
 
@@ -994,7 +994,7 @@ check_win:
 	je	Win386_Msg
 
 next_i2f:
-	jmp	bios_i2f
+	jmp	near ptr i2f_handler
 
 
 ;	IRET				; This assume that we are at the head

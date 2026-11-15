@@ -19,7 +19,7 @@ LF equ 10
 stacksw equ 1
 	public  dosinfo
 	public  dos_temp_location
-	public  dosinit
+	public  DosInitOffset
 	public  sysinit_reserve_count
 	public  current_dos_location
 	public  device_list
@@ -71,7 +71,7 @@ endif
 dosinfo	dd	0		; address of the DOS Sysini Variables
 
 dos_temp_location label	dword
-dosinit	dw	0
+DosInitOffset	dw	0
 sysinit_reserve_size equ 12D5h          ; DOS image load segment
 sysinit_reserve_count label word
 current_dos_location dw 0

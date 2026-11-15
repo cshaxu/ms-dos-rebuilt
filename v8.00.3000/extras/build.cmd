@@ -1,7 +1,8 @@
 @echo off
 if /i "%~1"=="io-baseline" goto io_baseline
-if /i "%~1"=="io-kernel" goto io_kernel
-if /i "%~1"=="io-bios" goto io_bios
+if /i "%~1"=="io-core" goto io_core
+if /i "%~1"=="io-kernel" goto io_core
+if /i "%~1"=="io-bios" goto io_core
 setlocal EnableExtensions DisableDelayedExpansion
 pushd "%~dp0.."
 if errorlevel 1 goto entry_failed
@@ -227,10 +228,6 @@ exit /b 1
 call "%~dp0tools\iobase.cmd"
 exit /b %errorlevel%
 
-:io_kernel
-call "%~dp0tools\iobase.cmd" kernel
-exit /b %errorlevel%
-
-:io_bios
-call "%~dp0tools\iobase.cmd" bios
+:io_core
+call "%~dp0tools\iobase.cmd" core
 exit /b %errorlevel%

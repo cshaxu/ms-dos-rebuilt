@@ -6,6 +6,10 @@ set TEMP=C:\tools
 cd \messages
 buildidx USA.MSG > idx.log
 if errorlevel 1 goto failed
+cd \dos
+echo Building DOS resident objects > C:\progress.txt
+nmake resident > make.log
+if errorlevel 1 goto failed
 cd \bios
 echo Building built-in HIMEM > C:\progress.txt
 nmake /f ..\dev\himem\makefile all > himem.log

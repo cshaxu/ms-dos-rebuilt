@@ -428,7 +428,7 @@ DDHighInfo	ends
 
 	extrn   dosinfo:dword
 	extrn   dos_temp_location:dword
-	extrn   dosinit:word
+	extrn   DosInitOffset:word
 	extrn   sysinit_reserve_count:word
 	extrn   current_dos_location:word
 	extrn   device_list:dword
@@ -650,13 +650,13 @@ int4f_vector_ready:
 ifndef ROMDOS
 
 	mov	ax,ds:word ptr 3	; get offset of dos
-	mov	[dosinit],ax		; that's the entry point offset
+	mov	[DosInitOffset],ax		; that's the entry point offset
 	.286
 	shr     ax,4
 	.8086
 	sub	[current_dos_location],ax
 else
-	mov	[dosinit], 0		; entry to init is at zero
+	mov	[DosInitOffset], 0		; entry to init is at zero
 
 endif ; ROMDOS
 
@@ -2102,7 +2102,7 @@ MovDOS	proc	near
 	rep	movsb
 	pop	di
 	mov	bx,di
-	mov	ax, dosinit			; get the offset at which DOS
+	mov	ax, DosInitOffset			; get the offset at which DOS
 						;  wants to run
 	sub	ax, bx
 	test	al,0fh

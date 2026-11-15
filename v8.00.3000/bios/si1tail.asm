@@ -325,7 +325,7 @@ DDHighInfo	ends
 
 	extrn	dosinfo:dword
 	extrn	dos_temp_location:dword
-	extrn	dosinit:word
+	extrn	DosInitOffset:word
 	extrn	sysinit_reserve_count:word
 	extrn	current_dos_location:word
 	extrn	device_list:dword

@@ -174,7 +174,7 @@ entry	NEXTENT
 	Assert	ISDPB,<<WORD PTR THISDPB+2>,<WORD PTR THISDPB>>,"NextEnt"
 	LES	BP,[THISDPB]
 ASSUME	ES:NOTHING
-	CALL	NEXTENTRY
+	CALL	DirNextEntry
 	JNC	SRCH
 	JMP	SHORT SETESRET
 
@@ -198,7 +198,7 @@ LfnSkipEntry:
 LfnNextEntry:
 	ASSUME	DS:DOSDATA
 	LES	BP,[THISDPB]
-	CALL	NEXTENTRY
+	CALL	DirNextEntry
 	JNC	LfnSearchEntry
 	JMP	SHORT SETESRET
 
@@ -262,7 +262,7 @@ EndProc Search
 
 
 
-Break	<NEXTENTRY -- STEP THROUGH DIRECTORY>
+Break	<DirNextEntry -- STEP THROUGH DIRECTORY>
 ;----------------------------------------------------------------------------
 ;
 ; Procedure Name : NEXTENTRY
@@ -274,9 +274,9 @@ Break	<NEXTENTRY -- STEP THROUGH DIRECTORY>
 ;	Carry set if no more.
 ;----------------------------------------------------------------------------
 
-Procedure NextEntry
+Procedure DirNextEntry
 	.386
-	DOSAssume   <DS>,"NextEntry"
+	DOSAssume   <DS>,"DirNextEntry"
 
 	MOV	AX,[LASTENT]
 	CMP	AX,[ENTLAST]
@@ -337,7 +337,7 @@ ASSUME	DS:NOTHING
 	XOR	BX,BX
 	JMP	short SETENTRY
 
-EndProc NextEntry
+EndProc DirNextEntry
 
 ;----------------------------------------------------------------------------
 ;

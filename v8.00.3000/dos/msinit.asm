@@ -64,7 +64,7 @@
 
 
 
-BData	segment	at 70h
+Bios_Data	segment word public 'Bios_Data'
 
 	extrn	DosDataSg:word		; using this to access the data seg
 
@@ -72,7 +72,7 @@ ifdef ROMDOS
 	extrn	DOS_Res:word
 endif
 
-BData	ends
+Bios_Data	ends
 
 ;
 ; This macro gets the DOS data segment value and puts it in the specified
@@ -83,7 +83,7 @@ InitGetdseg	macro 	r
 
 ifdef ROMDOS
 	mov	r, cs:[InitBioDataSeg]
-	assume	r:bdata
+	assume	r:Bios_Data
 	mov	r, r:[DosDataSg]
 else
 	mov	r, cs:[DosDseg]
@@ -269,7 +269,7 @@ ENDIF
 	mov	ds,ax
 	mov	ax,70h			; BIOS data segment
 	mov	es,ax
-	assume	es:BData
+	assume	es:Bios_Data
 	mov	es,es:[DosDataSg]
 	assume	es:nothing
 	xor	si,si

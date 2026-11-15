@@ -117,9 +117,9 @@ public	retexepatch
 ifdef	ROMEXEC
 ifndef	JAPAN
 
-BDATA	segment at 70h
+Bios_Data	segment word public 'Bios_Data'
 	extrn	RomStartAddr	:word
-BDATA	ends
+Bios_Data	ends
 
 endif ; JAPAN
 endif ; ROMEXEC
@@ -203,6 +203,7 @@ DosData ENDS
 ; =========================================================================
 
 DOSCODE	SEGMENT
+	extrn	i2f_handler:near
 	ASSUME	SS:DOSDATA,CS:DOSCODE
 
 
@@ -510,8 +511,8 @@ EXEC001E:
         push ax
         mov ax,4A30h
         pushf
-        DB 9Ah                  ; Far call to low DOS entry 0070:0005
-        DW 5,70h
+        push cs
+        call i2f_handler
         pop ax
 Exec_Args:
 	mov	Exec_BlkL,BX		; stash args

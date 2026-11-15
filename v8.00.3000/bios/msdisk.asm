@@ -137,7 +137,7 @@ multrk_off2	equ	00000001b	;user specified multitrack=off.
 
 	tocode
 
-	public	step_drv,accesscount,tim_drv,medbyt,wrtverify,rflag,seccnt
+	public	step_drv,accesscount,tim_drv,medbyt,wrtverify,rflag,BiosSecCnt
 	public	save_eot,eot,dpt
 	public	cursec,curhd,curtrk,spsav,temp_h,start_sec_h,saved_word
 	public	vretry_cnt,soft_ecc_cnt,set_id_flag,fat_12_id,fat_16_id,vol_no_name,sm92
@@ -149,7 +149,7 @@ medbyt		db	?
 wrtverify	label	word
 rflag		db	romread 	;2 for read, 3 for write
 verify		db	0
-seccnt		dw	0
+BiosSecCnt		dw	0
 save_eot	db	?
 eot		db	9
 dpt		dd	?
@@ -1303,7 +1303,7 @@ diskio_allow:
 	TESTB	es:[di].bds_flags,unformatted_media
 	jnz	unformatteddrive
 
-	mov	cs:[seccnt],cx		;save sector count
+	mov	cs:[BiosSecCnt],cx		;save sector count
 	mov	cs:[spsav],sp		; save sp
 
 ; ensure that we are trying to access valid sectors on the drive
@@ -1414,7 +1414,7 @@ skip_setup:
 ; violations here.  not true.  we perform the operation as if everything is
 ; symmetric; let the int 13 handler worry about the dma violations.
 
-	mov	ax,cs:[seccnt]
+	mov	ax,cs:[BiosSecCnt]
 	call	block
 	call	done			; cas - call/ret
 	ret
@@ -1678,7 +1678,7 @@ noverify:
 its_removable:
 	and	cl,03fh 		; eliminate cylinder bits from sector
 	xor	ah,ah
-	sub	cs:[seccnt],ax		; reduce count of sectors to go
+	sub	cs:[BiosSecCnt],ax		; reduce count of sectors to go
 	add	cl,al			; next sector
 	mov	cs:[cursec],cl
 	cmp	cl,byte ptr es:[di].BDS_BPB.BPB_SECTORSPERTRACK ; see if sector/track limit reached
@@ -1765,13 +1765,13 @@ dskerr_nochangeline:
 dochkagain:
 	call	again
 dskerr0:
-	jz	harderr
+	jz	BiosHardErr
 
 	TESTB	es:[di].bds_flags,fnon_removable
 	jnz	skip_timeout_chk
 
 	cmp	ah,80h			;timeout?
-	jz	harderr
+	jz	BiosHardErr
 
 skip_timeout_chk:
 	cmp	ah,0cch 		;write fault error?
@@ -1790,13 +1790,13 @@ dskerr	endp			; fall into harderr
 
 ;--------------------------------------------------------------------
 
-	public	harderr
-harderr	proc	near
+	public	BiosHardErr
+BiosHardErr	proc	near
 	assume	ds:Bios_Data,es:nothing
 
 	call	maperror
 
-harderr	endp				; fall into harderr2
+BiosHardErr	endp				; fall into harderr2
 
 ;--------------------------------------------------------------------
 
@@ -1807,7 +1807,7 @@ harderr2 proc	near
 	assume	ds:Bios_Data,es:nothing
 
 	mov	cs:[tim_drv],-1 		;force a media check through rom
-	mov	cx,cs:seccnt		;get count of sectors to go
+	mov	cx,cs:BiosSecCnt		;get count of sectors to go
 	mov	sp,cs:[spsav]		;recover entry stack pointer
 
 ; since we are performing a non-local goto, restore the disk parameters
@@ -1933,7 +1933,7 @@ ext_disk_dispatch proc near
 	ret
 ext_disk_selected:
 	add	sp,2
-	mov	ax,cs:[seccnt]
+	mov	ax,cs:[BiosSecCnt]
 	call	ext_disk_io
 	xor	ax,ax
 	ret
@@ -2019,7 +2019,7 @@ ext_write_fault:
 	mov	bp,1
 	jmp	short ext_retry
 ext_hard_error:
-	jmp	harderr
+	jmp	BiosHardErr
 ext_disk_io endp
 
 ; reset the drive and decrement bp, except for a media change error.

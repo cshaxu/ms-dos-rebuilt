@@ -40,11 +40,11 @@ extasw  =-I$(inc) $(debug_flags) $(MFLAGS) -D$(COUNTRY)
 
 !IFNDEF       BUILDER
 
-all: Build.IO $(dest) Copy.EM
+all: resident
 
 !ELSE
 
-all: Build.IO $(dest) $(bins)\$(dest2) $(cprs)\$(dest2) Copy.EM
+all: resident
 
 $(bins)\$(dest2): $(dest)
 	    copy $(dest) $(bins)\$(dest2)
@@ -464,8 +464,8 @@ mstable.obj mstable.lst: mstable.asm mssw.asm \
 	$(inc)\error.INC $(inc)\fastopen.inc $(inc)\syscall.inc \
 	$(inc)\version.inc
 
-msdos.bin: msdos.cl1 msdos.cl2 \
-    origin.obj msentry.obj msdata.obj mstable.obj msdisp.obj mscode.obj \
+resident: msdos.cl1 msdos.cl2 \
+    msentry.obj msdata.obj mstable.obj msdisp.obj mscode.obj \
     msdosme.obj time.obj getset.obj parse.obj misc.obj \
     misc2.obj crit.obj cpmio.obj cpmio2.obj fcbio.obj \
     fcbio2.obj search.obj path.obj ioctl.obj delete.obj \
@@ -478,13 +478,7 @@ msdos.bin: msdos.cl1 msdos.cl2 \
     share.obj lfn.obj exechot.obj idle.obj diskio.obj \
     disk2.obj disk3.obj dircmp.obj devcache.obj rom.obj \
     fat.obj buf.obj lockio.obj exepatch.obj msinit.obj \
-    makefile msdos.lnk
-	link $(link_opts) @msdos.lnk
-	reloc msdos.exe msdos.bin 0
-
-
-$(dest): msdos.bin
-	stripz msdos.bin $(dest)
+    makefile
 
 
 diskset.obj: diskset.asm $(inc)/buffer.inc $(inc)/dbcs.sw \
