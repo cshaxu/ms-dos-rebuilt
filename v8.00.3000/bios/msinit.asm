@@ -608,10 +608,11 @@ init_debug_vectors:
 
 	sti
 
+	.386
+
 ;	Determine the number of physical floppy drives. Some BIOSes only
 ;	report the number of drives in their equipment word.
 ;
-	.386
 	xor	cl,cl
 	mov	ah,8
 	mov	dl,0
@@ -733,8 +734,6 @@ org_key:
 	mov	dsktnum,al
 	xor	ax,ax
 	mov	hnum,al
-	.8086
-
 	mov	dl,80h
 	mov	ah,8
 	int	13h
@@ -801,9 +800,7 @@ got_more:
 
 	push	ds
 	push	es
-	.286
 	pusha
-	.8086
 	push	dx
 	xor	bx,bx
 	mov	ah,8
@@ -824,9 +821,7 @@ got_more:
 	mov	es:eot,al
 ext_eot_ok:
 	test	bl,fchangeline
-	.286
 	popa
-	.8086
 	pop	es
 	pop	ds
 	assume	es:nothing
@@ -835,18 +830,14 @@ ext_eot_ok:
 	or	bios_flags,2
 	jmp	short gotother
 standard_floppy_parms:
-	cmp	ch,0
-	jne	pfr_ok
-	mov	ch,39
-	mov	cl,9
-	mov	dh,1
-pfr_ok:
 	inc	dh
 	mov	num_heads,dh
+	push	cx
 	and	cl,3fh
 	mov	sec_trk,cl
+	pop	cx
 	xchg	ch,cl
-	xor	ch,ch
+	shr	ch,6
 	inc	cx
 	mov	num_cyln,cx
 	mov	cl,sec_trk
@@ -856,9 +847,7 @@ pfr_ok:
 	jbe	eot_ok
 	mov	es:eot,cl
 eot_ok:
-	.286
 	popa
-	.8086
 	pop	es
 	assume	es:nothing
 	pop	ds
@@ -893,9 +882,7 @@ got96:
 	mov	dh,ff96tpi
 	jmp	short nextdrive
 noparmsfromrom:
-	.286
 	popa
-	.8086
 	pop	es
 	pop	ds
 	mov	ah,15h
@@ -955,9 +942,6 @@ done_drives:
 ; set up all the hard drives in the system
 
 dohard:
-	.386
-	or	ecx,-1
-	.8086
 	mov	dh,hnum
 	or	dh,dh
 	jz	init_cpu_ecx
@@ -1019,9 +1003,7 @@ init_cpu_ecx:
 configdone:				;di is final ending address of msbio.
 
 	add	di,15
-	.286
 	shr	di,4
-	.8086
 	add	di,datagrp
 	mov	[dosdatasg],di
 	mov	ax,drvfat
@@ -1286,12 +1268,10 @@ sethard_bpb:
 	jne	sethard_fat16
 	cmp	byte ptr ds:[bx+42h],ext_boot_signature
 	jne	sethard_badboot
-	.386
 	cmp	[bx].EXT_BOOT_BPB.BPB_BIGSECTORSPERFAT,0
 	je	sethard_badboot
 	cmp	[bx].EXT_BOOT_BPB.BPB_ROOTCLUS,2
 	jb	sethard_badboot
-	.8086
 	cmp	[bx].EXT_BOOT_BPB.BPB_FSVER,0
 	ja	sethard_badboot
 	inc	cs:init_fat32
@@ -1471,8 +1451,6 @@ set2_read:
 	call	init_ext_read
 	jmp	short set2_read_done
 set2_chs_read:
-	.386
-	cli
 	movzx	ebx,byte ptr es:[di].BDS_BPB.BPB_SECTORSPERTRACK
 	movzx	eax,ax
 	shl	edx,16
@@ -1485,7 +1463,6 @@ set2_chs_read:
 	xor	edx,edx
 	div	ebx
 	cmp	eax,1024
-	sti
 	ja	setret			; exceeds the limit of int 13h
 
 ; dl is head.
@@ -1676,8 +1653,7 @@ copybpb:
 	cmp	[bx].EXT_BOOT_BPB.BPB_FSVER,0
 	ja	copybpb_nonfat
 	cmp	cs:init_fat32,0
-	jne	copybpb_fat32
-	jmp	toobig_ret
+	jz	near ptr toobig_ret
 copybpb_fat32:
 	or	cs:fbigfat,fat32_flag
 	jmp	short copybpb_fat
@@ -1735,8 +1711,6 @@ already_nonz:
 
 copybpb_fat:				; fat system
 	lea	si,[bx].EXT_BOOT_BPB
-	.386
-	cli
 	movzx	eax,word ptr ds:[si].BPB_TOTALSECTORS
 	or	ax,ax
 	jnz	copy_totsec
@@ -1789,16 +1763,13 @@ fat_sectors:
 	sub	eax,ebx
 fat_clusters:
 	pop	bx
-	push	ecx
 	movzx	ecx,ds:[si].BPB_SECTORSPERCLUSTER
 	mov	es:[di].BDS_BPB.BPB_SECTORSPERCLUSTER,cl
 	xor	edx,edx
 	div	ecx
-	pop	ecx
 	cmp	eax,4096-10
 	jb	copymediaid
 	cmp	eax,65536-10
-	sti
 	jb	fat_word_entries
 	test	cs:fbigfat,fat32_flag
 	jnz	copymediaid
@@ -1808,7 +1779,6 @@ toobig_ret:
 fat_word_entries:
 	or	cs:fbigfat,fbig
 copymediaid:
-	sti
 	mov	bp,offset mov_media_ids
 	call	call_bios_code
 	jmp	massage_bpb
@@ -1821,8 +1791,6 @@ unknown:
 ;     but we should try and read it anyway.
 
 unknown3_0:				;skip setting unformatted_media bit
-	.386
-	cli
 	mov	eax,dword ptr es:[di].BDS_BPB.BPB_BIGTOTALSECTORS
 	mov	si,offset datagrp:disktable2
 	cmp	cs:init_fat32,0
@@ -1863,7 +1831,6 @@ gotparm:
 ;   it's sectors/cluster >= 16 which will never be in this case.)
 ;   so in this case the total sector count fits in ax.
 
-	sti
 	xor	bx,bx
 	mov	bl,ch
 	dec	bx
@@ -1906,7 +1873,6 @@ fat_divisor:
 	dec	eax
 	xor	edx,edx
 	div	ebx
-	push	ecx
 	xor	ecx,ecx
 	test	cs:fbigfat,fat32_flag
 	jz	fat_store_size
@@ -1914,11 +1880,6 @@ fat_divisor:
 fat_store_size:
 	mov	es:[di].BDS_BPB.BPB_SECTORSPERFAT,ax
 	mov	es:[di].BDS_BPB.BPB_BIGSECTORSPERFAT,ecx
-	sti
-	pop	ecx
-	.8086
-
-; now, set the default filesys_id, volume label, serial number
 
 	mov	bl,cs:fbigfat
 	mov	es:[di].bds_fatsiz,bl		; set size of fat on media
@@ -2038,8 +1999,6 @@ next_bds:
 	cmp	bl,ffhardfile
 	jnz	nothardff
 
-	.386
-	cli
 	movzx	eax,es:[di].BDS_BPB.BPB_TOTALSECTORS
 	or	ax,ax
 	jnz	get_ccyl
@@ -2052,8 +2011,6 @@ get_ccyl:
 	pop	eax
 	xor	edx,edx
 	div	ecx
-	sti
-	.8086
 	or	dx,dx
 	jz	no_cyl_rnd		; came out even
 	inc	ax			; round up
@@ -2079,8 +2036,6 @@ nothardff:
 	jnz	not_process_other
 
 process_other:
-	.386
-	cli
 	movzx	eax,es:[di].BDS_RBPB.BPB_HEADS
 	movzx	ecx,es:[di].BDS_RBPB.BPB_SECTORSPERTRACK
 	mul	ecx
@@ -2153,8 +2108,6 @@ again:
 	inc	ax
 
 no_round_up:
-	sti
-	.8086
 	mov	es:[di].BDS_RBPB.BPB_SECTORSPERFAT,ax
 	jmp	short go_to_next_bds
 
@@ -2301,7 +2254,6 @@ ext_partition_lba	db	0
 find_mini_partition proc near
 	assume	ds:nothing,es:nothing
 
-	.386
 	push	bx
 	lea	bx,[bx+1c2h]		; first partition type
 	mov	cs:ext_partition_lba,0
@@ -2328,7 +2280,6 @@ fmpgot:
 	call	dmax_check
 	jnc	fmpret
 	mov	di,cs:end_of_bdss
-	mov	es:[di].bdsm_ismini,1
 	or	es:[di].bds_flags,fnon_removable
 	mov	es:[di].bds_formfactor,ffhardfile
 	mov	cs:fbigfat,0
@@ -2343,8 +2294,7 @@ fmpgot:
 	cmp	word ptr [bx+10],0
 	ja	fmpgot_cont
 	cmp	word ptr [bx+8],64
-	jae	fmpgot_cont
-	jmp	fmpret
+	jb	near ptr fmpret
 fmpgot_cont:
 	cmp	cs:ext_partition_lba,0
 	jz	fmp_chs
@@ -2397,7 +2347,6 @@ fmpnextchain:
 fmpret:
 	pop	bx
 	ret
-	.8086
 find_mini_partition endp
 
 ;--------------------------------------------------------------------
@@ -2576,30 +2525,7 @@ ext_floppy_done:
 	ret
 ext_floppy_parms endp
 
-print_init proc	near
-	assume	ds:nothing,es:nothing
 
-	cbw
-	mov	dx,ax			; get printer port number into dx
-	mov	ah,1			;initalize printer port
-	int	17h			;call rom-bios routine
-	ret
-
-print_init endp
-
-;--------------------------------------------------------------------
-
-aux_init proc	near
-	assume	ds:nothing,es:nothing
-
-	cbw
-	mov	dx,ax
-	mov	al,rsinit		;2400,n,1,8 (msequ.inc)
-	mov	ah,0			;initalize aux port
-	int	14h			;call rom-bios routine
-	ret
-
-aux_init endp
 
 ;	M038 -- end additions
 
@@ -2620,6 +2546,7 @@ ifndef ROMDOS
 endif	; end of non-ROMDOS-only code
 
 
+	.8086
 BiosInitEnd label byte
 
 Bios_Data_Init	ends
