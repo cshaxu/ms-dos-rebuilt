@@ -83,6 +83,7 @@ Bios_Code	segment
 	irp	aa,<08,09,0a,0b,0c,0d,0e,70,72,73,74,76,77>
 	extrn	int19old&aa:dword
 	endm
+	extrn	DosInit:far
 	extrn	BCode_start:near
 	extrn	BCode_end:near
 
@@ -231,89 +232,46 @@ NullBackdoor	proc	far
 
 NullBackdoor	endp
 
-	public	move_myself
-move_myself:
-	cld			; set up move
-	xor	si,si
-	mov	di,si
 
-	mov	cx,cs:[memory_size]
+; Move SYSINIT and its messages below the top of conventional memory.
+; Keep the decompressed resident BIOS and DOS at their linked addresses.
+;
+SYSINIT_IMAGE_BYTES equ 0c9d0h
+SYSINIT_STACK_BYTES equ 2200h
+
+	public	SI_start,move_myself
+SI_start label far
+move_myself:
+	.386
+	cld
 	push	cs
 	pop	ds
 	assume	ds:sysinitseg
-	mov	[sysinit_memory_size],cx
-	dec	cx
+	mov	bx,[memory_size]
+	mov	[sysinit_memory_size],bx
+	dec	bx
 	cmp	[RPLMemTop],0
 	je	short dos7_memory_ready
-	mov	cx,[RPLMemTop]
-	dec	cx
+	mov	bx,[RPLMemTop]
+	dec	bx
 dos7_memory_ready:
-	mov	ax,word ptr [SI_end+6]
-	add	ax,15
-	and	ax,0fff0h
-	mov	[sysinit_extra_bytes],ax
-	add	ax,offset SI_end+200h  ; reserve an additional 200h bytes
-	.286
-	shr	ax,4
+	mov	edx,SYSINIT_IMAGE_BYTES+SYSINIT_STACK_BYTES
+	mov	ax,dx
+	shr	dx,4
+	sub	bx,dx
+	mov	es,bx
+	mov	ss,bx
+	mov	sp,ax
+	xor	si,si
+	mov	di,si
+	mov	es,bx
+	mov	cx,SYSINIT_IMAGE_BYTES
+	shr	cx,2
+	rep	movsd
+	push	bx
+	push	offset sysin
+	retf
 	.8086
-	sub	cx,ax
-
-; we need to leave room for the DOS and (if not ROMDOS) for the BIOS
-; code above sysinit in memory
-;
-	assume	ds:sysinitseg
-	mov	ax,[dos_image_paras]
-	cmp	ax,0a00h
-	ja	short dos_reserve_ready
-	mov	ax,0a00h
-	mov	[dos_image_paras],ax
-dos_reserve_ready:
-	sub	cx,ax
-	assume	ds:nothing
-
-ifndef ROMDOS
-	assume	ds:sysinitseg
-	mov	ax,Bios_Code
-	mov	es,ax
-	assume	es:Bios_Code
-	mov	ax,word ptr es:[BCode_end+6]
-	add	ax,1fh
-	and	ax,0fff0h
-	mov	[bios_extra_bytes],ax
-	add	ax,offset BCode_end
-	.286
-	shr	ax,4
-	.8086
-	sub	cx,ax
-	assume	ds:nothing,es:nothing
-endif ; ROMDOS
-
-	push	cx
-	push	di
-	push	si
-	call	boot_compressed_reserve
-	pop	si
-	pop	di
-	pop	cx
-	assume	ds:sysinitseg
-	mov	[compressed_reserve],ax
-	sub	cx,ax
-	sub	[sysinit_memory_size],ax
-	assume	ds:nothing
-	mov	es,cx			; offset where sysinit will be located
-
-	mov	cx,offset SI_end
-	assume	ds:sysinitseg
-	add	cx,[sysinit_extra_bytes]
-	assume	ds:nothing
-	shr	cx,1			;divide by 2 to get words
-	rep	movsw			;relocate sysinit
-
-	push	es			; push relocated segment
-	mov	ax,offset sysin
-	push	ax			; push relocated entry point
-
-	retf				; far jump to relocated sysinit
 
 	assume	cs:sysinitseg,ds:nothing,es:nothing,ss:nothing
 
@@ -572,13 +530,11 @@ has_installed equ 00000010b
 public sysin
 sysin:
 	assume	ds:nothing,es:nothing,ss:nothing
-	push    di
-	push    cs
-	pop     ds
-	assume  ds:sysinitseg
-	push    cs
-	pop     es
-	mov     bx,offset dskdrvs
+	.386
+	push	di
+	mov	ds,bx
+	assume	ds:sysinitseg
+	mov	bx,offset dskdrvs
 	mov     di,offset fdrive1-6
 	sub     dx,dx
 bds_prepare_next:
@@ -599,9 +555,12 @@ bds_prepare_next:
 	push    di
 	add     di,size bds_struc
 	mov     cx,offset dskdrvs
-	sub     cx,si
-	rep     movsb
-	pop     di
+	sub	cx,si
+	shr	cx,1
+	rep	movsw
+	adc	cx,cx
+	rep	movsb
+	pop	di
 bds_prepare_link:
 	sub     [di],dx
 	mov     di,[di]
@@ -613,13 +572,11 @@ bds_prepare_done:
 	pop     di
 	mov     word ptr [disksector_ptr],di
 	mov     word ptr [disksector_ptr+2],es
-	mov     cx,word ptr [BiosOld4F]
-	mov     ax,word ptr [BiosOld4F+2]
-	mov     word ptr [int4f_old],cx
-	mov     word ptr [int4f_old+2],ax
+	mov	eax,dword ptr [BiosOld4F]
+	mov	dword ptr [int4f_old],eax
 	mov     si,offset int4f_entry
-	or      ax,cx
-	jnz     short int4f_vector_ready
+	or	eax,eax
+	jnz	short int4f_vector_ready
 	mov     si,offset intret
 int4f_vector_ready:
 	xor     ax,ax
@@ -631,181 +588,51 @@ int4f_vector_ready:
 	assume  ds:nothing
 
 
-; first move the MSDOS.SYS image up to a harmless place 
-; on top of our new sysinitseg
 
-	mov     ax,offset SI_end+200h  ; temporary disk sector buffer
-	add     ax,cs:[sysinit_extra_bytes]
-	.286
-	shr     ax,4
-	.8086
-	mov	cx,cs			; pick a buffer for msdos above us
-	add	ax,cx
+;	Prepare the low DOS initialization workspace, then call the linked
+;	resident kernel. The device list and memory size come from MSINIT.
+;
+	mov	ds,cs:[BCodeSeg]
+	assume	ds:Bios_Code
+	mov	word ptr [sysinit_seg],cs
+	mov	ax,Bios_Data
+	mov	ds,ax
+	assume	ds:Bios_Data
+	or	byte ptr [bios_flags+1],80h
+
+	sub	eax,eax
 	mov	es,ax
-	xor	si,si
-	mov	di,si
-
-	mov	ds,[current_dos_location] ; where it is (set by msinit)
-
-	assume	ds:nothing
-
-	mov     cx,cs:[dos_image_size]
-	shr     cx,1
-	rep     movsw
-	adc     cx,cx
-	rep     movsb
-	mov	[current_dos_location],es
-
-; The DOS code is ORGed at a non-zero value to allow it to be located in
-; HIMEM.  Thus, the DOS segment location must be adjusted accordingly.
-; If this is ROMDOS, however, only the init code is loaded into RAM, so
-; this ORG is not done.  The entry point is at offset zero in the segment.
-
-ifndef ROMDOS
-
-	mov	ax,ds:word ptr 3	; get offset of dos
-	mov	[DosInitOffset],ax		; that's the entry point offset
-	.286
-	shr     ax,4
-	.8086
-	sub	[current_dos_location],ax
-else
-	mov	[DosInitOffset], 0		; entry to init is at zero
-
-endif ; ROMDOS
-
-
-; If this is not ROMDOS, then the BIOS code is moved to the top of memory
-; until it is determined whether it will be running in HIMEM or not.
-
-ifndef ROMDOS
-
-; now put Bios_Code up on top of that.  Assume Bios_Code + dossize < 64k
-
-	mov	ax,es
-	add     ax,cs:[dos_image_paras]
-	mov     es,ax
-	mov     ds,cs:[BCodeSeg]
-	assume  ds:nothing
-	mov     si,offset BCode_start
-	mov     di,si
-	mov     cx,offset BCode_end
-	add     cx,cs:[bios_extra_bytes]
-	sub     cx,si
-	shr     cx,1
-	rep     movsw
-	mov     cs:[temp_bcode_seg],ax
-	call    reinit_bios_code
-; Place the boot image in the reserved space following the BIOS.
-	mov     ax,di
-	call    pararound
-	mov     di,es
-	add     di,ax
-	mov     cs:[compressed_dest_segment],di
-	mov     cx,cs:[compressed_reserve]
-	mov     cs:[compressed_reserved_paras],cx
-	mov     cx,cs:[boot_load_segment]
-	jcxz    boot_move_done
-	cmp     cx,cs:[compressed_reserve]
-	ja      boot_move_done
-	sub     si,si
-	mov     ds,cs:[boot_reloc_segment]
-	mov     es,di
-	sub     di,di
-	mov     cs:[boot_reloc_segment],es
-	mov     ax,cx
-boot_move_block:
-	mov     cx,1000h
-	cmp     cx,ax
-	jb      short boot_move_size_ready
-	mov     cx,ax
-boot_move_size_ready:
-	sub     ax,cx
-	.286
-	shl     cx,3
-	.8086
-	rep     movsw
-	mov     cx,ds
-	add     cx,1000h
-	mov     ds,cx
-	mov     cx,es
-	add     cx,1000h
-	mov     es,cx
-	test    ax,ax
-	jnz     boot_move_block
-boot_move_done:
-
-endif	; not ROMDOS
-
-	mov     ds,cs:[BCodeSeg]       ; install temporary HMA callback
-	assume  ds:Bios_Code
-	mov     word ptr [sysinit_seg],cs
-	mov     ax,Bios_Data
-	mov     ds,ax
-	assume  ds:Bios_Data
-	or      byte ptr [bios_flags+1],80h ; config allocation active
-
-;	now call dosinit while it's in its temporary home
-
-	cli
-	mov     ax,cs
-	mov     ss,ax
-	mov     sp,offset locstack
-	jmp     short locstack
-locstack label near
-	sti
-; Prepare the DOS initialization workspace below the boot sector.
-	sub     ax,ax
-	mov     es,ax
-	mov     di,600h
-	push    di
-	mov     cx,80h
-	rep     stosw
-	pop     di
-	mov     cx,5
+	mov	di,600h
+	mov	cx,40h
+	rep	stosd
+	mov	di,600h
+	mov	cx,5
+	mov	eax,204e4f43h		; 'CON '
 dosinit_con_entry:
-	mov     ax,4f43h
-	stosw
-	mov     ax,204eh
-	stosw
-	add     di,37h
-	loop    dosinit_con_entry
-	lds     si,cs:[device_list]
-	mov     dx,cs:[memory_size]
+	stosd
+	add	di,37h
+	loop	dosinit_con_entry
 
-
-; This call to DOSINIT will relocate the DOS data from its present location
-; at the top of memory, to its final location in low memory just above the
-; BIOS data.  It will then build important DOS data structures in low 
-; memory following the DOS data.  It returns (among many other things) the
-; new starting address of free memory.
-
-	mov     bx,Bios_Data
-	mov     ax,0505h
-	call	[dos_temp_location]	; call dosinit
-	mov     word ptr cs:[config_access_table],bx
-	mov     word ptr cs:[config_access_table+2],es
-					;es:di -> sysinitvars_ext
-
-	mov	[def_php],ds		; save pointer to PSP
-	mov	[hi_doscod_size],ax	; size of doscode (including exepatch)
-	mov	[lo_doscod_size],cx	; (not including exepatch)
-	mov	[dos_segreinit],dx	; save offset of segreinit
-
-	mov	ax,word ptr es:[di.sysi_initvars]
-	mov	word ptr dosinfo,ax
-	mov	ax,word ptr es:[di.sysi_initvars+2]
-	mov	word ptr [dosinfo+2],ax ;set the sysvar pointer
-
-	mov	ax,word ptr es:[di.sysi_country_tab]
-	mov	word ptr [sysi_country],ax
-	mov	ax,word ptr es:[di.sysi_country_tab+2]
-	mov	word ptr [sysi_country+2],ax ;set the sysi_country pointer
-
-	mov     ax,cs:[current_dos_location]
-	mov     cs:[dos_segreinit+2],ax
-	add     bx,20h
-	mov     word ptr cs:[config_device_table_ptr],bx
+	lds	si,cs:[device_list]
+	mov	dx,cs:[memory_size]
+	mov	bx,Bios_Data
+	mov	ax,0448h
+	call	DosInit
+	mov	cs:[def_php],ds		; PSP supplied by DOS
+	push	cs
+	pop	ds
+	assume	ds:sysinitseg
+	mov	word ptr [config_access_table],bx
+	mov	word ptr [config_access_table+2],es
+	mov	[hi_doscod_size],ax
+	mov	[lo_doscod_size],cx
+	mov	eax,es:[di.sysi_initvars]
+	mov	dosinfo,eax
+	mov	eax,es:[di.sysi_country_tab]
+	mov	sysi_country,eax
+	add	bx,20h
+	mov	word ptr [config_device_table_ptr],bx
+	.8086
 
 ; Initialize the localized responses used by SYSINIT and DOS.
 	mov     ah,GET_IN_VARS

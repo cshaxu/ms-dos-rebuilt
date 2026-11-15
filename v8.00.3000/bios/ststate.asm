@@ -12,6 +12,7 @@ break	macro	arg
 Bios_Data	segment byte public 'bios_data'
 Bios_Data	ends
 Bios_Code	segment byte public 'CODE'
+	extrn	seg_reinit:far
 Bios_Code	ends
 sysinitseg segment byte public 'system_init'
 CR equ 13
@@ -80,7 +81,7 @@ device_list dd	0
 
 sysi_country dd	0			; pointer to country table in dos
 
-dos_segreinit	dw	0,0		; room for dword
+dos_segreinit	dw	offset Bios_Code:seg_reinit,Bios_Code
 
 lo_doscod_size	dw	0		; dos code size when in low mem
 hi_doscod_size	dw	0		; dos code size when in HMA

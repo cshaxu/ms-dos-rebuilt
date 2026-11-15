@@ -1761,10 +1761,6 @@ bdss	BDS_STRUC (2+max_mini_dsk_num) dup (<-1>)	;currently max. 25
 bds_count dw	0
 dskdrvs dw	(4+2+max_mini_dsk_num) dup (0) ; pointers to drive BPBs
 
-	extrn	move_myself:near
-	public	SI_start
-SI_start:
-	jmp	move_myself
 
 sysinitseg	ends
 
