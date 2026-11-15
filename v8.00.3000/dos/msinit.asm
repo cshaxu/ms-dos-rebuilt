@@ -174,7 +174,7 @@ DOSCODE	SEGMENT
 	extrn	command:near
 	extrn	absdrd:near
 	extrn	absdwrt:near
-	extrn	divov:near
+	extrn	DivOvEntry:near
 	extrn	stay_resident:near
 
 	extrn	lirett:near
@@ -264,18 +264,9 @@ endif ; ROMDOS
 ; pointer to the BIOS data segment that will be available just to the
 ; initialization code
 
+IFDEF ROMDOS
 InitBioDataSeg	dw	70H
-
-
-; Convert AX from a number of bytes to a number of paragraphs (round up).
-ParaRound	proc	near
-	db	083h,0c0h,15		; ADD AX,15 (signed immediate)
-	rcr	ax, 1
-	.186
-	shr	ax, 3
-	.8086
-	ret
-ParaRound	endp
+ENDIF
 
 
 ;
@@ -388,27 +379,21 @@ Instance_init_done:
 	stosw				; device pointer in devptr
 	mov	ax,ds
 	stosw
-	xor	ax,ax
-	mov	WORD PTR es:[di+sf_firclus32-sf_firclus],ax
-	mov	WORD PTR es:[di+sf_firclus_hi-sf_firclus],ax
+	.386
+	xor	eax,eax
+	mov	DWORD PTR es:[di+sf_firclus32-sf_firclus],eax
 	.errnz	sf_firclus-(sf_devptr+4)
-	stosw				; firclus
-	.errnz	sf_time-(sf_firclus+2)
-	stosw				; time
-	.errnz	sf_date-(sf_time+2)
+	stosd				; first cluster and time
 	stosw				; date
 	dec	ax
-	.errnz	sf_size-(sf_date+2)
-	stosw				; size
-	stosw
+	stosd				; size
 	inc	ax
-	.errnz	sf_position-(sf_size+4)
-	stosw				; position
-	stosw
-	add	di,sf_name - sf_cluspos ; point at name
-	add	si,sdevname		; point to name
-	mov	cx,4
-	rep	movsw			; name
+	stosd				; position
+	add	di,sf_name - sf_cluspos
+	add	si,sdevname
+	mov	cx,2
+	rep	movsd			; name
+	.8086
 	mov	cl,3
 	mov	al," "
 	rep	stosb			; extension
@@ -442,9 +427,9 @@ char_init_loop:
 perdrv:
 	lds	si,SDEVNEXT [si]	; next device
 	cmp	si,-1			; Q: any more devices
-	jne	InitBlockDevice
-	jmp	continit
-InitBlockDevice:
+	.386
+	JE	NEAR PTR continit
+	.8086
 	mov	ax,0
 	call	charinit		;  Y: initialize the device
 	test	[si.sdevatt],devtyp	; Q: is it a block device
@@ -577,7 +562,10 @@ continit:
 ;M060;	mov	bp,di
 
 	mov	ax,bp
-	call	ParaRound		; round up to segment
+	.386
+	add	ax,15			; round up to a paragraph
+	shr	ax,4
+	.8086
 
 	mov	dx,ds			; dx = dosdata segment
 	add	dx,ax			; dx = ds+ax first free segment
@@ -587,32 +575,7 @@ continit:
 	mov	word ptr [dskchret+3],ds
 
 
-; Patch in the segments of the interrupt vectors with current code segment.
-; Also patch in the segment of the pointers in the dosdata area.
-;
-; Note:  Formerly, temp_dosloc was initialized to -1 until after these
-; calls were done.  The procedure patch_misc_segments is called multiple
-; times, and relies on temp_dosloc being initialized to -1 as a flag
-; for the first invocation.  Thus, we must set it to -1 for this call.
-
-
-	mov	ax, [temp_dosloc]	; ax = segment to patch in 
-	mov	es, ax			; es = segment of DOS
-	call	patch_vec_segments	; uses AX as doscode segment
-	mov	[temp_dosloc], -1	; first call to patch_misc_segments
-	call	patch_misc_segments	; patch in segments for sharer and 
-					; other tables with seg in ES.
-	mov	[temp_dosloc], es	; put back segment of dos code
-
-
-
-;
-; We shall now proceed to set the offsets of the interrupt vectors handled
-; by DOS to their appropriate values in DOSCODE. In case the DOS loads in
-; HIMEM the offsets also will be patched to their appropriate values in the
-; low_mem_stub by seg_reinit.
-;				
-
+; Set the interrupt offsets in the resident code.
 	xor	ax,ax
 	mov	ds,ax
 	mov	es,ax
@@ -620,8 +583,7 @@ assume	ds:nothing,es:nothing
 
 	; set default divide trap offset
 
-	mov	word ptr ds:[0],offset doscode:divov	
-
+	mov	word ptr ds:[0],offset doscode:DivOvEntry
 	; set vectors 20-28 and 2a-3f to point to iret.
 
 	mov	di,intbase
@@ -690,10 +652,7 @@ iset3:
 
 	push	ss
 	pop	es
-	mov	ax,[temp_dosloc]
-	mov	word ptr ds:[4 * int_fatal_abort+2],ax
 	mov	word ptr ds:[02fh * 4],offset doscode:int2f
-	mov	word ptr ds:[02fh * 4+2],ax
 	push	ss
 	pop	ds
 assume	ds:dosdata,es:dosdata
@@ -706,9 +665,11 @@ assume	ds:dosdata,es:dosdata
 	xor	di, di			; point es:di at end of memory
 	mov	es, dx			; ...where psp will be
 	assume	es:nothing
-	xor	ax, ax
-	mov	cx, 80h			; psp is 128 words
-	rep	stosw			; zero out psp area
+	.386
+	xor	eax,eax
+	mov	cx,40h			; PSP is 64 doublewords
+	rep	stosd
+	.8086
         mov     ax,[endmem]
 
 ifndef ROMDOS	
@@ -818,11 +779,8 @@ endif
 	mov	ss,[user_ss]
 	assume	ss:nothing
 	mov	sp,ax
-	mov	dx,offset seg_reinit
 	mov	cx,offset doscode:exepatch_start
-	sub	cx,offset $startcode
-	mov	ax,offset InitBioDataSeg
-	sub	ax,offset $startcode
+	mov	ax,offset doscode:DosInit
 	mov	bx,offset dosdata:NlsBuffer+20
 
         retf
@@ -855,205 +813,20 @@ charinit:
 
 
 
-;-----------------------------------------------------------------------------
-;
-;	check_XMM: routine to check presence of XMM driver
-;
-;	Exit:   Sets up the XMM entry point in XMMcontrol in DOSDATA
-;
-;	USED:	none
-;
-;-----------------------------------------------------------------------------
-
-check_XMM proc	near
-;
-; determine whether or not an XMM driver is installed
-;
-	push	ax
-	mov	ax,XMM_MULTIPLEX SHL 8 + XMM_INSTALL_CHECK
-	int	2Fh
-	cmp	al,80h			; Q: installed
-	jne	short cXMM_no_driver	;   N: set error, quit
-;
-; get the XMM control functions entry point, save it, we
-; need to call it later.
-;
-	push	bx
-	push	dx
-	push	ds
-	push	es
-	mov	ax,XMM_MULTIPLEX SHL 8 + XMM_FUNCTION_ADDR
-	int	2Fh
-
-	InitGetdseg	<ds>
-
-	mov	word ptr [XMMcontrol], bx
-	mov	word ptr [XMMcontrol+2],es
-
-cXMMexit:
-	clc
-	pop	es
-	pop	ds
-	pop	dx
-	pop	bx
-	pop	ax
-	ret				; done
-;
-; set carry if XMM driver not present
-;
-cXMM_no_driver:
-	stc
-	pop	ax
-	ret
-
-check_XMM	endp
-
-
-
-;---------------------------------------------------------------------------
-;
-; Procedure Name : seg_reinit
-;
-; Inputs	 : ES has final dos code location
-;		   AX = 0 / 1
-;
-; Outputs	 : Patch in the sharer and other tables with seg in ES
-;		   if AX =0
-;		      if first entry
-;			 patch segment & offset of vectors with stub
-;			 and stub with segment in ES
-;		      else
-;			 patch stub with segment in ES
-;
-;		   else if AX = 1
-;			patch segment of vectors with segment in ES	
-;
-; NOTE		 : This routine can be called at most twice!
-;
-; Regs Mod.	 : es, ax, di, cx, bx
-;-----------------------------------------------------------------------------
-
-num_entry	db	0	; keeps track of the # of times this routine
-				; has been called. (0 or 1)
+; ES points to the final resident code segment.
+	PUBLIC seg_reinit
 seg_reinit	proc	far
-
-	push	ds
-
-	InitGetdseg	<ds>
-	assume	ds:DOSDATA
-
-	call	patch_misc_segments	; patch in segments for sharer and 
-					; other tables with seg in ES.
-
-	or	ax,ax
-	jne	patch_vec_seg		; patch vectors with segment in es
-
 	mov	ax,es
-	call	InitLowVectors		; patch vectors and low memory stub
-
-; For ROMDOS, this routine will only be called when the DOS wants to
-; use the HMA, so we don't want to check CS
-
-
-ifndef ROMDOS
-	cmp	ax, 0f000h		; Q: is the DOS running in the HMA
-	jb	short sr_done		; N: done
-endif
-	call	check_XMM		; Y: set up the XMS entry point
-	jc	sr_done			; failed to set up XMS do not do
-					; A20 toggling in the stub.
-	call	patch_in_nops		; enable the stub to check A20 state
-
-; M021-
-				
-					; set pointer to the routine that 
-					; patches buggy exepacked code.
-	mov	[fixexepatch], offset DOSCODE:exepatch
-
-	
-	jmp	short sr_done
-
-
-patch_vec_seg:				; patch vectors with segment in es
-
-	mov	ax, es
-	call	patch_vec_segments	; patch in DOSCODE for the segments
-					; NOTE we don't have to patch the 
-					; offsets as they have been already
-					; set to the doscode offsets at
-					; DOSINIT.
-
-sr_done:
-	mov	num_entry, 1
-	pop	ds
-	ret		
-
-seg_reinit	endp
-	
-
-
-;----------------------------------------------------------------------------
-;
-; Procedure Name : WhatCPUType
-;
-; Inputs	 : none
-;
-; Outputs	 : AL = 0 if CPU <  286
-;		      = 1 if CPU == 286
-;		      = 2 if CPU >= 386
-;
-; Regs. Mod.	 : AX
-;
-;----------------------------------------------------------------------------
-
-WhatCPUType	proc	near
-
-	get_cpu_type	; done with a MACRO which can't be generated > once
-
-	ret
-
-WhatCPUType	endp
-
-; Initialize low-memory vectors and the saved interrupt table.
-; DS = DOSDATA, AX = resident code segment. AX preserved.
-InitLowVectors	proc	near
-	assume	ds:dosdata
-	cmp	cs:num_entry,0
-	jnz	InitSavedVectors
-	push	ax
-	mov	ax,ds
-	call	patch_vec_segments
-	call	patch_offset
-	pop	ax
-InitSavedVectors:
+	call	InitLowVectors
 	push	ds
-	pop	es
-	mov	di,offset dosdata:dosinttable
-	mov	cx,8
-InitSavedVector:
-	add	di,2
-	stosw
-	loop	InitSavedVector
+	InitGetdseg <ds>
+	mov	[fixexepatch],offset DOSCODE:exepatch
+	pop	ds
 	ret
-InitLowVectors	endp
+seg_reinit	endp
 
-
-;----------------------------------------------------------------------------
-;
-; Procedure Name : patch_vec_segments
-;
-; Inputs	 : ax -> has segment address to patch in
-;		   ds -> DOSDATA
-;
-; Outputs	 : Patches in AX as the segment for the following vectors:
-;			
-;			0,20-28,3a-3f
-;
-; Regs. Mod.	 : DI,CX,DX,AX
-;
-;----------------------------------------------------------------------------
-
-patch_vec_segments	proc	near
+; Initialize segment values for the resident interrupt vectors.
+InitLowVectors	proc	near
 
 	push	es
 
@@ -1076,11 +849,11 @@ ps_set1:
 	add	di, 4			; skip	int 22h vector
 
 	stosw				; set int 23h
-	add	di, 6			; skip int 24h
+	add	di, 2
 
 					; set vectors 25-28 and 2a-3f 
 
-	mov	cx, 4			; set 4 segments
+	mov	cx, 5			; set vectors 24h through 28h
 ps_set2:
 	stosw				
 	add	di, 2
@@ -1114,227 +887,19 @@ ps_set4:
 
 
 
-; set offset of int2f
-
-if installed
-;	mov	word ptr es:[02fh * 4],offset doscode:int2f
-endif
-
-
-	pop	es
-	ret
-
-patch_vec_segments	endp
-
-
-;---------------------------------------------------------------------------
-;
-; Procedure Name : patch_misc_segments
-;
-; Inputs	 : es = segment to patch in
-;		   ds = dosdata
-;
-; outputs	 : patches in the sharer and other tables in the dos
-;		   with right dos code segment in es
-;
-; Regs Mod	 : DI,SI,CX
-;
-;---------------------------------------------------------------------------
-
-
-;--------------------------------------------------------------------------
-;
-; Procedure Name : patch_offset
-; 
-; Inputs	 : NONE
-;
-; Outputs	 : Patches in the offsets in the low_mem_stub for vectors
-;		   0,20-28,3a-3f, and 30,31
-;
-;
-; Regs. Mod	 : AX,DI,CX
-;--------------------------------------------------------------------------
-patch_offset	proc	near
-	push	es
-	xor	ax,ax
-	mov	es,ax
-	assume	ds:nothing,es:nothing
-	mov	ax,offset dosdata:lirett
-	mov	word ptr es:[0],offset dosdata:ldivov
-	mov	word ptr es:[addr_int_abort],offset dosdata:lquit
-	mov	word ptr es:[addr_int_command],offset dosdata:lcommand
-	mov	word ptr es:[23h*4],ax
-	mov	word ptr es:[addr_int_disk_read],offset dosdata:labsdrd
-	mov	word ptr es:[addr_int_disk_write],offset dosdata:labsdwrt
-	mov	word ptr es:[addr_int_keep_process],offset dosdata:lstay_resident
-	mov	word ptr es:[28h*4],ax
-	mov	di,2ah*4
-	mov	cx,6
-po_iset3:
-	stosw
-	add	di,2
-	loop	po_iset3
-	mov	word ptr es:[2fh*4],offset dosdata:lint2f
-	mov	byte ptr es:[entrypoint],mi_long_jmp
-	mov	word ptr es:[entrypoint+1],offset dosdata:lcall_entry
-	add	di,8
-	mov	cx,14
-po_iset4:
-	stosw
-	add	di,2
-	loop	po_iset4
-	pop	es
-	ret
-patch_offset	endp
-
-patch_misc_segments	proc	near
-	assume	ds:dosdata
-
-	push	ax
-	push	bx
-	push	es
-
-	mov	ax, es			; ax - > DOS segment
-	
-	push	ds
-	pop	es			; es -> DOSDATA
-	
-
-;
-; initialize the jump table for the sharer...
-;
-	mov	di,offset dosdata:jshare
-	mov	bx, [temp_dosloc]	; bx = location to which the share
-					; table was patched during the first
-					; call to this routine
+; Install the code segment in the sharer table.
+	mov	cx,SEG JShare
+	mov	es,cx
+	mov	di,OFFSET DOSDATA:JShare
 	mov	cx,15
-jumptabloop:
-	add	di,2			; skip offset
-	cmp	bx, -1			; Q: is this called for the 1st time
-	je	share_patch		;  Y: patch in sharer table
-					;  N: 
-	cmp	bx, es:[di]		; Q: has share been installed
-	jne	no_share_patch		;  Y: don't patch in sharer table
-
-share_patch:
-	stosw				; drop in segment
-
-no_share_patch:
-	loop	jumptabloop
-
-					; BUGBUG patching the country info 
-					; with dosdata can be done inline
-					; in dosinit.
-					; for dos 3.3 country info
-					; table address
-	mov	si,offset dosdata:country_cdpg   
-
-					; initialize double word
-					; pointers with dosdata in ds
-	mov	word ptr [si.ccucase_ptr + 2],ds    
-	mov	word ptr [si.ccfileucase_ptr + 2],ds 
-	mov	word ptr [si.ccfilechar_ptr + 2],ds
-	mov	word ptr [si.cccollate_ptr + 2],ds
-	mov	word ptr [si.ccmono_ptr + 2],ds
-	mov	word ptr [si.ccdbcs_ptr + 2],ds	
-
-
-	pop	es
-	pop	bx
-	pop	ax
-
-	ret
-
-patch_misc_segments	endp
-
-;--------------------------------------------------------------------------
-;
-; 	Procedure Name	:	patch_in_nops
-;
-; 	Entry		: 	ES -> DOSDATA
-;
-;	Regs Mod	: 	cx, di
-;
-;	Description:
-;		This routine patches in 2 nops at the offsets specifed in 
-;	patch_table. This basically enables the low mem stub to start 
-;	making XMS calls.
-;
-;--------------------------------------------------------------------------
-
-patch_table	label	byte
-	dw	offset dosdata:i0patch
-	dw	offset dosdata:i20patch
-	dw	offset dosdata:i21patch
-	dw	offset dosdata:i25patch
-	dw	offset dosdata:i26patch
-	dw	offset dosdata:i27patch
-	dw	offset dosdata:i2fpatch
-	dw	offset dosdata:cpmpatch
-patch_table_size	equ	($ - patch_table) / 2
-
-patch_in_nops	proc	near
-
-	push	ax
-	push	si
-	mov	si, offset patch_table
-	mov	ax, 09090h
-	mov	cx, patch_table_size
-	
-pin_loop:
-	mov	di, cs:[si]
+ps_share:
+	add	di,2
 	stosw
-	add	si, 2
-	loop	pin_loop
-	pop	si
-	pop	ax
+	loop	ps_share
+	pop	es
 	ret
 
-patch_in_nops	endp
-
-
-public msini002s,msini002e
-msini002s label byte
-
-;M060;;the following entries don't expect version 4.0
-;M060;	;the entry format: name_length, name, expected version
-;M060;	;dw	?
-;M060;	;db	"SPECIAL ENTRIES TABLE",0     ;an007  tiltle
-;M060;
-;M060;	PUBLIC	LIE_TABLE_OFFSET
-;M060;	LIE_TABLE_OFFSET EQU $
-;M060;
-;M060;	version_fake_table:			; starting address for special
-;M060;	db	10,"WIN200.BIN" 	,3,40  	; windows 2.x 
-;M060;	db	10,"WIN100.BIN" 	,3,40	; win 1.x 
-;M060;	db	11,"WINWORD.EXE"	,4,10	; winword 1.0	
-;M060;	db	9, "EXCEL.EXE"		,4,10	; excel 2.x
-;M060;	db	11,"HITACHI.SYS"	,4,00	; CDROMS
-;M060;	db	10,"MSCDEX.EXE"		,4,00	; CDROMS
-;M060;	db	10,"REDIR4.EXE"		,4,00	; Banyan networks
-;M060;	db	7, "NET.EXE"		,4,00	; 3+ Open
-;M060;	db	7, "NET.COM"		,3,30	; IBM PCLP
-;M060;	db	12,"NETWKSTA.EXE"	,4,00	; 3+ Open
-;M060;	db	12,"DXMA0MOD.SYS"	,3,30	; Token ring
-;M060;	db	7, "BAN.EXE"		,4,00	; Banyan
-;M060;	db	7, "BAN.COM"		,4,00	; Banyan
-;M060;	db      11,"MSREDIR.EXE"        ,4,00   ; LanMan
-;M060;	db      9, "METRO.EXE"          ,3,31   ; Lotus Metro
-;M060;	db      12,"IBMCACHE.SYS"       ,3,40   ; IBM CHACHE Program
-;M060;	db      11,"REDIR40.EXE"        ,4,00   ; IBM PCLP 1.3/4 redirector
-;M060;	db	6, "DD.EXE"		,4,01	; Laplink III software
-;M060;	db	6, "DD.BIN"		,4,01	; Laplink III software
-;M060;	db	7, "LL3.EXE"		,4,01   ; Laplink III software
-;M060;	db      9, "REDIR.EXE"          ,4,00   ; DOS 4 redir
-;M060;	db      9, "SYQ55.SYS"          ,4,00   ; Removable SCSII drive from Syquest
-;M060;	db      12,"SSTDRIVE.SYS"       ,4,00   ; Columbia SCSI driver
-;M060;	db      8, "ZDRV.SYS"           ,4,01   ; Unisys CD-ROM B#4734
-;M060;	db      8, "ZFMT.SYS"           ,4,01   ; Unisys CD-ROM B#4734
-;M060;	
-;M060;	db	(512 - ($ - version_fake_table)) dup (0)
-;M060;
-;M060;	PUBLIC	LIE_TABLE_LEN
-;M060;	LIE_TABLE_LEN EQU ($ - LIE_TABLE_OFFSET)
+InitLowVectors	endp
 
 	public	memstrt
 
@@ -1357,13 +922,9 @@ dosinitseg ends
 endif ; ROMDOS
 
 
- DPUBLIC <ParaRound, cXMM_no_driver, cXMMexit, char_init_loop, charinit>
- DPUBLIC <check_XMM, continit, dosinttabloop, endlist>
- DPUBLIC <iset1, iset2, jumptabloop, nxtentry>
- DPUBLIC <notmax,  patch_offset, perdrv>
- DPUBLIC <perunit, po_iset1, po_iset2, po_iset3>
- DPUBLIC <ps_set1, ps_set2, ps_set3, seg_reinit>
- DPUBLIC <sr_done, version_fake_table, xxx>
+
+ DPUBLIC <char_init_loop,charinit,continit,iset1,iset2,iset3>
+ DPUBLIC <notmax,perdrv,perunit,ps_set1,ps_set2,ps_set3,ps_set4>
 
 	end
 

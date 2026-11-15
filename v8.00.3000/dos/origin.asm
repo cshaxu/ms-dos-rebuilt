@@ -19,6 +19,7 @@ include dossym.inc
 include origin.inc
 
 DOSCODE SEGMENT
+	ASSUME	CS:DOSCODE
 
 	org	0
 
@@ -26,6 +27,12 @@ DOSCODE SEGMENT
 ifndef ROMDOS
 
 	dw	PARASTART
+
+	org	0CCh
+	EXTRN	DIVOV:NEAR
+	PUBLIC	DivOvEntry
+DivOvEntry:
+	JMP	NEAR PTR DIVOV
 
 	org	DOSENTRYSTART
 

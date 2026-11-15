@@ -297,6 +297,8 @@ $Set_Printer_Flag PROC NEAR
 	mov	Printer_Flag,AL 	; Set printer flag from caller's AL
 	pop	ds
 PrinterReturn:
+	PUBLIC Irett
+Irett:
 	iret
 
 $Set_Printer_Flag ENDP
@@ -652,8 +654,6 @@ Quit:						; entry	QUIT
 BadCall:
 	xor	AL,AL
 
-	PUBLIC Irett
-Irett:
 	iret
 
 	; An alternative method of entering the system is to perform a
