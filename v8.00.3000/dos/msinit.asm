@@ -202,9 +202,6 @@ DOSCODE	SEGMENT
 	extrn	Rational386Patch:near
 
 ifndef	ROMDOS
-	extrn	LowInt23Addr:dword
-	extrn	LowInt24Addr:dword	
-	extrn	LowInt28Addr:dword
 	extrn	ConsoleStatePtr:dword
 
 	extrn	dosdseg:word		; used by InitGetDseg macro
@@ -321,9 +318,6 @@ ParaRound	endp
 	pop	word ptr [nuldev+2]
 	mov	[endmem],dx
 	mov	[dosdseg],ds
-	mov	word ptr [LowInt23Addr+2],ds
-	mov	word ptr [LowInt24Addr+2],ds
-	mov	word ptr [LowInt28Addr+2],ds
 	mov	[temp_dosloc],ax
 	call	InitLowVectors
 
