@@ -353,15 +353,17 @@ getb17:									  ;I001
 	pushf								  ;I001
 	cmp	BuffInHMA, 0		; did we read into scratch buff ? ;I001
 	jz	not_in_hma		; no				  ;I001
+	.386
 	mov	cx, es:[bp].DPB_SECTOR_SIZE				  ;I001
-	shr	cx, 1							  ;I001
+	shr	cx, 2							  ;I001
 	popf				; Retreive possible CY from DREAD ;I001
 	mov	si, bx							  ;I001
 	pop	di							  ;I001
 	pop	es							  ;I001
 	cld								  ;I001
 	pushf				; Preserve possible CY from DREAD ;I001
-	rep	movsw			; move the contents of scratch buf;I001
+	rep	movsd			; move the contents of scratch buf;I001
+	.8086
 	push	es							  ;I001
 	pop	ds							  ;I001
 not_in_hma:								  ;I001
