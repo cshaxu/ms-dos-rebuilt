@@ -10,7 +10,10 @@ _DATA segment word public use16 'RESUME_DATA'
 	extrn RegKeyPool:dword
 	extrn RegDynamicKeys:dword,RegDeferredKeys:dword,RegDeferredCount:dword
 	extrn RegMachineRoot:byte
-	extrn RegUserRoot:byte
+	extrn RegUserRoot:byte,RegAuxRoot:byte
+	extrn RegClassesFileName:byte
+	extrn RegClassesName:byte,RegClassesLength:word,RegClassesSum:word
+	extrn RegSoftwareName:byte,RegSoftwareLength:word,RegSoftwareSum:word
 	extrn RegPredefinedKeys:dword
 _DATA ends
 DGROUP group _DATA
@@ -29,6 +32,7 @@ RegistryCode label byte
 	extrn RegMaintainCache:near
 	extrn RegForEachFile:near
 	extrn RegOpenPath:near
+	extrn RegNameChecksum:near,RegLastPathSeparator:near,RegAttachRoot:near
 	public RegAllocate
 RegAllocate proc near
 	enter 6,0
@@ -126,75 +130,115 @@ RegReallocRetry endp
 ; Reinitialize the machine and user handles after allocating the key pool.
 	public RegResetRootHandles
 RegResetRootHandles proc near
-	enter 04Ch,0
-	push di
-	push si
-	sub eax,eax
-	mov [bp-046h],eax
-	mov byte ptr [bp-035h],2
-	mov [bp-032h],ax
-	mov [bp-034h],ax
-	mov [bp-02Eh],ax
-	mov [bp-030h],ax
-	mov ax,04B48h
-	mov [bp-04Ch],ax
-	mov [bp-026h],ax
-	mov ax,025h
-	mov [bp-04Ah],ax
-	mov [bp-024h],ax
-	sub eax,eax
-	mov [bp-020h],eax
-	mov [bp-048h],ax
-	mov [bp-03Ah],ax
-	mov [bp-038h],ax
-	mov [bp-022h],ax
-	mov [bp-014h],ax
-	mov [bp-012h],ax
-	mov [bp-036h],al
-	mov [bp-010h],al
-	mov byte ptr [bp-0Fh],3
-	mov [bp-0Ch],ax
-	mov [bp-0Eh],ax
-	mov [bp-8],ax
-	mov [bp-0Ah],ax
-	mov ax,0FFFFh
-	mov [bp-02Ch],ax
-	mov [bp-6],ax
+	enter	78h,0
+	push	di
+	push	si
+	sub	eax,eax
+	mov	[bp-6eh],eax
+	mov	byte ptr [bp-5fh],2
+	mov	[bp-5ch],ax
+	mov	[bp-5eh],ax
+	mov	[bp-58h],ax
+	mov	[bp-5ah],ax
+	mov	eax,25h
+	mov	[bp-74h],eax
+	mov	[bp-24h],eax
+	sub	eax,eax
+	mov	[bp-1eh],eax
+	mov	byte ptr [bp-0fh],3
+	mov	[bp-0ch],ax
+	mov	[bp-0eh],ax
+	mov	[bp-8],ax
+	mov	[bp-0ah],ax
+	mov	ax,4b48h
+	mov	[bp-78h],ax
+	mov	[bp-28h],ax
+	mov	[bp-50h],ax
+	mov	dword ptr [bp-4ch],5
+	sub	eax,eax
+	mov	[bp-46h],eax
+	mov	[bp-76h],ax
+	mov	[bp-70h],ax
+	mov	[bp-62h],ax
+	mov	[bp-26h],ax
+	mov	[bp-20h],ax
+	mov	[bp-12h],ax
+	mov	[bp-4eh],ax
+	mov	[bp-48h],ax
+	mov	[bp-3ah],ax
+	mov	[bp-60h],al
+	mov	[bp-10h],al
+	mov	[bp-38h],al
+	mov	[bp-37h],al
+	mov	[bp-34h],ax
+	mov	[bp-36h],ax
+	mov	[bp-30h],ax
+	mov	[bp-32h],ax
+	mov	ax,0ffffh
+	mov	[bp-56h],ax
+	mov	[bp-6],ax
+	mov	[bp-2eh],ax
 	cwd
-	mov [bp-042h],ax
-	mov [bp-040h],dx
-	mov [bp-03Eh],ax
-	mov [bp-03Ch],dx
-	mov [bp-02Ah],ax
-	mov [bp-028h],dx
-	mov [bp-01Ch],ax
-	mov [bp-01Ah],dx
-	mov [bp-018h],ax
-	mov [bp-016h],dx
-	mov [bp-4],ax
-	mov [bp-2],dx
-	push ds
-	mov di,offset DGROUP:RegMachineRoot
-	lea si,[bp-04Ch]
-	push ds
-	pop es
-	push ss
-	pop ds
-	mov cx,013h
-	rep movsw
-	pop ds
-	push ds
-	mov di,offset DGROUP:RegUserRoot
-	lea si,[bp-026h]
-	push ds
-	pop es
-	push ss
-	pop ds
-	mov cx,013h
-	rep movsw
-	pop ds
-	pop si
-	pop di
+	mov	[bp-6ah],ax
+	mov	[bp-68h],dx
+	mov	[bp-66h],ax
+	mov	[bp-64h],dx
+	mov	[bp-54h],ax
+	mov	[bp-52h],dx
+	mov	[bp-1ah],ax
+	mov	[bp-18h],dx
+	mov	[bp-16h],ax
+	mov	[bp-14h],dx
+	mov	[bp-4],ax
+	mov	[bp-2],dx
+	mov	[bp-42h],ax
+	mov	[bp-40h],dx
+	mov	[bp-3eh],ax
+	mov	[bp-3ch],dx
+	mov	[bp-2ch],ax
+	mov	[bp-2ah],dx
+	push	ds
+	mov	di,offset DGROUP:RegMachineRoot
+	lea	si,[bp-78h]
+	push	ds
+	pop	es
+	push	ss
+	pop	ds
+	mov	cx,14h
+	rep	movsw
+	pop	ds
+	push	ds
+	mov	di,offset DGROUP:RegUserRoot
+	lea	si,[bp-28h]
+	push	ds
+	pop	es
+	push	ss
+	pop	ds
+	mov	cx,14h
+	rep	movsw
+	pop	ds
+	push	ds
+	mov	di,offset DGROUP:RegAuxRoot
+	lea	si,[bp-50h]
+	push	ds
+	pop	es
+	push	ss
+	pop	ds
+	mov	cx,14h
+	rep	movsw
+	pop	ds
+	push	ds
+	push	offset DGROUP:RegClassesName
+	push	word ptr [RegClassesLength]
+	call	RegNameChecksum
+	mov	[RegClassesSum],ax
+	push	ds
+	push	offset DGROUP:RegSoftwareName
+	push	word ptr [RegSoftwareLength]
+	call	RegNameChecksum
+	mov	[RegSoftwareSum],ax
+	pop	si
+	pop	di
 	leave
 	ret
 RegResetRootHandles endp
@@ -523,118 +567,198 @@ RegFlushDeferredKeys endp
 
 	public RegValidateKeyHandle
 RegValidateKeyHandle proc near
-	enter 0Ch,0
-	push di
-	push si
-	mov di,[bp+4]
-	mov es,word ptr [bp+6]
+	enter	112h,0
+	push	di
+	push	si
+	les	bx,dword ptr [bp+4]
 	db 66h
-	mov ax,es:[di]
-	mov dx,es:[di+2]
-	mov [bp-0Ch],eax
-	cmp dx,8000h
-	jb short rvht_ordinary
-	jbe short rvht_range
+	mov	ax,es:[bx]
+	mov	dx,es:[bx+2]
+	mov	[bp-0eh],eax
+	cmp	dx,8000h
+	jc	short rvht_ordinary
+	jna	short rvht_range
 rvht_ordinary:
-	jmp rvht_validate
+	jmp	near ptr rvht_validate
 rvht_range:
-	jb short rvht_predefined
-	cmp ax,6
-	jae rvht_validate
+	jc	short rvht_predefined
+	cmp	ax,6
+	jnc	near ptr rvht_validate
 rvht_predefined:
-	mov si,ax
-	mov bx,ax
-	shl bx,2
-	mov eax,dword ptr RegPredefinedKeys[bx]
-	mov [bp-0Ch],eax
-	or eax,eax
-	jz short rvht_create
-	les bx,[bp-0Ch]
-	test byte ptr es:[bx+2],2
-	jz rvht_set
+	mov	si,ax
+	mov	bx,ax
+	shl	bx,2
+	mov	eax,[bx+RegPredefinedKeys]
+	mov	[bp-0eh],eax
+	or	eax,eax
+	jz	short rvht_create
+	les	bx,dword ptr [bp-0eh]
+	test	byte ptr es:[bx+KeyFlags],2
+	jz	near ptr rvht_set
 rvht_create:
-	or si,si
-	jnz short rvht_default
-	mov word ptr [bp-4],offset DGROUP:RegMachineRoot
-	mov [bp-2],ds
-	mov word ptr [bp-8],offset DGROUP:RegClassesPath
-	jmp short rvht_prepare
-rvht_default:
-	cmp si,1
-	jnz rvht_bad
-	mov word ptr [bp-4],offset DGROUP:RegUserRoot
-	mov [bp-2],ds
-	mov word ptr [bp-8],offset DGROUP:RegDefaultUser
+	or	si,si
+	jz	short rvht_prepare
+	cmp	si,1
+	jnz	near ptr rvht_existing
+	mov	word ptr [bp-4],offset DGROUP:RegUserRoot
+	mov	word ptr [bp-2],ds
+	mov	word ptr [bp-0ah],offset DGROUP:RegDefaultUser
+	mov	word ptr [bp-8],ds
 rvht_prepare:
-	mov [bp-6],ds
-	cmp dword ptr [bp-0Ch],0
-	jz short rvht_open
-	mov bx,si
-	shl bx,2
-	mov dword ptr RegPredefinedKeys[bx],0
-	les bx,[bp-0Ch]
-	and byte ptr es:[bx+2],0FEh
-	push dword ptr [bp-0Ch]
-	call RegReleaseKeyHandle
+	mov	[bp-6],si
+	cmp	dword ptr [bp-0eh],0
+	jz	short rvht_check_aux
+	mov	bx,si
+	shl	bx,2
+	mov	dword ptr [bx+RegPredefinedKeys],0
+	les	bx,dword ptr [bp-0eh]
+	and	byte ptr es:[bx+KeyFlags],0feh
+	push	dword ptr [bp-0eh]
+	call	RegReleaseKeyHandle
+rvht_check_aux:
+	cmp	word ptr [bp-6],0
+	jnz	near ptr rvht_open
+	; Locate CLASSES.DAT beside the machine registry file.
+	mov	ax,offset DGROUP:RegAuxRoot
+	mov	[bp-0eh],ax
+	mov	word ptr [bp-0ch],ds
+	mov	bx,[bp-6]
+	shl	bx,2
+	mov	word ptr [bx+RegPredefinedKeys],ax
+	mov	word ptr [bx+RegPredefinedKeys+2],ds
+	mov	bx,word ptr [RegMachineRoot+0Ah]
+	mov	cx,word ptr [RegMachineRoot+0Ch]
+	add	bx,58h
+	push	ds
+	mov	di,bx
+	lea	si,[bp-112h]
+	mov	es,cx
+	push	ss
+	pop	ds
+	mov	cx,0ffffh
+	xor	ax,ax
+	repne	scasb
+	not	cx
+	sub	di,cx
+	xchg	di,si
+	push	ds
+	push	es
+	pop	ds
+	pop	es
+	shr	cx,1
+	rep	movsw
+	adc	cx,cx
+	rep	movsb
+	pop	ds
+	lea	ax,[bp-112h]
+	push	ss
+	push	ax
+	push	5ch
+	call	RegLastPathSeparator
+	mov	[bp-4],ax
+	mov	[bp-2],dx
+	or	dx,ax
+	jz	short rvht_path_error
+	mov	bx,ax
+	mov	cx,[bp-2]
+	inc	bx
+	push	ds
+	mov	di,offset DGROUP:RegClassesFileName
+	mov	si,bx
+	push	ds
+	pop	es
+	mov	ds,cx
+	mov	cx,0ffffh
+	xor	ax,ax
+	repne	scasb
+	not	cx
+	sub	di,cx
+	xchg	di,si
+	push	ds
+	push	es
+	pop	ds
+	pop	es
+	shr	cx,1
+	rep	movsw
+	adc	cx,cx
+	rep	movsb
+	pop	ds
+	push	dword ptr [bp-0eh]
+	lea	ax,[bp-112h]
+	push	ss
+	push	ax
+	push	0
+	call	RegAttachRoot
+	or	dx,ax
+	jz	short rvht_aux_ready
+rvht_path_error:
+	jmp	near ptr rvht_bad
+rvht_aux_ready:
+	jmp	short rvht_set
+rvht_existing:
+	cmp	si,3
+	jz	short rvht_set
+	jmp	near ptr rvht_bad
 rvht_open:
-	les bx,[bp-4]
-	test byte ptr es:[bx+2],4
-	jnz short rvht_bad
-	push es
-	push bx
-	push dword ptr [bp-8]
-	lea ax,[bp-0Ch]
-	push ss
-	push ax
-	push 1
-	call RegOpenPath
-	or ax,ax
-	jnz short rvht_bad
-	mov ax,[bp-0Ch]
-	mov dx,[bp-0Ah]
-	mov bx,si
-	shl bx,2
-	mov word ptr RegPredefinedKeys[bx],ax
-	mov word ptr RegPredefinedKeys[bx+2],dx
-	mov bx,ax
-	mov es,dx
-	or byte ptr es:[bx+2],1
-	mov ax,si
-	les bx,[bp-0Ch]
-	mov es:[bx+17h],al
+	les	bx,dword ptr [bp-4]
+	test	byte ptr es:[bx+KeyFlags],4
+	jnz	short rvht_bad
+	push	es
+	push	bx
+	push	dword ptr [bp-0ah]
+	lea	ax,[bp-0eh]
+	push	ss
+	push	ax
+	push	1
+	call	RegOpenPath
+	or	ax,ax
+	jnz	short rvht_bad
+	mov	si,[bp-6]
+	mov	ax,[bp-0eh]
+	mov	dx,[bp-0ch]
+	mov	bx,si
+	shl	bx,2
+	mov	word ptr [bx+RegPredefinedKeys],ax
+	mov	word ptr [bx+RegPredefinedKeys+2],dx
+	mov	bx,ax
+	mov	es,dx
+	or	byte ptr es:[bx+KeyFlags],1
+	mov	ax,si
+	les	bx,dword ptr [bp-0eh]
+	mov	es:[bx+KeyRootId],al
 rvht_set:
-	mov eax,[bp-0Ch]
-	mov es,word ptr [bp+6]
+	mov	eax,[bp-0eh]
+	les	bx,dword ptr [bp+4]
 	db 66h
-	mov es:[di],ax
-	les bx,[bp-0Ch]
-	mov al,es:[bx+2]
-	and ax,4
-	cmp ax,1
+	mov	es:[bx],ax
+	les	bx,dword ptr [bp-0eh]
+	mov	al,es:[bx+KeyFlags]
+	and	ax,4
+	cmp	ax,1
 	cmc
-	sbb ax,ax
-	and ax,3F2h
-	jmp short rvht_done
+	sbb	ax,ax
+	and	ax,3f2h
+	jmp	short rvht_done
 rvht_validate:
-	les bx,[bp-0Ch]
-	cmp word ptr es:[bx],4B48h
-	jnz short rvht_bad
-	test byte ptr es:[bx+2],4
-	jnz short rvht_bad
-	mov al,es:[bx+2]
-	and ax,2
-	cmp ax,1
+	les	bx,dword ptr [bp-0eh]
+	cmp	word ptr es:[bx],4b48h
+	jnz	short rvht_bad
+	test	byte ptr es:[bx+KeyFlags],4
+	jnz	short rvht_bad
+	mov	al,es:[bx+KeyFlags]
+	and	ax,2
+	cmp	ax,1
 	cmc
-	sbb ax,ax
-	and ax,3FAh
-	jmp short rvht_done
+	sbb	ax,ax
+	and	ax,3fah
+	jmp	short rvht_done
 rvht_bad:
-	mov ax,3F2h
+	mov	ax,3f2h
 rvht_done:
-	pop si
-	pop di
+	pop	si
+	pop	di
 	leave
-	ret 4
+	ret	4
 RegValidateKeyHandle endp
 	if ($ - RegistryCode) and 1
 	db 0

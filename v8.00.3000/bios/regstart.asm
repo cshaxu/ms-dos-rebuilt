@@ -10,6 +10,9 @@ _DATA segment word public use16 'RESUME_DATA'
 	extrn RegCurrentDirectory:byte
 	extrn RegMachineRoot:byte
 	extrn RegUserRoot:byte,RegAuxRoot:byte
+	extrn RegPredefinedKeys:dword,RegRootSegment:word
+	extrn RegClassesMachine:dword,RegClassesAux:dword,RegClassesCell:dword,RegClassesFile:dword
+	extrn RegClassesPath:byte
 _DATA ends
 DGROUP group _DATA
 _TEXT segment word public use16 'RESUME_CODE'
@@ -38,7 +41,7 @@ RegistryCode label byte
 	extrn RegInitKeyPool:near
 	extrn RegResetRootHandles:near
 	extrn RegFreeKeyPool:near,RegFlushDeferredKeys:near
-	extrn RegValidateKeyHandle:near
+	extrn RegValidateKeyHandle:near,RegReleaseKeyHandle:near,RegOpenPath:near
 	extrn RegInvalidateKeyHandles:near
 	extrn RegFetchKeyRecord:near
 	extrn RegUnlockKeyCache:near
@@ -1008,17 +1011,17 @@ RegBindRoot proc near
 	push si
 	mov si,[bp+4]
 	mov es,word ptr [bp+6]
-	les bx,es:[si+6]
+	les bx,es:[si+0Ah]
 	db 66h
 	mov ax,es:[bx+3Eh]
 	mov dx,es:[bx+40h]
 	mov es,word ptr [bp+6]
 	db 66h
-	mov es:[si+0Ah],ax
+	mov es:[si+0Eh],ax
 	db 66h
-	push word ptr es:[si+6]
-	push dx
 	push word ptr es:[si+0Ah]
+	push dx
+	push word ptr es:[si+0Eh]
 	lea ax,[bp-4]
 	push ss
 	push ax
@@ -1028,33 +1031,33 @@ RegBindRoot proc near
 	jnz short rbrt_error
 	mov es,word ptr [bp+6]
 	mov word ptr es:[si],4B48h
-	and byte ptr es:[si+2],0E9h
+	and word ptr es:[si+4],0FBE9h
 	les bx,[bp-4]
 	mov ax,es:[bx+4]
 	mov dx,es:[bx+6]
 	sub dh,dh
 	mov es,word ptr [bp+6]
-	mov es:[si+0Eh],ax
-	mov es:[si+10h],dx
+	mov es:[si+12h],ax
+	mov es:[si+14h],dx
 	les bx,[bp-4]
 	mov ax,es:[bx+0Ch]
 	mov es,word ptr [bp+6]
-	mov es:[si+12h],ax
+	mov es:[si+16h],ax
 	les bx,[bp-4]
 	mov al,es:[bx+0Bh]
 	mov es,word ptr [bp+6]
-	mov es:[si+16h],al
-	db 66h
-	push word ptr es:[si+6]
+	mov es:[si+18h],al
 	db 66h
 	push word ptr es:[si+0Ah]
+	db 66h
+	push word ptr es:[si+0Eh]
 	push 0
 	call RegUnlockKeyCache
 	jmp short rbrt_done
 rbrt_error:
 	mov es,word ptr [bp+6]
 	db 66h
-	push word ptr es:[si+6]
+	push word ptr es:[si+0Ah]
 	call RegReleaseFileBuffers
 rbrt_done:
 	mov ax,di
@@ -1067,75 +1070,150 @@ RegBindRoot endp
 	db 0
 	endif
 
+; Attach a registry file to an existing root handle.
+	public RegAttachRoot
+RegAttachRoot proc near
+	enter	4,0
+	push	di
+	push	si
+	mov	di,[bp+0ah]
+	mov	es,word ptr [bp+0ch]
+	test	byte ptr es:[di+4],4
+	jnz	short rart_path
+	db 66h
+	push	word ptr es:[di+0ah]
+	call	RegReleaseFileBuffers
+rart_path:
+	cmp	dword ptr [bp+6],0
+	jnz	short rart_flags
+	xor	ax,ax
+	jmp	near ptr rart_done
+rart_flags:
+	test	byte ptr [bp+4],1
+	jz	short rart_read
+	mov	ax,di
+	mov	dx,[bp+0ch]
+	add	ax,0ah
+	push	dx
+	push	ax
+	push	dword ptr [bp+6]
+	mov	al,[bp+4]
+	and	ax,2
+	cmp	ax,1
+	cmc
+	sbb	ax,ax
+	and	ax,4
+	push	ax
+	call	RegCreateEmptyFile
+	jmp	short rart_bind
+rart_read:
+	mov	ax,di
+	mov	dx,[bp+0ch]
+	add	ax,0ah
+	push	dx
+	push	ax
+	push	dword ptr [bp+6]
+	call	RegReadFile
+rart_bind:
+	mov	si,ax
+	or	si,ax
+	jnz	short rart_classes
+	push	word ptr [bp+0ch]
+	push	di
+	call	RegBindRoot
+	mov	si,ax
+rart_classes:
+	or	si,si
+	jnz	short rart_result
+	mov	ax,[bp+0ch]
+	mov	cx,ds
+	cmp	di,offset DGROUP:RegAuxRoot
+	jnz	short rart_result
+	cmp	ax,cx
+	jnz	short rart_result
+	test	byte ptr [RegMachineRoot+4],4
+	jnz	short rart_result
+	mov	ax,offset DGROUP:RegMachineRoot
+	mov	word ptr [RegClassesMachine],ax
+	mov	word ptr [RegClassesMachine+2],ds
+	mov	word ptr [RegClassesAux],di
+	mov	word ptr [RegClassesAux+2],ds
+	push	ds
+	push	ax
+	push	DGROUP
+	push	offset DGROUP:RegClassesPath
+	lea	ax,[bp-4]
+	push	ss
+	push	ax
+	push	1
+	call	RegOpenPath
+	or	ax,ax
+	jnz	short rart_result
+	cmp	dword ptr [RegClassesCell],0ffffffh
+	jc	short rart_release
+	les	bx,dword ptr [bp-4]
+	db 66h
+	mov	ax,es:[bx+0eh]
+	mov	[RegClassesCell],eax
+	db 66h
+	mov	ax,es:[bx+0ah]
+	mov	[RegClassesFile],eax
+rart_release:
+	push	dword ptr [bp-4]
+	call	RegReleaseKeyHandle
+rart_result:
+	mov	ax,si
+rart_done:
+	cwd
+	pop	si
+	pop	di
+	leave
+	ret	0ah
+RegAttachRoot endp
+	if ($ - RegistryCode) and 1
+	db 0
+	endif
+
 	public RegMountRoot
 RegMountRoot proc far
-	mov ax,DGROUP
-	push bp
-	mov bp,sp
-	push si
-	push ds
-	mov ds,ax
-	cmp dword ptr [bp+6],80000002h
-	jz short rmrt_root
-	cmp dword ptr [bp+6],80000003h
-	jz short rmrt_root
-	cmp dword ptr [bp+6],80000001h
-	jz short rmrt_root
-	mov ax,57h
-rmrt_zero_dx:
-	xor dx,dx
-	jmp short rmrt_exit
+	mov	ax,DGROUP
+	push	bp
+	mov	bp,sp
+	push	si
+	push	ds
+	mov	ds,ax
+	cmp	dword ptr [bp+6],80000002h
+	jz	short rmrt_root
+	cmp	dword ptr [bp+6],80000003h
+	jz	short rmrt_root
+	cmp	dword ptr [bp+6],80000000h
+	jz	short rmrt_root
+	cmp	dword ptr [bp+6],80000001h
+	jz	short rmrt_root
+	mov	ax,57h
+	jmp	short rmrt_done
 rmrt_root:
-	lea ax,[bp+6]
-	push ss
-	push ax
-	call RegValidateKeyHandle
-	les bx,[bp+6]
-	test byte ptr es:[bx+2],4
-	jnz short rmrt_path
-	db 66h
-	push word ptr es:[bx+6]
-	call RegReleaseFileBuffers
-rmrt_path:
-	cmp dword ptr [bp+0Ah],0
-	jnz short rmrt_flags
-	xor ax,ax
-	jmp short rmrt_zero_dx
-rmrt_flags:
-	mov cx,[bp+0Eh]
-	test cl,1
-	jz short rmrt_open
-	mov eax,[bp+6]
-	add ax,6
-	push eax
-	push dword ptr [bp+0Ah]
-	and cx,2
-	cmp cx,1
-	cmc
-	sbb ax,ax
-	and ax,4
-	push ax
-	call RegCreateEmptyFile
-	jmp short rmrt_bind
-rmrt_open:
-	mov eax,[bp+6]
-	add ax,6
-	push eax
-	push dword ptr [bp+0Ah]
-	call RegReadFile
-rmrt_bind:
-	mov si,ax
-	or si,ax
-	jnz short rmrt_result
-	push dword ptr [bp+6]
-	call RegBindRoot
-	mov si,ax
-rmrt_result:
-	mov ax,si
+	cmp	dword ptr [bp+6],80000000h
+	jnz	short rmrt_validate
+	mov	es,word ptr [RegRootSegment]
+	mov	word ptr es:[RegPredefinedKeys],offset DGROUP:RegAuxRoot
+	mov	word ptr es:[RegPredefinedKeys+2],ds
+rmrt_validate:
+	lea	ax,[bp+6]
+	push	ss
+	push	ax
+	call	RegValidateKeyHandle
+	push	dword ptr [bp+6]
+	push	dword ptr [bp+0ah]
+	push	word ptr [bp+0eh]
+	call	RegAttachRoot
+	mov	si,ax
+	call	RegFlushDeferredKeys
+	mov	ax,si
+rmrt_done:
 	cwd
-rmrt_exit:
-	pop ds
-	pop si
+	pop	ds
+	pop	si
 	leave
 	retf
 RegMountRoot endp

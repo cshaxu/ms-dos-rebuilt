@@ -48,6 +48,23 @@ RegClassesPath db 'SOFTWARE\CLASSES',0
         even
 RegDefaultUser db '.DEFAULT',0
         even
+        public RegClassesMachine,RegClassesAux,RegClassesCell,RegClassesFile
+RegClassesMachine dd 0
+RegClassesAux dd 0
+RegClassesCell dd -1
+RegClassesFile dd 0
+        public RegClassesName,RegClassesLength,RegClassesSum
+RegClassesName db 'CLASSES',0
+RegClassesLength dw 7
+        public RegSoftwareName,RegSoftwareLength,RegSoftwareSum
+RegSoftwareName db 'SOFTWARE',0
+        even
+RegSoftwareLength dw 8
+RegSoftwareSum dw 0
+RegClassesSum dw 0
+        public RegClassesFileName,RegRootSegment
+RegClassesFileName db 'CLASSES.DAT',0
+RegRootSegment dw DGROUP
         public RegDataEnd
 RegDataEnd label byte
         public RegPathCursor

@@ -3506,5 +3506,61 @@ RegRemoveValueRecord endp
 	db 0
 	endif
 
+; Return the last occurrence of a character in an ASCIIZ path.
+	public RegLastPathSeparator
+RegLastPathSeparator proc near
+	enter	4,0
+	push	di
+	push	si
+	mov	si,[bp+6]
+	mov	ax,[bp+8]
+	mov	dx,ax
+	mov	di,si
+	mov	es,ax
+	mov	cx,0ffffh
+	xor	ax,ax
+	repne	scasb
+	not	cx
+	dec	cx
+	add	cx,si
+	mov	ax,dx
+	mov	[bp-4],cx
+	mov	[bp-2],ax
+	cmp	cx,si
+	jnc	short rlps_scan
+	mov	bx,cx
+	mov	di,si
+	jmp	short rlps_found
+rlps_scan:
+	mov	cx,[bp+4]
+	mov	bx,[bp-4]
+	mov	di,si
+rlps_next:
+	mov	es,word ptr [bp-2]
+	cmp	es:[bx],cl
+	jz	short rlps_found
+	dec	bx
+	mov	ax,bx
+	cmp	ax,di
+	jnc	short rlps_next
+rlps_found:
+	mov	ax,bx
+	cmp	ax,di
+	jc	short rlps_missing
+	mov	dx,[bp-2]
+	jmp	short rlps_done
+rlps_missing:
+	xor	ax,ax
+	cwd
+rlps_done:
+	pop	si
+	pop	di
+	leave
+	ret	6
+RegLastPathSeparator endp
+	if ($ - RegistryCode) and 1
+	db 0
+	endif
+
 REGTEXT ends
 	end
