@@ -130,6 +130,55 @@ static void compare_stream(const char *name, const char *reference, size_t lengt
     printf("CM stream matches all %zu bytes through the aligned trailer boundary.\n", length);
 }
 
+/* Copy the load module of a linked real-mode component. */
+static size_t append_component(FILE *file, const char *name, int loader)
+{
+    unsigned char header[28], data[SECTOR_SIZE];
+    FILE *component = fopen(name, "rb");
+    size_t start, length, remaining;
+    long end;
+
+    if (!component || fread(header, 1, sizeof(header), component) != sizeof(header) ||
+        memcmp(header, "MZ", 2) || header[6] || header[7])
+        fail("Invalid linked IO component");
+    start = 16u * (header[8] + 256u * header[9]);
+    if (start < sizeof(header) || fseek(component, 0, SEEK_END) ||
+        (end = ftell(component)) < 0 || (unsigned long)end <= start ||
+        fseek(component, (long)start, SEEK_SET))
+        fail("Cannot read linked IO component");
+    length = (size_t)end - start;
+    if ((loader && length != CM_OFFSET) || (!loader && length < 26))
+        fail("Wrong linked IO component size");
+    for (remaining = length; remaining; ) {
+        size_t count = remaining < sizeof(data) ? remaining : sizeof(data);
+        if (fread(data, 1, count, component) != count)
+            fail("Cannot read linked IO component");
+        if (remaining == length && !loader && memcmp(data, "CM", 2))
+            fail("Invalid CM decompressor signature");
+        write_bytes(file, data, count);
+        remaining -= count;
+    }
+    fclose(component);
+    return length;
+}
+
+static void finish_image(FILE *file, size_t length)
+{
+    unsigned char zero[SECTOR_SIZE] = {0};
+    unsigned char header[10] = {'M', 'Z'};
+    size_t padding = (SECTOR_SIZE - length % SECTOR_SIZE) % SECTOR_SIZE;
+    size_t paragraphs = (length + padding + SECTOR_SIZE) / 16;
+
+    if (paragraphs > 0xffffu)
+        fail("Packed IO image is too large");
+    write_bytes(file, zero, padding);
+    header[8] = (unsigned char)paragraphs;
+    header[9] = (unsigned char)(paragraphs >> 8);
+    if (fseek(file, 0, SEEK_SET))
+        fail("Cannot write packed IO header");
+    write_bytes(file, header, sizeof(header));
+}
+
 int main(int argc, char **argv)
 {
     unsigned char input[BLOCK_SIZE], zeros[18] = {0};
@@ -137,15 +186,19 @@ int main(int argc, char **argv)
     DICTIONARY *dictionary;
     FILE *source, *output;
     size_t length = 2, count, padding;
-    if (argc != 3 && argc != 4) {
-        fprintf(stderr, "Usage: cmencode payload.bin stream.bin [verify-IO.SYS]\n");
+    int pack = argc == 6 && !strcmp(argv[1], "--pack");
+    if (!pack && argc != 3 && argc != 4) {
+        fprintf(stderr, "Usage: cmencode payload.bin stream.bin [verify-IO.SYS]\n"
+                        "       cmencode --pack payload.bin msload.exe mscm.exe IO.SYS\n");
         return 2;
     }
-    source = fopen(argv[1], "rb");
-    output = fopen(argv[2], "wb");
+    source = fopen(argv[pack ? 2 : 1], "rb");
+    output = fopen(argv[pack ? 5 : 2], "wb");
     dictionary = malloc(sizeof(*dictionary));
     if (!source || !output || !dictionary)
         fail("Cannot open CM inputs or allocate dictionary");
+    if (pack)
+        append_component(output, argv[3], 1);
     write_bytes(output, "CM", 2);
     while ((count = fread(input, 1, sizeof(input), source)) != 0) {
         unsigned char header[5];
@@ -166,6 +219,10 @@ int main(int argc, char **argv)
     padding = (16 - (length + 3) % 16) % 16;
     write_bytes(output, zeros, 3 + padding);
     length += 3 + padding;
+    if (pack) {
+        size_t trailer = append_component(output, argv[4], 0);
+        finish_image(output, CM_OFFSET + length + trailer);
+    }
     fclose(source);
     if (fclose(output))
         fail("Cannot close CM output");
