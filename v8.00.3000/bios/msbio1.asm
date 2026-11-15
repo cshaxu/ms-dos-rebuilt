@@ -285,6 +285,7 @@ int19_code_ptr dd int19_restore
 outchr_code_ptr dd outchr_code
 	public	bios_error_vector
 bios_error_vector dd Bios_Code:bios_error_report
+	public	bcode_i2f
 bcode_i2f dd	i2f_handler
 ;BEGIN M073
 IFDEF	POWER

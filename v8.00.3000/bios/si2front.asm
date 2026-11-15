@@ -1932,7 +1932,7 @@ display_menu_clear:
         pop     es
         mov     [bLastRow],dh
         call    print_indexed
-        dw      8015h
+        dw      8018h
         test    byte ptr [boot_runtime_flags],8
         jnz     short display_menu_items
         mov     bh,[bMenuPage]
@@ -1941,7 +1941,7 @@ display_menu_clear:
         mov     ah,2
         int     10h
         call    print_indexed
-        dw      8017h
+        dw      801ah
         mov     ah,3
         int     10h
         sub     dl,2
@@ -1971,7 +1971,7 @@ display_menu_prompt:
         mov     ah,2
         int     10h
         call    print_indexed
-        dw      8016h
+        dw      8019h
         call    select_item
         mov     cx,1
         test    di,di

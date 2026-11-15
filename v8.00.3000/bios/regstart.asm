@@ -589,7 +589,7 @@ rfft_key_next:
 	push word ptr es:[si]
 	call RegDosFree
 rfft_key_advance:
-	add si,6
+	add si,0Ch
 	inc di
 	les bx,[bp+4]
 	cmp es:[bx+8],di
@@ -617,7 +617,7 @@ rfft_data_next:
 	push word ptr [bp-4]
 	push si
 	call RegFreeDataBlock
-	add si,14h
+	add si,1Ah
 	inc di
 	les bx,[bp+4]
 	cmp es:[bx+26h],di

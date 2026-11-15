@@ -157,13 +157,13 @@ boot_data_low	dw	0		; boot loader data, low word
 	public  cntryfilehandle
 	public  old_area
 	public  impossible_owner_size
+install_flag	db	0
 multi_pass_id	db	0		; parameter passed to multi_pass
 					;  indicating the pass number
 					; 0 - do scan for DOS=HIGH/LOW
 					; 1 - process configuration options
 					; 2 - load device drivers
 					; 3 - process INSTALL and access dates
-install_flag	db	0
 
 have_install_cmd equ	00000001b	; config.sys has install= commands
 has_installed	equ	00000010b	; sysinit_base installed.

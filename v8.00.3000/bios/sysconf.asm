@@ -118,7 +118,7 @@ multrk_off2	equ	00000001b	;user specified multitrack=off.
 Bios_Data segment 
 	extrn   int16_entry:far,int4f_entry:far
 	extrn   int16_old:dword,int4f_old:dword
-	extrn   bios_flags:word
+	extrn   bios_flags:word,bcode_i2f:dword
 	extrn	keyrd_func:byte
 	extrn	keysts_func:byte
 Bios_Data ends
@@ -195,7 +195,7 @@ assume	cs:sysinitseg,ds:nothing,es:nothing,ss:nothing
 	extrn	badload:near,calldev:near,prnerr:near
 
 	extrn   boot_umb_driver_record:word,boot_process_driver_record:near
-	extrn	boot_loading_ifshlp:byte,default_switch_char:byte
+	extrn	boot_loading_ifshlp:byte
 	extrn	sysinit_msg_base:byte,sysinit_msg_table:word
 
 ifndef ROMDOS
@@ -760,16 +760,16 @@ doconf	proc	near
 
 config_missing:
 	mov     ax,[alloclim]           ; reserve an environment workspace
-	sub     ax,20h
+	sub     ax,word ptr 20h
 	mov     [config_wrkseg],ax
 	mov     es,ax
 	mov     byte ptr es:[0],0
 	mov     [alloclim],ax
 
 	mov	multi_pass_id,11	; set it to unreasonable number
-	mov	ax,3700h		; get DOS switch character
+	mov	ax,char_oper shl 8	; get DOS switch character
 	int	21h
-	mov	[default_switch_char],dl
+	mov	[command_line+2],dl
 	ret
 noprob: 				;get file size (note < 64k!!)
 	xchg    ax,bx
@@ -2411,12 +2411,12 @@ cntry_error	proc	near
 	cmp	ax,$p_out_of_range
 	jnz	if64
 	mov	dx,offset sysinit_msg_base
-	add	dx,cs:[sysinit_msg_table+26] ; invalid country code or code page
+	add	dx,cs:[sysinit_msg_table+22] ; invalid country code or code page
 	jmp	short en64
 
 if64:
 	mov	dx,offset sysinit_msg_base
-	add	dx,cs:[sysinit_msg_table+28] ; error in country command
+	add	dx,cs:[sysinit_msg_table+24] ; error in country command
 en64:
 	call	print
 	call	error_line
@@ -5750,9 +5750,9 @@ config_hook_install	proc	near
 	mov	ds,ax
 	cli
 	mov	ax,offset config_hook_int2f
-	mov	word ptr ds:[168h],ax
+	mov	word ptr ds:[bcode_i2f],ax
 	mov	ax,cs
-	mov	word ptr ds:[16ah],ax
+	mov	word ptr ds:[bcode_i2f+2],ax
 	sti
 	mov	byte ptr cs:[config_hook_active],1
 	mov	word ptr cs:[config_device_segment],0
@@ -5766,9 +5766,9 @@ config_hook_remove	proc	near
 	mov	ds,ax
 	cli
 	mov	ax,offset Bios_Code:i2f_handler
-	mov	word ptr ds:[168h],ax
+	mov	word ptr ds:[bcode_i2f],ax
 	mov	ax,cs:[BCodeSeg]
-	mov	word ptr ds:[16ah],ax
+	mov	word ptr ds:[bcode_i2f+2],ax
 	sti
 	mov	byte ptr cs:[config_hook_active],0
 	pop	ds

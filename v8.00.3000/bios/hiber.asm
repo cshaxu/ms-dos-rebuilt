@@ -27,7 +27,8 @@ ResumeCheckHeader proc far
 	mov	ds,ax
 	mov	si,[bp+8]
 	mov	es,word ptr [bp+0ah]
-	cmp	dword ptr es:[si],2
+	db	66h
+	cmp	word ptr es:[si],2
 	jna	short rhc_signature
 rhc_false:
 	xor	ax,ax
@@ -38,12 +39,18 @@ rhc_false:
 	retf
 	nop
 rhc_signature:
-	cmp	dword ptr es:[si+4],HiberRestoreSignature
+	db	66h
+	cmp	word ptr es:[si+4],(HiberRestoreSignature and 0ffffh)
+	dw	(HiberRestoreSignature shr 16)
 	jz	short rhc_prompt
-	cmp	dword ptr es:[si+4],HiberFileSignature
+	db	66h
+	cmp	word ptr es:[si+4],(HiberFileSignature and 0ffffh)
+	dw	(HiberFileSignature shr 16)
 	jnz	short rhc_false
 	mov	di,[bp+6]
-	mov	dword ptr es:[si+4],HiberRestoreSignature
+	db	66h
+	mov	word ptr es:[si+4],(HiberRestoreSignature and 0ffffh)
+	dw	(HiberRestoreSignature shr 16)
 	db 66h,68h		; PUSH dword immediate
 	dd 10000h
 	push	0
@@ -177,7 +184,9 @@ rrf_header:
 	mov	[bp-18h],ax
 	mov	[bp-16h],dx
 	mov	es,word ptr [bp+0ah]
-	mov	dword ptr es:[di+4],HiberFileSignature
+	db	66h
+	mov	word ptr es:[di+4],(HiberFileSignature and 0ffffh)
+	dw	(HiberFileSignature shr 16)
 	db 66h
 	push 24
 	push	es
@@ -464,7 +473,9 @@ br_transfer:
 	mov	cx,ax
 	xor	bx,bx
 	mov	es,bx
-	mov	dword ptr es:[0],0cbfca4f3h
+	db	66h
+	mov	word ptr es:[0],(0cbfca4f3h and 0ffffh)
+	dw	(0cbfca4f3h shr 16)
 	push	dword ptr [bp-4]
 	push	1000h
 	sub	ax,ax

@@ -983,7 +983,7 @@ fcb7_fillloop:
 	add	dx,word ptr [sysinit_msg_table+132]
 	call	print
 buffer_default:
-	mov	cx,20
+	mov	cx,30
 	mov	[h_buffers],0
 	cmp	byte ptr [dos_umb_flag],0
 	je	buffer_save_count

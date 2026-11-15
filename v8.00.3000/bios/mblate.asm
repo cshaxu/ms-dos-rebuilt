@@ -64,9 +64,9 @@ system_exec_tail_end db 13,0
 	.386
 	public	boot_exec_system
 boot_exec_system proc near
-	test	boot_system_flags,1
+	test	boot_config_flags,1
 	jnz	boot_exec_return
-	test	boot_config_flags,2
+	test	boot_system_flags,2
 	jnz	boot_exec_return
 	mov	cx,ds
 	mov	system_exec_records+4,cx
@@ -133,7 +133,7 @@ exec_fat32_ready:
 	test	al,80h
 	jnz	short exec_check_status
 	mov	exec_windows_path,al
-	test	boot_system_flags,20h
+	test	boot_config_flags,20h
 	jz	short exec_prepare_paths
 	mov	boot_winboot_dir,0
 exec_prepare_paths:

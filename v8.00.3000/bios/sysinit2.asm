@@ -325,14 +325,15 @@ command_line3	db	3," /P"
 commnd4		db	"\WIN.COM",0
 		db	69 dup (0)
 		db	0,0dh,125 dup (0)
+	db	0
 		public	winboot_shell_pending
 winboot_shell_pending db 0
 
 boot_autoexec_exists db 0
-	public	boot_performance
-boot_performance db 0		; initialize the DOS clock for boot timing
 	public  boot_safe_message
 boot_safe_message db '(Safe boot)',13,10
+	public	boot_performance
+boot_performance db 0		; initialize the DOS clock for boot timing
 boot_drive_dpb db 3fh dup (0)          ; extended Get DPB return buffer
 
 
@@ -445,11 +446,11 @@ shell_error:
 	jmp     short shell_prompt
 shell_error_name:
 	mov     dx,offset sysinit_msg_base
-	add     dx,word ptr [sysinit_msg_table+22]
+	add     dx,word ptr [sysinit_msg_table+18]
 	cmp     byte ptr [winboot_shell_pending],0
 	jne     short shell_show_error
 	mov     dx,offset sysinit_msg_base
-	add     dx,word ptr [sysinit_msg_table+24]
+	add     dx,word ptr [sysinit_msg_table+20]
 	cmp     byte ptr [command_line],0
 	jne     short shell_show_error
 	mov     dx,offset commnd
@@ -1630,7 +1631,7 @@ rotate_shell_copy:
 	mov	si,offset commnd4
 	mov	di,offset commnd
 	rep	movsb
-	inc	byte ptr [newcmd]
+	mov	byte ptr [newcmd],1
 	inc	byte ptr [winboot_shell_pending]
 rotate_shell_done:
 	ret
@@ -1644,8 +1645,9 @@ boot_prepare_environment proc near
 	push    ds
 	pop     es
 	test    byte ptr [boot_config_flags],20h
-	jz      short boot_env_check_shell
-	jmp     near ptr boot_env_done
+	.386
+	jnz	near ptr boot_env_done
+	.8086
 boot_env_check_shell:
 	cmp     byte ptr [exec_option],0
 	.386
@@ -1914,21 +1916,22 @@ boot_previous_menu_check proc near
 	.8086
 boot_previous_check_runtime:
 	test    word ptr [boot_runtime_flags],120h
-	jz      short boot_previous_select_title
-	jmp     boot_previous_done
+	.386
+	jnz	near ptr boot_previous_done
+	.8086
 boot_previous_select_title:
 	cmp     byte ptr [boot_previous_status],0dh
 	jne     short boot_previous_check_host
 boot_previous_resume:
 	mov     di,offset sysinit_msg_base
-	add     di,word ptr [sysinit_msg_table+82]
+	add     di,word ptr [sysinit_msg_table+98]
 	mov     byte ptr [boot_previous_menu],6
 	cmp     byte ptr [exec_value],'0'
 	.386
 	jne	near ptr boot_previous_show_menu
 	.8086
 boot_previous_resume_nonetwork:
-	dec     byte ptr [boot_previous_menu]
+	sub     byte ptr [boot_previous_menu],1
 	jmp     boot_previous_show_menu
 boot_previous_check_host:
 	cmp     byte ptr [boot_previous_status],1
@@ -2120,7 +2123,7 @@ boot_menu_selection_step:
 	or      byte ptr [query_mode_flags],8
 	and     byte ptr [boot_runtime_flags],0efh
 	mov     dx,offset sysinit_msg_base
-	add     dx,word ptr [sysinit_msg_table+52]
+	add     dx,word ptr [sysinit_msg_table+76]
 	jmp     short boot_menu_selection_done
 boot_menu_selection_command:
 	cmp     bx,6
