@@ -983,7 +983,7 @@ DoSplice:
 	mov	di,ds
 	mov	es,di
 	mov	di,si
-	getdseg <ds>
+	getdseg32
 	invoke	CheckCDSDrive
 	pop	ds
 	ASSUME	DS:NOTHING
@@ -1012,9 +1012,7 @@ DoSplice:
 	SAVE	<BP>
 	Invoke	FatRead_CDS
 	RESTORE <BP>
-	.386
-	JC	NEAR PTR FatFail
-	.8086
+	JC	SHORT FatFail
 	LDS	SI,ThisCDS		;   if (ThisCDS->ID == -1) {
 	ASSUME	DS:NOTHING
 	.386

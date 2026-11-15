@@ -605,9 +605,10 @@ ASSUME	DS:NOTHING
 frcd20: TESTB	ES:[DI.curdir_flags],curdir_isnet
 	JNZ	frcd25			; Leave NET guys alone!!
 	PUSH	DS
-	MOV	DS,CS:[DosDSeg]
+	getdseg32
 	invoke	CheckCDSDrive
 	POP	DS
+	ASSUME	DS:NOTHING
 	JNZ	frcd25
 	cmp	si,word ptr es:[di].curdir_devptr
 	jne	frcd25			; no match
