@@ -77,12 +77,14 @@ include	bdsize.inc		; this sets the values:
 
 ifndef ROMDOS
 
-; Resident DOS code in the combined IO image.
+; The interrupt entry precedes the paragraph-aligned resident code.
+DOSENTRYSTART	EQU	03CA0h
 BYTSTART	EQU    	03EA0h
 PARASTART	EQU	(BYTSTART + 0FH) AND (NOT 0FH)	
 
 else
 
+DOSENTRYSTART	EQU	0
 BYTSTART	EQU	0
 PARASTART	EQU	0
 
