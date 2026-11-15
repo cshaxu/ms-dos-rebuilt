@@ -1,5 +1,23 @@
-# MS-DOS 6.20 core reconstruction
+# MS-DOS 6.20
 
-Rebuild IO.SYS, MSDOS.SYS and COMMAND.COM from DOS 6.0-based source and match the owner-supplied target bytes. Project governance, tools, baselines and build outputs are under [extras/](extras/); see the [execution plan](extras/docs/reconstruction-plan.md) and [current state](extras/docs/states/CURRENT.md).
+**The full 6.20 core, rebuilt for the US English startup floppy.**
 
-The selected USA build has been reproduced from the project source and message inputs: all three outputs match the image-derived targets byte for byte. Run `extras/build.cmd` to build and publish the verified three files to `extras/assets`; see the [build guide](extras/docs/states/BUILD.md) for required pinned tools and target files. Historical source spelling and symbol attribution remain partly reconstructed.
+The maintained tree follows DOS 6.00 conventions. It is the base for both the [6.21](../v6.21/extras/README.md) and [6.22](../v6.22/extras/README.md) builds, so start here to read the shared DOS 6.x implementation.
+
+## Build and verify
+
+From the version directory in Windows CMD:
+
+```bat
+extras\build.cmd
+```
+
+Use the configured historical tools and extracted reference files in `extras/baselines/targets`. The build compares the outputs byte for byte and publishes verified copies to `extras/assets`.
+
+| File | Verified bytes |
+| --- | ---: |
+| `IO.SYS` | 40,566 |
+| `MSDOS.SYS` | 38,138 |
+| `COMMAND.COM` | 54,619 |
+
+[Build guide](extras/docs/states/BUILD.md) · [Source audit](extras/docs/quality-audit-closure.md) · [Target manifest](extras/docs/etc/target-baseline.json)

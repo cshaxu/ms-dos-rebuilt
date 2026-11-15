@@ -295,3 +295,26 @@ The three published files were independently byte-compared against files read fr
 Run `extras\build.cmd` for COMMAND.COM and `extras\build.cmd io` for IO.SYS and MSDOS.SYS from the version directory. The products are published in `extras/assets`. Both build entry points retain their verification logs under `extras/build`.
 
 S5 and T29 are closed.
+
+## M6 Td S1 Packet
+
+| Field | Required record |
+| --- | --- |
+| Identifier Mode | Governance |
+| Admission And Approval | The owner admitted a standalone Td for repository READMEs after T29 closed. |
+| Objective | Present the reconstruction to new readers and give each covered release a clear build and evidence entry point. |
+| Non-goals | Source, toolchain, target, and publication changes. |
+| Reference Baseline | The nine maintained versions, their build entry points, frozen targets, and recorded acceptance evidence at `83ae8ed`. |
+| Candidate Proposal | An English project landing page and one concise README per version, keeping existing version document locations and placing new version guides under extras. |
+| Files And ABI Surface | Ten README pages and this governance record. |
+| Applicable Rules | [Execution](../../../../v7.10.1998/extras/docs/rules/EXECUTION.md) |
+| Verification | Resolve relative links and anchors, check the documented build entries, and compare the published file sizes and bytes with all frozen targets. |
+| Expected Markers | Every release row has a guide, a build command, media evidence, and three verified sizes. |
+| Asset Needs | Existing published files and targets for read-only verification. |
+| Reporting Requirements | Record README count, link checks, and the comparison result. |
+| Stop Conditions | Resolve missing evidence and broken links before closing the packet. |
+| Exit Criteria | The root and version guides pass the evidence and link checks. |
+| Original Owner Request | Admit a standalone Td and write appealing READMEs. |
+| Similar-Issue Sweep | Reviewed all nine release entries, including both overlay families and the separate Windows Me image command. |
+
+P1 delivered ten README pages. All 44 relative links and anchors resolve. The nine versions list 27 file sizes, and each published file was independently compared with its frozen reference. This documentation delivery preserves the closed T29 build and result. Td S1 is closed.
