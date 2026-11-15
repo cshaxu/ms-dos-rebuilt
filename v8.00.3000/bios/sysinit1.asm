@@ -66,7 +66,7 @@ break	macro	; dummy empty macro
 
 
 HimemInitSeg segment para public 'HIMEM_INIT'
-	extrn	InitMemory:far,HimemMessage:dword
+	extrn	InitMemory:far,InitInterrupt:far,HimemMessage:dword
 HimemInitSeg ends
 
 Bios_Code	segment
@@ -77,7 +77,7 @@ Bios_Code	segment
 	extrn	win386_nextstack:word
 	extrn	win386_info_flags:byte,exec_bios_word:byte,win386_callback_table:dword
 	extrn	bc_retf:far
-	extrn	hma_initial_size:word,hma_allocate:near
+	extrn	hma_initial_size:word,hma_free_head:word
 	extrn	sysinit_seg:word
 	extrn	win386_stack_code_seg:word,win386_stack_code_size:word
 	irp	aa,<02,08,09,0a,0b,0c,0d,0e,70,72,73,74,76,77>
@@ -1196,6 +1196,7 @@ boot_save_time:
 	assume	ds:sysinitseg
 	push	word ptr [dos_segreinit+2]
 	call	InitMemory
+	call	MovDOSHi
 ; Select the startup message and detect a restart into MS-DOS mode.
 	test    byte ptr [boot_runtime_flags],10h
 	jnz     boot_intro_done
@@ -1498,67 +1499,7 @@ sysinit_umb_defaults:
 	mov     [num_cds],al
 umb_defaults_done:
 
-; Now, if this is not romdos, we decide what to do with the DOS code.
-; It will either be relocated to low memory, above the DOS data structures,
-; or else it will be located in HiMem, in which case a stub with the DOS
-; code entry points will be located in low memory.  Dos_segreinit is used
-; to tell the DOS data where the code has been placed, and to install the
-; low memory stub if necessary.  If the DOS is going to go into HiMem, we
-; must first initialize it in its present location and load the installable
-; device drivers.  Then, if a HiMem driver has been located, we can actually
-; relocate the DOS code into HiMem.
-;
-; For ROMDOS, if DOS=HIGH is indicated, then we need to call dos_segreinit
-; to install the low memory stub  (this must be done before allowing any
-; device drivers to hook interrupt vectors).  Otherwise, we don't need to 
-; call dos_segreinit at all, since the interrupt vector table has already 
-; been patched.
-
-; M025 begin
-
-	cmp	runhigh, 0		; Did user choose to run low ?
-	je	dont_install_stub	; yes, don't install dos low mem stub
-;
-;------ user chose to load high
-;
-
-ifndef ROMDOS
-
-	mov	es,[current_dos_location]	; give dos its temporary loc.
-
-else
-
-	mov	ax, Bios_Data		; get bios data segment
-	mov	es, ax			; point es to bios data
-	assume	es:Bios_Data
-	mov	es, [DOS_Res]		; get DOS resident code segment
-	assume	es:nothing
-
-endif ; ROMDOS
-
-	xor	ax,ax				; ax = 00 ---> install stub
-	call	dword ptr [dos_segreinit]	; call dos segreinit
-	jmp	short do_multi_pass
-	
-;
-;------ User chose to load dos low
-;
-dont_install_stub:
-
-ifndef ROMDOS
-	xor	bx, bx			; M012
-					;  don't use int 21 call to alloc mem
-
-	call	MovDOSLo		; move it !
-
-
-	mov	ax, 1			; dont install stub
-	mov	es, cs:current_dos_location; set_dos_final_position set it up
-	call	cs:dword ptr dos_segreinit	; inform dos about new seg
-
-endif ; ROMDOS
-
-do_multi_pass:
+; The combined resident image was moved into the HMA before CONFIG.SYS.
 
 ; M072 BEGIN
 ifdef POWER
@@ -1644,16 +1585,6 @@ dolast:
 ; [area] has the segment address for the allocated memory of sysinit, confbot.
 ;  free the confbot area used for config.sys and sysinit itself.
 
-
-; Now if DOS is supposed to run high, we actually move it into high memory 
-; (if HiMem manager is available).  For ROMDOS, we don't actually move
-; anything, but just set up the ROM area for suballocation (or print
-; a message if HiMem is not available).
-;
-; There is also this little hack for CPM style DOS calls that needs to
-; be done when A20 is set...
-
-	call	LoadDOSHiOrLo
 
 ; We are now done with CONFIG.SYS processing
 
@@ -1857,386 +1788,70 @@ alloc_free_done:
 AllocFreeMem	endp
 
 
-;
 ;----------------------------------------------------------------------------
 ;
-; procedure : LoadDOSHiOrLo
-;
-;		Tries to move DOS into HMA. If it fails then loads
-;		DOS into Low memory.  For ROMDOS, nothing is actually
-;		moved; this just tries to allocate the HMA, and prints
-;		a message if this is not possible.
+; MovDOSHi - Move the combined BIOS and DOS code into the HMA.
+; Initialize its free block, retarget the low BIOS entries, and hook XMS.
 ;
 ;----------------------------------------------------------------------------
-;
 
-	public	LoadDOSHiOrLo
-LoadDOSHiOrLo	proc	near
-	cmp	cs:[runhigh],0ffh
-	jne	short load_high_done
-	call	TryToMovDOSHi			; Try moving it into HMA (M024)
-	jc	LdngLo				; If that don't work...
-load_high_done:
-	ret
-LdngLo:
-	push	cs
-	pop	ds
-	cmp	cs:[dos_low_message],0
-	je	short load_low_silent
-	call	print_indexed
-	dw	803dh
-load_low_silent:
-
-ifndef ROMDOS
-	; actually move the dos, and reinitialize it.
-
-	mov	bx, 1				; M012
-						;  use int 21 alloc for mem
-	call	MovDOSLo
-	mov	es,cs:[current_dos_location]	; give dos its temporary loc.
-	xor	ax,ax				; ax = 00 ---> install stub
-	call	cs:dword ptr [dos_segreinit]	; call dos segreinit
-endif ; ROMDOS
-
-	mov	cs:[runhigh], 0			; mark that we are running lo
-	ret
-LoadDOSHiOrLo	endp
-
-
-;
-;----------------------------------------------------------------------------
-;
-; procedure : TryToMovDOSHi
-;
-;		This tries to move DOS into HMA.
-;		Returns CY if it failed.
-;		If it succeeds returns with carry cleared.
-;
-;		For ROMDOS, dos_segreinit must be called again to allow
-;		the A20 switching code in the low mem stub to be installed.
-; 
-;----------------------------------------------------------------------------
-;
-
-		public	TryToMovDOSHi
-
-TryToMovDOSHi	proc	near
-	cmp	cs:[runhigh],1
-	jbe	ttldhx
-	call	MovDOSHi
-	jc	ttldhx
-
-ifndef ROMDOS
-
-	mov	es,[current_dos_location]	; give dos its temporary loc.
-
-else
-
-	mov	ax, Bios_Data		; get bios data segment
-	mov	es, ax			; point es to bios data
-	assume	es:Bios_Data
-	mov	es, [DOS_Res]		; get DOS resident code segment
-	assume	es:nothing
-
-endif ; ROMDOS
-
-	xor	ax,ax				; ax = 00 ---> install stub
-	call	cs:dword ptr [dos_segreinit]	; call dos segreinit
-
-	mov	runhigh, 1
-	call	CPMHack
-	clc
-ttldhx:
-	ret
-TryToMovDOSHi	endp
-
-
-;
-;----------------------------------------------------------------------------
-; procedure : FTryToMovDOSHi
-;
-;		Called from HMA suballoc calls
-;	
-;----------------------------------------------------------------------------
-;
-;
-
-		public	FTryToMovDOSHi
-FTryToMovDOSHi	proc	far
-	.286
-	pusha
-	push    ds
-	push    es
-	call    TryToMovDOSHi
-	pop     es
-	jc      short ftry_hma_done
-	mov     ax,0ffffh
-	mov     es,ax
-ftry_hma_done:
-	pop     ds
-	popa
-	ret
-	.8086
-FTryToMovDOSHi	endp
-
-;----------------------------------------------------------------------------
-;
-; procedure : MovDOSHi
-;
-;		Tries to allocate HMA and Move DOS/BIOS code into HMA
-;		For ROMDOS, the code is not actually moved, but the
-;		HMA is allocated and prepared for sub-allocation.
-;
-;		Returns : CY if it failed
-;
-;----------------------------------------------------------------------------
-;
-
-MovDOSHi	proc	near
-	call	AllocHMA
-	jc	mdhx				; did we get HMA?
-	mov	bx,offset BCode_End-10h
-	add	bx,cs:[bios_extra_bytes]
-	db	81h,0ebh,40h,0		; sub bx,40h
-	mov	cx,0ffffh
-	mov	dl,0
-	mov	bp,offset Bios_Code:hma_allocate
-	call	query_bios_call
-	mov	ax, 0ffffh			; yes, HMA seg = 0ffffh
-	mov	es, ax
-
-ifndef ROMDOS
-	; actually move the BIOS and DOS
-
-	call	MovBIOS				; First move BIOS into HMA
-
-	; ES:DI points to free HMA after BIOS
-
-	mov	bx,cs:[hi_doscod_size]
-	mov	cx,0fffdh
-	mov	dl,0
-	push	bx
-	mov	bp,offset Bios_Code:hma_allocate
-	call	query_bios_call
-	pop	cx
-	call	MovDOS
-	mov	es:[di-0eh],bx
-	call	config_xms_init
-
-	; ES:DI points to free HMA after DOS
-else
-	; allocate space at beginning of HMA to allow for CPMHack
-
-	mov	di, 0E0h			; room for 5 bytes at ffff:d0
-
-endif ; ROMDOS
-
-	clc
-mdhx:
-	ret
-MovDOSHi	endp
-
-
-;
-;----------------------------------------------------------------------------
-;
-; procedure : MovDOSLo
-;
-;		Allocates memory from DOS and moves BIOS/DOS code into it
-;
-;----------------------------------------------------------------------------
-;
-
-ifndef ROMDOS
-
-	public  MovDOSLo
-MovDOSLo	proc	near
-	call	AllocMemForDOS			; incestuosly!!!
-	mov	es, ax				; pass the segment to MovBIOS
-	call	MovBIOS
-;
-;------ ES:DI points memory immediately after BIOS
-;
-	mov	cx, lo_doscod_size		; DOS code size when loaded
-						;  low
-	push	cx
-	call	MovDOS
-	pop	cx
-	add	di,cx
-	call	config_copy
-	ret
-MovDOSLo	endp
-
-endif ; ROMDOS
-
-;
-;----------------------------------------------------------------------------
-;
-; procedure : MovBIOS
-;
-;		Moves BIOS code into requested segment
-;
-;	In : ES - segment to which BIOS is to be moved
-;		  ( it moves always into offset BCode_Start)
-;
-;	Out : ES:DI - pointer to memory immediately after BIOS
-;
-;----------------------------------------------------------------------------
-;
-
-ifndef ROMDOS
-
-MovBIOS	proc	near
-	mov	ds,cs:[BCodeSeg]
-	mov	si,offset BCode_Start
+MovDOSHi proc near
+	.386
+	assume	ds:sysinitseg
+	push	ds
+	push	es
+	mov	bx,[hi_doscod_size]
+	add	bx,0fh
+	and	bx,not 0fh
+	mov	ds,[BCodeSeg]
+	assume	ds:Bios_Code
+	mov	ax,0ffffh
+	mov	es,ax
+	mov	word ptr es:[bx],534dh	; HMA arena signature
+	mov	word ptr es:[bx+6],0	; last arena
+	mov	ax,bx
+	neg	ax
+	sub	ax,10h
+	mov	es:[bx+4],ax		; free bytes
+	mov	word ptr es:[bx+2],0	; free owner
+	mov	[hma_free_head],bx
+	db	81h,0ebh		; sub bx,40h
+	dw	40h
+	mov	[hma_initial_size],bx
+	mov	si,offset BCode_start
 	mov	di,si
-	mov	cx,offset BCode_End
-	add	cx,cs:[bios_extra_bytes]
-	sub	cx,si
-	shr	cx,1
-	rep	movsw
+	lea	cx,[bx+10h]
+	shr	cx,2
+	rep	movsd
 	mov	ax,es
 	call	reinit_bios_code
-	ret
-MovBIOS	endp
+	call	cs:dword ptr [dos_segreinit]
 
-endif ; ROMDOS
-
+;	Copy the CP/M call at 0000:00C0 into the HMA.
 ;
-;----------------------------------------------------------------------------
-;
-; procedure : MovDOS
-;
-;		Moves DOS code into requested area
-;
-;	In : ES:DI - pointer to memory where DOS is  to be moved
-;	     CX    - size of DOS code to be moved
-;
-;	Out : ES:DI - starting address of the copied DOS code
-;	      BX    - adjusted DOS segment (also saved in current_dos_location)
-;
-;----------------------------------------------------------------------------
-;
-
-ifndef ROMDOS
-
-MovDOS	proc	near
-	push	es
-	push	di
-	lds	si,cs:[dos_temp_location]	; current location of DOS
-	shr	cx,1
-	rep	movsw
-	adc	cx,cx
+	mov	cx,0ffffh
+	mov	es,cx
+	xor	cx,cx
+	mov	ds,cx
+	assume	ds:nothing
+	mov	si,0c0h
+	mov	di,0d0h
+	mov	cx,5
+	cld
 	rep	movsb
-	pop	di
-	mov	bx,di
-	mov	ax, DosInitOffset			; get the offset at which DOS
-						;  wants to run
-	sub	ax, bx
-	test	al,0fh
-	jz	short movdos_aligned
-	jmp	near ptr FatalErr
-movdos_aligned:
-	.286
-	shr	ax,4
-	.8086
-	pop	bx				; get the segment at which
-						;  we moved DOS into
-	sub	bx, ax				; Adjust segment
-	mov	current_dos_location, bx	; and save it
-	ret
-MovDOS	endp
-
-endif ;ROMDOS
-
-;
-;----------------------------------------------------------------------------
-;
-; procedure : AllocMemForDOS
-;
-;		Allocate memory for DOS/BIOS code from DOS !!!
-;
-;	Out : AX - seg of allocated memoryblock
-;
-;----------------------------------------------------------------------------
-;
-
-ifndef ROMDOS
-
-	public  AllocMemForDOS,FatalErr
-AllocMemForDOS	proc	near
-	mov	ax, offset BCode_end
-	add	ax,cs:[bios_extra_bytes]
-	sub	ax, offset BCode_start		; BIOS code size
-	add	ax, lo_doscod_size		; + DOS code size
-	add	ax, 15
-	.286
-	shr	ax,4
-	.8086
-	add	ax,cs:[config_buffer_paragraphs]
-	inc	ax
-	or	bx, bx				; M012
-						;  can we use int 21 for alloc
-	mov	bx, ax
-	jz	update_arena			; M012
-	mov	ah, 48h				; request DOS
-	int	21h
-	jc	FatalErr			; IF ERR WE ARE HOSED
-	sub	ax, 3				; Take care ORG 30h of
-						;  BIOS code
-	mov	es, ax
-	mov	word ptr es:[20h+arena_owner], 08h	; mark it as system
-	mov	word ptr es:[20h+arena_name], 'CS'	;  code area
-	ret
-
-;	BUGBUG -- 5 Aug 92 -- chuckst -- Allocating space for DOS
-;		  using DOS itself causes an arena to be generated.
-;		  Unfortunately, certain programs (like PROTMAN$)
-;		  assume that the device drivers are loaded into
-;		  the first arena.  For this reason, MagicDrv's
-;		  main device driver header arena is manually
-;		  truncated from the arena chain, and the space
-;		  for DOS is allocated using the following
-;		  simple code, which also assumes that the
-;		  first arena is the free one where DOS's low
-;		  stub will go.
-;
-; M012 : BEGIN
-;
-update_arena:
-	push	ds
-	push	di
-	push	cx
-	push	dx
-	lds	di, dosinfo			; get ptr to DOS var
-	dec	di
-	dec	di				; Arena head is immediately
-						;  before sysvar
-	mov	es, ds:[di]			; es = arena head
-	mov	cx, es:[arena_size]		; cx = total low mem size
-	cmp	cx, bx				; is it sufficient ?
-	jb	FatalErr			; no, fatal error
-
-	mov	dl, es:[arena_signature]
-	mov	ax, es
-	add	ax, bx				; ax = new arena head
-	mov	ds:[di], ax			; store it in DOS data area
-	mov	ds, ax
-	mov	byte ptr ds:[arena_signature], dl	; type of arena
-	mov	word ptr ds:[arena_owner], 0		; free
-	sub	cx, bx				; size of the new block
-	mov	word ptr ds:[arena_size], cx	; store it in the arena
-	mov	ax, es				; return seg to the caller
-	sub	ax, 3				; Take care ORG 30h of
-						;  BIOS code
-	pop	dx
-	pop	cx
-	pop	di
+	call	InitInterrupt
+	mov	ax,Bios_Data
+	mov	ds,ax
+	assume	ds:Bios_Data
+	or	byte ptr [bios_flags],1
+	pop	es
 	pop	ds
 	ret
-;
-; M012 : END
-;
+	assume	ds:sysinitseg,es:nothing
+	.8086
+MovDOSHi endp
+
+	public	FatalErr
 FatalErr:
 	call    query_keyboard_service
 	push    cs
@@ -2249,105 +1864,6 @@ fatal_halt:
 	hlt
 	jmp     short fatal_halt
 
-AllocMemForDOS	endp
-
-endif ;ROMDOS
-
-;
-;----------------------------------------------------------------------------
-;
-; procedure : AllocHMA
-;
-;	grab_the_hma tries to enable a20 and make sure there is memory
-;	  up there.  If it gets any sort of error, it will return with
-;	  carry set so that we can resort to running low.
-;
-;	On success, A20 is enabled and the BIOS HMA allocator is initialized.
-;
-;----------------------------------------------------------------------------
-;
-
-AllocHMA	proc near
-	assume	ds:nothing,es:nothing
-;
-;	cas note:  The pre-286 check is no longer needed here since the
-;		   presence of XMS is sufficient.  However, this code hasn't
-;		   been deleted because it can be recycled for skipping the
-;		   extra pass of CONFIG.SYS and assuming we're running low
-;		   in the case of a pre-286.
-
-;
-;;	see if we're running on a pre-286.  If not, force low.
-;
-;	xor	ax,ax
-;	pushf			; save flags (like int)
-;	push	ax
-;	popf
-;	pushf
-;	pop	ax
-;	popf			; restore original flags (like int)
-;	and	ax,0f000h
-;	cmp	ax,0f000h	; 8088/8086?
-;	jz	grab_hma_error
-;
-	push	ds
-	mov	ax,Bios_Data
-	mov	ds,ax
-	assume 	ds:Bios_Data
-
-	call	IsXMSLoaded
-	jnz	grabhma_error
-
-	mov	ax,4310h
-	int	2fh		; get the vector into es:bx
-	mov	word ptr xms,bx
-	mov	word ptr xms+2,es
-
-	mov	ah,1		; request HMA
-	mov	dx,0ffffh
-	call	xms
-	dec	ax
-	jz	@f		; error if not able to allocate HMA
-
-;
-;------ Himem may be lying because it has allocated mem for int 15
-;
-	mov	ah, 88h
-	int	15h
-	cmp	ax,64		; less than 64 K of hma ?
-	jb	grabhma_error
-
-@@:	mov	ah,5		; localenableA20
-	call	xms
-	dec	ax
-	jnz	grabhma_error	; error if couldn't enable A20
-
-	call	IsVDiskInstalled
-	jz	grabhma_error	; yes, we cant use HMA
-
-	mov	ax,0ffffh
-	mov	ds,ax
-	assume	ds:nothing
-	mov	word ptr ds:[10h],1234h ; verify HMA memory
-	cmp	word ptr ds:[10h],1234h
-	jnz	grabhma_error
-	mov	ds,cs:[BCodeSeg]
-	assume	ds:Bios_Code
-	mov	word ptr [hma_initial_size],0ffc0h
-	mov	ax,Bios_Data
-	mov	ds,ax
-	assume	ds:Bios_Data
-	or	byte ptr [bios_flags],1 ; A20 is enabled
-	pop	ds
-	ret
-
-grabhma_error:
-	stc
-	pop	ds
-	assume	ds:nothing
-	ret
-
-AllocHMA	endp
 
 ;
 ;----------------------------------------------------------------------------
@@ -2633,30 +2149,7 @@ IsVDiskInstalled proc	near
 @@: 
 		ret			; returns the Zero flag
 IsVDiskInstalled endp
-;
-;----------------------------------------------------------------------------
-;
-; procedure : CPMHack
-;
-;		Copies the code from 0:c0 into ffff:0d0h
-;		for CPM comatibilty
-;
-;----------------------------------------------------------------------------
-;
-CPMHack		proc	near
-		push	ds
-		mov	cx, 0ffffH
-		mov	es, cx		; ES = FFFF
-		xor	cx, cx
-		mov	ds, cx		; DS = 0
-		mov	si, 0c0h
-		mov	di, 0d0h
-		mov	cx, 5
-		cld
-		rep	movsb		; move 5 bytes from 0:C0 to FFFF:D0
-		pop	ds
-		ret
-CPMHack		endp
+
 
 ; Update the BIOS data entry vectors after moving BIOS code.
 ; AX is the new BIOS code segment; preserve DI and ES, use CX.

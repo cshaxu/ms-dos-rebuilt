@@ -987,6 +987,8 @@ BCode_start:
 	dw	0ffffh
 	public	hma_initial_size
 hma_initial_size dw 0
+	public	hma_free_head
+hma_free_head	dw	0		; first free arena in the HMA
 
 ;	device driver entry point tables
 
