@@ -282,8 +282,7 @@ ENDIF ; CONFIGPROC
 	public	sys_model_byte,sys_scnd_model_byte
 sys_model_byte db 0ffh
 sys_scnd_model_byte db 0
-checksum	dw	0		; sum of saved SYSINIT data
-sysinit_extra_bytes dw 0		; rounded message area for the saved image
+	dw	0,0
 
 IFDEF	POWER
 	extrn	Power_Init:near				; M072
@@ -437,7 +436,7 @@ has_installed equ 00000010b
 
 
 
-extrn move_myself:near,sysinit_exec_start:byte
+extrn move_myself:near
 ;**	TempCDS - Create (Temporary?) CDS
 ;
 ;	ENTRY	?? BUGBUG
@@ -1114,24 +1113,11 @@ stack_message_done:
 
 	assume	ds:sysinitseg
 
-;	if the user did not entered stacks= command, as a default, do not install
-;	sytem stacks for pc1,pc xt,pc portable cases.
-;	otherwise,install it to the user specified value or to the default
-;	value of 9,128 for other systems.
-
-	cmp	word ptr [stack_addr],-1 ;has the user entered "stacks=" command?
-	je	doinstallstack		;then install as specified by the user
-	cmp	[sys_scnd_model_byte],0 ;pc1,xt has the secondary model byte = 0
-	jne	doinstallstack		;other models use the default stack settings
-	cmp	[sys_model_byte],0feh	;pc1, pc/xt or pc portable ?
-	jb	short doinstallstack
-	jmp	skipstack
-doinstallstack:
-	mov	ax,[stack_count]	; stack_count = 0?
-	or	ax,ax			;then,stack size must be 0 too.
-	jnz	short stack_enabled
-	jmp	skipstack
-stack_enabled:
+	.386
+	mov	ax,[stack_count]
+	or	ax,ax
+	jz	skipstack
+	.8086
 
 ; Allocate the interrupt code, message and hardware stack area.
 
@@ -1551,7 +1537,10 @@ endif  ;MULTI_CONFIG
 	mov	word ptr cs:[instexe+8],ax
 	mov	word ptr cs:[instexe+12],ax
 	call	sum_up
-	mov	es:checksum,ax		; save the value of the sum
+	push	es
+	mov	es,word ptr cs:[sysinit_base_ptr+2]
+	mov	es:word ptr [checksum],ax		; save the sum in the low copy
+	pop	es
 	xor	ax,ax
 	mov	ah,exec			; load/exec
 	mov	bx,offset instexe	; es:bx -> parm block.
@@ -1643,7 +1632,7 @@ sysinit_base:
 						; at this time,i don't have to worry about
 						; that sysinit module has been broken or not.
 	call	sum_up				; otherwise,check if it is good.
-	cmp	es:checksum,ax
+	cmp	cs:word ptr [checksum],ax
 	je	sysinit_base_end
 
 ;	memory broken. show "memory allocation error" message and stall.
@@ -1667,11 +1656,6 @@ sum_up:
 ;in:   es - sysinitseg.
 ;out:  ax - result
 ;
-;remark: since this routine will only check starting from "sysinit_exec_start" to the end of
-;	 sysinit segment,the data area, and the current stack area are not
-;	 coverd.  in this sense,this check sum routine only gives a minimal
-;	 gaurantee to be safe.
-;
 ;first sum up confbot seg.
 
 	push	ds
@@ -1690,11 +1674,9 @@ sum1:
 	loop	sum1
 ;now,sum up sysinit module.
 sum_sys_code:
-	mov	si,offset sysinit_exec_start
-					;  this does not cover the possible stack code!!!
+	xor	si,si
 	mov	cx,offset SI_end+200h ; include the temporary disk buffer
-	add	cx,es:sysinit_extra_bytes
-	sub	cx,si			;  from after_checksum to SI_end
+	sub	cx,si
 	shr	cx,1
 sum2:
 	add	ax,es:word ptr [si]
@@ -1704,6 +1686,8 @@ sum2:
 	pop	ds
 	ret
 
+checksum equ $-sysinit_base
+	dw	0
 sysinit_base_ss equ $-sysinit_base
 	dw	?
 sysinit_base_sp equ $-sysinit_base

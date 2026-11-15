@@ -179,6 +179,7 @@ boot_env_temp db 'TEMP='
 boot_temp_dir db '\TEMP'
 boot_env_prompt db 'PROMPT=$p$g',0
 boot_env_winboot db 'winbootdir='
+boot_env_windir db 'windir='
 boot_env_path db 'PATH='
 boot_netstart_cmd db ' /K NETSTART',0
 boot_autoexec_cmd db ' /D /K AUTOEXEC',0
@@ -231,6 +232,13 @@ boot_old_bx dw 0
 boot_old_ax dw 0
 boot_old_si dd 0
 boot_old_dx dw 0
+; Startup option file names, including length bytes used by startup.
+boot_io_entry db 3
+	public	boot_io_file
+boot_io_file db 'IO.SYS',0
+boot_msdos_entry db 6
+boot_msdos_name db 'MSDOS.SYS',0
+boot_msdos_root db 'C:\MSDOS.SYS',0
 	public  boot_old_image_seg
 boot_old_image_seg dw 0
 boot_find_fcb db 0ffh,5 dup (0),7,0
@@ -258,12 +266,6 @@ boot_config_wos db 'CONFIG.WOS',0
 boot_msdos_status db 'C:\MSDOSSYS.STS',0
 
 ; Startup option file names, including length bytes used by startup.
-boot_io_entry db 3
-	public	boot_io_file
-boot_io_file db 'IO.SYS',0
-boot_msdos_entry db 6
-boot_msdos_name db 'MSDOS.SYS',0
-boot_msdos_root db 'C:\MSDOS.SYS',0
 boot_command_entry db 8
 boot_command_name db 'COMMAND.COM',0
 boot_config_entry db 7
@@ -651,6 +653,13 @@ boot_resolve_mapped_drive endp
 
 	public	boot_exec_shell
 boot_exec_shell proc near
+	push	ds
+	push	dx
+	lds	dx,[boot_old_int24]
+	mov	ax,(set_interrupt_vector shl 8) or 24h
+	int	21h
+	pop	dx
+	pop	ds
 	push	cs
 	pop	es
 	mov	bx,offset comexe

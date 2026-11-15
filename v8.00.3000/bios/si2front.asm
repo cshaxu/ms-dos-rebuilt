@@ -3904,7 +3904,7 @@ config	db	"\CONFIG.SYS",0
 cntry_drv   db	  "A:"
 cntry_root  db	  "\"
 cntry_path  db	  "COUNTRY.SYS",0
-	    db	  52 dup (0)
+	    db	  61 dup (0)
 
 country_file_signature db 0ffh,'COUNTRY'
 
