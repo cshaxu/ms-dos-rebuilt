@@ -2178,7 +2178,9 @@ check_switch	endp
 
 process_num	proc	near
 	test	word ptr switches,cx	; if this switch has been done before,
-	jnz	done_ret		; ignore this one.
+	.386
+	jnz	near ptr done_ret	; ignore this one.
+	.8086
 	test	cx,flagdrive
 	jz	try_f
 	mov	byte ptr drive,al

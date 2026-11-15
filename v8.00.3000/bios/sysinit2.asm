@@ -1318,8 +1318,9 @@ boot_start_old_dos proc near
 	mov     ch,byte ptr [boot_old_dx+1]
 	mov     dl,byte ptr [boot_old_dx]
 	lds     si,dword ptr [boot_old_si]
-	db      0eah            ; jmp 0070h:0000h
-	dw      0,70h
+	db      66h,0eah        ; jmp 0070h:00000000h
+	dd      0
+	dw      Bios_Data
 boot_old_start_done:
 	ret
 boot_start_old_dos endp
@@ -2283,14 +2284,10 @@ assume  ds:sysinitseg,es:sysinitseg
 ; Fall through to the read loop, then close the file and prepare paths.
 	public  boot_option_open
 boot_option_open proc near
-	cld
 	push    ds
 	pop     es
 	mov	word ptr [config_environment+2],ds
-	test    dx,dx
-	jnz     boot_open_first
 	mov     dx,offset boot_winboot_ini
-boot_open_first:
 	mov     ax,open shl 8
 	int     21h
 	jc      boot_open_w40

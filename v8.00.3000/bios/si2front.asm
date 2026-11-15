@@ -1918,9 +1918,11 @@ display_menu proc near
         mov     ax,0600h
         mov     bh,[bMenuColor]
         sub     cx,cx
-        mov     dl,byte ptr es:[CRT_Cols]
+        db      67h,26h,8ah,15h  ; mov dl,es:[CRT_Cols] (32-bit offset)
+        dd      offset CRT_Cols
         dec     dl
-        mov     dh,byte ptr es:[CRT_Rows]
+        db      67h,26h,8ah,35h  ; mov dh,es:[CRT_Rows] (32-bit offset)
+        dd      offset CRT_Rows
         or      dh,dh
         jnz     short display_menu_clear
         mov     dh,[bLastRow]
@@ -3408,8 +3410,7 @@ setdoscntry_data:
 
 	mov	al, byte ptr ds:[si+2]	;get data entry id
 	call	getcountrydestination	;get the address of destination in es:di
-        jnc     short @F
-        jmp     near ptr setdoscntry_data_next
+        jc      short setdoscntry_data_next
 @@:
 
 	mov	dx, word ptr ds:[si+4]	;get offset of data
@@ -3456,8 +3457,7 @@ setdoscntry_data:
 	inc	cx			;take care of a word for lenght of tab
 	inc	cx			;itself.
 	cmp	cx,(2048 - 512 - 8)	;fit into the buffer?
-        jbe     short @F
-        jmp     near ptr setdosdata_fail
+        ja      short setdosdata_fail
 @@:
 
 	if	bugfix

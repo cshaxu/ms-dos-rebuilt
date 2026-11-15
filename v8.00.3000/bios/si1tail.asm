@@ -756,14 +756,10 @@ endfile:
 multrk_flag_done:
 
 	pop	ds
-	assume	ds:nothing
+	assume	ds:sysinitseg
 
 	mov	ax,[confbot]
 	mov	[alloclim],ax
-
-	push	cs
-	pop	ds
-	assume	ds:sysinitseg
 	mov	ax,[singlebuffersize]
 	mov	[disksector_pending_size],ax
 	call	relocate_disksector
@@ -880,8 +876,9 @@ config_table_allocated:
 	assume	ds:Bios_Data
 	mov	ds,word ptr [cdev+2]
 	assume	ds:Bios_Code
-	pop	word ptr [win386_callback_table]
-	pop	word ptr [win386_callback_table+2]
+	.386
+	pop	dword ptr [win386_callback_table]
+	.8086
 	push	cs
 	pop	ds
 	assume	ds:sysinitseg
