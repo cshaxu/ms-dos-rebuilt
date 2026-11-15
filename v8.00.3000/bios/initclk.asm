@@ -164,15 +164,11 @@ sysinitseg ends
 
 ;	ibm fixed up at rom
 
-	extrn	ibm_disk_io:far
-	extrn	endatrom:byte
 
 ;	M015 -- begin additions
 
 ;	compaq fixed up rom
 
-	extrn	compaq_disk_io:far
-	extrn	end_compaq_i13hook:byte
 
 ;	M015 -- end additions
 

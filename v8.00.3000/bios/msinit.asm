@@ -162,15 +162,13 @@ sysinitseg ends
 
 ;	ibm fixed up at rom
 
-	extrn	ibm_disk_io:far
-	extrn	endatrom:byte
+
 
 ;	M015 -- begin additions
 
 ;	compaq fixed up rom
 
-	extrn	compaq_disk_io:far
-	extrn	end_compaq_i13hook:byte
+
 
 ;	M015 -- end additions
 
@@ -225,219 +223,6 @@ Bios_Code segment
 Bios_Code ends
 Bios_Data_Init segment
 	assume	cs:datagrp
-
-;*********************************************************
-;	CMOS clock initialization
-;*********************************************************
-
-IFNDEF	POWER		; CMOS clock is initialized by power management
-			; device driver, if present.  ;M074
-
-cmos_clock_read proc	near
-	assume	ds:datagrp,es:datagrp
-
-; in order to determine if there is a clock present in the system, the following
-; needs to be done.
-
-	push	ax
-	push	cx
-	push	dx
-	push	bp
-
-	xor	bp,bp
-loop_clock:
-	xor	cx,cx
-	xor	dx,dx
-	mov	ah,2			;read real time clock
-	int	1ah			;call rom-bios routine
-	or	cx,cx			; cas - arrrrgh!
-	jnz	clock_present
-
-	or	dx,dx
-	jnz	clock_present
-
-	or	bp,bp			; read again after a slight delay, in case clock
-	jnz	no_readdate		; was at zero setting.
-
-	inc	bp			; only perform delay once.
-	mov	cx,4000h
-delay:
-	loop	delay
-	jmp	loop_clock
-
-clock_present:
-	or	bios_flags,020h	; cmos clock is present
-	call	cmosck			; reset cmos clock rate that may be
-					;possibly destroyed by cp dos and post routine did not
-					;restore that.
-
-
-no_readdate:
-	pop	bp
-	pop	dx
-	pop	cx
-	pop	ax
-	ret
-
-cmos_clock_read endp
-
-; the following code is written by jack gulley in engineering group.
-; cp dos is changing cmos clock rate for its own purposes and if the
-; use cold boot the system to use pc dos while running cp dos, the cmos
-; clock rate are still slow which slow down disk operations of pc dos
-; which uses cmos clock.  pc dos is put this code in msinit to fix this
-; problem at the request of cp dos.
-;
-; the program is modified to be run on msinit. equates are defined in cmosequ.inc.
-; this program will be called by cmos_clock_read procedure.
-;
-;  the following code cmosck is used to insure that the cmos has not
-;	had its rate controls left in an invalid state on older at's.
-;
-;	it checks for an at model byte "fc" with a submodel type of
-;	00, 01, 02, 03 or 06 and resets the periodic interrupt rate
-;	bits in case post has not done it.  this initilization routine
-;	is only needed once when dos loads.  it should be run as soon
-;	as possible to prevent slow diskette access.
-;
-;	this code exposes one to dos clearing cmos setup done by a
-;	resident program that hides and re-boots the system.
-
-cmosck	proc	near			; check and reset rtc rate bits
-	assume	ds:datagrp,es:nothing
-
-;model byte and submodel byte were already determined in msinit.
-
-	push	ax
-	cmp	ds:model_byte,0fch	;check for pc-at model byte
-					; exit if not "fc" for a pc-at
-	jne	cmosck9 		; exit if not an at model
-
-	cmp	ds:secondary_model_byte,06h  ; is it 06 for the industral at
-	je	cmosck4 		; go reset cmos periodic rate if 06
-	cmp	ds:secondary_model_byte,04h  ; is it 00, 01, 02, or 03
-	jnb	cmosck9 		; exit if problem fixed by post
-					; also,secondary_model_byte = 0 when ah=0c0h, int 15h failed.
-cmosck4:				;	reset the cmos periodic rate
-					;  model=fc submodel=00,01,02,03 or 06
-
-	mov	al,cmos_reg_a or nmi	;nmi disabled on return
-	mov	ah,00100110b		;set divider & rate selection
-	call	cmos_write
-
-					; clear set,pie,aie,uie and sqwe
-	mov	al,cmos_reg_b or nmi	;nmi disabled on return
-	call	cmos_read
-	and	al,00000111b		;clear set,pie,aie,uie,sqwe
-	mov	ah,al
-	mov	al,cmos_reg_b		;nmi enabled on return
-	call	cmos_write
-
-
-cmosck9:				; exit routine
-	pop	ax
-	ret				; return to caller
-					;  flags modifyied
-cmosck	endp
-
-
-;--- cmos_read -----------------------------------------------------------------
-;		read byte from cmos system clock configuration table	       :
-;									       :
-; input: (al)=	cmos table address to be read				       :
-;		bit    7 = 0 for nmi enabled and 1 for nmi disabled on exit    :
-;		bits 6-0 = address of table location to read		       :
-;									       :
-; output: (al)	value at location (al) moved into (al).  if bit 7 of (al) was  :
-;		on then nmi left disabled.  during the cmos read both nmi and  :
-;		normal interrupts are disabled to protect cmos data integrity. :
-;		the cmos address register is pointed to a default value and    :
-;		the interrupt flag restored to the entry state on return.      :
-;		only the (al) register and the nmi state is changed.	       :
-;-------------------------------------------------------------------------------
-
-cmos_read	proc	near		; read location (al) into (al)
-	assume	es:nothing,ds:nothing
-
-	pushf				; save interrupt enable status and flags
-	cli
-	push	bx
-	push	ax			;save user nmi state
-	or	al,nmi			;disable nmi for us
-	out	cmos_port,al
-	nop				;undocumented delay needed
-	in	al,cmos_data		;get data value
-
-;	set nmi state to user specified
-
-	mov	bx,ax			;save data value
-	pop	ax			;get user nmi
-	and	al,nmi
-	or	al,cmos_shut_down
-	out	cmos_port,al
-	nop
-	in	al,cmos_data
-
-	mov	ax,bx			;data value
-	pop	bx
-
-	push	cs			; *place datagrp segment in stack and
-	call	cmos_popf		; *handle popf for b- level 80286
-	ret				; return with flags restored
-
-cmos_read	endp
-
-cmos_popf	proc	near		; popf for level b- parts
-	iret				; return far and restore flags
-
-cmos_popf	endp
-
-;--- cmos_write ----------------------------------------------------------------
-;		write byte to cmos system clock configuration table	       :
-;									       :
-; input: (al)=	cmos table address to be written to			       :
-;		bit    7 = 0 for nmi enabled and 1 for nmi disabled on exit    :
-;		bits 6-0 = address of table location to write		       :
-;	 (ah)=	new value to be placed in the addressed table location	       :
-;									       :
-; output:	value in (ah) placed in location (al) with nmi left disabled   :
-;		if bit 7 of (al) is on.  during the cmos update both nmi and   :
-;		normal interrupts are disabled to protect cmos data integrity. :
-;		the cmos address register is pointed to a default value and    :
-;		the interrupt flag restored to the entry state on return.      :
-;		only the cmos location and the nmi state is changed.	       :
-;-------------------------------------------------------------------------------
-
-cmos_write	proc	near		; write (ah) to location (al)
-	assume	es:nothing,ds:nothing
-	pushf				; save interrupt enable status and flags
-	push	ax			; save work register values
-
-	cli
-	push	ax			; save user nmi state
-	or	al,nmi			; disable nmi for us
-	out	cmos_port,al
-	nop
-	mov	al,ah
-	out	cmos_data,al		; write data
-
-;   set nmi state to user specified
-
-	pop	ax			; get user nmi
-	and	al,nmi
-	or	al,cmos_shut_down
-	out	cmos_port,al
-	nop
-	in	al,cmos_data
-
-	pop	ax			; restore work registers
-	push	cs			; *place datagrp segment in stack and
-	call	cmos_popf		; *handle popf for b- level 80286
-	ret
-
-cmos_write	endp
-
-ENDIF	; NOT POWER
 
 drvfat	dw	0000			;drive and fat id of dos
 bios_l	label	word
@@ -517,8 +302,6 @@ mini_seclim	dw	0
 ;end of mini disk init variables *********************
 
 
-bios_date db	'01/10/84',0		;used for checking at rom bios date.
-bdate_l	=	(offset $)-(offset bios_date)
 
 ; the following are the recommended bpbs for the media that we know of so
 ; far.
@@ -690,88 +473,24 @@ ENDIF
 	cli
 	cld
 	sub	si,si
-	mov	ds,si
 	mov	cs:saved_boot_bp,bp
 	mov	cs:saved_boot_ss,ss
 	mov	ss,si
 	mov	sp,700h
 	mov	cs:drvfat,dx
 	mov	cs:boot_drive_copy,dx
-	push	ds
 	mov	ds,cs:init_sysinit_seg
 	assume	ds:sysinitseg
 	mov	boot_load_segment,di
 	mov	boot_data_high,ax
 	mov	boot_data_low,bx
-	push	cs
-	pop	ds
-	assume	ds:datagrp
-	mov	bios_flags,1000h
-	jmp	short init_cpu_check
-
-; Display a zero- or dollar-terminated initialization message.
-init_message:
-	lodsb
-	test	al,al
-	jz	init_message_done
-	cmp	al,'$'
-	jz	init_message_done
-	mov	ah,0eh
-	mov	bx,7
-	int	10h
-	jmp	short init_message
-init_message_done:
-	ret
-
-; Determine the processor class from the writable FLAGS bits.
-init_cpu_check:
-	pushf
-	push	bx
-	xor	bx,bx
-	xor	ax,ax
-	push	ax
-	popf
-	pushf
-	pop	ax
-	and	ax,0f000h
-	cmp	ax,0f000h
-	jz	init_cpu_done
-	mov	ax,0f000h
-	push	ax
-	popf
-	pushf
-	pop	ax
-	and	ax,0f000h
-	jz	init_cpu_286
-	inc	bx
-init_cpu_286:
-	inc	bx
-init_cpu_done:
-	mov	ax,bx
-	pop	bx
-	popf
-	cmp	ax,2
-	jae	init_cpu_ok
-	push	ds
-	mov	si,SysInitMsg
 	mov	ds,si
-	assume	ds:SysInitMsg
-	mov	si,offset sysinit_msg_base
-	add	si,sysinit_msg_table+sysinit_cpu_msg
-	call	init_message
-	pop	ds
-	assume	ds:datagrp
-init_cpu_halt:
-	hlt
-	jmp	short init_cpu_halt
-init_cpu_ok:
-	pop	ds
+	assume	ds:nothing
 
 ; Save the original vectors and controller masks for the system loader.
 
 	mov	ah,0fh
 	int	10h
-	sub	si,si
 	mov	ax,50h
 	mov	es,ax
 	mov	di,3ch
@@ -779,26 +498,22 @@ init_cpu_ok:
 	stosw
 	mov	ax,ds:[40eh]		; extended BIOS data segment
 	stosw
-	mov	cx,40h
-	rep	movsw
 	.386
+	mov	cx,20h
+	rep	movsd
 	mov	dword ptr es:[0a4h],0
-	.8086
 	mov	si,100h
-	mov	cx,8
-	rep	movsw
+	mov	cx,4
+	rep	movsd
 	add	si,8
-	movsw
-	movsw
+	movsd
 	add	si,10h
-	movsw
-	movsw
+	movsd
 	add	si,0ch
-	movsw
-	movsw
+	movsd
 	mov	si,1c0h
-	mov	cx,10h
-	rep	movsw
+	mov	cx,8
+	rep	movsd
 	in	al,0a1h
 	mov	ah,al
 	in	al,21h
@@ -829,19 +544,14 @@ init_vector_sum:
 init_next_vector:
 	lods	byte ptr es:[si]
 	cbw
-	.286
 	shl	ax,2
-	.8086
 	mov	di,ax
 	xchg	si,di
-	movsw
-	movsw
+	movsd
 	xchg	si,di
 	loop	init_next_vector
-	mov	ax,word ptr es:Old13
-	mov	word ptr es:Orig13,ax
-	mov	ax,word ptr es:Old13+2
-	mov	word ptr es:Orig13+2,ax
+	mov	eax,dword ptr es:Old13
+	mov	dword ptr es:Orig13,eax
 	mov	bx,cs
 	mov	word ptr ds:[13h*4],offset block13
 	mov	ds:[13h*4+2],bx
@@ -861,10 +571,9 @@ init_next_vector:
 	push	ds
 	pop	es
 	mov	di,530h
-	stosw
-	stosw
-	stosw
-	stosw
+	stosd
+	stosd
+	.8086
 	mov	word ptr ds:[1bh*4],offset cbreak
 	mov	ds:[1bh*4+2],bx
 	mov	word ptr ds:[29h*4],offset outchr
@@ -1187,7 +896,6 @@ keepintf:
 	mov	keyrd_func,10h
 	mov	keysts_func,11h
 org_key:
-	call	cmos_clock_read
 	mov	bp,offset read_real_date
 	call	call_bios_code
 	mov	hdrv_pat,offset harddrv
@@ -1537,200 +1245,12 @@ no_remap:
 
 	assume	es:nothing
 
-; end of drive initialization.
-
-; we now decide, based on the configurations available so far, what
-;code or data we need to keep as a stay resident code.	the following table
-;shows the configurations under consideration.	they are listed in the order
-;of their current position memory.
-;
-;configuration will be done in two ways:
-;
-;first, we are going to set "static configuration".  static configuration will
-;consider from basic configuration to endof96tpi configuration.  the result
-;of static configuration will be the address the dynamic configuration will
-;use to start with.
-;
-;secondly, "dynamic cofiguration" will be performed.  dynamic configuration
-;involves possible relocation of code or data.	dynamic configuration routine
-;will take care of bdsm tables and at rom fix module thru k09 suspend/resume
-;code individually.  after these operation, [dosdatasg] will be set.
-;this will be the place sysinit routine will relocate msdos module for good.
-
-;M011 -- begin changed section
-
-;
-;   1.	 basic configuration for msbio (endfloppy)
-;   2.   end96tpi	; a system that supports "change line error"
-;   3.	 end of bdss	; end of bdss for hard disks
-;   4.	 endatrom	;some of at rom fix module.
-;   5.	 endcmosclockset;supporting program for cmos clock write.
-;   6.	 endk09 	;k09 cmos clock module to handle suspend/resume operation.
-;
-
-
+; The transient disk tables follow the low initialization code.
 init_cpu_ecx:
-; Install the ECX save and restore sequence when the processor supports it.
-
-push_ecx_word	equ	5166h
-pop_cx_byte	equ	59h
-push_cx_byte	equ	51h
-pop_ecx_word	equ	5966h
-
-	.386
-	push	ecx
-	xor	ecx,ecx
-	pop	cx
-	pop	cx
-	inc	cx
-	jz	short static_configure
-	mov	word ptr call_orig13+4,push_ecx_word
-	mov	byte ptr call_orig13+6,pop_cx_byte
-	mov	byte ptr call_orig13+1ah,push_cx_byte
-	mov	word ptr call_orig13+1bh,pop_ecx_word
-	.8086
-
-static_configure:
-	mov	di,offset datagrp:ibm_disk_io
-
-;M011 -- end changed section
-
-	cmp	model_byte,0fch		;at ?
-	jnz	checkcompaqbug		; M015
-	cmp	hnum,0			;no hard file?
-	jz	checkcompaqbug		; M015
-
-	xchg	ax,di			; save allocation pointer in ax
-	mov	si,0f000h
-	mov	es,si			;es -> bios segment
-	assume	es:nothing
-
-	mov	si,offset datagrp:bios_date ; only patch rom with this date
-	mov	di,0fff5h		;  rom bios string is at f000:fff5
-	mov	cx,bdate_l
-	repz	cmpsb			; check for date + zero on end
-	xchg	ax,di			; restore allocation pointer
-
-;	M015 -- begin changes
-
-	jnz	checkcompaqbug
-
-;	install at rom fix
-
-	mov	cx,offset datagrp:endatrom
-	mov	si,offset datagrp:ibm_disk_io
-	jmp	short install_int13_patch
-
-;	M065 -- begin changes
-;
-;	On certain systems with Western Digital disk controllers, the
-;	following detection scheme caused an unpredictable and serious
-;	failure.  In particular, they've implemented a nonstandard
-;	Int13(ah=16h) which reconfigures the hard drive, depending on
-;	what happens to be at es:[bx] and other memory locations indexed
-;	off of it.
-;
-;	Compaq was unable to tell us exactly which kind of systems have
-;	the bug, except that they guarantee that the bug was fixed in
-;	ROM BIOSs dated 08/04/86 and later.  We'll check for the COMPAQ
-;	string, and then look for date codes before 08/04/86 to decide
-;	when to install the hook.
-
-checkcompaqbug:
-	mov	ax,0f000h		; point to ROM BIOS
-	mov	es,ax
-
-	.386
-	cmp	es:dword ptr [0ffeah],'PMOC'	; look for COMPAQ
-	.8086
-	jnz	not_compaq_patch
-	cmp	es:word ptr [0ffeeh],'QA'
-	jnz	not_compaq_patch
-
-;	We're running on a COMPAQ.  Now look at the date code.
-
-	mov	ax,es:word ptr [0fffbh]	; get year
-	xchg	ah,al
-	cmp	ax,'86'			; is it 86?
-	ja	not_compaq_patch
-	jb	do_compaq_patch
-
-	mov	ax,es:word ptr [0fff5h]	; get month
-	xchg	ah,al
-	cmp	ax,'08'			; is it 08?
-	ja	not_compaq_patch
-	jb	do_compaq_patch
-
-	mov	ax,es:word ptr [0fff8h]	; get day
-	xchg	ah,al
-	cmp	ax,'04'			; is it 04?
-	jae	not_compaq_patch	; 08/04/86 or later needs no patch
-
-do_compaq_patch:
-
-;	M065 -- end additions
-
-;M065	
-;M065	;	on some Compaq '286 systems there's a ROM BIOS bug.  When an
-;M065	;	  int13 is executed with ah>15h and dl>=80h, the byte at
-;M065	;	  DS:74h is trashed.  If we detect that bug in the ROM, insert
-;M065	;	  an int13 hook which always points ds->ROM DATA AREA on those
-;M065	;	  calls.
-;M065	
-;M065	checkcompaqbug:
-;M065	
-;M065		push	ds
-;M065		mov	ds,init_bootseg		; point to our scratch buffer
-;M065		assume	ds:nothing
-;M065	
-;M065		mov	ds:byte ptr 74h,0ffh	; stick a known value at 74h
-;M065		mov	ah,16h			; check disk change
-;M065		mov	dl,80h			; on any hard disk
-;M065	
-;M065	;	we can't just do a straight int 13 here or the damn bug will
-;M065	;	 trash something in our Bios Data, since our int13 hook
-;M065	;	 has ds->bios_data when it calls the ROM.
-;M065	
-;M065		xor	si, si			; AT&T 6300 WGS goofs it up
-;M065						;  if si != 0			M021
-;M065	
-;M065		pushf				; simulate int 13
-;M065		call	orig13			; call directly into the ROM
-;M065	
-;M065		cmp	ds:byte ptr 74h,0ffh	; if it changed in error, COMPAQ bug
-;M065		pop	ds
-;M065		assume	ds:datagrp
-;M065		jz	checkcmosclock		; brif no ROM BIOS bug
-;M065	
-
-;	insert patch for COMPAQ rom
-
-	mov	cx,offset datagrp:end_compaq_i13hook
-	mov	si,offset datagrp:compaq_disk_io
-
-install_int13_patch:
-	push	cs
-	pop	es			;set es to datagrp seg
-
-	mov	word ptr orig13,di
-	mov	word ptr orig13+2,cs	;set new rom bios int 13 vector
-	sub	cx,si			;size of rom fix module
-	rep	movsb			;relocate it
-
-;	M015 -- end changes
-
-not_compaq_patch:			; M065
+	mov	di,offset datagrp:BiosInitEnd
 	push	cs
 	pop	es
 	assume	es:datagrp
-	mov	ax,4101h		; wait for bh=es:[di]
-	mov	bl,1			; wait for one clock tick
-	mov	bh,byte ptr es:[di]
-	stc
-	int	15h
-	jc	configdone
-
-	or	bios_flags,k09_mask
 
 configdone:				;di is final ending address of msbio.
 
@@ -3335,6 +2855,8 @@ aux_init endp
 ifndef ROMDOS
 endif	; end of non-ROMDOS-only code
 
+
+BiosInitEnd label byte
 
 Bios_Data_Init	ends
 	end
