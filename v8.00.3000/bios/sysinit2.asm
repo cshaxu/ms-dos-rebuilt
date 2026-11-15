@@ -387,7 +387,7 @@ shell_environment:
 	and     byte ptr [query_mode_flags],0bfh
 	mov     byte ptr [config_cmd],1
 	mov     dx,offset sysinit_msg_base
-	add     dx,word ptr [sysinit_msg_table+78]
+	add     dx,word ptr [sysinit_msg_table+94]
 	call    query_user
 	jnc     short shell_flags
 	or      byte ptr [query_mode_flags],20h
@@ -398,7 +398,7 @@ shell_windows_prompt:
 	and     byte ptr [query_mode_flags],0bfh
 	mov     byte ptr [config_cmd],1
 	mov     dx,offset sysinit_msg_base
-	add     dx,word ptr [sysinit_msg_table+80]
+	add     dx,word ptr [sysinit_msg_table+96]
 	call    query_check_skip
 	jnc     short shell_flags
 	mov     byte ptr [commnd],0
@@ -441,7 +441,7 @@ shell_error:
 	cmp     ax,1
 	jne     short shell_error_name
 	call    print_indexed
-	dw      8010h
+	dw      8011h
 	jmp     short shell_prompt
 shell_error_name:
 	mov     dx,offset sysinit_msg_base
@@ -468,7 +468,7 @@ shell_prompt:
 	jne     short shell_use_fallback
 	push    dx
 	call    print_indexed
-	dw      801bh
+	dw      801fh
 	pop     dx
 shell_prompt_input:
 	mov     ah,std_con_output
@@ -483,7 +483,7 @@ shell_prompt_input:
 	mov     ah,std_con_string_input
 	int     21h
 	call    print_indexed
-	dw      8007h
+	dw      8005h
 	pop     dx
 	mov     bl,[commnd-1]
 	or      bl,bl
@@ -832,8 +832,9 @@ boot_check_umb_manager endp
 boot_umb_ioctl dw 2
 boot_check_umb_stack proc near
 	cmp     byte ptr [DevUMB],0
-	jne     boot_umb_stack_enabled
-	jmp     near ptr boot_umb_stack_done
+	.386
+	je	near ptr boot_umb_stack_done
+	.8086
 boot_umb_stack_enabled:
 	cmp     byte ptr [stack_high],0
 	je      boot_umb_stack_done
@@ -1020,8 +1021,9 @@ boot_load_old_dos proc near
 	mov     di,offset boot_old_ibmbio_name
 	mov     si,offset boot_old_ibmbio_fcb
 	call    boot_find_old_file
-	jz      short old_load_first_found
-	jmp     old_load_not_found
+	.386
+	jnz	near ptr old_load_not_found
+	.286
 old_load_first_found:
 	mov     bx,es:[22h]
 	mov     si,offset boot_old_msdos_fcb
@@ -1029,8 +1031,9 @@ old_load_first_found:
 	jz      short old_load_second_found
 	mov     si,offset boot_old_ibmdos_fcb
 	call    boot_find_old_file
-	jz      short old_load_second_found
-	jmp     old_load_not_found
+	.386
+	jnz	near ptr old_load_not_found
+	.286
 old_load_second_found:
 	mov     cx,es:[22h]
 	jcxz    old_load_bad_image
@@ -1078,9 +1081,9 @@ old_load_bad_image:
 	pop     ds
 	assume  ds:sysinitseg
 	call    print_indexed
-	dw      8040h
+	dw      8048h
 	call    print_indexed
-	dw      8041h
+	dw      8049h
 old_load_close:
 	mov     ah,close
 	int     21h
@@ -1089,9 +1092,9 @@ old_load_not_found:
 	push    cs
 	pop     ds
 	call    print_indexed
-	dw      803fh
+	dw      8047h
 	call    print_indexed
-	dw      8041h
+	dw      8049h
 old_load_restore:
 	pop     dx
 	pop     ds
@@ -1132,8 +1135,9 @@ old_table_start:
 old_table_next:
 	mov     si,[bx]
 	or      si,si
-	jnz     short old_table_name
-	jmp     old_table_done
+	.386
+	jz	near ptr old_table_done
+	.286
 old_table_name:
 	lodsb
 	cbw
@@ -1155,8 +1159,9 @@ old_table_name:
 	int     21h
 	pop     di
 	pop     dx
-	jnc     short old_table_check
-	jmp     old_table_advance
+	.386
+	jc	near ptr old_table_advance
+	.286
 old_table_check:
 	test    cl,2
 	jz      short old_table_rename
@@ -1201,7 +1206,7 @@ old_table_rename:
 	jmp     short old_table_restore
 old_table_error:
 	mov     dx,offset sysinit_msg_base
-	add     dx,word ptr [sysinit_msg_table+88]
+	add     dx,word ptr [sysinit_msg_table+104]
 	call    print
 	mov     bx,dx
 	mov     byte ptr [bx],'$'
@@ -1469,8 +1474,9 @@ boot_prepare_shell proc near
 	push    cs
 	pop     es
 	test    byte ptr [boot_config_flags],20h
-	jz      boot_shell_paths
-	jmp     near ptr boot_shell_done
+	.386
+	jnz	near ptr boot_shell_done
+	.8086
 boot_shell_paths:
 	mov     si,offset boot_winboot_dir
 	mov     cx,[boot_winboot_dir_len]
@@ -1641,8 +1647,9 @@ boot_prepare_environment proc near
 	jmp     near ptr boot_env_done
 boot_env_check_shell:
 	cmp     byte ptr [exec_option],0
-	je      short boot_env_check_tmp
-	jmp     near ptr boot_env_done
+	.386
+	jne	near ptr boot_env_done
+	.8086
 boot_env_check_tmp:
 	sub     dx,dx
 	mov     si,offset boot_env_tmp
@@ -1901,8 +1908,9 @@ boot_previous_menu_check proc near
 	push    ds
 	pop     es
 	test    byte ptr [query_mode_flags],3
-	jz      short boot_previous_check_runtime
-	jmp     boot_previous_done
+	.386
+	jnz	near ptr boot_previous_done
+	.8086
 boot_previous_check_runtime:
 	test    word ptr [boot_runtime_flags],120h
 	jz      short boot_previous_select_title
@@ -1915,8 +1923,9 @@ boot_previous_resume:
 	add     di,word ptr [sysinit_msg_table+82]
 	mov     byte ptr [boot_previous_menu],6
 	cmp     byte ptr [exec_value],'0'
-	je      short boot_previous_resume_nonetwork
-	jmp     boot_previous_show_menu
+	.386
+	jne	near ptr boot_previous_show_menu
+	.8086
 boot_previous_resume_nonetwork:
 	dec     byte ptr [boot_previous_menu]
 	jmp     boot_previous_show_menu
@@ -1951,7 +1960,7 @@ boot_previous_check_host:
 	dec     byte ptr [boot_previous_menu]
 boot_previous_old_title:
 	mov     di,offset sysinit_msg_base
-	add     di,word ptr [sysinit_msg_table+84]
+	add     di,word ptr [sysinit_msg_table+100]
 	jmp     short boot_previous_show_menu
 boot_previous_check_windows:
 	push    es
@@ -1974,8 +1983,9 @@ boot_previous_check_windows_drive:
 	pop     cx
 	pop     di
 	pop     es
-	jc      short boot_previous_restart_file
-	jmp     boot_previous_resume
+	.386
+	jnc	near ptr boot_previous_resume
+	.8086
 boot_previous_restart_file:
 	mov     si,offset boot_restart_status
 	mov     di,offset boot_device_scratch
@@ -1996,7 +2006,7 @@ boot_previous_restart_file:
 	cmp     byte ptr [boot_previous_status],2
 	je      short boot_previous_done
 	mov     di,offset sysinit_msg_base
-	add     di,word ptr [sysinit_msg_table+86]
+	add     di,word ptr [sysinit_msg_table+102]
 boot_previous_show_menu:
 	call    boot_build_menu
 boot_previous_done:
@@ -2094,14 +2104,14 @@ boot_menu_selection_safe:
 	jne     short boot_menu_selection_prompt
 	or      byte ptr [query_mode_flags],1
 	mov     dx,offset sysinit_msg_base
-	add     dx,word ptr [sysinit_msg_table+46]
+	add     dx,word ptr [sysinit_msg_table+70]
 	jmp     short boot_menu_selection_message
 boot_menu_selection_prompt:
 	cmp     bx,4
 	jne     short boot_menu_selection_step
 	or      byte ptr [query_mode_flags],5
 	mov     dx,offset sysinit_msg_base
-	add     dx,word ptr [sysinit_msg_table+48]
+	add     dx,word ptr [sysinit_msg_table+72]
 	jmp     short boot_menu_selection_message
 boot_menu_selection_step:
 	cmp     bx,5
@@ -2122,13 +2132,13 @@ boot_menu_selection_flags:
 	test    byte ptr [query_mode_flags],4
 	jz      short boot_menu_selection_standard
 	mov     dx,offset sysinit_msg_base
-	add     dx,word ptr [sysinit_msg_table+48]
+	add     dx,word ptr [sysinit_msg_table+72]
 	jmp     short boot_menu_selection_message
 boot_menu_selection_standard:
 	test    byte ptr [query_mode_flags],3
 	jz      short boot_menu_selection_message
 	mov     dx,offset sysinit_msg_base
-	add     dx,word ptr [sysinit_msg_table+46]
+	add     dx,word ptr [sysinit_msg_table+70]
 boot_menu_selection_message:
 	inc     cx
 boot_menu_selection_done:
@@ -2300,8 +2310,9 @@ boot_open_w40:
 	mov     dx,offset boot_msdos_root
 	mov     ax,open shl 8
 	int     21h
-	jnc     boot_open_root
-	jmp     near ptr boot_option_no_file
+	.386
+	jc	near ptr boot_option_no_file
+	.8086
 boot_open_root:
 	push    ds
 	lds     si,[dosinfo]
@@ -2335,8 +2346,9 @@ boot_option_open endp
 boot_option_readloop proc near
 boot_option_next:
 	call    boot_option_getline
-	jnc     boot_option_line_ready
-	jmp     near ptr boot_option_close
+	.386
+	jc	near ptr boot_option_close
+	.8086
 boot_option_line_ready:
 	and     byte ptr [boot_config_flags],0feh
 	mov     di,[boot_option_current]
@@ -2503,7 +2515,7 @@ boot_section_options endp
 boot_option_error proc near
 	mov     ah,std_con_string_output
 	mov     dx,offset sysinit_msg_base
-	add     dx,word ptr [sysinit_msg_table+134]
+	add     dx,word ptr [sysinit_msg_table+150]
 	int     21h
 	mov     si,offset boot_option_line
 boot_error_char:
@@ -2754,8 +2766,9 @@ boot_match_direct:
 boot_match_number:
 	lodsb
 	cmp     al,'='
-	je      boot_number_value
-	jmp     near ptr boot_option_error
+	.386
+	jne	near ptr boot_option_error
+	.8086
 boot_number_value:
 	call    boot_option_number
 	jnc     boot_number_limit
@@ -2775,8 +2788,9 @@ boot_match_flag:
 	jmp     near ptr boot_option_error
 boot_flag_value:
 	call    boot_option_number
-	jnc     boot_flag_store
-	jmp     near ptr boot_option_error
+	.386
+	jc	near ptr boot_option_error
+	.8086
 boot_flag_store:
 	mov     cx,[di]
 	or      word ptr [boot_runtime_flags],cx

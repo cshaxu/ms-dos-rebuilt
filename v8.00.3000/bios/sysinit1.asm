@@ -610,7 +610,7 @@ dosinit_con_entry:
 	push    bx
 	mov     bx,es:[bx+6]
 	mov     si,offset sysinit_msg_base
-	add     si,[sysinit_msg_table+50]
+	add     si,[sysinit_msg_table+58]
 	mov     al,[si]
 	mov     [query_yes],al
 	mov     es:[bx],al
@@ -836,7 +836,7 @@ endif ; COPYCDS
         cmp     byte ptr [TooManyDrivesFlag],0  ;Q: >24 partitions? M029
         je      no_err                          ;  N: continue      M029
 	call    print_indexed
-	dw      8014h
+	dw      8015h
 no_err:						;		    M029
 
 	assume  ds:sysinitseg
@@ -886,7 +886,7 @@ nodrvset:
 	.8086
 boot_date_warn:
 	mov	dx,offset sysinit_msg_base
-	add	dx,word ptr [sysinit_msg_table+92]
+	add	dx,word ptr [sysinit_msg_table+108]
 	call	print
 	.286
 	mov	ax,[boot_data_low]
@@ -900,7 +900,7 @@ boot_date_month:
 	add	ax,ax
 	add	ax,ax
 	mov	dx,offset sysinit_msg_base
-	add	dx,word ptr [sysinit_msg_table+98]
+	add	dx,word ptr [sysinit_msg_table+114]
 	add	dx,ax
 	call	print
 	mov	dl,' '
@@ -921,7 +921,7 @@ boot_date_month:
 	.8086
 	call	show_line_number
 	mov	dx,offset sysinit_msg_base
-	add	dx,word ptr [sysinit_msg_table+94]
+	add	dx,word ptr [sysinit_msg_table+110]
 	call	print
 	jmp	short boot_date_prompt
 
@@ -956,7 +956,7 @@ boot_date_attributes:
 	int	21h
 boot_date_disabled:
 	mov	dx,offset sysinit_msg_base
-	add	dx,word ptr [sysinit_msg_table+100]
+	add	dx,word ptr [sysinit_msg_table+116]
 	call	print
 	mov	es,[BCodeSeg]
 	assume	es:Bios_Code
@@ -965,7 +965,7 @@ boot_date_disabled:
 	or	byte ptr [boot_system_flags],1
 boot_date_prompt:
 	mov	dx,offset sysinit_msg_base
-	add	dx,word ptr [sysinit_msg_table+96]
+	add	dx,word ptr [sysinit_msg_table+112]
 	call	print
 	mov	ax,(std_con_input_flush shl 8) or 8
 	int	21h
@@ -1155,7 +1155,7 @@ ProcessConfig:
 	jne     short sysinit_previous_done
 	mov     word ptr [boot_old_image_seg],0
 	mov     bx,offset sysinit_msg_base
-	add     bx,word ptr [sysinit_msg_table+88]
+	add     bx,word ptr [sysinit_msg_table+104]
 	mov     byte ptr [bx],'$'
 	mov     bx,offset boot_windows_file_table
 	call    boot_old_file_table
@@ -1222,7 +1222,7 @@ sysinit_menu_checked:
 	and     byte ptr [query_mode_flags],0bfh
 	mov     byte ptr [config_cmd],1
 	mov     dx,offset sysinit_msg_base
-	add     dx,word ptr [sysinit_msg_table+74]
+	add     dx,word ptr [sysinit_msg_table+86]
 	xor     al,al
 	call    query_check_skip
 	adc     al,0

@@ -688,8 +688,9 @@ kbd_read proc   near
         cmp     byte ptr [boot_safe],0
         jne     short kbd7_safe
         cmp     byte ptr [boot_menu],0
-        je      short kbd7_wait
-        jmp     kbd7_menu
+	.386
+	jne	near ptr kbd7_menu
+	.8086
 kbd7_wait:
         sub     dx,dx
         mov     ah,2
@@ -702,7 +703,7 @@ kbd7_wait:
         jmp     short kbd7_check_key
 kbd7_shift:
         mov     dx,offset sysinit_msg_base
-        add     dx,word ptr [sysinit_msg_table+58]
+        add     dx,word ptr [sysinit_msg_table+70]
 kbd7_safe:
         or      byte ptr [query_mode_flags],1
 kbd7_check_key:
@@ -718,14 +719,15 @@ kbd7_have_key:
         test    al,al
         jz      short kbd7_function_key
         cmp     al,1bh
-        je      short kbd7_escape
-        jmp     kbd7_finish
+	.386
+	jne	near ptr kbd7_finish
+	.8086
 kbd7_escape:
         cmp     byte ptr [boot_mode],1
         jne     short kbd7_escape_flag
         inc     byte ptr [boot_mode]
         mov     dx,offset sysinit_msg_base
-        add     dx,word ptr [sysinit_msg_table+8]
+        add     dx,word ptr [sysinit_msg_table+4]
         jmp     kbd7_consume
 kbd7_escape_flag:
         or      byte ptr [boot_runtime_flags],1
@@ -743,7 +745,7 @@ kbd7_function_key:
 kbd7_f5:
         or      byte ptr [query_mode_flags],1
         mov     dx,offset sysinit_msg_base
-        add     dx,word ptr [sysinit_msg_table+58]
+        add     dx,word ptr [sysinit_msg_table+70]
         jmp     kbd7_consume
 kbd7_f12:
         or      byte ptr [query_mode_flags],2
@@ -766,21 +768,21 @@ kbd7_command:
         pop     ds
         assume  ds:sysinitseg
         mov     dx,offset sysinit_msg_base
-        add     dx,word ptr [sysinit_msg_table+62]
+        add     dx,word ptr [sysinit_msg_table+74]
         jmp     short kbd7_consume
 kbd7_old:
         or      byte ptr [boot_config_flags],10h
         test    byte ptr [boot_runtime_flags],10h
         jnz     short kbd7_consume
         mov     dx,offset sysinit_msg_base
-        add     dx,word ptr [sysinit_msg_table+132]
+        add     dx,word ptr [sysinit_msg_table+148]
         jmp     short kbd7_consume
 kbd7_other_key:
         cmp     ah,40h
         jne     short kbd7_old_key
         or      byte ptr [query_mode_flags],5
         mov     dx,offset sysinit_msg_base
-        add     dx,word ptr [sysinit_msg_table+60]
+        add     dx,word ptr [sysinit_msg_table+72]
         jmp     short kbd7_consume
 kbd7_old_key:
         test    byte ptr [boot_runtime_flags],80h
@@ -974,8 +976,9 @@ swchk7_end:
         and     byte ptr [query_mode_flags],0f6h
 swchk7_query:
         test    byte ptr [query_mode_flags],1
-        jz      short menu_search
-        jmp     menu_abort
+	.386
+	jnz	near ptr menu_abort
+	.8086
 menu_search:
         sub     bx,bx           ; if no MENU, default to zero for no_selection
         mov     di,offset szMenu;
@@ -1450,8 +1453,9 @@ copy_varlen:                    ;
         lodsb                   ;
         or      al,al           ; NULL?
         stc                     ;
-        jnz     short copy_notnull
-        jmp     near ptr copy_envexit
+	.386
+	jz	near ptr copy_envexit
+	.8086
 copy_notnull:
         cmp     al,CR           ;
         stc                     ;
@@ -1972,7 +1976,7 @@ display_menu_prompt:
         mov     cx,4
 display_menu_crlf:
         call    print_indexed
-        dw      8007h
+        dw      8005h
         loop    display_menu_crlf
         push    word ptr [boot_runtime_flags]
         or      byte ptr [boot_runtime_flags],8
@@ -2138,7 +2142,7 @@ show_time:
         mov     ah,02h          ; set cursor position
         int     10h             ;
         call    print_indexed
-        dw      801ah
+        dw      801eh
         mov     al,bl           ; recover # from BL
         cbw                     ; this works because AL is always <= 90
         mov     cl,10           ;
@@ -2326,7 +2330,7 @@ disp_ok:
         mov     ah,Std_Con_Output
         int     21h
         call    print_indexed
-        dw      8007h
+        dw      8005h
         pop     ax
         ret
 disp_input  endp
@@ -2694,8 +2698,9 @@ query_user  proc near
         test    byte ptr [query_mode_flags],1
         jz      query_check_skip
         test    byte ptr [bQueryOpt],1
-        jnz     query_check_skip
-        jmp     skip_all
+	.386
+	jz	near ptr skip_all
+	.8086
 query_check_skip:
         test    byte ptr [query_mode_flags],2
         jz      query_check_done
@@ -2708,8 +2713,9 @@ query_check_done:
         test    byte ptr [query_mode_flags],8
         jnz     query_prepare
         test    al,CONFIG_OPTION_QUERY
-        jnz     query_prepare
-        jmp     do_cmd
+	.386
+	jz	near ptr do_cmd
+	.8086
 query_prepare:
         call    query_keyboard_service
 query_all:
@@ -2892,7 +2898,7 @@ print_error proc near
         popf
         jnc     pe_ret
         call    print_indexed
-        dw      801ch           ; pause message
+        dw      8022h           ; pause message
         mov     ax,0C07h                ; flush input buffer, then wait for key
         int     21h                     ; wait for a key
         or      al,al                   ; extended key?
@@ -2901,7 +2907,7 @@ print_error proc near
         int     21h                     ; eat it too
 @@:
         call    print_indexed
-        dw      8007h           ; carriage return and line feed
+        dw      8005h           ; carriage return and line feed
 pe_ret: pop     ds
         pop     dx
         pop     cx

@@ -790,7 +790,7 @@ config_size_ok:
 	and     byte ptr [query_mode_flags],0bfh
 	mov     byte ptr [config_cmd],1
 	mov     dx,offset sysinit_msg_base
-	add     dx,word ptr [sysinit_msg_table+76]
+	add     dx,word ptr [sysinit_msg_table+92]
 	call    query_user
 	pop     bx
 	pop     ax
@@ -1027,8 +1027,9 @@ not_init_pass:
 	cmp	multi_pass_id,3		; the third pass for install= ?
 	je	multi_try_i
         cmp     ah, CONFIG_DOS
-	jne     short check_logo_pass
-	jmp     multi_pass_coff
+	.386
+	je	near ptr multi_pass_coff
+	.8086
 check_logo_pass:
 
 ;       make note of any INSTALL= or INSTALLHIGH= commands we find,
@@ -1389,8 +1390,9 @@ trym:
 multi_track_command:
 ifdef   MULTI_CONFIG
 	call    query_user      ; query the user if config_cmd
-	jnc     config_query_ok
-	jmp     tryu
+	.386
+	jc	near ptr tryu
+	.8086
 config_query_ok:
 endif
 	mov	di,offset mtrk_parms
@@ -1557,8 +1559,9 @@ DeviceLineLimit equ	6122h
 	assume	ds:nothing
 tryu:
 	cmp     ah,CONFIG_DEVICEHIGH
-	je      short devicehigh_command
-	jmp     tryd
+	.386
+	jne	near ptr tryd
+	.8086
 devicehigh_command:
 ifdef   MULTI_CONFIG
         call    query_user              ; query the user if config_cmd
@@ -1996,8 +1999,9 @@ golink: jmp	linkit
 isblock:
 	mov	al,cs:[unitcount]	;if no units found,erase the device
 	or	al,al
-	jnz	isblock_has_units
-	jmp	erase_dev_do
+	.386
+	jz	near ptr erase_dev_do
+	.8086
 isblock_has_units:
 	mov	[si.sdevname],al	; M049: number of units in name field
 	add	cs:[driver_units], al	; keep total for all drivers in file
@@ -2213,9 +2217,9 @@ cdss_too_large:
 	push	dx
 	push	ds
 	mov	dx,offset sysinit_msg_base
-	add	dx,cs:[sysinit_msg_table+18]
+	add	dx,cs:[sysinit_msg_table+14]
 	mov	bx,offset sysinit_msg_base
-	add	bx,cs:[sysinit_msg_table+14]
+	add	bx,cs:[sysinit_msg_table+10]
 	call	prnerr
 	pop	ds
 	pop	dx
@@ -2306,7 +2310,7 @@ sr52:
 tryqbad:				;"invalid country code or code page"
        stc
        mov     dx,offset sysinit_msg_base
-       add     dx,cs:[sysinit_msg_table+26]
+       add     dx,cs:[sysinit_msg_table+22]
        jmp     tryqchkerr
 
 tryq_open:
@@ -2375,7 +2379,7 @@ tryqbadload:
 
 tryqmemory:
 	mov	dx,offset sysinit_msg_base
-	add	dx,cs:[sysinit_msg_table+30]
+	add	dx,cs:[sysinit_msg_table+32]
 tryqchkerr:
 	mov	cx,cs:[confbot]
 	mov	es,cx			;restore es -> confbot seg
@@ -2690,7 +2694,7 @@ do79:
 	jnc	if79			; parse error
 
 	call	print_indexed		; invalid stack parameter
-	dw	8012h
+	dw	8013h
 	jmp	short stack_error
 
 if79:
@@ -2735,7 +2739,7 @@ en87:
 	mov	word ptr stack_addr,0
 
 	call	print_indexed		; invalid stack parameter
-	dw	8012h
+	dw	8013h
 stack_error:
 	jmp	err
 
@@ -2752,8 +2756,9 @@ sr79:
 
 try_stackshigh:
 	cmp	ah,CONFIG_STACKSHIGH
-	jne	trys
-	jmp	do_tryk
+	.386
+	je	near ptr do_tryk
+	.8086
 
 ;------------------------------------------------------------------------
 ; shell command
@@ -3138,7 +3143,7 @@ en1:
 	pop	ds
 
 	call	print_indexed
-	dw	8007h
+	dw	8005h
 	call	error_line
 
 	pop	si
@@ -3194,7 +3199,7 @@ error_line	proc	near
 	cmp	linecount,0
 	jz	error_line_done
 	call	print_indexed
-	dw	8013h
+	dw	8014h
 	call	showlinenum
 error_line_done:
 	ret
@@ -3727,8 +3732,9 @@ dcc_qloader:
 		mov	di,offset boot_emm_name
 		mov	cx,1
 		call	FindDeviceName
-		jz	short dcc_qemm_search
-		jmp	near ptr dcv_done
+	.386
+	jnz	near ptr dcv_done
+	.8086
 dcc_qemm_search:
 		mov	di,offset QEMMName
 		mov	cx,80h
@@ -3781,8 +3787,9 @@ DeviceCompatCheck endp
 
 DeviceCompatRestore proc near
 		test	byte ptr cs:[Int12Lied],2
-		jnz	short DeviceCompatSwitch
-		jmp	near ptr dcv_done
+	.386
+	jz	near ptr dcv_done
+	.8086
 DeviceCompatSwitch:
 		mov	bp,offset Bios_Code:keyboard_vector_install
 		and	byte ptr cs:[Int12Lied],0fdh
