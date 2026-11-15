@@ -1314,9 +1314,6 @@ endif
 
 	mov     ax,4a16h
 	int     2fh
-	test	byte ptr [query_mode_flags],1
-	jnz	short skip_ebda_recovery
-skip_ebda_recovery:
 
 ; M025 end
 
@@ -1398,13 +1395,7 @@ ConfigDone:
 
 skip_free_sysinitbase:
 
-	cmp	cs:[runhigh], 0
-	je	@f
-	call	InstVDiskHeader		; Install VDISK header (allocates some mem from DOS)
-@@:
-
-	push	cs
-	pop	ds
+	call	InstVDiskHeader		; Reserve the HMA for VDISK-aware programs
 	assume	ds:sysinitseg
 	jmp	boot_shell_main
 
@@ -1545,40 +1536,6 @@ MovDOSHi proc near
 	.8086
 MovDOSHi endp
 
-	public	FatalErr
-FatalErr:
-	call    query_keyboard_service
-	push    cs
-	pop     ds
-	call    print_indexed
-	dw      803eh
-	public  stall
-stall label near
-fatal_halt:
-	hlt
-	jmp     short fatal_halt
-
-
-;
-;----------------------------------------------------------------------------
-;
-; procedure : IsXMSLoaded
-;
-;             Checks whether a XMS driver is loaded
-;
-; Returns : Z flag set if XMS driver loaded
-;           Z flag reset if no XMS drivers are present
-;
-;----------------------------------------------------------------------------
-;
-		public	IsXMSLoaded
-
-IsXMSLoaded	proc	near
-		mov	ax,4300h
-		int	2fh
-		cmp	al,80h		; XMS installed?
-		ret
-IsXMSLoaded	endp
 
 ;
 ;

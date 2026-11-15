@@ -126,7 +126,6 @@ sysinitseg segment public
 	extrn	sysinit_msg_table:word,sysinit_msg_base:byte
 	extrn	sysinit_prompt_index:word
 	extrn	sysinit_badld_index:word,sysinit_crlf_index:word
-        extrn   IsXMSLoaded:near
 	extrn	print_indexed:near,boot_record_compressed_boot:near
 
 assume	cs:sysinitseg,ds:nothing,es:nothing,ss:nothing
@@ -3064,8 +3063,6 @@ convdone:
 	pop	cx
 	ret
 
-	ifdef	DBCS
-
 	public	testkanj
 testkanj:
 	push	si
@@ -3109,8 +3106,6 @@ bdbcs_next:
 
 	add	si,2			; points next lead byte table
 	jmp	short bdbcs_do
-
-	endif  ; DBCS
 
 mapcase	endp
 

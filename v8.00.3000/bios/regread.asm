@@ -464,11 +464,13 @@ rlkc_entry:
 	mov [bp-12h],dx
 	mov bx,ax
 	mov es,dx
-	mov eax,es:[bx]
+	db 66h
+	mov ax,es:[bx]
 	mov [bp-6],eax
 	or eax,eax
 	jnz rlkc_pin
-	mov eax,es:[bx]
+	db 66h
+	mov ax,es:[bx]
 	mov [bp-6],eax
 	or eax,eax
 	jnz rlkc_pin
@@ -580,10 +582,13 @@ rlkc_close:
 rlkc_install:
 	les bx,[bp-14h]
 	sub eax,eax
-	mov es:[bx+4],eax
-	mov es:[bx+8],eax
+	db 66h
+	mov es:[bx+4],ax
+	db 66h
+	mov es:[bx+8],ax
 	mov eax,[bp-6]
-	mov es:[bx],eax
+	db 66h
+	mov es:[bx],ax
 rlkc_pin:
 	mov ax,[bp+8]
 	and ah,3
@@ -601,7 +606,8 @@ rlkc_pin:
 	or byte ptr es:[bx+4],1
 rlkc_lock:
 	les bx,[bp-14h]
-	inc dword ptr es:[bx+8]
+	db 66h
+	inc word ptr es:[bx+8]
 	xor ax,ax
 rlkc_done:
 	pop si
@@ -666,7 +672,8 @@ RegUnlockKeyCache proc near
 	mov [bp-2],dx
 	mov bx,ax
 	mov es,dx
-	dec dword ptr es:[bx+8]
+	db 66h
+	dec word ptr es:[bx+8]
 	cmp word ptr [bp+4],0
 	jz short rukc_done
 	mov es,word ptr [bp-2]
@@ -1376,7 +1383,8 @@ rtk_next:
 	jz short rtk_advance
 	test byte ptr es:[si+4],3
 	jnz short rtk_clear
-	cmp dword ptr es:[si+8],0
+	db 66h
+	cmp word ptr es:[si+8],0
 	jnz short rtk_clear
 	db 66h
 	push word ptr es:[si]
@@ -2052,11 +2060,13 @@ rcdb_entry:
 	db 66h
 	mov word ptr es:[bx+0Ch],0
 	dw 0FFFFh
-	mov word ptr es:[bx+10h],-1
-	mov byte ptr es:[bx+12h],7
 	db 66h
-	mov word ptr es:[bx+DataBlockLocks],1
-	dw 0
+	mov word ptr es:[bx+10h],0FFFFh
+	dw 7
+	db 66h
+	mov word ptr es:[bx+14h],0
+	dw 1
+	mov word ptr es:[bx+18h],0
 	mov ax,es:[bx]
 	mov dx,es:[bx+2]
 	mov si,ax
@@ -2652,7 +2662,7 @@ rtd_next:
 	mov es,word ptr [bp-2]
 	mov al,es:[si+12h]
 	and al,7
-	dec al
+	cmp al,1
 	jnz short rtd_clear
 	db 66h
 	cmp word ptr es:[si+DataBlockLocks],0
@@ -2661,7 +2671,9 @@ rtd_next:
 	push si
 	call RegFreeDataBlock
 	mov es,word ptr [bp-2]
-	mov byte ptr es:[si+12h],0
+	db 66h
+	mov word ptr es:[si+12h],0
+	dw 0
 rtd_clear:
 	mov es,word ptr [bp-2]
 	and byte ptr es:[si+12h],0FDh

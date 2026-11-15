@@ -71,7 +71,6 @@ Bios_Code ends
 sysinitseg segment public
 
 	extrn	sysinit_msg_table:word,sysinit_msg_base:byte
-	extrn	IsXMSLoaded:near
 	extrn	print_indexed:near
 
 assume	cs:sysinitseg,ds:nothing,es:nothing,ss:nothing
@@ -187,9 +186,6 @@ boot_env_comspec db 'COMSPEC='
 	public  boot_restart_status
 boot_restart_status db '\WNBOOTNG.STS',0
 
-; Built-in startup driver names and command tails.
-boot_himem_name db '\HIMEM.SYS',0,'/TESTMEM:ON',0dh
-
 ; Names used to recognize the Adaptec real-mode drivers.
 	public  aspi2dos_loaded,aspi2hlp_loaded
 	public  aspi2dos_name,aspi2hlp_name
@@ -200,6 +196,8 @@ aspi2hlp_name   db      '\ASPI2HLP.SYS',0
 
 boot_dblbuff_name db '\DBLBUFF.SYS',0,'/D+',0dh
 boot_ifshlp_driver db '\IFSHLP.SYS',0
+	public  boot_loading_ifshlp
+boot_loading_ifshlp db 0
 boot_setver_driver db '\SETVER.EXE',0
 
 	public  boot_emm_name,boot_qmm_name,boot_ifshlp_name,boot_setver_name
@@ -210,10 +208,8 @@ boot_setver_name db 'SETVERXX',0
 
 ; Startup driver records: check procedure, name, length and flags.
 boot_autoexec_name db '\AUTOEXEC.BAT',0
-	public  boot_driver_table,boot_himem_record_length,boot_driver_depth
+	public  boot_driver_table,boot_driver_depth
 boot_driver_table label word
-	dw      offset IsXMSLoaded,offset boot_himem_name
-boot_himem_record_length db 17h,81h
 	dw      offset boot_check_aspi,offset aspi2hlp_name
 	db      0eh,0
 	dw      offset boot_double_provider,offset boot_dblbuff_name
@@ -1341,9 +1337,6 @@ boot_process_drivers proc near
 	push    cs
 	pop     es
 	mov     bx,offset boot_driver_table
-	test    byte ptr [query_mode_flags],1
-	jnz     boot_driver_next
-	mov     byte ptr [boot_himem_record_length],0bh
 boot_driver_next:
 	call    boot_process_driver_record
 	jc      boot_driver_all_done
@@ -1382,6 +1375,11 @@ boot_process_driver_record proc near
 	add     di,[boot_winboot_dir_len]
 	push    di
 	mov     si,[bx+2]
+	mov     byte ptr [boot_loading_ifshlp],0
+	cmp     si,offset boot_ifshlp_driver
+	jne     short boot_driver_name_ready
+	inc     byte ptr [boot_loading_ifshlp]
+boot_driver_name_ready:
 	mov     dx,[bx+4]
 	movzx   cx,dl
 	rep     movsb

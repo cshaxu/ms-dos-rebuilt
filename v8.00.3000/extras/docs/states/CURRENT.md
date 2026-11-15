@@ -98,7 +98,7 @@ P1 closed S3. The C encoder produced the [exact 111,840-byte CM stream](../etc/i
 | Asset Needs | Retain linked binaries, maps and listings under ignored extras/build. |
 | Reporting Requirements | Modified and identical source counts, relevant aligned block bytes and remaining instruction or reference changes. |
 | Stop Conditions | Resolve link errors and unsupported target mappings before accepting a block. |
-| Exit Criteria | Covered BIOS and kernel service blocks linked and verified against their target positions, with real driver coupling recorded for S5Ã¢ÂÂS7. |
+| Exit Criteria | Covered BIOS and kernel service blocks linked and verified against their target positions, with real driver coupling recorded for S5ÃÂ¢ÃÂÃÂS7. |
 | Original Owner Request | Continue until IO.SYS is fully rebuilt. |
 | Similar-Issue Sweep | Check related branch encodings, calling conventions and duplicate entry paths in each audited group. |
 
@@ -263,3 +263,5 @@ P80 restored the WIN.COM command-tail workspace and the Me startup menu display 
 P81 restored the registry save sequence, the SYSINIT numeric formatter, and the startup menu register widths. Stage `io-3830-14609` matched 614 of 618 bytes in RegSaveFile, 255 of 256 bytes in the formatter, and 395 of 433 bytes in the startup menu. The complete source-built IO.SYS still differs. The message index starts 67 bytes after its target offset. Three source files changed. Of 242 baseline paths, 98 are modified, one was removed, and 143 match.
 
 P82-P83 restored the boot-buffer release and DOS free-block probe, removed the superseded VDISK probe, and restored the key-cache record stride and lock count across the native registry callers. The startup probe matches all 26 bytes in stage `io-5081-2481`. Stage `io-5636-27470` assembles, links, and packages the image. RegLoadKeyCache now has the same 448-byte extent as the OAK payload, with 435 directly matching bytes before relocation. The full image comparison still differs. Two source files changed. Of 242 baseline paths, 98 are modified, one was removed, and 143 match.
+
+P84-P85 restored the DBCS lookup, removed the external HIMEM startup record, and connected IFSHLP load diagnostics to existing CONFIG.SYS device processing. The existing memory-failure path now owns the SYSINIT halt. In stage `io-7285-15927`, the native registry segment matches the target extent of 16,692 bytes, with 16,659 bytes directly matching at their corresponding offsets. The complete image still differs. Five source files changed. Of 242 baseline paths, 98 are modified, one was removed, and 143 match.

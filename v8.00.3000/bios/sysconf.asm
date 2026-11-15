@@ -189,13 +189,14 @@ assume	cs:sysinitseg,ds:nothing,es:nothing,ss:nothing
 	extrn	do_install_exec:near
 
 	extrn	print:near,organize:near,newline:near
-	extrn	print_indexed:near,stall:near
+	extrn	print_indexed:near
 	extrn	query_bios_call:near
 	extrn	diddleback:near,parseline:near,setparms:near
 	extrn	badload:near,calldev:near,prnerr:near
 
-	extrn	IsXMSLoaded:near
 	extrn   boot_umb_driver_record:word,boot_process_driver_record:near
+	extrn	boot_loading_ifshlp:byte
+	extrn	sysinit_msg_base:byte,sysinit_msg_table:word
 
 ifndef ROMDOS
 
@@ -1633,10 +1634,28 @@ tryd:
 skip_it2:
 	jmp	tryq
 gotd:
+	cmp	byte ptr cs:[boot_loading_ifshlp],0
+	je	short query_device
+	test	byte ptr cs:[query_mode_flags],8
+	jz	short query_device
+	.286
+	push	ds
+	pusha
+	push	cs
+	pop	ds
+	mov	dx,offset sysinit_msg_base
+	add	dx,cs:[sysinit_msg_table+2*87]
+	call	print
+	popa
+	pop	ds
+	.8086
+	jmp	short prepare_device
+query_device:
 ifdef   MULTI_CONFIG
         call    query_user              ; query the user if config_cmd
         jc      skip_it2                ; has the CONFIG_OPTION_QUERY bit set
 endif
+prepare_device:
 	mov	DeviceHi, 0		; not to be loaded in UMB ;M007
 	mov	DevSizeOption, 0
 	mov	DevSavedDelim, ' '	; In case of DEVICE= the null has to
@@ -2108,7 +2127,22 @@ record_loaded_device:
 	pop     ax
 
 enddev:
-
+	cmp	byte ptr cs:[boot_loading_ifshlp],0
+	je	short enddev_restore
+	test	byte ptr cs:[query_mode_flags],8
+	jz	short enddev_restore
+	.286
+	push	ds
+	pusha
+	push	cs
+	pop	ds
+	mov	dx,offset sysinit_msg_base
+	add	dx,cs:[sysinit_msg_table+2*88]
+	call	print
+	popa
+	pop	ds
+	.8086
+enddev_restore:
 	pop	si
 	pop	es
 	inc	ax			;ax = ffff (no more devs if yes)?
@@ -4354,8 +4388,11 @@ low_memory_error:
 	push	cs
 	pop	ds
 	call	print_indexed
-	dw	8010h
-	jmp	stall
+	dw	8011h
+	public	stall
+stall:
+	hlt
+	jmp	short stall
 check_low_memory endp
 
 ;
@@ -4671,8 +4708,6 @@ AllocUMB	endp
 ;
 InitAllocUMB	proc	near
 
-		call	IsXMSLoaded
-		jnz	iau_err			; quit on no XMS driver
 		mov	ah, 52h
 		int	21h			; get DOS DATA seg
 		mov	DevDOSData, es		; & save it for later
