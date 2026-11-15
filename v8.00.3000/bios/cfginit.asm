@@ -111,6 +111,24 @@ AsdFileName db 'ASD.dat',0
 AsdProblemsKey db 'System\CurrentControlSet\Control\ASD\Prob',0
 AsdRunOnceKey db 'Software\Microsoft\Windows\CurrentVersion\RunOnce',0
         even
+; Resume filename and XMS file transfer state.
+        public HiberFileName
+HiberFileName db 'VMMHIBER.W9X',0
+        even
+        public ConfigFileOffset,ConfigXmsMove
+ConfigFileOffset dd 0
+ConfigXmsMove label byte
+        dd 0                    ; transfer length
+        dw 0                    ; source XMS handle
+        dd 0                    ; source offset
+        dw 0                    ; destination XMS handle
+        dd 0                    ; destination offset
+        public ConfigXmsHandle,ConfigXmsDriver,ConfigFileLength,ConfigXmsSize
+ConfigXmsHandle dw -1
+ConfigXmsDriver dd 0
+ConfigFileLength dd 0
+ConfigXmsSize dw 0
+        dw 0
 _DATA ends
 DGROUP group _DATA
         end

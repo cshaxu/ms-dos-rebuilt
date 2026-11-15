@@ -67,8 +67,6 @@ RegClassesFileName db 'CLASSES.DAT',0
 RegRootSegment dw DGROUP
         public RegDataEnd
 RegDataEnd label byte
-        public RegPathCursor
-RegPathCursor dd 0
 _DATA ends
 DGROUP group _DATA
         end

@@ -7,6 +7,7 @@
 _DATA segment word public use16 'RESUME_DATA'
 	extrn RegClassesPath:byte
 	extrn RegDefaultUser:byte
+	extrn RegClassesCell:dword,RegClassesFile:dword
 	extrn RegKeyPool:dword
 	extrn RegDynamicKeys:dword,RegDeferredKeys:dword,RegDeferredCount:dword
 	extrn RegMachineRoot:byte
@@ -990,6 +991,28 @@ RegInvalidateKeyHandles endp
 	if ($ - RegistryCode) and 1
 	db 0
 	endif
+
+; Test a file and cell against the cached CLASSES key.
+	public RegIsClassesKey
+RegIsClassesKey proc near
+	push	bp
+	mov	bp,sp
+	cmp	dword ptr RegClassesCell,0FFFFFFh
+	jae	short rick_no
+	mov	eax,RegClassesFile
+	cmp	[bp+8],eax
+	jnz	short rick_no
+	mov	eax,RegClassesCell
+	cmp	[bp+4],eax
+	jnz	short rick_no
+	mov	ax,1
+	jmp	short rick_done
+rick_no:
+	xor	ax,ax
+rick_done:
+	leave
+	ret	8
+RegIsClassesKey endp
 
 REGTEXT ends
 	end
