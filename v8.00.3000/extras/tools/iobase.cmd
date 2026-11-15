@@ -8,7 +8,7 @@ if /i "%~1"=="kernel" (
 )
 if /i "%~1"=="bios" (
     set "COMPONENT=bios"
-    set "SOURCE_DIRS=bios inc lang"
+    set "SOURCE_DIRS=bios dev inc lang"
 )
 pushd "%~dp0..\.."
 if errorlevel 1 goto entry_failed
@@ -175,7 +175,9 @@ exit /b 0
 
 :component_only
 echo Linking the 3000 %COMPONENT%...
-call :phase %COMPONENT%
+set "COMPONENT_SUPPORT=%SUPPORT%"
+if /i "%COMPONENT%"=="bios" set "COMPONENT_SUPPORT=%ROOT%\extras\tools"
+call :phase %COMPONENT% "%COMPONENT_SUPPORT%"
 if errorlevel 1 goto failed
 call :snapshot "%STAGE%\inputs-after.txt"
 if errorlevel 1 goto failed
@@ -244,6 +246,10 @@ set "SNAPSHOT=%~1"
 type nul > "%SNAPSHOT%"
 for %%F in ("%STAGE%\base.tar" "%TARGETS%\IO.SYS" "%ROOT%\extras\tools\cmdecode.c" "%ROOT%\extras\tools\cmencode.c" "%ROOT%\extras\tools\cfglinkraw.bat" "%~f0") do (
     call :record "%%~fF"
+    if errorlevel 1 exit /b 1
+)
+if /i "%COMPONENT%"=="bios" (
+    call :record "%ROOT%\extras\tools\bios.bat"
     if errorlevel 1 exit /b 1
 )
 if defined COMPONENT (
