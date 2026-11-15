@@ -220,18 +220,7 @@ sysinitseg segment
 	.386
 	assume	cs:sysinitseg,ds:nothing,es:nothing
 
-;	Reserve DOS, BIOS and compressed-image space, then relocate SYSINIT.
-;
-	public	MagicBackdoor,NullBackdoor
-
-MagicBackdoor	dd	0
-
-NullBackdoor	proc	far
-
-	ret				; prevent hang with bogus backdoor
-
-NullBackdoor	endp
-
+	extrn	MagicBackdoor:dword,NullBackdoor:far
 
 ; Move SYSINIT and its messages below the top of conventional memory.
 ; Keep the decompressed resident BIOS and DOS at their linked addresses.
@@ -466,7 +455,6 @@ endif
 	extrn   config_size:word
 	extrn   sysinit_base_ptr:dword
 	extrn   sysinit_ptr:dword
-	extrn   checksum:word
 	extrn   ldexec_fcb:byte
 	extrn   ldexec_line:byte
 	extrn   ldexec_start:byte
@@ -507,8 +495,6 @@ has_installed equ 00000010b
 	extrn   new_psp_segment:word
 	extrn   compressed_dest_segment:word,compressed_reserved_paras:word
 	extrn   compressed_reserve:word ; paragraphs reserved for compression
-	extrn   bios_extra_bytes:word
-	extrn   sysinit_extra_bytes:word
 
 
 	ifdef	dblspace_hooks

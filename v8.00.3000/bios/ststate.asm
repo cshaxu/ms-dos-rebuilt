@@ -140,7 +140,6 @@ boot_data_low	dw	0		; boot loader data, low word
 	public  config_size
 	public  sysinit_base_ptr
 	public  sysinit_ptr
-	public  checksum
 	public  ldexec_fcb
 	public  ldexec_line
 	public  ldexec_start
@@ -172,7 +171,6 @@ has_installed	equ	00000010b	; sysinit_base installed.
 config_size	dw	0		; size of config.sys file. set by sysconf.asm
 sysinit_base_ptr dd	0		; pointer to sysinit_base
 sysinit_ptr	dd	0		; returning addr. from sysinit_base
-checksum	dw	0		; used by sum_up
 
 ldexec_fcb	db	20 dup (' ')	;big enough
 ldexec_line	db	0		;# of parm characters
@@ -217,13 +215,9 @@ boot_mode db 0                         ; startup mode selected from files
 	public  toomanydrivesflag
 	public  config_device_table_ptr
 	public  new_psp_segment
-	public  bios_extra_bytes
-	public  sysinit_extra_bytes
 toomanydrivesflag db    0               ;>24 fixed disk partitions flag   ; M029 
 config_device_table_ptr dd 0           ; DOS initialization table entry
 new_psp_segment dw 0                   ; relocated default PSP
-bios_extra_bytes  dw 0                ; rounded BIOS message area
-sysinit_extra_bytes dw 0              ; rounded SYSINIT message area
 
 sysinitseg ends
 end

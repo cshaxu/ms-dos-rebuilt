@@ -286,6 +286,8 @@ ENDIF ; CONFIGPROC
 	public	sys_model_byte,sys_scnd_model_byte
 sys_model_byte db 0ffh
 sys_scnd_model_byte db 0
+checksum	dw	0		; sum of saved SYSINIT data
+sysinit_extra_bytes dw 0		; rounded message area for the saved image
 
 IFDEF	POWER
 	extrn	Power_Init:near				; M072
@@ -393,7 +395,6 @@ endif
 	extrn	config_size:word
 	extrn	sysinit_base_ptr:dword
 	extrn	sysinit_ptr:dword
-	extrn	checksum:word
 	extrn	ldexec_fcb:byte
 	extrn	ldexec_line:byte
 	extrn	ldexec_start:byte
@@ -433,8 +434,6 @@ has_installed equ 00000010b
 	extrn	new_psp_segment:word
 	extrn	compressed_dest_segment:word,compressed_reserved_paras:word
 	extrn	compressed_reserve:word ; paragraphs reserved for compression
-	extrn	bios_extra_bytes:word
-	extrn	sysinit_extra_bytes:word
 
 
 	ifdef	dblspace_hooks
