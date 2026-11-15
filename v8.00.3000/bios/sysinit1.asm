@@ -290,7 +290,6 @@ dos7_memory_ready:
 	extrn	boot_prepare_environment:near
 	extrn	boot_shell_main:near
 	extrn	query_bios_call:near
-	extrn	config_buffer_paragraphs:word
 	extrn	boot_runtime_flags:byte
 	extrn	config_record_ptr:dword,config_record_count:word
 	extrn	config_hook_active:byte

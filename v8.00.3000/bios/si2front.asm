@@ -136,7 +136,6 @@ ifdef   MULTI_CONFIG
         MAX_MULTI_CONFIG equ 9          ; max # of multi-config menu items supported
 
         extrn   BCodeSeg:word, bios_data_segment:word
-        extrn   config_buffer_segment:word
         extrn   boot_check_redirected_drive:near,boot_check_drive_map:near
         extrn   DevUMB:byte
         extrn   stack_high:byte
@@ -979,7 +978,6 @@ swchk7_query:
         jz      short menu_search
         jmp     menu_abort
 menu_search:
-        mov     byte ptr [menu_previous_allowed],1
         sub     bx,bx           ; if no MENU, default to zero for no_selection
         mov     di,offset szMenu;
         call    find_block      ; find the MENU block
@@ -1076,13 +1074,6 @@ menu_default:
         jc      short menu_nextitem ;
         mov     si,bx           ;
         call    get_number      ; get number (of seconds for timeout)
-        test    bx,bx           ; negative timeout disables previous selection
-        jns     short timeout_limit
-        mov     byte ptr [menu_previous_allowed],0
-        cmp     bx,-1           ; -1 means no timeout
-        je      short timeout_ok
-        neg     bx
-timeout_limit:
         cmp     bx,90
         jb      short timeout_ok ; (besides, 99 is the largest # my simple
         mov     bl,90           ;  display function can handle)
@@ -1141,54 +1132,6 @@ menu_getdefault:
 menu_valid:
         sub     bx,bx           ;
         mov     [bMaxBlock],dl  ; first, record how many blocks we found
-        xchg    bl,[menu_previous_allowed]
-        or      bl,bl
-        jz      short menu_no_previous
-        mov     ax,[config_buffer_segment]
-        or      ax,ax
-        jz      short menu_no_previous
-menu_previous_loop:
-        push    bx
-        add     bx,bx
-        mov     si,aoffBlockDesc[bx]
-        mov     cx,128
-        push    ds
-        mov     ds,[config_buffer_segment]
-        assume  ds:nothing
-        mov     di,1ch
-menu_previous_cmp:
-        call    get_char
-        jc      short menu_previous_done
-        cmp     al,'$'
-        je      short menu_previous_char
-        cmp     al,1fh
-        ja      short menu_previous_char
-        sub     al,al
-menu_previous_char:
-        mov     ah,[di]
-        je      short menu_previous_end
-        inc     di
-        and     ax,0dfdfh
-        menu_cmp_al_ah
-        je      short menu_previous_cmp
-        mov     ah,1
-menu_previous_end:
-        or      ah,ah
-menu_previous_done:
-        pop     ds
-        assume  ds:sysinitseg
-        pop     bx
-        je      short menu_previous_found
-        inc     bx
-        cmp     bl,[bMaxBlock]
-        jbe     short menu_previous_loop
-menu_no_previous:
-        sub     bx,bx
-        jmp     short menu_finddefault
-menu_previous_found:
-        test    byte ptr [query_mode_flags],8
-        jnz     short menu_setdefault
-        jmp     short menu_autoselect
 menu_finddefault:
         mov     di,[offDefBlock];
         or      di,di           ; does a default block exist?
@@ -3973,7 +3916,6 @@ country_file_signature db 0ffh,'COUNTRY'
 cntrycodepage_id dw ?
 
 ifdef   MULTI_CONFIG
-menu_previous_allowed db 0             ; allow previous menu selection
 endif
 pathstring db   64 dup (0)
 

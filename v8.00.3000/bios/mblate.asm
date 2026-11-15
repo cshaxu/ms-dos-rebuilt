@@ -166,9 +166,5 @@ boot_exec_return:
 boot_exec_system endp
 	.8086
 
-	public	config_buffer_segment,config_buffer_paragraphs
-config_buffer_segment dw 0
-config_buffer_paragraphs dw 0
-
 sysinitseg ends
 	end

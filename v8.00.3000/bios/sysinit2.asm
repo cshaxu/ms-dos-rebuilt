@@ -56,6 +56,7 @@ noexec	equ	false
 
 
 Bios_Data segment 
+	extrn	int16_count:word
 Bios_Data ends
 
 Bios_Code segment
@@ -325,7 +326,7 @@ command_line3	db	3," /P"
 		db	124 dup (0)
 commnd4		db	"\WIN.COM",0
 		db	69 dup (0)
-		db	0,0dh
+		db	0,0dh,125 dup (0)
 		public	winboot_shell_pending
 winboot_shell_pending db 0
 
@@ -2000,42 +2001,35 @@ boot_previous_menu_check endp
 boot_build_menu proc near
 	mov     bx,2
 	mov     dx,offset sysinit_msg_base
-	add     dx,word ptr [sysinit_msg_table+102]
+	add     dx,word ptr [sysinit_msg_table+118]
 	mov     [bx+aoffBlockDesc],dx
 	add     bx,2
 	mov     dx,offset sysinit_msg_base
-	add     dx,word ptr [sysinit_msg_table+104]
+	add     dx,word ptr [sysinit_msg_table+120]
 	mov     [bx+aoffBlockDesc],dx
 	add     bx,2
 	mov     dx,offset sysinit_msg_base
-	add     dx,word ptr [sysinit_msg_table+106]
+	add     dx,word ptr [sysinit_msg_table+122]
 	mov     [bx+aoffBlockDesc],dx
 	cmp     byte ptr [exec_value],'0'
 	je      short boot_menu_nonetwork
 	add     bx,2
 	mov     dx,offset sysinit_msg_base
-	add     dx,word ptr [sysinit_msg_table+108]
+	add     dx,word ptr [sysinit_msg_table+124]
 	mov     [bx+aoffBlockDesc],dx
 boot_menu_nonetwork:
 	add     bx,2
 	mov     dx,offset sysinit_msg_base
-	add     dx,word ptr [sysinit_msg_table+110]
+	add     dx,word ptr [sysinit_msg_table+126]
 	mov     [bx+aoffBlockDesc],dx
 	add     bx,2
 	mov     dx,offset sysinit_msg_base
-	add     dx,word ptr [sysinit_msg_table+112]
+	add     dx,word ptr [sysinit_msg_table+128]
 	mov     [bx+aoffBlockDesc],dx
 	add     bx,2
 	mov     dx,offset sysinit_msg_base
-	add     dx,word ptr [sysinit_msg_table+114]
+	add     dx,word ptr [sysinit_msg_table+130]
 	mov     [bx+aoffBlockDesc],dx
-	test    byte ptr [boot_runtime_flags],80h
-	jnz     short boot_menu_no_old_dos
-	add     bx,2
-	mov     dx,offset sysinit_msg_base
-	add     dx,word ptr [sysinit_msg_table+116]
-	mov     [bx+aoffBlockDesc],dx
-boot_menu_no_old_dos:
 	shr     bx,1
 	mov     [bMaxBlock],bl
 	mov     al,[boot_menu_default]
@@ -2092,14 +2086,14 @@ boot_menu_selection_safe:
 	jne     short boot_menu_selection_prompt
 	or      byte ptr [query_mode_flags],1
 	mov     dx,offset sysinit_msg_base
-	add     dx,word ptr [sysinit_msg_table+58]
+	add     dx,word ptr [sysinit_msg_table+46]
 	jmp     short boot_menu_selection_message
 boot_menu_selection_prompt:
 	cmp     bx,4
 	jne     short boot_menu_selection_step
 	or      byte ptr [query_mode_flags],5
 	mov     dx,offset sysinit_msg_base
-	add     dx,word ptr [sysinit_msg_table+60]
+	add     dx,word ptr [sysinit_msg_table+48]
 	jmp     short boot_menu_selection_message
 boot_menu_selection_step:
 	cmp     bx,5
@@ -2107,7 +2101,7 @@ boot_menu_selection_step:
 	or      byte ptr [query_mode_flags],8
 	and     byte ptr [boot_runtime_flags],0efh
 	mov     dx,offset sysinit_msg_base
-	add     dx,word ptr [sysinit_msg_table+64]
+	add     dx,word ptr [sysinit_msg_table+52]
 	jmp     short boot_menu_selection_done
 boot_menu_selection_command:
 	cmp     bx,6
@@ -2115,36 +2109,77 @@ boot_menu_selection_command:
 	or      byte ptr [boot_runtime_flags],61h
 	jmp     short boot_menu_selection_done
 boot_menu_selection_legacy:
-	cmp     bx,7
-	jne     short boot_menu_selection_other
 	or      byte ptr [query_mode_flags],3
 boot_menu_selection_flags:
 	test    byte ptr [query_mode_flags],4
 	jz      short boot_menu_selection_standard
 	mov     dx,offset sysinit_msg_base
-	add     dx,word ptr [sysinit_msg_table+60]
+	add     dx,word ptr [sysinit_msg_table+48]
 	jmp     short boot_menu_selection_message
 boot_menu_selection_standard:
-	test    byte ptr [boot_config_flags],10h
-	jnz     short boot_menu_selection_old_message
 	test    byte ptr [query_mode_flags],3
 	jz      short boot_menu_selection_message
 	mov     dx,offset sysinit_msg_base
-	add     dx,word ptr [sysinit_msg_table+58]
+	add     dx,word ptr [sysinit_msg_table+46]
 boot_menu_selection_message:
 	inc     cx
 	jmp     short boot_menu_selection_done
-boot_menu_selection_other:
-	or      byte ptr [boot_config_flags],10h
-boot_menu_selection_old_message:
-	mov     dx,offset sysinit_msg_base
-	add     dx,word ptr [sysinit_msg_table+132]
 boot_menu_selection_done:
-	jcxz    boot_menu_selection_return
-	push    dx
-	mov     dx,cx
-	call    boot_logo_display
-	pop     dx
+	jcxz	boot_menu_selection_return
+	.286
+	pushf
+	pusha
+	push	cx
+	push	ds
+	mov	ax,40h
+	mov	ds,ax
+	assume	ds:nothing
+	mov	dx,word ptr ds:[4Ah]
+	mov	dh,byte ptr ds:[84h]
+	pop	ds
+	assume	ds:sysinitseg
+	or	dh,dh
+	jnz	short boot_menu_screen_size
+	mov	dh,18h
+boot_menu_screen_size:
+	dec	dl
+	push	dx
+	mov	ah,0Bh
+	xor	bx,bx
+	int	10h
+	pop	dx
+	xor	cx,cx
+	mov	ax,600h
+	mov	bx,700h
+	int	10h
+	mov	ah,0Fh
+	int	10h
+	mov	ah,2
+	xor	dx,dx
+	int	10h
+	mov	ah,2
+	int	16h
+boot_menu_empty_keyboard:
+	mov	ah,1
+	int	16h
+	jz	short boot_menu_draw_logo
+	mov	ah,0
+	int	16h
+	jmp	short boot_menu_empty_keyboard
+boot_menu_draw_logo:
+	pop	dx
+	mov	dx,cx
+	call	boot_logo_display
+	push	ds
+	mov	ax,Bios_Data
+	mov	ds,ax
+	assume	ds:Bios_Data
+	mov	int16_count,0
+	pop	ds
+	assume	ds:sysinitseg
+	popa
+	popf
+	.8086
 boot_menu_selection_return:
 	ret
 boot_build_menu endp

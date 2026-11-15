@@ -165,7 +165,7 @@ boot_logo_palette_ready:
 	mov	cx,100h
 	call	boot_logo_palette_convert
 	mov	bx,436h
-	mov	cx,word ptr [16h]
+	mov	cx,word ptr ds:[16h]
 	push	ds
 boot_logo_rows:
 	sub	di,50h
