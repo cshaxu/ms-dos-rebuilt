@@ -108,7 +108,6 @@ unmapnew	macro
 k09_mask equ	10h
 	extrn	call_orig13:far
 	extrn	int16_entry:far,int16_old:dword
-	extrn	a20_message_ptr:word
 	extrn	sysinit_msg_base:byte,sysinit_msg_table:word
 ;
 ; Indexes in the SYSINIT message offset table.

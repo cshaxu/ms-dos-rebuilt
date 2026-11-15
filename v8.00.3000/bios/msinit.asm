@@ -109,12 +109,10 @@ unmapnew	macro
 k09_mask equ	10h
 	extrn	call_orig13:far
 	extrn	int16_entry:far,int16_old:dword
-	extrn	a20_message_ptr:word
 ;
 ; Indexes in the SYSINIT message offset table.
 ;
 sysinit_cpu_msg	equ	0*2
-sysinit_a20_msg	equ	1*2
 	extrn	disksector_ptr:dword
 
 	extrn	dosdatasg:word
@@ -1735,23 +1733,6 @@ not_compaq_patch:			; M065
 	or	bios_flags,k09_mask
 
 configdone:				;di is final ending address of msbio.
-
-; Copy the A20 error message into the resident BIOS data area.
-
-	push	ds
-	mov	si,SysInitMsg
-	mov	ds,si
-	assume	ds:SysInitMsg
-	mov	si,offset sysinit_msg_base
-	add	si,sysinit_msg_table+sysinit_a20_msg
-	mov	es:a20_message_ptr,di
-a20_msg_copy:
-	lodsb
-	stosb
-	cmp	al,'$'
-	jnz	a20_msg_copy
-	pop	ds
-	assume	ds:datagrp
 
 	add	di,15
 	.286

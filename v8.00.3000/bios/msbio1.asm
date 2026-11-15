@@ -302,8 +302,6 @@ bios_hook_1	dd	0
 int10_old	dd	0
 int16_old	dd	0
 int4f_old	dd	0
-	public	a20_message_ptr
-a20_message_ptr dw 0
 max_sectors_curr_sup equ 63
 	public	tracktable
 tracktable	db	0,0,1,2
@@ -491,25 +489,11 @@ ENDIF
 
 ;************************************************************************
 ;*									*
-;*	Ensure A20 is enabled before jumping into code in HMA.		*
-;*	This code assumes that if Segment of Device request packet is	*
-;*	DOS DATA segment then the Device request came from DOS & that	*
-;*	A20 is already on.						*
-;*									*
+;*	Pass device requests to the resident dispatcher.		*
 ;************************************************************************
 
 cdev_entry proc	near
 	assume	ds:nothing,es:nothing
-;
-; M064 - BEGIN
-;
-	push	ax
-	mov	ax, DosDataSg
-	cmp	word ptr [ptrsav+2], ax
-	pop	ax
-	je	short ce_enter_codeseg
-	call	EnsureA20On
-ce_enter_codeseg:
 	jmp	cdev
 cdev_entry endp
 	public	int08_stub,int08_entry,int10_stub,int10_vector,int10_entry
@@ -657,7 +641,6 @@ palette_write endp
 int10_stub db 0cfh
 int10_vector dd Bios_Data:int10_entry
 int10_entry proc far
-	call	EnsureA20On
 	call	video_callback
 	jmp	int10_old
 int10_entry endp
@@ -672,7 +655,6 @@ int10_entry endp
 block13	proc	far
 	assume	ds:nothing,es:nothing
 
-	call	EnsureA20On
 	jmp	i13x
 block13	endp
 
@@ -685,7 +667,6 @@ int15_jump:
 	jmp	short int15_del
 	cmp	al,1
 	jne	short int15_del
-	call	EnsureA20On
 	jmp	int15_esc_ptr
 int15_del:
 	cmp	al,53h
@@ -698,7 +679,6 @@ int15_del:
 	and	al,0ch
 	cmp	al,0ch
 	jne	short int15_done
-	call	EnsureA20On
 	pushf
 	call	int15_reset_ptr
 int15_done:
@@ -728,7 +708,6 @@ int16_done:
 	popf
 	ret	2
 int16_check_entry:
-	call	EnsureA20On
 	call	int16_check_ptr
 	jmp	short int16_call
 int16_entry endp
@@ -744,7 +723,6 @@ int16_entry endp
 int19	proc	far
 	assume	ds:nothing,es:nothing
 
-	call	EnsureA20On
 	call	int19_code_ptr
 	int	19h
 int19	endp
@@ -778,7 +756,6 @@ cbreak	endp
 outchr	proc	far
 	assume	ds:nothing,es:nothing
 
-	call	EnsureA20On
 	jmp	outchr_code_ptr
 outchr	endp
 
@@ -793,98 +770,9 @@ i2f_dskentry proc far
 i2f_dskentry endp
 
 
-HiMem	label	dword
-	dw	90h
-	dw	0ffffh
-
-LoMem	label	dword
-	dw	80h
-	dw	0h
-
-;************************************************************************
-;*									*
-;*	EnsureA20On - ensure that a20 is enabled if we're running	*
-;*	  in the HMA before interrupt entry points into Bios_Code	*
-;*									*
-;************************************************************************
-
-EnsureA20On proc near
-	assume	ds:nothing,es:nothing
-	test	byte ptr bios_flags,a20_mask
-	jz	short a20_return
-	push	cx
-	push	si
-	push	di
-	push	ds
-	push	es
-	lds	si,HiMem
-	les	di,LoMem
-	mov	cx,8
-	cld
-	repe	cmpsw
-	pop	es
-	pop	ds
-	pop	di
-	pop	si
-	pop	cx
-	jz	short ea_enable
-	clc
-	ret
-ea_enable:
-EnableA20 label near
-	push	ax
-	mov	ah,5
-a20_call:
-	push	bx
-	call	xms
-	or	ax,ax
-	jz	short a20_failure
-	pop	bx
-	pop	ax
-	stc
-a20_return:
-	ret
-EnsureA20On endp
-
-DisableA20 proc near
-	push	ax
-	mov	ah,6
-	jmp	short a20_call
-DisableA20 endp
-
 	public	bios_error_entry,bios_error_dispatch
 bios_error_entry label far
-a20_failure:
-	or	ax,ax
-	jnz	short bios_error_dispatch
-	mov	ah,0fh
-	int	10h
-	cmp	al,7
-	jz	short a20_screen
-	xor	ah,ah
-	mov	al,2
-	int	10h
-a20_screen:
-	mov	ah,5
-	xor	al,al
-	int	10h
-	mov	si,a20_message_ptr
-	push	cs
-	pop	ds
-	cld
-a20_message:
-	lodsb
-	cmp	al,'$'
-	jz	short a20_halt
-	mov	ah,0eh
-	mov	bx,7
-	int	10h
-	jmp	short a20_message
-a20_halt:
-	sti
-	jmp	short a20_halt
 bios_error_dispatch label far
-	call	EnsureA20On
 	call	bios_error_vector
 	retf
 
@@ -936,9 +824,6 @@ call_orig13 proc far
 	push	cs
 	pop	ds
 	assume	ds:Bios_Data
-	pushf
-	call	EnsureA20On
-	popf
 	lea	bp,[bp]
 	ret
 call_orig13 endp
