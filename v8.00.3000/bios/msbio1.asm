@@ -806,9 +806,18 @@ boot_seconds	dw	0
 	public	bios_info,keyboard_status
 bios_info label byte
 	dw	bios_info_end - bios_info
-	dw	1b5h
-	db	1
-	db	122 dup (0)
+	public	boot_dos_codepage,boot_oem_country,boot_keyboard_type
+	public	boot_keyboard_layout,boot_language_id
+	public	boot_country_file,boot_codepage_file,boot_keyboard_file
+boot_dos_codepage dw 437
+boot_oem_country dw 1
+boot_keyboard_type dw 0
+boot_keyboard_layout dw 0
+boot_language_id dw 0
+	db	76 dup (0)
+boot_country_file db 13 dup (0)
+boot_codepage_file db 13 dup (0)
+boot_keyboard_file db 13 dup (0)
 bios_info_end label byte
 keyboard_status db 3
 	public	i13_ds

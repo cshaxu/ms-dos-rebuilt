@@ -2,11 +2,9 @@
 ; Offsets are relative to sysinit_msg_base.
 
 	public	sysinit_msg_table,sysinit_msg_base
-	public	sysinit_stack_msg_index
+
 
 sysinit_msg_table label word
-	dw	offset sysinit_msg_61 - offset sysinit_msg_base
-	dw	offset sysinit_msg_62 - offset sysinit_msg_base
 	dw	offset sysinit_msg_00 - offset sysinit_msg_base
 	dw	offset sysinit_msg_01 - offset sysinit_msg_base
 	dw	offset sysinit_msg_02 - offset sysinit_msg_base
@@ -28,21 +26,29 @@ sysinit_command_index label word
 	dw	offset sysinit_msg_10 - offset sysinit_msg_base
 	dw	offset sysinit_msg_11 - offset sysinit_msg_base
 	dw	offset sysinit_msg_12 - offset sysinit_msg_base
+	dw	offset country_setting_msg - offset sysinit_msg_base
+	dw	offset country_file_msg - offset sysinit_msg_base
+	dw	offset codepage_error_msg - offset sysinit_msg_base
 	dw	offset sysinit_msg_13 - offset sysinit_msg_base
 	dw	offset sysinit_msg_14 - offset sysinit_msg_base
 	dw	offset sysinit_msg_15 - offset sysinit_msg_base
 	dw	offset sysinit_msg_16 - offset sysinit_msg_base
 	dw	offset sysinit_msg_17 - offset sysinit_msg_base
 	dw	offset sysinit_msg_18 - offset sysinit_msg_base
+	dw	offset preparing_startup_msg - offset sysinit_msg_base
+	dw	offset emergency_start_msg - offset sysinit_msg_base
 	dw	offset sysinit_msg_19 - offset sysinit_msg_base
 	dw	offset sysinit_msg_20 - offset sysinit_msg_base
 	dw	offset sysinit_msg_21 - offset sysinit_msg_base
+	dw	offset safe_mode_status_msg - offset sysinit_msg_base
 	public	sysinit_prompt_index
 sysinit_prompt_index label word
 	dw	offset sysinit_msg_22 - offset sysinit_msg_base
 	dw	offset sysinit_msg_23 - offset sysinit_msg_base
 	dw	offset sysinit_msg_24 - offset sysinit_msg_base
 	dw	offset sysinit_msg_25 - offset sysinit_msg_base
+	dw	offset windows_path_msg - offset sysinit_msg_base
+	dw	offset windows_path_again_msg - offset sysinit_msg_base
 	dw	offset sysinit_msg_26 - offset sysinit_msg_base
 	dw	offset sysinit_msg_27 - offset sysinit_msg_base
 	dw	offset sysinit_msg_28 - offset sysinit_msg_base
@@ -53,6 +59,8 @@ sysinit_prompt_index label word
 	dw	offset sysinit_msg_33 - offset sysinit_msg_base
 	dw	offset sysinit_msg_34 - offset sysinit_msg_base
 	dw	offset sysinit_msg_35 - offset sysinit_msg_base
+	dw	offset smartdrv_msg - offset sysinit_msg_base
+	dw	offset country_start_msg - offset sysinit_msg_base
 	dw	offset sysinit_msg_36 - offset sysinit_msg_base
 	dw	offset sysinit_msg_37 - offset sysinit_msg_base
 	dw	offset sysinit_msg_38 - offset sysinit_msg_base
@@ -73,8 +81,8 @@ sysinit_prompt_index label word
 	dw	offset sysinit_msg_48 - offset sysinit_msg_base
 	dw	offset sysinit_msg_49 - offset sysinit_msg_base
 	dw	offset sysinit_msg_50 - offset sysinit_msg_base
-	dw	offset sysinit_msg_51 - offset sysinit_msg_base
 	dw	offset sysinit_msg_52 - offset sysinit_msg_base
+	dw	offset startup_memory_msg - offset sysinit_msg_base
 	dw	offset sysinit_msg_53 - offset sysinit_msg_base
 	dw	offset sysinit_msg_54 - offset sysinit_msg_base
 	dw	offset sysinit_msg_55 - offset sysinit_msg_base
@@ -83,8 +91,11 @@ sysinit_prompt_index label word
 	dw	offset sysinit_msg_58 - offset sysinit_msg_base
 	dw	offset sysinit_msg_59 - offset sysinit_msg_base
 	dw	offset sysinit_msg_60 - offset sysinit_msg_base
+	public	sysinit_stack_msg_index
 sysinit_stack_msg_index label word
 	dw	offset sysinit_msg_63 - offset sysinit_msg_base
+	dw	offset wininit_error_msg - offset sysinit_msg_base
+	dw	offset windows_drivers_msg - offset sysinit_msg_base
 	public	xms_driver_index
 xms_driver_index label word
 	dw	offset xms_driver_msg - offset sysinit_msg_base
@@ -109,24 +120,23 @@ resume_progress_index label word
 	public	resume_prompt_index
 resume_prompt_index label word
 	dw	offset resume_prompt_msg - offset sysinit_msg_base
+	dw	offset ifshlp_start_msg - offset sysinit_msg_base
+	dw	offset ifshlp_done_msg - offset sysinit_msg_base
 	dw	offset sysinit_msg_end - offset sysinit_msg_base
 
 sysinit_msg_base label byte
-sysinit_msg_61 label byte
-	db	"This version of Windows requires a 386 or better processor.",13,10,"$",0
-sysinit_msg_62 label byte
-	db	13,10,"A20 hardware error.  Contact technical support to identify t","he problem.",13,10
-	db	"$",0
 	public	StartMsg
 StartMsg label byte
 sysinit_msg_00 label byte
-	db	"Starting Windows 98...",13,10,13,10,"$",0
+	db	"Starting Windows Millennium...",13,10,13,10,"$",0
 sysinit_msg_01 label byte
-	db	"Windows 98 is now starting your MS-DOS-based program.",13,10,13,10,"$",0
+	db	"Windows Millennium is now starting your MS-DOS-based prog","ram.",13
+	db	10,13,10,"$",0
 sysinit_msg_02 label byte
-	db	"Windows 98 is now restarting...",13,10,13,10,"$",0
+	db	"Windows Millennium is now restarting...",13,10,13,10,"$",0
 sysinit_msg_03 label byte
-	db	"Press Esc now to cancel MS-DOS mode and restart Windows 98..",".$",0
+	db	"Press Esc now to cancel MS-DOS mode and restart Windows M"
+	db	"illennium...$",0
 	public	badopm
 badopm label byte
 sysinit_msg_04 label byte
@@ -160,6 +170,13 @@ sysinit_msg_11 label byte
 badcountrycom label byte
 sysinit_msg_12 label byte
 	db	13,10,"There is an error in the COUNTRY command in your CONFIG.SYS ","file.",13,10,"$",0
+country_setting_msg label byte
+	db	13,10,"There is an invalid country setting in your registry.",13,10,"$"
+	db	0
+country_file_msg label byte
+	db	13,10,"Cannot find the COUNTRY.SYS file.",13,10,"$",0
+codepage_error_msg label byte
+	db	13,10,"Cannot set the code page(s) in DISPLAY.SYS.",13,10,"$",0
 	public	insufmemory
 insufmemory label byte
 sysinit_msg_13 label byte
@@ -188,12 +205,15 @@ sysinit_msg_17 label byte
 toomanydrivesmsg label byte
 sysinit_msg_18 label byte
 	db	"Warning: Logical drives past Z exist and will be ignored.",13,10,"$",0
+preparing_startup_msg label byte
+	db	"Now preparing to start your new computer...",13,10,13,10,"$",0
+emergency_start_msg label byte
+	db	"Starting Windows Millennium Emergency Boot...",13,10,13,10,"$",0
 	public	$MenuHeader
 $MenuHeader label byte
 sysinit_msg_19 label byte
-	db	13,10,"  Microsoft Windows 98 Startup Menu",13,10,"  ",205,205,205,205,205,205,205,205
-	db	205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205
-	db	205,205,205,205,13,10,"$",0
+	db	13,10,"  Microsoft Windows Millennium Startup Menu",13,10,"  "
+	db	34 dup (205),13,10,"$",0
 	public	$MenuPrmpt
 $MenuPrmpt label byte
 sysinit_msg_20 label byte
@@ -202,11 +222,14 @@ sysinit_msg_20 label byte
 $StatusLine label byte
 sysinit_msg_21 label byte
 	db	"  F5=Safe mode  Shift+F5=Command prompt  Shift+F8=Step-by-st","ep confirmation [ ]$",0
+safe_mode_status_msg label byte
+	db	"  F5=Safe mode  Shift+F8=Step-by-step confirmation [ ]$",0
 	public	$InterPrmpt
 $InterPrmpt label byte
 sysinit_msg_22 label byte
 	db	" [Enter=Y,Esc=N]?$",0
-	public	$YES,$NO
+	public	$NO
+	public	$YES
 sysinit_msg_23 label byte
 $YES	db	'Y'
 $NO	db	'NAyna',0
@@ -218,6 +241,12 @@ sysinit_msg_24 label byte
 BadComPrmpt label byte
 sysinit_msg_25 label byte
 	db	"Type the name of the Command Interpreter (e.g., C:\WINDOWS\C","OMMAND.COM)",13,10,"$",0
+windows_path_msg label byte
+	db	"Type the name of the Windows loader (e.g., C:\WINDOWS\SYS"
+	db	"TEM\VMM32.VXD)",13,10,"$",0
+windows_path_again_msg label byte
+	db	"Type the name of the Windows loader (e.g., C:\WINDOWS\WIN",".COM)",13
+	db	10,"$",0
 	public	$PauseMsg
 $PauseMsg label byte
 sysinit_msg_26 label byte
@@ -247,6 +276,11 @@ sysinit_msg_34 label byte
 	db	"Process the system registry [Enter=Y,Esc=N]?$",0
 sysinit_msg_35 label byte
 	db	"Create a startup log file (BOOTLOG.TXT) [Enter=Y,Esc=N]?$",0
+smartdrv_msg label byte
+	db	"Enable SMARTDRV disk cache [Enter=Y,Esc=N]?$",0
+country_start_msg label byte
+	db	"Load and initialize country and code page settings [Enter"
+	db	"=Y,Esc=N]?$",0
 sysinit_msg_36 label byte
 	db	"Process your startup device drivers (CONFIG.SYS) [Enter=Y,Es","c=N]?$",0
 sysinit_msg_37 label byte
@@ -254,8 +288,8 @@ sysinit_msg_37 label byte
 sysinit_msg_38 label byte
 	db	"Load the Windows graphical user interface [Enter=Y,Esc=N]?$",0
 sysinit_msg_39 label byte
-	db	"  Warning: Windows has detected a registry/configuration err","or.",13,10
-	db	"  Choose, Command prompt only, and run SCANREG.         ",13,10,"$",0
+	db	"  Warning: Windows has detected a registry/configuration ","error.",13
+	db	10,"  Use SCANREG to correct this error.",13,10,"$",0
 sysinit_msg_40 label byte
 	db	"  Warning: Windows has detected a compressed drive access er","ror.",13,10
 	db	"  Choose Safe mode command prompt only, to help you identify"," the problem.",13,10,"$"
@@ -277,7 +311,7 @@ sysinit_msg_reserved_2 label byte
 sysinit_msg_reserved_3 label byte
 	db	34 dup (" "),"$",0
 sysinit_msg_reserved_4 label byte
-	db	12 dup ("   $"),0
+	db	"   $   $   $   $   $   $   $   $   $   $   $   $",0
 sysinit_msg_reserved_5 label byte
 	db	125 dup (" "),"$",0
 sysinit_msg_44 label byte
@@ -294,11 +328,12 @@ sysinit_msg_49 label byte
 	db	"Command prompt only",0,0
 sysinit_msg_50 label byte
 	db	"Safe mode command prompt only",0,0
-sysinit_msg_51 label byte
-	db	"Previous version of MS-DOS",0,0
 sysinit_msg_52 label byte
 	db	13,10,"The BUFFERS setting(s) in your CONFIG.SYS file are too large",".",13,10
 	db	"Default buffer settings will be used instead.",13,10,"$",0
+startup_memory_msg label byte
+	db	13,10,"A memory allocation error occurred during startup.",13,10
+	db	"Restart your computer and select Minimal boot.",13,10,"$",0
 sysinit_msg_53 label byte
 	db	13,10,"A memory allocation error occurred during startup.",13,10
 	db	"Restart your computer and select Interactive Start to identi","fy the problem.",13,10
@@ -322,6 +357,10 @@ sysinit_msg_60 label byte
 sysinit_msg_63 label byte
 	db	13,10,7,13,10,"An internal stack overflow has caused this session to be hal","ted.",13,10
 	db	"Change the STACKS setting in your CONFIG.SYS file, and then ","try again.",13,10,0,0
+wininit_error_msg label byte
+	db	"WININIT.EXE: Missing/unable to load.",13,10,"$",0
+windows_drivers_msg label byte
+	db	"Load all Windows drivers [Enter=Y,Esc=N]?$",0
 xms_driver_msg label byte
 	db	7,"       XMS Driver not installed. Serious hardware problem, halting boot.",13,10,"$",0
 xms_memory_msg label byte
@@ -333,10 +372,14 @@ resume_cr_msg label byte
 resume_error_msg label byte
 	db	13,10,13,10,"Failed to resume from hibernate.",13,10,"$",0
 resume_return_msg label byte
-	db	13,10,24 dup (10),25 dup (" "),"Returning to Windows ...",13,10,"  $",0
+	db	13,25 dup (10),25 dup (" "),"Returning to Windows ...",13,10,"  $",0
 resume_progress_msg label byte
 	db	0dbh,"$",0
 resume_prompt_msg label byte
 	db	13,10,"Previous resume from hibernate failed.",13,10
 	db	"  Would you like to try again [Enter=Y,Esc=N]?$",0
+ifshlp_start_msg label byte
+	db	"Loading and initializing IFSHLP.SYS driver...$",0
+ifshlp_done_msg label byte
+	db	"    Complete.",13,10,"$",0
 sysinit_msg_end label byte

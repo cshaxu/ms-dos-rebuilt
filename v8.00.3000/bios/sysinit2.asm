@@ -86,7 +86,7 @@ ifdef   MULTI_CONFIG
 	extrn	stack_high:byte
 	extrn	multi_pass_id:byte,multi_pass_config_line:near
 	extrn	dos_umb_flag:byte
-	extrn	exec_mode:byte,exec_option:byte,exec_value:word
+	extrn	config_environment:dword
 	extrn	config_envlen:word
 	extrn	config_wrkseg:word
 	extrn	new_psp_segment:word
@@ -144,6 +144,13 @@ boot_menu_default db    1               ; default startup menu selection
 boot_menu_delay dw      30              ; startup menu timeout
 boot_safe       db      0               ; safe startup requested
 boot_network    db      0               ; network startup requested
+	public	exec_mode,exec_option,exec_value
+exec_mode db 0
+exec_option db 0
+exec_value dw 30h
+	db	0
+	public	boot_old_int24
+boot_old_int24 dd 0		; SYSINIT saves the original INT 24h vector
 boot_config_name db     32 dup (0)      ; BOOTCONFIG selection
 
 ; Windows directories and host drive from the startup options file.
@@ -322,8 +329,6 @@ commnd4		db	"\WIN.COM",0
 		db	0,0dh
 		public	winboot_shell_pending
 winboot_shell_pending db 0
-	public	boot_old_int24
-boot_old_int24 dd 0		; SYSINIT saves the original INT 24h vector
 
 boot_autoexec_exists db 0
 	public	boot_performance
@@ -2238,6 +2243,7 @@ boot_option_open proc near
 	cld
 	push    ds
 	pop     es
+	mov	word ptr [config_environment+2],ds
 	test    dx,dx
 	jnz     boot_open_first
 	mov     dx,offset boot_winboot_ini

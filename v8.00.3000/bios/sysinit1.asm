@@ -69,6 +69,8 @@ HimemInitSeg segment para public 'HIMEM_INIT'
 	extrn	InitMemory:far,InitInterrupt:far,HimemMessage:dword
 HimemInitSeg ends
 
+	extrn	BootResume:far,ConfigPathBuffer:byte
+
 Bios_Code	segment
 	extrn   eot:byte,ec35_flag:byte
 	extrn	Bios_Data_Word:word,win386_instance:word
@@ -325,6 +327,7 @@ IFDEF	CONFIGPROC
 ENDIF ; CONFIGPROC
 	extrn   print:near,badmem:byte,badfil:near,showlinenum:near
 	extrn	int24:near,boot_old_int24:dword
+	extrn	boot_buffer_segment:word,exec_windows_path:byte
 	if	noexec
 	extrn	mem_err:near
 	endif
@@ -1015,7 +1018,47 @@ boot_time_done:
 	push	word ptr [dos_segreinit+2]
 	call	InitMemory
 	call	AllocFreeMem
+	.286
+;
+; Leave the high initialization work area free while resuming Windows.
+;
+	mov	es,[area]
+	mov	bx,[alloclim]
+	sub	bx,[area]
+	sub	bx,2
+	mov	ah,setblock
+	int	21h
+	mov	bx,-1
+	mov	ah,alloc
+	int	21h
+	mov	ah,alloc
+	int	21h
+	mov	[boot_buffer_segment],ax
+	mov	bx,548h
+	add	bx,31
+	shr	bx,4
+	add	bx,(seg ConfigPathBuffer)+4Ch
+	sub	bx,[area]
+	mov	ah,setblock
+	int	21h
+	push	cs
+	push	offset DispHimemMsg
+	push	cs
+	push	offset exec_windows_path
+	call	BootResume
+	add	sp,8
+	.8086
 	call	MovDOSHi
+
+; Reinstall the critical-error handler after the HMA transition.
+	push	es
+	mov	ax,(get_interrupt_vector shl 8) or 24h
+	int	21h
+	mov	word ptr [boot_old_int24+2],es
+	pop	es
+	mov	dx,offset int24
+	mov	ax,(set_interrupt_vector shl 8) or 24h
+	int	21h
 ; Select the startup message and detect a restart into MS-DOS mode.
 	test    byte ptr [boot_runtime_flags],10h
 	jnz     boot_intro_done
