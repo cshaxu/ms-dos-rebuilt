@@ -64,6 +64,11 @@ break	macro	; dummy empty macro
 	include	oemconf.inc
 	.list
 
+
+HimemInitSeg segment para public 'HIMEM_INIT'
+	extrn	InitMemory:far,HimemMessage:dword
+HimemInitSeg ends
+
 Bios_Code	segment
 	extrn   eot:byte,ec35_flag:byte
 	extrn	Bios_Data_Word:word,win386_instance:word
@@ -318,6 +323,15 @@ endif ; ROMDOS
 	extrn   query_keyboard_service:near,query_check_skip:near,query_result:byte
 	extrn	default_switch_char:byte,command_line2:byte,command_line3:byte
 	extrn	boot_option_open:near
+	extrn	query_check_done:near
+	extrn	xms_driver_index:word
+	extrn	xms_memory_index:word
+	extrn	xms_hma_index:word
+	extrn	resume_cr_index:word
+	extrn	resume_error_index:word
+	extrn	resume_return_index:word
+	extrn	resume_progress_index:word
+	extrn	resume_prompt_index:word
 	extrn	boot_process_drivers:near
 	extrn   boot_dos_file_table:word,boot_old_file_table:near
 	extrn   boot_load_old_dos:near,boot_logo_display:near
@@ -1155,6 +1169,8 @@ boot_date_prompt:
 	mov	ax,(std_con_input_flush shl 8) or 8
 	int	21h
 boot_save_time:
+	sub	dx,dx
+	call	boot_option_open
 	push	ds
 	mov	ds,[BCodeSeg]
 	assume	ds:Bios_Code
@@ -1166,8 +1182,20 @@ boot_save_time:
 	mov	boot_seconds,dx
 	pop	ds
 	assume	ds:sysinitseg
-	sub     dx,dx
-	call    boot_option_open
+
+;
+; Install the SYSINIT message entry before initializing the XMS handles.
+;
+	push	ds
+	mov	ax,HimemInitSeg
+	mov	ds,ax
+	assume	ds:HimemInitSeg
+	mov	word ptr [HimemMessage],offset DispHimemMsg
+	mov	word ptr [HimemMessage+2],cs
+	pop	ds
+	assume	ds:sysinitseg
+	push	word ptr [dos_segreinit+2]
+	call	InitMemory
 ; Select the startup message and detect a restart into MS-DOS mode.
 	test    byte ptr [boot_runtime_flags],10h
 	jnz     boot_intro_done
@@ -2658,6 +2686,105 @@ reinit_bios_next:
 	pop     di
 	ret
 reinit_bios_code endp
+
+
+;
+; DispHimemMsg - print a diagnostic or prompt during early initialization.
+; The caller supplies the message number on the stack.
+;
+DispHimemMsg proc far
+	.386
+	push	bp
+	mov	bp,sp
+	pusha
+	push	ds
+	push	es
+	push	cs
+	pop	ds
+	push	cs
+	pop	es
+	assume	ds:sysinitseg,es:sysinitseg
+	mov	ax,[bp+6]
+	cmp	ax,14h
+	ja	near ptr dhm_done
+	jnz	short dhm_test_driver
+	mov	dx,offset sysinit_msg_base
+	add	dx,[xms_hma_index]
+	jmp	short dhm_first_print
+dhm_test_driver:
+	cmp	ax,0ch
+	ja	near ptr dhm_done
+	jnz	short dhm_test_memory
+	mov	dx,offset sysinit_msg_base
+	add	dx,[xms_driver_index]
+	jmp	short dhm_first_print
+dhm_test_memory:
+	cmp	ax,9
+	ja	near ptr dhm_done
+	jnz	short dhm_test_cr
+	mov	dx,offset sysinit_msg_base
+	add	dx,[xms_memory_index]
+	jmp	short dhm_first_print
+dhm_test_cr:
+	cmp	ax,5
+	ja	short dhm_done
+	jnz	short dhm_test_error
+	mov	dx,offset sysinit_msg_base
+	add	dx,[resume_cr_index]
+	jmp	short dhm_first_print
+dhm_test_error:
+	cmp	ax,4
+	ja	short dhm_done
+	jnz	short dhm_test_progress
+	mov	dx,offset sysinit_msg_base
+	add	dx,[resume_error_index]
+dhm_first_print:
+	jmp	short dhm_print
+dhm_test_progress:
+	cmp	ax,3
+	ja	short dhm_done
+	jnz	short dhm_test_prompt
+	mov	dx,offset sysinit_msg_base
+	add	dx,[resume_progress_index]
+	call	print
+	jmp	short dhm_done
+dhm_test_prompt:
+	cmp	ax,2
+	ja	short dhm_done
+	jnz	short dhm_test_return
+	xor	al,al
+	mov	ah,[boot_runtime_flags]
+	or	ah,8
+	xchg	al,[query_mode_flags]
+	xchg	ah,[boot_runtime_flags]
+	push	ax
+	mov	byte ptr [config_cmd],81h
+	mov	word ptr [bp-2],'Y'
+	mov	dx,offset sysinit_msg_base
+	add	dx,[resume_prompt_index]
+	call	query_check_done
+	pop	ax
+	mov	[query_mode_flags],al
+	mov	[boot_runtime_flags],ah
+	jnc	short dhm_done
+	mov	word ptr [bp-2],'N'
+	jmp	short dhm_done
+dhm_test_return:
+	cmp	ax,1
+	ja	short dhm_done
+	jc	short dhm_done
+	mov	dx,offset sysinit_msg_base
+	add	dx,[resume_return_index]
+dhm_print:
+	call	print
+dhm_done:
+	pop	es
+	pop	ds
+	popa
+	pop	bp
+	ret
+	.8086
+DispHimemMsg endp
 
 ; Print the message whose word index follows the near CALL.
 ; The low 15 bits select sysinit_msg_table; skip the inline word on return.
