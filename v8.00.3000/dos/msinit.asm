@@ -154,10 +154,7 @@ DOSDATA SEGMENT
 	extrn	i27patch:word
 	extrn	i2fpatch:word
 	extrn	cpmpatch:word
-	extrn	DosHasHMA:byte		; M021
-	extrn	RationalPatchPtr:word	; M020
 	extrn	fixexepatch:word
-	extrn	Rational386PatchPtr:word
 	extrn	ChkCopyProt:word	; M068
 
 IFDEF	ROMDOS
@@ -196,10 +193,7 @@ DOSCODE	SEGMENT
 
 	extrn	exepatch:near		; Routine in exepatch.asm
 	extrn	exepatch_start:byte	; in exepatch.asm
-	extrn	RationalPatch:near	; M020
 	extrn	RetExePatch:near	; M023
-	extrn	IsCopyProt:near 	; M068
-	extrn	Rational386Patch:near
 
 ifndef	ROMDOS
 	extrn	ConsoleStatePtr:dword
@@ -334,22 +328,8 @@ ParaRound	endp
 ; Init patch ptrs to default values
 ;
 	mov	FixExePatch, offset DOSCODE:RetExePatch		; M023
-	mov	[RationalPatchPtr], offset DOSCODE:RetExePatch 	; M023
 	mov	[ChkCopyProt], offset DOSCODE:RetExePatch	; M068
 
-; Setup to call 386 Rational DOS Extender patch routine if running on
-; a 386 or later.  Unlike other patches, this is not dependent on MS-DOS
-; running in the HMA.
-
-	call	WhatCPUType		; get cpu type (0 < 286,1==286,2 >= 386)
-	cmp	al, 2			;   386 or later?
-
-	mov	ax, offset DOSCODE:Rational386Patch
-	jae	di_set_patch
-	mov	ax, offset DOSCODE:RetExePatch	; < 386, don't need this patch
-
-di_set_patch:
-	mov	[Rational386PatchPtr], ax	; patch routine or RET instr.
 
 	PUBLIC Init_Instance_Tables
 Init_Instance_Tables:
@@ -975,27 +955,12 @@ endif
 	call	patch_in_nops		; enable the stub to check A20 state
 
 ; M021-
-	mov	[DosHasHMA], 1		; set flag telling DOS control of HMA 
 				
 					; set pointer to the routine that 
 					; patches buggy exepacked code.
 	mov	[fixexepatch], offset DOSCODE:exepatch
 
-					; M068: set pointer to the routine 
-					; M068: that detects copy protected
-					; M068: apps
-	mov	[ChkCopyProt], offset DOSCODE:IsCopyProt
-
-; M020 - begin
-
-	call	WhatCPUType
-	cmp	al, 1
-	jne	sr_done 		; we need Rational Patch only
-					;  on 286 systems
-	mov	[RationalPatchPtr], offset DOSCODE:RationalPatch
-
-; M020 - end
-
+	
 	jmp	short sr_done
 
 

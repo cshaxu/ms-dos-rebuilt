@@ -103,7 +103,6 @@ DosData SEGMENT
 
 	EXTRN	disa20_iret	:WORD
 	EXTRN	A20OFF_COUNT	:BYTE		; M004
-	extrn	DosHasHMA	:byte		; M021
 	EXTRN	DOS_FLAG	:byte		; M068
 	EXTRN	A20OFF_PSP	:word		; M068
 

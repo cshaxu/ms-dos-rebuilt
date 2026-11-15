@@ -194,7 +194,6 @@ DosData SEGMENT WORD PUBLIC 'DATA'
 
 
 	allow_getdseg
-	extrn	DosHasHMA	:byte		; M021
 	extrn	fixexepatch	:word
 	extrn	LeaveDos	:word		; M068
 
@@ -1033,10 +1032,6 @@ ExecCheckEnd:
 		; to the current location.
 
 
-ifdef ROMDOS
-	cmp	[DosHasHMA], 0		; DOS using HMA?  (M021)
-	je	exec_do_reloc		; if not, then no patch needed.
-endif
 
 exec_do_reloc:
 	mov	CX,Exec_Rel_Fac
